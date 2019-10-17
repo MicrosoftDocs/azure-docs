@@ -1,6 +1,6 @@
 ---
 title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
-description: You can manage access to data stored in a Log Analytics workspaces in Azure Monitor using resource, workspace, or table-level permissions. This article details how to .
+description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete these .
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -11,21 +11,19 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/26/2019
+ms.date: 09/30/2019
 ms.author: magoedte
 ---
 
 # Manage access to log data and workspaces in Azure Monitor
 
-Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
+Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace. A workspace is a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
 
-This article explains how to manage access to logs and to administer the workspaces that contain them, including:
+This article explains how to manage access to logs and to administer the workspaces that contain them, including how to grant access to: 
 
-* How to grant access to users who need access to log data from specific resources using Azure role-based access control (RBAC).
-
-* How to grant access to the workspace using workspace permissions.
-
-* How to grant access to users who need access to log data in a specific table in the workspace using Azure RBAC.
+* The workspace using workspace permissions.
+* Users who need access to log data from specific resources using Azure role-based access control (RBAC).
+* Users who need access to log data in a specific table in the workspace using Azure RBAC.
 
 ## Configure access control mode
 
@@ -145,15 +143,15 @@ The Log Analytics Reader role includes the following Azure actions:
 
 Members of the *Log Analytics Contributor* role can:
 
-* Read all monitoring data as Log Analytics Reader can
-* Creating and configuring Automation accounts
-* Adding and removing management solutions
+* Read all monitoring data the Log Analytics Reader can
+* Create and configure Automation accounts
+* Add and remove management solutions
 
     > [!NOTE]
     > In order to successfully perform the last two actions, this permission needs to be granted at the resource group or subscription level.
 
-* Reading storage account keys
-* Configure collection of logs from Azure Storage
+* Read storage account keys
+* Configure the collection of logs from Azure Storage
 * Edit monitoring settings for Azure resources, including
   * Adding the VM extension to VMs
   * Configuring Azure diagnostics on all Azure resources
@@ -211,11 +209,19 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
     * Configure the workspace access control mode to **use workspace or resource permissions**
 
-    * Grant users the following permissions on the workspace: `Microsoft.OperationalInsights/workspaces/read` and `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. With these permissions, users cannot perform any workspace-level queries.
+    * Grant users the following permissions on the workspace: `Microsoft.OperationalInsights/workspaces/read` and `Microsoft.OperationalInsights/workspaces/sharedKeys/action`. With these permissions, users cannot perform any workspace-level queries. They can only enumerate the workspace and use it as a destination for diagnostic settings or agent configuration.
 
-    * Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read` and `Microsoft.Insights/diagnosticSettings/write`. If they are already assigned the [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) role on this resource, it is sufficient.
+    * Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read` and `Microsoft.Insights/diagnosticSettings/write`. If they are already assigned the [Log Analytics Contributor](../../role-based-access-control/built-in-roles.md#contributor) role, assigned the Reader role, or granted `*/read` permissions on this resource, it is sufficient.
 
-3. To grant a user access to log data from their resources, read all Azure AD sign-in and read Update Management solution log data, perform the following:
+3. To grant a user access to log data from their resources without being able to read security events and send data, perform the following:
+
+    * Configure the workspace access control mode to **use workspace or resource permissions**
+
+    * Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read`.
+
+    * Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provides the read permission (`Microsoft.Insights/logs/*/read`). If the user inherent the read action from another role that is assigned to this resource or to the subscription or resource group, they would be able to read all log types. This is also true if they inherit `*/read` that exist for example, with the Reader or Contributor role.
+
+4. To grant a user access to log data from their resources and read all Azure AD sign-in and read Update Management solution log data from the workspace, perform the following:
 
     * Configure the workspace access control mode to **use workspace or resource permissions**
 
@@ -230,7 +236,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
         * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` – required to be able to use Update Management solution
         * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` – required to be able to use Update Management solution
 
-    * Grant users the following permissions to their resources: `*/read` or `Microsoft.Insights/logs/*/read`. If they are assigned the [Log Analytics Reader](../../role-based-access-control/built-in-roles.md#reader) role on the workspace, it is sufficient.
+    * Grant users the following permissions to their resources: `*/read`, assigned to the Reader role, or `Microsoft.Insights/logs/*/read`. 
 
 ## Table level RBAC
 

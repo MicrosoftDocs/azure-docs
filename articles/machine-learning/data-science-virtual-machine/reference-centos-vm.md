@@ -339,3 +339,7 @@ A graphical interface that has a set of tabs opens. Use the following quickstart
 1. Select the **Export** button to save the R script file named *weather_script.R* to the home folder.
 
 You can exit Rattle and R. Now you can modify the generated R script. Or, use the script as it is, and run it anytime to repeat everything that was done in the Rattle UI. Especially for beginners in R, this is a way to quickly do analysis and machine learning in a simple graphical interface, while automatically generating code in R to modify or for learning.
+
+## Next steps
+
+Have additional questions? Consider creating a [support ticket](https://azure.microsoft.com/support/create-ticket/).

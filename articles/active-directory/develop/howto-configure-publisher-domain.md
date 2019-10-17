@@ -93,6 +93,12 @@ If your app isn't registered in a tenant, you'll only see the option to verify a
 
 - If your tenant has verified domains, select one of the domains from the **Select a verified domain** dropdown.
 
+>[!Note]
+> The expected 'Content-Type' header that should be returned is `application/json`. You may get an error as mentioned below if you use anything else like `application/json; charset=utf-8` 
+> 
+>``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
+>
+
 ## Implications on the app consent prompt
 
 Configuring the publisher domain has an impact on what users see on the app consent prompt. To fully understand the components of the consent prompt, see [Understanding the application consent experiences](application-consent-experience.md).

@@ -103,7 +103,7 @@ In the following example, there's a single Azure IoT Hub message where the outer
   },
 ```
 
-Time Series Insights Preview joins a table (after flattening) during query time. The table includes additional columns, such as **Type**. The following example demonstrates how you can [shape](./time-series-insights-send-events.md#json) your telemetry data.
+Time Series Insights Preview joins a table (after flattening) during query time. The table includes additional columns, such as **Type**. The following example demonstrates how you can [shape](./time-series-insights-send-events.md#supported-json-shapes) your telemetry data.
 
 | deviceId	| Type | L1 | L2 | timestamp | series.Flow Rate ft3/s |	series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
@@ -125,4 +125,4 @@ In the preceding example, note the following points:
 ## Next steps
 
 - To put these guidelines into practice, see [Azure Time Series Insights Preview query syntax](./time-series-insights-query-data-csharp.md). You'll learn more about the query syntax for the Time Series Insights Preview data access REST API.
-- To learn about supported JSON shapes, see [Supported JSON shapes](./time-series-insights-send-events.md#json).
+- To learn about supported JSON shapes, see [Supported JSON shapes](./time-series-insights-send-events.md#supported-json-shapes).

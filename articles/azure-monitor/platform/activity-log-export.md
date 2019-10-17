@@ -55,13 +55,9 @@ The log profile defines the following.
 If retention policies are set, but storing logs in a storage account is disabled, then retention policies have no effect. Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account.
 
 
-
-> [!WARNING]
-> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](diagnostic-logs-append-blobs.md)
-
-
 > [!IMPORTANT]
 > You may receive an error when creating a log profile if the Microsoft.Insights resource provider isn't registered. See [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md) to register this provider.
+
 
 ### Create log profile using the Azure portal
 
@@ -154,7 +150,7 @@ If a log profile already exists, you first need to remove the existing log profi
     | name |Yes |Name of your log profile. |
     | storage-account-id |Yes |Resource ID of the Storage Account to which Activity Logs should be saved. |
     | locations |Yes |Space-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions for your subscription using `az account list-locations --query [].name`. |
-    | days |Yes |Number of days for which events should be retained, between 1 and 365. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to true. |
+    | days |Yes |Number of days for which events should be retained, between 1 and 365. A value of zero will store the logs indefinitely (forever).  If zero, then the enabled parameter should be set to false. |
     |enabled | Yes |True or False.  Used to enable or disable the retention policy.  If True, then the days parameter must be a value greater than 0.
     | categories |Yes |Space-separated list of event categories that should be collected. Possible values are Write, Delete, and Action. |
 
@@ -162,6 +158,9 @@ If a log profile already exists, you first need to remove the existing log profi
 
 ## Activity log schema
 Whether sent to Azure storage or Event Hub, the Activity log data will be written to JSON with the following format.
+
+
+> The format of Activity log data written to a storage account changed to JSON Lines on Nov. 1st, 2018. See [Prepare for format change to Azure Monitor diagnostic logs archived to a storage account](diagnostic-logs-append-blobs.md) for details on this format change.
 
 ``` JSON
 {

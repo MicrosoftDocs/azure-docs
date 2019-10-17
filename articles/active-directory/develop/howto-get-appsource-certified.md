@@ -109,7 +109,7 @@ For more information about the AppSource trial experience, see [this video](http
 
 ## Next Steps
 
-- For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+- For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/v1-authentication-scenarios).
 - For information on how to list your SaaS application in AppSource, go see [AppSource Partner Information](https://appsource.microsoft.com/partners)
 
 ## Get support
@@ -121,8 +121,8 @@ We highly recommend you ask your questions on Stack Overflow first and browse ex
 Use the following comments section to provide feedback and help us refine and shape our content.
 
 <!--Reference style links -->
-[AAD-Auth-Scenarios]:authentication-scenarios.md
-[AAD-Auth-Scenarios-Browser-To-WebApp]:authentication-scenarios.md#web-browser-to-web-application
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
+[AAD-Auth-Scenarios-Browser-To-WebApp]:v1-authentication-scenarios.md#web-browser-to-web-application
 [AAD-Dev-Guide]: v1-overview.md
 [AAD-Howto-Multitenant-Overview]: howto-convert-app-to-be-multi-tenant.md
 [AAD-QuickStart-Web-Apps]: v1-overview.md#get-started

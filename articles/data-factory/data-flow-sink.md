@@ -1,6 +1,6 @@
 ---
-title:  Set up a sink transformation in the Mapping Data Flow feature of Azure Data Factory 
-description: Learn how to set up a sink transformation in the Mapping Data Flow.
+title:  Set up a sink transformation in the mapping data flow feature of Azure Data Factory 
+description: Learn how to set up a sink transformation in the mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -10,7 +10,7 @@ ms.date: 02/03/2019
 
 # Sink transformation for a data flow
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 After you transform your data flow, you can sink the data into a destination dataset. In the sink transformation, choose a dataset definition for the destination output data. You can have as many sink transformations as your data flow requires.
 

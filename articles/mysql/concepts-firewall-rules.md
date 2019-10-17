@@ -1,6 +1,6 @@
 ---
 title: Azure Database for MySQL server firewall rules
-description: Describes firewall rules for your Azure Database for MySQL server.
+description: Learn about using firewall rules to enable connections to your Azure Database for MySQL server.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -55,7 +55,7 @@ Consider the following points when access to the Microsoft Azure Database for My
    * Get static IP addressing instead for your client computers, and then add the IP addresses as firewall rules.
 
 * **Server's IP appears to be public:**
-Connections to the Azure Database for PostgreSQL server are routed through a publicly accessible Azure gateway. However, the actual server IP is not publicly accessible. For more information, visit the [connectivity architecture article](concepts-connectivity-architecture.md). 
+Connections to the Azure Database for MySQL server are routed through a publicly accessible Azure gateway. However, the actual server IP is protected by the firewall. For more information, visit the [connectivity architecture article](concepts-connectivity-architecture.md). 
 
 ## Next steps
 

@@ -1,20 +1,21 @@
 ---
-title: Expression functions in the Mapping Data Flow feature of Azure Data Factory
-description: Learn about expression functions in Mapping Data Flow.
+title: Expression functions in the mapping data flow feature of Azure Data Factory
+description: Learn about expression functions in mapping data flow.
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
 ---
 
-# Data transformation expressions in Mapping Data Flow 
+# Data transformation expressions in mapping data flow 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## Expression functions
 
-In Data Factory, use the expression language of the Mapping Data Flow feature to configure data transformations.
+In Data Factory, use the expression language of the mapping data flow feature to configure data transformations.
 
 ___
 ### <code>abs</code>
@@ -145,6 +146,12 @@ Concatenates a variable number of strings together with a separator. The first p
 * ``isNull(concatWS(null, 'dataflow', 'is', 'awesome')) -> true``
 * ``concatWS(' is ', 'dataflow', 'awesome') -> 'dataflow is awesome'``
 ___
+### <code>contains</code>
+<code><b>contains(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => boolean</b></code><br/><br/>
+Returns true if any element in the provided array evaluates as true in the provided predicate. Contains expects a reference to one element in the predicate function as #item
+* ``contains([1, 2, 3, 4], #item == 3) -> true``
+* ``contains([1, 2, 3, 4], #item > 5) -> false``
+___
 ### <code>cos</code>
 <code><b>cos(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calculates a cosine value
@@ -205,9 +212,10 @@ The CumeDist function computes the position of a value relative to all values in
 ___
 ### <code>currentDate</code>
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.
+Gets the current date when this job starts to run. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``currentDate() == toDate('2250-12-31') -> false``
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``
+* ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``
 ___
 ### <code>currentTimestamp</code>
 <code><b>currentTimestamp() => timestamp</b></code><br/><br/>
@@ -216,9 +224,10 @@ Gets the current timestamp when the job starts to run with local time zone
 ___
 ### <code>currentUTC</code>
 <code><b>currentUTC([<i>&lt;value1&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Gets the current the timestamp as UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone
+Gets the current timestamp as UTC. If you want your current time to be interpreted in a different timezone than your cluster time zone,you can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone. Refer Java's SimpleDateFormat for available formats. Use [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) to convert the UTC time to a different timezone use fromUTC().
 * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
+* ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
 ### <code>dayOfMonth</code>
 <code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
@@ -287,6 +296,12 @@ Always returns a false value. Use the function syntax(false()) if there is a col
 * ``(10 + 20 > 30) -> false``
 * ``(10 + 20 > 30) -> false()``
 ___
+### <code>filter</code>
+<code><b>filter(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => array</b></code><br/><br/>
+Filters elements out of the array that do not meet the provided predicate. Filter expects a reference to one element in the predicate function as #item
+* ``filter([1, 2, 3, 4], #item > 2) -> [3, 4]``
+* ``filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') -> ['a', 'b']``
+___
 ### <code>first</code>
 <code><b>first(<i>&lt;value1&gt;</i> : any, [<i>&lt;value2&gt;</i> : boolean]) => any</b></code><br/><br/>
 Gets the first value of a column group. If the second parameter ignoreNulls is omitted, it is assumed false
@@ -300,7 +315,7 @@ Returns the largest integer not greater than the number
 ___
 ### <code>fromUTC</code>
 <code><b>fromUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts to the timestamp from UTC. You can optionally pass the timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone
+Converts to the timestamp from UTC. You can optionally pass the timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezoneRefer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``fromUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
@@ -332,7 +347,7 @@ Checks for a column value by name in the stream. You can pass a optional stream 
 ___
 ### <code>hour</code>
 <code><b>hour(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the hour value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.
+Gets the hour value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
 * ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``
 ___
@@ -340,6 +355,11 @@ ___
 <code><b>hours(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
 Duration in milliseconds for number of hours
 * ``hours(2) -> 7200000L``
+___
+### <code>iMap</code>
+<code><b>iMap(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => any</b></code><br/><br/>
+Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item and a reference to the element index as #index
+* ``iMap([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]``
 ___
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
@@ -531,6 +551,12 @@ Left trims a string of leading characters. If second parameter is unspecified, i
 * ``ltrim('  dumbo  ') -> 'dumbo  '``
 * ``ltrim('!--!du!mbo!', '-!') -> 'du!mbo!'``
 ___
+### <code>map</code>
+<code><b>map(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : unaryfunction) => any</b></code><br/><br/>
+Maps each element of the array to a new element using the provided expression. Map expects a reference to one element in the expression function as #item
+* ``map([1, 2, 3, 4], #item + 2) -> [3, 4, 5, 6]``
+* ``map(['a', 'b', 'c', 'd'], #item + '_processed') -> ['a_processed', 'b_processed', 'c_processed', 'd_processed']``
+___
 ### <code>max</code>
 <code><b>max(<i>&lt;value1&gt;</i> : any) => any</b></code><br/><br/>
 Gets the maximum value of a column
@@ -558,7 +584,7 @@ Based on a criteria gets the mean of values of a column. Same as avgIf
 ___
 ### <code>millisecond</code>
 <code><b>millisecond(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the millisecond value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.
+Gets the millisecond value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
 ___
 ### <code>milliseconds</code>
@@ -588,7 +614,7 @@ Subtracts numbers. Subtract from a date number of days. Substract duration from 
 ___
 ### <code>minute</code>
 <code><b>minute(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the minute value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.
+Gets the minute value of a timestamp. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``
 * ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58``
 ___
@@ -610,7 +636,7 @@ Gets the month value of a date or timestamp
 ___
 ### <code>monthsBetween</code>
 <code><b>monthsBetween(<i>&lt;from date/timestamp&gt;</i> : datetime, <i>&lt;to date/timestamp&gt;</i> : datetime, [<i>&lt;roundoff&gt;</i> : boolean], [<i>&lt;time zone&gt;</i> : string]) => double</b></code><br/><br/>
-Gets the number of months between two dates. You can round off the calculation.You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.
+Gets the number of months between two dates. You can round off the calculation.You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
 ___
 ### <code>multiply</code>
@@ -672,6 +698,11 @@ ___
 Positive Modulus of pair of numbers.
 * ``pmod(-20, 8) -> 4``
 ___
+### <code>partitionId</code>
+<code><b>partitionId() => integer</b></code><br/><br/>
+Returns the current partition id the input row is in
+* ``partitionId()``
+___
 ### <code>power</code>
 <code><b>power(<i>&lt;value1&gt;</i> : number, <i>&lt;value2&gt;</i> : number) => double</b></code><br/><br/>
 Raises one number to the power of another
@@ -681,6 +712,13 @@ ___
 <code><b>rank(<i>&lt;value1&gt;</i> : any, ...) => integer</b></code><br/><br/>
 Computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values will produce gaps in the sequence. Rank works even when data is not sorted and looks for change in values
 * ``rank(salesQtr, salesAmt)``
+___
+### <code>reduce</code>
+<code><b>reduce(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : any, <i>&lt;value3&gt;</i> : binaryfunction, <i>&lt;value4&gt;</i> : unaryfunction) => any</b></code><br/><br/>
+Accumulates elements in an array. Reduce expects a reference to an accumulator and one element in the first expression function as #acc and #item and it expects the resulting value as #result to be used in the second expression function
+* ``reduce([1, 2, 3, 4], 0, #acc + #item, #result) -> 10``
+* ``reduce(['1', '2', '3', '4'], '0', #acc + #item, #result) -> '01234'``
+* ``reduce([1, 2, 3, 4], 0, #acc + #item, #result + 15) -> 25``
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
@@ -767,7 +805,7 @@ Right trims a string of leading characters. If second parameter is unspecified, 
 ___
 ### <code>second</code>
 <code><b>second(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => integer</b></code><br/><br/>
-Gets the second value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.
+Gets the second value of a date. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. The local timezone is used as the default.Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``
 ___
 ### <code>seconds</code>
@@ -814,6 +852,12 @@ Extracts a subset of an array from a position. Position is 1 based. If the lengt
 * ``isNull(slice([10, 20, 30, 40], 2)[0]) -> true``
 * ``isNull(slice([10, 20, 30, 40], 2)[20]) -> true``
 * ``slice(['a', 'b', 'c', 'd'], 8) -> []``
+___
+### <code>sort</code>
+<code><b>sort(<i>&lt;value1&gt;</i> : array, <i>&lt;value2&gt;</i> : binaryfunction) => array</b></code><br/><br/>
+Sorts the array using the provided predicate function. Sort expects a reference to two consecutive elements in the expression function as #item1 and #item2
+* ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``
+* ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``
 ___
 ### <code>soundex</code>
 <code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
@@ -997,7 +1041,7 @@ Converts a primitive datatype to a string. For numbers and date a format can be 
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts a string to a timestamp given an optional timestamp format. Refer to Java SimpleDateFormat for all possible formats. If the timestamp is omitted the default pattern.yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'.Timestamp supports upto millisecond accuracy with value of 999
+Converts a string to a timestamp given an optional timestamp format. Refer to Java SimpleDateFormat for all possible formats. If the timestamp is omitted the default pattern.yyyy-[M]M-[d]d hh:mm:ss[.f...] is used. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'.Timestamp supports upto millisecond accuracy with value of 999Refer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``
@@ -1005,7 +1049,7 @@ Converts a string to a timestamp given an optional timestamp format. Refer to Ja
 ___
 ### <code>toUTC</code>
 <code><b>toUTC(<i>&lt;value1&gt;</i> : timestamp, [<i>&lt;value2&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezone
+Converts the timestamp to UTC. You can pass an optional timezone in the form of 'GMT', 'PST', 'UTC', 'America/Cayman'. It is defaulted to the current timezoneRefer Java's SimpleDateFormat for available formats. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html
 * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
 * ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
 ___
@@ -1037,6 +1081,11 @@ ___
 <code><b>upper(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 Uppercases a string
 * ``upper('bojjus') -> 'BOJJUS'``
+___
+### <code>uuid</code>
+<code><b>uuid() => string</b></code><br/><br/>
+Returns the generated UUID
+* ``uuid()``
 ___
 ### <code>variance</code>
 <code><b>variance(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>

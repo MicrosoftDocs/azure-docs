@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ---
 
@@ -32,6 +32,8 @@ The endpoint requires two params for spelling corrections to work:
 
 When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) detects an error, the original utterance, and the corrected utterance are returned along with predictions from the endpoint.
 
+#### [V2 prediction endpoint response](#tab/V2)
+
 ```JSON
 {
   "query": "Book a flite to London?",
@@ -43,9 +45,29 @@ When [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-se
   "entities": []
 }
 ```
+
+#### [V3 prediction endpoint response](#tab/V3)
  
+```JSON
+{
+    "query": "Book a flite to London?",
+    "prediction": {
+        "normalizedQuery": "book a flight to london?",
+        "topIntent": "BookFlight",
+        "intents": {
+            "BookFlight": {
+                "score": 0.780123
+            }
+        },
+        "entities": {},
+    }
+}
+```
+
+* * * 
+
 ### List of allowed words
-The Bing spell check API used in LUIS does not support a list (also called a whitelist) of words to ignore during the spell check alterations. If you need to allow a list of words or acronyms, process the utterance in the client application before sending the utterance to LUIS for intent prediction.
+The Bing spell check API used in LUIS does not support a list of words to ignore during the spell check alterations. If you need to allow a list of words or acronyms, process the utterance in the client application before sending the utterance to LUIS for intent prediction.
 
 ## Change time zone of prebuilt datetimeV2 entity
 When a LUIS app uses the prebuilt [datetimeV2](luis-reference-prebuilt-datetimev2.md) entity, a datetime value can be returned in the prediction response. The timezone of the request is used to determine the correct datetime to return. If the request is coming from a bot or another centralized application before getting to LUIS, correct the timezone LUIS uses. 
@@ -60,6 +82,8 @@ The timezone is corrected by adding the user's timezone to the [endpoint](https:
 ### Daylight savings example
 If you need the returned prebuilt datetimeV2 to adjust for daylight savings time, you should use the `timezoneOffset` querystring parameter with a +/- value in minutes for the [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) query.
 
+#### [V2 prediction endpoint request](#tab/V2)
+
 Add 60 minutes: 
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
@@ -67,6 +91,20 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the l
 Remove 60 minutes: 
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+#### [V3 prediction endpoint request](#tab/V3)
+
+Add 60 minutes:
+
+https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+Remove 60 minutes: 
+
+https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/{appId}/slots/production/predict?query=Turn the lights on?**timezoneOffset=-60**&spellCheck={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
+
+* * * 
 
 ## C# code determines correct value of timezoneOffset
 The following C# code uses the [TimeZoneInfo](https://docs.microsoft.com/dotnet/api/system.timezoneinfo) class's [FindSystemTimeZoneById](https://docs.microsoft.com/dotnet/api/system.timezoneinfo.findsystemtimezonebyid#examples) method to determine the correct `timezoneOffset` based on system time:
