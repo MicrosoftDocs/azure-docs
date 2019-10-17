@@ -30,7 +30,7 @@ In a Basic cache, the single node is always a master. In a Standard or Premium c
 
 A failover occurs when a replica node promotes itself to become a master node and the old master node closes existing connections. After the master node comes back up, it will notice the change in roles and demote itself to become a replica. It will then connect to the new master and synchronize data. A failover may be planned or unplanned.
 
-A planned failover takes place during system updates such as Redis patching or OS upgrades and management operations such as scaling and rebooting. Because the nodes are given advanced notice of the update, they can cooperatively swap roles and quickly update the load balancer of the change. A planned failover should complete within 1 to 2 seconds.
+A planned failover takes place during system updates such as Redis patching or OS upgrades and management operations such as scaling and rebooting. Because the nodes are given advanced notice of the update, they can cooperatively swap roles and quickly update the load balancer of the change. A planned failover should complete in less than 1 second.
 
 An unplanned failover may happen because of hardware failure, network failure, or other unexpected outages to the master node. The replica node will promote itself to master but the process takes longer. An unplanned failover typically completes within 10 to 15 seconds.
 
