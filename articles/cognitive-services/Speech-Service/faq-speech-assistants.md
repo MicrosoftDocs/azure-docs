@@ -30,9 +30,9 @@ If you can't find answers to your questions in this document, check out [other s
 
 **Q: I receive a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
 
-**A:** When managing your subscription on the Azure Portal, please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Also, please check [Speech service region support for voice-first virtual assistants](regions.md#voice-first-virtual-assistants).
+**A:** When managing your subscription on the Azure Portal, please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Also, please check [Speech service region support for voice-first speech assistants](regions.md#speech-assistants).
 
-![correct subscription for direct line speech](media/voice-first-virtual-assistants/faq-supported-subscription.png "example of a compatible Speech subscription")
+![correct subscription for direct line speech](media/speech-assistants/faq-supported-subscription.png "example of a compatible Speech subscription")
 
 **Q: I get recognition text back from Direct Line Speech, but I see a '1011' error and nothing from my bot. Why?**
 

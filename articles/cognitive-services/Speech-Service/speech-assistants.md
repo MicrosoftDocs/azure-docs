@@ -16,7 +16,7 @@ ms.author: travisw
 
 Speech assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The speech assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. Applications connect to the Speech assistant service with the Speech Software Development Kit (SDK).
 
-   ![Conceptual diagram of the direct line speech orchestration service flow](media/voice-first-virtual-assistants/overview.png "The Speech Channel flow")
+   ![Conceptual diagram of the direct line speech orchestration service flow](media/speech-assistants/overview.png "The Speech Channel flow")
 
 Direct Line Speech and its associated functionality for speech assistants are an ideal supplement to the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Though Direct Line Speech can work with any compatible bot, these resources provide a reusable baseline for high-quality conversational experiences as well as common supporting skills and models for getting started quickly.
 

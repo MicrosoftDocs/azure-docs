@@ -43,7 +43,7 @@ Learn what's new with the Azure Speech Services.
   * Added a new speaking style, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), for the `en-US-JessaNeural` voice. 
 * June 2019
   * Released Speech SDK 1.6.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
-* May 2019 - Documentation is now available for [Conversation Transcription](conversation-transcription-service.md), [Call Center Transcription](call-center-transcription.md), and [Voice-first Virtual Assistants](voice-first-virtual-assistants.md).
+* May 2019 - Documentation is now available for [Conversation Transcription](conversation-transcription-service.md), [Call Center Transcription](call-center-transcription.md), and [Speech Assistants](speech-assistants.md).
 * May 2019
   * Released Speech SDK 1.5.1. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
   * Released Speech SDK 1.5.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
@@ -75,7 +75,7 @@ Sample code is available on GitHub for each of the Azure Speech Services. These 
 * [Speech-to-text, text-to-speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
-* [Voice-first virtual assistant samples (SDK)](https://aka.ms/csspeech/samples)
+* [Speech assistant samples (SDK)](https://aka.ms/csspeech/samples)
 
 ## Customize your speech experience
 
