@@ -1,7 +1,7 @@
 ---
 title:  "Evaluate Model: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Evaluate Model module in Azure Machine Learning service to measure the accuracy of a trained model.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Evaluate Model module in Azure Machine Learning to measure the accuracy of a trained model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -121,4 +121,4 @@ The metrics returned for regression models are generally designed to estimate th
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

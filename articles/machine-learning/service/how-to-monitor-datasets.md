@@ -26,7 +26,7 @@ With Azure Machine Learning dataset monitors, you can:
 * **Set up alerts on data drift** for early warnings to potential issues. 
 
 > [!Note]
-> This Azure Machine Learning service capability is in preview.
+> This Azure Machine Learning capability is in preview.
 
 ## Prerequisites
 
@@ -219,7 +219,7 @@ The **Drift overview** section contains top-level insights into the magnitude of
 
 | Metric | Description | Tips | 
 | ------ | ----------- | ---- | 
-| Data drift magnitude | Given as a percentage between the baseline and target dataset over time. Ranging from 0 to 100 where 0 indicates identical datasets and 100 indicates the Azure Machine Learning service data drift capability can completely tell the two datasets apart. | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
+| Data drift magnitude | Given as a percentage between the baseline and target dataset over time. Ranging from 0 to 100 where 0 indicates identical datasets and 100 indicates the Azure Machine Learning data drift capability can completely tell the two datasets apart. | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
 | Drift contribution by feature | The contribution of each feature in the target dataset to the measured drift magnitude. |  Due to covariate shift, the underlying distribution of a feature does not necessarily need to change to have relatively high feature importance. | 
 
 The following image is an example of charts seen in the **Drift overview**  results in Azure Machine Learning studio, resulting from a backfill of [NOAA Integrated Surface Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Data was sampled to `stationName contains 'FLORIDA`, with January 2019 being used as the baseline dataset and all 2019 data used as the target 

@@ -52,7 +52,7 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Machine Learning service
+          - text: Azure Machine Learning
             url: /azure/machine-learning/
           - text: Data Science Virtual Machine
             url: /azure/machine-learning/data-science-virtual-machine
