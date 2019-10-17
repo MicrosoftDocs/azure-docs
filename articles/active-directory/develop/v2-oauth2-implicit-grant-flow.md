@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 10/16/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -125,20 +125,6 @@ error=access_denied
 | --- | --- |
 | `error` |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | `error_description` |A specific error message that can help a developer identify the root cause of an authentication error. |
-
-## Validate the id_token
-
-Just receiving an id_token isn't sufficient to authenticate the user; you must also validate the id_token's signature and verify the claims in the token based on your app's requirements. The Microsoft identity platform endpoint uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they're valid.
-
-You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you'll be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [validating tokens](id-tokens.md#validating-an-id_token) and [important information about signing key rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
-
-You may also wish to validate additional claims depending on your scenario. Some common validations include:
-
-* Ensuring the user/organization has signed up for the app.
-* Ensuring the user has proper authorization/privileges.
-* Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
-
-Once you have validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, personalization, and more.
 
 ## Get access tokens
 
