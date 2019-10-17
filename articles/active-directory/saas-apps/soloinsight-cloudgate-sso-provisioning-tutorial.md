@@ -48,7 +48,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * When assigning a user to Soloinsight-CloudGate SSO, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Setup Soloinsight-CloudGate SSO for provisioning
+## Set up Soloinsight-CloudGate SSO for provisioning
 
 1. Sign in to your [Soloinsight-CloudGate SSO Admin Console](https://soloinsight.sigateway.com/login). Navigate to **Administration > System Settings**.
 
