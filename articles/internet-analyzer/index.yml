@@ -44,5 +44,11 @@ landingContent:
             url: internet-analyzer-custom-endpoint.md
           - text: Interpreting your scorecard
             url: internet-analyzer-scorecard.md
-
+  # Card
+  - title: Resources
+    linkLists:
+      - linkListType: reference 
+        links:
+          - text: CLI
+            url: internet-analyzer-cli.md
 

@@ -47,38 +47,39 @@ Each test you create in Internet Analyzer is composed of two endpoints—Endpoin
 
 The following preconfigured endpoints are available during preview: 
 * **Azure regions**
+    * Brazil South
+    * Central India
+    * Central US
+    * East Asia
+    * East US
+    * Japan West
+    * North Europe
+    * South Africa North
+    * Southeast Asia 
+    * UAE North
+    * UK West  
+    * West Europe
     * West US 
     * West US 2
-    * East US
-    * Central US
-    * Brazil South
-    * West Europe
-    * North Europe 
-    * UK West 
-    * Japan West
-    * Southeast Asia
-    * Central India
-    * UAE North
-    * South Africa North
 * **Multiple Azure region combinations** 
-    * West US, West Europe 
-    * East US, East Asia 
-    * West US, East US 
-    * West US, UAE North
     * East US, Brazil South 
-    * West Europe, Southeast Asia 
+    * East US, East Asia 
     * West Europe, Brazil South
+    * West Europe, Southeast Asia
     * West Europe, UAE North
-    * West US, West Europe, East Asia
+    * West US, East US 
+    * West US, West Europe
+    * West US, UAE North
     * West Europe, UAE North, Southeast Asia
+    * West US, West Europe, East Asia
     * West US, North Europe, Southeast Asia, UAE North, South Africa North 
-* **Azure + Azure Front Door** - deployed on top any single or multiple Azure region combinations listed above
-* **Azure + Azure CDN from Microsoft** - deployed on top any single Azure region combination listed above
-* **Azure + Azure Traffic Manager** - deployed on any Multiple Azure region combination listed above
+* **Azure + Azure Front Door** - deployed on any single or multiple Azure region combinations listed above
+* **Azure + Azure CDN from Microsoft** - deployed on any single Azure region combination listed above
+* **Azure + Azure Traffic Manager** - deployed on any multiple Azure region combination listed above
 
 ## How is Internet Analyzer different from other monitoring services provided by Azure? 
 
-Internet Analyzer is designed to help you understand your end users' experience today and how to make decisions to improve your end users' experience. While other Azure monitoring tools provide insights into middle-mile and data center performance, Internet Analyzer focuses on measuring end-to-end Internet performance for your specific set of end users. 
+Internet Analyzer helps you understand your end users' performance and assists in making decisions to improve their performance. While other Azure monitoring tools provide insights into middle-mile and data center performance, Internet Analyzer focuses on measuring end-to-end Internet performance for your users. 
 
 
 ## Next Steps 
