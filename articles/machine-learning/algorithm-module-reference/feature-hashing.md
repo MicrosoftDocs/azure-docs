@@ -1,7 +1,7 @@
 ---
 title: "Feature Hashing module reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Feature Hashing module in the Azure Machine Learning service to featurize text data.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Feature Hashing module in the Azure Machine Learning to featurize text data.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -126,4 +126,4 @@ The optimal set of preprocessing methods to apply in any solution depends on dom
 
 ## Next steps
 			
-See the [set of modules available](module-reference.md) to the Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning 

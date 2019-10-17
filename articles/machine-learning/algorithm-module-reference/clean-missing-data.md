@@ -1,7 +1,7 @@
 ---
 title:  "Clean Missing Data: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Clean Missing Data module in Azure Machine Learning service to remove, replace, or infer missing values.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Clean Missing Data module in Azure Machine Learning to remove, replace, or infer missing values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 
 # Clean Missing Data module
@@ -141,4 +141,4 @@ If you need to repeat cleaning operations often, we recommend that you save your
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

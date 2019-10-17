@@ -1,6 +1,6 @@
 ---
 title: "Execute R Script: Module Reference"
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to use the Execute R Script module in Azure Machine Learning to run R code.
 services: machine-learning
 ms.service: machine-learning
@@ -398,4 +398,4 @@ The current list of pre-installed R Packages available to use:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

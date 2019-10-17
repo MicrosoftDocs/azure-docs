@@ -33,13 +33,13 @@ There is no programming required, just visually connecting datasets and modules 
 
 
 <a name="compare"></a>
-## How is Machine Learning Studio (classic) different from Azure Machine Learning service?
+## How is Machine Learning Studio (classic) different from Azure Machine Learning?
 
-[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning service.
+[Azure Machine Learning](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
 
 Here is a quick comparison.
 
-|| Machine Learning Studio (classic) | Azure Machine Learning service:<br/>Designer|
+|| Machine Learning Studio (classic) | Azure Machine Learning:<br/>Designer|
 |---| --- | --- |
 || Generally available (GA) | In preview|
 |Modules for interface| Many | Initial set of popular modules|
@@ -50,7 +50,7 @@ Here is a quick comparison.
 Try out the designer with [Tutorial: Predict automobile price with the designer](../service/ui-tutorial-automobile-price-train-score.md)
 
 > [!NOTE]
-> Models created in Studio (classic) can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the designer can be managed through the Azure Machine Learning service workspace.
+> Models created in Studio (classic) can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
 
 ## Download the Machine Learning Studio (classic) overview diagram
 Download the **Microsoft Azure Machine Learning Studio (classic) Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio (classic). To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).

@@ -1,7 +1,7 @@
 ---
 title:  "K-Means Clustering: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the K-Means Clustering module in the Azure Machine Learning service to train clustering models.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the K-Means Clustering module in the Azure Machine Learning to train clustering models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

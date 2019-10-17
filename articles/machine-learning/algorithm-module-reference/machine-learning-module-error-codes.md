@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot module errors
-titleSuffix: "Azure Machine Learning service"
+titleSuffix: "Azure Machine Learning"
 description: Troubleshoot module exceptions in Azure Machine Learning Studio using error codes
 services: machine-learning
 ms.service: machine-learning
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Exceptions and error codes for Algorithm & Module Reference
 

@@ -1,7 +1,7 @@
 ---
 title:  "Algorithm & module reference"
-titleSuffix: Azure Machine Learning service
 description: Learn about the modules available in Azure Machine Learning designer (preview)
+titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Algorithm & module reference overview
 

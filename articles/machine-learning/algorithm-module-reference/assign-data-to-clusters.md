@@ -1,7 +1,7 @@
 ---
 title:  "Assign Data to Cluster: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Assign Data to Cluster module in Azure Machine Learning service to score clustering model.  
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Assign Data to Cluster module in Azure Machine Learning to score clustering model.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

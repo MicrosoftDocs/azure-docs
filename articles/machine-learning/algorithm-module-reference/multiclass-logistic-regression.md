@@ -1,7 +1,7 @@
 ---
 title:  "Multiclass Logistic Regression: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Multiclass Logistic Regression module in Azure Machine Learning service to create a logistic regression model that can be used to predict multiple values.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Multiclass Logistic Regression module in Azure Machine Learning to create a logistic regression model that can be used to predict multiple values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Multiclass Logistic Regression module
 
@@ -62,4 +62,4 @@ After training is complete, you can see a summary of the model's parameters, tog
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
