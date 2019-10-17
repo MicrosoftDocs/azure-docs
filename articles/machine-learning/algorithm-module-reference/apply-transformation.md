@@ -14,7 +14,7 @@ ms.date: 10/22/2019
 
 # Apply Transformation module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to modify an input dataset based on a previously computed transformation.  
   
