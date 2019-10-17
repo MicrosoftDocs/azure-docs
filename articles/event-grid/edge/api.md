@@ -29,11 +29,25 @@ All API requests require the following query string parameter:
 ```?api-version=2019-01-01-preview```
 
 ### Request content type
-All API requests must have a **Content-Type** header with one of the following values:
+All API requests must have a **Content-Type**.
+
+In case of **EventGridSchema** or **CustomSchema**, the value of Content-Type can be one of the following values:
 
 ```Content-Type: application/json```
 
 ```Content-Type: application/json; charset=utf-8```
+
+In case of **CloudEventSchemaV1_0** in structured mode, the value of Content-Type can be one of the following values:
+
+```Content-Type: application/cloudevents+json```
+    
+```Content-Type: application/cloudevents+json; charset=utf-8```
+    
+```Content-Type: application/cloudevents-batch+json```
+    
+```Content-Type: application/cloudevents-batch+json; charset=utf-8```
+
+In case of **CloudEventSchemaV1_0** in binary mode, refer to [documentation](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) for details.
 
 ### Error response
 All APIs return an error with the following payload:
@@ -65,7 +79,7 @@ All APIs return an error with the following payload:
         "name": "<topic_name>", // optional, inferred from URL. If specified must match URL topic_name
         "properties":
         {
-            "inputSchema": "EventGridSchema | CustomEventSchema" // optional
+            "inputSchema": "EventGridSchema | CustomEventSchema | CloudEventSchemaV1_0" // optional
         }
     }
 ```
@@ -82,7 +96,7 @@ All APIs return an error with the following payload:
     "properties":
     {
         "endpoint": "<get_request_base_url>/topics/<topic_name>/events?api-version=2019-01-01-preview",
-        "inputSchema": "EventGridSchema | CustomEventSchema" // populated with EventGridSchema if not explicitly specified in PUT request
+        "inputSchema": "EventGridSchema | CustomEventSchema | CloudEventSchemaV1_0" // populated with EventGridSchema if not explicitly specified in PUT request
     }
 }
 ```
@@ -102,7 +116,7 @@ All APIs return an error with the following payload:
     "properties":
     {
         "endpoint": "<request_base_url>/topics/<topic_name>/events?api-version=2019-01-01-preview",
-        "inputSchema": "EventGridSchema | CustomEventSchema"
+        "inputSchema": "EventGridSchema | CustomEventSchema | CloudEventSchemaV1_0"
     }
 }
 ```
@@ -123,7 +137,7 @@ All APIs return an error with the following payload:
         "properties":
         {
             "endpoint": "<request_base_url>/topics/<topic_name>/events?api-version=2019-01-01-preview",
-            "inputSchema": "EventGridSchema | CustomEventSchema"
+            "inputSchema": "EventGridSchema | CustomEventSchema | CloudEventSchemaV1_0"
         }
     },
     {
@@ -133,7 +147,7 @@ All APIs return an error with the following payload:
         "properties":
         {
             "endpoint": "<request_base_url>/topics/<topic_name>/events?api-version=2019-01-01-preview",
-            "inputSchema": "EventGridSchema | CustomEventSchema"
+            "inputSchema": "EventGridSchema | CustomEventSchema | CloudEventSchemaV1_0"
         }
     }
 ]
@@ -159,23 +173,20 @@ Samples in this section use `EndpointType=Webhook;`. The json samples for `Endpo
     "properties":
     {
         "topicName": "<topic_name>", // optional, inferred from URL. If specified must match URL topic_name
-        "eventDeliverySchema": "EventGridSchema | CustomEventSchema", // optional
+        "eventDeliverySchema": "EventGridSchema | CustomEventSchema | CloudEventSchemaV1_0", // optional
         "retryPolicy":  //optional
         {
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
-        },
-        "deliveryPolicy":  //optional
-        {
-            "maxEventsPerBatch": 10,
-            "approxBatchSizeInBytes": 65536
         },
         "destination":
         {
             "endpointType": "WebHook",
             "properties":
             {
-                "endpointUrl": "<webhook_url>"
+                "endpointUrl": "<webhook_url>",
+                "maxEventsPerBatch": 10, // optional
+                "preferredBatchSizeInKilobytes": 1033 // optional
             }
         },
         "filter": // optional
@@ -264,23 +275,20 @@ Samples in this section use `EndpointType=Webhook;`. The json samples for `Endpo
     "properties":
     {
         "topicName": "<topic_name>",
-        "eventDeliverySchema": "EventGridSchema | CustomEventSchema", // populated with EventGridSchema if not explicitly specified in PUT request
+        "eventDeliverySchema": "EventGridSchema | CustomEventSchema  | CloudEventSchemaV1_0", // populated with EventGridSchema if not explicitly specified in PUT request
         "retryPolicy":  // only populated if specified in the PUT request
         {
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
-        },
-        "deliveryPolicy":  //optional
-        {
-            "maxEventsPerBatch": 10,
-            "approxBatchSizeInBytes": 65536
         },
         "destination":
         {
             "endpointType": "WebHook",
             "properties":
             {
-                "endpointUrl": "<webhook_url>"
+                "endpointUrl": "<webhook_url>",
+                "maxEventsPerBatch": 10, // optional
+                "preferredBatchSizeInKilobytes": 1033 // optional
             }
         },
         "filter": // only populated if specified in the PUT request 
@@ -373,23 +381,20 @@ Samples in this section use `EndpointType=Webhook;`. The json samples for `Endpo
     "properties":
     {
         "topicName": "<topic_name>",
-        "eventDeliverySchema": "EventGridSchema | CustomEventSchema", // populated with EventGridSchema if not explicitly specified in PUT request
+        "eventDeliverySchema": "EventGridSchema | CustomEventSchema  | CloudEventSchemaV1_0", // populated with EventGridSchema if not explicitly specified in PUT request
         "retryPolicy":  // only populated if specified in the PUT request
         {
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
-        },
-        "deliveryPolicy":  //optional
-        {
-            "maxEventsPerBatch": 10,
-            "approxBatchSizeInBytes": 65536
         },
         "destination":
         {
             "endpointType": "WebHook",
             "properties":
             {
-                "endpointUrl": "<webhook_url>"
+                "endpointUrl": "<webhook_url>",
+                "maxEventsPerBatch": 10, // optional
+                "preferredBatchSizeInKilobytes": 1033 // optional
             }
         },
         "filter": // only populated if specified in the PUT request 
@@ -570,6 +575,19 @@ Sets up a topic to require events to be published in `customschema`.
         "properties":
         {
             "inputSchema": "CustomSchema"
+        }
+    }
+```
+
+### Set up topic with cloud event schema
+Sets up a topic to require events to be published in `cloudeventschema`.
+
+```json
+    {
+        "name": "mycloudeventschematopic",
+        "properties":
+        {
+            "inputSchema": "CloudEventSchemaV1_0"
         }
     }
 ```
