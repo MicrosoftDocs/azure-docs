@@ -77,7 +77,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
   * The gateway has two modes: standard mode and personal mode, which applies only to Power BI. You can't have more than one gateway running in the same mode on the same computer.
 
-  * Azure Logic Apps supports write operations, including inserts and updates, through the gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * Azure Logic Apps supports read and write operations through the gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
