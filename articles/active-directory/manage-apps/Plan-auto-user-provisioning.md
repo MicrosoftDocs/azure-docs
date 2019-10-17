@@ -1,5 +1,5 @@
 ---
-title: Plan an automatic user provisioning deployment
+title: Plan an automatic user provisioning deployment for Azure Active Directory
 description: Guidance for planning and executing automatic user provisioning
 services: active-directory
 author: barbaraselden
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 10/17/2019
 ms.author: baselden
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
@@ -61,12 +61,12 @@ This article uses the following terms:
 
 * [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)) -  An open standard that allows for the automation of user provisioning. SCIM communicates user identity data between identity providers such as Microsoft, and service providers like Salesforce or other SaaS apps that require user identity information.
 
-### Training Resources
+### Training resources
 
 | Resources| Link and Description |
 | - | - |
 | On-demand webinars| [Manage your Enterprise Applications with Azure AD](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>‎Learn how Azure AD can help you achieve SSO to your enterprise SaaS applications and best practices for controlling access. |
-| Videos| [What is user provisioning in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) <br> [How to deploy user provisioning in Active Azure Directory?](https://youtu.be/pKzyts6kfrw) <br> [Integrating Salesforce with Azure AD: How to automate User Provisioning](https://azure.microsoft.com/en-us/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| Videos| [What is user provisioning in Active Azure Directory?](https://youtu.be/_ZjARPpI6NI) <br> [How to deploy user provisioning in Active Azure Directory?](https://youtu.be/pKzyts6kfrw) <br> [Integrating Salesforce with Azure AD: How to automate User Provisioning](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Online courses| SkillUp Online:  [Managing Identities](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Learn how to integrate Azure AD with many SaaS applications and to secure user access to those applications. |
 | Books| [Modern Authentication with Azure Active Directory for Web Applications (Developer Reference) 1st Edition](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> ‎This is an authoritative, deep-dive guide to building Active Directory authentication solutions for these new environments. |
 | Tutorials| See the [list of tutorials on how to integrate SaaS apps with Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
@@ -145,7 +145,7 @@ Widen the rollout to larger groups of users by increasing the scope of the group
 
 ## Plan application connections and administration
 
-Use the Azure AD portal to view and manage all the applications that support provisioning. See [Finding your apps in the portal](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal).
+Use the Azure AD portal to view and manage all the applications that support provisioning. See [Finding your apps in the portal](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal).
 
 ### Determine the type of connector to use
 
@@ -153,7 +153,7 @@ The actual steps required to enable and configure automatic provisioning vary de
 
 If not, follow the steps below:
 
-1. [Create a request](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-app-gallery-listing) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
+1. [Create a request](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) for a pre-integrated user provisioning connector. Our team will work with you and the application developer to onboard your application to our platform if it supports SCIM.
 
 1. Use the [BYOA SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) generic user provisioning support for the app. This is a requirement for Azure AD to provision users to the app without a pre-integrated provisioning connector.
 
@@ -256,7 +256,7 @@ When enabling automatic provisioning for an application, the initial cycle can t
 
 The provisioning service stores the state of both systems after the initial cycle, improving performance of subsequent incremental cycles.
 
-### Configure Automatic user provisioning
+### Configure automatic user provisioning
 
 Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and de-provisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
 
@@ -300,7 +300,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [No users are being provisioned to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
 
-* [Wrong set of users are being provisioned to an Azure AD Gallery application](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned)
+* [Wrong set of users are being provisioned to an Azure AD Gallery application](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned)
 
 ### Helpful documentation
 
@@ -320,7 +320,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Stack overflow Azure AD forum](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
-## Next Steps
+## Next steps
 * [Configure Automatic User Provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal)
 
 * [Export or import your provisioning configuration by using Microsoft Graph API](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration)
