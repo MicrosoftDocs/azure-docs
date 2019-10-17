@@ -163,10 +163,10 @@ az iot hub device-identity show --device-id $iotDeviceName \
 ##### ROUTING FOR STORAGE #####
 
 # You're going to have two routes and two endpoints.
-# One points to container1 in the storage account
-#   and includes all messages.
+# One route points to container1 in the storage account
+#   and includes the original messages.
 # The other points to container2 in the same storage account
-#   and only includes enriched messages.
+#   and includes the enriched versions of the messages.
 
 endpointType="azurestoragecontainer"
 endpointName1="ContosoStorageEndpointOriginal"
@@ -220,7 +220,7 @@ az iot hub route create \
   --enabled \
   --condition $condition
 
-# This is the route for messages that are not enriched.
+# This is the route for messages that are enriched.
 az iot hub route create \
   --name $routeName2 \
   --hub-name $iotHubName \
