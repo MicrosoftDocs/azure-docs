@@ -99,6 +99,9 @@ To configure Priority Matrix for automatic user provisioning with Azure AD, you 
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Priority Matrix based on user and/or group assignments in Azure AD.
 
+> [!NOTE]
+> To learn more about Priority Matrix's SCIM endpoint, refer to [User provisioning and Priority Matrix](https://appfluence.com/help/article/user-provisioning/).
+
 ### To configure automatic user provisioning for Priority Matrix in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
