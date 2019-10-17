@@ -23,7 +23,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 ## About Azure Machine Learning
 
-Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud. 
+Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud.
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
@@ -34,6 +34,7 @@ Train, test, and deploy your models with rich tools such as:
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
 + R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code
 + [Visual Studio Code extension](how-to-vscode-tools.md)
++ [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
 ## What can I do with the service?
 
@@ -72,7 +73,7 @@ For code-free training, try:
 
 When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
-Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) or [Azure Machine Learning studio](https://ml.azure.com).
+Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
 
 These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
@@ -82,6 +83,8 @@ And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can
 * Reuse components and only re-run steps when needed
 * Use different compute resources in each step
 * Run batch scoring tasks
+
+If you want to use scripts to automate your machine learning workflow, the [machine learning CLI](reference-azure-machine-learning-cli.md) provides command-line tools that perform common tasks, such as submitting a training run or deploying a model.
 
 To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
@@ -107,25 +110,32 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## How does Azure Machine Learning differ from Studio?
 
-[Machine Learning Studio (classic)](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
+[ML Studio (classic](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
 
-Azure Machine Learning provides both SDKs **-and-** the designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
+Azure Machine Learning provides both a web interface called the designer (preview) and several SDKs and CLI to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources, is scalable, and is fully integrated into Azure Machine Learning.
 
 Here is a quick comparison.
 
-|| Machine Learning Studio (classic) | Azure Machine Learning:<br/>The designer|
+
+|| Studio (classic) | Azure Machine Learning designer|
+
 |---| --- | --- |
 || Generally available (GA) | In preview|
-|Modules for interface| Many | Initial set of popular modules|
-|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
-|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](how-to-deploy-and-where.md) supported in SDK) |
-|Automated model training and hyperparameter tuning | No | Not yet in the designer. <br/> (Supported in the SDK and Azure Machine Learning studio.) |
+|Drag-and-drop interface| Yes | Yes|
+|Experiment| Scale (10GB training data limit) | Scale with compute target|
+|Modules for interface| Many | Many popular modules|
+|Training compute targets| Proprietary compute target, CPU only|AML Compute(GPU/CPU)<br/> Notebook VMs |
+|Inferencing compute targets| Proprietary web service format, not customizable | Azure Kubernetes Service(real-time inferencing) <br/>AML Compute(batch inferencing) |
+|ML Pipeline| Not supported | Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](concept-ml-pipelines.md)|
+|ML Ops| Basic model management and deployment | Configurable deployment, model and pipeline versioning|
+|Model| Proprietary format. Can not be used outside of Studio | Standard format, various depends on the training job|
+|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the Python SDK and workspace landing page.) |
 
-Try out the designer with [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md).
+Try out the designer (preview) with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
 
 > [!NOTE]
-> Models created in Studio (classic) can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
 
+> Models created in ML Studio (classic) can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
 
 ## Next steps
 
@@ -134,8 +144,10 @@ Try out the designer with [Tutorial: Predict automobile price with the designer]
   + [Use R Markdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
   + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
-
+  + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 
 - Read the in-depth [Azure Machine Learning architecture and concepts](concept-azure-machine-learning-architecture.md) article.
+
+- Learn about the [machine learning CLI](reference-azure-machine-learning-cli.md).

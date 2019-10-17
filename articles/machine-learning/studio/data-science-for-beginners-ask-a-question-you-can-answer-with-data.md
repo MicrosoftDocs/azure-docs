@@ -1,6 +1,6 @@
 ---
 title: Ask a question data can answer
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Learn how to formulate a sharp data science question in Data Science for Beginners video 3. Includes a comparison of classification and regression questions.
 services: machine-learning
 ms.service: machine-learning
@@ -83,8 +83,8 @@ But, most important, ask that sharp question - the question that you can answer 
 
 We've talked about some basic principles for asking a question you can answer with data.
 
-Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning Studio.
+Be sure to check out the other videos in "Data Science for Beginners" from Microsoft Azure Machine Learning Studio (classic).
 
 ## Next steps
-* [Try a first data science experiment with Machine Learning Studio](create-experiment.md)
+* [Try a first data science experiment with Machine Learning Studio (classic)](create-experiment.md)
 * [Get an introduction to Machine Learning on Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

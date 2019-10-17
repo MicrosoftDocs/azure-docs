@@ -1,7 +1,7 @@
 ---
 title: Consume web service in Excel
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio makes it easy to call web services directly from Excel without the need to write any code.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Azure Machine Learning Studio (classic) makes it easy to call web services directly from Excel without the need to write any code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,9 +12,9 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
 ---
-# Consuming an Azure Machine Learning Studio Web Service from Excel
+# Consuming an Azure Machine Learning Studio (classic) Web Service from Excel
 
- Azure Machine Learning Studio makes it easy to call web services directly from Excel without the need to write any code.
+ Azure Machine Learning Studio (classic) makes it easy to call web services directly from Excel without the need to write any code.
 
 If you are using Excel 2013 (or later) or Excel Online, then we recommend that you use the Excel [Excel add-in](excel-add-in-for-web-services.md).
 
@@ -29,7 +29,7 @@ Once you have a web service, click on the **WEB SERVICES** section on the left o
 
 1. On the **DASHBOARD** tab for the web service is a row for the **REQUEST/RESPONSE** service. If this service had a single output, you should see the **Download Excel Workbook** link in that row.
 
-    ![Download Excel Workbook using the Studio Web Service portal](./media/consuming-from-excel/excellink.png)
+    ![Download Excel Workbook using the Studio (classic) Web Service portal](./media/consuming-from-excel/excellink.png)
 2. Click on **Download Excel Workbook**.
 
 **New Web Service**
