@@ -82,7 +82,7 @@ The `data_references` section uses the following keys, which correspond to the [
 | `datastore` | The datastore to reference. |
 | `path_on_datastore` | The relative path in the backing storage for the data reference. |
 
-Each data reference is named. For example, the following YAML snippet defines a data reference named `employee_data`:
+Each data reference is contained in a key. For example, the following YAML snippet defines a data reference stored in the key named `employee_data`:
 
 ```yaml
 pipeline: 
@@ -96,3 +96,7 @@ pipeline:
             datastore: adftestadla 
             path_on_datastore: "adla_sample/sample_input.csv"
 ```
+
+### Dataset
+
+If the data reference section can 
