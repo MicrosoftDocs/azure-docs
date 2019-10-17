@@ -32,7 +32,7 @@ This article covers many of the authentication concepts you'll need to understan
 
 **Authorization** is the act of granting an authenticated party permission to do something. It specifies what data you're allowed to access and what you can do with that data. Authorization is sometimes shortened to AuthZ.
 
-Instead of creating apps that each maintain their own username and password information, which incurs a high administrative burden when you have multiple apps and need to add or remove users across them, apps can delegate that responsibility to a centralized identity provider.
+Instead of creating apps that each maintain their own username and password information, which incurs a high administrative burden when you need to add or remove users across multiple apps, apps can delegate that responsibility to a centralized identity provider.
 
 Azure Active Directory (Azure AD) is a centralized identify provider in the cloud. Delegating authentication and authorization to it enables scenarios such as conditional access policies that require a user to be in a specific location, the use of multi-factor authentication, as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as Single Sign On (SSO).
 
@@ -73,7 +73,7 @@ Tokens are only valid for a limited amount of time. Usually the STS provides a p
 
 Access tokens are passed to a Web API as the bearer token in the `Authenticate` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
 
-### Applications
+## Application model
 
 Applications can sign in users themselves or delegate sign-in to an identity provider. See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn about sign-in scenarios supported by Azure AD.
 
@@ -86,8 +86,6 @@ For an identity provider to know that a user has access to a particular app, bot
 - share a secret with Azure AD that proves the app's identity to Azure AD.  This is relevant in the case where the app is a confidential client application. A confidential client application is an application that can hold credentials securely. They require a trusted backend server to store the credentials.
 
 Once registered, the application will be given a GUID that the app shares with Azure AD when it requests tokens. If the app is a confidential client application, it will also share the secret or the public key, depending on whether certificates or secrets were used.
-
-## Application model
 
 The Microsoft identity platform represents applications using a model that fulfills two main functions:
 
