@@ -38,7 +38,7 @@ This article provides an explanation of how to enable the Azure Security Center 
 
 ## Enable Azure Security Center for IoT on your IoT Hub 
 
-To enable security on your IoT Hub, do the following: 
+To enable security on your IoT Hub: 
 
 1. Open your **IoT Hub** in Azure portal. 
 1. Under the **Security** menu, click **Secure your IoT solution**.
@@ -54,7 +54,7 @@ Congratulations! You've completed enabling Azure Security Center for IoT on your
 
 ### Geolocation and IP address handling
 
-To secure your IoT solution, IP addresses of incoming and outgoing connections to and from your IoT devices, IoT Edge and IoT Hub(s) are collected and stored by default. This information is essential to detect abnormal connectivity from suspicious IP sources. For example, when attempts are made to establish connections from an IP source of a known botnet or from an IP source outside your geolocation. Azure Security Center for IoT service offers the flexibility to enable and disable collection of IP address data at any time. 
+To secure your IoT solution, IP addresses of incoming and outgoing connections to and from your IoT devices, IoT Edge, and IoT Hub(s) are collected and stored by default. This information is essential to detect abnormal connectivity from suspicious IP sources. For example, when attempts are made to establish connections from an IP source of a known botnet or from an IP source outside your geolocation. Azure Security Center for IoT service offers the flexibility to enable and disable collection of IP address data at any time. 
 
 To enable or disable collection of IP address data: 
 
@@ -63,7 +63,7 @@ To enable or disable collection of IP address data:
 
 ### Log Analytics creation
 
-When Azure Security Center for IoT is turned on, a default Azure Log Analytics workspace is created to store raw security events, alerts and recommendations for your IoT devices, IoT Edge and IoT Hub. Each month, the first five (5) GB of data ingested per customer to the Azure Log Analytics service  is free. Every GB of data ingested into your Azure Log Analytics workspace is retained at no charge for the first 31 days. Learn more about [Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) pricing.
+When Azure Security Center for IoT is turned on, a default Azure Log Analytics workspace is created to store raw security events, alerts, and recommendations for your IoT devices, IoT Edge, and IoT Hub. Each month, the first five (5) GB of data ingested per customer to the Azure Log Analytics service  is free. Every GB of data ingested into your Azure Log Analytics workspace is retained at no charge for the first 31 days. Learn more about [Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) pricing.
 
 To change the workspace configuration of Log Analytics:
 
