@@ -210,9 +210,9 @@ Your application can save the time of the last consumed segment, and then period
 
 You can also serialize the reader by calling **SerializeState** method of the reader object. Then, you can instantiate the reader at a later time by passing that serialized string into any of these methods.
 
-- **ChangeFeedReader.CreateChangeFeedReaderFromPointerAsync()**
-- **ChangeFeedSegmentReader.CreateChangeFeedSegmentReaderFromPointerAsync()**
-- **ChangeFeedSegmentShardReader.CreateChangeFeedSegmentShardReaderFromPointerAsync()**
+- **ChangeFeed.CreateChangeFeedReaderFromPointerAsync()**
+- **ChangeFeedSegment.CreateChangeFeedSegmentReaderFromPointerAsync()**
+- **ChangeFeedSegmentShard.CreateChangeFeedSegmentShardReaderFromPointerAsync()**
 
 This example reads segments starting at a specific checkpoint. This example uses a helper method named  ``IsSegmentConsumableAsync`` to ensure that the segment is finalized and ready to be read. 
 
