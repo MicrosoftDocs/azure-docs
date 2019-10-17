@@ -26,7 +26,10 @@ Azure Service Bus currently supports activity/operational logs which capture **m
 
 ## Operational logs schema
 
-All logs are stored in JavaScript Object Notation (JSON) format.
+All logs are stored in JavaScript Object Notation (JSON) format in the below 2 locations.
+
+1. **AzureActivity** - displays logs from operations/actions conducted against your namespace on the portal or through Azure Resource Manager template deployments.
+2. **AzureDiagnostics** - displays logs from operations/actions conducted against your namespace using the API, or through management clients on the language SDK.
 
 Operational log JSON strings include elements listed in the following table:
 
@@ -74,6 +77,8 @@ The below management operations are captured in operational logs -
 | Topic | <ul> <li> Create Topic </li> <li> Update Topic </li> <li> Delete Topic </li> </ul> |
 | Subscription | <ul> <li> Create Subscription </li> <li> Update Subscription </li> <li> Delete Subscription </li> </ul> |
 
+> [!NOTE]
+> Currently, **Read** operations are not tracked in the operational logs.
 
 ## How to enable operational logs?
 
