@@ -21,10 +21,10 @@ To view live metrics and data with Azure Monitor for containers from Azure Kuber
 
 These instructions require both administrative access to your Kubernetes cluster, and if configuring to use Azure Active Directory (AD) for user authentication, administrative access to Azure AD for your cluster.  
 
-This article explains how to configure the the following types of authentication to control access to the live metric and data from the cluster:
+This article explains how to configure the the following types of authentication to control access to the Live Metric and Data (preview) feature from the cluster:
 
 - Role based access control (RBAC) enabled AKS cluster
-- Azure Active Directory integrated AKS cluster
+- Azure Active Directory integrated AKS cluster 
 
 >[!NOTE]
 >AKS clusters enabled as [private clusters](https://azure.microsoft.com/updates/aks-private-cluster/) are not supported with this feature. This feature relies on directly accessing the Kubernetes API through a proxy server from your browser. Enabling networking security to block the Kubernetes API from this proxy will block this traffic. 
@@ -34,7 +34,7 @@ This article explains how to configure the the following types of authentication
 
 ## Authentication model
 
-The live data and metrics features utilizes the Kubernetes API, identical to the `kubectl` command-line tool. The Kubernetes API endpoints utilize a self-signed certificate, which your browser will be unable to validate. This feature utilizes a internal proxy to validate the certificate with the AKS service, ensuring the traffic is trusted.
+The Live Data and Metrics (preview) features utilizes the Kubernetes API, identical to the `kubectl` command-line tool. The Kubernetes API endpoints utilize a self-signed certificate, which your browser will be unable to validate. This feature utilizes a internal proxy to validate the certificate with the AKS service, ensuring the traffic is trusted.
 
 The Azure portal prompts you to validate your login credentials for an Azure Active Directory cluster, and redirect you to the client registration setup during cluster creation (and re-configured in this article). This behavior is similar to the authentication process required by `kubectl`. 
 
