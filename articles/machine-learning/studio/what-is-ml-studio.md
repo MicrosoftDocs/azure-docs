@@ -43,10 +43,10 @@ Here is a quick comparison:
 || Generally available (GA) | In preview|
 | Drag and drop interface | Yes | Yes - Azure Machine Learning designer |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
-| Modules for drag-and-drop interface | Many | Initial set of popular [modules](../service/module-reference)|
-|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../service/concept-compute-target#train))|
+| Modules for drag-and-drop interface | Many | Initial set of popular [modules](../service/module-reference.md)|
+|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../service/concept-compute-target.md#train))|
 |Inferencing compute targets| Proprietary web service format, not customizable |  Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](../service/how-to-deploy-and-where.md)) |
-| ML Pipeline | Not supported | [Pipelines](../service/concept-ml-pipelines) supported |
+| ML Pipeline | Not supported | [Pipelines](../service/concept-ml-pipelines.md) supported |
 | ML Ops | Basic model management and deployment | Configurable deployment - model and pipeline versioning and tracking |
 | Model format | Proprietary format, Studio only | Standard format depending on training job type |
 |Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> (Supported in the SDK and workspace landing page) | 
