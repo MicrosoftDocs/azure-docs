@@ -1,6 +1,6 @@
 ---
 title: Custom domains in Azure AD Application Proxy | Microsoft Docs
-description: Manage custom domains in Azure AD Application Proxy so that the URL for the app is the same regardless of where your users access it. 
+description: Configure and manage custom domains in Azure AD Application Proxy. 
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 10/16/2019
 ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
@@ -20,69 +20,113 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Working with custom domains in Azure AD Application Proxy
+# Configure custom domains in Azure AD Application Proxy
 
-When you publish an application through Azure Active Directory Application Proxy, you create an external URL for your users to go to when they're working remotely. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you published an app named Expenses and your tenant is named Contoso, then the external URL would be `https://expenses-contoso.msappproxy.net`. If you want to use your own domain name, configure a custom domain for your application. 
+When you publish an application through Azure Active Directory Application Proxy, you create an external URL for your users. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you publish an app named *Expenses* in your tenant named *Contoso*, the external URL is *https:\//expenses-contoso.msappproxy.net*. If you want to use your own domain name instead of *msappproxy.net*, you can configure a custom domain for your application. 
 
-We recommend that you set up custom domains for your applications whenever possible. Some of the benefits of custom domains include:
+It's a good idea to set up custom domains for your apps whenever possible. Some reasons to use custom domains include:
 
-- Your users can get to the application with the same URL, whether they are working inside or outside of your network.
-- If all of your applications have the same internal and external URLs, then links in one application that point to another continue to work even outside the corporate network. 
-- You control your branding, and create the URLs you want. 
+- If your app has hard-coded internal links to targets that aren't published within the Application Proxy app, and the links aren't externally resolvable, they will break. When your internal and external URLs are the same, you avoid this problem. Links between apps work even outside the corporate network. If you're not able to use custom domains, see [Redirect hardcoded links for apps published with Azure AD Application Proxy](../application-proxy-link-translation.md) for other ways to address this issue. 
+  
+- Your users will have an easier experience, because they can get to the app with the same URL from inside or outside your network. They don’t need to learn different internal and external URLs, or track their current location. 
 
+- You can control your branding and create the URLs you want. A custom domain can help build your users' confidence, because users see and use a familiar name instead of *msappproxy.net*.
 
-## Configure a custom domain
+- Some configurations will only work with custom domains. For example, you need custom domains for apps that use Security Assertion Markup Language (SAML), such as when you’re using Active Directory Federation Services (AD FS) but are unable to use WS-Federation. For more information, see [Work with claims-aware apps in Application Proxy](application-proxy-configure-for-claims-aware-applications.md). 
 
-### Prerequisites
+If you're not able to make the internal and external URLs match, it's not as important to use custom domains, but there may still be other benefits. 
 
-Before you configure a custom domain, make sure that you have the following requirements prepared: 
-- A [verified domain added to Azure Active Directory](../fundamentals/add-custom-domain.md).
-- A custom certificate for the domain, in the form of a PFX file.
-- An on-premises app [published through Application Proxy](application-proxy-add-on-premises-application.md).
+## Set up and use custom domains
 
-### Configure your custom domain
+To configure an on-premises app to use a custom domain, you need a verified Azure Active Directory custom domain, a PFX certificate for the custom domain, and an on-premises app to configure. 
 
-When you have those three requirements ready, follow these steps to set up your custom domain:
+### Create and verify a custom domain
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Navigate to **Azure Active Directory** > **Enterprise applications** > **All applications** and choose the app you want to manage.
-3. Select **Application Proxy**. 
-4. In the External URL field, use the dropdown list to select your custom domain. If you don't see your domain in the list, then it hasn't been verified yet. 
-5. Select **Save**
-5. The **Certificate** field that was disabled becomes enabled. Select this field. 
+To create and verify a custom domain:
 
+1. In Azure Active Directory, select **Custom domain names** in the left navigation, and then select **Add custom domain**. 
+1. Enter the custom domain name and select **Add Domain**. 
+1. At the prompt, create a new TXT record in your domain registrar, and provide the requested information. 
+1. After you add the domain, on the **Custom domain names** page, select the domain, and then select **Verify**. Once the domain status is **Verified**, you can use the domain across all your Azure AD configurations, including Application Proxy. 
+
+For more information about adding custom domains, see []((../fundamentals/add-custom-domain.md).
+
+### Configure an app to use a custom domain
+
+To publish your app through Application Proxy and configure it to use a custom domain:
+
+1. For a new app, in Azure Active Directory, select **Enterprise applications** in the left navigation, select **New application**, and then select **On-premises application**. 
+   
+   For an app already in **Enterprise applications**, select it from the list, and then select **Application proxy** in the left navigation. 
+
+(application-proxy-add-on-premises-application.md) through Application Proxy.
+
+1. On the **Application Proxy** page, in the **External URL** field, drop down the list and select the custom domain you want to use. 
+   
+1. Select **Save**.
+
+1. If the domain already has a certificate, the **Certificate** field displays the certificate information. Otherwise, select the **Certificater** field. 
+   
    ![Click to upload a certificate](./media/application-proxy-configure-custom-domain/certificate.png)
+   
+1. On the **SSL Certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates](#certificates) section.
+   
+   > [!TIP] 
+   > A custom domain only needs its certificate uploaded once. After that, the uploaded certificate will be applied automatically when you use that custom domain for other apps.
+   
+1. On the **Application Proxy** page, select **Save**. 
+   
+1. In the information bar, note the entry you need to add to your DNS provider. 
+   
+1. Add the [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the *msappproxy.net* domain. For more information about DNS configuration, see [DNS entries](#dns-entries).
+   
+1. To check that the DNS record is configured correctly, use the [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) command to confirm that your external URL is reachable and the *msapproxy.net* domain appears as an alias.
 
-   If you already uploaded a certificate for this domain, the Certificate field displays the certificate information. 
+Your application is now set up to use the custom domain. Be sure to assign users to your application before you test or release it. 
 
-6. Upload the PFX certificate and enter the password for the certificate. 
-7. Select **Save** to save your changes. 
-8. Add a [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the msappproxy.net domain.
-9. Check that the DNS record is configured correctly by using the [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) command to see if your external URL is reachable and the msapproxy.net domain shows up as an alias.
+To change the domain for an application, select a different domain from the dropdown list in **External URL** on the app's **Application Proxy** page. Upload a certificate for the updated domain, if necessary, and update the DNS record. If you don't see the custom domain you want in the dropdown list in **External URL**, it may not be verified.
 
->[!TIP] 
->You only need to upload one certificate per custom domain. Once you upload a certificate, you can choose the custom domain when you publish a new app and not have to do additional configuration except for the DNS record. 
+## Certificates
 
-## Manage certificates
+Certificates create the secure SSL connection for your custom domain. 
 
-### Certificate format
-There is no restriction on the certificate signature methods. Elliptic Curve Cryptography (ECC), Subject Alternative Name (SAN), and other common certificate types are all supported. 
+### Certificate formats
 
-You can use a wildcard certificate as long as the wildcard matches the desired external URL.
+You must use a PFX certificate, to ensure all required intermediate certificates are included. The certificate must include the private key.
 
-The certificate must include the private key.
+There's no restriction on the certificate signature methods. Elliptic Curve Cryptography (ECC), Subject Alternative Name (SAN), and other common certificate types are supported. 
 
-Certificates issued by your own public key infrastructure (PKI) can be used if the certificate chain is installed on your client devices. Intune can be used to deploy these certificates to managed devices. For non-managed devices these certificates must be manually installed.
+You can use wildcard certificates as long as the wildcard matches the external URL. You must use wildcard certificates for  wildcard applications. If you want to use the certificate to also access subdomains, you must add the subdomain wildcards as subject alternative names in the same certificate. For example, a certificate for *\*.adventure-works.com* won't work for *\*.apps.adventure-works.com* unless you add *\*.apps.adventure-works.com* as a subject alternative name. 
 
-### Changing the domain
-All verified domains appear in the External URL dropdown list for your application. To change the domain, just update that field for the application. If the domain you want isn't in the list, [add it as a verified domain](../fundamentals/add-custom-domain.md). If you select a domain that doesn't have an associated certificate yet, follow steps 5-7 to add the certificate. Then, make sure you update the DNS record to redirect from the new external URL. 
+You can use certificates issued by your own public key infrastructure (PKI) if the certificate chain is installed on your client devices. Intune can deploy these certificates to managed devices. For non-managed devices, you must manually install these certificates.
+
+Don't use a private root CA. The private root CA would also need to be pushed to client machines, which introduces many challenges. 
 
 ### Certificate management
-You can use the same certificate for multiple applications unless the applications share an external host. 
 
-You get a warning when a certificate expires, telling you to upload another certificate through the portal. If the certificate is revoked, your users may see a security warning when accessing the application. We don’t perform revocation checks for certificates.  To update the certificate for a given application, navigate to the application and follow steps 5-7 for configuring custom domains on published applications to upload a new certificate. If the old certificate is not being used by other applications, it is deleted automatically. 
+All certificate management is through the individual application pages. Go to the application's **Application Proxy** page to access the **Certificate** field.
 
-Currently all certificate management is through individual application pages so you need to manage certificates in the context of the relevant applications. 
+You can use the same certificate for many applications, as long as they share an external host. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when adding or configuring the app. 
+
+When a certificate expires, you get a warning telling you to upload another certificate. If the certificate is revoked, your users may see a security warning when accessing the app. To update the certificate for an app, navigate to the **Application Proxy** page for the app, select **Certificate**, and upload a new certificate. If the old certificate isn't being used by other apps, it's deleted automatically. 
+
+## DNS entries
+
+When you select a custom domain for an external URL, an information bar shows the CNAME entry you need to add to the external DNS provider. You can always see this information again by going to the app's **Application Proxy** page.
+
+### Same internal and external URL, different internal and external behavior 
+
+If you don't want your internal users to be directed through the Application Proxy, you can set up a *split-brain DNS*. A split DNS infrastructure directs internal hosts to an internal domain name server, and external hosts to an external domain name server, for name resolution. 
+
+### Same internal and external URL, same internal and external behavior 
+
+In this scenario, both the internal and external DNS CNAME entries point to the *msapproxy.net* URL. 
+
+A common case for this scenario is to apply conditional access to the web app or website regardless of device location. For example, only Azure AD Registered/Join Device trusted devices are allowed access. 
+
+### Different internal and external URLs 
+
+If the internal and external URLs are different, you don't need to configure split-brain behavior, because user routing is determined by the URL. In this case, you change only the external DNS, and route the external URL to the Application Proxy endpoint. 
 
 ## Next steps
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
