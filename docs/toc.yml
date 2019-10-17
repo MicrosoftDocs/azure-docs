@@ -21,19 +21,19 @@
       href: implement-licensing-for-add-in-services.md
     - name: Add-in license schema
       href: add-in-license-schema.md
-  - name: Prepare localized apps and add-ins
-    href: prepare-localized-add-ins.md
-  - name: Submit add-ins via Partner Center
+  - name: Prepare localized solutions
+    href: prepare-localized-solutions.md
+  - name: Submit solutions via Partner Center
     items: 
     - name: Partner Center overview
       href: use-partner-center-to-submit-to-appsource.md
-    - name: Reserve add-in name
+    - name: Reserve name
       href: reserve-solution-name.md
     - name: Add setup details
       href: add-setup-details.md
     - name: Upload your package
       href: upload-package.md
-    - name: Define add-in properties
+    - name: Define solution properties
       href: define-office-solution-properties.md
     - name: Create your AppSource listing
       href: appsource-listing.md
@@ -47,10 +47,10 @@
         href: create-effective-office-store-listings.md
       - name: Craft effective AppSource store images
         href: craft-effective-appsource-store-images.md
-  - name: Add-in management and services
+  - name: Solution management and services
     items:
-      - name: Mange add-in names
-        href: manage-add-in-names.md
+      - name: Mange names
+        href: manage-solution-names.md
       - name: Create or update client IDs and secrets
         href: create-or-update-client-ids-and-secrets.md
   - name: Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China
@@ -59,5 +59,5 @@
     href: validation-policies.md
   - name: Promote your AppSource solution
     href: promote-your-office-store-solution.md
-  - name: Analyze add-in performance
+  - name: Analyze performance
     href: view-acquisitions-report.md
