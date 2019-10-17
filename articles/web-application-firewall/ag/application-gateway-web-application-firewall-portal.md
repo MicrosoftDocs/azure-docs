@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create an application gateway
 
@@ -48,7 +48,7 @@ Select **Networking** and then select **Application Gateway** in the **Featured*
 
    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
    - **Application gateway name**: Enter *myAppGateway* for the name of the application gateway.
-   - **Tier**: select **WAF V2**
+   - **Tier**: select **WAF V2**.
 
      ![Create new application gateway: Basics](../media/application-gateway-web-application-firewall-portal/application-gateway-create-basics.png)
 
