@@ -12,7 +12,7 @@ ms.reviewer: sadodd
 
 # Process change feed logs in Azure Blob Storage (Preview)
 
-Change feed provides transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. This article shows you how to process a change feed log in a .NET client application. 
+Change feed provides transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. This article shows you how to process the change feed and read the records that appear in transaction logs by using .NET. 
 
 To learn more about the change feed, see [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md).
 
@@ -54,9 +54,9 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 }
 ```
 
-## Read all records
+## Iterate through change feed records
 
-The simplest way to read change feed records is to use the `ChangeFeedReader` class. This example iterates through all records. It calls a helper method named `printAvroRecordsToConsole` to print record values to the console. The code in that helper method appears in the next section. 
+The simplest way to iterate through a collection of records is to use the **ChangeFeedReader** class. This example iterates through all records. For each record, this code calls a helper method named ``printAvroRecordsToConsole`` to print values to the console. The code in that helper method appears in the next section. 
  
 ```csharp
 public async Task ProcessRecords(CloudBlobClient cloudBlobClient)
@@ -84,9 +84,7 @@ public async Task ProcessRecords(CloudBlobClient cloudBlobClient)
 
 ## Read a change feed record
 
-This reads the values of a change feed record, and then prints those values to the console.
-
-You can read those values by using the `record` property of a `ChangeFeedRecord` object.  TODO: Put more values in here. For example: string api = ((GenericEnum)((GenericRecord)currentRecord.record["data"])["api"]).Value;
+You can read those values by using the **record** property of a **ChangeFeedRecord** object.  TODO: Put more values in here. For example: string api = ((GenericEnum)((GenericRecord)currentRecord.record["data"])["api"]).Value;
 
 ```csharp
 private void printAvroRecordsToConsole(ChangeFeedRecord currentRecord)
@@ -99,9 +97,9 @@ private void printAvroRecordsToConsole(ChangeFeedRecord currentRecord)
 } 
 ```
 
-## Read records in each segment
+## Iterate through segments of records
 
-Use the `ChangeFeedSegmentReader` class to iterate through records by time segment.  This example iterates through all records by time segment and then calls a helper method named `printAvroRecordsToConsole` to print record values to the console. The code in that helper method appears in the [Read a change feed record](#read-change-record) section of this article.  
+Use the **ChangeFeedSegmentReader** class to iterate through records by time segment.  This example iterates through all records by time segment and then calls a helper method named ``printAvroRecordsToConsole`` to print record values to the console. The code in that helper method appears in the [Read a change feed record](#read-change-record) section of this article.  
 
 ```csharp
 public async Task ProcessSegments(CloudBlobClient cloudBlobClient)
@@ -148,9 +146,9 @@ public async Task ProcessSegments(CloudBlobClient cloudBlobClient)
 }
 ```
 
-## Read records in each shard
+## Iterate through shards of records
 
-A segment can point to multiple log files. This pointer, is referred to as a `chunkFilePath` or `shard`. The system internally partitions records into multiple shards to manage publishing throughput. You can use the `ChangeFeedSegmentShardReader` class to iterate through records at the shard level. 
+A segment can point to multiple log files. This pointer appears in segment file and is referred to as a *chunkFilePath* or *shard*. The system internally partitions records into multiple shards to manage publishing throughput. You can use the **ChangeFeedSegmentShardReader** class to iterate through records at the shard level if that's most efficient for your scenario. 
 
 This example iterates through all segments, and for each segment, reads all records in all shards. 
 
@@ -206,17 +204,17 @@ public async Task ProcessShards(CloudBlobClient cloudBlobClient)
 
 ```
 
-## Read segments after a specific time
+## Iterate through segments by using a checkpoint
 
-Your application can save the time offset of the last consumed segment, and then periodically poll the change feed for new records that have been added after that time period.
+Your application can save the time of the last consumed segment, and then periodically poll the change feed for new records that have been added after that time period.
 
-This example reads segments starting at a specific checkpoint (time offset). This example uses a helper method named  `IsSegmentConsumableAsync` to ensure that the segment is finalized and ready to be read. 
+You can also serialize the reader by calling **SerializeState** method of the reader object. Then, you can instantiate the reader at a later time by passing that serialized string into any of these methods.
 
-An alternative way to save a checkpoint is to serialize the reader by calling `SerializeState` method of the reader object. Then, you can instantiate the reader at a later time by using the serialize string. You can use any of these methods to do that:
+- **ChangeFeedReader.CreateChangeFeedReaderFromPointerAsync()**
+- **ChangeFeedSegmentReader.CreateChangeFeedSegmentReaderFromPointerAsync()**
+- **ChangeFeedSegmentShardReader.CreateChangeFeedSegmentShardReaderFromPointerAsync()**
 
-- `ChangeFeedReader.CreateChangeFeedReaderFromPointerAsync`
-- `ChangeFeedSegmentReader.CreateChangeFeedSegmentReaderFromPointerAsync`
-- `ChangeFeedSegmentShardReader.CreateChangeFeedSegmentShardReaderFromPointerAsync`
+This example reads segments starting at a specific checkpoint. This example uses a helper method named  ``IsSegmentConsumableAsync`` to ensure that the segment is finalized and ready to be read. 
 
 ```csharp
 public async Task ProcessSegmentsWithCheckpoints(CloudBlobClient cloudBlobClient, 
@@ -294,5 +292,4 @@ private async Task<bool> IsSegmentConsumableAsync(ChangeFeedSegment segment,
 
 ## Next steps
 
-Learn more about change feed logs. See [Change feed support in Azure Blob Storage](storage-blob-change-feed.md)
-Learn how to process events in real time. See [Route Blob storage Events to a custom web endpoint](storage-blob-event-quickstart.md)
+Learn more about change feed logs. See [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md)
