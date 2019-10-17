@@ -41,13 +41,13 @@ Virtual machine scale sets will support 2 distinct orchestration modes:
 |   |   |   |
 | Create | VMs are added to a scale set at create time.  Conversely a scale set can be created with this mode at the time of VM creation (using portal). | VMs are created only using VM configuration defined in the scale set. |
 | Delete | VMs have to be deleted individually, the scale set will not be deleted if it has any VMs in it. | VMs can be deleted individually, deleting the scale set will delete all of the VM instances. |
-| Attach/Detach VMs | Not Supported | Not Supported |
+| Attach/Detach VMs | Not supported | Not supported |
 | Fault domains  | Can define fault domains. 2 or 3 based on regional support and 5 for Availability zone. | Can define fault domains going from 1 through 5 |
 | Update domains | N/A. Update domains are automatically mapped to fault domains | N/A. Update domains are automatically mapped to fault domains |
 | Availability Zones  | Only one availability zone can be defined in this mode.  | 1 through 3 Availability Zone can be defined in this mode. |
-| AutoScale  | Not Supported | Supported |
-| OS upgrade  | Not Supported | Supported |
-| Model updates | Not Supported | Supported |
+| AutoScale  | Not supported | Supported |
+| OS upgrade  | Not supported | Supported |
+| Model updates | Not supported | Supported |
 | Instance control | Full VM Control, VMs have fully qualified URI that provides management of VM   | VMs are dependent resources of VMSS. Instaces can be accessed for management only through the scale set. |
 | Instance Model | Microsoft.Compute/VirtualMachines model definition. | Microsoft.Compute/VirtualMachineScaleSets/VirtualMachines model definition. |
 | Instance Lifecycle (Creation through Deletion) | VMs and their artifacts (Disks, NICs etc.) can be managed independently. | Instances and their artifacts (Disks, NICs etc.) are sticky to the scale set instances that create them. |
