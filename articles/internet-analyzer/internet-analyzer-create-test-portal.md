@@ -37,7 +37,7 @@ This section helps you create a new Azure Internet Analyzer resource from the Az
 1. [Request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR65LM6ELn65MggTwxb0d215UMkNIUDVGV1JGS0w5WFBHWklNMTNRTDQ4My4u) to use Internet Analyzer by providing your active Subscription ID. 
 2. From the home page in the [Azure portal - Internet Analyzer preview](https://preview.portal.azure.com), click **+ Create a resource**. Make sure to use the link provided to access the portal for this preview, not the regular Azure portal. 
 3. On the **New** page, in the *Search the Marketplace* field, type Internet Analyzer, then click **Enter** to get to the search results.
-4. From the results, click **Internet Analyzer (preview)**. Make sure the publisher is *Microsoft* and the category is *Networking*.
+4. Click **Internet Analyzer (preview)**. Make sure the publisher is *Microsoft* and the category is *Networking*.
 5. On the **Internet Analyzer (preview)** page, click **Create** to open the **Create an Internet Analyzer** page.
 6. On the **Create an Internet Analyzer** page, configure a new Internet Analyzer resource. Specify the configuration settings for your Internet Analyzer resource.
 
