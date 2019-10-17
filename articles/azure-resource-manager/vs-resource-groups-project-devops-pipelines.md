@@ -4,7 +4,7 @@ description: Describes how to set up continuous integration in Azure Pipelines b
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/17/2019
 ms.author: tomfitz
 ---
 # Integrate Resource Manager templates with Azure Pipelines
@@ -191,7 +191,7 @@ The following YAML shows the [Azure Resource Manager template deployment task](h
 
 There are several parts of this task to revise for your environment.
 
-- 'deploymentScope': Select the scope of deployment from the options: `Management Group`, `Subscription` and `Resource Group`. Use **Resource Group** in this walk through. To learn more about the scopes, see [Deployment scopes](./resource-group-template-deploy-rest.md#deployment-scope).
+- `deploymentScope`: Select the scope of deployment from the options: `Management Group`, `Subscription` and `Resource Group`. Use **Resource Group** in this walk through. To learn more about the scopes, see [Deployment scopes](./resource-group-template-deploy-rest.md#deployment-scope).
 
 - `ConnectedServiceName`: Provide the name of the service connection you created.
 

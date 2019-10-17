@@ -88,7 +88,7 @@ This repository is referred to as a *remote repository*. Each of the developers 
 
     Replace **[YourAccountName]** with your GitHub account name, and replace **[YourGitHubRepositoryName]** with your repository name you created in the previous procedure.
 
-    The following screenshots shows an example.
+    The following screenshot shows an example.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines create GitHub bash](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
 
