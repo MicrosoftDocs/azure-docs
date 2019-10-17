@@ -50,7 +50,7 @@ This article shows how to complete these tasks:
 
   * Subnet names need to start with either an alphabetic character or an underscore and can't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
   
-  * When deploying the ISE through ARM, first ensure one of these empty subnets is delegated to **Microsoft.Logic/integrationServiceEnvironment**.  This is not required when deploying through the Azure Portal.
+  * If you want to deploy the ISE through an Azure Resource Manager template, first make sure that you delegate one empty subnet to Microsoft.Logic/integrationServiceEnvironment. You don't need to do this delegation when you deploy through the Azure portal.
 
   * Make sure that your virtual network [makes these ports available](#ports) so your ISE works correctly and stays accessible.
 
