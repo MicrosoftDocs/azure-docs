@@ -23,7 +23,7 @@ Are you having a problem with Privileged Identity Management in Azure Active Dir
 
 ### Problem
 
-You get an authorization error when you try to make a user eligible for an Azure AD admin role and you are unable to access Azure resources under Privileged Identity Management, You are unable to access Azure resources under Privileged Identity Management even if you are a Global admin and the owner of the subscription.
+You get an authorization error when you try to make a user eligible for an Azure AD admin role and you are unable to access Azure resources under Privileged Identity Management. You are unable to access Azure resources under Privileged Identity Management even if you are a Global admin and the owner of the subscription.
 
 ### Cause
 
@@ -32,10 +32,6 @@ This can happen when the User Access Administrator role for the MS-PIM service p
 ### Resolution
 
 Assign the User Access Administrator role to the Privileged identity Management service principal name (MS–PIM) at the subscription level, which should allow the Privileged identity Management service to access the Azure resources. Be aware that the role can be assigned on a management group level or at the subscription level, based on the requirements and setup of your Azure AD organization. For more information service principals, see [Assign an application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role).
-
-## Team announcement channel
-
-Privileged Identity Management has a [TEAMS Announcement Channel](https://teams.microsoft.com/l/channel/19%3ae1bc90552baf4400a1c396482c8a89cd%40thread.skype/Announcements?groupId=56c43627-9135-4509-bfe0-50ebd0e47960&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47) where upcoming features or any changes done to the features are announced. This channel is where the Privileged Identity Management team shares information about fixes, on-going issues, and new features that you can expect in the future.
 
 ## Next steps
 
