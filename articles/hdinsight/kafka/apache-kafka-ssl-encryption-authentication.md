@@ -122,7 +122,7 @@ To complete the configuration modification, do the following steps:
 
     ![Editing kafka ssl configuration properties in Ambari](./media/apache-kafka-ssl-encryption-authentication/editing-configuration-ambari2.png)
 
-1. Add configuration properties to the Kafka `server.properties` file to advertise IP addresses instead of the Fully Qualified Domain Name (FQDN).
+1. Run the commands below which will add configuration properties to the Kafka `server.properties` file to advertise IP addresses instead of the Fully Qualified Domain Name (FQDN)..
 
     ```bash
     IP_ADDRESS=$(hostname -i)
