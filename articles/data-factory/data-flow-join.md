@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ---
 
-# Mapping Data Flow Join Transformation
+# Mapping data flow Join Transformation
 
 
 
