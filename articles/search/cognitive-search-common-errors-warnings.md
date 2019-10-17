@@ -61,14 +61,14 @@ Indexer was not able to run a skill in the skillset.
 | Reason | Example | Action |
 | --- | --- | --- |
 | Transient connectivity issues | A transient error occurred. Please try again later. | Occasionally there are unexpected connectivity issues. Try running the document through your indexer again later. |
-| Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. Please file a support ticket to get help. |
-| A skill has encountered an error during execution | (From Merge Skill)One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will require action to resolve. |
+| Potential product bug | An unexpected error occurred. | This indicates an unknown class of failure and may mean there is a product bug. Please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) to get help. |
+| A skill has encountered an error during execution | (From Merge Skill) One or more offset values were invalid and could not be parsed. Items were inserted at the end of the text | Use the information in the error message to fix the issue. This kind of failure will require action to resolve. |
 
-### Could not execute skill because the Web Api request failed
-Indexer was not able to run a skill in the skillset because the Web Api request response indicated a failure. Typically this class of failure occurs for custom skills, and requires debugging your custom skill to understand the issue. If the failure is from a built-in Cognitive skill, use the information in the error to fix the issue.
+### Could not execute skill because the Web API request failed
+Skill execution failed because the call to the Web API failed. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, refer to the error message for help in fixing the issue.
 
-### Could not execute skill because Web Api skill response is invalid
-Indexer was not able to run a skill in the skillset because the response from the Web Api request was invalid. Typically this class of failure occurs for custom skills, and requires debugging your custom skill to understand the issue. If the failure is from a built-in Cognitive skill, then please file a support ticket to get assistance.
+### Could not execute skill because Web API skill response is invalid
+Skill execution failed because the call to the Web API returned an invalid response. Typically, this class of failure occurs when custom skills are used, in which case you will need to debug your custom code to resolve the issue. If instead the failure is from a built-in skill, please file a [support ticket](https://ms.portal.azure.com/#create/Microsoft.Support) to get assistance.
 
 ### Skill did not execute within the time limit
 There are two cases under which you may encounter this error message, each of which should be treated differently. Please follow the instructions below depending on what skill returned this error for you.
@@ -121,7 +121,7 @@ Warnings do not stop indexing, but they do indicate conditions that could result
 ### Could not execute skill because a skill input was invalid
 Indexer was not able to run a skill in the skillset because an input to the skill was missing, the wrong type, or otherwise invalid.
 
-Cognitive Skills have required inputs and optional inputs. For example the [Key phrase extraction skill](cognitive-search-skill-keyphrases.md) has two required inputs `text`, `languageCode`, and no optional inputs. If any required inputs are invalid, the skill gets skipped and generates a warning. Skipped skills do not generate any outputs, so if other skills use outputs of the skipped skill they may generate additional warnings.
+Cognitive skills have required inputs and optional inputs. For example the [Key phrase extraction skill](cognitive-search-skill-keyphrases.md) has two required inputs `text`, `languageCode`, and no optional inputs. If any required inputs are invalid, the skill gets skipped and generates a warning. Skipped skills do not generate any outputs, so if other skills use outputs of the skipped skill they may generate additional warnings.
 
 If you want to provide a default value in case of missing input, you can use the [Conditional skill](cognitive-search-skill-conditional.md) to generate a default value and then use the output of the [Conditional skill](cognitive-search-skill-conditional.md) as the skill input.
 
@@ -171,7 +171,7 @@ Here are some references for the currently supported languages for each of the s
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) Supported Languages: `da, de, en, es, fi, fr, it, ko, pt`
 
 ### Skill input was truncated
-Cognitive Skills have limits to the length of text that can be analyzed at once. If the text input of these skills are over that limit, we will truncate the text to meet the limit, and then perform the enrichment on that truncated text. This means that the skill is executed, but not over all of your data.
+Cognitive skills have limits to the length of text that can be analyzed at once. If the text input of these skills are over that limit, we will truncate the text to meet the limit, and then perform the enrichment on that truncated text. This means that the skill is executed, but not over all of your data.
 
 In the example LanguageDetectionSkill below, the `'text'` input field may trigger this warning if it is over the character limit. You can find the skill input limits in the [skills documentation](cognitive-search-predefined-skills.md).
 
@@ -190,5 +190,5 @@ In the example LanguageDetectionSkill below, the `'text'` input field may trigge
 
 If you want to ensure that all text is analyzed, consider using the [Split skill](cognitive-search-skill-textsplit.md).
 
-### Web Api skill response contains warnings
-Indexer was able to run a skill in the skillset, but the response from the Web Api request indicated there were warnings during execution. Review the warnings to understand how your data is impacted and whether or not action is required.
+### Web API skill response contains warnings
+Indexer was able to run a skill in the skillset, but the response from the Web API request indicated there were warnings during execution. Review the warnings to understand how your data is impacted and whether or not action is required.
