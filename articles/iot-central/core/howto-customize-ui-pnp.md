@@ -76,4 +76,4 @@ You can also add new entries to the help menu and remove default entries:
 Now that you've learned how to customize the UI in your IoT Central application, here are some suggested next steps:
 
 - [Administer your application](./howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-- [Configure the application dashboard](./howto-configure-homepage.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- [Add tiles to your dashboard](./howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

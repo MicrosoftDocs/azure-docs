@@ -1,9 +1,9 @@
 ---
-title: Add Tiles to your Dashboard | Microsoft Docs
+title: Add tiles to your dashboard | Microsoft Docs
 description: As a builder, learn how to configure the default Azure IoT Central application dashboard.
-author: dominicbetts
-ms.author: dobett
-ms.date: 07/10/2019
+author: mavoge
+ms.author: mavoge
+ms.date: 10/17/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -21,32 +21,45 @@ The **Dashboard** is the page that loads when users who have access to the appli
 
 The following screenshot shows the dashboard in an application created from the **Custom Application** template. To customize the default dashboard for your application, select **Edit** at the top-left of the page.
 
-![Dashboard for applications based on the "Sample Contoso" template](media/howto-add-tiles-to-your-dashboard/image1a.png)
+> [!div class="mx-imgBorder"]
+> ![Dashboard for applications based on the "Sample Contoso" template](media/howto-add-tiles-to-your-dashboard/dashboard-sample-contoso.png)
 
 Selecting **Edit** opens the dashboard library panel. The library contains the tiles and dashboard primitives you can use to customize the dashboard.
 
-![Dashboard library](media/howto-add-tiles-to-your-dashboard/image2a.png)
+> [!div class="mx-imgBorder"]
+> ![Dashboard library](media/howto-add-tiles-to-your-dashboard/dashboard-library.png)
 
-For example, you can add a **Telemetry** tile for the current temperature of the device. To do so, first select a **Device Template** then select a **Device Instance** for the device you want to see on a dashboard tile. Then you will see a list of the device's properties that can be used on the tile. To create the tile on the dashboard, click on **Temperature** and drag it to the dashboard area. You can also click the checkbox next to **Temperature** and click **Combine**. The following screenshot shows selecting a Device Template and Device Instance then creating a Temperature Telemetry tile on the dashboard. Select **Save** in the top left to save the tile to the dashboard.
+For example, you can add a **Telemetry** tile for the current temperature of the device. To do so:
+1. Select a **Device Template**
+1. Select a **Device Instance** for the device you want to see on a dashboard tile. Then you will see a list of the device's properties that can be used on the tile.
+1. To create the tile on the dashboard, click on **Temperature** and drag it to the dashboard area. You can also click the checkbox next to **Temperature** and click **Combine**. The following screenshot shows selecting a Device Template and Device Instance then creating a Temperature Telemetry tile on the dashboard.
+1. Select **Save** in the top left to save the tile to the dashboard.
 
-!["Configure Device Details" form with details for settings and properties](media/howto-add-tiles-to-your-dashboard/image3a.png)
+> [!div class="mx-imgBorder"]
+> !["Configure Device Details" form with details for settings and properties](media/howto-add-tiles-to-your-dashboard/device-details.png)
 
 Now when an operator views the default application dashboard, they see the new tile with the **Temperature** for the device. Each tile has a pre-selected graph, chart, etc. that will be displayed when the tile is created. However, users can choose to edit and change this visualization. 
 
-!["Dashboard" tab with displayed settings and properties for the tile](media/howto-add-tiles-to-your-dashboard/image4a.png)
+> [!div class="mx-imgBorder"]
+> !["Dashboard" tab with displayed settings and properties for the tile](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
 
 
 ## Edit Tiles
 
-To edit a tile on the dashboard, first click **Edit** at the top left of the page, which will open edit mode for the dashboard and all its tiles. Then click the **Gear** icon in the top-right corner of the tile you wish to edit. Here you can edit aspects of the tile including its title, its visualization, aggregation, etc. 
+To edit a tile on the dashboard, first click **Edit** at the top left of the page, which will open edit mode for the dashboard and all its tiles. 
 
-!["Dashboard" tab with displayed settings and properties for the tile](media/howto-add-tiles-to-your-dashboard/image5a.png)
+> [!div class="mx-imgBorder"]
+> ![Dashboard screen with edit mode activated for a selected tile](media/howto-add-tiles-to-your-dashboard/edit-mode.png)
 
-!["Dashboard" tab with displayed settings and properties for the tile](media/howto-add-tiles-to-your-dashboard/image6a.png)
+Then click the **Gear** icon in the top-right corner of the tile you wish to edit. Here you can edit aspects of the tile including its title, its visualization, aggregation, etc.
+
+> [!div class="mx-imgBorder"]
+> ![Dropdown for tile aggregation settings](media/howto-add-tiles-to-your-dashboard/aggregation-settings.png)
 
 You can also change the chart visualization by clicking the **Ruler** icon on the tile.
 
-!["Dashboard" tab with displayed settings and properties for the tile](media/howto-add-tiles-to-your-dashboard/image7a.png)
+> [!div class="mx-imgBorder"]
+> ![Dropdown for tile visualization settings](media/howto-add-tiles-to-your-dashboard/visualization-settings.png)
 
 ## Tile Types
 
@@ -69,7 +82,4 @@ The following table summarizes the usage of tiles in Azure IoT Central:
 
 ## Next steps
 
-Now that you've learned how to configure your Azure IoT Central default application dashboard, you can:
-
-> [!div class="nextstepaction"]
-> [Learn how to prepare and upload images](howto-prepare-images.md)
+Now that you've learned how to configure your Azure IoT Central default application dashboard, you can [Learn how to prepare and upload images](howto-prepare-images.md).
