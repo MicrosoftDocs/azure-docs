@@ -10,7 +10,7 @@ ms.date: 10/17/2019
 ms.author: radwiv
 
 ---
-# Custom traffic selectors for VPN gateway connections
+# Custom traffic selectors for VPN Gateway connections
 
 You can set custom traffic selectors on your VPN gateway connections. The ability to set traffic selectors allows you to narrow down address spaces from both sides of the VPN tunnels on which you want to send traffic. Custom traffic selectors are particularly useful when you have a large VNet address space, but want to use one of your subnets for IPsec/IKE negotiation.
 
