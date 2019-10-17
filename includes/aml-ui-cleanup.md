@@ -45,4 +45,4 @@ The compute target that you created here *automatically autoscales* to zero nod
 
 In the visual interface where you created your experiment, delete individual assets by selecting them and then selecting the **Delete** button. Datasets can be unregistered from your workspace by selecting each dataset and selecting **Unregister**.
 
-![Delete experiments](./media/aml-ui-cleanup/delete-asset.png)
+![Delete assets](./media/aml-ui-cleanup/delete-asset.png)

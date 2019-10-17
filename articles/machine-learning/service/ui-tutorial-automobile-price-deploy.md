@@ -30,7 +30,7 @@ Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md)
 
 In order to deploy your pipeline as a web service, you must first publish your *training pipeline* as a *real-time inference pipeline*.
 
-Real-time inference pipelines are a special type of pipeline which are configured to accept user-provided data and output processed values in real-time. In this tutorial, the pipeline can output the predicted price of a car based on the features for a car it has not seen.
+A real-time inference pipeline is a special type of pipeline that is configured to accept user-provided data and output processed values in real time. In this tutorial, the pipeline can output the predicted price of a car based on the features for a car it has not seen.
 
 1. Select **Publish** at the top of the pipeline canvas.
 
@@ -111,6 +111,8 @@ After your AKS service has finished provisioning, return to the real-time infere
 
 1. Select **Deploy**.
 
+    [!Screenshot showing how to setup a new real-time endpoint](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+
     A success notification above the canvas will appear when deployment completes, it may take a few minutes.
 
 ## Test the web service
@@ -126,6 +128,8 @@ You can test your web services by navigating to the **Endpoints** page in the wo
 1. Input testing data or use the autofilled sample data and select **Test**.
 
     The test request is submitted to the web service and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
+
+    ![Screenshot showing how to test the real-time endpoint with the scored label for price highlighted](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 
 ## Clean up resources
 
