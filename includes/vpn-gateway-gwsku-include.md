@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/20/2019
+ ms.date: 10/17/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -24,8 +24,8 @@ The new VPN gateway SKUs streamline the feature sets offered on the gateways:
 
 | **SKU**| **Features**|
 | ---    | ---         |
-|**Basic** (**)   | **Route-based VPN**: 10 tunnels for S2S/connections; no RADIUS authentication for P2S; no IKEv2 for P2S<br>**Policy-based VPN**: (IKEv1): 1 S2S/connection tunnel; no P2S|
-| **VpnGw1, VpnGw2, and VpnGw3** | **Route-based VPN**: up to 30 tunnels (*), P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN coexistence |
+|**Basic** (**)   | **Route-based VPN**: 10 tunnels for S2S/connections; no RADIUS authentication for P2S; no IKEv2 for P2S<br>**Policy-based VPN**: (IKEv1 only): 1 S2S/connection tunnel; no P2S|
+| **VpnGw1, VpnGw2, and VpnGw3** | **Route-based VPN**: up to 30 tunnels (*), P2S, BGP, active-active, custom IPsec/IKEv1 and IKEv2 policy, ExpressRoute/VPN coexistence |
 |        |             |
 
 (*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway (VpnGw1, VpnGw2, VpnGw3) to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md) for details.
