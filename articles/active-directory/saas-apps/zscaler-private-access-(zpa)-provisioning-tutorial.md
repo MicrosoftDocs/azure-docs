@@ -116,6 +116,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 > [!TIP]
 > You may also choose to enable SAML-based single sign-on for Zscaler Private Access (ZPA) , following the instructions provided in the [Zscaler Private Access (ZPA) Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
+> [!NOTE]
+> To learn more about Zscaler Private Access's SCIM endpoint, refer to [ZPA for Azure](https://www.zscaler.com/products/zpa-for-azure).
+
 ### To configure automatic user provisioning for Zscaler Private Access (ZPA) in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
@@ -134,7 +137,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input the **SCIM Service Provider Endpoint** value retrieved earlier in **Tenant URL**. For example, a **SCIM Service Provider Endpoint** should look like `https://scim1.dev.zpath.net/scim/1/012345678987654321/v2`. Input the **Bearer Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zscaler Private Access (ZPA). If the connection fails, ensure your Zscaler Private Access (ZPA) account has Admin permissions and try again.
+5. Under the **Admin Credentials** section, input the **SCIM Service Provider Endpoint** value retrieved earlier in **Tenant URL**. Input the **Bearer Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zscaler Private Access (ZPA). If the connection fails, ensure your Zscaler Private Access (ZPA) account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
