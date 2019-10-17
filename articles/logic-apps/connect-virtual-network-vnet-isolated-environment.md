@@ -49,6 +49,8 @@ This article shows how to complete these tasks:
   * Your virtual network needs to have four *empty* subnets for creating and deploying resources in your ISE. You can create these subnets in advance, or you can wait until you create your ISE where you can create subnets at the same time. Learn more about [subnet requirements](#create-subnet).
 
   * Subnet names need to start with either an alphabetic character or an underscore and can't use these characters: `<`, `>`, `%`, `&`, `\\`, `?`, `/`. 
+  
+  * When deploying the ISE through ARM, first ensure one of these empty subnets is delegated to **Microsoft.Logic/integrationServiceEnvironment**.  This is not required when deploying through the Azure Portal.
 
   * Make sure that your virtual network [makes these ports available](#ports) so your ISE works correctly and stays accessible.
 
