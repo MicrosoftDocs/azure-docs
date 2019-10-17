@@ -1,6 +1,6 @@
 ---
 
-title: Azure DDoS Protection and designing resilient solutions | Microsoft Docs
+title: Azure DDoS Protection - Designing resilient solutions | Microsoft Docs
 description: Learn about how you can use logging data to gain deep insights about your application.
 services: security
 author: barclayn
@@ -18,7 +18,7 @@ ms.date: 10/16/2018
 ms.author: barclayn
 
 ---
-# Azure DDoS Protection: Best practices and reference architectures
+# Azure DDoS Protection - Designing resilient solutions
 
 This article is for IT decision makers and security personnel. It expects that you're familiar with Azure, networking, and security.
 DDoS is a type of attack that tries to exhaust application resources. The goal is to affect the application’s availability and its ability to handle legitimate requests. Attacks are becoming more sophisticated and larger in size and impact. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. Designing for distributed denial of service (DDoS) resiliency requires planning and designing for a variety of failure modes. Azure provides continuous protection against DDoS attacks. This protection is integrated into the Azure platform by default and at no extra cost.
@@ -48,7 +48,7 @@ Ensuring that an application is resilient enough to handle a denial of service t
 
 ### Design for scalability
 
-Scalability is how well a system can handle increased load. You must design your applications to [scale horizontally](/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.
+Scalability is how well a system can handle increased load. Design your applications to [scale horizontally](/azure/architecture/guide/design-principles/scale-out) to meet the demand of an amplified load, specifically in the event of a DDoS attack. If your application depends on a single instance of a service, it creates a single point of failure. Provisioning multiple instances makes your system more resilient and more scalable.
 
 For [Azure App Service](/azure/app-service/app-service-value-prop-what-is), select an [App Service plan](/azure/app-service/overview-hosting-plans) that offers multiple instances. For Azure Cloud Services, configure each of your roles to use [multiple instances](/azure/cloud-services/cloud-services-choose-me). 
 For [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), ensure that your virtual machine (VM) architecture includes more than one VM and that each VM is
@@ -86,7 +86,7 @@ The Azure DDoS Protection Basic service is targeted at protection of the infrast
 
 Standard protection provides enhanced DDoS mitigation features. It's automatically tuned to help protect your specific Azure resources in a virtual network. Protection is simple to enable on any new or existing virtual network, and it requires no application or resource changes. It has several advantages over the basic service, including logging, alerting, and telemetry. The following sections outline the key features of the Azure DDoS Protection Standard service.
 
-#### Adaptive real-time tuning
+#### Adaptive real time tuning
 
 The Azure DDoS Protection Basic service helps protect customers and prevent impacts to other customers. For example, if a service is provisioned for a typical volume of legitimate incoming traffic that's smaller than the *trigger rate* of the infrastructure-wide DDoS Protection policy, a DDoS attack on that customer’s resources might go unnoticed. More generally, the complexity of recent attacks (for example, multi-vector DDoS) and the application-specific behaviors of tenants call for per-customer, customized protection policies. The service accomplishes this customization by using two insights:
 
@@ -132,7 +132,7 @@ Planning and preparation are crucial to understand how a system will perform dur
 
 If you have DDoS Protection Standard, make sure that it's enabled on the virtual network of internet-facing endpoints. Configuring DDoS alerts helps you constantly watch for any potential attacks on your infrastructure. 
 
-You should monitor your applications independently. Understand the normal behavior of an application. Prepare to act if the application is not behaving as expected during a DDoS attack.
+Monitor your applications independently. Understand the normal behavior of an application. Prepare to act if the application is not behaving as expected during a DDoS attack.
 
 #### Testing through simulations
 
@@ -198,7 +198,7 @@ Azure DDoS Protection Standard identifies and mitigates DDoS attacks without any
 
 - An actor has threatened to launch a DDoS attack against your resources.
 
-- If you need to whitelist an IP or IP range from Azure DDoS Protection Standard. A common scenario is to whitelist IP if the traffic is routed from an external cloud WAF to Azure. 
+- If you need to allow list an IP or IP range from Azure DDoS Protection Standard. A common scenario is to allow list IP if the traffic is routed from an external cloud WAF to Azure. 
 
 For attacks that have a critical business impact, create a severity-A [support ticket](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
