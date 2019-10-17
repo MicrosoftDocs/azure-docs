@@ -402,7 +402,7 @@ This command:
 | Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
 | Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
 
-For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#prerequisites#azure-cognitive-services-container-security).
+For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
