@@ -16,7 +16,7 @@ ms.subservice: common
 
 Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
-This article shows how to authorize access to blob or queue data from an Azure VM using managed identities for Azure Resources. 
+This article shows how to authorize access to blob or queue data from an Azure VM using managed identities for Azure Resources. It also describes how to test your code in the development environment.
 
 ## Enable managed identities on a VM
 
@@ -28,17 +28,7 @@ Before you can use managed identities for Azure Resources to authorize access to
 - [Azure Resource Manager template](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
 - [Azure Resource Manager client libraries](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
-For more information about managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview).
-
-## Grant permissions to an Azure AD managed identity
-
-To authorize a request to the Blob or Queue service from a managed identity in your Azure Storage application, first configure role-based access control (RBAC) settings for that managed identity. Azure Storage defines RBAC roles that encompass permissions for blob and queue data. When the RBAC role is assigned to a managed identity, the managed identity is granted those permissions to blob or queue data at the appropriate scope.
-
-For more information about assigning RBAC roles, see one of the following articles:
-
-- [Grant access to Azure blob and queue data with RBAC in the Azure portal](storage-auth-aad-rbac-portal.md)
-- [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
-- [Grant access to Azure blob and queue data with RBAC using PowerShell](storage-auth-aad-rbac-powershell.md)
+For more information about managed identities, see [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Authenticate with the Azure Identity library (preview)
 
@@ -51,6 +41,10 @@ Other development tools may prompt you to login via a web browser. You can also 
 After authenticating, the Azure Identity client library gets a credential. This credential is then encapsulated in the service client object that you create to perform operations against Azure Storage. The library handles this for your seamlessly by getting the appropriate credential.
 
 For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+
+## Assign RBAC roles for access to data
+
+When an Azure AD security principal attempts to access blob or queue data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an RBAC role that grants access to blob or queue data in Azure Storage. For information about assigning permissions via RBAC, see the section titled **Assign RBAC roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
 
 ## Install the preview packages
 
@@ -66,7 +60,7 @@ The examples in this article also use the latest preview version of the [Azure I
 Install-Package Azure.Identity -IncludePrerelease
 ```
 
-## Add using directives
+## .NET code example: Create a block blob
 
 Add the following `using` directives to your code to use the preview versions of the Azure Identity and Azure Storage client libraries.
 
@@ -81,9 +75,7 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## .NET code example: Create a block blob
-
-To get a credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. The following code example shows how to get the authenticated credential and use it to create a service client object, then use the service client to upload a new blob:
+To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. The following code example shows how to get the authenticated credential and use it to create a service client object, then use the service client to upload a new blob:
 
 ```csharp
 async static Task CreateBlockBlobAsync(string accountName, string containerName, string blobName)
