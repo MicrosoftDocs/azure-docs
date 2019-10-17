@@ -27,7 +27,7 @@ You get an authorization error when you try to make a user eligible for an Azure
 
 ### Cause
 
-This can happen when the User Access Administrator role for the MS-PIM service principal was accidentally removed from the subscription. To assign roles, the MS-PIM service principal must be assigned the [User Access Administrator role](../../role-based-access-control/built-in-roles.md#user-access-administrator) in Azure role-based access control for Azure resource access (Azure RBAC). For the Privileged Identity Management service to be able to access Azure resources, MS-PIM SPN should always have a User Access Administrator role assigned on an Azure subscription.
+This can happen when the User Access Administrator role for the MS-PIM service principal name was accidentally removed from the subscription. To assign roles, the MS-PIM service principal must be assigned the [User Access Administrator role](../../role-based-access-control/built-in-roles.md#user-access-administrator) in Azure role-based access control for Azure resource access (Azure RBAC). For the Privileged Identity Management service to be able to access Azure resources,the MS-PIM service principal should always have a User Access Administrator role assigned on an Azure subscription.
 
 ### Resolution
 
