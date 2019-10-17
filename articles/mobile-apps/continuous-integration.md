@@ -29,7 +29,7 @@ With **Continuous Build and Integration**, developers can simplify build and tes
 ### Visual Studio App Center
 [App Center Build](/appcenter/build/) service helps you build native and cross platform applications that your team is working on, using a secure cloud infrastructure. You can easily connect your repo in App Center and start building your app in the cloud on every commit without having to worry about configuring build servers locally, complicated configurations, and code that builds on a coworker's machine but not yours.
 
-With the added power of App Center's other services, you can further automate your workflow. Automatically release builds to testers and public app stores with App Center Distribute, or run automated UI tests on thousands of real device and OS configurations in the cloud with App Center Test.
+With the added power of App Center services, you can further automate your workflow. Automatically release builds to testers and public app stores with App Center Distribute, or run automated UI tests on thousands of real device and OS configurations in the cloud with App Center Test.
 
 **Key Features**
 - **Set up Continuous integration** in minutes and build applications more frequently and faster.

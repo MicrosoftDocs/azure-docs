@@ -26,9 +26,9 @@ Businesses can:
 - **Promote Products and Services** by sending push messages and timely updates to the users.
 - **Target the users** by sending them personalized push messages.
 
-For application users, push notification:
-- **Provides value and information** in real time.
-- **Reminds users** to use the application.
+For application users, push notifications:
+- **Provide value and information** in real time.
+- **Remind users** to use the application.
 
 ## Services
 

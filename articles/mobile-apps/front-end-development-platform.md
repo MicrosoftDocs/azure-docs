@@ -18,20 +18,20 @@ Building a native application requires platform-specific programming languages, 
 ### 1. iOS
 Created and developed by Apple, apps built on iOS runs on Apple devices, namely iPhone and iPad.
 
-- **Programming Language** - Objective-C, Swift
-- **Toolkit** - Apple Xcode
+- **Programming Languages** - Objective-C, Swift
+- **IDE** - Xcode
 - **SDK** - iOS SDK
 
 ### 2. Android
 Designed by Google and the most popular OS in the world, applications built on Android can run on a range of smartphones and tablets.
 
 - **Programming Language** - Java, Kotlin 
-- **Toolkit** - Android Studio and Android Developer Tools 
+- **IDE** - Android Studio and Android Developer Tools 
 - **SDK** - Android SDK
 
 ### 3. Windows
 - **Programming Language** - C#
-- **Toolkit** - Visual Studio
+- **IDE** - Visual Studio, Visual Studio Code
 - **SDK** - Windows SDK
 
 ### Pros
@@ -53,20 +53,20 @@ Owned by Microsoft, [Xamarin](https://visualstudio.microsoft.com/xamarin/) lets 
 - **Programming Language** - C#
 - **IDE** - Visual Studio on Windows or Mac
 
-### 2. **React Native**
-Released by Facebook in 2015, [React Native](https://facebook.github.io/react-native/) is an [open source](https://github.com/facebook/react-native) JavaScript framework  for writing real, natively rendering mobile applications for iOS and Android. It’s based on React, Facebook’s JavaScript library for building user interfaces, but instead of targeting the browser, it targets mobile platforms. React Native uses native components instead of web components as building blocks.
+### React Native
+Released by Facebook in 2015, [React Native](https://facebook.github.io/react-native/) is an [open source](https://github.com/facebook/react-native) JavaScript framework  for writing real, natively rendering mobile applications for iOS and Android. It's based on React, Facebook's JavaScript library for building user interfaces, but instead of targeting the browser, it targets mobile platforms. React Native uses native components instead of web components as building blocks.
  
 - **Programming Language** - JavaScript
 - **IDE** - Visual Studio Code
 
 ### 3. Unity
- Unity enables to craft high-quality 2D/3D applications (mostly games) with C# and Unity for different target platforms including Windows, iOS, Android, and Xbox.
+ Unity is an engine optimized for creating games which enables developers to craft high-quality 2D/3D applications with C# for different platforms including Windows, iOS, Android, and Xbox.
 
 ### 4. Cordova
 Cordova lets you build Hybrid applications using Visual Studio Tools for Apache Codova or Visual Studio Code with extensions for Cordova. With the Hybrid approach, you can share components with websites and reuse web server-based applications with hosted web applications approaches based on Cordova.
 
 ### Pros
-- Code reusability as it's possible to create one codebase for different platforms at the same time
+- Increased code usability by creating one codebase for multiple platforms
 - Cater to a wider audience across many platforms
 - Dramatic reduction in development time
 - Easy to launch and update

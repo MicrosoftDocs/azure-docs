@@ -31,7 +31,7 @@ The more you look down into the data, the more you could find ways to improve yo
     - **Identify** trends, user behavior, and engagement through custom events.
     - **Out-of-the-box metrics** and **detailed insights** on application usage (daily, weekly, monthly), sessions, device properties and user demographics in a **single dashboard**.
     - **Continuously export all your Analytics data into Azure** for unlimited retention. Supports Export to Azure Blob Storage and Azure Application Insights.
-    - **Integrate with Azure Application Insights** for even deeper insights such as retention, funnel analysis, cohorts and more.
+    - **Integrate with Azure Application Insights** for even deeper insights such as retention, funnel analysis, and cohorts
     - **One-line SDK integration** to get started within minutes.
     - **Platform Support** - iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, Cordova.
 
