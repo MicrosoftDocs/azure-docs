@@ -12,11 +12,11 @@ If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and c
 
 For information about the AppSource approval process, see [Make your solutions available in AppSource](submit-to-the-office-store.md).
 
-## Submission checklist
+## Submission process
 
 Submitting your solution involves specifying your solution name and adding your solution details via Partner Center.
 
-### Create your solution and reserve name
+### 1 - Create your solution and reserve name
 
 On the [Overview](https://partner.microsoft.com/en-us/dashboard/office/overview) page in Partner Center, select **Create a new...**, and select the type of solution that you are submitting:
 
@@ -29,7 +29,7 @@ In the dialog box, provide a name for your solution and choose **Check availabil
 
 After you've verified that the name you chose is available, choose **Create**.
 
-### Add your submission details
+### 2 - Add your submission details
 
 On the Product overview page, add the details associated with your submission. The following table lists the tasks that you need to complete.
 
@@ -43,7 +43,7 @@ On the Product overview page, add the details associated with your submission. T
 > [!NOTE]
 > Partner Center does not support pricing model management for Office solutions. Existing paid add-ins that migrated from Seller Dashboard will need to move to a SaaS model or be made free by July 2020. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-add-ins.md).
 
-### Review and publish
+### 3 - Review and publish
 
 After you have defined all the required information, you can submit your solution for publishing. Your approved solution will be listed in product-specific marketplaces.
 
@@ -55,6 +55,12 @@ After you have defined all the required information, you can submit your solutio
     
 > [!NOTE]
 > After you submit a solution for approval, After you submit a solution for approval, you can make changes to your submission, but you cannot submit them until your initial submission is completed. When the approval process is complete, you receive an email message indicating that your solution was approved or that you need to make changes before it can be approved. 
+
+## Unpublishing a solution
+
+To unpublish a solution to remove it from the marketplace, on the **Product overview** page, choose **Stop selling** on the top right, and then select **Confirm**.
+
+After a solution is unpublished, new customers will not be able to get it. This does not affect existing customers. If you later want to make your solution available again, you can resubmit it via Partner Center.
 
 ## See also
 <a name="bk_addresources"> </a>
