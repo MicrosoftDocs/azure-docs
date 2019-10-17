@@ -1,5 +1,5 @@
 ---
-title: Run Azure Container Instances
+title: Run Face container in Azure Container Instances
 titleSuffix: Azure Cognitive Services
 description: Deploy the Face container to an Azure Container Instance, and test it in a web browser.
 services: cognitive-services
