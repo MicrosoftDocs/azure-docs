@@ -50,7 +50,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
     |Batch detection    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Detection on the latest data point     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
-    [!code-java[Initial key and endpoint vars](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
+    [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
 ## Create a function to send requests
 

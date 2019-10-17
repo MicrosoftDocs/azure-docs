@@ -75,7 +75,7 @@ Use this quickstart to start using the Anomaly Detector API's two detection mode
 
 4. Otherwise, find the positions of anomalies in the data set. The response's `isAnomaly` field contains a boolean value relating to whether a given data point is an anomaly. Iterate through the list, and print the index of any `True` values. These values correspond to the index of anomalous data points, if any were found.
 
-[!code-python[detection as a btach](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
+[!code-python[detection as a batch](~/samples-anomaly-detector/quickstarts/python-detect-anomalies.py?name=detectBatch)]
 
 ## Detect the anomaly status of the latest data point
 
