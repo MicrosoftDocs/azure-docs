@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot errors with Update Management
-description: Learn how to troubleshoot issues with Update Management
+description: Learn how to troubleshoot issues with Update Management.
 services: automation
 author: bobbytreed
 ms.author: robreed
@@ -11,40 +11,39 @@ manager: carmonm
 ---
 # Troubleshooting issues with Update Management
 
-This article discusses solutions to resolve issues that you may run across when using Update Management.
+This article discusses solutions to issues that you might encounter when you use Update Management.
 
-There is an agent troubleshooter for Hybrid Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md). For all other issues, see the detailed information below about possible issues.
+There's an agent troubleshooter for the Hybrid Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md). For all other issues, see the following information about possible issues.
 
-If you encounter issues while attempting to onboard the solution on a virtual machine, check the **Operations Manager** event log under **Application and Services Logs** on the local machine for events with event ID **4502** and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
+If you encounter issues while you're trying to onboard the solution on a virtual machine, check the **Operations Manager** log under **Application and Services Logs** on the local machine for events with event ID **4502** and event messages containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
-The following section highlights specific error messages and a possible resolution for
-each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
+The following section highlights specific error messages and a possible resolution for each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
 ### Issue
 
-You may run across the following scenarios:
+You might encounter the following scenarios:
 
-* Your machine shows **Not configured** from the Update Management view of a VM
+* Your machine shows **Not configured** from the Update Management view of a VM.
 
-* Your machines are missing from the Update Management view of your Automation Account
+* Your machines are missing from the Update Management view of your automation account.
 
-* You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Azure Monitor logs for the Hybrid Runbook Worker but not Update Management.
+* You have machines that show as **Not Assessed** under **Compliance**. However, you see heartbeat data in Azure Monitor logs for the Hybrid Runbook Worker but not for Update Management.
 
 ### Cause
 
-This can be caused by potential local configuration issues or by improperly configured Scope Configuration.
+This issue can be caused by local configuration issues or by improperly configured Scope configuration.
 
-The Hybrid Runbook Worker may need to be re-registered and reinstalled.
+You may have to reregister and reinstall the Hybrid Runbook Worker.
 
-You may have defined a quota in your workspace that has been reached and stopping data from being stored.
+You may have defined a quota in your workspace that's been reached and that's preventing further data storage.
 
 ### Resolution
 
 * Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline) depending on the OS.
 
-* Ensure your machine is reporting to the correct workspace. Verify what workspace your machine is reporting to. For instructions on how to verify this, see [Verify agent connectivity to Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Then, ensure this is the workspace that is linked to your Azure Automation account. To confirm this, navigate to your Automation Account and click **Linked workspace** under **Related Resources**.
+* Make sure your machine is reporting to the correct workspace. For guidance on how to verify this, see [Verify agent connectivity to Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Then, make sure this workspace is linked to your Azure automation account. To confirm this, go to your automation account and select **Linked workspace** under **Related Resources**.
 
 * Check to ensure the machines show up in your Log Analytics workspace. Run the following query in your Log Analytics workspace that is linked to your Automation Account. If you do not see your machine in the query results, your machine has not recently checked in, which means there is most likely a local configuration issue and you can [re-install the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). If your machine shows up in the query results, then you need to very the scope configuration specified in the following bullet.
 
