@@ -48,7 +48,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * When assigning a user to SpaceIQ, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Setup SpaceIQ for provisioning
+## Set up SpaceIQ for provisioning
 
 1. Sign in to your [SpaceIQ Admin Console](https://main.spaceiq.com/login/). Navigate to **Settings** by selecting it from the drop down menu on the top right corner of the screen.
 
