@@ -12,9 +12,11 @@ ms.author: danlep
 ---
 # Configure liveness probes
 
-Containerized applications may run for extended periods of time resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes to include configurations so that your container can restart if critical functionality is not working.
+Containerized applications may run for extended periods of time resulting in broken states that may need to be repaired by restarting the container. Azure Container Instances supports liveness probes to include configurations so that your container can restart if critical functionality is not working. The liveness probe behaves like a [Kubernetes liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/).
 
 This article explains how to deploy a container group that includes a liveness probe, demonstrating the automatic restart of a simulated unhealthy container.
+
+Azure Container Instances also supports [readiness probes](container-instances-readiness-probes.md), which you can configure to ensure that traffic reaches a container only when it's ready for it.
 
 ## YAML deployment
 
