@@ -19,18 +19,15 @@ ms.author: amverma
 
 InfiniBand with SR-IOV is available for all RDMA enabled VMs on Azure. RDMA capable VMs include [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) and [High-performance compute (HPC)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VMs.
 
-To get started with IaaS VMs for HPC, the simplest solution is to use the CentOS-HPC 7.6 VM OS image, which is already configured with InfiniBand. Since this image is already configured with InfiniBand, you don't have to [configure it manually](#manually-install-ofed). 
+To get started with IaaS VMs for HPC, the simplest solution is to use the [CentOS-HPC 7.6 VM OS image](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), which is already configured with InfiniBand. Since this image is already configured with InfiniBand, you don't have to configure it manually. 
 
 If you're using a custom VM image or a [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) VM, you should configure it with InfiniBand by adding the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment. Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
 
+## Manually install Mellanox OFED
 
-## Manually install OFED
+To manually configure InfiniBand with SR-IOV, use the following steps. The example in these steps shows syntax for RHEL/CentOS, but the steps are general and can be used for any compatible operating system. For Ubuntu (16.04 and 18.04), and SLES (12 SP4 and 15), the inbox drivers work as well, but the Mellanox OpenFabrics drivers provide more features.
 
-To manually configure InfiniBand with SR-IOV, use the following steps. These steps are general and can be used for any compatible operating system (OS). 
-
-These steps are for RHEL/CentOS only. For Ubuntu (16.04 and 18.04), and SLES (12 SP4 and 15), the inbox drivers work well.
-
-For more information on the supported distributions for the Mellanox driver, see the latest [Mellanox OpenFabrics drivers for ConnectX-5](https://www.mellanox.com/page/products_dyn?product_family=26).
+For more information on the supported distributions for the Mellanox driver, see the latest [Mellanox OpenFabrics drivers](https://www.mellanox.com/page/products_dyn?product_family=26). For more information on the Mellanox OpenFabrics driver, see the [Mellanox user guide](https://docs.mellanox.com/category/mlnxofedib). 
 
 See the following example for how to configure InfiniBand on Linux:
 
@@ -40,10 +37,22 @@ sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++
 sudo yum install -y gtk2 atk cairo tcl tk createrepo
 wget --retry-connrefused --tries=3 --waitretry=5 <Link to driver> #Example: http://content.mellanox.com/ofed/MLNX_OFED-4.5-1.0.1.0/MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
 tar zxvf <.tgx file> #Example: MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64.tgz
-sudo <Location of driver> --add-kernel-support  #Example driver location: ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall
+sudo <Script> --add-kernel-support  #Example script: ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall
 ```
 
-For Windows, download and install the WinOF-2 drivers for ConnectX-5 from [Mellanox](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34).
+For Windows, download and install the [Mellanox OFED for Windows drivers](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34).
+
+## Enable IP over InfiniBand
+
+```bash
+sudo sed -i -e 's/# OS.EnableRDMA=y/OS.EnableRDMA=y/g' /etc/waagent.conf
+sudo systemctl restart waagent
+if [ $? -eq 1 ]
+then
+  sudo modprobe -rv ib_isert rpcrdma ib_srpt
+  sudo systemctl restart waagent
+fi
+```
 
 ## Next steps
 
