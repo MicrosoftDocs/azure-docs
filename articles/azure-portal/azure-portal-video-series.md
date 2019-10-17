@@ -35,6 +35,6 @@ Catch up on these recent videos you may have missed:
 
 Explore the [Azure portal how-to series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR) for some great tips on how to make the most of the Azure portal. Subscribe to the channel to be notified when new videos are added.
 
-## Next steps:
+## Next steps
 
 Explore hundreds of videos for Azure services in the [video library](https://azure.microsoft.com/resources/videos/index/?tag=microsoft-azure-portal).
