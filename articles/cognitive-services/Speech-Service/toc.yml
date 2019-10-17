@@ -9,19 +9,19 @@
 - name: Quickstarts
   items:
   - name: Get a Speech service key
-    href: https://example.com
+    href: https://aka.ms/ignite2019/speech/placeholder
   - name: Platform setup
     items:
     - name: C#
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: C++
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Java
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Python
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Other platforms
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
 - name: Speech-to-text
   expanded: false
   items:
@@ -32,29 +32,29 @@
   - name: Quickstarts
     items:
     - name: Convert speech to text from file
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Convert speech to text from microphone
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Convert speech to text from blob storage
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
   - name: How-to guides
     items:
-    - name: Continuous recognition from file
-      href: shttps://example.com
-    - name: Continuous recognition from microphone
-      href: https://example.com
-    - name: Continuous recognition from stream
-      href: https://example.com
+    - name: Specify source language
+      href: how-to-specify-source-language.md
+    - name: Automatic language detection
+      href: how-to-automatic-language-detection.md
+    - name: Continuous recognition
+      href: shttps://aka.ms/ignite2019/speech/placeholder
     - name: Consume compressed audio
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Select an audio input device
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
   - name: Tutorials
     items:
     - name: Intent recognition with LUIS
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Voice enable your bot with Speech SDK
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
   - name: Reference
     items:
     - name: Speech SDK
@@ -77,9 +77,9 @@
   - name: Quickstarts
     items:
     - name: Synthesize speech to a file
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Synthesize speech to an audio output device
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
   - name: How-to guides
     items:
     - name: Configure speech output with SSML
@@ -99,7 +99,7 @@
     - name: Text-to-speech (REST)
       href: rest-text-to-speech.md
     - name: Audio content generation (REST)
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
 - name: Intent recognition
   exanded: false
   items:
@@ -129,11 +129,11 @@
   - name: Quickstarts
     items:
     - name: Translate speech-to-text
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Translate speech-to-text multi-participant
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
     - name: Translate speech-to-speech
-      href: https://example.com
+      href: https://aka.ms/ignite2019/speech/placeholder
   - name: Reference
     items:
     - name: Speech SDK
@@ -196,7 +196,11 @@
     - name: 'Tenant Language Models'
       items:
       - name: Create, publish, and use a model
+<<<<<<< HEAD
         href: tutorial-tenant-language-model.md
+=======
+        href: https://aka.ms/ignite2019/speech/placeholder
+>>>>>>> 27ecdde63304210678a341b78334aa96770974fc
   - name: Text-to-speech
     items:
     - name: Custom Voice portal
@@ -214,24 +218,24 @@
     - name: Audio Content Generation
       items:
       - name: Placeholder
-        href: httsp://example.com
+        href: https://example.com
     - name: Custom Neural Voices
       items:
       - name: Placeholder
-        href: httsp://example.com
+        href: https://example.com
   - name: Custom wake word/key word spotting
     href: speech-devices-sdk-create-kws.md
-- name: Customization
+- name: Containers
   exanded: false
   items:
   - name: Install and run containers
-    href: httsp://example.com
+    href: speech-container-howto.md
   - name: Configure containers
-    href: httsp://example.com
+    href: speech-container-configuration.md
   - name: Kubernetes and Helm
-    href: httsp://example.com
+    href: speech-container-howto-on-premises.md
   - name: Azure container instances
-    href: httsp://example.com
+    href: deploy-speech-on-container-instances.md
 - name: Migration
   exanded: false
   items:

@@ -17,7 +17,14 @@ ms.author: abmotley
 This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Search.
 
 ## Errors
-Indexing stops when the error count exceeds ['maxfaileditems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). The following sections can help you resolve errors, allowing indexing to continue.
+Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
+
+If you want indexers to ignore these errors (and skip over "failed documents"), consider updating the `maxFailedItems` and `maxFailedItemsPerBatch` as described [here](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+
+> [!NOTE]
+> Each failed document along with its document key (when available) will show up as an error in the indexer execution status. You can utilize the [index api](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) to manually upload the documents at a later point if you have set the indexer to tolerate failures.
+
+The following sections can help you resolve errors, allowing indexing to continue.
 
 ### Could not read document
 Indexer was unable to read the document from the data source. This can happen due to:
@@ -105,6 +112,32 @@ If you encounter a timeout error with a custom skill you have created, there are
 ```
 
 The maximum value that you can set for the `timeout` parameter is 230 seconds.  If your custom skill is unable to execute consistently within 230 seconds, you may consider reducing the `batchSize` of your custom skill so that it will have fewer documents to process within a single execution.  If you have already set your `batchSize` to 1, you will need to rewrite the skill to be able to execute in under 230 seconds or otherwise split it into multiple custom skills so that the execution time for any single custom skill is a maximum of 230 seconds. Review the [custom skill documentation](cognitive-search-custom-skill-web-api.md) for more information.
+
+### Could not '`MergeOrUpload`' | '`Delete`' document to the search index
+
+The document was read and processed, but the indexer could not add it to the search index. This can happen due to:
+
+| Reason | Example | Action |
+| --- | --- | --- |
+| A term in your document is larger than the [32 KB limit](search-limits-quotas-capacity.md#api-request-limits) | A field contains a term that is too large | You can avoid this restriction by ensuring the field is not configured as filterable, facetable, or sortable.
+| A document is larger than the [maximum api request size](search-limits-quotas-capacity.md#api-request-limits) | Document is too large to be indexed | [How to index large data sets](search-howto-large-index.md)
+| Trouble connecting to the target index (that persists after retries) because the service is under other load, such as querying or indexing. | Failed to establish connection to update index. Search service is under heavy load. | [Scale up your search service](search-capacity-planning.md)
+| Search service is being patched for service update, or is in the middle of a topology reconfiguration. | Failed to establish connection to update index. Search service is currently down/Search service is undergoing a transition. | Configure service with at least 3 replicas for 99.9% availability per [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
+| Failure in the underlying compute/networking resource (rare) | Failed to establish connection to update index. An unknown failure occurred. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state.
+
+### Could not index document because the indexer data to index was invalid
+
+The document was read and processed, but due to a mismatch in the configuration of the index fields and the nature of the data extracted by the indexer, it could not be added to the search index. This can happen due to:
+
+| Reason | Example
+| --- | ---
+| Data type of the field(s) extracted by the indexer is incompatible with the data model of the corresponding target index field. | The data field '_data_' in the document with key '_data_' has an invalid value 'of type 'Edm.String''. The expected type was 'Collection(Edm.String)'. |
+| Failed to extract any JSON entity from a string value. | Could not parse value 'of type 'Edm.String'' of field '_data_' as a JSON object. Error:'After parsing a value an unexpected character was encountered: ''. Path '_path_', line 1, position 3162.' |
+| Failed to extract a collection of JSON entities from a string value.  | Could not parse value 'of type 'Edm.String'' of field '_data_' as a JSON array. Error:'After parsing a value an unexpected character was encountered: ''. Path '[0]', line 1, position 27.' |
+| An unknown type was discovered in the source document. | Unknown type '_unknown_' cannot be indexed |
+| An incompatible notation for geography points was used in the source document. | WKT POINT string literals are not supported. Please use GeoJson point literals instead |
+
+In all these cases, refer to [Supported Data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers in Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
 
 ##  Warnings
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.

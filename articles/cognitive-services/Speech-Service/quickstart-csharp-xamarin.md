@@ -60,6 +60,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 1. In the `OnRecognitionButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
 
 1. Next you need to create a [Xamarin Service](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), which is used to query microphone permissions from different platform projects (UWP, Android and iOS). To do that add new folder `Services` under the `helloworld` project and create new C# source file under it (Right click `Services` folder and **Add** > **New Item** > **Code File**) and rename it to `IMicrophoneService.cs` and place all code from the following snippet in that file:
+
 [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
 ## Add sample code for the `helloworld.Android` project

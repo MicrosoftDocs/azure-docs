@@ -20,7 +20,7 @@ This article describes the Azure-enabled **dtexec** (**AzureDTExec**) command pr
 
 The traditional **dtexec** utility comes with SQL Server, see [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017) documentation for more info.  It is often invoked by third party orchestrators/schedulers, such as Active Batch, Control-M, etc., to run SSIS packages on premises.  The modern **AzureDTExec** utility comes with SQL Server Management Studio (SSMS) tool.  It can also be invoked by third party orchestrators/schedulers to run SSIS packages in Azure.  It facilitates the lifting & shifting/migration of your SSIS packages to the cloud.  After migration, if you want to keep using third party orchestrators/schedulers in your day-to-day operations, they can now invoke **AzureDTExec** instead of **dtexec**.
 
-**AzureDTExec** will run your packages as Execute SSIS Package activities in ADF pipelines, see [Run SSIS packages as ADF activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) article for more info.  It can be configured via SSMS to use an Azure Active Directory (AAD) application that generates pipelines in your ADF.  It can also be configured to access file systems/file shares/Azure Files where you store your packages.  Based on the values you give for its invocation options, **AzureDTExec** will generate and run a unique ADF pipeline with Execute SSIS Package activity in it.  Invoking **AzureDTExec** with the same values for its options will rerun the existing pipeline.  Invoking **AzureDTExec** with new values for its options will generate a new pipeline.
+**AzureDTExec** will run your packages as Execute SSIS Package activities in ADF pipelines, see [Run SSIS packages as ADF activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) article for more info.  It can be configured via SSMS to use an Azure Active Directory (AAD) application that generates pipelines in your ADF.  It can also be configured to access file systems/file shares/Azure Files where you store your packages.  Based on the values you give for its invocation options, **AzureDTExec** will generate and run a unique ADF pipeline with Execute SSIS Package activity in it.  Invoking **AzureDTExec** with the same values for its options will rerun the existing pipeline.
 
 ## Prerequisites
 To use **AzureDTExec**, download and install the latest SSMS (version 18.3 or later) from [here](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
@@ -66,21 +66,26 @@ On **AzureDTExecConfig** window, you can enter your configuration settings as fo
 
 - **LogAccessPassword**: Enter the password credential to access your log folder in its UNC path when writing log files, required when **LogPath** is specified and **LogLevel** is not **null**.
 
-- **PipelineNameHashStrLen**: Enter the length of hash strings to be generated from the values of options you provide when invoking **AzureDTExec**.  The strings will be used to form unique names for ADF pipelines that run your packages on Azure-SSIS IR.  A length of 32 characters is sufficient.
+- **PipelineNameHashStrLen**: Enter the length of hash strings to be generated from the values of options you provide when invoking **AzureDTExec**.  The strings will be used to form unique names for ADF pipelines that run your packages on Azure-SSIS IR.  Usually a length of 32 characters is sufficient.
 
 If you plan to store your packages and log files in file systems/file shares on premises, you should join your Azure-SSIS IR to a VNet connected to your on-premises network, so it can fetch your packages and write your log files, see [Join Azure-SSIS IR to a VNet](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) article for more info.
 
 To avoid showing sensitive values written into **AzureDTExec.settings** file in plain text, we will encode them into strings of Base64 encoding.  When you invoke **AzureDTExec**, all Base64-encoded strings will be decoded back into their original values.  You can further secure **AzureDTExec.settings** file by limiting the accounts that can access it.
 
 ## Invoke AzureDTExec utility
-You can invoke **AzureDTExec** at the command line prompt and provide the relevant values for specific options in your use case scenario, for example:
+You can invoke **AzureDTExec** at the command line prompt and provide the relevant values for specific options in your use case scenario.
 
-`AzureDTExec.exe
-  /F \\MyStorageAccount.file.core.windows.net\MyFileShare\MyPackage.dtsx
-  /Conf \\MyStorageAccount.file.core.windows.net\MyFileShare\MyConfig.dtsConfig
-  /Conn "MyConnectionManager;Data Source=MyDatabaseServer.database.windows.net;User ID=MyAdminUsername;Password=MyAdminPassword;Initial Catalog=MyDatabase"
-  /Set \package.variables[MyVariable].Value;MyValue
-  /De MyEncryptionPassword`
+The utility is installed at `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn`. You can add its path to the 'PATH' environment variable for it to be invoked from anywhere.
+
+```dos
+> cd "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn"
+> AzureDTExec.exe  ^
+  /F \\MyStorageAccount.file.core.windows.net\MyFileShare\MyPackage.dtsx  ^
+  /Conf \\MyStorageAccount.file.core.windows.net\MyFileShare\MyConfig.dtsConfig  ^
+  /Conn "MyConnectionManager;Data Source=MyDatabaseServer.database.windows.net;User ID=MyAdminUsername;Password=MyAdminPassword;Initial Catalog=MyDatabase"  ^
+  /Set \package.variables[MyVariable].Value;MyValue  ^
+  /De MyEncryptionPassword
+```
 
 Invoking **AzureDTExec** offers similar options as invoking **dtexec**, see [dtexec utility](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017) documentation for more info.  Here are the options that are currently supported:
 
@@ -94,5 +99,12 @@ Invoking **AzureDTExec** offers similar options as invoking **dtexec**, see [dte
 
 - **/De[crypt]**: Sets the decryption password for your package that is configured with **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** protection level.
 
+> [!NOTE]
+> Invoking **AzureDTExec** with new values for its options will generate a new pipeline except for the option **/De[cript]**.
+
 ## Next steps
-Once unique pipelines with Execute SSIS Package activity in them are generated and run after invoking **AzureDTExec**, they can be edited and or rerun on ADF portal, see [Run SSIS packages as ADF activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) article for more info.
+
+Once unique pipelines with Execute SSIS Package activity in them are generated and run after invoking **AzureDTExec**, they can be monitored on ADF portal. See [Run SSIS packages as ADF activities](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) article for more info.
+
+> [!WARNING]
+> The generated pipeline is expected to be used only by **AzureDTExec**. Its properties/parameters may change in the future, so you should not modify/reuse them for any other purposes, which may break **AzureDTExec**. In case this happens, you can always delete the pipeline and **AzureDTExec** will generate a new pipeline the next time it is invoked.

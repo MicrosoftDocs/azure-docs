@@ -38,6 +38,11 @@ To utilize the SQL VM resource provider, you must also register the SQL VM resou
   > [!NOTE]
   > There are no additional licensing requirements associated with registering with the resource provider. Registering with the SQL VM resource provider offers a simplified method to fulfill the requirement of notifying Microsoft that the Azure Hybrid Benefit has been enabled in the place of managing licensing registration forms for each resource. 
 
+For more information about the benefits of using the SQL VM resource provider, see the following [channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) video: 
+
+<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Benefit from SQL VM Resource Provider when self-installing SQL Server on Azure - Microsoft Channel 9 Video"></iframe>
+
+
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
@@ -193,7 +198,7 @@ You can view the current mode of your SQL Server IaaS agent by using PowerShell:
      $sqlvm.Properties.sqlManagement
   ```
 
-SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal. SQL Server VMs in _No-Agent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to completely uninstall the SQL IaaS extension and install it again. 
+SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal. SQL Server VMs in _No-Agent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to delete the SQL VM resource provider resource using the Azure portal, and register with the SQL VM resource provider again. 
 
 To upgrade the agent mode to full: 
 
@@ -343,7 +348,7 @@ Yes. Upgrading the manageability mode from lightweight to full is supported via 
 
 No. Downgrading the SQL Server IaaS extension manageability mode is not supported. The manageability mode can't be downgraded from full mode to lightweight or no-agent mode, and it can't be downgraded from lightweight mode to no-agent mode. 
 
-To change the manageability mode from full manageability, remove the SQL Server IaaS extension. Then, drop the Microsoft.SqlVirtualMachine resource and re-register the SQL Server VM with the SQL VM resource provider.
+To change the manageability mode from full manageability, drop the Microsoft.SqlVirtualMachine resource and re-register the SQL Server VM with the SQL VM resource provider.
 
 **Can I register with the SQL VM resource provider from the Azure portal?**
 

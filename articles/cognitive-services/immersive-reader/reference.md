@@ -13,7 +13,7 @@ ms.date: 06/20/2019
 ms.author: metan
 ---
 
-# Immersive Reader SDK Reference
+# Immersive Reader SDK Reference Guide
 
 The Immersive Reader SDK is a JavaScript library that allows you to integrate the Immersive Reader into your web application.
 
