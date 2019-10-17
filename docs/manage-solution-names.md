@@ -1,6 +1,6 @@
 ---
-title: Manage add-in names in Partner Center
-description: You can use the **Manage product names** page to view all the names that you've reserved for your solution, reserve additional names (for other languages or to change the name of your add-in), and delete names you don't need.
+title: Manage names in Partner Center
+description: You can use the **Manage product names** page to view all the names that you've reserved for your solution, reserve additional names (for other languages or to change the name of your solution), and delete names you don't need.
 localization_priority: Normal
 ---
 
