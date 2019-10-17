@@ -93,4 +93,4 @@ Typical metadata changes might include:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning
+See the [set of modules available](module-reference.md) to Azure Machine Learning.
