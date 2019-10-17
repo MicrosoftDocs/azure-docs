@@ -72,6 +72,12 @@ Use the following detailed instructions to complete the broker setup:
     scp cert-file sshuser@HeadNode0_Name:~/ssl/wnX-cert-sign-request
     ```
 
+1. On the CA machine run the following command to create ca-cert and ca-key files:
+
+    ```bash
+    openssl req -new -newkey rsa:4096 -days 365 -x509 -subj "/CN=Kafka-Security-CA" -keyout ca-key -out ca-cert -nodes
+    ```
+
 1. Change to the CA machine and sign all of the received cert signing requests:
 
     ```bash
