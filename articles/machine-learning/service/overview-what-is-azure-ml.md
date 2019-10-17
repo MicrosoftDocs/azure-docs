@@ -23,7 +23,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 ## About Azure Machine Learning
 
-Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud. 
+Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud.
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
@@ -34,6 +34,7 @@ Train, test, and deploy your models with rich tools such as:
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
 + R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code
 + [Visual Studio Code extension](how-to-vscode-tools.md)
++ [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
 ## What can I do with the service?
 
@@ -72,7 +73,7 @@ For code-free training, try:
 
 When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
-Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) or [Azure Machine Learning studio](https://ml.azure.com).
+Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
 
 These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
@@ -82,6 +83,8 @@ And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can
 * Reuse components and only re-run steps when needed
 * Use different compute resources in each step
 * Run batch scoring tasks
+
+If you want to use scripts to automate your machine learning workflow, the [machine learning CLI](reference-azure-machine-learning-cli.md) provides command-line tools that perform common tasks, such as submitting a training run or deploying a model.
 
 To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
@@ -134,8 +137,10 @@ Try out the designer with [Tutorial: Predict automobile price with the designer]
   + [Use R Markdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
   + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
-
+  + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.
 
 - Read the in-depth [Azure Machine Learning architecture and concepts](concept-azure-machine-learning-architecture.md) article.
+
+- Learn about the [machine learning CLI](reference-azure-machine-learning-cli.md).
