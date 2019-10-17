@@ -1,6 +1,6 @@
 ---
 title: Use Azure Machine Learning Services in Azure Notebooks
-description: An overview of the sample notebooks for Azure Machine Learning Services that you can use with Azure Notebooks.
+description: An overview of the sample notebooks for Azure Machine Learnings that you can use with Azure Notebooks.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -42,7 +42,7 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 The Azure Machine Learning documentation contains a variety of other resources that guide you through working with Machine Learning within notebooks:
 
 - [Quickstart: Use Python to get started with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [Tutorial #1: Train an image classification model with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Tutorial #1: Train an image classification model with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
 - [Tutorial #2: Deploy an image classification model in Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
 - [Tutorial: Train a classification model with automated machine learning in Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 

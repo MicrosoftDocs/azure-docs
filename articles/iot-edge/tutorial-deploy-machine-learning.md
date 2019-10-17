@@ -53,7 +53,7 @@ Cloud resources:
 In this section, you convert trained machine learning model files and into an Azure Machine Learning service container. All the components required for the Docker image are in the [AI Toolkit for Azure IoT Edge Git repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial). Follow these steps to upload that repository into Microsoft Azure Notebooks to create the container and push it to Azure Container Registry.
 
 
-1. Navigate to your Azure Notebooks projects. You can get there from your Azure Machine Learning service workspace in the [Azure portal](https://portal.azure.com) or by signing in to [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) with your Azure account.
+1. Navigate to your Azure Notebooks projects. You can get there from your Azure Machine Learning workspace in the [Azure portal](https://portal.azure.com) or by signing in to [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) with your Azure account.
 
 2. Select **Upload GitHub Repo**.
 
@@ -67,7 +67,7 @@ In this section, you convert trained machine learning model files and into an Az
 
 6. Open the **aml_config/config.json** file.
 
-7. Edit the config file to include the values for your Azure subscription ID, a resource group in your subscription, and your Azure Machine Learning service workspace name. You can get all these values from the **Overview** section of your workspace in Azure. 
+7. Edit the config file to include the values for your Azure subscription ID, a resource group in your subscription, and your Azure Machine Learning workspace name. You can get all these values from the **Overview** section of your workspace in Azure. 
 
 8. Save the config file.
 
