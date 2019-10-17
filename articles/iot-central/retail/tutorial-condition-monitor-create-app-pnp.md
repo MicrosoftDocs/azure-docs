@@ -16,7 +16,7 @@ ms.date: 10/03/2019
 
 This tutorial shows you, as a builder, how to create an Azure IoT Central application to monitor environmental conditions in a retail store. The application is a solution to the common business need to monitor and adapt to environmental conditions in a store or facility.
 
-The tutorial shows how to connect two real devices--a Rigado gateway, and a RuuviTag environmental sensor--to your application. The Rigado C500 gateway serves as the communication hub in your condition monitoring application. It communicates with  sensors in your store and facilitates their connections to the cloud. The RuuviTag is an environmental sensor that provides  telemetry including temperature, humidity, and pressure. The tutorial includes directions for connecting RuuviTag or other sensors to the Rigado gateway. If you have another gateway and sensors, you can still follow the steps in this tutorial to build your application. If you have no devices you can still complete the tutorial, because it shows how to create simulated devices.
+The tutorial shows how to connect two real devices--a Rigado gateway, and a RuuviTag environmental sensor--to your application. It also shows how to connect simulated versions of both of the real devices, and a Rigado RS40 Occupancy sensor. The Rigado C500 gateway serves as the communication hub in your condition monitoring application. It communicates with  sensors in your store and facilitates their connections to the cloud. The RuuviTag is an environmental sensor that provides telemetry including temperature, humidity, and pressure. The RS40 Occupancy sensor provides a way to track motion and presence in regions of a store. This tutorial includes directions for connecting RuuviTag and other sensors to the Rigado gateway. If you have another gateway and sensors, you can still follow the steps in this tutorial to build your application. If you have no devices you can still complete the tutorial, because it shows how to create simulated versions of all the devices.
 
 You develop the condition monitoring solution in three parts:
 
@@ -114,13 +114,17 @@ To add a new device template to your application:
 
     After you add the template, a summary view displays a list of device interfaces and capabilities.
 
-1. Select **Device Templates** in the left pane.
-
-1. Select **+ New** to create another new device template.
+1. Repeat the first 2 steps in this section to begin creating another new device template.
 
 1. Select the **RuuviTag** sensor device template in the Azure IoT device catalog.
 
     ![Azure IoT Central RuuviTag sensor device template](./media/tutorial-condition-monitor-create-app-pnp/ruuvitag-device-template.png)
+
+1. Repeat the first 2 steps in this section to begin creating another new device template.
+
+1. Select the **RS40 Occupancy sensor** device template in the Azure IoT device catalog. 
+
+    ![Azure IoT Central RS40 occupancy sensor device template](./media/tutorial-condition-monitor-create-app-pnp/rigado-occupancy-device-template.png)
 
 ## Customize device templates
 You can customize the device templates in your application in three ways. First, you can customize the native built-in interfaces in your devices by changing the device capabilities. For example, with a temperature sensor, you can change details such as the display name of the temperature interface, the data type of the captured data, the units of measurement, and minimum and maximum operating ranges. Second, you can customize your device templates by adding cloud properties. Cloud properties aren't part of the built-in device capabilities. Cloud properties are custom data that your Azure IoT Central application creates, stores, and associates with your devices. An example of a cloud property could be a calculated value, or metadata such as a location that you want to associate with a set of devices. Third, you can customize device templates by building custom views.  Views provide a way for operators to visualize telemetry and metadata for your devices, such as device metrics and health.
@@ -180,10 +184,10 @@ Specify the following values to create a custom property to store the location o
     Publishing a device template makes it visible to application operators. After you've published a template, use it to generate simulated devices for testing, or to connect real devices to your application. If you already have devices connected to your application, publishing a customized template pushes the changes to the devices.
 
 ## Add devices
-After you have created and customized device templates, it's time to add devices to your application. This section shows how to use your device templates to connect a Rigado gateway and RuuviTag sensors to the application.  It also shows how to generate a simulated gateway and sensors.
+After you have created and customized device templates, it's time to add devices to your application. This section shows how to use your device templates to connect a real Rigado gateway and RuuviTag sensors to the application.  It also shows how to generate a simulated gateway and sensors. 
 
 > [!NOTE]
-> If you do not have real devices to use, follow the steps to create simulated devices and complete the tutorial.
+> Regardless whether you have real devices to connect, complete the steps in this section to create simulated devices. The rest of this tutorial provides directions that apply to real and simulated devices.
 
 To connect a Rigado C500 gateway and RuuviTag sensors, follow the steps in [Connect a Rigado Cascade 500 to your Azure IoT Central application](../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
@@ -197,25 +201,37 @@ To create a simulated Rigado C500 gateway:
 
 1. Enable the **Simulated** setting. 
 
-1. Change the **Device ID** and **Display name** to a more meaningful name. For example, enter *gateway-c500-sim-001*. Changing the ID  is optional but helps to distinguish devices if you add multiple devices.
+1. Change the **Device ID** and **Display name** to *sim-gateway-c500-001*. Changing the ID is optional but helps to distinguish devices if you add multiple devices.
 
    ![Azure IoT Central Create a Rigado C500 gateway](./media/tutorial-condition-monitor-create-app-pnp/create-c500-gateway-simulated.png)
 
 1. Select **Create**. This generates a simulated instance of the gateway device in your Azure IoT Central application.
 
+To create a simulated RS40 occupancy sensor:
+
+1. Select **Devices > RS40 occupancy sensor** to create a simulated sensor based on the RS40 device template.
+
+1. Select **+ New**.
+
+1. Enable the **Simulated** setting. 
+
+1. Change the **Device ID** and **Display name** to *sim-occupancy-sensor-001*. 
+
+1. Select **Create**.
+
 To create a simulated RuuviTag sensor:
 
-1. Select the **RuuviTag** sensor template on the secondary navigation.
+1. Select the **Devices > RuuviTag** sensor template. 
 
 1. Select **+ New** to create a simulated sensor based on the template.
 
 1. Enable the **Simulated** setting.
 
-1. Change **Device ID** and **Display name** to *ruuvitag-sensor-sim-001*.  
+1. Change **Device ID** and **Display name** to *sim-environmental-sensor-001*.  
 
 1. Select **Create**.  
 
-1. Repeat the preceding steps twice, to create two more simulated RuuviTag sensors. As you create the two sensors, change the **Device ID** and **Display name** values to *ruuvitag-sensor-sim-002* and *ruuvitag-sensor-sim-003*. The resulting device list for the RuuviTag device template shows the list of simulated sensors. 
+1. Repeat the preceding steps to create a RuuviTag twice, to create two more simulated RuuviTag sensors. As you create the two sensors, change the **Device ID** and **Display name** values to *sim-environmental-sensor-002* and *sim-environmental-sensor-003*. The resulting device list for the RuuviTag device template shows the list of simulated sensors. 
 
    ![Azure IoT Central RuuviTag device list](./media/tutorial-condition-monitor-create-app-pnp/ruuvitag-device-list.png)
 
