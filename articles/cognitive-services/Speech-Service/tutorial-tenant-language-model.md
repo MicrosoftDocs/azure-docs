@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 11/4/2019
+ms.date: 10/26/2019
 ms.author: erhopf
 ---
 
@@ -25,7 +25,7 @@ In this tutorial, you'll learn how to:
 > * Enroll to use a Tenant Language Model in the Microsoft 365 Admin Center
 > * Get a Speech subscription key
 > * Create a Tenant Language Model
-> * Publish a Tenant Language Model
+> * Deploy a Tenant Language Model
 > * Use a Tenant Language Model with the Speech SDK
 
 ![Tenant Language Model diagram](media/tenant-language-model/tenant-language-model-diagram.png)
@@ -84,21 +84,9 @@ When your Tenant Language Model is ready, follow these steps to deploy your mode
 
 ## Use your model with the Speech SDK
 
-Now that you've published your model, you can use it with the Speech SDK. In this section, you'll create an **App registration** for use with **Azure Active Directory (AAD)**. Then using the sample code provided you'll call the Speech Service using AAD authentication.
+Now that you've deployed your model, you can use it with the Speech SDK. In this section, you'll use the sample code provided to call the Speech Service using AAD authentication.
 
-Let's start by registering your app with AAD:
-
-1. Sign into the [Azure portal](https://ms.portal.azure.com/).
-2. From the left navigation, select **Azure Active Directory**, then select **App registration**.
-3. Click **+New registration** to register your app.
-4. Get the **Application ID**. You'll use this with the sample code.  
-
-![App registration flow](media/tenant-language-model/tenant-language-model-app-registration.png)
-
-> [!NOTE]
-> For detailed AAD instructions, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
-
-Next, let's look at the code you'll use to call the Speech SDK in C# with a Tenant Language Model. This guide presumes that your platform is already set up. If you need help with setting up, see [Quickstart: Recognize speech, C# (.NET Core)](quickstart-csharp-dotnetcore-windows.md).
+Let's look at the code you'll use to call the Speech SDK in C#. In this example, you'll perform speech recognition using a Tenant Language Model. This guide presumes that your platform is already set up. If you need help with setting up, see [Quickstart: Recognize speech, C# (.NET Core)](quickstart-csharp-dotnetcore-windows.md).
 
 Copy this code into your project:
 
@@ -281,14 +269,19 @@ namespace PrincetonSROnly.FrontEnd.Samples
 }
 ```
 
-There are a few parameters you'll need to update in the sample before you can run it:
+Next, you'll need rebuild and run the project from the command line. There are a few parameters you'll need to update before you run the command.
 
-1. Add either (1) `Username` and `Password`, or (2) `ClientApplicationId`. You don't need to provide both. The `ClientApplicationId` is the value returned in step 4 of your AAD app registration.
-2. Replace the value of `SubscriptionKey` with the subscription key for your Speech resource. This value is available in the **Overview** section for your Speech resource in the [Azure portal](https://aka.ms/azureportal).
-3. Update the `EndpointUri`. Make sure that you replace `{your-region}` with the region where your Speech resource was created. If you don't remember, you can find this information in the overview blade for your resource in the Azure portal. Currently, only `westus`, `westus2` and `eastus` are supported.
-   ```csharp
+1. Replace `<Username>` and `<Password>` with the values for a valid tenant user.
+2. Replace `<Subscription-Key>` with the subscription key for your Speech resource. This value is available in the **Overview** section for your Speech resource in the [Azure portal](https://aka.ms/azureportal).
+3. Replace `<Endpoint-Uri>` with the endpoint below. Make sure that you replace `{your-region}` with the region where your Speech resource was created. These regions are supported: `westus`, `westus2`, and `eastus`. Your region information is available in the **Overview** section for your Speech resource in the [Azure portal](https://aka.ms/azureportal).
+   ```
    $"wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```
+4. Run the command:
+   ```bash
+   dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
+   ```
+
 
 ## See also
 
