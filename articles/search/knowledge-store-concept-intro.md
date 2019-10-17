@@ -51,7 +51,7 @@ A knowledge store is part of a [skillset](cognitive-search-working-with-skillset
 
 In this preview, you can create a knowledge store using the REST API and `api-version=2019-05-06-Preview`, or through the **Import data** wizard in the portal.
 
-### JSON representation
+### JSON representation of a knowledge store
 
 The following JSON specifies a `knowledgeStore`, which is part of a skillset, which is invoked by an indexer (not shown). If you are already familiar with AI enrichment, a skillset determines the creation, organization, and substance of each enriched document. A skillset must contain at least one skill, most likely a Shaper skill if you are modulating data structures.
 
@@ -126,7 +126,7 @@ A `knowledgeStore` consists of a connection and projections.
 }
 ```
 
-### Source data
+### Sources of data for a knowledge store
 
 If a knowledge store is output from an AI enrichment pipeline, what are the inputs? The original data that you want to extract, enrich, and ultimately save to a knowledge store can originate from any of Azure data source supported by Azure Search indexers: 
 
@@ -140,7 +140,7 @@ If a knowledge store is output from an AI enrichment pipeline, what are the inpu
 
 The indexers and skillsets you create extract and enrich or transform this content as part of an indexing workload, and then save the results to a knowledge store.
 
-### REST APIs used in knowledge store creation
+### REST APIs used in creation of a knoweldge store
 
 Only two APIs have the extensions required for creating a knowledge store (Create Skillset and Create Indexer). Other APIs are used as-is.
 
@@ -151,9 +151,9 @@ Only two APIs have the extensions required for creating a knowledge store (Creat
 | index | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
 | indexer | [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search index based on the index schema, populated with source data, enriched through skillsets.  |
 
-### Projection definition
+### Physical componsition of a knowledge store
 
- A *projection* defines the schema and structure of the enrichments that match your intended use. You can define multiple projections if you have applications that consume the data in different formats and shapes. 
+ A *projection*, which is an element of a `knowledgeStore` definition,  articulates the schema and structure of output so that it matches your intended use. You can define multiple projections if you have applications that consume the data in different formats and shapes. 
 
 Projections can be articulated as objects or tables:
 
@@ -167,7 +167,7 @@ For example, if one of the goals of the enrichment process is to also create a d
 
 <a name="tools-and-apps"></a>
 
-## Tools and apps for connecting to a knowledge store
+## Connecting with tools and apps
 
 Once the enrichments exist in storage, any tool or technology that connects to Azure Blob or Table storage can be used to explore, analyze, or consume the contents. The following list is a start:
 

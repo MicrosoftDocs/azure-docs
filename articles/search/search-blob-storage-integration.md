@@ -27,7 +27,7 @@ Inputs are your blobs, in a single container, in Azure Blob storage. Blobs can b
 
 Output is always an Azure Search index, used for fast text search, retrieval, and exploration in client applications. In between is the indexing pipeline architecture itself. The pipeline is based on the *indexer* feature, discussed further on in this article.
 
-## Start with services and data
+## Start with services
 
 You need Azure Search and Azure Blob storage. Within Blob storage, you need a container that provides source content.
 
