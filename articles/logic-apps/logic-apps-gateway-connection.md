@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 09/01/2019
+ms.date: 10/18/2019
 ---
 
 # Connect to on-premises data sources from Azure Logic Apps
@@ -57,7 +57,7 @@ Although the gateway itself doesn't incur additional costs, the [Logic Apps pric
 
 * You haven't previously linked your gateway installation to another gateway resource in Azure.
 
-  When you create a gateway resource in Azure, you select a gateway installation to use with your gateway resource. You can link only one gateway installation and one gateway resource to each other. Each installation is [associated with only one Azure subscription](../logic-apps/logic-apps-gateway-install.md#prerequisites), but in your logic app's trigger and actions that use the gateway resource, you can select another gateway resource (and installation) in your other Azure subscriptions.
+  When you create a gateway resource in Azure, you select a gateway installation to use with your gateway resource. You can link only one gateway installation and one gateway resource to each other. Each installation is [associated with only one Azure subscription](../logic-apps/logic-apps-gateway-install.md#prerequisites). However, in your logic app's trigger and actions that use the gateway resource, you can select a different gateway resource in your other Azure subscriptions.
 
 <a name="create-gateway-resource"></a>
 
@@ -102,12 +102,12 @@ After you create your gateway resource and associate your Azure subscription wit
 
 1. Select **Connect via on-premises data gateway**. 
 
-1. For **Gateways**, select the gateway resource that you created.
+1. Under **Gateways**, for **Subscriptions**, select your Azure subscription that has the gateway resource that you want. For **Connection Gateway**, select a gateway resource that's available in the selected subscription.
 
    > [!NOTE]
    > The gateways list includes gateway resources in other regions because your 
-   > logic app's location can differ from your gateway resource's location.
-
+   > logic app's location can differ from your gateway resource's location. 
+ 
 1. Provide a unique connection name and other required information, which depends on the connection that you want to create.
 
    A unique connection name helps you easily find that connection later, especially if you create multiple connections. If applicable, also include the qualified domain for your username.
