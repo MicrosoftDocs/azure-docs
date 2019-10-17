@@ -83,7 +83,7 @@ After you install the gateway on a local computer, create the Azure resource for
    | **Subscription** | Your Azure subscription, which must be the same as gateway installation and logic app. The default subscription is based on the Azure account that you used to sign in. |
    | **Resource group** | The [Azure resource group](../azure-resource-manager/resource-group-overview.md) that you want to use |
    | **Location** | The same region as the location that was selected for the gateway cloud service during [gateway installation](../logic-apps/logic-apps-gateway-install.md). Otherwise, your gateway installation won't appear in the **Installation Name** list for you to select. Your logic app location can differ from your gateway resource location. |
-   | **Installation Name** | Select the gateway that you previously installed. This list doesn't include gateway installations that are: <p><p>- Already linked to other gateway resources in Azure <br>- Associated with other Azure subscriptions. Each installation is associated with only one Azure subscription. However, in logic app triggers and actions where you use the gateway resource, you can select a gateway resource from your other Azure subscriptions. |
+   | **Installation Name** | Select the gateway that you previously installed. This list doesn't include gateway installations that are: <p><p>- Already linked to other Azure gateway resources <br>- Linked to other Azure subscriptions. Each installation is linked to only one Azure subscription. However, in Azure Logic Apps, on-premises triggers and actions can use a gateway resource from your other Azure subscriptions. |
    |||
 
    Here is an example:
@@ -102,7 +102,9 @@ After you create your gateway resource and associate your Azure subscription wit
 
 1. Select **Connect via on-premises data gateway**. 
 
-1. Under **Gateways**, for **Subscriptions**, select your Azure subscription that has the gateway resource that you want. For **Connection Gateway**, select a gateway resource that's available in the selected subscription.
+1. Under **Gateways**, from the **Subscriptions** list, select your Azure subscription that has the gateway resource you want.
+
+1. From the **Connection Gateway** list, which shows the gateway resources in your selected subscription, select the gateway resource you want. Each gateway resource is linked to a single gateway installation.
 
    > [!NOTE]
    > The gateways list includes gateway resources in other regions because your 
