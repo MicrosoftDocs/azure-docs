@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -88,18 +88,26 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
-	> [!NOTE]
-	> You will select your company name value in the dome9 admin portal, which is explained later in the tutorial.
-
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. Contact [Check Point CloudGuard Dome9 Arc Client support team](mailto:Dome9@checkpoint.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-on URL. You will get the `<company name>` value from the **Configure Check Point CloudGuard Dome9 Arc SSO** section, which is explained later in the tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. Check Point CloudGuard Dome9 Arc require roles to be configured in Azure AD. The role claim is pre-configured so you don't have to configure it but you still need to create them in Azure AD using this [article](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
+1. Check Point CloudGuard Dome9 Arc application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/edit-attribute.png)
+
+1. In addition to above, Check Point CloudGuard Dome9 Arc application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirement.
+	
+	| Name |  Source Attribute|
+	| ---------------| --------------- |
+	| memberof | user.assignedroles |
+
+	>[!NOTE]
+	>Click [here](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial) to know how to create roles in Azure AD.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -163,7 +171,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Check Point CloudGuard Dome9 Arc Configuration](./media/dome9arc-tutorial/configure3.png)
 
-	a. Enter company name in the **Account ID** textbox. This value is to be used in the Reply URL mentioned in the Azure portal **Basic SAML Configuration** section.
+	a. Enter company name in the **Account ID** textbox. This value is to be used in the **Reply** and **Sign on** URL mentioned in **Basic SAML Configuration** section of Azure portal.
 
 	b. In the **Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied form the Azure portal.
 
@@ -221,4 +229,3 @@ When you click the Check Point CloudGuard Dome9 Arc tile in the Access Panel, yo
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Check Point CloudGuard Dome9 Arc with Azure AD](https://aad.portal.azure.com/)
-
