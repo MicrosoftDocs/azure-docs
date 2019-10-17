@@ -70,7 +70,7 @@ To begin any test, the JavaScript client must be embedded in your web-facing app
 * More detailed instructions can be found on the [Create Custom Endpoint](internet-analyzer-custom-endpoint.md) page. 
 
 4. CLick **Add** to add the endpoint to your test. 
-5. Follow steps 1-5 to configure your second endpoint. Endpoint A is always measured relative to Endpoint B - when configuring endpoints, consider when endpoint should be your control. 
+5. Repeat steps 1-5 to configure your second endpoint. Endpoint A is always measured relative to Endpoint B - when configuring endpoints, consider which endpoint should be your experiment control. 
 6. By default, tests will be set to **Enabled.** If the JavaScript client is already installed, this means your test will begin once you click **Review + create**. If **Enabled** is not selected, you will need to start your test from the *Configuration* tab.
 
 
