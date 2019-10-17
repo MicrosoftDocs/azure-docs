@@ -1,4 +1,4 @@
---
+---
 title: Azure Monitor for containers Live Console (preview) | Microsoft Docs
 description: This article describes the real-time view of Kubernetes logs, events, and pod metrics without using kubectl in Azure Monitor for containers.
 services: azure-monitor
