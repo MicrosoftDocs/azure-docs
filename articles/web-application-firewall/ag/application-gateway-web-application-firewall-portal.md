@@ -230,9 +230,9 @@ Configure diagnostics to record data into the ApplicationGatewayAccessLog, Appli
 
     ![Configure diagnostics](../media/application-gateway-web-application-firewall-portal/application-gateway-diagnostics.png)
 
-## Create and Link a Web Application Firewall Policy
+## Create and link a Web Application Firewall policy
 
-All of the WAF customizations and settings live in a separate object, called a WAF Policy, that must be associated with your Application Gateway. To create a WAF Policy, see [Create a WAF Policy](create-waf-policy-ag.md). Once it's been created, you can then associate the Policy to your WAF (or an individual listener) from the WAF Policy in the "Associated Application Gateways" tab. 
+All of the WAF customizations and settings are in a separate object, called a WAF Policy. The policy must be associated with your Application Gateway. To create a WAF Policy, see [Create a WAF Policy](create-waf-policy-ag.md). Once it's been created, you can then associate the policy to your WAF (or an individual listener) from the WAF Policy in the **Associated Application Gateways** tab. 
 
 ![Associated application gateways](../media/application-gateway-web-application-firewall-portal/associated-application-gateways.png)
 
