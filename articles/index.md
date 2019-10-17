@@ -192,7 +192,7 @@ featureFlags:
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">SQL database as a service</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server on an Azure VM</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">Synapse Analytics (formerly known as SQL Data Warehouse)</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">Synapse Analytics (SQL DW)</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL database as a service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL database as a service</a></li>
                                                 </ul>
@@ -621,7 +621,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/sqldatawarehouse.svg" alt="" />
-                                                <p>Synapse Analytics (formerly known as SQL Data Warehouse)</p>
+                                                <p>Synapse Analytics (SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -903,7 +903,7 @@ featureFlags:
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
                                                 <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>Synapse Analytics (formerly known as SQL Data Warehouse)</p>
+                                                <p>Synapse Analytics (SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -2251,7 +2251,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Synapse Analytics (formerly known as SQL Data Warehouse)</h3>
+                                                    <h3>Synapse Analytics (SQL DW)</h3>
                                                     <p>Limitless cloud data warehouse with unmatched time to insight</p>
                                                 </div>
                                             </div>

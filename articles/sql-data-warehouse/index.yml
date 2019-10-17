@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse)  # < 60 chars
-summary: Learn how to use Azure Synapse Analytics, which combines SQL relational databases with massively parallel processing (MPP). Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse.  # < 160 chars
+title: Azure Synapse Analytics (SQL DW)  # < 60 chars
+summary: Learn how to use Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse), which combines SQL relational databases with massively parallel processing (MPP). Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse.  # < 160 chars
 
 metadata:
   title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
