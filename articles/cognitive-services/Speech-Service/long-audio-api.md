@@ -8,11 +8,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/26/2019
 ms.author: erhopf
 ---
 
-# Synthesize text to speech with long audio API
+# Long Audio API
 
 As the name implies, the Long Audio API is designed for batch synthesis of long-form text to speech. This API doesn't return synthesized audio in real-time, instead the expectation is that you will poll for the response(s) and consume the output(s) as they are made available from the service. Unlike the text to speech API that's used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms.
 
