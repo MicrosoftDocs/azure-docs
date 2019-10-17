@@ -79,9 +79,6 @@ Both the [Azure Functions Core Tools](functions-run-local.md) and the [Azure Fun
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md). 
 
-> [!NOTE]
-> Remote build on the Linux Dedicated (App Service) plan is currently only supported for Node.js and Python.
-
 ##### Consumption plan
 
 Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds.
