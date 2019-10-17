@@ -20,15 +20,15 @@ Since Azure Machine Learning tracks information from a local git repo, it isn't 
 
 When you submit a training run from the Python SDK or Machine Learning CLI, the files needed to train the model are uploaded to your workspace. If the `git` command is available on your development environment, the upload process uses it to check if the files are stored in a git repository. If so, then information from your git repository is also uploaded as part of the training run. This information is stored in the following properties for the training run:
 
-| Property | Description |
-| ----- | ----- |
-| `azureml.git.repository_uri` | The URI that your repository was cloned from. |
-| `mlflow.source.git.repoURL` | The URI that your repository was cloned from. |
-| `azureml.git.branch` | The active branch when the run was submitted. |
-| `mlflow.source.git.branch` | The active branch when the run was submitted. |
-| `azureml.git.commit` | The commit hash of the code that was submitted for the run. |
-| `mlflow.source.git.commit` | The commit hash of the code that was submitted for the run. |
-| `azureml.git.dirty` | `True`, if the commit is dirty; otherwise, `false`. |
+| Property | Git command used to get the value | Description |
+| ----- | ----- | ----- |
+| `azureml.git.repository_uri` | `git ls-remote --get-url` | The URI that your repository was cloned from. |
+| `mlflow.source.git.repoURL` | `git ls-remote --get-url` | The URI that your repository was cloned from. |
+| `azureml.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the run was submitted. |
+| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | The active branch when the run was submitted. |
+| `azureml.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the run. |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | The commit hash of the code that was submitted for the run. |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`, if the branch/commit is dirty; otherwise, `false`. |
 
 This information is sent for runs that use an estimator, machine learning pipeline, or script run.
 
