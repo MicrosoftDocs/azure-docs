@@ -85,7 +85,7 @@ landingContent:
     linkLists:
       - linkListType: concept 
         links:
-          - text: What are Mapping Data Flows?
+          - text: What are mapping data flows?
             url: /azure/data-factory/concepts-data-flow-overview
       - linkListType: tutorial
         links:
@@ -134,7 +134,7 @@ landingContent:
           - text: Managed Identity for data factory
             url: /azure/data-factory/data-factory-service-identity
           - text: Store credentials in Azure Key Vault
-            url: /store-credentials-in-key-vault
+            url: /azure/data-factory/store-credentials-in-key-vault
   - title: Author, Monitor and Manage
     linkLists:
       - linkListType: how-to-guide

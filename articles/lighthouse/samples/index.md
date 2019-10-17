@@ -1,6 +1,6 @@
 ---
-title: Index of Azure Lighthouse samples and templates
-description: Index of samples and templates for Azure Lighthouse.
+title: Azure Lighthouse samples and templates
+description: These samples and Azure Resource Manager templates show you how to onboard customers for Azure delegated resource management and support Azure Lighthouse scenarios.
 author: JnHs
 manager: carmonm
 ms.service: lighthouse
