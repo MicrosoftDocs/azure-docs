@@ -13,9 +13,11 @@ ms.date: 10/09/2019
 
 A pipeline runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
 
-1. Select **Run** at the top to run the pipeline.
+1. Select **Run** at the top of the canvas to run the pipeline.
 
 1. When the **Settings** pane appears, select **Select compute target**.
+
+    If you already have an available compute target, you can select it to run this pipeline.
 
     > [!NOTE]
     > The visual interface can only run experiments on Machine Learning Compute targets. Other compute targets will not be shown.
@@ -30,7 +32,7 @@ A pipeline runs on a compute target, a compute resource that is attached to your
 
 1. In the **Set up pipeline run** dialog, select **+ New experiment** for the **Experiment**
 
-    * For **Experiment Name**, enter **Auto-price** 
+    * Enter a descriptive **Experiment Name**
 
     * Select **Run**
     
