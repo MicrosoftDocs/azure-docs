@@ -40,7 +40,6 @@ There is no programming required, visually connect datasets and modules to const
 Here is a quick comparison:
 
 || Machine Learning Studio (classic) | Azure Machine Learning |
-
 |---| --- | --- |
 || Generally available (GA) | In preview|
 | Drag and drop interface | Yes | Yes - Azure Machine Learning designer |
