@@ -40,11 +40,53 @@
   - name: Disk encryption
     items:
     - name: Best practices
+      displayName: transit
       href: data-encryption-best-practices.md
     - name: Data encryption-at-rest
       href: encryption-atrest.md
-    - name: Azure Disk Encryption for VMs and VMSS
-      href: azure-disk-encryption-vms-vmss.md
+    - name: Disk encryption for IaaS VMs
+      items:
+      - name: About Azure Disk Encryption
+        displayName: BitLocker, bek
+        href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview
+      - name: Quickstarts
+        items:
+        - name: Encrypt a Linux VM with Azure CLI
+          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-cli-quickstart
+        - name: Encrypt a Linux VM with Azure PowerShell
+          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-powershell-quickstart
+        - name: Encrypt a Windows VM with Azure CLI
+          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-cli-quickstart
+        - name: Encrypt a Windows VM with Azure PowerShell
+          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-powershell-quickstart
+      - name: Azure Disk Encryption
+        items:
+        - name: Disk encryption prerequisites
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites
+        - name: Disk encryption for Windows VMs
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows
+        - name: Disk encryption for Linux VMs
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux
+        - name: Disk encryption with virtual machine scale set extension sequencing
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-extension-sequencing
+        - name: Appendix for disk encryption
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-appendix
+        - name: Disk encryption FAQ
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq
+        - name: Troubleshooting
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg
+        - name: Azure Disk Encryption with Azure AD app (previous release)
+          displayName: active directory
+          items:
+          - name: Disk encryption with Azure AD app prerequisites 
+            displayName: active directory
+            href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad
+          - name: Disk encryption with Azure AD app for Windows VMs 
+            displayName: active directory
+            href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows-aad
+          - name: Disk encryption with Azure AD app for Linux VMs 
+            displayName: active directory
+            href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad
   - name: Storage security guide
     href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
