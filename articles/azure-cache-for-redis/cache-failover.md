@@ -15,7 +15,7 @@ ms.author: adsasine
 
 # Failover and patching explained for Azure Cache for Redis
 
-Understanding what a failover is in context with the Azure Cache for Redis service is critical to building resilient and successful client applications. A common cause for a cache failover is the management service patching the Redis binaries. This article covers what a failover is, how they occur during patching, and how to build a resilient client application.
+Understanding what a failover is in context with the Azure Cache for Redis service is critical to building resilient and successful client applications. A common cause for a cache failover comes from the management service patching the Redis binaries. This article covers what a failover is, how they occur during patching, and how to build a resilient client application.
 
 ## What is a failover?
 
