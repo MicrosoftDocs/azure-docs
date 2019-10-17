@@ -4,7 +4,7 @@ title: Azure DDoS Protection - Designing resilient solutions | Microsoft Docs
 description: Learn about how you can use logging data to gain deep insights about your application.
 services: security
 author: barclayn
-manager: barbkess
+manager: RKarlin
 editor: TomSh
 
 ms.assetid: 
@@ -26,6 +26,7 @@ DDoS is a type of attack that tries to exhaust application resources. The goal i
 In addition to the core DDoS protection in the platform, [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/) provides advanced DDoS mitigation capabilities against network attacks. It's automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of new virtual networks. It can also be done after creation and requires no application or resource changes.
 
 ![The role of Azure DDoS Protection in protecting customers and a virtual network from an attacker](./media/ddos-best-practices/image1.png)
+
 
 ## Fundamental best practices
 
@@ -272,6 +273,6 @@ documentation.
 
 * [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure infrastructure security](infrastructure.md).
+* [Shared responsibility in the cloud](shared-responsibility.md)
 
 * [Azure DDoS Protection documentation](/azure/virtual-network/ddos-protection-overview)
