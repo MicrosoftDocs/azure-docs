@@ -1,6 +1,6 @@
 ---
 title: SQL Server FCI with premium file share - Azure Virtual Machines 
-description: "This article explains how to create a SQL Server failover cluster instance by using a premium file share on Azure virtual machines."
+description: "This article explains how to create a SQL Server failover cluster instance by using a premium file share on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -16,9 +16,9 @@ ms.date: 10/09/2019
 ms.author: mathoma
 ---
 
-# Configure a SQL Server failover cluster instance with premium file share on Azure virtual machines
+# Configure a SQL Server failover cluster instance with premium file share on Azure Virtual Machines
 
-This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines by using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
+This article explains how to create a SQL Server failover cluster instance (FCI) on Azure Virtual Machines by using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
 
 Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
@@ -32,29 +32,33 @@ You should have an operational understanding of these technologies:
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
-One important difference is that on an Azure IaaS VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy that makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM failover clusters. 
+One thing to be aware of is that on an Azure IaaS VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy that makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. The cluster validation report will warn you that the nodes are reachable only on a single network, but you can ignore this warning on Azure IaaS VM failover clusters.
 
-Additionally, you should have a general understanding of the following technologies:
+You should also have a general understanding of these technologies:
 
 - [Azure premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md)
 - [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To change from full extension mode to lightweight, delete the "SQL Virtual Machine" resource for the correspinding VMs and then register them with the SQL VM resource provider in `lightweight` mode. When deleting "SQL Virtual Machine" resource using Azure portal ensure to unselect the actual Virtual Machine. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
+> At this time, SQL Server failover cluster instances on Azure Virtual Machines are supported only with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To change from full extension mode to lightweight mode, delete the **SQL Virtual Machine** resource for the applicable VMs and then register them with the SQL VM resource provider in lightweight mode. When you delete the **SQL Virtual Machine** resource by using the Azure portal, be sure to deselect the actual virtual machine.
+>
+>The full extension supports features like automated backup, patching, and advanced portal management. These features won't work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
 
-### Workload consideration
+### Workload capacities
 
-Premium file shares provide IOPS and throughout capacity that will meet the needs of many workloads. However, for IO intensive workloads, consider [SQL Server FCI with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md) based on managed premium disks or ultra-disks.  
+Premium file shares provide IOPS and throughout capacities that will meet the needs of many workloads. For IO-intensive workloads, consider [SQL Server Failover Cluster Instances with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md), based on managed premium disks or ultra disks.  
 
-Check the IOPS activity of your current environment and verify that premium files will provide the IOPS you need before starting a deployment or migration. Use Windows Performance Monitor disk counters and monitor total IOPS (Disk Transfers/sec) and throughput (Disk bytes/sec) required for SQL Server Data, Log, and Temp DB files. Many workloads have bursting IO so it is a good idea to check during heavy usage periods and note the max IOPS as well as average IOPS. Premium files shares provide IOPS based on the size of the share. Premium files also provide complimentary bursting where you can burst your IO to triple the baseline amount for up to one hour. 
+Check the IOPS activity of your environment and verify that premium file shares will provide the IOPS you need before starting a deployment or migration. Use Windows Performance Monitor disk counters to monitor the total IOPS (disk transfers/second) and throughput (disk bytes/second) required for SQL Server Data, Log, and Temp DB files.
 
-For more information about premium file share performance, see [File share performance tiers](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers). 
+Many workloads have bursting IO, so it's a good idea to check during heavy usage periods and note both the maximum IOPS and the average IOPS. Premium file shares provide IOPS based on the size of the share. Premium file shares also provide complimentary bursting that allows you to burst your IO to triple the baseline amount for up to one hour.
+
+For more information about premium file share performance, see [File share performance tiers](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers).
 
 ### Licensing and pricing
 
-On Azure Virtual Machines, you can license SQL Server using pay as you go (PAYG) or bring your own license (BYOL) VM images. The type of image you choose affects how you are charged.
+On Azure Virtual Machines, you can license SQL Server by using pay-as-you-go or bring-your-own-license (BYOL) VM images. The type of image you choose affects how you're charged.
 
-With PAYG licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+With pay-as-you-go licensing, a failover cluster instance (FCI) of SQL Server on Azure Virtual Machines incurs charges for all nodes of FCI, including the passive nodes. For more information, see [SQL Server Enterprise Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
 Customers with Enterprise Agreement with Software Assurance have the right to use one free passive FCI node for each active node. To take advantage of this benefit in Azure, use BYOL VM images and then use the same license on both the active and passive nodes of the FCI. For more information, see [Enterprise Agreement](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx).
 
