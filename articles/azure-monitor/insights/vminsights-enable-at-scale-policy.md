@@ -1,18 +1,13 @@
 ---
 title: Enable Azure Monitor for VMs by using Azure Policy | Microsoft Docs
 description: This article describes how you enable Azure Monitor for VMs for multiple Azure virtual machines or virtual machine scale sets by using Azure Policy.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 10/15/2019
+
 ---
 
 # Enable Azure Monitor for VMs (preview) by using Azure Policy
