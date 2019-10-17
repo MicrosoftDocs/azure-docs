@@ -11,7 +11,7 @@ ms.date: 05/06/2019
 ---
 
 >[!IMPORTANT]
->You can use the resources that you created as prerequisites for other Azure Machine Learning service tutorials and how-to articles.
+>You can use the resources that you created as prerequisites for other Azure Machine Learning tutorials and how-to articles.
 
 
 ### Delete everything

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Enrich an automated machine learning model'
 titleSuffix: Azure Open Datasets
-description: Learn how to leverage the convenience of Azure Open Datasets along with the power of Azure Machine Learning service to create a regression model to predict NYC taxi fare prices.
+description: Learn how to leverage the convenience of Azure Open Datasets along with the power of Azure Machine Learning to create a regression model to predict NYC taxi fare prices.
 services: open-datasets
 ms.service: open-datasets
 ms.topic: tutorial
@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 
 # Tutorial: Build a regression model with automated machine learning and Open Datasets
 
-In this tutorial, you leverage the convenience of Azure Open Datasets along with the power of Azure Machine Learning service to create a regression model to predict NYC taxi fare prices. Easily download publicly available taxi, holiday and weather data, and configure an automated machine learning experiment using Azure Machine Learning service. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
+In this tutorial, you leverage the convenience of Azure Open Datasets along with the power of Azure Machine Learning to create a regression model to predict NYC taxi fare prices. Easily download publicly available taxi, holiday and weather data, and configure an automated machine learning experiment using Azure Machine Learning. This process accepts training data and configuration settings, and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model.
 
 In this tutorial you learn the following tasks:
 
@@ -1969,4 +1969,4 @@ If you don't plan to use the resources you created, delete them, so you don't in
 ## Next steps
 
 * See the Azure Open Datasets [notebooks](https://github.com/Azure/OpenDatasetsNotebooks) for more code examples.
-* Follow the [how-to](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) for more information on automated machine learning in Azure Machine Learning service.
+* Follow the [how-to](https://docs.microsoft.com/azure/machine-learning/service/how-to-configure-auto-train) for more information on automated machine learning in Azure Machine Learning.
