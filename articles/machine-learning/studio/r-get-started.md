@@ -18,9 +18,9 @@ ms.date: 03/01/2019
 
 ## Introduction
 
-This tutorial helps you start extending Azure Machine Learning Studio (classic) by using the R programming language. Follow this R programming tutorial to create, test and execute R code within Studio (classic). As you work through tutorial, you will create a complete forecasting solution by using the R language in Studio (classic).  
+This tutorial helps you start extending Azure Machine Learning Studio (classic) by using the R programming language. Follow this R programming tutorial to create, test and execute R code within Studio (classic). As you work through tutorial, you will create a complete forecasting solution by using the R language in the classic version of Studio.  
 
-The classic version of Azure Machine Learning Studio contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in Studio (classic) can be extended by using R. This combination provides the scalability and ease of deployment of Studio (classic) with the flexibility and deep analytics of R.
+The classic version of Azure Machine Learning Studio contains many powerful machine learning and data manipulation modules. The powerful R language has been described as the lingua franca of analytics. Happily, analytics and data manipulation in the classic version of Studio can be extended by using R. This combination provides the scalability and ease of deployment of the classic version of Studio with the flexibility and deep analytics of R.
 
 ### Forecasting and the dataset
 
@@ -46,11 +46,11 @@ We will progress through several steps as you learn how to create, test and exec
 
 This section takes you through some basics of interacting with the R programming language in the Machine Learning Studio (classic) environment. The R language provides a powerful tool to create customized analytics and data manipulation modules within the classic version of Azure Machine Learning Studio environment.
 
-I will use RStudio to develop, test and debug R code on a small scale. This code is then cut and paste into an [Execute R Script][execute-r-script] module in Machine Learning Studio (classic) ready to run.  
+I will use RStudio to develop, test and debug R code on a small scale. This code is then cut and paste into an [Execute R Script][execute-r-script] module ready to run in the classic version of Machine Learning Studio.  
 
 ### The Execute R Script module
 
-Within Machine Learning Studio (classic), R scripts are run within the [Execute R Script][execute-r-script] module. An example of the [Execute R Script][execute-r-script] module in Machine Learning Studio (classic) is shown in Figure 1.
+Within the classic version of Machine Learning Studio, R scripts are run within the [Execute R Script][execute-r-script] module. An example of the [Execute R Script][execute-r-script] module in the classic version of Machine Learning Studio is shown in Figure 1.
 
  ![R programming language: The Execute R Script module selected in Machine Learning Studio (classic)](./media/r-quickstart/fig1.png)
 
@@ -78,11 +78,11 @@ If you need a more complete treatment of R exception handling, I recommend you r
 
 #### Debug and test R in Machine Learning Studio (classic)
 
-To reiterate, I recommend you test and debug your R code on a small scale in RStudio. However, there are cases where you will need to track down R code problems in the [Execute R Script][execute-r-script] itself. In addition, it is good practice to check your results in Machine Learning Studio (classic).
+To reiterate, I recommend you test and debug your R code on a small scale in RStudio. However, there are cases where you will need to track down R code problems in the [Execute R Script][execute-r-script] itself. In addition, it is good practice to check your results in the classic version of Machine Learning Studio.
 
 Output from the execution of your R code and on the classic version of Azure Machine Learning Studio platform is found primarily in output.log. Some additional information will be seen in error.log.  
 
-If an error occurs in Machine Learning Studio (classic) while running your R code, your first course of action should be to look at error.log. This file can contain useful error messages to help you understand and correct your error. To view error.log, select **View error log** on the **properties pane** for the [Execute R Script][execute-r-script] containing the error.
+If an error occurs in  the classic version of Machine Learning Studio while running your R code, your first course of action should be to look at error.log. This file can contain useful error messages to help you understand and correct your error. To view error.log, select **View error log** on the **properties pane** for the [Execute R Script][execute-r-script] containing the error.
 
 For example, I ran the following R code, with an undefined variable y, in an [Execute R Script][execute-r-script] module:
 
@@ -155,7 +155,7 @@ We will start by loading the **csdairydata.csv** file into the classic version o
 
 #### Create an experiment
 
-Now that we have some data in Machine Learning Studio (classic), we need to create an experiment to do the analysis.  
+Now that we have some data in  the classic version of Machine Learning Studio, we need to create an experiment to do the analysis.  
 
 1. Select **+ NEW** at the lower left and select **Experiment**, then **Blank Experiment**.
 1. You can name your experiment by selecting, and modifying, the **Experiment created on ...** title at the top of the page. For example, changing it to **CA Dairy Analysis**.
@@ -240,7 +240,7 @@ We already discussed loading datasets in [Load the dataset](#loading). Once you 
 
 1. Create a zip file and copy your script into this zip file. On Windows, you can right-click the file and select **Send to**, and then **Compressed folder**. This will create a new zip file containing the "simpleplot.R" file.
 
-1. Add your file to the **datasets** in Machine Learning Studio (classic), specifying the type as **zip**. You should now see the zip file in your datasets.
+1. Add your file to the **datasets** in  the classic version of Machine Learning Studio, specifying the type as **zip**. You should now see the zip file in your datasets.
 
 1. Drag and drop the zip file from **datasets** onto the **ML Studio (classic) canvas**.
 

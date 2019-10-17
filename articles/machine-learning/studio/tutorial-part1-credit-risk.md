@@ -38,7 +38,7 @@ If you've never used **Azure Machine Learning Studio (classic)** before, you mig
 
 
 > [!TIP] 
-> You can find a working copy of the experiment that you develop in this tutorial in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Tutorial - Predict credit risk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio (classic)** to download a copy of the experiment into your Machine Learning Studio (classic) workspace.
+> You can find a working copy of the experiment that you develop in this tutorial in the [Azure AI Gallery](https://gallery.azure.ai). Go to **[Tutorial - Predict credit risk](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio (classic) workspace.
 > 
 
 
@@ -88,7 +88,7 @@ This will increase the cost of this error in the training results.
 
 ### Convert the dataset format
 
-The original dataset uses a blank-separated format. Machine Learning Studio (classic) works better with a comma-separated value (CSV) file, so you'll convert the dataset by replacing spaces with commas.  
+The original dataset uses a blank-separated format. The classic version of Machine Learning Studio works better with a comma-separated value (CSV) file, so you'll convert the dataset by replacing spaces with commas.  
 
 There are many ways to convert this data. One way is by using the following Windows PowerShell command:   
 
@@ -102,7 +102,7 @@ In either case, you have created a comma-separated version of the data in a file
 
 ### Upload the dataset to Machine Learning Studio (classic)
 
-Once the data has been converted to CSV format, you need to upload it into Machine Learning Studio (classic). 
+Once the data has been converted to CSV format, you need to upload it into the classic version of Machine Learning Studio. 
 
 1. Open the Machine Learning Studio (classic) home page ([https://studio.azureml.net](https://studio.azureml.net)). 
 
@@ -138,7 +138,7 @@ For more information about importing other types of data into an experiment, see
 
 ## Create an experiment
 
-The next step in this tutorial is to create an experiment in Machine Learning Studio (classic) that uses the dataset you uploaded.  
+The next step in this tutorial is to create an experiment in  the classic version of Machine Learning Studio that uses the dataset you uploaded.  
 
 1. In Studio (classic), click **+NEW** at the bottom of the window.
 1. Select **EXPERIMENT**, and then select "Blank Experiment". 
@@ -166,7 +166,7 @@ The next step in this tutorial is to create an experiment in Machine Learning St
 
 You can view the first 100 rows of the data and some statistical information for the whole dataset: Click the output port of the dataset (the small circle at the bottom) and select **Visualize**.  
 
-Because the data file didn't come with column headings, Studio (classic) has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when you eventually publish this model in a web service, the headings help identify the columns to the user of the service.  
+Because the data file didn't come with column headings,  the classic version of Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when you eventually publish this model in a web service, the headings help identify the columns to the user of the service.  
 
 You can add column headings using the [Edit Metadata][edit-metadata] module.
 

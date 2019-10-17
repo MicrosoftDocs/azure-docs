@@ -39,7 +39,7 @@ In the following sections, we will build simple regression and classification mo
 Assume we want to predict a car’s price using some features such as dimensions, horsepower, engine specs, and so on. This is a typical regression problem, where the target variable (*price*) is a continuous numeric value. We can fit a simple linear regression model that, given the feature values of a certain car, can predict the price of that car. This regression model can be used to score the same dataset we trained on. Once we have the predicted prices for all of the cars, we can evaluate the performance of the model by looking at how much the predictions deviate from the actual prices on average. To illustrate this, we use the *Automobile price data (Raw) dataset* available in the **Saved Datasets** section inthe classic version of Azure Machine Learning Studio.
 
 ### Creating the Experiment
-Add the following modules to your workspace inthe classic version of Azure Machine Learning Studio:
+Add the following modules to your workspace in the classic version of Azure Machine Learning Studio:
 
 * Automobile price data (Raw)
 * [Linear Regression][linear-regression]
@@ -81,7 +81,7 @@ Figure 4. Cross-Validation Results of a Regression Model.
 In a binary classification scenario, the target variable has only two possible outcomes, for example: {0, 1} or {false, true}, {negative, positive}. Assume you are given a dataset of adult employees with some demographic and employment variables, and that you are asked to predict the income level, a binary variable with the values {“<=50 K”, “>50 K”}. In other words, the negative class represents the employees who make less than or equal to 50 K per year, and the positive class represents all other employees. As in the regression scenario, we would train a model, score some data, and evaluate the results. The main difference here is the choice of metricsthe classic version of Azure Machine Learning Studio computes and outputs. To illustrate the income level prediction scenario, we will use the [Adult](https://archive.ics.uci.edu/ml/datasets/Adult) dataset to create a Studio (classic) experiment and evaluate the performance of a two-class logistic regression model, a commonly used binary classifier.
 
 ### Creating the Experiment
-Add the following modules to your workspace inthe classic version of Azure Machine Learning Studio:
+Add the following modules to your workspace in the classic version of Azure Machine Learning Studio:
 
 * Adult Census Income Binary Classification dataset
 * [Two-Class Logistic Regression][two-class-logistic-regression]
@@ -132,7 +132,7 @@ In this experiment we will use the popular [Iris](https://archive.ics.uci.edu/ml
 The Iris dataset is publicly available on the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.html), and can be downloaded using an [Import Data][import-data] module.
 
 ### Creating the Experiment
-Add the following modules to your workspace inthe classic version of Azure Machine Learning Studio:
+Add the following modules to your workspace in the classic version of Azure Machine Learning Studio:
 
 * [Import Data][import-data]
 * [Multiclass Decision Forest][multiclass-decision-forest]

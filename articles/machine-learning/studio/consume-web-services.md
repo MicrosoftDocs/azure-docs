@@ -34,7 +34,7 @@ Tthe classic version of Azure Machine Learning Studio has two types of services:
 
 For more information about Machine Learning Web services, see [Deploy a Machine Learning Web service](publish-a-machine-learning-web-service.md).
 
-## Get the classic version of Azure Machine Learning Studio authorization key
+## Get an authorization key
 When you deploy your experiment, API keys are generated for the Web service. You can retrieve the keys from several locations.
 
 ### From the Microsoft Azure Machine Learning Web Services portal
@@ -90,7 +90,7 @@ To connect to a Machine Learning Web service, use an **HttpClient** passing Scor
 
 To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Client** NuGet package must be installed.
 
-**Install Microsoft.AspNet.WebApi.Client NuGet in Visual Studio (classic)**
+**Install Microsoft.AspNet.WebApi.Client NuGet in Visual Studio**
 
 1. Publish the Download dataset from UCI: Adult 2 class dataset Web Service.
 2. Click **Tools** > **NuGet Package Manager** > **Package Manager Console**.
@@ -99,7 +99,7 @@ To connect to a Machine Learning Web service, the **Microsoft.AspNet.WebApi.Clie
 **To run the code sample**
 
 1. Publish "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
-2. Assign apiKey with the key from a Web service. See **Get the classic version of Azure Machine Learning Studio authorization key** above.
+2. Assign apiKey with the key from a Web service. See **Get an authorization key** above.
 3. Assign serviceUri with the Request URI.
 
 **Here is what a complete request will look like.**
@@ -195,7 +195,7 @@ To connect to a Machine Learning Web service, use the **urllib2** library for Py
 **To run the code sample**
 
 1. Deploy "Sample 1: Download dataset from UCI: Adult 2 class dataset" experiment, part of the Machine Learning sample collection.
-2. Assign apiKey with the key from a Web service. See the **Get the classic version of Azure Machine Learning Studio authorization key** section near the beginning of this article.
+2. Assign apiKey with the key from a Web service. See the **Get an authorization key** section near the beginning of this article.
 3. Assign serviceUri with the Request URI.
 
 **Here is what a complete request will look like.**

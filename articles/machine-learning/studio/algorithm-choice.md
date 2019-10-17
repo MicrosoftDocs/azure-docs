@@ -459,4 +459,4 @@ several languages.
 
 * For a list by category of all the machine learning algorithms available in Machine Learning Studio (classic), see [Initialize Model](/azure/machine-learning/studio-module-reference/machine-learning-initialize-model) in the Machine Learning Studio (classic) Algorithm and Module Help.
 
-* For a complete alphabetical list of algorithms and modules in Machine Learning Studio (classic), see [A-Z list of Machine Learning Studio (classic) modules](/azure/machine-learning/studio-module-reference/a-z-module-list) in Machine Learning Studio (classic) Algorithm and Module Help.
+* For a complete alphabetical list of algorithms and modules in the classic version of Machine Learning Studio, see [A-Z list of Machine Learning Studio (classic) modules](/azure/machine-learning/studio-module-reference/a-z-module-list) in Machine Learning Studio (classic) Algorithm and Module Help.

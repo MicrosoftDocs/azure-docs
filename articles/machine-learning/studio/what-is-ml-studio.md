@@ -18,7 +18,7 @@ ms.topic: overview
 ms.date: 04/20/2019
 ---
 # What is Machine Learning Studio (classic)?
-Microsoft Azure Machine Learning Studio (classic) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Machine Learning Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
+Microsoft Azure Machine Learning Studio (classic) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data.  The classic version of Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
 Machine Learning Studio (classic) is where data science, predictive analytics, cloud resources, and your data meet.
 
@@ -87,7 +87,7 @@ As you build an experiment, you can choose from the list of datasets available t
 For a list of sample datasets included in Machine Learning Studio (classic), see [Use the sample data sets in Azure Machine Learning Studio (classic)](use-sample-datasets.md).
 
 ### Modules
-A module is an algorithm that you can perform on your data. Machine Learning Studio (classic) has a number of modules ranging from data ingress functions to training, scoring, and validation processes. Here are some examples of included modules:
+A module is an algorithm that you can perform on your data.  The classic version of Machine Learning Studio has a number of modules ranging from data ingress functions to training, scoring, and validation processes. Here are some examples of included modules:
 
 * [Convert to ARFF][convert-to-arff] - Converts a .NET serialized dataset to Attribute-Relation File Format (ARFF).
 * [Compute Elementary Statistics][elementary-statistics] - Calculates elementary statistics such as mean, standard deviation, etc.

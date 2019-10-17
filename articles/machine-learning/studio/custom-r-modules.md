@@ -50,7 +50,7 @@ Consider the example of a **Custom Add Rows** module that modifies the standard 
     } 
 
 ### The XML definition file
-To expose this `CustomAddRows` function as the classic version of Azure Machine Learning Studio module, an XML definition file must be created to specify how the **Custom Add Rows** module should look and behave. 
+To expose this `CustomAddRows` function as the classic version of an Azure Machine Learning Studio module, an XML definition file must be created to specify how the **Custom Add Rows** module should look and behave. 
 
     <!-- Defined a module using an R Script -->
     <Module name="Custom Add Rows">
@@ -92,7 +92,7 @@ In contrast, the **id** attribute for the **Output** element does not correspond
 ### Package and register the module
 Save these two files as *CustomAddRows.R* and *CustomAddRows.xml* and then zip the two files together into a *CustomAddRows.zip* file.
 
-To register them in your Machine Learning workspace, go to your workspace in the Machine Learning Studio (classic), click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new **Custom Add Rows** module.
+To register them in your Machine Learning workspace, go to your workspace in the classic version of Machine Learning Studio, click the **+NEW** button on the bottom and choose **MODULE -> FROM ZIP PACKAGE** to upload the new **Custom Add Rows** module.
 
 ![Upload Zip](./media/custom-r-modules/upload-from-zip-package.png)
 
@@ -327,7 +327,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
   * **default** - The value for the default property must correspond with an ID value from one of the **Item** elements.
 
 ### Auxiliary Files
-Any file that is placed in your custom module ZIP file is going to be available for use during execution time. Any directory structures present are preserved. This means that file sourcing works the same locally and inthe classic version of Azure Machine Learning Studio execution. 
+Any file that is placed in your custom module ZIP file is going to be available for use during execution time. Any directory structures present are preserved. This means that file sourcing works the same locally and in the classic version of Azure Machine Learning Studio execution. 
 
 > [!NOTE]
 > Notice that all files are extracted to ‘src’ directory so all paths should have ‘src/’ prefix.

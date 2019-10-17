@@ -39,12 +39,12 @@ To browse all experiments:
    * **Use the search box.** For example, to find experiments contributed by Microsoft related to digit recognition that use a two-class support vector machine algorithm, enter "digit recognition" in the search box. Then, select the filters **Experiment**, **Microsoft content only**, and **Two-Class Support Vector Machine**:<br></br>
      ![Use the search box](./media/sample-experiments/search-for-experiments.png)
 4. Click an experiment to learn more about it.
-5. To run and/or modify the experiment, click **Open in Studio (classic)** on the experiment's page. <br></br>
+5. To run and/or modify the experiment, click **Open in Studio** on the experiment's page. <br></br>
 
     ![Example experiment](./media/sample-experiments/example-experiment.png)
 
 ## Create a new experiment using an example as a template
-You also can create a new experiment in Machine Learning Studio (classic) using a Gallery example as a template.
+You also can create a new experiment in  the classic version of Machine Learning Studio using a Gallery example as a template.
 
 1. Sign in with your Microsoft account credentials to the [Studio](https://studio.azureml.net), and then click **New** to create an experiment.
 2. Browse through the example content and click one.
