@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/17/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -37,10 +37,9 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## October 2019
 
-
 ### Deprecation of the identityRiskEvent API for Azure AD Identity Protection risk detections  
 
-**Type:** Deprecated  
+**Type:** Plan for change  
 **Service category:** Identity Protection  
 **Product capability:** Identity Security & Protection
 
@@ -61,6 +60,8 @@ For more information about the new riskDetection API, see the [Risk detection AP
 Power BI is deprecating content packs from their store, and as of **October 1, 2019**, we're no longer supporting the Azure AD Power BI content pack. Customers currently using the content pack can continue to use it even though the underlying APIs are older versions. As an alternative to this content pack, you can use Azure AD Workbooks (built on Log Analytics) to gain insights into your Azure AD-related services.
 
 For more information about the workbooks, see [How to use Azure Monitor workbooks for Azure Active Directory reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). For more information about the deprecation of the content packs, see the [Announcing Power BI template apps general availability](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) blog post.
+
+---
 
 ### My Profile is re-naming and integrating with the Microsoft Office account page
 
