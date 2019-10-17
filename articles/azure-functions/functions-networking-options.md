@@ -47,7 +47,7 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 ## Private site access
 
 Private site access refers to making your app accessible only from a private network such as from within an Azure virtual network. 
-* Private site access is available in the [Premium](./functions-premium-plan.md), [Consumption](functions-scale.md#consumption-plan) and [App Service plan](functions-scale.md#app-service-plan) when **Service Endpoints** are configured. 
+* Private site access is available in the [Premium](./functions-premium-plan.md), [Consumption],(functions-scale.md#consumption-plan) and [App Service plan](functions-scale.md#app-service-plan) when **Service Endpoints** are configured. 
     * Service endpoints can be configured on a per-app basis under Platform features > Networking > Configure Access Restrictions > Add Rule. Virtual networks can be selected now as the "type" of a rule.
     * For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
         * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
@@ -97,12 +97,20 @@ Virtual network integration in Functions uses shared infrastructure with App Ser
 
 To learn more about using virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
 
-### Restricting your storage account to a virtual network
+## Connecting to service endpoint secured resources
 
 > [!note] 
-> Temporarily, it may take up to 12 hours for your storage account to become available to your function app once you configure access restrictions on that storage account. During this time your application will be completely offline.
+> Temporarily, it may take up to 12 hours for new service endpoints to become available to your function app once you configure access restrictions on the downstream resource. During this time the resource will be completely unavailable to your app.
 
-In order to provide a higher level of security, you can restrict your application's storage account to a virtual network. You must then integrate your site with that virtual network to access your storage account. This configuration is supported on all plans that support virtual network integration.
+In order to provide a higher level of security, you can restrict a number of Azure services to a virtual network using service endpoints. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all plans that support virtual network integration.
+
+[Read more about virtual network service endpoints here.](../virtual-network/virtual-network-service-endpoints-overview.md)
+
+### Restricting your storage account to a virtual network
+When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. It is not currently possible to use any virtual network restrictions on this account. If you configure a virtual network service endpoint on the storage account you are using for your function app, it will break your app.
+
+[Read more about storage account requirements here.](./functions-create-function-app-portal.md#storage-account-requirements
+) 
 
 ## Virtual network triggers (non-HTTP)
 
