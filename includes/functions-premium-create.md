@@ -31,7 +31,7 @@ ms.custom: include file
 
 1. Select the **Next : Hosting >** button and enter the following settings.
 
-    ![Hosting](./media/functions-create-function-app-portal/function-app-premium-create-hosting.png)
+    ![Hosting](./media/functions-premium-create/function-app-premium-create-hosting.png)
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
