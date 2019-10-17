@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
 # As a developer new to IoT Hub, I need to see how to use a back-end application to control a device connected to the hub.
 ---
@@ -124,7 +124,7 @@ The simulated device application connects to a device-specific endpoint on your 
 
     The following screenshot shows the output as the simulated device application sends telemetry to your IoT hub:
 
-    ![Run the simulated device](./media/quickstart-control-device-node/SimulatedDevice-1.png)
+    ![Run the simulated device](./media/quickstart-control-device-node/simulated-device-telemetry-iot-hub.png)
 
 ## Call the direct method
 
@@ -145,11 +145,11 @@ The back-end application connects to a service-side endpoint on your IoT Hub. Th
 
     The following screenshot shows the output as the application makes a direct method call to the device and receives an acknowledgment:
 
-    ![Run the back-end application](./media/quickstart-control-device-node/BackEndApplication.png)
+    ![Output when the application makes direct method call to the device](./media/quickstart-control-device-node/direct-method-device-call.png)
 
     After you run the back-end application, you see a message in the console window running the simulated device, and the rate at which it sends messages changes:
 
-    ![Change in simulated client](./media/quickstart-control-device-node/SimulatedDevice-2.png)
+    ![Output when there is a change in the simulated client](./media/quickstart-control-device-node/simulated-device-message-change.png)
 
 ## Clean up resources
 
