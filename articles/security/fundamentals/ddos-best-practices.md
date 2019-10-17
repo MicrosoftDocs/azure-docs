@@ -1,6 +1,6 @@
 ---
 
-title: Azure DDoS Protection best practices and reference architectures | Microsoft Docs
+title: Azure DDoS Protection and designing resilient solutions | Microsoft Docs
 description: Learn about how you can use logging data to gain deep insights about your application.
 services: security
 author: barclayn
@@ -14,66 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: barclayn
 
 ---
 # Azure DDoS Protection: Best practices and reference architectures
 
-<!--
-"Retitle article, especially if best practices are removed due to benchmark articles and reference architecture is migrated
-Types of attacks - delete, services content has an article that describes types of attacks and we link to this article in Next steps
-Shared responsibility - delete
-Fundamental best practices - keep, right level of detail and doesn't seem to be covered in services content, may need to remove if benchmark articles cover information
-Azure offerings for DDoS protection - delete, this is covered in services content and we link to article in next steps, services content is likely to be more up to date
-Protection planning - keep(?) although this is covered in services content here: https://docs.microsoft.com/en-us/azure/virtual-network/manage-ddos-protection. 
-Testing through simulations - keep
-Components of a DDoS response strategy - keep
-DDoS Protection reference architectures - migrate to Architecture Center site under their reference architecturs?"
--->
-
 This article is for IT decision makers and security personnel. It expects that you're familiar with Azure, networking, and security.
-
-Designing for distributed denial of service (DDoS) resiliency requires planning and designing for a variety of failure modes. This article provides best practices for designing applications in Azure for resiliency against DDoS attacks.
-
-## Types of attacks
-
-DDoS is a type of attack that tries to exhaust application resources. The goal is to affect the application’s availability and its ability to handle legitimate requests. Attacks are becoming more sophisticated and larger in size and impact. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet.
-
-Azure provides continuous protection against DDoS attacks. This protection is integrated into the Azure platform by default and at no extra cost. 
+DDoS is a type of attack that tries to exhaust application resources. The goal is to affect the application’s availability and its ability to handle legitimate requests. Attacks are becoming more sophisticated and larger in size and impact. DDoS attacks can be targeted at any endpoint that is publicly reachable through the internet. Designing for distributed denial of service (DDoS) resiliency requires planning and designing for a variety of failure modes. Azure provides continuous protection against DDoS attacks. This protection is integrated into the Azure platform by default and at no extra cost.
 
 In addition to the core DDoS protection in the platform, [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/) provides advanced DDoS mitigation capabilities against network attacks. It's automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of new virtual networks. It can also be done after creation and requires no application or resource changes.
 
 ![The role of Azure DDoS Protection in protecting customers and a virtual network from an attacker](./media/ddos-best-practices/image1.png)
 
-DDoS attacks can be classified into three categories: volumetric, protocol, and resource.
+DDoS attacks can be classified into three categories:
 
-### Volumetric attacks
-
-Volumetric attacks are the most common type of DDoS attack. Volumetric attacks are brute-force assaults that target the network and transport layers. They try to exhaust resources like network links. 
-
-These attacks often use multiple infected systems to flood the network layers with seemingly legitimate traffic. They use network-layer protocols such as Internet Control Message Protocol (ICMP), User Datagram Protocol (UDP), and Transmission Control Protocol (TCP).
-
-The most commonly used network-layer DDoS attacks are TCP SYN flooding, ICMP echo, UDP flooding, DNS, and NTP amplification attacks. This type of attack can be used not only to disrupt service, but also as a smokescreen for more nefarious and targeted network intrusion. An example of a recent volumetric attack is the [Memcached exploit](https://www.wired.com/story/github-ddos-memcached/) that affected GitHub. This attack targeted UDP port 11211 and generated 1.35 Tb/s of attack volume.
-
-### Protocol attacks
-
-Protocol attacks target application protocols. They try to use up all the available resources in infrastructure devices such as firewalls, application servers, and load balancers. Protocol attacks use packets that are malformed or contain protocol abnormalities. These attacks operate by sending large numbers of open requests that servers and other communication devices answer and wait for a packet response. The target tries to respond to the open requests, eventually causing the system to crash.
-
-The most common example of a protocol-based DDoS attack is TCP SYN flood. In this attack, a succession of TCP SYN requests tries to overwhelm a target. The goal is to make the target unresponsive. The 2016 Dyn outage, apart from being an application-layer attack, consisted of TCP SYN floods that targeted port 53 of Dyn’s DNS servers.
-
-### Resource attacks
-
-Resource attacks target the application layer. They trigger back-end processes in an effort to overwhelm a system. Resource attacks abuse traffic that looks normal but that carries CPU-intensive queries to the server. The volume of traffic needed to exhaust resources is lower than that of the other type of attacks. The traffic in a resource attack is indistinguishable from legitimate traffic, making it hard to detect. The most common resource attacks are on HTTP/HTTPS and DNS services.
-
-## Shared responsibility in the cloud
-
-A defense-in-depth strategy helps combat the increasing variety and sophistication of attacks. Security is a shared responsibility between the customer and Microsoft. Microsoft calls this a [shared responsibility model](https://azure.microsoft.com/blog/microsoft-incident-response-and-shared-responsibility-for-cloud-computing/). 
-The following figure shows this division of responsibility:
-
-![Responsibilities of the customer and of Azure](./media/ddos-best-practices/image2.png)
-
-Azure customers benefit from reviewing Microsoft best practices and building globally distributed applications that are designed and tested for failure.
+- **Volumetric** attacks are brute-force assaults that target the network and transport layers. They try to exhaust resources like network links. This type of attack can be used not only to disrupt service, but also as a smokescreen for more nefarious and targeted network intrusion.
+- **Protocol** attacks target application protocols. They try to use up all the available resources in infrastructure devices such as firewalls, application servers, and load balancers. Protocol attacks use packets that are malformed or contain protocol abnormalities. These attacks operate by sending large numbers of open requests that servers and other communication devices answer and wait for a packet response. The target tries to respond to the open requests, eventually causing the system to crash.
+- **Resource** attacks target the application layer. They trigger back-end processes in an effort to overwhelm a system. Resource attacks abuse traffic that looks normal but that carries CPU-intensive queries to the server. The volume of traffic needed to exhaust resources is lower than that of the other type of attacks. The traffic in a resource attack is indistinguishable from legitimate traffic, making it hard to detect. The most common resource attacks are on HTTP/HTTPS and DNS services.
 
 ## Fundamental best practices
 
@@ -206,7 +164,8 @@ Also, the Microsoft Digital Crimes Unit (DCU) performs offensive strategies agai
 
 ### Risk evaluation of your Azure resources
 
-It’s imperative to understand the scope of your risk from a DDoS attack on an ongoing basis. Periodically ask yourself: 
+It’s imperative to understand the scope of your risk from a DDoS attack on an ongoing basis. Periodically ask yourself:
+
 - What new publicly available Azure resources need protection?
 
 - Is there a single point of failure in the service? 
@@ -319,6 +278,6 @@ documentation.
 
 * [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
 
-* [Azure DDoS Protection blog](https://aka.ms/ddosblog)
+* [Azure infrastructure security](infrastructure.md).
 
 * [Azure DDoS Protection documentation](/azure/virtual-network/ddos-protection-overview)
