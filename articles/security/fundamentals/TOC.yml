@@ -8,7 +8,7 @@
   href: overview.md
   expanded: false
   items:
-  - name: Shared model of responsibility
+  - name: Shared responsibility in the cloud
     href: shared-responsibility.md
   - name: Advanced threat detection
     displayName: vulnerability, virus, IDs, incident
