@@ -161,23 +161,25 @@ These steps show how to use the managed identity with a trigger or action throug
 
    For example, suppose that you want to run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) on a blob in the Azure Storage account where you previously set up access for your identity, but the [Azure Blob Storage connector](/connectors/azureblob/) doesn't currently offer this operation. Instead, you can use the [HTTP action](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) to run the operation or any other [Blob Service REST API operations](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs). For authentication, the HTTP action can use the system-assigned identity that you enabled for your logic app. The HTTP action also uses these properties to specify the resource that you want to access:
 
-   * The **URI** property specifies the endpoint URL for accessing the target Azure resource. This URI syntax usually includes at least the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service. If the resource is in a different subscription, the URI property includes those values too.
+   * The **URI** property specifies the endpoint URL for accessing the target Azure resource. This URI syntax usually includes the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service.
 
-   * The **Queries** property specifies any query parameters that you need to include in the request, such as a specific API version when required or a parameter that identifies a specific operation.
+   * The **Queries** property specifies any query parameters that you need to include in the request, such as the parameter for a specific operation or a specific API version when required.
 
    So, to run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
 
    * **Method**: Specifies the `PUT` operation.
 
-   * **URI**: Specifies the resource ID for Azure Storage blobs under a different subscription in the Azure Global (public) environment and uses this syntax: `https://{storage-account-name}.blob.net/subscriptions/{resource-subscription-ID}/resourcegroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-container-name}/blobServices/{blob-name}`
+   * **URI**: Specifies the resource ID for an Azure Blob Storage file in the Azure Global (public) environment and uses this syntax:
+
+     `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name}/{blob-file-name-with-extension}`
 
    * **Queries**: Specifies `comp` as the query parameter name and `snapshot` as the parameter value.
 
-   ![Add HTTP action to call an Azure service](./media/create-managed-service-identity/http-action-example.png)
+   ![Add an HTTP action to access an Azure resource](./media/create-managed-service-identity/http-action-example.png)
 
-   Here is the request that the HTTP action creates and sends:
+   Here is an example request that the HTTP action creates and sends:
 
-   `PUT https://storageaccount.blob.net/subscriptons/XXXXXXXXXXXXXXXXXXXXXXXXXX/resourceGroups/fabrikam-storage-rg/providers/Microsoft.Storage/storageAccounts/fabrikamstorageaccount/blobServices/email-content?comp=snapshot`
+   `PUT https://fabrikamstorageaccount.blob.core.windows.net/emails/attachments/attachment.txt?comp=snapshot`
 
    For more information about the available Azure REST API operations, see the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/).
 
@@ -197,7 +199,7 @@ These steps show how to use the managed identity with a trigger or action throug
    > including any required trailing slashes. For example, the Azure Resource Manager resource ID usually requires 
    > a trailing slash. Check the [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-   This example sets the **Audience** property to `https://storageaccount.blob.core.windows.net`:
+   This example sets the **Audience** property to `https://fabrikamstorageaccount.blob.core.windows.net`:
 
    ![Specify target resource ID in "Audience" property](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
 
