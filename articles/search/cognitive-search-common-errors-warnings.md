@@ -115,6 +115,20 @@ The document was read and processed, but the indexer could not add it to the sea
 | Search service is being patched for service update, or is in the middle of a topology reconfiguration. | Failed to establish connection to update index. Search service is currently down/Search service is undergoing a transition. | Configure service with at least 3 replicas for 99.9% availability per [SLA documentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
 | Failure in the underlying compute/networking resource (rare) | Failed to establish connection to update index. An unknown failure occurred. | Configure indexers to [run on a schedule](search-howto-schedule-indexers.md) to pick up from a failed state.
 
+### Could not index document because the indexer data to index was invalid
+
+The document was read and processed, but due to a mismatch in the configuration of the index fields and the nature of the data extracted by the indexer, it could not be added to the search index. This can happen due to:
+
+| Reason | Example
+| --- | ---
+| Data type of the field(s) extracted by the indexer is incompatible with the data model of the corresponding target index field. | The data field '_data_' in the document with key '_data_' has an invalid value 'of type 'Edm.String''. The expected type was 'Collection(Edm.String)'. |
+| Failed to extract any JSON entity from a string value. | Could not parse value 'of type 'Edm.String'' of field '_data_' as a JSON object. Error:'After parsing a value an unexpected character was encountered: ''. Path '_path_', line 1, position 3162.' |
+| Failed to extract a collection of JSON entities from a string value.  | Could not parse value 'of type 'Edm.String'' of field '_data_' as a JSON array. Error:'After parsing a value an unexpected character was encountered: ''. Path '[0]', line 1, position 27.' |
+| An unknown type was discovered in the source document. | Unknown type '_unknown_' cannot be indexed |
+| An incompatible notation for geography points was used in the source document. | WKT POINT string literals are not supported. Please use GeoJson point literals instead |
+
+In all these cases, refer to [Supported Data types (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [Data type map for indexers in Azure Search](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) to make sure that you build the index schema correctly and have set up appropriate [indexer field mappings](search-indexer-field-mappings.md). The error message will include details that can help track down the source of the mismatch.
+
 ##  Warnings
 Warnings do not stop indexing, but they do indicate conditions that could result in unexpected outcomes. Whether you take action or not depends on the data and your scenario.
 
