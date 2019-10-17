@@ -17,7 +17,7 @@ ms.author: danlep
 
 This article explains how to deploy a container group that includes a readiness probe. This configuration ensures that traffic reaches a container only when it's ready for it.
 
-Azure Container Instances also supports [liveness probes](container-instances-liveness-probes.md), which you can configure to cause an unhealthy container to automatically restart.
+Azure Container Instances also supports [liveness probes](container-instances-liveness-probe.md), which you can configure to cause an unhealthy container to automatically restart.
 
 ## YAML deployment
 
@@ -137,7 +137,7 @@ You can also access the web app using a web browser.
 
 ## Next steps
 
-A readiness probe could be useful in scenarios involving multi-container groups that consist of dependent containers. For more information, see [Container groups in Azure Container Instances](container-instances-container-group.md).
+A readiness probe could be useful in scenarios involving multi-container groups that consist of dependent containers. For more information, see [Container groups in Azure Container Instances](container-instances-container-groups.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-readiness-probe/readiness-probe-failed.png

@@ -16,7 +16,7 @@ Containerized applications may run for extended periods of time resulting in bro
 
 This article explains how to deploy a container group that includes a liveness probe, demonstrating the automatic restart of a simulated unhealthy container.
 
-Azure Container Instances also supports [readiness probes](container-instances-readiness-probes.md), which you can configure to ensure that traffic reaches a container only when it's ready for it.
+Azure Container Instances also supports [readiness probes](container-instances-readiness-probe.md), which you can configure to ensure that traffic reaches a container only when it's ready for it.
 
 ## YAML deployment
 
