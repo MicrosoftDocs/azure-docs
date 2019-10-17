@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Quickstart: Add a simulated device to your IoT Central application (preview features)
 
-A device template defines the capabilities of a device that connects to your IoT Central application. Capabilities include telemetry the device sends, device properties, and the commands a device responds to. A builder or operator can add both real and simulated devices based on a device template to an application. Simulated devices are useful for testing the behavior of your IoT Central application before you connect real devices.
+A device template defines the capabilities of a device that connects to your IoT Central application. Capabilities include telemetry the device sends, device properties, and the commands a device responds to. From a device template, a builder or operator can add both real and simulated devices to an application. Simulated devices are useful for testing the behavior of your IoT Central application before you connect real devices.
 
 In this quickstart, you create an **Environment Sensor** device template and add a simulated device. An environmental sensor device:
 
@@ -25,7 +25,7 @@ In this quickstart, you create an **Environment Sensor** device template and add
 
 ## Prerequisites
 
-Complete the [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart to create an IoT Central application using the **Preview application** template.
+Complete the [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart to create an IoT Central application using the **Custom app** template.
 
 You also need a local copy of the **EnvironmentalSensorInline.capabilitymodel.json** file that contains the [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Right-click on the page and select **Save as**.
 
@@ -35,7 +35,7 @@ After you download the file, open it in a text editor, and replace the two insta
 
 As a builder, you can create and edit device templates in your application. After you publish a device template, you can generate a simulated device or connect real devices that implement the device template. Simulated devices let you test the behavior of your application before you connect a real device.
 
-To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left navigation menu.
+To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab in the left pane.
 
 ![Device Templates page](./media/quick-create-pnp-device-pnp/devicedefinitions.png)
 
@@ -45,9 +45,9 @@ There are several options for authoring a device capability model in IoT Central
 
 The following steps show you how to import the capability model for an **Environmental Sensor** device. These devices send telemetry, such as temperature, to your application:
 
-1. To add a new device template, select **+ New** on the **Device Templates** page.
+1. To add a new device template, select **+** on the **Device Templates** page.
 
-1. Choose **Custom** from the list of templates.
+1. Choose **IoT Device** from the list of custom device templates, select **Next: Customize**, then select **Next: Review**, and then select **Create**.
 
 1. Enter **Environmental Sensor** as the name of your device template.
 
@@ -66,22 +66,11 @@ A device template can include cloud properties. Cloud properties only exist in t
     | Display Name      | Semantic Type | Schema |
     | ----------------- | ------------- | ------ |
     | Last Service Date | None          | Date   |
-    | Customer name     | None          | String |
+    | Customer Name     | None          | String |
 
 1. Select **Save** to save your changes:
 
     ![Cloud properties](media/quick-create-pnp-device-pnp/cloudproperties.png)
-
-### Add customizations
-
-Use customizations when you need to modify an interface or add IoT Central-specific features to a capability that doesn't require you to version your device capability model. You can customize fields when the capability model is in a draft or published state. You can only customize fields that don't break interface compatibility. For example, you can:
-
-- Customize the display name and units of a capability.
-- Add a default color to use when the value appears on a chart.
-- Specify initial, minimum, and maximum values for a property.
-
-You can't customize the capability name or capability type.
-
 
 ## Create views
 
@@ -98,7 +87,7 @@ Generating default views is a quick way to get started with visualizing your imp
 * The **Overview** view uses charts and metrics to display device telemetry.
 * The **About** view displays device properties.
 
-After you select **Generate default views**, they're automatically added under the **Views** section of your device template.
+Select **Views** and then **Generate default views**.
 
 ### Configure a view to visualize devices
 
@@ -148,9 +137,9 @@ After a device template is published, it's visible on the **Devices** page and t
 
 ## Add a simulated device
 
-To add a real device to your application, you use the **Environmental Sensor** device template you created in the [Define a new device type](quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
+To add a simulated device to your application, you use the **Environmental Sensor** device template you created.
 
-1. To add a new device as an operator choose **Devices** in the left navigation menu. The **Devices** tab shows **All devices** and the **Environmental Sensor** device template.
+1. To add a new device as an operator choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **Environmental Sensor** device template.
 
 1. To add a simulated environmental sensor device, select **+ New**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Switch the **simulated** toggle to **On** and then select **Create**.
 
@@ -162,18 +151,14 @@ Now you can interact with the views that were created by the builder for the dev
 
 After you create a new simulated device, the builder can use this device to continue to improve and build upon the views for the device template.
 
-1. While in your device's view, copy the **Device ID** of the simulated device you created.
+1. Choose the **Device templates** tab in the left pane and select the **Environmental Sensor** template.
 
-1. Choose the **Device templates** tab in the left navigation menu and select the **Environmental Sensor** template.
+1. Select any of the views you would like to edit, or create a new view. Click **Configure preview device**, then **Select from a running device**. Here you can choose between having no preview device, using a real device you can configure for testing, or from an existing device you have added into IoT Central.
 
-1. Select any of the views you would like to edit, or create a new view. Click **Configure preview device**. Here you can choose between having no preview device, using a real device you can configure for testing, or from an existing device you have added into IoT Central.
-
-1. Choose **Select from a running device** and enter in the **Device ID** of the simulated device that you had copied.
-
-1. Choose **Apply**. Now you can see the same simulated device in your device template views building experience. This view is useful for charts and other visualizations.
+1. Choose your simulated device in the list. Then select **Apply**. Now you can see the same simulated device in your device template views building experience. This view is useful for charts and other visualizations.
 
     ![Configure preview device](./media/quick-create-pnp-device-pnp/configure-preview.png)
-    
+
 ## Next steps
 
 In this quickstart, you learned how to you create an **Environment Sensor** device template and add a simulated device to your application.
