@@ -80,7 +80,7 @@ To help you make the best performance decisions for your end users, Internet Ana
 
 ## How it works
 
-To use Internet Analyzer, set up an Internet Analyzer resource in the Microsoft Azure portal and install a small JavaScript client in your application. The client measures the latency from your end-user population to your selected network destinations (endpoints) by downloading a one-pixel image over HTTPS. The client sends the telemetry data to Internet Analyzer. 
+To use Internet Analyzer, set up an Internet Analyzer resource in the Microsoft Azure portal and install the small JavaScript client in your application. The client measures the latency from your end-users to your selected network destinations (endpoints) by downloading a one-pixel image over HTTPS. After collecting latency measurements, the client sends the measurement data to Internet Analyzer.
 For the sampled end-user population, cold and warm latency measurements are conducted. Only warm latency measurements are used for analysis. Telemetry data is always aggregated and anonymized. 
 
 ![architecture](./media/ia-overview/architecture.png)
