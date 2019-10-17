@@ -44,7 +44,7 @@ Let’s consider an example to make this more concrete. Suppose we configure an 
 
 <a name="portal"></a>
 
-## Define a schedule in the portal
+## Schedule in the portal
 
 The Import Data wizard in the portal lets you define the schedule for an indexer at creation time. The default Schedule setting is **Hourly**, which means the indexer runs once after it is created, and runs again every hour afterwards.
 
@@ -60,7 +60,7 @@ After an indexer has been created, you can change the schedule settings using th
 
 <a name="restApi"></a>
 
-## Define a schedule using the REST API
+## Schedule using REST APIs
 
 You can define the schedule for an indexer using the REST API. To do this, include the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update an existing indexer:
 
@@ -82,7 +82,7 @@ You can also run an indexer on demand at any time using the Run Indexer call. Fo
 
 <a name="dotNetSdk"></a>
 
-## Define a schedule using the .NET SDK
+## Schedule using the .NET SDK
 
 You can define the schedule for an indexer using the Azure Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
 
