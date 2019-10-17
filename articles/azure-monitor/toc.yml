@@ -206,7 +206,7 @@
           href: app/nodejs.md
         - name: Python
           items:
-          - name: Python
+          - name: Overview
             href: app/opencensus-python.md
           - name: Dependencies 
             href: app/opencensus-python-dependency.md
