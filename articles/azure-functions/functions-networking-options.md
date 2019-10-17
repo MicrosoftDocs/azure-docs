@@ -100,9 +100,9 @@ To learn more about using virtual network integration, see [Integrate a function
 ## Connecting to service endpoint secured resources
 
 > [!note] 
-> Temporarily, it may take up to 12 hours for new service endpoitns to become available to your function app once you configure access restrictions on the downstream resource. During this time the resource will be completely unavailable to your app.
+> Temporarily, it may take up to 12 hours for new service endpoints to become available to your function app once you configure access restrictions on the downstream resource. During this time the resource will be completely unavailable to your app.
 
-In order to provide a higher level of security, you can restrict a number of Azure services to a virtual network. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all plans that support virtual network integration.
+In order to provide a higher level of security, you can restrict a number of Azure services to a virtual network using service endpoints. You must then integrate your function app with that virtual network to access the resource. This configuration is supported on all plans that support virtual network integration.
 
 [Read more about virtual network service endpoints here.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
