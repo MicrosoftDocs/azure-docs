@@ -24,7 +24,13 @@ ms.collection: M365-identity-device-management
 
 # Add a connected organization in Azure AD entitlement management (Preview)
 
-Azure AD entitlement management enables you to collaborate with people outside your organization. If you frequently collaborate with users in an external Azure AD directory or domain, you can add them as a connected organization. A connected organization is an external Azure AD directory or domain that you define in entitlement management.
+Azure AD entitlement management enables you to collaborate with people outside your organization. If you frequently collaborate with users in an external Azure AD directory or domain, you can add them as a connected organization. This article describes how to add a connected organization so that you can allow users outside your organization to request resources in your directory.
+
+## What is a connected organization?
+
+A connected organization is an external Azure AD directory or domain that you have a relationship with. For example, suppose you work at Woodgrove Bank and you want to collaborate with two external organizations: Graphic Design Institute and Contoso. You've been told by your contact at Graphic Design Institute that they use Azure AD, and that Graphic Design Institute's users have a user principal name that ends with `graphicdesigninstitute.com`. And you've been told by your contact at Contoso that they do not yet use Azure AD, but that Contoso's users have a user principal name that ends with `contoso.com`. You can configure two connected organizations -- one for Graphic Design Institute with the domain `graphicdesigninstitute.com`, and one for Contoso with the domain `contoso.com`. If you then add those two connected organizations to a policy, users from each organization that have a user principal name that matches the policy can request access packages. Furthermore, because Graphic Design Institute has been identified as using Azure AD, then if Graphic Design Institute subsequently has subdomains, such as `graphicdesigninstitute.example`, then users with that user principal name will also be able to request access packages using the same policy.
+
+![Connected organization example](./media/entitlement-management-organization/connected-organization-example.png)
 
 ## Add a connected organization
 
@@ -53,7 +59,7 @@ Follow these steps to add an external Azure AD directory or domain as a connecte
 1. Click **Add** to add the organization.
 
     > [!NOTE]
-    > All users from the organization will be able to request this access package. This includes users from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md).
+    > All users from the organization will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md).
 
 1. Once you have added all the Azure AD directories and domains you'd like to include, click **Select**.
 
@@ -73,4 +79,5 @@ Follow these steps to add an external Azure AD directory or domain as a connecte
 
 ## Next steps
 
+- [Govern access for external users](entitlement-management-organization.md)
 - [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md)
