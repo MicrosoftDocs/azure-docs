@@ -100,7 +100,7 @@ Basic workspaces allow you to continue using Azure Machine Learning and pay for 
 
 You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. Basic edition includes all features that were already generally available as of October 2019. Any experiments in those workspaces that were built using Enterprise edition features will continue to be available to you in read-only until you upgrade to Enterprise. Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
 
-Customers are responsible for costs incurred on underlying compute during this time. 
+Customers are responsible for costs incurred on compute and other Azure resources during this time.
 
 ## Free trial
 
