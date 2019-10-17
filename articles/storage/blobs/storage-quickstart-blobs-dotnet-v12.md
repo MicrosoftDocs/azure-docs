@@ -61,17 +61,17 @@ The expected output from the build should look something like this:
 
 ```output
 C:\QuickStarts\blob-quickstart-v12> dotnet build
-Microsoft (R) Build Engine version 16.0.450+ga8dc7f1d34 for .NET Core
+Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Restore completed in 44.31 ms for C:\QuickStarts\blob-quickstart\blob-quickstart-v12.csproj.
-  blob-quickstart -> C:\QuickStarts\blob-quickstart\bin\Debug\netcoreapp2.1\blob-quickstart-v12.dll
+  Restore completed in 42.22 ms for C:\Users\mhopkins\Code\blob-quickstart-v12\blob-quickstart-v12.csproj.
+  blob-quickstart-v12 -> C:\Users\mhopkins\Code\blob-quickstart-v12\bin\Debug\netcoreapp3.0\blob-quickstart-v12.dll
 
 Build succeeded.
     0 Warning(s)
     0 Error(s)
 
-Time Elapsed 00:00:03.08
+Time Elapsed 00:00:05.88
 ```
 
 ### Install the package
