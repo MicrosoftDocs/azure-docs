@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager complete mode deletion by resource type
+title: Azure Resource Manager complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
 author: tfitzmac
 ms.service: azure-resource-manager
