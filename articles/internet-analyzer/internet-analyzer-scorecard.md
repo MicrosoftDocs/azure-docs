@@ -11,7 +11,7 @@ ms.author: mebeatty
 ---
 # Interpreting your scorecard
 
-The scorecard tab contains the aggregated and analyzed results from all of your tests. Each test has its own scorecard. Scorecards are designed to help you inform your network topology decisions with data. Internet Analyzer takes care of the analysis, allowing you to focus on the decision. 
+The scorecard tab contains the aggregated and analyzed results from your tests. Each test has its own scorecards. Scorecards provide quick and meaningful summaries of measurement results to provide data-driven results for your networking requirements. Internet Analyzer takes care of the analysis, allowing you to focus on the decision. 
 
 The scorecard tab can be found in the Internet Analyzer resource menu. 
 
