@@ -78,7 +78,7 @@ In Node.js, the Key Vault management API and the Key Vault object API are separa
 
 [Azure PowerShell for Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
-### Quick start guides
+### Quickstart guides
 
 - [Create Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Getting started with Key Vault in Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)

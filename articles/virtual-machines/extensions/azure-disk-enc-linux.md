@@ -27,7 +27,7 @@ Azure Disk Encryption leverages the dm-crypt subsystem in Linux to provide full 
 For a full list of prerequisites, see [Azure Disk Encryption for Linux VMs](../linux/disk-encryption-overview.md), specifically the following sections:
 
 - [Azure Disk Encryption for Linux VMs](../linux/disk-encryption-overview.md#supported-vms-and-operating-systems)
-- [Additional VM requirments](../linux/disk-encryption-overview.md#additional-vm-requirements)
+- [Additional VM requirements](../linux/disk-encryption-overview.md#additional-vm-requirements)
 - [Networking requirements](../linux/disk-encryption-overview.md#networking-requirements)
 
 ## Extension schemata
