@@ -118,7 +118,6 @@ Here is a quick comparison.
 
 
 || Studio (classic) | Azure Machine Learning designer|
-
 |---| --- | --- |
 || Generally available (GA) | In preview|
 |Drag-and-drop interface| Yes | Yes|
