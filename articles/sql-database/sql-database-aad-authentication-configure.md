@@ -315,7 +315,7 @@ You can meet these requirements by:
 ## Create contained database users in your database mapped to Azure AD identities
 
 >[!IMPORTANT]
->managed instance now supports Azure AD server principals (logins) (**public preview**), which enables you to create logins from Azure AD users, groups, or applications. Azure AD server principals (logins) provides the ability to authenticate to your managed instance without requiring database users to be created as a contained database user. For more information, see [managed instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
+>Managed instance now supports Azure AD server principals (logins) (**public preview**), which enables you to create logins from Azure AD users, groups, or applications. Azure AD server principals (logins) provides the ability to authenticate to your managed instance without requiring database users to be created as a contained database user. For more information, see [managed instance Overview](sql-database-managed-instance.md#azure-active-directory-integration). For syntax on creating Azure AD server principals (logins), see <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>.
 
 Azure Active Directory authentication requires database users to be created as contained database users. A contained database user based on an Azure AD identity, is a database user that does not have a login in the master database, and which maps to an identity in the Azure AD directory that is associated with the database. The Azure AD identity can be either an individual user account or a group. For more information about contained database users, see [Contained Database Users- Making Your Database Portable](https://msdn.microsoft.com/library/ff929188.aspx).
 
@@ -445,7 +445,7 @@ Learn more about Azure AD authentication methods using the demo code samples ava
 
 This authentication method allows middle-tier services to connect to Azure SQL Database or Azure SQL Data Warehouse by obtaining a token from Azure Active Directory (AAD). It enables sophisticated scenarios including certificate-based authentication. You must complete four basic steps to use Azure AD token authentication:
 
-1. Register your application with Azure Active Directory and get the client id for your code.
+1. Register your application with Azure Active Directory and get the client ID for your code.
 2. Create a database user representing the application. (Completed earlier in step 6.)
 3. Create a certificate on the client computer runs the application.
 4. Add the certificate as a key for your application.
