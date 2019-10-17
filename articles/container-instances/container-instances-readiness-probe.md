@@ -7,20 +7,21 @@ manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 10/15/2019
+ms.date: 10/17/2019
 ms.author: danlep
 ---
+
 # Configure readiness probes
 
- Azure Container Instances supports readiness probes to include configurations so that your container can't be accessed for a period. The readiness probe behaves similarly to a [Kubernetes readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). For example, a container app might need to load a large data set during startup, and you don't want to send requests to it, or have another container app send requests, during this time.
+ Azure Container Instances supports readiness probes to include configurations so that your container can't be accessed for a period. The readiness probe behaves like a [Kubernetes readiness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). For example, a container app might need to load a large data set during startup, and you don't want it to receive requests during this time.
 
-This article explains how to deploy a container group that includes a readiness probe, demonstrating how to make sure that traffic doesn't reach a container that isn't ready for it.
+This article explains how to deploy a container group that includes a readiness probe. This configuration ensures that traffic reaches a container only when it's ready for it.
 
 Azure Container Instances also supports [liveness probes](container-instances-liveness-probes.md), which you can configure to cause an unhealthy container to automatically restart.
 
 ## YAML deployment
 
-As an example, create a `readiness-probe.yaml` file with the following snippet. This file defines a container group that consists of a container running a small web app. The app is packaged in the public `mcr.microsoft.com/azuredocs/aci-helloworld` image. This image is also demonstrated in quickstarts such as [Deploy a container instance in Azure using the Azure CLI](container-instances-quickstart.md).
+As an example, create a `readiness-probe.yaml` file with the following snippet that includes a readiness probe. This file defines a container group that consists of a container running a small web app. The app is deployed from the public `mcr.microsoft.com/azuredocs/aci-helloworld` image. This container app is also demonstrated in quickstarts such as [Deploy a container instance in Azure using the Azure CLI](container-instances-quickstart.md).
 
 ```yaml
 apiVersion: 2018-10-01
@@ -34,7 +35,7 @@ properties:
       command:
         - "/bin/sh"
         - "-c"
-        - "node /usr/src/app/index.js; sleep 240; touch /tmp/ready"
+        - "node /usr/src/app/index.js & (sleep 30; touch /tmp/ready); wait"
       ports:
       - port: 80
       resources:
@@ -60,46 +61,83 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### Start command
 
-The deployment defines a starting command to be run when the container first starts running, defined by the `command` property which accepts an array of strings. In this example, to simulate a time when the container isn't ready, it starts a shell session, sleeps for 240 seconds, and creates a file called `ready` within the `/tmp` directory. Then, a `node` command runs to start the web app:
+The YAML file defines a starting command to be run when the container starts, defined by the `command` property that accepts an array of strings. This command simulates a time when the web app runs but the container isn't ready. First, it starts a shell session and runs the `node` command to start the web app. It also starts a command to sleep for 240 seconds, after which it creates a file called `ready` within the `/tmp` directory:
 
 ```console
-node /usr/src/app/index.js; /bin/sh -c "sleep 240; touch /tmp/ready; "
+node /usr/src/app/index.js & (sleep 30; touch /tmp/ready); wait
 ```
 
 ### Readiness command
 
-This deployment defines a `readinessProbe` which supports an `exec` readiness command that acts as the readiness check. If this command exits with a non-zero value, the container is running but can't be accessed. If this command exits successfully with exit code 0, the container is ready to be accessed.
+This YAML file defines a `readinessProbe` which supports an `exec` readiness command that acts as the readiness check. This example readiness command tests for the existence of the `ready` file in the `/tmp` directory.
+
+When the `ready` file doesn't exist, the readiness command exits with a non-zero value; the container continues running but can't be accessed. If the command exits successfully with exit code 0, the container is ready to be accessed. 
 
 The `periodSeconds` property designates the readiness command should execute every 5 seconds.
 
 ## Run readiness example
 
-Run the following command to deploy this container group with the above YAML configuration:
+Run the following command to deploy a container group with the preceding YAML configuration:
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --file readiness-probe.yaml
 ```
 
-## Verify readiness output
+## View readiness checks
 
-In this example, within the first 240 seconds, the container is sleeping. When the readiness command checks for the `ready` file's existence, the status code returned is non-zero, signaling failure, so the container isn't ready.
+In this example, within the first 240 seconds, the readiness command checks for the `ready` file's existence. The status code returned signals that the container isn't ready.
 
-After 240 seconds, the `cat /tmp/ready` succeeds, signaling the container is ready.
-
-These events can be viewed from the Azure portal or Azure CLI.
+These events can be viewed from the Azure portal or Azure CLI. For example, the portal shows events of type `Unhealthy` are triggered upon the readiness command failing. 
 
 ![Portal unhealthy event][portal-unhealthy]
 
-By viewing the events in the Azure portal, events of type `Unhealthy` are triggered upon the readiness command failing.
 
+## Verify container readiness
 
-## Readiness probes and restart policies
+After starting the container, you can verify that it's not accessible initially. After provisioning, get the IP address of the container group:
 
-Restart policies supersede the readiness probes. For example, if you set a `restartPolicy = Never` *and* a readiness probe, the container group will not restart in the event of a failed readiness check. The container group will instead adhere to the container group's restart policy of `Never`.
+```azurecli
+az container show --resource-group myResourceGroup --name readinesstest --query "ipAddress.ip" --out tsv
+```
+
+Try to access the site while the readiness probe fails:
+
+```bash
+wget <ipAddress>
+```
+
+Output shows the site isn't accessible initially:
+```
+$ wget 192.0.2.1
+--2019-10-15 16:46:02--  http://192.0.2.1/
+Connecting to 192.0.2.1... connected.
+HTTP request sent, awaiting response... 
+```
+
+After 240 seconds, the readiness command succeeds, signaling the container is ready. Now, when you run the `wget` command, it succeeds:
+
+```
+$ wget 192.0.2.1
+--2019-10-15 16:46:02--  http://192.0.2.1/
+Connecting to 192.0.2.1... connected.
+HTTP request sent, awaiting response...200 OK
+Length: 1663 (1.6K) [text/html]
+Saving to: ‘index.html.1’
+
+index.html.1                       100%[===============================================================>]   1.62K  --.-KB/s    in 0s      
+
+2019-10-15 16:49:38 (113 MB/s) - ‘index.html.1’ saved [1663/1663] 
+```
+
+You can also access the web app using a web browser.
+
+> [!NOTE]
+> The readiness probe continues to run for the lifetime of the container group. If the readiness command fails at a later time, any affected instance in the group becomes inaccessible. 
+> 
 
 ## Next steps
 
-Task-based scenarios may require a liveness probe to enable automatic restarts if a pre-requisite function is not working properly. For more information about running task-based containers, see [Run containerized tasks in Azure Container Instances](container-instances-restart-policy.md).
+A readiness probe could be useful in scenarios involving multi-container groups that consist of dependent containers. For more information, see [Container groups in Azure Container Instances](container-instances-container-group.md).
 
 <!-- IMAGES -->
 [portal-unhealthy]: ./media/container-instances-readiness-probe/readiness-probe-failed.png
