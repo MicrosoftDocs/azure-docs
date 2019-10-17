@@ -198,7 +198,7 @@ You can view the current mode of your SQL Server IaaS agent by using PowerShell:
      $sqlvm.Properties.sqlManagement
   ```
 
-SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal. SQL Server VMs in _No-Agent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to delete the SQL VM resource provider resource using the Azure portal, and register with the SQL VM resource provider again. 
+SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal. SQL Server VMs in _No-Agent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to [unregister](#unregister-vm-from-resource-provider) the SQL Server VM from the SQL VM resource provider by deleting the SQL VM resource, and register with the SQL VM resource provider again. 
 
 To upgrade the agent mode to full: 
 
@@ -276,6 +276,49 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 ---
 
+## Unregister VM from resource provider 
+
+To unregister your SQL Server VM with the SQL VM resource provider, delete the SQL Virtual Machine *resource* using the Azure portal or Azure CLI. Deleting the SQL Virtual Machine *resource* does not delete the SQL Server VM. However, use caution and follow the steps carefully because it is possible to inadvertantly delete the virtual machine when attempting to remove the *resource*. 
+
+Unregistering the SQL VM with the SQL VM resource provider is necessary to downgrade the management mode from full. 
+
+### Azure portal
+
+To unregister your SQL Server VM with the resource provider using the Azure portal, follow these steps:
+
+1. Sign into the [Azure portal](https://portal.azure.com).
+1. Navigate to the SQL Server VM resource. 
+  
+   ![SQL virtual machines resource](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+
+1. Select **Delete**. 
+
+   ![Delete SQL VM resource provider](media/virtual-machines-windows-sql-register-with-rp/delete-sql-vm-resource-provider.png)
+
+1. Type the name of the SQL virtual machine and **clear the checkbox next to the virtual machine**.
+
+   ![Delete SQL VM resource provider](media/virtual-machines-windows-sql-register-with-rp/confirm-delete-of-resource-uncheck-box.png)
+
+   >[!WARNING]
+   > Failure to clear the checkbox next to the virtual machine name will *delete* the virtual machine entirely. Clear the checkbox to unregister the SQL Server VM from the resource provider but *not delete the actual virtual machine*. 
+
+1. Select **Delete** to confirm the deletion of the SQL virtual machine *resource*, and not the SQL Server virtual machine. 
+
+
+### Azure CLI 
+
+To unregister your SQL Server virtual machine from the resource provider with Azure CLI, use the [az sql vm delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) command. This will remove the SQL Server virtual machine *resource* but will not delete the virtual machine. 
+
+
+```azurecli-interactive
+   az sql vm delete 
+     --name <SQL VM resource name> |
+     --resource-group <Resource group name> |
+     --yes 
+```
+
+
+
 ## Remarks
 
 - The SQL VM resource provider supports only SQL Server VMs deployed through Azure Resource Manager. SQL Server VMs deployed through the classic model are not supported. 
@@ -348,7 +391,7 @@ Yes. Upgrading the manageability mode from lightweight to full is supported via 
 
 No. Downgrading the SQL Server IaaS extension manageability mode is not supported. The manageability mode can't be downgraded from full mode to lightweight or no-agent mode, and it can't be downgraded from lightweight mode to no-agent mode. 
 
-To change the manageability mode from full manageability, drop the Microsoft.SqlVirtualMachine resource and re-register the SQL Server VM with the SQL VM resource provider.
+To change the manageability mode from full manageability, [unregister](#unregister-vm-from-resource-provider) the SQL Server virtual machine from the SQL Server resource provider by dropping the SQL Server *resource* and re-register the SQL Server VM with the SQL VM resource provider again in a different management mode.
 
 **Can I register with the SQL VM resource provider from the Azure portal?**
 

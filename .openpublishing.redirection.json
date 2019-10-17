@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md",
+      "redirect_url": "/azure//virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-load-data.md",
       "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
       "redirect_document_id": false
