@@ -49,16 +49,6 @@
       - name: About Azure Disk Encryption
         displayName: BitLocker, bek
         href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview
-      - name: Quickstarts
-        items:
-        - name: Encrypt a Linux VM with Azure CLI
-          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-cli-quickstart
-        - name: Encrypt a Linux VM with Azure PowerShell
-          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-powershell-quickstart
-        - name: Encrypt a Windows VM with Azure CLI
-          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-cli-quickstart
-        - name: Encrypt a Windows VM with Azure PowerShell
-          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-powershell-quickstart
       - name: Azure Disk Encryption
         items:
         - name: Disk encryption prerequisites
@@ -151,8 +141,6 @@
       href: network-best-practices.md
     - name: DDoS Protection
       href: ddos-best-practices.md
-    - name: Boundary security
-      href: network-best-practices.md
 - name: Application
   items:
   - name: PaaS
@@ -185,9 +173,6 @@
   items:
   - name: Auditing and logging
     items:
-    - name: Security management
-      displayName: vulnerability, incident, virus, 
-      href: https://docs.microsoft.com/azure/security-center/security-center-intro?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Remote management security
       href: management.md
     - name: Azure log integration
@@ -199,9 +184,6 @@
       - name: Integrate Azure AD audit logs
         displayName: active directory
         href: azure-log-integration-ad.md
-      - name: Integrate Security Center alerts
-        displayName: splunk
-        href: https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Integrate logs from Key Vault
         displayName: keyvault
         href: azure-log-integration-keyvault-eventhub.md
