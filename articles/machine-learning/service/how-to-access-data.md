@@ -283,6 +283,6 @@ Azure Machine Learning supports accessing data from Azure Blob, Azure File, Azur
 
 ## Next steps
 
-* [Train a model](how-to-train-ml-models.md)
+* [Train a model](how-to-train-ml-models.md).
 
-* [Deploy a model](how-to-deploy-and-where.md)
+* [Deploy a model](how-to-deploy-and-where.md).
