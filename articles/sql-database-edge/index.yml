@@ -1,0 +1,46 @@
+### YamlMime:Landing
+
+title: Azure SQL Database Edge documentation
+summary: Azure SQL Database Edge is an optimized relational database engine geared for IoT and Edge deployments.
+
+metadata:
+  title: Azure SQL Database Edge documentation
+  meta.description: Learn how to use Azure SQL Database Edge.
+  services: sql-database-edge
+  ms.service: sql-database-edge
+  ms.topic: landing-page
+  author: stevestein
+  ms.author: sstein
+  ms.date: 10/17/2019
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+
+  # Card 
+  - title: SQL Database Edge Preview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is SQL Database Edge Preview?
+            url: sql-database-edge-overview.md
+
+  # Card 
+  - title: Deploy SQL Database Edge Preview
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy SQL Database Edge Preview?
+            url: sql-database-edge-deploy-portal.md
+
+  # Card 
+  - title: About SQL Database Edge Preview
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Machine learning and artificial intelligence
+            url: sql-database-edge-onnx-overview.md
+
+
