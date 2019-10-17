@@ -169,11 +169,11 @@ Let's also try a random forest model. Random forests train a multitude of decisi
     accuracy
 
 
-## Deploy a model to Azure Machine Learning designer
+## Deploy a model to Azure Machine Learning Studio (classic)
 
-[Azure Machine Learning designer](https://ml.azure.com/) is a drag and drop visual interface that makes it easy to build and deploy predictive analytics models. A nice feature of the designer is its ability to publish any R function as a web service. The designer's R package makes deployment easy, right from your R session on the DSVM.
+[Azure Machine Learning Studio (classic)](https://studio.azureml.net/) is a cloud service that makes it easy to build and deploy predictive analytics models. A nice feature of the classic version of Azure Machine Learning Studio is its ability to publish any R function as a web service. The Azure Machine Learning Studio R package makes deployment easy, right from your R session on the DSVM.
 
-To deploy the decision tree code from the preceding section, sign in to [Azure Machine Learning studio](https://ml.azure.com/). You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them, complete these steps:
+To deploy the decision tree code from the preceding section, sign in to Azure Machine Learning Studio (classic). You need your workspace ID and an authorization token to sign in. To find these values and initialize the Azure Machine Learning variables with them, complete these steps:
 
 1. In the left menu, select **Settings**. Note the value for **WORKSPACE ID**.
 

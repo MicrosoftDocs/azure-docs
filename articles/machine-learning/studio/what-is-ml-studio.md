@@ -35,17 +35,17 @@ There is no programming required, just visually connecting datasets and modules 
 <a name="compare"></a>
 ## How is Machine Learning Studio (classic) different from Azure Machine Learning?
 
-[Azure Machine Learning](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
+[Azure Machine Learning](../service/overview-what-is-azure-ml.md) provides both SDKs **-and-** the visual designer (preview), to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
 
 Here is a quick comparison.
 
-|| Machine Learning Studio (classic) | Azure Machine Learning:<br/>Designer|
+|| Machine Learning Studio (classic) | Azure Machine Learning:<br/>Designer (preview)|
 |---| --- | --- |
 || Generally available (GA) | In preview|
 |Modules for interface| Many | Initial set of popular modules|
 |Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
 |Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](../service/how-to-deploy-and-where.md) supported in SDK) |
-|Automated model training and hyperparameter tuning | No | Not yet in the designer. <br/> (Supported in the SDK and Azure portal.) | 
+|Automated model training and hyperparameter tuning | No | Not yet in the designer (preview). <br/> (Supported in the SDK and Azure portal.) | 
 
 Try out the designer with [Tutorial: Predict automobile price with the designer](../service/ui-tutorial-automobile-price-train-score.md)
 
