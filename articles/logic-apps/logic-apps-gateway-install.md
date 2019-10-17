@@ -28,9 +28,9 @@ This article shows how to download, install, and set up your on-premises data ga
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-  * You need to use the same Azure account to install and to administer the gateway on your local computer. Later, in the Azure portal, you need to use the same Azure account to create an Azure gateway resource that links to your installation. Your logic apps can then use the gateway resource for connecting to on-premises data sources.
+  * You need to use the same Azure account to install and to administer the gateway on your local computer. 
 
-    During gateway installation, you sign in with your Azure account, which links that installation to your Azure subscription. You can link a gateway installation to only one Azure subscription, not multiple subscriptions. Although each gateway resource links to only one gateway installation, in Azure Logic Apps, on-premises triggers and actions can use a gateway resource from your other Azure subscriptions.
+    During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure subscription and only your subscription. Later, in the Azure portal, you need to use the same Azure account for creating an Azure gateway resource that represents your gateway installation. In Azure Logic Apps, on-premises triggers and actions can then use the gateway resource for connecting to on-premises data sources. To set up more than one gateway installation in an Azure subscription, you need to [create an Azure gateway resource for each installation](../logic-apps/logic-apps-gateway-connection.md).
 
   * You need to sign in with either a work account or school account, also known as an *organization* account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
 
