@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 # Encrypt virtual disks on a Windows VM
-For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted by using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article describes how to encrypt virtual disks on a Windows VM by using Azure PowerShell. You can also [encrypt a Linux VM by using the Azure CLI](../linux/disk-encryption-overview.md).
+For enhanced virtual machine (VM) security and compliance, virtual disks in Azure can be encrypted. Disks are encrypted by using cryptographic keys that are secured in an Azure Key Vault. You control these cryptographic keys and can audit their use. This article describes how to encrypt virtual disks on a Windows VM by using Azure PowerShell. You can also [encrypt Linux virtual machines](../linux/disk-encryption-overview.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -143,4 +143,4 @@ ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 
 ## Next steps
 * For more information about managing an Azure Key Vault, see [Set up a Key Vault for virtual machines](key-vault-setup.md).
-* For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+* For more information about disk encryption, such as preparing an encrypted custom VM to upload to Azure, see [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).
