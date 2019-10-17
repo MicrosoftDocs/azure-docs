@@ -51,7 +51,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Functions](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
-* [Azure Machine Learning](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
