@@ -19,12 +19,10 @@ This article shows you how to configure an Azure Search blob [indexer](search-in
 
 You can use the [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest), or [.NET SDK](#json-indexer-dotnet) to index JSON content. Common to all approaches is that JSON documents are located in a blob container in an Azure Storage account. For guidance on pushing JSON documents from other non-Azure platforms, see [Data import in Azure Search](search-what-is-data-import.md).
 
-JSON blobs in Azure Blob storage are typically either a single JSON document or a collection of JSON entities. For JSON collections, the blob could have an **array** of well-formed JSON elements. Blobs could also be composed of multiple individual JSON entities separated by a newline. The blob indexer in Azure Search can parse any such construction, depending on how you set the **parsingMode** parameter on the request.
-
-All JSON parsing modes (`json`, `jsonArray`, `jsonLines`) are now generally available. 
+JSON blobs in Azure Blob storage are typically either a single JSON document (parsing mode is `json`) or a collection of JSON entities. For collections, the blob could have an **array** of well-formed JSON elements (parsing mode is `jsonArray`). Blobs could also be composed of multiple individual JSON entities separated by a newline (parsing mode is `jsonLines`). The **parsingMode** parameter on the request determines the output structures.
 
 > [!NOTE]
-> Follow the indexer configuration recommendations in [One-to-many indexing](search-howto-index-one-to-many-blobs.md) to output multiple search documents from one Azure blob.
+> For more information about indexing multiple search documents from a single blob, see [One-to-many indexing](search-howto-index-one-to-many-blobs.md).
 
 <a name="json-indexer-portal"></a>
 
@@ -36,15 +34,13 @@ We recommend using the same Azure subscription for both Azure Search and Azure s
 
 ### 1 - Prepare source data
 
-1. [Sign in to the Azure portal](https://portal.azure.com/).
-
-1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain your data. The Public Access Level can be set to any of its valid values.
+[Sign in to the Azure portal](https://portal.azure.com/) and [create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain your data. The Public Access Level can be set to any of its valid values.
 
 You will need the storage account name, container name, and an access key to retrieve your data in the **Import data** wizard.
 
 ### 2 - Start Import data wizard
 
-In the Overview page of your Azure Search service, you can [start the wizard](search-import-data-portal.md) from the command bar, or by clicking **Add Azure Search** in the **Blob service** section of your storage account's left navigation pane.
+In the Overview page of your Azure Search service, you can [start the wizard](search-import-data-portal.md) from the command bar.
 
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
