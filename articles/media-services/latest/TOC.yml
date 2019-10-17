@@ -63,7 +63,7 @@
       displayName: preset, schema 
     - name: Error codes
       href: job-error-codes.md         
-  - name: Encoding video/audio
+  - name: Encoding content
     items:
     - name: Overview
       href: encoding-concept.md   
@@ -75,7 +75,7 @@
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
       href: cae-experimental.md          
-  - name: Analyzing video/audio (Video Indexer)
+  - name: Analyzing content (Video Indexer)
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
