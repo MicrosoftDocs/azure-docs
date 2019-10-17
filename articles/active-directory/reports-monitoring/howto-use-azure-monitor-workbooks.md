@@ -28,7 +28,23 @@ Do you want to:
 
 - Know who's using legacy authentications to sign in to your environment? (By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.)
 
-To help you to address these questions, Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, analytics queries, metrics, and parameters into rich interactive reports. 
+- Do you need to understand the impact of Conditional Access policies in your tenant?
+
+- Would you like the ability to review: sign-in log queries, the workbook 
+reports how many users were granted or denied access, as well as how many users bypassed 
+conditional access policies when accessing resources?
+
+- Interested in developing a deeper understanding of: the workbook details per 
+condition so that the impact of a policy can be contextualized per condition, 
+including device platform, device state, client app, sign-in risk, location, and application?
+
+- Gain deeper insights into sign-in log queries, the workbook 
+reports how many users were granted or denied access, as well as how many users bypassed 
+conditional access policies when accessing resources.
+
+- To help you to address these questions, Active Directory provides workbooks for monitoring. [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, analytics queries, metrics, and parameters into rich interactive reports.
+
+
 
 This article:
 
