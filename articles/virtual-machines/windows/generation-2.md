@@ -13,7 +13,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: lahugh
 ---
 
@@ -47,6 +47,9 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers previe
 * [NCv2-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv2-series) and [NCv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#ncv3-series)
 * [ND-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nd-series)
 * [NVv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu#nvv3-series--1)
+
+> [!NOTE]
+> The usage of generation 2 VM images for Mv2-series VMs is generally available since the Mv2-series works with generation 2 VM images exclusively. Generation 1 VM images are not supported on Mv2-series VMs. 
 
 ## Generation 2 VM images in Azure Marketplace
 
