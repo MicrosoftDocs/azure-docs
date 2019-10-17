@@ -91,7 +91,7 @@ Azure Marketplace is an online applications and services marketplace where you c
        }
    ```
 
-7. On the **IoT Edge Custom Modules** pane, update the *Set module twin's desired properties* to include the location of the SQL package and the stream analytics job info. These two fields are optional and should be used if you want to deploy the SQL Database Edge module with a database and a streaming job. For more information on this refer [Using SQL Package and Stream Analytics with SQL Database Edge](sql-database-edge-stream-analytics.md).
+7. On the **IoT Edge Custom Modules** pane, update the *Set module twin's desired properties* to include the location of the SQL package and the stream analytics job info. These two fields are optional and should be used if you want to deploy the SQL Database Edge module with a database and a streaming job.
 
    ```json
        {
@@ -114,6 +114,5 @@ In this quickstart, you deployed a SQL Database Edge Module on an IoT Edge devic
 
 ## Next Steps
 
-- [Using SQL Package and Stream Analytics with SQL Database Edge](sql-database-edge-stream-analytics.md).
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge](sql-database-edge-onnx-overview.md).
 - Building an end to end IoT Solution with SQL Database Edge using IoT Edge.
