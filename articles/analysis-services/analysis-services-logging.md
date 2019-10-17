@@ -2,7 +2,6 @@
 title: Diagnostic logging for Azure Analysis Services | Microsoft Docs
 description: Learn about setting up diagnostic logging for Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019

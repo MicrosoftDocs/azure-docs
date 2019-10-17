@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.custom: seoapril2019
 ---
 # Monitor and collect data from ML web service endpoints

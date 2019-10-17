@@ -64,7 +64,7 @@ With Azure Sentinel hunting, you can take advantage of the following capabilitie
 
 ## Query language 
 
-Hunting in Azure Sentinel is based on Azure Log Analytics query language. For more information on the query language and supported operators, see [Query Language Reference](https://docs.loganalytics.io/docs/Language-Reference/).
+Hunting in Azure Sentinel is based on Kusto query language. For more information on the query language and supported operators, see [Query Language Reference](https://docs.loganalytics.io/docs/Language-Reference/).
 
 ## Public hunting query GitHub repository
 

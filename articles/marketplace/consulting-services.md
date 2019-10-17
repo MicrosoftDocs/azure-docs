@@ -76,7 +76,6 @@ Partners are required to have a **silver or gold competency** in the relevant ar
 |Denmark   |Italy   |     Norway          |United States |
 |Finland   |Japan   |     Poland          
 
-The launch of consulting services will go live in specific geo-region. First launch will be: United States, Canada, the United Kingdom, and Australia. The catalogs for other countries/regions will go live after a meaningful number and compelling selection of service offerings have been submitted by partners and approved by Microsoft.
 
 ## How To Register For Consulting Services in Azure Marketplace and AppSource
 Start by [registering](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) your company information in the marketplace. Publishers can reference [Become a Publisher in the Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), for a complete check-list of registration requirements. 
