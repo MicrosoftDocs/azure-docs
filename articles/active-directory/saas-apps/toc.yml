@@ -323,6 +323,8 @@
         href: confluencemicrosoft-tutorial.md
       - name: Consent2Go
         href: consent2go-tutorial.md
+      - name: Contentful
+        href: contentful-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
       - name: Control
