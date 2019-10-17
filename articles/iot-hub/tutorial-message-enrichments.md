@@ -264,7 +264,7 @@ At this point, the resources are all set up and the routing is configured. You c
 
 ## Send messages to the IoT Hub
 
-Now that the message enrichments are configured for the endpoint, run the Simulated Device application to send messages to the IoT Hub. The hub has been set up with settings that accomplish the following :
+Now that the message enrichments are configured for the endpoint, run the Simulated Device application to send messages to the IoT Hub. The hub has been set up with settings that accomplish the following:
 
 * Messages routed to the storage endpoint ContosoStorageEndpointOriginal will not be enriched and will be stored in the storage container `original`.
 
@@ -304,13 +304,13 @@ After several storage messages have been sent, view the data.
 
 The messages in the container called **enriched** have the message enrichments included in the messages. The messages in the container called **original** will have the raw messages with no enrichments. Drill down into one of the containers until you get to the bottom and open the most recent message file, then do the same for the other container to verify that there are no enrichments added to messages in that container.
 
-When you look at messages that have been enriched, you should see the "My IoT Hub" with the hub name, as well as the location and the customer ID, like this:
+When you look at messages that have been enriched, you should see the "my IoT Hub" with the hub name, as well as the location and the customer ID, like this:
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-And here is an unenriched message. ""My IoT Hub", "devicelocation", and "customerID" do not show up here, because this endpoint has no enrichments.
+Here is an unenriched message. "my IoT Hub", "devicelocation", and "customerID" do not show up here, because this endpoint has no enrichments.
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
