@@ -35000,7 +35000,7 @@
     },
     {
       "source_path": "articles/security-center/security-center-disk-encryption.md",
-      "redirect_url": "/azure/security-center/security-center-apply-disk-encryption.md",
+      "redirect_url": "/azure/security-center/security-center-apply-disk-encryption",
       "redirect_document_id": false
     },
     {
