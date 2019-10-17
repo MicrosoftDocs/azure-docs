@@ -14,9 +14,9 @@ ms.date: 10/09/2019
 
 # Tutorial: Predict automobile price with the visual interface
 
-In this two-part tutorial, you learn how to use the Azure Machine Learning visual interface to develop and deploy a predictive analytic solution that predicts the price of any car. 
+In this two-part tutorial, you learn how to use the Azure Machine Learning visual interface to develop and deploy a predictive analytics solution that predicts the price of any car. 
 
-In part one, you set up your environment, drag-and-drop modules onto an interactive canvas, and connect them together to create a pipeline. 
+In part one, you set up your environment, drag-and-drop modules onto an interactive canvas, and connect them together to create an Azure Machine Learning pipeline.
 
 In part one of the tutorial you learn how to:
 
@@ -36,7 +36,7 @@ In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you learn
 
 ## Create a new pipeline
 
-To create a visual interface pipeline, you need  an Azure Machine Learning service workspace. In this section, you learn how to create both these resources.
+Azure Machine Learning pipelines organize multiple, dependent data processing steps into a single resource. Pipelines help you organize, manage, and reuse complex machine learning workflows across projects and users. To create an Azure Machine Learning pipeline, you need an Azure Machine Learning service workspace. In this section, you learn how to create both these resources.
 
 ### Create a new workspace
 
@@ -135,7 +135,7 @@ Datasets typically require some preprocessing before analysis. You might have no
 
 ### Remove column
 
-The **normalized-losses** column has a large number of missing values, so you'll exclude that column from the model altogether.
+When you train a model, you have to do something about the data that is missing. In this dataset, the **normalized-losses** column has a large number of missing values, so you'll exclude that column from the model altogether.
 
 1. Select the **Select Columns in Dataset** module.
 
@@ -159,7 +159,7 @@ The **normalized-losses** column has a large number of missing values, so you'll
 
 ### Clean missing data
 
-When you train a model, you have to do something about the data that is missing. In this case, you'll add a module to remove any row that has missing data.
+Your dataset still has missing values after removing the **normalized-losses** column. You can remove the remaining missing data using the **Clean Missing Data** module.
 
 1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
 

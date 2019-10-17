@@ -17,21 +17,20 @@ ms.date: 10/09/2019
 To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as a web service. In part 1, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
 
 > [!div class="checklist"]
-> * Prepare a pipeline for deployment
+> * Publish a pipeline
 > * Deploy a web service
+> * Create an inferencing cluster
 > * Test a web service
 
 ## Prerequisites
 
 Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md) to learn how to train and score a machine learning model in the visual interface.
 
-## Prepare for deployment
+## Publish a pipeline
 
-Before you deploy your pipeline as a web service, you first have to prepare it. You will publish your pipeline, and convert your *training pipeline* into a *real-time inference pipeline*.
+In order to deploy your pipeline as a web service, you must first publish your *training pipeline* as a *real-time inference pipeline*.
 
-### Publish the pipeline
-
-So far, you have been working on a *pipeline draft*. Publishing a pipeline to a Pipeline Endpoint confirms the configuration of your pipeline and starts version tracking. Pipeline Endpoints let you organize similar pipelines together for management and encapsulation.
+Real-time inference pipelines are a special type of pipeline which are configured to accept user-provided data and output processed values in real-time. In this tutorial, the pipeline can output the predicted price of a car based on the features for a car it has not seen.
 
 1. Select **Publish** at the top of the pipeline canvas.
 
@@ -41,9 +40,17 @@ So far, you have been working on a *pipeline draft*. Publishing a pipeline to a 
 
     ![Screenshot showing how to publish a pipeline](./media/ui-tutorial-automobile-price-deploy/publish-pipeline.png)
 
-### Create a real-time inference pipeline
+    
+    So far, you have been working on a *pipeline draft*. Publishing a pipeline to a Pipeline Endpoint confirms the configuration of your pipeline and begins version tracking. Pipeline Endpoints let you organize similar pipelines together for management and organization.
 
-Converting the training pipeline into a *real-time inference pipeline* modifies your pipeline to prepare it for deployment. It removes training modules and adds an input and output for web service requests.
+## Deploy a web service
+
+In order to deploy your published pipeline, you must:
+
+1. Convert the training pipeline into a real-time inference pipeline, which removes training modules and adds inputs and outputs for inferencing requests.
+1. Deploy the inference pipeline.
+
+### Create a real-time inference pipeline
 
 1. At the top of the pipeline canvas, select **Create inference pipeline** > **Real-time inference pipeline**
 
@@ -70,13 +77,15 @@ Converting the training pipeline into a *real-time inference pipeline* modifies 
 
 1. Select **Deploy**.
 
-## Create the inferencing cluster
+### Create an inferencing cluster
 
 In the dialog that appears, you can select from existing Azure Kubernetes Service (AKS) clusters in your workspace to deploy your model. If you don't have an AKS cluster, use the following steps to create one.
 
 1. Select **Compute** in the dialog to navigate to the **Compute** page.
 
 1. In the navigation ribbon, select **Inference Clusters** > **+ New**.
+
+    ![Screenshot showing how to navigate to the new inference cluster pane](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
 
 1. In the inference cluster pane, configure a new Kubernetes Service.
 
@@ -90,7 +99,7 @@ In the dialog that appears, you can select from existing Azure Kubernetes Servic
     > It takes approximately 15 minutes to create a new AKS service. You can check the provisioning state on the **Inference Clusters** page
     >
 
-## Deploy the web service
+### Deploy the web service
 
 After your AKS service has finished provisioning, return to the real-time inferencing pipeline to complete deployment.
 
