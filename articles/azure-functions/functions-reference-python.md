@@ -529,6 +529,24 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
+## Usage of Temp dir
+
+If your application needs to use a temporary directory to store temporary files the folder returned by tempfile.gettempdir() method (which is /tmp on Linux) can be used.  Note that anything written to this directory is not guranteed to be persisted across invocations. 
+
+See below for an example which creates a temporary named file in the temporary directory
+
+```python
+import logging
+import azure.functions as func
+import tempfile
+from os import listdir
+
+#---
+   tempFilePath = tempfile.gettempdir()   #this resolves to /tmp 
+   fp = tempfile.NamedTemporaryFile()     #create a temporary named file
+   fp.write(b'Hello world!')              #write something to it
+   filesDirListInTemp = listdir(tempFilePath)     #this list will contain the temporary file starting with tmp created above
+```   
 
 ## Known issues and FAQ
 
