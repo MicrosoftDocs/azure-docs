@@ -36,7 +36,7 @@ Output is always an Azure Search index, used for fast text search, retrieval, an
 
 In between is the pipeline architecture itself. The pipeline is based on the *indexer* feature, to which you can assign a *skillset*, which is composed of one or more *skills* providing the AI. The purpose of the pipeline is to produce *enriched documents* that enter as raw content but pick up additional structure, context, and information while moving through the pipeline. Enriched documents are consumed during indexing to create inverted indexes and other structures used in full text search or exploration and analytics.
 
-## Start with services and data
+## Start with services
 
 You need Azure Search and Azure Blob storage. Within Blob storage, you need a container that provides source content.
 

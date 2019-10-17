@@ -3821,7 +3821,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/billing-mca-setup-account.md",
+      "source_path": "articles/billing/billing-mca-setup-account.md",
       "redirect_url": "/azure/billing/mca-setup-account",
       "redirect_document_id": false
     },
