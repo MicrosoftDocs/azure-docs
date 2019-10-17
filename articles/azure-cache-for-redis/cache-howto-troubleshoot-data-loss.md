@@ -28,10 +28,10 @@ If you find that keys have disappeared from your cache, you can check the follow
 
 | Cause | Description |
 |---|---|
-| [Key expiration](cache-troubleshoot-data-loss.md#key-expiration) | Keys are removed due to timeouts set on them |
-| [Key eviction](cache-troubleshoot-data-loss.md#key-eviction) | Keys are removed under memory pressure |
-| [Key deletion](cache-troubleshoot-data-loss.md#key-deletion) | Keys are removed by explicit delete commands |
-| [Async replication](cache-troubleshoot-data-loss.md#async-replication) | Keys are not available on a replica due to data replication delays |
+| [Key expiration](cache-howto-troubleshoot-data-loss.md#key-expiration) | Keys are removed due to timeouts set on them |
+| [Key eviction](cache-howto-troubleshoot-data-loss.md#key-eviction) | Keys are removed under memory pressure |
+| [Key deletion](cache-howto-troubleshoot-data-loss.md#key-deletion) | Keys are removed by explicit delete commands |
+| [Async replication](cache-howto-troubleshoot-data-loss.md#async-replication) | Keys are not available on a replica due to data replication delays |
 
 ### Key expiration
 
@@ -87,9 +87,9 @@ If you find that most of or all keys have disappeared from your cache, you can c
 
 | Cause | Description |
 |---|---|
-| [Key flushing](cache-troubleshoot-data-loss.md#key-flushing) | Keys have been manually purged |
-| [Incorrect database selection](cache-troubleshoot-data-loss.md#incorrect-database-selection) | Redis is set to use a non-default database |
-| [Redis instance failure](cache-troubleshoot-data-loss.md#redis-instance-failure) | Keys are removed by explicit delete commands |
+| [Key flushing](cache-howto-troubleshoot-data-loss.md#key-flushing) | Keys have been manually purged |
+| [Incorrect database selection](cache-howto-troubleshoot-data-loss.md#incorrect-database-selection) | Redis is set to use a non-default database |
+| [Redis instance failure](cache-howto-troubleshoot-data-loss.md#redis-instance-failure) | Keys are removed by explicit delete commands |
 
 ### Key flushing
 
