@@ -1,6 +1,6 @@
 ---
 title: SQL Server FCI with premium file share - Azure Virtual Machines 
-description: "This article explains how to create a SQL Server Failover Cluster Instance using a premium file share on Azure Virtual Machines."
+description: "This article explains how to create a SQL Server failover cluster instance by using a premium file share on Azure virtual machines."
 services: virtual-machines
 documentationCenter: na
 author: MashaMSFT
@@ -16,21 +16,21 @@ ms.date: 10/09/2019
 ms.author: mathoma
 ---
 
-# Configure SQL Server Failover Cluster Instance with premium file share on Azure Virtual Machines
+# Configure a SQL Server failover cluster instance with premium file share on Azure virtual machines
 
-This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md). 
+This article explains how to create a SQL Server failover cluster instance (FCI) on Azure virtual machines by using a [premium file share](../../../storage/files/storage-how-to-create-premium-fileshare.md).
 
-Premium file shares are SSD-backed consistently-low-latency file shares that are fully supported for use with Failover Cluster Instance for SQL Server 2012 and newer on Windows Server 2012 and newer. Premium file shares give you greater flexibility, allowing you to resize and scale the file share without any downtime. 
+Premium file shares are SSD-backed, consistently low-latency file shares that are fully supported for use with Failover Cluster Instances for SQL Server 2012 or later on Windows Server 2012 or later. Premium file shares give you greater flexibility, allowing you to resize and scale a file share without any downtime.
 
 
 ## Before you begin
 
-There are a few things you need to know and a couple of things that you need in place before you proceed.
+There are a few things you need to know and have in place before you start.
 
-You should have an operational understanding of the following technologies:
+You should have an operational understanding of these technologies:
 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)
-- [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
+- [SQL Server Failover Cluster Instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
 One important difference is that on an Azure IaaS VM failover cluster, we recommend a single NIC per server (cluster node) and a single subnet. Azure networking has physical redundancy that makes additional NICs and subnets unnecessary on an Azure IaaS VM guest cluster. Although the cluster validation report will issue a warning that the nodes are only reachable on a single network, this warning can be safely ignored on Azure IaaS VM failover clusters. 
 
