@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/17/2019
 ms.author: dapine
 ---
 
@@ -61,9 +61,8 @@ The **host** is the computer that runs the docker container. The host *must supp
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
-
-> [!NOTE]
-> The host computer is *required* to support VSX2. The container *will not* function correctly without VSX2 support. 
+> [!WARNING]
+> The host computer is *required* to support VSX2. The container *will not* function correctly without VSX2 support.
 
 ### Container requirements and recommendations
 
@@ -456,4 +455,4 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 * Review [configure containers](speech-container-configuration.md) for configuration settings
 * Learn how to [use Speech Service containers with Kubernetes and Helm](speech-container-howto-on-premises.md)
-* Use more [Cognitive Services Containers](../cognitive-services-container-support.md)
+* Use more [Cognitive Services containers](../cognitive-services-container-support.md)
