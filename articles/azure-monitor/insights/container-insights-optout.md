@@ -9,7 +9,7 @@ editor:
 
 ms.assetid: 
 ms.service: azure-monitor
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/19/2019

@@ -8,7 +8,7 @@ manager: carmonm
 editor: 
 ms.assetid: 
 ms.service: azure-monitor
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019

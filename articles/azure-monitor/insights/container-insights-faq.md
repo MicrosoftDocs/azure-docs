@@ -6,7 +6,7 @@ author: mgoedtel
 manager: carmonm
 editor: tysonn
 ms.service:  azure-monitor
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: magoedte
