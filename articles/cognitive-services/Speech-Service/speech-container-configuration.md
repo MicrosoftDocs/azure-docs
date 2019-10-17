@@ -87,7 +87,7 @@ Custom models are downloaded the first time that a new model is ingested as part
 The volume mount setting consists of three color `:` separated fields:
 
 1. The first field is the name of the volume on the host machine, for example *C:\input*.
-2. The second field is the directory in the container, for example */usr/local*.
+2. The second field is the directory in the container, for example */usr/local/models*.
 3. The third field (optional) is a comma-separated list of options, for more information see [use volumes](https://docs.docker.com/storage/volumes/).
 
 ### Volume mount example
@@ -154,8 +154,8 @@ Logging:Console:LogLevel:Default=Information
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
 -v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
 ModelId={MODEL_ID} \
 Locale={MODEL_LOCALE} \
 Eula=accept \
@@ -167,8 +167,8 @@ ApiKey={API_KEY}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
 -v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
 ModelId={MODEL_ID} \
 Locale={MODEL_LOCALE} \
 Eula=accept \
@@ -206,8 +206,8 @@ Logging:Console:LogLevel:Default=Information
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 -v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 ModelId={MODEL_ID} \
 Locale={MODEL_LOCALE} \
 Eula=accept \
@@ -219,8 +219,8 @@ ApiKey={API_KEY}
 
 ```Docker
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 -v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 ModelId={MODEL_ID} \
 Locale={MODEL_LOCALE} \
 Eula=accept \

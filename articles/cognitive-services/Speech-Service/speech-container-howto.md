@@ -307,8 +307,8 @@ To run the *Custom Speech-to-text* container, execute the following `docker run`
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
 -v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text \
 ModelId={MODEL_ID} \
 Locale={MODEL_LOCALE} \
 Eula=accept \
@@ -369,8 +369,8 @@ To run the *Custom Text-to-speech* container, execute the following `docker run`
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
-containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 -v {VOLUME_MOUNT}:/usr/local/models \
+containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 ModelId={MODEL_ID} \
 Locale={MODEL_LOCALE} \
 Eula=accept \
