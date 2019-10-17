@@ -24,7 +24,8 @@ In this featured video, we explore how to diagnose and solve the most common pro
 [Troubleshoot common problems with Azure resources](https://www.youtube.com/watch?v=FgfcSdHErus)
 
 Catch up on these recent videos you may have missed:
-|  |  |  |
+
+| 1 | 2 | 3 |
 | ---------- | ---------- | ---------- |
 | [![Image of YouTube video about cost management](http://img.youtube.com/vi/mfxysF-kTFA/0.jpg)](http://www.youtube.com/watch?v=mfxysF-kTFA) | [![Image of YouTube video about applying budgets to subscriptions](http://img.youtube.com/vi/UrkHiUx19Po/0.jpg)](http://www.youtube.com/watch?v=UrkHiUx19Po) | <[![Image of YouTube video about making the most of Azure Advisor](http://img.youtube.com/vi/ANz3cCiFsJw/0.jpg)](http://www.youtube.com/watch?v=ANz3cCiFsJw) |
 | [How to use Cost Management](https://www.youtube.com/watch?v=mfxysF-kTFA) | [How to Apply Budgets to Subscriptions](https://www.youtube.com/watch?v=UrkHiUx19Po) | [How to make the most of Azure Advisor](https://www.youtube.com/watch?v=ANz3cCiFsJw) |
