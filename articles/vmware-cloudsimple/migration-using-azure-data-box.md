@@ -82,19 +82,19 @@ The NFS share from your Data Box must be mounted as a datastore on your on-premi
 
    ![Add new datastore - type](media/databox-migration-add-datastore-type.png)
 
-4. In step 2, select **NFS 3** as the NFS version and then select **Next**.
+4. In step 2 of the wizard, select **NFS 3** as the NFS version and then select **Next**.
 
    ![Add new datastore - NFS version](media/databox-migration-add-datastore-nfs-version.png)
 
-5. In step 3, specify the name for the datastore, the path, and the server. You can use the IP address of your Data Box for the server. The folder path will be in the `/<StorageAccountName_BlockBlob>/<ContainerName>/` format.
+5. In step 3 of the wizard, specify the name for the datastore, the path, and the server. You can use the IP address of your Data Box for the server. The folder path will be in the `/<StorageAccountName_BlockBlob>/<ContainerName>/` format.
 
    ![Add new datastore - NFS configuration](media/databox-migration-add-datastore-nfs-configuration.png)
 
-6. In step 4, select the ESXi hosts where you want the datastore to be mounted and then select **Next**.  In a cluster, select all the hosts to ensure migration of the virtual machines.
+6. In step 4 of the wizard, select the ESXi hosts where you want the datastore to be mounted and then select **Next**.  In a cluster, select all the hosts to ensure migration of the virtual machines.
 
    ![Add new datastore - Select hosts](media/databox-migration-add-datastore-nfs-select-hosts.png)
 
-7. In step 5, review the summary and select **Finish**.
+7. In step 5 of the wizard, review the summary and select **Finish**.
 
 ## Copy data to the Data Box NFS datastore
 
