@@ -190,9 +190,9 @@ Use the following .NET classes to interact with these resources:
 
 These example code snippets show you how to perform the following with the Azure Blob storage client library for .NET:
 
-   * [Authenticate the client](authenticate-the-client)
+   * [Authenticate the client](#authenticate-the-client)
    * [Create a container](#create-a-container)
-   * [Set permissions on a container](set-permissions-on-a-container)
+   * [Set permissions on a container](#set-permissions-on-a-container)
    * [Upload blobs to a container](#upload-blobs-to-a-container)
    * [List the blobs in a container](#list-the-blobs-in-a-container)
    * [Download blobs](#download-blobs)
@@ -200,7 +200,7 @@ These example code snippets show you how to perform the following with the Azure
 
 ### Authenticate the client
 
-The code below creates a `StorageSharedKeyCredential` object consisting of the account name and access key for the storage account. It retrieves the values of these strings from the environment variables created in the [Configure your storage account name and access key](configure-your-storage-account-name-and-access-key) section.
+The code below creates a `StorageSharedKeyCredential` object consisting of the account name and access key for the storage account. It retrieves the values of these strings from the environment variables created in the [Configure your storage account name and access key](#configure-your-storage-account-name-and-access-key) section.
 
 Add this code inside the `ProcessAsync` method:
 
