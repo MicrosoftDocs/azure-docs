@@ -379,6 +379,8 @@ Session(app)
 
 ## Next steps
 
+In the next article, you'll learn how to trigger the sign-in and sign-out.
+
 # [ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
