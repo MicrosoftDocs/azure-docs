@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: stevestein
   ms.author: sstein
-  ms.date: 10/15/2019
+  ms.date: 10/17/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -42,7 +42,5 @@ landingContent:
         links:
           - text: Machine learning and artificial intelligence
             url: sql-database-edge-onnx-overview.md
-          - text: Stream Analytics jobs
-            url: sql-database-edge-stream-analytics.md
 
 
