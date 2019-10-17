@@ -322,7 +322,7 @@ This trigger sends a request to the specified HTTP or HTTPS endpoint based on th
 | Property | Value | Type | Description |
 |----------|-------|------|-------------|
 | `method` | <*method-type*> | String | The method to use for sending the outgoing request: "GET", "PUT", "POST", "PATCH", or "DELETE" |
-| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service, this URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the [Logic Apps REST API version](https://docs.microsoft.com/rest/api/logic/) for the operation. |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service or resource, this URI syntax includes the resource ID and the path to the resource that you want to access. |
 | `frequency` | <*time-unit*> | String | The unit of time that describes how often the trigger fires: "Second", "Minute", "Hour", "Day", "Week", "Month" |
 | `interval` | <*number-of-time-units*> | Integer | A value that specifies how often the trigger fires based on the frequency, which is the number of time units to wait until the trigger fires again <p>Here are the minimum and maximum intervals: <p>- Month: 1-16 months </br>- Day: 1-500 days </br>- Hour: 1-12,000 hours </br>- Minute: 1-72,000 minutes </br>- Second: 1-9,999,999 seconds<p>For example, if the interval is 6, and the frequency is "Month", the recurrence is every 6 months. |
 |||||
@@ -331,8 +331,8 @@ This trigger sends a request to the specified HTTP or HTTPS endpoint based on th
 
 | Property | Value | Type | Description |
 |----------|-------|------|-------------|
-| `headers` | <*header-content*> | JSON Object | Any headers to send with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| `queries` | <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. |
+| `headers` | <*header-content*> | JSON Object | Any headers that you need to include with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON Object | Any query parameters that you need to use in the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the request. |
 | `body` | <*body-content*> | JSON Object | The message content to send as payload with the request |
 | `authentication` | <*authentication-type-and-property-values*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
 | `retryPolicy` > `type` | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
@@ -1353,15 +1353,15 @@ This action sends a request to the specified HTTP or HTTPS endpoint and checks t
 | Property | Value | Type | Description |
 |----------|-------|------|-------------|
 | `method` | <*method-type*> | String | The method to use for sending the outgoing request: "GET", "PUT", "POST", "PATCH", or "DELETE" |
-| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service, this URI syntax includes the service's resource ID, the Azure subscription ID for your environment, the query operator (**?**), and the [Logic Apps REST API version](https://docs.microsoft.com/rest/api/logic/) for the operation. |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | The HTTP or HTTPS endpoint URL where you want to send the outgoing request. Maximum string size: 2 KB <p>For an Azure service or resource, this URI syntax includes the resource ID and the path to the resource that you want to access. |
 |||||
 
 *Optional*
 
 | Property | Value | Type | Description |
 |----------|-------|------|-------------|
-| `headers` | <*header-content*> | JSON Object | Any headers to send with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
-| `queries` | <*query-parameters*> | JSON Object | Any query parameters to include with the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
+| `headers` | <*header-content*> | JSON Object | Any headers that you need to include with the request <p>For example, to set the language and type: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` |
+| `queries` | <*query-parameters*> | JSON Object | Any query parameters that you need to use in the request <p>For example, the `"queries": { "api-version": "2018-01-01" }` object adds `?api-version=2018-01-01` to the call. |
 | `body` | <*body-content*> | JSON Object | The message content to send as payload with the request |
 | `authentication` | <*authentication-type-and-property-values*> | JSON Object | The authentication model that the request uses for authenticating outbound requests. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Beyond Scheduler, the `authority` property is supported. When not specified, the default value is `https://management.azure.com/`, but you can use a different value. |
 | `retryPolicy` > `type` | <*retry-behavior*> | JSON Object | Customizes the retry behavior for intermittent failures, which have the 408, 429, and 5XX status code, and any connectivity exceptions. For more information, see [Retry policies](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
@@ -3005,7 +3005,7 @@ This setting puts your logic app into "high throughput" mode.
 
 ## Authenticate triggers and actions
 
-HTTP and HTTPS endpoints support various kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests to access these endpoints, you can select from varying ranges of authentication types. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+HTTP and HTTPS endpoints support different kinds of authentication. Based on the trigger or action that you use to make outbound calls or requests to access these endpoints, you can select from different ranges of authentication types. For more information, see [Add authentication to outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
 ## Next steps
 
