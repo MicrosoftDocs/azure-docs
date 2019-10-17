@@ -542,7 +542,7 @@ test_sample = json.dumps({'data': [
 ]})
 
 profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(true)
+profile.wait_for_profiling(True)
 profiling_results = profile.get_results()
 print(profiling_results)
 ```
