@@ -141,6 +141,10 @@ After you set up a managed identity for your logic app, you can [give that ident
 
    ![Added managed identities and roles to target resource](./media/create-managed-service-identity/added-roles-for-identities.png)
 
+1. Also, check whether your target resource requires the correct access for the operations to perform.
+
+   For example, to read a blob container or file in an Azure storage account, [change the public access level](../storage/blobs/storage-manage-access-to-resources.md) at either the container level or blob level to anonymous read access.
+
 1. Now follow the [steps to authenticate access with the identity](#authenticate-access-with-identity) in a trigger or action that supports managed identities.
 
 <a name="authenticate-access-with-identity"></a>
@@ -202,6 +206,7 @@ These steps show how to use the managed identity with a trigger or action throug
    This example sets the **Audience** property to `https://fabrikamstorageaccount.blob.core.windows.net`:
 
    ![Specify target resource ID in "Audience" property](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
+
 
 <a name="remove-identity"></a>
 
