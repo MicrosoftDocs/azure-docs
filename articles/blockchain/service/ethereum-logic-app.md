@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/26/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
@@ -215,7 +215,7 @@ For more information on the account address and password, see [Ethereum account]
 
 ## Get the contract ABI
 
-The contract ABI defines the smart contract interfaces. It describes how to interact with the smart contract. You can get the contract ABI by using the Azure Blockchain Development Kit for Ethereum. You can also get it from the contract metadata file in the Solidity compiler.
+The contract ABI defines the smart contract interfaces. It describes how to interact with the smart contract. You can get the contract ABI by using the Azure Blockchain Development Kit for Ethereum. You can also get it from the contract metadata file created by the Solidity compiler.
 
 **To use the development kit:**
 
