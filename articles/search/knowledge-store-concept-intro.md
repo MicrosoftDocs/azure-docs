@@ -16,17 +16,17 @@ ms.author: heidist
 > Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is a feature in Azure Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for later analysis or other downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, documents are preserved so that you can use them in new ways. 
+Knowledge store is a feature in Azure Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for later analysis or other downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. 
 
-If you have used AI skills with Azure Search in the past, you already know that *skillsets* are used to move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, are physically distinct from each other. They share the same content, but are stored and used in very different ways.
+If you have used AI skills with Azure Search in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, share the same content, but are stored and used in very different ways.
 
 Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), either Azure Table storage, Azure Blob storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
 ![Knowledge store in pipeline diagram](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.png "Knowledge store in pipeline diagram")
 
-Projections are your mechanism for structuring data in a knowledge store. For example, through projections, you can choose whether output is saved as a single blob or a collection of related tables. An easy way to view knowledge store contents is through the built-in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) for Azure storage.
+Projections are your mechanism for structuring data in a knowledge store. For example, through projections, you can choose whether output is saved as a single blob or a collection of related tables. 
 
-To use knowledge store, add a `knowledgeStore` element to a skillset that defines step-wise operations in an indexing pipeline. During execution, Azure Search creates a space in your Azure storage account and projects the enriched documents with the definition created within the pipeline.
+To use knowledge store, add a `knowledgeStore` element to a skillset that defines step-wise operations in an indexing pipeline. During execution, Azure Search creates a space in your Azure storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
 
 ## Benefits of knowledge store
 
