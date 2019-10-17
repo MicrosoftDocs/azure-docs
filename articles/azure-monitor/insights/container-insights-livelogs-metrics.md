@@ -57,7 +57,7 @@ These two performance charts map to an equivalent of invoking `kubectl top nodes
 
 ![Kubectl top nodes example results](./media/container-insights-livelogs-metrics/kubectl-top-nodes-example.png)
 
-![Nodes CPU utilization percent chart](./media/container-insights-livelogs-metrics/cluster-view-node-cpu-memory-util.png)
+![Nodes memory and CPU utilization percent charts](./media/container-insights-livelogs-metrics/cluster-view-node-cpu-memory-util.png)
 
 The percentile calculations will function in larger clusters to help identify outlier nodes in your cluster. For example, to understand if there are nodes being under utilized for scale down purposes. Utilizing the **Min** aggregation you can see if there are nodes with extremely low utilization in the cluster. For further investigation, you would select the **Nodes** tab and sort the grid by CPU or memory utilization.
 
@@ -80,3 +80,7 @@ This performance chart maps to an equivalent of invoking `kubectl get pods –al
 
 ![Kubectl get pods example results](./media/container-insights-livelogs/kubectl-get-pods-example.png)
 
+![Nodes pod count chart](./media/container-insights-livelogs-metrics/cluster-view-node-pod-count-01.png)
+
+>[!NOTE]
+>Names of status as interpreted by `kubectl` may not exactly match in the chart. The names are derived from the Kubernetes API and interpreted to match the status names as presented data stored in your Log Analytics workspace when viewing the chart from the **Historical** view (which is the default for the performance charts on this tab). 
