@@ -1,5 +1,5 @@
 ---
-title: Move Azure Virtual Machines to new subscription or resource group | Microsoft Docs
+title: Move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 author: tfitzmac
 ms.service: azure-resource-manager

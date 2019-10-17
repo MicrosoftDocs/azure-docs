@@ -52,6 +52,16 @@ For more information about the new riskDetection API, see the [Risk detection AP
 
 ## September 2019
 
+### Deprecation of the Power BI content packs
+
+**Type:** Deprecated  
+**Service category:** Reporting  
+**Product capability:** Monitoring & Reporting
+
+Power BI is deprecating content packs from their store, and as of **October 1, 2019**, we're no longer supporting the Azure AD Power BI content pack. Customers currently using the content pack can continue to use it even though the underlying APIs are older versions. As an alternative to this content pack, you can use Azure AD Workbooks (built on Log Analytics) to gain insights into your Azure AD-related services.
+
+For more information about the workbooks, see [How to use Azure Monitor workbooks for Azure Active Directory reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). For more information about the deprecation of the content packs, see the [Announcing Power BI template apps general availability](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) blog post.
+
 ### My Profile is re-naming and integrating with the Microsoft Office account page
 
 **Type:** Plan for change  
