@@ -115,6 +115,9 @@ To configure Storegate for automatic user provisioning with Azure AD, you need t
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Storegate based on user and/or group assignments in Azure AD.
 
+> [!NOTE]
+> To learn more about Oracle Fusion ERP's SCIM endpoint, refer [this](https://en-support.storegate.com/article/step-by-step-instruction-how-to-enable-azure-provisioning-to-your-storegate-team-account/).
+
 ### To configure automatic user provisioning for Storegate in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
@@ -168,10 +171,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Storegate.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
-## Connector limitations
-
-* If user is not logged in, the API will fail. 
 
 ## Additional resources
 
