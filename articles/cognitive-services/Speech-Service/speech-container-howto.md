@@ -23,10 +23,10 @@ Speech containers enable customers to build a speech application architecture th
 
 | Function | Features | Latest |
 |--|--|--|
-| Speech-to-text | Transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 1.2.0 |
-| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 1.0.0 |
-| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.2.0 |
-| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.0.0 |
+| Speech-to-text | Transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.0.0 |
+| Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 2.0.0 |
+| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.3.0 |
+| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.3.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -84,13 +84,13 @@ The following table describes the minimum and recommended allocation of resource
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Text-to-speech | 1 core, 0.5-GB memory | 2 core, 1-GB memory |
+| Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 
 # [Custom Text-to-speech](#tab/ctts)
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-| Custom Text-to-speech | 1 core, 0.5-GB memory | 2 core, 1-GB memory |
+| Custom Text-to-speech | 1 core, 2-GB memory | 2 core, 3-GB memory |
 
 ***
 
@@ -159,10 +159,10 @@ All tags, except for `latest` are in the following format, where the `<culture>`
 The following tag is an example of the format:
 
 ```
-1.2.0-amd64-en-us-preview
+2.0.0-amd64-en-us-preview
 ```
 
-The following table lists the supported locales for **speech-to-text** in the 1.2.0 version of the container:
+The following table lists the supported locales for **speech-to-text** in the 2.0.0 version of the container:
 
 | Language locale | Tags |
 |--|--|
@@ -213,10 +213,10 @@ All tags, except for `latest` are in the following format, where the `<culture>`
 The following tag is an example of the format:
 
 ```
-1.2.0-amd64-en-us-jessarus-preview
+1.3.0-amd64-en-us-jessarus-preview
 ```
 
-The following table lists the supported locales for **text-to-speech** in the 1.2.0 version of the container:
+The following table lists the supported locales for **text-to-speech** in the 1.3.0 version of the container:
 
 | Language locale | Tags | Supported voices |
 |--|--|--|
