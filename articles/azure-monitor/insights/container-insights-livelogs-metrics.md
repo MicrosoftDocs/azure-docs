@@ -33,7 +33,7 @@ For help setting up or troubleshooting the live metrics and data feature, review
 
 The live metrics and data feature directly access the Kubernetes API. Additional information can be found [here](container-insights-livelogs-setup.md). 
 
-Live metrics feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` and `/api/v1/pods`), which is five seconds by default. This data is cached in your browser and charted in the performance charts included in Azure Monitor for containers on the **Cluster** tab. Each subsequent poll will be charted into a rolling five-minute visualization window. 
+Live metrics feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` and `/api/v1/pods`), which is five seconds by default. This data is cached in your browser and charted in the four performance charts included in Azure Monitor for containers on the **Cluster** tab. Each subsequent poll is charted into a rolling five-minute visualization window. 
 
 ![Go Live option in the Cluster view](./media/container-insights-livelogs-metrics/cluster-view-go-live-example-01.png)
 
@@ -53,13 +53,30 @@ These charts cannot be pinned to the last Azure dashboard you viewed in live mod
 
 ### Node CPU utilization % / Node Memory utilization % 
 
-These two performance charts map to an equivalent of invoking `kubectl top nodes` and capturing the results of the **CPU%** and **MEMORY%** columns to a chart. 
+These two performance charts map to an equivalent of invoking `kubectl top nodes` and capturing the results of the **CPU%** and **MEMORY%** columns to the respective chart. 
 
 ![Kubectl top nodes example results](./media/container-insights-livelogs-metrics/kubectl-top-nodes-example.png)
 
-![Nodes CPU utilization percent chart](./media/container-insights-livelogs-metrics/cluster-view-node-cpuutil-01.png)
+![Nodes CPU utilization percent chart](./media/container-insights-livelogs-metrics/cluster-view-node-cpu-memory-util.png)
 
 The percentile calculations will function in larger clusters to help identify outlier nodes in your cluster. For example, to understand if there are nodes being under utilized for scale down purposes. Utilizing the **Min** aggregation you can see if there are nodes with extremely low utilization in the cluster. For further investigation, you would select the **Nodes** tab and sort the grid by CPU or memory utilization.
 
 This also helps you understand if there are nodes being pushed to their limits and if a scale out may be required. Utilizing both the **Max** and **P95** aggregations can help you see if there are nodes in the cluster with high resource utilization. For further investigation, you would again switch to the **Nodes** tab.
+
+### Node count
+
+This performance chart maps to an equivalent of invoking `kubectl get nodes` and mapping the **STATUS** column to a chart grouped by status types.
+
+![Kubectl get nodes example results](./media/container-insights-livelogs/kubectl-get-nodes-example.png)
+
+![Nodes count chart](./media/container-insights-livelogs-metrics/cluster-view-node-count-01.png)
+
+Nodes are reported either in a **Ready** or **Not Ready** state. They are counted (and a total count is created), and the results of these two aggregations are charted.
+For example, to understand if your nodes are falling into failed states. Utilizing the **Not Ready** aggregation you can quickly see the number of nodes in your cluster currently in the **Not Ready** state.
+
+### Active pod count
+
+This performance chart maps to an equivalent of invoking `kubectl get pods –all-namespaces` and maps the **STATUS** column the chart grouped by status types.
+
+![Kubectl get pods example results](./media/container-insights-livelogs/kubectl-get-pods-example.png)
 
