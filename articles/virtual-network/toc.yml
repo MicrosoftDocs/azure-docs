@@ -96,7 +96,7 @@
   - name: Deploy
     items:
     - name: NAT gateway
-       items:
+      items:
         - name: Create a NAT gateway - Azure CLI
           href: quickstart-create-nat-gateway-cli.md
         - name: Create a NAT gateway - Azure PowerShell
