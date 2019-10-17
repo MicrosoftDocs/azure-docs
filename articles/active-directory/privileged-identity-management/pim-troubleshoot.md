@@ -31,7 +31,7 @@ This can happen when the User Access Administrator role for the MS-PIM service p
 
 ### Resolution
 
-Assign the User Access Administrator role to the Privileged identity Management service principal name (MS–PIM) at the subscription level, which should allow the Privileged identity Management service to access the Azure resources. Be aware that the role can be assigned on a management group level or at the subscription level, based on the requirements and setup of your Azure AD organization.
+Assign the User Access Administrator role to the Privileged identity Management service principal name (MS–PIM) at the subscription level, which should allow the Privileged identity Management service to access the Azure resources. Be aware that the role can be assigned on a management group level or at the subscription level, based on the requirements and setup of your Azure AD organization. For more information service principals, see [Assign an application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role).
 
 ## Team announcement channel
 
