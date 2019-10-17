@@ -57,7 +57,7 @@ Although the gateway itself doesn't incur additional costs, the [Logic Apps pric
 
 * You haven't previously linked your gateway installation to another gateway resource in Azure.
 
-  When you create a gateway resource in Azure, you select a gateway installation to use with your gateway resource. You can link only one gateway installation and one gateway resource to each other. Each installation is [associated with only one Azure subscription](../logic-apps/logic-apps-gateway-install.md#prerequisites). However, in your logic app's trigger and actions that use the gateway resource, you can select a different gateway resource in your other Azure subscriptions.
+  When you create a gateway resource in Azure, you select a gateway installation to use with your gateway resource. You can link only one gateway installation and one gateway resource to each other. Each installation is [associated with only one Azure subscription](../logic-apps/logic-apps-gateway-install.md#prerequisites). However, in logic app triggers and actions that use the gateway resource, you can select a gateway resource from your other Azure subscriptions.
 
 <a name="create-gateway-resource"></a>
 
@@ -83,7 +83,7 @@ After you install the gateway on a local computer, create the Azure resource for
    | **Subscription** | Your Azure subscription, which must be the same as gateway installation and logic app. The default subscription is based on the Azure account that you used to sign in. |
    | **Resource group** | The [Azure resource group](../azure-resource-manager/resource-group-overview.md) that you want to use |
    | **Location** | The same region as the location that was selected for the gateway cloud service during [gateway installation](../logic-apps/logic-apps-gateway-install.md). Otherwise, your gateway installation won't appear in the **Installation Name** list for you to select. Your logic app location can differ from your gateway resource location. |
-   | **Installation Name** | Select the gateway that you previously installed. This list doesn't include gateway installations that are: <p><p>- Already linked to other gateway resources in Azure <br>- Associated with other Azure subscriptions. You can associate each gateway installation with only one Azure subscription. |
+   | **Installation Name** | Select the gateway that you previously installed. This list doesn't include gateway installations that are: <p><p>- Already linked to other gateway resources in Azure <br>- Associated with other Azure subscriptions. Each installation is associated with only one Azure subscription. However, in logic app triggers and actions where you use the gateway resource, you can select a gateway resource from your other Azure subscriptions. |
    |||
 
    Here is an example:
