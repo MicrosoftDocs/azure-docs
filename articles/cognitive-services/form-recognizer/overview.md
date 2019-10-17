@@ -15,11 +15,11 @@ ms.author: pafarley
 
 # What is Form Recognizer?
 
-Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key/value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model by using a simple REST API to reduce complexity and easily integrate it into your workflow or application. To get started, you just need five filled-in form documents or two filled-in forms plus an empty form of the same type as your input material. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
+Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key/value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model by using a simple REST API to reduce complexity and easily integrate it into your workflow or application. You quickly get accurate results that are tailored to your specific content without heavy manual intervention or extensive data science expertise.
 
 ## Custom models
 
-The Form Recognizer custom model trains to your own data, and you only need five sample input forms to start. When you submit your input data, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. It then outputs structured data that includes the relationships in the original file. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+The Form Recognizer custom model trains to your own data. To get started, you just need five filled-in form documents or two filled-in forms plus an empty form of the same type as your input material. Or, you can use 10 manually-labeled forms for improved accuracy (see the [Feedback Loop](./feedback-loop.md) feature). When you submit your input data, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. It then outputs structured data that includes the relationships in the original file. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
 Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. By contrast, pre-trained machine learning models require standardized data. They're less accurate with input material that deviates from traditional formats, like industry-specific forms.
 
@@ -62,11 +62,15 @@ Form Recognizer is available in a limited-access preview. To get access to the p
 
 We recommend that you use the free service when you're learning the technology. Keep in mind that the number of free pages is limited to 500 per month.
 
-**Step 3:** Review the REST APIs
+**Step 3:** Check results.
+
+If you used a custom model, check the results for accuracy. If the model didn't detect some fields or returned incorrect values, you might want to try training again with manually-labelled data. See the [Feedback Loop](./feedback-loop.md) conceptual doc to learn about this option.
+
+**Step 4:** Review the REST APIs.
 
 You use the following APIs to train and extract structured data from forms.
 
-|||
+|Name |Description |
 |---|---|
 | **Train Custom Model**| Train a new model to analyze your forms by using five forms of the same type. Or, train with an empty form and two filled-in forms.  |
 | **Analyze Form** |Analyze a single document passed in as a stream to extract key/value pairs and tables from the form with your custom model.  |
