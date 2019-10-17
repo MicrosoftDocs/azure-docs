@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/14/2019
+ms.date: 10/15/2019
 ---
 # vCore purchasing model
 
@@ -43,8 +43,6 @@ For information on selecting a service tier for your particular workload, see th
 - [When to choose the Hyperscale service tier](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
 
-
-
 ## Hardware generations
 
 Hardware generation options in the vCore model include Gen 4/5, M-series, and Fsv2-series. The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
@@ -52,17 +50,27 @@ Hardware generation options in the vCore model include Gen 4/5, M-series, and Fs
 ### Gen5
 
 - Gen5 hardware is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by M-series or Fsv2-series. 
- 
-### M-series (preview)
 
-- M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
-- M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.    
-  
+
 ### Fsv2-series (preview)
 
 - Fsv2-series is a compute optimized hardware option delivering low CPU latency and high clock speed for the most CPU demanding workloads.
 - Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
-- Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.   
+- Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
+
+Fsv2-series is currently available in the following regions:
+US West, US West 2, and US East.
+
+
+### M-series (preview)
+
+- M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
+- M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
+
+M-series is currently available in the following regions:
+US West, US West 2, and US East.
+
+To enable M-series availability in a subscription, access must be requested by filing a new support request. For details on creating a support request, see [Hardware availability](#hardware-availability).
 
 
 ### Compute and memory specifications
@@ -83,9 +91,9 @@ For more information on resource limits, see [Resource limits for single databas
 
 ### Hardware availability
  
-All hardware generations, except M-series, are available without requesting access. For M-series, access must be requested by filing a new support request. 
- 
-A support request can be filed in the Azure portal by providing the following in the request: 
+All hardware generations are available without requesting access, except M-series. For M-series, access must be requested by filing a new support request. 
+
+Create a support request in the Azure portal by completing the following steps: 
 
 1. Select **Help + support** in the portal.
 2. Select **New support request**.
@@ -98,10 +106,10 @@ On the Basics page, provide the following:
 4. Select **Next** to go to the **Details** page.
 5. In the **PROBLEM DETAILS** section select the **Provide details** link. 
 6. For **SQL Database quota type** select **M-series**.
-   This assumes we can create a new field for M-series otherwise we will need to use “Other quota request” and then the “Description” field will need to specify M-series and the region
-1. For **Region**, select the region to enable M-series.
+7. For **Region**, select the region to enable M-series.
+    M-series is currently available in the following regions: US West, US West 2, and US East.
 
-Approved support requests should be fulfilled within 5 business days. 
+Approved support requests are typically fulfilled within 5 business days.
 
 
 
