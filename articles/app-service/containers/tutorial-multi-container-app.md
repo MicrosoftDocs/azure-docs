@@ -4,7 +4,7 @@ description: Learn how to use multiple containers on Azure with Docker Compose, 
 keywords: azure app service, web app, linux, docker, compose, multicontainer, multi-container, web app for containers, multiple containers, container, wordpress, azure db for mysql, production database with containers
 services: app-service
 documentationcenter: ''
-author: msangapu
+author: msangapu-msft
 manager: gwallace
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/29/2019
-ms.author: msangapu-msft
+ms.author: msangapu
 #Customer intent: As an Azure customer, I want to learn how to deploy multiple containers using WordPress into Web App for Containers.
 ---
 # Tutorial: Create a multi-container (preview) app in Web App for Containers
