@@ -25,6 +25,8 @@ The AD FS application activity report in the Azure portal lets you quickly ident
 * **Prioritize applications for migration.** Get the number of unique users who have signed in to the application in the past 1, 7, or 30 days to help determine the criticality or risk of migrating the application.
 * **Run migration tests and fix issues.** The reporting service automatically runs tests to determine if an application is ready to migrate. The results are displayed in the AD FS application activity report as a migration status. If potential migration issues are identified, you get specific guidance on how to address the issues.
 
+The AD FS application activity data is available to users who are assigned any of these admin roles: global administrator, report reader, security reader, application administrator, or cloud application administrator.
+
 ## Prerequisites
 
 * Your organization must be currently using AD FS to access applications.
@@ -32,11 +34,7 @@ The AD FS application activity report in the Azure portal lets you quickly ident
    * [Learn more about Azure AD Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-adfs)
    * [Get started setting up Azure AD Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
-### Who can access AD FS application activity data?
-
-The AD FS application activity data is available to users who are assigned any of these admin roles: global administrator, report reader, security reader, application administrator, or cloud application administrator.
-
-## Open the AD FS application activity report
+## Review the AD FS application activity report
 
 The AD FS application activity report is available in the Azure portal under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed. 
 
