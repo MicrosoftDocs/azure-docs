@@ -12,7 +12,7 @@ ms.date: 10/10/2019
 
 You can encrypt or decrypt Linux virtual machine scale sets using Azure Resource Manager templates.
 
-## Deploying a templates
+## Deploying templates
 
 First, select the template that fits your scenario.
 
