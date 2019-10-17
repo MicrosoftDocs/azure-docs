@@ -1,13 +1,15 @@
 ---
 title: Azure Monitor retirement of classic deployment model APIs for metrics and autoscale
 description: Metrics and autoscale classic APIs, also called Azure Service Management (ASM) or RDFE deployment model being retired
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.date: 11/19/2018
+author: rboucher
 ms.author: robb
+ms.date: 11/19/2018
+
 ---
+
 # Azure Monitor retirement of classic deployment model APIs for metrics and autoscale
 
 Azure Monitor (formerly Azure Insights when first released) currently offers the capability to create and manage autoscale settings for and consume metrics from classic VMs and classic Cloud Services. The original set of classic deployment model-based APIs will be **retired after June 30, 2019** in all Azure public and private clouds in all regions.   
