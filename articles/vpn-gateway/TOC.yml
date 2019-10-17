@@ -196,7 +196,7 @@
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
     - name: Set up alerts based on diagnostic log
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md 
-  - name: Configure VPN Gateway packet capture  
+  - name: Configure packet captures 
     href: packet-capture.md
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
