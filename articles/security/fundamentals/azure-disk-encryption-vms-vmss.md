@@ -43,7 +43,7 @@ The following articles provide guidance for encrypting Windows virtual machines.
 ### Current version of Azure Disk Encryption
 
 - [Overview of Azure Disk Encryption for Linux virtual Machines](../../virtual-machines/windows/disk-encryption-overview.md)
-- [Azure Disk Encryption scenarios on Linux VMs](../../virtual-machines/windows/disk-encryption-linux.md)
+- [Azure Disk Encryption scenarios on Linux VMs](../../virtual-machines/windows/disk-encryption-windows.md)
 - [Create and encrypt a Linux VM with Azure CLI](../../virtual-machines/windows/disk-encryption-cli-quickstart.md)
 - [Create and encrypt a Linux VM with Azure PowerShell](../../virtual-machines/windows/disk-encryption-powershell-quickstart.md)
 - [Create and encrypt a Linux VM with the Azure portal](../../virtual-machines/windows/disk-encryption-portal-quickstart.md)
@@ -55,7 +55,7 @@ The following articles provide guidance for encrypting Windows virtual machines.
 ### Azure disk encrpytion with Azure AD (previous version)
 
 - [Overview of Azure Disk Encryption with Azure AD for Linux virtual Machines](../../virtual-machines/windows/disk-encryption-overview-aad.md)
-- [Azure Disk Encryption with Azure AD scenarios on Linux VMs](../../virtual-machines/windows/disk-encryption-linux.md)
+- [Azure Disk Encryption with Azure AD scenarios on Linux VMs](../../virtual-machines/windows/disk-encryption-windows.md)
 - [Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release)](../../virtual-machines/windows/disk-encryption-key-vault-aad.md)
 
 ## Virtual machine scale sets

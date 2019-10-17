@@ -44,7 +44,7 @@
     - name: Data encryption-at-rest
       href: encryption-atrest.md
     - name: Azure Disk Encryption for VMs and VMSS
-      href: azure-disk-encryption-vm-vmss.md
+      href: azure-disk-encryption-vms-vmss.md
   - name: Storage security guide
     href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
