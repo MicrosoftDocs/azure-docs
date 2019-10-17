@@ -196,11 +196,7 @@
     - name: 'Tenant Language Models'
       items:
       - name: Create, publish, and use a model
-<<<<<<< HEAD
         href: tutorial-tenant-language-model.md
-=======
-        href: https://aka.ms/ignite2019/speech/placeholder
->>>>>>> 27ecdde63304210678a341b78334aa96770974fc
   - name: Text-to-speech
     items:
     - name: Custom Voice portal
