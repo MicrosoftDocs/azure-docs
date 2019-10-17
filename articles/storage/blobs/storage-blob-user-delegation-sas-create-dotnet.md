@@ -65,11 +65,11 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## Get an authenticated credential
+## Get an authenticated token credential
 
-To get a credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class.
+To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class.
 
-The following code snippet shows how to get the authenticated credential and use it to create a service client for Blob storage:
+The following code snippet shows how to get the authenticated token credential and use it to create a service client for Blob storage:
 
 ```csharp
 string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
