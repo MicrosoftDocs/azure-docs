@@ -1,5 +1,5 @@
 ---
-title: Move Azure Classic deployment resources to new subscription or resource group
+title: Move Azure Classic deployment resources
 description: Use Azure Resource Manager to move Classic deployment resources to a new resource group or subscription.
 author: tfitzmac
 ms.service: azure-resource-manager
