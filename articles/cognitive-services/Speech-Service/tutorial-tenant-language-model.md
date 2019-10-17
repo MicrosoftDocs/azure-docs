@@ -275,7 +275,7 @@ Next, you'll need rebuild and run the project from the command line. There are a
 2. Replace `<Subscription-Key>` with the subscription key for your Speech resource. This value is available in the **Overview** section for your Speech resource in the [Azure portal](https://aka.ms/azureportal).
 3. Replace `<Endpoint-Uri>` with the endpoint below. Make sure that you replace `{your-region}` with the region where your Speech resource was created. These regions are supported: `westus`, `westus2`, and `eastus`. Your region information is available in the **Overview** section for your Speech resource in the [Azure portal](https://aka.ms/azureportal).
    ```
-   $"wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
+   "wss://{your region}.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1".
    ```
 4. Run the command:
    ```bash
