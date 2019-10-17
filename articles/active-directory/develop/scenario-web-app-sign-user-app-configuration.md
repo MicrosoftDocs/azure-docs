@@ -382,21 +382,21 @@ Session(app)
 # [ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
+> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
 
 # [ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
+> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
 
 # [Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
+> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
 
 # [Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
+> [Sign in and sign out](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
 
 ---
