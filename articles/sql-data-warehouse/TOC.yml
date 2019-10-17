@@ -1,4 +1,4 @@
-- name: Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse) Documentation
+- name: Azure Synapse Analytics (SQL DW) Documentation
   href: index.yml
 - name: Overview
   items:

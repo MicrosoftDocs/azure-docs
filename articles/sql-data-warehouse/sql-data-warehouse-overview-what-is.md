@@ -12,9 +12,9 @@ ms.author: martinle
 ms.reviewer: igorstan
 ---
 
-# What is Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse?
+# What is Azure Synapse Analytics (SQL DW) ?
 
-Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data on your terms, using on-demand or provisioned resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. Empower all data engineers and SQL data professionals to collaborate, manage, and analyze all your most important data with ease. Enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
+Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse) is a limitless cloud data warehouse that gives you the freedom to query data on your terms, using on-demand or provisioned resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. Empower all data engineers and SQL data professionals to collaborate, manage, and analyze all your most important data with ease. Enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
 
 Azure Synapse Analytics has four components:
 - SQL Analytics 
