@@ -27,11 +27,11 @@ The diagram shows a network within the on-premises network connected to the Azur
 
 An important aspect of this configuration is routing between the on-premises networks and Azure over both the ExpressRoute and VPN paths.
 
-### From on-premises networks to Azure
+### Traffic from on-premises networks to Azure
 
 For traffic from on-premises networks to Azure, the Azure prefixes (including the virtual hub and all the spoke virtual networks connected to the hub) will be advertised via both the ExpressRoute private peering BGP and the VPN BGP. This will result in two network routes (paths) toward Azure from the on-premises networks; one over the IPsec protected path, and one directly over the ExpressRoute **without** IPsec protection. To make sure encryption is applied to the communication, you must make sure  that for the VPN-connected network in the diagram, the Azure routes via on-premises VPN gateway are preferred over the direct ExpressRoute path.
 
-### From Azure to on-premises networks
+### Traffic from Azure to on-premises networks
 
 The same requirement applies to the traffic from Azure to on-premises networks. To ensure the IPsec path is preferred over the direct ExpressRoute path (without IPsec), you have two options:
 
