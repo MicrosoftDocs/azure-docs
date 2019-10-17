@@ -51,7 +51,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Watch how to get started
-            url: https://azure.microsoft.com/en-us/resources/videos/azure-friday-durable-functions-in-azure-functions/
+            url: https://azure.microsoft.com/resources/videos/azure-friday-durable-functions-in-azure-functions/
 
   # Card
   - title: Key concepts
