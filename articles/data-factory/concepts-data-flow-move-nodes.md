@@ -1,6 +1,6 @@
 ---
 title: Azure Data Factory Data Flow Move Nodes
-description: How to move nodes in an Azure Data Factory Mapping Data Flow Diagram
+description: How to move nodes in an Azure Data Factory mapping data flow Diagram
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ---
 
-# Mapping Data Flow Move Nodes
+# Mapping data flow Move Nodes
 
 
 

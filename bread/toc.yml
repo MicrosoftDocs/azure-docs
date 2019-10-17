@@ -151,7 +151,7 @@
     items:
     - name: Durable Functions
       tocHref: /azure/azure-functions/durable/
-      topicHref: /azure/azure-functions/durable/durable-functions-overview
+      topicHref: /azure/azure-functions/durable/
   - name: Azure Australia
     tocHref: /azure/azure-australia/
     topicHref: /azure/azure-australia/
@@ -340,9 +340,9 @@
     - name: Translator Text
       tocHref: /azure/cognitive-services/translator/
       topicHref: /azure/cognitive-services/translator/
-    - name: Translator Speech
-      tocHref: /azure/cognitive-services/translator-speech/
-      topicHref: /azure/cognitive-services/translator-speech/
+#    - name: Translator Speech
+#      tocHref: /azure/cognitive-services/translator-speech/
+#      topicHref: /azure/cognitive-services/translator-speech/
     - name: Video Indexer
       tocHref: /azure/cognitive-services/video-indexer/
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview

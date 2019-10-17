@@ -1,5 +1,5 @@
 ---
-title: Create and deploy an Azure Resource Manager template by using the Azure portal | Microsoft Docs
+title: Deploy Resource Manager template - Azure portal
 description: Learn how to create your first Azure Resource Manager template using the Azure portal, and how to deploy it.
 services: azure-resource-manager
 documentationcenter: ''
@@ -42,7 +42,7 @@ Many experienced template developers use this method to generate templates when 
     |Name|Value|
     |----|----|
     |**Resource group**|Select **Create new**, and specify a resource group name of your choice. On the screenshot, the resource group name is *mystorage1016rg*. Resource group is a container for Azure resources. Resource group makes it easier to manage Azure resources. |
-    |**Name**|Give your storage account a unique name. The storage account name must be unique across all of Azure, and it contain only lowercase letters and numbers. Name must be between 3 and 24 characters. If you get an error message saying "The storage account name 'mystorage1016' is already taken", try using **&lt;your name>storage&lt;Today's date in MMDD>**, for example **johndolestorage1016**. For more information, see [Naming rules and restrictions](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
+    |**Name**|Give your storage account a unique name. The storage account name must be unique across all of Azure, and it contain only lowercase letters and numbers. Name must be between 3 and 24 characters. If you get an error message saying "The storage account name 'mystorage1016' is already taken", try using **&lt;your name>storage&lt;Today's date in MMDD>**, for example **johndolestorage1016**. For more information, see [Naming rules and restrictions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
 
     You can use the default values for the rest of the properties.
 
@@ -189,7 +189,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you learned how to generate a template from the Azure portal, and how to deploy the template using the portal. The template used in this Quickstart is a simple template with one Azure resource. When the template is complex, it is easier to use Visual Studio Code or Visual Studio to develop the template. The next quickstart also shows you how to deploy templates using Azure PowerShell and Azure Command-line Interface (CLI).
+In this tutorial, you learned how to generate a template from the Azure portal, and how to deploy the template using the portal. The template used in this Quickstart is a simple template with one Azure resource. When the template is complex, it is easier to use Visual Studio Code or Visual Studio to develop the template. To learn more about template development, see our new beginner tutorial series:
 
 > [!div class="nextstepaction"]
-> [Create templates by using Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+> [Beginner tutorials](./template-tutorial-create-first-template.md)

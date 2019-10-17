@@ -21,10 +21,12 @@ landingContent:
         links:
           - text: About Ansible on Azure
             url: ansible-overview.md
-      - linkListType: architecture
+      - linkListType: reference
         links:
-          - text: Ansible module and version matrix
-            url: ansible-matrix.md
+          - text: Releases and features
+            url: ./ansible-matrix.md  
+          - text: All modules for Azure
+            url:  https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
 
   # Card
   - title: Install and Configure Ansible
@@ -54,6 +56,8 @@ landingContent:
             url: /azure/virtual-machines/linux/ansible-create-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
           - text: Manage Linux virtual machines
             url: /azure/virtual-machines/linux/ansible-manage-linux-vm?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+          - text: Create a from Shared Image Gallery
+            url: ansible-vm-create-from-shared-generalized-image.md
 
   # Card
   - title: Manage Virtual Machine Scale Sets
@@ -68,6 +72,8 @@ landingContent:
             url: ansible-auto-scale-vmss.md
           - text: Update custom image
             url: ansible-vmss-update-image.md
+          - text: Create a from Shared Image Gallery
+            url: ansible-vm-create-from-shared-generalized-image.md
 
   # Card
   - title: Manage Virtual Networks

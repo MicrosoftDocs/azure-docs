@@ -230,6 +230,7 @@ Create a load balancer inbound network address translation (NAT) rule to forward
    - **Name**: Type *MyNATRuleVM1*.
    - **Port**: Type *4221*.
    - **Target virtual machine**: Select **MyVM1** from the drop-down.
+   - **Network IP Configuration**: Select **ipconfig1** from the drop-down.
    - **Port mapping**: Select **Custom**.
    - **Target port**: Type *3389*.
    

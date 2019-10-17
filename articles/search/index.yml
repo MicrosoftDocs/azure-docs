@@ -51,6 +51,22 @@ landingContent:
             url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
 
   # Card
+  - title: Use with Blob storage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use AI to understand blob data
+            url: search-blob-ai-integration.md
+          - text: Search your blob content
+            url: search-blob-storage-integration.md
+          - text: Store AI enrichments
+            url: knowledge-store-concept-intro.md
+      - linkListType: tutorial
+        links:
+          - text: Index semi-structured blob data
+            url: search-semi-structured-data.md
+
+  # Card
   - title: Index your data
     linkLists:
       - linkListType: concept
