@@ -176,6 +176,10 @@ Lists all the SaaS subscriptions for a publisher.
 
 Code: 200 <br/>
 Gets the publisher and corresponding subscriptions for all the publisher's offers, based on the authentication token.
+
+>[!Note]
+>[Mock APIs](#mock-apis) are used when you first develop the offer, while real APIs need to be used when actually publishing the offer.  Real APIs and Mock APIs differ by the first line of the code.  In the real API there is the `subscription` section, while this section doesn't exist for mock API:
+
 Response payload for mock API:<br>
 
 ```json
@@ -250,7 +254,6 @@ And for real API: <br>
   "@nextLink": ""
 }
 ```
-
 The continuation token will be present only if there are additional "pages" of plans to retrieve. 
 
 Code: 403 <br>
