@@ -128,7 +128,7 @@ A `knowledgeStore` consists of a connection and projections.
 
 ### Sources of data for a knowledge store
 
-If a knowledge store is output from an AI enrichment pipeline, what are the inputs? The original data that you want to extract, enrich, and ultimately save to a knowledge store can originate from any of Azure data source supported by Azure Search indexers: 
+If a knowledge store is output from an AI enrichment pipeline, what are the inputs? The original data that you want to extract, enrich, and ultimately save to a knowledge store can originate from any Azure data source supported by Azure Search indexers: 
 
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
@@ -140,7 +140,7 @@ If a knowledge store is output from an AI enrichment pipeline, what are the inpu
 
 The indexers and skillsets you create extract and enrich or transform this content as part of an indexing workload, and then save the results to a knowledge store.
 
-### REST APIs used in creation of a knoweldge store
+### REST APIs used in creation of a knowledge store
 
 Only two APIs have the extensions required for creating a knowledge store (Create Skillset and Create Indexer). Other APIs are used as-is.
 
@@ -151,7 +151,7 @@ Only two APIs have the extensions required for creating a knowledge store (Creat
 | index | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
 | indexer | [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search index based on the index schema, populated with source data, enriched through skillsets.  |
 
-### Physical componsition of a knowledge store
+### Physical composition of a knowledge store
 
  A *projection*, which is an element of a `knowledgeStore` definition,  articulates the schema and structure of output so that it matches your intended use. You can define multiple projections if you have applications that consume the data in different formats and shapes. 
 
@@ -226,7 +226,7 @@ You can use REST `api-version=2019-05-06-Preview` to construct an AI-based pipel
 
 ## Next steps
 
-Knowledge store offers persistance of enriched documents, useful when designing a skillset, or the creation of new structures and content for consumption by any client applications capable of accessing an Azure Storage account.
+Knowledge store offers persistence of enriched documents, useful when designing a skillset, or the creation of new structures and content for consumption by any client applications capable of accessing an Azure Storage account.
 
 The simplest approach for creating enriched documents is through the **Import data** wizard, but you can also use Postman and REST API, which is more useful if you want insight into how objects are created and referenced.
 
