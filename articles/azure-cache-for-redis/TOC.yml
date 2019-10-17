@@ -95,7 +95,7 @@
       href: cache-how-to-monitor.md
     - name: Set alerts for exceptions
       href: cache-how-to-monitor.md#operations-and-alerts
-  - name: Troubleshoot issues
+  - name: Diagnose and troubleshoot
     items:
     - name: Troubleshoot cache issues
       href: cache-how-to-troubleshoot.md
