@@ -621,7 +621,7 @@ If the [Basic](../active-directory-b2c/active-directory-b2c-custom-rest-api-netf
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | - **Basic** (designer) <br>- `Basic` (JSON) | The authentication type to use |
+| **Authentication** | `type` | Yes | Basic | The authentication type to use |
 | **Username** | `username` | Yes | <*user-name*>| The user name for authenticating access to the target service endpoint |
 | **Password** | `password` | Yes | <*password*> | The password for authenticating access to the target service endpoint |
 ||||||
@@ -652,7 +652,7 @@ If the [Client Certificate](../active-directory/authentication/active-directory-
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | - **Client Certificate** (designer) <br>- `ClientCertificate` (JSON)| The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. |
+| **Authentication** | `type` | Yes | **Client Certificate** <br>or <br>`ClientCertificate` | The authentication type to use for Secure Sockets Layer (SSL) client certificates. While self-signed certificates are supported, self-signed certificates for SSL aren't supported. |
 | **Pfx** | `pfx` | Yes | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
 | **Password** | `password`| Yes | <*password-for-pfx-file*> | The password for accessing the PFX file |
 |||||
@@ -691,11 +691,11 @@ If the [Active Directory OAuth](../active-directory/develop/about-microsoft-iden
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | - **Active Directory OAuth** (designer) <br>- `ActiveDirectoryOAuth` (JSON) | The authentication type to use. Logic Apps currently follows the [OAuth 2.0 protocol](../active-directory/develop/v2-overview.md). |
+| **Authentication** | `type` | Yes | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | The authentication type to use. Logic Apps currently follows the [OAuth 2.0 protocol](../active-directory/develop/v2-overview.md). |
 | **Tenant** | `tenant` | Yes | <*tenant-ID*> | The tenant ID for the Azure AD tenant |
 | **Audience** | `audience` | Yes | <*resource-to-authorize*> | The resource that you want to use for authorization, for example, `https://management.core.windows.net/` |
 | **Client ID** | `clientId` | Yes | <*client-ID*> | The client ID for the app requesting authorization |
-| **Credential Type** | `credentialType` | Yes | `Certificate` or `Secret` | The credential type that the client uses for requesting authorization. This property and value don't appear in your logic app's underlying definition, but determines the properties that appear for the selected credential type. |
+| **Credential Type** | `credentialType` | Yes | Certificate <br>or <br>Secret | The credential type that the client uses for requesting authorization. This property and value don't appear in your logic app's underlying definition, but determines the properties that appear for the selected credential type. |
 | **Secret** | `secret` | Yes, but only for the "Secret" credential type | <*client-secret*> | The client secret for requesting authorization |
 | **Pfx** | `pfx` | Yes, but only for the "Certificate" credential type | <*encoded-pfx-file-content*> | The base64-encoded content from a Personal Information Exchange (PFX) file |
 | **Password** | `password` | Yes, but only for the "Certificate" credential type | <*password-for-pfx-file*> | The password for accessing the PFX file |
@@ -745,7 +745,7 @@ In the trigger or action that supports raw authentication, specify these propert
 
 | Property (designer) | Property (JSON) | Required | Value | Description |
 |---------------------|-----------------|----------|-------|-------------|
-| **Authentication** | `type` | Yes | `Raw` | The authentication type to use |
+| **Authentication** | `type` | Yes | Raw | The authentication type to use |
 | **Value** | `value` | Yes | <*authorization-header-value*> | The authorization header value to use for authentication |
 ||||||
 
@@ -780,7 +780,7 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 
    | Property (designer) | Property (JSON) | Required | Value | Description |
    |---------------------|-----------------|----------|-------|-------------|
-   | **Authentication** | `type` | Yes | - **Managed Identity** (designer) <br>- `ManagedServiceIdentity` (JSON) | The authentication type to use |
+   | **Authentication** | `type` | Yes | **Managed Identity** <br>or <br>`ManagedServiceIdentity` | The authentication type to use |
    | **Audience** | `audience` | Yes | <*target-resource-ID*> | The resource ID for the target resource that you want to access, for example, `https://management.azure.com/` <p>**Note**: This property might be hidden in some triggers or actions. To make this property visible, in the trigger or action, open the **Add new parameter** list, and select **Audience**. <p><p>**Important**: Make sure that this target resource ID exactly matches the value that Azure Active Directory expects, including any required trailing slashes. You can find these resource ID values in [this table that lists the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). For example, if you're using the Azure Resource Manager resource ID, make sure you include the trailing slash. |
    |||||
 
