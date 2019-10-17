@@ -20,13 +20,13 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Configure custom domains in Azure AD Application Proxy
+# Configure custom domains with Azure AD Application Proxy
 
 When you publish an application through Azure Active Directory Application Proxy, you create an external URL for your users. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you publish an app named *Expenses* in your tenant named *Contoso*, the external URL is *https:\//expenses-contoso.msappproxy.net*. If you want to use your own domain name instead of *msappproxy.net*, you can configure a custom domain for your application. 
 
 It's a good idea to set up custom domains for your apps whenever possible. Some reasons to use custom domains include:
 
-- If your app has hard-coded internal links to targets that aren't published within the Application Proxy app, and the links aren't externally resolvable, they will break. When your internal and external URLs are the same, you avoid this problem. Links between apps work even outside the corporate network. If you're not able to use custom domains, see [Redirect hardcoded links for apps published with Azure AD Application Proxy](../application-proxy-link-translation.md) for other ways to address this issue. 
+- Links between apps work even outside the corporate network. Without a custom domain, if your app has hard-coded internal links to targets that aren't published within the Application Proxy, and the links aren't externally resolvable, they will break. When your internal and external URLs are the same, you avoid this problem. If you're not able to use custom domains, see [Redirect hardcoded links for apps published with Azure AD Application Proxy](../application-proxy-link-translation.md) for other ways to address this issue. 
   
 - Your users will have an easier experience, because they can get to the app with the same URL from inside or outside your network. They don’t need to learn different internal and external URLs, or track their current location. 
 
@@ -45,46 +45,51 @@ To configure an on-premises app to use a custom domain, you need a verified Azur
 To create and verify a custom domain:
 
 1. In Azure Active Directory, select **Custom domain names** in the left navigation, and then select **Add custom domain**. 
-1. Enter the custom domain name and select **Add Domain**. 
-1. At the prompt, create a new TXT record in your domain registrar, and provide the requested information. 
-1. After you add the domain, on the **Custom domain names** page, select the domain, and then select **Verify**. Once the domain status is **Verified**, you can use the domain across all your Azure AD configurations, including Application Proxy. 
+1. Enter your custom domain name and select **Add Domain**. 
+1. On the domain page, copy the TXT record information for your domain. 
+1. Go to your domain registrar and create a new TXT record for your domain, based on your copied DNS information.
+1. After you register the domain, on the domain page, select **Verify**. Once the domain status is **Verified**, you can use the domain across all your Azure AD configurations, including Application Proxy. 
 
-For more information about adding custom domains, see []((../fundamentals/add-custom-domain.md).
+For detailed information about custom domains, see [Add your custom domain name using the Azure Active Directory portal](../fundamentals/add-custom-domain.md).
 
 ### Configure an app to use a custom domain
 
-To publish your app through Application Proxy and configure it to use a custom domain:
+To publish your app through Application Proxy with a custom domain:
 
 1. For a new app, in Azure Active Directory, select **Enterprise applications** in the left navigation, select **New application**, and then select **On-premises application**. 
    
    For an app already in **Enterprise applications**, select it from the list, and then select **Application proxy** in the left navigation. 
 
-(application-proxy-add-on-premises-application.md) through Application Proxy.
-
 1. On the **Application Proxy** page, in the **External URL** field, drop down the list and select the custom domain you want to use. 
    
 1. Select **Save**.
 
-1. If the domain already has a certificate, the **Certificate** field displays the certificate information. Otherwise, select the **Certificater** field. 
+1. If the domain already has a certificate, the **Certificate** field displays the certificate information. Otherwise, select the **Certificate** field. 
    
    ![Click to upload a certificate](./media/application-proxy-configure-custom-domain/certificate.png)
    
 1. On the **SSL Certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates](#certificates) section.
    
-   > [!TIP] 
-   > A custom domain only needs its certificate uploaded once. After that, the uploaded certificate will be applied automatically when you use that custom domain for other apps.
+   ![Upload Certificate](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
-1. On the **Application Proxy** page, select **Save**. 
+   > [!TIP] 
+   > A custom domain only needs its certificate uploaded once. After that, the uploaded certificate is applied automatically when you use that custom domain for other apps.
+   
+1. If you added a certificate, on the **Application Proxy** page, select **Save**. 
    
 1. In the information bar, note the entry you need to add to your DNS provider. 
    
-1. Add the [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the *msappproxy.net* domain. For more information about DNS configuration, see [DNS entries](#dns-entries).
+   ![Add CNAME DNS entry](./media/application-proxy-configure-custom-domain/dns-info.png)
+   
+1. Add the [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the *msappproxy.net* domain. For more information about DNS configuration, see the [DNS entries](#dns-entries) section.
    
 1. To check that the DNS record is configured correctly, use the [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) command to confirm that your external URL is reachable and the *msapproxy.net* domain appears as an alias.
 
 Your application is now set up to use the custom domain. Be sure to assign users to your application before you test or release it. 
 
-To change the domain for an application, select a different domain from the dropdown list in **External URL** on the app's **Application Proxy** page. Upload a certificate for the updated domain, if necessary, and update the DNS record. If you don't see the custom domain you want in the dropdown list in **External URL**, it may not be verified.
+To change the domain for an app, select a different domain from the dropdown list in **External URL** on the app's **Application Proxy** page. Upload a certificate for the updated domain, if necessary, and update the DNS record. If you don't see the custom domain you want in the dropdown list in **External URL**, it may not be verified.
+
+For detailed information about Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ## Certificates
 
@@ -106,7 +111,7 @@ Don't use a private root CA. The private root CA would also need to be pushed to
 
 All certificate management is through the individual application pages. Go to the application's **Application Proxy** page to access the **Certificate** field.
 
-You can use the same certificate for many applications, as long as they share an external host. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when adding or configuring the app. 
+You can use the same certificate for many applications, as long as they share an external host. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when you add or configure the app. 
 
 When a certificate expires, you get a warning telling you to upload another certificate. If the certificate is revoked, your users may see a security warning when accessing the app. To update the certificate for an app, navigate to the **Application Proxy** page for the app, select **Certificate**, and upload a new certificate. If the old certificate isn't being used by other apps, it's deleted automatically. 
 
@@ -114,9 +119,13 @@ When a certificate expires, you get a warning telling you to upload another cert
 
 When you select a custom domain for an external URL, an information bar shows the CNAME entry you need to add to the external DNS provider. You can always see this information again by going to the app's **Application Proxy** page.
 
+There are several options for setting up your DNS configuration, depending on your requirements:
+
 ### Same internal and external URL, different internal and external behavior 
 
 If you don't want your internal users to be directed through the Application Proxy, you can set up a *split-brain DNS*. A split DNS infrastructure directs internal hosts to an internal domain name server, and external hosts to an external domain name server, for name resolution. 
+
+![Split-brain DNS](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
 
 ### Same internal and external URL, same internal and external behavior 
 
@@ -124,13 +133,13 @@ In this scenario, both the internal and external DNS CNAME entries point to the 
 
 A common case for this scenario is to apply conditional access to the web app or website regardless of device location. For example, only Azure AD Registered/Join Device trusted devices are allowed access. 
 
+![Same internal and external DNS](./media/application-proxy-configure-custom-domain/both-app-proxy.png)
+
 ### Different internal and external URLs 
 
 If the internal and external URLs are different, you don't need to configure split-brain behavior, because user routing is determined by the URL. In this case, you change only the external DNS, and route the external URL to the Application Proxy endpoint. 
 
 ## Next steps
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
-* [Enable Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/technical-reference#cloud-apps-assignments) to your published apps.
-* [Add your custom domain name to Azure AD](../fundamentals/add-custom-domain.md)
-
+* [Enable Conditional Access](../conditional-access/technical-reference#cloud-apps-assignments) to your published apps.
 
