@@ -73,7 +73,7 @@ Follow these steps if you want to allow users not in your directory to be able t
 1. Once you have selected all your connected organizations, click **Select**.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users from all subdomains associated with the connected organizations.
+    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../articles/active-directory/b2b/allow-deny-list.md).
 
 1. Skip down to the [Approval](#approval) section.
 
