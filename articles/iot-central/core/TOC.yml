@@ -8,6 +8,8 @@
     href: overview-iot-options.md
   - name: Tour of the UI
     href: overview-iot-central-tour.md
+  - name: Transform
+    href: overview-iot-central-transform.md
 - name: Quickstarts
   expanded: true
   items:
