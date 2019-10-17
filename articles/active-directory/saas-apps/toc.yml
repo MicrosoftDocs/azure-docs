@@ -1178,6 +1178,8 @@
         href: sharepoint-on-premises-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
+      - name: ShipHazmat
+        href: shiphazmat-tutorial.md
       - name: Shmoop For Schools
         href: shmoopforschools-tutorial.md
       - name: Showpad
