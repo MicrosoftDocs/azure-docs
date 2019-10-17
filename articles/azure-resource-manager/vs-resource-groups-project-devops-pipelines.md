@@ -65,7 +65,7 @@ steps:
   inputs:
     azureSubscription: 'demo-deploy-sp'
     ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' 
+    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
     azurePowerShellVersion: LatestVersion
 ```
 
@@ -133,7 +133,7 @@ You can select the currently running pipeline to see details about the tasks. Wh
 
 ## Copy and deploy tasks
 
-This section shows how to configure continuous deployment by using a two tasks to stage the artifacts and deploy the template. 
+This section shows how to configure continuous deployment by using a two tasks to stage the artifacts and deploy the template.
 
 The following YAML shows the [Azure file copy task](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
 
@@ -170,33 +170,43 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-The following YAML shows the [Azure resource group deployment task](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops):
+The following YAML shows the [Azure Resource Manager template deployment task](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
   displayName: 'Deploy template'
   inputs:
-    azureSubscription: 'demo-deploy-sp'
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: 'demo-deploy-sp'
+    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'centralus'
+    location: 'Central US'
     templateLocation: 'URL of the file'
     csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
     csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    deploymentMode: 'Incremental'
 ```
 
-There are several parts of this task to revise for your environment. For `azureSubscription`, provide the name of the service connection you created.
+There are several parts of this task to revise for your environment.
 
-```yaml
-azureSubscription: '<your-connection-name>'
-```
+- 'deploymentScope': Select the scope of deployment from the options: `Management Group`, `Subscription` and `Resource Group`. Use **Resource Group** in this walk through. To learn more about the scopes, see [Deployment scopes](./resource-group-template-deploy-rest.md#deployment-scope).
 
-For `resourceGroupName` and `location`, provide the name and location of the resource group you want to deploy to. The task creates the resource group if it doesn't exist.
+- `ConnectedServiceName`: Provide the name of the service connection you created.
 
-```yaml
-resourceGroupName: '<resource-group-name>'
-location: '<location>'
-```
+    ```yaml
+    ConnectedServiceName: '<your-connection-name>'
+    ```
+
+- `subscriptionName`: Provide the target subscription ID. This property only applies to the Resource Group deployment scope and the subscription deployment scoop.
+
+- `resourceGroupName` and `location`: provide the name and location of the resource group you want to deploy to. The task creates the resource group if it doesn't exist.
+
+    ```yaml
+    resourceGroupName: '<resource-group-name>'
+    location: '<location>'
+    ```
 
 The deployment task links to a template named `WebSite.json` and a parameters file named WebSite.parameters.json. Use the names of your template and parameter files.
 
@@ -220,16 +230,20 @@ Now, that you understand how to create the tasks, let's go through the steps to 
        outputStorageUri: 'artifactsLocation'
        outputStorageContainerSasToken: 'artifactsLocationSasToken'
        sasTokenTimeOutInMinutes: '240'
-   - task: AzureResourceGroupDeployment@2
-     displayName: 'Deploy template'
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       resourceGroupName: demogroup
-       location: 'centralus'
-       templateLocation: 'URL of the file'
-       csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-       csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-       overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    - task: AzureResourceGroupDeployment@2
+      displayName: 'Deploy template'
+      inputs:
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: 'demo-deploy-sp'
+        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'demogroup'
+        location: 'Central US'
+        templateLocation: 'URL of the file'
+        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
+        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
+        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+        deploymentMode: 'Incremental'
    ```
 
 1. Select **Save**.
