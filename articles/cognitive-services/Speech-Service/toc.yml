@@ -214,24 +214,24 @@
     - name: Audio Content Generation
       items:
       - name: Placeholder
-        href: httsp://example.com
+        href: https://example.com
     - name: Custom Neural Voices
       items:
       - name: Placeholder
-        href: httsp://example.com
+        href: https://example.com
   - name: Custom wake word/key word spotting
     href: speech-devices-sdk-create-kws.md
 - name: Containers
   exanded: false
   items:
   - name: Install and run containers
-    href: httsp://example.com
+    href: speech-container-howto.md
   - name: Configure containers
-    href: httsp://example.com
+    href: speech-container-configuration.md
   - name: Kubernetes and Helm
-    href: httsp://example.com
+    href: speech-container-howto-on-premises.md
   - name: Azure container instances
-    href: httsp://example.com
+    href: deploy-speech-on-container-instances.md
 - name: Migration
   exanded: false
   items:
