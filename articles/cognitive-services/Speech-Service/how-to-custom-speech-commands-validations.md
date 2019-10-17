@@ -55,8 +55,7 @@ Conditions|Required Parameter - Temperature|Conditions that determine when the r
 Actions|SpeechResponse - "Ok, setting to {Temperature} degrees"|The action to take when the rule condition is true.
 
 > [!TIP]
-> This example uses a speech response to confirm the result.  For examples on completing the Command with a REST or client action see:
-> [How To: Fulfill Commands with a REST backend (Preview)](./how-to-custom-speech-commands-fulfill-rest.md)
+> This example uses a speech response to confirm the result.  For examples on completing the Command with a client action see:
 > [How To: Fulfill Commands on the client with the Speech SDK (Preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
 
 ## Try it out
