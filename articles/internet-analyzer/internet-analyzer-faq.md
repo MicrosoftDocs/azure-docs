@@ -14,7 +14,7 @@ ms.author: mebeatty
 This is the FAQ for Azure Internet Analyzer- if you have additional questions, go to the [feedback forum](https://feedback.azure.com/forums/34192--general-feedback) and post your question. When a question is frequently asked, we add it to this article so it can be found quickly and easily. 
 
 ## How do I participate in the preview? 
-The preview is available to select customers. If you are interested in joining the preview, [contact us](https://aka.ms/internetAnalyzerContact). 
+The preview is available to select customers. If you are interested in joining the preview,[request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR65LM6ELn65MggTwxb0d215UMkNIUDVGV1JGS0w5WFBHWklNMTNRTDQ4My4u) by providing us an active Azure subscription ID.  
 
 ## Do I need to embed the client to run a test? 
 Yes, the Internet Analyzer client must be installed in your application to collect metrics on your unique users. [Learn how to install the client.](internet-analyzer-embed-client.md) 

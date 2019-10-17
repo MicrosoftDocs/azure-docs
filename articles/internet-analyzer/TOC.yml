@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items: 
-  - name: About Azure Internet Analyzer
+  - name: About Internet Analyzer
     href: internet-analyzer-overview.md
 - name: Tutorial
   items:

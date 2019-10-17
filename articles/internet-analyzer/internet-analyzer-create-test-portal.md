@@ -61,8 +61,6 @@ To begin any test, the JavaScript client must be embedded in your web-facing app
 ***Preconfigured endpoints: single and multiple Azure region combinations***
 * Select a region or set of regions from a [predetermined list of Azure endpoints](internet-analyzer-faq.md).
 * Next, select the type of a app or content delivery architecture you'd like to evaluate. 
-
-    *Acceleration options:*
     * Single Azure region: Site acceleration (Azure Front Door), static content caching (Azure CDN for Microsoft), or none. 
     * Multiple Azure regions: Site acceleration (Azure Front Door), DNS routing (Azure Traffic Manager) 
 
