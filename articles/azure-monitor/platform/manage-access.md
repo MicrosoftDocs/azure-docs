@@ -1,6 +1,6 @@
 ---
 title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
-description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete these .
+description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -182,7 +182,7 @@ Use these roles to give users access at different scopes:
 * Resource Group - Access to all workspace in the resource group
 * Resource - Access to only the specified workspace
 
-You should perform assignments at the resource level (workspace) to assure accurate access control.  Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
+We recommend performing assignments at the resource level (workspace) to assure accurate access control. Use [custom roles](../../role-based-access-control/custom-roles.md) to create roles with the specific permissions needed.
 
 ### Resource permissions
 
