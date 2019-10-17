@@ -36,21 +36,7 @@
 - name: Concepts
   items:
   - name: NAT gateway
-    items:
-     - name: Overview
-       items:
-        - name: About NAT gateway
-          href: nat-service-overview.md
-     - name: Quickstarts
-       items:
-        - name: Create a NAT Gateway - Azure CLI
-          href: quickstart-create-nat-gateway-cli.md
-        - name: Create a NAT Gateway - Azure PowerShell
-          href: quickstart-create-nat-gateway-powershell.md
-     - name: Tutorials
-       items:
-        - name: Create and validate NAT gateway - Azure CLI
-          href: tutorial-create-validate-nat-gateway-cli.md
+    href: nat-service-overview.md
   - name: Security groups
     href: security-overview.md
   - name: Routing
@@ -109,6 +95,14 @@
       href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
+    - name: NAT gateway
+       items:
+        - name: Create a NAT gateway - Azure CLI
+          href: quickstart-create-nat-gateway-cli.md
+        - name: Create a NAT gateway - Azure PowerShell
+          href: quickstart-create-nat-gateway-powershell.md
+        - name: Create and validate NAT gateway - Azure CLI
+          href: tutorial-create-validate-nat-gateway-cli.md
     - name: IPv6 for VNet
       items:
       - name: Basic Public Load Balancer
