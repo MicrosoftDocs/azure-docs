@@ -15,7 +15,7 @@ manager: philmea
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT edge device in your Microsoft Azure IoT Central application. 
+This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge device in your Microsoft Azure IoT Central application. 
 
 Azure IoT Edge is made up of three components:
 * IoT Edge modules are containers that run Azure services, third-party services, or your own code. Modules are deployed to IoT Edge devices and execute locally on those devices.
@@ -202,7 +202,7 @@ Change title of the device template to Environment Sensor Device Template.
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatelanding.png)
 
-Edge Device Plug n Play modelling is done as follows
+Edge Device Plug n Play modeling is done as follows
 * Every edge device template will have a **Device Capability Model**
 * For every custom module listed in the deployment manifest a **Module Capability Model** will be generated
 * A **relationship** will be established between each Module Capability Model and a Device Capability Model
