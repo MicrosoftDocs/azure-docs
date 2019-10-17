@@ -14,7 +14,7 @@ ms.author: nitinme
 
 # Tutorial: Use Form Recognizer with PowerApps to analyze receipts
 
-In this tutorial, you create a Flow in PowerApps that uses Form Recognizer from Azure Cognitive Services to extract data from receipts. You will use Form Recognizer to first train a model using some sample data and then test the model using another data set. The sample data used in this tutorial is stored in Azure Storage blob containers.
+In this tutorial, you create a Flow in PowerApps that uses Form Recognizer, a service that is part of Azure Cognitive Services suite, to extract data from receipts. You use Form Recognizer to first train a model using a sample data set and then test the model using another data set. The sample data used in this tutorial is stored in Azure Storage blob containers.
 
 Here's what this tutorial covers:
 
@@ -27,9 +27,14 @@ Here's what this tutorial covers:
 > * Create a Flow in PowerApps
 > * Run your Flask app locally
 
-## Understand the scenario
+## Understand the receipts to be analyzed
 
-TBD 
+The sample data set that we used to train the model and test the model is available as a .zip file from [Github](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract the .zip file and open a receipt PDF file under the **/Train** folder. Notice how it has a table with the invoice number, invoice date, etc. 
+
+> [!div class="mx-imgBorder"]
+> ![Create blob container](media/tutorial-form-recognizer-with-power-app/sample-receipt.png)
+
+In this tutorial, we learn how to extract the information from such tables into a JSON format.
 
 ## Request access for Form Recognizer
 
@@ -52,9 +57,7 @@ You use this container to upload sample data that is required to train the model
 
 ## Upload sample data to the Azure blob container
 
-Download the sample data that we use in this tutorial from [Github](https://go.microsoft.com/fwlink/?linkid=2090451). Upload this sample data to the **formrecocontainer** that you created earlier. Follow the instructions at [Upload a block blob](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) on how to upload data to a container.
-
-
+Download the sample data available at [Github](https://go.microsoft.com/fwlink/?linkid=2090451). Extract the data to a local folder and upload the contents of the **/Train** folder to the **formrecocontainer** that you created earlier. Follow the instructions at [Upload a block blob](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) on how to upload data to a container.
 
 Copy the URL to the container. You will need this later in this tutorial. If you created the storage account and the container with the same names as listed in this tutorial, the URL will be *https://formrecostorage.blob.core.windows.net/formrecocontainer/*.
 
@@ -72,7 +75,7 @@ You can use Microsoft Flow to create logic that performs one or more tasks when 
 
 Let's start!
 
-### Create a Flow 
+### Create a PowerApps flow
 
 1. Sign in to [PowerApps](http://www.web.powerapps.com).
 
@@ -119,7 +122,7 @@ Before you can use the Form Recognizer service to analyze receipts, you need to 
 
 In this section, you add the **Analyze Form** operation to the flow. This operation use the already trained model to anlayze a new receipt that is provided to flow.
 
-1.  Select **New step**, and under **Choose an action**, search for **Form Recognizer**. From the results that show up, select **Form Recognizer**, and then under the actions that are available for Form Recognizer, select **Analyze Form**.
+1. Select **New step**, and under **Choose an action**, search for **Form Recognizer**. From the results that show up, select **Form Recognizer**, and then under the actions that are available for Form Recognizer, select **Analyze Form**.
 
     ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-power-app/add-form-flow-analyze-form.png)
 
@@ -136,6 +139,17 @@ In this section, you add the **Analyze Form** operation to the flow. This operat
 1. Click **Save**.
 
 ### Extract the table information from the receipt
+
+In this section, we configure the flow to extract the information from the table within the receipts.
+
+1. Select **New step**, and under **Choose an action**, search for **Compose** and under the actions that are available, select **Compose** again.
+    ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-power-app/extract-table.png)
+
+1. In the **Compose** dialog box, click the **Inputs** text box, and from the dialog box that pops up, select **tables**.
+
+    ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-power-app/select-tables.png)
+
+1. Click **Save**.
 
 ### Delete the model
 
