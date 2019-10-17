@@ -208,7 +208,7 @@
           items:
           - name: Python
             href: app/opencensus-python.md
-            name: Dependencies 
+          - name: Dependencies 
             href: app/opencensus-python-dependency.md
         - name: Web pages
           items:
