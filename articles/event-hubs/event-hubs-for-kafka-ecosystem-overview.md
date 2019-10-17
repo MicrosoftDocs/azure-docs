@@ -10,7 +10,7 @@ ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
+ms.author: shvija
 
 ---
 # Use Azure Event Hubs from Apache Kafka applications
