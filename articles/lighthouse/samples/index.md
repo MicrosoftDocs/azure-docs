@@ -40,7 +40,7 @@ These samples show how to use Azure Policy with subscriptions that have been onb
 | [policy-enforce-sub-monitoring](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-enforce-sub-monitoring) | Assigns several policies to enable diagnostics on a delegated subscription, and connects all Windows & Linux VMs to the Log Analytics workspace created by the policy. For more info, see [Deploy a policy that can be remediated within a delegated subscription](../how-to/deploy-policy-remediation.md). |
 | [policy-initiative](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/policy-initiative) | Applies an initiative (multiple related policy definitions) to a delegated subscription. |
 
-## Azure Monitor alerts
+## Azure Monitor
 
 These samples show how to use Azure Monitor to create alerts for subscriptions that have been onboarded for Azure delegated resource management.
 
@@ -51,6 +51,8 @@ These samples show how to use Azure Monitor to create alerts for subscriptions t
 | [delegation-alert-for-customer](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates/delegation-alert-for-customer) | Deploys an alert in a tenant when a user delegates a subscription to a managing tenant.|
 
 ## Additional cross-tenant scenarios
+
+These samples illustrate various tasks that can be performed in cross-tenant management scenarios.
 
 | **Template** | **Description** |
 |---------|---------|
