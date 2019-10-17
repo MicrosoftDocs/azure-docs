@@ -1,6 +1,6 @@
 ---
-title: Source transformation in Mapping Data Flow - Azure Data Factory | Microsoft Docs
-description: Learn how to set up a source transformation in Mapping Data Flow. 
+title: Source transformation in mapping data flow - Azure Data Factory | Microsoft Docs
+description: Learn how to set up a source transformation in mapping data flow. 
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 09/06/2019
 ---
 
-# Source transformation for Mapping Data Flow 
+# Source transformation for mapping data flow 
 
 
 
@@ -18,7 +18,7 @@ Every data flow requires at least one source transformation, but you can add as 
 
 Each source transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to or read from. If using a file-based dataset, you can use wildcards and file lists in your source to work with more than one file at a time.
 
-## Supported connectors in Mapping Data Flow
+## Supported connectors in mapping data flow
 
 Mapping Data Flow follows an extract, load, transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently the following datasets can be used in a source transformation:
     
@@ -127,7 +127,7 @@ If your source is in SQL Database or SQL Data Warehouse, additional SQL-specific
 
 **Batch size**: Enter a batch size to chunk large data into reads.
 
-**Isolation Level**: The default for SQL sources in Mapping Data Flow is read uncommitted. You can change the isolation level here to one of these values:
+**Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
 * Read Committed
 * Read Uncommitted
 * Repeatable Read
@@ -162,7 +162,7 @@ From your source table, select a column to partition on. Also set the number of 
 
 You can choose to partition the connections based on a query. Enter the contents of a WHERE predicate. For example, enter year > 1980.
 
-For more information on optimization within Mapping Data Flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
+For more information on optimization within mapping data flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
 
 ## Next steps
 
