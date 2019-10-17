@@ -1,7 +1,7 @@
 ---
 title: "Designer example #4: Classification to predict  credit risk (cost sensitive)"
 titleSuffix: Azure Machine Learning
-description: This article shows you how to build a complex machine learning experiment using the designer. You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
+description: This article shows you how to build a complex machine learning experiment using the designer (preview). You'll learn how to implement custom Python scripts and compare multiple models to choose the best option.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.date: 05/10/2019
 # Sample 4 - Classification: Predict credit risk (cost sensitive)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-This article shows you how to build a complex machine learning experiment using the designer. You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
+This article shows you how to build a complex machine learning experiment using the designer (preview). You'll learn how to implement custom logic using Python scripts and compare multiple models to choose the best option.
 
 This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 

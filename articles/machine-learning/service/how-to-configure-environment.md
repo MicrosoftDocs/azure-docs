@@ -32,7 +32,7 @@ This article also provides additional usage tips for the following tools:
 
 * [Jupyter Notebooks](#jupyter): If you're already using the Jupyter Notebook, the SDK has some extras that you should install.
 
-* [Visual Studio Code](#vscode): If you use Visual Studio Code, the [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) includes extensive language support for Python as well as features to make working with the Azure Machine Learning service much more convenient and productive.
+* [Visual Studio Code](#vscode): If you use Visual Studio Code, the [Azure Machine Learning extension](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) includes extensive language support for Python as well as features to make working with the Azure Machine Learning much more convenient and productive.
 
 ## Prerequisites
 
@@ -319,10 +319,10 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
-   |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl_databricks]|
+   |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl]|
 
    > [!Warning]
-   > No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl_databricks].
+   > No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl].
 
    * Do not select **Attach automatically to all clusters**.
    * Select  **Attach** next to your cluster name.

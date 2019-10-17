@@ -39,7 +39,7 @@ Azure Notebooks comes pre-configured with the necessary environment to work with
 
 ## Next steps
 
-The Azure Machine Learning Services documentation contains a variety of other resources that guide you through working with Machine Learning Service within notebooks:
+The Azure Machine Learning documentation contains a variety of other resources that guide you through working with Machine Learning within notebooks:
 
 - [Quickstart: Use Python to get started with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
 - [Tutorial #1: Train an image classification model with Azure Machine Learning service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)

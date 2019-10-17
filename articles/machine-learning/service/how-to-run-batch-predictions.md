@@ -1,7 +1,7 @@
 ---
 title: Run batch inference on large amounts of data 
 titleSuffix: Azure Machine Learning
-description: Learn how to get inferences asynchronously on large amounts of data by using batch inference in the Azure Machine Learning service. Batch inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
+description: Learn how to get inferences asynchronously on large amounts of data by using batch inference in Azure Machine Learning Batch inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -31,7 +31,7 @@ In this tutorial, you learn the following tasks:
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning service](https://aka.ms/AMLFree).
+* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
 
 * For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
 
