@@ -1,7 +1,7 @@
 ---
 title: Create your first PowerShell function in Azure
 description: Learn how to create your first PowerShell function in Azure using Visual Studio Code.
-sauthor: joeyaiello
+author: joeyaiello
 manager: gwallace
 ms.author: jaiello
 ms.reviewer: glenga
@@ -94,10 +94,9 @@ After you've verified that the function runs correctly on your local computer, i
 
 > [!NOTE]
 > Remember to remove any calls to `Wait-Debugger` before you publish your functions to Azure. 
-
-> [!NOTE]
-> Creating a Function App in Azure will only prompt for Function App name. 
-> Set azureFunctions.advancedCreation to true to be prompted for all other values.
+>
+> Creating a function app in Azure only prompts for your function app name. Other values are defined for you.
+> Set `azureFunctions.advancedCreation` to `true` to be prompted for all other values.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
