@@ -1,14 +1,13 @@
 ---
 title: Azure Monitor for containers region mappings
 description: This article describes the region mappings supported between Azure Monitor for containers, Log Analytics Workspace, and custom metrics.
-services: azure-monitor
-ms.service: azure-monitor
-ms.workload: infrastructure-services
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/26/2019
-ms.topic: conceptual
-manager: carmonm 
+
 ---
 
 # Region mappings supported by Azure Monitor for containers
