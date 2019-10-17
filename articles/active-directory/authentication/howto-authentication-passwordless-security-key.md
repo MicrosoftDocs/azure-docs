@@ -17,13 +17,18 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign in for Azure AD (preview)
 
+This document focusses on enabling passwordless authentication for environments with **Azure AD joined devices**.
+
+For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Unlike passwords, these security keys have lower IT management costs, provide improved productivity for workers, and have better security.
+
 ## Requirements
 
-* Azure Multi-Factor Authentication
-* Combined registration preview with users enabled for SSPR
-* FIDO2 security key preview requires compatible FIDO2 security keys
-* WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher
-* FIDO2 based Windows sign in requires Azure AD joined Windows 10 version 1809 or higher
+- Azure Multi-Factor Authentication
+- Combined security information registration preview enabled
+- Compatible FIDO2 security keys
+- WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher
+- FIDO2 based Windows sign in requires Azure AD joined Windows 10 version 1809 or higher
+- Azure AD joined devices
 
 ## Prepare devices for preview
 
@@ -43,7 +48,7 @@ Configuration of security keys for sign in, is not dependent on configuring Wind
 
 #### Enable targeted Intune deployment
 
-To target specific device groups to enable the credential provider, use the following custom settings via Intune. 
+To target specific device groups to enable the credential provider, use the following custom settings via Intune.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Microsoft Intune** > **Device configuration** > **Profiles** > **Create profile**.

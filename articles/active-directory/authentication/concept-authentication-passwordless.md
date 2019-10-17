@@ -25,13 +25,13 @@ Multi-factor authentication (MFA) is a great way to secure your organization, bu
 
 Each organization has different needs when it comes to authentication. Microsoft offers three passwordless authentication options:
 
-- Windows Hello for Business 
-- Microsoft Authenticator app 
+- Windows Hello for Business
+- Microsoft Authenticator app
 - FIDO2 security keys
 
 ![Authentication: Security versus convenience](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## Windows Hello for Business 
+## Windows Hello for Business
 
 Windows Hello for Business is ideal for information workers who have their own designated Windows PC. The biometric and PIN  are directly tied to the user's PC, which prevents access from anyone other than the owner. With PKI integration and built-in support for single sign-on (SSO), Windows Hello for Business provides a simple and convenient method for seamlessly accessing corporate resources on-premises and in the cloud.
 
