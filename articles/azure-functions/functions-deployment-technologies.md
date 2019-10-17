@@ -68,19 +68,21 @@ All function apps running on Windows have a small management app, the SCM (or [K
 
 When an app is deployed to Windows, language-specific commands, like `dotnet restore` (C#) or `npm install` (JavaScript) are run.
 
-#### Remote build on Linux (preview)
+#### Remote build on Linux
 
-To enable remote build on Linux, you must set the following [application settings](functions-how-to-use-azure-function-app-settings.md#settings):
+To enable remote build on Linux, the following [application settings](functions-how-to-use-azure-function-app-settings.md#settings) must be set:
 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
+Both the [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) will do this automatically and perform remote builds by default when deploying to Linux.
+
+When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md). 
 
 > [!NOTE]
 > Remote build on the Linux Dedicated (App Service) plan is currently only supported for Node.js and Python.
 
-##### Consumption (preview) plan
+##### Consumption plan
 
 Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds.
 
@@ -100,21 +102,13 @@ You can use an external package URL to reference a remote package (.zip) file th
 >
 >If you use Azure Blob storage, use a private container with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) to give Functions access to the package. Any time the application restarts, it fetches a copy of the content. Your reference must be valid for the lifetime of the application.
 
->__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan, if the user specifically doesn't want a remote build to occur. When you update the package file that a function app references, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed.
+>__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan, if the user doesn't want a [remote build](#remote-build) to occur. When you update the package file that a function app references, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed.
 
 ### Zip deploy
 
 Use zip deploy to push a .zip file that contains your function app to Azure. Optionally, you can set your app to start [running from package](run-functions-from-deployment-package.md), or specify that a [remote build](#remote-build) occurs.
 
->__How to use it:__ Deploy by using your favorite client tool: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a .zip file to your function app, follow the instructions in [Deploy from a .zip file or URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
-
-To perform a zip deploy with a [remote build](#remote-build), use the following [Core Tools](functions-run-local.md) command:
-
-```bash
-func azure functionapp publish <app name> --build remote
-```
-
-Alternatively, you can instruct VS Code to perform a remote build when deploying by adding the ``azureFunctions.scmDoBuildDuringDeployment" flag. To learn how to add a flag to VS Code, read the instructions in the [Azure Functions Extension Wiki](https://github.com/microsoft/vscode-azurefunctions/wiki).
+>__How to use it:__ Deploy by using your favorite client tool: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), the [Azure Functions Core Tools](functions-run-local.md), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). By default, these tools use zip deployment and [run from package](run-functions-from-deployment-package.md) (with [remote build](#remote-build) if deploying to Linux). To manually deploy a .zip file to your function app, follow the instructions in [Deploy from a .zip file or URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
 
 >When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the `WEBSITE_RUN_FROM_PACKAGE` application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI. 
 
