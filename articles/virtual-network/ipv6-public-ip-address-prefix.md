@@ -29,7 +29,7 @@ In addition to reserving individual IPv6 addresses, you can reserve contiguous r
 The following public IP prefix sizes are available:
 
 -  Minimum IPv6 Prefix size:  /127 = 2 addresses
--  Maximum IPv6 Prefix size: /117  = 2048 addresses
+-  Maximum IPv6 Prefix size: /124  = 16 addresses
 
 Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size. For example, a mask of /128 represents an individual IPv6 address as IPv6 addresses are composed of 128 bits.
 
