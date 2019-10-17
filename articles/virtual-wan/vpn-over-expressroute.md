@@ -14,7 +14,7 @@ Customer intent: I want to connect my on-premises networks to my VNets using S2S
 
 This aticle shows you how to use Virtual WAN to establish an IPsec/IKE VPN connection from your on-premises network to Azure over the private peering of an ExpressRoute circuit. This can provide an encrypted transit between the on-premises networks and Azure virtual networks over ExpressRoute, without going over the public Internet, or using public IP addresses.
 
-## Overview: topology and routing
+## Topology and routing
 
 The following diagram shows an example of VPN over ExpressRoute private peering connectivity:
 
@@ -29,7 +29,7 @@ An important aspect of this configuration is routing between the on-premises net
 
 ### From on-premises networks to Azure
 
-For traffic from on-premises networks to Azure, the Azure prefixes, including the virtual hub and all the spoke virtual networks connected to the hub, will be advertised via both ExpressRoute private peering BGP and the VPN BGP. This will result in two network routes (paths) toward Azure from the on-premises networks, one over the IPsec protected path, one directly over the ExpressRoute **without** IPsec protection. To make sure encryption is applied to the communication, you must make sure for the VPN-connected network in the diagram, the Azure routes via on-premises VPN gateway are preferred over the direct ExpressRoute path.
+For traffic from on-premises networks to Azure, the Azure prefixes (including the virtual hub and all the spoke virtual networks connected to the hub) will be advertised via both the ExpressRoute private peering BGP and the VPN BGP. This will result in two network routes (paths) toward Azure from the on-premises networks; one over the IPsec protected path, and one directly over the ExpressRoute **without** IPsec protection. To make sure encryption is applied to the communication, you must make sure  that for the VPN-connected network in the diagram, the Azure routes via on-premises VPN gateway are preferred over the direct ExpressRoute path.
 
 ### From Azure to on-premises networks
 
@@ -39,7 +39,7 @@ The same requirement applies to the traffic from Azure to on-premises networks. 
 
 2. Advertise disjoint prefixes for VPN and ExpressRoute. If the VPN-connected network ranges are disjoint from other ExpressRoute connected network, you can advertise the prefixes in the VPN and ExpressRoute BGP sessions respectively. For example, advertise 10.0.0.0/24 over ExpressRoute, and 10.0.1.0/24 over VPN.
 
-In both examples above, Azure will send traffic to 10.0.1.0/24 over the VPN connection rather than directly over ExpressRoute without VPN protection.
+In both of these examples, Azure will send traffic to 10.0.1.0/24 over the VPN connection rather than directly over ExpressRoute without VPN protection.
 
 > [!WARNING]
 > If you advertise the **same** prefixes over both ExpressRoute and VPN connections, Azure will **use the ExpressRoute path directly without VPN protection**.
@@ -49,18 +49,18 @@ In both examples above, Azure will send traffic to 10.0.1.0/24 over the VPN conn
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
-## <a name="openvwan"></a>1. Create a virtual WAN and hub with ExpressRoute & VPN gateways
+## <a name="openvwan"></a>1. Create a virtual WAN and hub with gateways
 
 The following Azure resources and the corresponding on-premises configurations must be in place before proceeding:
 
-1. Azure virtual WAN
-2. A virtual WAN hub with [ExpressRoute gateway](virtual-wan-expressroute-portal.md) and [VPN gateway](virtual-wan-site-to-site-portal.md)
+1. An Azure virtual WAN
+2. A virtual WAN hub with an [ExpressRoute gateway](virtual-wan-expressroute-portal.md) and a [VPN gateway](virtual-wan-site-to-site-portal.md)
 
 Refer to [Create an ExpressRoute association using Azure Virtual WAN](virtual-wan-expressroute-portal.md) for the steps to create an Azure virtual WAN and a hub with an ExpressRoute association, and [Create a Site-to-Site connection using Azure virtual WAN](virtual-wan-site-to-site-portal.md) for the steps to create a VPN gateway in the virtual WAN.
 
 ## <a name="site"></a>2. Create a site for the on-premises network
 
-The site resource is the same as the non-ExpressRoute VPN sites for virtual WAN. The key thing to note is the IP address of the on-premises VPN device can now be a private IP address or a public IP address in the on-premises network reachable via ExpressRoute private peering created in Step 1.
+The site resource is the same as the non-ExpressRoute VPN sites for virtual WAN. The key thing to note is that the IP address of the on-premises VPN device can now be either private IP address, or a public IP address in the on-premises network reachable via ExpressRoute private peering created in Step 1.
 
 > [!NOTE]
 > The on-premises VPN device IP address MUST be part of the address prefixes advertised to the Virtual WAN hub via Azure ExpressRoute private peering.
