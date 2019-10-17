@@ -201,7 +201,7 @@ When you are using the Azure Resource Manager deployment model, you can specify 
 When you are using the classic deployment model, you can specify DNS servers for the virtual network in the Azure portal or the [Network Configuration file](https://msdn.microsoft.com/library/azure/jj157100). For cloud services, you can specify DNS servers via the [Service Configuration file](https://msdn.microsoft.com/library/azure/ee758710) or by using PowerShell, with [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 
 > [!NOTE]
-> If you change the DNS settings for a virtual network or virtual machine that is already deployed, you need to restart each affected VM for the changes to take effect.
+> If you change the DNS settings for a virtual network or virtual machine that is already deployed, you need to perform a DHCP lease renewal on all affected VMs in the virtual network for the new DNS settings to take effect. For VMs running Windows OS you can do this by typing `ipconfig /renew` directly on the VM. The steps would vary depending on the OS, so please refer to appropriate documentation for you OS type. 
 >
 >
 
