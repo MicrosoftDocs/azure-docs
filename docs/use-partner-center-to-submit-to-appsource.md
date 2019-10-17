@@ -60,7 +60,7 @@ After you have defined all the required information, you can submit your solutio
 
 To unpublish a solution to remove it from the marketplace, on the **Product overview** page, choose **Stop selling** on the top right, and then select **Confirm**.
 
-After a solution is unpublished, new customers will not be able to get it. This does not affect existing customers. If you later want to make your solution available again, you can resubmit it via Partner Center.
+After a solution is unpublished, new customers will not be able to get it. Existing customers will be able to access the solution for 90 days, and then the solution will no longer be accessible. If you later want to make your solution available again, you can resubmit it via Partner Center.
 
 ## See also
 <a name="bk_addresources"> </a>
