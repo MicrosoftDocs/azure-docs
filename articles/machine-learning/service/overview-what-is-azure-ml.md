@@ -30,7 +30,7 @@ Azure Machine Learning provides a cloud-based environment you can use to train, 
 The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
 
 Train, test, and deploy your models with rich tools such as:
-+ The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md): drag-n-drop modules to build your experiments and then deploy models
++ The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy models
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
 + R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code
 + [Visual Studio Code extension](how-to-vscode-tools.md)
@@ -53,7 +53,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 For code-free training, try:
 
-+ **Azure Machine Learning designer**
++ **Azure Machine Learning designer (preview)**
 
   Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](ui-tutorial-automobile-price-train-score.md).
 
@@ -107,13 +107,13 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## How does Azure Machine Learning differ from Studio?
 
-[Machine Learning Studio](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
+[Machine Learning Studio (classic)](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
 
 Azure Machine Learning provides both SDKs **-and-** the designer, to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio. However, unlike the proprietary compute platform of Studio, the designer uses your own compute resources and is fully integrated into Azure Machine Learning.
 
 Here is a quick comparison.
 
-|| Machine Learning Studio | Azure Machine Learning:<br/>The designer|
+|| Machine Learning Studio (classic) | Azure Machine Learning:<br/>The designer|
 |---| --- | --- |
 || Generally available (GA) | In preview|
 |Modules for interface| Many | Initial set of popular modules|
@@ -124,7 +124,7 @@ Here is a quick comparison.
 Try out the designer with [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md).
 
 > [!NOTE]
-> Models created in Studio can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
+> Models created in Studio (classic) can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
 
 
 ## Next steps
