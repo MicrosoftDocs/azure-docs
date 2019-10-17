@@ -2,12 +2,12 @@
 title: 'Interpreting your Scorecard | Microsoft Docs'
 description: The FAQ for Azure Internet Analyzer. 
 services: internet-analyzer
-author: megan-beatty; mattcalder
+author: megan-beatty; mattcalder; diego-perez-botero
 
 ms.service: internet-analyzer
 ms.topic: guide
 ms.date: 10/16/2019
-ms.author: mebeatty; mcalder
+ms.author: mebeatty
 ---
 # Interpreting your scorecard
 

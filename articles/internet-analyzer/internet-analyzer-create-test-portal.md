@@ -2,7 +2,7 @@
 title: 'Create an Internet Analyzer test | Microsoft Docs'
 description: In this article, learn how to create your first Internet Analyzer test. 
 services: internet-analyzer
-author: megan-beatty
+author: megan-beatty; mattcalder; diego-perez-botero
 
 ms.service: internet-analyzer
 ms.topic: tutorial

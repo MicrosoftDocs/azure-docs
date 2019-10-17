@@ -2,12 +2,12 @@
 title: 'Create a Custom Endpoint  | Microsoft Docs'
 description: In this article, learn how to configure a custom endpoint to measure with your Internet Analyzer resource. 
 services: internet-analyzer
-author: megan-beatty; mattcalder
+author: megan-beatty; mattcalder; diego-perez-botero
 
 ms.service: internet-analyzer
 ms.topic: quickstart
 ms.date: 10/16/2019
-ms.author: mebeatty; mcalder
+ms.author: mebeatty
 # Customer intent: (1) As someone interested in migrating to Azure from on-prem/ other cloud, I want to configure a custom endpoint to measure. (2) As someone interested in comparing my custom Azure configuration to on-prem/other cloud/ Azure, I want to configure a custom endpoint to measure. 
 
 ---
