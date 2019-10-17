@@ -32,7 +32,7 @@ A failover occurs when a replica node promotes itself to become a master node an
 
 A planned failover takes place during system updates such as Redis patching or OS upgrades and management operations such as scaling and rebooting. Because the nodes are given advanced notice of the update, they can cooperatively swap roles and quickly update the load balancer of the change. A planned failover should complete in less than 1 second.
 
-An unplanned failover may happen because of hardware failure, network failure, or other unexpected outages to the master node. The replica node will promote itself to master but the process takes longer. An unplanned failover typically completes within 10 to 15 seconds.
+An unplanned failover may happen because of hardware failure, network failure, or other unexpected outages to the master node. The replica node will promote itself to master but the process takes longer. A replica node must first detect its master node is not available before it can initiate the failover process. The replica node must also verify this unplanned failure is not transient or local to avoid an overeager failover. This delay in detection means an unplanned failover typically completes within 10 to 15 seconds.
 
 ## How does patching occur?
 
