@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ---
 # Exceptions and error codes for Algorithm & Module Reference
 
-Learn about the error messages and exception codes you might encounter using  modules in Azure Machine Learning Studio. 
+Learn about the error messages and exception codes you might encounter using  modules in Azure Machine Learning designer (preview). 
 
 To resolve the issue, look for the error in this article to read about common causes. There are two ways to get the full text of an error message in Studio:  
  

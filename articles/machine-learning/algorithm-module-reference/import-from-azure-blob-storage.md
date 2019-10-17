@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ---
 # Import from Azure Blob Storage module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to read data from Azure blob storage, so that you can use the data in a machine learning experiment.  
 

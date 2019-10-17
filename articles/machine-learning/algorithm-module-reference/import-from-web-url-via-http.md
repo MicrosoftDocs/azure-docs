@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ---
 # Import from Web URL via HTTP module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to read data from a public Web page for use in a machine learning experiment.
 

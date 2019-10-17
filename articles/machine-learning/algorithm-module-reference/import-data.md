@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ---
 # Import Data module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to load data into a machine learning experiment from existing cloud data services.  
 The module now features a wizard to help you choose a storage option and select from among existing subscriptions and accounts to quickly configure all options. Need to edit an existing data connection? No problem; the wizard loads all previous configuration details so that you don't have to start again from scratch. 

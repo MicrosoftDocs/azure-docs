@@ -13,7 +13,7 @@ ms.date: 05/02/2019
 ---
 # Normalize Data module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to transform a dataset through *normalization*.
 

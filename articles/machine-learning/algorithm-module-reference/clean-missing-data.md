@@ -14,7 +14,7 @@ ms.date: 05/02/2019
 
 # Clean Missing Data module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to remove, replace, or infer missing values. 
 
