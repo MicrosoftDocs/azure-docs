@@ -32,7 +32,7 @@ In addition to reserving individual IPv6 addresses, you can reserve contiguous r
 The following public IP prefix sizes are available:
 
 -  Minimum IPv6 Prefix size:  /127 = 2 addresses
--  Maximum IPv6 Prefix size: /117  = 2048 addresses
+-  Maximum IPv6 Prefix size: /124  = 16 addresses
 
 Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size. For example, a mask of /128 represents an individual IPv6 address as IPv6 addresses are composed of 128 bits.
 
@@ -41,10 +41,11 @@ Prefix size is specified as a Classless Inter-Domain Routing (CIDR) mask size. F
 For costs associated with using Azure Public IPs, both individual IP addresses and IP ranges, see [Public IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/).
 
 ## Limitations
-IPv6 is supported on Basic Public IPs only with “dynamic” allocation that means that the IPv6 address will change if you delete and redeploy your application (VM’s or load balancers) in Azure. Only Standard IPv6 Public IP’s support both dynamic and static (reserved) allocation.  
+IPv6 is supported on Basic Public IPs only with “dynamic” allocation that means that the IPv6 address will change if you delete and redeploy your application (VM’s or load balancers) in Azure. Only Standard IPv6 Public IP’s support both dynamic and static (reserved) allocation.
+
 As a best practice, we recommend that you use Standard Public IPs and Standard Load Balancers for your IPv6 applications.
 
 ## Next steps
-- Reserve a public [IPv6 address prefix](ipv6-reserve-public-ip-address-prefix.md)
+- Reserve a public [IPv6 address prefix](ipv6-reserve-public-ip-address-prefix.md).
 - Learn more about [IPv6 addresses](ipv6-overview.md).
 - Learn about [how to create and use public IPs](virtual-network-public-ip-address.md) (both IPv4 and IPv6) in Azure.
