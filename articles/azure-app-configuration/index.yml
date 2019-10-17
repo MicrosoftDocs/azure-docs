@@ -59,7 +59,7 @@ sections:
           - href:
           - href:
           - href:
-          - href:
+          - href: /azure/azure-app-configuration/quickstart-feature-flag-spring-boot
 - title: Step-by-step tutorials
   items:
   - type: paragraph

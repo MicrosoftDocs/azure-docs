@@ -170,7 +170,7 @@ Storage
 
 **Activity Logs**: Configure [Azure Activity Logs](../../azure-monitor/platform/activity-logs-overview.md) to provide insight into the operations that were performed on resources in your subscription.
 
-**Diagnostic Logs**: [Diagnostic Logs](../../azure-monitor/platform/diagnostic-logs-overview.md) are all logs emitted by a resource. These logs could include Windows event system logs, blob, table, and queue logs.
+**Diagnostic Logs**: [Diagnostic Logs](../../azure-monitor/platform/resource-logs-overview.md) are all logs emitted by a resource. These logs could include Windows event system logs, blob, table, and queue logs.
 
 **Firewall Logs**: Application Gateway provides full diagnostics and access logs. Firewall logs are available for application gateway resources that have WAF enabled.
 

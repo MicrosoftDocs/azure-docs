@@ -1,18 +1,13 @@
 ---
 title: How to Query Logs from Azure Monitor for containers | Microsoft Docs
 description: Azure Monitor for containers collects metrics and log data and this article describes the records and includes sample queries.
-services: azure-monitor
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
 ms.author: magoedte
+ms.date: 07/12/2019
+
 ---
 
 # How to query logs from Azure Monitor for containers
@@ -64,6 +59,7 @@ It's often useful to build queries that start with an example or two and then mo
 | ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Image inventory | 
 | **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container CPU | 
 | **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container memory |
+| InsightsMetrics<br> &#124; where Name == "requests_count"<br> &#124; summarize Val=any(Val) by TimeGenerated=bin(TimeGenerated, 1m)<br> &#124; sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated <br> &#124; render barchart  | Requests Per Minute with Custom Metrics |
 
 The following example is a Prometheus metrics query. The metrics collected are counts and in order to determine how many errors occurred within a specific time period, we have to subtract from the count. The dataset is partitioned by *partitionKey*, meaning for each unique set of *Name*, *HostName*, and *OperationType*, we run a subquery on that set that orders the logs by *TimeGenerated*, a process that makes it possible to find the previous *TimeGenerated* and the count recorded for that time, to determine a rate.
 

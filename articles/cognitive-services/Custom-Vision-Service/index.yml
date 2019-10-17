@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Custom Vision documentation # < 60 chars
-summary: Azure Custom Vision is a cognitive service that lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, according to their visual characteristics.  # < 160 chars
+summary: Custom Vision is a cognitive service that lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, according to their visual characteristics.  # < 160 chars
 
 metadata:
   title: Custom Vision documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Custom Vision is a cognitive service that lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, according to their visual characteristics.  # Required; article description that is displayed in search results. < 160 chars.
+  description: Custom Vision is a cognitive service that lets you build, deploy, and improve your own image classifiers. An image classifier is an AI service that applies labels (which represent classes) to images, according to their visual characteristics.  # Required; article description that is displayed in search results. < 160 chars.
   services: cognitive-services
   ms.service: cognitive-services #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: custom-vision
@@ -84,6 +84,8 @@ landingContent:
             url: test-your-model.md
           - text: Improve your model
             url: getting-started-improving-your-classifier.md
+          - text: Use suggested tags
+            url: suggested-tags.md
 
   - title: Export models
     linkLists:
@@ -97,6 +99,8 @@ landingContent:
             url: export-model-python.md
       - linkListType: tutorial
         links:
+          - text: IoT Visual Alerts app
+            url: iot-visual-alerts-tutorial.md
           - text: Logo detector for mobile
             url: logo-detector-mobile.md
   

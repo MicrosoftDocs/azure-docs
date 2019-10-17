@@ -23,7 +23,7 @@ A CloudSimple Private Cloud is a private, dedicated cloud that consists of a hig
 
 **Where is CloudSimple service available?**
 
-CloudSimple is available in East US and West US regions with additional regions coming soon.
+CloudSimple is available in East US, West US, and West Europe regions with additional regions coming soon.
 
 **How do I enable my subscription for CloudSimple?**
 
@@ -100,8 +100,9 @@ CloudSimple provides the following security features for securing your Private C
 
 CloudSimple offers these host types:
 
-* **CS28 node:** CPU:2x 2.2 GHz, total 28 cores, 48 HT.  RAM: 256 GB.  Storage: 1600 GB NVMe cache, 5760 GB data (All-Flash). Network: 2x25Gbe NIC
-* **CS36 node:** CPU 2x 2.3 GHz, total 36 cores, 72 HT.  RAM: 512 GB.  Storage: 3200 GB NVMe cache 11520 GB data (All-Flash).  Network: 2x25Gbe NIC
+* **CS28 node:** CPU:2x 2.2 GHz, total 28 cores, 48 HT.  RAM: 256 GB.  Storage: 1600 GB NVMe cache, 5760 GB data (All-Flash). Network: 4x25Gbe NIC
+* **CS36 node:** CPU 2x 2.3 GHz, total 36 cores, 72 HT.  RAM: 512 GB.  Storage: 3200 GB NVMe cache 11520 GB data (All-Flash).  Network: 4x25Gbe NIC
+* **CS36m node:** CPU 2x 2.3 GHz, total 36 cores, 72 HT.  RAM: 576 GB.  Storage: 3200 GB NVMe cache 13360 GB data (All-Flash).  Network: 4x25Gbe NIC
 
 **How are any hardware failures handled?**
 

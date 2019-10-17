@@ -1,13 +1,13 @@
 ---
-title: 'Understand Azure Digital Twins security best practices | Microsoft Docs'
-description: Azure Digital Twins security best practices.
-author: kingdomofends
-manager: alinast
+title: 'Understand security best practices - Azure Digital Twins | Microsoft Docs'
+description: Learn about security best practices for Azure Digital Twins and the Internet of Things.
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/19/2019
-ms.author: v-adgera
+ms.date: 09/30/2019
 ---
 
 # Security best practices
@@ -41,7 +41,7 @@ Some key practices to safely secure an IoT space include:
 > [!div class="checklist"]
 > * Encrypt saved, stored, or persistent data.
 > * Require passwords or keys to be periodically changed or refreshed.
-> * Carefully restrict access and permissions by role. See the section [Role-based access control best practices](#rbac) below.
+> * Carefully restrict access and permissions by role. See the section [Role-based access control best practices](#role-based-access-control-best-practices) below.
 > * Consider a divided network topology so that devices on each network are isolated from the others.
 > * Use powerful encryption. Require long passwords, and use secure protocols and two-factor authentication.
 
@@ -61,8 +61,6 @@ Azure Digital Twins uses Azure Active Directory to authenticate users and protec
 > * Verify the length of time a token is valid and whether a token remains valid.
 > * Set appropriate lengths of time that tokens are valid for.
 > * Refresh expired tokens.
-
-<div id="rbac"></div>
 
 ## Role-based access control best practices
 

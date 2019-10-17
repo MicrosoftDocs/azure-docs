@@ -1,11 +1,11 @@
----
+﻿---
 title: Push notifications to Swift iOS apps that use Azure Notification Hubs | Microsoft Docs
 description: Learn how to push notifications to Swift iOS apps that use Azure Notification Hubs. 
 services: notification-hubs
 documentationcenter: ios
 author: mikeparker104
-manager: patniko
-editor: spelluru
+manager: femila
+editor: jwargo
 
 ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
@@ -15,6 +15,8 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: miparker
+ms.reviewer: jowargo
+ms.lastreviewed: 05/21/2019
 ---
 
 # Tutorial: Push notifications to Swift iOS apps that use the Notification Hubs REST API
@@ -291,7 +293,7 @@ For the purposes of this Swift example, you're going to use Apple's open-source 
 
 To add and configure the bridging header:
 
-1. In Xcode, select **File** > **New** > **File** > **Header File**. Name the header file **BridgingHeader.h**.
+1. In Xcode, select **File** > **New** > **File** > **Header File**. Name the header file **BridgingHeader.h**.
 
 1. Edit the file to import **CommonHMAC.h**:
 
@@ -307,11 +309,11 @@ To add and configure the bridging header:
 
 1. Update the Target’s **Build Settings** to reference the bridging header:
 
-   1. Open the **Building Settings** tab and scroll down to the **Swift Compiler** section.
+   1. Open the **Building Settings** tab and scroll down to the **Swift Compiler** section.
 
-   1. Ensure that the **Install Objective-C Compatibility Header** option is set to **Yes**.
+   1. Ensure that the **Install Objective-C Compatibility Header** option is set to **Yes**.
 
-   1. Enter the file path `'<ProjectName>/BridgingHeader.h'` into the **Objective-C bridging Header** option. This is the file path to our bridging header.
+   1. Enter the file path `'<ProjectName>/BridgingHeader.h'` into the **Objective-C bridging Header** option. This is the file path to our bridging header.
 
    If you can't find these options, ensure that you have the **All** view selected rather than **Basic** or **Customized**.
 

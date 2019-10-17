@@ -97,7 +97,7 @@ The supported service plans include:
 
 External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription. 
 
-You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. **The ForceTakeover option does not move over users, or retain access to the subscription. This option moves only the domain name.**
+You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. 
 
 #### More information about RMS for individuals
 

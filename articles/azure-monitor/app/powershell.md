@@ -1,6 +1,6 @@
 ---
 title: Automate Azure Application Insights with PowerShell | Microsoft Docs
-description: Automate creating resource, alert, and availability tests in PowerShell using an Azure Resource Manager template.
+description: Automate creating and managing resources, alerts, and availability tests in PowerShell using an Azure Resource Manager template.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,16 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 10/17/2019
 ms.author: mbullwin
 ---
-#  Create Application Insights resources using PowerShell
+#  Manage Application Insights resources using PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 This article shows you how to automate the creation and update of [Application Insights](../../azure-monitor/app/app-insights-overview.md) resources automatically by using Azure Resource Management. You might, for example, do so as part of a build process. Along with the basic Application Insights resource, you can create [availability web tests](../../azure-monitor/app/monitor-web-app-availability.md), set up [alerts](../../azure-monitor/app/alerts.md), set the [pricing scheme](pricing.md), and create other Azure resources.
 
-The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). In a nutshell, the procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
+The key to creating these resources is JSON templates for [Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md). The basic procedure is: download the JSON definitions of existing resources; parameterize certain values such as names; and then run the template whenever you want to create a new resource. You can package several resources together, to create them all in one go - for example, an app monitor with availability tests, alerts, and storage for continuous export. There are some subtleties to some of the parameterizations, which we'll explain here.
 
 ## One-time setup
 If you haven't used PowerShell with your Azure subscription before:
@@ -29,7 +29,30 @@ Install the Azure Powershell module on the machine where you want to run the scr
 1. Install [Microsoft Web Platform Installer (v5 or higher)](https://www.microsoft.com/web/downloads/platform.aspx).
 2. Use it to install Microsoft Azure Powershell.
 
-## Create an Azure Resource Manager template
+In addition to using Resource Manager templates, there is a rich set of [Application Insights PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights), which make it easy to configure Application Insights resources programatically. The capabilities enabled by the cmdlets include:
+
+* Create and delete Application Insights resources
+* Get lists of Application Insights resources and their properties
+* Create and manage Continuous Export
+* Create and manage Application Keys
+* Set the Daily Cap
+* Set the Pricing Plan
+
+## Create Application Insights resources using a PowerShell cmdlet
+
+Here's how to create a new Application Insights resource in the Azure East US datacenter using the [New-AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights) cmdlet:
+
+```PS
+New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
+```
+
+
+## Create Application Insights resources using a Resource Manager template
+
+Here's how to create a new Application Insights resource using a Resource Manager template.
+
+### Create the Azure Resource Manager template
+
 Create a new .json file - let's call it `template1.json` in this example. Copy this content into it:
 
 ```JSON
@@ -40,7 +63,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
             "appName": {
                 "type": "string",
                 "metadata": {
-                    "description": "Enter the application name."
+                    "description": "Enter the name of your Application Insights resource."
                 }
             },
             "appType": {
@@ -52,20 +75,39 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                     "other"
                 ],
                 "metadata": {
-                    "description": "Enter the application type."
+                    "description": "Enter the type of the monitored application."
                 }
             },
             "appLocation": {
                 "type": "string",
-                "defaultValue": "East US",
+                "defaultValue": "eastus",
+                "metadata": {
+                    "description": "Enter the location of your Application Insights resource."
+                }
+            },
+            "retentionInDays": {
+                "type": "int",
+                "defaultValue": 90,
                 "allowedValues": [
-                    "South Central US",
-                    "West Europe",
-                    "East US",
-                    "North Europe"
+                    30,
+					60,
+					90,
+					120,
+					180,
+					270,
+					365,
+					550,
+					730
                 ],
                 "metadata": {
-                    "description": "Enter the application location."
+                    "description": "Data retention in days"
+                }
+            },
+			"ImmediatePurgeDataOn30Days": {
+                "type": "bool",
+                "defaultValue": false,
+                "metadata": {
+                    "description": "If set to true when changing retention to 30 days, older data will be immediately deleted. Use this with extreme caution. This only applies when retention is being set to 30 days."
                 }
             },
             "priceCode": {
@@ -76,7 +118,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                     2
                 ],
                 "metadata": {
-                    "description": "1 = Per GB (Basic), 2 = Per Node (Enterprise)"
+                    "description": "Pricing plan: 1 = Per GB (or legacy Basic plan), 2 = Per Node (legacy Enterprise plan)"
                 }
             },
             "dailyQuota": {
@@ -135,6 +177,7 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 ],
                 "properties": {
                     "CurrentBillingFeatures": "[variables('pricePlan')]",
+                    "retentionInDays": "[parameters('retentionInDays')]",
                     "DataVolumeCap": {
                         "Cap": "[parameters('dailyQuota')]",
                         "WarningThreshold": "[parameters('warningThreshold')]",
@@ -146,16 +189,13 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
     }
 ```
 
+### Use the Resource Manager template to create a new Application Insights resource
 
-
-## Create Application Insights resources
-1. In PowerShell, sign in to Azure:
-   
-    `Connect-AzAccount`
-2. Run a command like this:
+1. In PowerShell, sign in to Azure using `$Connect-AzAccount`
+2. Set your context to a subscription with `Set-AzContext "<subscription ID>"`
+2. Run a new deployment to create a new Application Insights resource:
    
     ```PS
-   
         New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
                -TemplateFile .\template1.json `
                -appName myNewApp
@@ -168,41 +208,155 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 
 You can add other parameters - you'll find their descriptions in the parameters section of the template.
 
-## To get the instrumentation key
+## Get the instrumentation key
+
 After creating an application resource, you'll want the instrumentation key: 
 
+1. `$Connect-AzAccount`
+2. `Set-AzContext "<subscription ID>"`
+3. `$resource = Get-AzResource -Name "<resource name>" -ResourceType "Microsoft.Insights/components"`
+4. `$details = Get-AzResource -ResourceId $resource.ResourceId`
+5. `$details.Properties.InstrumentationKey`
+
+To see a list of many other properties of your Application Insights resource, use:
+
 ```PS
-    $resource = Find-AzResource -ResourceNameEquals "<YOUR APP NAME>" -ResourceType "Microsoft.Insights/components"
-    $details = Get-AzResource -ResourceId $resource.ResourceId
-    $ikey = $details.Properties.InstrumentationKey
+Get-AzApplicationInsights -ResourceGroupName Fabrikam -Name FabrikamProd | Format-List
 ```
 
+Additional properties are available via the cmdlets:
+* `Set-AzApplicationInsightsDailyCap`
+* `Set-AzApplicationInsightsPricingPlan`
+* `Get-AzApplicationInsightsApiKey`
+* `Get-AzApplicationInsightsContinuousExport`
 
-<a id="price"></a>
-## Set the price plan
+Refer to the [detailed documentation](https://docs.microsoft.com/powershell/module/az.applicationinsights) for the parameters for these cmdlets.  
 
-You can set the [price plan](pricing.md).
+## Set the data retention 
 
-To create an app resource with the Enterprise price plan, using the template above:
+To get the current data retention for your Application Insights resource, you can use the OSS tool [ARMClient](https://github.com/projectkudu/ARMClient).  (Learn more about ARMClient from articles by [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) and [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).)  Here's an example using `ARMClient`, to get the current retention:
 
 ```PS
-        New-AzResourceGroupDeployment -ResourceGroupName Fabrikam `
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview
+```
+
+To set the retention, the command is a similar PUT:
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview "{location: 'eastus', properties: {'retentionInDays': 365}}"
+```
+
+To set the data retention to 365 days using the template above, run:
+
+```PS
+        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
                -TemplateFile .\template1.json `
-               -priceCode 2 `
-               -appName myNewApp
+               -retentionInDays 365 `
+               -appName myApp
+```
+
+The following script can also be used to change retention. Copy this script to save as `Set-ApplicationInsightsRetention.ps1`.
+
+```PS
+Param(
+    [Parameter(Mandatory = $True)]
+    [string]$SubscriptionId,
+
+    [Parameter(Mandatory = $True)]
+    [string]$ResourceGroupName,
+
+    [Parameter(Mandatory = $True)]
+    [string]$Name,
+
+    [Parameter(Mandatory = $True)]
+    [string]$RetentionInDays
+)
+$ErrorActionPreference = 'Stop'
+if (-not (Get-Module Az.Accounts)) {
+    Import-Module Az.Accounts
+}
+$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
+if (-not $azProfile.Accounts.Count) {
+    Write-Error "Ensure you have logged in before calling this function."    
+}
+$currentAzureContext = Get-AzContext
+$profileClient = New-Object Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient($azProfile)
+$token = $profileClient.AcquireAccessToken($currentAzureContext.Tenant.TenantId)
+$UserToken = $token.AccessToken
+$RequestUri = "https://management.azure.com/subscriptions/$($SubscriptionId)/resourceGroups/$($ResourceGroupName)/providers/Microsoft.Insights/components/$($Name)?api-version=2015-05-01"
+$Headers = @{
+    "Authorization"         = "Bearer $UserToken"
+    "x-ms-client-tenant-id" = $currentAzureContext.Tenant.TenantId
+}
+## Get Component object via ARM
+$GetResponse = Invoke-RestMethod -Method "GET" -Uri $RequestUri -Headers $Headers 
+
+## Update RetentionInDays property
+if($($GetResponse.properties | Get-Member "RetentionInDays"))
+{
+    $GetResponse.properties.RetentionInDays = $RetentionInDays
+}
+else
+{
+    $GetResponse.properties | Add-Member -Type NoteProperty -Name "RetentionInDays" -Value $RetentionInDays
+}
+## Upsert Component object via ARM
+$PutResponse = Invoke-RestMethod -Method "PUT" -Uri "$($RequestUri)" -Headers $Headers -Body $($GetResponse | ConvertTo-Json) -ContentType "application/json"
+$PutResponse
+```
+
+This script can then be used as:
+
+```PS
+Set-ApplicationInsightsRetention `
+        [-SubscriptionId] <String> `
+		[-ResourceGroupName] <String> `
+		[-Name] <String> `
+		[-RetentionInDays <Int>]
+```
+
+## Set the daily cap
+
+To get the daily cap properties, use the [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet: 
+
+```PS
+Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
+```
+
+To set the daily cap properties, use same cmdlet. For instance, to set the cap to 300 GB/day, 
+
+```PS
+Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
+```
+
+<a id="price"></a>
+## Set the pricing plan 
+
+To get current pricing plan, use the [Set-AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet: 
+
+```PS
+Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
+```
+
+To set the pricing plan, use same cmdlet with the `-PricingPlan` specified:  
+
+```PS
+Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> -PricingPlan Basic
+```
+
+You can also set the pricing plan on an existing Application Insights resource using the Resource Manager template above, omitting the "microsoft.insights/components" resource and the `dependsOn` node from the billing resource. For instance, to set it to the Per GB plan (formerly called the Basic plan), run:
+
+```PS
+        New-AzResourceGroupDeployment -ResourceGroupName "<resource group>" `
+               -TemplateFile .\template1.json `
+               -priceCode 1 `
+               -appName myApp
 ```
 
 |priceCode|plan|
 |---|---|
-|1|Basic|
-|2|Enterprise|
-
-* If you only want to use the default Basic price plan, you can omit the CurrentBillingFeatures resource from the template.
-* If you want to change the price plan after the component resource has been created, you can use a template that omits the "microsoft.insights/components" resource. Also, omit the `dependsOn` node from the billing resource. 
-
-To verify the updated price plan, look at the **Usage and estimated costs page** blade in the browser. **Refresh the browser view** to make sure you see the latest state.
-
-
+|1|Per GB (formerly named the Basic plan)|
+|2|Per Node (formerly name the Enterprise plan)|
 
 ## Add a metric alert
 
@@ -398,7 +552,7 @@ To automate the creation of any other resource of any kind, create an example ma
    * `InstrumentationKey`
    * `CreationDate`
    * `TenantId`
-4. Open the webtests and alertrules sections and copy the JSON for individual items into your template. (Don't copy from the webtests or alertrules nodes: go into the items under them.)
+4. Open the `webtests` and `alertrules` sections and copy the JSON for individual items into your template. (Don't copy from the `webtests` or `alertrules` nodes: go into the items under them.)
    
     Each web test has an associated alert rule, so you have to copy both of them.
    
@@ -423,7 +577,7 @@ Here are examples of the substitutions you'll want to make. There are several oc
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
 | `"myappname"` (lower case) |`"[toLower(parameters('appName'))]"` |
-| `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Delete Guid and Id. |
+| `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`|
 
 ### Set dependencies between the resources
 Azure should set up the resources in strict order. To make sure one setup completes before the next begins, add dependency lines:

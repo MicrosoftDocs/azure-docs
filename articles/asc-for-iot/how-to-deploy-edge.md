@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Security Center for IoT Edge module (preview)| Microsoft Docs
+title: Deploy Azure Security Center for IoT Edge module| Microsoft Docs
 description: Learn about how to deploy an Azure Security Center for IoT security agent on IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,17 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/08/2019
 ms.author: mlottner
 
 ---
 
 # Deploy a security module on your IoT Edge device
 
-> [!IMPORTANT]
-> Azure Security Center for IoT IoT Edge device support is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Azure Security Center for IoT** module provides a comprehensive security solution for your IoT Edge devices.
 The security module collects, aggregates, and analyzes raw security data from your Operating System and Container system into actionable security recommendations and alerts.
@@ -38,19 +34,19 @@ Use the following steps to deploy an Azure Security Center for IoT security modu
 
 ### Prerequisites
 
-- In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
+1. In your IoT Hub, make sure your device is [registered as an IoT Edge device](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
-- Azure Security Center for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) be  installed on the IoT Edge device.
+1. Azure Security Center for IoT Edge module requires the [AuditD framework](https://linux.die.net/man/8/auditd) is installed on the IoT Edge device.
 
     - Install the framework by running the following command on your IoT Edge device:
    
-      `sudo apt-get install auditd audispd-plugins`
+    `sudo apt-get install auditd audispd-plugins`
+
+    - Verify AuditD is active by running the following command: 
    
-    - Verify AuditD is active by running the following command:
-   
-      `sudo systemctl status auditd`
-      
-        The expected response is `active (running)`. 
+    `sudo systemctl status auditd`<br>
+    - Expected response is: `active (running)` 
+        
 
 ### Deployment using Azure portal
 
@@ -69,12 +65,12 @@ Use the following steps to deploy an Azure Security Center for IoT security modu
 
 There are three steps to create an IoT Edge deployment for Azure Security Center for IoT. The following sections walk through each one. 
 
-#### Step 1: Add Modules
+#### Step 1: Add modules
 
-1. From the **Add Modules** tab, **Deployment Modules** area, click  **AzureSecurityCenterforIoT**. 
+1. From the **Add Modules** tab, **Deployment Modules** area, click the **configure** option for **AzureSecurityCenterforIoT**. 
    
 1. Change the **name** to **azureiotsecurity**.
-1. Change the **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
+1. Change the **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
 1. Verify the **Container Create Options** value is set to:      
     ``` json
     {
@@ -96,54 +92,62 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 1. Verify that **Set module twin's desired properties** is selected, and change the configuration object to:
       
     ``` json
-      "properties.desired": {
-        "azureiot*com^securityAgentConfiguration^1*0*0": {
-        }
-      }
-      ```
+    { 
+       "properties.desired":{ 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
+
+          }
+       }
+    }
+    ```
 
 1. Click **Save**.
-1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**.
+1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**. 
    
-   
-1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
-
-   >[!Note]
-   > Azure Security Center for IoT module requires a forked version of IoT Edge Hub, based on SDK version 1.20.
-   > By changing IoT Edge Hub image, you are instructing your IoT Edge device to replace the latest stable release with the forked version of IoT Edge Hub, which is not officially supported by the IoT Edge service.
+1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2**.
 
 1. Verify **Create Options** is set to: 
          
     ``` json
-    {
-      "HostConfig": {
-        "PortBindings": {
-          "8883/tcp": [{"HostPort": "8883"}],
-          "443/tcp": [{"HostPort": "443"}],
-          "5671/tcp": [{"HostPort": "5671"}]
-        }
-      }
+    { 
+       "HostConfig":{ 
+          "PortBindings":{ 
+             "8883/tcp":[ 
+                { 
+                   "HostPort":"8883"
+                }
+             ],
+             "443/tcp":[ 
+                { 
+                   "HostPort":"443"
+                }
+             ],
+             "5671/tcp":[ 
+                { 
+                   "HostPort":"5671"
+                }
+             ]
+          }
+       }
     }
     ```
-      
 1. Click **Save**.
    
 1. Click **Next**.
 
-#### Step 2: Specify Routes 
+#### Step 2: Specify routes 
 
-1. In the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream**. 
-1. Click **Next**.
+1. In the **Specify Routes** tab, make sure you have a route (explicit or implicit) that will forward messages from the **azureiotsecurity** module to **$upstream** according to the following examples, only then click **Next**. 
 
-    ~~~Default implicit route
-    "route": "FROM /messages/* INTO $upstream" 
-    ~~~
+~~~Default implicit route
+"route": "FROM /messages/* INTO $upstream" 
+~~~
 
-    ~~~Explicit route
-    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-    ~~~
+~~~Explicit route
+"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+~~~
 
-#### Step 3: Review Deployment
+#### Step 3: Review deployment
 
 - In the **Review Deployment** tab, review your deployment information, then select **Submit** to complete the deployment.
 
@@ -155,14 +159,14 @@ If you encounter an issue, container logs are the best way to learn about the st
 
 1. Run the following command on your IoT Edge device:
     
-     `sudo docker ps`
+    `sudo docker ps`
    
 1. Verify that the following containers are running:
    
    | Name | IMAGE |
    | --- | --- |
-   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
-   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
+   | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    If the minimum required containers are not present, check if your IoT Edge deployment manifest is aligned with the recommended settings. For more information, see [Deploy IoT Edge module](#deployment-using-azure-portal).

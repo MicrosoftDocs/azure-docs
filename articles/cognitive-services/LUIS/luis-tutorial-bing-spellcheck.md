@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ---
 
@@ -84,7 +84,13 @@ The endpoint URL has several values that need to be passed correctly. The Bing S
 ```
 
 ## Ignore spelling mistakes
-If you don't want to use the Bing Spell Check API v7 service, you can label utterances that have spelling mistakes so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
+
+If you don't want to use the Bing Spell Check API v7 service, you need to add the correct and incorrect spelling. 
+
+Two solutions are:
+
+* Label example utterances that have the all the different spellings so that LUIS can learn proper spelling as well as typos. This option requires more labeling effort than using a spell checker.
+* Create a phrase list with all variations of the word. With this solution, you do not need to label the word variations in the example utterances. 
 
 ## Publishing page
 The [publishing](luis-how-to-publish-app.md) page has an **Enable Bing spell checker** checkbox. This is a convenience to create the key and understand how the endpoint URL changes. You still have to use the correct endpoint parameters in order to have spelling corrected for each utterance. 

@@ -3,17 +3,16 @@ title: Platforms supported by Azure Security Center | Microsoft Docs
 description: This document provides a list of platforms supported by Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: memildin
 manager: rkarlin
-editor: ''
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/29/2019
-ms.author: "v-mohabe"
+ms.date: 08/29/2019
+ms.author: memildin
 ---
 # Supported platforms 
 

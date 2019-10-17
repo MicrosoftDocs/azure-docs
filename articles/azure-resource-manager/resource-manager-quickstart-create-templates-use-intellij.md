@@ -1,10 +1,10 @@
 ---
-title: Create and deploy an Azure Resource Manager template by using the IntelliJ IDEA | Microsoft Docs
+title: Deploy Azure Resource Manager template - IntelliJ IDEA
 description: Learn how to create your first Azure Resource Manager template using the IntelliJ IDEA, and how to deploy it.
 services: azure-resource-manager
 documentationcenter: ''
 author: yucwan
-manager: 
+manager:
 editor:
 
 ms.service: azure-resource-manager
@@ -37,7 +37,7 @@ To complete this article, you need:
 
 ## Deploy a Quickstart template
 
-Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure QuickStart Templates is a repository for Resource Manager templates. The template used in this quickstart is called [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). It defines an Azure Storage account resource. 
+Instead of creating a template from scratch, you open a template from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/). Azure Quickstart Templates is a repository for Resource Manager templates. The template used in this quickstart is called [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/). It defines an Azure Storage account resource.
 
 1. Right-click and save the [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) and [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) to your local computer.
 
@@ -86,10 +86,10 @@ Instead of creating a template from scratch, you open a template from [Azure Qui
 
 ## Next steps
 
-The main focus of this quickstart is to use IntelliJ IDEA to deploy an existing template from Azure Quickstart templates. You also learned how to view and update an existing deployment on Azure. The templates from Azure Quickstart templates might not give you everything you need. The next tutorial shows you how to find the information from template reference so you can create an encrypted Azure Storage account.
+The main focus of this quickstart is to use IntelliJ IDEA to deploy an existing template from Azure Quickstart templates. You also learned how to view and update an existing deployment on Azure. The templates from Azure Quickstart templates might not give you everything you need. To learn more about template development, see our new beginner tutorial series:
 
 > [!div class="nextstepaction"]
-> [Create an encrypted storage account](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Beginner tutorials](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Visit Java on Azure Dev center](https://docs.microsoft.com/azure/java)

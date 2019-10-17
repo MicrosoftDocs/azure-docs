@@ -9,7 +9,7 @@ ms.author: tomfitz
 ---
 # Creating and deploying Azure resource groups through Visual Studio
 
-With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can deploy the web host, web site, and code for the web site. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app.  
+With Visual Studio, you can create a project that deploys your infrastructure and code to Azure. For example, you can deploy the web host, website, and code for the website. Visual Studio provides many different starter templates for deploying common scenarios. In this article, you deploy a web app.
 
 This article shows how to use [Visual Studio 2019 or later with the Azure development and ASP.NET workloads installed](/visualstudio/install/install-visual-studio?view=vs-2019). If you use Visual Studio 2017, your experience is largely the same.
 
@@ -199,13 +199,13 @@ At this point, you've deployed the infrastructure for your app, but there's no a
 
     ![Add resource](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-resource-2.png)
 
-1. This time select **Web Deploy for Web Apps**. 
+1. This time select **Web Deploy for Web Apps**.
 
     ![Add web deploy](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/add-web-deploy.png)
 
    Save your template.
 
-1. There are some new parameters in your template. They were added in the previous step. You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because those values are automatically generated. However, you have to set the folder and file name to the path that contains the deployment package. The names of these parameters end with **PackageFolder** and **PackageFileName**. The first part of the name is the name of the Web Deploy resource you added. In this article, they're named **ExampleAppPackageFolder** and **ExampleAppPackageFileName**. 
+1. There are some new parameters in your template. They were added in the previous step. You don't need to provide values for **_artifactsLocation** or **_artifactsLocationSasToken** because those values are automatically generated. However, you have to set the folder and file name to the path that contains the deployment package. The names of these parameters end with **PackageFolder** and **PackageFileName**. The first part of the name is the name of the Web Deploy resource you added. In this article, they're named **ExampleAppPackageFolder** and **ExampleAppPackageFileName**.
 
    Open **Website.parameters.json** and set those parameters to the values you saw in the reference properties. Set **ExampleAppPackageFolder** to the name of the folder. Set **ExampleAppPackageFileName** to the name of the zip file.
 
@@ -380,7 +380,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this quickstart, you learned how to create and deploy templates using Visual Studio. The next tutorial shows you how to find the information from template reference so you can create an encrypted Azure Storage account.
+In this quickstart, you learned how to create and deploy templates using Visual Studio. To learn more about template development, see our new beginner tutorial series:
 
 > [!div class="nextstepaction"]
-> [Create an encrypted storage account](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Beginner tutorials](./template-tutorial-create-first-template.md)
