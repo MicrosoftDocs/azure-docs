@@ -332,4 +332,5 @@ msal4j is in public preview. Signed assertions aren't yet supported
 
 > [!div class="nextstepaction"]
 > [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=java)
+
 ---
