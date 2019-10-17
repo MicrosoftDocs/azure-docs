@@ -54,3 +54,12 @@ These charts cannot be pinned to the last Azure dashboard you viewed in live mod
 ### Node CPU utilization % / Node Memory utilization % 
 
 These two performance charts map to an equivalent of invoking `kubectl top nodes` and capturing the results of the **CPU%** and **MEMORY%** columns to a chart. 
+
+![Kubectl top nodes example results](./media/container-insights-livelogs-metrics/kubectl-top-nodes-example.png)
+
+![Nodes CPU utilization percent chart](./media/container-insights-livelogs-metrics/cluster-view-node-cpuutil-01.png)
+
+The percentile calculations will function in larger clusters to help identify outlier nodes in your cluster. For example, to understand if there are nodes being under utilized for scale down purposes. Utilizing the **Min** aggregation you can see if there are nodes with extremely low utilization in the cluster. For further investigation, you would select the **Nodes** tab and sort the grid by CPU or memory utilization.
+
+This also helps you understand if there are nodes being pushed to their limits and if a scale out may be required. Utilizing both the **Max** and **P95** aggregations can help you see if there are nodes in the cluster with high resource utilization. For further investigation, you would again switch to the **Nodes** tab.
+
