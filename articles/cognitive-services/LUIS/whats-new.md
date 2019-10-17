@@ -35,6 +35,8 @@ Learn what's new in the service. These items may release notes, videos, blog pos
     ![machine-learned entity image](./media/whats-new/deep-entity-extraction-example.png)
 
 * [Prebuilt domains](luis-reference-prebuilt-domains.md) is now generally available (GA)
+* New Language Support
+    * [Hindi](luis-language-support.md)
 
 
 ### September 3, 2019

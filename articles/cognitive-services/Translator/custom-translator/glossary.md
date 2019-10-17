@@ -12,7 +12,7 @@ ms.topic: reference
 #Customer intent: As a Custom Translator user, I want to review glossary, so that I can understand the terms in multiple articles.
 ---
 
-# Glossary
+# Custom Translator Glossary
 
 The [Custom Translator](https://portal.customtranslator.azure.ai) glossary explains terms that you might encounter as you work with the Custom Translator.
 

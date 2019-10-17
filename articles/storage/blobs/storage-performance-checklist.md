@@ -31,7 +31,7 @@ This article organizes proven practices for performance into a checklist you can
 | &nbsp; |Networking |[Do client-side devices have sufficiently high bandwidth and low latency to achieve the performance needed?](#throughput) |
 | &nbsp; |Networking |[Do client-side devices have a high quality network link?](#link-quality) |
 | &nbsp; |Networking |[Is the client application in the same region as the storage account?](#location) |
-| &nbsp; |Direct Client Access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
+| &nbsp; |Direct client access |[Are you using shared access signatures (SAS) and cross-origin resource sharing (CORS) to enable direct access to Azure Storage?](#sas-and-cors) |
 | &nbsp; |Caching |[Is your application caching data that is frequently accessed and rarely changed?](#reading-data) |
 | &nbsp; |Caching |[Is your application batching updates by caching them on the client and then uploading them in larger sets?](#uploading-data-in-batches) |
 | &nbsp; |.NET configuration |[Are you using .NET Core 2.1 or later for optimum performance?](#use-net-core) |
@@ -62,7 +62,7 @@ If you're approaching the maximum number of storage accounts permitted for a par
 
 - Are you using storage accounts to store unmanaged disks and adding those disks to your virtual machines (VMs)? For this scenario, Microsoft recommends using managed disks. Managed disks scale for you automatically and without the need to create and manage individual storage accounts. For more information, see [Introduction to Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md)
 - Are you using one storage account per customer, for the purpose of data isolation? For this scenario, Microsoft recommends using a blob container for each customer, instead of an entire storage account. Azure Storage now allows you to assign role-based access control (RBAC) roles on a per-container basis. For more information, see [Grant access to Azure blob and queue data with RBAC in the Azure portal](../common/storage-auth-aad-rbac-portal.md).
-- Are you using multiple storage accounts to shard to increase ingress, egress, I/O operations per second (IOPS), or capacity? In this scenario, Microsoft recommends that you take advantage of increased limits for standard storage accounts to reduce the number of storage accounts required for your workload if possible. Contact [Azure Support](https://azure.microsoft.com/support/options/) to request increased limits for your storage account. For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+- Are you using multiple storage accounts to shard to increase ingress, egress, I/O operations per second (IOPS), or capacity? In this scenario, Microsoft recommends that you take advantage of increased limits for storage accounts to reduce the number of storage accounts required for your workload if possible. Contact [Azure Support](https://azure.microsoft.com/support/options/) to request increased limits for your storage account. For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### Capacity and transaction targets
 
@@ -282,6 +282,4 @@ Page blobs are appropriate if the application needs to perform random writes on 
 ## Next steps
 
 - [Azure Storage scalability and performance targets for storage accounts](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [Performance and scalability checklist for Queue storage](../queues/storage-performance-checklist.md)
-- [Performance and scalability checklist for Table storage](../tables/storage-performance-checklist.md)
 - [Status and error codes](/rest/api/storageservices/Status-and-Error-Codes2)
