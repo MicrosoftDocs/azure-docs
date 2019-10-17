@@ -79,23 +79,26 @@ The below management operations are captured in operational logs -
 
 Operational logs are disabled by default. To enable diagnostic logs, perform the following steps:
 
-1.	In the [Azure portal](https://portal.azure.com), under **Monitoring + Management**, click **Diagnostics logs**.
+1.	In the [Azure portal](https://portal.azure.com), navigate to your Azure Service Bus namespace and under **Monitoring**, click **Diagnostics settings**.
 
 	![blade navigation to diagnostic logs](./media/service-bus-diagnostic-logs/image1.png)
 
-2. Click the resource you want to monitor.  
-
-3.	Click **Turn on diagnostics**.
+2. Click **Add diagnostic setting** to configure the diagnostic settings.  
 
 	![turn on diagnostic logs](./media/service-bus-diagnostic-logs/image2.png)
 
-4.	For **Status**, click **On**.
+3. Configure the diagnostic settings
+    1. Type a **name** to identify the diagnostic settings.
+    2. Pick a destination for the diagnostics.
+            1. If you pick **Storage account**, you need to configure the storage account where the diagnostics will be stored.
+            2. If you pick **Event hubs**, you need to configure the appropriate Event Hub where the diagnostics settings will be streamed to.
+            3. If you pick **Log Analytics**, you need to specify which instance of Log Analytics the diagnostics will be sent.
+        3. Check **Operational Logs**.
 
 	![change status diagnostic logs](./media/service-bus-diagnostic-logs/image3.png)
 
-5.	Set the archive target that you want; for example, a storage account, an event hub, or Azure Monitor logs.
+4. Click **Save**.
 
-6.	Save the new diagnostics settings.
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
 
