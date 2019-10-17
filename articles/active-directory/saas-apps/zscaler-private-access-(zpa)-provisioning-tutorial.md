@@ -48,7 +48,7 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 * When assigning a user to Zscaler Private Access (ZPA), you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Setup Zscaler Private Access (ZPA) for provisioning
+## Set up Zscaler Private Access (ZPA) for provisioning
 
 1. Sign in to your [Zscaler Private Access (ZPA) Admin Console](https://admin.private.zscaler.com/). Navigate to **Administration > IdP Configuration**.
 
@@ -117,7 +117,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 > You may also choose to enable SAML-based single sign-on for Zscaler Private Access (ZPA) , following the instructions provided in the [Zscaler Private Access (ZPA) Single sign-on tutorial](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
 
 > [!NOTE]
-> To learn more about Zscaler Private Access's SCIM endpoint, refer to [ZPA for Azure](https://www.zscaler.com/products/zpa-for-azure).
+> To learn more about Zscaler Private Access's SCIM endpoint, refer [this](https://www.zscaler.com/partners/microsoft).
 
 ### To configure automatic user provisioning for Zscaler Private Access (ZPA) in Azure AD:
 
