@@ -6,7 +6,7 @@ localization_priority: Normal
 
 # Specify availability for your Office solution
 
-You can define the markets and visibility for your solution, and schedule the date on which your solution will be discoverable, on the Availability page in Partner Center.
+You can define the markets in which your solution will be available, and schedule the date on which your solution will be discoverable, on the Availability page in Partner Center.
 
 > [!NOTE] 
 > Pricing model management is not supported for Office marketplace products. Existing paid products that migrated from Seller Dashboard will need to move to a SaaS model or be made free by July 2020. For details, see [Moving from paid to free add-ins](moving-from-paid-to-free-addins.md). You can monetize your add-in through the Microsoft Commercial Marketplace; for details, see [Monetize your add-in](monetize-addins-through-microsoft-commercial-marketplace.md). 
@@ -20,27 +20,11 @@ If you don't want your solution to automatically be made available in future mar
 > [!NOTE]
 > To submit a SharePoint Add-in that uses OAuth and that you want to distribute to China, you must select China only.
 
-
-## Visibility
-
-By default, your solution will be made available publicly on AppSource. In the Visibility section, you can indicate how customers can discover your solution. You can choose the following options:
-
-- Make this product available and discoverable in marketplace. This is the default option.
-- Make this product available but not discoverable in marketplace.
-
-If you choose not to make your solution discoverable in AppSource, you have the following options:
-
-- Make your solution available to customers only via a direct link. This option is appropriate if you want to limit which customers can access your listing.
-- Unpublish the solution. When you choose this option, no new customers will be able to acquire your solution. Existing customers will be able to acquire it only until it is unpublished.
-
 ## Schedule
 
-By default, your solution will be made available and discoverable in AppSource as soon as possible. If you want to schedule the day and time on which your solution will be discoverable in AppSource, choose **Show options** to specify a release schedule. Note that your solution will still be accessible via direct link in AppSource prior to the release date. You have the following options:
+By default, your solution will be made available and discoverable in AppSource as soon as possible. If you want to schedule the day and time on which your solution will be discoverable in AppSource, use the date and time selectors to specify the date and time at which your solution will be discoverable to customers. Note that your solution will still be accessible via direct link in AppSource prior to the release date.
 
-- **as soon as possible** - Your solution will be available as soon as it is validated and published.
-- **at** - Your solution will be discoverable on the day and time that you specify. You must select the time in UTC and it cannot be a date in the past. Your solution will be made available at the same time in all markets; you can't customize the discoverability schedule for different markets.
-
-If you choose not to make your solution discoverable in AppSource, you can't schedule the release date.
+If you choose not to make your solution discoverable in AppSource, select the **Make my product hidden after release and accessible only by direct link** check box.
 
 <!--
 > [!NOTE]
