@@ -45,6 +45,8 @@ The git information is stored in the properties for a training run. You can view
 1. Select one of the runs from the __RUN NUMBER__ column.
 1. Select __Logs__, and then expand the __logs__ and __azureml__ entries. Select the link that begins with __###\_azure__.
 
+    ![The ###_azure entry in the portal](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+
 The logged information contains text similar to the following JSON:
 
 ```json
