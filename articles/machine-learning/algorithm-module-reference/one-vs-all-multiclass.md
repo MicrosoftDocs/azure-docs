@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 16/10/2019
+ms.date: 10/16/2019
 ---
 # One-vs-All Multiclass
 
@@ -35,17 +35,17 @@ You then connect the binary model to **One-vs-All Multiclass** module, and train
 
 When you combine the models, even though the training dataset might have multiple class values, the **One-vs-All Multiclass** creates multiple binary classification models, optimizes the algorithm for each class, and then merges the models.
 
-1. Add the **One-vs-All Multiclass** to your experiment in the designer. You can find this module under Machine Learning - Initialize, in the **Classification** category.
+1. Add the **One-vs-All Multiclass** to your pipeline in the designer. You can find this module under Machine Learning - Initialize, in the **Classification** category.
 
     The **One-vs-All Multiclass** classifier has no configurable parameters of its own. Any customizations must be done in the binary classification model that is provided as input.
 
-2. Add a binary classification model to the experiment, and configure that model. For example, you might use a [Two-Class Support Vector Machine](two-class-support-vector-machine.md) or [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md).
+2. Add a binary classification model to the pipeline, and configure that model. For example, you might use a [Two-Class Support Vector Machine](two-class-support-vector-machine.md) or [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md).
 
-3. Add the [Train Model](train-model.md) module to your experiment, and connect the untrained classifier that is the output of **One-vs-All Multiclass**.
+3. Add the [Train Model](train-model.md) module to your pipeline, and connect the untrained classifier that is the output of **One-vs-All Multiclass**.
 
 4. On the other input of [Train Model](train-model.md), connect a labeled training data set that has multiple class values.
 
-5. Run the experiment.
+5. Run the pipeline.
 
 ## Results
 
