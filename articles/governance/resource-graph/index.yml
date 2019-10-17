@@ -101,3 +101,5 @@ landingContent:
             url: /javascript/api/@azure/arm-resourcegraph
           - text: Python
             url: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+          - text: REST
+            url: /rest/api/azure-resourcegraph/
