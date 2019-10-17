@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 # Web Application Firewall request size limits and exclusion lists
 
-The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. This article describes WAF request size limits and exclusion lists configuration.
+The Azure Application Gateway Web Application Firewall (WAF) provides protection for web applications. This article describes WAF request size limits and exclusion lists configuration. These settings are located in the WAF Policy associated to your Application Gateway. To learn more about WAF Policies, see ![WAF Overview](../ag/ag-overview.md) and ![How to create a WAF Policy](../ag/create-waf-policy-ag.md)
 
 ## WAF request size limits
 
