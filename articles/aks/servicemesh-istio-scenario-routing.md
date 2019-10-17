@@ -1,13 +1,13 @@
 ---
 title: Intelligent routing and canary releases with Istio in Azure Kubernetes Service (AKS)
 description: Learn how to use Istio to provide intelligent routing and deploy canary releases in an Azure Kubernetes Service (AKS) cluster
-services: container-service
 author: paulbouwer
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 10/09/2019
 ms.author: pabouwer
+zone_pivot_groups: client-operating-system
 ---
 
 # Use intelligent routing and canary releases with Istio in Azure Kubernetes Service (AKS)
@@ -27,9 +27,9 @@ In this article, you learn how to:
 ## Before you begin
 
 > [!NOTE]
-> This scenario has been tested against Istio version `1.1.3`.
+> This scenario has been tested against Istio version `1.3.2`.
 
-The steps detailed in this article assume you've created an AKS cluster (Kubernetes `1.11` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. You'll also need Istio installed in your cluster.
+The steps detailed in this article assume you've created an AKS cluster (Kubernetes `1.13` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. You'll also need Istio installed in your cluster.
 
 If you need help with any of these items, then see the [AKS quickstart][aks-quickstart] and [Install Istio in AKS][istio-install] guidance.
 
@@ -49,7 +49,7 @@ Once you're confident that version `2.0` works as expected on your subset of use
 
 Let's start by deploying the application into your Azure Kubernetes Service (AKS) cluster. The following diagram shows what runs by the end of this section - version `1.0` of all components with inbound requests serviced via the Istio ingress gateway:
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-01.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/scenario-routing-components-01.png)
 
 The artifacts you need to follow along with this article are available in the [Azure-Samples/aks-voting-app][github-azure-sample] GitHub repo. You can either download the artifacts or clone the repo as follows:
 
@@ -60,7 +60,7 @@ git clone https://github.com/Azure-Samples/aks-voting-app.git
 Change to the following folder in the downloaded / cloned repo and run all subsequent steps from this folder:
 
 ```console
-cd scenarios/intelligent-routing-with-istio
+cd aks-voting-app/scenarios/intelligent-routing-with-istio
 ```
 
 First, create a namespace in your AKS cluster for the sample AKS voting app named `voting` as follows:
@@ -98,38 +98,39 @@ service/voting-app created
 To see the pods that have been created, use the [kubectl get pods][kubectl-get] command as follows:
 
 ```azurecli
-kubectl get pods -n voting
+kubectl get pods -n voting --show-labels
 ```
 
 The following example output shows there are three instances of the `voting-app` pod and a single instance of both the `voting-analytics` and `voting-storage` pods. Each of the pods has two containers. One of these containers is the component, and the other is the `istio-proxy`:
 
 ```console
-NAME                                    READY     STATUS    RESTARTS   AGE
-voting-analytics-1-0-57c7fccb44-ng7dl   2/2       Running   0          39s
-voting-app-1-0-956756fd-d5w7z           2/2       Running   0          39s
-voting-app-1-0-956756fd-f6h69           2/2       Running   0          39s
-voting-app-1-0-956756fd-wsxvt           2/2       Running   0          39s
-voting-storage-1-0-5d8fcc89c4-2jhms     2/2       Running   0          39s
+NAME                                    READY     STATUS    RESTARTS   AGE   LABELS
+voting-analytics-1-0-57c7fccb44-ng7dl   2/2       Running   0          39s   app=voting-analytics,pod-template-hash=57c7fccb44,version=1.0
+voting-app-1-0-956756fd-d5w7z           2/2       Running   0          39s   app=voting-app,pod-template-hash=956756fd,version=1.0
+voting-app-1-0-956756fd-f6h69           2/2       Running   0          39s   app=voting-app,pod-template-hash=956756fd,version=1.0
+voting-app-1-0-956756fd-wsxvt           2/2       Running   0          39s   app=voting-app,pod-template-hash=956756fd,version=1.0
+voting-storage-1-0-5d8fcc89c4-2jhms     2/2       Running   0          39s   app=voting-storage,pod-template-hash=5d8fcc89c4,version=1.0
 ```
 
-To see information about the pod, use the [kubectl describe pod][kubectl-describe]. Replace the pod name with the name of a pod in your own AKS cluster from the previous output:
+To see information about the pod, we'll use the [kubectl describe pod][kubectl-describe] command with label selectors to select the `voting-analytics` pod. We'll filter the output to show the details of the two containers present in the pod:
 
-```azurecli
-kubectl describe pod voting-app-1-0-956756fd-d5w7z --namespace voting
-```
+::: zone pivot="client-operating-system-linux"
 
-The `istio-proxy` container has automatically been injected by Istio to manage the network traffic to and from your components, as shown in the following example output:
+[!INCLUDE [Bash - routing scenario - show autoinjected proxy](includes/servicemesh/istio/scenario-routing-show-proxy-bash.md)]
 
-```
-[...]
-Containers:
-  voting-app:
-    Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
-    ...
-  istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.1.3
-[...]
-```
+::: zone-end
+
+::: zone pivot="client-operating-system-macos"
+
+[!INCLUDE [Bash - routing scenario - show autoinjected proxy](includes/servicemesh/istio/scenario-routing-show-proxy-bash.md)]
+
+::: zone-end
+
+::: zone pivot="client-operating-system-windows"
+
+[!INCLUDE [PowerShell - routing scenario - show autoinjected proxy](includes/servicemesh/istio/scenario-routing-show-proxy-powershell.md)]
+
+::: zone-end
 
 You can't connect to the voting app until you create the Istio [Gateway][istio-reference-gateway] and [Virtual Service][istio-reference-virtualservice]. These Istio resources route traffic from the default Istio ingress gateway to our application.
 
@@ -165,7 +166,7 @@ The following example output shows the IP address of the Ingress Gateway:
 
 Open up a browser and paste in the IP address. The sample AKS voting app is displayed.
 
-![The AKS Voting app running in our Istio enabled AKS cluster.](media/istio/deploy-app-01.png)
+![The AKS Voting app running in our Istio enabled AKS cluster.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
 
 The information at the bottom of the screen shows that the app uses version `1.0` of `voting-app` and version `1.0` of `voting-storage` (Redis).
 
@@ -175,11 +176,11 @@ Let's deploy a new version of the analytics component. This new version `1.1` di
 
 The following diagram shows what will be running at the end of this section - only version `1.1` of our `voting-analytics` component has traffic routed from the `voting-app` component. Even though version `1.0` of our `voting-analytics` component continues to run and is referenced by the `voting-analytics` service, the Istio proxies disallow traffic to and from it.
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-02.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/scenario-routing-components-02.png)
 
 Let's deploy version `1.1` of the `voting-analytics` component. Create this component in the `voting` namespace:
 
-```console
+```azurecli
 kubectl apply -f kubernetes/step-2-update-voting-analytics-to-1.1.yaml --namespace voting
 ```
 
@@ -193,29 +194,33 @@ Open the sample AKS voting app in a browser again, using the IP address of the I
 
 Your browser alternates between the two views shown below. Since you are using a Kubernetes [Service][kubernetes-service] for the `voting-analytics` component with only a single label selector (`app: voting-analytics`), Kubernetes uses the default behavior of round-robin between the pods that match that selector. In this case, it is both version `1.0` and `1.1` of your `voting-analytics` pods.
 
-![Version 1.0 of the analytics component running in our AKS Voting app.](media/istio/deploy-app-01.png)
+![Version 1.0 of the analytics component running in our AKS Voting app.](media/servicemesh/istio/scenario-routing-deploy-app-01.png)
 
-![Version 1.1 of the analytics component running in our AKS Voting app.](media/istio/update-app-01.png)
+![Version 1.1 of the analytics component running in our AKS Voting app.](media/servicemesh/istio/scenario-routing-update-app-01.png)
 
 You can visualize the switching between the two versions of the `voting-analytics` component as follows. Remember to use the IP address of your own Istio Ingress Gateway.
 
-Bash 
+::: zone pivot="client-operating-system-linux"
 
-```bash
-INGRESS_IP=20.188.211.19
-for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
-```
+[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-bash.md)]
 
-Powershell
+::: zone-end
 
-```powershell
-$INGRESS_IP="20.188.211.19"
-(1..5) |% { (Invoke-WebRequest -Uri $INGRESS_IP).Content.Split("`n") | Select-String -Pattern "results" }
-```
+::: zone pivot="client-operating-system-macos"
+
+[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-bash.md)]
+
+::: zone-end
+
+::: zone pivot="client-operating-system-windows"
+
+[!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-powershell.md)]
+
+::: zone-end
 
 The following example output shows the relevant part of the returned web site as the site switches between versions:
 
-```
+```console
   <div id="results"> Cats: 2 | Dogs: 4 </div>
   <div id="results"> Cats: 2 | Dogs: 4 </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
@@ -254,27 +259,31 @@ virtualservice.networking.istio.io/voting-storage created
 
 If you open the AKS Voting app in a browser again, only the new version `1.1` of the `voting-analytics` component is used by the `voting-app` component.
 
-![Version 1.1 of the analytics component running in our AKS Voting app.](media/istio/update-app-01.png)
+![Version 1.1 of the analytics component running in our AKS Voting app.](media/servicemesh/istio/scenario-routing-update-app-01.png)
 
 You can visualize that you are now only routed to version `1.1` of your `voting-analytics` component as follows. Remember to use the IP address of your own Istio Ingress Gateway:
 
-Bash 
+::: zone pivot="client-operating-system-linux"
 
-```bash
-INGRESS_IP=20.188.211.19
-for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
-```
+[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-bash.md)]
 
-Powershell
+::: zone-end
 
-```powershell
-$INGRESS_IP="20.188.211.19"
-(1..5) |% { (Invoke-WebRequest -Uri $INGRESS_IP).Content.Split("`n") | Select-String -Pattern "results" }
-```
+::: zone pivot="client-operating-system-macos"
+
+[!INCLUDE [Bash - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-bash.md)]
+
+::: zone-end
+
+::: zone pivot="client-operating-system-windows"
+
+[!INCLUDE [PowerShell - routing scenario - loop through results](includes/servicemesh/istio/scenario-routing-loop-results-powershell.md)]
+
+::: zone-end
 
 The following example output shows the relevant part of the returned web site:
 
-```
+```console
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
@@ -290,37 +299,23 @@ istioctl authn tls-check <pod-name[.namespace]> [<service>]
 
 This set of commands provide information about the access to the specified services, from all pods that are in a namespace and match a set of labels:
 
-Bash
+::: zone pivot="client-operating-system-linux"
 
-```bash
-# mTLS configuration between each of the istio ingress pods and the voting-app service
-kubectl get pod -n istio-system -l app=istio-ingressgateway | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.istio-system voting-app.voting.svc.cluster.local
+[!INCLUDE [Bash - routing scenario - verify mtls](includes/servicemesh/istio/scenario-routing-verify-mtls-bash.md)]
 
-# mTLS configuration between each of the voting-app pods and the voting-analytics service
-kubectl get pod -n voting -l app=voting-app | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.voting voting-analytics.voting.svc.cluster.local
+::: zone-end
 
-# mTLS configuration between each of the voting-app pods and the voting-storage service
-kubectl get pod -n voting -l app=voting-app | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.voting voting-storage.voting.svc.cluster.local
+::: zone pivot="client-operating-system-macos"
 
-# mTLS configuration between each of the voting-analytics version 1.1 pods and the voting-storage service
-kubectl get pod -n voting -l app=voting-analytics,version=1.1 | grep Running | cut -d ' ' -f1 | xargs -n1 -I{} istioctl authn tls-check {}.voting voting-storage.voting.svc.cluster.local
-```
+[!INCLUDE [Bash - routing scenario - verify mtls](includes/servicemesh/istio/scenario-routing-verify-mtls-bash.md)]
 
-Powershell
+::: zone-end
 
-```powershell
-# mTLS configuration between each of the istio ingress pods and the voting-app service
-(kubectl get pod -n istio-system -l app=istio-ingressgateway | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".istio-system") voting-app.voting.svc.cluster.local } }
+::: zone pivot="client-operating-system-windows"
 
-# mTLS configuration between each of the voting-app pods and the voting-analytics service
-(kubectl get pod -n voting -l app=voting-app | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".voting") voting-analytics.voting.svc.cluster.local } }
+[!INCLUDE [PowerShell - routing scenario - verify mtls](includes/servicemesh/istio/scenario-routing-verify-mtls-powershell.md)]
 
-# mTLS configuration between each of the voting-app pods and the voting-storage service
-(kubectl get pod -n voting -l app=voting-app | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".voting") voting-storage.voting.svc.cluster.local } }
-
-# mTLS configuration between each of the voting-analytics version 1.1 pods and the voting-storage service
-(kubectl get pod -n voting -l app=voting-analytics,version=1.1 | Select-String -Pattern "Running").Line |% { $_.Split()[0] |% { istioctl authn tls-check $($_ + ".voting") voting-storage.voting.svc.cluster.local } }
-```
+::: zone-end
 
 This following example output shows that mutual TLS is enforced for each of our queries above. The output also shows the Policy and Destination Rules that enforces the mutual TLS:
 
@@ -362,7 +357,7 @@ The following diagram shows what you will have running at the end of this sectio
 * Version `2.0` of the `voting-app` component, version `2.0` of the `voting-analytics` component and version `2.0` of the `voting-storage` component are able to communicate with each other.
 * Version `2.0` of the `voting-app` component are only accessible to users that have a specific feature flag set. This change is managed using a feature flag via a cookie.
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-03.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/scenario-routing-components-03.png)
 
 First, update the Istio Destination Rules and Virtual Services to cater for these new components. These updates ensure that you don't route traffic incorrectly to the new components and users don't get unexpected access:
 
@@ -398,17 +393,17 @@ deployment.apps/voting-analytics-2-0 created
 deployment.apps/voting-app-2-0 created
 ```
 
-Wait until all the version `2.0` pods are running. Use the [kubectl get pods][kubectl-get] command to view all pods in the `voting` namespace:
+Wait until all the version `2.0` pods are running. Use the [kubectl get pods][kubectl-get] command with the `-w` watch switch to watch for changes on all pods in the `voting` namespace:
 
 ```azurecli
-kubectl get pods --namespace voting
+kubectl get pods --namespace voting -w
 ```
 
 You should now be able to switch between the version `1.0` and version `2.0` (canary) of the voting application. The feature flag toggle at the bottom of the screen sets a cookie. This cookie is used by the `voting-app` Virtual Service to route users to the new version `2.0`.
 
-![Version 1.0 of the AKS Voting app - feature flag IS NOT set.](media/istio/canary-release-01.png)
+![Version 1.0 of the AKS Voting app - feature flag IS NOT set.](media/servicemesh/istio/scenario-routing-canary-release-01.png)
 
-![Version 2.0 of the AKS Voting app - feature flag IS set.](media/istio/canary-release-02.png)
+![Version 2.0 of the AKS Voting app - feature flag IS set.](media/servicemesh/istio/scenario-routing-canary-release-02.png)
 
 The vote counts are different between the versions of the app. This difference highlights that you are using two different storage backends.
 
@@ -416,13 +411,13 @@ The vote counts are different between the versions of the app. This difference h
 
 Once you've successfully tested the canary release, update the `voting-app` Virtual Service to route all traffic to version `2.0` of the `voting-app` component. All users then see version `2.0` of the application, regardless of whether the feature flag is set or not:
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-04.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/scenario-routing-components-04.png)
 
 Update all the Destination Rules to remove the versions of the components you no longer want active. Then, update all the Virtual Services to stop referencing those versions.
 
 Since there's no longer any traffic to any of the older versions of the components, you can now safely delete all the deployments for those components.
 
-![The AKS Voting app components and routing.](media/istio/components-and-routing-05.png)
+![The AKS Voting app components and routing.](media/servicemesh/istio/scenario-routing-components-05.png)
 
 You have now successfully rolled out a new version of the AKS Voting App.
 
@@ -464,4 +459,4 @@ You can explore additional scenarios using the [Istio Bookinfo Application examp
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
-[istio-install]: ./istio-install.md
+[istio-install]: ./servicemesh-istio-install.md

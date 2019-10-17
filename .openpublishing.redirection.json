@@ -3821,7 +3821,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/billing-mca-setup-account.md",
+      "source_path": "articles/billing/billing-mca-setup-account.md",
       "redirect_url": "/azure/billing/mca-setup-account",
       "redirect_document_id": false
     },
@@ -15809,6 +15809,16 @@
       "source_path": "articles/traffic-manager/traffic-manager-endpoints.md",
       "redirect_url": "/azure/traffic-manager/traffic-manager-manage-endpoints",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-powershell",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
@@ -42496,6 +42506,21 @@
     {
       "source_path": "articles/security/fundamentals/global-admin.md",
       "redirect_url": "/azure/active-directory/authentication/multi-factor-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/istio-install.md",
+      "redirect_url": "/azure/aks/servicemesh-istio-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/istio-scenario-routing.md",
+      "redirect_url": "/azure/aks/servicemesh-istio-scenario-routing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/consul-install.md",
+      "redirect_url": "/azure/aks/servicemesh-consul-install",
       "redirect_document_id": false
     }
   ]
