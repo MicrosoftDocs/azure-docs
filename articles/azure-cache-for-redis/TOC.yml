@@ -100,7 +100,7 @@
     - name: Troubleshoot cache issues
       href: cache-how-to-troubleshoot.md
     - name: Troubleshoot data loss
-      href: cache-troubleshoot-data-loss.md
+      href: cache-howto-troubleshoot-data-loss.md
   - name: Scale
     items:
     - name: Update to a different size and tier

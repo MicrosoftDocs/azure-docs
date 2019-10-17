@@ -35,7 +35,7 @@ If you find that keys have disappeared from your cache, you can check the follow
 
 ### Key expiration
 
-Redis will remove a key automatically if it is assigned a timeout and that period has passed. You can find more details around Redis key expiration [in the EXPIRE command documentation](http://redis.io/commands/expire). Timeout values also can be set through [SET](http://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset), and other \*STORE commands.
+Redis will remove a key automatically if it is assigned a timeout and that period has passed. You can find more details around Redis key expiration in the [EXPIRE](http://redis.io/commands/expire) command documentation. Timeout values also can be set through [SET](http://redis.io/commands/set), [SETEX](https://redis.io/commands/setex), [GETSET](https://redis.io/commands/getset), and other \*STORE commands.
 
 You can use the [INFO](http://redis.io/commands/info) command to get stats on how many keys have expired. The *Stats* section shows the total number of expired keys. The *Keyspace* section provides additional information on the number of keys with timeouts and the average timeout value.
 
