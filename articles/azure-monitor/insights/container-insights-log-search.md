@@ -1,18 +1,13 @@
 ---
 title: How to Query Logs from Azure Monitor for containers | Microsoft Docs
 description: Azure Monitor for containers collects metrics and log data and this article describes the records and includes sample queries.
-services: azure-monitor
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
 ms.author: magoedte
+ms.date: 07/12/2019
+
 ---
 
 # How to query logs from Azure Monitor for containers
