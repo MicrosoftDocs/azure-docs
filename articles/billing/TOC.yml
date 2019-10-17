@@ -93,6 +93,12 @@
         href: billing-how-reservation-discount-is-applied-to-azure-sql-dw.md
       - name: Azure Databricks
         href: billing-reservation-discount-databricks.md
+      - name: Azure Database for MySQL
+        href: billing-understand-reservation-charges-mysql.md 
+      - name: Azure Database for PostgreSQL
+        href: billing-understand-reservation-charges-postgresql.md 
+      - name: Azure Database for MariaDB
+        href: billing-understand-reservation-charges-mariadb.md  
       - name: App Service
         href: billing-reservation-discount-app-service-isolated-stamp.md
       - name: Azure software plans
