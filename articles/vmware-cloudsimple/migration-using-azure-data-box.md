@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Migrating data to Azure VMware Solution using Azure Data Box
+# Migrating data to Azure VMware Solution by using Azure Data Box
 
 The Microsoft Azure Data Box cloud solution lets you send terabytes (TBs) of data to Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device. Each storage device has a maximum usable storage capacity of 80 TB and is transported to your datacenter by a regional carrier. The device has a rugged casing to protect and secure your data during transit.
 
@@ -18,11 +18,11 @@ By using Data Box, you can bulk-migrate your VMware data to your private cloud. 
 
 In this article, you learn about:
 
-* Setting up Data Box
-* Copying data from the on-premises VMware environment to the Data Box by through NFS
-* Preparing for the return of Data Box
-* Preparing blob data for copying to Azure VMware Solution
-* Copying the data from Azure to your private cloud
+* Setting up Data Box.
+* Copying data from the on-premises VMware environment to the Data Box by through NFS.
+* Preparing for the return of Data Box.
+* Preparing blob data for copying to Azure VMware Solution.
+* Copying the data from Azure to your private cloud.
 
 ## Scenarios
 
@@ -208,7 +208,9 @@ Follow the steps outlined in the article [Return Azure Data Box and verify data 
 
 ## Copy data from Azure storage to Azure VMware Solution
 
-Data copied to your Data Box device will be available on your Azure storage account after the order status of your Data Box shows as completed. The data can now be copied to your Azure VMware Solution. Data in the storage account must be copied to the vSAN datastore of your private cloud by using the NFS protocol. First, copy Blob storage data to a managed disk on a Linux virtual machine in Azure by using **AzCopy**. Make the managed disk available through NFS, mount the NFS share as a datastore on your private cloud, and then copy the data. This method enables faster copy of the data to your private cloud.
+Data copied to your Data Box device will be available on your Azure storage account after the order status of your Data Box shows as completed. The data can now be copied to your Azure VMware Solution. Data in the storage account must be copied to the vSAN datastore of your private cloud by using the NFS protocol. 
+
+First, copy Blob storage data to a managed disk on a Linux virtual machine in Azure by using **AzCopy**. Make the managed disk available through NFS, mount the NFS share as a datastore on your private cloud, and then copy the data. This method enables faster copy of the data to your private cloud.
 
 ### Copy data to your private cloud using a Linux virtual machine and managed disks, and then export as NFS share
 
@@ -304,7 +306,7 @@ The virtual machines and virtual machine templates are now available on your pri
 
 The virtual machine templates must be cloned from your Linux virtual machine NFS datastore to your vSAN datastore.
 
-### Clean up of your Linux virtual machine
+### Clean up your Linux virtual machine
 
 After all the data is copied to your private cloud, you can remove the NFS datastore from your private cloud:
 
