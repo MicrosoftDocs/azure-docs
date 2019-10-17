@@ -37,12 +37,10 @@ In the preceding image, a user has started a conversation by entering **My accou
 
 When the user selects an option (#3), the next list of refining options (#4) is presented. This sequence continues (#5) until the user determines the correct, final answer (#6).
 
-> [!NOTE]
-> In the preceding image, the **Enable multi-turn** check box has been selected to ensure that the prompts are displayed. 
 
 ### Use multi-turn in a bot
 
-To manage the contextual conversation, change your client application by [adding code to your bot](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-prompting). Adding the code enables users to see the prompts.  
+After publishing your KB, you can click on the 'Create Bot' button to deploy your QnA Maker bot to Azure bot service. The prompts will appear in the chat clients that you have enabled for your bot.
 
 ## Create a multi-turn conversation from a document's structure
 
@@ -50,25 +48,25 @@ When you create a knowledge base, the **Populate your KB** section displays an *
 
 ![Check box for enabling multi-turn extraction](../media/conversational-context/enable-multi-turn.png)
 
-When you select this option you, the multi-turn conversation can be implied from the document structure. If that structure exists, QnA Maker creates the follow-up prompt that pairs questions and answers for you as part of the import process. 
+When you select this option, QnA Maker extracts the hierarchy present in the document structure. The hierarchy is converted in to follow up prompts and the root of the hierarchy serves as the parent QnA. In some documents the root of the hierarchy does not have a text assigned to its own, you can provide the 'Default Answer Text' to be used as a substitute answer text to extract such hierarchies.   
 
-Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. For an example of structure, view an image of a [Microsoft Surface user manual PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). Because of the size of this PDF file, the QnA Maker resource requires a **Search pricing tier** of **B** (15 indexes) or greater. 
+Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. For an example of structure, view an image of a [Microsoft Surface user manual PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). 
 
 ![![Example of structure in a user manual](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-### Determine multi-turn structure from format
+### Building your own multi-turn document
 
-QnA Maker determines multi-turn structure from:
+If you are creating a multi-turn document from scratch, please keep in mind the following guidelines:
 
-* Heading font size - if you use style, color, or some other mechanism to imply structure in your document, QnA Maker will not extract the multi-turn prompts. 
-
-Rules of headings include:
+* Use headings and sub-headings to denote hierarchy. For example You can h1 to denote the parent QnA and h2 to denote the QnA that should be taken as prompt. Use small heading size to denote subsequent hierarchy. Don't use style, color, or some other mechanism to imply structure in your document, QnA Maker will not extract the multi-turn prompts. 
 
 * Do not end a heading with a question mark, `?`. 
 
-### Add file with multi-turn prompts
+* You can use the [sample document]() as an example to create your own multi-turn document.
 
-When you add a multi-turn document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
+### Adding files to a multi-turn KB
+
+When you add a hierarchical document, QnA Maker determines follow-up prompts from the structure to create conversational flow. 
 
 1. In QnA Maker, select an existing knowledge base which was created with **Enable multi-turn extraction from URLs, .pdf or .docx files.** enabled. 
 1. Go to the **Settings** page, select the file or URL to add. 
@@ -86,7 +84,7 @@ You can create a knowledge case with multi-turn prompts using the [QnA Maker Cre
 
 Reduce the displayed question-and-answer pairs to only those with contextual conversations. 
 
-Select **View options**, and then select **Show context (PREVIEW)**. The list displays question-and-answer pairs that contain follow-up prompts. 
+Select **View options**, and then select **Show context**. The list displays question-and-answer pairs that contain follow-up prompts. 
 
 ![Filter question-and-answer pairs by contextual conversations](../media/conversational-context/filter-question-and-answers-by-context.png)
 
