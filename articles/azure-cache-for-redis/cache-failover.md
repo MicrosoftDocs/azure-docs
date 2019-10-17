@@ -19,7 +19,7 @@ ms.author: adsasine
 
 ### A quick summary of our architecture
 
-A cache is constructed of a virtual machines with separate private IPs. Each virtual machine, also known as a node, is connected to a shared load balancer with a single virtual IP. Each node runs the Redis server process and is accessible through the host name and the Redis ports. Each node is either considered a master or a replica node. When a client application connects to a cache, its traffic goes through this load balancer and is automatically routed to the master node.
+A cache is constructed of multiple virtual machines with separate private IPs. Each virtual machine, also known as a node, is connected to a shared load balancer with a single virtual IP. Each node runs the Redis server process and is accessible through the host name and the Redis ports. Each node is either considered a master or a replica node. When a client application connects to a cache, its traffic goes through this load balancer and is automatically routed to the master node.
 
 In a Basic cache, the single node is always a master. In a Standard or Premium cache, there are two nodes where one is chosen the master and the other is the replica. Because Standard and Premium caches have multiple nodes, one node may be unavailable while the other continues to process requests. Clustered caches are made of many shards, each with distinct master and replica nodes. One shard may be down while the others remain available.
 
@@ -39,7 +39,7 @@ An unplanned failover may happen because of hardware failure, network failure, o
 The Azure Cache for Redis service regularly does maintenance to update your cache with the latest platform features and fixes. To patch a cache, the service follows the following steps:
 
 1. The management service selects one node to be patched.
-1. If the selected node is a master node, its replica node cooperatively promotes itself. This is considered a planned failover.
+1. If the selected node is a master node, its replica node cooperatively promotes itself. This promotion is considered a planned failover.
 1. The selected node reboots to take the new changes and comes back up as a replica node.
 1. The selected node connects to the master node and synchronize data.
 1. When data sync completes, the patching process repeats for the remaining nodes.
