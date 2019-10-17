@@ -66,7 +66,6 @@ There are several sample datasets included in the visual interface for you to ex
 
    ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
-<<<<<<< HEAD
 1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
 
 1. Click and drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
@@ -87,7 +86,6 @@ There are several sample datasets included in the visual interface for you to ex
 
 1. On the lower right, select **Save** to close the column selector.
 
-<<<<<<< HEAD
 ### Run the pipeline
 
 At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Outputs** tab doesn't appear, you first need to run the pipeline.
