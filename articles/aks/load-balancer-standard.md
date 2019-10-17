@@ -259,6 +259,28 @@ Navigate to the public IP in a browser and verify you see the sample application
 > [!NOTE]
 > You can also configure the load balancer to be internal and not expose a public IP. To configure the load balancer as internal, add `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` as an annotation to the *LoadBalancer* service. You can see an example yaml manifest as well as more details about an internal load balancer [here][internal-lb-yaml].
 
+## Optional - Restrict access to specific IP ranges
+
+The Network Security Group (NSG) associated with the vnet in which the loadbalancer exists will be updated to control inbound and outbound network traffic for your services. By default, the NSG has an allow rule for all inbound internet traffic. To change this rule, specify the allowed IP ranges in the kubernetes manifest used to deploy your load balancer. Using the below manifest will replace the rule that allows all inbound traffic from Internet, with rules that allows only traffic from the specified IP address ranges. This means that the load balancer, and by extension any nodes in your cluster that it forwards traffic to, will only be accessible from the specified IP ranges.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-vote-front
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: azure-vote-front
+  loadBalancerSourceRanges:
+  - 180.148.104.112/32
+  - 180.148.105.1/24
+```
+
+Information about this feature is available in the Kubernetes documentation [here][https://kubernetes.io/docs/tasks/access-application-cluster/configure-cloud-provider-firewall/#restrict-access-for-loadbalancer-service]
+
 ## Optional - Scale the number of managed public IPs
 
 When using a *Standard* SKU load balancer with managed outbound public IPs, which are created by default, you can scale the number of managed outbound public IPs using the *load-balancer-managed-ip-count* parameter.
