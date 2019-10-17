@@ -15,7 +15,7 @@ services: iot-edge
 > [!NOTE]
 > This article is part of a series for a tutorial about using Azure Machine Learning on IoT Edge. If you have arrived at this article directly, we encourage you to begin with the [first article](tutorial-machine-learning-edge-01-intro.md) in the series for the best results.
 
-In this article, we use Azure Notebooks first to train a machine learning model using Azure Machine Learning and then package that model as a container image that can be deployed as an Azure IoT Edge Module. The Azure Notebooks take advantage of an Azure Machine Learning service workspace, which is a foundational block used to experiment, train, and deploy machine learning models.
+In this article, we use Azure Notebooks first to train a machine learning model using Azure Machine Learning and then package that model as a container image that can be deployed as an Azure IoT Edge Module. The Azure Notebooks take advantage of an Azure Machine Learning workspace, which is a foundational block used to experiment, train, and deploy machine learning models.
 
 The activities in this portion of the tutorial are broken up across two notebooks.
 
