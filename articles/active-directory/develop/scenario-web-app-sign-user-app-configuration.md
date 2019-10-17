@@ -379,7 +379,24 @@ Session(app)
 
 ## Next steps
 
-In the next article, you'll learn how to trigger the sign-in and sign-out.
+# [ASP.NET Core](#tab/dotnetcore)
 
 > [!div class="nextstepaction"]
-> [Sign in and sign out](scenario-web-app-sign-user-sign-in.md)
+> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
+
+# [ASP.NET](#tab/dotnet)
+
+> [!div class="nextstepaction"]
+> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=dotnet)
+
+# [Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
+
+# [Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
+
+---
