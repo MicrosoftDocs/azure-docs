@@ -379,15 +379,15 @@ Session(app)
 
 ## Next steps
 
-# [ASP.NET Core](#tab/dotnetcore)
+# [ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
 > [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
 
-# [ASP.NET](#tab/dotnet)
+# [ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=dotnet)
+> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
 
 # [Java](#tab/java)
 

@@ -77,15 +77,15 @@ The Python sample doesn't remove accounts from the cache on global sign-out
 
 ## Next steps
 
-# [ASP.NET Core](#tab/dotnetcore)
+# [ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
 > [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
 
-# [ASP.NET](#tab/dotnet)
+# [ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=dotnet)
+> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnet)
 
 # [Java](#tab/java)
 
