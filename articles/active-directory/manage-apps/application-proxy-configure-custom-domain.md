@@ -77,9 +77,9 @@ To publish your app through Application Proxy with a custom domain:
    > [!TIP] 
    > A custom domain only needs its certificate uploaded once. After that, the uploaded certificate is applied automatically when you use the custom domain for other apps.
    
-1. If you added a certificate, on the **Application Proxy** page, select **Save**. 
+1. If you added a certificate, on the **Application proxy** page, select **Save**. 
    
-1. In the information bar on the **Application Proxy** page, note the CNAME entry you need to add to your DNS zone. 
+1. In the information bar on the **Application proxy** page, note the CNAME entry you need to add to your DNS zone. 
    
    ![Add CNAME DNS entry](./media/application-proxy-configure-custom-domain/dns-info.png)
    
@@ -89,7 +89,7 @@ To publish your app through Application Proxy with a custom domain:
 
 Your application is now set up to use the custom domain. Be sure to assign users to your application before you test or release it. 
 
-To change the domain for an app, select a different domain from the dropdown list in **External URL** on the app's **Application Proxy** page. Upload a certificate for the updated domain, if necessary, and update the DNS record. If you don't see the custom domain you want in the dropdown list in **External URL**, it might not be verified.
+To change the domain for an app, select a different domain from the dropdown list in **External URL** on the app's **Application proxy** page. Upload a certificate for the updated domain, if necessary, and update the DNS record. If you don't see the custom domain you want in the dropdown list in **External URL**, it might not be verified.
 
 For more detailed instructions for Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
@@ -111,15 +111,15 @@ Don't use a private root CA. The private root CA would also need to be pushed to
 
 ### Certificate management
 
-All certificate management is through the individual application pages. Go to the application's **Application Proxy** page to access the **Certificate** field.
+All certificate management is through the individual application pages. Go to the application's **Application proxy** page to access the **Certificate** field.
 
 You can use the same certificate for many applications. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when you add or configure the app. 
 
-When a certificate expires, you get a warning telling you to upload another certificate. If the certificate is revoked, your users may see a security warning when accessing the app. To update the certificate for an app, navigate to the **Application Proxy** page for the app, select **Certificate**, and upload a new certificate. If the old certificate isn't being used by other apps, it's deleted automatically. 
+When a certificate expires, you get a warning telling you to upload another certificate. If the certificate is revoked, your users may see a security warning when accessing the app. To update the certificate for an app, navigate to the **Application proxy** page for the app, select **Certificate**, and upload a new certificate. If the old certificate isn't being used by other apps, it's deleted automatically. 
 
 ## DNS entries
 
-When you select a custom domain for an external URL, an information bar shows the CNAME entry you need to add to the external DNS provider. You can always see this information again by going to the app's **Application Proxy** page.
+When you select a custom domain for an external URL, an information bar shows the CNAME entry you need to add to the external DNS provider. You can always see this information again by going to the app's **Application proxy** page.
 
 There are several options for setting up your DNS configuration, depending on your requirements:
 
