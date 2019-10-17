@@ -21,7 +21,7 @@ InfiniBand with SR-IOV is available for all RDMA enabled VMs on Azure. RDMA capa
 
 To get started with IaaS VMs for HPC, the simplest solution is to use the CentOS-HPC 7.6 VM OS image, which is already configured with InfiniBand. Since this image is already configured with InfiniBand, you don't have to [configure it manually](#manually-install-ofed). 
 
-If you're using a custom VM image or a [GPU optimzed](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) VM, you should configure it with InfiniBand by adding the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment. Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
+If you're using a custom VM image or a [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) VM, you should configure it with InfiniBand by adding the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment. Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
 
 
 ## Manually install OFED
