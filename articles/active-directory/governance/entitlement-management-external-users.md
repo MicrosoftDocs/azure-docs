@@ -115,6 +115,6 @@ You can also change this setting after you have created the catalog.
 
 ## Next steps
 
-- [For users not in your directory](entitlement-management-access-package-create.md#for-users-not-in-your-directory)
+- [For users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Create and manage a catalog of resources](entitlement-management-catalog-create.md)
 - [Delegation and roles](entitlement-management-delegate.md)
