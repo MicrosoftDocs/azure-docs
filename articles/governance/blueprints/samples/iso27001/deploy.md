@@ -1,5 +1,5 @@
 ---
-title: Sample - ISO 27001 blueprint - Deploy steps
+title: ISO 27001 blueprint sample - Deploy steps
 description: Deploy steps for the standalone ISO 27001 blueprint sample including blueprint artifact parameter details.
 author: DCtheGeek
 ms.author: dacoulte

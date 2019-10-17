@@ -1,5 +1,5 @@
 ---
-title: Sample - PCI-DSS v3.2.1 blueprint - Overview
+title: PCI-DSS v3.2.1 blueprint sample - Overview
 description: Overview of the Payment Card Industry Data Security Standard v3.2.1 blueprint sample. This blueprint sample helps customers asses specific controls.
 services: blueprints
 author: DCtheGeek
