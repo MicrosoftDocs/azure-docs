@@ -195,7 +195,9 @@
     - name: Set up alerts based on metrics
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
     - name: Set up alerts based on diagnostic log
-      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md    
+      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
+  - name: Configure custom traffic selectors
+    href: custom-traffic-selectors.md  
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
