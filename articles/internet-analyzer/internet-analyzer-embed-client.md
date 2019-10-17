@@ -22,7 +22,7 @@ This article shows you how to embed the JavaScript client in your application. I
 
 ## Before you begin
 
-Make sure you set up an Internet Analyzer resource and have copied the unique JavaScript client provided to you. Internet Analyzer assumes your application is internet-facing. For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md). 
+Make sure you set up an Internet Analyzer resource and have copied the unique JavaScript client URL provided to you. Internet Analyzer assumes your application is Internet accessible. For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md). 
 
 
 ## xxx

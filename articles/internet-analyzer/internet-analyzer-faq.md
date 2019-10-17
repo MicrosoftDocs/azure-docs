@@ -17,14 +17,14 @@ This is the FAQ for Azure Internet Analyzer- if you have additional questions, g
 The preview is available to select customers. If you are interested in joining the preview,[request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR65LM6ELn65MggTwxb0d215UMkNIUDVGV1JGS0w5WFBHWklNMTNRTDQ4My4u) by providing us an active Azure subscription ID.  
 
 ## Do I need to embed the client to run a test? 
-Yes, the Internet Analyzer client must be installed in your application to collect metrics on your unique users. [Learn how to install the client.](internet-analyzer-embed-client.md) 
+Yes, the Internet Analyzer client must be installed in your application to collect metrics specific to your users. [Learn how to install the client.](internet-analyzer-embed-client.md) 
 
 ## Do I get billed for participating in the preview? 
 No, Azure Internet Analyzer is free to use in preview. There is no service-level agreement during preview. 
 
 ## What scenarios is Internet Analyzer designed to address? 
 
-Internet Analyzer is designed to give you networking performance insights based on your end users. To help you make the best performance decisions for your end users, Internet Analyzer allows you to evaluate and compare two endpoints for a given population of end users. While Internet Analyzer can answer a multitude of questions, some of the most common are: 
+Internet Analyzer is designed to give you networking performance insights based on your user population. To help make the best performance decisions for your users, Internet Analyzer compares the performance of two Internet using your distinct user population. While Internet Analyzer can answer a multitude of questions, some of the most common are: 
 * What is the impact of migrating to the cloud? 
     * *Suggested Test: Custom (your current on-premises infrastructure) vs. Azure (any preconfigured endpoint)*
 * What is the best cloud for your end-user population in each region? 
@@ -78,7 +78,7 @@ The following preconfigured endpoints are available during preview:
 
 ## How is Internet Analyzer different from other monitoring services provided by Azure? 
 
-Internet Analyzer is designed to help you understand your end users' experience today and how to make decisions to improve your end users' experience. While other Azure monitoring tools provide insights into middle-mile and data center performance, Internet Analyzer focuses on understanding last mile performance for your specific set of end users. 
+Internet Analyzer is designed to help you understand your end users' experience today and how to make decisions to improve your end users' experience. While other Azure monitoring tools provide insights into middle-mile and data center performance, Internet Analyzer focuses on measuring end-to-end Internet performance for your specific set of end users. 
 
 
 ## Next Steps 

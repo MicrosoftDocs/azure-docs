@@ -13,9 +13,9 @@ ms.author: mebeatty
 ---
 # What is Internet Analyzer? (Preview)
 
-Internet Analyzer is a client-side measurement platform that enables you to test how networking infrastructure changes will impact your customers’ performance. Whether you’re migrating from on-premises to Azure or evaluating a new Azure service, Internet Analyzer allows you to learn from your users’ data and Microsoft’s rich analytics to better understand and optimize your network architecture with Azure—before you migrate.
+Internet Analyzer is a client-side measurement platform test how networking infrastructure changes impact your customers’ performance. Whether you’re migrating from on-premises to Azure or evaluating a new Azure service, Internet Analyzer allows you to learn from your users’ data and Microsoft’s rich analytics to better understand and optimize your network architecture with Azure—before you migrate.
 
-Internet Analyzer uses a small JavaScript client embedded in your web-based application to measure the latency from your end-users to your selected set of network destinations. Internet Analyzer allows you to set up multiple dual-endpoint tests, allowing you to evaluate a variety of scenarios as your infrastructure and customer needs evolves. Internet Analyzer provides custom and preconfigured endpoints, providing you both the convenience and flexibility to make trusted performance decisions for your end users. 
+Internet Analyzer uses a small JavaScript client embedded in your Web application to measure the latency from your end-users to your selected set of network destinations. Internet Analyzer allows you to set up multiple dual-endpoint tests, allowing you to evaluate a variety of scenarios as your infrastructure and customer needs evolves. Internet Analyzer provides custom and preconfigured endpoints, providing you both the convenience and flexibility to make trusted performance decisions for your end users. 
 
 
 > [!IMPORTANT]
@@ -24,7 +24,7 @@ Internet Analyzer uses a small JavaScript client embedded in your web-based appl
 
 ## Quick & customizable tests
 
-Internet Analyzer is designed to address performance-related questions related to cloud migration, deploying to a new or additional Azure regions, or testing new app and content deliver architectures in Azure, such as Azure Front door and Azure CDN from Microsoft. 
+Internet Analyzer addresses performance-related questions for cloud migration, deploying to a new or additional Azure regions, or testing new application and content delivery platforms in Azure, such as Azure Front Door and Microsoft Azure CDN. 
 
 Each test you create in Internet Analyzer is composed of two endpoints—Endpoint A and Endpoint B. Endpoint B is measured relative to what you select as Endpoint A. 
 
@@ -81,7 +81,9 @@ To help you make the best performance decisions for your end users, Internet Ana
 ## How it works
 
 To use Internet Analyzer, set up an Internet Analyzer resource in the Microsoft Azure portal and install the small JavaScript client in your application. The client measures the latency from your end-users to your selected network destinations (endpoints) by downloading a one-pixel image over HTTPS. After collecting latency measurements, the client sends the measurement data to Internet Analyzer.
-For the sampled end-user population, cold and warm latency measurements are conducted. Only warm latency measurements are used for analysis. Telemetry data is always aggregated and anonymized. 
+When a user visits the Web application, the JavaScript client selects two endpoints to measure across all configured experiments. For each endpoint, the client performs a _cold_ and _warm_ measurement. The _cold_ measurement incurs additional latency beside the pure network latency between the user and endpoint such as DNS resolution, TCP connection handshake, and SSL/TLS negotiation. The _warm_ measurement follows just after the _cold_ measurement completes and takes advantage of modern browsers' persistent TCP connection management to get an accurate measure of end-to-end latency. When supported by the user's browser, the W3C resource timing API is used for accurate measurement timing.
+ 
+Currently, only warm latency measurements are used for analysis. Telemetry data is always aggregated and anonymized. 
 
 ![architecture](./media/ia-overview/architecture.png)
 
