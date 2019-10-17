@@ -26,35 +26,37 @@ Since the Command will now handle on and off, rename the Command to "TurnOnOff".
 
 Select the Parameters section and create a new parameter to represent whether the user wants to turn the device on or off.
 
-> SCREENSHOT: Add OnOff string list parameter
+![Microphone access permission request](media/custom-speech-commands/create-on-off-parameter.png)
 
 Setting|Suggested value|Description
 ---|---|---
 Name | OnOff |Choose a descriptive name for your parameter
-Parameter Type|String List|The type of parameter, such as Number, String List, or Date Time
-Possible Values|on, off|For a String List parameter, the normalized set values for this parameter
-Synonyms|on, off|For a String List parameter, the normalized set values for this parameter
 Required|true|Checkbox indicating whether a value for this parameter is required before completing the Command
-Elicitation Prompt |"On or off?"| A prompt to ask for the value of this parameter when it isn't known
+Prompt |"On or off?"| A prompt to ask for the value of this parameter when it isn't known
+Type|String|The type of parameter, such as Number, String, or Date Time
+Configuration|String List|For Strings, a String List limits inputs to a set of possible values
+Normalized Values|on, off|For a String List parameter, the set of possible values and their synonyms
+
 
 Next add a second parameter to represent the name of the devices.  For this example, a tv and a fan.
 
 Setting|Suggested value|Description
 ---|---|---
 Name | SubjectDevice |Choose a descriptive name for your parameter
-Parameter Type|String|The type of parameter, such as Number, String, or Date Time
-Parameter Configuration|String List|For Strings, a String List limits inputs to a set of possible values
-Possible Values|tv, fan|For a String List, the possible set values for this parameter
-Synonyms (tv)|television, telly|Optional synonyms for each possible value of a String List Parameter
 Required|true|Checkbox indicating whether a value for this parameter is required before completing the Command
-Elicitation Prompt |"On or off?"| A prompt to ask for the value of this parameter when it isn't known
+Prompt |"On or off?"| A prompt to ask for the value of this parameter when it isn't known
+Type|String|The type of parameter, such as Number, String, or Date Time
+Configuration|String List|For Strings, a String List limits inputs to a set of possible values
+Normalized Values|tv, fan|For a String List parameter, the set of possible values and their synonyms
+Synonyms (tv)|television, telly|Optional synonyms for each possible value of a String List Parameter
+
 
 ## Add Sample Sentences
 
 With parameters, it's helpful to add sample sentences with:
-- Full parameter information
-- Partial parameter information
-- No parameter information
+- Full parameter information - `"turn {OnOff} the {SubjectDevice}"`
+- Partial parameter information - `"turn it {OnOff}"`
+- No parameter information - `"turn something"`
 
 Varied examples allow the Speech Commands application to resolve both one-shot resolutions and multi-turn resolutions with partial information.
 
@@ -70,6 +72,7 @@ In the sample sentences editor use brackets in the sample sentences editor to re
 - \{SubjectDevice\} \{OnOff\}
 - turn it \{OnOff\}
 - turn something \{OnOff\}
+- turn something
 
 > Screenshot: Syntax highlighted sample sentences
 
@@ -83,18 +86,18 @@ Modify the Completion rule that you created in the previous quickstart
 
 
 ## Try it out
-Open the Test chat panel and test a few interactions
+Open the Test chat panel and try a few interactions
 
-turn off the tv
- - Ok, turning off the tv
+> - A: turn off the tv
+> - B: Ok, turning off the tv
 
-turn off the television
- - Ok, turning off the tv
+> - A: turn off the television
+> - B: Ok, turning off the tv
 
-turn it off
-- Which device?
-the tv
-- Ok, turning off the tv
+> - A: turn it off
+> - B: Which device?
+> - A: the tv
+> - B: Ok, turning off the tv
 
 ## Next steps
 > [!div class="nextstepaction"]
