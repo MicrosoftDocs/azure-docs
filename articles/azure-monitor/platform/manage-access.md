@@ -143,7 +143,7 @@ The Log Analytics Reader role includes the following Azure actions:
 
 Members of the *Log Analytics Contributor* role can:
 
-* Read all monitoring data the Log Analytics Reader can
+* Includes all the privileges of the *Log Analytics Reader role*, allowing the user to read all monitoring data
 * Create and configure Automation accounts
 * Add and remove management solutions
 
