@@ -12,7 +12,7 @@ ms.author: evansma
 
 # Configure lead management for Dynamics 365 for Customer Engagement
 
-This article describes how to set up Dynamics 365 for Customer Engagement (previously Dynamics CRM Online), read more about the change [here](https://docs.microsoft.com/dynamics365/customer-engagement/admin/switch-dynamics-crm-online-dynamics-365) to process sales leads from your marketplace offer. 
+This article describes how to set up Dynamics 365 for Customer Engagement (previously Dynamics CRM Online), read more about the change [here](https://docs.microsoft.com/dynamics365/customerengagement/on-premises/admin/on-prem-server-based-sharepoint-online) to process sales leads from your marketplace offer. 
 
 >[!Note]
 >These instructions are specific for the Microsoft hosted cloud Dynamics 365 for Customer Engagement environment. Connecting directly to a Dynamics on-prem environment is not currently supported, there are other options for you to receive leads such as configuring an [https endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
@@ -93,7 +93,7 @@ Use the following steps to configure Azure Active Directory for Dynamics 365 for
 
     ![Add permissions](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
-14. After completing steps 1-13 on the Azure portal, navigate to your Dynamics 365 for Customer Engagement instance by navigating to the URL (such as https://tenant.crm.dynamics.com).
+14. After completing steps 1-13 on the Azure portal, navigate to your Dynamics 365 for Customer Engagement instance by navigating to the URL (such as `https://tenant.crm.dynamics.com`).
 15. Access Settings by selecting the gear icon, and **Advanced Settings** on the top navigation bar.
 16. Once on Settings page, access the Setting menu from the top navigation bar and select **Security**.
 17. Once on the Security page, select **Users**.  On the Users page, select the "Enabled Users" dropdown to switch over to **Application Users**.

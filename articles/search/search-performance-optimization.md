@@ -2,7 +2,7 @@
 title: Deployment strategies and best practices for optimizing performance - Azure Search
 description: Learn techniques and best practices for tuning Azure Search performance and configuring optimum scale.
 author: LiamCavanagh
-manager: jlembicz
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -88,11 +88,6 @@ If you are using the Azure Search REST API to [push content in your Azure Search
 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) allows you to route requests to multiple geo-located websites that are then backed by multiple Azure Search Services. One advantage of the Traffic Manager is that it can probe Azure Search to ensure that it is available and route users to alternate search services in the event of downtime. In addition, if you are routing search requests through Azure Web Sites, Azure Traffic Manager allows you to load balance cases where the Website is up but not Azure Search. Here is an example of what the architecture that leverages Traffic Manager.
 
    ![Cross-tab of services by region, with central Traffic Manager][3]
-
-## Monitor performance
-Azure Search offers the ability to analyze and monitor the performance of your service through [search traffic analytics](search-traffic-analytics.md). When you enable this functionality and add instrumentation to your client app, you can optionally log the individual search operations as well as aggregated metrics to an Azure Storage account that can then be processed for analysis or visualized in Power BI. Metrics captures this way provide performance statistics such as average number of queries or query response times. In addition, the operation logging allows you to drill into details of specific search operations.
-
-Traffic analytics is useful for understanding latency rates from that Azure Search perspective. Since the query performance metrics logged are based on the time a query takes to be fully processed in Azure Search (from the time it is requested to when it is sent out), you are able to use this to determine if latency issues are from the Azure Search service side or outside of the service, such as from network latency.  
 
 ## Next steps
 To learn more about the pricing tiers and services limits for each one, see [Service limits in Azure Search](search-limits-quotas-capacity.md).

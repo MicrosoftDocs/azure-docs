@@ -21,10 +21,12 @@
       href: tutorial-configure-password-hash-sync.md
 - name: Samples
   items:
-    - name: Create an Azure AD DS instance using Azure PowerShell
+    - name: Create a managed domain using Azure PowerShell
       href: powershell-create-instance.md
 - name: Concepts
   items:
+    - name: Administration basics
+      href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
     - name: How Azure AD DS synchronization works
@@ -85,32 +87,38 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Deploy applications to Azure AD DS
+    - name: Deploy applications
       items:
         - name: Deploy Azure AD Application Proxy
           href: deploy-azure-app-proxy.md
-        - name: Configure support for profile synchronization for SharePoint Server
+        - name: Enable profile synchronization for SharePoint Server
           href: deploy-sp-profile-sync.md
     - name: Troubleshoot
-      items:
+      items: 
         - name: Common errors
           href: troubleshoot.md
-        - name: Common alerts
-          items:
-            - name: Common alerts
-              href: troubleshoot-alerts.md
-            - name: Fix a broken network configuration
-              href: alert-nsg.md
-            - name: Restore missing service principals
-              href: alert-service-principal.md
-            - name: Secure LDAP alerts
-              href: alert-ldaps.md
-        - name: Mismatched tenant errors
+        - name: Domain-join issues
+          href: troubleshoot-domain-join.md
+        - name: Account lockouts
+          href: troubleshoot-account-lockout.md
+        - name: Sign-in problems
+          href: troubleshoot-sign-in.md
+        - name: Resolve mismatched tenant errors
           href: mismatched-tenant-error.md
         - name: Suspended domains
           href: suspension.md
-        - name: Secure LDAP
+        - name: Secure LDAP issues
           href: tshoot-ldaps.md
+        - name: Known issues
+          items:
+            - name: Common alerts
+              href: troubleshoot-alerts.md
+            - name: Network alerts
+              href: alert-nsg.md
+            - name: Service principal alerts
+              href: alert-service-principal.md
+            - name: Secure LDAP alerts
+              href: alert-ldaps.md
 - name: Resources
   items:
     - name: FAQs

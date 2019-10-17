@@ -1,7 +1,7 @@
 ---
 title: Modeling multitenancy for content isolation in one service - Azure Search
 description: Learn about common design patterns for multitenant SaaS applications while using Azure Search.
-manager: jlembicz
+manager: nitinme
 author: LiamCavanagh
 services: search
 ms.service: search

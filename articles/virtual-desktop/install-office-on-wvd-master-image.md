@@ -1,6 +1,6 @@
 ---
 title: Install Office on a master VHD image - Azure
-description: How to install and customize Office on a Windows Virtual Desktop preview master image to Azure.
+description: How to install and customize Office on a Windows Virtual Desktop master image to Azure.
 services: virtual-desktop
 author: Heidilohr
 
@@ -18,7 +18,7 @@ This article assumes you've already created a virtual machine (VM). If not, see 
 This article also assumes you have elevated access on the VM, whether it's provisioned in Azure or Hyper-V Manager. If not, see [Elevate access to manage all Azure subscription and management groups](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
+>These instructions are for a Windows Virtual Desktop-specific configuration that can be used with your organization's existing processes.
 
 ## Install Office in shared computer activation mode
 
@@ -40,7 +40,7 @@ This sample configuration XML we've provided will do the following things:
 - Enable shared computer activation.
 
 >[!NOTE]
->Stencil search feature in Visio does not operate in Windows Virtual Desktop during preview configuration.
+>Visio's stencil search feature may not work as expected in Windows Virtual Desktop.
 
 Here's what this sample configuration XML won't do:
 

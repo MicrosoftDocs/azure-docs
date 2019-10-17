@@ -4,7 +4,7 @@ description: Introduce the steps to reset the local Linux password on Azure VM
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: ''
 

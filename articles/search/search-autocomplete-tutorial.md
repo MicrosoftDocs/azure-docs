@@ -1,7 +1,7 @@
 ---
 title: 'Add suggestions and autocomplete in a search box - Azure Search'
 description: Enable typeahead query actions in Azure Search by creating suggesters and formulating requests that fill in a search box with completed terms or phrases. 
-manager: pablocas
+manager: nitinme
 author: mrcarter8
 services: search
 ms.service: search

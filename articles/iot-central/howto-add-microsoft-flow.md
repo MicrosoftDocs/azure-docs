@@ -4,7 +4,7 @@ description: Use the IoT Central connector in Microsoft Flow to trigger workflow
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 04/25/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate

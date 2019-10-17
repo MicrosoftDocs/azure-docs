@@ -4,7 +4,7 @@ description: Describes how to prepare for assessment and migration of on-premise
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: mvc
 ---

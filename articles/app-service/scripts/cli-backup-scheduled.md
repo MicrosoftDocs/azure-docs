@@ -10,7 +10,6 @@ tags: azure-service-management
 
 ms.service: app-service-web
 ms.workload: web
-ms.devlang: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu

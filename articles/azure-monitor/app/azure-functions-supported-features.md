@@ -3,7 +3,7 @@ title: Azure Application Insights - Azure Functions Supported Features | Microso
 description: Application Insights Supported Features for Azure Functions
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: 
 ms.service: application-insights
 ms.workload: TBD
@@ -16,7 +16,7 @@ ms.author: tilee
 
 # Application Insights for Azure Functions supported features
 
-Azure Functions offers [built-in integration](https://docs.microsoft.com/azure/azure-functions/functions-monitoring) with Application Insights, which is available through the ILogger Interface. Below is the list of currently supported features. Review Azure Functions' guide for [Getting started](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
+Azure Functions offers [built-in integration](../../azure-functions/functions-monitoring.md) with Application Insights, which is available through the ILogger Interface. Below is the list of currently supported features. Review Azure Functions' guide for [Getting started](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
 
 ## Supported features
 

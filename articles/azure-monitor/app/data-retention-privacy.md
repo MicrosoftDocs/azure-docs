@@ -95,7 +95,7 @@ It can be exported by you and your team members and could be copied to other loc
 Microsoft uses the data only in order to provide the service to you.
 
 ## Where is the data held?
-* In the USA, Europe or Southeast Asia. You can select the location when you create a new Application Insights resource. 
+* You can select the location when you create a new Application Insights resource. Know more about Application Insights availability per region [here](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
 #### Does that mean my app has to be hosted in the USA, Europe or Southeast Asia?
 * No. Your application can run anywhere, either in your own on-premises hosts or in the cloud.

@@ -257,6 +257,12 @@
   - name: Understand Policy effects
     displayName: order, evaluation
     href: ./concepts/effects.md
+  - name: Azure Policy assignment structure
+    displayName: parameters, enforcementmode, policyDefinitionId
+    href: ./concepts/assignment-structure.md
+  - name: Evaluate the impact of a new policy
+    displayName: audit, enforcementmode, compliance
+    href: ./concepts/evaluate-impact.md
   - name: Azure Policy for Kubernetes
     displayName: aks, rego, k8s, opa, open policy agent, gatekeeper
     href: ./concepts/rego-for-aks.md

@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tamram
 ms.subservice: blobs
@@ -276,7 +276,7 @@ blockBlob.StartCopy(copySource);
 ```
 
 ## Are there any special considerations for using soft delete?
-If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, we recommend turning on soft delete. Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this by storing the frequently overwritten data in a seperate storage account with soft delete disabled. 
+If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, we recommend turning on soft delete. Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this by storing the frequently overwritten data in a separate storage account with soft delete disabled. 
 
 ## FAQ
 **For which storage types can I use soft delete?**  

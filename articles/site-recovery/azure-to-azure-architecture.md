@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/03/2019
 ms.author: raynew
 ---
 
@@ -62,7 +62,7 @@ When you enable Azure VM replication, by default Site Recovery creates a new rep
 **Policy setting** | **Details** | **Default**
 --- | --- | ---
 **Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 24 hours
-**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every 60 minutes.
+**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every four hours
 
 ### Managing replication policies
 

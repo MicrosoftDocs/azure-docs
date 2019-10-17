@@ -6,7 +6,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 10/15/2019
 ms.author: ramamill
 ---
 
@@ -93,6 +93,9 @@ If you're replicating more than one VMware VM, read [capacity planning considera
 > Do not change resource configurations(memory/cores/CPU restriction), modify/delete installed services or files on configuration server after deployment. This will impact registration of configuration server with Azure services and performance of configuration server.
 
 ## Add an additional adapter
+
+> [!NOTE]
+> Two NICs are required if you are planning to retain the IP addresses of the source machines on failover and wish to failback to on-premises later. One NIC will be connected to source machines and the other NIC will be used for Azure connectivity.
 
 If you want to add an additional NIC to the configuration server, add it before you register the server in the vault. Adding additional adapters isn't supported after registration.
 

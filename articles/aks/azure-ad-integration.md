@@ -82,7 +82,7 @@ The first Azure AD application is applied to get a user's Azure AD group members
 
     e. Select **Add permissions** to save the updates.
 
-    f. Under **Grant consent**, select **Grant admin consent**. This button isn't unavailable if the current account isn't a tenant admin.
+    f. Under **Grant consent**, select **Grant admin consent**. This button won't be available the current account being used is not listed as a tenant admin.
 
     When permissions are successfully granted, the following notification is displayed in the portal:
 

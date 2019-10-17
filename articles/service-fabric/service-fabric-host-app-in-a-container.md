@@ -283,6 +283,3 @@ In the next part of the tutorial, learn how to [Deploy a container application w
 [fabrikam-web-page]: media/service-fabric-host-app-in-a-container/fabrikam-web-page.png
 [fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
 [publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png
-m-web-page.png
-[fabrikam-web-page-deployed]: media/service-fabric-host-app-in-a-container/fabrikam-web-page-deployed.png
-[publish-app]: media/service-fabric-host-app-in-a-container/publish-app.png
