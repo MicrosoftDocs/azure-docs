@@ -47,7 +47,9 @@ landingContent:
           - text: Forward events to Azure Event Grid
             url: forward-events-event-grid-cloud.md
           - text: Forward events to Azure IoT Hub
-            url: forward-events-event-grid-cloud.md            
+            url: forward-events-event-grid-cloud.md     
+          - text: React to Azure Blob storage events locally
+            url: deploy-blob-storage-module-portal.md
   # Card
   - title: Security
     linkLists:
