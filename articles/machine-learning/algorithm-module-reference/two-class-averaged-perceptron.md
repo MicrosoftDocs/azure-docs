@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 ---
 # Two-Class Averaged Perceptron module
 
-This article describes a module in Azure Machine Learning designer.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to create a machine learning model based on the averaged perceptron algorithm.  
   
