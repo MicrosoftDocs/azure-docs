@@ -132,4 +132,4 @@ You can manually update this dataset, but you might introduce errors. For exampl
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning 
+See the [set of modules available](module-reference.md) to Azure Machine Learning.
