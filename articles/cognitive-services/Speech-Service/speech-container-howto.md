@@ -25,8 +25,8 @@ Speech containers enable customers to build a speech application architecture th
 |--|--|--|
 | Speech-to-text | Transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 1.2.0 |
 | Custom Speech-to-text | Using a custom model from the [Custom Speech portal](https://speech.microsoft.com/customspeech), transcribes continuous real-time speech or batch audio recordings into text with intermediate results. | 1.0.0 |
-| Text-to-dpeech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.2.0 |
-| Custom Text-to-dpeech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.0.0 |
+| Text-to-speech | Converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.2.0 |
+| Custom Text-to-speech | Using a custom model from the [Custom Voice portal](https://aka.ms/custom-voice-portal), converts text to natural-sounding speech with plain text input or Speech Synthesis Markup Language (SSML). | 1.0.0 |
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -56,11 +56,14 @@ Fill out and submit the [Cognitive Services Speech Containers Request form](http
 
 ### Advanced Vector Extension support
 
-The **host** is the computer that runs the docker container. The host must support [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check this support on Linux hosts with the following command:
+The **host** is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for VSX2 support on Linux hosts with the following command:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
+
+> [!NOTE]
+> The host computer is *required* to support VSX2. The container *will not* function correctly without VSX2 support. 
 
 ### Container requirements and recommendations
 
@@ -395,10 +398,12 @@ This command:
 
 | Container | Endpoint | Protocol |
 |--|--|--|
-| Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS/S |
-| Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS/S |
-| Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP/S |
-| Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP/S |
+| Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
+| Custom Speech-to-text | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
+| Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| Custom Text-to-speech | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+
+For more information on using WSS and HTTPS protocols, see [container security](../cognitive-services-container-support.md#prerequisites#azure-cognitive-services-container-security).
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
