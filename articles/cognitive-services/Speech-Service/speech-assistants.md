@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/31/2019
 ms.author: travisw
 ---
 
@@ -32,7 +32,9 @@ Direct Line Speech and its associated functionality for speech assistants are an
 
 ## Comparing assistant solutions
 
-Lorem ipsum
+The speech assistant service connects your on-device application to your unique assistant implementation. Speech assistants can be authored with the Bot Framework's [Direct Line Speech](direct-line-speech.md) channel or the [Custom Commands](custom-commands.md) solution for task completion.
+
+   ![Comparison of assistant solutions](media/speech-assistants/assistant-solution-comparison.png "Comparison of assistant solutions")
 
 ## Get started with speech assistants
 
