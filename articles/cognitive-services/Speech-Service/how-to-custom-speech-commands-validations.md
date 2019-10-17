@@ -1,7 +1,7 @@
 ---
-title: 'How To: Add Validations to Custom Speech Command parameters (Preview)'
+title: 'How To: Add Validations to Custom Command parameters (Preview)'
 titleSuffix: Azure Cognitive Services
-description: In this article, add validations to Custom Speech Command parameters
+description: In this article, add validations to Custom Command parameters
 services: cognitive-services
 author: donkim
 manager: yetian
@@ -12,23 +12,33 @@ ms.date: 10/09/2019
 ms.author: donkim
 ---
 
-# How To: Add Validations to Custom Speech Command parameters (Preview)
+# How To: Add Validations to Custom Command parameters (Preview)
 
 In this article, you'll learn how to add validations to parameters and prompt for correction.
 
-To demonstrate validations, create a new Command allowing the user to set the temperature.
+## Prerequisites
 
-Create a new Command "SetTemperature"
+For information on creating a Command and adding parameters, see one of the previous articles:
+> [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
+
+> [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+
+## Create a SetTemperature Command
+
+To demonstrate validations, let's create a new Command allowing the user to set the temperature.
+
+Create a new Command SetTemperature
 
 Add a parameter for the target temperature.
 
+Setting|Suggested value|Description
 ---|---|---
-Name | Temperature |Choose a descriptive name for your parameter
-Parameter Type|Number|The type of parameter, such as Number, String, or Date Time
+Name|Temperature|Choose a descriptive name for your parameter
+Required|true|Checkbox indicating whether a value for this parameter is required before completing the Command
+Prompt|"What temperature would you like?"| A prompt to ask for the value of this parameter when it isn't known
+Type|Number|The type of parameter, such as Number, String, or Date Time
 Validations|NumberInRange|For Strings, a String List limits inputs to a set of possible values
 On Failure Prompt|"Sorry, I can only set between 50 and 80 degrees"|Prompt to ask for an updated value if the validation fails
-Required|true|Checkbox indicating whether a value for this parameter is required before completing the Command
-Elicitation Prompt |"What temperature would you like?"| A prompt to ask for the value of this parameter when it isn't known
 
 Remember to add some sample sentences
 - set the temperature to {Temperature} degrees
@@ -50,12 +60,15 @@ Actions|SpeechResponse - "Ok, setting to {Temperature} degrees"|The action to ta
 > [How To: Fulfill Commands on the client with the Speech SDK (Preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
 
 ## Try it out
-Select the "Test" panel
+Select the Test panel and try a few interactions.
 
-"Set the temperature to 65 degrees"
-- "Ok, setting to 65 degrees"
+> - A: Set the temperature to 65 degrees
+> - B: "Ok, setting to 65 degrees"
 
-"Set the temperature to 45 degrees"
-- "Sorry, I can only set between 50 and 80 degrees"
-"Ok, make it 60 degrees instead"
-- "Ok, setting to 65 degrees"
+> - Set the temperature to 45 degrees
+> - Sorry, I can only set between 50 and 80 degrees"
+> - make it 65 degrees instead
+> - Ok, setting to 65 degrees
+
+## Next steps
+

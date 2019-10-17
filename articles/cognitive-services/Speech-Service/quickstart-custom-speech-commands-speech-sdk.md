@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Connect to a Custom Speech Command application with the Speech SDK (Preview)'
+title: 'Quickstart: Connect to a Custom Commands application with the Speech SDK (Preview)'
 titleSuffix: Azure Cognitive Services
-description: In this article, you will add parameters to a Custom Speech Commands application.
+description: In this article, you will add parameters to a Custom Commands application.
 services: cognitive-services
 author: donkim
 manager: yetian
@@ -12,25 +12,31 @@ ms.date: 10/09/2019
 ms.author: donkim
 ---
 
-# Quickstart: Connect to a Custom Speech Command application with the Speech SDK (Preview)
+# Quickstart: Connect to a Custom Commands application with the Speech SDK (Preview)
 
 In this article, you'll:
-- Publish a Custom Speech Commands application and get an application id
-- Create a client application using the Speech SDK to allow you to talk to your Commands app
+- Publish a Custom Commands application and get an application id
+- Create a client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
 
 If you haven't created a Custom Commands application yet, try one of the previous quickstarts.
 
-> [Quickstart: Create a Custom Speech Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
+> [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
 
-> [Quickstart: Create a Custom Speech Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+> [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+
+## Optional: Get started fast
+
+This quickstart will describe, step by step, how to make a client application to connect to your Custom Commands app. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
 
 ## Publish Custom Commands application
 
-> Screenshot publish
+Open your previously created Custom Commands application and select Publish.
 
-Copy the application id received from publish.
+![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
+
+Copy the application id from the publish notification.
 
 ## Create a Visual Studio project
 
@@ -287,7 +293,7 @@ To add the code-behind source, follow these steps:
     // the RecoLanguage property is optional (default en-US); note that only en-US is supported in Preview
     const string speechCommandsApplicationId = "YourApplicationId"; // Your application id
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
-    const string region = "YourServiceRegion"; // Your subscription service region. Note: only 'westus2' is currently supported
+    const string region = "YourServiceRegion"; // The subscription service region. Note: only 'westus2' is currently supported
 
     var speechCommandsConfig = DialogServiceConfig.FromSpeechCommandsAppId(speechCommandsApplicationId, speechSubscriptionKey, region);
     speechCommandsConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-us");
@@ -393,8 +399,6 @@ Now you are ready to build and test your application.
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [How To: Fulfill Commands with a REST backend (Preview)](./how-to-custom-speech-commands-fulfill-rest.md)
 > [How To: Fulfill Commands on the client with the Speech SDK (Preview)](./how-to-custom-speech-commands-fulfill-sdk.md)
-> [How To: Prompt for confirmation in a Command (Preview)](./how-to-custom-speech-commands-confirmation.md)
-> [How To: Add Validations to Custom Speech Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
+> [How To: Add Validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
 
