@@ -128,7 +128,7 @@ If these steps don't solve the issue, try restarting the cluster.
 
 If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
 
-* Upgrade `azureml-sdk[automl_databricks]` package to the latest version.
+* Upgrade `azureml-sdk[automl]` package to the latest version.
 * Add `azure-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
 
@@ -183,7 +183,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## Updating Azure Machine Learning components in AKS cluster
 
-Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
+Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
+
+> [!WARNING]
+> Before performing the following actions, check the version of your Azure Kubernetes Service cluster. If the cluster version is equal to or greater than 1.14, you will not be able to re-attach your cluster to the Azure Machine Learning workspace.
+
+You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)

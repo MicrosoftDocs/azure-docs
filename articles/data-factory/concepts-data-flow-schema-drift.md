@@ -51,7 +51,7 @@ When your data flow has drifted columns, you can access them in your transformat
 * Add a column pattern in a Derived Column or Aggregate transformation to match on any combination of name, stream, position, or type
 * Add rule-based mapping in a Select or Sink transformation to match drifted columns to columns aliases via a pattern
 
-For more information on how to implement column patterns, see [Column patterns in Mapping Data Flow](concepts-data-flow-column-pattern.md).
+For more information on how to implement column patterns, see [Column patterns in mapping data flow](concepts-data-flow-column-pattern.md).
 
 ### Map drifted columns quick action
 

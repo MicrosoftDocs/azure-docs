@@ -1,10 +1,10 @@
 ---
-title: Cross-tenant management experiences with Azure Lighthouse
+title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -53,6 +53,7 @@ Currently, the cross-tenant management experience supports the following scenari
 - View alerts for delegated subscriptions in the Azure portal or programmatically through REST API calls, with the ability to view alerts across all subscriptions
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote customer workspaces in multiple tenants
+- Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -60,7 +61,7 @@ Currently, the cross-tenant management experience supports the following scenari
 - Create and edit policy definitions within a delegated subscription
 - Assign customer-defined policy definitions within the delegated subscription
 - Customers see policies authored by the service provider alongside any policies they've authored themselves
-- Can remediate deployIfNotExists assignments within the customer tenants if the customer has configured the managed identity and *roleDefinitionIds* for that policy assignment
+- Can [remediate deployIfNotExists or modify assignments within the customer tenant](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 
