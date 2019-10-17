@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 10/17/2019
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) performance options
@@ -26,7 +26,7 @@ node.
  
 |                       | Worker node           | Coordinator node      |
 |-----------------------|-----------------------|-----------------------|
-| Compute, vCores       | 4, 8, 16, 32          | 4, 8, 16, 32          |
+| Compute, vCores       | 4, 8, 16, 32, 64      | 4, 8, 16, 32, 64      |
 | Memory per vCore, GiB | 8                     | 4                     |
 | Storage size, TiB     | 0.5, 1, 2             | 0.5, 1, 2             |
 | Storage type          | General purpose (SSD) | General purpose (SSD) |
