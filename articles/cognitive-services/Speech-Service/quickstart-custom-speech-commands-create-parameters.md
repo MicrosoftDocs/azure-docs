@@ -65,15 +65,16 @@ Select Sample Sentences to access the sample sentences editor.
 > [!TIP]
 > In the Sample Sentences editor use curly braces to refer to your parameters. - `turn {OnOff} the {SubjectDevice}`
 > Use tab completion to refer to previously created parameters.
-> Valid parameter references will be highlighted in Green.  Invalid references will be highlighted in Red.
 
-- turn \{OnOff\} the \{SubjectDevice\}
-- \{SubjectDevice\} \{OnOff\}
-- turn it \{OnOff\}
-- turn something \{OnOff\}
-- turn something
+![Sample Sentences with parameters](media/custom-speech-commands/create-parameter-sentences.png)
 
-> Screenshot: Syntax highlighted sample sentences
+```
+turn {OnOff} the {SubjectDevice}
+{SubjectDevice} {OnOff}
+turn it {OnOff}
+turn something {OnOff}
+turn something
+```
 
 ## Add Parameters to Completion rule
 
