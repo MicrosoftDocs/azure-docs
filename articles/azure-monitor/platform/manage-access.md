@@ -193,7 +193,7 @@ When users query logs from a workspace using resource-context access, they'll ha
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Examples:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Ability to view all log data for the resource.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Ability to configure diagnostics setting to allow setting up logs for this resource. |
 
-`/read` permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Note that custom roles that include specific actions or dedicated built-in roles might not include this permission.
+`/read` permission is usually granted from a role that includes _\*/read or_ _\*_ permissions such as the built-in [Reader](../../role-based-access-control/built-in-roles.md#reader) and [Contributor](../../role-based-access-control/built-in-roles.md#contributor) roles. Custom roles that include specific actions or dedicated built-in roles might not include this permission.
 
 See [Defining per-table access control](#table-level-rbac) below if you want to create different access control for different tables.
 
@@ -219,7 +219,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
     * Grant users the following permissions to their resources: `Microsoft.Insights/logs/*/read`.
 
-    * Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provides the read permission (`Microsoft.Insights/logs/*/read`). If the user inherent the read action from another role that is assigned to this resource or to the subscription or resource group, they would be able to read all log types. This is also true if they inherit `*/read` that exist for example, with the Reader or Contributor role.
+    * Add the following NonAction to block users from reading the SecurityEvent type: `Microsoft.Insights/logs/SecurityEvent/read`. The NonAction shall be in the same custom role as the action that provides the read permission (`Microsoft.Insights/logs/*/read`). If the user inherent the read action from another role that is assigned to this resource or to the subscription or resource group, they would be able to read all log types. This is also true if they inherit `*/read`, that exist for example, with the Reader or Contributor role.
 
 4. To grant a user access to log data from their resources and read all Azure AD sign-in and read Update Management solution log data from the workspace, perform the following:
 
@@ -288,7 +288,7 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
 * If a user is granted per-table access but no other permissions, they would be able to access log data from the API but not from the Azure portal. To provide access from the Azure portal, use Log Analytics Reader as its base role.
 * Administrators of the subscription will have access to all data types regardless of any other permission settings.
 * Workspace owners are treated like any other user for per-table access control.
-* You should assign roles to security groups instead of individual users to reduce the number of assignments. This will also help you use existing group management tools to configure and verify access.
+* We recommend assigning roles to security groups instead of individual users to reduce the number of assignments. This will also help you use existing group management tools to configure and verify access.
 
 ## Next steps
 
