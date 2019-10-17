@@ -1,6 +1,6 @@
 ---
 title: Configure readiness probes in Azure Container Instances
-description: Learn how to configure readiness probes to ... containers in Azure Container Instances
+description: Learn how to configure readiness probes to ensure containers in Azure Container Instances are able to receive requests
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -73,7 +73,7 @@ This YAML file defines a `readinessProbe` which supports an `exec` readiness com
 
 When the `ready` file doesn't exist, the readiness command exits with a non-zero value; the container continues running but can't be accessed. If the command exits successfully with exit code 0, the container is ready to be accessed. 
 
-The `periodSeconds` property designates the readiness command should execute every 5 seconds.
+The `periodSeconds` property designates the readiness command should execute every 5 seconds. The readiness probe continues for the lifetime of the container group.
 
 ## Run readiness example
 
