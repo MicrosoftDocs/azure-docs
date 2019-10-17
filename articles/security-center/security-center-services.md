@@ -17,7 +17,7 @@ ms.author: memildin
 # Supported features available in Azure Security Center
 
 > [!NOTE]
->Some features are only available with the Standard tier. If you have not already signed up for Security Center's Standard tier, a free trial period is available. See the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/) for more information.
+>Some features are only available with the Standard tier. If you have not already signed up for Security Center's Standard tier, a free trial period is available. For more information, see the [Security Center pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 The following sections show Security Center features that are available for their [supported platforms](security-center-os-coverage.md).
 
@@ -33,31 +33,31 @@ The following sections show Security Center features that are available for thei
 |----|----|----|----|----|----|----|----|
 |**Environment**|**Azure**||**Non-Azure**|**Azure**||**Non-Azure**||
 ||**Virtual Machine**|**Virtual Machine Scale Set**||**Virtual Machine**|**Virtual Machine Scale Set**|
-|Virtual Machine Behavioral Analytics threat detection alerts|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
-|Network-based threat detection alerts|✔|✔|X|✔|✔|X|Standard|
-|Microsoft Defender ATP integration|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
-|Missing patches|✔|✔|✔|✔|✔|✔|Free|
-|Security configurations|✔|✔|✔|✔|✔|✔|Free|
-|Endpoint protection assessment|✔|✔|✔|X|X|X|Free|
-|Just-In-Time VM access|✔|X|X|✔|X|X|Standard|
-|Adaptive application controls|✔|X|✔|✔|X|✔|Standard|
-|File Integrity Monitoring|✔|✔|✔|✔|✔|✔|Standard|
-|Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
-|Third-party deployment|✔|X|X|✔|X|X|Free|
-|NSG assessment|✔|✔|X|✔|✔|X|Free|
-|Fileless threat detection|✔|✔|✔|X|X|X|Standard|
-|Network map|✔|✔|X|✔|✔|X|Standard|
-|Adaptive network hardening|✔|X|X|✔|X|X|Standard|
+|[Microsoft Defender ATP integration](https://docs.microsoft.com/azure/security-center/security-center-wdatp)|✔ (on supported versions)|✔ (on supported versions)|✔|X|X|X|Standard|
+|[Virtual Machine Behavioral Analytics threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas)|✔|✔|✔|✔ (on supported versions)|✔ (on supported versions)|✔|Recommendations (Free) Threat Detection (Standard)|
+|[Fileless threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-iaas#fileless-attack-detection-)|✔|✔|✔|X|X|X|Standard|
+|[Network-based threat detection alerts](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer#azure-network-layer)|✔|✔|X|✔|✔|X|Standard|
+|[Just-In-Time VM access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|✔|X|X|✔|X|X|Standard|
+|[File Integrity Monitoring](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring)|✔|✔|✔|✔|✔|✔|Standard|
+|[Adaptive application controls](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)|✔|X|✔|✔|X|✔|Standard|
+|[Network map](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations#network-map)|✔|✔|X|✔|✔|X|Standard|
+|[Adaptive network hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)|✔|X|X|✔|X|X|Standard|
 |Adaptive network controls|✔|✔|X|✔|✔|X|Standard|
-|Regulatory Compliance dashboard & reports|✔|✔|✔|✔|✔|✔|Standard|
+|[Regulatory Compliance dashboard & reports](https://docs.microsoft.com/azure/security-center/security-center-compliance-dashboard)|✔|✔|✔|✔|✔|✔|Standard|
 |Recommendations and threat detection on Docker-hosted IaaS containers|X|X|X|✔|✔|✔|Standard|
+|Missing OS patches assessment|✔|✔|✔|✔|✔|✔|Free|
+|Security misconfigurations assessment|✔|✔|✔|✔|✔|✔|Free|
+|[Endpoint protection assessment](https://docs.microsoft.com/azure/security-center/security-center-services#supported-endpoint-protection-solutions-)|✔|✔|✔|X|X|X|Free|
+|Disk encryption assessment|✔|✔|X|✔|✔|X|Free|
+|Third-party vulnerability assessment|✔|X|X|✔|X|X|Free|
+|[Network security assessment](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)|✔|✔|X|✔|✔|X|Free|
 
 ### Supported endpoint protection solutions <a name="endpoint-supported"></a>
 
 The following table provides a matrix of:
 
  - Whether you can use Azure Security Center to install each solution for you.
- - Which endpoint protection solutions Security Center can discover. If one of these endpoint protection solutions is discovered, Security Center will not recommend installing one.
+ - Which endpoint protection solutions Security Center can discover. If an endpoint protection solution from this list is discovered, Security Center won't recommend installing one.
 
 For information about when recommendations are generated for each of these protections, see [Endpoint Protection Assessment and Recommendations](security-center-endpoint-protection.md).
 
@@ -71,7 +71,7 @@ For information about when recommendations are generated for each of these prote
 | McAfee v10+ | Linux Server Family  | No | Yes **\*** |
 | Sophos V9+| Linux Server Family  | No | Yes  **\***  |
 
- **\*** The coverage state and supporting data is currently available only in the Log Analytics workspace associated to your protected subscriptions, and is not reflected in Azure Security Center portal.
+ **\*** The coverage state and supporting data is currently only available in the Log Analytics workspace associated to your protected subscriptions. It isn't reflected in the Azure Security Center portal.
 
 > [!NOTE]
 >

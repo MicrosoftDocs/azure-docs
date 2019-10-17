@@ -88,7 +88,7 @@ An example of this process is provided in [Configure an IoT Edge device to commu
 
 The IoT Edge hub and agent modules use local storage to maintain state and enable messaging between modules, devices, and the cloud. For better reliability and performance, configure the system modules to use storage on the host filesystem.
 
-For more information, see [Host storage for system modules](offline-capabilities.md#host-storage-for-system-modules).
+For more information, see [Host storage for system modules](how-to-access-host-storage-from-module.md).
 
 ### Reduce memory space used by IoT Edge hub
 
@@ -172,9 +172,11 @@ This checklist is a starting point for firewall rules:
    | mcr.microsoft.com  | 443 | Microsoft container registry |
    | global.azure-devices-provisioning.net  | 443 | DPS access (optional) |
    | \*.azurecr.io | 443 | Personal and third-party container registries |
-   | \*.blob.core.windows.net | 443 | Download of image deltas | 
+   | \*.blob.core.windows.net | 443 | Download Azure Container Registry image deltas from blob storage  | 
    | \*.azure-devices.net | 5671, 8883, 443 | IoT Hub access |
    | \*.docker.io  | 443 | Docker Hub access (optional) |
+
+Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
 
 ### Configure communication through a proxy
 

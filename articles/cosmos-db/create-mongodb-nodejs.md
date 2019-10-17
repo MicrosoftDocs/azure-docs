@@ -9,7 +9,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: rimman
-ms.custom: seo-javascript-september2019
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
 
 ---
 # Quickstart: Migrate an existing MongoDB Node.js web app to Azure Cosmos DB 
@@ -23,9 +23,9 @@ ms.custom: seo-javascript-september2019
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB. 
+This quickstart demonstrates how to use an existing MongoDB app written in Node.js and connect it to your Azure Cosmos database, which supports MongoDB client. In other words, it is transparent to the application that the data is stored in a Cosmos database.
 
-This quickstart demonstrates how to use an existing MongoDB app written in Node.js and connect it to your Cosmos database, which supports MongoDB client. In other words, it is transparent to the application that the data is stored in a Cosmos database.
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB.
 
 When you are done, you will have a MEAN application (MongoDB, Express, Angular, and Node.js) running on [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 

@@ -23,14 +23,13 @@
         href: sql-database-purchase-models.md
       - name: vCore-based model
         href: sql-database-service-tiers-vcore.md
+        items:
+        - name: Serverless compute tier
+          href: sql-database-serverless.md
+        - name: Prepay for reserved capacity
+          href: sql-database-reserved-capacity.md
       - name: DTU service tiers
         href: sql-database-service-tiers-dtu.md
-      - name: Serverless compute tier
-        href: sql-database-serverless.md
-      - name: Prepay for reserved capacity
-        href: sql-database-reserved-capacity.md
-      - name: Migrate from Premium RS service tier
-        href: sql-database-service-tiers-prs.md
     - name: Compute & storage
       items:
       - name: Overview
@@ -44,6 +43,8 @@
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
+      - name: Migrate from Premium RS service tier
+        href: sql-database-service-tiers-prs.md
 
 - name: Quickstarts
   expanded: true
@@ -86,8 +87,6 @@
         href: sql-database-ssms-mfa-authentication.md
       - name: Configure multi-factor auth
         href: sql-database-ssms-mfa-authentication-configure.md
-      - name: Configure temporal retention policy
-        href: sql-database-temporal-tables-retention-policy.md
       - name: Configure TDE with BYOK
         href: transparent-data-encryption-byok-azure-sql-configure.md
       - name: Rotate TDE BYOK keys
@@ -216,22 +215,21 @@
 
   - name: Backup, restore, high availability (BCDR)
     items:
-      - name: Recovery using backups
-        href: sql-database-recovery-using-backups.md
-      - name: Accelerated database recovery
-        href: sql-database-accelerated-database-recovery.md
-      - name: Outage recovery guidance
-        href: sql-database-disaster-recovery.md
-      - name: Recovery drills
-        href: sql-database-disaster-recovery-drills.md
       - name: Business continuity
         href: sql-database-business-continuity.md
       - name: High availability
         href: sql-database-high-availability.md
-      - name: Automated backups
-        href: sql-database-automated-backups.md
-      - name: Long-term backup retention
-        href: sql-database-long-term-retention.md
+      - name: Backups
+        items:
+        - name: Automated backups
+          href: sql-database-automated-backups.md
+        - name: Recovery using backups
+          href: sql-database-recovery-using-backups.md
+        - name: Accelerated database recovery
+          href: sql-database-accelerated-database-recovery.md
+        - name: Long-term backup retention
+          href: sql-database-long-term-retention.md
+
       - name: Failover groups and geo-replication
         items: 
         - name: Active geo-replication
@@ -239,7 +237,13 @@
         - name: Auto-failover groups
           href: sql-database-auto-failover-group.md
         - name: Configure security for replicas
-          href: sql-database-geo-replication-security-config.md
+          href: sql-database-geo-replication-security-config.md  
+        - name: Outage recovery guidance
+          href: sql-database-disaster-recovery.md
+        - name: Recovery drills
+          href: sql-database-disaster-recovery-drills.md
+        - name: Configure failover group
+          href: sql-database-configure-failover-group.md
 
   - name: Monitor and tune
     items:
@@ -249,8 +253,6 @@
       href: sql-database-monitor-tune-overview.md
     - name: Performance monitoring
       items:
-      - name: Query Performance Insight
-        href: sql-database-query-performance.md
       - name: Azure SQL Analytics monitoring
         href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
       - name: Diagnostic telemetry logging
@@ -287,6 +289,8 @@
           href: sql-database-xevent-code-event-file.md
         - name: Extended events - ring buffer
           href: sql-database-xevent-code-ring-buffer.md
+    - name: Hyperscale performance diagnostics
+      href: sql-database-hyperscale-performance-diagnostics.md
 
   - name: Scalability
     items:
@@ -332,20 +336,10 @@
         href: sql-database-in-memory-oltp-migration.md
     - name: Transactional replication
       href: sql-database-managed-instance-transactional-replication.md
-    - name: SQL Data Sync
-      href: sql-database-sync-data.md
     - name: Temporal tables 
       href: sql-database-temporal-tables.md
     - name: Job automation 
       href: sql-database-job-automation-overview.md
-    - name: Azure Automation
-      href: sql-database-manage-automation.md
-    - name: Linked servers
-      href: https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json
-    - name: Service Broker
-      href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json
-    - name: Database mail
-      href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json
 
   - name: How to
     items:
@@ -386,6 +380,8 @@
         href: sql-database-spark-connector.md
       - name: Index with Azure Search
         href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
+      - name: Configure temporal retention policy
+        href: sql-database-temporal-tables-retention-policy.md
       - name: Authenticate app 
         href: sql-database-client-id-keys.md
       - name: Error messages
@@ -501,7 +497,7 @@
     items:
     - name: Create
       items: 
-      - name: Using Azure Portal
+      - name: Using Azure portal
         href: sql-database-single-database-get-started.md
       - name: Using template
         displayName: Azure Resource Manager template, ARM
@@ -510,7 +506,6 @@
       items:
       - name: Server-level IP firewall rules
         href: sql-database-server-level-firewall-rule.md
-
 
   - name: Tutorials
     items:
@@ -524,7 +519,7 @@
       href: sql-database-active-geo-replication-portal.md
     - name: Set up Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
-    - name: Add to a failover group to Elastic pool
+    - name: Add elastic pool to a failover group
       href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Configure security
       href: sql-database-security-tutorial.md
@@ -579,6 +574,12 @@
 
       - name: T-SQL differences
         href: sql-database-transact-sql-information.md 
+      - name: Features
+        items:
+        - name: SQL Data Sync
+          href: sql-database-sync-data.md
+        - name: Azure Automation
+          href: sql-database-manage-automation.md
 
       - name: Management API reference
         href: sql-database-single-databases-manage.md
@@ -645,8 +646,6 @@
       href: sql-database-geo-replication-portal.md
     - name: Configure security for geo-replicas
       href: sql-database-geo-replication-security-config.md
-    - name: Configure failover group
-      href: sql-database-configure-failover-group.md
     - name: Try in-memory features
       href: sql-database-in-memory-sample.md  
     - name: Enable automatic tuning
@@ -723,22 +722,24 @@
     href: sql-database-managed-instance-index.yml
   - name: Overview
     href: sql-database-managed-instance.md
+  - name: Instance pools
+    href: sql-database-instance-pools.md
   - name: FAQ
     href: sql-database-managed-instance-faq.md
   - name: Quickstarts
     items:
     - name: Create
       items: 
-      - name: Using Azure Portal
+      - name: Using Azure portal
         href: sql-database-managed-instance-get-started.md
       - name: Using PowerShell
         href: scripts/sql-database-create-configure-managed-instance-powershell.md
+      - name: Create instance pools
+        href: sql-database-instance-pools-how-to.md
     - name: Configure
       items:
       - name: Public endpoint
         href: sql-database-managed-instance-public-endpoint-configure.md
-      - name: Configure connection types
-        href: sql-database-managed-instance-connection-type.md
       - name: Client VM connection
         href: sql-database-managed-instance-configure-vm.md
       - name: Point-to-site connection
@@ -748,16 +749,16 @@
       - name: Restore database backup
         href: sql-database-managed-instance-get-started-restore.md
 
-
-
   - name: Tutorials
     items:
-      - name: Migrate online using DMS
+      - name: Migrate using DMS
         href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
       - name: Configure transactional replication
         href: replication-with-sql-database-managed-instance.md
       - name: Configure security
         href: sql-database-managed-instance-aad-security-tutorial.md
+      - name: Add managed instance to a failover group
+        href: sql-database-managed-instance-failover-group-tutorial.md
 
   - name: Concepts
     items:
@@ -769,18 +770,29 @@
       href: sql-database-managed-instance-connectivity-architecture.md 
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md 
-    - name: Customize Time zone
-      href: sql-database-managed-instance-timezone.md
-
+    - name: Features
+      items:
+      - name: Linked servers
+        href: https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine?toc=/azure/sql-database/toc.json
+      - name: Service Broker
+        href: https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker?toc=/azure/sql-database/toc.json
+      - name: Database mail
+        href: https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail?toc=/azure/sql-database/toc.json
 
   - name: How to
     items:
     - name: Overview
       href: sql-database-howto-managed-instance.md
     - name: Migrate to Managed instance
-      href: sql-database-managed-instance-migrate.md
+      href: sql-database-managed-instance-migrate.md  
+    - name: Customize time zone
+      href: sql-database-managed-instance-timezone.md
+    - name: Configure connection types
+      href: sql-database-managed-instance-connection-type.md
     - name: Migrate TDE cert to Managed instance
       href: sql-database-managed-instance-migrate-tde-certificate.md
+    - name: Restore to a point in time
+      href: sql-database-managed-instance-point-in-time-restore.md
     - name: Determine size of managed instance subnet 
       href: sql-database-managed-instance-determine-size-vnet-subnet.md
     - name: Create new VNet and subnet for managed instance
