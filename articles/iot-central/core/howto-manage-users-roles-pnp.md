@@ -50,7 +50,7 @@ To delete users, select one or more check boxes on the **Users** page. Then sele
 
 ## Manage roles
 
-Roles enable you to control who within your organization is allowed to perform various tasks in IoT Central. There are three built-in roles you can assign to users of your application. You can also [create custom roles](#create-a-custom-role) if you require finer-grained control.
+Roles enable you to control who within your organization is allowed to do various tasks in IoT Central. There are three built-in roles you can assign to users of your application. You can also [create custom roles](#create-a-custom-role) if you require finer-grained control.
 
 ### Administrator
 
@@ -98,7 +98,7 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Delete | View   |
 | Full Control | View, Update, Create, Delete |
 
-**Whitelabeling permissions**
+**White labeling permissions**
 
 | Name | Dependencies |
 | ---- | -------- |
@@ -143,17 +143,17 @@ When you define a custom role, you choose the set of permissions that a user is 
 | ---- | -------- |
 | View | None     |
 | Update | View   |
-| Copy | View <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, whitelabeling, help links, custom roles, rules |
+| Copy | View <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, white labeling, help links, custom roles, rules |
 | Delete | View   |
-| Full Control | View, Update, Copy, Delete <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, whitelabeling, help links, custom roles, rules |
+| Full Control | View, Update, Copy, Delete <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, white labeling, help links, custom roles, rules |
 
 **Application template export permissions**
 
 | Name | Dependencies |
 | ---- | -------- |
 | View | None     |
-| Export | View <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, whitelabeling, help links, custom roles, rules |
-| Full Control | View, Export <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, whitelabeling, help links, custom roles, rules |
+| Export | View <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, white labeling, help links, custom roles, rules |
+| Full Control | View, Export <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, white labeling, help links, custom roles, rules |
 
 **Billing permissions**
 
