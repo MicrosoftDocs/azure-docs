@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/04/2019
 ms.author: aahi
 ---
 
@@ -18,12 +18,12 @@ Use this quickstart to get started with Azure Cognitive Services using the [Azur
 
 In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription, Using the [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), which enable you to connect to one or more of the Azure Cognitive Services APIs.
 
+[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
+
 ## Prerequisites
 
 * A valid Azure subscription - [Create one](https://azure.microsoft.com/free/) for free.
 * The [Azure Command Line Interface(CLI)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-
-[!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## Install the Azure CLI and sign in 
 
@@ -133,7 +133,7 @@ You can create an F0 (free) resource for Anomaly Detector, named `anomaly-detect
 ```azurecli-interactive
 az cognitiveservices account create \
     --name anomaly-detector-resource \
-    --group cognitive-services-resource-group \
+    --resource-group cognitive-services-resource-group \
     --kind AnomalyDetector \
     --sku F0 \
     --location westus2 \
@@ -165,6 +165,16 @@ Pricing tiers (and the amount you get billed) are based on the number of transac
 * service features enabled within the pricing tier.
 * The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
 
+## Get current quota usage for your resource
+
+Use the [az cognitiveservices account list-usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) command to get the usage for your Cognitive Service resource.
+
+```azurecli-interactive
+az cognitiveservices account list-usage \
+    --name anomaly-detector-resource \
+    --resource-group cognitive-services-resource-group \
+    --subscription subscription-name
+```
 
 ## Clean up resources
 

@@ -11,7 +11,7 @@ keywords: ''
 
 ms.assetid: 8fa04a58-56ad-4e6c-bef4-d02c80d4b60f
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

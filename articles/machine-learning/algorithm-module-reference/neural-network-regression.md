@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
 ---
 # Neural Network Regression module
 

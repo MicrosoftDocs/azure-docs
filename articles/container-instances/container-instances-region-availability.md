@@ -6,7 +6,7 @@ author: dlepow
 manager: gwallace
 
 ms.service: container-instances
-ms.topic: overview
+ms.topic: article
 ms.date: 05/14/2019
 ms.author: danlep
 ---

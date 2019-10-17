@@ -89,8 +89,10 @@ Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{API_KEY} | The API key of the Speech resource. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{ENDPOINT_URI} | The endpoint value including region.|`https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+| **{API_KEY}** | The endpoint key of the `Speech` resource on the Azure `Speech` Keys page. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | The billing endpoint value is available on the Azure `Speech` Overview page.| See [gathering required parameters](speech-container-howto.md#gathering-required-parameters) for explicit examples. |
+
+[!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing-configuration-setting).

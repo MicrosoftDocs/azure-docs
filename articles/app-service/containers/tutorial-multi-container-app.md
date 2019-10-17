@@ -11,7 +11,6 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu

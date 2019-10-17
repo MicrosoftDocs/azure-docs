@@ -101,13 +101,23 @@ To enable this cache sharing, you need to set the use the 'WithIosKeychainSecuri
 
 Earlier, it was mentioned that MSAL added the $(AppIdentifierPrefix) whenever you use the `WithIosKeychainSecurityGroup()` api. This is because the AppIdentifierPrefix or the "team ID" is used to ensure only applications made by the same publisher can share keychain access.
 
-#### Note: KeychainSecurityGroup Property Deprecated
+> [!NOTE]
+> **The `KeychainSecurityGroup` property is deprecated.**
+> 
+> Previously, from MSAL 2.x, developers were forced to include the TeamId prefix when using the `KeychainSecurityGroup` property.
+>
+>  From MSAL 2.7.x, when using the new `iOSKeychainSecurityGroup` property, MSAL will resolve the TeamId prefix during runtime. When using this property, the value should not contain the TeamId prefix.
+>  Use the new `iOSKeychainSecurityGroup` property, which does not require you to provide the TeamId, as the previous `KeychainSecurityGroup` property is now obsolete.
 
-Previously, from MSAL 2.x, developers were forced to include the TeamId prefix when using the `KeychainSecurityGroup` property
+### Use Microsoft Authenticator
 
-From MSAL 2.7.x, when using the new `iOSKeychainSecurityGroup` property, MSAL will resolve the TeamId prefix during runtime. When using this property, the value should not contain the TeamId prefix.
+Your application can use Microsoft Authenticator (a broker) to enable:
 
-Use the new `iOSKeychainSecurityGroup` property, which does not require developers to provide the TeamId, as the previous `KeychainSecurityGroup` property is now obsolete.
+- Single Sign On (SSO). Your users won't need to sign-in to each application.
+- Device identification. By accessing the device certificate, which was created on the device when it was workplace joined. Your application will be ready if the tenant admins enable conditional access related to the devices.
+- Application identification verification. When an application calls the broker, it passes its redirect url, and the broker verifies it.
+
+For details on how to enable the broker, see [Use Microsoft Authenticator or Microsoft Intune company portal on Xamarin iOS and Android applications](msal-net-use-brokers-with-xamarin-apps.md).
 
 ### Sample illustrating Xamarin iOS specific properties
 

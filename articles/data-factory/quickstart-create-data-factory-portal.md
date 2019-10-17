@@ -66,7 +66,8 @@ Watching this video helps you understand the Data Factory UI:
 ## Create a linked service
 In this procedure, you create a linked service to link your Azure storage account to the data factory. The linked service has the connection information that the Data Factory service uses at runtime to connect to it.
 
-1. Select **Connections**, and then select the **New** button on the toolbar. 
+1. Select **Connections**, and then select the **New** button on the toolbar (**Connections** button is located
+at the bottom of the left column under **Factory Resources**). 
 
 1. On the **New Linked Service** page, select **Azure Blob Storage**, and then select **Continue**. 
 

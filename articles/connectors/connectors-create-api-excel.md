@@ -6,10 +6,11 @@ ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
+manager: carmonm
 ms.reviewer: klam, LADocs
-tags: connectors
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2018
+tags: connectors
 ---
 
 # Manage Excel Online data with Azure Logic Apps
@@ -42,7 +43,7 @@ If you're new to logic apps, review
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An [Office 365 account](https://www.office.com/) 
 for your work account or personal Microsoft account
@@ -69,7 +70,12 @@ logic app in the Logic App Designer, if not already open.
 1. In the search box, enter "excel" as your filter. Under the actions list, 
 select the action you want.
 
-1. If prompted to sign in to your Office 365 account, choose **Sign in**.
+   > [!NOTE]
+   > The Logic App Designer can't load tables that have 100 or more columns. 
+   > If possible, reduce the number of columns in the selected table so that 
+   > the designer can load the table.
+
+1. If prompted, sign in to your Office 365 account.
 
    Your credentials authorize your logic app to create a 
    connection to Excel Online and access your data.
@@ -85,11 +91,6 @@ see these connector reference pages:
 
 * [Excel Online for Business](/connectors/excelonlinebusiness/)
 * [Excel Online for OneDrive](/connectors/excelonline/)
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

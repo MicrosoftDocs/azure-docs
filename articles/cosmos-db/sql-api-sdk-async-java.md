@@ -147,6 +147,10 @@ New features and functionality and optimizations are only added to the current S
 
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
+> [!WARNING]
+> All versions **1.x** of the Async Java SDK for SQL API will be retired on **August 30, 2020**.
+> 
+>
 <br/>
 
 | Version | Release Date | Retirement Date |
@@ -164,9 +168,9 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [2.1.0](#2.1.0) |September 5, 2018|--- |
 | [2.0.1](#2.0.1) |August 16, 2018|--- |
 | [2.0.0](#2.0.0) |June 20, 2018|--- |
-| [1.0.2](#1.0.2) |May 18, 2018|--- |
-| [1.0.1](#1.0.1) |April 20, 2018|--- |
-| [1.0.0](#1.0.0) |February 27, 2018|--- |
+| [1.0.2](#1.0.2) |May 18, 2018|August 30, 2020 |
+| [1.0.1](#1.0.1) |April 20, 2018|August 30, 2020 |
+| [1.0.0](#1.0.0) |February 27, 2018|August 30, 2020 |
 
 ## FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]

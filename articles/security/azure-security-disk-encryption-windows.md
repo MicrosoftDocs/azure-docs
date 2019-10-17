@@ -136,7 +136,7 @@ The following table lists the Resource Manager template parameters for existing 
 | vmName | Name of the VM to run the encryption operation. |
 | keyVaultName | Name of the key vault that the BitLocker key should be uploaded to. You can get it by using the cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` or the Azure CLI command `az keyvault list --resource-group "MyKeyVaultResourceGroup"`|
 | keyVaultResourceGroup | Name of the resource group that contains the key vault|
-|  keyEncryptionKeyURL | URL of the key encryption key that's used to encrypt the generated BitLocker key. This parameter is optional if you select **nokek** in the UseExistingKek drop-down list. If you select **kek** in the UseExistingKek drop-down list, you must enter the _keyEncryptionKeyURL_ value. |
+|  keyEncryptionKeyURL | The URL of the key encryption key, in the format https://&lt;keyvault-name&gt;.vault.azure.net/key/&lt;key-name&gt;. If you do not wish to use a KEK, leave this field blank. |
 | volumeType | Type of volume that the encryption operation is performed on. Valid values are _OS_, _Data_, and _All_. 
 | forceUpdateTag | Pass in a unique value like a GUID every time the operation needs to be force run. |
 | resizeOSDisk | Should the OS partition be resized to occupy full OS VHD before splitting system volume. |

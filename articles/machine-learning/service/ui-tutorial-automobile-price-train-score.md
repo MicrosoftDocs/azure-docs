@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Predict automobile price with the visual interface'
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to train, score, and deploy a machine learning model using a drag and drop visual interface. This tutorial is part one of a two-part series on predicting automobile prices using linear regression.
 
 author: peterclu
@@ -14,7 +14,7 @@ ms.date: 08/16/2019
 
 # Tutorial: Predict automobile price with the visual interface
 
-In this two-part tutorial, you learn how to use the Azure Machine Learning service visual interface to develop and deploy a predictive analytic solution that predicts the price of any car. 
+In this two-part tutorial, you learn how to use Azure Machine Learning's visual interface to develop and deploy a predictive analytic solution that predicts the price of any car. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -37,11 +37,11 @@ To find it, from the **Experiments page**, select **Add New**, then select the *
 
 ## Create a new experiment
 
-To create a visual interface experiment, you first need  an Azure Machine Learnings service workspace. In this section you learn how to create both these resources.
+To create a visual interface experiment, you first need  an Azure Machine Learning service workspace. In this section you learn how to create both these resources.
 
 ### Create a new workspace
 
-If you have an Azure Machine Learning service workspace, skip to the next section.
+If you have an Azure Machine Learning workspace, skip to the next section.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 

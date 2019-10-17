@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Register an application in Azure Active Directory B2C
 
-Before your [applications](active-directory-b2c-apps.md) can interact with Azure Active Directory (Azure AD) B2C, they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal.
+Before your [applications](active-directory-b2c-apps.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal.
 
 In this article, you learn how to:
 
@@ -31,7 +31,7 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 ## Register a web application
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Applications**, and then select **Add**.
 1. Enter a name for the application. For example, *webapp1*.

@@ -129,7 +129,7 @@ You configure client-to-node security by using ClientIdentities. You must config
 ### Manage secrets in Service Fabric applications
 Secrets can be any sensitive information, such as storage connection strings, passwords, or other values that should not be handled in plain text.
 
-You can use [Azure Key Vault](../../key-vault/key-vault-whatis.md) to manage keys and secrets. However, the use of secrets in an application doesn't rely on a specific cloud platform. You can deploy applications to a cluster that's hosted anywhere. There are four main steps in this flow:
+You can use [Azure Key Vault](../../key-vault/key-vault-overview.md) to manage keys and secrets. However, the use of secrets in an application doesn't rely on a specific cloud platform. You can deploy applications to a cluster that's hosted anywhere. There are four main steps in this flow:
 
 1.	Get a data encipherment certificate.
 2.	Install the certificate on your cluster.

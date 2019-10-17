@@ -120,7 +120,7 @@ Below is the total set of configurable options that are supported currently in t
 
 - **validateAuthority**: Optional.  Validate the issuer of tokens. Default is `true`. For B2C applications, since the authority value is known and can be different per policy, the authority validation will not work and has to be set to `false`.
 
-- **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. Defaults to `window.location.href`.
+- **redirectUri**: Optional.  The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal. Defaults to `window.location.href`.
 
 - **postLogoutRedirectUri**: Optional.  Redirects the user to `postLogoutRedirectUri` after sign out. The default is `redirectUri`.
 

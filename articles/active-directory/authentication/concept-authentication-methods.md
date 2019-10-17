@@ -192,6 +192,8 @@ To work properly, phone numbers must be in the format *+CountryCode PhoneNumber*
 >
 > Password reset does not support phone extensions. Even in the +1 4255551234X12345 format, extensions are removed before the call is placed.
 
+Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries/regions besides the United States and Canada.
+
 #### Text message
 
 An SMS is sent to the mobile phone number containing a verification code. Enter the verification code provided in the sign-in interface to continue.

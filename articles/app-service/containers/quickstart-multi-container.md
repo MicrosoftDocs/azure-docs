@@ -11,7 +11,6 @@ editor: ''
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu

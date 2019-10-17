@@ -30,7 +30,7 @@ Although the tool can migrate almost all [classic alert rules](monitoring-classi
 - Classic alert rules on some Cosmos DB metrics. See [details](#cosmos-db-metrics) later in this article.
 - Classic alert rules on all classic virtual machines and cloud services metrics (Microsoft.ClassicCompute/virtualMachines and Microsoft.ClassicCompute/domainNames/slots/roles). See [details](#classic-compute-metrics) later in this article.
 
-If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after August 2019.
+If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. You can also continue to create new classic alerts on the above listed exceptions till June 2020. However for everything else, no new classic alerts can be created after August 2019.
 
 > [!NOTE]
 > Besides the above listed exceptions, if your classic alert rules are invalid i.e. they are on [deprecated metrics](#classic-alert-rules-on-deprecated-metrics) or resources that have been deleted, they will not be migrated during voluntary migration. Any such invalid classic alert rules will be deleted when automatic migration happens.

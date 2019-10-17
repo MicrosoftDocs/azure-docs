@@ -10,7 +10,6 @@ editor: mattfarm
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
@@ -95,7 +94,7 @@ git clone https://username:password@{name}.scm.azure-api.net/
 If this provides an error, try URL encoding the password portion of the command. One quick way to do this is to open Visual Studio, and issue the following command in the **Immediate Window**. To open the **Immediate Window**, open any solution or project in Visual Studio (or create a new empty console application), and choose **Windows**, **Immediate** from the **Debug** menu.
 
 ```
-?System.NetWebUtility.UrlEncode("password from the Azure portal")
+?System.Net.WebUtility.UrlEncode("password from the Azure portal")
 ```
 
 Use the encoded password along with your user name and repository location to construct the git command.

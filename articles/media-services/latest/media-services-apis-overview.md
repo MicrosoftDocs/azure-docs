@@ -1,4 +1,4 @@
----
+﻿---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Developing with v3 APIs - Azure | Microsoft Docs
 description: This article discusses rules that apply to entities and APIs when developing with Media Services v3. 
@@ -30,7 +30,7 @@ To be authorized to access Media Services resources and the Media Services API, 
 * **Service principal authentication** - Used to authenticate a service (for example: web apps, function apps, logic apps, API, and microservices). Applications that commonly use this authentication method are apps that run daemon services, middle-tier services, or scheduled jobs. For example, for Web applications there should always be a mid-tier that connects to Media Services with a Service Principal.
 * **User authentication** - Used to authenticate a person who is using the app to interact with Media Services resources. The interactive application should first prompt the user for the user's credentials. An example is a management console app used by authorized users to monitor encoding jobs or live streaming.
 
-The Media Services API requires that the user or application making the REST API requests have access to the Media Services account resource and use a **Contributor** or **Owner** role. The API can be accessed with the **Reader** role but only **Get** or **List**  operations will be available. For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
+The Media Services API requires that the user or application making the REST API requests have access to the Media Services account resource and use a **Contributor** or **Owner** role. The API can be accessed with the **Reader** role but only **Get** or **List**  operations will be available. For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
 
 Instead of creating a service principal, consider using managed identities for Azure resources to access the Media Services API through Azure Resource Manager. To learn more about managed identities for Azure resources, see [What is managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -75,6 +75,10 @@ Azure Media Services v3 resource names (for example, Assets, Jobs, Transforms) a
 Media Services resource names cannot include: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', the single quote character, or any control characters. All other characters are allowed. The max length of a resource name is 260 characters. 
 
 For more information about Azure Resource Manager naming, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
+
+### Names of files/blobs within an asset
+
+The names of files/blobs within an asset must follow both the [blob name requirements](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) and the [NTFS name requirements](https://docs.microsoft.com/windows/win32/fileio/naming-a-file). The reason for these requirements is the files can get copied from blob storage to a local NTFS disk for processing.
 
 ## Long-running operations
 

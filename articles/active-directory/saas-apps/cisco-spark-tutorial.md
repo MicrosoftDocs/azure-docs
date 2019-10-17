@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	In the **Sign on URL** textbox, paste the value of **Reply URL**, which gets autofilled by SP metadata file upload.
 
-5. Cisco Webex  application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+5. Cisco Webex  application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 

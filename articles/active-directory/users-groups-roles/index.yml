@@ -1,49 +1,94 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: Enterprise user management documentation - Azure Active Directory
+summary: Azure AD user management services such as groups and administrator role assignments help you accomplish your top tasks quickly. Assign licenses, assign application access to groups or users, or delegate permissions to distribute identity management tasks. 
+
+
 metadata:
-  document_id: 
   title: Azure Active Directory users, groups, roles, and licenses documentation
-  description: Learn how to use users, groups, roles, and licenses to manage authentication to Azure cloud services in your tenant.
+  description: Learn how to use users, groups, roles, and licenses to manage authentication to Azure cloud services in your organization.
   services: active-directory
-  ms.subservice: users-groups-roles
-  author: curtand
-  manager: mtillman
   ms.service: active-directory
+  ms.subservice: users-groups-roles
+  manager: mtillman
   ms.topic: landing-page
-  ms.date: 01/31/2019
+  ms.date: 08/28/2019
+  author: curtand
   ms.author: curtand
-abstract:
-  description: Azure AD user management tools such as groups and administrator role assignments help you accomplish your top tasks more quickly and accommodate growth. You can assign licenses or access to SaaS apps to groups instead of individuals, or delegate permissions to distribute the overhead of Azure AD identity management. 
-sections:
-- title: 5-minute quickstarts
-  items:
-  - type: paragraph
-    text: Learn to use management tools in Azure Active Directory
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Add users to Azure AD</a>
-    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Assign licenses to users</a>    
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Sign up for Azure AD Premium</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Set  expiration for user-created groups</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Set naming policy for user-created groups</a>
 
-- title: Step-by-step tutorials
-  items:
-  - type: paragraph
-    text: Learn how to dynamically populate groups in Azure Active Directory
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Create a dynamically populated group</a>
-  
-- title: Reference
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Reference links
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Azure AD PowerShell cmdlets</a></p>
 
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About users, groups, roles, and licenses
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Users, groups, licensing, and roles for large orgs
+            url: directory-overview-user-model.md
+          - text: Custom roles overview
+            url: roles-custom-overview.md
+      - linkListType: concept
+        links:
+          - text: Delegate administration
+            url: roles-concept-delegation.md
+          - text: Compare Azure RBAC roles and Azure AD administrator roles
+            url: https://docs.microsoft.com/en-us/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+
+  # Card
+  - title: Get started
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Add a user
+            url: https://review.docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+          - text: Set expiration policy for groups
+            url: groups-quickstart-expiration.md
+          - text: Assign licenses to users
+            url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+
+  # Card
+  - title: Assign Azure AD admin roles
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Assign roles using PowerShell
+            url: roles-assign-powershell.md
+          - text: Assign roles using Graph API
+            url: roles-assign-graph.md
+          - text: Delegate roles by task
+            url: roles-delegate-by-task.md
+          - text: Delegate application management
+            url: roles-delegate-app-roles.md
+
+  # Card
+  - title: Assign licenses
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: License a group of users
+            url: licensing-groups-assign.md
+          - text: Licensing PowerShell examples
+            url: licensing-ps-examples.md
+
+  # Card
+  - title: Manage groups
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Create a dynamic group
+            url: groups-create-rule.md
+          - text: Group settings in PowerShell
+            url: groups-settings-v2-cmdlets.md
+          - text: Set naming policy for groups  
+            url: groups-naming-policy.md
+  # Card
+  - title: Add domains
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Add a custom domain name
+            url: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context
+          - text: Managing custom domain names
+            url: domains-manage.md

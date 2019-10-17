@@ -1,7 +1,7 @@
 ---
 title: What is automated ML / automl
-titleSuffix: Azure Machine Learning service
-description: Learn how Azure Machine Learning service can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
+titleSuffix: Azure Machine Learning
+description: Learn how Azure Machine Learning can automatically pick an algorithm for you, and generate a model from it to save you time by using the parameters and criteria you provide to select the best algorithm for your model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # What is automated machine learning?
 
-Automated machine learning, also referred to as autoML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality.
+Automated machine learning, also referred to as automated ML, is the process of automating the time consuming, iterative tasks of machine learning model development. It allows data scientists, analysts, and developers to build ML models with high scale, efficiency, and productivity all while sustaining model quality. Automated ML is based on a breakthrough from our [Microsoft Research division](https://arxiv.org/abs/1705.05355).
 
 Traditional machine learning model development is resource-intensive, requiring significant domain knowledge and time to produce and compare dozens of models. Apply automated ML when you want Azure Machine Learning to train and tune a model for you using the target metric you specify. The service then iterates through ML algorithms paired with feature selections, where each iteration produces a model with a training score. The higher the score, the better the model is considered to "fit" your data.
 
@@ -32,9 +32,16 @@ Data scientists, analysts and developers across industries can use automated ML 
 + Leverage data science best practices
 + Provide agile problem-solving
 
+The following table lists common automated ML use cases. 
+
+Classification| Regression | Time series forecasting
+---|---|---
+[Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[CPU Performance Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb) |[Demand Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
+[Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)|[Material Durability Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)|[Sales Forecasting](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
+
 ## How automated ML works
 
-Using **Azure Machine Learning service**, you can design and run your automated ML training experiments with these steps:
+Using **Azure Machine Learning**, you can design and run your automated ML training experiments with these steps:
 
 1. **Identify the ML problem** to be solved: classification, forecasting, or regression
 
@@ -42,13 +49,13 @@ Using **Azure Machine Learning service**, you can design and run your automated 
 
 1. **Configure the compute target for model training**, such as your [local computer, Azure Machine Learning Computes, remote VMs, or Azure Databricks](how-to-set-up-training-targets.md).  Learn about automated training [on a remote resource](how-to-auto-train-remote.md).
 
-1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment [in Azure portal](how-to-create-portal-experiments.md) or [with the SDK](how-to-configure-auto-train.md).
+1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment in [Azure portal](how-to-create-portal-experiments.md), [the workspace landing page (preview)](https://ml.azure.com), or [with the SDK](how-to-configure-auto-train.md). 
 
 1. **Submit the training run.**
 
   ![Automated Machine learning](./media/how-to-automated-ml/automl-concept-diagram2.png)
 
-During training, the Azure Machine Learning service creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
+During training, Azure Machine Learning creates a number of in parallel pipelines that try different algorithms and parameters. It will stop once it hits the exit criteria defined in the experiment.
 
 You can also inspect the logged run information, which [contains metrics](how-to-understand-automated-ml.md) gathered during the run. The training run produces a Python serialized object (`.pkl` file) that contains the model and data preprocessing.
 
@@ -96,7 +103,12 @@ Building forecasts is an integral part of any business, whether it’s revenue, 
 
 An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors. This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible.
 
-Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md).
+Learn more and see an example of [automated machine learning for time series forecasting](how-to-auto-train-forecast.md). Or, see the [energy demand notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) for detailed code examples of advanced forecasting configuration including:
+
+* holiday detection and featurization
+* rolling-origin cross validation
+* configurable lags
+* rolling window aggregate features
 
 ## <a name="ensemble"></a> Ensemble models
 
@@ -109,6 +121,36 @@ The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers
 
 See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
 
+## <a name="imbalance"></a> Imbalanced data
+
+Imbalanced data is commonly found in data for machine learning classification scenarios, and refers to data that contains a disproportionate ratio of observations in each class. This imbalance can lead to a falsely perceived positive effect of a model's accuracy, because the input data has bias towards one class, which results in the trained model to mimic that bias. 
+
+As part of its goal of simplifying the machine learning workflow, automated ML has built in capabilities to help deal with imbalanced data such as, 
+
+- A **weight column**: automated ML supports a weighted column as input, causing rows in the data to be weighted up or down, which can make a class more or less “important”. See this [notebook example](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/sample-weight/auto-ml-sample-weight.ipynb) 
+
+- The algorithms used by automated ML can properly handle imbalance of up to 20:1, meaning the most common class can have 20 times more rows in the data than the least common class.
+
+### Identify models with imbalanced data
+
+As classification algorithms are commonly evaluated by accuracy, checking a model's accuracy score is a good way to identify if it was impacted by imbalanced data. Did it have really high accuracy or really low accuracy for certain classes?
+
+In addition, automated ML runs generate the following charts automatically, which can help you understand the correctness of the classifications of your model, and identify models potentially impacted by imbalanced data.
+
+Chart| Description
+---|---
+[Confusion Matrix](how-to-understand-automated-ml.md#confusion-matrix)| Evaluates the correctly classified labels against the actual labels of the data. 
+[Precision-recall](how-to-understand-automated-ml.md#precision-recall-chart)| Evaluates the ratio of correct labels against the ratio of found label instances of the data 
+[ROC Curves](how-to-understand-automated-ml.md#roc)| Evaluates the ratio of correct labels against the ratio of false-positive labels.
+
+### Handle imbalanced data 
+
+The following techniques are additional options to handle imbalanced data outside of automated ML. 
+
+- Resampling to even the class imbalance, either by up-sampling the smaller classes or down-sampling the larger classes. These methods require expertise to process and analyze.
+
+- Use a performance metric that deals better with imbalanced data. For example, the F1 score is a weighted average of precision and recall. Precision measures a classifier’s exactness-- low precision indicates a high number of false positives--, while recall measures a classifier’s completeness-- low recall indicates a high number of false negatives. 
+
 ## Use with ONNX in C# apps
 
 With Azure Machine Learning, you can use automated ML to build a Python model and have it converted to the ONNX format. The ONNX runtime supports  C#, so you can use the model built automatically in your C# apps without any need for recoding or any of the network latencies that REST endpoints introduce. Try an example of this flow [in this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-with-onnx/auto-ml-classification-with-onnx.ipynb).
@@ -119,9 +161,9 @@ Automated ML is also available in other Microsoft solutions such as:
 
 |Integrations|Description|
 |------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Automatic model selection and training in .NET apps using Visual Studio and Visual Studio Code with ML.NET automated ML (Preview).|
+|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Automatic model selection and training in .NET apps using Visual Studio and Visual Studio Code with ML.NET automated ML (preview).|
 |[HDInsight](../../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|Scale out your automated ML training jobs on Spark in HDInsight clusters in parallel.|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invoke machine learning models directly in Power BI (Preview).|
+|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Invoke machine learning models directly in Power BI (preview).|
 |[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|Create new machine learning models over your data in SQL Server 2019 big data clusters.|
 
 ## Next steps
@@ -131,7 +173,7 @@ See examples and learn how to build models using automated machine learning:
 + Follow the [Tutorial: Automatically train a regression model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
 + Configure the settings for automatic training experiment:
-  + In Azure portal interface, [use these steps](how-to-create-portal-experiments.md).
+  + In Azure portal interface or  the workspace landing page (preview), [use these steps](how-to-create-portal-experiments.md).
   + With the Python SDK, [use these steps](how-to-configure-auto-train.md).
 
 + Learn how to auto train using time series data, [use these steps](how-to-auto-train-forecast.md).

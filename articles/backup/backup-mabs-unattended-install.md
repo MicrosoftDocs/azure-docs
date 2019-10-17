@@ -21,7 +21,7 @@ These steps do not apply if you are installing Azure Backup Server V1.
 
 2. Paste the following code in the MABSSetup.ini file. Replace the text inside the brackets (\< \>) with values from your environment. The following text is an example:
 
-   ```
+   ```text
    [OPTIONS]
    UserName=administrator
    CompanyName=<Microsoft Corporation>
@@ -44,7 +44,7 @@ These steps do not apply if you are installing Azure Backup Server V1.
 
 3. Save the file. Then, at an elevated command prompt on the installation server, enter this command:
 
-   ```
+   ```cmd
    start /wait <cdlayout path>/Setup.exe /i  /f <.ini file path>/setup.ini /L <log path>/setup.log
    ```
 

@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Tutorial: Create user flows in Azure Active Directory B2C
 
-In your applications you may have [user flows](active-directory-b2c-reference-policies.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory (Azure AD) B2C tenant and use them in your applications as needed. User flows can be reused across applications.
+In your applications you may have [user flows](active-directory-b2c-reference-policies.md) that enable users to sign up, sign in, or manage their profile. You can create multiple user flows of different types in your Azure Active Directory B2C (Azure AD B2C) tenant and use them in your applications as needed. User flows can be reused across applications.
 
 In this article, you learn how to:
 
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 The sign-up and sign-in user flow handles both sign-up and sign-in experiences with a single configuration. Users of your application are led down the right path depending on the context.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 
     ![Directory and Subscription filter with B2C tenant selected](./media/tutorial-create-user-flows/switch-directories.PNG)
 

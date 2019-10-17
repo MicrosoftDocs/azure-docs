@@ -6,12 +6,12 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 08/21/2019
+ms.date: 09/03/2019
 ms.author: heidist
 ---
 # What is Azure Search?
 
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. On the other side, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Search, with query execution over a persisted index that you create, own, and store on Azure Search.
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. On the other side, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Search, with query execution over a persisted index that you create, own, and store in your service.
 
 ![Azure Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Search architecture")
 
@@ -56,7 +56,7 @@ Azure Search is well suited for the following application scenarios:
 | Platform&nbsp;level&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Features |
 |-------------------|----------|
 | Tools for prototyping and inspection | In the portal, you can use the [**Import data wizard**](search-import-data-portal.md) to configure indexers, index designer to stand up an index, and [**Search explorer**](search-explorer.md) to test queries and refine scoring profiles. You can also open any index to view its schema. |
-| Monitoring and diagnostics | [**Enable monitoring features**](search-monitor-usage.md) to go beyond the metrics-at-a-glance that are always visible in the portal. Metrics on queries per second, latency, and throttling are captured and reported in portal pages with no additional configuration required. <br/><br/>[**Search traffic analytics**](search-traffic-analytics.md) is another monitoring alternative, where server-side and client-side data is collected and analyzed to unlock insights about what users are typing into the search box. |
+| Monitoring and diagnostics | [**Enable monitoring features**](search-monitor-usage.md) to go beyond the metrics-at-a-glance that are always visible in the portal. Metrics on queries per second, latency, and throttling are captured and reported in portal pages with no additional configuration required.|
 | Server-side encryption | [**Microsoft-managed encryption-at-rest**](search-security-overview.md#encrypted-transmission-and-storage) is built into the internal storage layer and is irrevocable. Optionally, you can supplement the default encryption with [**customer-managed encryption keys (preview)**](search-security-manage-encryption-keys.md). Keys that you create and manage in Azure Key Vault are used to encrypt indexes and synonym maps in Azure Search. |
 | Infrastructure | The **highly available platform** ensures an extremely reliable search service experience. When scaled properly, [Azure Search offers a 99.9% SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Fully managed and scalable** as an end-to-end solution, Azure Search requires absolutely no infrastructure management. Your service can be tailored to your needs by scaling in two dimensions to handle more document storage, higher query loads, or both.<br/><br/>|
 

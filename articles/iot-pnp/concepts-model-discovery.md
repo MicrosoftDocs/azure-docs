@@ -25,7 +25,7 @@ When an IoT Plug and Play device first connects to your IoT hub, it sends a mode
 
 Here are the steps an IoT Plug and Play device takes when it uses the Device Provisioning Service (DPS) to connect to a hub:
 
-1. When the device is turned on, it connects to the global end point for the DPS and authenticates using one of the allowed methods.
+1. When the device is turned on, it connects to the global end point for DPS and authenticates using one of the allowed methods.
 1. DPS then authenticates the device and looks up the rule that tells it which IoT hub to assign the device to. DPS then registers the device with that hub.
 1. DPS returns an IoT Hub connection string to the device.
 1. The device then sends a discovery telemetry message to your IoT Hub. The discovery telemetry message contains the IDs of the interfaces the device implements.
@@ -64,9 +64,9 @@ When your solution receives a notification for a new device connection, follow t
 1. Read the discovery telemetry message to retrieve the IDs of the capability model and interfaces implemented by the device.
 1. For each ID, read the full JSON file to find the device's capabilities.
 1. Check to see if each interface is present in any caches you've built for storing the JSON files retrieved earlier by your solution.
-1. Then, check if an interface with that ID is present in the global model repository. For more information, see [Global model repository](howto-manage-models.md).
-1. If the interface isn't present in the global model repository, try looking for it in any private model repositories known to your solution. You need a connection string to access a private model repository. For more information, see [Private model repository](howto-manage-models.md).
-1. If you can't find all the interfaces in either the global model repository, or in a private model repository, you can check if the device can provide the interface definition. A device can implement the standard [ModelDefinition](concepts-common-interfaces.md) interface to publish information about how to retrieve interface files with a command.
+1. Then, check if an interface with that ID is present in the public model repository. For more information, see [Public model repository](howto-manage-models.md).
+1. If the interface isn't present in the public model repository, try looking for it in any company model repositories known to your solution. You need a connection string to access a company model repository. For more information, see [Company model repository](howto-manage-models.md).
+1. If you can't find all the interfaces in either the public model repository, or in a company model repository, you can check if the device can provide the interface definition. A device can implement the standard [ModelDefinition](concepts-common-interfaces.md) interface to publish information about how to retrieve interface files with a command.
 1. If you found JSON files for each interface implemented by the device, you can enumerate the capabilities of the device. Use the logic you wrote earlier to enable users to interact with the device.
 1. At any time, you can call the digital twins API to retrieve the capability model ID and interface IDs for the device.
 
