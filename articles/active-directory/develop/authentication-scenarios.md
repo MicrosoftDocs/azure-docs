@@ -32,7 +32,7 @@ This article covers many of the authentication concepts you'll need to understan
 
 **Authorization** is the act of granting an authenticated party permission to do something. It specifies what data you're allowed to access and what you can do with that data. Authorization is sometimes shortened to AuthZ.
 
-Instead of creating apps that each maintain their own username and password information, which incurs a high administrative burden when you have multiple apps and need to add or remove users across them, apps can delegate that responsibility to a centralized identity provider.
+Instead of creating apps that each maintain their own username and password information, which incurs a high administrative burden when you need to add or remove users across multiple apps, apps can delegate that responsibility to a centralized identity provider.
 
 Azure Active Directory (Azure AD) is a centralized identify provider in the cloud. Delegating authentication and authorization to it enables scenarios such as conditional access policies that require a user to be in a specific location, the use of multi-factor authentication, as well as enabling a user to sign in once and then be automatically signed in to all of the web apps that share the same centralized directory. This capability is referred to as Single Sign On (SSO).
 
@@ -40,7 +40,7 @@ A centralized identity provider is even more important for apps that have users 
 
 The Microsoft identity platform simplifies authentication for application developers by providing identity as a service, with support for industry-standard protocols such as OAuth 2.0 and OpenID Connect, as well as open-source libraries for different platforms to help you start coding quickly. It allows developers to build applications that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or APIs that developers have built. For more information, see [Evolution of Microsoft identity platform](about-microsoft-identity-platform.md).
 
-## Tenants
+### Tenants
 
 A cloud identity provider serves many organizations. To keep users from different organizations separate, Azure AD is partitioned into tenants, with one tenant per organization.
 
@@ -73,7 +73,7 @@ Tokens are only valid for a limited amount of time. Usually the STS provides a p
 
 Access tokens are passed to a Web API as the bearer token in the `Authenticate` header. An app can provide a refresh token to the STS, and if the user access to the app wasn't revoked, it will get back a new access token and a new refresh token. This is how the scenario of someone leaving the enterprise is handled. When the STS receives the refresh token, it won't issue another valid access token if the user is no longer authorized.
 
-### Applications
+## Application model
 
 Applications can sign in users themselves or delegate sign-in to an identity provider. See [Authentication flows and app scenarios](authentication-flows-app-scenarios.md) to learn about sign-in scenarios supported by Azure AD.
 
@@ -87,18 +87,16 @@ For an identity provider to know that a user has access to a particular app, bot
 
 Once registered, the application will be given a GUID that the app shares with Azure AD when it requests tokens. If the app is a confidential client application, it will also share the secret or the public key, depending on whether certificates or secrets were used.
 
-### Application model
-
 The Microsoft identity platform represents applications using a model that fulfills two main functions:
 
-**Identify the app by the authentication protocols it supports and provide all the identifiers, URLs, secrets, and related information that are needed to authenticate.**
+Identify the app by the authentication protocols it supports and provide all the identifiers, URLs, secrets, and related information that are needed to authenticate.
 The Microsoft identity platform:
 
 * Holds all the data required to support authentication at runtime.
 * Holds all the data for deciding what resources an app might need to access, and under what circumstances a given request should be fulfilled.
 * Provides infrastructure for implementing app provisioning within the app developer's tenant, and to any other Azure AD tenant.
 
-**Handle user consent during token request time and facilitate the dynamic provisioning of apps across tenants**
+Handle user consent during token request time and facilitate the dynamic provisioning of apps across tenants
 Consent is the process of a resource owner granting authorization to a client application to access protected resources, under specific permissions, on behalf of the resource owner. The Microsoft identity platform:
 
 * Enables users and administrators to dynamically grant or deny consent for the app to access resources on their behalf.
@@ -152,7 +150,7 @@ User authentication happens via the browser. The OpenID protocol uses standard H
 - The redirect is provided by the web app in the form of a redirect URI. This redirect URI is registered with the Azure AD application object. There can be several redirect URIs because the application may be deployed at several URLs. So the web app will also need to specify the redirect URi to use.
 - Azure AD verifies that the redirect URI sent by the web app is one of the registered redirect URIs for the app.
 
-## Generalization to desktop and mobile apps
+## Desktop and mobile app sign-in flow with Azure AD
 
 The flow described above applies, with slight differences, to desktop and mobile applications.
 
