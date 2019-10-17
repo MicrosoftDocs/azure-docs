@@ -34,7 +34,7 @@ ms.custom: include file
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
     | **[Storage account](../articles/storage/common/storage-quickstart-create-account.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meets the [storage account requirements](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
-    |**Operating system**| Perferred operating system | An operating system is pre-selected for you based on your runtime stack selection. |
+    |**Operating system**| Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection. |
     | **[Plan](../articles/azure-functions/functions-scale.md)** | Consumption plan | Hosting plan that defines how resources are allocated to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you only pay for the time your functions run. When you run in an App Service plan, you must manage the [scaling of your function app](../articles/azure-functions/functions-scale.md).  |
 
 1. Select **Next : Monitoring >** and enter the following settings.
