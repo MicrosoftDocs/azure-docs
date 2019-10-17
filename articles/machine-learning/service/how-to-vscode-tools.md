@@ -52,7 +52,7 @@ To install the Azure Machine Learning extension:
 > You can also download the extension installer directly from [Azure Machine Learning for Visual Studio Code extension (preview)](https://aka.ms/vscodetoolsforai).
 
 ## Quickstart with Azure Machine Learning
-There are multiple ways of running your training scripts using Azure Machine Learning If you're just getting started, let's first walk through how to quickly submit a training script to run in Azure.
+There are multiple ways of running your training scripts using Azure Machine Learning. If you're just getting started, let's first walk through how to quickly submit a training script to run in Azure.
 
 If you're already somewhat familiar with the Azure Machine Learning concepts and would like more details as to how to manage and use them with the extension, see [Azure Machine Learning in-depth with VS Code](./how-to-vscode-tools.md#azure-machine-learning-in-depth-with-vs-code) below.
 
