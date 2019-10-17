@@ -15,9 +15,15 @@
   - name: Speech translation
     href: speech-translation.md
     displayName: translate speech, speech translation, translator, s2s, speech to speech
-  - name: Voice-first virtual assistants
-    href: voice-first-virtual-assistants.md
-    displayName: virtual assistants, speech-enabled bots, conversational agents
+  - name: Speech assistants
+    href: speech-assistants.md
+    displayName: speech assistants, speech-enabled bots, conversational agents
+  - name: (*) Custom Commands
+    href: custom-commands.md
+    displayName: custom commands, task completion
+  - name: (*) Direct Line Speech
+    href: direct-line-speech.md
+    displayName: direct line speech, bots, bot framework
 - name: Quickstarts
   items:
   - name: Speech SDK
