@@ -221,6 +221,7 @@ az iot hub route create \
   --condition $condition
 
 # This is the route for messages that are enriched.
+# Create the route for the second storage endpoint.
 az iot hub route create \
   --name $routeName2 \
   --hub-name $iotHubName \
