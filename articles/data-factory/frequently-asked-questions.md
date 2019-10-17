@@ -3,19 +3,16 @@ title: 'Azure Data Factory: Frequently asked questions | Microsoft Docs'
 description: Get answers to frequently asked questions about Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 532dec5a-7261-4770-8f54-bfe527918058
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: shlo
 ---
+
 # Azure Data Factory FAQ
 This article provides answers to frequently asked questions about Azure Data Factory.  
 
@@ -201,7 +198,7 @@ When Microsoft provides help or troubleshooting with data flows, please provide 
 
 ### How do I access data by using the other 80 dataset types in Data Factory?
 
-The Mapping Data Flow feature currently allows Azure SQL Database, Azure SQL Data Warehouse, delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 
+The mapping data flow feature currently allows Azure SQL Database, Azure SQL Data Warehouse, delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 
 
 Use the Copy activity to stage data from any of the other connectors, and then execute a Data Flow activity to transform data after it's been staged. For example, your pipeline will first copy into Blob storage, and then a Data Flow activity will use a dataset in source to transform that data.
 

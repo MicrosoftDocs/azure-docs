@@ -6,7 +6,7 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/04/2019
 ---
 
 # Create a new SaaS offer
@@ -14,6 +14,9 @@ ms.date: 08/14/2019
 To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
+
+>[!Note]
+> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Please ensure that you submit the offer for publication after you make changes.
 
 Select the + **New offer…** button, then select the **Software as a Service** menu item. 
 
@@ -74,25 +77,29 @@ In order to list Software as a Service (SaaS) offers with Commercial Marketplace
 - Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
 - For more extensive requirements, see the [SaaS Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### SaaS on Azure Billing infrastructure costs
-If the SaaS offer is hosted in Azure, you, as the publisher, must account for Azure infrastructure usage fees, and software licensing fees as a single cost item. This cost is represented as a flat monthly fee to the customer. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. 
+#### SaaS pricing and billing options
+With SaaS solutions running in the publisher's Azure subscription, license fees paid by customers include the cost of the infrastructure upon which the software is deployed. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers should bundle Azure infrastructure usage fees into their software license pricing. 
 
-Software licensing fees are presented as a monthly, recurring site-based subscription flat-rate fee and are not metered or consumption based.
+SaaS offers support monthly or annual billing based on a flat fee, per user, or consumption charges using the metered billing service. Microsoft's commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to the publisher while withholding an agency fee.
+
+The following table shows an example break down of costs and payouts to demonstrate the agency model.
 
 |**Your license cost**|**$100 per month**|
 |:---|:---|
 |Azure usage cost (D1/1-Core)|Billed directly to the publisher, not the customer|
 |Customer is billed by Microsoft|$100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee)|
 
-- In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 to the publisher.
+|**Microsoft bills**|**$100 per month**|
+|:---|:---|
+|Microsoft pays you 80% of your license cost <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|$80.00 per month <br>*$*90.00 per month*|
+
+- In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
 - Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
 > [!NOTE]
 > **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
 
-|**Microsoft bills**|**$100 per month**|
-|:---|:---|
-|Microsoft pays you 80% of your license cost <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|$80.00 per month <br>*$*90.00 per month*|
+
 
 
 #### CSP Program Opt-in
@@ -148,18 +155,7 @@ By enabling test drive, you will be asked to configure a demonstration environme
 
 ## Connect lead management
 
-Connect with customers directly by listing your offer in the marketplaces and hooking up your Customer Relationship Management (CRM) system so that you can receive customer contact information immediately after a customer expresses interest or deploys your product.
-
-- **Choose a lead destination** (drop-down menu): Provide connection details to the CRM system where you would like us to send customer leads. 
-
-Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
-
-- Azure Blob– Provide contact email, container name, and storage account connection string. 
-- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – Provide contact email and storage account connection string. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – Provide contact email, URL, and authentication mode (Office 365 or Azure Active Directory).
-- [Https Endpoint](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – Provide contact email and HTTPS endpoint URL. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – Provide contact email, form ID, Munchkin account ID, and server ID.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -  Provide contact email and organization ID. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### Additional lead management resources
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
@@ -211,7 +207,7 @@ The Offer listing tab displays the languages (and markets) where your offer is a
 
 Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
 
-- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain whitespace, emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
 - **Summary** (required): Provide a short description of your offer to be used in marketplace listing(s) search results. Up to 100 characters of text can be entered in this field.
 - **Description** (required): Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
 Up to 3,000 characters of text can be entered in this field. For additional tips, see the article [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
@@ -297,12 +293,7 @@ To make your offer description more engaging you can use HTML tags to format the
 
     The above would look like this:
 
-    <h1>This is heading 1</h1> 
-    <h2>This is heading 2</h2> 
-    <h3>This is heading 3</h3> 
-    <h4>This is heading 4</h4> 
-    <h5>This is heading 5</h5> 
-    <h6>This is heading 6</h6> 
+    ![Sample headings](./media/heading.png)
 
 #### Links
 
@@ -406,6 +397,9 @@ The ability to configure a free trial is available for each plan in your offer. 
 
 ![One month free trial checkbox](./media/free-trial-enable.png)
 
+>[!Note]
+>Once your transactable offer has been published with a free trial it cannot be disabled for that plan. Make sure this setting is correct for the first publish to avoid having to re-create the plan.
+
 To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. See the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) for more information.
 
 >[!Note]
@@ -437,7 +431,7 @@ Select the frequency that customers must pay the price listed. At least one Mont
 - **Price**: USD per month or USD per year
 
 Prices set in local currency (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates available during setup. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. You are responsible for validating this pricing and own these settings.
-**You must first save your pricing changes to enable export of pricing data.*
+*\*You must first save your pricing changes to enable export of pricing data.*
 
 Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published:
 

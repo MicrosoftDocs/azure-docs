@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ---
@@ -26,7 +26,7 @@ There are three types of availability tests:
 
 * [URL ping test](#create-a-url-ping-test): a simple test that you can create in the Azure portal.
 * [Multi-step web test](availability-multistep.md): A recording of a sequence of web requests, which can be played back to test more complex scenarios. Multi-step web tests are created in Visual Studio Enterprise and uploaded to the portal for execution.
-* [Custom Track Availability Tests](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): The `TrackAvailability()` method can be used to create your own custom availability tests.
+* [Custom Track Availability Tests](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): If you decide to create a custom application to run availability tests, the `TrackAvailability()` method can be used to send the results to Application Insights.
 
 **You can create up to 100 availability tests per Application Insights resource.**
 

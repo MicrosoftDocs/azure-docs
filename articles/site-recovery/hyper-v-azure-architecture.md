@@ -1,5 +1,5 @@
 ---
-title: Hyper-V to Azure disaster recovery architecture in Azure Site Recovery | Microsoft Docs
+title: Hyper-V to Azure disaster recovery architecture in Azure Site Recovery
 description: This article provides an overview of components and architecture used when deploying disaster recovery for on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm

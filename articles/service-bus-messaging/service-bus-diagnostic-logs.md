@@ -22,7 +22,7 @@ ms.author: aschhab
 
 You can view two types of logs for Azure Service Bus:
 * **[Activity logs](../azure-monitor/platform/activity-logs-overview.md)**. These logs contain information about operations performed on a job. The logs are always enabled.
-* **[Diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md)**. You can configure diagnostic logs for richer information about everything that happens within a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
+* **[Diagnostic logs](../azure-monitor/platform/resource-logs-overview.md)**. You can configure diagnostic logs for richer information about everything that happens within a job. Diagnostic logs cover activities from the time the job is created until the job is deleted, including updates and activities that occur while the job is running.
 
 ## Turn on diagnostic logs
 
@@ -48,7 +48,7 @@ Diagnostics logs are disabled by default. To enable diagnostic logs, perform the
 
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, on the **Diagnostics logs** blade.
 
-For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+For more information about configuring diagnostics, see the [overview of Azure diagnostic logs](../azure-monitor/platform/resource-logs-overview.md).
 
 ## Diagnostic logs schema
 

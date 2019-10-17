@@ -6,11 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Json.NET NuGet Package](https://www.nuget.org/packages/Newtonsoft.Json/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
+[!INCLUDE [Set up and use environment variables](setup-env-variables.md)]
 
 ## Create a .NET Core project
 
@@ -40,9 +38,26 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
+## Get endpoint information from an environment variable
+
+Add the following lines to the `Program` class. These lines read your subscription key and endpoint from environment variables, and throws an error if you run into any issues.
+
+```csharp
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+```
+
 ## Create a function to get a list of languages
 
-Within the `Program` class, create a function called `GetLanguages`. This class encapsulates the code used to call the Languages resource and prints the result to console.
+In the `Program` class, create a function called `GetLanguages`. This class encapsulates the code used to call the Languages resource and prints the result to console.
 
 ```csharp
 static void GetLanguages()
@@ -54,12 +69,11 @@ static void GetLanguages()
 }
 ```
 
-## Set the host name, and path
+## Set the route
 
 Add these lines to the `GetLanguages` function.
 
 ```csharp
-string host = "https://api.cognitive.microsofttranslator.com";
 string route = "/languages?api-version=3.0";
 ```
 
@@ -91,7 +105,7 @@ Add this code to the `HttpRequestMessage`:
 // Set the method to GET
 request.Method = HttpMethod.Get;
 // Construct the full URI
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(endpoint + route);
 // Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
@@ -103,7 +117,8 @@ Console.WriteLine("Press any key to continue.");
 If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 To print the response with "Pretty Print" (formatting for the response), add this function to your Program class:
-```
+
+```csharp
 static string PrettyPrint(string s)
 {
     return JsonConvert.SerializeObject(JsonConvert.DeserializeObject(s), Formatting.Indented);

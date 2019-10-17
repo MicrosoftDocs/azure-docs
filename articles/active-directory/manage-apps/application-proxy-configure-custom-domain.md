@@ -37,7 +37,7 @@ We recommend that you set up custom domains for your applications whenever possi
 
 Before you configure a custom domain, make sure that you have the following requirements prepared: 
 - A [verified domain added to Azure Active Directory](../fundamentals/add-custom-domain.md).
-- A custom certificate for the domain, in the form of a PFX file. 
+- A custom certificate for the domain, in the form of a PFX file.
 - An on-premises app [published through Application Proxy](application-proxy-add-on-premises-application.md).
 
 ### Configure your custom domain
@@ -69,6 +69,8 @@ When you have those three requirements ready, follow these steps to set up your 
 There is no restriction on the certificate signature methods. Elliptic Curve Cryptography (ECC), Subject Alternative Name (SAN), and other common certificate types are all supported. 
 
 You can use a wildcard certificate as long as the wildcard matches the desired external URL.
+
+The certificate must include the private key.
 
 Certificates issued by your own public key infrastructure (PKI) can be used if the certificate chain is installed on your client devices. Intune can be used to deploy these certificates to managed devices. For non-managed devices these certificates must be manually installed.
 

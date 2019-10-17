@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 10/11/2019
 ms.author: juliako
 ---
 
@@ -28,8 +28,6 @@ This article describes quotas and limitations in Azure Media Services v3.
 | Files per JobInput|10 (fixed)|
 | File size| In some scenarios, there is a limit on the maximum file size supported for processing in Media Services. <sup>(1)</sup> |
 | Jobs per Media Services account | 500,000 <sup>(2)</sup> (fixed)|
-| Listing Transforms|Paginate the response, with 1000 Transforms per page|
-| Listing Jobs|Paginate the response, with 500 Jobs per page|
 | Live Events per Media Services account |5|
 | Media Services accounts in a single subscription | 25 (fixed) |
 | Live Outputs per Live Event |3 <sup>(3)</sup> |

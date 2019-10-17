@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/08/2019
+ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -336,6 +336,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ApiManagement/service/policy/delete | Delete the policy configuration at Tenant level |
 > | Action | Microsoft.ApiManagement/service/policy/read | Get the policy configuration at Tenant level |
 > | Action | Microsoft.ApiManagement/service/policy/write | Create policy configuration at Tenant level |
+> | Action | Microsoft.ApiManagement/service/policyDescriptions/read | Lists all policy descriptions. |
 > | Action | Microsoft.ApiManagement/service/policySnippets/read | Lists all policy snippets. |
 > | Action | Microsoft.ApiManagement/service/portalsettings/read | Get Sign In Settings for the Portal or Get Sign Up Settings for the Portal or Get Delegation Settings for the Portal. |
 > | Action | Microsoft.ApiManagement/service/portalsettings/write | Update Sign-In settings. or Create or Update Sign-In settings. or Update Sign Up settings or Update Sign Up settings or Update Delegation settings. or Create or Update Delegation settings. |
@@ -426,6 +427,10 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Authorization/locks/write | Add locks at the specified scope. |
 > | Action | Microsoft.Authorization/operations/read | Gets the list of operations |
 > | Action | Microsoft.Authorization/permissions/read | Lists all the permissions the caller has at a given scope. |
+> | Action | Microsoft.Authorization/policies/audit/action | Action taken as a result of evaluation of Azure Policy with 'audit' effect |
+> | Action | Microsoft.Authorization/policies/auditIfNotExists/action | Action taken as a result of evaluation of Azure Policy with 'auditIfNotExists' effect |
+> | Action | Microsoft.Authorization/policies/deny/action | Action taken as a result of evaluation of Azure Policy with 'deny' effect |
+> | Action | Microsoft.Authorization/policies/deployIfNotExists/action | Action taken as a result of evaluation of Azure Policy with 'deployIfNotExists' effect |
 > | Action | Microsoft.Authorization/policyAssignments/delete | Delete a policy assignment at the specified scope. |
 > | Action | Microsoft.Authorization/policyAssignments/read | Get information about a policy assignment. |
 > | Action | Microsoft.Authorization/policyAssignments/write | Create a policy assignment at the specified scope. |
@@ -533,8 +538,13 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Automation/automationAccounts/schedules/getCount/action | Gets the count of Azure Automation schedules |
 > | Action | Microsoft.Automation/automationAccounts/schedules/read | Gets an Azure Automation schedule asset |
 > | Action | Microsoft.Automation/automationAccounts/schedules/write | Creates or updates an Azure Automation schedule asset |
+> | Action | Microsoft.Automation/automationAccounts/softwareUpdateConfigurationMachineRuns/read | Gets an Azure Automation Software Update Configuration Machine Run |
+> | Action | Microsoft.Automation/automationAccounts/softwareUpdateConfigurationRuns/read | Gets an Azure Automation Software Update Configuration Run |
+> | Action | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/delete | Deletes an Azure Automation Software Update Configuration |
 > | Action | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/delete | Deletes an Azure Automation Software Update Configuration |
 > | Action | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/read | Gets an Azure Automation Software Update Configuration |
+> | Action | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/read | Gets an Azure Automation Software Update Configuration |
+> | Action | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/write | Creates or updates Azure Automation Software Update Configuration |
 > | Action | Microsoft.Automation/automationAccounts/softwareUpdateConfigurations/write | Creates or updates Azure Automation Software Update Configuration |
 > | Action | Microsoft.Automation/automationAccounts/statistics/read | Gets Azure Automation Statistics |
 > | Action | Microsoft.Automation/automationAccounts/updateDeploymentMachineRuns/read | Get an Azure Automation update deployment machine |
@@ -640,16 +650,36 @@ The resource provider operations are always evolving. To get the latest operatio
 > | --- | --- | --- |
 > | Action | Microsoft.Billing/billingAccounts/agreements/read |  |
 > | Action | Microsoft.Billing/billingAccounts/billingPermissions/read |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/billingPermissions/read |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/customers/read |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoices/pricesheet/download/action |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/billingPermissions/read |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/billingSubscriptions/move/action |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/billingSubscriptions/transfer/action |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/billingSubscriptions/validateMoveEligibility/action |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/products/move/action |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/products/transfer/action |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/products/validateMoveEligibility/action |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/read |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/write |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/download/action |  |
 > | Action | Microsoft.Billing/billingAccounts/billingProfiles/read |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
+> | Action | Microsoft.Billing/billingAccounts/billingProfiles/write |  |
+> | Action | Microsoft.Billing/billingAccounts/billingSubscriptions/read |  |
+> | Action | Microsoft.Billing/billingAccounts/customers/billingPermissions/read |  |
 > | Action | Microsoft.Billing/billingAccounts/customers/read |  |
 > | Action | Microsoft.Billing/billingAccounts/departments/read |  |
+> | Action | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingPermissions/read |  |
 > | Action | Microsoft.Billing/billingAccounts/enrollmentAccounts/read |  |
+> | Action | Microsoft.Billing/billingAccounts/enrollmentDepartments/billingPermissions/read |  |
+> | Action | Microsoft.Billing/billingAccounts/listInvoiceSectionsWithCreateSubscriptionPermission/action |  |
 > | Action | Microsoft.Billing/billingAccounts/products/read |  |
 > | Action | Microsoft.Billing/billingAccounts/read |  |
+> | Action | Microsoft.Billing/billingAccounts/write |  |
 > | Action | Microsoft.Billing/departments/read |  |
+> | Action | Microsoft.Billing/register/action |  |
+> | Action | Microsoft.Billing/validateAddress/action |  |
 
 ## Microsoft.BingMaps
 
@@ -670,11 +700,11 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.Blockchain/blockchainMembers/delete | Deletes an existing Blockchain Member. |
-> | Action | Microsoft.Blockchain/blockchainMembers/listApiKeys/action | Gets or Lists existing Blockchain Member API keys. |
+> | Action | Microsoft.Blockchain/blockchainMembers/listApiKeys/action | Gets or Lists existing Blockchain Member Api Keys. |
 > | Action | Microsoft.Blockchain/blockchainMembers/read | Gets or Lists existing Blockchain Member(s). |
 > | DataAction | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Connects to a Blockchain Member Transaction Node. |
 > | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/delete | Deletes an existing Blockchain Member Transaction Node. |
-> | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/listApiKeys/action | Gets or Lists existing Blockchain Member Transaction Node API keys. |
+> | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/listApiKeys/action | Gets or Lists existing Blockchain Member Transaction Node Api Keys. |
 > | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Gets or Lists existing Blockchain Member Transaction Node(s). |
 > | Action | Microsoft.Blockchain/blockchainMembers/transactionNodes/write | Creates or Updates a Blockchain Member Transaction Node. |
 > | Action | Microsoft.Blockchain/blockchainMembers/write | Creates or Updates a Blockchain Member. |
@@ -776,6 +806,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Capacity/reservationorders/merge/action | Merge any Reservation |
 > | Action | Microsoft.Capacity/reservationorders/read | Read All Reservations |
 > | Action | Microsoft.Capacity/reservationorders/reservations/action | Update any Reservation |
+> | Action | Microsoft.Capacity/reservationorders/reservations/availablescopes/action | Find any Available Scope |
 > | Action | Microsoft.Capacity/reservationorders/reservations/delete | Delete any Reservation |
 > | Action | Microsoft.Capacity/reservationorders/reservations/read | Read All Reservations |
 > | Action | Microsoft.Capacity/reservationorders/reservations/revisions/read | Read All Reservations |
@@ -1085,12 +1116,18 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ClassicStorage/quotas/read | Get the quota for the subscription. |
 > | Action | Microsoft.ClassicStorage/register/action | Register to Classic Storage |
 > | Action | Microsoft.ClassicStorage/storageAccounts/abortMigration/action | Aborts migration of a storage account. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostics settings. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/blobServices/providers/Microsoft.Insights/diagnosticSettings/write | Add or modify diagnostics settings. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/blobServices/providers/Microsoft.Insights/metricDefinitions/read | Gets the metrics definitions. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/commitMigration/action | Commits migration of a storage account. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/delete | Delete the storage account. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/disks/delete | Deletes a given storage account  disk. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/disks/operationStatuses/read | Reads the operation status for the resource. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/disks/read | Returns the storage account disk. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/disks/write | Adds a storage account disk. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostics settings. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Add or modify diagnostics settings. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read | Gets the metrics definitions. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/images/delete | Deletes a given storage account image. (Deprecated. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
 > | Action | Microsoft.ClassicStorage/storageAccounts/images/operationstatuses/read | Returns the storage account image operation status. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/images/read | Returns the storage account image. (Deprecated. Use 'Microsoft.ClassicStorage/storageAccounts/vmImages') |
@@ -1103,6 +1140,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ClassicStorage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostics settings. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Add or modify diagnostics settings. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the metrics definitions. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostics settings. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/queueServices/providers/Microsoft.Insights/diagnosticSettings/write | Add or modify diagnostics settings. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/queueServices/providers/Microsoft.Insights/metricDefinitions/read | Gets the metrics definitions. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/read | Return the storage account with the given account. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/regenerateKey/action | Regenerates the existing access keys for the storage account. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/diagnosticSettings/read | Get the diagnostics settings. |
@@ -1110,6 +1150,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/metricDefinitions/read | Gets the metrics definitions. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/metrics/read | Gets the metrics. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/services/read | Get the available services. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read | Get the diagnostics settings. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write | Add or modify diagnostics settings. |
+> | Action | Microsoft.ClassicStorage/storageAccounts/tableServices/providers/Microsoft.Insights/metricDefinitions/read | Gets the metrics definitions. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/validateMigration/action | Validates migration of a storage account. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/vmImages/delete | Deletes a given virtual machine image. |
 > | Action | Microsoft.ClassicStorage/storageAccounts/vmImages/operationstatuses/read | Gets a given virtual machine image operation status. |
@@ -1123,6 +1166,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
+> | DataAction | Microsoft.CognitiveServices/accounts/Autosuggest/search/action | This operation provides suggestions for a given query or partial query. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/analyze/action | This operation extracts a rich set of visual features based on the image content.  |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/areaofinterest/action | This operation returns a bounding box around the most important area of the image. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/describe/action | This operation generates a description of an image in human readable language with complete sentences.<br> The description is based on a collection of content tags, which are also returned by the operation.<br>More than one description can be generated for each image.<br> Descriptions are ordered by their confidence score.<br>All descriptions are in English. |
@@ -1135,6 +1179,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/tag/action | This operation generates a list of words, or tags, that are relevant to the content of the supplied image.<br>The Computer Vision API can return tags based on objects, living beings, scenery or actions found in images.<br>Unlike categories, tags are not organized according to a hierarchical classification system, but correspond to image content.<br>Tags may contain hints to avoid ambiguity or provide context, for example the tag “cello” may be accompanied by the hint “musical instrument”.<br>All tags are in English. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ComputerVision/textoperations/read | This interface is used for getting recognize text operation result. The URL to this interface should be retrieved from <b>“Operation-Location”</b> field returned from Recognize Text interface. |
 > | Action | Microsoft.CognitiveServices/accounts/delete | Deletes API accounts |
+> | DataAction | Microsoft.CognitiveServices/accounts/EntitySearch/search/action | Get entities and places results for a given query. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/detect/action | Detect human faces in an image, return face rectangles, and optionally with faceIds, landmarks, and attributes. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/delete | Delete a specified face list. The related face images in the face list will be deleted, too. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/delete | Delete a face from a face list by specified faceListId and persisitedFaceId. The related face image will be deleted, too. |
@@ -1177,22 +1222,37 @@ The resource provider operations are always evolving. To get the latest operatio
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | To check person group training status completed or still ongoing. PersonGroup Training is an asynchronous operation triggered |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Create a new person group with specified personGroupId, name, and user-provided userData. Update an existing person group's name and userData. The properties keep unchanged if they are not in request body. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | Verify whether two faces belong to a same person or whether one face belongs to a person. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ImageSearch/details/action | Returns insights about an image, such as webpages that include the image. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ImageSearch/search/action | Get relevant images for a given query. |
+> | DataAction | Microsoft.CognitiveServices/accounts/ImageSearch/trending/action | Get currently trending images. |
 > | DataAction | Microsoft.CognitiveServices/accounts/ImmersiveReader/getcontentmodelforreader/action | Creates an Immersive Reader session |
+> | DataAction | Microsoft.CognitiveServices/accounts/InkRecognizer/recognize/action | Given a set of stroke data analyzes the content and generates a list of recognized entities including recognized text. |
 > | Action | Microsoft.CognitiveServices/accounts/listKeys/action | List Keys |
 > | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | Gets the published endpoint prediction for the given query. |
+> | DataAction | Microsoft.CognitiveServices/accounts/NewsSearch/categorysearch/action | Returns news for a provided category. |
+> | DataAction | Microsoft.CognitiveServices/accounts/NewsSearch/search/action | Get news articles relevant for a given query. |
+> | DataAction | Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action | Get trending topics identified by Bing. These are the same topics shown in the banner at the bottom of the Bing home page. |
 > | Action | Microsoft.CognitiveServices/accounts/read | Reads API accounts. |
 > | Action | Microsoft.CognitiveServices/accounts/regenerateKey/action | Regenerate Key |
 > | Action | Microsoft.CognitiveServices/accounts/skus/read | Reads available SKUs for an existing resource. |
+> | DataAction | Microsoft.CognitiveServices/accounts/SpellCheck/spellcheck/action | Get result of a spell check query through GET or POST. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/entities/action | The API returns a list of known entities and general named entities (\"Person\", \"Location\", \"Organization\" etc) in a given document. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/keyphrases/action | The API returns a list of strings denoting the key talking points in the input text. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/languages/action | The API returns the detected language and a numeric score between 0 and 1. Scores close to 1 indicate 100% certainty that the identified language is true. A total of 120 languages are supported. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | The API returns a numeric score between 0 and 1.<br>Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment.<br>A score of 0.5 indicates the lack of sentiment (e.g.<br>a factoid statement). |
 > | Action | Microsoft.CognitiveServices/accounts/usages/read | Get the quota usage for an existing resource. |
+> | DataAction | Microsoft.CognitiveServices/accounts/VideoSearch/details/action | Get insights about a video, such as related videos. |
+> | DataAction | Microsoft.CognitiveServices/accounts/VideoSearch/search/action | Get videos relevant for a given query. |
+> | DataAction | Microsoft.CognitiveServices/accounts/VideoSearch/trending/action | Get currently trending videos. |
+> | DataAction | Microsoft.CognitiveServices/accounts/VisualSearch/search/action | Returns a list of tags relevant to the provided image |
+> | DataAction | Microsoft.CognitiveServices/accounts/WebSearch/search/action | Get web, image, news, & videos results for a given query. |
 > | Action | Microsoft.CognitiveServices/accounts/write | Writes API Accounts. |
-> | Action | Microsoft.CognitiveServices/checkDomainAvailability/action | Reads available SKUs for an subscription. |
-> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for an subscription. |
+> | Action | Microsoft.CognitiveServices/checkDomainAvailability/action | Reads available SKUs for a subscription. |
+> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for a subscription. |
+> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for a subscription. |
 > | Action | Microsoft.CognitiveServices/locations/deleteVirtualNetworkOrSubnets/action | Notification from Microsoft.Network of deleting VirtualNetworks or Subnets. |
 > | Action | Microsoft.CognitiveServices/Operations/read | List all available operations |
+> | Action | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
 > | Action | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
 
 ## Microsoft.Commerce
@@ -1212,6 +1272,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Compute/availabilitySets/read | Get the properties of an availability set |
 > | Action | Microsoft.Compute/availabilitySets/vmSizes/read | List available sizes for creating or updating a virtual machine in the availability set |
 > | Action | Microsoft.Compute/availabilitySets/write | Creates a new availability set or updates an existing one |
+> | Action | Microsoft.Compute/diskEncryptionSets/delete | Delete a disk encryption set |
+> | Action | Microsoft.Compute/diskEncryptionSets/read | Get the properties of a disk encryption set |
+> | Action | Microsoft.Compute/diskEncryptionSets/write | Create a new disk encryption set or update an existing one |
 > | Action | Microsoft.Compute/disks/beginGetAccess/action | Get the SAS URI of the Disk for blob access |
 > | Action | Microsoft.Compute/disks/delete | Deletes the Disk |
 > | Action | Microsoft.Compute/disks/endGetAccess/action | Revoke the SAS URI of the Disk |
@@ -1227,11 +1290,11 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Compute/galleries/read | Gets the properties of Gallery |
 > | Action | Microsoft.Compute/galleries/write | Creates a new Gallery or updates an existing one |
 > | Action | Microsoft.Compute/hostGroups/delete | Deletes the host group |
+> | Action | Microsoft.Compute/hostGroups/hosts/delete | Deletes the host |
+> | Action | Microsoft.Compute/hostGroups/hosts/read | Get the properties of a host |
+> | Action | Microsoft.Compute/hostGroups/hosts/write | Creates a new host or updates an existing host |
 > | Action | Microsoft.Compute/hostGroups/read | Get the properties of a host group |
 > | Action | Microsoft.Compute/hostGroups/write | Creates a new host group or updates an existing host group |
-> | Action | Microsoft.Compute/hosts/delete | Deletes the host |
-> | Action | Microsoft.Compute/hosts/read | Get the properties of a host |
-> | Action | Microsoft.Compute/hosts/write | Creates a new host or updates an existing host |
 > | Action | Microsoft.Compute/images/delete | Deletes the image |
 > | Action | Microsoft.Compute/images/read | Get the properties of the Image |
 > | Action | Microsoft.Compute/images/write | Creates a new Image or updates an existing one |
@@ -1378,6 +1441,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContainerInstance/containerGroups/containers/exec/action | Exec into a specific container. |
 > | Action | Microsoft.ContainerInstance/containerGroups/containers/logs/read | Get logs for a specific container. |
 > | Action | Microsoft.ContainerInstance/containerGroups/delete | Delete the specific container group. |
+> | Action | Microsoft.ContainerInstance/containerGroups/operationResults/read | Get async operation result |
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the container group. |
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the container group. |
 > | Action | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for container group. |
@@ -1389,8 +1453,11 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContainerInstance/locations/cachedImages/read | Gets the cached images for the subscription in a region. |
 > | Action | Microsoft.ContainerInstance/locations/capabilities/read | Get the capabilities for a region. |
 > | Action | Microsoft.ContainerInstance/locations/deleteVirtualNetworkOrSubnets/action | Notifies Microsoft.ContainerInstance that virtual network or subnet is being deleted. |
+> | Action | Microsoft.ContainerInstance/locations/operations/read | List the operations for Azure Container Instance service. |
 > | Action | Microsoft.ContainerInstance/locations/usages/read | Get the usage for a specific region. |
+> | Action | Microsoft.ContainerInstance/operations/read | List the operations for Azure Container Instance service. |
 > | Action | Microsoft.ContainerInstance/register/action | Registers the subscription for the container instance resource provider and enables the creation of container groups. |
+> | Action | Microsoft.ContainerInstance/serviceassociationlinks/delete | Delete the service association link created by azure container instance resource provider on a subnet. |
 
 ## Microsoft.ContainerRegistry
 
@@ -1478,6 +1545,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ContainerService/managedClusters/agentPools/write | Creates a new agent pool or updates an existing one |
 > | Action | Microsoft.ContainerService/managedClusters/delete | Deletes a managed cluster |
 > | Action | Microsoft.ContainerService/managedClusters/detectors/read | Get Managed Cluster Detector |
+> | Action | Microsoft.ContainerService/managedClusters/diagnosticsState/read | Gets the diagnostics state of the cluster |
 > | Action | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | List the clusterAdmin credential of a managed cluster |
 > | Action | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | List the clusterUser credential of a managed cluster |
 > | Action | Microsoft.ContainerService/managedClusters/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
@@ -1553,10 +1621,10 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataBox/locations/regionConfiguration/action | This method returns the configurations for the region. |
 > | Action | Microsoft.DataBox/locations/validateAddress/action | Validates the shipping address and provides alternate addresses if any. |
 > | Action | Microsoft.DataBox/locations/validateInputs/action | This method does all type of validations. |
-> | Action | Microsoft.DataBox/providers/operations/read | List or get the Operations |
+> | Action | Microsoft.DataBox/operations/read | List or get the Operations |
 > | Action | Microsoft.DataBox/register/action | Register Provider Microsoft.Databox |
-> | Action | Microsoft.DataBox/subscriptions/resourceGroups/moveResources/action |  |
-> | Action | Microsoft.DataBox/subscriptions/resourceGroups/validateMoveResources/action |  |
+> | Action | Microsoft.DataBox/subscriptions/resourceGroups/moveResources/action | This method performs the resource move. |
+> | Action | Microsoft.DataBox/subscriptions/resourceGroups/validateMoveResources/action | This method validates whether resource move is allowed or not. |
 > | Action | Microsoft.DataBox/unregister/action | Un-Register Provider Microsoft.Databox |
 
 ## Microsoft.DataBoxEdge
@@ -1577,6 +1645,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Install Updates on device |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Lists or gets the jobs |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Lists or gets the Device network settings |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/nodes/read | Lists or gets the nodes |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationResults/read | Lists or gets the operation result |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationsStatus/read | Lists or gets the operation status |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Deletes the orders |
@@ -1691,16 +1760,16 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataFactory/datafactories/write | Creates or Updates the Data Factory. |
 > | Action | Microsoft.DataFactory/factories/cancelpipelinerun/action | Cancels the pipeline run specified by the run ID. |
 > | Action | Microsoft.DataFactory/factories/cancelSandboxPipelineRun/action | Cancels a debug run for the Pipeline. |
-> | Action | Microsoft.DataFactory/factories/createdataflowdebugsession/action | Creates a data flow debug session. |
-> | Action | Microsoft.DataFactory/factories/dataflows/delete | Deletes data flow. |
-> | Action | Microsoft.DataFactory/factories/dataflows/read | Reads data flow. |
-> | Action | Microsoft.DataFactory/factories/dataflows/write | Create or update data flow |
+> | Action | Microsoft.DataFactory/factories/createdataflowdebugsession/action | Creates a Data Flow debug session. |
+> | Action | Microsoft.DataFactory/factories/dataflows/delete | Deletes Data Flow. |
+> | Action | Microsoft.DataFactory/factories/dataflows/read | Reads Data Flow. |
+> | Action | Microsoft.DataFactory/factories/dataflows/write | Create or update Data Flow |
 > | Action | Microsoft.DataFactory/factories/datasets/delete | Deletes any Dataset. |
 > | Action | Microsoft.DataFactory/factories/datasets/read | Reads any Dataset. |
 > | Action | Microsoft.DataFactory/factories/datasets/write | Creates or Updates any Dataset. |
 > | Action | Microsoft.DataFactory/factories/debugpipelineruns/cancel/action | Cancels a debug run for the Pipeline. |
 > | Action | Microsoft.DataFactory/factories/delete | Deletes Data Factory. |
-> | Action | Microsoft.DataFactory/factories/deletedataflowdebugsession/action | Deletes a data flow debug session. |
+> | Action | Microsoft.DataFactory/factories/deletedataflowdebugsession/action | Deletes a Data Flow debug session. |
 > | Action | Microsoft.DataFactory/factories/getDataPlaneAccess/action | Gets access to ADF DataPlane service. |
 > | Action | Microsoft.DataFactory/factories/getDataPlaneAccess/read | Reads access to ADF DataPlane service. |
 > | Action | Microsoft.DataFactory/factories/getFeatureValue/action | Get exposure control feature value for the specific location. |
@@ -1750,7 +1819,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataFactory/factories/querytriggerruns/read | Reads the Result of Trigger Runs. |
 > | Action | Microsoft.DataFactory/factories/read | Reads Data Factory. |
 > | Action | Microsoft.DataFactory/factories/sandboxpipelineruns/sandboxActivityRuns/read | Gets the debug run info for the Activity. |
-> | Action | Microsoft.DataFactory/factories/startdataflowdebugsession/action | Starts a data flow debug session. |
+> | Action | Microsoft.DataFactory/factories/startdataflowdebugsession/action | Starts a Data Flow debug session. |
+> | Action | Microsoft.DataFactory/factories/submitDataFlowForPreview/action | Submit Data Flow to get data preview using a debug session. |
 > | Action | Microsoft.DataFactory/factories/triggerruns/read | Reads the Trigger Runs. |
 > | Action | Microsoft.DataFactory/factories/triggers/delete | Deletes any Trigger. |
 > | Action | Microsoft.DataFactory/factories/triggers/read | Reads any Trigger. |
@@ -1816,6 +1886,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DataLakeStore/accounts/firewallRules/write | Create or update a firewall rule. |
 > | Action | Microsoft.DataLakeStore/accounts/operationResults/read | Get result of a DataLakeStore account operation. |
 > | Action | Microsoft.DataLakeStore/accounts/read | Get information about an existing DataLakeStore account. |
+> | Action | Microsoft.DataLakeStore/accounts/shares/delete | Delete a share. |
+> | Action | Microsoft.DataLakeStore/accounts/shares/read | Get information about a share. |
+> | Action | Microsoft.DataLakeStore/accounts/shares/write | Create or update a share. |
 > | Action | Microsoft.DataLakeStore/accounts/Superuser/action | Grant Superuser on Data Lake Store when granted with Microsoft.Authorization/roleAssignments/write. |
 > | Action | Microsoft.DataLakeStore/accounts/trustedIdProviders/delete | Delete a trusted identity provider. |
 > | Action | Microsoft.DataLakeStore/accounts/trustedIdProviders/read | Get information about a trusted identity provider. |
@@ -2064,8 +2137,19 @@ The resource provider operations are always evolving. To get the latest operatio
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
+> | Action | Microsoft.Devices/Account/diagnosticSettings/read | Gets the diagnostic setting for the resource |
+> | Action | Microsoft.Devices/Account/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
+> | Action | Microsoft.Devices/Account/logDefinitions/read | Gets the available log definitions for the IotHub Service |
+> | Action | Microsoft.Devices/Account/metricDefinitions/read | Gets the available metrics for the IotHub service |
+> | Action | Microsoft.Devices/checkNameAvailability/Action | Check If IotHub name is available |
 > | Action | Microsoft.Devices/checkNameAvailability/Action | Check If IotHub name is available |
 > | Action | Microsoft.Devices/checkProvisioningServiceNameAvailability/Action | Check If Provisioning service name is available |
+> | Action | Microsoft.Devices/checkProvisioningServiceNameAvailability/Action | Check If Provisioning service name is available |
+> | Action | Microsoft.Devices/digitalTwins/Delete | Delete an existing Digital Twins Account and all of its children |
+> | Action | Microsoft.Devices/digitalTwins/operationresults/Read | Get the status of an operation against a Digital Twins Account |
+> | Action | Microsoft.Devices/digitalTwins/Read | Gets a list of the Digital Twins Accounts associated to an subscription |
+> | Action | Microsoft.Devices/digitalTwins/skus/Read | Get a list of the valid SKUs for Digital Twins Accounts |
+> | Action | Microsoft.Devices/digitalTwins/Write | Create a new Digitial Twins Account |
 > | Action | Microsoft.Devices/ElasticPools/diagnosticSettings/read | Gets the diagnostic setting for the resource |
 > | Action | Microsoft.Devices/ElasticPools/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
 > | Action | Microsoft.Devices/elasticPools/iotHubTenants/certificates/Delete | Deletes Certificate |
@@ -2143,7 +2227,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Devices/provisioningServices/Read | Get IotDps resource |
 > | Action | Microsoft.Devices/provisioningServices/skus/Read | Get valid IotDps Skus |
 > | Action | Microsoft.Devices/provisioningServices/Write | Create IotDps resource |
-> | Action | Microsoft.Devices/register/action | Register the subscription for the IotHub resource provider and enables the creation of IotHub resources |
 > | Action | Microsoft.Devices/register/action | Register the subscription for the IotHub resource provider and enables the creation of IotHub resources |
 > | Action | Microsoft.Devices/usages/Read | Get subscription usage details for this provider. |
 
@@ -2259,6 +2342,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.DevTestLab/labs/virtualMachines/TransferDisks/action | Transfers all data disks attached to the virtual machine to be owned by the current user. |
 > | Action | Microsoft.DevTestLab/labs/virtualMachines/UnClaim/action | Release ownership of an existing virtual machine |
 > | Action | Microsoft.DevTestLab/labs/virtualMachines/write | Add or modify virtual machines. |
+> | Action | Microsoft.DevTestLab/labs/virtualNetworks/bastionHosts/delete | Delete bastionhosts. |
+> | Action | Microsoft.DevTestLab/labs/virtualNetworks/bastionHosts/read | Read bastionhosts. |
+> | Action | Microsoft.DevTestLab/labs/virtualNetworks/bastionHosts/write | Add or modify bastionhosts. |
 > | Action | Microsoft.DevTestLab/labs/virtualNetworks/delete | Delete virtual networks. |
 > | Action | Microsoft.DevTestLab/labs/virtualNetworks/read | Read virtual networks. |
 > | Action | Microsoft.DevTestLab/labs/virtualNetworks/write | Add or modify virtual networks. |
@@ -2542,6 +2628,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | Get guest configuration assignment. |
 > | Action | Microsoft.GuestConfiguration/guestConfigurationAssignments/reports/read | Get guest configuration assignment report. |
 > | Action | Microsoft.GuestConfiguration/guestConfigurationAssignments/write | Create new guest configuration assignment. |
+> | Action | Microsoft.GuestConfiguration/operations/read | Gets the operations for the Microsoft.GuestConfiguration resource provider |
 > | Action | Microsoft.GuestConfiguration/register/action | Registers the subscription for the Microsoft.GuestConfiguration resource provider. |
 
 ## Microsoft.HDInsight
@@ -2583,6 +2670,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ImportExport/jobs/read | Gets the properties for the specified job or returns the list of jobs. |
 > | Action | Microsoft.ImportExport/jobs/write | Creates a job with the specified parameters or update the properties or tags for the specified job. |
 > | Action | Microsoft.ImportExport/locations/read | Gets the properties for the specified location or returns the list of locations. |
+> | Action | Microsoft.ImportExport/operations/read | Gets the operations supported by the Resource Provider. |
 > | Action | Microsoft.ImportExport/register/action | Registers the subscription for the import/export resource provider and enables the creation of import/export jobs. |
 
 ## Microsoft.Insights
@@ -2634,6 +2722,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Insights/Components/BillingPlanForComponent/Read | Reading a billing plan for Application Insights component |
 > | Action | Microsoft.Insights/Components/CurrentBillingFeatures/Read | Reading current billing features for Application Insights component |
 > | Action | Microsoft.Insights/Components/CurrentBillingFeatures/Write | Writing current billing features for Application Insights component |
+> | Action | Microsoft.Insights/Components/DailyCapReached/Action | Reached the daily cap for Application Insights component |
+> | Action | Microsoft.Insights/Components/DailyCapWarningThresholdReached/Action | Reached the daily cap warning threshold for Application Insights component |
 > | Action | Microsoft.Insights/Components/DefaultWorkItemConfig/Read | Reading an Application Insights default ALM integration configuration |
 > | Action | Microsoft.Insights/Components/Delete | Deleting an application insights component configuration |
 > | Action | Microsoft.Insights/Components/Events/Read | Get logs from Application Insights using OData query format |
@@ -2804,6 +2894,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Insights/Logs/SQLQueryPerformance/Read | Read data from the SQLQueryPerformance table |
 > | Action | Microsoft.Insights/Logs/Syslog/Read | Read data from the Syslog table |
 > | Action | Microsoft.Insights/Logs/SysmonEvent/Read | Read data from the SysmonEvent table |
+> | Action | Microsoft.Insights/Logs/Tables.Custom/Read | Reading data from any custom log |
 > | Action | Microsoft.Insights/Logs/UAApp/Read | Read data from the UAApp table |
 > | Action | Microsoft.Insights/Logs/UAComputer/Read | Read data from the UAComputer table |
 > | Action | Microsoft.Insights/Logs/UAComputerRank/Read | Read data from the UAComputerRank table |
@@ -2861,6 +2952,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Insights/Webtests/Metrics/Read | Reading a webtest metrics |
 > | Action | Microsoft.Insights/Webtests/Read | Reading a webtest configuration |
 > | Action | Microsoft.Insights/Webtests/Write | Writing to a webtest configuration |
+> | Action | Microsoft.Insights/Workbooks/Delete | Delete a workbook |
+> | Action | Microsoft.Insights/Workbooks/Read | Read a workbook |
+> | Action | Microsoft.Insights/Workbooks/Write | Create or update a workbook |
 
 ## Microsoft.Intune
 
@@ -2931,38 +3025,40 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.Kusto/Clusters/Activate/action | Starts the cluster. |
-> | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/delete | Deletes an attached database configuration resource. |
-> | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/read | Reads an attached database configuration resource. |
-> | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/write | Writes an attached database configuration resource. |
+> | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/delete | Deletes an attached database configuration resourceCopy. |
+> | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/read | Reads an attached database configuration resourceCopy. |
+> | Action | Microsoft.Kusto/Clusters/AttachedDatabaseConfigurations/write | Writes an attached database configuration resourceCopy. |
 > | Action | Microsoft.Kusto/Clusters/CheckNameAvailability/action | Checks the cluster name availability. |
 > | Action | Microsoft.Kusto/Clusters/Databases/AddPrincipals/action | Adds database principals. |
 > | Action | Microsoft.Kusto/Clusters/Databases/CheckNameAvailability/action | Checks name availability for a given type. |
-> | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | Deletes a data connections resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/read | Reads a data connections resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Writes an data connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | Deletes a data connections resourceCopy. |
+> | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/read | Reads a data connections resourceCopy. |
+> | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Writes an data connections resourceCopy. |
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | Validates database data connection. |
-> | Action | Microsoft.Kusto/Clusters/Databases/delete | Deletes a database resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes an Event Hub connections resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads an Event Hub connections resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Writes an Event Hub connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/delete | Deletes a database resourceCopy. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes an Event Hub connections resourceCopy. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads an Event Hub connections resourceCopy. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Writes an Event Hub connections resourceCopy. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | Validates database Event Hub connection. |
 > | Action | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | Lists database principals. |
-> | Action | Microsoft.Kusto/Clusters/Databases/read | Reads a database resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/read | Reads a database resourceCopy. |
 > | Action | Microsoft.Kusto/Clusters/Databases/RemovePrincipals/action | Removes database principals. |
-> | Action | Microsoft.Kusto/Clusters/Databases/write | Writes a database resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/write | Writes a database resourceCopy. |
 > | Action | Microsoft.Kusto/Clusters/Deactivate/action | Stops the cluster. |
-> | Action | Microsoft.Kusto/Clusters/delete | Deletes a cluster resource. |
-> | Action | Microsoft.Kusto/Clusters/read | Reads a cluster resource. |
-> | Action | Microsoft.Kusto/Clusters/SKUs/read | Reads a cluster SKU resource. |
+> | Action | Microsoft.Kusto/Clusters/delete | Deletes a cluster resourceCopy. |
+> | Action | Microsoft.Kusto/Clusters/read | Reads a cluster resourceCopy. |
+> | Action | Microsoft.Kusto/Clusters/SKUs/read | Reads a cluster SKU resourceCopy. |
 > | Action | Microsoft.Kusto/Clusters/Start/action | Starts the cluster. |
 > | Action | Microsoft.Kusto/Clusters/Stop/action | Stops the cluster. |
-> | Action | Microsoft.Kusto/Clusters/write | Writes a cluster resource. |
-> | Action | Microsoft.Kusto/Locations/CheckNameAvailability/action | Checks resource name availability. |
-> | Action | Microsoft.Kusto/locations/operationresults/read | Reads operations resources |
-> | Action | Microsoft.Kusto/Operations/read | Reads operations resources |
+> | Action | Microsoft.Kusto/Clusters/write | Writes a cluster resourceCopy. |
+> | Action | Microsoft.Kusto/DetachFollowerDatabases/action | Detaches follower's databases. |
+> | Action | Microsoft.Kusto/ListFollowerDatabases/action | Lists the follower's databases. |
+> | Action | Microsoft.Kusto/Locations/CheckNameAvailability/action | Checks resourceCopy name availability. |
+> | Action | Microsoft.Kusto/locations/operationresults/read | Reads operations resourceCopys |
+> | Action | Microsoft.Kusto/Operations/read | Reads operations resourceCopys |
 > | Action | Microsoft.Kusto/register/action | Subscription Registration Action |
 > | Action | Microsoft.Kusto/Register/action | Registers the subscription to the Kusto Resource Provider. |
-> | Action | Microsoft.Kusto/SKUs/read | Reads a SKU resource. |
+> | Action | Microsoft.Kusto/SKUs/read | Reads a SKU resourceCopy. |
 > | Action | Microsoft.Kusto/Unregister/action | Unregisters the subscription to the Kusto Resource Provider. |
 
 ## Microsoft.LabServices
@@ -2976,9 +3072,6 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.LabServices/labAccounts/galleryImages/read | Read gallery images. |
 > | Action | Microsoft.LabServices/labAccounts/galleryImages/write | Add or modify gallery images. |
 > | Action | Microsoft.LabServices/labAccounts/GetRegionalAvailability/action | Get regional availability information for each size category configured under a lab account |
-> | Action | Microsoft.LabServices/labAccounts/idleShutdowns/delete | Delete idleshutdowns. |
-> | Action | Microsoft.LabServices/labAccounts/idleShutdowns/read | Read idleshutdowns. |
-> | Action | Microsoft.LabServices/labAccounts/idleShutdowns/write | Add or modify idleshutdowns. |
 > | Action | Microsoft.LabServices/labAccounts/labs/AddUsers/action | Add users to a lab |
 > | Action | Microsoft.LabServices/labAccounts/labs/delete | Delete labs. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/delete | Delete environment setting. |
@@ -3163,6 +3256,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.MachineLearningServices/workspaces/computes/read | Gets the compute resources in Machine Learning Services Workspace(s) |
 > | Action | Microsoft.MachineLearningServices/workspaces/computes/write | Creates or updates the compute resources in Machine Learning Services Workspace(s) |
 > | Action | Microsoft.MachineLearningServices/workspaces/delete | Deletes the Machine Learning Services Workspace(s) |
+> | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/delete | Deletes experiments in Machine Learning Services Workspace(s) |
 > | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/read | Gets experiments in Machine Learning Services Workspace(s) |
 > | DataAction | Microsoft.MachineLearningServices/workspaces/experiments/write | Creates or updates experiments in Machine Learning Services Workspace(s) |
 > | Action | Microsoft.MachineLearningServices/workspaces/listKeys/action | List secrets for a Machine Learning Services Workspace |
@@ -3187,6 +3281,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.ManagedServices/marketplaceRegistrationDefinitions/read | Retrieves a list of Managed Services registration definitions. |
+> | Action | Microsoft.ManagedServices/operations/read | Retrieves a list of Managed Services operations. |
 > | Action | Microsoft.ManagedServices/operationStatuses/read | Reads the operation status for the resource. |
 > | Action | Microsoft.ManagedServices/register/action | Register to Managed Services. |
 > | Action | Microsoft.ManagedServices/registrationAssignments/delete | Removes Managed Services registration assignment. |
@@ -3402,9 +3497,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/delete | Delete spatial anchors |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/discovery/read | Discover nearby spatial anchors |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/properties/read | Get properties of spatial anchors |
-> | Action | Microsoft.MixedReality/SpatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for Microsoft.MixedReality/SpatialAnchorsAccounts |
-> | Action | Microsoft.MixedReality/SpatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for Microsoft.MixedReality/SpatialAnchorsAccounts |
-> | Action | Microsoft.MixedReality/SpatialAnchorsAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft.MixedReality/SpatialAnchorsAccounts |
+> | Action | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for Microsoft.MixedReality/spatialAnchorsAccounts |
+> | Action | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for Microsoft.MixedReality/spatialAnchorsAccounts |
+> | Action | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for Microsoft.MixedReality/spatialAnchorsAccounts |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/query/read | Locate spatial anchors |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/submitdiag/read | Submit diagnostics data to help improve the quality of the Azure Spatial Anchors service |
 > | DataAction | Microsoft.MixedReality/SpatialAnchorsAccounts/write | Update spatial anchors properties |
@@ -3621,6 +3716,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/locations/autoApprovedPrivateLinkServices/read | Gets Auto Approved Private Link Services |
 > | Action | Microsoft.Network/locations/availableDelegations/read | Gets Available Delegations |
 > | Action | Microsoft.Network/locations/availablePrivateEndpointTypes/read | Gets available Private Endpoint resources |
+> | Action | Microsoft.Network/locations/availableServiceAliases/read | Gets Available Service Aliases |
 > | Action | Microsoft.Network/locations/bareMetalTenants/action | Allocates or validates a Bare Metal Tenant |
 > | Action | Microsoft.Network/locations/checkAcceleratedNetworkingSupport/action | Checks Accelerated Networking support |
 > | Action | Microsoft.Network/locations/checkDnsNameAvailability/read | Checks if dns label is available at the specified location |
@@ -3702,6 +3798,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/p2sVpnGateways/delete | Deletes a P2SVpnGateway. |
 > | Action | Microsoft.Network/p2sVpnGateways/generatevpnprofile/action | Generate Vpn Profile for P2SVpnGateway |
 > | Action | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Gets a P2S Vpn Connection health for P2SVpnGateway |
+> | Action | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealthdetailed/action | Gets a P2S Vpn Connection health detailed for P2SVpnGateway |
 > | Action | Microsoft.Network/p2sVpnGateways/read | Gets a P2SVpnGateway. |
 > | Action | Microsoft.Network/p2sVpnGateways/write | Puts a P2SVpnGateway. |
 > | Action | Microsoft.Network/privateDnsOperationResults/read | Gets results of a Private DNS operation |
@@ -3737,6 +3834,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/privateDnsZones/virtualNetworkLinks/read | Get the Private DNS zone link to virtual network properties, in JSON format. |
 > | Action | Microsoft.Network/privateDnsZones/virtualNetworkLinks/write | Create or update a Private DNS zone link to virtual network. |
 > | Action | Microsoft.Network/privateDnsZones/write | Create or update a Private DNS zone within a resource group. Note that this command cannot be used to create or update virtual network links or record sets within the zone. |
+> | Action | Microsoft.Network/privateEndpointRedirectMaps/read | Gets a Private Endpoint RedirectMap |
+> | Action | Microsoft.Network/privateEndpointRedirectMaps/write | Creates Private Endpoint RedirectMap Or Updates An Existing Private Endpoint RedirectMap |
 > | Action | Microsoft.Network/privateEndpoints/delete | Deletes an private endpoint resource. |
 > | Action | Microsoft.Network/privateEndpoints/read | Gets an private endpoint resource. |
 > | Action | Microsoft.Network/privateEndpoints/write | Creates a new private endpoint, or updates an existing private endpoint. |
@@ -3803,6 +3902,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/virtualHubs/hubVirtualNetworkConnections/read | Get a HubVirtualNetworkConnection |
 > | Action | Microsoft.Network/virtualHubs/hubVirtualNetworkConnections/write | Create or update a HubVirtualNetworkConnection |
 > | Action | Microsoft.Network/virtualHubs/read | Get a Virtual Hub |
+> | Action | Microsoft.Network/virtualHubs/routeTables/delete | Delete a VirtualHubRouteTableV2 |
+> | Action | Microsoft.Network/virtualHubs/routeTables/read | Get a VirtualHubRouteTableV2 |
+> | Action | Microsoft.Network/virtualHubs/routeTables/write | Create or Update a VirtualHubRouteTableV2 |
 > | Action | Microsoft.Network/virtualHubs/write | Create or update a Virtual Hub |
 > | Action | microsoft.network/virtualnetworkgateways/connections/read | Get VirtualNetworkGatewayConnection |
 > | Action | Microsoft.Network/virtualNetworkGateways/delete | Deletes a virtualNetworkGateway |
@@ -3827,11 +3929,15 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/virtualNetworks/join/action | Joins a virtual network. Not Alertable. |
 > | Action | Microsoft.Network/virtualNetworks/peer/action | Peers a virtual network with another virtual network |
 > | Action | Microsoft.Network/virtualNetworks/read | Get the virtual network definition |
+> | Action | Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies/delete | Deletes A Contextual Service Endpoint Policy |
+> | Action | Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies/read | Gets Contextual Service Endpoint Policies |
+> | Action | Microsoft.Network/virtualNetworks/subnets/contextualServiceEndpointPolicies/write | Creates a Contextual Service Endpoint Policy or updates an existing Contextual Service Endpoint Policy |
 > | Action | Microsoft.Network/virtualNetworks/subnets/delete | Deletes a virtual network subnet |
 > | Action | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
 > | Action | Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action | Joins resource such as storage account or SQL database to a subnet. Not alertable. |
 > | Action | Microsoft.Network/virtualNetworks/subnets/prepareNetworkPolicies/action | Prepares a subnet by applying necessary Network Policies |
 > | Action | Microsoft.Network/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | Action | Microsoft.Network/virtualNetworks/subnets/unprepareNetworkPolicies/action | Unprepare a subnet by removing the applied Network Policies |
 > | Action | Microsoft.Network/virtualNetworks/subnets/virtualMachines/read | Gets references to all the virtual machines in a virtual network subnet |
 > | Action | Microsoft.Network/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
 > | Action | Microsoft.Network/virtualNetworks/usages/read | Get the IP usages for each subnet of the virtual network |
@@ -3844,14 +3950,20 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Network/virtualNetworkTaps/join/action | Joins a virtual network tap. Not Alertable. |
 > | Action | Microsoft.Network/virtualNetworkTaps/read | Get Virtual Network Tap |
 > | Action | Microsoft.Network/virtualNetworkTaps/write | Create or Update Virtual Network Tap |
+> | Action | Microsoft.Network/virtualRouters/delete | Deletes A VirtualRouter |
+> | Action | Microsoft.Network/virtualRouters/join/action | Joins A VirtualRouter. Not alertable. |
+> | Action | Microsoft.Network/virtualRouters/read | Gets A VirtualRouter |
+> | Action | Microsoft.Network/virtualRouters/virtualRouterPeerings/delete | Deletes A VirtualRouterPeering |
+> | Action | Microsoft.Network/virtualRouters/virtualRouterPeerings/read | Gets A VirtualRouterPeering |
+> | Action | Microsoft.Network/virtualRouters/virtualRouterPeerings/write | Creates A VirtualRouterPeering or Updates An Existing VirtualRouterPeering |
+> | Action | Microsoft.Network/virtualRouters/write | Creates A VirtualRouter or Updates An Existing VirtualRouter |
 > | Action | Microsoft.Network/virtualWans/delete | Deletes a Virtual Wan |
-> | Action | Microsoft.network/virtualWans/p2sVpnServerConfigurations/delete | Deletes a virtual Wan P2SVpnServerConfiguration |
-> | Action | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/read | Gets a virtual Wan P2SVpnServerConfiguration |
-> | Action | Microsoft.network/virtualWans/p2sVpnServerConfigurations/write | Creates a virtual Wan P2SVpnServerConfiguration or updates an existing virtual Wan P2SVpnServerConfiguration |
+> | Action | Microsoft.Network/virtualwans/generateVpnProfile/action | Generate VirtualWanVpnServerConfiguration VpnProfile |
 > | Action | Microsoft.Network/virtualWans/read | Get a Virtual Wan |
 > | Action | Microsoft.Network/virtualwans/supportedSecurityProviders/read | Gets supported VirtualWan Security Providers. |
 > | Action | Microsoft.Network/virtualWans/virtualHubs/read | Gets all Virtual Hubs that reference a Virtual Wan. |
 > | Action | Microsoft.Network/virtualwans/vpnconfiguration/action | Gets a Vpn Configuration |
+> | Action | Microsoft.Network/virtualwans/vpnServerConfigurations/action | Get VirtualWanVpnServerConfigurations |
 > | Action | Microsoft.Network/virtualWans/vpnSites/read | Gets all VPN Sites that reference a Virtual Wan. |
 > | Action | Microsoft.Network/virtualWans/write | Create or update a Virtual Wan |
 > | Action | Microsoft.Network/vpnGateways/delete | Deletes a VpnGateway. |
@@ -3863,6 +3975,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.network/vpnGateways/vpnConnections/vpnLinkConnections/read | Gets a Vpn Link Connection |
 > | Action | microsoft.network/vpnGateways/vpnConnections/write | Puts a VpnConnection. |
 > | Action | Microsoft.Network/vpnGateways/write | Puts a VpnGateway. |
+> | Action | Microsoft.Network/vpnServerConfigurations/delete | Delete VpnServerConfiguration |
+> | Action | Microsoft.Network/vpnServerConfigurations/read | Get VpnServerConfiguration |
+> | Action | Microsoft.Network/vpnServerConfigurations/write | Create or Update VpnServerConfiguration |
 > | Action | Microsoft.Network/vpnsites/delete | Deletes a Vpn Site resource. |
 > | Action | Microsoft.Network/vpnsites/read | Gets a Vpn Site resource. |
 > | Action | microsoft.network/vpnSites/vpnSiteLinks/read | Gets a Vpn Site Link |
@@ -3922,6 +4037,15 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OffAzure/HyperVSites/write | Creates or updates the Hyper-V site |
 > | Action | Microsoft.OffAzure/Operations/read | Reads the exposed operations |
 > | Action | Microsoft.OffAzure/register/action | Registers Subscription with Microsoft.OffAzure resource provider |
+> | Action | Microsoft.OffAzure/ServerSites/jobs/read | Gets the properties of a Server jobs |
+> | Action | Microsoft.OffAzure/ServerSites/machines/read | Gets the properties of a Server machines |
+> | Action | Microsoft.OffAzure/ServerSites/machines/write | Write the properties of a Server machines |
+> | Action | Microsoft.OffAzure/ServerSites/operationsstatus/read | Gets the properties of a Server operation status |
+> | Action | Microsoft.OffAzure/ServerSites/read | Gets the properties of a Server site |
+> | Action | Microsoft.OffAzure/ServerSites/refresh/action | Refreshes the objects within a Server site |
+> | Action | Microsoft.OffAzure/ServerSites/runasaccounts/read | Gets the properties of a Server run as accounts |
+> | Action | Microsoft.OffAzure/ServerSites/usage/read | Gets the usages of a Server site |
+> | Action | Microsoft.OffAzure/ServerSites/write | Creates or updates the Server site |
 > | Action | Microsoft.OffAzure/VMwareSites/delete | Deletes the VMware site |
 > | Action | Microsoft.OffAzure/VMwareSites/healthsummary/read | Gets the health summary for VMware resource |
 > | Action | Microsoft.OffAzure/VMwareSites/jobs/read | Gets the properties of a VMware jobs |
@@ -3995,9 +4119,14 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | Read data from the ADSecurityAssessmentRecommendation table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/Alert/read | Read data from the Alert table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | Read data from the AlertHistory table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AmlComputeClusterEvent/read | Read data from the AmlComputeClusterEvent table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AmlComputeClusterNodeEvent/read | Read data from the AmlComputeClusterNodeEvent table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AmlComputeJobEvent/read | Read data from the AmlComputeJobEvent table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ApiManagementGatewayLogs/read | Read data from the ApiManagementGatewayLogs table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AppCenterError/read | Read data from the AppCenterError table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Read data from the ApplicationInsights table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppPlatformLogsforSpring/read | Read data from the AppPlatformLogsforSpring table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/AppServiceEnvironmentPlatformLogs/read | Read data from the AppServiceEnvironmentPlatformLogs table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AuditLogs/read | Read data from the AuditLogs table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AutoscaleEvaluationsLog/read | Read data from the AutoscaleEvaluationsLog table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AutoscaleScaleActionsLog/read | Read data from the AutoscaleScaleActionsLog table |
@@ -4005,6 +4134,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | Read data from the AzureActivity table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AzureAssessmentRecommendation/read | Read data from the AzureAssessmentRecommendation table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | Read data from the AzureMetrics table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/BaiClusterEvent/read | Read data from the BaiClusterEvent table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/BaiClusterNodeEvent/read | Read data from the BaiClusterNodeEvent table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/BaiJobEvent/read | Read data from the BaiJobEvent table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/BlockchainApplicationLog/read | Read data from the BlockchainApplicationLog table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/BlockchainProxyLog/read | Read data from the BlockchainProxyLog table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | Read data from the BoundPort table |
@@ -4023,6 +4155,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksAccounts/read | Read data from the DatabricksAccounts table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksClusters/read | Read data from the DatabricksClusters table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksDBFS/read | Read data from the DatabricksDBFS table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksInstancePools/read | Read data from the DatabricksInstancePools table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksJobs/read | Read data from the DatabricksJobs table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksNotebook/read | Read data from the DatabricksNotebook table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/DatabricksSecrets/read | Read data from the DatabricksSecrets table |
@@ -4056,6 +4189,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/query/Event/read | Read data from the Event table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | Read data from the ExchangeAssessmentRecommendation table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | Read data from the ExchangeOnlineAssessmentRecommendation table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/FailedIngestion/read | Read data from the FailedIngestion table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Read data from the Heartbeat table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/HuntingBookmark/read | Read data from the HuntingBookmark table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Read data from the IISAssessmentRecommendation table |
@@ -4064,6 +4198,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/query/IntuneAuditLogs/read | Read data from the IntuneAuditLogs table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/IntuneOperationalLogs/read | Read data from the IntuneOperationalLogs table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/KubeEvents/read | Read data from the KubeEvents table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/KubeHealth/read | Read data from the KubeHealth table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | Read data from the KubeNodeInventory table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | Read data from the KubePodInventory table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/KubeServices/read | Read data from the KubeServices table |
@@ -4122,7 +4257,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatusNRT/read | Read data from the MAWindowsDeploymentStatusNRT table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | Read data from the MAWindowsSysReqInstanceReadiness table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/McasShadowItReporting/read | Read data from the McasShadowItReporting table |
-> | Action | Microsoft.OperationalInsights/workspaces/query/Microservices4SpringApplicationLogs/read | Read data from the Microservices4SpringApplicationLogs table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftDataShareShareLog/read | Read data from the MicrosoftDataShareShareLog table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftHealthcareApisAuditLogs/read | Read data from the MicrosoftHealthcareApisAuditLogs table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftInsightsAzureActivityLog/read | Read data from the MicrosoftInsightsAzureActivityLog table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebApplicationLog/read | Read data from the MicrosoftWebApplicationLog table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MicrosoftWebFunctionExecutionLogs/read | Read data from the MicrosoftWebFunctionExecutionLogs table |
@@ -4158,6 +4294,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | Read data from the SQLQueryPerformance table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SqlThreatProtectionLoginAudits/read | Read data from the SqlThreatProtectionLoginAudits table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentResult/read | Read data from the SqlVulnerabilityAssessmentResult table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SucceededIngestion/read | Read data from the SucceededIngestion table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Read data from the Syslog table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | Read data from the SysmonEvent table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | Reading data from any custom log |
@@ -4241,7 +4378,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.PolicyInsights/asyncOperationResults/read | Gets the async operation result. |
+> | DataAction | Microsoft.PolicyInsights/checkDataPolicyCompliance/action | Check the compliance status of a given component against data policies. |
 > | Action | Microsoft.PolicyInsights/operations/read | Gets supported operations on Microsoft.PolicyInsights namespace |
+> | DataAction | Microsoft.PolicyInsights/policyEvents/logDataEvents/action | Log the resource component policy events. |
 > | Action | Microsoft.PolicyInsights/policyEvents/queryResults/action | Query information about policy events. |
 > | Action | Microsoft.PolicyInsights/policyEvents/queryResults/read | Query information about policy events. |
 > | Action | Microsoft.PolicyInsights/policyStates/queryResults/action | Query information about policy states. |
@@ -4299,63 +4438,63 @@ The resource provider operations are always evolving. To get the latest operatio
 > | --- | --- | --- |
 > | Action | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 > | Action | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is internal operation used by service |
-> | Action | microsoft.recoveryservices/Locations/backupPreValidateProtection/action |  |
-> | Action | microsoft.recoveryservices/Locations/backupProtectedItem/write | Create a backup Protected Item |
-> | Action | microsoft.recoveryservices/Locations/backupProtectedItems/read | Returns the list of all Protected Items. |
-> | Action | microsoft.recoveryservices/Locations/backupStatus/action | Check Backup Status for Recovery Services Vaults |
-> | Action | microsoft.recoveryservices/Locations/backupValidateFeatures/action | Validate Features |
+> | Action | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
+> | Action | Microsoft.RecoveryServices/Locations/backupProtectedItem/write | Create a backup Protected Item |
+> | Action | Microsoft.RecoveryServices/Locations/backupProtectedItems/read | Returns the list of all Protected Items. |
+> | Action | Microsoft.RecoveryServices/Locations/backupStatus/action | Check Backup Status for Recovery Services Vaults |
+> | Action | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Validate Features |
 > | Action | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Check Resource Name Availability is an API to check if resource name is available |
 > | Action | Microsoft.RecoveryServices/locations/operationStatus/read | Gets Operation Status for a given Operation |
 > | Action | Microsoft.RecoveryServices/operations/read | Operation returns the list of Operations for a Resource Provider |
 > | Action | Microsoft.RecoveryServices/register/action | Registers subscription for given Resource Provider |
-> | Action | microsoft.recoveryservices/Vaults/backupconfig/read | Returns Configuration for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupconfig/write | Updates Configuration for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupEngines/read | Returns all the backup management servers registered with vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/delete | Delete a backup Protection Intent |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/read | Get a backup Protection Intent |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionIntent/write | Create a backup Protection Intent |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/operationResults/read | Returns status of the operation |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/operationsStatus/read | Returns status of the operation |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectableContainers/read | Get all protectable containers |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/delete | Deletes the registered Container |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/inquire/action | Do inquiry for workloads within a container |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/items/read | Get all items in a container |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/read | Gets result of Operation performed on Protection Container. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationsStatus/read | Gets status of Operation performed on Protection Container. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Performs Backup for Protected Item. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Deletes Protected Item |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Gets Result of Operation Performed on Protected Items. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Returns the status of Operation performed on Protected Items. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returns object details of the Protected Item |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Provision Instant Item Recovery for Protected Item |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Get Recovery Points for Protected Items. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restore Recovery Points for Protected Items. |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revoke Instant Item Recovery for Protected Item |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Create a backup Protected Item |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/read | Returns all registered containers |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/write | Creates a registered container |
-> | Action | microsoft.recoveryservices/Vaults/backupFabrics/refreshContainers/action | Refreshes the container list |
-> | Action | microsoft.recoveryservices/Vaults/backupJobs/cancel/action | Cancel the Job |
-> | Action | microsoft.recoveryservices/Vaults/backupJobs/operationResults/read | Returns the Result of Job Operation. |
-> | Action | microsoft.recoveryservices/Vaults/backupJobs/operationsStatus/read | Returns the status of Job Operation. |
-> | Action | microsoft.recoveryservices/Vaults/backupJobs/read | Returns all Job Objects |
-> | Action | microsoft.recoveryservices/Vaults/backupJobsExport/action | Export Jobs |
-> | Action | microsoft.recoveryservices/Vaults/backupOperationResults/read | Returns Backup Operation Result for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupOperations/read | Returns Backup Operation Status for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/delete | Delete a Protection Policy |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/operationResults/read | Get Results of Policy Operation. |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/operations/read | Get Status of Policy Operation. |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/read | Returns all Protection Policies |
-> | Action | microsoft.recoveryservices/Vaults/backupPolicies/write | Creates Protection Policy |
-> | Action | microsoft.recoveryservices/Vaults/backupProtectableItems/read | Returns list of all Protectable Items. |
-> | Action | microsoft.recoveryservices/Vaults/backupProtectedItems/read | Returns the list of all Protected Items. |
-> | Action | microsoft.recoveryservices/Vaults/backupProtectionContainers/read | Returns all containers belonging to the subscription |
-> | Action | microsoft.recoveryservices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
-> | Action | microsoft.recoveryservices/Vaults/backupSecurityPIN/action | Returns Security PIN Information for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupstorageconfig/read | Returns Storage Configuration for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupstorageconfig/write | Updates Storage Configuration for Recovery Services Vault. |
-> | Action | microsoft.recoveryservices/Vaults/backupUsageSummaries/read | Returns summaries for Protected Items and Protected Servers for a Recovery Services . |
-> | Action | microsoft.recoveryservices/Vaults/backupValidateOperation/action | Validate Operation on Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupconfig/read | Returns Configuration for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupconfig/write | Updates Configuration for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupEngines/read | Returns all the backup management servers registered with vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/delete | Delete a backup Protection Intent |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Get a backup Protection Intent |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Create a backup Protection Intent |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Returns status of the operation |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/operationsStatus/read | Returns status of the operation |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Get all protectable containers |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | Deletes the registered Container |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Do inquiry for workloads within a container |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Get all items in a container |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Gets result of Operation performed on Protection Container. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationsStatus/read | Gets status of Operation performed on Protection Container. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Performs Backup for Protected Item. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Deletes Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Gets Result of Operation Performed on Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Returns the status of Operation performed on Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returns object details of the Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Provision Instant Item Recovery for Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Get Recovery Points for Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restore Recovery Points for Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revoke Instant Item Recovery for Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Create a backup Protected Item |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Returns all registered containers |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Creates a registered container |
+> | Action | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Refreshes the container list |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Cancel the Job |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Returns the Result of Job Operation. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobs/operationsStatus/read | Returns the status of Job Operation. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returns all Job Objects |
+> | Action | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export Jobs |
+> | Action | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Returns Backup Operation Result for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupOperations/read | Returns Backup Operation Status for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | Delete a Protection Policy |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Get Results of Policy Operation. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Get Status of Policy Operation. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returns all Protection Policies |
+> | Action | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Creates Protection Policy |
+> | Action | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Returns list of all Protectable Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Returns the list of all Protected Items. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Returns all containers belonging to the subscription |
+> | Action | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | List all backup Protection Intents |
+> | Action | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Returns Security PIN Information for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Returns Storage Configuration for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Updates Storage Configuration for Recovery Services Vault. |
+> | Action | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Returns summaries for Protected Items and Protected Servers for a Recovery Services . |
+> | Action | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Validate Operation on Protected Item |
 > | Action | Microsoft.RecoveryServices/Vaults/certificates/write | The Update Resource Certificate operation updates the resource/vault credential certificate. |
 > | Action | Microsoft.RecoveryServices/Vaults/delete | The Delete Vault operation deletes the specified Azure resource of type 'vault' |
 > | Action | Microsoft.RecoveryServices/Vaults/extendedInformation/delete | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |
@@ -4479,8 +4618,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.RecoveryServices/vaults/replicationVaultSettings/read | Read any  |
 > | Action | Microsoft.RecoveryServices/vaults/replicationVaultSettings/write | Create or Update any  |
 > | Action | Microsoft.RecoveryServices/vaults/replicationvCenters/read | Read any vCenters |
-> | Action | microsoft.recoveryservices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Action | Microsoft.RecoveryServices/vaults/usages/read | Read any Vault Usages |
+> | Action | Microsoft.RecoveryServices/Vaults/usages/read | Returns usage details for a Recovery Services Vault. |
 > | Action | Microsoft.RecoveryServices/Vaults/vaultTokens/read | The Vault Token operation can be used to get Vault Token for vault level backend operations. |
 > | Action | Microsoft.RecoveryServices/Vaults/write | Create Vault operation creates an Azure resource of type 'vault' |
 
@@ -4563,11 +4702,14 @@ The resource provider operations are always evolving. To get the latest operatio
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
+> | Action | Microsoft.Resources/calculateTemplateHash/action | Calculate the hash of provided template. |
 > | Action | Microsoft.Resources/checkPolicyCompliance/action | Check the compliance status of a given resource against resource policies. |
 > | Action | Microsoft.Resources/checkResourceName/action | Check the resource name for validity. |
 > | Action | Microsoft.Resources/deployments/cancel/action | Cancels a deployment. |
 > | Action | Microsoft.Resources/deployments/delete | Deletes a deployment. |
+> | Action | Microsoft.Resources/deployments/exportTemplate/action | Export template for a deployment |
 > | Action | Microsoft.Resources/deployments/operations/read | Gets or lists deployment operations. |
+> | Action | Microsoft.Resources/deployments/operationstatuses/read | Gets or lists deployment operation statuses. |
 > | Action | Microsoft.Resources/deployments/read | Gets or lists deployments. |
 > | Action | Microsoft.Resources/deployments/validate/action | Validates an deployment. |
 > | Action | Microsoft.Resources/deployments/whatIf/action | Predicts template deployment changes. |
@@ -4653,6 +4795,10 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Security/alerts/read | Gets all available security alerts |
 > | Action | Microsoft.Security/applicationWhitelistings/read | Gets the application whitelistings |
 > | Action | Microsoft.Security/applicationWhitelistings/write | Creates a new application whitelisting or updates an existing one |
+> | Action | Microsoft.Security/assessmentMetadata/read | Get available security assessment metadata on your subscription |
+> | Action | Microsoft.Security/assessmentMetadata/write | Create or update a security assessment metadata |
+> | Action | Microsoft.Security/assessments/read | Get security assessments on your subscription |
+> | Action | Microsoft.Security/assessments/write | Create or update security assessments on your subscription |
 > | Action | Microsoft.Security/complianceResults/read | Gets the compliance results for the resource |
 > | Action | Microsoft.Security/informationProtectionPolicies/read | Gets the information protection policies for the resource |
 > | Action | Microsoft.Security/informationProtectionPolicies/write | Updates the information protection policies for the resource |
@@ -4835,6 +4981,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.SignalRService/locations/operationStatuses/operationId/read | Query the status of an asynchronous operation |
 > | Action | Microsoft.SignalRService/locations/usages/read | Get the quota usages for Azure SignalR service |
 > | Action | Microsoft.SignalRService/operationresults/read | Query the status of an asynchronous operation |
+> | Action | Microsoft.SignalRService/operations/read | List the operations for Azure SignalR service. |
 > | Action | Microsoft.SignalRService/operationstatus/read | Query the status of an asynchronous operation |
 > | Action | Microsoft.SignalRService/register/action | Registers the 'Microsoft.SignalRService' resource provider with a subscription |
 > | Action | Microsoft.SignalRService/SignalR/delete | Delete the entire SignalR service |
@@ -4938,6 +5085,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/managedInstances/administrators/write | Creates or updates managed instance administrator with the specified parameters. |
 > | Action | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/read | Gets a short term retention policy for a managed database |
 > | Action | Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies/write | Updates a short term retention policy for a managed database |
+> | Action | Microsoft.Sql/managedInstances/databases/columns/read | Return a list of columns for a managed database |
 > | Action | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/read | List sensitivity labels of a given database |
 > | Action | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/write | Batch update sensitivity labels |
 > | Action | Microsoft.Sql/managedInstances/databases/delete | Deletes an existing managed database |
@@ -4946,6 +5094,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for managed instance databases |
 > | Action | Microsoft.Sql/managedInstances/databases/read | Gets existing managed database |
 > | Action | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | List sensitivity labels of a given database |
+> | Action | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/write | Batch update recommended sensitivity labels |
+> | Action | Microsoft.Sql/managedInstances/databases/restoreDetails/read | Returns managed database restore details while restore is in progress. |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/read | Get a managed database schema. |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | Get a managed database column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Delete the sensitivity label of a given column |
@@ -4972,6 +5122,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/managedInstances/databases/write | Creates a new database or updates an existing database. |
 > | Action | Microsoft.Sql/managedInstances/delete | Deletes an existing  managed instance. |
 > | Action | Microsoft.Sql/managedInstances/encryptionProtector/read | Returns a list of server encryption protectors or gets the properties for the specified server encryption protector. |
+> | Action | Microsoft.Sql/managedInstances/encryptionProtector/revalidate/action | Update the properties for the specified Server Encryption Protector. |
 > | Action | Microsoft.Sql/managedInstances/encryptionProtector/write | Update the properties for the specified Server Encryption Protector. |
 > | Action | Microsoft.Sql/managedInstances/keys/delete | Deletes an existing Azure SQL Managed Instance  key. |
 > | Action | Microsoft.Sql/managedInstances/keys/read | Return the list of managed instance keys or gets the properties for the specified managed instance key. |
@@ -4997,10 +5148,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/operations/read | Gets available REST operations |
 > | Action | Microsoft.Sql/privateEndpointConnectionsApproval/action | Determines if user is allowed to approve a private endpoint connection |
 > | Action | Microsoft.Sql/register/action | Registers the subscription for the Microsoft SQL Database resource provider and enables the creation of Microsoft SQL Databases. |
-> | Action | Microsoft.Sql/servers/administratorOperationResults/read | Gets in-progress operations on server administrators |
-> | Action | Microsoft.Sql/servers/administrators/delete | Delete server administrator |
-> | Action | Microsoft.Sql/servers/administrators/read | Retrieve server administrator details |
-> | Action | Microsoft.Sql/servers/administrators/write | Create or update server administrator |
+> | Action | Microsoft.Sql/servers/administrators/delete | Deletes a specific Azure Active Directory administrator object |
+> | Action | Microsoft.Sql/servers/administrators/read | Gets a specific Azure Active Directory administrator object |
+> | Action | Microsoft.Sql/servers/administrators/write | Adds or updates a specific Azure Active Directory administrator object |
 > | Action | Microsoft.Sql/servers/advisors/read | Returns list of advisors available for the server |
 > | Action | Microsoft.Sql/servers/advisors/recommendedActions/read | Returns list of recommended actions of specified advisor for the server |
 > | Action | Microsoft.Sql/servers/advisors/recommendedActions/write | Apply the recommended action on the server |
@@ -5036,6 +5186,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies/write | Create or update a database backup archival policy. |
 > | Action | Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies/read | Gets a short term retention policy for a database |
 > | Action | Microsoft.Sql/servers/databases/backupShortTermRetentionPolicies/write | Updates a short term retention policy for a database |
+> | Action | Microsoft.Sql/servers/databases/columns/read | Return a list of columns for a database |
 > | Action | Microsoft.Sql/servers/databases/connectionPolicies/read | Retrieve details of the connection policy configured on a given database |
 > | Action | Microsoft.Sql/servers/databases/connectionPolicies/write | Change connection policy for a given database |
 > | Action | Microsoft.Sql/servers/databases/currentSensitivityLabels/read | List sensitivity labels of a given database |
@@ -5077,6 +5228,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/servers/databases/queryStore/write | Updates Query Store setting for the database |
 > | Action | Microsoft.Sql/servers/databases/read | Return the list of databases or gets the properties for the specified database. |
 > | Action | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/read | List sensitivity labels of a given database |
+> | Action | Microsoft.Sql/servers/databases/recommendedSensitivityLabels/write | Batch update recommended sensitivity labels |
 > | Action | Microsoft.Sql/servers/databases/replicationLinks/delete | Terminate the replication relationship forcefully and with potential data loss |
 > | Action | Microsoft.Sql/servers/databases/replicationLinks/failover/action | Failover after synchronizing all changes from the primary, making this database into the replication relationship\u0027s primary and making the remote primary into a secondary |
 > | Action | Microsoft.Sql/servers/databases/replicationLinks/forceFailoverAllowDataLoss/action | Failover immediately with potential data loss, making this database into the replication relationship\u0027s primary and making the remote primary into a secondary |
@@ -5168,6 +5320,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Sql/servers/elasticPools/skus/read | Gets a collection of skus available for an elastic pool |
 > | Action | Microsoft.Sql/servers/elasticPools/write | Create a new or change properties of existing elastic pool |
 > | Action | Microsoft.Sql/servers/encryptionProtector/read | Returns a list of server encryption protectors or gets the properties for the specified server encryption protector. |
+> | Action | Microsoft.Sql/servers/encryptionProtector/revalidate/action | Update the properties for the specified Server Encryption Protector. |
 > | Action | Microsoft.Sql/servers/encryptionProtector/write | Update the properties for the specified Server Encryption Protector. |
 > | Action | Microsoft.Sql/servers/extendedAuditingSettings/read | Retrieve details of the extended server blob auditing policy configured on a given server |
 > | Action | Microsoft.Sql/servers/extendedAuditingSettings/write | Change the extended server blob auditing for a given server |
@@ -5269,12 +5422,14 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Storage/storageAccounts/blobServices/read | Returns blob service properties or statistics |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/write | Returns the result of put blob service properties |
 > | Action | Microsoft.Storage/storageAccounts/delete | Deletes an existing storage account. |
+> | Action | Microsoft.Storage/storageAccounts/encryptionScopes/read |  |
+> | Action | Microsoft.Storage/storageAccounts/encryptionScopes/write |  |
 > | Action | Microsoft.Storage/storageAccounts/failover/action | Customer is able to control the failover in case of availability issues |
-> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actassuperuser/action |  |
+> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/actassuperuser/action | Get File Admin Privileges |
 > | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder |
 > | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder |
-> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
-> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder. |
+> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders |
+> | DataAction | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/read |  |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/read | Get file service properties |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/shares/delete |  |
@@ -5288,7 +5443,11 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Storage/storageAccounts/managementPolicies/delete | Delete storage account management policies |
 > | Action | Microsoft.Storage/storageAccounts/managementPolicies/read | Get storage management account policies |
 > | Action | Microsoft.Storage/storageAccounts/managementPolicies/write | Put storage account management policies |
+> | Action | Microsoft.Storage/storageAccounts/objectReplicationPolicies/delete |  |
+> | Action | Microsoft.Storage/storageAccounts/objectReplicationPolicies/read |  |
+> | Action | Microsoft.Storage/storageAccounts/objectReplicationPolicies/write |  |
 > | Action | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/delete | Delete Private Endpoint Connection Proxies |
+> | Action | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/read | Get Private Endpoint Connection Proxy |
 > | Action | Microsoft.Storage/storageAccounts/privateEndpointConnectionProxies/write | Put Private Endpoint Connection Proxies |
 > | Action | Microsoft.Storage/storageAccounts/privateEndpointConnections/delete | Delete Private Endpoint Connection |
 > | Action | Microsoft.Storage/storageAccounts/privateEndpointConnections/read | Get Private Endpoint Connection |
@@ -5738,6 +5897,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/resourcehealthmetadata/read | Get Resource Health Metadata. |
 > | Action | microsoft.web/serverfarms/capabilities/read | Get App Service Plans Capabilities. |
 > | Action | Microsoft.Web/serverfarms/Delete | Delete an existing App Service Plan |
+> | Action | Microsoft.Web/serverfarms/eventGridFilters/delete | Delete Event Grid Filter on server farm. |
+> | Action | Microsoft.Web/serverfarms/eventGridFilters/read | Get Event Grid Filter on server farm. |
+> | Action | Microsoft.Web/serverfarms/eventGridFilters/write | Put Event Grid Filter on server farm. |
 > | Action | microsoft.web/serverfarms/firstpartyapps/settings/delete | Delete App Service Plans First Party Apps Settings. |
 > | Action | microsoft.web/serverfarms/firstpartyapps/settings/read | Get App Service Plans First Party Apps Settings. |
 > | Action | microsoft.web/serverfarms/firstpartyapps/settings/write | Update App Service Plans First Party Apps Settings. |
@@ -5815,16 +5977,32 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/diagnostics/workerprocessrecycle/read | Get Web Apps Diagnostics Worker Process Recycle. |
 > | Action | microsoft.web/sites/domainownershipidentifiers/read | Get Web Apps Domain Ownership Identifiers. |
 > | Action | microsoft.web/sites/domainownershipidentifiers/write | Update Web Apps Domain Ownership Identifiers. |
+> | Action | Microsoft.Web/sites/eventGridFilters/delete | Delete Event Grid Filter on web app. |
+> | Action | Microsoft.Web/sites/eventGridFilters/read | Get Event Grid Filter on web app. |
+> | Action | Microsoft.Web/sites/eventGridFilters/write | Put Event Grid Filter on web app. |
 > | Action | microsoft.web/sites/extensions/delete | Delete Web Apps Site Extensions. |
 > | Action | microsoft.web/sites/extensions/read | Get Web Apps Site Extensions. |
 > | Action | microsoft.web/sites/extensions/write | Update Web Apps Site Extensions. |
 > | Action | microsoft.web/sites/functions/action | Functions Web Apps. |
 > | Action | microsoft.web/sites/functions/delete | Delete Web Apps Functions. |
-> | Action | microsoft.web/sites/functions/listsecrets/action | List Secrets Web Apps Functions. |
+> | Action | microsoft.web/sites/functions/keys/delete | Delete Function keys. |
+> | Action | microsoft.web/sites/functions/keys/write | Update Function keys. |
+> | Action | microsoft.web/sites/functions/listkeys/action | List Function keys. |
+> | Action | microsoft.web/sites/functions/listsecrets/action | List Function secrets. |
 > | Action | microsoft.web/sites/functions/masterkey/read | Get Web Apps Functions Masterkey. |
+> | Action | microsoft.web/sites/functions/properties/read | Read Web Apps Functions Properties. |
+> | Action | microsoft.web/sites/functions/properties/write | Update Web Apps Functions Properties. |
 > | Action | microsoft.web/sites/functions/read | Get Web Apps Functions. |
 > | Action | microsoft.web/sites/functions/token/read | Get Web Apps Functions Token. |
 > | Action | microsoft.web/sites/functions/write | Update Web Apps Functions. |
+> | Action | microsoft.web/sites/host/functionkeys/delete | Delete Functions Host Function keys. |
+> | Action | microsoft.web/sites/host/functionkeys/write | Update Functions Host Function keys. |
+> | Action | microsoft.web/sites/host/listkeys/action | List Functions Host keys. |
+> | Action | microsoft.web/sites/host/listsyncstatus/action | List Sync Function Triggers Status. |
+> | Action | microsoft.web/sites/host/properties/read | Read Web Apps Functions Host Properties. |
+> | Action | microsoft.web/sites/host/sync/action | Sync Function Triggers. |
+> | Action | microsoft.web/sites/host/systemkeys/delete | Delete Functions Host System keys. |
+> | Action | microsoft.web/sites/host/systemkeys/write | Update Functions Host System keys. |
 > | Action | microsoft.web/sites/hostnamebindings/delete | Delete Web Apps Hostname Bindings. |
 > | Action | microsoft.web/sites/hostnamebindings/read | Get Web Apps Hostname Bindings. |
 > | Action | microsoft.web/sites/hostnamebindings/write | Update Web Apps Hostname Bindings. |
@@ -5850,7 +6028,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | microsoft.web/sites/instances/processes/read | Get Web Apps Instances Processes. |
 > | Action | microsoft.web/sites/instances/processes/threads/read | Get Web Apps Instances Processes Threads. |
 > | Action | microsoft.web/sites/instances/read | Get Web Apps Instances. |
-> | Action | microsoft.web/sites/listsyncfunctiontriggerstatus/action | List Sync Function Trigger Status Web Apps. |
+> | Action | microsoft.web/sites/listsyncfunctiontriggerstatus/action | List Sync Function Trigger Status. |
 > | Action | microsoft.web/sites/metricdefinitions/read | Get Web Apps Metric Definitions. |
 > | Action | microsoft.web/sites/metrics/read | Get Web Apps Metrics. |
 > | Action | microsoft.web/sites/metricsdefinitions/read | Get Web Apps Metrics Definitions. |
@@ -6017,7 +6195,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Web/sites/start/Action | Start a Web App |
 > | Action | Microsoft.Web/sites/stop/Action | Stop a Web App |
 > | Action | microsoft.web/sites/sync/action | Sync Web Apps. |
-> | Action | microsoft.web/sites/syncfunctiontriggers/action | Sync Function Triggers for Web Apps. |
+> | Action | microsoft.web/sites/syncfunctiontriggers/action | Sync Function Triggers. |
 > | Action | microsoft.web/sites/triggeredwebjobs/delete | Delete Web Apps Triggered WebJobs. |
 > | Action | microsoft.web/sites/triggeredwebjobs/history/read | Get Web Apps Triggered WebJobs History. |
 > | Action | microsoft.web/sites/triggeredwebjobs/read | Get Web Apps Triggered WebJobs. |

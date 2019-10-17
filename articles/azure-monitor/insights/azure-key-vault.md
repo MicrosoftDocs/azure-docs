@@ -100,26 +100,26 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 
 | Property | Description |
 |:--- |:--- |
-| Type |*AzureDiagnostics* |
-| SourceSystem |*Azure* |
-| CallerIpAddress |IP address of the client who made the request |
-| Category | *AuditEvent* |
-| CorrelationId |An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs. |
-| DurationMs |Time it took to service the REST API request, in milliseconds. This time does not include network latency, so the time that you measure on the client side might not match this time. |
-| httpStatusCode_d |HTTP status code returned by the request (for example, *200*) |
-| id_s |Unique ID of the request |
-| identity_claim_appid_g | GUID for the application ID |
-| OperationName |Name of the operation, as documented in [Azure Key Vault Logging](../../key-vault/key-vault-logging.md) |
-| OperationVersion |REST API version requested by the client (for example *2015-06-01*) |
-| requestUri_s |Uri of the request |
-| Resource |Name of the key vault |
-| ResourceGroup |Resource group of the key vault |
-| ResourceId |Azure Resource Manager Resource ID. For Key Vault logs, this is the Key Vault resource ID. |
-| ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResourceType | *VAULTS* |
-| ResultSignature |HTTP status (for example, *OK*) |
-| ResultType |Result of REST API request (for example, *Success*) |
-| SubscriptionId |Azure subscription ID of the subscription containing the Key Vault |
+| `Type` |*AzureDiagnostics* |
+| `SourceSystem` |*Azure* |
+| `CallerIpAddress` |IP address of the client who made the request |
+| `Category` | *AuditEvent* |
+| `CorrelationId` |An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs. |
+| `DurationMs` |Time it took to service the REST API request, in milliseconds. This time does not include network latency, so the time that you measure on the client side might not match this time. |
+| `httpStatusCode_d` |HTTP status code returned by the request (for example, *200*) |
+| `id_s` |Unique ID of the request |
+| `identity_claim_appid_g` | GUID for the application ID |
+| `OperationName` |Name of the operation, as documented in [Azure Key Vault Logging](../../key-vault/key-vault-logging.md) |
+| `OperationVersion` |REST API version requested by the client (for example *2015-06-01*) |
+| `requestUri_s` |Uri of the request |
+| `Resource` |Name of the key vault |
+| `ResourceGroup` |Resource group of the key vault |
+| `ResourceId` |Azure Resource Manager Resource ID. For Key Vault logs, this is the Key Vault resource ID. |
+| `ResourceProvider` |*MICROSOFT.KEYVAULT* |
+| `ResourceType` | *VAULTS* |
+| `ResultSignature` |HTTP status (for example, *OK*) |
+| `ResultType` |Result of REST API request (for example, *Success*) |
+| `SubscriptionId` |Azure subscription ID of the subscription containing the Key Vault |
 
 ## Migrating from the old Key Vault solution
 In January 2017, the supported way of sending logs from Key Vault to Log Analytics changed. These changes provide the following advantages:

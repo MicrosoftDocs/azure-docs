@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/20/2019
-ms.author: subramar
+ms.author: atsenthi
 ---
 
 # Set up gMSA for Windows containers running on Service Fabric

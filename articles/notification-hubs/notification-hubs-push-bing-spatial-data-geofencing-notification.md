@@ -1,12 +1,12 @@
 ---
-title: Geo-fenced push notifications with Azure Notification Hubs and Bing Spatial Data | Microsoft Docs
+title: Send push notifications with Azure Notification Hubs and Bing Spatial Data | Microsoft Docs
 description: In this tutorial, you learn how to deliver location-based push notifications with Azure Notification Hubs and Bing Spatial Data.
 services: notification-hubs
 documentationcenter: windows
-keywords: push notification,push notification
-author: jwargo
-manager: patniko
-editor: spelluru
+keywords: push notifications,push notifications
+author: sethmanheim
+manager: femila
+editor: jwargo
 
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
@@ -16,10 +16,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
 ---
 
-# Tutorial: Push location-based notifications with Azure Notification Hubs and Bing Spatial Data
+# Tutorial: Send location-based push notifications with Azure Notification Hubs and Bing Spatial Data
 
 In this tutorial, you learn how to deliver location-based push notifications with Azure Notification Hubs and Bing Spatial Data.
 

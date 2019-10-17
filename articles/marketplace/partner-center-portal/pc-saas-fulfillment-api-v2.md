@@ -2,7 +2,7 @@
 title: SaaS Fulfillment API v2 | Azure Marketplace 
 description: This article explains how to create and manage a SaaS offer on the AppSource and Azure Marketplace by using the associated fulfillment v2 APIs.
 services: Azure, Marketplace, Cloud Partner Portal, 
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
@@ -790,7 +790,6 @@ Internal server error.
 
 The publisher must implement a webhook in this SaaS service to proactively notify users of changes in its service. The SaaS service is expected to call the operations API to validate and authorize before taking an action on the webhook notification.
 
-To ensure secure communications, Microsoft includes the Azure Active Directory JWT token in the authorization header as part of the call. SaaS providers are encouraged to validate the JWT token as described in the [Microsoft identity platform access tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) article in order to ensure that only valid calls are accepted.
 
 ```json
 {

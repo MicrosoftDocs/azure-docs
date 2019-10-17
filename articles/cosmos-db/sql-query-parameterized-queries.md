@@ -49,5 +49,5 @@ Parameter values can be any valid JSON: strings, numbers, Booleans, null, even a
 
 ## Next steps
 
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Model document data](modeling-data.md)

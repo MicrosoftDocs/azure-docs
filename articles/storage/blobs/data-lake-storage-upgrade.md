@@ -1,4 +1,4 @@
----
+﻿---
 title: Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
 description: Upgrade your solution to use Azure Data Lake Storage Gen2
 author: normesta
@@ -113,7 +113,7 @@ Management APIs help you to manage accounts, while file system APIs help you to 
 When using Data Lake Storage Gen1, you can use a variety of Microsoft services and products in your end-to-end pipelines. These services and products work with Data Lake Storage Gen1 either directly or indirectly. This table shows a list of the services that we've modified to work with Data Lake Storage Gen1, and shows
 which ones are currently compatible with Data Lake Storage Gen2.
 
-| **Area**             | **Availability for Data Lake Storage Gen1**                                                                                                                                    | **Availability for Data Lake Storage Gen2 – with Shared Key auth**                                                                                                           | **Availability for Data Lake Storage Gen2 – with OAuth**                                                                                        |
+| **Area**             | **Availability for Data Lake Storage Gen1**                                                                                                                                    | **Availability for Data Lake Storage Gen2 – with Shared Key auth**                                                                                                           | **Availability for Data Lake Storage Gen2 – with OAuth**                                                                                        |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Analytics framework  | [Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure-datalake/index.html)                                                                                       | *Available now*                                                                                                                                                              | *Available now*                                                                                                                                 |
 |                      | [HDInsight](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)                                                               | [HDInsight](https://docs.microsoft.com/azure/storage/data-lake-storage/quickstart-create-connect-hdi-cluster) 3.6 - *Available now* HDInsight 4.0 - *Not yet available*      | HDInsight 3.6 ESP – *Available now* <br><br>  HDInsight 4.0 ESP - *Not yet available*                                                                 |
@@ -234,7 +234,7 @@ Note that there are third-parties that can handle the Data Lake Storage Gen1 to 
 
 * If you use a tool that doesn't copy ACLs or you don't want to copy over the ACLs, then you'll need to set the ACLs on the destination manually at the appropriate top level. You can do that by using Storage Explorer. Ensure that those ACLs are the default ACLs so that the files and folders that you copy over inherit them.
 
-* In Data Lake Storage Gen1, the highest level you can set ACLs is at root of the account. In Data Lake Storage Gen2, however, the highest level you can set ACLs is at the root folder in a file system, not the whole account. So, if you want to set default ACLs at account level, you'll need to duplicate those across all the file systems in your Data Lake Storage Gen2 account.
+* In Data Lake Storage Gen1, the highest level you can set ACLs is at root of the account. In Data Lake Storage Gen2, however, the highest level you can set ACLs is at the root folder in a container, not the whole account. So, if you want to set default ACLs at account level, you'll need to duplicate those across all the file systems in your Data Lake Storage Gen2 account.
 
 * File naming restrictions are different between the two storage systems. These differences are especially concerning when copying from Data Lake Storage Gen2 to Data Lake Storage Gen1 since the latter has more constrained restrictions.
 
@@ -249,7 +249,7 @@ The main task here is to translate URI's that have a prefix of `adl://` into URI
 The URI scheme for Data Lake Storage Gen1 is mentioned [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) in detail, but broadly speaking, it is
 *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>.*
 
-The URI scheme for accessing Data Lake Storage Gen2 files is explained [here](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) in detail, but broadly speaking, it is `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>`.
+The URI scheme for accessing Data Lake Storage Gen2 files is explained [here](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) in detail, but broadly speaking, it is `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`.
 
 You'll need to go through your existing applications and ensure that you've changed the URIs appropriately to point to Data Lake Storage Gen2 ones. Also, you'll need to add the appropriate credentials. Finally, how you retire the original applications and replace with the new application will have to be aligned closely to your overall upgrade strategy.
 

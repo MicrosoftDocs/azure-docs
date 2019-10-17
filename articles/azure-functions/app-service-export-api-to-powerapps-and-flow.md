@@ -7,7 +7,6 @@ manager: jeconnoc
 
 ms.assetid: 
 ms.service: app-service
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga

@@ -4,7 +4,7 @@ description: Use Azure Resource Manager to move resources to a new resource grou
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/19/2019
 ms.author: tomfitz
 ---
 
@@ -27,9 +27,9 @@ There are some important steps to do before moving a resource. By verifying thes
    * [App Services move guidance](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services move guidance](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
    * [Classic deployment model move guidance](./move-limitations/classic-model-move-limitations.md) - Classic Compute, Classic Storage, Classic Virtual Networks, and Cloud Services
+   * [Networking move guidance](./move-limitations/networking-move-limitations.md)
    * [Recovery Services move guidance](../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
-   * [Virtual Networks move guidance](./move-limitations/virtual-network-move-limitations.md)
 
 1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 
@@ -92,10 +92,11 @@ There are some important steps to do before moving a resource. By verifying thes
 1. **For a move across subscriptions, the resource and its dependent resources must be located in the same resource group and they must be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 
    If you're moving a resource to a new subscription, check to see whether the resource has any dependent resources, and whether they're located in the same resource group. If the resources aren't in the same resource group, check to see whether the resources can be consolidated into the same resource group. If so, bring all these resources into the same resource group by using a move operation across resource groups.
-    
-For more information, see [Scenario for move across subscriptions](#scenario-for-move-across-subscriptions).
+
+   For more information, see [Scenario for move across subscriptions](#scenario-for-move-across-subscriptions).
 
 ## Scenario for move across subscriptions
+
 Moving resources from one subscription to another is a three-step process:
 
 ![cross-subscription move scenario](./media/resource-group-move-resources/cross-subscription-move-scenario.png)

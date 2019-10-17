@@ -6,13 +6,9 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
-## Prerequisites
+[!INCLUDE [Prerequisites](prerequisites-csharp.md)]
 
-* C# 7.1 or later
-* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
-* [Json.NET NuGet Package](https://www.nuget.org/packages/Newtonsoft.Json/)
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
-* An Azure subscription key for Translator Text
+[!INCLUDE [Setup and use environment variables](setup-env-variables.md)]
 
 ## Create a .NET Core project
 
@@ -77,12 +73,37 @@ public class DetectedLanguage
 }
 ```
 
-## Create a function to determine sentence length
+## Get subscription information from environment variables
 
-Within the `Program` class, create a function called `BreakSentence()`. This function takes four arguments: `subscriptionKey`, `host`, `route`, and `inputText`.
+Add the following lines to the `Program` class. These lines read your subscription key and endpoint from environment variables, and throws an error if you run into any issues.
 
 ```csharp
-static public async Task BreakSentenceRequest(string subscriptionKey, string host, string route, string inputText)
+private const string key_var = "TRANSLATOR_TEXT_SUBSCRIPTION_KEY";
+private static readonly string subscriptionKey = Environment.GetEnvironmentVariable(key_var);
+
+private const string endpoint_var = "TRANSLATOR_TEXT_ENDPOINT";
+private static readonly string endpoint = Environment.GetEnvironmentVariable(endpoint_var);
+
+static Program()
+{
+    if (null == subscriptionKey)
+    {
+        throw new Exception("Please set/export the environment variable: " + key_var);
+    }
+    if (null == endpoint)
+    {
+        throw new Exception("Please set/export the environment variable: " + endpoint_var);
+    }
+}
+// The code in the next section goes here.
+```
+
+## Create a function to determine sentence length
+
+In the `Program` class, create a new function called `BreakSentenceRequest()`. This function takes four arguments: `subscriptionKey`, `endpoint`, `route`, and `inputText`.
+
+```csharp
+static public async Task BreakSentenceRequest(string subscriptionKey, string endpoint, string route, string inputText)
 {
   /*
    * The code for your call to the translation service will be added to this
@@ -130,7 +151,7 @@ Add this code to the `HttpRequestMessage`:
 // Set the method to POST
 request.Method = HttpMethod.Post;
 // Construct the URI and add headers.
-request.RequestUri = new Uri(host + route);
+request.RequestUri = new Uri(endpoint + route);
 request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
@@ -159,16 +180,16 @@ static async Task Main(string[] args)
     // This is our main function.
     // Output languages are defined in the route.
     // For a complete list of options, see API reference.
-    string subscriptionKey = "YOUR_TRANSLATOR_TEXT_KEY_GOES_HERE";
-    string host = "https://api.cognitive.microsofttranslator.com";
     string route = "/breaksentence?api-version=3.0";
     // Feel free to use any string.
     string breakSentenceText = @"How are you doing today? The weather is pretty pleasant. Have you been to the movies lately?";
-    await BreakSentenceRequest(subscriptionKey, host, route, breakSentenceText);
+    await BreakSentenceRequest(subscriptionKey, endpoint, route, breakSentenceText);
+    Console.WriteLine("Press any key to continue.");
+    Console.ReadKey();
 }
 ```
 
-You'll notice that in `Main`, you're declaring `subscriptionKey`, `host`, `route`, and the text to evaluate `breakSentenceText`.
+You'll notice that in `Main`, you're declaring `subscriptionKey`, `endpoint`, `route`, and the text to evaluate `breakSentenceText`.
 
 ## Run the sample app
 

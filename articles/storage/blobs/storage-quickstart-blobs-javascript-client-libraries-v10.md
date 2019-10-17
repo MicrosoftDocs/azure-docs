@@ -1,14 +1,13 @@
 ---
 title: Quickstart - Create a blob in Azure Storage by using JavaScript and HTML in the browser
-description: Learn to use an instance of BlobService to upload, list, and delete blobs using JavaScript in an HTML page.
+description: Learn to upload, list, and delete blobs using JavaScript in an HTML page.
 services: storage
-keywords: storage, javascript, html
 author: KarlErickson
+
 ms.custom: mvc
 ms.service: storage
 ms.author: karler
-ms.reviewer: seguler
-ms.date: 05/20/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
 ---
@@ -33,7 +32,7 @@ Before your web application can access a blob storage from the client, you must 
 
 Return to the Azure portal and select your storage account. To define a new CORS rule, navigate to the **Settings** section and click on the **CORS** link. Next, click the **Add** button to open the **Add CORS rule** window. For this quickstart, you create an open CORS rule:
 
-![Azure Blob Storage Account CORS settings](media/storage-quickstart-blobs-javascript-client-libraries/azure-blob-storage-cors-settings.png)
+![Azure Blob Storage Account CORS settings](media/storage-quickstart-blobs-javascript-client-libraries-v10/azure-blob-storage-cors-settings.png)
 
 The following table describes each CORS setting and explains the values used to define the rule.
 

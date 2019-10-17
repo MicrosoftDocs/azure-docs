@@ -35,6 +35,7 @@ Application Insights SDKs for .NET and .NET Core ships with `DependencyTrackingT
 |[ServiceBus Client SDK](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Version 3.0.0 and above. |
 |Azure Cosmos DB | Only tracked automatically if HTTP/HTTPS is used. TCP mode won't be captured by Application Insights. |
 
+If you're missing a dependency, or using a different SDK make sure it's in the list of [auto-collected dependencies](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). If the dependency isn't auto-collected, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## Setup automatic dependency tracking in Console Apps
 

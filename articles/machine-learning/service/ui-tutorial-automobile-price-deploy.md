@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Deploy a machine learning model with the visual interface'
-titleSuffix: Azure Machine Learning service
-description: Learn how to build a predictive analytics solution in the Azure Machine Learning service visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
+titleSuffix: Azure Machine Learning
+description: Learn how to build a predictive analytics solution in Azure Machine Learning's visual interface. Train, score, and deploy a machine learning model using drag and drop modules. This tutorial is part two of a two-part series on predicting automobile prices using linear regression.
 
 author: peterclu
 ms.author: peterlu
@@ -79,11 +79,9 @@ You can test and manage your visual interface web services by navigating to the 
 
 1. Select the web service name to view additional details.
 
-     ![Screenshot showing the additional details available in the web service view](./media/ui-tutorial-automobile-price-deploy/web-service-details.png)
-
 1. Select **Test**.
 
-    ![Screenshot showing the web service testing page](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
+    [![Screenshot showing the web service testing page](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)](./media/ui-tutorial-automobile-price-deploy/web-service-test.png#lightbox)
 
 1. Input testing data or use the autofilled sample data and select **Test**.
 
@@ -101,11 +99,9 @@ You can find sample REST calls in the **Consume** tab of the web service details
 
 Navigate to the **API Doc** tab, to find more API details.
 
-  ![Screenshot showing additional API details that users can find in the API Doc tab](./media/ui-tutorial-automobile-price-deploy/web-service-api.png)
-
 ## Manage models and deployments
 
-The models and web service deployments you create in the visual interface can also be managed from the Azure Machine Learning service workspace.
+The models and web service deployments you create in the visual interface can also be managed from the Azure Machine Learning workspace.
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
 
@@ -115,11 +111,11 @@ The models and web service deployments you create in the visual interface can al
 
     On this page, you'll see additional details about the model.
 
-    ![Screenshot showing overview of experiment statistics in the Azure portal](./media/ui-tutorial-automobile-price-deploy/model-details.png)
-
 1. Select **Deployments**, it will list any web services that use the model. Select the web service name, it will go to web service detail page. In this page, you can get more detailed information of the web service.
 
-    ![Screenshot detailed run report](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)
+    [![Screenshot detailed run report](./media/ui-tutorial-automobile-price-deploy/deployment-details.png)](./media/ui-tutorial-automobile-price-deploy/deployment-details.png#lightbox)
+
+You can also find these models and deployments in the **Models** and **Endpoints** sections of your [workspace landing page (preview)](https://ml.azure.com).
 
 ## Clean up resources
 
@@ -130,4 +126,4 @@ The models and web service deployments you create in the visual interface can al
 In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the visual interface. To learn more about how you can use the visual interface to solve other types of problems, see out our other sample experiments.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+> [Credit risk classification sample](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)

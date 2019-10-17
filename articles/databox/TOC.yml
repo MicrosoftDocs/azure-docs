@@ -96,8 +96,10 @@
         href: data-box-disk-deploy-set-up.md
       - name: 3 - Copy and validate
         href: data-box-disk-deploy-copy-data.md 
-      - name: 4 - Return, upload, verify
+      - name: 4 - Return
         href: data-box-disk-deploy-picked-up.md  
+      - name: 5 - Verify upload
+        href: data-box-disk-deploy-upload-verify.md 
     - name: Concepts
       items:
       - name: Review requirements

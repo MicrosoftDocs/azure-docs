@@ -1,11 +1,11 @@
 ---
-title: Understand and work with Azure Cost Management scopes | Microsoft Docs
+title: Understand and work with Azure Cost Management scopes
 description: This article helps you understand billing and resource management scopes available in Azure and how to use the scopes in Cost Management and APIs.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -32,7 +32,7 @@ Cost Management works at all scopes above resources to allow organizations to ma
 
 Azure supports three scopes for resource management. Each scope supports managing access and governance, including but not limited to, cost management.
 
-- [**Management groups**](../governance/management-groups/index.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
+- [**Management groups**](../governance/management-groups/overview.md) - Hierarchical containers, up to eight levels, to organize Azure subscriptions.
 
     Resource type: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 
@@ -124,7 +124,10 @@ Microsoft Customer Agreement billing accounts have the following scopes:
 
     Resource type: `Microsoft.Billing/billingAccounts/invoiceSections`
 
+- **Customer** - Represents a group of subscriptions that are associated to a specific customer that is onboarded to a Microsoft Customer Agreement by partner. This scope is specific to CSP.
+
 Unlike EA billing scopes, Customer Agreement billing accounts _are_ bound to a single directory and can't have subscriptions across multiple Azure AD directories.
+
 
 Customer Agreement billing scopes support the following roles:
 
@@ -145,7 +148,7 @@ After AWS integration is complete, see [setup and configure AWS integration](aws
 - **External Billing account** - Represents a customer agreement with a third-party vendor. This is similar to the EA billing account.
 
     Resource type: `Microsoft.CostManagement/externalBillingAccounts`
-    
+
 - **External subscription** - Represents a customer operational account with a third-party vendor. This is similar to an Azure subscription.
 
     Resource type: `Microsoft.CostManagement/externalSubscriptions`
