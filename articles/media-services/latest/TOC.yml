@@ -61,9 +61,9 @@
     - name: Transforms and Jobs
       href: transforms-jobs-concept.md 
       displayName: preset, schema 
-    - name: E rror codes
+    - name: Error codes
       href: job-error-codes.md         
-  - name: Encoding video and audio
+  - name: Encoding video/audio
     items:
     - name: Overview
       href: encoding-concept.md   
@@ -75,7 +75,7 @@
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
       href: cae-experimental.md          
-  - name: Analyzing video and audio (Video Indexer)
+  - name: Analyzing video/audio (Video Indexer)
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
