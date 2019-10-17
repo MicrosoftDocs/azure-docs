@@ -182,13 +182,61 @@ To complete the creation process, register your datasets with a workspace.
 Use the [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) method to register datasets with your workspace so they can be shared with others and reused across various experiments.
 
 ```Python
-titanic_ds = titanic_ds.register(workspace = workspace,
-                                 name = 'titanic_ds',
-                                 description = 'titanic training data')
+titanic_ds = titanic_ds.register(workspace=workspace,
+                                 name='titanic_ds',
+                                 description='titanic training data')
 ```
 
->[!Note]
+> [!Note]
 > Datasets created via the Azure Machine Learning studio are automatically registered to the workspace.
+
+## Create datasets with Azure Open Datasets
+
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/) are curated public datasets that you can use to add scenario-specific features to machine learning solutions for more accurate models. Datasets include public-domain data for weather, census, holidays, public safety, and location that help you train machine learning models and enrich predictive solutions. Open Datasets are in the cloud on Microsoft Azure and are included in both the SDK and the workspace UI.
+
+### Using the SDK
+
+To create datasets with Azure Open Datasets from the SDK, make sure you've installed the package with `pip install azureml-opendatasets`. Each discrete data set is represented by it's own class in the SDK, and certain classes are available as either a `TabularDataset`, `FileDataset`, or both. See the [reference documentation](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) for a full list of classes.
+
+Most classes inherit from and return an instance of `TabularDataset`. Examples of these classes include `PublicHolidays`, `BostonSafety`, and `UsPopulationZip`. To create a `TabularDataset` from these types of classes, use the constructor with no arguments. When you register a dataset created from Open Datasets, no data is immediately downloaded, but the data will be accessed later when requested (during training, for example) from a central storage location. 
+
+```python
+from azureml.opendatasets import UsPopulationZip
+
+tabular_dataset = UsPopulationZip()
+tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
+```
+
+Certain classes can be retrieved as either a `TabularDataset` or `FileDataset`, which allows you to manipulate and/or download the files directly. Other classes can only get a dataset using either the `get_tabular_dataset()` **or** `get_file_dataset()` functions. The following code sample shows a few examples of these types of classes.
+
+```python
+from azureml.opendatasets import MNIST
+
+# MNIST class can return either TabularDataset or FileDataset
+tabular_dataset = MNIST.get_tabular_dataset()
+file_dataset = MNIST.get_file_dataset()
+
+from azureml.opendatasets import Diabetes
+
+# Diabetes class can return ONLY return TabularDataset and must be called from the static function
+diabetes_tabular = Diabetes.get_tabular_dataset()
+```
+
+### Using the UI
+
+You can also create datasets from Open Datasets classes using the UI. In your workspace, navigate to the **Datasets** tab under *Assets*. Click the **Create dataset** dropdown,and then click **From Open Datasets**.
+
+![Open Dataset with the UI](media/how-to-create-register-datasets/open-datasets-1.png)
+
+Next select a dataset by selecting the tile, optionally filtering using the search bar. Then click **Next**.
+
+![Choose dataset](media/how-to-create-register-datasets/open-datasets-2.png)
+
+Next choose a name to register the dataset, and optionally filter the data using the available filters. In this case for the public holidays dataset, you filter the time period to one year and the country code to only the US. Then click **Create**.
+
+![Set dataset params and create dataset](media/how-to-create-register-datasets/open-datasets-3.png)
+
+The dataset is now created and available in your workspace under **Datasets**, and can be used in the same way as other datasets you have created.
 
 ## Version datasets
 
