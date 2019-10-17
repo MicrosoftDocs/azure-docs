@@ -1,5 +1,5 @@
 ---
-title: Azure CLI script sample - Create a managed application definition | Microsoft Docs
+title:  Create Managed Application definition - Azure CLI
 description: Provides an Azure CLI script sample that creates a managed application definition in the subscription.
 services: managed-applications
 documentationcenter: na
