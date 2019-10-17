@@ -47,7 +47,7 @@ To complete the following steps, you'll need:
 
 - Make sure that you have the latest [Azure CLI](/cli/azure/install-az-cli2) installed and you are signed in to an Azure account with [az login](/cli/azure/reference-index#az-login).
 
-In the following examples, replace example parameter names with your own values, such as *myResourceGroup*, *mystorageaccount*, and *mydisks*.
+In the following examples, replace example parameter names with your own values, such as `myResourceGroup`, `mystorageaccount`, and `mydisks`.
 
 <a id="prepimage"> </a>
 
