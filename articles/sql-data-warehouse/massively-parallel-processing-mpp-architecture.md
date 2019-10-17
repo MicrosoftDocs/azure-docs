@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse) architecture 
 
-Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data, using provisioned or on-demand (Preview) resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. These capabilites enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
+Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data, using provisioned or on-demand (Preview) resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. These capabilities enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
 
 Learn how Synapse Analytics combines massively parallel processing (MPP) with Azure storage to achieve high performance and scalability. 
 
@@ -89,7 +89,7 @@ The following diagram shows a replicated table. For Synapse Analytics, the repli
 ![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
 ## Next steps
-Now that you know a bit about Synapse Analytics, learn how to quickly [create a data warehouse][create a SQL Data Warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other Synapse Analytics Resources.  
+Now that you know a bit about Synapse Analytics, learn how to quickly [create a data warehouse][create a data warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other Synapse Analytics Resources.  
 
 * [Customer success stories]
 * [Blogs]
