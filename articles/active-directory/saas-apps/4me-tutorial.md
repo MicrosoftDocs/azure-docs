@@ -62,10 +62,10 @@ Configure and test Azure AD SSO with 4me using a test user called **B.Simon**. F
 To configure and test Azure AD SSO with 4me, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure 4me SSO](#configure-4me-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create 4me test user](#create-4me-test-user)** - to have a counterpart of B.Simon in 4me that is linked to the Azure AD representation of user.
+    * **[Create 4me test user](#create-4me-test-user)** - to have a counterpart of B.Simon in 4me that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -98,6 +98,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [4me Client support team](mailto:support@4me.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+1. 4me application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+
+	![image](common/default-attributes.png)
+
+1. In addition to above, 4me application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+
+	| Name | Source Attribute|
+	| ---------------| --------------- |
+	| first_name | user.givenname |
+	| last_name | user.surname |
 
 1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
@@ -145,11 +156,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In a different web browser window, signin to 4me as an Administrator.
 
-2. On the top left, click on **Settings** logo and on the left side bar click **Single Sign-On**.
+1. On the top left, click on **Settings** logo and on the left side bar click **Single Sign-On**.
 
     ![4me settings](./media/4me-tutorial/tutorial_4me_settings.png)
 
-3. On the **Single Sign-On** page, perform the following steps:
+1. On the **Single Sign-On** page, perform the following steps:
 
 	![4me singleasignon](./media/4me-tutorial/tutorial_4me_singlesignon.png)
 
