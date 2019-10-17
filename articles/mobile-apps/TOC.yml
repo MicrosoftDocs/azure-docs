@@ -38,7 +38,7 @@
     href: push-notifications.md
 - name: Additional Services
   items:
-  - name: Cognitive Services 
+  - name: Azure Cognitive Services 
     href: cognitive-services.md
   - name: Azure Maps 
     href: azure-maps.md

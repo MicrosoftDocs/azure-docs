@@ -1,8 +1,7 @@
 ---
 title: Azure Cognitive Services 
-description: Build intelligent mobile apps using Azure Cognitive Services
+description: Learn about the service to build intelligent mobile applications poweed by Artificial Intelligence.
 author: elamalani
-
 ms.assetid: 34a8a070-0123-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
@@ -11,9 +10,9 @@ ms.author: emalani
 ---
 
 # Azure Cognitive Services
-[Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) provides powerful services to infuse your apps with intelligent algorithms to see, hear, speak, understand, and interpret your user needs to transform your business with AI. You can make your mobile apps smart, engaging, and contextually relevant for your users. The APIs, SDKs, and services allow developers to add AI to their offering and help build intelligent applications without having direct AI or data science skills.
+[Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides powerful services to infuse your apps with intelligent algorithms to see, hear, speak, understand, and interpret your user needs to transform your business with AI. You can make your mobile applications smart, engaging, and contextually relevant for your users. The APIs, SDKs, and services allow developers to add AI to their offering and help build intelligent applications without having direct AI or data science skills.
 
-## Cognitive Services Capabilities
+## Cognitive Services capabilities
 - **Vision**
     - Image Tagging, Thumbnails
     - OCR (Handwriting recognition)
@@ -52,7 +51,7 @@ ms.author: emalani
 
  ## References
    - [Azure Portal](https://portal.azure.com) 
-   - [Documentation](https://docs.microsoft.com/en-us/azure/cognitive-services/welcome)
-   - [Quickstarts](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account)
-   - [Container support](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-container-support)
-   - [Quickstarts](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
+   - [Documentation](/azure/cognitive-services/welcome)
+   - [Quickstarts](/azure/cognitive-services/cognitive-services-apis-create-account)
+   - [Container support](/azure/cognitive-services/cognitive-services-container-support)
+   - [Quickstarts](/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
