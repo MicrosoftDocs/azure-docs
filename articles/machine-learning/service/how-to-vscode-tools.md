@@ -15,9 +15,9 @@ ms.custom: seodec18
 
 In this article, you'll learn how to use the **Azure Machine Learning for Visual Studio Code** extension to train and deploy machine learning models.
 
-The [Azure Machine Learning service](overview-what-is-azure-ml.md) streamlines the building, training, and deployment of machine learning models.
+The [Azure Machine Learning](overview-what-is-azure-ml.md) streamlines the building, training, and deployment of machine learning models.
 + For training, it provides support for running experiments locally or remotely. For every experiment, you can log custom metrics of multiple runs to fine-tune hyperparameters
-+ You can also use the Azure Machine Learning service to easily deploy machine learning models for your testing and production needs.
++ You can also use the Azure Machine Learning to easily deploy machine learning models for your testing and production needs.
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ To install the Azure Machine Learning extension:
 > You can also download the extension installer directly from [Azure Machine Learning for Visual Studio Code extension (preview)](https://aka.ms/vscodetoolsforai).
 
 ## Quickstart with Azure Machine Learning
-There are multiple ways of running your training scripts using the Azure Machine Learning service. If you're just getting started, let's first walk through how to quickly submit a training script to run in Azure.
+There are multiple ways of running your training scripts using Azure Machine Learning. If you're just getting started, let's first walk through how to quickly submit a training script to run in Azure.
 
 If you're already somewhat familiar with the Azure Machine Learning concepts and would like more details as to how to manage and use them with the extension, see [Azure Machine Learning in-depth with VS Code](./how-to-vscode-tools.md#azure-machine-learning-in-depth-with-vs-code) below.
 

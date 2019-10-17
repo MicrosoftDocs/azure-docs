@@ -802,9 +802,9 @@ pd.read_sql(queryString, connection)
 
 ![Top rows of data from the table](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-#### Read data from HDI by using Machine Learning: reader module
+#### Read data from HDI by using Azure Machine Learning designer (preview): reader module
 
-You can also use the reader module in Machine Learning Studio to access the database in a Hadoop cluster. Plug in the credentials of your HDI clusters and Azure storage account to enable building machine learning models by using a database in HDI clusters.
+You can also use the reader module in Azure Machine Learning designer to access the database in a Hadoop cluster. Plug in the credentials of your HDI clusters and Azure storage account to enable building machine learning models by using a database in HDI clusters.
 
 ![Reader module properties](./media/vm-do-ten-things/AML_Reader_Hive.PNG)
 

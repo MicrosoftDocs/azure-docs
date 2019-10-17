@@ -1,7 +1,7 @@
 ---
 title:  "Two-Class Decision Forest: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Two-Class Decision Forest module in Azure Machine Learning service to create a machine learning model based on the decision forests algorithm.  
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Two-Class Decision Forest module in Azure Machine Learning to create a machine learning model based on the decision forests algorithm.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Two-Class Decision Forest module
 
@@ -99,4 +99,4 @@ After training is complete:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 
