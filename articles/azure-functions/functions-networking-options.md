@@ -97,7 +97,7 @@ Virtual network integration in Functions uses shared infrastructure with App Ser
 
 To learn more about using virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
 
-### Connecting to service endpoint secured resources
+## Connecting to service endpoint secured resources
 
 > [!note] 
 > Temporarily, it may take up to 12 hours for new service endpoitns to become available to your function app once you configure access restrictions on the downstream resource. During this time the resource will be completely unavailable to your app.
@@ -107,7 +107,9 @@ In order to provide a higher level of security, you can restrict a number of Azu
 [Read more about virtual network service endpoints here.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
 ### Restricting your storage account to a virtual network
-When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. It is not currently possible to use any virtual network restrictions on this account. [Read more about storage account requirements here.](./functions-create-function-app-portal.md#storage-account-requirements
+When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. It is not currently possible to use any virtual network restrictions on this account. If you configure a virtual network service endpoint on the storage account you are using for your function app, it will break your app.
+
+[Read more about storage account requirements here.](./functions-create-function-app-portal.md#storage-account-requirements
 ) 
 
 ## Virtual network triggers (non-HTTP)
