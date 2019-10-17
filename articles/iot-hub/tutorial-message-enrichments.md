@@ -235,7 +235,7 @@ At this point, the resources are all set up and the routing is configured. You c
 
 ### View routing and configure the message enrichments
 
-1. Go to your IoT Hub by selecting **Resource groups**, then select the resource group set up for this tutorial (**ContosoResources_MsgEn**). Find the IoT Hub in the list and select it. Select *Message Routing** for the Iot Hub.
+1. Go to your IoT Hub by selecting **Resource groups**, then select the resource group set up for this tutorial (**ContosoResources_MsgEn**). Find the IoT Hub in the list and select it. Select **Message Routing** for the Iot Hub.
 
    ![Select message routing](./media/tutorial-message-enrichments/select-iot-hub.png)
 
