@@ -12,7 +12,7 @@ Customer intent: I want to connect my on-premises networks to my VNets using S2S
 ---
 # Create a Site-to-Site VPN connection over ExpressRoute private peering using Azure Virtual WAN
 
-This document describes how to use Virtual WAN to establish an IPsec/IKE VPN connection from your on-premises network to Azure over the private peering of an ExpressRoute circuit. This can provide an encrypted transit between the on-premises networks and Azure virtual networks over ExpressRoute, without going over the public Internet, or using public IP addresses.
+This aticle shows you how to use Virtual WAN to establish an IPsec/IKE VPN connection from your on-premises network to Azure over the private peering of an ExpressRoute circuit. This can provide an encrypted transit between the on-premises networks and Azure virtual networks over ExpressRoute, without going over the public Internet, or using public IP addresses.
 
 ## Overview: topology and routing
 
