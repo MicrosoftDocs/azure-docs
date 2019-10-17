@@ -38,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
      ![Create an Azure Maps account in the portal](./media/quick-demo-map-app/create-account.png)
 
-5. After your account is successfully created, open it and find the settings section of the account menu. Select **Keys** to view the primary and secondary keys for your Azure Maps account. Copy the **Primary Key** value to your local clipboard to use in the following section.
+5. After your account is successfully created, open it and find the settings section of the account menu. Select **Authentication** to view the primary and secondary keys for your Azure Maps account. Copy the **Primary Key** value to your local clipboard to use in the following section.
 
 ## Download the application
 
