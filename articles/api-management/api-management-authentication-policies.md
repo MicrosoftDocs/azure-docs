@@ -115,6 +115,21 @@ In this example client certificate is identified by resource name.
 ```xml  
 <authentication-managed-identity resource="https://graph.windows.net"/> 
 ```
+```xml  
+<authentication-managed-identity resource="https://management.azure.com/"/> <!--Azure Resource Manager-->
+```
+```xml  
+<authentication-managed-identity resource="https://vault.azure.net"/> <!--Azure Key Vault-->
+```
+```xml  
+<authentication-managed-identity resource="https://servicebus.azure.net/"/> <!--Azure Service Busr-->
+```
+```xml  
+<authentication-managed-identity resource="https://storage.azure.com/"/> <!--Azure Blob Storage-->
+```
+```xml  
+<authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
+```
   
 #### Use managed identity in send-request policy
 ```xml  
