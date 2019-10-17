@@ -554,7 +554,7 @@
         - name: Algorithm and Module Reference
           tocHref: /azure/machine-learning/algorithm-module-reference
           topicHref: /azure/machine-learning/algorithm-module-reference/module-reference
-      - name: Studio
+      - name: Studio (classic)
         tocHref: /azure/machine-learning/studio
         topicHref: /azure/machine-learning/studio/
       - name: Team Data Science Process

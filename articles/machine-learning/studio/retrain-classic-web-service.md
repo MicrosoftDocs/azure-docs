@@ -1,7 +1,7 @@
 ---
 title: Retrain and deploy a classic web service
-titleSuffix: Azure Machine Learning Studio
-description: Learn how to retrain a model and update a classic web service to use the newly trained model in Azure Machine Learning Studio.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Learn how to retrain a model and update a classic web service to use the newly trained model in Azure Machine Learning Studio (classic).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -12,9 +12,9 @@ ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
 ---
-# Retrain and deploy a classic Studio web service
+# Retrain and deploy a classic Studio (classic) web service
 
-Retraining machine learning models is one way to ensure they stay accurate and based on the most relevant data available. This article will show you how to retrain a classic Studio web service. For a guide on how to retrain a new Studio web service, [view this how-to article.](retrain-machine-learning-model.md)
+Retraining machine learning models is one way to ensure they stay accurate and based on the most relevant data available. This article will show you how to retrain a classic Studio (classic) web service. For a guide on how to retrain a new Studio (classic) web service, [view this how-to article.](retrain-machine-learning-model.md)
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ You can add scoring endpoints using the sample code provided in this [GitHub rep
 
 ### Use the Azure Web Services portal to add an endpoint
 
-1. In Machine Learning Studio, on the left navigation column, click Web Services.
+1. In Machine Learning Studio (classic), on the left navigation column, click Web Services.
 1. At the bottom of the web service dashboard, click **Manage endpoints preview**.
 1. Click **Add**.
 1. Type a name and description for the new endpoint. Select the logging level and whether sample data is enabled. For more information on logging, see [Enable logging for Machine Learning web services](web-services-logging.md).

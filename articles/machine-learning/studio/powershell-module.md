@@ -1,7 +1,7 @@
 ---
-title: PowerShell modules for Machine Learning Studio
-titleSuffix: Azure Machine Learning Studio
-description: Use PowerShell to create and manage Azure Machine Learning Studio workspaces, experiments, web services, and more. 
+title: PowerShell modules for Machine Learning Studio (classic)
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Use PowerShell to create and manage Azure Machine Learning Studio (classic) workspaces, experiments, web services, and more. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -11,11 +11,11 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
 ---
-# PowerShell modules for Azure Machine Learning Studio
+# PowerShell modules for Azure Machine Learning Studio (classic)
 
-Using PowerShell modules, you can programmatically manage your Studio resources and assets such as workspaces, datasets, and web services.
+Using PowerShell modules, you can programmatically manage your Studio (classic) resources and assets such as workspaces, datasets, and web services.
 
-You can interact with Studio resources using three Powershell modules:
+You can interact with the classic version of Studio resources using three Powershell modules:
 
 * [Azure PowerShell Az](#az-rm) released in 2018, includes all functionality of AzureRM, although with different cmdlet names
 * [AzureRM](#az-rm) released in 2016, replaced by PowerShell Az
@@ -27,7 +27,7 @@ Check the [support table](#support-table) below to see which resources are suppo
 
 ## <a name="az-rm"></a> Azure PowerShell Az and AzureRM
 
-Az is now the intended PowerShell module for interacting with Azure and includes all the previous functionality of AzureRM. AzureRM will continue to receive bug fixes, but it will receive no new cmdlets or features.  Az and AzureRM both manage solutions deployed using the **Azure Resource Manager** deployment model. These resources include Studio workspaces and Studio "New" web services. 
+Az is now the intended PowerShell module for interacting with Azure and includes all the previous functionality of AzureRM. AzureRM will continue to receive bug fixes, but it will receive no new cmdlets or features.  Az and AzureRM both manage solutions deployed using the **Azure Resource Manager** deployment model. These resources include Studio (classic) workspaces and Studio (classic) "New" web services. 
 
 PowerShell classic can be installed alongside either Az or AzureRM to cover both "new" and "classic" resource types. However, it is not recommended to have Az and AzureRM installed at the same time. To decide between Az and AzureRM, Microsoft recommends Az for all future deployments.  Learn more about Az versus AzureRM and the migration path in [introduction to the Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
@@ -35,7 +35,7 @@ To get started with Az, follow the [installation instructions for Azure Az](http
 
 ## <a name="classic"></a> PowerShell classic
 
-The Studio [PowerShell classic module](https://aka.ms/amlps) allows you to manage resources deployed using the **classic deployment model**. These resources include Studio user assets, "classic" web services, and "classic" web service endpoints.
+The Studio (classic) [PowerShell classic module](https://aka.ms/amlps) allows you to manage resources deployed using the **classic deployment model**. These resources include Studio (classic) user assets, "classic" web services, and "classic" web service endpoints.
 
 However, Microsoft recommends that you use the Resource Manager deployment model for all future resources to simplify the deployment and management of resources. If you would like to learn more about the deployment models, see the [Azure Resource Manager vs. classic deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) article.
 
