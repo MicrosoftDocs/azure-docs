@@ -166,4 +166,4 @@ In this quickstart, you learned how to you create an **Environment Sensor** devi
 To learn more about monitoring devices connected to your application, continue to the quickstart:
 
 > [!div class="nextstepaction"]
-> [Configure rules](./quick-configure-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Configure rules](./tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
