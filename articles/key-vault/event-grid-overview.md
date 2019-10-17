@@ -42,5 +42,5 @@ Applications that handle Key Vault events should follow a few recommended practi
 
 ## Next steps
 
-* [Tutorial: Enable Key Vault monitoring with Azure Event Grid](event-grid-tutorial.md)
+* [How To: Route Key Vault Events to Automation Runbook](event-grid-tutorial.md)
 * [Azure Event Grid schema for Azure Key Vault](../event-grid/event-schema-key-vault.md)
