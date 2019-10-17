@@ -46,12 +46,11 @@ For a training to succeed, the table below shows the minimum number of sentences
 | Document type   | Suggested minimum sentence count | Maximum sentence count |
 |------------|--------------------------------------------|--------------------------------|
 | Training   | 10,000                                     | No upper limit                 |
-| Tuning*     | 5,000                                      | 2,500                          |
-| Testing*    | 5,000                                      | 2,500                          |
+| Tuning     | 5,000                                      | 2,500                          |
+| Testing    | 5,000                                      | 2,500                          |
 | Dictionary | 0                                          | No upper limit                 |
 
 > [!NOTE]
-> *It’s important to note:
 > - Training will not start and will fail if the 10,000 minimum sentence count for Training is not met. 
 > - Tuning and Testing are optional. If you do not provide them, the system will remove an appropriate percentage from Training to use for validation and testing. 
 > - You can train a model using only dictionary data. Please refer to [What is Dictionary](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
