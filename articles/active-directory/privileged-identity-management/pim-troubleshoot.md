@@ -27,11 +27,11 @@ You get an authorization error when you try to make a user eligible for an Azure
 
 ### Cause
 
-This can happen when the User Access Administrator role for the MS-PIM service principal name was accidentally removed from the subscription. To assign roles, the MS-PIM service principal must be assigned the [User Access Administrator role](../../role-based-access-control/built-in-roles.md#user-access-administrator) in Azure role-based access control for Azure resource access (Azure RBAC). For the Privileged Identity Management service to be able to access Azure resources,the MS-PIM service principal should always have a User Access Administrator role assigned on an Azure subscription.
+This can happen when the User Access Administrator role for the MS-PIM service principal name was accidentally removed from the subscription. For the Privileged Identity Management service to be able to access Azure resources, the MS-PIM service principal should always have be assigned the [User Access Administrator role](../../role-based-access-control/built-in-roles.md#user-access-administrator) over the Azure subscription.
 
 ### Resolution
 
-Assign the User Access Administrator role to the Privileged identity Management service principal name (MS–PIM) at the subscription level, which should allow the Privileged identity Management service to access the Azure resources. Be aware that the role can be assigned on a management group level or at the subscription level, based on the requirements and setup of your Azure AD organization. For more information service principals, see [Assign an application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role).
+Assign the User Access Administrator role to the Privileged identity Management service principal name (MS–PIM) at the subscription level. This assignment which should allow the Privileged identity Management service to access the Azure resources. Be aware that the role can be assigned on a management group level or at the subscription level, depending on your requirements. For more information service principals, see [Assign an application to a role](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role).
 
 ## Next steps
 
