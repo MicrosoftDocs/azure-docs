@@ -30,7 +30,7 @@ The following articles provide guidance for encrypting Linux virtual machines.
 - [Azure Disk Encryption troubleshooting](../../virtual-machines/linux/disk-encryption-troubleshooting.md)
 - [Azure Disk Encryption frequently asked questions](../../virtual-machines/linux/disk-encryption-faq.md)
 
-### Azure disk encrpytion with Azure AD (previous version)
+### Azure disk encryption with Azure AD (previous version)
 
 - [Overview of Azure Disk Encryption with Azure AD for Linux virtual Machines](../../virtual-machines/linux/disk-encryption-overview-aad.md)
 - [Azure Disk Encryption with Azure AD scenarios on Linux VMs](../../virtual-machines/linux/disk-encryption-linux.md)
@@ -52,7 +52,7 @@ The following articles provide guidance for encrypting Windows virtual machines.
 - [Azure Disk Encryption troubleshooting](../../virtual-machines/windows/disk-encryption-troubleshooting.md)
 - [Azure Disk Encryption frequently asked questions](../../virtual-machines/windows/disk-encryption-faq.md)
 
-### Azure disk encrpytion with Azure AD (previous version)
+### Azure disk encryption with Azure AD (previous version)
 
 - [Overview of Azure Disk Encryption with Azure AD for Linux virtual Machines](../../virtual-machines/windows/disk-encryption-overview-aad.md)
 - [Azure Disk Encryption with Azure AD scenarios on Linux VMs](../../virtual-machines/windows/disk-encryption-windows.md)
@@ -62,10 +62,9 @@ The following articles provide guidance for encrypting Windows virtual machines.
 
 The following articles provide guidance for encrypting virtual machine scale sets.
 
-- [Encrypt a virtual machine scale sets using the Azure CLI](../../virtual-machine-scale-sets/disk-encryption-overview.md) 
+- [Overview of Azure Disk Encryption for virtual machine scale sets](../../virtual-machine-scale-sets/disk-encryption-overview.md) 
 - [Encrypt a virtual machine scale sets using the Azure CLI](../../virtual-machine-scale-sets/disk-encryption-cli.md) 
-- [Encrypt a virtual machine scale sets using the Azure CLI](../../virtual-machine-scale-sets/disk-encryption-powershell.md) tutorials.
-- [Encrypt a virtual machine scale sets using the Azure Resource Manager](../../virtual-machine-scale-sets/disk-encryption-azure-resource-manager.md)
+- [Encrypt a virtual machine scale sets using Azure Powershell](../../virtual-machine-scale-sets/disk-encryption-powershell.md).
 - [Encrypt a virtual machine scale sets using the Azure Resource Manager](../../virtual-machine-scale-sets/disk-encryption-azure-resource-manager.md)
 - [Create and configure a key vault for Azure Disk Encryption](../../virtual-machine-scale-sets/disk-encryption-key-vault.md)
 - [Use Azure Disk Encryption with virtual machine scale set extension sequencing](../../virtual-machine-scale-sets/disk-encryption-extension-sequencing.md)
