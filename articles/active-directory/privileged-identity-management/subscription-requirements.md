@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 01/16/2019
+ms.date: 10/17/2019
 ms.author: curtand
 ms.custom: pim
 
@@ -28,9 +28,9 @@ To use Azure Active Directory (Azure AD) Privileged Identity Management (PIM), a
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-## Which users must have licenses?
+## How many licenses must you have?
 
-Your directory must have Azure AD Premium P2 licenses for the following users:
+Ensure that your directory has at least as many Azure AD Premium P2 licenses as you have employees that will be performing the following tasks:
 
 - Users assigned as eligible to Azure AD roles managed using PIM
 - Users able to approve or reject activation requests in PIM
@@ -38,21 +38,21 @@ Your directory must have Azure AD Premium P2 licenses for the following users:
 - Users assigned to an access review
 - Users who perform access reviews
 
-Azure AD Premium P2 licenses are **not** required for the following users:
+Azure AD Premium P2 licenses are **not** required for the following tasks:
 
-- No licenses are required for users with the Global Administrator or Privileged Role Administrator roles that set up PIM, configures policies, receive alerts, and sets up access reviews.
+- No licenses are required for users with the Global Administrator or Privileged Role Administrator roles that set up PIM, configure policies, receive alerts, and set up access reviews.
 
-For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
+For more information about licenses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
 ## Example license scenarios
 
 Here are some example license scenarios to help you determine the number of licenses you must have.
 
-| Scenario | Calculation | Required number of licenses |
+| Scenario | Calculation | Number of licenses |
 | --- | --- | --- |
-| OrgA has 10 administrators for different departments and 2 Global Administrators that configure and manage PIM. They make five administrators eligible. | Five licenses for the administrators who are eligible | 5 |
-| OrgB has 25 administrators of which 14 are managed through PIM. Role activation requires approval and there are three different users in the organization who can approve activations. | 14 licenses for the eligible roles + three approvers | 17 |
-| OrgC has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are five different users in the organization who can approve activations. OrgC also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which six are not in administrator roles managed by PIM. | 42 licenses for the eligible roles + five approvers + six reviewers | 53 |
+| Woodgrove Bank has 10 administrators for different departments and 2 Global Administrators that configure and manage PIM. They make five administrators eligible. | Five licenses for the administrators who are eligible | 5 |
+| Graphic Design Institute has 25 administrators of which 14 are managed through PIM. Role activation requires approval and there are three different users in the organization who can approve activations. | 14 licenses for the eligible roles + three approvers | 17 |
+| Contoso has 50 administrators of which 42 are managed through PIM. Role activation requires approval and there are five different users in the organization who can approve activations. Contoso also does monthly reviews of users assigned to administrator roles and reviewers are the users’ managers of which six are not in administrator roles managed by PIM. | 42 licenses for the eligible roles + five approvers + six reviewers | 53 |
 
 ## What happens when a license expires?
 
