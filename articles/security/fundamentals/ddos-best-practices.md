@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2018
+ms.date: 10/17/2018
 ms.author: barclayn
 
 ---
@@ -26,12 +26,6 @@ DDoS is a type of attack that tries to exhaust application resources. The goal i
 In addition to the core DDoS protection in the platform, [Azure DDoS Protection Standard](https://azure.microsoft.com/services/ddos-protection/) provides advanced DDoS mitigation capabilities against network attacks. It's automatically tuned to protect your specific Azure resources. Protection is simple to enable during the creation of new virtual networks. It can also be done after creation and requires no application or resource changes.
 
 ![The role of Azure DDoS Protection in protecting customers and a virtual network from an attacker](./media/ddos-best-practices/image1.png)
-
-DDoS attacks can be classified into three categories:
-
-- **Volumetric** attacks are brute-force assaults that target the network and transport layers. They try to exhaust resources like network links. This type of attack can be used not only to disrupt service, but also as a smokescreen for more nefarious and targeted network intrusion.
-- **Protocol** attacks target application protocols. They try to use up all the available resources in infrastructure devices such as firewalls, application servers, and load balancers. Protocol attacks use packets that are malformed or contain protocol abnormalities. These attacks operate by sending large numbers of open requests that servers and other communication devices answer and wait for a packet response. The target tries to respond to the open requests, eventually causing the system to crash.
-- **Resource** attacks target the application layer. They trigger back-end processes in an effort to overwhelm a system. Resource attacks abuse traffic that looks normal but that carries CPU-intensive queries to the server. The volume of traffic needed to exhaust resources is lower than that of the other type of attacks. The traffic in a resource attack is indistinguishable from legitimate traffic, making it hard to detect. The most common resource attacks are on HTTP/HTTPS and DNS services.
 
 ## Fundamental best practices
 
