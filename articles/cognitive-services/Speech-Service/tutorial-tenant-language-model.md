@@ -41,7 +41,7 @@ Before you can deploy your Tenant Language Model, first need to enroll using the
    ![Tenant Language Model diagram](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 4. Click the checkbox and save.
 
-If you need to turn off the Tenant Language Model, navigate back to this screen, deselect the checkbox and save.
+If you need to turn off the Tenant Language Model, navigate back to this screen, deselect the checkbox, and save.
 
 ## Get a Speech subscription key
 
@@ -98,7 +98,7 @@ Let's start by registering your app with AAD:
 > [!NOTE]
 > For detailed AAD instructions, see [Register an application with the Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
 
-Next, let's look at the code you'll use to call the Speech SDK in C# with a Tenant Language Model. This guide presumes that your platform is already setup. If you need help setting up, see [Quickstart: Recognize speech, C# (.NET Core)](quickstart-csharp-dotnetcore-windows.md).
+Next, let's look at the code you'll use to call the Speech SDK in C# with a Tenant Language Model. This guide presumes that your platform is already set up. If you need help with setting up, see [Quickstart: Recognize speech, C# (.NET Core)](quickstart-csharp-dotnetcore-windows.md).
 
 Copy this code into your project:
 
