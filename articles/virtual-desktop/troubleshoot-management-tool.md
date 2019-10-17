@@ -15,13 +15,13 @@ This article describes issues that can occur while deploying the Windows Virtual
 
 ## Error: Management tool services configured but automated setup fails
 
-When you successfully set up services for the management tool, but automated setup fails, you'll see this error message:
+When you successfully set up services for the management tool but automated setup fails, you'll see this error message:
 
 ```
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n "status": "Failed",\r\n "error": {\r\n "code": "ResourceDeploymentFailure",\r\n "message": "The resource operation completed with terminal provisioning state 'Failed'."\r\n }\r\n}"}]}
 ```
 
-This usually means one of the following things:
+This usually means one of the following two things:
 
 - The user has owner permissions on their subscription and global admin at tenant level, but they can't sign in to Azure.
 - The user's account settings have multi-factor authentication enabled.
@@ -31,7 +31,7 @@ To fix this:
 1. Make sure the user you created for the Azure Active Directory User Principal Name has the "Contributor" subscription level.
 2. Sign in to <portal.azure.com> with the UPN account to check the account settings and make sure multi-factor authentication isn't on. If it's turned on, turn it off.
 3. Visit the Windows Virtual Desktop Consent page and make sure the server and client apps have consent.
-4. Reread the [Deploy a management tool](manage-resources-using-ui.md) tutorial.
+4. Review the [Deploy a management tool](manage-resources-using-ui.md) tutorial if the issue continues and redeploy the tool.
 
 ## Error: Job with specified ID already exists
 
