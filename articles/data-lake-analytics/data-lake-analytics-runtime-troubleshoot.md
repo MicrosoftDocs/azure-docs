@@ -6,7 +6,7 @@ author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
 ---
@@ -23,16 +23,21 @@ You can also see the history of which runtime version your past jobs have used i
 ### Monitor jobs
 
 1. In the Azure portal, go to your Data Lake Analytics account.
-2. Click **View All Jobs**. A list of all the active and recently finished jobs in the account is shown.
-3. Optionally, click **Filter** to help you find the jobs by **Time Range**, **Job Name**, and **Author** values. 
+2. Select **View All Jobs**. A list of all the active and recently finished jobs in the account appears.
+3. Optionally, click **Filter** to help you find the jobs by **Time Range**, **Job Name**, and **Author** values.
 
 The following are the available runtime versions.
 
 - release_20190318_adl_3394512_2
+- release_20190318_adl_3394512
 - release_20190318_adl_5832669
+- default
+- release_20190318_adl_72f06cc5_p_private
+- release_20190318_adl_3394512_private
 - release_20190703_adl_4713356
 
 ## See also
 
 - [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
 - [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
+- [Monitor jobs in Azure Data Lake Analytics using the Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
