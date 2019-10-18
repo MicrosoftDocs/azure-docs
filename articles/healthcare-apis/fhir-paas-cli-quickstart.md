@@ -55,7 +55,7 @@ az group create --name "myResourceGroup" --location westus2
 Use the template (`azuredeploy.json`) and the template parameter file (`azuredeploy.parameters.json`) to deploy the Azure API for FHIR:
 
 ```azurecli-interactive
-az group deployment create -g "myResourceGroup" --template-file azuredeploy.json --parameters @{azuredeploy.parameters.json}
+az group deployment create -g "myResourceGroup" --template-file azuredeploy.json --parameters @azuredeploy.parameters.json
 ```
 
 ## Fetch FHIR API capability statement
