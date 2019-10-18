@@ -28,9 +28,9 @@ Beta testing your mobile application is one of the critical steps during the app
 - **Notify testers of new releases** without testers going through the download flow again.
 - **Manage distribution groups** for different versions of your application.
 - **Distribution to Stores** 
-    - [Apple](/appcenter/distribution/stores/apple).
-    - [Google Play](/appcenter/distribution/stores/googleplay).
-    - [Intune](/appcenter/distribution/stores/intune).
+    - [Apple](/appcenter/distribution/stores/apple)
+    - [Google Play](/appcenter/distribution/stores/googleplay)
+    - [Intune](/appcenter/distribution/stores/intune)
 - **Platform Support** - iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, Cordova.
 - Automatically register iOS devices to your provisioning profile.
 
@@ -65,9 +65,9 @@ Once your application is ready for production use and you want it to be used pub
 [App Center Distribute](/appcenter/distribution/stores/) service lets you publish your mobile applications directly to App Stores. Once your application is ready to be downloaded by end users, you can publish your application binaries directly from the App Center portal.  
 
 You can directly distribute to:
-- [Apple App Store](/appcenter/distribution/stores/apple).
-- [Google Play Store](/appcenter/distribution/stores/googleplay).
-- [Microsoft Intune](/appcenter/distribution/stores/intune).
+- [Apple App Store](/appcenter/distribution/stores/apple)
+- [Google Play Store](/appcenter/distribution/stores/googleplay)
+- [Microsoft Intune](/appcenter/distribution/stores/intune)
     
 ### Apple App Store
 The App Store developed and maintained by Apple allows users to browse and download applications developed for iOS, MacOS, WatchOS, and tvOS devices. Developers need to submit their iOS apps to Apple Store for public use.

@@ -19,6 +19,6 @@ ms.author: emalani
 - **Offer rich APIs for different messaging patterns** to send messages to a particular connection, all connections, or a subset of connections that belong to a specific user, or have been placed in an arbitrary group.
 
 ## References
-   - [Azure Portal](https://portal.azure.com) to create a SignalR resource
+   - [Azure Portal](https://portal.azure.com)
    - [Documentation](/azure-signalr/signalr-overview)
    - [Tutorials](/azure-signalr/signalr-tutorial-authenticate-azure-functions)

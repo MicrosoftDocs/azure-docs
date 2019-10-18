@@ -29,13 +29,13 @@ These challenges can be efficiently tackled by testing mobile applications acros
 [App Center Test](/appcenter/test-cloud/) is a cloud-based service that lets you run automated UI tests on thousands of real-world devices in the cloud across Android and iOS for native and hybrid mobile apps. With over 2000 devices, you can easily write test scripts that can be executed automatically to make testing easy.
 
 **Key Features**
-    - **Run tests on real devices** that are not rooted or jailbroken, providing the best approximation of your users' environmentS.
-    - **Screenshots** are automatically captured and attached to each test step and can be viewed side by side for all targeted devices in a test run.
-    - **View the device log** for all target devices in a test run and stack traces for failed test steps.
-    - **Concurrent test runs** on multiple devices simultaneously to speed up time to results.
-    - **Popular test framework support** like Appium (Java with JUnit) for Android and iOS, Espresso (Java) for Android, Calabash for Android and iOS, Xamarin.UITest for Android and iOS, and XCUITest for iOS.
-    - **Platform Support** - iOS, Android Xamarin, React Native.
+   - **Run tests on real devices** that are not rooted or jailbroken, providing the best approximation of your users' environmentS.
+   - **Screenshots** are automatically captured and attached to each test step and can be viewed side by side for all targeted devices in a test run.
+   - **View the device log** for all target devices in a test run and stack traces for failed test steps.
+   - **Concurrent test runs** on multiple devices simultaneously to speed up time to results.
+   - **Popular test framework support** like Appium (Java with JUnit) for Android and iOS, Espresso (Java) for Android, Calabash for Android and iOS, Xamarin.UITest for Android and iOS, and XCUITest for iOS.
+   - **Platform Support** - iOS, Android Xamarin, React Native.
 
-    **References**
-    - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
-    - [Get started with App Center Test](/appcenter/test-cloud/)
+**References**
+   - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
+   - [Get started with App Center Test](/appcenter/test-cloud/)

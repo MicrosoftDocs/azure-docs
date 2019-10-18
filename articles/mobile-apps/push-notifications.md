@@ -36,33 +36,33 @@ For application users, push notifications:
 [App Center Push](/appcenter/push/) service lets you engage with your users by sending them targeted messages to iOS, Android, and Windows users without having to manage the process of sending notifications to devices using Push Notification Services (PNS). Built on top of Azure Notification Hubs, this service eliminates complexities associated with pushing notifications manually by providing a powerful dashboard.
 
 **Key Features**
-    - **Send push notifications to mobile devices** across variety of platforms.
-    - Use notifications to send data to an application, display a message to the user, or trigger an action by the application.
-    - Notification targets: 
-        - Send broadcast messages to **all registered devices**.
-        - Send notifications to **audiences** built based on device information and custom properties.
-        - Send notifications to **specific users**.
-        - Send notifications to **specific devices**.
-    - **Rich telemetry** on push, device, error are available in App Center portal.
-    - **Platform Support** - iOS, Android, macOS, Xamarin, React Native, Unity, Cordova.
+- **Send push notifications to mobile devices** across variety of platforms.
+- Use notifications to send data to an application, display a message to the user, or trigger an action by the application.
+- Notification targets: 
+    - Send broadcast messages to **all registered devices**.
+    - Send notifications to **audiences** built based on device information and custom properties.
+    - Send notifications to **specific users**.
+    - Send notifications to **specific devices**.
+- **Rich telemetry** on push, device, error are available in App Center portal.
+- **Platform Support** - iOS, Android, macOS, Xamarin, React Native, Unity, Cordova.
 
 **References**
-    - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-    - [Get started with App Center Push](/appcenter/push/)
+- [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
+- [Get started with App Center Push](/appcenter/push/)
 
 ### Azure Notification Hubs
 [Notification Hubs](/azure/notification-hubs/notification-hubs-push-notification-overview) provide an easy-to-use and scaled-out push engine that allows you to send notifications to any platform and from any backend (cloud or on-premises).
 
 **Key Features**
-    - **Send push notifications** to any platform from any back-end, in the cloud or on-premises.
-    - **Fast broadcast** push to millions of mobile devices with single API call.
-    - Tailor push notifications by customer, language, and location.
-    - Dynamically define and notify **customer segments**.
-    - **Scale instantly** to millions of mobile devices.
-    - **Platform Support** - iOS, Android, Windows, Kindle, Baidu.
+- **Send push notifications** to any platform from any back-end, in the cloud or on-premises.
+- **Fast broadcast** push to millions of mobile devices with single API call.
+- Tailor push notifications by customer, language, and location.
+- Dynamically define and notify **customer segments**.
+- **Scale instantly** to millions of mobile devices.
+- **Platform Support** - iOS, Android, Windows, Kindle, Baidu.
         
 **References**
-    - [Azure Portal](https://portal.azure.com) 
-    - [Get started with Azure Notification Hubs](/azure/notification-hubs/)   
-    - [Quickstarts](/azure/notification-hubs/create-notification-hub-portal)
-    - [Samples](/azure/notification-hubs/samples)
+- [Azure Portal](https://portal.azure.com) 
+- [Get started with Azure Notification Hubs](/azure/notification-hubs/)   
+- [Quickstarts](/azure/notification-hubs/create-notification-hub-portal)
+- [Samples](/azure/notification-hubs/samples)

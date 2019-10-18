@@ -28,15 +28,15 @@ Below are the services you can leverage to monitor your application for crashes,
 [App Center Diagnostics](/appcenter/diagnostics/) service helps you monitor the health of your application, provides detailed insights to understand what happened and why the application crashes, and lets you prioritize and manage crash reports.
 
 **Key Features**
-    - Real time, automatic **crashes and errors**, smartly grouped, to highlight the most severe issues and relevant information you need.
-    - **Complete stack traces and device** data that provide context and clarity to help you identify the root cause.
-    - **Powerful search feature** to help you find the issues you care about the most.
-    - Analytics integration so you can understand your user’s behaviors and see events leading up to a crash.
-    - Custom properties, User ID, and Attachments so you can add additional context to help diagnose your issues.
-    - **Alerting, Notifications, and Bug tracker integrations** so you can stay on top of new and unexpected crashes that affect your user.
-    - **Single, one liner SDK integration** to get started using this service within minutes.
-    - **Platform Support** - iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, Cordova, WPF, WinForms.
+- Real time, automatic **crashes and errors**, smartly grouped, to highlight the most severe issues and relevant information you need.
+- **Complete stack traces and device** data that provide context and clarity to help you identify the root cause.
+- **Powerful search feature** to help you find the issues you care about the most.
+- Analytics integration so you can understand your user’s behaviors and see events leading up to a crash.
+- Custom properties, User ID, and Attachments so you can add additional context to help diagnose your issues.
+- **Alerting, Notifications, and Bug tracker integrations** so you can stay on top of new and unexpected crashes that affect your user.
+- **Single, one liner SDK integration** to get started using this service within minutes.
+- **Platform Support** - iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, Cordova, WPF, WinForms.
 
 **References**
-    - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
-    - [Get started with App Center Diagnostics](/appcenter/diagnostics/)
+- [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
+- [Get started with App Center Diagnostics](/appcenter/diagnostics/)
