@@ -24,10 +24,6 @@ The subscription link is achieved by creating an Azure AD B2C "resource" within 
 
 A subscription linked to an Azure AD B2C tenant can be used for the billing of Azure AD B2C usage or other Azure resources including additional Azure AD B2C resources.  It cannot be used to add other Azure license-based services or Office 365 licenses within the Azure AD B2C tenant.
 
-## Azure Cloud Solution Providers (CSP) subscriptions
-
-Azure Cloud Solution Providers (CSP) subscriptions are supported in Azure AD B2C. The functionality is available using APIs or the Azure portal for Azure AD B2C and for all Azure resources. CSP subscription administrators can link, move, and delete relationships with Azure AD B2C in the same way that it's done for all Azure resources. The management of Azure AD B2C using role-based access control is not affected by the association between the Azure AD B2C tenant and an Azure CSP subscription. Role-based access control is achieved by using tenant-base roles, not subscription-based roles.
-
 ## Link an Azure AD B2C tenant to a subscription
 
 ### Prerequisites
@@ -63,6 +59,10 @@ You can use this resource to:
 
 ![B2C Resource settings page in the Azure portal](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
 
+## Azure Cloud Solution Providers (CSP) subscriptions
+
+Azure Cloud Solution Providers (CSP) subscriptions are supported in Azure AD B2C. The functionality is available using APIs or the Azure portal for Azure AD B2C and for all Azure resources. CSP subscription administrators can link, move, and delete relationships with Azure AD B2C in the same way that it's done for all Azure resources. The management of Azure AD B2C using role-based access control is not affected by the association between the Azure AD B2C tenant and an Azure CSP subscription. Role-based access control is achieved by using tenant-base roles, not subscription-based roles.
+
 ## Change the Azure AD B2C tenant billing subscription
 
 Azure AD B2C tenants can be moved to another subscription if the source and destination subscriptions exist within the same Azure Active Directory tenant.
@@ -75,7 +75,7 @@ Before you initiate the move, be sure to read the entire article to fully unders
 
 ### Self-imposed restrictions
 
-A user may have established a regional restriction for Azure resource creation. This restriction may prevent the creation of Azure AD B2C resource. To mitigate, please relax this restriction.
+If you've established a regional restriction for Azure resource creation, that restriction may prevent the creation of the Azure AD B2C resource. To mitigate, relax the restriction.
 
 ## Next steps
 
