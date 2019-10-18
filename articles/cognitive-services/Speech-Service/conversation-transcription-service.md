@@ -26,27 +26,28 @@ Conversation Transcription is a [speech-to-text](speech-to-text.md) solution tha
 - **Real-time transcription** – provide live transcripts of who is saying what and when while the conversation is happening.
 - **Offline transcription** – provide transcripts with higher accuracy by using a multichannel audio stream.
 
-Although Conversation Transcription does not put a limit on the number of speakers in the room, it is optimized for 2-10 speakers per session.
+> [!NOTE]
+> Although Conversation Transcription does not put a limit on the number of speakers in the room, it is optimized for 2-10 speakers per session.
 
 ## Use cases
 
-### More inclusive meetings
+### Inclusive meetings
 
-To make meetings more inclusive for everyone, such as participants who are deaf and hard of hearing, it is imperative to have transcription in real time. Conversation Transcription in real-time mode takes meeting audio and determines who is saying what, allowing all meeting participants to follow the transcript and participate in the meeting without a delay.
+To make meetings inclusive for everyone, such as participants who are deaf and hard of hearing, it is imperative to have transcription in real time. Conversation Transcription in real-time mode takes meeting audio and determines who is saying what, allowing all meeting participants to follow the transcript and participate in the meeting without a delay.
 
-### Improved meeting efficiency
+### Improved efficiency
 
 Meeting participants can focus on the meeting and leave note-taking to Conversation Transcription. Participants can actively engage in the meeting and quickly follow up on next steps, using the transcript instead of taking notes and potentially missing something during the meeting.
 
 ## How it works
 
-Below is a high-level overview diagram of how Conversation Transcription works.
+This is a high-level overview of how Conversation Transcription works.
 
 ![The Import Conversation Transcription Diagram](media/scenarios/conversation-transcription-service.png)
 
-To build an end-to-end transcription solution, Conversation Transcription can be directly accessed through the Speech SDK. For step by step instructions, see [Transcribe multi-participant conversations with the Speech SDK](how-to-use-conversation-transcription-service.md).
+Conversation Transcription can be directly accessed through the Speech SDK. For step by step instructions, see [Transcribe multi-participant conversations with the Speech SDK](how-to-use-conversation-transcription-service.md).
 
-Conversation Transcription expects the following inputs:
+## Expected inputs
 
 - **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](https://aka.ms/cts/microphone). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
 - **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.

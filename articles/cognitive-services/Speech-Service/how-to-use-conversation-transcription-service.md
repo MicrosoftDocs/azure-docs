@@ -1,7 +1,7 @@
 ---
-title: Transcribe multi-participant conversations with the Speech SDK - Speech Service
+title: Transcribe multi-participant conversations in real time with the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Conversation Transcription with the Speech SDK. Available for C++, C#, and Java.
+description: Learn how to use real-time Conversation Transcription with the Speech SDK. Available for C++, C#, and Java.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -9,38 +9,44 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: jhakulin
+ms.author:
 ---
 
-# Transcribe multi-participant conversations with the Speech SDK
+# Transcribe multi-participant conversations in real time with the Speech SDK
 
 The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetings and other conversations with the ability to add, remove, and identify participants by streaming audio to Speech Services using `PullStream` or `PushStream`.
 
-## Limitations and resources
+## Limitations
 
-- The ConversationTranscriber API is supported for C++, C#, and Java on Windows, Linux, and Android
-- Conversation Transcription is currently available in "en-US" and "zh-CN" languages in the following regions: _centralus_ and _eastasia_
-- The ROOBO DevKit is the supported hardware environment for creating conversation transcriptions as that provides circular multi-microphone array that can be utilized efficiently for speaker identification. For more information, see [Speech Devices SDK](speech-devices-sdk.md)
+- The ConversationTranscriber API is supported for C++, C#, and Java on Windows, Linux, and Android.
+- Conversation Transcription is currently available in "en-US" and "zh-CN" languages in the following regions: _centralus_ and _eastasia_.
+- The ROOBO DevKit is the supported hardware environment for creating conversation transcriptions. This kit provides a circular multi-microphone array that can be utilized efficiently for speaker identification. For more information, see [Speech Devices SDK](speech-devices-sdk.md).
 - Speech SDK support for conversation transcription is limited to audio pull and push streams with 8 channels of 16-bit 16 kHz PCM audio. The following kits support 8 channel audio capture:
   - [ROOBO Smart Audio Circular 7-Mic Dev Kit](https://ddk.roobo.com/)
   - [Azure Kinect Dev Kit](https://azure.microsoft.com/en-in/services/kinect-dk/)
-- The Speech Device SDK provides sample code in Java for real-time audio capture using 8 channels. The sample then streams the audio into the conversation transcription service.
-  - The sample code for ROOBO device is [HERE](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
-  - The sample code for Azure Kinect Dev Kit is [HERE](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
+
+## Optional sample code resources
+
+The Speech Device SDK provides sample code in Java for real-time audio capture using 8 channels. The sample then streams the audio into the conversation transcription service.
+
+- The sample code for ROOBO device is located [HERE](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java).
+- The sample code for Azure Kinect Dev Kit is located [HERE](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java).
 
 ## Prerequisites
 
-- [Learn how to use Speech-to-text with the Speech SDK](quickstart-csharp-dotnet-windows.md) using Speech SDK version 1.5.1 or later.
-- [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you do not already have one.
+- Learn how to use Speech-to-text with the Speech SDK version 1.8.0 or later. For more information, see [What are Speech Services](overview.md).
+- A Speech Services subscription. You can get a Speech trial subscription [HERE](https://azure.microsoft.com/try/cognitive-services/) if you do not already have one.
 
-## Create voice signatures for participants
+## Creating voice signatures for participants
 
 The first step is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification.
 
-### Requirements for input wave file
+### Requirements for the input wave file
 
 - The input audio wave file for creating voice signatures should be in 16-bit samples, 16 kHz sample rate, and a single channel (mono) format.
 - The recommended length for each audio sample is between thirty seconds and two minutes.
+
+### Sample code to create voice signatures
 
 The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#:
 
@@ -84,9 +90,9 @@ class Program
 }
 ```
 
-## Transcribing conversations
+## Transcribing conversations in real time
 
-Refer to the sample code below.
+Refer to the sample code and description below.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -190,7 +196,9 @@ To transcribe conversations with multiple participants, we create a `Conversatio
 
 With a meeting ID that is a GUID, we add participants to the conversation, create a `ConversationTranscriber`, join the conversation, and then stream audio. You can add or remove the number of speakers and their specifics to suit your needs.
 
-The stream is then transcribed and the code exits.
+## See also
+
+For an example of offline conversation transcription, see [Offline multi-participant conversation transcription](how-to-use-offline-onversation-transcription-service.md).
 
 ## Next steps
 
