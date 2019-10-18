@@ -79,7 +79,7 @@ You can use the following steps to investigate possible root causes.
 
         synctimeout=2000,cachename.redis.cache.windows.net,abortConnect=false,ssl=true,password=...
 1. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
-1. If your requests are bound by bandwidth limitations on the server or client, it takes longer for them to complete and can cause timeouts. To see if your timeout is because of network bandwidth on the server, see [Server-side bandwidth limitation](cache-howto-troubleshoot-server.md#server-side-bandwidth-exceeded). To see if your timeout is because of client network bandwidth, see [Client-side bandwidth limitation](#client-side-bandwidth-limitation).
+1. If your requests are bound by bandwidth limitations on the server or client, it takes longer for them to complete and can cause timeouts. To see if your timeout is because of network bandwidth on the server, see [Server-side bandwidth limitation](cache-howto-troubleshoot-server.md#server-side-bandwidth-limitation). To see if your timeout is because of client network bandwidth, see [Client-side bandwidth limitation](cache-howto-troubleshoot-client.md#client-side-bandwidth-limitation).
 1. Are you getting CPU bound on the server or on the client?
 
    - Check if you're getting bound by CPU on your client. High CPU could cause the request to not be processed within the `synctimeout` interval and cause a request to time out. Moving to a larger client size or distributing the load can help to control this problem.
@@ -113,7 +113,7 @@ You can use the following steps to investigate possible root causes.
    - Set expiration times on the keys so that older values are evicted proactively.
    - Monitor the `used_memory_rss` cache metric. When this value approaches the size of their cache, you're likely to start seeing performance issues. Distribute the data across multiple shards if you're using a premium cache, or upgrade to a larger cache size.
 
-   For more information, see [Memory pressure on Redis server](cache-howto-troubleshoot-server.md#memory-pressure-on-the-server).
+   For more information, see [Memory pressure on Redis server](cache-howto-troubleshoot-server.md#memory-pressure-on-redis-server).
 
 ## Additional information
 
