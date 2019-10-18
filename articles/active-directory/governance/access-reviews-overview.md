@@ -113,8 +113,8 @@ Here are some example license scenarios to help you determine the number of lice
 
 | Scenario | Calculation | Number of licenses |
 | --- | --- | --- |
-| An administrator creates an access review of Group A with 75 users and 1 group owner. Makes it a group owner review. | 1 license for the group owner as reviewer | 1 |
-| An administrator creates an access review of Group B with 500 users and 3 group owners. Makes it a group owner review. | 3 licenses for each group owner as reviewers | 3 |
+| An administrator creates an access review of Group A with 75 users and 1 group owner, and assigns the group owner as the reviewer. | 1 license for the group owner as reviewer | 1 |
+| An administrator creates an access review of Group B with 500 users and 3 group owners, and assigns the 3 group owners as reviewers. | 3 licenses for each group owner as reviewers | 3 |
 | An administrator creates an access review of Group B with 500 users. Makes it a self-review. | 500 licenses for each user as self-reviewers | 500 |
 | An administrator creates an access review of Group C with 50 member users and 25 guest users. Makes it a self-review. | 50 licenses for each user as self-reviewers.<br/>(guest users are covered in the required 1:5 ratio) | 50 |
 | An administrator creates an access review of Group D with 6 member users and 108 guest users. Makes it a self-review. | 6 licenses for each user as self-reviewers + 16 additional licenses to cover all 108 guest users in the required 1:5 ratio. 6 licenses, which cover 6\*5=30 guest users. For the remaining (108-6\*5)=78 guest users, 78/5=16 additional licenses are required. Thus in total, 6+16=22 licenses are required. | 22 |
