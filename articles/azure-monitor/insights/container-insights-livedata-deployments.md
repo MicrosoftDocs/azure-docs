@@ -12,7 +12,21 @@ ms.author: magoedte
 
 # How to view deployments in real time (preview)
 
-Azure Monitor for containers view Deployments (preview) feature allows you to view the declarative updates for Pods and ReplicaSets in a cluster. You describe a desired state in a Deployment, and the Deployment Controller changes the actual state to the desired state at a controlled rate. You can define Deployments to create new ReplicaSets, or to remove existing Deployments and adopt all their resources with new Deployments. To learn more, review the Kubernetes documentation about [Deployments]](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
+Azure Monitor for containers view Deployments (preview) feature emulates direct access to Kubernetes Deployment objects in real time by exposing the `kubeclt get deployments` and `kubectl describe deployment {your deployment}` commands. 
+
+>[!NOTE]
+>AKS clusters enabled as [private clusters](https://azure.microsoft.com/updates/aks-private-cluster/) are not supported with this feature. This feature relies on directly accessing the Kubernetes API through a proxy server from your browser. Enabling networking security to block the Kubernetes API from this proxy will block this traffic. 
+
+>[!NOTE]
+>This feature is available in all Azure regions, including Azure China. It is currently not available in Azure US Government.
+
+To learn more, review the Kubernetes documentation about [Deployments](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/). 
+
+## How it works
+
+The Live Metrics and Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+
+The Live Deployments (preview) feature performs a one time (refreshable) load against the deployments endpoint `‘`/apis/apps/v1/deployments`.  It allows you to select a given deployment and load the describe details for that specific deployment against the deployment endpoint `‘`/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`. 
 
 To view Deployments, perform the following steps.
 

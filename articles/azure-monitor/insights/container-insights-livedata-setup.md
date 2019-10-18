@@ -52,7 +52,7 @@ The Azure portal prompts you to validate your login credentials for an Azure Act
 
 ## Kubernetes cluster without RBAC enabled (existing cluster)
 
-If you have a Kubernetes cluster that is not configured with Kubernetes RBAC authorization or integrated with Azure AD single-sign on, you do not need to follow these steps. Because Kubernetes authorization uses the kube-api, read-only permissions are required.
+If you have a Kubernetes cluster that is not configured with Kubernetes RBAC authorization or integrated with Azure AD single-sign on, you do not need to follow these steps. This is because you have administrative permissions by default in an non-RBAC configuration.
 
 ## Kubernetes RBAC authentication (existing cluster)
 
@@ -117,7 +117,7 @@ For more information on advanced security setup in Kubernetes, review the [Kuber
 3. Add two redirect URLs to this list as **Web** application types. The first base URL value should be `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` and the second base URL value should be `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`.
 
     >[!NOTE]
-    >f you're using this feature in Azure China region, the first base URL value should be `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html and the second base URL value should be https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html. 
+    >If you're using this feature in Azure China region, the first base URL value should be `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` and the second base URL value should be `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`. 
     
 4. After registering the redirect URLs, under **Advanced settings**, select the options **Access tokens** and **ID tokens** and then save your changes.
 
@@ -132,7 +132,7 @@ For more information on advanced security setup in Kubernetes, review the [Kuber
 Each Azure AD account must be granted permission to the appropriate APIs in Kubernetes in order to access the Live Metrics and Data (preview) feature. The steps to grant the Azure Active Directory account are similar to the steps described in the [Kubernetes RBAC authentication](#kubernetes-rbac-authentication-(existing-cluster)) section. Before applying the yaml configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user. 
 
 >[!IMPORTANT]
->If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the userPrincipalName. If the user is in a different Azure AD tenant, query for and use the objectId property instead.
+>If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the userPrincipalName. If the user is in a different Azure AD tenant, query for and use the objectId property.
 
 For additional help configuring your AKS cluster **ClusterRoleBinding**, see [Create RBAC binding](../../aks/azure-ad-integration-cli.md#create-rbac-binding).
 

@@ -31,7 +31,7 @@ For help setting up or troubleshooting the Live Metrics and Data (preview) featu
 
 ## How it Works 
 
-The Live Metrics and Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](container-insights-livedata-setup.md#authentication-model). 
+The Live Metrics and Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
 Live metrics feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` and `/api/v1/pods`), which is five seconds by default. This data is cached in your browser and charted in the four performance charts included in Azure Monitor for containers on the **Cluster** tab. Each subsequent poll is charted into a rolling five-minute visualization window. 
 
@@ -83,6 +83,6 @@ This performance chart maps to an equivalent of invoking `kubectl get pods –al
 ![Nodes pod count chart](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
 
 >[!NOTE]
->Names of status as interpreted by `kubectl` may not exactly match in the chart. The names are derived from the Kubernetes API and interpreted to match the status names of this data stored in your Log Analytics workspace when viewing the chart from the **Historical** view (which is the default for the performance charts in this view). 
+>Names of status as interpreted by `kubectl` may not exactly match in the chart. 
 
 ## Next steps
