@@ -32,7 +32,7 @@ The service fully supports open-source technologies such as PyTorch, TensorFlow,
 Train, test, and deploy your models with rich tools such as:
 + The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy models
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
-+ R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code
++ R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code, or use the R modules in the designer.
 + [Visual Studio Code extension](how-to-vscode-tools.md)
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
