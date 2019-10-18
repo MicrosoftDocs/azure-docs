@@ -222,18 +222,18 @@ string accessKey = Environment.GetEnvironmentVariable("ACCESS_KEY");
 StorageSharedKeyCredential sharedKeyCredential = new StorageSharedKeyCredential(accountName, accessKey);
 ```
 
+The `StorageSharedKeyCredential` is used in the call to create a new container.
+
 ### Create a container
 
-To create a container, first create a [Uri]() containing the path to a new container you will create.
+To create a container, first instantiate a [Uri]() object containing the path to a new container you will create.
 
 Next, create an instance of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, then create the container.
 
-In this case, the code calls the [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync) method to create the container. A GUID value is appended to the container name to ensure that it is unique. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync) method to create a container only if it does not already exist.
+A GUID value is appended to the container name to ensure that it is unique. Call the [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync) method to create the container only if it does not already exist.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-
-Set permissions on the container so that any blobs in the container are public. If a blob is public, it can be accessed anonymously by any client.
 
 Add this code inside the `ProcessAsync` method:
 
@@ -260,7 +260,9 @@ await container.SetAccessPolicyAsync(PublicAccessType.BlobContainer);
 
 ### Upload blobs to a container
 
-The following code snippet gets a reference to a `BlobClient` object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container created in the previous section. It then uploads the selected local file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+The following code snippet gets a reference to a `BlobClient` object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section. It then uploads the selected local file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+
+Add this code inside the `ProcessAsync` method:
 
 ```csharp
 // Path to the local documents folder
@@ -287,7 +289,9 @@ using (FileStream file = File.OpenRead(myDocumentsPath + fileName))
 
 ### List the blobs in a container
 
-List the blobs in the container by using the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+
+Add this code inside the `ProcessAsync` method:
 
 ```csharp
 Console.WriteLine("Listing blobs...");
@@ -299,15 +303,11 @@ await foreach (BlobItem blobItem in container.GetBlobsAsync())
 }
 ```
 
-Using the `await` construct on a `foreach` loop is a preview language feature. In order to use it, add a `<LangVersion>` element to the project file. Open the *blob-quickstart-v12-csproj* file in your editor. Add the following `<LangVersion>` element inside the `<PropertyGroup></PropertyGroup>` element:
-
-```xml
-<LangVersion>Preview</LangVersion>
-```
-
 ### Download blobs
 
-Download the blob created previously by using the [​Download​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) method. The example code adds a suffix of "_DOWNLOADED" to the blob name so that you can see both files in local file system.
+Download the blob created previously by calling the [​Download​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) method. The example code adds a suffix of "_DOWNLOADED" to the file name so that you can see both files in local file system.
+
+Add this code inside the `ProcessAsync` method:
 
 ```csharp
 // Download the blob to a local file, using the reference created earlier. 
@@ -328,6 +328,10 @@ using (FileStream file = File.OpenWrite(myDocumentsPath + downloadedFile))
 ### Delete a container
 
 The following code cleans up the resources the app created by deleting the entire container using [​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
+
+The app pauses for user input by calling `Console.ReadLine` before it deletes the container, blob, and files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
+
+Add this code inside the `ProcessAsync` method:
 
 ```csharp
 Console.WriteLine("Press any key to begin clean up.");
