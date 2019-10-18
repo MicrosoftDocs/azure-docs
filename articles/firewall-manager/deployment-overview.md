@@ -19,15 +19,15 @@ There's more than one way to deploy Azure Firewall Manager Preview, but the foll
 
 1. Create your hub and spoke architecture
 
-   - Create a Secured Virtual Hub using Azure Firewall Manager and add virtual network connections<br>*or*<br>
+   - Create a Secured Virtual Hub using Azure Firewall Manager and add virtual network connections.<br>*or*<br>
    - Create a Virtual WAN Hub and add virtual network connections.
 2. Select security providers
 
-   - Done while creating a Secured Virtual Hub<br>*or*<br>
-   - Convert an existing Virtual WAN Hub to Secure Virtual Hub
+   - Done while creating a Secured Virtual Hub.<br>*or*<br>
+   - Convert an existing Virtual WAN Hub to Secure Virtual Hub.
 3. Create a firewall policy and associate it with your hub
 
-   - Applicable only if using Azure Firewall
+   - Applicable only if using Azure Firewall.
    - Third-party Network Security as a Service (NSaaS) policies are configured via partners management experience.
 4. Configure route settings to route traffic to your secured hub
 
