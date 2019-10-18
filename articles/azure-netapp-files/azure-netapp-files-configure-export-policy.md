@@ -42,7 +42,7 @@ You can optionally configure export policy to control access to an Azure NetApp 
 
     * **Protocols**   
         Specify the protocol to use for the export policy.   
-        Currently, Azure NetApp Files export policy supports only NFSv3.
+        Azure NetApp Files export policy supports NFSv3 and NFSv4.
 
     ![Export policy](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
