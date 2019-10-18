@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 10/18/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+1. On the **Basic SAML Configuration** section the application is pre-configured in **IDP** initiated mode and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -91,6 +91,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
+
+1. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog and perform the following step.
+
+	![Edit SAML Signing Certificate](common/edit-certificate.png)
+
+	a. Select **Sign SAML response and assertion** from the **Signing Option**.
+
+	b. Click **Save**
+
+	![Communifire Signing option](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
 
 1. On the **Set up Dynatrace** section, copy the appropriate URL(s) based on your requirement.
 
@@ -149,4 +159,3 @@ When you click the Dynatrace tile in the Access Panel, you should be automatical
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Dynatrace with Azure AD](https://aad.portal.azure.com/)
-
