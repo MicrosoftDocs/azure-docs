@@ -22,7 +22,7 @@ To complete this project, you'll need:
 * [Unity 2018.3 or later](https://store.unity.com/) with [Unity 2019.1 adding support for UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Version 15.9 or higher of Visual Studio 2017 is also acceptable.
 * For Windows ARM64 support, install the [optional build tools for ARM64, and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
-* A subscription key for the Speech Service. [Get one for free](../../../get-started.md).
+* A subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 
 ## Create a Unity project
 
@@ -33,7 +33,7 @@ To complete this project, you'll need:
 
 ## Install the Speech SDK
 
-[!INCLUDE [License Notice](../../../../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
 
 * The Speech SDK for Unity (Beta) is packaged as a Unity asset package (.unitypackage).
   Download it from [here](https://aka.ms/csspeech/unitypackage).
@@ -42,7 +42,7 @@ To complete this project, you'll need:
 * In the file picker, select the Speech SDK .unitypackage file that you downloaded above.
 * Ensure that all files are selected and click **Import**:
 
-  ![Screenshot of the Unity Editor when importing the Speech SDK Unity asset package](../../../media/sdk/qs-csharp-unity-01-import.png)
+  ![Screenshot of the Unity Editor when importing the Speech SDK Unity asset package](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-01-import.png)
 
 ## Add UI
 
@@ -64,7 +64,7 @@ We add a minimal UI to our scene, consisting of an input field to enter the text
 
 When you're done, the UI should look similar to this screenshot:
 
-[![Screenshot of the quickstart user interface in the Unity Editor](../../../media/sdk/qs-tts-csharp-unity-ui-inline.png)](../../../media/sdk/qs-tts-csharp-unity-ui-expanded.png#lightbox)
+[![Screenshot of the quickstart user interface in the Unity Editor](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-unity-ui-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-unity-ui-expanded.png#lightbox)
 
 ## Add the sample code
 
@@ -81,7 +81,7 @@ When you're done, the UI should look similar to this screenshot:
 
 1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
-1. Locate and replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
+1. Locate and replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
 1. Save the changes to the script.
 
@@ -103,7 +103,7 @@ When you're done, the UI should look similar to this screenshot:
 
 * After the app launches, enter some text into the input field and click the button. Your text is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
-  [![Screenshot of the running quickstart in the Unity Game Window](../../../media/sdk/qs-tts-csharp-unity-output-inline.png)](../../../media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
+  [![Screenshot of the running quickstart in the Unity Game Window](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-unity-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 
 * Check the [Console Window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
 
@@ -121,5 +121,5 @@ Refer to our [sample repository](https://aka.ms/csspeech/samples) in the quickst
 
 ## See also
 
-- [Customize voice fonts](../../../how-to-customize-voice-font.md)
-- [Record voice samples](../../../record-custom-voice-samples.md)
+- [Customize voice fonts](~/articles/cognitive-services/Speech-Service/how-to-customize-voice-font.md)
+- [Record voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

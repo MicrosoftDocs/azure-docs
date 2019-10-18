@@ -14,16 +14,10 @@ ms.author: erhopf
 
 **Select your development environment**
 
-#### [Visual Studio](#tab/dotnet)
+#### [Linux](#tab/linux)
+[!INCLUDE [Header](../header.md)]
+[!INCLUDE [vs](./linux.md)]
+#### [Windows](#tab/Windows)
 [!INCLUDE [Header](../header.md)]
 [!INCLUDE [vs](./windows.md)]
-#### [.Net Core](#tab/dotnetcore)
-[!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./dotnetcore.md)]
-#### [Unity](#tab/unity)
-[!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./unity.md)]
-#### [UWP](#tab/uwp)
-[!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./uwp.md)]
 * * *

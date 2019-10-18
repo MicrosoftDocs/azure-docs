@@ -23,6 +23,6 @@ If you've clicked this tab, you probably didn't see a quickstart in your favorit
 | Java | |[Android](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java-android), [JRE](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java-jre) |
 | Javascript | |[Browser](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/js-browser) |
 | Node.js | |[Windows, Linux, macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/js-node) |
-| Objective-C |[macOs](./swift-macos.md), [iOS](./swift-ios.md) |[iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec-ios), [macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec-macos) |
+| Objective-C |[macOs](./objectivec-macos.md), [iOS](./objectivec-ios.md) |[iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec-ios), [macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/objectivec-macos) |
 | Python | |[Windows, Linux, macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/python) |
 | Swift | [macOs](./swift-macos.md), [iOS](./swift-ios.md)|[iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift-ios), [macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift-macos) |

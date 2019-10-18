@@ -20,11 +20,11 @@ ms.author: yinhew
 This quickstart requires:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* An Azure subscription key for the Speech Service. [Get one for free](../../../get-started.md).
+* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 
 ## Create a Visual Studio project
 
-[!INCLUDE [](../../../../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
+[!INCLUDE [](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
 ## Add sample code
 
@@ -44,7 +44,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 1. In the source file's `Speak_ButtonClicked` handler, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
-1. In the `Speak_ButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](../../../regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
+1. In the `Speak_ButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
 
 1. From the menu bar, choose **File** > **Save All** to save your changes.
 
@@ -56,11 +56,11 @@ Now you are ready to build and test your application.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP speech synthesis application in C# - quickstart](../../../media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
+   ![Sample UWP speech synthesis application in C# - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
 1. Enter some text into the textbox, and click **Speak**. Your text is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
-    ![Speech synthesis user interface](../../../media/sdk/qs-tts-csharp-uwp-ui-result.png)
+    ![Speech synthesis user interface](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-uwp-ui-result.png)
 
 ## Next steps
 
@@ -69,5 +69,5 @@ Now you are ready to build and test your application.
 
 ## See also
 
-- [Create and use Custom Voice models](../../../how-to-custom-voice-create-voice.md)
-- [Record voice samples](../../../record-custom-voice-samples.md)
+- [Create and use Custom Voice models](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

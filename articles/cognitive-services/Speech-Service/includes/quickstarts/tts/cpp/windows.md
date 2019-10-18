@@ -14,11 +14,11 @@ ms.author: yinhew
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](../../../get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.
 
 ## Create a Visual Studio project
 
-[!INCLUDE [Quickstart C++ project](../../../../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## Add sample code
 
@@ -30,7 +30,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. From the menu bar, choose **File** > **Save All**.
 
@@ -42,7 +42,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Type an English phrase or sentence. The application transmits your text to the Speech Services, which sends synthesized speech to the application to play on your speaker.
 
-   ![Console output after successful speech synthesis](../../../media/sdk/qs-tts-cpp-windows-console-output.png)
+   ![Console output after successful speech synthesis](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-cpp-windows-console-output.png)
 
 ## Next steps
 
@@ -53,5 +53,5 @@ Additional samples, such as how to save speech to an audio file, are available o
 
 ## See also
 
-- [Create a Custom Voice](../../../how-to-custom-voice-create-voice.md)
-- [Record custom voice samples](../../../record-custom-voice-samples.md)
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
