@@ -25,7 +25,7 @@ You can also use this in the TOC if your service name doesn’t cause the phrase
 Azure Synapse Analytics cheat sheet will guide you through the basic concepts of the service and important commands which will be helpful for new learners as well as for those who want to take a quick look at the important topics.
 
 ## Architecture
-![Synapse Architecture](../synapse-analytics/Media/azure-synapse-architecture.png)
+![Synapse Architecture](../synapse-analytics/Media/azure-synapse-architecture-cheat-sheet.png)
 
 ## Concepts
 | Nouns and verbs                         | What it does       |
