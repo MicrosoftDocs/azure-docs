@@ -46,7 +46,7 @@ For enterprises that use passwords today and have a shared PC environment, secur
 
 ## Prepare devices for preview
 
-Devices that you will be piloting with must be running Windows 10 Insider Build 18945 or newer. 
+Devices that you will be piloting with must be running Windows 10 Insider Build 18945 or newer.
 
 ## Create Kerberos server object
 
@@ -124,64 +124,110 @@ If you would like to revert the scenario and remove the Azure AD Kerberos Server
 Remove-AzureADKerberosServer -Domain $domain -CloudCredential $cloudCred -DomainCredential $domainCred
 ```
 
+### NTLM authentication integration
+
+If your organization relys on NTLM authentication you must install a patch or run at least on Domain Controller based on the latest Insider build. 
+
+For more information about how to determine NTLM usage in your organization, see the article [Assessing NTLM usage](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/jj865670(v=ws.10)).
+
+If updating a Domain Controller is not feasible, you can try this feature without NTLM. Modify the following registry key to skip the NTLM aspect of the preview:
+
+- Key: HKLM\System\CurrentControlSet\Control\Lsa\Kerberos\Parameters
+   - Value: KeyListReqSupportOverride: 
+      - 0 – turn off NTLM
+      - 1 – turn on NTLM
+
 ## Enable security keys for Windows sign in
 
 Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign in.
 
-
 ### Enable credential provider via Intune
 
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**.
+1. Under **Settings** set **Use security keys for sign-in** to **Enabled**.
+
+#### Enable targeted Intune deployment
+
+To target specific device groups to enable the credential provider, use the following custom settings via Intune.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Browse to **Microsoft Intune** > **Device configuration** > **Profiles** > **Create profile**.
+1. Configure the new profile with the following settings
+   1. Name: Security Keys for Windows Sign-In
+   1. Description: Enables FIDO Security Keys to be used during Windows Sign In
+   1. Platform: Windows 10 and later
+   1. Profile type: Custom
+   1. Custom OMA-URI Settings:
+      1. Name: Turn on FIDO Security Keys for Windows Sign-In
+      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
+      1. Data Type: Integer
+      1. Value: 1 
+1. This policy can be assigned to specific users, devices, or groups. More information can be found in the article [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+
+### Enable with Group Policy
+
+You can configure the following Group Policy settings to enable FIDO security key sign-in for your enterprise. 
+
+The setting can be found under **Computer Configuration** > **Administrative Templates** > **System** > **Logon** > **Turn on security key sign-in**.
+
+- Setting this policy to **Enabled** will allow users to sign-in with security keys. 
+- Setting this policy to **Disabled** or **Not Configured** will stop users from signing in with security keys.
+
+## Obtain FIDO2 security keys
+
+See the section FIDO2 Security Keys, in the article [What is passwordless?](concept-authentication-passwordless.md) for more information about supported keys and manufacturers.
+
+> [!NOTE]
+> If you purchase and plan to use NFC based security keys you will need a supported NFC reader.
+
+## Enable passwordless authentication method
+
+### Enable the combined registration experience
+
+Registration features for passwordless authentication methods rely on the combined registration preview. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable the combined registration preview.
+
+### Enable new passwordless authentication method
+
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy (Preview)**
+1. Under each **Method**, choose the following options
+   1. **Enable** - Yes or No
+   1. **Target** - All users or Select users
+1. **Save** each method
+
+> [!WARNING]
+> The FIDO2 “Key restriction policies” do not work yet. This functionality will be available before general availability, please do not change these policies from default.
+
+> [!NOTE]
+> You don’t need to opt in to both of the passwordless methods (if you want to preview only one passwordless method, you can enable only that method). We encourage you try out both methods since they both have their own benefits.
+
+## User registration and management of FIDO2 security keys
+
+1. Browse to [https://myprofile.microsoft.com](https://myprofile.microsoft.com)
+1. Sign in if not already
+1. Click **Security Info**
+   1. If the user already has at least one Azure Multi-Factor Authentication method registered, they can immediately register a FIDO2 security key.
+   1. If they don’t have at least one Azure Multi-Factor Authentication method registered, they must add one.
+1. Add a FIDO2 Security key by clicking **Add method** and choosing **Security key**
+1. Choose **USB device** or **NFC device**
+1. Have your key ready and choose **Next**
+1. A box will appear and ask you to create/enter a PIN for your security key, then perform the required gesture for your key either biometric or touch.
+1. You will be returned to the combined registration experience and asked to provide a meaningful name for your token so you can identify which one if you have multiple. Click **Next**.
+1. Click **Done** to complete the process
+
+### Manage security key biometric, PIN, or reset security key
+
+* Windows 10 version 1903 or higher
+   * Users can open **Windows Settings** on their device > **Accounts** > **Security Key**
+   * Users can change their PIN, update biometrics, or reset their security key
 
 
 
- 
 
 
 
 
-
-	8.2 If your enterprise uses NTLM auth, update at least one Domain Controller with Vibranium build
-How do I know if my enterprise uses NTLM Auth?
-•	Recommend using this link to assess
-
-In our experience, most enterprises use NTLM auth.
-1.	Please install the Insider skip ahead - Vibranium server build <BUILD# 7/23 or later> on your DC
-
-If updating a DC is not feasible, you can try this feature without NTLM. Flip the following reg keys to skip the NTLM aspect of the preview:
-•	Key: HKLM\System\CurrentControlSet\Control\Lsa\Kerberos\Parameters
-•	Value: KeyListReqSupportOverride: 0 – turn off NTLM, 1 or unset – turn on NTLM
-
-	8.3 Enable FIDO for your Azure AD tenant via Azure AD Portal
-1.	Use the new Authentication methods blade in Azure AD admin portal that allows you to assign passwordless credentials using FIDO2 security keys
-2.	Enable the converged registration portal for users to create and manage FIDO2 security keys
-
-	8.4 Push FIDO cred prov on clients to enable logon with security keys via Intune / Group Policy
-Intune (Azure AD joined): 
-1.	Go to your Azure AD Portal
-2.	Search for Intune
-3.	For Tenant wide configuration:
-a.	Navigate to Device Enrollment > Profiles> Windows Hello for Business > Settings
-i.	Set “Security key for sign-in” to “Enabled”
-
- 
-4.	For targeting specific device groups, use the following custom settings via Intune
-a.	Follow instructions here
-b.	Use the following for FIDO setup:
-i.	Name: Turn on FIDO Security Keys for Windows Sign-In
-ii.	Description: Enables FIDO Security Keys to be used during Windows Sign In
-iii.	OMA-URI:
-./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
-iv.	Data Type: Integer
-v.	Value: 1 
- 
-Group Policy (hybrid Azure AD joined): 
-You can configure the following Group Policy settings to enable FIDO for your enterprise. These are available for both User configuration and Computer configuration under Policies > Administrative Templates > System > Logon
-Policy	Options
-AllowSecurityKeySignIn 	Not Configured: Security key is not available as an option for sign in
-Enabled: Security key is available as an option for sign in
-Disabled: Security key is not available as an option for sign in
-	8.5 Update the PCs you will be piloting to latest Windows Insider Vibranium Build 
-	Make sure the Client PC you are planning to try the scenarios out are running the Windows Insider Vibranium Build #18945 or newer, available starting 7/23.
 
 ## Test scenarios
 
@@ -268,8 +314,9 @@ If you would like to share feedback or encounter issues while previewing this fe
    1. Subcategory: FIDO
 1. To capture logs use, Recreate my Problem
 
-11.	Additional Material
-	Scenario Webcast: https://www.yammer.com/wsscengineering/#/files/109518749
+Additional Material
+
+Scenario Webcast: https://www.yammer.com/wsscengineering/#/files/109518749
 
 ## Under the hood
 

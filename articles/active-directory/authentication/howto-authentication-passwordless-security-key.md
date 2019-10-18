@@ -131,15 +131,9 @@ Registration features for passwordless authentication methods rely on the combin
 
 ### Manage security key biometric, PIN, or reset security key
 
-* Windows 10 version 1809
-   * Companion software from the security key vendor is required
 * Windows 10 version 1903 or higher
    * Users can open **Windows Settings** on their device > **Accounts** > **Security Key**
    * Users can change their PIN, update biometrics, or reset their security key
-
-## User registration and management of Microsoft Authenticator app
-
-To configure the Microsoft Authenticator app for phone sign in, follow the guidance in the article [Sign in to your accounts using the Microsoft Authenticator app](../user-help/user-help-auth-app-sign-in.md).
 
 ## Sign in with passwordless credential
 
@@ -163,7 +157,7 @@ Administrator provisioning and de-provisioning of security keys is not available
 
 ### Hybrid Azure AD join
 
-Users relying on WIA SSO that use managed credentials like FIDO2 security keys or passwordless sign in with Microsoft Authenticator app need to Hybrid Join on Windows 10 to get the benefits of SSO. However, security keys only work for Azure Active Directory Joined machines for now. We recommend you only try out FIDO2 security keys for the Windows lock screen on pure Azure Active Directory Joined machines. This limitation doesn’t apply for the web.
+Users relying on WIA SSO that use managed credentials like FIDO2 security keys or passwordless sign in with Microsoft Authenticator app need to Hybrid Join on Windows 10 to get the benefits of SSO. Follow the guidance in the article [Enable passwordless security key sign in for hybrid Azure AD joined devices (preview)](howto-authentication-passwordless-security-key-hybrid.md) to enable these sceanrios.
 
 ### UPN changes
 
