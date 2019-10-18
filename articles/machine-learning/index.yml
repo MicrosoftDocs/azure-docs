@@ -70,8 +70,8 @@ landingContent:
           - text: Train with Keras
             url: service/how-to-train-keras.md
 
-  # DESIGNER
-  - title: 'Experiment: ML Pipelines'
+  # Pipelines
+  - title: 'Use ML Pipelines'
     linkLists:
     - linkListType: overview
       links:
@@ -87,8 +87,8 @@ landingContent:
         url: service/tutorial-pipeline-batch-scoring-classification.md     
     - linkListType: how-to-guide
       links:
-          - text: Predict credit risk (designer)
-            url: service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
+          - text: Scheduling pipelines (Python SDK)
+            url: service/how-to-schedule-pipelines.md                 
           - text: Predict delays (designer)
             url: service/how-to-ui-sample-classification-predict-flight-delay.md
           - text: Predict churn (designer)
@@ -119,5 +119,5 @@ landingContent:
             url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
           - text: Machine learning CLI
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-          - text: Algorithms & modules (Designer)
+          - text: Algorithms & modules (designer)
             url: algorithm-module-reference/module-reference.md
