@@ -14,6 +14,10 @@ ms.custom: mvc
 
 # Quickstart: Add a simulated device to your IoT Central application (preview features)
 
+*This article applies to operators, builders, and administrators.*
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 A device template defines the capabilities of a device that connects to your IoT Central application. Capabilities include telemetry the device sends, device properties, and the commands a device responds to. From a device template, a builder or operator can add both real and simulated devices to an application. Simulated devices are useful for testing the behavior of your IoT Central application before you connect real devices.
 
 In this quickstart, you create an **Environmental Sensor** device template and add a simulated device. An environmental sensor device:
@@ -153,7 +157,7 @@ After you create a new simulated device, the builder can use this device to cont
 
 1. Choose the **Device templates** tab in the left pane and select the **Environmental Sensor** template.
 
-1. Select any of the views you would like to edit, or create a new view. Click **Configure preview device**, then **Select from a running device**. Here you can choose between having no preview device, using a real device you can configure for testing, or from an existing device you have added into IoT Central.
+1. Select any of the views you would like to edit, or create a new view. Click **Configure preview device**, then **Select from a running device**. Here you can choose between having no preview device, using a real device you can configure for testing, or from an existing device you've added into IoT Central.
 
 1. Choose your simulated device in the list. Then select **Apply**. Now you can see the same simulated device in your device template views building experience. This view is useful for charts and other visualizations.
 
@@ -166,4 +170,4 @@ In this quickstart, you learned how to you create an **Environment Sensor** devi
 To learn more about monitoring devices connected to your application, continue to the quickstart:
 
 > [!div class="nextstepaction"]
-> [Configure rules](./tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Configure rules and actions](./quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
