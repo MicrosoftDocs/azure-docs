@@ -1,18 +1,13 @@
 ---
 title: Understand the health of your Azure virtual machines | Microsoft Docs
 description: This article describes how to understand the health of virtual machines and underlying operating systems with Azure Monitor for VMs.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 10/15/2019
+
 ---
 
 # Understand the health of your Azure virtual machines

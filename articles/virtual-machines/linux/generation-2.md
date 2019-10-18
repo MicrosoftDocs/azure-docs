@@ -49,8 +49,8 @@ Generation 1 VMs are supported by all VM sizes in Azure. Azure now offers previe
 * [NVv3-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 
->[!NOTE]
->The usage of Generation 2 VM images for Mv2-series is general available since the Mv2-series works with Generation 2 VM images exclusively. Generation 1 VM images are not working with Mv2-series. 
+> [!NOTE]
+> The usage of generation 2 VM images for Mv2-series VMs is generally available since the Mv2-series works with generation 2 VM images exclusively. Generation 1 VM images are not supported on Mv2-series VMs. 
 
 ## Generation 2 VM images in Azure Marketplace
 
