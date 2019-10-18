@@ -28,6 +28,8 @@ When you select **View Effective Route**, it produces the following output for E
 
 ### Hub route table
 
+
+
 | **Prefix** |  **Next hop type** | **Next hop** |  **Route Origin** |**AS Path** |
 | ---        | ---                | ---          | ---               | ---         |
 | 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-gw| 20000|
@@ -39,7 +41,9 @@ When you select **View Effective Route**, it produces the following output for E
 |10.22.1.0/16| Remote Hub|10.8.0.6, 10.8.0.7|/subscriptions/`<sub>`/resourceGroups/<rg>/providers/Microsoft.Network/virtualHubs/westhub_| 4848-22000 |
 |10.9.0.0/16| Remote Hub|  On-link |/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/westhub_1| |
 
- Note: If East US and West Europe hub were not communicating with each other in the above topology, the route learnt about 10.9.0.0/16 would not exist as hubs only advertise networks that are directly connected to them.
+* If the East US and  the West Europe hub were not communicating with each other in the above topology, the route learned (10.9.0.0/16) would not exist, because hubs only advertise networks that are directly connected to them.
+
+* If you can't see the 'AS Path' in the table,  use the scroll bar located under the table.
 
  ### Additional information
 
