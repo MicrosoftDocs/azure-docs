@@ -16,7 +16,7 @@ ms.author: v-meravi
 
 *Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet
 
-In this article, you will learn how to cerate a *Peering Service* connection.
+In this article, you will learn how to cerate a *Peering Service* connection using Azure portal.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -34,13 +34,19 @@ A valid and active Microsoft Azure account. This account is required to set up t
 
 ### Register your subscription with the resource provider and feature flag
 
-Before proceeding to the steps of registering the *Peering Service*, you need to register your subscription with the resource provider and feature flag. The PowerShell commands are specified below:
+Before proceeding to the steps of registering the *Peering Service*, you need to register your subscription with the resource provider and feature flag either via PowerShell or CLI. 
+
+**PowerShell**
 
 ```PowerShellCopy
 Register-AzProviderFeature-FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
 
+```
+**CLI**
+```azurecli
+az feature register --namespace Microsoft.Peering--name AllowPeeringService
 ```
 
 ## Sign into the Azure portal
@@ -86,3 +92,7 @@ Clicking on the **Create new prefix** at the bottom of the **Prefixes** section,
 To learn more about Peering Service concepts, see [Peering Service Connection](peering-service-connection.md).
 
 To measure the telemetry, see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).
+
+To register the connection using PowerShell, see [Peering Service connection](peering-service-powershell.md.)
+
+To register the connection using Azure CLI, see [Peering Service connection](peering-service-CLI.md.)

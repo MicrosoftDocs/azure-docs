@@ -23,7 +23,7 @@ Connection telemetry is composed of the following scopes:
 
 Measures the latency from the client to the Microsoft Edge for the registered prefixes.
 
-- **Route(prefix) monitoring and protection** 
+- **Route(Prefix) monitoring and protection** 
 
 Monitors routing path for any suspicious activity and captures the same in the event logs. For instance, event logs are created for some of the factors specified below: 
 

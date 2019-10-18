@@ -14,7 +14,7 @@ ms.author: v-meravi
 
 # Register a Peering Service connection using PowerShell
 
-*Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. In this article, you will learn how to register a *Peering Service*.
+*Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. In this article, you will learn how to register a *Peering Service* connection using PowerShell.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -28,16 +28,27 @@ Use the **Azure PowerShell** module to register and manage *Peering Service*. Re
 
 ## Register the Peering Service
 
-### Pre-processing commands  
+## Pre-requisites  
 
-Before proceeding to the steps of registering the *Peering Service*, you need to register your subscription with the resource provider and feature flag.  
+### Azure account
 
-### Register your subscription with the resource provider and feature flag  
+A valid and active Microsoft Azure account. This account is required to set up the Peering Service connection. Peering Services are resources within Azure subscriptions.  
+
+### Connectivity provider
+
+   - You can work with an Internet Service provider or Internet Exchange Partner to obtain Peering Service to connect your network with Microsoft network.
+
+   - Ensure the connectivity providers are certified.
+
+### Register your subscription with the resource provider and feature flag
+
+Before proceeding to the steps of registering the *Peering Service*, you need to register your subscription with the resource provider and feature flag. The PowerShell commands are specified below:
 
 ```PowerShellCopy
 Register-AzProviderFeature-FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
 
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
+
 ```
 
 ### Fetch the location and Service Provider 
@@ -112,6 +123,10 @@ Remove-AzPeeringServicePrefix -ResourceGroupName  "Building40" -Name "prefix1" -
 
 Learn about [Peering Service connection](peering-service-faq.md).
 
-To learn more about Peering Service concepts, see [Peering Service Connection](peering-service-connection.md).
+To learn about Peering Service concepts, see [Peering Service Connection](peering-service-connection.md).
 
-To learn more about Peering Service telemetry concepts, see [Peering Service Connection Telemetry](peering-service-connection-telemetry.md).
+To learn about Peering Service telemetry concepts, see [Peering Service Connection Telemetry](peering-service-connection-telemetry.md).
+
+To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal.md.)
+
+To register the connection using Azure CLI, see [Peering Service connection](peering-service-CLI.md.)
