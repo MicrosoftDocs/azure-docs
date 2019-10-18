@@ -1,7 +1,7 @@
 ---
-title: Run batch predictions using visual interface
+title: Run batch predictions using Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
-description: Learn how to train a model and setup a batch prediction pipeline using the visual interface. Deploy the pipeline as a parameterized web service, which can be triggered from any HTTP library.
+description: Learn how to train a model and setup a batch prediction pipeline using the designer. Deploy the pipeline as a parameterized web service, which can be triggered from any HTTP library.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,10 +13,10 @@ ms.date: 10/17/2019
 ms.custom: Ignite2019
 ---
 
-# Run batch predictions using Azure Machine Learning visual interface
+# Run batch predictions using Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this how-to, you learn how to use the visual interface to train a model and setup a batch prediction web service. Batch prediction allows for continuous and on-demand scoring of trained models on large data sets, optionally configured as a web service that can be triggered from any HTTP library. 
+In this how-to, you learn how to use the designer to train a model and setup a batch prediction web service. Batch prediction allows for continuous and on-demand scoring of trained models on large data sets, optionally configured as a web service that can be triggered from any HTTP library. 
 
 For setting up batch scoring services using the SDK, see the accompanying [how-to](how-to-run-batch-predictions.md).
 
@@ -24,7 +24,7 @@ For setting up batch scoring services using the SDK, see the accompanying [how-t
 
 * If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning service](https://aka.ms/AMLFree).
 
-* This how-to assumes basic knowledge of building a simple pipeline in the visual interface. For a guided introduction to the visual interface, complete the [tutorial](ui-tutorial-automobile-price-train-score.md). 
+* This how-to assumes basic knowledge of building a simple pipeline in the designer. For a guided introduction to the visual interface, complete the [tutorial](ui-tutorial-automobile-price-train-score.md). 
 
 ## Create a pipeline
 
