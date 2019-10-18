@@ -84,6 +84,8 @@
     items:
     - name: Configure speech output with SSML
       href: speech-synthesis-markup.md
+    - name: Synthesize content with Long Audio API
+      href: long-audio-api.md
   - name: Tutorials
     items:
     - name: Build a Flask app to translate and synthesize text, REST
