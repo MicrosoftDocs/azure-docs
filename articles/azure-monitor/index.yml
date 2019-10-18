@@ -45,7 +45,7 @@ landingContent:
             url: platform/data-platform.md
 
   # Card 
-  - title: 10 minute Quickstarts
+  - title: 10-minute quickstarts
     linkLists:
       - linkListType: quickstart
         links:
