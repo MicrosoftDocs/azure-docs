@@ -1,5 +1,5 @@
 ﻿---
-title: Deploy virtual machine extensions with Azure Resource Manager templates | Microsoft Docs
+title: Deploy VM extensions - Azure Resource Manager templates
 description: Learn how to deploy virtual machine extensions with Azure Resource Manager templates
 services: azure-resource-manager
 documentationcenter: ''
