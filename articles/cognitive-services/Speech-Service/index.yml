@@ -51,7 +51,7 @@ sections:
       <li><b><a href="speech-devices-sdk-create-kws.md">custom wake-word</a></b> (keyword-spotter/KWS)</li>
       <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">intent</a></b></li>
       <li><b><a href="speech-translation.md">translation</a></b></li>
-      <li><b><a href="speech-container-howto.md">on-premises container</a></b></li></ul></div><div class="column"><ul>
+      <li><b><a href="speech-container-howto.md">speech containers</a></b></li></ul></div><div class="column"><ul>
       <li><b><a href="text-to-speech.md">text-to-speech</a></b> (TTS)</li>
       <li><b><a href="conversation-transcription-service.md">conversation-transcription</a></b> (CTS)</li>
       <li><b><a href="how-to-phrase-lists.md">phrase list personalization</a>/<a href="how-to-custom-speech.md">custom speech adaptation</a></b></li>
