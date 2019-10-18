@@ -12,14 +12,12 @@ ms.author: diberry
 
 ## Prerequisites
 
-* [.NET Core V2.2+](https://dotnet.microsoft.com/download/dotnet-core)
+* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
 * Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## Get LUIS key
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](..//includes/get-key-for-quickstart.md)]
 
 ## Get intent programmatically
 
@@ -91,7 +89,7 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
 
    ```
 
-1. Replace the value of `YOUR_KEY` with your LUIS key.
+1. Replace the value of `YOUR-KEY` with your LUIS key.
 
 1. Build the console application. 
 
@@ -105,9 +103,38 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
     dotnet build
     ```
 
+1. Review prediction response in JSON format:
+
+    ```console
+    Hit ENTER to exit...
+    {"query":"query=turn on the left light","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.219572827},"None":{"score":0.1371486},"HomeAutomation.TurnOff":{"score":0.0241389349}},"entities":{}}}
+    ```
+
+    The JSON response formatted for readability: 
+
+    ```JSON
+    {
+        "query": "query=turn on the left light",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.219572827
+                },
+                "None": {
+                    "score": 0.1371486
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0241389349
+                }
+            },
+            "entities": {}
+        }
+    }
+    ```
 ## LUIS keys
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](..//includes/starter-key-explanation.md)]
 
 ## Clean up resources
 
