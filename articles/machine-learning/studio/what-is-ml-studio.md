@@ -40,7 +40,6 @@ Here is a quick comparison:
 
 || Machine Learning Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-|| Generally available (GA) | Generally available (GA) |
 | Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../service/ui-concept-visual-interface.md) |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Modules for drag-and-drop interface | Many | Initial set of popular [modules](../algorithm-module-reference/module-reference.md)|
