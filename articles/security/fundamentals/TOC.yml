@@ -123,13 +123,6 @@
       href: paas-applications-using-sql.md
   - name: IoT
     href: iot-overview.md
-    items:
-    - name: IoT security best practices
-      href: https://docs.microsoft.com/azure/iot-accelerators/iot-security-best-practices?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
-    - name: IoT security
-      href: https://docs.microsoft.com/azure/iot-accelerators/iot-security-architecture?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot
-    - name: Secure your IoT deployment
-      href: https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-security-deployment?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Azure Service Fabric security
     href: service-fabric-overview.md
     items:
