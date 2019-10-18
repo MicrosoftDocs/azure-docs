@@ -22,6 +22,7 @@ ms.author: terrylan
 # Azure infrastructure security
 Microsoft Azure runs in datacenters managed and operated by Microsoft. These geographically dispersed datacenters comply with key industry standards, such as ISO/IEC 27001:2013 and NIST SP 800-53, for security and reliability. The datacenters are managed, monitored, and administered by Microsoft operations staff. The operations staff has years of experience in delivering the world’s largest online services with 24 x 7 continuity.
 
+## Securing the Azure infrastructure
 This series of articles provides information about what Microsoft does to secure the Azure infrastructure. The articles address:
 
 - [Physical security](physical-security.md)
