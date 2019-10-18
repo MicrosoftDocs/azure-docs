@@ -120,7 +120,7 @@ For more information on advanced security setup in Kubernetes, review the [Kuber
 
 ## Granting permissions
 
-Each Azure AD account must be granted permission to the appropriate APIs in Kubernetes in order to access the live metrics and data feature. The steps to grant the Azure Active Directory account are similar to the steps described in the [Kubernetes RBAC authentication](#kubernetes-rbac-authentication) section. Before applying the yaml configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user. 
+Each Azure AD account must be granted permission to the appropriate APIs in Kubernetes in order to access the live metrics and data feature. The steps to grant the Azure Active Directory account are similar to the steps described in the [Kubernetes RBAC authentication](#kubernetes-rbac-authentication-(existing-cluster)) section. Before applying the yaml configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user. 
 
 >[!IMPORTANT]
 >If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the userPrincipalName. If the user is in a different Azure AD tenant, query for and use the objectId property instead.
