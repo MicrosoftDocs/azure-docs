@@ -13,7 +13,7 @@ ms.author: erhopf
 ---
 
 
-## Select your development environment
+**Select your development environment**
 
 #### [Visual Studio](#tab/vs)
 [!INCLUDE [Header](../header.md)]

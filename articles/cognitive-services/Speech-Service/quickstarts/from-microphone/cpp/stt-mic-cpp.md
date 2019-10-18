@@ -12,7 +12,7 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-## Select your development environment
+**Select your development environment**
 
 #### [Linux](#tab/linux)
 [!INCLUDE [Header](../header.md)]
