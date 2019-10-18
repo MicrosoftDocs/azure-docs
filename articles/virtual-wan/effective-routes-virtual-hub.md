@@ -28,7 +28,7 @@ In this example, we also assume that the West Europe Branch 1 is connected to Ea
 
 ## <a name="view"></a>View effective routes
 
-When you select 'View Effective Routes' in the portal, it produces the output shown in the **Hub route table** for the East US Hub.
+When you select 'View Effective Routes' in the portal, it produces the output shown in the [Hub route table](#routetable) for the East US Hub.
 
 To put this in perspective, the first line implies that the East US hub has learned the route of 10.20.1.0/24 (Branch 1) due to the VPN 'Next hop type' connection ('Next hop' VPN Gateway Instance0 IP 10.1.0.6, Instance1 IP 10.1.0.7). 'Route Origin' points to the resource ID. 'AS Path' indicates the AS Path for Branch 1.
 
