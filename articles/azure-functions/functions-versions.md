@@ -1,45 +1,48 @@
 ---
 title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
-services: functions
-documentationcenter: 
 author: ggailey777
-manager: jeconnoc
-
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 10/10/2019
 ms.author: glenga
 
 ---
 # Azure Functions runtime versions overview
 
- There are two major versions of the Azure Functions runtime: 1.x and 2.x. The current version where new feature work and improvements are being made is 2.x, though both are supported for production scenarios.  The following details some of the differences between the two, how you can create each version, and upgrade from 1.x to 2.x.
+ The major versions of the Azure Functions runtime are related to the version of .NET on which the runtime is based. The following table indicates the current version of the runtime, the release level, and the related .NET version. 
 
-> [!NOTE]
-> This article refers to the cloud service Azure Functions. For information about the preview product that lets you run Azure Functions on-premises, see the [Azure Functions Runtime Overview](functions-runtime-overview.md).
+| Runtime version | Release level<sup>1</sup> | .NET version | 
+| --------------- | ------------- | ------------ |
+| 3.x  | preview | .NET Core 3.x | 
+| 2.x | GA | .NET Core 2.2 |
+| 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
-## Cross-platform development
+<sup>1</sup>GA releases are supported for production scenarios.   
+<sup>2</sup>Version 1.x is in maintenance mode. Enhancements are provided only in later versions. 
+<sup>3</sup>Only supports development in the Azure portal or locally on Windows computers.
 
-The version 2.x runtime runs on .NET Core 2, which enables it to run on all platforms supported by .NET Core, including macOS and Linux. Running on .NET Core enables cross-platform development and hosting scenarios.
-
-By comparison, the version 1.x runtime only supports development and hosting in the Azure portal or on Windows computers.
+This article details some of the differences between the various versions, how you can create each version, and how to change versions.
 
 ## Languages
 
-The version 2.x runtime uses a new language extensibility model. In version 2.x, all functions in a function app must share the same language. The language of functions in a function app is chosen when creating the app.
+Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. The language of functions in a function app is chosen when creating the app and is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting. 
 
-Azure Functions 1.x experimental languages won't be updated to use the new model, so they aren't supported in 2.x. The following table indicates which programming languages are currently supported in each runtime version.
+Azure Functions 1.x experimental languages can't use the new model, so they aren't supported in 2.x. 
+The following table indicates which programming languages are currently supported in each runtime version.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 For more information, see [Supported languages](supported-languages.md).
 
-## <a name="creating-1x-apps"></a>Run on version 1.x
+## <a name="creating-1x-apps"></a>Run on a specific version
 
-By default, function apps created in the Azure portal are set to version 2.x. When possible, you should use this runtime version, where new feature investments are being made. If you need to, you can still run a function app on the version 1.x runtime. You can only change the runtime version after you create your function app but before you add any functions. To learn how to pin the runtime version to 1.x, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+By default, function apps created in the Azure portal and by the Azure CLI are set to version 2.x. When possible, you should use this runtime version. If you need to, you can still run a function app on the version 1.x runtime. You can only change the runtime version after you create your function app but before you add any functions. To learn how to pin the runtime version to 1.x, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
-## Migrating from 1.x to 2.x
+You can also upgrade to version 3.x of the runtime, which is in preview. Do this if you need to be able to run your functions on .NET Core 3.x. To learn how to upgrade to 3.x, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
+## Migrating from 1.x to later versions
 
 You may choose to migrate an existing app written to use the version 1.x runtime to instead use version 2.x. Most of the changes you need to make are related to changes in the language runtime, such as C# API changes between .NET Framework 4.7 and .NET Core 2. You'll also need to make sure your code and libraries are compatible with the language runtime you choose. Finally, be sure to note any changes in trigger, bindings, and features highlighted below. For the best migration results, you should create a new function app for version 2.x and port your existing version 1.x function code to the new app.  
 
@@ -109,7 +112,7 @@ The version of the Functions runtime used by published apps in Azure is dictated
 
 ## Bindings
 
-The version 2.x runtime uses a new [binding extensibility model](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) that offers these advantages:
+Starting with version 2.x, the runtime uses a new [binding extensibility model](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) that offers these advantages:
 
 * Support for third-party binding extensions.
 

@@ -222,7 +222,8 @@ Users in this role can read settings and administrative information across Micro
 > [!NOTE]
 > Global reader role has a few limitations right now -
 >
->* SharePoint admin center - SharePoint admin center does not support the Global reader role. You won't see 'SharePoint' in left pane under Admin Centers in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage), and you'll get access denied when to you try to go to *https://{Azure AD organization name}-admin.sharepoint.com*.
+>* SharePoint admin center - SharePoint admin center does not support the Global reader role. You won't see 'SharePoint' in left pane under Admin Centers in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>* [OneDrive admin center](https://admin.onedrive.com/) - OneDrive admin center does not support the Global reader role.
 >* [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - Global reader can't read the provisioning mode of an enterprise app.
 >* [M365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global reader can't read customer lockbox requests. You won't find the **Customer lockbox requests** tab under **Support** in the left pane of M365 Admin Center.
 >* [M365 Security center](https://security.microsoft.com/homepage) - Global reader can't read sensitivity and retention labels. You won't find **Sensitivity labels**, **Retention labels**, and **Label analytics** tabs in the left pane of the M365 Security center.
