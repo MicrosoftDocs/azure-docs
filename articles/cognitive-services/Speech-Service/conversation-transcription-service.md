@@ -69,7 +69,7 @@ Audio data is processed live to return speaker ID + transcript, and, in addition
 
 ## Language support
 
-Currently, Conversation Transcription supports "en-US" and "zh-CN" in the following regions: *centralus* and *eastasia*. If you require additional locale support, please [contact us](mailto:tbd@tbd) **FIX LINK**.
+Currently, Conversation Transcription supports "en-US" and "zh-CN" in the following regions: *centralus* and *eastasia*. If you require additional locale support, contact the [Conversation Transcription Feature Crew](mailto:CTSFeatureCrew@microsoft.com).
 
 ## Next steps
 
