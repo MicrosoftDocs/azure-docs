@@ -46,6 +46,6 @@ C
 
 ::: zone pivot="programming-language-more"
 
-[!INCLUDE [More samples](../includes/quickstarts/stt-mic-other-lang.md)]
+[!INCLUDE [More samples](./from-microphone/stt-mic-other-lang.md)]
 
 ::: zone-end
