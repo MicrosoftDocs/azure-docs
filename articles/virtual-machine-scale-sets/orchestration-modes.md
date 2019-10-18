@@ -3,7 +3,7 @@ title: Learn more about orchestration modes for virtual machine scale sets in Az
 description: Learn more about orchestration modes for virtual machine scale sets in Azure.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: shandilvarun
 manager: gwallace
  
 ms.service: virtual-machine-scale-sets
@@ -35,10 +35,10 @@ Virtual machine scale sets will support 2 distinct orchestration modes:
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-** VMSS Orchestration Mode **
+**VMSS Orchestration Mode**
 
-| | “orchestrationMode”: “VM” (VirtualMachine) | “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
-|   |   |   |
+|   | “orchestrationMode”: “VM” (VirtualMachine) | “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
+|----|----|----|
 | Create | VMs are added to a scale set at create time.  Conversely a scale set can be created with this mode at the time of VM creation (using portal). | VMs are created only using VM configuration defined in the scale set. |
 | Delete | VMs have to be deleted individually, the scale set will not be deleted if it has any VMs in it. | VMs can be deleted individually, deleting the scale set will delete all of the VM instances. |
 | Attach/Detach VMs | Not supported | Not supported |
