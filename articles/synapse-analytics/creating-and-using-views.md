@@ -15,7 +15,7 @@ ms.reviewer: jrasnick
 
 This section explains how to leverage views to wrap SQL on-demand queries so you can reuse your queries. 
 
-Views are also needed if you want tools like Power BI to leverage SQL on-demand Query.
+Views are also needed if you want tools like Power BI to leverage SQL on-demand query.
 
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
