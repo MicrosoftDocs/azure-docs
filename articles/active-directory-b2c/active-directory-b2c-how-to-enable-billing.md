@@ -48,7 +48,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 
 ### Manage your Azure AD B2C tenant resources
 
-Once you've created the Azure AD B2C resource in an Azure subscription, you should see a new resource of the type "B2C tenant" appear with your other Azure resources.
+After you create the Azure AD B2C resource in an Azure subscription, you should see a new resource of the type "B2C tenant" appear with your other Azure resources.
 
 You can use this resource to:
 
@@ -82,6 +82,6 @@ Before you initiate the move, be sure to read the entire article to fully unders
 
 ## Next steps
 
-Once these steps are complete for each of your Azure AD B2C tenants, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details.
+After you complete these steps for each of your Azure AD B2C tenants, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details.
 
 You can review the usage and billing details within your selected Azure subscription. You can also review detailed day-by-day usage reports using the [usage reporting API](active-directory-b2c-reference-usage-reporting-api.md).
