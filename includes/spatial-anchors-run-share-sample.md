@@ -5,7 +5,44 @@ ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
 ---
-## Set up your device in Unity
+
+## [Android](#tab)
+
+The Java android sample supports sharing across devices.
+Open the file `SharedActivity.java` from the samples folder in Android Studio and enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
+
+The first scenario lets you create an anchor that can be located later on the same device or on a different one.
+The second scenario, if you've already run the app, either on the same device or on a different one, allows you
+to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+instructions around what to do. For example, you'll be asked to move your device around to collect environment
+information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+
+## [iOS](#tab)
+
+The Objective-C iOS sample supports sharing across devices.
+Open the file `SharedDemoViewController.m` in the samples folder and enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
+
+The first scenario lets you create an anchor that can be located later on the same device or on a different one.
+The second scenario, if you've already run the app, either on the same device or on a different one, allows you
+to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+instructions around what to do. For example, you'll be asked to move your device around to collect environment
+information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+
+## [Xamarin](#tab)
+
+Both Xamarin Android and iOS samples support sharing across devices.
+Open the file `AccountDetails.cs` in the samples folder and enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `AnchorSharingServiceUrl`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
+
+The first scenario lets you create an anchor that can be located later on the same device or on a different one.
+The second scenario, if you've already run the app, either on the same device or on a different one, allows you
+to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+instructions around what to do. For example, you'll be asked to move your device around to collect environment
+information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+
+## [Unity](#tab)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
