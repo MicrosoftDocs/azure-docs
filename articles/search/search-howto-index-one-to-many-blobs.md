@@ -1,7 +1,6 @@
 ---
-title: Index blobs containing multiple search index documents from Azure Blob indexer for full text search
-titleSuffix: Azure Cognitive Search
-description: Crawl Azure blobs for text content using the Azure Cognitive Search Blob indexer. Each blob might contain one or more search documents.
+title: Index one blob into many search index documents from Azure Blob indexer for full text search
+description: Crawl Azure blobs for text content using the Azure Congitive Search Blob indexer. Each blob might yield one or more search index documents.
 
 manager: nitinme
 author: arv100kri
@@ -9,11 +8,9 @@ ms.author: arjagann
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2019
 ---
 
-# Indexing blobs producing multiple search documents in Azure Cognitive Search
-
+# Indexing blobs to produce multiple search documents
 By default, a blob indexer will treat the contents of a blob as a single search document. Certain **parsingMode** values support scenarios where an individual blob can result in multiple search documents. The different types of **parsingMode** that allow an indexer to extract more than one search document from a blob are:
 + `delimitedText`
 + `jsonArray`
@@ -94,12 +91,10 @@ If you do want to set up an explicit field mapping, make sure that the _sourceFi
 > [!NOTE]
 > The approach used by `AzureSearch_DocumentKey` of ensuring uniqueness per extracted entity is subject to change and therefore you should not rely on it's value for your application's needs.
 
-## See also
+## Next steps
 
-+ [Indexers in Azure Cognitive Search](search-indexer-overview.md)
-+ [Indexing Azure Blob Storage with Azure Cognitive Search](search-howto-index-json-blobs.md)
-+ [Indexing CSV blobs with Azure Cognitive Search blob indexer](search-howto-index-csv-blobs.md)
-+ [Indexing JSON blobs with Azure Cognitive Search blob indexer](search-howto-index-json-blobs.md)
+If you aren't already familiar with the basic structure and workflow of blob indexing, you should review [Indexing Azure Blob Storage with Azure Congitive Search](search-howto-index-json-blobs.md) first. For more information about parsing modes for different blob conten types, review the following articles.
 
-## <a name="NextSteps"></a>Next steps
-* To learn more about Azure Cognitive Search, see the [Search service page](https://azure.microsoft.com/services/search/).
+> [!div class="nextstepaction"]
+> [Indexing  CSV blobs](search-howto-index-csv-blobs.md)
+> [Indexing JSON blobs](search-howto-index-json-blobs.md)
