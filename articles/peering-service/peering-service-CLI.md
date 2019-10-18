@@ -38,7 +38,7 @@ A valid and active Microsoft Azure account. This account is required to set up t
 
 ### 3. Register your subscription with the resource provider and feature flag
 
-Before proceeding to the steps of registering the *Peering Service* using Azure CLI, you need to register your subscription with the resource provider and feature flag using CLI. The PowerShell commands are specified below:
+Before proceeding to the steps of registering the *Peering Service* using Azure CLI, you need to register your subscription with the resource provider and feature flag using CLI. The CLI commands are specified below:
 
 ```azurecli
 
@@ -96,8 +96,7 @@ az peering service create : Create peering service\
 
 ### 3. Register the Prefix
 
-Register the Prefix that is provided by the connectivity provider by using the following command via Azure CLI.
-*Peering Service* using the below the set of commands using Azure CLI. This example registers the Peering Service named myPeeringService:
+Register the Prefix that is provided by the connectivity provider by executing the following commands via Azure CLI. This example registers the Prefix named myPrefix.
 
 ```azurecli-interactive
 az peering service prefix create \
