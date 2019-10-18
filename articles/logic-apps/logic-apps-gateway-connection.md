@@ -57,7 +57,12 @@ Although the gateway itself doesn't incur additional costs, the [Logic Apps pric
 
 * You haven't previously linked your gateway installation to another gateway resource in Azure.
 
-  When you create a gateway resource in Azure, you select a gateway installation to use with your gateway resource and only that resource. The gateway installation is [linked to one and only one Azure subscription](../logic-apps/logic-apps-gateway-install.md#prerequisites). However, in Azure Logic Apps, on-premises triggers and actions can use gateway resources from your other Azure subscriptions. To set up more than one gateway installation in an Azure subscription, you need to create an Azure gateway resource for each installation.
+  When you create a gateway resource in Azure, you select a gateway installation to use with your gateway resource and only that resource. The gateway installation is [linked to one and only one Azure subscription](../logic-apps/logic-apps-gateway-install.md#prerequisites). However, in Azure Logic Apps, on-premises triggers and actions can use gateway resources from your other Azure subscriptions.
+  
+  > [!TIP]
+  > If you want to set up more than one gateway installation to use with an Azure subscription, 
+  > you need to create an Azure gateway resource in that subscription for each installation. 
+  > You can't directly link a gateway installation to multiple subscriptions or gateway resources.
 
 <a name="create-gateway-resource"></a>
 
