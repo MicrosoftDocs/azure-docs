@@ -25,8 +25,6 @@ Use the Azure Blob Storage client library v12 for .NET to:
 
 [API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
@@ -139,13 +137,13 @@ When the sample application makes a request to Azure Storage, it must be authori
 
     ![Screenshot showing how to copy the account name from the Azure portal](./media/storage-quickstart-blobs-dotnet-v12/portal-storage-account-name.png)
 
-5. Find the **Key** value under **key1**, and select the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step. Paste the string into a blank file in your text editor.
+5. Find the **Key** value under **key1**, and select the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step. Paste the string into your text editor.
 
     ![Screenshot showing how to copy the access key from the Azure portal](./media/storage-quickstart-blobs-dotnet-v12/portal-storage-access-key.png)
 
 ### Configure your storage account name and access key
 
-After you have copied your credential strings, write them to new environment variables on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<youraccountname>` with your actual **Storage account name** value. Replace `<youraccesskey>` with your actual **Key** value.
+After you have copied your credential strings, write them to new environment variables on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<youraccountname>` with your actual **Storage account name** value that you copied into your text editor. Replace `<youraccesskey>` with your actual **Key** value, also from your text editor.
 
 #### Windows
 
