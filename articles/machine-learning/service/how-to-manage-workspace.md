@@ -65,9 +65,9 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
    
    Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a Notebook VM, this file is added to the correct directory on the VM for you.
 
-## <a name="upgrade"></a>Upgrade to Enterprise SKU
+## <a name="upgrade"></a>Upgrade to Enterprise edition
 
-You can upgrade your workspace from Basic SKU to Enterprise SKU to take advantage of the enhanced features such low-code experiences and enhanced security features.
+You can upgrade your workspace from Basic edition to Enterprise edition to take advantage of the enhanced features such low-code experiences and enhanced security features.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
