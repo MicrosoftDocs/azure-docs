@@ -14,7 +14,7 @@ Access to the prediction endpoint is provided with an endpoint key. For the purp
  
 1. Sign in using your LUIS account. 
 
-    [![Screenshot of Language Understanding (LUIS) app list](../media/cognitive-services-luis/app-list.png "Screenshot of Language Understanding (LUIS) app list")](../media/get-key-for-quickstart/app-list.png)
+    [![Screenshot of Language Understanding (LUIS) app list](../media/get-key-for-quickstart/app-list.png "Screenshot of Language Understanding (LUIS) app list")](../media/get-key-for-quickstart/app-list.png)
 
 2. Select your name in the top right menu, then select **Settings**.
 
