@@ -41,10 +41,13 @@ Validations|NumberInRange|For Strings, a String List limits inputs to a set of p
 On Failure Prompt|"Sorry, I can only set between 50 and 80 degrees"|Prompt to ask for an updated value if the validation fails
 
 Remember to add some sample sentences
-- set the temperature to {Temperature} degrees
-- change the temperature to {Temperature}
-- set the temperature
-- change the temperature
+
+```
+set the temperature to {Temperature} degrees
+change the temperature to {Temperature}
+set the temperature
+change the temperature
+```
 
 Finally, add a Completion rule to confirm result.
 
@@ -61,13 +64,13 @@ Actions|SpeechResponse - "Ok, setting to {Temperature} degrees"|The action to ta
 ## Try it out
 Select the Test panel and try a few interactions.
 
-> - A: Set the temperature to 65 degrees
-> - B: "Ok, setting to 65 degrees"
+> - A: Set the temperature to 72 degrees
+> - B: "Ok, setting to 72 degrees"
 
-> - Set the temperature to 45 degrees
-> - Sorry, I can only set between 50 and 80 degrees"
-> - make it 65 degrees instead
-> - Ok, setting to 65 degrees
+> - A: Set the temperature to 45 degrees
+> - B: Sorry, I can only set between 50 and 80 degrees"
+> - A: make it 72 degrees instead
+> - B: Ok, setting to 72 degrees
 
 ## Next steps
 

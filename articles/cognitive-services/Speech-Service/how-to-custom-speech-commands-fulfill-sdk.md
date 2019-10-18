@@ -20,20 +20,20 @@ In this How to you'll:
 
 ## Prerequisites
 
-This quickstart requires:
+This How To requires:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com).
-* A previously Custom Commands app [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+* A previously created Custom Commands app [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
 * A Speech SDK enabled client application [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## Optional: Get started fast
 
-This quickstart will describe, step by step, how to make a client application to connect to your Custom Commands app. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
+This how-to will describe, step by step, how to make a client application to talk to your Custom Commands application. If you prefer to dive right in, the complete, ready-to-compile source code used in this how-to is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples).
 
 ## Fulfill with JSON payload
 
-First let's open our previously created Custom Commands application from the [Custom Speech portal](https://speech.microsoft.com/)
+First let's open our previously created Custom Commands application from the [Speech Studio](https://speech.microsoft.com/)
 
 In the Completion Rules section, we should have our previously created rule that responds back to the user.
 
@@ -43,11 +43,9 @@ In order to send a payload directly to the client, create a new rule with a Send
 
 Setting|Suggested value|Description
 ---|---|---
-Rule Name | Confirmation Message |A name describing the purpose of the rule
-Conditions|<ul><li>Required Parameter - OnOff</li><li>Required Parameter - SubjectDevice</li></ul>|Conditions that determine when the rule can run
-Actions|Send Activity|The action to take when the rule condition is true.
-
-Example activity content
+Rule Name | Set Device State |A name describing the purpose of the rule
+Conditions|Required Parameter - `OnOff` and `SubjectDevice`|Conditions that determine when the rule can run
+Actions|Send Activity - see below|The action to take when the rule condition is true.
 
 ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 ```json
@@ -58,21 +56,25 @@ Example activity content
 }
 ```
 
-## Create 
+## Create visuals for device on or off state
 
-In [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md) we created a Speech SDK enabled client application.
+In [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md) we created a Speech SDK enabled client application that handled commands such as `turn on the tv`, `turn off the fan`.
+
+Let's add some visuals so that we can see the result of those commands.
+
+We can add labeled boxes with text indicating On or Off.
 
 Add the following to MainPage.xaml.cs
 
 ```xml
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
-    <Grid x:Name="Grid_TV" Margin="50, 0" Width="100" Height="100" Background="Blue" Opacity=".2">
+    <Grid x:Name="Grid_TV" Margin="50, 0" Width="100" Height="100" Background="LightBlue">
         <StackPanel>
             <TextBlock Text="TV" Margin="0, 10" TextAlignment="Center"/>
             <TextBlock x:Name="State_TV" Text="Off" TextAlignment="Center"/>
         </StackPanel>
     </Grid>
-    <Grid x:Name="Grid_Fan" Margin="50, 0" Width="100" Height="100" Background="Green" Opacity=".2">
+    <Grid x:Name="Grid_Fan" Margin="50, 0" Width="100" Height="100" Background="LightBlue">
         <StackPanel>
             <TextBlock Text="Fan" Margin="0, 10" TextAlignment="Center"/>
             <TextBlock x:Name="State_Fan" Text="Off" TextAlignment="Center"/>
@@ -124,11 +126,12 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 
 ## Try it out
 
-Start the application.  Select Enable microphone.  Select the "Talk" button and speak one of your commands.
-
-Try saying `turn on the tv` to change the visual state of the tv to "Off"
+- Start the application
+- Press Enable microphone
+- Press Talk button
+- Try saying `turn on the tv` to change the visual state of the tv to "On"
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [How To: Prompt for confirmation in a Command (Preview)](./how-to-custom-speech-commands-validations.md)
+> [How To: Add Validations to Custom Command parameters (Preview)](./how-to-custom-speech-commands-validations.md)
 
