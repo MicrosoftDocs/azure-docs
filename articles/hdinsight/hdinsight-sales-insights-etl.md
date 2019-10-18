@@ -169,7 +169,7 @@ To verify that the pipelines have run, you can take either of the following step
 - Go to the **Monitor** section in your data factory through the portal.
 - In Azure Storage Explorer, go to your Data Lake Storage Gen 2 storage account. Go to the `files` file system, and then go to the `transformed` folder and check its contents to see if the pipeline succeeded.
 
-For other ways to transform data by using HDInsight, see [this article on using Jupyter Notebook](/spark/apache-spark-load-data-run-query.md).
+For other ways to transform data by using HDInsight, see [this article on using Jupyter Notebook](/azure/hdinsight/spark/apache-spark-load-data-run-query).
 
 ### Create a table on the Interactive Query cluster to view data on Power BI
 

@@ -25,6 +25,8 @@
       href: powershell-create-instance.md
 - name: Concepts
   items:
+    - name: Administration basics
+      href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
     - name: How Azure AD DS synchronization works
@@ -63,6 +65,8 @@
           href: notifications.md
         - name: Delete a managed domain
           href: delete-aadds.md
+        - name: Migrate from a Classic deployment (preview)
+          href: migrate-from-classic-vnet.md
     - name: Secure Azure AD DS
       items:
         - name: Secure your managed domain

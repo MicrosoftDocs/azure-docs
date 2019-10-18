@@ -32,10 +32,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **TextModeration**. 
 1. If there are other projects in your solution, select this one as the single startup project.
-1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**; then find and install the following packages:
-    - `Microsoft.Azure.CognitiveServices.ContentModerator`
-    - `Microsoft.Rest.ClientRuntime`
-    - `Newtonsoft.Json`
+1. Get the required NuGet package. Right-click your project in Solution Explorer and select **Manage NuGet Packages**. Then find and install the **`Microsoft.Azure.CognitiveServices.ContentModerator` package**. Alternatively, you can run the following command from the solution directory:
+
+```console
+dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator
+```
 
 ## Add text moderation code
 

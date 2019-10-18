@@ -114,7 +114,7 @@ From ASC, you can configure a JIT policy and request access to a VM using a JIT 
 
 To request access to a VM via ASC:
 
-1. Under **Just in time VM access**, select the **Configured** tab.
+1. Under **Just-in-time VM access**, select the **Configured** tab.
 
 2. Under **Virtual Machine**, click the VMs that you want to request access for. This puts a checkmark next to the VM.
 

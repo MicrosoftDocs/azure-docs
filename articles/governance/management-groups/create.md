@@ -1,8 +1,7 @@
 ---
-title: Create management groups to organize Azure resources - Azure Governance
+title: Create management groups to organize resources - Azure Governance
 description: Learn how to create Azure management groups to manage multiple resources using the portal, Azure PowerShell, and Azure CLI. 
 author: rthorn17
-manager: rithorn
 ms.service: governance
 ms.date: 04/05/2019
 ms.author: rithorn

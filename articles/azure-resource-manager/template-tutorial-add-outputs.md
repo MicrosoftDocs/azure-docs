@@ -45,7 +45,7 @@ It uses the [reference](resource-group-template-functions-resource.md#reference)
 
 Finally, it returns the **primaryEndpoints** property from the storage account
 
-## Deploy template
+## Deploy the template
 
 You're ready to deploy the template and look at the returned value.
 
@@ -89,7 +89,7 @@ In the output for the deployment command, you'll see an object similar to:
 
 ## Review your work
 
-You've done a lot in the last six tutorials. Let's take a moment to review what you have done. You created a template with parameters that are easy to provide. The template is reusable in different environments because it allows for customization and dynamically creates needed values. It returns information about the storage account that you could use in your script.
+You've done a lot in the last six tutorials. Let's take a moment to review what you have done. You created a template with parameters that are easy to provide. The template is reusable in different environments because it allows for customization and dynamically creates needed values. It also returns information about the storage account that you could use in your script.
 
 Now, let's look at the resource group and deployment history.
 
