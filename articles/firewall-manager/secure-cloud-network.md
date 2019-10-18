@@ -11,7 +11,7 @@ ms.author: victorh
 
 # Tutorial: Secure your cloud network with Azure Firewall Manager Preview using the Azure portal
 
-[](../../includes/firewall-manager-preview-notice.md)
+[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
 Using Azure Firewall Manager Preview, you can create secured hubs to secure your cloud network traffic destined to private IP addresses, Azure PaaS, and the Internet. Traffic routing to the firewall is automated, so there is no need to create user defined routes (UDRs).
 
