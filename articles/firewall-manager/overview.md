@@ -57,4 +57,5 @@ Azure Firewall Manager Preview has the following known issues:
 
 ## Next steps
 
+- Review [Azure Firewall Manager Preview deployment overview](deployment-overview.md)
 - Learn about [secured Virtual Hubs](secured-virtual-hub.md).
