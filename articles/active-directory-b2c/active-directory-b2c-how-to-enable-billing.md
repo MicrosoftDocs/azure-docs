@@ -20,30 +20,29 @@ ms.subservice: B2C
 
 Usage charges for Azure AD B2C are billed to an Azure subscription. When an Azure AD B2C tenant is created, the tenant administrator needs to explicitly link the Azure AD B2C tenant to an Azure subscription. This article shows you how.
 
-The subscription link is achieved by creating an Azure AD B2C "resource" within the target Azure subscription. Many Azure AD B2C "resources" can be created within a single Azure subscription, along with other Azure resources (for example, VMs, Data storage, LogicApps). You can see all of the resources within the subscription by going to the Azure AD tenant that the subscription is associated to.
-
-A subscription linked to an Azure AD B2C tenant can be used for the billing of Azure AD B2C usage or other Azure resources including additional Azure AD B2C resources.  It cannot be used to add other Azure license-based services or Office 365 licenses within the Azure AD B2C tenant.
-
 ## Link an Azure AD B2C tenant to a subscription
+
+The subscription link is achieved by creating an Azure AD B2C *resource* within the target Azure subscription. Several Azure AD B2C resources can be created in a single Azure subscription, along with other Azure resources (for example, VMs, data storage, Logic Apps). You can see all of the resources within a subscription by going to the Azure Active Directory (Azure AD) tenant that the subscription is associated with.
+
+A subscription linked to an Azure AD B2C tenant can be used for the billing of Azure AD B2C usage or other Azure resources, including additional Azure AD B2C resources. It cannot be used to add other Azure license-based services or Office 365 licenses within the Azure AD B2C tenant.
 
 ### Prerequisites
 
-You need an [Azure subscription](https://azure.microsoft.com/free/) and [Azure AD B2C tenant](active-directory-b2c-get-started.md) that you'd like to link a subscription.
+* [Azure subscription](https://azure.microsoft.com/free/)
+* [Azure AD B2C tenant](active-directory-b2c-get-started.md) you want to link a subscription; you must be a tenant administrator and the tenant must not already be linked to a subscription
 
 ### Create the link
 
-1. Navigate to the Azure AD tenant that shows your Azure subscription. Open the [Azure portal](https://portal.azure.com), and switch to the Azure AD tenant that shows the Azure subscription you would like to use.
-    ![Switching to your Azure AD tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
-1. Click the **Create a resource** button. In the **Search the Marketplace** field, enter `Active Directory B2C`.
-    ![Portal screenshot with 'Active Directory B2C' in Marketplace search](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure *subscription* you'd like to use (not the directory containing the Azure AD B2C tenant).
+1. Select **Create a resource**, then enter `Active Directory B2C` in the **Search the Marketplace** field.
 1. In the results list, select **Azure AD B2C**.
-    ![Azure AD B2C selected in the results list](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c-result.png)
 1. Select **Create**.
-1. In the resource creation screen, select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
-1. In the resource creation dialog, select an Azure AD B2C tenant from the dropdown. Only tenants for which you are a global administrator and that are not already linked to a subscription are shown. The Azure AD B2C resource name is prepopulated with domain name of the Azure AD B2C tenant you select.
+1. Under **Create new B2C Tenant or Link to existing Tenant**, select **Link an existing Azure AD B2C Tenant to my Azure subscription**.
+1. Select an **Azure AD B2C Tenant** from the dropdown. Only tenants for which you are a global administrator and that are not already linked to a subscription are shown. The **Azure AD B2C Resource name** field is populated with the domain name of the Azure AD B2C tenant you select.
 1. For **Subscription**, select an active Azure subscription of which you are an administrator.
-1. Create a **Resource group** and specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
-    ![The Azure AD B2C Resource creation page in Azure portal](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+1. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
+    ![The Azure AD B2C Resource creation page in Azure portal](./media/active-directory-b2c-how-to-enable-billing/portal-01-create-b2c-resource-page.png)
 1. Select **Create**.
 
 ### Manage your Azure AD B2C tenant resources
@@ -52,10 +51,10 @@ Once you've created the Azure AD B2C resource in an Azure subscription, you shou
 
 You can use this resource to:
 
-- Navigate to the subscription to review billing information.
-- Go to your Azure AD B2C tenant
-- Submit a support request
-- Move your Azure AD B2C tenant resource to another Azure subscription or to another Resource Group.
+* Navigate to the subscription to review billing information.
+* Go to your Azure AD B2C tenant
+* Submit a support request
+* Move your Azure AD B2C tenant resource to another Azure subscription or to another Resource Group.
 
 ![B2C Resource settings page in the Azure portal](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
 
