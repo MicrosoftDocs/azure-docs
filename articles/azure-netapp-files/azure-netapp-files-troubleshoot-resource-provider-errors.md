@@ -14,7 +14,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/18/2019
 ms.author: b-juche
 ---
 # Troubleshoot Azure NetApp Files Resource Provider errors 
