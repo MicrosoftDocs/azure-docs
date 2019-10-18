@@ -33,9 +33,9 @@ Our intent is to protect the rights of individuals and society, foster transpare
 
 To get access to Custom Neural Voice, you'll need to start by filling out our online intake form. Begin your application [here](https://speech.microsoft.com/customvoice).
 
-Access to the Custom Neural Voice service is subject to Microsoft’s sole discretion based on our eligibility criteria and vetting process. Customers gain access after applications are reviewed by Microsoft based on availability for our close customer support in our limited preview of this service as well as based on adherence to our responsible deployment practices and Code of Conduct.
+Access to the Custom Neural Voice service is subject to Microsoft’s sole discretion based on our eligibility criteria, vetting process, and availability to support a limited number of customers during this gated preview.
 
-Once you have access, as part of Terms of Use and Code of Conduct, you must verify you've obtained consent with explicit written permission from voice talent prior to creating a voice font. In deploying the voice font you must also agree to [disclose the synthetic nature](concepts-disclosure-guidelines.md) of the service to users, provide attribution to the Microsoft synthetic speech service in your terms of service, and support a feedback channel that allows users of the service to report issues and share details with Microsoft. Learn more about our Terms of Use [here](https://aka.ms/neural-tts-transparency-note).
+As part of the application process, you will need to commit to obtaining explicit written permission from voice talent prior to creating a voice font, which includes sharing the Neural TTS Transparency Note. You must also agree that when deploying the voice font, your implementation will [disclose the synthetic nature](concepts-disclosure-guidelines.md) of the service to users, provide attribution to the Microsoft synthetic speech service in your terms of service, and support a feedback channel that allows users of the service to report issues and share details with Microsoft. Learn more about our Terms of Use [here](https://aka.ms/neural-tts-transparency-note).
 
 ## Reference docs
 
