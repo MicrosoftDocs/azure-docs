@@ -56,6 +56,6 @@ Virtual machine scale sets will support 2 distinct orchestration modes:
 | Move  | Supported  | Supported |
 |Single placement group == false  | Not supported | Supported |
 
-# Next steps
+** Next steps **
 
 For more information, see the [Overview of availability options](availability.md).
