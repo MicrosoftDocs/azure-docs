@@ -8,8 +8,6 @@ ms.author: erhopf
 
 ## Prerequisites
 
-## Prerequisites
-
 Before you get started, make sure to:
 
 1. [Create a Speech resource and get a subscription key]().
@@ -24,7 +22,7 @@ The first step is to make sure that you have your project open in Visual Studio.
 1. Launch Visual Studio 2019.
 2. Load your project and open `Program.cs`.
 
-[!INCLUDE [boilerplate](./boilerplate.md)]
+[!INCLUDE [boilerplate](../../common/boilerplate.md)]
 
 1. In **Solution Explorer**, open `MainPage.xaml`.
 
@@ -38,13 +36,13 @@ The first step is to make sure that you have your project open in Visual Studio.
 
 [!code-csharp[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=6-50,55-56,94-154)]
 
-[!INCLUDE [createconfig](./createconfig.md)]
+[!INCLUDE [createconfig](../../common/createconfig.md)]
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=51-53)]
 
-[!INCLUDE [initreco](./initreco.md)]
+[!INCLUDE [initreco](../../common/initreco.md)]
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=58,59,93)]
 
-[!INCLUDE [recophrase](./recophrase.md)]
+[!INCLUDE [recophrase](../../common/recophrase.md)]
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=66)]
 
 ## Display the recognition results (or errors)
