@@ -24,17 +24,11 @@ Azure Disk Encryption leverages BitLocker to provide full disk encryption on Azu
 
 ## Prerequisites
 
-For a full list of prerequisites, see [Azure Disk Encryption Prerequisites](
-../../security/azure-security-disk-encryption-prerequisites.md).
+For a full list of prerequisites, see [Azure Disk Encryption for Linux VMs](../linux/disk-encryption-overview.md), specifically the following sections:
 
-### Operating system
-
-For a list of currently Windows versions, see [Azure Disk Encryption Prerequisites](../../security/azure-security-disk-encryption-prerequisites.md).
-
-### Internet connectivity
-
-Azure Disk Encryption requires Internet connectivity for access to Active Directory, Key Vault, Storage, and package management endpoints.  For more on network security settings, see [Azure Disk Encryption Prerequisites](
-../../security/azure-security-disk-encryption-prerequisites.md).
+- [Azure Disk Encryption for Linux VMs](../windows/disk-encryption-overview.md#supported-vms-and-operating-systems)
+- [Networking requirements](../windows/disk-encryption-overview.md#networking-requirements)
+- [Group Policy requirements](../windows/disk-encryption-overview.md#group-policy-requirements)
 
 ## Extension schemata
 
