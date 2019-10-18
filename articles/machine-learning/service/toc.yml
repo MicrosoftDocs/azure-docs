@@ -277,18 +277,18 @@
       href: how-to-monitor-data-drift.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
-  - name: Create reusable workflows
+  - name: Build & use ML pipelines
     displayName: pipelines
     items:
-    - name: Create ML pipelines in Python
+    - name: Create ML pipelines (Python)
       href: how-to-create-your-first-pipeline.md
-    - name: Debug and troubleshoot ML pipelines
+    - name: Schedule a pipeline (Python)
+      href: how-to-schedule-pipelines.md
+    - name: Debug & troubleshoot pipelines
       href: how-to-debug-pipelines.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: Schedule ML pipelines in Python
-      href: how-to-schedule-pipelines.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
