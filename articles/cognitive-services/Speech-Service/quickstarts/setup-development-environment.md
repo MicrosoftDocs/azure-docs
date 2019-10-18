@@ -22,7 +22,7 @@ zone_pivot_groups: programming-languages-set-two
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](..\quickstart-platform-csharp-dotnet-windows.md)]
+[!INCLUDE [C# quickstart](../quickstart-platform-csharp-dotnet-windows.md)]
 
 ::: zone-end
 
