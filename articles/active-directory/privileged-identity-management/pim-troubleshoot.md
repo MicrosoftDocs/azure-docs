@@ -23,7 +23,7 @@ Are you having a problem with Privileged Identity Management (PIM) in Azure Acti
 
 ### Problem
 
-You get an authorization error when you try to make a user eligible for an Azure AD admin role and you are unable to access Azure resources under Privileged Identity Management. You are unable to access Azure resources under Privileged Identity Management even if you are a Global admin and the owner of the subscription.
+"As an active owner or user access administrator for an Azure resource, you are able to see your resource inside Privileged Identity Management but can't perform any actions such as making an eligible assignment or viewing a list of role assignments from the resource overview page. Any of these actions will result in an authorization error.
 
 ### Cause
 
