@@ -19,7 +19,7 @@ The workspace is the top-level resource for Azure Machine Learning, providing a 
 
 Once you have a model you like, you register it with the workspace. You then use the registered model and scoring scripts to deploy to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the model to an Azure IoT Edge device as a module.
 
-Pricing and features available depend on whether [Basic or Enterprise SKU](overview-what-is-azure-ml.md#sku) is selected for the workspace. You select the SKU when you [create the workspace](#create-workspace).  You can also [upgrade](#upgrade) from Basic to Enterprise SKU.
+Pricing and features available depend on whether [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku) is selected for the workspace. You select the edition when you [create the workspace](#create-workspace).  You can also [upgrade](#upgrade) from Basic to Enterprise edition.
 
 ## Taxonomy 
 
@@ -70,14 +70,14 @@ You can also perform the following workspace management tasks:
 |---------------------------|---------|---------|------------|------------|
 | Create a workspace        | **&check;**     | | **&check;** | **&check;** |
 | Manage workspace access    | **&check;**   || |  **&check;**    |
-| Upgrade to Enterprise SKU    | **&check;** |  | |     |
+| Upgrade to Enterprise edition    | **&check;** |  | |     |
 | Create and manage compute resources    |   | **&check;** | **&check;** |  **&check;**   |
 | Create a compute instance |   | **&check;** | |     |
 
 
 ## <a name='create-workspace'></a> Create a workspace
 
-When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The SKU determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](ui-concept-visual-interface.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
+When you create a workspace, you decide whether to create it with [Basic or Enterprise edition](overview-what-is-azure-ml.md#sku). The edition determines the features available in the workspace. Among other features, Enterprise edition gives you access to [Azure Machine Learning designer](ui-concept-visual-interface.md) and the studio version of building [automated machine learning experiments](tutorial-first-experiment-automated-ml.md).  For more details and pricing information, see [Azure Machine Learning pricing](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 There are multiple ways to create a workspace:  
 
@@ -111,5 +111,5 @@ To get started with Azure Machine Learning, see:
 + [Manage a workspace](how-to-manage-workspace.md)
 + [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: Get started with Azure Machine Learning  with the R SDK](tutorial-1st-experiment-R-set-up.md)
-+ [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces)
++ [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)
 + [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces)
