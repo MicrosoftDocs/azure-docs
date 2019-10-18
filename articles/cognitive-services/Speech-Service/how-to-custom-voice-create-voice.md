@@ -18,6 +18,7 @@ In [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md), we desc
 
 > [!NOTE]
 > This page assumes you have read [Get started with Custom Voice](how-to-custom-voice.md) and [Prepare data for Custom Voice](how-to-custom-voice-prepare-data.md), and have created a Custom Voice project.
+> The Custom Neural Voice service is a gated service. Customers gain access to the technology only after their applications are reviewed and they have committed to using it in alignment with our ethics principles. Read more about our gating process and how to apply [here](concepts-gating-overview.md).
 
 Check the languages supported for custom voice: [language for customization](language-support.md#customization).
 

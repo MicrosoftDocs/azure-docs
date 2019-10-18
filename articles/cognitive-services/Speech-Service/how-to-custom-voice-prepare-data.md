@@ -18,6 +18,9 @@ When you're ready to create a custom text-to-speech voice for your application, 
 
 You can start with a small amount of data to create a proof of concept. However, the more data that you provide, the more natural your custom voice will sound. Before you can train your own text-to-speech voice model, you'll need audio recordings and the associated text transcriptions. On this page, we'll review data types, how they are used, and how to manage each.
 
+> [!NOTE]
+> This page assumes you have read [Get started with Custom Voice](how-to-custom-voice.md). The Custom Neural Voice service is a gated service. Customers gain access to the technology only after their applications are reviewed and they have committed to using it in alignment with our ethics principles. Read more about our gating process and how to apply [here](concepts-gating-overview.md).
+
 ## Data types
 
 A voice training dataset includes audio recordings, and a text file with the associated transcriptions. Each audio file should contain a single utterance (a single sentence or a single turn for a dialog system), and be less than 15 seconds long.
