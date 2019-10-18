@@ -27,7 +27,7 @@ You can also see the history of which runtime version your past jobs have used i
 3. Optionally, click **Filter** to help you find the jobs by **Time Range**, **Job Name**, and **Author** values.
 4. You can see the runtime used in the completed jobs.
 
-![Displaying the runtime version of a past job](.media\data-lake-analytics-runtime-troubleshoot\USQL runtime version.png)
+![Displaying the runtime version of a past job](./media/data-lake-analytics-runtime-troubleshoot/USQL-runtime-version.png)
 
 The following are the available runtime versions.
 
