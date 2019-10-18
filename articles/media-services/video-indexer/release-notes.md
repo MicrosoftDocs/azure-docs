@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 09/26/2019
 ms.author: juliako
 ---
 
@@ -23,6 +23,63 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## September 2019
+ 
+Multiple advancements announced at IBC 2019:
+ 
+* Animated character recognition  (public preview)
+
+    Ability to detect group ad recognize characters in animated content, via integration with custom vision. For more information, see [Animated character detection](animated-characters-recognition.md).
+* Multi-language identification (public preview)
+
+    Detect segments in multiple languages in the audio track and create a multilingual transcript based on them. Initial support: English, Spanish, German and French. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
+* Named entity extraction for People and Location
+
+    Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
+* Editorial shot type classification
+
+    Tagging of shots with editorial types such as close up, medium shot, two shot, indoor, outdoor etc. For more information, see [Editorial shot type detection](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* Topic inferencing enhancement - now covering level 2
+    
+    The topic inferencing model now support deeper granularity of the IPTC taxonomy. Read full details at [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
+
+## August 2019
+ 
+### Video Indexer deployed in UK South
+
+You can now create a Video Indexer paid account in the UK south region.
+
+### New Editorial Shot Type insights available
+
+New tags added to video shots provides editorial “shot types” to identify them with common editorial phrases used in the content creation workflow such as: extreme closeup, closeup, wide, medium, two shot, outdoor, indoor, left face and right face (Available in the JSON).
+
+### New People and Locations entities extraction available
+
+Video Indexer identifies named locations and people via natural language processing (NLP) from the video’s OCR and transcription. Video Indexer uses machine learning algorithm to recognize when specific locations (for example, the Eiffel Tower) or people (for example, John Doe) are being called out in a video.
+
+### Keyframes extraction in native resolution
+
+Keyframes extracted by Video Indexer are available in the original resolution of the video.
+ 
+### GA for training custom face models from images
+
+Training faces from images moved from Preview mode to GA (available via API and in the portal).
+
+> [!NOTE]
+> There is no pricing impact related to the "Preview to GA" transition.
+
+### Hide gallery toggle option
+
+User can choose to hide the gallery tab from the portal (similar to hiding the samples tab).
+ 
+### Maximum URL size increased
+
+Support for URL query string of 4096 (instead of 2048) on indexing a video.
+ 
+### Support for multi-lingual projects
+
+Projects can now be created based on videos indexed in different languages (API only).
 
 ## July 2019
 

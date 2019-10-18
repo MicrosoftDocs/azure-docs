@@ -50,8 +50,11 @@ The **Premium** tier enables you to distribute a single Azure API Management ins
 
 You can upgrade and downgrade to and from any tier. Note that upgrading or downgrading can remove some features - for example, VNETs or multi-region deployment, when downgrading to Standard or Basic from the Premium tier.
 
->[!NOTE]
->The upgrade or scale process can take from 15 to 45 minutes to apply. You get notified when it is done.
+> [!NOTE]
+> The upgrade or scale process can take from 15 to 45 minutes to apply. You get notified when it is done.
+
+> [!NOTE]
+> API Management service in the **Consumption** tier scales automatically based on the traffic.
 
 ## Use the Azure portal to upgrade and scale
 

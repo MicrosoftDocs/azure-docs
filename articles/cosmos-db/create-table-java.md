@@ -8,10 +8,10 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.custom: seo-java-august2019
+ms.custom: seo-java-august2019, seo-java-september2019
 
 ---
-# Quickstart: Build a Table API app with Java and Azure Cosmos DB
+# Quickstart: Build a Java app to manage Azure Cosmos DB Table API data
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -20,7 +20,7 @@ ms.custom: seo-java-august2019
 > * [Python](create-table-python.md)
 > 
 
-This quickstart shows how to use Java and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. This quickstart also shows you how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
+This quickstart shows how to use Java and the Azure Cosmos DB [Table API](table-introduction.md) to build an app by cloning an example from GitHub. You'll learn how to create an Azure Cosmos DB account and how to use Data Explorer to create tables and entities in the web-based Azure portal.
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
@@ -82,7 +82,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](https://portal.azure.com/), select **Connection String**. 
 
-   ![View and copy the required connection string information from the in the Connection String pane](./media/create-table-java/connection-string.png)
+   ![View the connection string information in the Connection String pane](./media/create-table-java/cosmos-db-quickstart-connection-string.png)
 
 2. Copy the PRIMARY CONNECTION STRING using the copy button on the right.
 

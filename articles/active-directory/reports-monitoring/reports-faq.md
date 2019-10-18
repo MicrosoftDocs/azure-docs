@@ -3,7 +3,7 @@ title: Azure Active Directory Reports FAQ | Microsoft Docs
 description: Frequently asked quesitons around Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?**
 
-**A:** You can use the [Identity Protection risk events API](../identity-protection/graph-get-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk events into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current MS Graph investments or help you begin your transition to this new standard platform.
+**A:** You can use the [Identity Protection risk detections API](../identity-protection/graph-get-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current MS Graph investments or help you begin your transition to this new standard platform.
 
 ---
 
@@ -104,7 +104,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ## Risky sign-ins
 
-**Q: There is a risk event in Identity Protection but I’m not seeing corresponding sign-in in the sign-ins report. Is this expected?**
+**Q: There is a risk detection in Identity Protection but I’m not seeing corresponding sign-in in the sign-ins report. Is this expected?**
 
 **A:** Yes, Identity Protection evaluates risk for all authentication flows whether interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
 
@@ -112,7 +112,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How do I know why a sign-in or a user was flagged risky in the Azure portal?**
 
-**A:** If you have an **Azure AD Premium** subscription, you can learn more about the underlying risk events by selecting the user in **Users flagged for risk** or by selecting a record in the **Risky sign-ins** report. If you have a **Free** or **Basic** subscription, then you can view the users at risk and risky sign-ins reports, but you cannot see the underlying risk event information.
+**A:** If you have an **Azure AD Premium** subscription, you can learn more about the underlying risk detections by selecting the user in **Users flagged for risk** or by selecting a record in the **Risky sign-ins** report. If you have a **Free** or **Basic** subscription, then you can view the users at risk and risky sign-ins reports, but you cannot see the underlying risk detection information.
 
 ---
 
@@ -122,7 +122,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ---
 
-**Q: What does the risk event "Sign-in with additional risk detected" signify?**
+**Q: What does the risk detection "Sign-in with additional risk detected" signify?**
 
 **A:** To give you insight into all the risky sign-ins in your environment, "Sign-in with additional risk detected" functions as placeholder for sign-ins for detections that are exclusive to Azure AD Identity Protection subscribers.
 

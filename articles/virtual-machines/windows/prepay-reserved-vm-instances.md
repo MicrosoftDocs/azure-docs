@@ -5,11 +5,11 @@ services: virtual-machines-windows
 author: yashar
 manager: yashar
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 08/29/2019
 ms.author: banders
 
 ---

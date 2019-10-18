@@ -1,6 +1,6 @@
 
 - name: Azure Cognitive Services Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
@@ -16,6 +16,8 @@
   items:
   - name: Container support
     href: cognitive-services-container-support.md
+  - name: Container FAQ
+    href: ./containers/container-faq.md
   - name: Container recipes
     items:
     - name: Container Reuse

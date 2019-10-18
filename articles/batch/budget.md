@@ -6,7 +6,6 @@ author: laurenhughes
 manager: gwallace
 
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute

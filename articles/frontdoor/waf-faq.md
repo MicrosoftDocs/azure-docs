@@ -26,7 +26,7 @@ An Azure WAF policy can be applied to web applications hosted on Application Gat
 
 ## What is WAF for Azure Front Door? 
 
-Azure Front Door is a highly scalable, globally distributed application and content delivery network. Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the Azure network edge, close to attack sources before they enter your virtual network, offers protection without sacrificing performance.
+Azure Front Door is a highly scalable, globally distributed application and content delivery network. When Azure WAF is integrated with Azure Front Door, denial-of-service and targeted application attacks are stopped at the edge of the Azure  network. This protection occurs close to the source of the attacks before they have a chance to enter your vitrual network. WAF for Azure Front Door service offers protection without sacrificing performance.
 
 ## Does Azure WAF support HTTPS?
 
@@ -64,6 +64,9 @@ Currently, ModSec CRS 2.2.9 and CRS 3.0 rules are only supported with WAF at App
 ## Is DDoS protection integrated with Front Door? 
 
 Globally distributed at Azure network edges, Azure Front Door can absorb and geographically isolate large volume attacks. You can create custom WAF policy to automatically block and rate limit http(s) attacks that have known signatures. Further more, you can enable DDoS Protection Standard on the VNet where your back-ends are deployed. Azure DDoS Protection Standard customers receive additional benefits including cost protection, SLA guarantee, and access to experts from DDoS Rapid Response Team for immediate help during an attack. 
+
+We recommend locking down your backends in production environment to reduce DDoS attack surface. See [How do I lock down the access to my backend to only Azure Front Door?](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
+
 
 ## Next steps
 

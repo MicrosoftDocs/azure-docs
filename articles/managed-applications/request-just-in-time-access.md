@@ -1,5 +1,5 @@
 ---
-title: Enable and request just-in-time access for Azure Managed Applications
+title: Request just-in-time access - Azure Managed Applications
 description: Describes how publishers of Azure Managed Applications request just-in-time access to a managed application.
 author: MSEvanhi
 ms.service: managed-applications
@@ -57,7 +57,7 @@ In "steps":
 In "outputs":
 
 ```json
-"jitAccessPolicy": "[parse(concat('{\"jitAccessEnabled\":', string(steps('jitConfiguration').jitConfigurationControl.jitEnabled), ',\"jitApprovalMode\":\"', steps('jitConfiguration').jitConfigurationControl.jitApprovalMode, '\",\"maximumJitAccessDuration\":\"', steps('jitConfiguration').jitConfigurationControl.maxAccessDuration, '\",\"jitApprovers\":', string(steps('jitConfiguration').jitConfigurationControl.approvers), '}'))]"
+"jitAccessPolicy": "[steps('jitConfiguration').jitConfigurationControl]"
 ```
 
 > [!NOTE]

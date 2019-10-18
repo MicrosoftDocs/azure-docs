@@ -7,7 +7,7 @@ ms.service: search
 ms.topic: conceptual
 author: "Yahnoosh"
 ms.author: "jlembicz"
-ms.manager: cgronlun
+manager: nitinme
 translation.priority.mt:
   - "de-de"
   - "es-es"

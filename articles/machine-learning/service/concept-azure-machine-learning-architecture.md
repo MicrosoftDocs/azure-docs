@@ -1,7 +1,7 @@
 ---
 title: 'Architecture & key concepts'
-titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terms, concepts, and workflow that make up Azure Machine Learning service.
+titleSuffix: Azure Machine Learning
+description: Learn about the architecture, terms, concepts, and workflows that make up Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/12/2019
 ms.custom: seoapril2019
-# As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
+# As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ms.custom: seodec18
 ---
 
-# How Azure Machine Learning service works: Architecture and concepts
+# How Azure Machine Learning works: Architecture and concepts
 
-Learn about the architecture, concepts, and workflow for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
+Learn about the architecture, concepts, and workflow for Azure Machine Learning. The major components of the service and the general workflow for using the service are shown in the following diagram:
 
-![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)
+![Azure Machine Learning architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)
 
 ## Workflow
 
@@ -44,116 +44,30 @@ Use these tools for Azure Machine Learning:
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
-+ Use the [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
++ Use the [visual interface (preview) for Azure Machine Learning](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
 
 > [!NOTE]
-> Although this article defines terms and concepts used by Azure Machine Learning service, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+> Although this article defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
 ## Glossary
-
-+ <a href="#workspaces">Workspace</a>
-+ <a href="#experiments">Experiments</a>
-+ <a href="#models">Models</a>
-+ <a href="#run-configurations">Run Configuration</a>
-+ <a href="#datasets-and-datastores">Dataset & datastores</a>
-+ <a href="#compute-targets">Compute targets</a>
-+ <a href="#training-scripts">Training script</a>
-+ <a href="#runs">Run</a>
-+ <a href="#github-tracking-and-integration">Git tracking</a>
-+ <a href="#snapshots">Snapshot</a>
 + <a href="#activities">Activity</a>
-+ <a href="#images">Image</a>
++ <a href="#compute-targets">Compute targets</a>
++ <a href="#datasets-and-datastores">Dataset & datastores</a>
 + <a href="#deployment">Deployment</a>
-+ <a href="#web-service-deployments">Web services</a>
++ <a href="#environments">Environments</a>
++ [Estimators](#estimators)
++ <a href="#experiments">Experiments</a>
++ <a href="#github-tracking-and-integration">Git tracking</a>
 + <a href="#iot-module-deployments">IoT modules</a>
-+ <a href="#ml-pipelines">ML pipelines</a>
 + <a href="#logging">Logging</a>
-
-### Workspaces
-
-[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
-
-### Experiments
-
-An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that newly specified name is automatically created.
-
-For an example of using an experiment, see [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md).
-
-### Models
-
-At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
-
-A model is produced by a run in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in an Azure Machine Learning service workspace.
-
-Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
-
-For an example of training a model, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
-
-The **model registry** keeps track of all the models in your Azure Machine Learning service workspace.
-
-Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
-
-When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
-
-> [!TIP]
-> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
-
-You can't delete a registered model that is being used by an active deployment.
-
-For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
-
-### Run configurations
-
-A run configuration is a set of instructions that defines how a script should be run in a specified compute target. The configuration includes a wide set of behavior definitions, such as whether to use an existing Python environment or to use a Conda environment that's built from a specification.
-
-A run configuration can be persisted into a file inside the directory that contains your training script, or it can be constructed as an in-memory object and used to submit a run.
-
-For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
-
-### Datasets and datastores
-
-**Azure Machine Learning Datasets** (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between Datasets used in training and in production.
-
-Datasets provides methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
-
-For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).  For more examples using Datasets, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets).
-
-A **datastore** is a storage abstraction over an Azure storage account. The datastore can use either an Azure blob container or an Azure file share as the back-end storage. Each workspace has a default datastore, and you can register additional datastores. Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve files from the datastore.
-
-### Compute targets
-
-A [compute target](concept-compute-target.md) lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code.
-
-Learn more about the [available compute targets for training and deployment](concept-compute-target.md).
-
-### Training scripts
-
-To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information that's gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script that's specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
-
-For an example, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
-
-### Runs
-
-A run is a record that contains the following information:
-
-* Metadata about the run (timestamp, duration, and so on)
-* Metrics that are logged by your script
-* Output files that are autocollected by the experiment or explicitly uploaded by you
-* A snapshot of the directory that contains your scripts, prior to the run
-
-You produce a run when you submit a script to train a model. A run can have zero or more child runs. For example, the top-level run might have two child runs, each of which might have its own child run.
-
-
-### GitHub tracking and integration
-
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
-
-### Snapshots
-
-When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
-
-> [!NOTE]
-> To prevent unnecessary files from being included in the snapshot, make an ignore file (.gitignore or .amlignore). Place this file in the Snapshot directory and add the filenames to ignore in it. The .amlignore file uses the same [syntax and patterns as the .gitignore file](https://git-scm.com/docs/gitignore). If both files exist, the .amlignore file takes precedence.
++ <a href="#ml-pipelines">ML pipelines</a>
++ <a href="#models">Models</a>
++ <a href="#runs">Run</a>
++ <a href="#run-configurations">Run Configuration</a>
++ <a href="#snapshots">Snapshot</a>
++ <a href="#training-scripts">Training script</a>
++ <a href="#web-service-deployments">Web services</a>
++ <a href="#workspaces">Workspace</a>
 
 ### Activities
 
@@ -164,28 +78,21 @@ An activity represents a long running operation. The following operations are ex
 
 Activities can provide notifications through the SDK or the web UI so that you can easily monitor the progress of these operations.
 
-### Images
+### Compute targets
 
-Images provide a way to reliably deploy a model, along with all components you need to use the model. An image contains the following items:
+A [compute target](concept-compute-target.md) lets you specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code.
 
-* A model.
-* A scoring script or application. You use the script to pass input to the model and return the output of the model.
-* The dependencies that are needed by the model or scoring script or application. For example, you might include a Conda environment file that lists Python package dependencies.
+Learn more about the [available compute targets for training and deployment](concept-compute-target.md).
 
-Azure Machine Learning can create two types of images:
+### Datasets and datastores
 
-* **FPGA image**: Used when you deploy to a field-programmable gate array in Azure.
-* **Docker image**: Used when you deploy to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
+**Azure Machine Learning Datasets** (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore data, and manage the life cycle of different Dataset definitions.
 
-The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
+Datasets provide methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
 
-### Image registry
+For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).  For more examples using Datasets, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/datasets).
 
-Images are cataloged in the **image registry** in your workspace. You can provide additional metadata tags when you create the image, so that you can query them to find your image later.
-
-For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
-
-For an example of deploying a model using a custom image, see [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md).
+A **datastore** is a storage abstraction over an Azure storage account. The datastore can use either an Azure blob container or an Azure file share as the back-end storage. Each workspace has a default datastore, and you can register additional datastores. Use the Python SDK API or the Azure Machine Learning CLI to store and retrieve files from the datastore.
 
 ### Deployment
 
@@ -209,6 +116,43 @@ If you've enabled monitoring, Azure collects telemetry data from the model insid
 
 Azure IoT Edge ensures that your module is running, and it monitors the device that's hosting it.
 
+### Environments
+
+Azure ML Environments are used to specify the configuration (Docker / Python / Spark / etc.) used to create a reproducible environment for data preparation, model training and model serving. They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across different compute targets.
+
+You can use an environment object on your local compute to develop your training script, reuse that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment. 
+
+Learn [how to create and manage a reusable ML environment](how-to-use-environments.md) for training and inference.
+
+### Estimators
+
+To facilitate model training with popular frameworks, the estimator class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
+
+For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
+
+For more information, see the following articles:
+
+* [Train ML Models with estimators](how-to-train-ml-models.md).
+* [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
+* [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
+* [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-chainer.md).
+
+### Experiments
+
+An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that newly specified name is automatically created.
+
+For an example of using an experiment, see [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md).
+
+
+### GitHub tracking and integration
+
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
+
+
+### Logging
+
+When you develop your solution, use the Azure Machine Learning Python SDK in your Python script to log arbitrary metrics. After the run, query the metrics to determine whether the run has produced the model you want to deploy.
+
 ### ML Pipelines
 
 You use machine learning pipelines to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. 
@@ -217,14 +161,70 @@ Pipeline steps are reusable, and can be run without rerunning subsequent steps i
 
 For more information about machine learning pipelines with this service, see [Pipelines and Azure Machine Learning](concept-ml-pipelines.md).
 
-### Logging
+### Models
 
-When you develop your solution, use the Azure Machine Learning Python SDK in your Python script to log arbitrary metrics. After the run, query the metrics to determine whether the run has produced the model you want to deploy.
+At its simplest, a model is a piece of code that takes an input and produces output. Creating a machine learning model involves selecting an algorithm, providing it with data, and tuning hyperparameters. Training is an iterative process that produces a trained model, which encapsulates what the model learned during the training process.
+
+A model is produced by a run in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in an Azure Machine Learning workspace.
+
+Azure Machine Learning is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
+
+For an example of training a model using Scikit-learn and an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+The **model registry** keeps track of all the models in your Azure Machine Learning workspace.
+
+Models are identified by name and version. Each time you register a model with the same name as an existing one, the registry assumes that it's a new version. The version is incremented, and the new model is registered under the same name.
+
+When you register the model, you can provide additional metadata tags and then use the tags when you search for models.
+
+> [!TIP]
+> A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in your Azure Machine Learning workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+You can't delete a registered model that is being used by an active deployment.
+
+For an example of registering a model, see [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+
+### Runs
+
+A run is a single execution of a training script. Azure Machine Learning records all runs and stores the following information:
+
+* Metadata about the run (timestamp, duration, and so on)
+* Metrics that are logged by your script
+* Output files that are autocollected by the experiment or explicitly uploaded by you
+* A snapshot of the directory that contains your scripts, prior to the run
+
+You produce a run when you submit a script to train a model. A run can have zero or more child runs. For example, the top-level run might have two child runs, each of which might have its own child run.
+
+### Run configurations
+
+A run configuration is a set of instructions that defines how a script should be run in a specified compute target. The configuration includes a wide set of behavior definitions, such as whether to use an existing Python environment or to use a Conda environment that's built from a specification.
+
+A run configuration can be persisted into a file inside the directory that contains your training script, or it can be constructed as an in-memory object and used to submit a run.
+
+For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
+### Snapshots
+
+When you submit a run, Azure Machine Learning compresses the directory that contains the script as a zip file and sends it to the compute target. The zip file is then extracted, and the script is run there. Azure Machine Learning also stores the zip file as a snapshot as part of the run record. Anyone with access to the workspace can browse a run record and download the snapshot.
+
+> [!NOTE]
+> To prevent unnecessary files from being included in the snapshot, make an ignore file (.gitignore or .amlignore). Place this file in the Snapshot directory and add the filenames to ignore in it. The .amlignore file uses the same [syntax and patterns as the .gitignore file](https://git-scm.com/docs/gitignore). If both files exist, the .amlignore file takes precedence.
+
+### Training scripts
+
+To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information that's gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script that's specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
+
+For an example, see [Tutorial: Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
+
+### Workspaces
+
+[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
+
 
 ### Next steps
 
-To get started with Azure Machine Learning service, see:
+To get started with Azure Machine Learning, see:
 
-* [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
-* [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md)
+* [What is Azure Machine Learning?](overview-what-is-azure-ml.md)
+* [Create an Azure Machine Learning workspace](how-to-manage-workspace.md)
 * [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)

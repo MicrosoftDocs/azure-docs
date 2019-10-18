@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
@@ -107,4 +106,4 @@ Regarding the `New-AzLoadBalancerRuleConfig` command, the `-FrontendPort` repres
 
 ## Next steps
 
-Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-patterns-networking.md).
+Learn more about [networking in Service Fabric](service-fabric-patterns-networking.md).

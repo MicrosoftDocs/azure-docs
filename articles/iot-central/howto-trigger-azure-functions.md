@@ -14,6 +14,8 @@ manager: peterpr
 
 *This topic applies to builders and administrators.*
 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
 Use Azure Functions to run serverless code on the webhook output from IoT Central rules. You don't have to provision a VM or publish a web app to use Azure Functions, but instead you can run this code serverless. Use Azure Functions to transform the webhook payload before sending it to its final destination such as a SQL database or Event Grid.
 
 ## Prerequisites

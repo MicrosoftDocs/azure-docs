@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/13/2018
+ms.date: 10/15/2019
 ms.author: stemi
 
 ---
@@ -58,7 +58,7 @@ Navigate through the links below to get started using Azure Government.
 * [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
 * [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
 * [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
-* [Connect with Azure SDK for Python](https://docs.microsoft.com/python/azure/python-sdk-azure-multi-cloud?view=azure-python)
+* [Connect with Azure SDK for Python](/azure/python/python-sdk-azure-multi-cloud)
 
 ### Azure Government Video Library 
 The [Azure Government video library](https://channel9.msdn.com/blogs/Azure-Government) contains many helpful videos to get you up and running with Azure Government. 
@@ -73,12 +73,10 @@ For more information on Azure Government Compliance, refer to the [compliance do
 
 The following table shows the mapping between some Azure services and Azure Government endpoints.
 
-> [!NOTE]
-> The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
-
 | Name | Azure Government endpoint | Azure Commercial endpoint |
 | --- | --- | --- |
 | Portal | https:\//portal.azure.us | https:\//portal.azure.com |
+| Azure Cloud Shell |  https:\//portal.azure.us | https:\//portal.azure.com |
 | Active Directory Endpoint and Authority | https:\//login.microsoftonline.us | https:\//login.microsoftonline.com <br/> https:\//login.windows.net |
 | Active Directory tenant names | [yourtenantname].onmicrosoft.com | [yourtenantname].onmicrosoft.com |
 | Active Directory Graph API | https:\//graph.windows.net/ | https:\//graph.windows.net/ |

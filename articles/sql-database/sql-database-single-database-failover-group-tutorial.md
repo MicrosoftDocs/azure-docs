@@ -55,16 +55,15 @@ In this step, you will create a [failover group](sql-database-auto-failover-grou
 Create your failover group and add your single database to it using the Azure portal. 
 
 
-1. Select **All Services** on the upper-left hand corner of the [Azure portal](https://portal.azure.com). 
-1. Type `sql servers` in the search box. 
-1. (Optional) Select the star icon next to SQL Servers to favorite **SQL servers** and add it to your left-hand navigation pane. 
-    
-    ![Locate SQL Servers](media/sql-database-single-database-create-failover-group-tutorial/all-services-sql-servers.png)
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the single database created in the section 2, such as `mySampleDatbase`. 
+1. Select the name of the server under **Server name** to open the settings for the server.
 
-1. Select **SQL servers** and choose the server you created in section 1, such as `mysqlserver`.
+   ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. Select **Failover groups** under the **Settings** pane, and then select **Add group** to create a new failover group. 
 
-    ![Add new failover group](media/sql-database-single-database-create-failover-group-tutorial/sqldb-add-new-failover-group.png)
+    ![Add new failover group](media/sql-database-single-database-failover-group-tutorial/sqldb-add-new-failover-group.png)
 
 1. On the **Failover Group** page, enter or select the following values, and then select **Create**:
     - **Failover group name**: Type in a unique failover group name, such as `failovergrouptutorial`. 
@@ -72,16 +71,16 @@ Create your failover group and add your single database to it using the Azure po
         - **Server name**: Type in a unique name for the secondary server, such as `mysqlsecondary`. 
         - **Server admin login**: Type `azureuser`
         - **Password**: Type a complex password that meets password requirements.
-        - **Location**: Choose a location from the drop-down, such as East US 2. This location cannot be the same location as your primary server.
+        - **Location**: Choose a location from the drop-down, such as `East US`. This location cannot be the same location as your primary server.
 
     > [!NOTE]
     > The server login and firewall settings must match that of your primary server. 
     
-      ![Create a secondary server for the failover group](media/sql-database-single-database-create-failover-group-tutorial/create-secondary-failover-server.png)
+      ![Create a secondary server for the failover group](media/sql-database-single-database-failover-group-tutorial/create-secondary-failover-server.png)
 
    - **Databases within the group**: Once a secondary server is selected, this option becomes unlocked. Select it to **Select databases to add** and then choose the database you created in section 1. Adding the database to the failover group will automatically start the geo-replication process. 
         
-    ![Add SQL DB to failover group](media/sql-database-single-database-create-failover-group-tutorial/add-sqldb-to-failover-group.png)
+    ![Add SQL DB to failover group](media/sql-database-single-database-failover-group-tutorial/add-sqldb-to-failover-group.png)
         
 
 # [PowerShell](#tab/azure-powershell)
@@ -93,12 +92,12 @@ Create your failover group and add your single database to it using PowerShell.
    ```powershell-interactive
    # $subscriptionId = '<SubscriptionID>'
    # $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   # $location = "West US 2"
+   # $location = "West US"
    # $adminLogin = "azureuser"
    # $password = "PWD27!"+(New-Guid).Guid
    # $serverName = "mysqlserver-$(Get-Random)"
    # $databaseName = "mySampleDatabase"
-   $drLocation = "East US 2"
+   $drLocation = "East US"
    $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
 
@@ -188,16 +187,21 @@ In this step, you will fail your failover group over to the secondary server, an
 # [Portal](#tab/azure-portal)
 Test failover using the Azure portal. 
 
-1. Navigate to your **SQL servers** server within the [Azure portal](https://portal.azure.com). 
+1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
+1. Select the single database created in the section 2, such as `mySampleDatbase`. 
+1. Select the name of the server under **Server name** to open the settings for the server.
+
+   ![Open server for single db](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
+
 1. Select **Failover groups** under the **Settings** pane and then choose the failover group you created in section 2. 
   
-   ![Select the failover group from the portal](media/sql-database-single-database-create-failover-group-tutorial/select-failover-group.png)
+   ![Select the failover group from the portal](media/sql-database-single-database-failover-group-tutorial/select-failover-group.png)
 
 1. Review which server is primary and which server is secondary. 
 1. Select **Failover** from the task pane to failover your failover group containing your sample single database. 
 1. Select **Yes** on the warning that notifies you that TDS sessions will be disconnected. 
 
-   ![Fail over your failover group containing your SQL database](media/sql-database-single-database-create-failover-group-tutorial/failover-sql-db.png)
+   ![Fail over your failover group containing your SQL database](media/sql-database-single-database-failover-group-tutorial/failover-sql-db.png)
 
 1. Review which server is now primary and which server is secondary. If fail over succeeded, the two servers should have swapped roles. 
 1. Select **Failover** again to fail the servers back to their originally roles. 

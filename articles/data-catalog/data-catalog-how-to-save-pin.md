@@ -31,7 +31,7 @@ To create a saved search, do the following:
 ### Manage saved searches
 After you have saved one or more searches, a **Saved Searches** option is displayed beneath the **Current Search** box. When the list is expanded, all saved searches are displayed.
 
- ![List of saved searches](./media/data-catalog-how-to-save-pin/03-list.png)
+ ![Data Catalog - List of saved searches](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Do any of the following:
 
@@ -50,18 +50,18 @@ Do any of the following:
 ### Organizational saved searches
 All user in your organization can save searches for their own use. Data Catalog administrators can also save searches for all users within the organization. When administrators save a search, they're presented with a **Share within the company** option. Selecting this option shares the saved search for all users in the organization.
 
- ![Organizational saved searches](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Data Catalog - Organizational saved searches](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## Pinned data assets
 With saved searches, you can save and reuse search definitions. The data assets that are returned by the searches might change over time as the contents of the catalog change. When you pin data assets, you can explicitly identify specific data assets to make them easier to access without needing to use a search.
 
 Pinning a data asset is straightforward. To add the data asset to your pinned list, you simply click the **pin** icon. The icon is displayed in the corner of the asset tile in the tile view, and in the left-most column in the list view in the Azure Data Catalog portal.
 
-![The data-asset pin icon](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Data Catalog - The data-asset pin icon](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
 Unpinning a data asset is equally straightforward. Simply click the **unpin** icon to toggle the setting for the selected asset.
 
-![The data-asset unpin icon](./media/data-catalog-how-to-save-pin/06-unpinning.png)
+![Data Catalog - The data-asset unpin icon](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
 ## The My Assets section
 The Data Catalog portal home page includes a **My Assets** section that displays assets of interest to the current user. This section includes both pinned assets and saved searches.

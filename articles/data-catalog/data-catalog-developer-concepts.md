@@ -13,7 +13,7 @@ Microsoft **Azure Data Catalog** is a fully managed cloud service that provides 
 ## Key concepts
 The **Azure Data Catalog** conceptual model is based on four key concepts: The **Catalog**, **Users**, **Assets**, and **Annotations**.
 
-![Data Catalog concepts](./media/data-catalog-developer-concepts/concept2.png)
+![Azure Data Catalog conceptual model illustration](./media/data-catalog-developer-concepts/concept2.png)
 
 *Figure 1 - Azure Data Catalog simplified conceptual model*
 

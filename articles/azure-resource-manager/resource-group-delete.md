@@ -1,19 +1,19 @@
 ---
 title: Delete resource group and resources - Azure Resource Manager
-description: Describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
+description: Describes how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when a deleting a resource group. It describes the response codes and how Resource Manager handles them to determine if the deletion succeeded. 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 09/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
 ---
 
-# Azure Resource Manager resource group deletion
+# Azure Resource Manager resource group and resource deletion
 
-This article describes how Azure Resource Manager orders the deletion of resources when you delete a resource group.
+This article shows how to delete resource groups and resources. It describes how Azure Resource Manager orders the deletion of resources when you delete a resource group.
 
-## Determine order of deletion
+## How order of deletion is determined
 
 When you delete a resource group, Resource Manager determines the order to delete resources. It uses the following order:
 
@@ -22,8 +22,6 @@ When you delete a resource group, Resource Manager determines the order to delet
 2. Resources that manage other resources are deleted next. A resource can have the `managedBy` property set to indicate that a different resource manages it. When this property is set, the resource that manages the other resource is deleted before the other resources.
 
 3. The remaining resources are deleted after the previous two categories.
-
-## Resource deletion
 
 After the order is determined, Resource Manager issues a DELETE operation for each resource. It waits for any dependencies to finish before proceeding.
 
@@ -35,7 +33,7 @@ For synchronous operations, the expected successful response codes are:
 
 For asynchronous operations, the expected successful response is 202. Resource Manager tracks the location header or the azure-async operation header to determine the status of the asynchronous delete operation.
   
-### Errors
+### Deletion errors
 
 When a delete operation returns an error, Resource Manager retries the DELETE call. Retries happen for the 5xx, 429 and 408 status codes. By default, the time period for retry is 15 minutes.
 
@@ -45,8 +43,6 @@ Resource Manager issues a GET call on each resource that it tried to delete. The
 
 However, if the GET call on the resource returns a 200 or 201, Resource Manager recreates the resource.
 
-### Errors
-
 If the GET operation returns an error, Resource Manager retries the GET for the following error code:
 
 * Less than 100
@@ -55,6 +51,69 @@ If the GET operation returns an error, Resource Manager retries the GET for the 
 * Greater than 500
 
 For other error codes, Resource Manager fails the deletion of the resource.
+
+## Delete resource group
+
+Use one of the following methods to delete the resource group.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name ExampleResourceGroup
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az group delete --name ExampleResourceGroup
+```
+
+# [Portal](#tab/azure-portal)
+
+1. In the [portal](https://portal.azure.com), select the resource group you want to delete.
+
+1. Select **Delete resource group**.
+
+   ![Delete resource group](./media/resource-group-delete/delete-group.png)
+
+1. To confirm the deletion, type the name of the resource group
+
+---
+
+## Delete resource
+
+Use one of the following methods to delete a resource.
+
+# [PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Remove-AzResource `
+  -ResourceGroupName ExampleResourceGroup `
+  -ResourceName ExampleVM `
+  -ResourceType Microsoft.Compute/virtualMachines
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az resource delete \
+  --resource-group ExampleResourceGroup \
+  --name ExampleVM \
+  --resource-type "Microsoft.Compute/virtualMachines"
+```
+
+# [Portal](#tab/azure-portal)
+
+1. In the [portal](https://portal.azure.com), select the resource you want to delete.
+
+1. Select **Delete**. The following screenshot shows the management options for a virtual machine.
+
+   ![Delete resource](./media/resource-group-delete/delete-resource.png)
+
+1. When prompted, confirm the deletion.
+
+---
+
 
 ## Next steps
 

@@ -60,7 +60,7 @@ You can track your order through the Azure portal and through the shipping carri
 
 - Your Data Box arrives on your premises in a locked state. You can use the device credentials available in the Azure portal for your order.  
 
-    When a Data Box is set up, you may need to know who all accessed the device credentials. To figure out who accessed the **Device credentials** blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as `ListCredentials` action.
+    When a Data Box is set up, you may need to know who all accessed the device credentials. To figure out who accessed the **Device credentials** blade, you can query the Activity logs.  Any action that involves accessing **Device details > Credentials** blade is logged into the activity logs as `ListCredentials` action.
 
     ![Query Activity logs](media/data-box-logs/query-activity-log-1.png)
 
@@ -72,7 +72,7 @@ During the data copy to Data Box or Data Box Heavy, an error file is generated i
 
 ### Error.xml file
 
-Make sure that the copy jobs have finished with no errors. If there are errors during the copy process, download the logs from the **Connect and copy** page.
+Make sure that the copy jobs have finished with no errors. If there are errors during the copy process, download the logs from the **Connect and copy** page.
 
 - If you copied a file that is not 512 bytes aligned to a managed disk folder on your Data Box, the file isn't uploaded as page blob to your staging storage account. You will see an error in the logs. Remove the file and copy a file that is 512 bytes aligned.
 - If you copied a VHDX, or a dynamic VHD, or a differencing VHD (these files are not supported), you will see an error in the logs.
@@ -199,7 +199,7 @@ For each order that is processed, the Data Box service creates copy log in the a
 
 A Cyclic Redundancy Check (CRC) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
 
-By default, logs are written to a container named `copylog`. The logs are stored with the following naming convention:
+By default, logs are written to a container named `copylog`. The logs are stored with the following naming convention:
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
@@ -350,7 +350,7 @@ The authentication information fields provide detailed information about this sp
 
 ## Download order history
 
-Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to your device order and navigate to **Order details**. **Download order history** option is available. For more information, see [Download order history](data-box-portal-admin.md#download-order-history).
+Order history is available in Azure portal. If the order is complete and the device cleanup (data erasure from the disks) is complete, then go to your device order and navigate to **Order details**. **Download order history** option is available. For more information, see [Download order history](data-box-portal-admin.md#download-order-history).
 
 If you scroll through the order history, you see:
 

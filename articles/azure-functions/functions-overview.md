@@ -8,7 +8,6 @@ keywords: azure functions, functions, event processing, webhooks, dynamic comput
 
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: overview
 ms.date: 10/03/2017
 ms.author: glenga

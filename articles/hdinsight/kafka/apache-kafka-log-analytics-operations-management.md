@@ -1,10 +1,10 @@
 ---
 title: Azure Monitor logs for Apache Kafka - Azure HDInsight 
 description: Learn how to use Azure Monitor logs to analyze logs from Apache Kafka cluster on Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
@@ -38,7 +38,7 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
 * Disk usage:
 
     ```kusto
-    Perf 
+    Perf
     | where ObjectName == "Logical Disk" and CounterName == "Free Megabytes" and InstanceName == "_Total" and ((Computer startswith_cs "hn" and Computer contains_cs "-") or (Computer startswith_cs "wn" and Computer contains_cs "-")) 
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
@@ -77,17 +77,17 @@ The steps to enable Azure Monitor logs for HDInsight are the same for all HDInsi
 
     > [!IMPORTANT]  
     > Replace the query values with your cluster specific information. For example, `ClusterName_s` must be set to the name of your cluster. `HostName_s` must be set to the domain name of a worker node in the cluster.
-    
+
     You can also enter `*` to search all types logged. Currently the following logs are available for queries:
-    
+
     | Log type | Description |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |
     | metrics\_kafka\_CL | Kafka JMX metrics |
-    
-    ![Image of the CPU usage search](./media/apache-kafka-log-analytics-operations-management/kafka-cpu-usage.png)
- 
+
+    ![Apache kafka log analytics cpu usage](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
+
 ## Next steps
 
 For more information on Azure Monitor, see [Azure Monitor overview](../../log-analytics/log-analytics-get-started.md), and [Query Azure Monitor logs to monitor HDInsight clusters](../hdinsight-hadoop-oms-log-analytics-use-queries.md).

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/18/2019
+ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: 
@@ -83,7 +83,7 @@ Role-based access control for management operations is specified in the `Actions
 - Create, update, or delete a blob container
 - Delete a resource group and all of its resources
 
-Management access is not inherited to your data. This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
+Management access is not inherited to your data provided that the container authentication method is set to "Azure AD User Account" and not "Access Key". This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
 
 Previously, role-based access control was not used for data operations. Authorization for data operations varied across resource providers. The same role-based access control authorization model used for management operations has been extended to data operations.
 
@@ -158,9 +158,9 @@ To view and work with data operations, you must have the correct versions of the
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 or later |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 or later |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
-| [Azure SDK for Go](/go/azure/azure-sdk-go-install) | 15.0.0 or later |
+| [Azure SDK for Go](/azure/go/azure-sdk-go-install) | 15.0.0 or later |
 | [Azure for Java](/java/azure/) | 1.9.0 or later |
-| [Azure for Python](/python/azure) | 0.40.0 or later |
+| [Azure for Python](/azure/python/) | 0.40.0 or later |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 or later |
 
 To view and use the data operations in the REST API, you must set the **api-version** parameter to the following version or later:
@@ -208,16 +208,18 @@ The `NotDataActions` permission specifies the data operations that are excluded 
 
 ## AssignableScopes
 
-The `AssignableScopes` property specifies the scopes (subscriptions, resource groups, or resources) that have this role definition available. You can make the role available for assignment in only the subscriptions or resource groups that require it, and not clutter the user experience for the rest of the subscriptions or resource groups. You must use at least one subscription, resource group, or resource ID.
+The `AssignableScopes` property specifies the scopes (management groups, subscriptions, resource groups, or resources) that have this role definition available. You can make the role available for assignment in only the management groups, subscriptions, or resource groups that require it. You must use at least one management group, subscription, resource group, or resource ID.
 
 Built-in roles have `AssignableScopes` set to the root scope (`"/"`). The root scope indicates that the role is available for assignment in all scopes. Examples of valid assignable scopes include:
 
-| Scenario | Example |
+| Role is available for assignment | Example |
 |----------|---------|
-| Role is available for assignment in a single subscription | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"` |
-| Role is available for assignment in two subscriptions | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e", "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"` |
-| Role is available for assignment only in the Network resource group | `"/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e/resourceGroups/Network"` |
-| Role is available for assignment in all scopes (applies only to built-in roles) | `"/"` |
+| One subscription | `"/subscriptions/{subscriptionId1}"` |
+| Two subscriptions | `"/subscriptions/{subscriptionId1}", "/subscriptions/{subscriptionId2}"` |
+| Network resource group | `"/subscriptions/{subscriptionId1}/resourceGroups/Network"` |
+| One management group | `"/providers/Microsoft.Management/managementGroups/{groupId1}"` |
+| Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
+| All scopes (applies only to built-in roles) | `"/"` |
 
 For information about `AssignableScopes` for custom roles, see [Custom roles for Azure resources](custom-roles.md).
 

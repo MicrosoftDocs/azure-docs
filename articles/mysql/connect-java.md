@@ -4,13 +4,14 @@ description: This quickstart provides a Java code sample you can use to connect 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter, seo-java-july2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/08/2019
 ---
 
-# Azure Database for MySQL: Use Java to connect and query data
+# Quickstart: Use Java to connect to and query data in Azure Database for MySQL
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL by using a Java application and the JDBC driver [MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with developing using Java and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
@@ -28,10 +29,10 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL by us
 Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
-2. From the left-hand menu in Azure portal, click **All resources**, and then search for the server you have created (such as **mydemoserver**).
-3. Click the server name.
+2. From the left-hand menu in Azure portal, select **All resources**, and then search for the server you have created (such as **mydemoserver**).
+3. Select the server name.
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
- ![Azure Database for MySQL server name](./media/connect-java/1_server-overview-name-login.png)
+ ![Azure Database for MySQL server name](./media/connect-java/azure-database-mysql-server-name.png)
 
 ## Connect, create table, and insert data
 Use the following code to connect and load the data using the function with an **INSERT** SQL statement. The [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) method is used to connect to MySQL. Methods [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) and execute() are used to drop and create the table. The prepareStatement object is used to build the insert commands, with setString() and setInt() to bind the parameter values. Method executeUpdate() runs the command for each set of parameters to insert the values. 

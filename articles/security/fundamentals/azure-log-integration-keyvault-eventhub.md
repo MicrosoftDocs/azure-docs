@@ -39,7 +39,7 @@ Information provided along the way helps you understand the reasons behind each 
 
 For more information about the services that this tutorial mentions, see: 
 
-- [Azure Key Vault](/azure/key-vault/key-vault-whatis)
+- [Azure Key Vault](/azure/key-vault/key-vault-overview)
 - [Azure Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
 - [Azure Log Integration](azure-log-integration-overview.md)
 
