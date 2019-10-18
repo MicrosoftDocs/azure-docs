@@ -242,8 +242,8 @@
       href: ../blueprints/ukofficial-iaaswa-overview.md
     - name: PaaS web application
       href: ../blueprints/ukofficial-paaswa-overview.md
-- name: White papers
-  href: white-papers.md
+- name: Security white papers
+  href: https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource
 - name: Azure security services
   href: services-technologies.md
 - name: Technical overviews
