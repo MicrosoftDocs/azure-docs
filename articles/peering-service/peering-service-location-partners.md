@@ -21,15 +21,15 @@ The table in this article provides information on the *Peering Service* connecti
 
 | **Partners** | **Market**|
 |-----------|---------|
-| BBIX |New Zealand  |
-| CCL |New Zealand  |
-| DE-CIX|New Zealand  |
-| Intercloud|France, UK  |
+| BBIX |Asia  |
+| CCL |Asia |
+| DE-CIX|Europe |
+| Intercloud|Europe  |
 | KDDI |Japan  |
-| Kordia |New Zealand  |
+| Kordia |Asia |
 | Liquid Telecom | Africa  |
-| NTT | Japan |
-| PCCW |HK   |
+| NTT | Asia |
+| PCCW |Asia |
 | TATA | India  |
 
 ## Next steps
