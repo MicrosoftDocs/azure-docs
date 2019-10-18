@@ -80,7 +80,7 @@ Select from the following options:
 
 ## Connect lead management
 
-[!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
+[!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
 See [Lead management overview](./commercial-marketplace-get-customer-leads.md) for more information.
 

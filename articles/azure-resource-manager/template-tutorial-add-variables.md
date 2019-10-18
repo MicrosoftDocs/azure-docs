@@ -43,13 +43,13 @@ You're also familiar with the [resourceGroup](resource-group-template-functions-
 
 The [uniqueString](resource-group-template-functions-string.md#uniquestring) function creates a 13 character hash value. The returned value is determined by the parameters you pass in. For this tutorial, you use the resource group ID as the input for the hash value. That means you could deploy this template to different resource groups and get a different unique string value. However, you get the same value if you deploy to the same resource group.
 
-The [concat](resource-group-template-functions-string.md#concat) function takes values and combines them. For this variable, it takes a string from a parameter and the string from the uniqueString function, and combines them into one string.
+The [concat](resource-group-template-functions-string.md#concat) function takes values and combines them. For this variable, it takes the string from the parameter and the string from the uniqueString function, and combines them into one string.
 
-The **storagePrefix** parameter enables you to pass in prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
+The **storagePrefix** parameter enables you to pass in a prefix that helps you identify storage accounts. You can create your own naming convention that makes it easier to identify storage accounts after deployment from a long list of resources.
 
 Finally, notice that the storage name is now set to the variable instead of a parameter.
 
-## Deploy template
+## Deploy the template
 
 Let's deploy the template. Deploying this template is easier than the previous templates because you provide just the prefix for the storage name.
 

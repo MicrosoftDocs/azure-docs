@@ -1,10 +1,10 @@
 ---
-title: Onboard a customer to Azure delegated resource management - Azure Lighthouse
+title: Onboard a customer to Azure delegated resource management
 description: Learn how to onboard a customer to Azure delegated resource management, allowing their resources to be accessed and managed through your own tenant. 
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/30/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -183,14 +183,15 @@ The following example shows **delegatedResourceManagement.parameters.json** file
     }
 }
 ```
-The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to managed identities. Note that no other permissions normally associated with the User Access Administrator role will apply to this user.
+The last authorization in the example above adds a **principalId** with the User Access Administrator role (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). When assigning this role, you must include the **delegatedRoleDefinitionIds** property and one or more built-in roles. The user created in this authorization will be able to assign these built-in roles to [managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Note that no other permissions normally associated with the User Access Administrator role will apply to this user.
 
 ## Deploy the Azure Resource Manager templates
 
 Once you have updated your parameter file, the customer must deploy the Resource Management template in their customer's tenant as a subscription-level deployment. A separate deployment is needed for each subscription that you want to onboard to Azure delegated resource management (or for each subscription that contains resource groups that you want to onboard).
 
 > [!IMPORTANT]
-> The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded).
+> The deployment must be done by a non-guest account in the customer’s tenant which has the [Owner built-in role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) for the subscription being onboarded (or which contains the resource groups that are being onboarded). To see all users who can delegate the subscription, a user in the customer's tenant can select the subscription in the Azure portal, open **Access control (IAM)**, and [view all users with the Owner role](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell

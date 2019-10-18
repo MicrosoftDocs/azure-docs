@@ -3,7 +3,7 @@ title: Whitepapers and case studies - Avere vFTX for Azure
 description: Links to downloadable whitepapers, case studies, and other articles that illustrate Avere vFXT for Azure and how it can be used. 
 ms.service: avere-vfxt
 author: ekpgh
-ms.author: v-erkell
+ms.author: rohogue
 ms.topic: conceptual
 ms.date: 02/13/2019
 ---

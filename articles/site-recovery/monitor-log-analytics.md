@@ -1,14 +1,14 @@
 ---
-title: Monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
+title: Monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics) | Microsoft Docs
 description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/13/2019
 ms.author: raynew
----
 
+---
 # Monitor Site Recovery with Azure Monitor Logs
 
 This article describes how to monitor machines replicated by Azure [Site Recovery](site-recovery-overview.md), using [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md), and [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
@@ -20,7 +20,11 @@ For Site Recovery, you can Azure Monitor Logs to help you do the following:
 - **Monitor Site Recovery health and status**. For example, you can monitor replication health, test failover status, Site Recovery events, recovery point objectives (RPOs) for protected machines, and disk/data change rates.
 - **Set up alerts for Site Recovery**. For example, you can configure alerts for machine health, test failover status, or Site Recovery job status.
 
-Using Azure Monitor Logs with Site Recovery is supported for Azure to Azure replication, and VMware VM/physical server to Azure replication.
+Using Azure Monitor Logs with Site Recovery is supported for **Azure to Azure** replication, and **VMware VM/physical server to Azure** replication.
+
+> [!NOTE]
+> The churn data logs and upload rate logs are only available for Azure VMs replicating to a secondary Azure region.
+
 ## Before you start
 
 Here's what you need:
@@ -37,9 +41,10 @@ We recommend that you review [common monitoring questions](monitoring-common-que
 
     ![Select diagnostic logging](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. In **Diagnostic settings**, specify a name for log action, and select **Send to Log Analytics**.
+2. In **Diagnostic settings**, specify a name, and check the box **Send to Log Analytics**.
 3. Select the Azure Monitor Logs subscription, and the Log Analytics workspace.
-4. From the log list, select all the logs with the prefix **AzureSiteRecovery**. Then click **OK**.
+4. Select **Azure Diagnostics** in the toggle.
+5. From the log list, select all the logs with the prefix **AzureSiteRecovery**. Then click **OK**.
 
     ![Select workspace](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -166,7 +171,10 @@ AzureDiagnostics  
 
 ### Query data change rate (churn) for a VM
 
-This query plots a trend graph for a specific Azure VM (ContosoVM123), that tracks the data change rate (Write Bytes per Second), and data upload rate. This information is only available for Azure VMs replicated to a secondary Azure region.
+> [!NOTE] 
+> The churn information is only available for Azure VMs replicating to a secondary Azure region.
+
+This query plots a trend graph for a specific Azure VM (ContosoVM123), that tracks the data change rate (Write Bytes per Second), and data upload rate. 
 
 ```
 AzureDiagnostics   

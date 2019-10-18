@@ -104,7 +104,7 @@ Here's how to manually configure the recommended performance counters:
 3. In the **Settings** section, select  **Advanced settings**.
 4. After that, navigate to **Data** > **Windows Performance Counters** and add the following counters:
 
-    -   LogicalDisk(\*)\|%Free Space
+    -   LogicalDisk(\*)\%Free Space
     -   LogicalDisk(C:)\\Avg. Disk Queue Length
     -   Memory(\*)\\Available Mbytes
     -   Processor Information(\*)\\Processor Time
@@ -138,7 +138,7 @@ To make sure your Log Analytics workspace has the preconfigured Windows performa
 3. After that, go to **Data** > **Windows Performance Counters**.
 4. Make sure the following counters are preconfigured:
 
-   - LogicalDisk(\*)\|%Free Space: Displays the amount of free space of the total usable space on the disk as a percentage.
+   - LogicalDisk(\*)\%Free Space: Displays the amount of free space of the total usable space on the disk as a percentage.
    - LogicalDisk(C:)\\Avg. Disk Queue Length: The length of disk transfer request for your C drive. The value shouldn’t exceed 2 for more than a short period of time.
    - Memory(\*)\\Available Mbytes: The available memory for the system in megabytes.
    - Processor Information(\*)\\Processor Time: the percentage of elapsed time that the processor spends to execute a non-Idle thread.
@@ -193,7 +193,7 @@ To set the Redirect URI:
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
 -  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 You also need to give your users the following information:
