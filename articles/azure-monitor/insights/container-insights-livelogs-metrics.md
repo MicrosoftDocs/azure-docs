@@ -84,3 +84,5 @@ This performance chart maps to an equivalent of invoking `kubectl get pods –al
 
 >[!NOTE]
 >Names of status as interpreted by `kubectl` may not exactly match in the chart. The names are derived from the Kubernetes API and interpreted to match the status names as presented data stored in your Log Analytics workspace when viewing the chart from the **Historical** view (which is the default for the performance charts on this tab). 
+
+## Next steps

@@ -32,6 +32,6 @@ When you select a deployment from the list, a property pane automatically displa
 
 ![Deployment properties pane raw details](./media/container-insights-livelogs/deployments/deployment-properties-pane-raw.png)
 
-While you review deployment details, you can see container logs and events in real time. Select the **Show live console** and the live console pane will appear below the deployments data grid where you can view live log data in a continuous stream. If the fetch status indicator shows a green check mark, which is on the far right of the pane, it means data can be retrieved and it begins streaming to your console.
+While you review deployment details, you can see container logs and events in real time. Select the **Show live console** and the Live console pane will appear below the deployments data grid where you can view live log data in a continuous stream. If the fetch status indicator shows a green check mark, which is on the far right of the pane, it means data can be retrieved and it begins streaming to your console.
 
-You can also filter by namespace or cluster level events. To learn more about the Live Console, seeRead more about the live console here [link to our live console documentation] 
+You can also filter by namespace or cluster level events. To learn more about the Live console, see [View live data with Azure Monitor for containers Live console (preview)](container-insights-livelogs-console.md). 
