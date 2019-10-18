@@ -7,7 +7,7 @@ services: application-insights
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
-ms.topic: landing-page
+ms.topic: hub-page
 ms.date: 01/15/2019
 ms.author: mbullwin
 
