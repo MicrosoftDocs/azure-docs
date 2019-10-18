@@ -3,14 +3,14 @@ title: "Quickstart: Analyze text content in C# - Content Moderator"
 titleSuffix: Azure Cognitive Services
 description: How to analyze text content for various objectionable materials using the Content Moderator SDK for .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
-ms.author: sajagtap
+ms.author: pafarley
 
 #As a C# developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
