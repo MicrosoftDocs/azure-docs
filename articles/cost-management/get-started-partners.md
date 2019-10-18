@@ -14,7 +14,7 @@ ms.custom: secdec18
 
 # Get started with Azure Cost Management for partners
 
-Azure Cost Management is natively available for partners who have onboarded their customers to a Microsoft Customer Agreement (MCA). This article explains how partners use [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/) features. It also describes how partners enable Cost Management access for their customers. Customers can use Cost Management features when enabled by their CSP partner.
+Azure Cost Management is natively available for partners who have onboarded their customers to a Microsoft Customer Agreement. This article explains how partners use [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/) features. It also describes how partners enable Cost Management access for their customers. Customers can use Cost Management features when enabled by their CSP partner.
 
 CSP partners use Cost Management to:
 
@@ -47,11 +47,11 @@ To understand billing scopes and RBAC scopes and how cost management works with 
 
 ## Manage costs with partner tenant billing scopes
 
-After you've onboarded your customers to an MCA, the following _billing scopes_ are available in your tenant. Use the scopes to manage costs in Cost Management.
+After you've onboarded your customers to a Microsoft Customer Agreement, the following _billing scopes_ are available in your tenant. Use the scopes to manage costs in Cost Management.
 
 ### Billing account scope
 
-Use the billing account scope to view pre-tax costs across all your customers and billing profiles. Invoice costs are only shown for customer's consumption-based products on the MCA. However, invoice costs are shown for purchased-based products for customers on both the MCA and the CSP offer. Currently, the default currency to view costs in the scope is US dollars. Budgets set for the scope are also in USD.
+Use the billing account scope to view pre-tax costs across all your customers and billing profiles. Invoice costs are only shown for customer's consumption-based products on the Microsoft Customer Agreement. However, invoice costs are shown for purchased-based products for customers on both the Microsoft Customer Agreement and the CSP offer. Currently, the default currency to view costs in the scope is US dollars. Budgets set for the scope are also in USD.
 
 Regardless of different customer-billed currencies, partners use Billing account scope to set budgets and manage costs in USD across their customers, subscriptions, resources, and resource groups.
 
@@ -65,9 +65,9 @@ Use the [amortized cost view](quick-acm-cost-analysis.md#customize-cost-views) i
 
 Use the billing profile scope to view pre-tax costs in the billing currency across all your customers for all products and subscriptions included in an invoice. You can filter costs in a billing profile for a specific invoice using the **InvoiceID** filter. The filter shows the consumption and product purchase costs for a specific invoice. You can also filter the costs for a specific customer on the invoice to see pre-tax costs.
 
-After you onboard customers to an MCA, you receive a invoice that includes all charges for all products (consumption, purchases, and entitlements) for these customers on the MCA. When billed in the same currency, these invoices also include the charges for entitlement and purchased products such as SaaS, Azure Marketplace, and reservations for customers who are still in the CSP offer.
+After you onboard customers to a Microsoft Customer Agreement, you receive a invoice that includes all charges for all products (consumption, purchases, and entitlements) for these customers on the Microsoft Customer Agreement. When billed in the same currency, these invoices also include the charges for entitlement and purchased products such as SaaS, Azure Marketplace, and reservations for customers who are still in the CSP offer.
 
-To help reconcile charges against the customer invoice, the billing profile scope enables you to see all costs that accrue for an invoice for your customers. Like the invoice, the scope shows costs for every customer in the new MCA. The scope also shows every charge for customer entitlement products still in the current CSP offer.
+To help reconcile charges against the customer invoice, the billing profile scope enables you to see all costs that accrue for an invoice for your customers. Like the invoice, the scope shows costs for every customer in the new Microsoft Customer Agreement. The scope also shows every charge for customer entitlement products still in the current CSP offer.
 
 The billing profile and billing account scopes are the only applicable scopes that show charges for entitlement and purchase-based products like Azure Marketplace and reservation purchases.
 
@@ -88,9 +88,9 @@ Partners can use the scope to reconcile to invoices. And, they use the scope to 
 
 ### Customer scope
 
-Partners use the scope to manage costs associated to customers that are onboarded to the MCA. The scope allows partners to view pre-tax costs for a specific customer. You can also filter the pre-tax costs for a specific subscription, resource group, or resource.
+Partners use the scope to manage costs associated to customers that are onboarded to the Microsoft Customer Agreement. The scope allows partners to view pre-tax costs for a specific customer. You can also filter the pre-tax costs for a specific subscription, resource group, or resource.
 
-The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have an MCA. Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter.
+The customer scope doesn't include customers who are on the current CSP offer. The scope only includes customers who have a Microsoft Customer Agreement. Entitlement costs, not Azure usage, for current CSP offer customers are available at the billing account and billing profile scopes when you apply the customer filter.
 
 ## Partner access to billing scopes in Cost Management
 
@@ -98,7 +98,7 @@ Only the users with **Global admin** and **Admin agent** roles can manage and vi
 
 ### Enable cost management in the customer tenant
 
-Partners may enable access to Cost Management after customers are onboarded to an MCA. Then partners can then enable a policy allowing customers to view their costs computed at pay-as-you-go retail rates. Costs are shown in the customer's billing currency for their consumed usage at RBAC subscription and resource groups scopes.
+Partners may enable access to Cost Management after customers are onboarded to a Microsoft Customer Agreement. Then partners can then enable a policy allowing customers to view their costs computed at pay-as-you-go retail rates. Costs are shown in the customer's billing currency for their consumed usage at RBAC subscription and resource groups scopes.
 
 When the policy for cost visibility is enabled by the partner, any user with Azure Resource Manager access to the subscription can manage and analyze costs at pay-as-you-go rates. Effectively, resellers and customers that have the appropriate RBAC access to the Azure subscriptions can view cost.
 

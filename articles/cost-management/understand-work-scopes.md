@@ -154,9 +154,9 @@ After AWS integration is complete, see [setup and configure AWS integration](aws
 
     Resource type: `Microsoft.CostManagement/externalSubscriptions`
 
-## Cloud Solution Provider (CSP) scopes for MCA
+## Cloud Solution Provider (CSP) scopes
 
-The following scopes are supported for CSPs with customers on MCA:
+The following scopes are supported for CSPs with customers on a Microsoft Customer Agreement:
 
 - **Billing account** - Represents a customer agreement for multiple Microsoft products and services. Customer Agreement billing accounts aren't functionally the same as EA enrollments. EA enrollments are more closely aligned to billing profiles.
 
@@ -170,7 +170,7 @@ The following scopes are supported for CSPs with customers on MCA:
 
 Only the users with *Global admin* and *Admin agent* roles can manage and view costs for billing accounts, billing profiles, and customers directly in the partner's Azure tenant. For more information about partner center roles, see [Assign users roles and permissions](/partner-center/permissions-overview).
 
-Azure Cost Management only supports CSP partner customers if the customers have an MCA. For CSP supported customers who are not yet on MCA, see [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Azure Cost Management only supports CSP partner customers if the customers have a Microsoft Customer Agreement. For CSP supported customers who are not yet on a Microsoft Customer Agreement, see [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
 ## Switch between scopes in Cost Management
 
