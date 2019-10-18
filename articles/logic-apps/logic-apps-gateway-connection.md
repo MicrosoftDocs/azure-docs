@@ -13,9 +13,9 @@ ms.date: 10/18/2019
 
 # Connect to on-premises data sources from Azure Logic Apps
 
-Before you can access data sources on premises from your logic apps, you need to create an Azure resource for an *on-premises data gateway* that you [previously installed on a local computer](../logic-apps/logic-apps-gateway-install.md). Your logic apps can then use this gateway resource with the triggers and actions provided by the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors). Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+Before you can access data sources on premises from your logic apps, you need to create an Azure resource for the *on-premises data gateway* that you first need to [install on a local computer](../logic-apps/logic-apps-gateway-install.md). Your logic apps then use this gateway resource in the triggers and actions provided by the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors). 
 
-This article shows how to create your Azure gateway resource *after* you [download and install the gateway on a local computer](../logic-apps/logic-apps-gateway-install.md). For more information about the gateway, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service). 
+This article shows how to create your Azure gateway resource *after* you [download and install the gateway on a local computer](../logic-apps/logic-apps-gateway-install.md). For more information about the gateway, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
 > [!TIP]
 > To connect to Azure virtual networks, consider creating an 
@@ -47,17 +47,17 @@ For Azure Logic Apps, the on-premises data gateway supports [on-premises connect
 * SQL Server
 * Teradata
 
-Although the gateway itself doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
+Azure Logic Apps supports read and write operations through the data gateway. However, these operations have [limits on their payload size](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations). Although the gateway itself doesn't incur additional costs, the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) applies to these connectors and other operations in Azure Logic Apps.
 
 ## Prerequisites
 
-* You've already [installed the on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md).
+* You already [installed the on-premises data gateway on a local computer](../logic-apps/logic-apps-gateway-install.md).
 
 * You have the [same Azure account and Azure subscription](../logic-apps/logic-apps-gateway-install.md#requirements) that you used when you installed the on-premises data gateway.
 
 * You haven't previously linked your gateway installation to another gateway resource in Azure.
 
-  When you create a gateway resource in the Azure portal, you select a gateway installation to use with your gateway resource and only that resource. In Azure Logic Apps, on-premises triggers and actions can then use the gateway resource for connecting to on-premises data sourcess. In those triggers and actions, you can select a gateway resource from your various Azure subscriptions. Each gateway resource links to only one gateway installation, which links to only one Azure subscription.
+  When you create a gateway resource in the Azure portal, you select an installed gateway that you link to your gateway resource and only that gateway resource. In Azure Logic Apps, on-premises triggers and actions can then use the gateway resource for connecting to on-premises data sources. In these triggers and actions, you can select a gateway resource from your various Azure subscriptions. Each gateway resource links to only one gateway installation, which links to only one Azure subscription.
 
   > [!TIP]
   > To use more than one gateway installation in an Azure subscription, 
