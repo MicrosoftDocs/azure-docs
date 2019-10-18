@@ -45,7 +45,7 @@ You can interact with your workspace in the following ways:
 
 + On the web:
     + [Azure Machine Learning studio ](https://ml.azure.com) 
-    + [Azure Machine Learning designer](ui-concept-visual-interface.md) (Available only in [Enterprise SKU](overview-what-is-azure-ml.md#sku) workspaces).
+    + [Azure Machine Learning designer (preview)](ui-concept-visual-interface.md) - Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces.
 + In any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + In any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + On the command line using the Azure Machine Learning [CLI extension](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)

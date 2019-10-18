@@ -51,6 +51,8 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 
 1. **Configure the automated machine learning parameters** that determine how many iterations over different models, hyperparameter settings, advanced preprocessing/featurization, and what metrics to look at when determining the best model.  You can configure the settings for automatic training experiment in [Azure Machine Learning studio](https://ml.azure.com), or [with the SDK](how-to-configure-auto-train.md). 
 
+    [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
+
 1. **Submit the training run.**
 
   ![Automated Machine learning](./media/how-to-automated-ml/automl-concept-diagram2.png)
