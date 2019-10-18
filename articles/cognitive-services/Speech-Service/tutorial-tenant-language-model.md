@@ -109,11 +109,11 @@ namespace PrincetonSROnly.FrontEnd.Samples
 
     public class TenantLMSample
     {
-        private const string EndpointUri = "EndpointUri";
-        private const string SubscriptionKey = "SubscriptionKey";
-        private const string Username = "Username";
-        private const string Password = "Password";
-        private const string ClientApplicationId = "Your-Client-App-ID";
+        private const string EndpointUriArgName = "EndpointUri";
+        private const string SubscriptionKeyArgName = "SubscriptionKey";
+        private const string UsernameArgName = "Username";
+        private const string PasswordArgName = "Password";
+        private const string ClientApplicationId = "f87bc118-1576-4097-93c9-dbf8f45ef0dd";
         private const string ServiceApplicationId = "18301695-f99d-4cae-9618-6901d4bdc7be";
 
         public static async Task ContinuousRecognitionWithTenantLMAsync(Uri endpointUri, string subscriptionKey, string audioDirPath, string username, string password)
@@ -207,19 +207,19 @@ namespace PrincetonSROnly.FrontEnd.Samples
                 }
             }
 
-            var endpointString = arguments.GetValueOrDefault(EndpointUri, $"wss://westus.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1");
+            var endpointString = arguments.GetValueOrDefault(EndpointUriArgName, $"wss://westus.online.princeton.customspeech.ai/msgraphcustomspeech/conversation/v1");
             var endpointUri = new Uri(endpointString);
 
-            if (!arguments.ContainsKey(SubscriptionKey))
+            if (!arguments.ContainsKey(SubscriptionKeyArgName))
             {
                 Exception exp = new Exception("Subscription Key missing! Please pass in a Cognitive services subscription Key using --SubscriptionKey=\"your_subscription_key\"" +
                     "Find more information on creating a Cognitive services resource and accessing your Subscription key here: https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows");
                 throw exp;
             }
 
-            var subscriptionKey = arguments[SubscriptionKey];
-            var username = arguments.GetValueOrDefault(Username, null);
-            var password = arguments.GetValueOrDefault(Password, null);
+            var subscriptionKey = arguments[SubscriptionKeyArgName];
+            var username = arguments.GetValueOrDefault(UsernameArgName, null);
+            var password = arguments.GetValueOrDefault(PasswordArgName, null);
 
             var audioDirPath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), "../../../AudioSamples/DictationBatman.wav");
             if (!File.Exists(audioDirPath))
@@ -281,7 +281,6 @@ Next, you'll need rebuild and run the project from the command line. There are a
    ```bash
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
-
 
 ## See also
 
