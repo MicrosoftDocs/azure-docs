@@ -28,7 +28,7 @@ We recommend that you require Azure Multi-Factor Authentication for user sign-in
 - Delivers strong authentication through a range of verification options.
 - Plays a key role in preparing your organization to self-remediate from risk detections in Identity Protection.
 
-For more details on MFA, see [What is Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
+For more information on Azure Multi-Factor Authentication, see [What is Azure Multi-Factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
 ## Policy configuration
 
@@ -44,7 +44,7 @@ For more details on MFA, see [What is Azure Multi-Factor Authentication?](../aut
 
 ## User experience
 
-Azure Active Directory Identity Protection will prompt your users to register the next time they sign in interactively and they will have 14 days to complete registration. During this 14 day period they can bypass registration but at the end of the period they will be required to register before they can complete the sign in process.
+Azure Active Directory Identity Protection will prompt your users to register the next time they sign in interactively and they will have 14 days to complete registration. During this 14-day period, they can bypass registration but at the end of the period they will be required to register before they can complete the sign-in process.
 
 For an overview of the related user experience, see:
 
