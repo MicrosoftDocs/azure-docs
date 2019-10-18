@@ -14,19 +14,19 @@ ms.author: erhopf
 
 # Quickstart: Translate speech in C++ on Windows by using the Speech SDK
 
-Quickstarts are also available for [speech recognition](quickstart-cpp-windows.md) and [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-cpp).
+Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/from-microphone/speech-to-text-from-microphone.md?pivots=programming-language-cpp) and [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp).
 
 In this quickstart, you'll create a C++ application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
-For a complete list of languages available for speech translation, see [language support](language-support.md).
+For a complete list of languages available for speech translation, see [language support](~/articles/cognitive-services/Speech-Service/language-support.md).
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.
 
 ## Create a Visual Studio project
 
-[!INCLUDE [Quickstart C++ project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## Add sample code
 
@@ -38,7 +38,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. From the menu bar, choose **File** > **Save All**.
 
@@ -50,7 +50,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
 
-   ![Console output after successful speech translation](media/sdk/qs-translate-cpp-windows-output.png)
+   ![Console output after successful speech translation](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-cpp-windows-output.png)
 
 ## Next steps
 
@@ -61,4 +61,4 @@ Additional samples, such as how to read speech from an audio file or turn transl
 
 ## See also
 
-- [Train a model for Custom Speech](how-to-custom-speech-train-model.md)
+- [Train a model for Custom Speech](~/articles/cognitive-services/Speech-Service/how-to-custom-speech-train-model.md)

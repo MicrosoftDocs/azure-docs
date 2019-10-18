@@ -42,7 +42,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 
 ## Create and configure project
 
-[!INCLUDE [](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
 ## Add sample code
 

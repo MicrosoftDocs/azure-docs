@@ -15,11 +15,11 @@ ms.topic: quickstart
 
 # Quickstart: Translate speech with the Speech SDK for C# (UWP)
 
-Quickstarts are also available for [speech recognition](quickstart-csharp-uwp.md), [speech synthesis](quickstart-text-to-speech-csharp-uwp.md), and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
+Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/from-microphone/speech-to-text-from-microphone.md), [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
 
 In this quickstart, you'll create a Universal Windows Platform (UWP) application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and it's built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019.
 
-For a complete list of languages available for speech translation, see [language support](language-support.md).
+For a complete list of languages available for speech translation, see [language support](~/articles/cognitive-services/Speech-Service/language-support.md).
 
 > [!NOTE]
 > UWP lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
@@ -29,11 +29,11 @@ For a complete list of languages available for speech translation, see [language
 This quickstart requires:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 
 ## Create a Visual Studio project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
 
 ## Add sample code
 
@@ -65,15 +65,15 @@ Now you are ready to build and test your application.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP translation application in C# - quickstart](media/sdk/qs-translate-speech-uwp-helloworld-window.png)
+   ![Sample UWP translation application in C# - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-speech-uwp-helloworld-window.png)
 
 1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
 
-   ![Microphone access permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Microphone access permission request](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
 1. Select **Translate speech from the microphone input**, and speak an English phrase or sentence into your device's microphone. The application transmits your speech to the Speech service, which translates the speech into text in another language (in this case, German). The Speech service sends the translated text back to the application, which displays the translation in the window.
 
-   ![Speech translation user interface](media/sdk/qs-translate-csharp-uwp-ui-result.png)
+   ![Speech translation user interface](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
 ## Next steps
 
@@ -82,4 +82,4 @@ Now you are ready to build and test your application.
 
 ## See also
 
-- [Train a model for Custom Speech](how-to-custom-speech-train-model.md)
+- [Train a model for Custom Speech](~/articles/cognitive-services/Speech-Service/how-to-custom-speech-train-model.md)

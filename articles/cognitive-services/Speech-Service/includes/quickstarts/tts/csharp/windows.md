@@ -22,7 +22,7 @@ To complete this project, you'll need:
 
 ## Create a Visual Studio project
 
-[!INCLUDE [Create project](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+[!INCLUDE [Create project](~/includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
 ## Add sample code
 

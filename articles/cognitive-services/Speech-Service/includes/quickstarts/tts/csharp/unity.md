@@ -33,7 +33,7 @@ To complete this project, you'll need:
 
 ## Install the Speech SDK
 
-[!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 * The Speech SDK for Unity (Beta) is packaged as a Unity asset package (.unitypackage).
   Download it from [here](https://aka.ms/csspeech/unitypackage).

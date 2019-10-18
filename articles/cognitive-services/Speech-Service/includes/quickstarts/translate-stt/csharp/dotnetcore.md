@@ -14,11 +14,11 @@ ms.author: erhopf
 
 # Quickstart: Translate speech with the Speech SDK for .NET Core
 
-Quickstarts are also available for [speech-to-text](quickstart-csharp-dotnet-windows.md) and [text-to-speech](quickstart-text-to-speech-dotnetcore.md).
+Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/from-microphone/speech-to-text-from-microphone.md) and [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp).
 
 In this quickstart, you'll create a simple .NET Core application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 or later.
 
-For a complete list of languages available for speech translation, see [language support](language-support.md).
+For a complete list of languages available for speech translation, see [language support](~/articles/cognitive-services/Speech-Service/language-support.md).
 
 ## Prerequisites
 
@@ -26,11 +26,11 @@ This quickstart requires:
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 
 ## Create a Visual Studio project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
 
 ## Add sample code
 
@@ -40,7 +40,7 @@ This quickstart requires:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Also replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Also replace the string `YourServiceRegion` with the [region]~/articles/cognitive-services/Speech-Service/(regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. Save changes to the project.
 
@@ -48,15 +48,15 @@ This quickstart requires:
 
 1. Build the application. From the menu bar, choose **Build** > **Build Solution**. The code should compile without errors.
 
-    ![Screenshot of Visual Studio application, with Build Solution option highlighted](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Successful build")
+    ![Screenshot of Visual Studio application, with Build Solution option highlighted](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Successful build")
 
 1. Start the application. From the menu bar, choose **Debug** > **Start Debugging**, or press **F5**.
 
-    ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Start the app into debugging")
+    ![Screenshot of Visual Studio application, with Start Debugging option highlighted](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Start the app into debugging")
 
 1. A console window appears, prompting you to say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech service, translated, and transcribed to text, which appears in the same window.
 
-    ![Screenshot of console output after successful translation](media/sdk/qs-translate-csharp-dotnetcore-windows-output.png "Console output after successful translation")
+    ![Screenshot of console output after successful translation](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-csharp-dotnetcore-windows-output.png "Console output after successful translation")
 
 
 ## Next steps
@@ -68,5 +68,5 @@ Additional samples, such as how to read speech from an audio file, and output tr
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize acoustic models](~/articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md)
+- [Customize language models](~/articles/cognitive-services/Speech-Service/how-to-customize-language-model.md)

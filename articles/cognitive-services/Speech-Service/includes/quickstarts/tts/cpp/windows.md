@@ -18,7 +18,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 ## Create a Visual Studio project
 
-[!INCLUDE [Quickstart C++ project](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## Add sample code
 

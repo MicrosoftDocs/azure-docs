@@ -18,7 +18,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 ## Create and configure a project
 
-[!INCLUDE [](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
 ## Create user interface
 

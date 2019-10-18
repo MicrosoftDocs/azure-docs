@@ -12,12 +12,15 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-**Select your development environment**
+**Select your target environment**
 
-#### [Linux](#tab/linux)
+#### [.Net](#tab/dotnet)
 [!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./linux.md)]
-#### [Windows](#tab/Windows)
+[!INCLUDE [vs](./dotnet.md)]
+#### [.Net Core](#tab/dotnetcore)
 [!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./windows.md)]
+[!INCLUDE [vs](./dotnetcore.md)]
+#### [UWP](#tab/uwp)
+[!INCLUDE [Header](../header.md)]
+[!INCLUDE [vs](./uwp.md)]
 * * *
