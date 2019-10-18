@@ -102,7 +102,7 @@ To peer a virtual network to the Azure AD DS managed domain virtual network, com
 1. To create a peering, select **+ Add**. In the following example, the default *aadds-vnet* is peered to a virtual network named *myVnet*. Configure the following settings with your own values:
 
     * **Name of the peering from aadds-vnet to remote virtual network**: A descriptive identifier of the two networks, such as *aadds-vnet-to-myvnet*
-    * **Virtual network deployment type**: *Resource manager*
+    * **Virtual network deployment type**: *Resource Manager*
     * **Subscription**: The subscription of the virtual network you want to peer to, such as *Azure*
     * **Virtual network**: The virtual network you want to peer to, such as *myVnet*
     * **Name of the peering from myVnet to aadds-vnet**: A descriptive identifier of the two networks, such as *myvnet-to-aadds-vnet*
