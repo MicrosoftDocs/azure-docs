@@ -39,7 +39,7 @@ Use the following chart to refer directly to the patterns that apply to your syn
 | Requires Low Disclosure | Disclosure may be minimal or unnecessary, but could benefit from some implicit patterns. | [Capability Disclosure](#capability-disclosure)<br>[Conversational Transparency](#conversational-transparency)  |
 | Has a high level of engagement | Build for the long term and offer multiple entry points to disclosure along the user journey. It is highly recommended to have an onboarding experience. | [Transparent Introduction](#transparent-introduction)<br>[Customization and Calibration](#customization-and-calibration)<br>[Capability Disclosure](#capability-disclosure) |
 | Includes children as the primary intended audience | Target parents as the primary disclosure audience and ensure that they can effectively communicate disclosure to children.  | [Parental Disclosure](#parental-disclosure)<br>[Verbal Transparent Introduction](#verbal-transparent-introduction)<br> [Implicit Disclosure](#implicit-disclosure)<br> [Conversational Transparency](#conversational-transparency)  |
-| Includes blind users or people with low vision as the primary intended audience  | Be inclusive of all users and ensure that any form of visual disclosure has associated alternative text or sound effects. Adhere to accessibility standards for contrast ratio and display size. Use auditory cues to communicate disclosure.  | [Verbal Transparent Introduction](#verbal-transparent-introduction) <br>[Auditory Cues](#implicit-cues--feedback)<br>[Haptic Cues](#implicit-cues--feedback)<br>[Conversational Transparency](#conversational-transparency)<br>[Accessibility Standards](https://www.microsoft.com/en-us/accessibility) |
+| Includes blind users or people with low vision as the primary intended audience  | Be inclusive of all users and ensure that any form of visual disclosure has associated alternative text or sound effects. Adhere to accessibility standards for contrast ratio and display size. Use auditory cues to communicate disclosure.  | [Verbal Transparent Introduction](#verbal-transparent-introduction) <br>[Auditory Cues](#implicit-cues--feedback)<br>[Haptic Cues](#implicit-cues--feedback)<br>[Conversational Transparency](#conversational-transparency)<br>[Accessibility Standards](https://www.microsoft.com/accessibility) |
 | Is screen-less, device-less or uses voice as the primary or only mode of interaction | Use auditory cues to communicate disclosure. | [Verbal Transparent Introduction](#verbal-transparent-introduction) <br> [Auditory Cues](#implicit-cues--feedback)  |
 | Potentially includes multiple users/listeners (e.g., personal assistant in multiple household)  | Be mindful of various user contexts and levels of understanding and offer multiple opportunities for disclosure in the user journey.  | [Transparent Introduction (Return User)](#transparent-introduction)<br> [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made)<br> [Conversational Transparency](#conversational-transparency)  |
 
@@ -235,10 +235,10 @@ Use disclosure as an opportunity to fail gracefully.
 
 
 ## Additional resources
-- [Microsoft Bot Guidelines](https://www.microsoft.com/en-us/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
-- [Cortana Design Guidelines](https://docs.microsoft.com/en-us/cortana/voice-commands/voicecommand-design-guidelines)
-- [Microsoft Windows UWP Speech Design Guidelines](https://docs.microsoft.com/en-us/windows/uwp/design/input/speech-interactions)
-- [Microsoft Windows Mixed Reality Voice Commanding Guidelines](https://docs.microsoft.com/en-us/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
+- [Microsoft Bot Guidelines](https://www.microsoft.com/research/uploads/prod/2018/11/Bot_Guidelines_Nov_2018.pdf)
+- [Cortana Design Guidelines](https://docs.microsoft.com/cortana/voice-commands/voicecommand-design-guidelines)
+- [Microsoft Windows UWP Speech Design Guidelines](https://docs.microsoft.com/windows/uwp/design/input/speech-interactions)
+- [Microsoft Windows Mixed Reality Voice Commanding Guidelines](https://docs.microsoft.com/windows/mixed-reality/voice-design#top-things-users-should-know-about-speech-in-mixed-reality)
 
 ## Reference docs
 

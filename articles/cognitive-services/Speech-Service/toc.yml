@@ -211,6 +211,8 @@
         href: concepts-disclosure-guidelines.md
       - name: Disclosure design patterns
         href: concepts-disclosure-patterns.md
+      - name: Code of Conduct
+        href: https://aka.ms/custom-neural-code-of-conduct
     - name: Custom Voice portal
       items:
       - name: Get started with Custom Voice

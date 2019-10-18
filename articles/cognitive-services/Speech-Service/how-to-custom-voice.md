@@ -17,7 +17,7 @@ ms.author: erhopf
 [Custom Voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom text-to-speech experience.
 
 > [!NOTE]
-> The Custom Neural Voice service is a gated service. Customers gain access to the technology only after their applications are reviewed and they have committed to using it in alignment with our ethics principles. Read more about our gating process and how to apply [here](concepts-gating-overview.md)
+> The Custom Neural Voice service is a gated service. Customers gain access to the technology only after their applications are reviewed and they have committed to using it in alignment with our ethics principles. Read more about our gating process and how to apply [here](concepts-gating-overview.md).
 
 
 ## What's in Custom Voice?

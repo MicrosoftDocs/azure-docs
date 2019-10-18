@@ -17,7 +17,7 @@ Learn more about the process for getting started with Custom Neural Voice.
 
 ## Commitment to responsible innovation
 
-As part of Microsoft's commitment to designing responsible AI, we have assembled a set of materials to guide customers in using Custom Neural Voice. The guidelines and insights found here are based on Microsoft's [principles for responsible innovation in AI.](https://www.microsoft.com/en-us/AI/our-approach-to-ai)
+As part of Microsoft's commitment to designing responsible AI, we have assembled a set of materials to guide customers in using Custom Neural Voice. The guidelines and insights found here are based on Microsoft's [principles for responsible innovation in AI.](https://www.microsoft.com/AI/our-approach-to-ai)
 
 ### Guidance for deploying Custom Neural Voice
 
@@ -31,7 +31,7 @@ Our intent is to protect the rights of individuals and society, foster transpare
 
 ### Our gating process
 
-To get access to Custom Neural Voice, you'll need to start by filling out our online intake form. Begin your application [here](https://speech.microsoft.com/customvoice).
+To get access to Custom Neural Voice, you'll need to start by filling out our online intake form. Begin your application [here](https://aka.ms/custom-neural-intake-form).
 
 Access to the Custom Neural Voice service is subject to Microsoft’s sole discretion based on our eligibility criteria, vetting process, and availability to support a limited number of customers during this gated preview.
 
