@@ -182,7 +182,12 @@ Azure PowerShell is used to prepare the Azure AD DS managed domain for migration
 
 To prepare the Azure AD DS managed domain for migration, complete the following steps:
 
-1. Download the PowerShell migration script from the PowerShell gallery. The PowerShell migration script is a digitally signed by the Azure AD engineering team.
+1. Install the `Migrate-Aaads` module from the [PowerShell Gallery][powershell-script]. This PowerShell migration script is a digitally signed by the Azure AD engineering team.
+
+    ```powershell
+    Install-Script -Name Migrate-Aadds
+    ```
+
 1. Create a variable to hold the credentials for by the migration script using the [Get-Credential][get-credential] cmdlet.
 
     The user account you specify needs *global administrator* privileges in your Azure AD tenant to enable Azure AD DS and then *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
@@ -345,3 +350,6 @@ With your Azure AD DS managed domain migrated to the Resource Manager deployment
 [troubleshoot-sign-in]: troubleshoot-sign-in.md
 [tshoot-ldaps]: tshoot-ldaps.md
 [get-credential]: /powershell/module/microsoft.powershell.security/get-credential
+
+<!-- EXTERNAL LINKS -->
+[powershell-script]: https://www.powershellgallery.com/packages/Migrate-Aadds/1.0
