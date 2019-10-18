@@ -833,7 +833,7 @@ module.exports = function(context, req) {
 
     const user = context.user;
 
-    ...
+    // ...
 
     context.done();
 };
@@ -852,7 +852,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
     user = req.user
 
-    ...
+    # ...
 
     return func.HttpResponse(f"Done")
 ```
@@ -872,7 +872,7 @@ public HttpResponseMessage run(
 
     Object user = req.user;
 
-    ...
+    // ...
 
     return request.createResponseBuilder(HttpStatus.OK)
                         .body("Done")
