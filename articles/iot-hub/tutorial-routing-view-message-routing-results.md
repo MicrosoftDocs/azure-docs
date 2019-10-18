@@ -111,7 +111,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 ### Add an input to the Stream Analytics job
 
-4. Under **Job Topology** in the left pane, select **Inputs**.
+4. Under **Job Topology**, select **Inputs**.
 
 5. In the **Inputs** pane, select **Add stream input** and select IoT Hub. On the screen that comes up, fill in the following fields:
 
@@ -137,7 +137,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 ### Add an output to the Stream Analytics job
 
-1. Under **Job Topology** in the left pane, select **Outputs**.
+1. Under **Job Topology**, select **Outputs**.
 
 2. In the **Outputs** pane, select **Add**, and then select **Power BI**. On the screen that comes up, fill in the following fields:
 
@@ -157,7 +157,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
 ### Configure the query of the Stream Analytics job
 
-1. Under **Job Topology** in the left pane, select **Query**.
+1. Under **Job Topology**, select **Query**.
 
 2. Replace `[YourInputAlias]` with the input alias of the job. This tutorial uses **contosoinputs**.
 
