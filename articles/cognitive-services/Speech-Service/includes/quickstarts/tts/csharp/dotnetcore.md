@@ -25,7 +25,7 @@ This quickstart requires:
 
 ## Create a Visual Studio project
 
-[!INCLUDE [](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
 
 ## Add sample code
 

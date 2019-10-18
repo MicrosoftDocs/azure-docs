@@ -20,9 +20,6 @@ ms.author: erhopf
 #### [.Net Core](#tab/dotnetcore)
 [!INCLUDE [Header](../header.md)]
 [!INCLUDE [vs](./dotnetcore.md)]
-#### [Unity](#tab/unity)
-[!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./unity.md)]
 #### [UWP](#tab/uwp)
 [!INCLUDE [Header](../header.md)]
 [!INCLUDE [vs](./uwp.md)]

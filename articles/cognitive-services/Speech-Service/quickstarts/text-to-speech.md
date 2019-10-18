@@ -24,16 +24,16 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Header](./header.md)]
+[!INCLUDE [Header](../includes/quickstarts/tts/header.md)]
 [!INCLUDE [C# quickstart](../includes/quickstarts/tts/java/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Header](./header.md)]
+[!INCLUDE [Header](../includes/quickstarts/tts/header.md)]
 [!INCLUDE [C# quickstart](../includes/quickstarts/tts/python/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
-[!INCLUDE [Header](./header.md)]
+[!INCLUDE [Header](../includes/quickstarts/tts/header.md)]
 [!INCLUDE [More samples](../includes/quickstarts/tts/other-lang.md)]
 ::: zone-end

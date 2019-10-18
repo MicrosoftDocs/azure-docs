@@ -18,7 +18,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 ## Install Speech SDK
 
-[!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tar file from https://aka.ms/csspeech/linuxbinary.
 
@@ -67,7 +67,7 @@ Download and install the SDK as follows:
 
    The directory listing should contain the third-party notice and license files, as well as an `include` directory containing header (`.h`) files and a `lib` directory containing libraries.
 
-   [!INCLUDE [Linux Binary Archive Content](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-linuxbinary-content.md)]
+   [!INCLUDE [Linux Binary Archive Content](~/includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## Add sample code
 

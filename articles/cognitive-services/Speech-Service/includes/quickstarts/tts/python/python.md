@@ -40,7 +40,7 @@ ms.author: yulili
 
 ## Install the Speech SDK
 
-[!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 Note that this tutorial will not work with version of the SDK earlier than 1.7.0.
 
