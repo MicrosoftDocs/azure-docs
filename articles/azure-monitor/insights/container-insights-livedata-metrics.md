@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # How to view metrics in real time (preview)
 
-Azure Monitor for containers Live Metrics and Data (preview) feature allows you to directly visualize metrics about node and pod state in a cluster. It emulates direct access to the `kubectl top nodes`, `kubectl get pods –all-namespaces` and `kubectl get nodes` commands to call, parse, and visualize the data in performance charts that are included with this Insight. 
+Azure Monitor for containers Live Metrics and Data (preview) feature allows you to directly visualize metrics about node and pod state in a cluster. It emulates direct access to the `kubectl top nodes`, `kubectl get pods –all-namespaces`, and `kubectl get nodes` commands to call, parse, and visualize the data in performance charts that are included with this Insight. 
 
 This article provides a detailed overview and helps you understand how to use this feature.  
 
