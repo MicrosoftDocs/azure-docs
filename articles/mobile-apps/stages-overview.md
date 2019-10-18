@@ -10,7 +10,7 @@ ms.author: emalani
 ---
 
 # Different Stages in Mobile Application Development
-Building a mobile application involves multiple stages and developers can easily take advantage of Microsoft services, tools, and technologies to use the following components:
+Building a mobile application involves multiple stages and developers can easily take advantage of Microsoft services, tools, and technologies to build high-class mobile applications:
 
 ## App development
 Developers can build native single platform client applications with languages like Objective-C and Java, cross-platform apps using Xamarin, React Native, Unity, and hybrid using Cordova. They can make use of IDEs and code editors, such as Visual Studio, Visual Studio for Mac, or Visual Studio Code on PCs and Macs, to construct their client applications.
@@ -31,5 +31,5 @@ Developers creating mobile and cloud-focused applications can take advantage of 
 ## Additional Services
 There are many Azure services that can be consumed depending on the type and nature of application being built.
     - Azure Search for searching all types of internal data, with fast querying.
-    - Azure Cognitive Services to use Aritfical Intelligence in your application.
-    - Azure SignalR to enable reaal-time communication in your application.
+    - Azure Cognitive Services to use Artificial Intelligence in your application.
+    - Azure SignalR to enable real-time communication in your application.
