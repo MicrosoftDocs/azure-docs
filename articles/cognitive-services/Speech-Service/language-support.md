@@ -8,11 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-<<<<<<< HEAD
-ms.date: 11/04/2019
-=======
 ms.date: 10/15/2019
->>>>>>> release-ignite-cogserv-speech-service
 ms.author: erhopf
 ms.custom: seodec18
 ---

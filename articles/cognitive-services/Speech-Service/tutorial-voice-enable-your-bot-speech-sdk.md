@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/05/2019
 ms.author: dcohen
 ---
 
@@ -404,7 +404,7 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Build your own client app with the Speech SDK](quickstart-speech-assistant-csharp-uwp.md)
+> [Build your own client app with the Speech SDK](quickstart-voice-assistant-csharp-uwp.md)
 
 ## See also
 
