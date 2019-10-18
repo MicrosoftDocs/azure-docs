@@ -36,7 +36,7 @@ The first step is to make sure that you have your project open in Visual Studio.
 
 [!code-csharp[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=6-50,55-56,94-154)]
 
-[!INCLUDE [createconfig](../../common/createconfig.md)]
+[!INCLUDE [createconfig](./createconfig.md)]
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=51-53)]
 
 [!INCLUDE [initreco](../../common/initreco.md)]
