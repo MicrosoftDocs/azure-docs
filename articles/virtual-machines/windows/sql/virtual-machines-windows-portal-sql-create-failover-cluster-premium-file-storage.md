@@ -40,13 +40,15 @@ Additionally, you should have a general understanding of the following technolog
 - [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). Uninstall the full extension from the VMs that participate in the failover cluster and then register them with the SQL VM resource provider in `lightweight` mode. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
+> At this time, SQL Server failover cluster instances on Azure virtual machines are only supported with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To change from full extension mode to lightweight, delete the "SQL Virtual Machine" resource for the correspinding VMs and then register them with the SQL VM resource provider in `lightweight` mode. When deleting "SQL Virtual Machine" resource using Azure portal ensure to unselect the actual Virtual Machine. The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL VMs after the agent is reinstalled in lightweight management mode.
 
 ### Workload consideration
 
 Premium file shares provide IOPS and throughout capacity that will meet the needs of many workloads. However, for IO intensive workloads, consider [SQL Server FCI with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md) based on managed premium disks or ultra-disks.  
 
 Check the IOPS activity of your current environment and verify that premium files will provide the IOPS you need before starting a deployment or migration. Use Windows Performance Monitor disk counters and monitor total IOPS (Disk Transfers/sec) and throughput (Disk bytes/sec) required for SQL Server Data, Log, and Temp DB files. Many workloads have bursting IO so it is a good idea to check during heavy usage periods and note the max IOPS as well as average IOPS. Premium files shares provide IOPS based on the size of the share. Premium files also provide complimentary bursting where you can burst your IO to triple the baseline amount for up to one hour. 
+
+For more information about premium file share performance, see [File share performance tiers](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers). 
 
 ### Licensing and pricing
 
@@ -337,8 +339,7 @@ To create the load balancer:
    See the following picture:
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
-
-   ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)
+   
 
 ### Configure the load balancer backend pool
 

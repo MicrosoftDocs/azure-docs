@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory Mapping Data Flow Visual Monitoring
+title: Azure Data Factory mapping data flow Visual Monitoring
 description: How to visually monitor Azure Data Factory Data Flows
 author: kromerm
 ms.author: makromer

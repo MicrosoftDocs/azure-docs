@@ -1,12 +1,12 @@
 ---
 title: Tutorial predict food inspection results #Required; update as needed page title displayed in search results. Include the word "tutorial".Include the brand.
 description: #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
+services: synapse-analytics 
 author: julieMSFT #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
+ms.service: synapse-analytics 
 ms.topic: tutorial #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 09/10/2019 #Update with current date; mm/dd/yyyy format.
+ms.subservice: #leave blank
+ms.date: 10/17/2019 #Update with current date; mm/dd/yyyy format.
 ms.author: jrasnick #Required; update with your microsoft alias of author; optional team alias.
 ms.reviewer: jrasnick
 ---
