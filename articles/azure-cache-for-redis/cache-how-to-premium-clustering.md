@@ -146,7 +146,10 @@ For non-ssl, use the following commands.
 For ssl, replace `1300N` with `1500N`.
 
 ### Can I configure clustering for a previously created cache?
-Yes. First ensure that your cache is premium, by scaling if is not. Next, you should be able to see the cluster configuration options, including an option to enable clsuter. You can change the cluster size after the cache is created, or after you have enabled clustering for the first time. **Important note: you cannot undo enabling clustering**. And a cache with clustering enabled and only one shard, behaves *differently* to a cache of the same size with *no* clustering.
+Yes. First ensure that your cache is premium, by scaling if is not. Next, you should be able to see the cluster configuration options, including an option to enable clsuter. You can change the cluster size after the cache is created, or after you have enabled clustering for the first time.
+
+   >[!IMPORTANT]
+   >You can't undo enabling clustering. And a cache with clustering enabled and only one shard behaves *differently* than a cache of the same size with *no* clustering.
 
 ### Can I configure clustering for a basic or standard cache?
 Clustering is only available for premium caches.
