@@ -31,9 +31,7 @@ There's more than one way to deploy Azure Firewall Manager Preview, but the foll
    - Third-party Network Security as a Service (NSaaS) policies are configured via partners management experience.
 4. Configure route settings to route traffic to your secured hub
 
-   - Easily route traffic to your secured hub for filtering and logging without User Defined Routes (UDR) on spoke Virtual Networks using the Secured Virtual Hub Route Setting page 
-   - Use third-party NSaaS providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I).
-   - You can also use third-party NSaaS providers for V2I traffic filtering if Azure Firewall isn't required for B2V or V2V.
+   - Easily route traffic to your secured hub for filtering and logging without User Defined Routes (UDR) on spoke Virtual Networks using the Secured Virtual Hub Route Setting page.
 
 ## Next steps
 
