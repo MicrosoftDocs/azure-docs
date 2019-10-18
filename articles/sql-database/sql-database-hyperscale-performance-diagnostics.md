@@ -37,7 +37,7 @@ The following wait types (in [sys.dm_os_wait_stats](/sql/relational-databases/sy
 
 The compute replicas do not cache a full copy of the database locally. The data local to the compute replica is stored in the Buffer Pool (in memory) and in the local Resilient Buffer Pool Extension (RBPEX) cache that is a partial (non-covering) cache of data pages. This local RBPEX cache is sized proportionally to the compute size and is 3 times the memory of the compute tier. RBPEX is similar to the Buffer Pool in that it has the most frequently accessed data. Each page server, on the other hand, has a covering RBPEX cache for the portion of the database it maintains.
  
-When a read is issued on a compute replica, if the data does not exists in the Buffer Pool or local RBPEX cache, a getPage(pageId, LSN) function call is issued, and the page is fetched from the corresponding page server. Reads from page servers are remote reads and are thus slower than reads from the local RBPEX. When troubleshooting IO-related performance problems, we need to be able to tell how many IOs were done via relatively slower remote page server reads.
+When a read is issued on a compute replica, if the data doesn't exist in the Buffer Pool or local RBPEX cache, a getPage(pageId, LSN) function call is issued, and the page is fetched from the corresponding page server. Reads from page servers are remote reads and are thus slower than reads from the local RBPEX. When troubleshooting IO-related performance problems, we need to be able to tell how many IOs were done via relatively slower remote page server reads.
 
 Several DMVs and extended events have columns and fields that specify the number of remote reads from a page server which can be compared against the total reads. 
 
