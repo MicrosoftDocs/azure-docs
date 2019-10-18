@@ -18,8 +18,8 @@ You can follow and subscribe to Site Recovery update notifications in the [Azure
 
 For disaster recovery of Azure VMs to a secondary region, or on-premises VMware VMs or physical servers to Azure, note the following:
 
-- From version 9.30.x.x of the Mobility service extension (for Azure VMs), and Mobility service agent (for VMware/physical machines), some machine operating systems must be running the servicing stack update and SHA-2. Details are shown in the table below.
-- Install the update and SHA-2 in accordance with the linked KB.
+- From version 9.30.x.x (expected release beginning November 2019) of the Mobility service extension (for Azure VMs), and Mobility service agent (for VMware/physical machines), some machine operating systems must be running the servicing stack update and SHA-2. Details are shown in the table below.
+- Install the update and SHA-2 in accordance with the linked KB. SHA-1 isn't supported from September 2019, and if SHA-2 code signing isn't enabled the agent extension won't install/upgrade as expected.
 - Learn more about [SHA-2 upgrade and requirements](https://aka.ms/SHA-2KB).
 
 **Operating system** | **Azure VM** | **VMware VM/physical machine**
