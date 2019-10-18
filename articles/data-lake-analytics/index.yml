@@ -100,12 +100,12 @@ landingContent:
           - text: Use U-SQL SDK
             url: data-lake-analytics-u-sql-sdk.md
 
-# Cart (optional)
-- title: Troubleshoot U-SQL jobs 
-  linklists:
-    - linklistType: how-to-guide
-    links:
-      - text: Troubleshoot U-SQL runtime
-      url: data-lake-analytics-runtime-troubleshoot.md
-      - text: Troubleshoot a .NET upgrade
-      url: data-lake-analytics-dotnet-upgrade-troublehoot.md
+  # Cart (optional)
+  - title: Troubleshoot U-SQL jobs 
+    linklists:
+      - linklistType: how-to-guide
+        links:
+         - text: Troubleshoot U-SQL runtime
+           url: data-lake-analytics-runtime-troubleshoot.md
+         - text: Troubleshoot a .NET upgrade
+           url: data-lake-analytics-dotnet-upgrade-troublehoot.md
