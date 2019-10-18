@@ -57,8 +57,10 @@
       href: tutorial-global-distribution-sql-api.md
   - name: Samples
     items:
-    - name: .NET samples
+    - name: .NET V2 SDK samples
       href: sql-api-dotnet-samples.md
+    - name: .NET V3 SDK samples
+      href: sql-api-dotnet-v3sdk-samples.md
     - name: Java samples
       href: sql-api-java-samples.md
     - name: Async Java samples
@@ -139,6 +141,9 @@
         - name: ORDER BY
           displayName: order by, order by clause
           href: sql-query-order-by.md
+        - name: GROUP BY 
+          displayName: group by clause
+          href: sql-query-group-by.md
         - name: OFFSET LIMIT
           displayName: offset limit
           href: sql-query-offset-limit.md
@@ -1022,6 +1027,8 @@
         href: odbc-driver.md
     - name: Migrate data to Cosmos DB
       items: 
+      - name: Options to migrate data into Cosmos DB
+        href: cosmosdb-migrationchoices.md
       - name: Migrate to SQL API using Striim
         href: cosmosdb-sql-api-migrate-data-striim.md
       - name: Migrate to Cassandra API using Striim

@@ -56,7 +56,7 @@ Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name deploymen
 To delete all deployments older than five days, use:
 
 ```azurepowershell-interactive
-$deployments = Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup | Where-Object Timestamp -gt ((Get-Date).AddDays(-5))
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup | Where-Object Timestamp -lt ((Get-Date).AddDays(-5))
 
 foreach ($deployment in $deployments) {
   Remove-AzResourceGroupDeployment -ResourceGroupName exampleGroup -Name $deployment.DeploymentName
