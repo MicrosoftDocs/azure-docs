@@ -14,8 +14,6 @@ ms.author: yulili
 
 # Quickstart: Synthesize speech with the Speech SDK for Java
 
-Quickstarts are also available for [speech recognition](quickstart-java-jre.md), [speech-to-speech-translation](quickstart-translate-speech-java-jre.md), and [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md).
-
 In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You synthesize speech from text and play it with your PC's default speaker. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 > [!NOTE]
@@ -51,7 +49,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 
 ## Create and configure project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+[!INCLUDE [](../../../../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
 ## Add sample code
 
@@ -59,7 +57,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 
 1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
 
-   ![Screenshot of New Java Class window](media/sdk/qs-java-jre-06-create-main-java.png)
+   ![Screenshot of New Java Class window](../../../media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Replace all code in `Main.java` with the following snippet:
 
@@ -67,7 +65,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. Save changes to the project.
 
@@ -85,7 +83,5 @@ Additional samples, such as how to read speech from an audio file, are available
 
 ## See also
 
-- [Quickstart: Recognize speech, java (Windows, Linux, macOS)](quickstart-java-jre.md)
-- [Quickstart: Translate speech, Java (Windows, Linux, macOS)](quickstart-translate-speech-java-jre.md)
-- [Customize voice fonts](how-to-customize-voice-font.md)
-- [Record voice samples](record-custom-voice-samples.md)
+- [Customize voice fonts](../../../how-to-customize-voice-font.md)
+- [Record voice samples](../../../record-custom-voice-samples.md)

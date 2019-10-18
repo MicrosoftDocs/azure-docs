@@ -17,8 +17,8 @@ zone_pivot_groups: programming-languages-set-two
 
 >[!NOTE]
 > This article assumes that you've already created a Speech resource in the Azure portal and setup your development environment. If you haven't completed these steps, use our guides to get started:
-> * [Create a Speech resource](./create-speech-resource.md)
-> * [Setup your development environment](../quickstart-platform-csharp-dotnet-windows.md)
+> * [Create a Speech resource](../create-speech-resource.md)
+> * [Setup your development environment](../../quickstart-platform-csharp-dotnet-windows.md)
 
 ::: zone pivot="programming-language-csharp"
 
@@ -46,6 +46,6 @@ C
 
 ::: zone pivot="programming-language-more"
 
-[!INCLUDE [More samples](./from-microphone/stt-mic-other-lang.md)]
+[!INCLUDE [More samples](../from-microphone/stt-mic-other-lang.md)]
 
 ::: zone-end

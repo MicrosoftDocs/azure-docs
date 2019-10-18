@@ -14,17 +14,15 @@ ms.author: yinhew
 
 # Quickstart: Synthesize speech in C++ on Linux by using the Speech SDK
 
-Quickstarts are also available for [speech-recognition](quickstart-cpp-linux.md).
-
-In this article, you create a C++ console application for Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). You use the Cognitive Services [Speech SDK](speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
+In this article, you create a C++ console application for Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). You use the Cognitive Services [Speech SDK](../../../speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](../../../get-started.md) for details.
 
 ## Install Speech SDK
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tar file from https://aka.ms/csspeech/linuxbinary.
 
@@ -73,7 +71,7 @@ Download and install the SDK as follows:
 
    The directory listing should contain the third-party notice and license files, as well as an `include` directory containing header (`.h`) files and a `lib` directory containing libraries.
 
-   [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
+   [!INCLUDE [Linux Binary Archive Content](../../../../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## Add sample code
 
@@ -83,7 +81,7 @@ Download and install the SDK as follows:
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 ## Build the app
 
@@ -149,8 +147,3 @@ Download and install the SDK as follows:
 
 > [!div class="nextstepaction"]
 > [Explore C++ samples on GitHub](https://aka.ms/csspeech/samples)
-
-## See also
-
-- [Customize voice fonts](how-to-customize-voice-font.md)
-- [Record voice samples](record-custom-voice-samples.md)
