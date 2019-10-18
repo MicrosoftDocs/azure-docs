@@ -104,7 +104,7 @@ The _device groups_ page shows device groups created by the builder. A device gr
 
 ![Rules page](media/overview-iot-central-tour-pnp/rules.png)
 
-The rules page lets you define rules based on telemetry, device state, or device events. When a rule fires, it can trigger an action such as sending an email to an operator. The builder uses this page to create and manage rules. For more information, see the [Configure rules and actions for your devices in Azure IoT Central](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial.
+The rules page lets you define rules based on telemetry, device state, or device events. When a rule fires, it can trigger an action such as sending an email to an operator. The builder uses this page to create and manage rules.
 
 ## Analytics
 
