@@ -18,7 +18,7 @@ ms.author: b-juche
 ---
 # Configure export policy for an NFS volume
 
-You can optionally configure export policy to control access to an Azure NetApp Files volume. Export policy is support only for NFS volumes. 
+You can optionally configure export policy to control access to an Azure NetApp Files volume. The export policy is support only for NFS volumes. 
 
 ## Steps 
 
