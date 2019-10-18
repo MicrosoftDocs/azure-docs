@@ -29,7 +29,7 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 ### Prerequisites
 
 * [Azure subscription](https://azure.microsoft.com/free/)
-* [Azure AD B2C tenant](active-directory-b2c-get-started.md) that you want to link a subscription
+* [Azure AD B2C tenant](active-directory-b2c-get-started.md) that you want to link to a subscription
   * You must be a tenant administrator
   * The tenant must not already be linked to a subscription
 
