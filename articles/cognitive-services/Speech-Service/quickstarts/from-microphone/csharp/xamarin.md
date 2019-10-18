@@ -1,8 +1,14 @@
 ---
+title: "Quickstart: Recognize speech from a microphone - Speech Service"
+titleSuffix: Azure Cognitive Services
+description: TBD
+services: cognitive-services
 author: erhopf
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: include
-ms.date: 08/06/2019
+ms.subservice: speech-service
+ms.topic: quickstart
+ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
@@ -81,7 +87,7 @@ Now add the C# code that defines the iOS specific part of the application and al
 
 1. In case you are building on Windows PC, you need to establish connection to Mac device for building via **Tools** > **iOS** > **Pair to Mac**. Follow the instruction wizard provided by Visual Studio to enable connection to the Mac device.
 
-#### [UWP](#tab/helloworld.uwp)
+#### [UWP](#tab/helloworlduwp)
 ## Add sample code for the `helloworld.UWP` project
 
 Now add the C# code that defines the UWP specific part of the application.
