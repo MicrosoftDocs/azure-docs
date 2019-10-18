@@ -37,9 +37,9 @@ Before reading rest of the article, make sure to check following articles:
 
 
 ## Before you begin
-> Please note that all URIs in sample queries are using storage account located in North Europe Azure region. **If your endpoint is located in West US region, change URI** to point to *partystoragewestus* storage account.
->
-> Please make sure that you created appropriate credential for your region. Run this query and make sure storage account in your region is listed:
+> Note that all URIs in sample queries are using storage account located in North Europe Azure region. 
+
+> Make sure that you created appropriate credential. Run this query and make sure storage account is listed:
 
 ```sql
 SELECT name
