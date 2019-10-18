@@ -93,7 +93,7 @@ A ratio of reads done on RBPEX to aggregated reads done on all other data files 
 ### Log Writes
 
 - On the primary compute, a log write is accounted for in file_id 2 of sys.dm_io_virtual_file_stats. A log write on primary compute is a write to the log Landing Zone.
-- Log records are not hardened on the secondary replica on a commit. In Hyperscale, log is applied by the Xlog service to the remote replicas. Given log writes do not actually occur on secondary replicas, any accounting of Log IO's on the secondary replicas are for tracking purposes only.
+- Log records are not hardened on the secondary replica on a commit. In Hyperscale, log is applied by the Xlog service to the remote replicas. Because log writes don't actually occur on secondary replicas, any accounting of Log IO's on the secondary replicas is for tracking purposes only.
 
 ## Additional Resources
 
