@@ -119,5 +119,5 @@ landingContent:
             url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
           - text: Machine learning CLI
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-          - text: Algorithms & modules (designer)
+          - text: Designer algorithms & modules
             url: algorithm-module-reference/module-reference.md
