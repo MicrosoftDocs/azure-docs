@@ -1,59 +1,32 @@
 ---
-title: #Required; page title displayed in search results. Include the brand.
-description: #Required; article description that is displayed in search results.
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; microsoft alias of author; optional team alias.
-ms.service: #Required; service per approved list. service slug assigned to your service by ACOM.
-ms.topic: overview #Required
-ms.date: #Required; mm/dd/yyyy format.
+title: Overview of IoT Central Connected Logistics | Microsoft Docs
+description: An overview of connected logistics application template for IoT Central
+author: nandab
+ms.author: nandab
+ms.service: iot-central
+ms.topic: overview
+ms.date: 10/18/2019
 ---
 
-<!---Recommended: Remove all the comments in this template before you sign-off or merge to master.--->
+# What is Azure IoT Central connected logistics?
 
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
+Inventory" is the stock of goods held by a retailer. Every retailer needs inventory to take care of supply and logistics lead time. Inventory is arguably the most valuable resource that every retailer needs to trade. In today's omnichannel world, inventory management. is a critical requirement to ensure the right product is in the right place at the right time. Storing too much or too little inventory could hurt the retailer's business. Every year retailers are losing 8-10% of the revenue due to lack of smart inventory management capabilities.
 
-# What is <product/service>? 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
+IoT data enabled by Radio-frequency Identification (RFID), Beacons & Camera is the opportunity to tackle this massive challenge in scale. The connectivity and real-time analytics inherent in IoT signals have become the differentiator for the retailer's inventory woes.  Data gathered from sensors, devices, weather, & events can be integrated with cloud-based Business Intelligence systems.  
 
-Introductory paragraph.
-<!---Required:
-The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
---->
+Smart Inventory management benefits are, 
+* Safeguards the organization against stock-outs and ensures the desired customer service level. 
+* In-depth analysis & insights into inventory accuracy in near real time
+* Decide on the right amount of inventory that suffices the customer orders
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+Partners can leverage this application template to develop end to end Smart Inventory management solutions to gain actionable insights & outlined benefits. The published Smart Inventory management template is focused on device connectivity configuration & management of RFID & Bluetooth Low Energy (BLE) readers via edge gateway to IoT Central for device operators. 
 
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
---->
-
-## <article body>
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
-
-## <Top task>
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [Content + Learning content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
---->
+    ![Smart Inventory Management Dashboard](./media/file.png)
 
 ## Next steps
 
-<!---Some context for the following links goes here--->
-- [link to next logical step for the customer](global-quickstart-template.md)
+To get started building a Smart Inventory management. solution:
+* [Deploy the application template] (name of the markdown file)
+* [See an example architecture] (name of the markdown file)
 
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->
+
