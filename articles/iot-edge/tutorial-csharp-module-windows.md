@@ -82,7 +82,7 @@ The Azure IoT Edge Tools provides project templates for all supported IoT Edge m
 
    ![Configure your project for target device, module type, and container registry](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. Select **OK** to apply your changes. 
+5. Select **Add** to create the project. 
 
 ### Add your registry credentials
 

@@ -81,7 +81,7 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
 4. View the contents of the table:
     
     ```hbaseshell
-    scan 'Contacts'
+    scan 'Customers'
     ```
 
     ![HDInsight Hadoop HBase shell output](./media/apache-domain-joined-run-hbase/hbase-shell-scan-table.png)

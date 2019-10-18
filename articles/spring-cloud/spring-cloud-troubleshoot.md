@@ -149,6 +149,46 @@ You may also check _Service Registry_ client logs in _Azure Log Analytics_. For 
 
 Visit [this getting started article](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) to get started with _Azure Log Analytics_. Query the logs using [Kusto Query Language](https://docs.microsoft.com/azure/kusto/query/).
 
+### I want to inspect my application's environment variables
+
+Environment variables inform the Azure Spring Cloud framework, ensuring that Azure understands where and how to configure the services that comprise your application.  Ensuring that your environment variables are correct is a necessary first step in troubleshooting potential problems.  You can use the Spring Boot Actuator endpoint to review your environment variables.  
+
+[!WARNING]
+> This procedure may expose your environment variables.  Do not proceed if your test endpoint is publicly accessible or if you've assigned a domain name to your application.
+
+1. Navigate to this URL:  `https://<your application test endpoint>/actuator/health`.  
+    - A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled.
+    - If the response is negative, include the following dependency in your `POM.xml`:
+
+        ```xml
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+        ```
+
+1. With the Spring Boot Actuator endpoint enabled, go to the Azure portal and find the configuration page of your application.  Add an environment variable with the name `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value `*`. 
+
+1. Restart your application.
+
+1. Navigate to `https://<the test endpoint of your app>/actuator/env` and inspect the response.  It should look like this:
+
+    ```json
+    {
+        "activeProfiles": [],
+        "propertySources": {,
+            "name": "server.ports",
+            "properties": {
+                "local.server.port": {
+                    "value": 1025
+                }
+            }
+        }
+    }
+    ```
+
+Find the child node named `systemEnvironment`.  This node contains your application's environment variables.
+
 ### I cannot find metrics or logs for my application
 
 Go to _App management_ to make sure the application is _Running_ and _UP_.

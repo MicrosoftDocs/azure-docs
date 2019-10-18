@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure Notebooks Documentation
 metadata:
-  title: Azure Notebooks Documentation - Quickstarts, Tutorials, Guides | Microsoft Docs
+  title: Azure Notebooks Documentation
   description: Learn how to create, run, and share Jupyter notebooks through the hosted Azure Notebooks service.
   services: notebooks
   author: kraigb
