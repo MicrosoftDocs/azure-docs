@@ -18,4 +18,5 @@
    * **Subscription** - Select the subscription that you want to use.
    * **Resource Group** - Create new or use existing.
    * **Resource Location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
+   * **WAN type:** Basic or Standard. If you create a Basic WAN, you can create only a Basic hub. Basic hubs are capable of VPN site-to-site connectivity only.
 4. After you finish filling out the fields, click **Create**.
