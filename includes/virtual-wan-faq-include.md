@@ -64,6 +64,10 @@ Yes. Traffic flow, when commencing, is from the on-premises device to the closes
 
 Yes, you can connect your favorite network virtual appliance (NVA) VNet to the Azure Virtual WAN. First, connect the network virtual appliance VNet to the hub with a Hub Virtual Network connection. Then, create a virtual hub route with a next hop pointing to the Virtual Appliance. You can apply multiple routes to the virtual hub Route Table. Any spokes connected to the NVA VNet must additionally be connected to the virtual hub to ensure that the spoke VNet routes are propagated to on-premises systems.
 
+### Can I create a Network Virtual Appliance inside the virtual hub?
+
+A Network Virtual Appliance (NVA) cannot be deployed inside a virtual hub. However, you can create it in a spoke VNet that is connected to the virtual hub and enable a route in the hub to direct traffic for destination VNet via the NVA IP address (of the NIC).
+
 ### Can a spoke VNet have a virtual network gateway?
 
 No. The spoke VNet cannot have a virtual network gateway if it is connected to the virtual hub.
@@ -159,10 +163,6 @@ Yes. An Internet connection and physical device that supports IPsec, preferably 
 ### How do I enable default route (0.0.0.0/0) in a connection (VPN, ExpressRoute, or Virtual Network):
 
 A virtual hub can propagate a learned default route to a virtual network/site-to-site VPN/ExpressRoute connection if the flag is 'Enabled' on the connection. This flag is visible when the user edits a virtual network connection, a VPN connection, or an ExpressRoute connection. By default, this flag is disabled when a site or an ExpressRoute circuit is connected to a hub. It is enabled by default when a virtual network connection is added to connect a VNet to a virtual hub. The default route does not originate in the Virtual WAN hub; the default route is propagated if it is already learned by the Virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced-tunneling enabled.
-
-### Can I create a Network Virtual Appliance inside the virtual hub?
-
-A Network Virtual Appliance (NVA) cannot be deployed inside a virtual hub. However, you can create it in a spoke VNet that is connected to the virtual hub and enable a route in the hub to direct traffic for destination VNet via the NVA IP address (of the NIC).
 
 ### What are the differences between the Virtual WAN types (Basic and Standard)?
 
