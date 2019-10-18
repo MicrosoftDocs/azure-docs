@@ -119,9 +119,9 @@ To change the domain for an app, select a different domain from the dropdown lis
 
 For more detailed instructions for Application Proxy, see [Tutorial: Add an on-premises application for remote access through Application Proxy in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
-## Certificates
+## Certificates for custom domains
 
-Certificates create the secure SSL connection for your custom domain. 
+A certificate creates the secure SSL connection for your custom domain. 
 
 ### Certificate formats
 
@@ -133,13 +133,13 @@ You can use wildcard certificates as long as the wildcard matches the external U
 
 You can use certificates issued by your own public key infrastructure (PKI) if the certificate chain is installed on your client devices. Intune can deploy these certificates to managed devices. For non-managed devices, you must manually install these certificates.
 
-Don't use a private root CA. The private root CA would also need to be pushed to client machines, which introduces many challenges. 
+It's not a good idea to use a private root CA. The private root CA would also need to be pushed to client machines, which introduces many challenges. 
 
 ### Certificate management
 
 All certificate management is through the individual application pages. Go to the application's **Application proxy** page to access the **Certificate** field.
 
-You can use the same certificate for many applications. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when you add or configure the app. 
+You can use the same certificate for multiple applications. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when you add or configure the app. 
 
 When a certificate expires, you get a warning telling you to upload another certificate. If the certificate is revoked, your users may see a security warning when accessing the app. To update the certificate for an app, navigate to the **Application proxy** page for the app, select **Certificate**, and upload a new certificate. If the old certificate isn't being used by other apps, it's deleted automatically. 
 
