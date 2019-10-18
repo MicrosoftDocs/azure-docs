@@ -323,6 +323,8 @@
         href: confluencemicrosoft-tutorial.md
       - name: Consent2Go
         href: consent2go-tutorial.md
+      - name: Contentful
+        href: contentful-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
       - name: Control
@@ -1376,6 +1378,8 @@
         href: vibehcm-tutorial.md
       - name: Vidyard
         href: vidyard-tutorial.md
+      - name: Visit.org
+        href: visitorg-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
       - name: Vocoli
