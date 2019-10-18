@@ -14,6 +14,6 @@ ms.author: erhopf
 [!INCLUDE [vs](./unity.md)]
 #### [UWP](#tab/uwp)
 [!INCLUDE [vs](./uwp.md)]
-#### [Xaml](#tab/xaml)
+#### [Xamarin](#tab/xaml)
 [!INCLUDE [vs](./xamarin.md)]
 * * *

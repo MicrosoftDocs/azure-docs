@@ -40,6 +40,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
+#### [Android](#tab/android)
 ## Add sample code for the `helloworld.Android` project
 
 Now add the C# code that defines the Android specific part of the application.
@@ -58,7 +59,7 @@ Now add the C# code that defines the Android specific part of the application.
 ```xml
    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
-
+#### [iOS](#tab/ios)
 ## Add sample code for the `helloworld.iOS` project
 
 Now add the C# code that defines the iOS specific part of the application and also create Apple device specific configurations to the helloworld.iOS project.
@@ -80,6 +81,7 @@ Now add the C# code that defines the iOS specific part of the application and al
 
 1. In case you are building on Windows PC, you need to establish connection to Mac device for building via **Tools** > **iOS** > **Pair to Mac**. Follow the instruction wizard provided by Visual Studio to enable connection to the Mac device.
 
+#### [UWP](#tab/helloworld.uwp)
 ## Add sample code for the `helloworld.UWP` project
 
 Now add the C# code that defines the UWP specific part of the application.
@@ -114,6 +116,7 @@ Now add the C# code that defines the UWP specific part of the application.
 1. Select **Start Speech recognition**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
 
    ![Speech recognition user interface](../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
+* * *
 
 ## Build and run the Android and iOS applications
 
