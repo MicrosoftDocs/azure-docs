@@ -10,7 +10,15 @@ ms.date: 01/29/2019
 
 ---
 
-#products"></a>
+<div id="main" class="v2">
+    <div class="container">
+        <h1>Azure Monitor log data documentation</h1>
+        <p>Azure Monitor can collect different sources as log data and store it for correlation and analysis using its query language.</p>
+		<p>Explore our most popular content on how to plan, collect, and analyze log data.</p>
+        <hr style="margin: 30px 0;" />
+        <ul class="pivots">
+            <li>
+                <a href="#products"></a>
                 <ul id="products">
                     <li>
                         <a class="singlePanelNavItem selected" style="display: none" href="#indexA" data-linktype="self-bookmark"></a>

@@ -1,15 +1,12 @@
 ---
-layout: HubPage
-hide_bc: false
 title: Azure Monitor Application insights Documentation - Tutorials, API Reference | Microsoft Docs
 description: Azure Monitor Application Insights provides deep code-level application performance monitoring.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
 ms.service: application-insights
+ms.subservice: 
 ms.topic: hub-page
-ms.date: 01/15/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 01/15/2019
 
 ---
 
