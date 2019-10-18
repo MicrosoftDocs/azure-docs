@@ -133,11 +133,11 @@ When the sample application makes a request to Azure Storage, it must be authori
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Select your storage account.
 3. In the **Settings** section of the storage account overview, select **Access keys**. Here, you can view your storage account name and access keys.
-4. Find the **Storage account name** and select the **Copy** button to copy the connection string to the clipboard. Paste the string into a blank file in your text editor. You will add the account name string value to an environment variable in the next section.
+4. Find the **Storage account name** and select the **Copy** button to copy the account name to the clipboard. Paste the string into a blank file in your text editor. You will add the account name string value to an environment variable in the next section.
 
     ![Screenshot showing how to copy the account name from the Azure portal](./media/storage-quickstart-blobs-dotnet-v12/portal-storage-account-name.png)
 
-5. Find the **Key** value under **key1**, and select the **Copy** button to copy the connection string to the clipboard. Paste the string into your text editor. You will add the connection string value to an environment variable in the next section.
+5. Find the **Key** value under **key1**, and select the **Copy** button to copy the access key value to the clipboard. Paste the string into your text editor. You will add the access key value to an environment variable in the next section.
 
     ![Screenshot showing how to copy the access key from the Azure portal](./media/storage-quickstart-blobs-dotnet-v12/portal-storage-access-key.png)
 
