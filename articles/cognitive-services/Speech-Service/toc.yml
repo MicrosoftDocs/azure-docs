@@ -15,9 +15,9 @@
   - name: Speech translation
     href: speech-translation.md
     displayName: translate speech, speech translation, translator, s2s, speech to speech
-  - name: Speech assistants
-    href: speech-assistants.md
-    displayName: speech assistants, speech-enabled bots, conversational agents
+  - name: Voice assistants
+    href: voice-assistants.md
+    displayName: voice assistants, speech-enabled bots, conversational agents
   - name: (*) Custom Commands
     href: custom-commands.md
     displayName: custom commands, task completion
@@ -138,17 +138,17 @@
       - name: 'Python'
         href: quickstart-text-to-speech-python.md
         displayName: synthesize speech, speech synthesis, text-to-speech, tts
-    - name: Speech assistants
+    - name: Voice assistants
       items:
       - name: 'C# (UWP)'
         href: quickstart-speech-assistant-csharp-uwp.md
-        displayName: speech assistant, speech-enabled bot, conversational agent, universal windows platform
+        displayName: voice assistant, speech-enabled bot, conversational agent, universal windows platform
       - name: 'Java (Windows, macOS, Linux)'
         href: quickstart-speech-assistant-java-jre.md
-        displayName: speech assistant, speech-enabled bot, conversational agent
+        displayName: voice assistant, speech-enabled bot, conversational agent
       - name: 'Java (Android)'
         href: quickstart-speech-assistant-java-android.md
-        displayName: speech assistant, speech-enabled bot, conversational agent
+        displayName: voice assistant, speech-enabled bot, conversational agent
   - name: REST APIs
     items:
     - name: List supported voices by region
@@ -368,8 +368,8 @@
     - name: Speech translation
       href: https://www.microsoft.com/translator/faq.aspx
       displayName: translate speech, speech translation, translator, s2s, speech to speech
-    - name: Speech assistants
-      href: faq-speech-assistants.md
+    - name: Voice assistants
+      href: faq-voice-assistants.md
   - name: Speech SDK licenses
     items:
     - name: License
