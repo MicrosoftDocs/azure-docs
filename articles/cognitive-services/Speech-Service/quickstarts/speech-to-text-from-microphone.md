@@ -17,6 +17,8 @@ zone_pivot_groups: programming-languages-set-two
 
 In this quickstart you'll use the Speech SDK to convert speech-to-text using a microphone. Regardless of your language/platform preference, there are a few things that you'll do as you work your way through this article:
 
+NOTE: Rob wants this to be a bit different... 
+
 1. Consume the Speech SDK.
 2. Create a configuration that takes your subscription key and region as arguments.
 3. Recognize speech and display the recognition results (or errors).
