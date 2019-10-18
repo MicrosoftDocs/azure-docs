@@ -23,7 +23,7 @@ Decision makers, development teams, and the IT department needs to build a solid
 - Evolve the application with their business.
 - Reduce the time to market and let their developers focus on building high-quality applications.
 
-This documentation series explores the **options provided by Microsoft that enables you to build secure, reliable, scalable, cloud-based mobile applications**.
+This documentation series explores the **services provided by Microsoft that enable you to build secure, reliable, scalable, cloud-based mobile applications**.
 
 ## Intended Audience
 
