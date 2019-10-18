@@ -12,7 +12,7 @@ ms.reviewer: sadodd
 
 # Process change feed logs in Azure Blob Storage (Preview)
 
-Change feed provides transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. This article shows you how to process the change feed, and read change feed records by using the blob change feed processor library that is provided with the SDK.
+Change feed provides transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. This article shows you how to read change feed records by using the blob change feed processor library that is provided with the SDK.
 
 To learn more about the change feed, see [Change feed in Azure Blob Storage (Preview)](storage-blob-change-feed.md).
 
@@ -46,12 +46,14 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 
 ## Initialize the change feed
 
-Create an instance of the **ChangeFeed** class by calling the **GetContainerReference** method. Pass in the name of the change feed container.
+Add the following using statements to the top of your code file.
 
->[!NOTE]
-> Add these statements to the top of your code file:
-> - ``using Avro.Generic;``
-> - ``using ChangeFeedClient;``
+```csharp
+using Avro.Generic;
+using ChangeFeedClient;
+```
+
+Then, create an instance of the **ChangeFeed** class by calling the **GetContainerReference** method. Pass in the name of the change feed container.
 
 ```csharp
 public async Task<ChangeFeed> GetChangeFeed(CloudBlobClient cloudBlobClient)
@@ -66,11 +68,11 @@ public async Task<ChangeFeed> GetChangeFeed(CloudBlobClient cloudBlobClient)
 }
 ```
 
-## Read all records
+## Read records
 
-The simplest way to read change feed records is to create an instance of the **ChangeFeedReader** class. 
+The simplest way to read records is to create an instance of the **ChangeFeedReader** class. 
 
-This example iterates through all records and prints some of the values of each record to the console. 
+This example iterates through all records in the change feed, and then prints to the console a few values from each record. 
  
 ```csharp
 public async Task ProcessRecords(ChangeFeed changeFeed)
@@ -96,17 +98,14 @@ public async Task ProcessRecords(ChangeFeed changeFeed)
     } while (currentRecord != null);
 }
 ```
-## Read all records by using segments
+## Read records by using segments
 
-You can also read the change feed records of individual segments or ranges of segments. 
-
-This section shows you one way to track segments that your application has previously read. That way, each time your application starts, it reads only those records not yet processed.
+You can read records from individual segments or ranges of segments. Your application needs to track the date and time offset of the last processed segment. Later, your application can use that date and time offset to read only new segments.
 
 ### Get the starting segment
 
-You can keep track of the last segment that your application consumed. To keep things simple, this example refers to a [Dictionary](https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2) object that stores a date and time offset of the last consumed segment. Your application might use a database or a file in Azure Blob storage.
+To keep things simple, this example refers to values in a [Dictionary](https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2) object to obtain the date and time offset of the last consumed segment. Your application might refer to a database or a file in Azure Blob storage.
 
-This example gets the next segment that needs to be processed. If no segments have yet been processed, this example returns the first segment in the change feed. 
 
 ```csharp
 public async Task<ChangeFeedSegment> GetStartSegment(ChangeFeed changeFeed)
@@ -136,9 +135,9 @@ public async Task<ChangeFeedSegment> GetStartSegment(ChangeFeed changeFeed)
 
 ### Read records from the starting segment 
 
-This example creates a **ChangeFeedSegmentReader** class to iterate through the records in each time segment, and then print record values to the console.  
+This example creates a **ChangeFeedSegmentReader** class to iterate through the records in each time segment, and then print to the console a few values from each record. 
 
-You can serialize the reader. That way, you can restart your application process, and initialize the reader to its previous state in the event that your application process is interrupted or closes unexpectedly. This example serialized the reader for each segment that is processed, and stores the date and time offset of the last consumed segment. 
+This example saves the date and time offset of each segment that is processed. It also serializes the reader. That way, if the application is interrupted or closes unexpectedly while a segment is being read, the reader can be initialized to it's previous state, and the application can finish reading the segment.  
 
 
 ```csharp
