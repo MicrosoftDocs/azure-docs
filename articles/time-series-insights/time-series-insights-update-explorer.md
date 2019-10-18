@@ -150,7 +150,7 @@ When you work with Time Series Insights Preview, you first select a time span. T
 
 ## Navigation panel
 
-The Time Series Insights Preview navigation panel appears at the top of your Time Series Insights app. It provides the following functionalities.
+The Time Series Insights Preview navigation panel appears at the top of your Time Series Insights app. It provides the following functionalities:
 
 ### Current session share link control
 
@@ -196,7 +196,7 @@ Instead of the hierarchy, you see the Time Series Insights terms panel, where yo
 
 The Time Series Insights Preview terms editor panel takes the following parameters:
 
-**Where**: Use the where clause to quickly filter your events by using the set of operands listed in the following table. If you conduct a search by selecting an operand, the predicate is automatically updated based on that search. Supported operand types include:
+**Where**: Use the where clause to quickly filter your events by using the set of operands listed in the following table. If you conduct a search by selecting an operand, the predicate is automatically updated based on that search. Supported operand types include the following:
 
 | Operation	| Supported types	| Notes |
 | --- | --- | --- |
