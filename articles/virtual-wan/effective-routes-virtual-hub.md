@@ -26,13 +26,15 @@ In this example, we also assume that the West Europe Branch 1 is connected to Ea
 
 ![diagram](./media/effective-routes-virtual-hub/diagram.png)
 
-### <a name="view"></a>View effective routes
+## <a name="view"></a>View effective routes
 
 When you select 'View Effective Routes' in the portal, it produces the output shown in the **Hub route table** for the East US Hub.
 
 To put this in perspective, the first line implies that the East US hub has learned the route of 10.20.1.0/24 (Branch 1) due to the VPN 'Next hop type' connection ('Next hop' VPN Gateway Instance0 IP 10.1.0.6, Instance1 IP 10.1.0.7). 'Route Origin' points to the resource ID. 'AS Path' indicates the AS Path for Branch 1.
 
 ### <a name="routetable"></a>Hub route table
+
+Use the scroll bar at the bottom of the table to view the "AS Path".
 
 | **Prefix** |  **Next hop type** | **Next hop** |  **Route Origin** |**AS Path** |
 | ---        | ---                | ---          | ---               | ---         |
@@ -45,16 +47,17 @@ To put this in perspective, the first line implies that the East US hub has lear
 |10.22.1.0/16| Remote Hub|10.8.0.6, 10.8.0.7|/subscriptions/`<sub>`/resourceGroups/<rg>/providers/Microsoft.Network/virtualHubs/westhub_| 4848-22000 |
 |10.9.0.0/16| Remote Hub|  On-link |/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/westhub_1| |
 
-* If you can't see the 'AS Path' on the right in the table, use the scroll bar.
-* If the East US and the West Europe hubs were not communicating with each other in the example topology, the route learned (10.9.0.0/16) would not exist. Hubs only advertise networks that are directly connected to them.
+>[!NOTE]
+> If the East US and the West Europe hubs were not communicating with each other in the example topology, the route learned (10.9.0.0/16) would not exist. Hubs only advertise networks that are directly connected to them.
+>
 
-### <a name="additional"></a>Additional information
+## <a name="additional"></a>Additional information
 
-#### <a name="abouthubroute"></a>About the hub route table
+### <a name="abouthubroute"></a>About the hub route table
 
 You can create a virtual hub route and apply the route to the virtual hub route table. You can apply multiple routes to the virtual hub route table. This lets you set a route for destination VNet via an IP address (typically the Network Virtual Appliance (NVA) in a spoke VNet). For more information about NVAs, see [Route traffic from a virtual hub to an NVA](virtual-wan-route-table-portal.md).
 
-#### <a name="aboutdefaultroute"></a>About default route (0.0.0.0/0)
+### <a name="aboutdefaultroute"></a>About default route (0.0.0.0/0)
 
 A virtual hub has the ability to propagate a learned default route to a virtual network, a site-to-site VPN, and an ExpressRoute connection if the flag is ‘Enabled’ on the connection. This flag is visible when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection.
 
@@ -65,3 +68,4 @@ The default route does not originate in the virtual WAN hub. The default route i
 
 ## Next steps
 
+For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
