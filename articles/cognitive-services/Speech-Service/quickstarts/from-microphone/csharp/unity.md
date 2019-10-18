@@ -1,10 +1,17 @@
 ---
+title: "Quickstart: Recognize speech from a microphone - Speech Service"
+titleSuffix: Azure Cognitive Services
+description: TBD
+services: cognitive-services
 author: erhopf
+manager: nitinme
 ms.service: cognitive-services
-ms.topic: include
-ms.date: 08/06/2019
+ms.subservice: speech-service
+ms.topic: quickstart
+ms.date: 10/28/2019
 ms.author: erhopf
 ---
+
 
 > [!NOTE]
 > The Speech SDK for Unity supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) and iOS (x64 simulator, ARM32 and ARM64)

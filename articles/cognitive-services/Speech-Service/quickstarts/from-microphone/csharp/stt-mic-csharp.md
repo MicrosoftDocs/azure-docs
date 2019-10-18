@@ -16,11 +16,15 @@ ms.author: erhopf
 ## Select your development environment
 
 #### [Visual Studio](#tab/vs)
+[!INCLUDE [Header](./header.md)]
 [!INCLUDE [vs](./visualstudio.md)]
 #### [Unity](#tab/unity)
+[!INCLUDE [Header](./header.md)]
 [!INCLUDE [vs](./unity.md)]
 #### [UWP](#tab/uwp)
+[!INCLUDE [Header](./header.md)]
 [!INCLUDE [vs](./uwp.md)]
 #### [Xamarin](#tab/xaml)
+[!INCLUDE [Header](./header.md)]
 [!INCLUDE [vs](./xamarin.md)]
 * * *

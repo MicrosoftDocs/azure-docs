@@ -16,12 +16,10 @@ zone_pivot_groups: programming-languages-set-two
 # Quickstart: Recognize speech from a microphone
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Header](./header.md)]
 [!INCLUDE [C# quickstart](./csharp/stt-mic-csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-[!INCLUDE [Header](./header.md)]
 [!INCLUDE [C# quickstart](./cpp/stt-mic-cpp.md)]
 ::: zone-end
 

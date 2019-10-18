@@ -15,9 +15,12 @@ ms.author: erhopf
 ## Select your development environment
 
 #### [Linux](#tab/linux)
+[!INCLUDE [Header](./header.md)]
 [!INCLUDE [vs](./linux.md)]
 #### [MacOS](#tab/MacOS)
+[!INCLUDE [Header](./header.md)]
 [!INCLUDE [vs](./macos.md)]
 #### [Windows](#tab/Windows)
+[!INCLUDE [Header](./header.md)]
 [!INCLUDE [vs](./windows.md)]
 * * *
