@@ -6,7 +6,7 @@ ms.date: 1/30/2019
 ms.author: rgarcia
 ---
 
-## [Android](#tab)
+## [Android](#tab/Android)
 
 The Java android sample supports sharing across devices.
 Open the file `SharedActivity.java` from the samples folder in Android Studio and enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
@@ -18,7 +18,7 @@ to locate previously shared anchors. After you pick your scenario, the app will 
 instructions around what to do. For example, you'll be asked to move your device around to collect environment
 information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
 
-## [iOS](#tab)
+## [iOS](#tab/iOS)
 
 The Objective-C iOS sample supports sharing across devices.
 Open the file `SharedDemoViewController.m` in the samples folder and enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
@@ -30,7 +30,7 @@ to locate previously shared anchors. After you pick your scenario, the app will 
 instructions around what to do. For example, you'll be asked to move your device around to collect environment
 information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
 
-## [Xamarin](#tab)
+## [Xamarin](#tab/Xamarin)
 
 Both Xamarin Android and iOS samples support sharing across devices.
 Open the file `AccountDetails.cs` in the samples folder and enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `AnchorSharingServiceUrl`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
@@ -42,7 +42,7 @@ to locate previously shared anchors. After you pick your scenario, the app will 
 instructions around what to do. For example, you'll be asked to move your device around to collect environment
 information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
 
-## [Unity](#tab)
+## [Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
