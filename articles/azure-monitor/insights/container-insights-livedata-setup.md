@@ -48,11 +48,11 @@ The Azure portal prompts you to validate your login credentials for an Azure Act
 >Authorization to your cluster is managed by Kubernetes and the security model it is configured with. Users accessing this feature require permission to download the Kubernetes configuration (*kubeconfig*), similar to running `az aks get-credentials -n {your cluster name} -g {your resource group}`. This configuration file contains the authorization and authentication token for **Azure Kubernetes Service Cluster User Role**, in the case of Azure RBAC-enabled and AKS clusters without RBAC authorization enabled. It contains information about Azure AD and client registration details when AKS is enabled with Azure Active Directory (AD) SAML-based single-sign on.
 
 >[!IMPORTANT]
->Users of this features requires [**Azure Kubernetes Cluster User Role**](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions)  to the cluster in order to download the `kubeconfig` and use this feature. Users do **not** require contributor access to the cluster to utilize this feature. 
+>Users of this features requires [**Azure Kubernetes Cluster User Role**](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) to the cluster in order to download the `kubeconfig` and use this feature. Users do **not** require contributor access to the cluster to utilize this feature. 
 
 ## Kubernetes cluster without RBAC enabled (existing cluster)
 
-If you have a Kubernetes cluster that is not configured with Kubernetes RBAC authorization or integrated with Azure AD single-sign on, there are no configuration steps required to use the Live Metrics and Data feature in this scenario.
+If you have a Kubernetes cluster that is not configured with Kubernetes RBAC authorization or integrated with Azure AD single-sign on, you do not need to follow these steps. Because Kubernetes authorization uses the kube-api, read-only permissions are required.
 
 ## Kubernetes RBAC authentication (existing cluster)
 
@@ -95,7 +95,7 @@ The following example steps demonstrate how to configure cluster role binding fr
 2. To update your configuration, run the following command: `kubectl apply -f LogReaderRBAC.yaml`.
 
 >[!NOTE] 
-> If you have a previous version of the yaml file applied to your cluster, <update using the new code above and then run the command to apply>
+> If you have applied a previous version of the `LogReaderRBAC.yaml` file to your cluster, update it by copying and pasting the new code shown in step 1 above, and then run the command shown in step 2 to apply it to your cluster.
 
 ## Kubernetes AD integrated authentication (existing cluster)
 
