@@ -30,7 +30,7 @@ This article shows how to download, install, and set up your on-premises data ga
 
   * You need to use the same Azure account to install and to administer the gateway on your local computer. 
 
-    During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure subscription and only your subscription. Later, in the Azure portal, you need to use the same Azure account for creating an Azure gateway resource that represents your gateway installation. In Azure Logic Apps, on-premises triggers and actions can then use the gateway resource for connecting to on-premises data sources. To set up more than one gateway installation in an Azure subscription, you need to [create an Azure gateway resource for each installation](../logic-apps/logic-apps-gateway-connection.md).
+    During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure subscription and only that subscription. Later, in the Azure portal, you need to use the same Azure account for creating an Azure gateway resource that represents your gateway installation. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources. In those triggers and actions, you can select a gateway resource from across your various Azure subscriptions.
 
   * You need to sign in with either a work account or school account, also known as an *organization* account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
 
@@ -99,11 +99,11 @@ This article shows how to download, install, and set up your on-premises data ga
 
    ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/accept-terms.png)
 
-1. After the gateway successfully installs, provide the email address for your organization account, and then select **Sign in**, for example:
+1. After the gateway successfully installs, provide the email address for your Azure subscription, and then select **Sign in**, for example:
 
    ![Sign in with work or school account](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   You're now signed in to your account.
+   Your gateway installation can map to one Azure account and subscription.
 
 1. Select **Register a new gateway on this computer** > **Next**. This step registers your gateway installation with the [gateway cloud service](#gateway-cloud-service).
 
