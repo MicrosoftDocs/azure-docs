@@ -24,7 +24,7 @@ For complex conversational interaction and integration with other solutions like
 
 An example of a task completion assistant perfect for Custom Commands is a home automation tool for controlling a thermostat. A user's commands fit into a fixed vocabulary (“turn up the temperature” or “make it cooler”) with a well-defined set of variables (number of degrees, time).
 
-***<Image: thermostat scenario />***
+   ![Examples of task completion scenarios](media/voice-assistants/task-completion-examples.png "task completion examples")
 
 ## Getting started with Custom Commands Preview
 
