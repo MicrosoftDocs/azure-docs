@@ -13,9 +13,9 @@ ms.date: 10/11/2019
 
 # Azure Data Lake Analytics is upgrading to the .NET Framework v4.7.2
 
-The Azure Data Lake Analytics default runtime is upgrading from .NET Framework v4.5.2 to .NET Framework v4.7.2 during the month of October 2019. This change introduces a small risk of breaking changes if your U-SQL code uses custom assemblies that use .NET libraries.
+The Azure Data Lake Analytics default runtime is upgrading from .NET Framework v4.5.2 to .NET Framework v4.7.2. This change introduces a small risk of breaking changes if your U-SQL code uses custom assemblies, and those custom assemblies use .NET libraries.
 
-This upgrade from .NET Framework 4.5.2 to version 4.7.2 means that the .NET Framework deployed in a U-SQL vertex (the default runtime) will now always be 4.7.2.  There isn't a side-by-side option for .NET Framework versions.
+This upgrade from .NET Framework 4.5.2 to version 4.7.2 means that the .NET Framework deployed in a U-SQL runtime (the default runtime) will now always be 4.7.2.  There isn't a side-by-side option for .NET Framework versions.
 
 After this upgrade to .NET 4.7.2 is complete, the system’s managed code will run as version 4.7.2, user provided libraries such as the U-SQL custom assemblies will run in the backwards-compatible mode appropriate for the version that the assembly has been generated for.
 
@@ -32,23 +32,19 @@ Check for the potential of backwards-compatibility breaking issues by running th
 The tool doesn't detect actual breaking changes. it only identifies called .NET APIs that may (for certain inputs) cause issues. If you get notified of an issue, your code may still be fine, however you should check in more details.
 
 1. Run the backwards-compatibility checker on your .NET DLLs either by
-
-- Using the Visual Studio Extension at [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
-- Downloading and using the standalone tool from [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instructions for running standalone tool are at [GitHub dotnetapiport breaking changes](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
-- For 4.7.2. compatibility read isRetargeting == True are the breaking changes.
-
-1. If the tool indicates if your code may be impacted by any of the possible backwards-incompatibilities (some common examples of incompatibilites are listed below)  you can further check by
-
-- Analyzing your code and identifying if your code is passing values to the impacted APIs
-- Perform a runtime check. The runtime deployment isn't done side-by-side in ADLA. You can perform a runtime check before the upgrade, using VisualStudio’s local run with a local .NET Framework 4.7.2 against a representative data set.
-
-1. If you indeed are impacted by a backwards-incompatibility, take the necessary steps to fix it (such as fixing your data or code logic).
+   1. Using the Visual Studio Extension at [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
+   1. Downloading and using the standalone tool from [GitHub dotnetapiport](https://github.com/microsoft/dotnet-apiport). Instructions for running standalone tool are at [GitHub dotnetapiport breaking changes](https://github.com/microsoft/dotnet-apiport/blob/dev/docs/HowTo/BreakingChanges.md)
+   1. For 4.7.2. compatibility read isRetargeting == True are the breaking changes.
+2. If the tool indicates if your code may be impacted by any of the possible backwards-incompatibilities (some common examples of incompatibilites are listed below)  you can further check by
+   1. Analyzing your code and identifying if your code is passing values to the impacted APIs
+   1. Perform a runtime check. The runtime deployment isn't done side-by-side in ADLA. You can perform a runtime check before the upgrade, using VisualStudio’s local run with a local .NET Framework 4.7.2 against a representative data set.
+3. If you indeed are impacted by a backwards-incompatibility, take the necessary steps to fix it (such as fixing your data or code logic).
 
 In most cases, you should not be impacted by backwards-incompatibility.
 
 ## Timeline
 
-You can check for the deployment of the new runtime here [Runtime troubleshoot](data-lake-analytics-runtime-troubleshoot.md)
+You can check for the deployment of the new runtime here [Runtime troubleshoot](data-lake-analytics-runtime-troubleshoot.md), and by looking at any prior sucessfull job.
 
 ### What if I can't get my code reviewed in time?
 

@@ -12,7 +12,7 @@ ms.date: 10/10/2019
 ---
 # Learn how to troubleshoot U-SQL runtime failures due to runtime changes
 
-The Azure Data Lake U-SQL version runtime, including the compiler, optimizer, and job manager, is what processes your U-SQL code.  New versions of the U-SQL runtime are released on a regular basis and include both minor updates and security fixes.
+The Azure Data Lake U-SQL runtime, including the compiler, optimizer, and job manager, is what processes your U-SQL code.  New versions of the U-SQL runtime are released on a regular basis and include both minor updates and security fixes.
 
 ## U-SQL runtime version
 
