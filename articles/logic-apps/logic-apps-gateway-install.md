@@ -28,10 +28,10 @@ This article shows how to download, install, and set up your on-premises data ga
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-  * You need to use the same Azure account to install and to administer the gateway on your local computer. 
+  * You need to use the same Azure account to install and to administer the gateway on your local computer.
 
-    During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure subscription and only that subscription. Later, in the Azure portal, you need to use the same Azure account for creating an Azure gateway resource that links to your gateway installation. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources. 
-    
+    During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure subscription and only that subscription. Later, in the Azure portal, you need to use the same Azure account for creating an Azure gateway resource that links to your gateway installation. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources.
+
     > [!NOTE]
     > You can't link the same gateway installation to multiple subscriptions or gateway resources. 
     > However, in an on-premises trigger or action, you can select a gateway resource from your 
@@ -258,9 +258,9 @@ If you're not a domain admin, you might not know your UPN. To find the UPN for y
 
 ### Synchronize an on-premises Active Directory with Azure Active Directory
 
-The UPN for your on-premises Active Directory accounts and Azure AD accounts must be the same. So, make sure that each on-premises Active Directory account matches your Azure AD account. The cloud services know only about accounts within Azure AD. So, you don't need to add an account to your on-premises Active Directory. If the account doesn't exist in Azure AD, you can't use that account. 
+The UPN for your on-premises Active Directory accounts and Azure AD accounts must be the same. So, make sure that each on-premises Active Directory account matches your Azure AD account. The cloud services know only about accounts within Azure AD. So, you don't need to add an account to your on-premises Active Directory. If the account doesn't exist in Azure AD, you can't use that account.
 
-Here are ways that you can match your on-premises Active Directory accounts with Azure AD. 
+Here are ways that you can match your on-premises Active Directory accounts with Azure AD.
 
 * Add accounts manually to Azure AD.
 
