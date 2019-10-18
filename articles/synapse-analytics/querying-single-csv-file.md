@@ -1,9 +1,9 @@
 ---
 title: Querying single CSV file #Required; update as needed page title displayed in search results. Include the brand.
 description: CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats. #Required; Add article description that is displayed in search results.
-services: sql-analytics #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
+services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-analytics #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
+ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
 ms.topic: overview #Required
 ms.subservice: design #Required will update once these are established.
 ms.date: 10/07/2019 #Update with current date; mm/dd/yyyy format.

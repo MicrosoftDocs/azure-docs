@@ -1,9 +1,9 @@
 ---
 title: Querying JSON files #Required; update as needed page title displayed in search results. Include the brand.
 description: This section explains how to read JSON files. #Required; Add article description that is displayed in search results.
-services: sql-analytics #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
+services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-analytics #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
+ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
 ms.topic: overview #Required
 ms.subservice: design #Required will update once these are established.
 ms.date: 10/07/2019 #Update with current date; mm/dd/yyyy format.
@@ -31,8 +31,8 @@ Because quickstarts are intended to help new customers use a subscription to qui
 ## Prerequisites
 
 Before reading rest of the article make sure to check following articles:
-- [First time setup](query-data-in-storage.md#First-time-setup)
-- [Prerequisites](query-data-in-storage.md#Prerequisites)
+- [First time setup](query-data-in-storage.md#first-time-setup)
+- [Prerequisites](query-data-in-storage.md#prerequisites)
 
 
 ## Before you begin
@@ -47,7 +47,7 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
-If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#First-Time-Setup).
+If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Sample JSON files
 
