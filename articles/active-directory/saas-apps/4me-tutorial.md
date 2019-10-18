@@ -154,7 +154,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure 4me SSO
 
-1. In a different web browser window, signin to 4me as an Administrator.
+1. In a different web browser window, sign in to 4me as an Administrator.
 
 1. On the top left, click on **Settings** logo and on the left side bar click **Single Sign-On**.
 
@@ -189,9 +189,9 @@ When you click the 4me tile in the Access Panel, you should be automatically sig
 
 ## Additional resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
