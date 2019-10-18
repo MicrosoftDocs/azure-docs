@@ -153,13 +153,19 @@
     items:
     - name: Conversation transcription (REST)
       href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
-- name: Conversational agents
+- name: Voice assistants
   exanded: false
   items:
   - name: Overview
     items:
-    - name: What is a voice-first virtual assistant?
-      href: voice-first-virtual-assistants.md
+    - name: What is a voice assistant?
+      href: voice-assistants.md
+  - name: Building your assistant
+    items:
+    - name: Custom Commands Preview
+      href: custom-commands.md
+    - name: Direct Line Speech
+      href: direct-line-speech.md
   - name: Quickstarts
     items:
     - name: 'C# (UWP)'
@@ -219,7 +225,7 @@
       items:
       - name: Placeholder
         href: https://example.com
-  - name: Custom wake word/key word spotting
+  - name: Custom keyword/key word spotting
     href: speech-devices-sdk-create-kws.md
 - name: Containers
   exanded: false

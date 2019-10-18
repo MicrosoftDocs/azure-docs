@@ -30,7 +30,7 @@ The first step for using Custom Commands to make a voice assistant is to get a s
 
    ![Authoring flow for Custom Commands](media/voice-assistants/custom-commands-flow.png "The Custom Commands authoring flow")
 
-We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of quickstarts organized by language.
+We offer quickstarts designed to have you running code in less than 10 minutes.
 
 * [Create a Custom Commands Preview Application](quickstart-custom-speech-commands-create-new.md)
 * [Create a Custom Commands Preview Application with Parameters](quickstart-custom-speech-commands-create-parameters.md)

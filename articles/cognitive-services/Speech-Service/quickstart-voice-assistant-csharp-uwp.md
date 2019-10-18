@@ -418,6 +418,6 @@ Now you are ready to build and test your application.
 
 - [About voice assistants](voice-assistants.md)
 - [Get a Speech Services subscription key for free](get-started.md)
-- [Custom wake words](speech-devices-sdk-create-kws.md)
+- [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
