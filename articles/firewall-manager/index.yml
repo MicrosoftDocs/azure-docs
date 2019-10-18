@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Firewall Manager?
             url: overview.md
+          - text: Deployment overview
+            url: deployment-overview.md
   # Card
   - title: Learn about secured virtual hubs
     linkLists:
