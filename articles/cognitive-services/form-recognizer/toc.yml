@@ -31,7 +31,7 @@
   items:
   - name: Build a training data set
     href: build-training-data-set.md
-  - name: Use Feedback Loop with Python
+  - name: Use Feedback Loop API with Python
     href: python-feedback-loop.md
   - name: Use containers
     items:
