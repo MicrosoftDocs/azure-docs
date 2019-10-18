@@ -24,6 +24,8 @@ ms.collection: M365-identity-device-management
 
 When you publish an application through Azure Active Directory Application Proxy, you create an external URL for your users. This URL gets the default domain *yourtenant.msappproxy.net*. For example, if you publish an app named *Expenses* in your tenant named *Contoso*, the external URL is *https:\//expenses-contoso.msappproxy.net*. If you want to use your own domain name instead of *msappproxy.net*, you can configure a custom domain for your application. 
 
+## Benefits of custom domains
+
 It's a good idea to set up custom domains for your apps whenever possible. Some reasons to use custom domains include:
 
 - Links between apps work even outside the corporate network. Without a custom domain, if your app has hard-coded internal links to targets outside the Application Proxy, and the links aren't externally resolvable, they will break. When your internal and external URLs are the same, you avoid this problem. If you're not able to use custom domains, see [Redirect hardcoded links for apps published with Azure AD Application Proxy](../application-proxy-link-translation.md) for other ways to address this issue. 
@@ -34,7 +36,31 @@ It's a good idea to set up custom domains for your apps whenever possible. Some 
 
 - Some configurations will only work with custom domains. For example, you need custom domains for apps that use Security Assertion Markup Language (SAML), such as when you’re using Active Directory Federation Services (AD FS) but are unable to use WS-Federation. For more information, see [Work with claims-aware apps in Application Proxy](application-proxy-configure-for-claims-aware-applications.md). 
 
-If you're not able to make the internal and external URLs match, it's not as important to use custom domains, but there may still be other benefits. 
+If you're not able to make the internal and external URLs match, it's not as important to use custom domains, but you can still take advantage of the other benefits. 
+
+## DNS configuration options
+
+There are several options for setting up your DNS configuration, depending on your requirements:
+
+### Same internal and external URL, different internal and external behavior 
+
+If you don't want your internal users to be directed through the Application Proxy, you can set up a *split-brain DNS*. A split DNS infrastructure directs internal hosts to an internal domain name server, and external hosts to an external domain name server, for name resolution. 
+
+![Split-brain DNS](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
+
+### Same internal and external URL, same internal and external behavior 
+
+In this scenario, both the internal and external DNS CNAME entries point to the *msapproxy.net* URL. 
+
+A common case for this scenario is to apply conditional access to the web app or website regardless of device location. For example, only Azure AD Registered/Join Device trusted devices are allowed access. 
+
+![Same internal and external DNS](./media/application-proxy-configure-custom-domain/both-app-proxy.png)
+
+### Different internal and external URLs 
+
+If the internal and external URLs are different, you don't need to configure split-brain behavior, because user routing is determined by the URL. In this case, you change only the external DNS, and route the external URL to the Application Proxy endpoint. 
+
+When you select a custom domain for an external URL, an information bar shows the CNAME entry you need to add to the external DNS provider. You can always see this information by going to the app's **Application proxy** page.
 
 ## Set up and use custom domains
 
@@ -83,7 +109,7 @@ To publish your app through Application Proxy with a custom domain:
    
    ![Add CNAME DNS entry](./media/application-proxy-configure-custom-domain/dns-info.png)
    
-1. Follow the instructions at [Manage DNS records and record sets by using the Azure portal](../../dns/dns-operations-recordsets-portal.md) to add a DNS record that redirects the new external URL to the *msappproxy.net* domain. For more information about DNS configuration options, see [DNS entries](#dns-entries) later in this article.
+1. Follow the instructions at [Manage DNS records and record sets by using the Azure portal](../../dns/dns-operations-recordsets-portal.md) to add a DNS record that redirects the new external URL to the *msappproxy.net* domain.
    
 1. To check that the DNS record is configured correctly, use the [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) command to confirm that your external URL is reachable and the *msapproxy.net* domain appears as an alias.
 
@@ -116,30 +142,6 @@ All certificate management is through the individual application pages. Go to th
 You can use the same certificate for many applications. If an uploaded certificate works with another application, it will be applied automatically. You won't be prompted to upload it again when you add or configure the app. 
 
 When a certificate expires, you get a warning telling you to upload another certificate. If the certificate is revoked, your users may see a security warning when accessing the app. To update the certificate for an app, navigate to the **Application proxy** page for the app, select **Certificate**, and upload a new certificate. If the old certificate isn't being used by other apps, it's deleted automatically. 
-
-## DNS entries
-
-When you select a custom domain for an external URL, an information bar shows the CNAME entry you need to add to the external DNS provider. You can always see this information again by going to the app's **Application proxy** page.
-
-There are several options for setting up your DNS configuration, depending on your requirements:
-
-### Same internal and external URL, different internal and external behavior 
-
-If you don't want your internal users to be directed through the Application Proxy, you can set up a *split-brain DNS*. A split DNS infrastructure directs internal hosts to an internal domain name server, and external hosts to an external domain name server, for name resolution. 
-
-![Split-brain DNS](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
-
-### Same internal and external URL, same internal and external behavior 
-
-In this scenario, both the internal and external DNS CNAME entries point to the *msapproxy.net* URL. 
-
-A common case for this scenario is to apply conditional access to the web app or website regardless of device location. For example, only Azure AD Registered/Join Device trusted devices are allowed access. 
-
-![Same internal and external DNS](./media/application-proxy-configure-custom-domain/both-app-proxy.png)
-
-### Different internal and external URLs 
-
-If the internal and external URLs are different, you don't need to configure split-brain behavior, because user routing is determined by the URL. In this case, you change only the external DNS, and route the external URL to the Application Proxy endpoint. 
 
 ## Next steps
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
