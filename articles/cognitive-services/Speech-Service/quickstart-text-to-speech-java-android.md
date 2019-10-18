@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/19/2019
+ms.date: 11/04/2019
 ms.author: yulili
 ---
 
