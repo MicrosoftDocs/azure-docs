@@ -60,6 +60,5 @@ Individuals with speech disorders desire to make updates to their synthetic voic
 ## Next steps
 
 * [Transparency Note](https://aka.ms/neural-tts-transparency-note)
-* [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 * [Disclosure Design Patterns](concepts-disclosure-patterns.md)
