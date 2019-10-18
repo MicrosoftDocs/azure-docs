@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What is Azure AD Privileged Identity Management?
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) is a service that enables you to manage, control, and monitor access to important resources in your organization. This includes access to resources in Azure AD, Azure resources, and other Microsoft Online Services like Office 365 or Microsoft Intune.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) is a service that enables you to manage, control, and monitor access to important resources in your organization. These resources include access to resources in Azure AD, Azure resources, and other Microsoft Online Services like Office 365 or Microsoft Intune.
 
 ## Reasons to use
 
