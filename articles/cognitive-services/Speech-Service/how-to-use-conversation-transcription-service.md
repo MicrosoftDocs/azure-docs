@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author:
+ms.author: weixu
 ---
 
 # Transcribe multi-participant conversations in real time with the Speech SDK
@@ -198,7 +198,7 @@ With a meeting ID that is a GUID, we add participants to the conversation, creat
 
 ## See also
 
-For an example of offline conversation transcription, see [Offline multi-participant conversation transcription](how-to-use-offline-onversation-transcription-service.md).
+For an example of offline conversation transcription, see [Offline multi-participant conversation transcription](how-to-use-offline-conversation-transcription-service.md).
 
 ## Next steps
 
