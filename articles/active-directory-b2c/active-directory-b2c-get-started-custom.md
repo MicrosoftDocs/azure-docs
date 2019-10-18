@@ -91,7 +91,7 @@ You need to register these two applications in your Azure AD B2C tenant only onc
 1. Select **Register**.
 1. Record the **Application (client) ID** for use in a later step.
 
-Next, expose the API by adding scope:
+Next, expose the API by adding a scope:
 
 1. Under **Manage**, select **Expose an API**.
 1. Select **Add a scope**, then select **Save and continue** to accept the default application ID URI.
