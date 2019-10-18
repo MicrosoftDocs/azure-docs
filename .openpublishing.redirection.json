@@ -34625,11 +34625,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/security/azure-security-disk-encryption.md",
-      "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/device-management-hybrid-azuread-joined-devices-setup.md",
       "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-manual-steps",
       "redirect_document_id": true
@@ -34924,6 +34919,56 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/security/azure-security-disk-encryption-appendix.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-faq.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-linux.md",
+      "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-linux-aad.md",
+      "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview-aad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-overview.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-prerequisites.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-prerequisites-aad.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-tsg.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-windows.md",
+      "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-windows-aad.md",
+      "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview-aad",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/luis/Home.md",
       "redirect_url": "/azure/cognitive-services/luis/what-is-luis",
       "redirect_document_id": true
@@ -34955,7 +35000,7 @@
     },
     {
       "source_path": "articles/security-center/security-center-disk-encryption.md",
-      "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
+      "redirect_url": "/azure/security-center/security-center-apply-disk-encryption",
       "redirect_document_id": false
     },
     {

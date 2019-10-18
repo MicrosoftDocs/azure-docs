@@ -14,6 +14,7 @@ ms.date: 09/20/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
+ms.custom: fasttrack-edit
 
 ms.collection: M365-identity-device-management
 ---
@@ -46,10 +47,15 @@ The following administrator roles are available:
 
 ### [Application Administrator](#application-administrator-permissions)
 
-Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph and Azure AD Graph. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
+Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. Note that users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
 > [!IMPORTANT]
 > This role grants the ability to manage application credentials. Users assigned this role can add credentials to an application, and use those credentials to impersonate the application’s identity. If the application’s identity has been granted access to Azure Active Directory, such as the ability to create or update User or other objects, then a user assigned to this role could perform those actions while impersonating the application. This ability to impersonate the application’s identity may be an elevation of privilege over what the user can do via their role assignments in Azure AD. It is important to understand that assigning a user to the Application Administrator role gives them the ability to impersonate an application’s identity.
+
+This role also grants the ability to _consent_ to delegated permissions and application permissions, with the exception of permissions on the Microsoft Graph and Azure AD Graph.
+
+> [!IMPORTANT]
+> This exception means that you can still consent to permissions for _other_ apps (e.g. third party apps or apps that you have registered), but not to permissions on Azure AD itself. You can still _request_ these permissions as part of the app registration, but _granting_ (i.e. consenting to) these permissions requires an Azure AD admin. This means that a malicious user cannot easily elevate their permissions, for example by creating and consenting to an app that can write to the entire directory and through that app's permissions elevate themselves to become a global admin.
 
 ### [Application Developer](#application-developer-permissions)
 
@@ -216,7 +222,8 @@ Users in this role can read settings and administrative information across Micro
 > [!NOTE]
 > Global reader role has a few limitations right now -
 >
->* SharePoint admin center - SharePoint admin center does not support the Global reader role. You won't see 'SharePoint' in left pane under Admin Centers in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage), and you'll get access denied when to you try to go to *https://{Azure AD organization name}-admin.sharepoint.com*.
+>* SharePoint admin center - SharePoint admin center does not support the Global reader role. You won't see 'SharePoint' in left pane under Admin Centers in [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>* [OneDrive admin center](https://admin.onedrive.com/) - OneDrive admin center does not support the Global reader role.
 >* [Azure AD portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - Global reader can't read the provisioning mode of an enterprise app.
 >* [M365 admin center](https://admin.microsoft.com/Adminportal/Home#/homepage) - Global reader can't read customer lockbox requests. You won't find the **Customer lockbox requests** tab under **Support** in the left pane of M365 Admin Center.
 >* [M365 Security center](https://security.microsoft.com/homepage) - Global reader can't read sensitivity and retention labels. You won't find **Sensitivity labels**, **Retention labels**, and **Label analytics** tabs in the left pane of the M365 Security center.

@@ -86,4 +86,4 @@ When deploying non-persistent VDI, IT administrators should pay close attention 
  
 ## Next steps
 
-[Configuring hybrid Azure AD join for domain joined Windows devices that are federated using ADFS](manage-stale-devices.md)
+[Configuring hybrid Azure Active Directory join for federated environment](hybrid-azuread-join-federated-domains.md)
