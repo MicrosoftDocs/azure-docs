@@ -6,12 +6,12 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/18/2019
 ms.author: helohr
 ---
 # Publish apps in Windows Virtual Desktop
 
-This article will tell you how to publish applications in your Windows Virtual Desktop environment.
+This article will tell you how to publish apps in your Windows Virtual Desktop environment.
 
 ## Publish built-in apps
 
@@ -19,7 +19,7 @@ To publish a built-in app:
 
 1. Connect to one of the virtual machines in your host pool.
 2. Get the **PackageFamilyName** of the app you want to publish by following the instructions in [this article](https://docs.microsoft.com/powershell/module/appx/get-appxpackage?view=win10-ps).
-3. Finally, run this cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
+3. Finally, run the following cmdlet with `<PackageFamilyName>` replaced by the **PackageFamilyName** you found in the previous step:
    
    ```powershell
    New-RdsRemoteApp $tenant1 $pool1 $appgroup1 -Name $remoteapp3 -FriendlyName $remoteapp3 -FilePath "shell:appsFolder\<PackageFamilyName>!App"
