@@ -17,14 +17,20 @@ ms.author: magoedte
 
 # How to setup the Live Metrics and Data (preview) feature
 
-To view live metrics and data with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real time access to your data through the Kubernetes API directly in the Azure portal.  
+To view Live Metrics and Data (preview) with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real time access to your data through the Kubernetes API directly in the Azure portal.  
 
-These instructions require both administrative access to your Kubernetes cluster, and if configuring to use Azure Active Directory (AD) for user authentication, administrative access to Azure AD for your cluster.  
+This feature supports three different methods to control access to the logs, events, and metrics:
 
-This article explains how to configure the the following types of authentication to control access to the Live Metric and Data (preview) feature from the cluster:
+- AKS without Kubernetes RBAC authorization enabled
+- AKS enabled with Kubernetes RBAC authorization
+- AKS enabled with Azure Active Directory (AD) SAML-based single-sign on
+
+These instructions require both administrative access to your Kubernetes cluster, and if configuring to use Azure Active Directory (AD) for user authentication, administrative access to Azure AD.  
+
+This article explains how to configure authentication to control access to the Live Metric and Data (preview) feature from the cluster:
 
 - Role based access control (RBAC) enabled AKS cluster
-- Azure Active Directory integrated AKS cluster 
+- Azure Active Directory integrated AKS cluster. 
 
 >[!NOTE]
 >AKS clusters enabled as [private clusters](https://azure.microsoft.com/updates/aks-private-cluster/) are not supported with this feature. This feature relies on directly accessing the Kubernetes API through a proxy server from your browser. Enabling networking security to block the Kubernetes API from this proxy will block this traffic. 
