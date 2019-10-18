@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Monitor Documentation
+title: Azure Monitor documentation
 summary: Monitoring Azure and on-premises services. Aggregate and analyze metrics, logs, and traces. Fire alerts and send notifications or call automated solutions. 
 
 metadata:
-  title: Azure Monitor Documentation
+  title: Azure Monitor documentation
   description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications.
   services: azure-monitor
   ms.service: azure-monitor
@@ -63,7 +63,7 @@ landingContent:
             url: platform/alerts-activity-log.md            
 
   # Card 
-  - title: Monitor Applications
+  - title: Monitor applications
     linkLists:
       - linkListType: get-started
         links:

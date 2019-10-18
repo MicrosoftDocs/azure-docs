@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Advisor Documentation
+title: Azure Advisor documentation
 summary: Azure Advisor scans your Azure configuration and recommends changes to optimize deployments, increase security, and save you money. 
 
 metadata:
-  title: Azure Advisor Documentation
+  title: Azure Advisor documentation
   description: Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
   services: advisor
   ms.service: advisor
@@ -28,7 +28,7 @@ landingContent:
       - linkListType: video
         links:
           - text: Azure Advisor videos
-            url: https://azure.microsoft.com/en-us/resources/videos/index/?services=advisor
+            url: https://azure.microsoft.com/resources/videos/index/?services=advisor
   # Card 
   - title: Get Started   
     linkLists:     
