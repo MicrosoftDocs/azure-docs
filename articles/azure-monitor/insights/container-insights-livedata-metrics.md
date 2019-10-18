@@ -42,7 +42,7 @@ The polling interval is configured from the **Set interval** drop down allowing 
 ![Go Live drop-down polling interval](./media/container-insights-livedata-metrics/cluster-view-polling-interval-dropdown.ping.png)
 
 >[!IMPORTANT]
->We recommend setting the polling interval to one second when troubleshooting an issue for a short period of time. These requests may impact the availability and throttling of the Kubernetes API on your cluster. Afterwards, reconfigure to a longer polling interval. 
+>We recommend setting the polling interval to one second while troubleshooting an issue for a short period of time. These requests may impact the availability and throttling of the Kubernetes API on your cluster. Afterwards, reconfigure to a longer polling interval. 
 
 >[!IMPORTANT]
 >No data is stored permanently during operation of this feature. All information captured during this session is immediately deleted when you close your browser or navigate away from the feature. Data only remains present for visualization inside the five minute window; any metrics older than five minutes are also permanently deleted.
