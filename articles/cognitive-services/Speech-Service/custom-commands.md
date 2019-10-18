@@ -32,13 +32,13 @@ The first step for using Custom Commands to make a voice assistant is to get a s
 
 We offer quickstarts designed to have you running code in less than 10 minutes. This table includes a list of quickstarts organized by language.
 
-* [Create a Custom Commands (Preview) Application](quickstart-custom-speech-commands-create-new.md)
-* [Create a Custom Commands (Preview) Application with Parameters](quickstart-custom-speech-commands-create-parameters.md)
+* [Create a Custom Commands Preview Application](quickstart-custom-speech-commands-create-new.md)
+* [Create a Custom Commands Preview Application with Parameters](quickstart-custom-speech-commands-create-parameters.md)
 * [Connect to a Custom Commands Preview Application with the Speech SDK, C#](quickstart-custom-speech-commands-speech-sdk.md)
 
 ## Sample code
 
-Sample code for creating a voice assistant with Custom Commands is available on GitHub.
+Sample code for creating a voice assistant with Custom Commands Preview is available on GitHub.
 
 * [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples)
 
@@ -52,7 +52,6 @@ Voice assistants built using Azure Speech Services can use the full range of cus
 ## Reference docs
 
 * [Speech SDK](speech-sdk-reference.md)
-* [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
 ## Next steps
 

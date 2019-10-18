@@ -1,14 +1,14 @@
 ---
-title: Voice assistants - Speech Service
+title: Direct Line Speech - Speech Service
 titleSuffix: Azure Cognitive Services
-description: An overview of the features, capabilities, and restrictions for voice assistants using the Speech Software Development Kit (SDK).
+description: An overview of the features, capabilities, and restrictions for voice assistants using Direct Line Speech with the Speech Software Development Kit (SDK).
 services: cognitive-services
 author: trrwilson
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/30/2019
 ms.author: travisw
 ---
 
@@ -29,7 +29,6 @@ Direct Line Speech offers the highest levels of customization and sophistication
 The first steps for creating a voice assistant using Direct Line Speech are to get a speech subscription key, create a new bot associated with that subscription, and connect the bot to the Direct Line Speech Channel. 
 
    ![Conceptual diagram of the direct line speech orchestration service flow](media/voice-assistants/overview.png "The Speech Channel flow")
-
 
 For a complete, step-by-step guide on creating a simple voice assistant using Direct Line Speech, see [the tutorial for speech-enabling your bot with the Speech SDK and the Direct Line Speech channel](tutorial-voice-enable-your-bot-speech-sdk.md).
 
@@ -54,6 +53,8 @@ Voice assistants built using Azure Speech Services can use the full range of cus
 
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](supported-languages.md)).
+
+Direct Line Speech and its associated functionality for voice assistants are an ideal supplement to the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Though Direct Line Speech can work with any compatible bot, these resources provide a reusable baseline for high-quality conversational experiences as well as common supporting skills and models for getting started quickly.
 
 ## Reference docs
 
