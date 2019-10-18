@@ -222,9 +222,9 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
 
     b. In the **Company Information** pane, in the right column, copy the **Account ID** value.
 
-    c. Paste the **Account ID** which you have copied from NetSuite account it into the **Attribute Value** field in Azure AD. 
+    c. Paste the **Account ID** that you copied from the NetSuite account into the **Attribute Value** box in Azure AD. 
 
-10. Before users can perform single sign-on into NetSuite, they must first be assigned the appropriate permissions in NetSuite. Follow the instructions below to assign these permissions.
+10. Before users can perform single sign-on into NetSuite, they must first be assigned the appropriate permissions in NetSuite. To assign these permissions, do the following:
 
     a. In the top navigation bar, select **Setup**.
 
@@ -281,10 +281,7 @@ When you select the NetSuite tile in the Access Panel, you should be automatical
 ## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
 - [Try NetSuite with Azure AD](https://aad.portal.azure.com/)
 
