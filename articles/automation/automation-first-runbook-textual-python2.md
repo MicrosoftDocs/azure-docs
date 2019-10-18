@@ -205,6 +205,30 @@ and the name of the VM to start as the value of the second parameter.
 
 Click **OK** to start the runbook. The runbook runs and starts the VM that you specified.
 
+## Error Handling in Python
+
+You can also use the following conventions to retrieve various streams from your Python runbooks, including **WARNING**, **ERROR**, and **DEBUG** streams.
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+The following example shows this convention used in a `try...except` block.
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> **sys.stderr** is not supported in Azure Automation.
+
 ## Next steps
 
 - To get started with PowerShell runbooks, see [My first PowerShell runbook](automation-first-runbook-textual-powershell.md)
