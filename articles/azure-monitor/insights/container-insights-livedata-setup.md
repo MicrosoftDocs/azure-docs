@@ -105,6 +105,9 @@ Azure AD client registration must be reconfigured to allow the Azure portal to r
 
 For more information on advanced security setup in Kubernetes, review the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). 
 
+>[!NOTE]
+>If you are creating a new RBAC-enabled cluster, see [Integrate Azure Active Directory with Azure Kubernetes Service](../../aks/azure-ad-integration.md) and follow the steps to configure Azure AD authentication. During the steps to create the client application, a note in that section highlights the two redirect URLs you need to create for Azure Monitor for containers. 
+
 ### Client registration reconfiguration
 
 1. Locate the client registration for your Kubernetes cluster in Azure AD under **Azure Active Directory > App registrations** in the Azure portal.
@@ -135,4 +138,4 @@ For additional help configuring your AKS cluster **ClusterRoleBinding**, see [Cr
 
 ## Next steps
 
-Now that you have setup authentication for viewing log data, you can view live metric data from the cluster, deployments, console events, console logs, pod metrics.
+Now that you have setup authentication, you can view live [metric data](container-insights-livedata-metrics.md), [deployments](container-insights-livedata-deployments.md), and [events and logs](container-insights-livedata-events-logs.md) from your cluster.
