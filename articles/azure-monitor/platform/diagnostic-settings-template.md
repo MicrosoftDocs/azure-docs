@@ -48,7 +48,7 @@ Depending on the [destinations](diagnostic-settings.md#destinations) for the dia
 "workspaceId":{
   "type": "string",
   "metadata": {
-    "description": "Azure Resource ID of the Log Analytics workspace for the Log Analytics workspace to which logs will be sent."
+    "description": "Azure Resource ID of the Log Analytics workspace to which logs will be sent."
   }
 }
 ```
