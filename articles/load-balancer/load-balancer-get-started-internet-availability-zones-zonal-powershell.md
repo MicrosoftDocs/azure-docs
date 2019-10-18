@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Learn how to create Standard Load Balancer with a zonal frontend using Azure PowerShell 
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 manager: twooley
 ms.service: load-balancer
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
-ms.author: kumud
+ms.author: allensu
 ---
 
 #  Create a Standard Load Balancer with zonal frontend using Azure PowerShell

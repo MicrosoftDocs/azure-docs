@@ -17,7 +17,7 @@ ms.author: victorh
 | Back-end HTTP settings |100<sup>1</sup> | |
 | Instances per gateway |32 | |
 | SSL certificates |100<sup>1</sup> |1 per HTTP listeners |
-| Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 25 KB| |
+| Maximum SSL certificate size |V1 SKU - 10 KB<br>V2 SKU - 16 KB| |
 | Authentication certificates |100 | |
 | Trusted root certificates |100 | |
 | Request timeout minimum |1 second | |
@@ -31,6 +31,7 @@ ms.author: victorh
 | Maximum file upload size, Standard |2 GB | |
 | Maximum file upload size WAF |Medium WAF gateways, 100 MB<br>Large WAF gateways, 500 MB| |
 | WAF body size limit, without files|128 KB||
-|Maximum WAF custom rules|100||
+| Maximum WAF custom rules|100||
+| Maximum WAF exclusions|100||
 
 <sup>1</sup> In case of WAF-enabled SKUs, we recommend that you limit the number of resources to 40 for optimal performance.

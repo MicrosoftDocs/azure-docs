@@ -3,7 +3,7 @@ title: Xamarin Android considerations (Microsoft Authentication Library for .NET
 description: Learn about specific considerations when using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn about specific considerations when using Xamarin Android and MSAL.NET so I can decide if this platform meets my application development needs and requirements.
@@ -23,8 +23,6 @@ ms.collection: M365-identity-device-management
 
 # Xamarin Android-specific considerations with MSAL.NET
 This article discusses specific considerations when using Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
-
-This article is for MSAL.NET 3.x. If you are interested in MSAL.NET 2.x, see [Xamarin Android specifics in MSAL.NET 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Xamarin-Android-specifics-2x).
 
 ## Set the parent activity
 
@@ -35,6 +33,26 @@ var authResult = AcquireTokenInteractive(scopes)
  .WithParentActivityOrWindow(parentActivity)
  .ExecuteAsync();
 ```
+You can also set this at the PublicClientApplication level (in MSAL4.2+) via a callback.
+
+```CSharp
+// Requires MSAL.NET 4.2 or above
+var pca = PublicClientApplicationBuilder
+  .Create("<your-client-id-here>")
+  .WithParentActivityOrWindow(() => parentActivity)
+  .Build();
+```
+
+A recommendation is to use the CurrentActivityPlugin [here](https://github.com/jamesmontemagno/CurrentActivityPlugin).  Then your PublicClientApplication builder code would look like this:
+
+```CSharp
+// Requires MSAL.NET 4.2 or above
+var pca = PublicClientApplicationBuilder
+  .Create("<your-client-id-here>")
+  .WithParentActivityOrWindow(() => CrossCurrentActivity.Current)
+  .Build();
+```
+
 
 ## Ensuring control goes back to MSAL once the interactive portion of the authentication flow ends
 On Android, you need to override the `OnActivityResult` method of the `Activity` and call the SetAuthenticationContinuationEventArgs method of the AuthenticationContinuationHelper MSAL class.
@@ -89,12 +107,12 @@ To troubleshoot these issues, you should:
 - All the Xamarin.Android.Support packages should be targeting version 25.4.0.2
 - Clean/Rebuild
 - Try setting the max parallel project builds to 1 in Visual Studio (Options->Projects and Solutions->Build and Run-> Maximum number of parallel projects builds)
-- Alternatively, if you are building from the command line, try removing /m from your command if you are using it.
+- Alternatively, if you're building from the command line, try removing /m from your command if you're using it.
 
 
 ### Error: The name 'AuthenticationContinuationHelper' does not exist in the current context
 
-This is probably because Visual Studio did not correctly update the Android.csproj* file. Sometimes the **<HintPath>** filepath incorrectly contains netstandard13 instead of **monoandroid90**.
+This is probably because Visual Studio didn't correctly update the Android.csproj* file. Sometimes the **\<HintPath>** filepath incorrectly contains netstandard13 instead of **monoandroid90**.
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,

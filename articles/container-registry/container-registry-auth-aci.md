@@ -3,6 +3,7 @@ title: Authenticate with Azure Container Registry from Azure Container Instances
 description: Learn how to provide access to images in your private container registry from Azure Container Instances by using an Azure Active Directory service principal.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
@@ -52,7 +53,7 @@ You can find the preceding sample scripts for Azure CLI on GitHub, as well versi
 The following articles contain additional details on working with service principals and ACR:
 
 * [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
-* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
+* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

@@ -51,12 +51,12 @@ In order to use the Hadoop command, you must first connect to the headnode using
 Once connected, you can use the following syntax to upload a file to storage.
 
 ```bash
-hadoop -copyFromLocal <localFilePath> <storageFilePath>
+hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
 For example, `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
-Because the default file system for HDInsight is in Azure Storage, /example/data.txt is actually in Azure Storage. You can also refer to the file as:
+Because the default file system for HDInsight is in Azure Storage, /example/data/data.txt is actually in Azure Storage. You can also refer to the file as:
 
     wasbs:///example/data/data.txt
 
@@ -77,7 +77,7 @@ There are also several applications that provide a graphical interface for worki
 | [Microsoft Visual Studio Tools for HDInsight](hadoop/apache-hadoop-visual-studio-tools-get-started.md#explore-linked-resources) |✔ |✔ |✔ |
 | [Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) |✔ |✔ |✔ |
 | [Cerulea](https://www.cerebrata.com/products/cerulean/features/azure-storage) | | |✔ |
-| [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) | | |✔ |
+| [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) | | |✔ |
 | [CloudBerry Explorer for Microsoft Azure](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 

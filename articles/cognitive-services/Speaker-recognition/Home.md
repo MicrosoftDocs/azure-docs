@@ -9,7 +9,8 @@ ms.service: cognitive-services
 ms.subservice: speaker-recognition
 ms.topic: overview
 ms.date: 10/01/2018
-ms.author: dwlin
+ms.author: nitinme
+ROBOTS: NOINDEX
 ---
 
 # Speaker Recognition API

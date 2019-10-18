@@ -9,12 +9,11 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: sstein, bonova, carlrab
-manager: craigg
+ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
 ---
 
-# Connect your application to Azure SQL Database Managed Instance
+# Connect your application to Azure SQL Database managed instance
 
 Today you have multiple choices when deciding how and where you host your application.
 
@@ -40,7 +39,7 @@ There are two options for connecting VNets:
 The peering option is the preferable one because peering uses the Microsoft backbone network so, from the connectivity perspective, there is no noticeable difference in latency between virtual machines in peered VNet and in the same VNet. VNet peering is limited to the networks in the same region.  
 
 > [!IMPORTANT]
-> VNet peering scenario for Managed Instance is limited to the networks in the same region due to [constraints of the Global Virtual Network peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
+> VNet peering scenario for Managed Instance is limited to the networks in the same region due to [constraints of the Global Virtual Network peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). See also the relevant section of the [Azure Virtual Networks Frequently Asked Questions](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) article for more details. 
 
 ## Connect an on-premises application
 

@@ -10,7 +10,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 08/22/2019
 ms.author: bwren
 ---
 
@@ -19,7 +19,7 @@ ms.author: bwren
 > [!NOTE]
 > This article applies to both the Azure public cloud and government cloud except where noted otherwise.
 
-**The OMS portal for the Azure public cloud has been officially retired. The OMS portal for the Azure US Government cloud will be officially retired on May 15, 2019.** We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. Send any questions, feedback, or concerns to **LAUpgradeFeedback\@microsoft.com**. The rest of this article goes over the key scenarios and the roadmap for this transition.
+**The OMS portal for the Azure public cloud has been officially retired. The OMS portal for Azure US Government cloud was officially retired on May 15, 2019.** We are excited to move to the Azure portal and expect the transition to be easy. But we understand changes are difficult and can be disruptive. The rest of this article goes over the key scenarios and the roadmap for this transition.
 
 The Azure portal is the hub for all Azure services and offers a rich management experience with capabilities such as dashboards for pinning resources, intelligent search for finding resources, and tagging for resource management. To consolidate and streamline the monitoring and management workflow, we started adding the OMS portal capabilities into the Azure portal. All of the features of the OMS portal are now part of the Azure portal. In fact, some of the new features such as Traffic Analytics are only available in the Azure portal. You will be able to accomplish everything you were doing in the OMS portal with the Azure portal and more. If you haven’t already done so, you should start using the Azure portal today!
 
@@ -42,10 +42,10 @@ While most features will continue to work without performing any migration, you 
 - You need to [migrate your user permissions](#user-access-and-role-migration) to the Azure portal.
 - See [Migrate your OMS Update Deployments to Azure](../../automation/migrate-oms-update-deployments.md) for details on transitioning the Update Management solution.
 
-Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](oms-portal-faq.md) for information about how to transition to the Azure portal. Send any feedback, questions, or concerns to **LAUpgradeFeedback\@microsoft.com**.
+Refer to [Common questions for transition from OMS portal to Azure portal for Log Analytics users](oms-portal-faq.md) for information about how to transition to the Azure portal. 
 
 ## User access and role migration
-Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Manage workspaces](manage-access.md#manage-accounts-and-users) for details of access management in Log Analytics.
+Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Designing your Azure Monitor Logs workspace](design-logs-deployment.md) for details of access management in Log Analytics.
 
 > [!NOTE]
 > Previous versions of this article stated that the permissions would automatically be converted from the OMS portal to the Azure portal. This automatic conversion is no longer planned, and you must perform the conversion yourself.
@@ -86,7 +86,7 @@ The OMS mobile app will be sunsetted along with the OMS portal. Instead of the O
 ## Application Insights Connector and solution
 [Application Insights Connector](app-insights-connector.md) provides a way to include Application Insights data into a Log Analytics workspace. This data duplication was required to enable visibility across infrastructure and application data. With Application Insights extended data retention support in March, 2019 and the ability to perform [cross-resource queries](../log-query/cross-workspace-query.md) in addition to being able to [view multiple Azure Monitor Application Insights resources](../log-query/unify-app-resource-data.md), there is no need to duplicate data from your Application Insights resources and send it to Log Analytics. Furthermore, the Connector sends a subset of the applications properties to Log Analytics, while the cross-resource queries gives you enhanced flexibility.  
 
-As such, Application Insights Connector will be deprecated and removed from Azure Marketplace along with OMS portal deprecation on March 30, 2019, while existing connections will continue to work until June 30, 2019. With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. This will be supported using the REST API that will be made available in January, 2019 and a notification will be posted on [Azure updates](https://azure.microsoft.com/updates/). 
+As such, Application Insights Connector was deprecated and removed from Azure Marketplace along with OMS portal deprecation on March 30, 2019. Existing connections will continue to work until June 30, 2019. With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. This will be supported using the REST API that will be made available in January, 2019 and a notification will be posted on [Azure updates](https://azure.microsoft.com/updates/). 
 
 ## Azure Network Security Group Analytics
 The [Azure Network Security Group Analytics solution](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) will be replaced with the recently launched [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 

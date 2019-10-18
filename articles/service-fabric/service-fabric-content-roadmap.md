@@ -23,16 +23,18 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 ## Core concepts
 [Service Fabric terminology](service-fabric-technical-overview.md), [Application model](service-fabric-application-model.md), and [Supported programming models](service-fabric-choose-framework.md) provide more concepts and descriptions, but here are the basics.
 
-### Design time: application type, service type, application package and manifest, service package and manifest
-An application type is the name/version assigned to a collection of service types. This is defined in an *ApplicationManifest.xml* file, which is embedded in an application package directory. The application package is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type, which then runs within the cluster. 
+### Design time: service type, service package and manifest, application type, application package and manifest
+A service type is the name/version assigned to a service's code packages, data packages, and configuration packages. This is defined in a ServiceManifest.xml file. The service type is composed of executable code and service configuration settings, which are loaded at run time, and static data that is consumed by the service.
 
-A service type is the name/version assigned to a service's code packages, data packages, and configuration packages. This is defined in a ServiceManifest.xml file, which is embedded in a service package directory. The service package directory is then referenced by an application package's *ApplicationManifest.xml* file. Within the cluster, after creating a named application, you can create a named service from one of the application type's service types. A service type is described by its *ServiceManifest.xml* file. The service type is composed of executable code and service configuration settings, which are loaded at run time, and static data that is consumed by the service.
+A service package is a disk directory containing the service type's ServiceManifest.xml file, which references the code, static data, and configuration packages for the service type. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
+
+An application type is the name/version assigned to a collection of service types. This is defined in an ApplicationManifest.xml file.
 
 ![Service Fabric application types and service types][cluster-imagestore-apptypes]
 
-The application package is a disk directory containing the application type's *ApplicationManifest.xml* file, which references the service packages for each service type that makes up the application type. For example, an application package for an email application type could contain references to a queue service package, a frontend service package, and a database service package. The files in the application package directory are copied to the Service Fabric cluster's image store. 
+The application package is a disk directory which contains the application type's ApplicationManifest.xml file, which references the service packages for each service type that makes up the application type. For example, an application package for an email application type could contain references to a queue service package, a frontend service package, and a database service package.  
 
-A service package is a disk directory containing the service type's *ServiceManifest.xml* file, which references the code, static data, and configuration packages for the service type. The files in the service package directory are referenced by the application type's *ApplicationManifest.xml* file. For example, a service package could refer to the code, static data, and configuration packages that make up a database service.
+The files in the application package directory are copied to the Service Fabric cluster's image store. You can then create a named application from this application type, which then runs within the cluster. After creating a named application, you can create a named service from one of the application type's service types. 
 
 ### Run time: clusters and nodes, named applications, named services, partitions, and replicas
 A [Service Fabric cluster](service-fabric-deploy-anywhere.md) is a network-connected set of virtual or physical machines into which your microservices are deployed and managed. Clusters can scale to thousands of machines.

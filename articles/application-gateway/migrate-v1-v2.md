@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/5/2019
+ms.date: 08/10/2019
 ms.author: victorh
 ---
 
@@ -71,15 +71,17 @@ To run the script:
 
 1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
-   `AzureAppGwMigration.ps1
+   ```
+   AzureAppGwMigration.ps1
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
     -sslCertificates <comma-separated SSLCert objects as above>
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
-    -publicIpResourceName <public IP name string>
-    -validateMigration -enableAutoScale`
+    -publicIpResourceId <public IP name string>
+    -validateMigration -enableAutoScale
+   ```
 
    Parameters for the script:
    * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
@@ -91,7 +93,7 @@ To run the script:
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]:  Required** - This is the IP address space that you have allocated (or want to allocate) for a new subnet that contains your new v2 gateway. This must be specified in the CIDR notation. For example: 10.0.0.0/24. You do not need to create this subnet in advance. The script creates it for you if it doesn't exist.
+   * **subnetAddressRange: [String]:  Required** - This is the IP address space that you've allocated (or want to allocate) for a new subnet that contains your new v2 gateway. This must be specified in the CIDR notation. For example: 10.0.0.0/24. You don't need to create this subnet in advance. The script creates it for you if it doesn't exist.
    * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_v2 or WAF_v2 gateway. If this parameter isn't supplied, the name of your existing v1 gateway will be used with the suffix *_v2* appended.
    * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the SSL certs from your v1 gateway must be uploaded to the new v2 gateway. For each of your SSL certs configured for your Standard v1 or WAF v1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your SSL Cert file and the password.
 
@@ -112,11 +114,11 @@ To run the script:
 
       To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
    * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new v2 gateway.  This must be from the same VNet that you allocate for your new v2 gateway. If this isn't specified, the script allocates a private IP address for your v2 gateway.
-    * **publicIpResourceId: [String]: Optional**. The resourceId of a public IP address resource in your subscription that you want to allocate to the new v2 gateway. If this is not specified, the script allocates a new public IP in the same resource group. The name is the v2 gateway’s name with *-IP* appended.
+    * **publicIpResourceId: [String]: Optional**. The resourceId of a public IP address (standard SKU) resource in your subscription that you want to allocate to the new v2 gateway. If this isn't specified, the script allocates a new public IP in the same resource group. The name is the v2 gateway’s name with *-IP* appended.
    * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the v2 gateway creation and the configuration copy. By default, no validation is done.
-   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable AutoScaling on the new v2 gateway after it is created. By default, AutoScaling is disabled. You can always manually enable it later on the newly created v2 gateway.
+   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable AutoScaling on the new v2 gateway after it's created. By default, AutoScaling is disabled. You can always manually enable it later on the newly created v2 gateway.
 
-1. Run the script using the appropriate parameters.
+1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
     **Example**
 
@@ -128,7 +130,7 @@ To run the script:
       -sslCertificates $Certs `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceName "MyPublicIP" `
+      -publicIpResourceId "MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 
@@ -171,7 +173,15 @@ No. The Azure PowerShell script only migrates the configuration. Actual traffic 
 
 ### Is the new v2 gateway created by the Azure PowerShell script sized appropriately to handle all of the traffic that is currently served by my v1 gateway?
 
-The Azure PowerShell script creates a new v2 gateway with an appropriate size to handle the traffic on your existing V1 gateway. Autoscaling is disabled by default, but you can enable AutoScaling when you run the script.
+The Azure PowerShell script creates a new v2 gateway with an appropriate size to handle the traffic on your existing v1 gateway. Autoscaling is disabled by default, but you can enable AutoScaling when you run the script.
+
+### I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for v2 as well?
+
+No. The script doesn't  replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
+
+### Does this script support certificates uploaded to Azure KeyVault ?
+
+No. Currently the script does not support certificates in KeyVault. However, this is being considered for a future version.
 
 ### I ran into some issues with using this script. How can I get help?
   

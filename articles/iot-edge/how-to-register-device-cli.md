@@ -23,7 +23,7 @@ This article shows how to register a new IoT Edge device using Azure CLI.
 ## Prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
-* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## Create a device

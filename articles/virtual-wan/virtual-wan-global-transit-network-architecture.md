@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
 ---
@@ -40,11 +40,11 @@ In this model, a spoke can be:
 
 **Figure 2: Hub-and-spoke**
 
-Figure 2 shows the logical view of the global network where geographically distributed users, physical sites, and VNets are interconnected via a networking hub hosted in the cloud. This architecture enables logical one-hop transit connectivity between the networking endpoints. The spokes are connected to the hub by various Azure networking services such as ExpressRoute or site-to site-VPN for physical branches, VNet peering for VNets, and point-to-site VPN for remote users.
+Figure 2 shows the logical view of the global network where geographically distributed users, physical sites, and VNets are interconnected via a networking hub hosted in the cloud. This architecture enables logical one-hop transit connectivity between the networking endpoints. The spokes are connected to the hub by various Azure networking services such as ExpressRoute or site-to site-VPN for physical branches, VNet Connections for VNets, and point-to-site VPN for remote users.
 
 ## <a name="crossregion"></a>Cross-region connectivity
 
-For an enterprise, a cloud footprint typically follows the physical footprint. Most enterprises access the cloud from a region closest to their physical site and users. One of the key principals of global network architecture is to enable cross-region connectivity between network entities and endpoints. A cloud footprint can span multiple regions. This means that traffic from a branch that is connected to the cloud in one region can reach another branch or a VNet in a different region using hub-to-hub connectivity which is currently in preview.
+For an enterprise, a cloud footprint typically follows the physical footprint. Most enterprises access the cloud from a region closest to their physical site and users. One of the key principals of global network architecture is to enable cross-region connectivity between network entities and endpoints. A cloud footprint can span multiple regions. This means that traffic from a branch that is connected to the cloud in one region can reach another branch or a VNet in a different region using hub-to-hub connectivity, which is currently on our roadmap.
 
 ## <a name="any"></a>Any-to-any connectivity
 
@@ -67,7 +67,7 @@ Azure Virtual WAN supports the following global transit connectivity paths. The 
 
 ### <a name="branchvnet"></a>Branch-to-VNet
 
-Branch-to-VNet is the primary path supported by Azure Virtual WAN. This path allows you to connect branches to Azure IAAS enterprise workloads that are deployed in Azure VNets. Branches can be connected to the virtual WAN via ExpressRoute or site-to-site VPN. The traffic transits to VNets that are connected to the virtual WAN hubs via VNet connections.
+Branch-to-VNet is the primary path supported by Azure Virtual WAN. This path allows you to connect branches to Azure IAAS enterprise workloads that are deployed in Azure VNets. Branches can be connected to the virtual WAN via ExpressRoute or site-to-site VPN. The traffic transits to VNets that are connected to the virtual WAN hubs via VNet connections.[Gateway transit](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity)  is not required for Virtual WAN because Virtual WAN automatically enables Gateway transit to branches sites.
 
 ### <a name="branchbranch"></a>Branch-to-branch
 
@@ -85,7 +85,7 @@ The Remote User-to-branch path lets remote users who are using a point-to-site c
 
 ### <a name="vnetvnet"></a>VNet-to-VNet transit using VNet peering
 
-To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. Connecting VNets through VNet Peering is the recommend solution for VNets that need to be connected to each other. [Gateway transit](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (in the context of VNet peering) is not required for Virtual WAN because Virtual WAN automatically enables gateway transit.
+To connect VNets to each other in order to support multi-tier applications that are implemented across multiple VNets, use VNet peering. A VNet-to-VNet transit scenario via Azure Virtual WAN is currently not supported, but is on the Azure roadmap. Connecting VNets through VNet Peering is the recommend solution for VNets that need to be connected to each other. 
 
 ### <a name="globalreach"></a>ExpressRoute Global Reach
 
@@ -102,5 +102,4 @@ The virtual network hub interconnects and potentially sees all transit traffic. 
 Create a connection using Virtual WAN.
 
 * [Site-to-site connections using Virtual WAN](virtual-wan-site-to-site-portal.md)
-* [Point-to-site connections using Virtual WAN](virtual-wan-point-to-site-portal.md)
 * [ExpressRoute connections using Virtual WAN](virtual-wan-expressroute-portal.md)

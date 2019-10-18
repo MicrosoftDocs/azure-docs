@@ -26,7 +26,7 @@ understand without knowing much about code.
 When you want to automate creating and deploying logic apps, 
 you can include logic app definitions as 
 [Azure resources](../azure-resource-manager/resource-group-overview.md) 
-inside [Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment). 
+inside [Azure Resource Manager templates](../azure-resource-manager/template-deployment-overview.md). 
 To create, manage, and deploy logic apps, you can then use 
 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), 
 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), 
@@ -78,7 +78,7 @@ project, that contains your logic app.
 
 2. Find and open your logic app's definition, 
 which by default, appears in an 
-[Resource Manager template](../azure-resource-manager/resource-group-overview.md#template-deployment), 
+[Resource Manager template](../azure-resource-manager/template-deployment-overview.md), 
 named **LogicApp.json**. 
 You can use and customize this template for 
 deployment to different environments.
@@ -88,6 +88,9 @@ logic app definition and template.
 Select **Open With Logic App Designer**.
 
    ![Open logic app in a Visual Studio solution](./media/logic-apps-author-definitions/open-logic-app-designer.png)
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
 
 4. At the bottom of the designer, choose **Code View**. 
 
@@ -100,128 +103,21 @@ choose **Design**.
 
 ## Parameters
 
-Parameters let you reuse values throughout your logic app 
-and are good for replacing values that you might change often. 
-For example, if you have an email address that you want use in multiple places, 
-you should define that email address as a parameter.
+The deployment lifecycle usually has different environments for development, test, staging, and production. When you have values that you want to reuse throughout your logic app without hardcoding or that vary based on your deployment needs, you can create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your workflow definition so that you can also automate logic app deployment. 
 
-Parameters are also useful when you need to override parameters in different environments, 
-Learn more about [parameters for deployment](#deployment-parameters) and the 
-[REST API for Azure Logic Apps documentation](https://docs.microsoft.com/rest/api/logic).
+Follow these general steps to *parameterize*, or define and use parameters for, those values instead. You can then provide the values in a separate parameter file that passes those values to your template. That way, you can change those values more easily without having to update and redeploy your logic app. For full details, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
-> [!NOTE]
-> Parameters are only available in code view.
+1. In your template, define template parameters and workflow definition parameters for accepting the values to use at deployment and runtime, respectively.
 
-In the [first example logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
-you created a workflow that sends emails when new posts appear in a website's RSS feed. 
-The feed's URL is hardcoded, so this example shows how to replace the query value with a parameter so that you can change feed's URL more easily.
+   Template parameters are defined in a parameters section that's outside your workflow definition, while workflow definition parameters are defined in a parameters section that's inside your workflow definition.
 
-1. In code view, find the `parameters : {}` object, 
-and add a `currentFeedUrl` object:
+1. Replace the hardcoded values with expressions that reference these parameters. Template expressions use syntax that differs from workflow definition expressions.
 
-   ``` json
-   "currentFeedUrl" : {
-      "type" : "string",
-      "defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
-   }
-   ```
+   Avoid complicating your code by not using template expressions, which are evaluated at deployment, inside workflow definition expressions, which are evaluated at runtime. Use only template expressions outside your workflow definition. Use only workflow definition expressions inside your workflow definition.
 
-2. In the `When_a_feed-item_is_published` action, 
-find the `queries` section, and replace the query value 
-with `"feedUrl": "#@{parameters('currentFeedUrl')}"`.
+   When you specify the values for your workflow definition parameters, you can reference template parameters by using the parameters section that's outside your workflow definition but still inside the resource definition for your logic app. That way, you can pass template parameter values into your workflow definition parameters.
 
-   **Before**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
-       }
-   },
-   ```
-
-   **After**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "#@{parameters('currentFeedUrl')}"
-       }
-   },
-   ```
-
-   To join two or more strings, you can also use the `concat` function. 
-   For example, `"@concat('#',parameters('currentFeedUrl'))"` works the same 
-   as the previous example.
-
-3.	When you're done, choose **Save**.
-
-Now you can change the website's RSS feed by passing a different URL 
-through the `currentFeedURL` object.
-
-<a name="deployment-parameters"></a>
-
-## Deployment parameters for different environments
-
-Usually, deployment lifecycles have environments for development, staging, and production. 
-For example, you might use the same logic app definition in all these environments 
-but use different databases. Likewise, you might want to use the same definition 
-across different regions for high availability but want each logic app instance 
-to use that region's database.
-
-> [!NOTE]
-> This scenario differs from taking parameters at *runtime*
-> where you should use the `trigger()` function instead.
-
-Here's a basic definition:
-
-``` json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-In the actual `PUT` request for the logic apps, you can provide the parameter `uri`. 
-In each environment, you can provide a different value for the `connection` parameter. 
-Because a default value no longer exists, the logic app payload requires this parameter:
-
-``` json
-{
-    "properties": {},
-        "definition": {
-          /// Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-```
-
-To learn more, see the 
-[REST API for Azure Logic Apps documentation](https://docs.microsoft.com/rest/api/logic/).
+1. Store the values for your parameters in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) and include that file with your deployment.
 
 ## Process strings with functions
 

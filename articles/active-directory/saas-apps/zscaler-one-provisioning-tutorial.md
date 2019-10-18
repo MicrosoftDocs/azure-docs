@@ -6,7 +6,6 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-
 ms.assetid: 72f6ba2b-73ed-420a-863a-aff672f26fa3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant-msft
+ms.author: "jeedes"
 ---
 
 # Tutorial: Configure Zscaler One for automatic user provisioning
@@ -24,8 +23,7 @@ This tutorial demonstrates the steps to perform in Zscaler One and Azure Active 
 
 > [!NOTE]
 > This tutorial describes a connector that's built on top of the Azure AD user provisioning service. For information on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to software-as-a-service (SaaS) applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
->
-> This connector is currently available as a preview. For more information on the general Microsoft Azure terms of use for preview features, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 ## Prerequisites
 

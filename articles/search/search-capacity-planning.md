@@ -2,11 +2,11 @@
 title:  Scale partitions and replicas for query and indexing - Azure Search
 description: Adjust partition and replica computer resources in Azure Search, where each resource is priced in billable search units.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -42,6 +42,7 @@ To increase or change the allocation of replicas and partitions, we recommend us
 Generally, search applications need more replicas than partitions, particularly when the service operations are biased toward query workloads. The section on [high availability](#HA) explains why.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
+
 2. In **Settings**, open the **Scale** page to modify replicas and partitions. 
 
    The following screenshot shows a standard service provisioned with one replica and partition. The formula at the bottom indicates how many search units are being used (1). If the unit price was $100 (not a real price), the monthly cost of running this service would be $100 on average.
@@ -103,6 +104,7 @@ Because it's easy and relatively fast to scale up, we generally recommend that y
 General recommendations for high availability are:
 
 * Two replicas for high availability of read-only workloads (queries)
+
 * Three or more replicas for high availability of read/write workloads (queries plus indexing as individual documents are added, updated, or deleted)
 
 Service level agreements (SLA) for Azure Search are targeted at query operations and at index updates that consist of adding, updating, or deleting documents.

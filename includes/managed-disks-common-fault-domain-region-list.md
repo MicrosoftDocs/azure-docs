@@ -17,7 +17,7 @@ ms.author: cynthn
 | North Central US    | 3                       |
 | South Central US    | 3                       |
 | West Central US     | 2                       |
-| Canada Central      | 3                      |
+| Canada Central      | 3                       |
 | Canada East         | 2                       |
 |                     |                         |
 | North Europe        | 3                       |
@@ -34,9 +34,17 @@ ms.author: cynthn
 | West India          | 2                       |
 | Korea Central       | 2                       |
 | Korea South         | 2                       |
+| UAE North           | 2                       |
 |                     |                         |
+| China East          | 2                       |
+| China East 2        | 2                       |
+| China North         | 2                       |
+| China North 2       | 2                       |
+|
 | Australia East      | 2                       |
 | Australia Southeast | 2                       |
+| Australia Central   | 2                       |
+| Australia Central 2 | 2                       |
 |                     |                         |
 | Brazil South        | 2                       |
 |                     |                         |

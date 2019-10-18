@@ -78,7 +78,7 @@ Enter the following Azure CLI command, using the resource group that contains yo
 Rich features like Kubernetes debugging are available for .NET Core and Node.js developers using VS Code.
 
 1. If you don't have it, install [VS Code](https://code.visualstudio.com/Download).
-1. Download and install the [VS Azure Dev Spaces extension](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Click Install once on the extension's Marketplace page, and again in VS Code. 
+1. Download and install the [VS Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) and [C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) extensions. For each extension, click install on the extension's Marketplace page, and again in VS Code.
 
 ## Create a web app running in a container
 
@@ -124,22 +124,46 @@ Keep an eye on the command's output, you'll notice several things as it progress
 > These steps will take longer the first time the `up` command is run, but subsequent runs should be quicker.
 
 ### Test the web app
-Scan the console output for information about the public URL that was created by the `up` command. It will be in the form: 
+Scan the console output for the *Application started* message, confirming that the `up` command has completed:
 
 ```
-(pending registration) Service 'webfrontend' port 'http' will be available at <url>
 Service 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Microsoft (R) Build Engine version 15.9.20+g88f5fadfbe for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.dll
+  webfrontend -> /src/bin/Debug/netcoreapp2.2/webfrontend.Views.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:00.94
+[...]
+webfrontend-5798f9dc44-99fsd: Now listening on: http://[::]:80
+webfrontend-5798f9dc44-99fsd: Application started. Press Ctrl+C to shut down.
 ```
 
-Open this URL in a browser window, and you should see the web app load. As the container executes, `stdout` and `stderr` output is streamed to the terminal window.
+Identify the public URL for the service in the output from the `up` command. It ends in `.azds.io`. In the above example, the public URL is `http://webfrontend.1234567890abcdef1234.eus.azds.io/`.
+
+To see your web app, open the public URL in a browser. Also, notice `stdout` and `stderr` output is streamed to the *azds trace* terminal window as you interact with your web app. You'll also see tracking information for HTTP requests as they go through the system. This makes it easier for you to track complex multi-service calls during development. The instrumentation added by Dev Spaces provides this request tracking.
+
+![azds trace terminal window](media/get-started-netcore/azds-trace.png)
+
 
 > [!Note]
-> On first run, it can take several minutes for public DNS to be ready. If the public URL does not resolve, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. For your convenience, and to facilitate interacting with the service from your local machine, Azure Dev Spaces creates a temporary SSH tunnel to the container running in Azure. You can come back and try the public URL later when the DNS record is ready.
+> In addition to the public URL, you can use the alternative `http://localhost:<portnumber>` URL that is displayed in the console output. If you use the localhost URL, it may seem like the container is running locally, but actually it is running in AKS. Azure Dev Spaces uses Kubernetes *port-forward* functionality to map the localhost port to the container running in AKS. This facilitates interacting with the service from your local machine.
 
 ### Update a content file
 Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
 
-1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change line 70 that reads `<h2>Application uses</h2>` to something like: `<h2>Hello k8s in Azure!</h2>`
+1. Locate the file `./Views/Home/Index.cshtml` and make an edit to the HTML. For example, change [line 73 that reads `<h2>Application uses</h2>`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Views/Home/Index.cshtml#L73) to something like: 
+
+    ```html
+    <h2>Hello k8s in Azure!</h2>
+    ```
+
 1. Save the file. Moments later, in the Terminal window you'll see a message saying a file in the running container was updated.
 1. Go to your browser and refresh the page. You should see the web page display the updated HTML.
 
@@ -154,7 +178,6 @@ Updating code files requires a little more work, because a .NET Core app needs t
 1. Run  `azds up` in the terminal window. 
 
 This command rebuilds the container image and redeploys the Helm chart. To see your code changes take effect in the running application, go to the About menu in the web app.
-
 
 But there is an even *faster method* for developing code, which you'll explore in the next section. 
 
@@ -193,11 +216,11 @@ Hit **F5** to debug your code in Kubernetes.
 As with the `up` command, code is synced to the dev space, and a container is built and deployed to Kubernetes. This time, of course, the debugger is attached to the remote container.
 
 > [!Tip]
-> The VS Code status bar will display a clickable URL.
+> The VS Code status bar will turn orange, indicating that the debugger is attached. It will also display a clickable URL, which you can use to open your site.
 
 ![](media/common/vscode-status-bar-url.png)
 
-Set a breakpoint in a server-side code file, for example within the `Index()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to hit.
+Set a breakpoint in a server-side code file, for example within the `About()` function in the `Controllers/HomeController.cs` source file. Refreshing the browser page causes the breakpoint to hit.
 
 You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
 
@@ -212,9 +235,9 @@ public IActionResult About()
 }
 ```
 
-Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
+Save the file, and in the **Debug actions pane**, click the **Restart** button. 
 
-![](media/get-started-netcore/debug-action-refresh.png)
+![](media/common/debug-action-refresh.png)
 
 Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will incrementally recompile code within the existing container to provide a faster edit/debug loop.
 

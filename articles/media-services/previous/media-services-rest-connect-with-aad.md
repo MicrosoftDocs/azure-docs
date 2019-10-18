@@ -13,8 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
-ms.author: willzhan;juliako;johndeu
-
+ms.author: juliako
+ms.reviewer: willzhan; johndeu
 ---
 
 # Use Azure AD authentication to access the Media Services API with REST

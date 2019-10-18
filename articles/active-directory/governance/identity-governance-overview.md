@@ -3,8 +3,8 @@ title: Identity Governance - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory Identity Governance allows you to balance your organization's need for security and employee productivity with the right processes and visibility.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2019
-ms.author: rolyon
+ms.date: 08/28/2019
+ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ---
@@ -55,7 +55,7 @@ Typically, IT delegates access approval decisions to business decision makers.  
 
 Organizations can automate the access lifecycle process through technologies such as [dynamic groups](../users-groups-roles/groups-dynamic-membership.md), coupled with user provisioning to [SaaS apps](../saas-apps/tutorial-list.md) or [apps integrated with SCIM](../manage-apps/use-scim-to-provision-users-and-groups.md).  Organizations can also control which [guest users have access to on-premises applications](../b2b/hybrid-cloud-to-on-premises.md).  These access rights can then be regularly reviewed using recurring [Azure AD access reviews](access-reviews-overview.md).
 
-When a user attempts to access applications, Azure AD enforces [conditional access](/azure/active-directory/conditional-access/) policies. For example, conditional access policies can include displaying a [terms of use](../conditional-access/terms-of-use.md) and [ensuring the user has agreed to those terms](../conditional-access/require-tou.md) prior to being able to access an application.
+When a user attempts to access applications, Azure AD enforces [Conditional Access](/azure/active-directory/conditional-access/) policies. For example, Conditional Access policies can include displaying a [terms of use](../conditional-access/terms-of-use.md) and [ensuring the user has agreed to those terms](../conditional-access/require-tou.md) prior to being able to access an application.
 
 ## Privileged access lifecycle
 
@@ -63,7 +63,19 @@ Historically, privileged access has been described by other vendors as a separat
 
 ![Privileged access lifecycle](./media/identity-governance-overview/privileged-access-lifecycle.png)
 
-Azure AD Privileged Identity Management (PIM) provides additional controls tailored to securing access rights for resources, across Azure AD, Azure, and other Microsoft Online Services.  The just-in-time access, and role change alerting capabilities provided by Azure AD PIM, in addition to multi-factor authentication and conditional access, provide a comprehensive set of governance controls to help secure your company's resources (directory, Office 365, and Azure resource roles). As with other forms of access, organizations can use access reviews to configure recurring access recertification for all users in administrator roles.
+Azure AD Privileged Identity Management (PIM) provides additional controls tailored to securing access rights for resources, across Azure AD, Azure, and other Microsoft Online Services.  The just-in-time access, and role change alerting capabilities provided by Azure AD PIM, in addition to multi-factor authentication and Conditional Access, provide a comprehensive set of governance controls to help secure your company's resources (directory, Office 365, and Azure resource roles). As with other forms of access, organizations can use access reviews to configure recurring access recertification for all users in administrator roles.
+
+## Least privileged roles
+
+It's a best practice to use the least privileged role to perform administrative tasks in Identity Governance. We recommend that you use Azure AD PIM to activate a role as needed to perform these tasks. The following are the least privileged directory roles to configure Identity Governance features: 
+
+| Feature | Least privileged role |
+| ------- | --------------------- |
+| Entitlement management | User administrator (with the exception of adding SharePoint Online sites to catalogs, which requires Global administrator) |
+| Terms of use | Security administrator or Conditional access administrator |
+| Access reviews | User administrator (with the exception of access reviews of Azure or Azure AD roles, which requires Privileged role administrator) |
+|Privileged Identity Management | Privileged role administrator |
+
 
 ## Getting started
 
@@ -75,6 +87,8 @@ While there is no perfect solution or recommendation for every customer, the fol
 You can also check out the Getting started tab of **Identity Governance** in the Azure portal to start using entitlement management, access reviews, Privileged Identity Management, and Terms of use.
 
 ![Identity Governance getting started](./media/identity-governance-overview/getting-started.png)
+
+If you have any feedback about Identity Governance features, click **Got feedback?** in the Azure portal to submit your feedback. The team regularly reviews your feedback.
 
 ## Next steps
 

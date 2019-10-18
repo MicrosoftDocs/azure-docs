@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Create two VMs with internal and external
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: 
 

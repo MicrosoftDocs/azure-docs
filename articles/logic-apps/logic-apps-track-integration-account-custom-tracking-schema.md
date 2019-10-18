@@ -51,22 +51,22 @@ This article provides custom code that you can use in the layers outside of your
 }
 ```
 
-| Property | Type | Description |
-| --- | --- | --- |
-| sourceType |   | Type of the run source. Allowed values are **Microsoft.Logic/workflows** and **custom**. (Mandatory) |
-| Source |   | If the source type is **Microsoft.Logic/workflows**, the source information needs to follow this schema. If the source type is **custom**, the schema is a JToken. (Mandatory) |
-| systemId | String | Logic app system ID. (Mandatory) |
-| runId | String | Logic app run ID. (Mandatory) |
-| operationName | String | Name of the operation (for example, action or trigger). (Mandatory) |
-| repeatItemScopeName | String | Repeat item name if the action is inside a `foreach`/`until` loop. (Mandatory) |
-| repeatItemIndex | Integer | Whether the action is inside a `foreach`/`until` loop. Indicates the repeated item index. (Mandatory) |
-| trackingId | String | Tracking ID, to correlate the messages. (Optional) |
-| correlationId | String | Correlation ID, to correlate the messages. (Optional) |
-| clientRequestId | String | Client can populate it to correlate messages. (Optional) |
-| eventLevel |   | Level of the event. (Mandatory) |
-| eventTime |   | Time of the event, in UTC format YYYY-MM-DDTHH:MM:SS.00000Z. (Mandatory) |
-| recordType |   | Type of the track record. Allowed value is **custom**. (Mandatory) |
-| record |   | Custom record type. Allowed format is JToken. (Mandatory) |
+| Property | Required | Type | Description |
+| --- | --- | --- | --- |
+| sourceType | Yes |   | Type of the run source. Allowed values are **Microsoft.Logic/workflows** and **custom**. |
+| source | Yes |   | If the source type is **Microsoft.Logic/workflows**, the source information needs to follow this schema. If the source type is **custom**, the schema is a JToken. |
+| systemId | Yes | String | Logic app system ID. |
+| runId | Yes | String | Logic app run ID. |
+| operationName | Yes | String | Name of the operation (for example, action or trigger). |
+| repeatItemScopeName | Yes | String | Repeat item name if the action is inside a `foreach`/`until` loop. |
+| repeatItemIndex | Yes | Integer | Whether the action is inside a `foreach`/`until` loop. Indicates the repeated item index. |
+| trackingId | No | String | Tracking ID, to correlate the messages. |
+| correlationId | No | String | Correlation ID, to correlate the messages. |
+| clientRequestId | No | String | Client can populate it to correlate messages. |
+| eventLevel | Yes |   | Level of the event. |
+| eventTime | Yes |   | Time of the event, in UTC format YYYY-MM-DDTHH:MM:SS.00000Z. |
+| recordType | Yes |   | Type of the track record. Allowed value is **custom**. |
+| record | Yes |   | Custom record type. Allowed format is JToken. |
 ||||
 
 ## B2B protocol tracking schemas

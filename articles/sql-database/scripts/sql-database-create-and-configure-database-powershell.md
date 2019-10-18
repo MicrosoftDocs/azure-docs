@@ -10,7 +10,6 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell to create a single Azure SQL database and configure a SQL Database server firewall rule

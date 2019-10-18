@@ -10,7 +10,6 @@ ms.topic: sample
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell to sync between multiple SQL Databases

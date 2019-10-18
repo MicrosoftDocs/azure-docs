@@ -14,8 +14,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/26/2019
-ms.author: kumud,steveesp, mareat
-
+ms.author: steveesp
+ms.reviewer: kumud, mareat
 ---
 
 # Virtual machine network bandwidth
@@ -57,7 +57,7 @@ Today, the Azure networking stack supports 250K total network flows with good pe
 |---|---|---|
 |<b>Good Performance</b>|100K Flows |250K Flows|
 |<b>Degraded Performance</b>|Above 100k Flows|Above 250K Flows|
-|<b>Flow Limit</b>|1M Flows|1M Flows|
+|<b>Flow Limit</b>|500K Flows|500K Flows|
 
 Metrics are available in [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or VMSS instances.
 

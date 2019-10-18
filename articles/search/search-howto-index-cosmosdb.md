@@ -4,7 +4,7 @@ description: Crawl an Azure Cosmos DB data source and ingest data in a full text
 
 ms.date: 05/02/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
@@ -129,7 +129,7 @@ In your Cosmos DB account you can choose whether you want the collection to auto
 
 ### 1 - Assemble inputs for the request
 
-For each request, you must provide the service name and admin key for Azure Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-fiddler.md) to send HTTP requests to Azure Search.
+For each request, you must provide the service name and admin key for Azure Search (in the POST header), and the storage account name and key for blob storage. You can use [Postman](search-get-started-postman.md) to send HTTP requests to Azure Search.
 
 Copy the following four values into Notepad so that you can paste them into a request:
 

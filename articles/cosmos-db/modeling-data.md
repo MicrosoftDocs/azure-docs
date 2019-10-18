@@ -5,7 +5,7 @@ description: Learn about data modeling in NoSQL databases, differences between m
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.custom: rimman
 
@@ -38,7 +38,7 @@ The guiding premise when normalizing data is to **avoid storing redundant data**
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
     JOIN ContactDetail cd ON cd.PersonId = p.Id
-    JOIN ContactDetailType on cdt ON cdt.Id = cd.TypeId
+    JOIN ContactDetailType cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
 Updating a single person with their contact details and addresses requires write operations across many individual tables.
@@ -171,9 +171,9 @@ Stock *zaza* may be traded many hundreds of times in a single day and thousands 
 
 ## Referencing data
 
-So, embedding data works nicely for many cases but it is clear that there are scenarios when denormalizing your data will cause more problems than it is worth. So what do we do now?
+Embedding data works nicely for many cases but there are scenarios when denormalizing your data will cause more problems than it is worth. So what do we do now?
 
-Relational databases are not the only place where you can create relationships between entities. In a document database, you can have information in one document that actually relates to data in other documents. Now, I am not advocating for even one minute that we build systems that would be better suited to a relational database in Azure Cosmos DB, or any other document database, but simple relationships are fine and can be useful.
+Relational databases are not the only place where you can create relationships between entities. In a document database, you can have information in one document that relates to data in other documents. We do not recommend building systems that would be better suited to a relational database in Azure Cosmos DB, or any other document database, but simple relationships are fine and can be useful.
 
 In the JSON below we chose to use the example of a stock portfolio from earlier but this time we refer to the stock item on the portfolio instead of embedding it. This way, when the stock item changes frequently throughout the day the only document that needs to be updated is the single stock document.
 
@@ -412,3 +412,6 @@ Just as there is no single way to represent a piece of data on a screen, there i
 To learn more about Azure Cosmos DB, refer to the service's [documentation](https://azure.microsoft.com/documentation/services/cosmos-db/) page.
 
 To understand how to shard your data across multiple partitions, refer to [Partitioning Data in Azure Cosmos DB](sql-api-partition-data.md).
+
+To learn how to model and partition data on Azure Cosmos DB using a real-world example, refer to [
+Data Modeling and Partitioning - a Real-World Example](how-to-model-partition-example.md).

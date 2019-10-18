@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 06/11/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -54,15 +54,15 @@ To configure the integration of ExpenseIn into Azure AD, you need to add Expense
 
 ## Configure and test Azure AD single sign-on
 
-Configure and test Azure AD SSO with ExpenseIn using a test user called **B. Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ExpenseIn.
+Configure and test Azure AD SSO with ExpenseIn using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ExpenseIn.
 
 To configure and test Azure AD SSO with ExpenseIn, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 2. **[Configure ExpenseIn](#configure-expensein)** to configure the SSO settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B. Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B. Simon to use Azure AD single sign-on.
-5. **[Create ExpenseIn test user](#create-expensein-test-user)** to have a counterpart of B. Simon in ExpenseIn that is linked to the Azure AD representation of user.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
+5. **[Create ExpenseIn test user](#create-expensein-test-user)** to have a counterpart of B.Simon in ExpenseIn that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -99,41 +99,51 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure ExpenseIn
 
-1. In a different web browser window, sign in to ExpenseIn as an Administrator.
+1. To automate the configuration within ExpenseIn, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-2. Click on **Admin** on the top of the page then navigate to **Single Sign-On** and click **Add provider**.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup ExpenseIn** will direct you to the ExpenseIn application. From there, provide the admin credentials to sign into ExpenseIn. The browser extension will automatically configure the application for you and automate steps 3-5.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup ExpenseIn manually, open a new web browser window and sign into your ExpenseIn company site as an administrator and perform the following steps:
+
+4. Click on **Admin** on the top of the page then navigate to **Single Sign-On** and click **Add provider**.
 
 	 ![ExpenseIn configuration](./media/expenseIn-tutorial/config01.png)
 
-3. On the **New Identity Provider** pop-up, Perform the following steps:
+5. On the **New Identity Provider** pop-up, Perform the following steps:
 
     ![ExpenseIn configuration](./media/expenseIn-tutorial/config02.png)
 
 	a. In the **Provider Name** text box, type the name like ex:Azure.
 
-	b. In the **Target Url** text box, paste the value of **Login URL**, which you have copied from Azure portal.
+	b. Select **Yes** as **Allow Provider Intitated Sign-On**.
 
-    c. In the **Issuer** text box, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+	c. In the **Target Url** text box, paste the value of **Login URL**, which you have copied from Azure portal.
 
-    d. Open the Certificate (Base64) in Notepad, copy its content and paste it in the **Certificate** text box.
+    d. In the **Issuer** text box, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-	e. Click **Create**.
+    e. Open the Certificate (Base64) in Notepad, copy its content and paste it in the **Certificate** text box.
+
+	f. Click **Create**.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B. Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B. Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `BrittaSimon@contoso.com`.
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable B. Simon to use Azure single sign-on by granting access to ExpenseIn.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to ExpenseIn.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **ExpenseIn**.
@@ -145,7 +155,7 @@ In this section, you'll enable B. Simon to use Azure single sign-on by granting 
 
 	![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B. Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
@@ -169,7 +179,7 @@ To enable Azure AD users to sign in to ExpenseIn, they must be provisioned into 
 
     b. In **Last Name** text box, enter the last name of user like **Simon**.
 
-    c. In **Email** text box, enter the email of user like `B. Simon@contoso.com`.
+    c. In **Email** text box, enter the email of user like `B.Simon@contoso.com`.
 
     d. Click **Create**.
 
@@ -183,4 +193,4 @@ When you select the ExpenseIn tile in the Access Panel, you should be automatica
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

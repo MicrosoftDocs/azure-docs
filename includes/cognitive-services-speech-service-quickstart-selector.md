@@ -20,4 +20,5 @@ ms.author: wolfma
 > - [JavaScript: Node.js](~/articles/cognitive-services/speech-service/quickstart-js-node.md)
 > - [Objective-C: iOS](~/articles/cognitive-services/speech-service/quickstart-objectivec-ios.md)
 > - [Objective-C: macOS](~/articles/cognitive-services/speech-service/quickstart-objective-c-macos.md)
+> - [Swift: iOS](~/articles/cognitive-services/speech-service/quickstart-swift-ios.md)
 > - [Python](~/articles/cognitive-services/speech-service/quickstart-python.md)

@@ -1,15 +1,15 @@
 ---
 title: Reward score - Personalizer
 titleSuffix: Azure Cognitive Services
-description: The reward score indicates how well the personalization choice, RewardActionID, resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior. Personalizer trains it's machine learning models by evaluating the rewards.
+description: The reward score indicates how well the personalization choice, RewardActionID, resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior. Personalizer trains its machine learning models by evaluating the rewards.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/13/2019
-ms.author: edjez
+ms.topic: conceptual
+ms.date: 09/19/2019
+ms.author: diberry
 ---
 
 # Reward scores indicate success of personalization
@@ -20,11 +20,23 @@ Personalizer trains its machine learning models by evaluating the rewards.
 
 ## Use Reward API to send reward score to Personalizer
 
-Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). A reward is a number from -1 and 1. Personalizer trains the model to achieve the highest possible sum of rewards over time.
+Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward). Typically, a reward is a number from 0 and 1. A negative reward, with the value of -1, is possible in certain scenarios and should only be used if you are experienced with reinforcement learning (RL). Personalizer trains the model to achieve the highest possible sum of rewards over time.
 
 Rewards are sent after the user behavior has happened, which could be days later. The maximum amount of time Personalizer will wait until an event is considered to have no reward or a default reward is configured with the [Reward Wait Time](#reward-wait-time) in the Azure portal.
 
 If the reward score for an event hasn't been received within the **Reward Wait Time**, then the **Default Reward** will be applied. Typically, the **[Default Reward](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** is configured to be zero.
+
+
+## Behaviors and data to consider for rewards
+
+Consider these signals and behaviors for the context of the reward score:
+
+* Direct user input for suggestions when options are involved ("Do you mean X?").
+* Session length.
+* Time between sessions.
+* Sentiment analysis of the user's interactions.
+* Direct questions and mini surveys where the bot asks the user for feedback about usefulness, accuracy.
+* Response to alerts, or delay to response to alerts.
 
 ## Composing reward scores
 
@@ -39,7 +51,7 @@ If no reward is received within the [Reward Wait Time](#reward-wait-time), the d
 
 ## Building up rewards with multiple factors  
 
-For effective personalization, you can build up the reward score (any number from -1 and 1) based on multiple factors. 
+For effective personalization, you can build up the reward score based on multiple factors. 
 
 For example, you could apply these rules for personalizing a list of video content:
 
@@ -63,7 +75,7 @@ Aggregation settings:
 
 All rewards for an event, which are received after the **Reward Wait Time**, are discarded and do not affect the training of models.
 
-By adding up reward scores, your final reward may be higher than 1 or lower than -1. This won't make the service fail.
+By adding up reward scores, your final reward may be outside the expected score range. This won't make the service fail.
 
 <!--
 @edjez - is the number ignored if it is outside the acceptable range?

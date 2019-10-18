@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: quickstart
 
-author: garyericson
-ms.author: garye
+author: xiaoharper
+ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
 #Customer intent: As a citizen data scientist, I want to learn how to create a data science experiment so that I can do the same process to answer my own data science questions.

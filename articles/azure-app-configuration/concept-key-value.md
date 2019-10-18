@@ -90,7 +90,7 @@ You also can include the following label patterns:
 | `label=1.0.*` | Matches labels that start with **1.0.** |
 | `label=*.0.0` | Matches labels that end with **.0.0** |
 | `label=*.0.*` | Matches labels that contain **.0.** |
-| `label=%00,1.0.0` | Matches labels `null` or **1.0.1**, limited to five CSVs |
+| `label=%00,1.0.0` | Matches labels `null` or **1.0.0**, limited to five CSVs |
 
 ## Values
 

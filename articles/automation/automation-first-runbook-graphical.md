@@ -5,8 +5,8 @@ keywords: runbook, runbook template, runbook automation, azure runbook
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm

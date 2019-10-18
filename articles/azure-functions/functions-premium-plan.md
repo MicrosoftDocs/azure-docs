@@ -7,7 +7,6 @@ manager: jeconnoc
 
 ms.assetid:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
@@ -18,18 +17,20 @@ ms.author: jehollan
 
 The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
 
-> [!NOTE]
-> The Premium plan preview currently supports functions running in .NET, Node, or Java through Windows infrastructure.
-
 ## Create a Premium plan
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-You can also create a Premium plan from the Azure CLI
+You can also create a Premium plan using [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) in the Azure CLI. The following example creates an _Elastic Premium 1_ tier plan:
 
 ```azurecli-interactive
-az functionapp plan create -g <resource-group> -n <plan-name> -l <region> --number-of-workers 1 --sku EP1
+az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
+--location <REGION> --sku EP1
 ```
+
+In this example, replace `<RESOURCE_GROUP>` with your resource group and `<PLAN_NAME>` with a name for your plan that is unique in the resource group. Specify a [supported `<REGION>`](#regions). To create a Premium plan that supports Linux, include the `--is-linux` option.
+
+With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. 
 
 ## Features
 
@@ -98,28 +99,30 @@ When creating or scaling your plan, you can choose between three instance sizes.
 
 ## Regions
 
-Below are the currently supported regions for the public preview.
+Below are the currently supported regions for the public preview for each OS.
 
-|Region|
-|--|
-|Australia East|
-|Australia Southeast|
-|Canada Central|
-|Central US|
-|East Asia|
-|East US 2|
-|France Central|
-|Japan West|
-|Korea Central|
-|North Central US|
-|North Europe|
-|South Central US|
-|South India|
-|Southeast Asia|
-|UK West|
-|West Europe|
-|West India|
-|West US|
+|Region| Windows | Linux |
+|--| -- | -- |
+|Australia East| ✔ | |
+|Australia Southeast | ✔ | ✔ |
+|Canada Central| ✔ |  |
+|Central US| ✔ |  |
+|East Asia| ✔ |  |
+|East US | | ✔ |
+|East US 2| ✔ |  |
+|France Central| ✔ |  |
+|Japan East|  | ✔ |
+|Japan West| ✔ | |
+|Korea Central| ✔ |  |
+|North Central US| ✔ |  |
+|North Europe| ✔ | ✔ |
+|South Central US| ✔ |  |
+|South India | ✔ | |
+|Southeast Asia| ✔ | ✔ |
+|UK West| ✔ |  |
+|West Europe| ✔ | ✔ |
+|West India| ✔ |  |
+|West US| ✔ | ✔ |
 
 ## Known Issues
 

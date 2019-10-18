@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 09/06/2019
 ms.author: pafarley
 ---
 # Quickstart: Detect faces in an image using the REST API and JavaScript
@@ -36,7 +36,7 @@ Create a new HTML file, *detectFaces.html*, and add the following code.
 </html>
 ```
 
-Then add the following code inside the `body` element of the document. This sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
+Then add the following code inside the `body` element of the document. This code sets up a basic user interface with a URL field, an **Analyze face** button, a response pane, and an image display pane.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -60,7 +60,7 @@ Image to analyze: <input type="text" name="inputImage" id="inputImage"
 
 ## Write the JavaScript script
 
-Add the following code immediately above the `h1` element in your document. This sets up the JavaScript code that calls the Face API.
+Add the following code immediately above the `h1` element in your document. This code sets up the JavaScript code that calls the Face API.
 
 ```html
 <script type="text/javascript">
@@ -68,16 +68,8 @@ Add the following code immediately above the `h1` element in your document. This
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
     
-        // NOTE: You must use the same region in your REST call as you used to
-        // obtain your subscription keys. For example, if you obtained your
-        // subscription keys from westus, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change 
-        // this region.
         var uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+            "https://<My Endpoint String>.com/face/v1.0/detect";
     
         // Request parameters.
         var params = {
@@ -127,7 +119,9 @@ Add the following code immediately above the `h1` element in your document. This
 </script>
 ```
 
-You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). The `returnFaceAttributes` field specifies which face attributes to retrieve; you may wish to change this string depending on your intended use.
+You'll need to update the `subscriptionKey` field with the value of your subscription key, and you need to change the `uriBase` string so that it contains the correct endpoint string. The `returnFaceAttributes` field specifies which face attributes to retrieve; you may wish to change this string depending on your intended use.
+
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## Run the script
 
@@ -135,7 +129,7 @@ Open *detectFaces.html* in your browser. When you click the **Analyze face** but
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-The following is an example of a successful JSON response.
+The following text is an example of a successful JSON response.
 
 ```json
 [

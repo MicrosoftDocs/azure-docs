@@ -5,7 +5,7 @@ description: Overview of the vulnerabilities detected by Azure Active Directory 
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2019
 
 ms.author: joflore
@@ -34,7 +34,7 @@ Azure Multi-Factor Authentication provides a second layer of security to user au
 * Mobile app notification
 * OTP Verification code
 
-We recommend that you require Azure Multi-Factor Authentication for user sign-ins. Multi-factor authentication plays a key role in risk-based conditional access policies available through Identity Protection.
+We recommend that you require Azure Multi-Factor Authentication for user sign-ins. Multi-factor authentication plays a key role in risk-based Conditional Access policies available through Identity Protection.
 
 For more information, see [What is Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 

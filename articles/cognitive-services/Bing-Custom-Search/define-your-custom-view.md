@@ -1,6 +1,6 @@
 ---
 title: Configure your Bing Custom Search experience | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Describes how to create site and vertical search services
 services: cognitive-services
 author: aahill
@@ -155,5 +155,5 @@ If you subscribed to Custom Search at the appropriate level (see the [pricing pa
 
 - [Call your custom search](./search-your-custom-view.md)
 - [Configure your hosted UI experience](./hosted-ui.md)
-- [Use decoration markers to highlight text](./hit-highlighting.md)
+- [Use decoration markers to highlight text](../bing-web-search/hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

@@ -5,7 +5,7 @@ services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
-ms.subservice: workload management
+ms.subservice: workload-management
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rortloff
@@ -67,4 +67,4 @@ GO
 - For more information on Importance, see [Workload Importance](sql-data-warehouse-workload-importance.md)
 
 > [!div class="nextstepaction"]
-> [Go to Configure Workload Importance ](sql-data-warehouse-how-to-configure-workload-importance.md)
+> [Go to Configure Workload Importance](sql-data-warehouse-how-to-configure-workload-importance.md)

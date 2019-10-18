@@ -39,6 +39,12 @@ For deterministic behavior, set the event time to live and max delivery attempts
 
 By default, Event Grid expires all events that aren't delivered within 24 hours. You can [customize the retry policy](manage-event-delivery.md) when creating an event subscription. You provide the maximum number of delivery attempts (default is 30) and the event time-to-live (default is 1440 minutes).
 
+## Delayed Delivery
+
+As an endpoint experiences delivery failures, Event Grid will begin to delay the delivery and retry of events to that endpoint. For example, if the first ten events published to an endpoint fail, Event Grid will assume that the endpoint is experiencing issues and will delay all subsequent retries *and new* deliveries for some time - in some cases up to several hours.
+
+The functional purpose of delayed delivery is to protect unhealthy endpoints as well as the Event Grid system. Without back-off and delay of delivery to unhealthy endpoints, Event Grid's retry policy and volume capabilities can easily overwhelm a system.
+
 ## Dead-letter events
 
 When Event Grid can't deliver an event, it can send the undelivered event to a storage account. This process is known as dead-lettering. By default, Event Grid doesn't turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the event subscription. You pull events from this storage account to resolve deliveries.
@@ -60,25 +66,29 @@ Event Grid uses HTTP response codes to acknowledge receipt of events.
 
 ### Success codes
 
-The following HTTP response codes indicate that an event has been delivered successfully to your webhook. Event Grid considers delivery complete.
+Event Grid considers **only** the following HTTP response codes as successful deliveries. All other status codes are considered failed deliveries and will be retried or deadlettered as appropriate. Upon receiving a successful status code, Event Grid considers delivery complete.
 
 - 200 OK
+- 201 Created
 - 202 Accepted
+- 203 Non-Authoritative Information
+- 204 No Content
 
 ### Failure codes
 
-The following HTTP response codes indicate that an event delivery attempt failed.
+All other codes not in the above set (200-204) are considered failures and will be retried. Some have specific retry policies tied to them outlined below, all others follow the standard exponential back-off model. It's important to keep in mind that due to the highly parallelized nature of Event Grid's architecture, the retry behavior is non-deterministic. 
 
-- 400 Bad Request
-- 401 Unauthorized
-- 404 Not Found
-- 408 Request timeout
-- 413 Request Entity Too Large
-- 414 URI Too Long
-- 429 Too Many Requests
-- 500 Internal Server Error
-- 503 Service Unavailable
-- 504 Gateway Timeout
+| Status code | Retry behavior |
+| ------------|----------------|
+| 400 Bad Request | Retry after 5 minutes or more (Deadletter immediately if deadletter setup) |
+| 401 Unauthorized | Retry after 5 minutes or more |
+| 403 Forbidden | Retry after 5 minutes or more |
+| 404 Not Found | Retry after 5 minutes or more |
+| 408 Request Timeout | Retry after 2 minutes or more |
+| 413 Request Entity Too Large | Retry after 10 seconds or more (Deadletter immediately if deadletter setup) |
+| 503 Service Unavailable | Retry after 30 seconds or more |
+| All others | Retry after 10 seconds or more |
+
 
 ## Next steps
 

@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 12/04/2018
 ---
 # Restore a single tenant with a database-per-tenant SaaS application

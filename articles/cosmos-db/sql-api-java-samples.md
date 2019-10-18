@@ -13,7 +13,8 @@ ms.author: sngun
 # Azure Cosmos DB: Java examples for the SQL API
 
 > [!div class="op_single_selector"]
-> * [.NET Examples](sql-api-dotnet-samples.md)
+> * [.NET V2 SDK Examples](sql-api-dotnet-samples.md)
+> * [.NET V3 SDK Examples](sql-api-dotnet-v3sdk-samples.md)
 > * [Java Examples](sql-api-java-samples.md)
 > * [Async Java Examples](sql-api-async-java-samples.md)
 > * [Node.js Examples](sql-api-nodejs-samples.md)
@@ -124,7 +125,7 @@ The [DocumentQuerySamples](https://github.com/Azure/azure-documentdb-java/blob/m
 | Task | API reference |
 | --- | --- |
 | [Perform a simple cross-partition document query](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L108-L129) | [DocumentClient.queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments)<br>[FeedOptions.setEnableCrossPartitionQuery](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedoptions.setenablecrosspartitionquery) |
-| [Order by query](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse<T>.getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse.getqueryiterator) |
+| [Order by query](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/DocumentQuerySamples.java#L132-L154) | [FeedResponse\<T>.getQueryIterator](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.feedresponse.getqueryiterator) |
 
 For more information about writing queries, see [SQL query within Azure Cosmos DB](how-to-sql-query.md).
 

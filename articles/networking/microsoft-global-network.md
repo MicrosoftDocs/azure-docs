@@ -5,14 +5,14 @@ services: networking
 documentationcenter: 
 author: KumudD
 manager: 
-ms.service: networking
+ms.service: virtual-network
 ms.devlang: 
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2019
-ms.author: ypitsch,kumud
-
+ms.date: 06/13/2019
+ms.author: kumud
+ms.reviewer: ypitsch
 ---
 
 # Microsoft global network
@@ -29,8 +29,10 @@ The [Microsoft global network](https://azure.microsoft.com/global-infrastructure
  
 Opting for the [best possible experience](https://www.sdxcentral.com/articles/news/azure-tops-aws-gcp-in-cloud-performance-says-thousandeyes/2018/11/) is easy when you use Microsoft cloud. From the moment when customer traffic enters our global network through our strategically placed edge-nodes, your data travels through optimized routes at near the speed of light. This ensures optimal latency for best performance. These edge-nodes, all interconnected to more than 3500 unique Internet partners (peers) through thousands of connections in more than 145 locations, provide the foundation of our interconnection strategy. 
  
-Whether connecting from London to Tokyo, or from Washington DC to Los Angeles, network performance is quantified and impacted by things such as latency, jitter, packet loss, and throughput.  At Microsoft, we prefer and use direct interconnects as opposed to transit-links, this keeps response traffic symmetric and helps keep hops, peering parties and paths as short and simple as possible. This premium approach, often referred to as [cold-potato routing](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing), ensures that customers network traffic remains within the Microsoft network as long as possible before we hand it off.  
- 
+Whether connecting from London to Tokyo, or from Washington DC to Los Angeles, network performance is quantified and impacted by things such as latency, jitter, packet loss, and throughput.  At Microsoft, we prefer and use direct interconnects as opposed to transit-links, this keeps response traffic symmetric and helps keep hops, peering parties and paths as short and simple as possible. 
+
+For example, if a user in London attempts to access a service in Tokyo, then the Internet traffic enters one of our edges in London, goes over Microsoft WAN through France, our Trans-Arabia paths between Europe and India, and then to Japan where the service is hosted. Response traffic is symmetric. This is sometimes referred as [cold-potato routing](https://en.wikipedia.org/wiki/Hot-potato_and_cold-potato_routing) which means that the traffic stays on Microsoft network as long as possible before we hand it off.  
+  
 So, does that mean any and all traffic when using Microsoft services? Yes, any traffic between data centers, within Microsoft Azure or between Microsoft services such as Virtual Machines, Office 365, XBox, SQL DBs, Storage, and virtual networks are routed within our global network and never over the public Internet, to ensure optimal performance and integrity.  
  
 Massive investments in fiber capacity and diversity across metro, terrestrial, and submarine paths are crucial for us to keep consistent and high service-level while fueling the extreme growth of our cloud and online services. Recent additions to our global network are our [MAREA](https://www.submarinecablemap.com/#/submarine-cable/marea) submarine cable,  the industry's first Open Line System (OLS) over subsea, between Bilbao, Spain and Virginia Beach, Virginia, USA, as well as the [AEC](https://www.submarinecablemap.com/#/submarine-cable/aeconnect-1) between New York, USA and Dublin, Ireland and [New Cross Pacific (NCP)](https://www.submarinecablemap.com/#/submarine-cable/new-cross-pacific-ncp-cable-system) between Tokyo, Japan, and Portland, Oregon, USA. 

@@ -1,5 +1,5 @@
 ---
-title: Detecting faces - Computer Vision
+title: Face detection - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Learn concepts related to the face detection feature of the Computer Vision API.
 services: cognitive-services

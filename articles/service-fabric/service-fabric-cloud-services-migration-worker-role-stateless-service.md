@@ -28,7 +28,7 @@ The difference is that the Cloud Service project couples the application deploym
 ![Service Fabric and Cloud Services project comparison][3]
 
 ## Worker Role to stateless service
-Conceptually, a Worker Role represents a stateless workload, meaning every instance of the workload is identical and requests can be routed to any instance at any time. Each instance is not expected to remember the previous request. State that the workload operates on is managed by an external state store, such as Azure Table Storage or Azure Document DB. In Service Fabric, this type of workload is represented by a Stateless Service. The simplest approach to migrating a Worker Role to Service Fabric can be done by converting Worker Role code to a Stateless Service.
+Conceptually, a Worker Role represents a stateless workload, meaning every instance of the workload is identical and requests can be routed to any instance at any time. Each instance is not expected to remember the previous request. State that the workload operates on is managed by an external state store, such as Azure Table Storage or Azure Cosmos DB. In Service Fabric, this type of workload is represented by a Stateless Service. The simplest approach to migrating a Worker Role to Service Fabric can be done by converting Worker Role code to a Stateless Service.
 
 ![Worker Role to Stateless Service][4]
 

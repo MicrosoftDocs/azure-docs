@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services for Azure Cloud Solution Provider
 description: Azure Active Directory Domain Services for Azure Cloud Solution Providers.
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: mahesh-unnikrishnan
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.author: ergreenl
+ms.author: iainfou
 ---
 
 # Azure Active Directory (AD) Domain Services for Azure Cloud Solution Providers (CSP)
@@ -86,4 +86,4 @@ The following important considerations apply when administering a managed domain
 * [Enroll in the Azure CSP program](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) and start creating business through Azure CSP.
 * Review the list of [Azure services available in Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 * [Enable Azure AD Domain Services using PowerShell](powershell-create-instance.md)
-* [Get started with Azure AD Domain Services](create-instance.md)
+* [Get started with Azure AD Domain Services](tutorial-create-instance.md)

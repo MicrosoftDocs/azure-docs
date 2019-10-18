@@ -27,7 +27,7 @@ This article provides you details to improve your application further and move i
 
 ## Handling errors in desktop applications
 
-In the different flows, you've learned how to handle the errors for the silent flows (as shown in code snippets). You've also seen that there are cases where interaction is needed (incremental consent and conditional access).
+In the different flows, you've learned how to handle the errors for the silent flows (as shown in code snippets). You've also seen that there are cases where interaction is needed (incremental consent and Conditional Access).
 
 ## How to have  the user consent upfront for several resources
 
@@ -44,6 +44,8 @@ For instance, if you have two resources, which have two scopes each:
 You should use the `.WithAdditionalPromptToConsent` modifier that has the `extraScopesToConsent` parameter.
 
 For instance:
+
+### In MSAL.NET
 
 ```CSharp
 string[] scopesForCustomerApi = new string[]
@@ -64,9 +66,39 @@ var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .ExecuteAsync();
 ```
 
+### In MSAL for iOS and macOS
+
+Objective-C:
+
+```objc
+NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                                @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
+    
+NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                              @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+    
+MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
+interactiveParams.extraScopesToConsent = scopesForVendorApi;
+[application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
+```
+
+Swift:
+
+```swift
+let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
+                            "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
+        
+let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
+                          "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
+        
+let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
+interactiveParameters.extraScopesToConsent = scopesForVendorApi
+application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
+```
+
 This call will get you an access token for the first web API.
 
-When you need to call the second web API, you can call:
+When you need to call the second web API, you can call `AcquireTokenSilent` API:
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

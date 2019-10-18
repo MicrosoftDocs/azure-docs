@@ -1,6 +1,6 @@
 ---
-title: View deny assignments for Azure resources using the Azure portal | Microsoft Docs
-description: Learn how to view the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scope using the Azure portal.
+title: List deny assignments for Azure resources using the Azure portal | Microsoft Docs
+description: Learn how to list the users, groups, service principals, and managed identities that have been denied access to specific Azure resource actions at particular scopes using the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/13/2019
+ms.date: 06/10/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
 
-# View deny assignments for Azure resources using the Azure portal
+# List deny assignments for Azure resources using the Azure portal
 
-[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to use the Azure portal to view deny assignments.
+[Deny assignments](deny-assignments.md) block users from performing specific Azure resource actions even if a role assignment grants them access. This article describes how to list deny assignments using the Azure portal.
 
 > [!NOTE]
-> At this time, the only way you can add your own deny assignments is by using Azure Blueprints. For more information, see [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md).
+> You can't directly create your own deny assignments. For information about how deny assignments are created, see [Deny assignments](deny-assignments.md).
 
 ## Prerequisites
 
@@ -30,13 +30,13 @@ To get information about a deny assignment, you must have:
 
 - `Microsoft.Authorization/denyAssignments/read` permission, which is included in most [built-in roles for Azure resources](built-in-roles.md).
 
-## View deny assignments
+## List deny assignments
 
-Follow these steps to view deny assignments at the subscription or management group scope.
+Follow these steps to list deny assignments at the subscription or management group scope.
 
 1. In the Azure portal, click **All services** and then **Management groups** or **Subscriptions**.
 
-1. Click the management group or subscription you want to view.
+1. Click the management group or subscription you want to list.
 
 1. Click **Access control (IAM)**.
 
@@ -63,9 +63,9 @@ Follow these steps to view deny assignments at the subscription or management gr
 
 1. Add a checkmark to any of the enabled items and then click **OK** to display the selected columns.
 
-## View details about a deny assignment
+## List details about a deny assignment
 
-Follow these steps to view additional details about a deny assignment.
+Follow these steps to list additional details about a deny assignment.
 
 1. Open the **Deny assignments** pane as described in the previous section.
 
@@ -106,4 +106,4 @@ Follow these steps to view additional details about a deny assignment.
 ## Next steps
 
 * [Understand deny assignments for Azure resources](deny-assignments.md)
-* [List deny assignments for Azure resources using the REST API](deny-assignments-rest.md)
+* [List deny assignments for Azure resources using Azure PowerShell](deny-assignments-powershell.md)

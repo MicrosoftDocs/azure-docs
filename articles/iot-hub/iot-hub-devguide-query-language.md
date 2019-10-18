@@ -1,17 +1,17 @@
 ---
 title: Understand the Azure IoT Hub query language | Microsoft Docs
 description: Developer guide - description of the SQL-like IoT Hub query language used to retrieve information about device/module twins and jobs from your IoT hub.
-author: rezasherafat
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: rezas
+ms.author: robinsh
 ---
 
 # IoT Hub query language for device and module twins, jobs, and message routing
 
-IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins](iot-hub-devguide-device-twins.md) and [jobs](iot-hub-devguide-jobs.md), and [message routing](iot-hub-devguide-messages-d2c.md). This article presents:
+IoT Hub provides a powerful SQL-like language to retrieve information regarding [device twins](iot-hub-devguide-device-twins.md), [module twins](iot-hub-devguide-module-twins.md), [jobs](iot-hub-devguide-jobs.md), and [message routing](iot-hub-devguide-messages-d2c.md). This article presents:
 
 * An introduction to the major features of the IoT Hub query language, and
 * The detailed description of the language. For details on query language for message routing, see [queries in message routing](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -20,7 +20,7 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 
 ## Device and module twin queries
 
-[Device twins](iot-hub-devguide-device-twins.md) and module twins can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
+[Device twins](iot-hub-devguide-device-twins.md) and [module twins](iot-hub-devguide-module-twins.md) can contain arbitrary JSON objects as both tags and properties. IoT Hub enables you to query device twins and module twins as a single JSON document containing all twin information.
 
 Assume, for instance, that your IoT hub device twins have the following structure (module twin would be similar just with an additional moduleId):
 
@@ -154,7 +154,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### Module twin queries
 
-Querying on module twins is similar to querying on device twins, but using a different collection/namespace, i.e. instead of “from devices” you can query device.modules:
+Querying on module twins is similar to querying on device twins, but using a different collection/namespace; instead of from **devices**, you query from **devices.modules**:
 
 ```sql
 SELECT * FROM devices.modules
@@ -310,7 +310,7 @@ Currently, queries on **devices.jobs** do not support:
 
 ## Basics of an IoT Hub query
 
-Every IoT Hub query consists of SELECT and FROM clauses, with optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. With aggregations, the results of this step are grouped as specified in the GROUP BY clause. For each group, a row is generated as specified in the SELECT clause.
+Every IoT Hub query consists of SELECT and FROM clauses, with optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices**, **devices.modules**, or **devices.jobs**). Then, the filter in the WHERE clause is applied. With aggregations, the results of this step are grouped as specified in the GROUP BY clause. For each group, a row is generated as specified in the SELECT clause.
 
 ```sql
 SELECT <select_list>
@@ -321,10 +321,10 @@ SELECT <select_list>
 
 ## FROM clause
 
-The **FROM <from_specification>** clause can assume only two values: **FROM devices** to query device twins, or **FROM devices.jobs** to query job per-device details.
-
+The **FROM <from_specification>** clause can assume only three values: **FROM devices** to query device twins, **FROM devices.modules** to query module twins, or **FROM devices.jobs** to query job per-device details.
 
 ## WHERE clause
+
 The **WHERE <filter_condition>** clause is optional. It specifies one or more conditions that the JSON documents in the FROM collection must satisfy to be included as part of the result. Any JSON document must evaluate the specified conditions to "true" to be included in the result.
 
 The allowed conditions are described in section [Expressions and conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
@@ -361,6 +361,7 @@ SELECT [TOP <max number>] <projection list>
 Currently, selection clauses different than **SELECT*** are only supported in aggregate queries on device twins.
 
 ## GROUP BY clause
+
 The **GROUP BY <group_specification>** clause is an optional step that executes after the filter specified in the WHERE clause, and before the projection specified in the SELECT. It groups documents based on the value of an attribute. These groups are used to generate aggregated values as specified in the SELECT clause.
 
 An example of a query using GROUP BY is:
@@ -388,9 +389,9 @@ Currently, the GROUP BY clause is only supported when querying device twins.
 > [!IMPORTANT]
 > The term `group` is currently treated as a special keyword in queries. In case, you use `group` as your property name, consider surrounding it with double brackets to avoid errors, e.g., `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
->
 
 ## Expressions and conditions
+
 At a high level, an *expression*:
 
 * Evaluates to an instance of a JSON type (such as Boolean, number, string, array, or object).
@@ -438,6 +439,7 @@ To understand what each symbol in the expressions syntax stands for, refer to th
 | string_literal |String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes or double quotes. Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
 
 ### Operators
+
 The following operators are supported:
 
 | Family | Operators |
@@ -447,6 +449,7 @@ The following operators are supported:
 | Comparison |=, !=, <, >, <=, >=, <> |
 
 ### Functions
+
 When querying twins and jobs the only supported function is:
 
 | Function | Description |

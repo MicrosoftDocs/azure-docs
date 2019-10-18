@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 03/04/2019
+ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -66,7 +66,8 @@ If the response contains search results, store the first result and print out it
 if image_results.value:
     first_image_result = image_results.value[0]
     print("Total number of images returned: {}".format(len(image_results.value)))
-    print("First image thumbnail url: {}".format(first_image_result.thumbnail_url))
+    print("First image thumbnail url: {}".format(
+        first_image_result.thumbnail_url))
     print("First image content url: {}".format(first_image_result.content_url))
 else:
     print("No image results returned!")

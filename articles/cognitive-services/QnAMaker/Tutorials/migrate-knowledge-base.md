@@ -3,13 +3,13 @@ title: Migrate knowledge bases - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: Migrating a knowledge base requires exporting from one knowledge base, then importing into another. 
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: tulasim
+ms.author: diberry
 ms.custom: seodec18
 ---
 # Migrate a knowledge base using export-import

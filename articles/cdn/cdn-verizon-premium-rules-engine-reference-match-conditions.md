@@ -4,7 +4,7 @@ description: Reference documentation for Azure Content Delivery Network from Ver
 services: cdn
 author: mdgattuso
 
-ms.service: cdn
+ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus

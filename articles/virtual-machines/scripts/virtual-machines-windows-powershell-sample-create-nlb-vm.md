@@ -4,13 +4,13 @@ description: Azure PowerShell Script Sample - Create a Windows VM NLB
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 
 ms.assetid:
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -64,6 +64,16 @@ This script uses the following commands to create the deployment. Each item in t
 | [New-AzVMConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azvmconfig) | Creates a VM configuration. This configuration includes information such as VM name, operating system, and administrative credentials. The configuration is used during VM creation. |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) | Create a virtual machine. |
 |[Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group and all resources contained within. |
+
+You can also create the VMs using your own custom managed image. In the VM configuration, for `Set-AzVMSourceImage` use the `-Id` and `-VM` parameters instead of `-PublisherName`, `-Offer`, `-Skus`, and `-Version`.
+
+For example, creating the VM config would be:
+
+```powershell
+$vmConfig = New-AzVMConfig -VMName 'myVM3' -VMSize Standard_DS1_v2 -AvailabilitySetId $as.Id | `
+  Set-AzVMOperatingSystem -Windows -ComputerName 'myVM3' -Credential $cred | `
+  Set-AzVMSourceImage -Id <Image.ID of the custom managed image> | Add-AzVMNetworkInterface -Id $nicVM3.Id
+ ```
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 09/10/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -24,14 +24,30 @@ This article contains instructions for using Azure Active Directory (Azure AD) P
 > [!IMPORTANT]
 > Some settings require an Azure Active Directory Premium P1 license. For more information, see the [Template settings](#template-settings) table.
 
-For more information on how to prevent non-administrator users from creating security groups, set `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+For more information on how to prevent non-administrator users from creating security groups, set `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` as described in [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 Office 365 Groups settings are configured using a Settings object and a SettingsTemplate object. Initially, you don't see any Settings objects in your directory, because your directory is configured with the default settings. To change the default settings, you must create a new settings object using a settings template. Settings templates are defined by Microsoft. There are several different settings templates. To configure Office 365 group settings for your directory, you use the template named "Group.Unified". To configure Office 365 group settings on a single group, use the template named "Group.Unified.Guest". This template is used to manage guest access to an Office 365 group. 
 
 The cmdlets are part of the Azure Active Directory PowerShell V2 module. For instructions how to download and install the module on your computer, see the article [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azuread/). You can install the version 2 release of the module from [the PowerShell gallery](https://www.powershellgallery.com/packages/AzureAD/).
 
+## Install PowerShell cmdlets
 
+Be sure to uninstall any older version of the Azure Active Directory PowerShell for Graph Module for Windows PowerShell and install [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) before you run the PowerShell commands.
 
+1. Open the Windows PowerShell app as an administrator.
+2. Uninstall any previous version of AzureADPreview.
+  
+   ``` PowerShell
+   Uninstall-Module AzureADPreview
+   Uninstall-Module azuread
+   ```
+
+3. Install the latest version of AzureADPreview.
+  
+   ``` PowerShell
+   Install-Module AzureADPreview
+   ```
+   
 ## Create settings at the directory level
 These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -39,6 +55,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
   
    ```powershell
    Get-AzureADDirectorySettingTemplate
+
    ```
    This cmdlet call returns all templates that are available:
   
@@ -74,7 +91,7 @@ These steps create settings at directory level, which apply to all Office 365 gr
    ```
 6. You can read the values using:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```  
 ## Update settings at the directory level
@@ -82,7 +99,7 @@ To update the value for UsageGuideLinesUrl in the setting template, simply edit 
 
 To remove the value of UsageGuideLinesUrl, edit the URL to be an empty string using Step 4 above:
 
- ```powershell
+   ```powershell
    $Setting["UsageGuidelinesUrl"] = ""
    ```  
 Then perform Step 5 to set the new value.
@@ -103,12 +120,12 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean<li>Default: False | Boolean indicating whether or not a guest user can be an owner of groups. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Office 365 groups content.  This setting does not require an Azure Active Directory Premium P1 license.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: “” | The url of a link to the guest usage guidelines. |
-|  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory.|
+|  <ul><li>AllowAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory.|
 |  <ul><li>ClassificationList<li>Type: String<li>Default: “” |A comma-delimited list of valid classification values that can be applied to Office 365 Groups. |
 
 ## Example: Configure Guest policy for groups at the directory level
 1. Get all the setting templates:
-  ```powershell
+   ```powershell
    Get-AzureADDirectorySettingTemplate
    ```
 2. To set guest policy for groups at the directory level, you need Group.Unified template
@@ -120,9 +137,9 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Then update AllowToAddGuests setting
+4. Then update AllowAddGuests setting
    ```powershell
-   $Setting["AllowToAddGuests"] = $False
+   $Setting["AllowAddGuests"] = $False
    ```  
 5. Then apply the setting:
   
@@ -131,7 +148,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
    ```
 6. You can read the values using:
 
-  ```powershell
+   ```powershell
    $Setting.Values
    ```   
 
@@ -139,9 +156,9 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 
 If you know the name of the setting you want to retrieve, you can use the below cmdlet to retrieve the current settings value. In this example, we're retrieving the value for a setting named "UsageGuidelinesUrl." 
 
-  ```powershell
-  (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
-  ```
+   ```powershell
+   (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value UsageGuidelinesUrl -EQ
+   ```
 These steps read settings at directory level, which apply to all Office groups in the directory.
 
 1. Read all existing directory settings:
@@ -176,7 +193,7 @@ These steps read settings at directory level, which apply to all Office groups i
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowToAddGuests              True
+   AllowAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -184,11 +201,11 @@ These steps read settings at directory level, which apply to all Office groups i
 
 ## Remove settings at the directory level
 This step removes settings at directory level, which apply to all Office groups in the directory.
-  ```powershell
-  Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
-  ```
+   ```powershell
+   Remove-AzureADDirectorySetting –Id c391b57d-5783-4c53-9236-cefb5c6ef323c
+   ```
 
-## Update settings for a specific group
+## Create settings for a specific group
 
 1. Search for the settings template named "Groups.Unified.Guest"
    ```powershell
@@ -213,15 +230,51 @@ This step removes settings at directory level, which apply to all Office groups 
 
 4. Set the setting to the required value:
    ```powershell
-   $SettingCopy["AllowToAddGuests"]=$False
+   $SettingCopy["AllowAddGuests"]=$False
    ```
-5. Create the new setting for the required group in the directory:
+5. Get the ID of the group you want to apply this setting to:
    ```powershell
-   New-AzureADObjectSetting -TargetType Groups -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -DirectorySetting $SettingCopy
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
    ```
-6. To verify the settings, run this command:
+6. Create the new setting for the required group in the directory:
    ```powershell
-   Get-AzureADObjectSetting -TargetObjectId ab6a3887-776a-4db7-9da4-ea2b0d63c504 -TargetType Groups | fl Values
+   New-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -DirectorySetting $SettingCopy
+   ```
+7. To verify the settings, run this command:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
+   ```
+
+## Update settings for a specific group
+1. Get the ID of the group whose setting you want to update:
+   ```powershell
+   $groupID= (Get-AzureADGroup -SearchString "YourGroupName").ObjectId
+   ```
+2. Retrieve the setting of the group:
+   ```powershell
+   $Setting = Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+3. Update the setting of the group as you need, e.g.
+   ```powershell
+   $Setting["AllowAddGuests"] = $True
+   ```
+4. Then get the ID of the setting for this specific group:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups
+   ```
+   You will get a response similar to this:
+   ```powershell
+   Id                                   DisplayName            TemplateId                             Values
+   --                                   -----------            -----------                            ----------
+   2dbee4ca-c3b6-4f0d-9610-d15569639e1a Group.Unified.Guest    08d542b9-071f-4e16-94b0-74abb372e3d9   {class SettingValue {...
+   ```
+5. Then you can set the new value for this setting:
+   ```powershell
+   Set-AzureADObjectSetting -TargetType Groups -TargetObjectId $groupID -Id 2dbee4ca-c3b6-4f0d-9610-d15569639e1a -DirectorySetting $Setting
+   ```
+6. You can read the value of the setting to make sure it has been updated correctly:
+   ```powershell
+   Get-AzureADObjectSetting -TargetObjectId $groupID -TargetType Groups | fl Values
    ```
 
 ## Cmdlet syntax reference

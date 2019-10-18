@@ -3,6 +3,7 @@ title: Azure API for FHIR SMART on FHIR proxy
 description: This article describes how to use the SMART on FHIR Azure Active Directory Proxy.
 services: healthcare-apis
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
 ms.author: mihansen

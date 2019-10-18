@@ -1,14 +1,12 @@
 ---
 title: Restore a VM disk with Azure Backup
 description: Learn how to restore a disk and create a recover a VM in Azure with Backup and Recovery Services.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
-tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
 ---
 
@@ -92,7 +90,7 @@ az backup job list \
 
 The output is similar to the following example, which shows the restore job is *InProgress*:
 
-```
+```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
 --------  ---------------  ----------  -----------  -------------------  --------------
 7f2ad916  Restore          InProgress  myvm         2017-09-19T19:39:52  0:00:34.520850

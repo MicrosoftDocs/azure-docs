@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: List text-to-speech voices, Node.js - Speech Services"
+title: "Quickstart: List text-to-speech voices, Node.js - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to get the full list of standard and neural voices for a region/endpoint using Node.js. The list is returned as JSON, and voice availability varies by region.
 services: cognitive-services
@@ -7,8 +7,8 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 04/02/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -34,7 +34,7 @@ Create a new Node.js project using your favorite IDE or editor. Then copy this c
 // Requires request and request-promise for HTTP requests
 // e.g. npm install request request-promise
 const rp = require('request-promise');
-// Requires fs to write the list of languagesto a file
+// Requires fs to write the list of languages to a file
 const fs = require('fs');
 ```
 

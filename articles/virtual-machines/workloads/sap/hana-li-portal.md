@@ -4,17 +4,17 @@ description: Describes the way how you can identify and interact with Azure HANA
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/02/2019
+ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
@@ -70,7 +70,7 @@ If you deployed several HANA Large Instance tenants under the same Azure subscri
 ## Look at attributes of single HLI Unit
 In the list of the HANA Large Instance units, you can click on a single unit and get to the details of the single HANA Large Instance unit. 
 
-In the overview screen, you are getting a presentation of the unit, which looks like:
+In the overview screen, after clicking 'Show more', you are getting a presentation of the unit, which looks like:
 
 ![Show overview of an HLI unit](./media/hana-li-portal/portal-show-overview.png)
 
@@ -79,12 +79,21 @@ Looking at the different attributes shown, those attributes look hardly differen
 - [Available SKUs for HLI](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-available-skus)
 - [SAP HANA (Large Instances) storage architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-storage-architecture) 
 
+Additional data on the right lower side is the revision of the HANA Large Instance stamp. Possible values are:
+
+- Revision 3
+- Revision 4
+
+Revision 4 is the latest architecture released of HANA Large Instances with major improvements in network latency between Azure VMs and HANA Large instance units deployed in Revision 4 stamps or rows.
+Another very important information is found in the lower right corner of the overview with the name of the Azure Proximity Placement Group that is automatically created for each deployed HANA Large Instance unit. This Proximity Placement Group needs to be referenced when deploying the Azure VMs that host the SAP application layer. By using the [Azure proximity placement group](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) associated with the HANA Large Instance unit, you make sure that the Azure VMs are deployed in close proximity to the HANA Large Instance unit. The way how proximity placement groups can be used to locate the SAP application layer in the same Azure datacenter as Revision 4 hosted HANA Large Instance units is described in [Azure Proximity Placement Groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
+
 An additional field in the right column of the header informs about the power state of the HANA Large instance unit.
 
 > [!NOTE]
 > The power state describes whether the hardware unit is powered on or off. It does not give information about the operating system being up and running. As you restart a HANA Large Instance unit, you will experience a small time where the state of the unit changes to **Starting** to move into the state of **Started**. Being in the state of **Started** means that the OS is starting up or that the OS has been started up completely. As a result, after a restart of the unit, you can't expect to immediately log into the unit as soon as the state switches to **Started**.
 > 
 
+If you press 'See more', additional information is shown. One additional information is displaying the revision of the HANA Large Instance stamp, the unit got deployed in. See the article [What is SAP HANA on Azure (Large Instances)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) for the different revisions of HANA Large Instance stamps
 
 ## Check activities of a single HANA Large Instance unit 
 Beyond giving an overview of the HANA Large Instance units, you can check activities of the particular unit. An activity log could look like:

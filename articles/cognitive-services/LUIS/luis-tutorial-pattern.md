@@ -1,5 +1,5 @@
 ---
-title: Patterns
+title: "Tutorial: Patterns - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Use patterns to increase intent and entity prediction while providing fewer example utterances. The pattern is provided by way of a template utterance example, which includes syntax to identify entities and ignorable text.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/22/2019
+ms.date: 07/16/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use patterns. 
 ---

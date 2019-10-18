@@ -10,7 +10,6 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell to copy a SQL database to a new server

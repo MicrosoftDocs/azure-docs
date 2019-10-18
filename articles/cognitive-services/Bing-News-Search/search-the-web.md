@@ -1,7 +1,7 @@
 ---
 title: What is the Bing News Search API?
-titlesuffix: Azure Cognitive Services
-description: Learn how to use the Bing News Search API to search the web for current headlines in multiple categories, including headlines and trending topics.
+titleSuffix: Azure Cognitive Services
+description: Learn how to use the Bing News Search API to search the web for current headlines across categories, including headlines and trending topics.
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/10/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
 ms.custom: seodec2018
 ---

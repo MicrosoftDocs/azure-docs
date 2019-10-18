@@ -1,13 +1,13 @@
 ---
-title: 'How to configure monitoring in Azure Digital Twins | Microsoft Docs'
+title: 'How to configure monitoring - Azure Digital Twins | Microsoft Docs'
 description: How to configure monitoring in Azure Digital Twins.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 06/03/2018
-ms.author: v-adgera
+ms.date: 10/01/2019
 ms.custom: seodec18
 ---
 
@@ -52,7 +52,7 @@ For advanced activity logging:
 
 ## Enable customer diagnostic logs
 
-Azure [diagnostic settings](../azure-monitor/platform/diagnostic-logs-overview.md) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
+Azure [diagnostic settings](../azure-monitor/platform/resource-logs-overview.md) can be set for each Azure instance to supplement activity logging. While activity logs pertain to subscription-level events, diagnostic logging provides insights into the operational history of the resources themselves.
 
 Examples of diagnostic logging include:
 
@@ -63,11 +63,11 @@ Examples of diagnostic logging include:
 To enable diagnostic logs for an instance:
 
 1. Bring up the resource in Azure portal.
-1. Click **Diagnostic settings**:
+1. Select **Diagnostic settings**:
 
     [![Diagnostic settings one](media/how-to-configure-monitoring/diagnostic-settings-one.png)](media/how-to-configure-monitoring/diagnostic-settings-one.png#lightbox)
 
-1. Click **Turn on diagnostics** to collect data (if not previously enabled).
+1. Select **Turn on diagnostics** to collect data (if not previously enabled).
 1. Fill in the requested fields and select how and where data will be saved:
 
     [![Diagnostic settings two](media/how-to-configure-monitoring/diagnostic-settings-two.png)](media/how-to-configure-monitoring/diagnostic-settings-two.png#lightbox)
@@ -96,7 +96,7 @@ Full log querying is provided through [Azure Monitor logs](../azure-monitor/log-
 
     [![Log analytics](media/how-to-configure-monitoring/log-analytics.png)](media/how-to-configure-monitoring/log-analytics.png#lightbox)
 
-1. If you don't already have a **Log Analytics workspace** instance, you can create a workspace by clicking the **Add** button:
+1. If you don't already have a **Log Analytics workspace** instance, you can create a workspace by selecting the **Add** button:
 
     [![Create OMS](media/how-to-configure-monitoring/log-analytics-oms.png)](media/how-to-configure-monitoring/log-analytics-oms.png#lightbox)
 
@@ -109,7 +109,7 @@ For more information about powerful query operations, see [getting started with 
 > [!NOTE]
 > You may experience a 5 minute delay when sending events to **Log Analytics workspace** for the first time.
 
-Azure Monitor logs also provide powerful error and alert notification services, which can be viewed by clicking **Diagnose and solve problems**:
+Azure Monitor logs also provide powerful error and alert notification services, which can be viewed by selecting **Diagnose and solve problems**:
 
    [![Alert and error notifications](media/how-to-configure-monitoring/log-analytics-notifications.png)](media/how-to-configure-monitoring/log-analytics-notifications.png#lightbox)
 
@@ -118,12 +118,12 @@ Azure Monitor logs also provide powerful error and alert notification services, 
 
 ## Other options
 
-Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/azure-log-audit.md) article.
+Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/fundamentals/log-audit.md) article.
 
 ## Next steps
 
 - Learn more about Azure [activity logs](../azure-monitor/platform/activity-logs-overview.md).
 
-- Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md).
+- Dive deeper into Azure diagnostic settings by reading an [overview of diagnostic logs](../azure-monitor/platform/resource-logs-overview.md).
 
 - Read more about [Azure Monitor logs](../azure-monitor/log-query/get-started-portal.md).

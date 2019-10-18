@@ -3,6 +3,7 @@ title: Deploy to Azure Container Instances from Azure Container Registry
 description: Learn how to deploy containers in Azure Container Instances using container images in an Azure container registry.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article

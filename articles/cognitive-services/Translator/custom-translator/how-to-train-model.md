@@ -2,12 +2,12 @@
 title: Train a model - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Training a model is an important step when building a translation model. Training happens based on documents you select for that trainings.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-pawal
+ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to train, so that I can start start building my custom translation model.
 ---

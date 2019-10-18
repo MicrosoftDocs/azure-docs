@@ -4,9 +4,9 @@ description: This article describes how you can now update common Azure PowerShe
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 05/30/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -26,13 +26,14 @@ If you develop your scripts locally, it's recommended to have the same module ve
 > [!NOTE]
 > A new Automation account might not contain the latest modules.
 
+> [!NOTE]
+> You will not be able to delete global modules - modules that Automation provides out of the box.
+
 ## Considerations
 
 The following are some considerations to take into account when using this process to update your Azure Modules:
 
-* This runbook supports updating only the **Azure** and **AzureRm** modules currently. [Azure PowerShell Az modules](/powershell/azure/new-azureps-module-az) are supported in Automation accounts, but cannot be updated with this runbook. There are important factors that you need to take into account when using the `Az` modules in your Automation Account, to learn more, see [Using Az modules in your Automation Account](az-modules.md).
-
-* Avoid starting this runbook on Automation accounts that contain Az modules.
+* This runbook supports updating the **Azure** and **AzureRm** modules by default. This runbook supports updating the **Az** modules as well. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating `Az` modules with this runbook. There are additional important factors that you need to take into account when using the `Az` modules in your Automation Account, to learn more, see [Using Az modules in your Automation Account](az-modules.md).
 
 * Before starting this runbook, make sure your Automation account has an [Azure Run As account credential](manage-runas-account.md) created.
 
@@ -42,10 +43,6 @@ The following are some considerations to take into account when using this proce
 
 * If you want to use a specific Azure PowerShell module version instead of the latest available on the PowerShell Gallery, pass these versions to the optional `ModuleVersionOverrides` parameter of the **Update-AutomationAzureModulesForAccount** runbook. For examples, see the  [Update-AutomationAzureModulesForAccount.ps1](https://github.com/Microsoft/AzureAutomation-Account-Modules-Update/blob/master/Update-AutomationAzureModulesForAccount.ps1
 ) runbook. Azure PowerShell modules that aren't mentioned in the `ModuleVersionOverrides` parameter are updated with the latest module versions on the PowerShell Gallery. If you pass nothing to the `ModuleVersionOverrides` parameter, all modules are updated with the latest module versions on the PowerShell Gallery. This behavior is the same as the **Update Azure Modules** button.
-
-## Known issues
-
-There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0. To update your Azure modules in your Automation Account, it must be in a resource group that has an alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
 ## Next steps
 

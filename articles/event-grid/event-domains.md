@@ -101,7 +101,7 @@ Here are the limits and quotas related to event domains:
 - 50 domain scope subscriptions 
 - 5,000 events per second ingestion rate (into a domain)
 
-If these limits don't suit you, reach out the product team by opening a support ticket or by sending an email to [askgrid@microsoft.com](mailto:askgrid.microsoft.com). 
+If these limits don't suit you, reach out the product team by opening a support ticket or by sending an email to [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
 ## Pricing
 Event domains use the same [operations pricing](https://azure.microsoft.com/pricing/details/event-grid/) that all other features in Event Grid use.

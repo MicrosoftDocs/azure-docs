@@ -1,20 +1,18 @@
 ---
 title: Create an Azure Data Lake Storage Gen2 storage account | Microsoft Docs
 description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI.
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/06/2018
+ms.date: 08/19/2019
 ms.author: normesta
-ms.reviewer: jamesbak
+ms.reviewer: stewu
 ---
 
-# Quickstart: Create an Azure Data Lake Storage Gen2 storage account
+# Create an Azure Data Lake Storage Gen2 storage account
 
-Azure Data Lake Storage Gen2 [supports a hierarchical namespace](data-lake-storage-introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](data-lake-storage-abfs-driver.md).
+Azure Data Lake Storage Gen2 [supports a hierarchical namespace](data-lake-storage-introduction.md) which provides a native directory-based container tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](data-lake-storage-abfs-driver.md).
 
 This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -25,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 |           | Prerequisite |
 |-----------|--------------|
 |Portal     | None         |
-|PowerShell | This quickstart requires the PowerShell module Az.Storage version **0.7** or later. To find your current version, run the `Get-Module -ListAvailable Az.Storage` command. If after you run this command, no results appear, or if a version other than **0.7** appears, then you'll have to upgrade your powershell module. See the [Upgrade your powershell module](#upgrade-your-powershell-module) section of this guide.
+|PowerShell | This quickstart requires the PowerShell module Az.Storage version **0.7** or later. To find your current version, run the `Get-Module -ListAvailable Az.Storage` command. If after you run this command, no results appear, or if a version lower than **0.7** appears, then you'll have to upgrade your powershell module. See the [Upgrade your powershell module](#upgrade-your-powershell-module) section of this guide.
 |CLI        | You can sign in to Azure and run Azure CLI commands in one of two ways: <ul><li>You can run CLI commands from within the Azure portal, in Azure Cloud Shell </li><li>You can install the CLI and run CLI commands locally</li></ul>|
 
 When working on the command line you have the option of running the Azure Cloud shell or installing the CLI locally.
@@ -122,7 +120,7 @@ Start by opening a PowerShell session with elevated permissions.
 Install the Az.Storage module
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### Sign in to your Azure Subscription

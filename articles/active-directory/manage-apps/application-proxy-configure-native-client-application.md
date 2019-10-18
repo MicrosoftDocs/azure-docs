@@ -26,7 +26,7 @@ You can use Azure Active Directory (Azure AD) Application Proxy to publish web a
 
 To support native client applications, Application Proxy accepts Azure AD-issued tokens that are sent in the header. The Application Proxy service does the authentication for the users. This solution doesn't use application tokens for authentication.
 
-![Relationship between end users, Azure Active Directory, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
+![Relationship between end users, Azure AD, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
 To publish native applications, use the Azure AD Authentication Library, which takes care of authentication and supports many client environments. Application Proxy fits into the [Native Application to Web API scenario](../develop/native-app.md).
 
@@ -41,18 +41,21 @@ Publish your proxy application as you would any other application and assign use
 You now need to register your application in Azure AD, as follows:
 
 1. Sign in to the [Azure Active Directory portal](https://aad.portal.azure.com/). The **Dashboard** for the **Azure Active Directory admin center** appears.
-2. In the sidebar, select **Azure Active Directory**. The **Azure Active Directory** overview page appears.
-3. In the Azure AD overview sidebar, select **App registrations**. The list of all app registrations appears.
-4. Select **New registration**. The **Register an application** page appears.
+1. In the sidebar, select **Azure Active Directory**. The **Azure Active Directory** overview page appears.
+1. In the Azure AD overview sidebar, select **App registrations**. The list of all app registrations appears.
+1. Select **New registration**. The **Register an application** page appears.
 
-   ![Create a new app registration](./media/application-proxy-configure-native-client-application/create.png)
-5. In the **Name** heading, specify a user-facing display name for your application.
-6. Under the **Supported account types** heading, select an access level using these guidelines:
+   ![Create a new app registration in the Azure portal](./media/application-proxy-configure-native-client-application/create.png)
+
+1. In the **Name** heading, specify a user-facing display name for your application.
+1. Under the **Supported account types** heading, select an access level using these guidelines:
+
    - To target only accounts that are internal to your organization, select **Accounts in this organizational directory only**.
    - To target only business or educational customers, select **Accounts in any organizational directory**.
    - To target the widest set of Microsoft identities, select **Accounts in any organizational directory and personal Microsoft accounts**.
-7. In the **Redirect URI** heading, select **Public client (mobile & desktop)**, and then type the redirect URI for your application.
-8. Select and read the **Microsoft Platform Policies**, and then select **Register**. An overview page for the new application registration is created and displayed.
+
+1. In the **Redirect URI** heading, select **Public client (mobile & desktop)**, and then type the redirect URI for your application.
+1. Select and read the **Microsoft Platform Policies**, and then select **Register**. An overview page for the new application registration is created and displayed.
 
 For more detailed information about creating a new application registration, see [Integrating applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
@@ -61,11 +64,11 @@ For more detailed information about creating a new application registration, see
 Now that you've registered your native application, you can give it access to other applications in your directory, in this case to access the proxy application. To enable the native application to be exposed to the proxy application:
 
 1. In the sidebar of the new application registration page, select **API permissions**. The **API permissions** page for the new application registration appears.
-2. Select **Add a permission**. The **Request API permissions** page appears.
-3. Under the **Select an API** setting, select **APIs my organization uses**. A list appears, containing the applications in your directory that expose APIs.
-4. Type in the search box or scroll to find the proxy application that you published in [Step 1: Publish your proxy application](#step-1-publish-your-proxy-application), and then select the proxy application.
-5. In the **What type of permissions does your application require?** heading, select the permission type. If your native application needs to access the proxy application API as the signed-in user, choose **Delegated permissions**. If your native application runs as a background service or daemon without a signed-in user, choose **Application permissions**.
-6. In the **Select permissions** heading, select the desired permission, and select **Add permissions**. The **API permissions** page for your native application now shows the proxy application and permission API that you added.
+1. Select **Add a permission**. The **Request API permissions** page appears.
+1. Under the **Select an API** setting, select **APIs my organization uses**. A list appears, containing the applications in your directory that expose APIs.
+1. Type in the search box or scroll to find the proxy application that you published in [Step 1: Publish your proxy application](#step-1-publish-your-proxy-application), and then select the proxy application.
+1. In the **What type of permissions does your application require?** heading, select the permission type. If your native application needs to access the proxy application API as the signed-in user, choose **Delegated permissions**. If your native application runs as a background service or daemon without a signed-in user, choose **Application permissions**.
+1. In the **Select permissions** heading, select the desired permission, and select **Add permissions**. The **API permissions** page for your native application now shows the proxy application and permission API that you added.
 
 ## Step 4: Edit the Active Directory Authentication Library
 

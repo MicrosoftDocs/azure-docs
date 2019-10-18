@@ -1,16 +1,13 @@
 ---
 title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
 description: Use Azure Blob storage with a web app to store app data
-services: storage
 author: normesta
-
 ms.service: storage
-ms.devlang: dotnet
+ms.subservice: blobs
 ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: mvc
+ms.reviewer: dineshm
 ---
 
 # Tutorial: Upload image data in the cloud with Azure Storage
@@ -18,13 +15,13 @@ ms.custom: mvc
 This tutorial is part one of a series. In this tutorial, you will learn how to deploy a web app that uses the Azure Storage Client Library to upload images to a storage account. When you're finished, you'll have a web app that stores and displays images from Azure storage.
 
 # [\.NET](#tab/dotnet)
-![Images container view](media/storage-upload-process-images/figure2.png)
+![Image resizer App in .NET](media/storage-upload-process-images/figure2.png)
 
 # [Node.js V2 SDK](#tab/nodejs)
-![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Image resizer app in Node.js V2](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
-![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Image resizer app in Node.js V10](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 
@@ -207,7 +204,7 @@ To test the web app, browse to the URL of your published app. The default URL of
 
 Select the **Upload photos** region to select and upload a file, or drag a file onto the region. The image disappears if successfully uploaded. The **Generated Thumbnails** section will remain empty until we test it later in this topic.
 
-![ImageResizer app](media/storage-upload-process-images/figure1.png)
+![Upload Photos in .NET](media/storage-upload-process-images/figure1.png)
 
 In the sample code, the `UploadFiletoStorage` task in the *Storagehelper.cs* file is used to upload the images to the *images* container within the storage account using the [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) method. The following code sample contains the `UploadFiletoStorage` task.
 
@@ -250,7 +247,7 @@ The following classes and methods are used in the preceding task:
 
 Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this topic. 
 
-![Image Upload App](media/storage-upload-process-images/upload-app-nodejs.png)
+![Upload Photos in Node.js V2](media/storage-upload-process-images/upload-app-nodejs.png)
 
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
 
@@ -314,7 +311,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 Select **Choose File** to select a file, then click **Upload Image**. The **Generated Thumbnails** section will remain empty until we test it later in this topic. 
 
-![Image Upload App](media/storage-upload-process-images/upload-app-nodejs.png)
+![Upload Photos in Node.js V10](media/storage-upload-process-images/upload-app-nodejs.png)
 
 In the sample code, the `post` route is responsible for uploading the image into a blob container. The route uses the modules to help process the upload:
 
@@ -396,7 +393,7 @@ Sign in to the [Azure portal](https://portal.azure.com). From the left menu, sel
 
 Verify the image is shown in the container.
 
-![Images container view](media/storage-upload-process-images/figure13.png)
+![Azure Portal listing of images container](media/storage-upload-process-images/figure13.png)
 
 ## Test thumbnail viewing
 
@@ -409,13 +406,13 @@ Choose a file with the file picker and select **Upload**.
 Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
 # [\.NET](#tab/dotnet)
-![Images container view](media/storage-upload-process-images/figure2.png)
+![.NET image resizer app with new image displayed](media/storage-upload-process-images/figure2.png)
 
 # [Node.js V2 SDK](#tab/nodejs)
-![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js V2 image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 # [Node.js V10 SDK](#tab/nodejsv10)
-![Images container view](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
+![Node.js V10 image resizer app with new image displayed](media/storage-upload-process-images/upload-app-nodejs-thumb.png)
 
 ---
 

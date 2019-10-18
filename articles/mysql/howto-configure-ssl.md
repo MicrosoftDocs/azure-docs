@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/02/2019
 ---
 # Configure SSL connectivity in your application to securely connect to Azure Database for MySQL
 Azure Database for MySQL supports connecting your Azure Database for MySQL server to client applications using Secure Sockets Layer (SSL). Enforcing SSL connections between your database server and your client applications helps protect against "man in the middle" attacks by encrypting the data stream between the server and your application.
@@ -18,9 +18,17 @@ Download the certificate needed to communicate over SSL with your Azure Database
 
 For specific programming language connection strings, please refer to the [sample code](howto-configure-ssl.md#sample-code) below.
 
-### Connecting to server using the MySQL Workbench over SSL
-Configure the MySQL Workbench to connect securely over SSL. From the Setup New Connection dialogue, navigate to the **SSL** tab. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**. 
-![save customized tile](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+### Connecting to server using MySQL Workbench over SSL
+Configure MySQL Workbench to connect securely over SSL. 
+
+1. From the Setup New Connection dialogue, navigate to the **SSL** tab. 
+
+1. Update the **Use SSL** field to "Require".
+
+1. In the **SSL CA File:** field, enter the file location of the **BaltimoreCyberTrustRoot.crt.pem**. 
+    
+    ![Save SSL configuration](./media/howto-configure-ssl/mysql-workbench-ssl.png)
+
 For existing connections, you can bind SSL by right-clicking on the connection icon and choose edit. Then navigate to the **SSL** tab and bind the cert file.
 
 ### Connecting to server using the MySQL CLI over SSL
@@ -73,22 +81,22 @@ $db = new PDO('mysql:host=mydemoserver.mysql.database.azure.com;port=3306;dbname
 ### Python (MySQLConnector Python)
 ```python
 try:
-    conn=mysql.connector.connect(user='myadmin@mydemoserver', 
-        password='yourpassword', 
-        database='quickstartdb', 
-        host='mydemoserver.mysql.database.azure.com', 
-        ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
+    conn = mysql.connector.connect(user='myadmin@mydemoserver',
+                                   password='yourpassword',
+                                   database='quickstartdb',
+                                   host='mydemoserver.mysql.database.azure.com',
+                                   ssl_ca='/var/www/html/BaltimoreCyberTrustRoot.crt.pem')
 except mysql.connector.Error as err:
     print(err)
 ```
 
 ### Python (PyMySQL)
 ```python
-conn = pymysql.connect(user = 'myadmin@mydemoserver', 
-        password = 'yourpassword', 
-        database = 'quickstartdb', 
-        host = 'mydemoserver.mysql.database.azure.com', 
-        ssl = {'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
+conn = pymysql.connect(user='myadmin@mydemoserver',
+                       password='yourpassword',
+                       database='quickstartdb',
+                       host='mydemoserver.mysql.database.azure.com',
+                       ssl={'ssl': {'ssl-ca': '/var/www/html/BaltimoreCyberTrustRoot.crt.pem'}})
 ```
 
 ### Django (PyMySQL)

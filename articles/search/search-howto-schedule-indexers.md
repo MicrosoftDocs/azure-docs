@@ -3,14 +3,13 @@ title: How to schedule indexers - Azure Search
 description: Schedule Azure Search indexers to index content periodically or at specific times.
 
 ms.date: 05/31/2019
-author: RobDixon22
-manager: HeidiSteen
-ms.author: v-rodixo
+author: HeidiSteen
+manager: nitinme
+ms.author: heidist
 services: search
 ms.service: search
-ms.devlang: rest-api
+ms.devlang: 
 ms.topic: conceptual
-ms.custom: seodec2018
 ---
 
 # How to schedule indexers for Azure Search
@@ -40,9 +39,12 @@ Let’s consider an example to make this more concrete. Suppose we configure an 
 * The second execution starts at or around June 1, 2019 9:00 AM UTC. Suppose that this execution takes 70 minutes - more than an hour – and it will not complete until 10:10 AM UTC.
 * The third execution is scheduled to start at 10:00 AM UTC, but at that time the previous execution is still running. This scheduled execution is then skipped. The next execution of the indexer will not start until 11:00 AM UTC.
 
+> [!NOTE]
+> If an indexer is set to a certain schedule but repeatedly fails on the same document over and over again each time it runs, the indexer will begin running on a less frequent interval (up to the maximum of at least once every 24 hours) until it successfully makes progress again.  If you believe you have fixed whatever the issue that was causing the indexer to be stuck at a certain point, you can perform an on demand run of the indexer, and if that successfully makes progress, the indexer will return to its set schedule interval again.
+
 <a name="portal"></a>
 
-## Define a schedule in the portal
+## Schedule in the portal
 
 The Import Data wizard in the portal lets you define the schedule for an indexer at creation time. The default Schedule setting is **Hourly**, which means the indexer runs once after it is created, and runs again every hour afterwards.
 
@@ -58,7 +60,7 @@ After an indexer has been created, you can change the schedule settings using th
 
 <a name="restApi"></a>
 
-## Define a schedule using the REST API
+## Schedule using REST APIs
 
 You can define the schedule for an indexer using the REST API. To do this, include the **schedule** property when creating or updating the indexer. The example below shows a PUT request to update an existing indexer:
 
@@ -80,7 +82,7 @@ You can also run an indexer on demand at any time using the Run Indexer call. Fo
 
 <a name="dotNetSdk"></a>
 
-## Define a schedule using the .NET SDK
+## Schedule using the .NET SDK
 
 You can define the schedule for an indexer using the Azure Search .NET SDK. To do this, include the **schedule** property when creating or updating an Indexer.
 

@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: spelluru
 ms.author: spelluru
-ms.date: 10/17/2018
+ms.date: 07/11/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
@@ -97,10 +97,10 @@ You trigger an event for the Blob storage by uploading a file. The file doesn't 
 
 1. Browse to your test file and upload it.
 
-1. You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app and notice that a blob created event was received. 
+1. You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. The message is in the JSON format and it contains an array with one or more events. In the following example, the JSON message contains an array with one event. View your web app and notice that a blob created event was received. 
 
    ```json
-   {
+   [{
     "topic": "/subscriptions/{subscription-id}/resourceGroups/eventgroup/providers/Microsoft.Storage/storageAccounts/demoblob0625",
     "subject": "/blobServices/default/containers/eventcontainer/blobs/testfile.txt",
     "eventType": "Microsoft.Storage.BlobCreated",
@@ -122,7 +122,7 @@ You trigger an event for the Blob storage by uploading a file. The file doesn't 
     },
     "dataVersion": "",
     "metadataVersion": "1"
-   }
+   }]
    ```
 
 ## Clean up resources

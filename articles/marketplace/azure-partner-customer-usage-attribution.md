@@ -5,8 +5,8 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/17/2018
-ms.author: yijenj
+ms.date: 9/23/2019
+ms.author: pabutler
 ---
 
 # Azure partner customer usage attribution
@@ -118,7 +118,7 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-For more information, see [Azure SDK for Go](https://docs.microsoft.com/go/azure/).
+For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/go/).
 
 ## Use Terraform
 
@@ -161,43 +161,28 @@ You can also track GUIDs at a more granular level like the SKU, where SKUs are v
 
 The GUIDs must be registered to enable customer usage attribution.
 
-All registrations for template GUIDs are done via the Azure Marketplace Cloud Partner Portal (CPP).
+All registrations for template GUIDs are done within Partner Center.
 
-After you add the GUID to your template or in the user agent, and register the GUID in the CPP, all deployments are tracked.
+After you add the GUID to your template or in the user agent, and register the GUID in Partner Center, all deployments are tracked.
 
-1. Apply to [Azure Marketplace](https://aka.ms/listonazuremarketplace) and get access to the CPP.
+1. Sign up as a [commercial marketplace publisher](https://aka.ms/JoinMarketplace).
 
-   * Partners are required to [have a profile in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
+   * Partners are required to [have a profile in Partner Center](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
    * Partners can register multiple GUIDs.
    * Partners can register a GUID for the non-Marketplace solution templates and offers.
 
-1. Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com/).
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard).
 
-1. In the upper-right corner, select your account icon, and then select **Publisher profile**.
+1. In the upper-right corner, select the settings gear icon, and then select **Developer settings**.
 
-   ![Select Publisher profile](media/marketplace-publishers-guide/guid-image-for-lu.png)
+1. On the **Account settings page**, select **Add Tracking GUID.**
 
-1. On the **Profile page**, select **Add Tracking GUID.**
-
-   ![Select Add Tracking GUID](media/marketplace-publishers-guide/guid-how-to-add-tracking.png)
-
-1. In the **Tracking GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Custom Description** box, enter your offer name or description.
-
-   ![Profile page](media/marketplace-publishers-guide/guid-dev-center-login.png)
-
-   ![Enter the GUID and offer description](media/marketplace-publishers-guide/guid-dev-center-example.png)
+1. In the **GUID** box, enter your tracking GUID. Enter just the GUID without the **pid-** prefix. In the **Description** box, enter your offer name or description.
 
 1. To register more than one GUID, select **Add Tracking GUID** again. Additional boxes appear on the page.
 
-   ![Select Add Tracking GUID again](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-
-   ![Enter another GUID and offer description](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
-
 1. Select **Save**.
 
-   ![Select Save](media/marketplace-publishers-guide/guid-dev-center-save.png)
-
-After you add the GUID to your template or in the user agent, and register the GUID in the CPP, all deployments are tracked.
 
 ## Verify the GUID deployment
 
@@ -242,7 +227,7 @@ foreach ($deployment in $deployments){
 
 ## Report
 
-You can find the report for customer usage attribution in your Partner Center Analyze dashboard. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
+You can find the report for customer usage attribution in your Partner Center Analyze dashboard. ([https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). In order to see the report, you have to use your Partner Center credentials to sign in. If you encounter any issues with report or sign in, create a support request following the instruction in the Get support section.
 
 Choose Tracked Template in the dropdown list of Partner Association Type to see the report.
 
@@ -264,7 +249,7 @@ When you deploy \<PARTNER> software, Microsoft is able to identify the installat
 
 There are two support channels depending on the issues you are facing.
 
-If you encounter any issues in the Partner Center, such as seeing the customer usage attribution report or signing in, create a support request with the Partner Center support team here: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+If you encounter any issues in the Partner Center, such as seeing the customer usage attribution report or signing in, create a support request with the Partner Center support team here: [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 

@@ -8,9 +8,8 @@ ms.custom:
 ms.devlang: go
 ms.topic: quickstart
 author: David-Engel
-ms.author: v-daveng
+ms.author: craigg
 ms.reviewer: MightyPen
-manager: craigg
 ms.date: 02/12/2019
 ---
 # Quickstart: Use Golang to query an Azure SQL database

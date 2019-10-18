@@ -2,7 +2,7 @@
 title: Using labels to instrument queries in SQL Data Warehouse | Microsoft Docs
 description: Tips for using labels to instrument queries in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: XiaoyuL-Preview
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual

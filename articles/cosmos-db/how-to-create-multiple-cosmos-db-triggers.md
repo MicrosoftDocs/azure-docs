@@ -1,28 +1,28 @@
 ---
-title: How to create multiple independent Azure Cosmos DB Triggers
-description: Learn how to configure multiple independent Azure Cosmos DB Triggers to create event-driven Azure Functions architectures.
+title: How to create multiple independent Azure Functions triggers for Cosmos DB
+description: Learn how to configure multiple independent Azure Functions triggers for Cosmos DB to create event-driven architectures.
 author: ealsur
 ms.service: cosmos-db
-ms.topic: sample
-ms.date: 05/23/2019
+ms.topic: conceptual
+ms.date: 07/17/2019
 ms.author: maquaran
 ---
 
-# Create multiple Azure Cosmos DB Triggers
+# Create multiple Azure Functions triggers for Cosmos DB
 
-This article describes how you can configure multiple Cosmos DB Triggers to work in parallel and independently react to changes.
+This article describes how you can configure multiple Azure Functions triggers for Cosmos DB to work in parallel and independently react to changes.
 
-![Serverless event-based Functions working with the Azure Cosmos DB Trigger and sharing a leases container](./media/change-feed-functions/multi-trigger.png)
+![Serverless event-based Functions working with the Azure Functions trigger for Cosmos DB and sharing a leases container](./media/change-feed-functions/multi-trigger.png)
 
 ## Event-based architecture requirements
 
 When building serverless architectures with [Azure Functions](../azure-functions/functions-overview.md), it's [recommended](../azure-functions/functions-best-practices.md#avoid-long-running-functions) to create small function sets that work together instead of large long running functions.
 
-As you build event-based serverless flows using the [Azure Cosmos DB Trigger](./change-feed-functions.md), you'll  run into the scenario where you want to do multiple things whenever there is a new event in a particular [Azure Cosmos container](./databases-containers-items.md#azure-cosmos-containers). If actions you want to trigger, are independent from one another, the ideal solution would be to **create one Cosmos DB Trigger per action** you want to do, all listening for changes on the same Azure Cosmos container.
+As you build event-based serverless flows using the [Azure Functions trigger for Cosmos DB](./change-feed-functions.md), you'll  run into the scenario where you want to do multiple things whenever there is a new event in a particular [Azure Cosmos container](./databases-containers-items.md#azure-cosmos-containers). If actions you want to trigger, are independent from one another, the ideal solution would be to **create one Azure Functions triggers for Cosmos DB per action** you want to do, all listening for changes on the same Azure Cosmos container.
 
 ## Optimizing containers for multiple Triggers
 
-Given the *requirements* of the Cosmos DB Trigger, we need a second container to store state, also called, the *leases container*. Does this mean that you need a separate leases container for each Azure Function?
+Given the *requirements* of the Azure Functions trigger for Cosmos DB, we need a second container to store state, also called, the *leases container*. Does this mean that you need a separate leases container for each Azure Function?
 
 Here, you have two options:
 
@@ -103,6 +103,6 @@ And for JavaScript, you can apply the configuration on the `function.json` file,
 
 ## Next steps
 
-* See the full configuration for the [Azure Cosmos DB Trigger](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
+* See the full configuration for the [Azure Functions trigger for Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
 * Check the extended [list of samples](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) for all the languages.
 * Visit the Serverless recipes with Azure Cosmos DB and Azure Functions [GitHub repository](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) for more samples.

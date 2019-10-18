@@ -4,7 +4,7 @@ description: Learn how to configure ASP.NET Core apps to work in Azure App Servi
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: jpconnock
+manager: gwallace
 editor: ''
 
 ms.service: app-service
@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 08/13/2019
 ms.author: cephalin
 
 ---
@@ -47,17 +47,34 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## Access environment variables
 
-In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them using the standard ASP.NET pattern:
+In App Service, you can [set app settings](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) outside of your app code. Then you can access them in any class using the standard ASP.NET Core dependency injection pattern:
 
 ```csharp
 include Microsoft.Extensions.Configuration;
-// retrieve App Service app setting
-System.Configuration.ConfigurationManager.AppSettings["MySetting"]
-// retrieve App Service connection string
-Configuration.GetConnectionString("MyDbConnection")
+
+namespace SomeNamespace 
+{
+    public class SomeClass
+    {
+        private IConfiguration _configuration;
+    
+        public SomeClass(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+    
+        public SomeMethod()
+        {
+            // retrieve App Service app setting
+            var myAppSetting = _configuration["MySetting"];
+            // retrieve App Service connection string
+            var myConnString = _configuration.GetConnectionString("MyDbConnection");
+        }
+    }
+}
 ```
 
-If you configure an app setting with the same name in App Service and in *Web.config*, the App Service value takes precedence over the Web.config value. The Web.config value lets you debug the app locally, but the App Service value lets your run the app in product with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
+If you configure an app setting with the same name in App Service and in *appsettings.json*, for example, the App Service value takes precedence over the *appsettings.json* value. The local *appsettings.json* value lets you debug the app locally, but the App Service value lets your run the app in product with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
 
 ## Get detailed exceptions page
 
@@ -106,7 +123,7 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 
 ## Deploy multi-project solutions
 
-When you deploy an ASP.NET repository to the deployment engine with a *.csproj* file in the root directory, the engine deploys the project. When you deploy an ASP.NET repository with an *.sln* file in the root directory, the engine picks the first Web Site or Web Application Project it finds as the App Service app. It's possible for the engine not to pick the project you want.
+When you deploy an ASP.NET repository to the deployment engine with a *.csproj* file in the root directory, the engine deploys the project. When you deploy an ASP.NET repository with a *.sln* file in the root directory, the engine picks the first Web Site or Web Application Project it finds as the App Service app. It's possible for the engine not to pick the project you want.
 
 To deploy a multi-project solution, you can specify the project to use in App Service in two different ways:
 

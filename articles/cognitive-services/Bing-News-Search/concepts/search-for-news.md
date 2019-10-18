@@ -1,6 +1,6 @@
 ---
 title: Search for news with the Bing News Search API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to send search queries for general news, trending topics, and headlines.
 services: cognitive-services
 author: swhite-msft
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 06/19/2019
 ms.author: scottwhi
 ---
 
@@ -47,7 +47,7 @@ To get news from a specific domain, use the [site:](https://msdn.microsoft.com/l
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-The following shows the response to the previous query. As part of the [Use and display requirements](../useanddisplayrequirements.md) for the Bing search APIs, you must display each news article in the order provided in the response. If the article has clustered articles, you should indicate that related articles exist and display them upon request.
+The following JSON sample shows the response to the previous query. As part of the [Use and display requirements](../useanddisplayrequirements.md) for the Bing search APIs, you must display each news article in the order provided in the response. If the article has clustered articles, you should indicate that related articles exist and display them upon request.
 
 ```json
 {
@@ -103,7 +103,7 @@ If Bing can determine the category of news article, the article includes the `ca
 
 ## Get today's top news
 
-To get today's top news articles, you'd make the same request as getting general news except that you'd leave `q` unset.
+To get today's top news articles, you can send the same general news request as before, while leaving the `q` parameter unset.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=&mkt=en-us HTTP/1.1
@@ -115,7 +115,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-The response for getting top news is almost the same as getting general news. However, the `news` answer doesn't include the `totalEstimatedMatches` field because there's a set number of results. The number of top news articles may vary depending on the news cycle. Be sure to use `provider` to attribute the article.
+The response for getting top news is almost the same as the one for getting general news. However, the `news` answer doesn't include the `totalEstimatedMatches` field because there's a set number of results. The number of top news articles may vary depending on the news cycle. Be sure to use the `provider` field to attribute the article.
 
 ## Get news by category
 

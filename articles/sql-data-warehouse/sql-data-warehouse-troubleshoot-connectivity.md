@@ -6,7 +6,7 @@ author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: supportability
+ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
@@ -26,11 +26,11 @@ This article lists common troubleshooting techniques around connecting to your S
 
 ## Check service availability
 
-Check to see if the service is available. In the Azure portal, go to the SQL data warehouse you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**.
+Check to see if the service is available. In the Azure portal, go to the SQL Data Warehouse you're trying to connect. In the left TOC panel, click on **Diagnose and solve problems**.
 
 ![Select Resource health](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-The status of your SQL data warehouse will be shown here. If the service isn't showing as **Available**, check further steps.
+The status of your SQL Data Warehouse will be shown here. If the service isn't showing as **Available**, check further steps.
 
 ![Service Available](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
@@ -41,19 +41,19 @@ Additional information about Resource Health can be found here.
 
 ## Check for paused or scaling operation
 
-Check the portal to see if your SQL data warehouse is paused or scaling.
+Check the portal to see if your SQL Data Warehouse is paused or scaling.
 
 ![Service Paused](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-If you see that your service is paused or scaling, check to see it isn't during your maintenance schedule. On the portal for your SQL data warehouse *Overview*, you'll see the elected maintenance schedule.
+If you see that your service is paused or scaling, check to see it isn't during your maintenance schedule. On the portal for your SQL Data Warehouse *Overview*, you'll see the elected maintenance schedule.
 
 ![Overview Maintenance Schedule](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the SQL data warehouse, follow the steps outlined [here](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
+Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the SQL Data Warehouse, follow the steps outlined [here](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute).
 
 ## Check your firewall settings
 
-SQL Data Warehouse communicates over port 1433.   If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your Azure SQL Database server unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#manage-server-level-ip-firewall-rules-using-the-azure-portal).
+SQL Data Warehouse communicates over port 1433.   If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your Azure SQL Database server unless your IT department opens port 1433. Additional information on firewall configurations can be found [here](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules).
 
 ## Check your VNet/Service Endpoint settings
 
@@ -63,7 +63,7 @@ If you're receiving Errors 40914 and 40615, see [error description and resolutio
 
 ### Software
 
-Check to make sure you're using the latest tools to connect to your SQL data warehouse:
+Check to make sure you're using the latest tools to connect to your SQL Data Warehouse:
 
 * SSMS
 * Azure Data Studio

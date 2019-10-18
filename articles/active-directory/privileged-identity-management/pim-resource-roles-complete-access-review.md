@@ -3,7 +3,7 @@ title: Complete an access review of Azure resource roles in PIM - Azure Active D
 description: Learn how to complete an access review of Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: rolyon
+author: curtand
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/02/2018
-ms.author: rolyon
+ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -28,13 +28,14 @@ After the access review period is over, or after all the users have finished the
 2. Select your resource.
 
 3. Select the **Access reviews** section of the dashboard.
-![Access reviews](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
+
+    ![Azure resources - Access reviews list showing role, owner, start date, end date, and status](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
 
 4. Select the access review that you want to manage.
 
 On the detail blade of the access review, there are a number of options for managing that review. The options are as follows:
 
-![Options for managing a review](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
+![Options for managing a review - Stop, Reset, Apply, Delete](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
 ### Stop
 All access reviews have an end date, but you can use the **Stop** button to finish it early. All users who haven't finished their review by this time won't be able to finish it after you stop the review. You can't restart a review after it's been stopped.
@@ -49,12 +50,14 @@ After an access review is complete, use the **Apply** button to implement the ou
 If you aren't interested in the review any more, delete it. The **Delete** button removes the review from the PIM application.
 
 ## Results
-On the **Results** tab, view and download a list of your review results. 
-![Results tab](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
+On the **Results** page, view and download a list of your review results. 
+
+![Results page listing users, outcome, reason, reviewed by, applied by, and apply result](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
 
 ## Reviewers
 View and add reviewers to your existing access review. Remind reviewers to complete their reviews.
-![Add reviewers](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
+
+![Reviewers page listing name and user principal name](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: Azure CLI Script Sample - Mount operating system disk
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-service-management
 

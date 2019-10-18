@@ -1,26 +1,30 @@
 ---
-title: "Develop with .NET Core on AKS with Azure Dev Spaces and Visual Studio"
+title: "Debug and iterate with Visual Studio and .NET Core on AKS with Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 03/22/2019
 ms.topic: quickstart
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
-manager: jeconnoc
+manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
 ---
-# Quickstart: Develop with .NET Core on Kubernetes with Azure Dev Spaces (Visual Studio)
+# Quickstart: Debug and iterate with Visual Studio and .NET Core on Kubernetes with Azure Dev Spaces
 
 In this guide, you will learn how to:
 
 - Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
 - Iteratively develop code in containers using Visual Studio.
 - Debug code running in your cluster using Visual Studio.
+
+Azure Dev Spaces also allows you debug and iterate using:
+- [Java and Visual Studio Code](quickstart-java.md)
+- [Node.js and Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core and Visual Studio Code](quickstart-netcore.md)
 
 ## Prerequisites
 

@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 04/26/2019
 ---
 # Azure SQL Database glossary of terms
@@ -44,6 +43,6 @@ Database objects|Azure SQL database|Any database in Azure SQL Database|
 ||Storage amount|The amount of storage available to a single database, elastic pool, or managed instance|
 ||Compute generation|The generation of processor within a service tier|
 |Database server IP firewall rules|IP firewall rules|[IP firewall rules](sql-database-firewall-configure.md)|
-||Server-level IP firewall rules|[Server-level IP firewall rules](sql-database-firewall-configure.md#overview)|
-|| Database-level IP firewall rules|[Database-level IP firewall rules](sql-database-firewall-configure.md#overview)|
+||Server-level IP firewall rules|[Server-level IP firewall rules](sql-database-firewall-configure.md)|
+|| Database-level IP firewall rules|[Database-level IP firewall rules](sql-database-firewall-configure.md)|
 ||Virtual network endpoints and rules|[Virtual network endpoints and rules](sql-database-vnet-service-endpoint-rule-overview.md)|

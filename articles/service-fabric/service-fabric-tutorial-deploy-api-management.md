@@ -3,7 +3,7 @@ title: Integrate API Management with Service Fabric in Azure | Microsoft Docs
 description: Learn how to quickly get started with Azure API Management and route traffic to a back-end service in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 9/26/2018
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
 ---
 # Integrate API Management with Service Fabric in Azure
@@ -72,7 +72,7 @@ Start Visual Studio as Administrator and create an ASP.NET Core service:
  1. In Visual Studio, select File -> New Project.
  2. Select the Service Fabric Application template under Cloud and name it **"ApiApplication"**.
  3. Select the stateless ASP.NET Core service template and name the project **"WebApiService"**.
- 4. Select the Web API ASP.NET Core 2.0 project template.
+ 4. Select the Web API ASP.NET Core 2.1 project template.
  5. Once the project is created, open `PackageRoot\ServiceManifest.xml` and remove the `Port` attribute from the endpoint resource configuration:
 
     ```xml
