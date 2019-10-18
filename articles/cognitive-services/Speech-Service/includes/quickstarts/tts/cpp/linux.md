@@ -14,11 +14,11 @@ ms.author: yinhew
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](../../../get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.
 
 ## Install Speech SDK
 
-[!INCLUDE [License Notice](../../../../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-license-notice.md)]
 
 The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tar file from https://aka.ms/csspeech/linuxbinary.
 
@@ -67,7 +67,7 @@ Download and install the SDK as follows:
 
    The directory listing should contain the third-party notice and license files, as well as an `include` directory containing header (`.h`) files and a `lib` directory containing libraries.
 
-   [!INCLUDE [Linux Binary Archive Content](../../../../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
+   [!INCLUDE [Linux Binary Archive Content](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 ## Add sample code
 
@@ -77,7 +77,7 @@ Download and install the SDK as follows:
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 ## Build the app
 

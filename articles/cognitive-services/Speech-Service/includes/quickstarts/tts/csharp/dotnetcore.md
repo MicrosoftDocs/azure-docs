@@ -25,7 +25,7 @@ This quickstart requires:
 
 ## Create a Visual Studio project
 
-[!INCLUDE [](../../../../../../includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
+[!INCLUDE [](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
 
 ## Add sample code
 
@@ -35,7 +35,7 @@ This quickstart requires:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Also replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Also replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. Save changes to the project.
 
@@ -43,15 +43,15 @@ This quickstart requires:
 
 1. Build the application. From the menu bar, choose **Build** > **Build Solution**. The code should compile without errors.
 
-    ![Screenshot of Visual Studio application, with Build Solution option highlighted](../../../media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Successful build")
+    ![Screenshot of Visual Studio application, with Build Solution option highlighted](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Successful build")
 
 1. Start the application. From the menu bar, choose **Debug** > **Start Debugging**, or press **F5**.
 
-    ![Screenshot of Visual Studio application, with Start Debugging option highlighted](../../../media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Start the app into debugging")
+    ![Screenshot of Visual Studio application, with Start Debugging option highlighted](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Start the app into debugging")
 
 1. A console window appears, prompting you to type some text. Type a few words or a sentence. The text that you typed is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
-    ![Screenshot of console output after successful synthesis](../../../media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Console output after successful synthesis")
+    ![Screenshot of console output after successful synthesis](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png "Console output after successful synthesis")
 
 ## Next steps
 
@@ -62,5 +62,5 @@ Additional samples, such as how to synthesize speech to an audio file, are avail
 
 ## See also
 
-- [Customize voice fonts](../../../how-to-customize-voice-font.md)
-- [Record voice samples](../../../record-custom-voice-samples.md)
+- [Customize voice fonts](~/articles/cognitive-services/Speech-Service/how-to-customize-voice-font.md)
+- [Record voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

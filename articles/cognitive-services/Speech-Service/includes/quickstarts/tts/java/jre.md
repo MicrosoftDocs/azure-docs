@@ -19,7 +19,7 @@ This quickstart requires:
 * Operating System: 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or macOS 10.13 or later
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* An Azure subscription key for the Speech Service. [Get one for free](../../../get-started.md).
+* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 
 If you're running Linux, make sure these dependencies are installed before starting Eclipse.
 
@@ -42,7 +42,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 
 ## Create and configure project
 
-[!INCLUDE [](../../../../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+[!INCLUDE [](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
 ## Add sample code
 
@@ -50,7 +50,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 
 1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
 
-   ![Screenshot of New Java Class window](../../../media/sdk/qs-java-jre-06-create-main-java.png)
+   ![Screenshot of New Java Class window](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Replace all code in `Main.java` with the following snippet:
 
@@ -58,7 +58,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. Save changes to the project.
 
@@ -76,5 +76,5 @@ Additional samples, such as how to read speech from an audio file, are available
 
 ## See also
 
-- [Customize voice fonts](../../../how-to-customize-voice-font.md)
-- [Record voice samples](../../../record-custom-voice-samples.md)
+- [Customize voice fonts](~/articles/cognitive-services/Speech-Service/how-to-customize-voice-font.md)
+- [Record voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

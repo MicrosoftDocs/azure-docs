@@ -17,12 +17,12 @@ ms.author: yinhew
 To complete this project, you'll need:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* A subscription key for the Speech Service. [Get one for free](../../../get-started.md).
+* A subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 * A speaker (or headset) available.
 
 ## Create a Visual Studio project
 
-[!INCLUDE [Create project](../../../../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+[!INCLUDE [Create project](~/articles/cognitive-services/Speech-Service/includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
 ## Add sample code
 
@@ -32,7 +32,7 @@ To complete this project, you'll need:
 
 1. Find the string `YourSubscriptionKey`, and replace it with your Speech Services subscription key.
 
-1. Find the string `YourServiceRegion`, and replace it with the [region](../../../regions.md) associated with your subscription. For example, if you're using the free trial subscription, the region is `westus`.
+1. Find the string `YourServiceRegion`, and replace it with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, if you're using the free trial subscription, the region is `westus`.
 
 1. From the menu bar, choose **File** > **Save All**.
 
@@ -44,7 +44,7 @@ To complete this project, you'll need:
 
 1. Enter an English phrase or sentence. The application transmits your text to the Speech Services, which sends synthesized speech to the application to play on your speaker.
 
-   ![Speech synthesis user interface](../../../media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
+   ![Speech synthesis user interface](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
 
 ## Next steps
 
@@ -53,5 +53,5 @@ To complete this project, you'll need:
 
 ## See also
 
-- [Create a Custom Voice](../../../how-to-custom-voice-create-voice.md)
-- [Record custom voice samples](../../../record-custom-voice-samples.md)
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
