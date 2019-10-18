@@ -25,7 +25,7 @@ groups:
     title: MacOS
   - id: client-operating-system-windows
     title: Windows
- - id: programming-languages-set-two
+- id: programming-languages-set-two
   title: Programming languages
   prompt: Choose a programming language
   pivots:
