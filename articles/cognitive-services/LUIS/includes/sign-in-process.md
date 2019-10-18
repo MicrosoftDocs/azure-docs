@@ -40,4 +40,4 @@ A new user to LUIS needs to follow this procedure:
 
 1. Step 3 is a confirmation. Confirm your select by selecting **Continue**. 
 
-    ![Create authoring resource](../media/sign-in-confirm-continue.png)
+    ![Create authoring resource](media/sign-in-confirm-continue.png)
