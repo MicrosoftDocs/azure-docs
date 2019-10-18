@@ -30,7 +30,7 @@ In this example, we also assume that the West Europe Branch 1 is connected to Ea
 
 When you select 'View Effective Routes' in the portal, it produces the output shown in the [Hub route table](#routetable) for the East US Hub.
 
-To put this in perspective, the first line implies that the East US hub has learned the route of 10.20.1.0/24 (Branch 1) due to the VPN 'Next hop type' connection ('Next hop' VPN Gateway Instance0 IP 10.1.0.6, Instance1 IP 10.1.0.7). 'Route Origin' points to the resource ID. 'AS Path' indicates the AS Path for Branch 1.
+To put this in perspective, the first line implies that the East US hub has learned the route of 10.20.1.0/24 (Branch 1) due to the VPN *Next hop type* connection ('Next hop' VPN Gateway Instance0 IP 10.1.0.6, Instance1 IP 10.1.0.7). *Route Origin* points to the resource ID. *AS Path* indicates the AS Path for Branch 1.
 
 ### <a name="routetable"></a>Hub route table
 
@@ -39,12 +39,12 @@ Use the scroll bar at the bottom of the table to view the "AS Path".
 | **Prefix** |  **Next hop type** | **Next hop** |  **Route Origin** |**AS Path** |
 | ---        | ---                | ---          | ---               | ---         |
 | 10.20.1.0/24|VPN |10.1.0.6, 10.1.0.7| /subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-gw| 20000|
-|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/subscriptions/`<sub>`/resourceGroups/<rg>/providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-gw|21000|
+|10.21.1.0/24 |ExpressRoute|10.1.0.10, 10.1.0.11|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/expressRouteGateways/4444a6ac74e4d85555-eastus-gw|21000|
 |10.23.1.0/24| VPN |10.1.0.6, 10.1.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/vpnGateways/343a19aa6ac74e4d81f05ccccf1536cf-eastus-gw|23000|
 |10.4.0.0/16|Virtual Network Connection| On-link |  |  |
 |10.5.0.0/16| IP Address| 10.4.0.6|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/easthub_1/routeTables/table_1| |
 |0.0.0.0/0| IP Address|	`<Azure Firewall IP>` |/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/easthub_1/routeTables/table_1| |
-|10.22.1.0/16| Remote Hub|10.8.0.6, 10.8.0.7|/subscriptions/`<sub>`/resourceGroups/<rg>/providers/Microsoft.Network/virtualHubs/westhub_| 4848-22000 |
+|10.22.1.0/16| Remote Hub|10.8.0.6, 10.8.0.7|/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/westhub_| 4848-22000 |
 |10.9.0.0/16| Remote Hub|  On-link |/subscriptions/`<sub>`/resourceGroups/`<rg>`/providers/Microsoft.Network/virtualHubs/westhub_1| |
 
 >[!NOTE]
