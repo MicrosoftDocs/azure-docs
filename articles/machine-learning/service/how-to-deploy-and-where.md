@@ -270,8 +270,7 @@ dependencies:
 >
 > For more information, see [Understanding Conda and Pip](https://www.anaconda.com/understanding-conda-and-pip/).
 >
-> To check if your dependency is available through Conda, use the `conda search <package-name>` command, or use the package indexes at [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) and [https://anaconda.org/conda-forge/repo]
-(https://anaconda.org/conda-forge/repo).
+> To check if your dependency is available through Conda, use the `conda search <package-name>` command, or use the package indexes at [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) and [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
 
 If you want to use automatic schema generation, your entry script must import the `inference-schema` packages.
 
