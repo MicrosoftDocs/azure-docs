@@ -10,9 +10,9 @@ ms.date: 10/17/2019
 
 # Prepay for Azure Database for MariaDB compute resources with reserved capacity
 
-Azure Database for MariaDB now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MariaDB reserved capacity, you make an upfront commitment on MariaDB database for a one year period to get a significant discount on the compute costs. To purchase Azure Database for MariaDB reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. </br>
+Azure Database for MariaDB now helps you save money by prepaying for compute resources compared to pay-as-you-go prices. With Azure Database for MariaDB reserved capacity, you make an upfront commitment on MariaDB servers for a one year period to get a significant discount on the compute costs. To purchase Azure Database for MariaDB reserved capacity, you need to specify the Azure region, deployment type, performance tier, and term. </br>
 
-You do not need to assign the reservation to specific Azure Database for MariaDB instances. An already running Azure Database for MariaDB or ones that are newly deployed, will automatically get the benefit of reserved pricing. By purchasing a reservation, you are pre-paying for the compute costs for a period of one years. As soon as you buy a reservation, the Azure database for MariaDB compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the MariaDB Database instance. At the end of the reservation term, the billing benefit expires, and the Azure Database for MariaDB are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Database for MariaDB reserved capacity offering](https://azure.microsoft.com/pricing/details/mariadb/). </br>
+You do not need to assign the reservation to specific Azure Database for MariaDB servers. An already running Azure Database for MariaDB or ones that are newly deployed, will automatically get the benefit of reserved pricing. By purchasing a reservation, you are pre-paying for the compute costs for a period of one years. As soon as you buy a reservation, the Azure database for MariaDB compute charges that match the reservation attributes are no longer charged at the pay-as-you go rates. A reservation does not cover software, networking, or storage charges associated with the MariaDB Database server. At the end of the reservation term, the billing benefit expires, and the Azure Database for MariaDB are billed at the pay-as-you go price. Reservations do not auto-renew. For pricing information, see the [Azure Database for MariaDB reserved capacity offering](https://azure.microsoft.com/pricing/details/mariadb/). </br>
 
 You can buy Azure Database for MariaDB reserved capacity in the [Azure portal](https://portal.azure.com/). To buy the reserved capacity:
 
@@ -23,7 +23,7 @@ You can buy Azure Database for MariaDB reserved capacity in the [Azure portal](h
 The details on how enterprise customers and Pay-As-You-Go customers are charged for reservation purchases, see [understand Azure reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea) and [understand Azure reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage).
 
 
-## Determine the right database size before purchase
+## Determine the right server size before purchase
 
 The size of reservation should be based on the total amount of compute used by the existing or soon-to-be-deployed databases instance within a specific region and using the same performance tier and hardware generation.</br>
 
@@ -35,7 +35,7 @@ For example, let's suppose that you are running one general purpose, Gen5 – 32
 * Sign in to the [Azure portal](https://portal.azure.com/).
 * Select **All services** > **Reservations**.
 * Select **Add** and then in the Purchase reservations pane, select **Azure Database for MariaDB** to purchase a new reservation for your MariaDB databases.
-* Fill-in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Database for MariaDB instances that get the discount depend on the scope and quantity selected.
+* Fill-in the required fields. Existing or new databases that match the attributes you select qualify to get the reserved capacity discount. The actual number of your Azure Database for MariaDB servers that get the discount depend on the scope and quantity selected.
 
 
 **IMAGE FOR THE AZURE DATABASE FOR MariaDB RESERVATION**
@@ -46,12 +46,12 @@ The following table describes required fields.
 | **Field** | **Description** |
 | :------------ | :------- |
 | Subscription   | The subscription used to pay for the Azure Database for MariaDB reserved capacity reservation. The payment method on the subscription is charged the upfront costs for the Azure Database for MariaDB reserved capacity reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or an individual agreement with pay-as-you-go pricing (offer numbers: MS-AZR-0003P or MS-AZR-0023P). For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage. For an individual subscription with pay-as-you-go pricing, the charges are billed to the credit card or invoice payment method on the subscription.
-| Scope | The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the vCore reservation discount is applied to Azure Database for MariaDB instances running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the vCore reservation discount is applied to Azure Database for MariaDB instances in this subscription. </br></br> **Single resource group**, the reservation discount is applied to Azure Database for MariaDB instances in the selected subscription and the selected resource group within that subscription.
+| Scope | The vCore reservation’s scope can cover one subscription or multiple subscriptions (shared scope). If you select: </br></br> **Shared**, the vCore reservation discount is applied to Azure Database for MariaDB servers running in any subscriptions within your billing context. For enterprise customers, the shared scope is the enrollment and includes all subscriptions within the enrollment. For Pay-As-You-Go customers, the shared scope is all Pay-As-You-Go subscriptions created by the account administrator.</br></br> **Single subscription**, the vCore reservation discount is applied to Azure Database for MariaDB servers in this subscription. </br></br> **Single resource group**, the reservation discount is applied to Azure Database for MariaDB servers in the selected subscription and the selected resource group within that subscription.
 | Region | The Azure region that’s covered by the Azure Database for MariaDB reserved capacity reservation.
 | Deployment Type | The Azure Database for MariaDB resource type that you want to buy the reservation for.
-| Performance Tier | The service tier for the Azure Database for MariaDB instances.
+| Performance Tier | The service tier for the Azure Database for MariaDB servers.
 | Term | One year
-| Quantity | The amount of compute resources being purchased within the Azure Database for MariaDB reserved capacity reservation. The quantity is a number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Database for MariaDB instances with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify quantity as 16 to maximize the benefit for all instances.
+| Quantity | The amount of compute resources being purchased within the Azure Database for MariaDB reserved capacity reservation. The quantity is a number of vCores in the selected Azure region and Performance tier that are being reserved and will get the billing discount. For example, if you are running or planning to run an Azure Database for MariaDB servers with the total compute capacity of Gen5 16 vCores in the East US region, then you would specify quantity as 16 to maximize the benefit for all servers.
 
 ## Cancel, exchange, or refund reservations
 
@@ -61,13 +61,13 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. 
 
-## Need help ? Contact us
+## Need help? Contact us
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## Next steps
 
-The vCore reservation discount is applied automatically to the number of Azure Database for MariaDB instances that match the Azure Database for MariaDB reserved capacity reservation scope and attributes. You can update the scope of the Azure database for MariaDB reserved capacity reservation through Azure portal, PowerShell, CLI or through the API. </br></br>
+The vCore reservation discount is applied automatically to the number of Azure Database for MariaDB servers that match the Azure Database for MariaDB reserved capacity reservation scope and attributes. You can update the scope of the Azure database for MariaDB reserved capacity reservation through Azure portal, PowerShell, CLI or through the API. </br></br>
 To learn how to manage the Azure Database for MariaDB reserved capacity, see manage Azure Database for MariaDB reserved capacity.
 
 To learn more about Azure Reservations, see the following articles:
@@ -75,6 +75,6 @@ To learn more about Azure Reservations, see the following articles:
 * [What are Azure Reservations](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations)?
 * [Manage Azure Reservations](https://docs.microsoft.com/azure/billing/billing-manage-reserved-vm-instance)
 * [Understand Azure Reservations discount](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges)
-* [Understand reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage)
+* [Understand reservation usage for your Pay-As-You-Go subscription](https://docs.microsoft.com/azure/billing/billing-understand-reservation-charges-mariadb)
 * [Understand reservation usage for your Enterprise enrollment](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea)
 * [Azure Reservations in Partner Center Cloud Solution Provider (CSP) program](https://docs.microsoft.com/partner-center/azure-reservations)
