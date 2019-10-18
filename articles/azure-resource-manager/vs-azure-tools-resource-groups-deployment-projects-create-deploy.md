@@ -4,7 +4,7 @@ description: Use Visual Studio to create an Azure resource group project and dep
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.date: 06/20/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
 ---
 # Creating and deploying Azure resource groups through Visual Studio
@@ -17,7 +17,8 @@ This article shows how to use [Visual Studio 2019 or later with the Azure develo
 
 In this section, you create an Azure Resource Group project with a **Web app** template.
 
-1. In Visual Studio, choose **File**, **New**, and **Project**. Select the **Azure Resource Group** project template and **Next**.
+1. In Visual Studio, choose **File**>**New**>**Project**.
+1. Select the **Azure Resource Group** project template and **Next**.
 
     ![Create project](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 
