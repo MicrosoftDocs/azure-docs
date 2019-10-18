@@ -72,6 +72,12 @@ When creating a new resource, you will need to know the "kind" of service you wa
 > [!NOTE]
 > Many Cognitive services have a free tier you can use to try the service. To use the free tier, use `F0` as the sku for your resource.
 
+### Multi-service
+
+| Service                    | Kind                      |
+|----------------------------|---------------------------|
+| Multiple services. See the [pricing](https://azure.microsoft.com/pricing/details/cognitive-services/) page for more details.            | `CognitiveServices`     |
+
 ### Vision
 
 | Service                    | Kind                      |
