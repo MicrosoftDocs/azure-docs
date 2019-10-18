@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Cache for Redis server | Microsoft Docs
+title: Troubleshoot Redis server | Microsoft Docs
 description: Learn how to resolve common server-side issues with Azure Cache for Redis
 services: cache
 documentationcenter: ''
@@ -22,7 +22,8 @@ ms.author: yegu
 This section discusses troubleshooting issues that occur because of a condition on an Azure Cache for Redis or the virtual machine(s) hosting it.
 
 - [Memory pressure on Redis server](#memory-pressure-on-redis-server)
-- [High CPU usage or server load](#high-cpu-usage--server-load)
+- [High CPU usage or server load](#high-cpu-usage-or-server-load)
+- [Long-running commands](#long-running-commands)
 - [Server-side bandwidth limitation](#server-side-bandwidth-limitation)
 
 > [!NOTE]
@@ -41,14 +42,10 @@ Redis exposes two stats through the [INFO](https://redis.io/commands/info) comma
 There are several possible changes you can make to help keep memory usage healthy:
 
 - [Configure a memory policy](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) and set expiration times on your keys. This policy may not be sufficient if you have fragmentation.
-- [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation. For more information, see the additional [considerations for memory reservations](#considerations-for-memory-reservations) below.
+- [Configure a maxmemory-reserved value](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) that is large enough to compensate for memory fragmentation.
 - Break up your large cached objects into smaller related objects.
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like used memory to be notified early about potential impacts.
 - [Scale](cache-how-to-scale.md) to a larger cache size with more memory capacity.
-
-> [!NOTE]
-> Updating memory reservation values, like maxmemory-reserved, can affect cache performance. Suppose you have a 53-GB cache that is filled with 49 GB of data. Changing the reservation value to 8 GB drops the system's max available memory to 45 GB. If _used_memory_ or _used_memory_rss_ values are higher than 45 GB, the system may evict data until both _used_memory_ and _used_memory_rss_ are below 45 GB. Eviction can increase server load and memory fragmentation.
->
 
 ## High CPU usage or server load
 
@@ -58,15 +55,15 @@ A high server load or CPU usage means the server can't process requests in a tim
 
 There are several changes you can make to mitigate high server load:
 
-- Investigate what is causing CPU spikes such as running [expensive commands](#expensive-commands) or page faulting because of high memory pressure.
+- Investigate what is causing CPU spikes such as [long-running commands](#long-running-commands) noted below or page faulting because of high memory pressure.
 - [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
 - [Scale](cache-how-to-scale.md) to a larger cache size with more CPU capacity.
 
-> [!NOTE]
-> Some Redis commands are more expensive to execute than others. The [Redis commands documentation](https://redis.io/commands) shows the time complexity of each command. It's recommended you review the commands you're running on your cache to understand the performance impact of those commands. For instance, the [KEYS](https://redis.io/commands/keys) command is often used without knowing that it's an O(N) operation. You can avoid KEYS by using [SCAN](https://redis.io/commands/scan) to reduce CPU spikes.
->
-> Using the [SLOWLOG](https://redis.io/commands/slowlog) command, you can measure expensive commands being executed against the server.
->
+## Long-running commands
+
+Some Redis commands are more expensive to execute than others. The [Redis commands documentation](https://redis.io/commands) shows the time complexity of each command. Because Redis command processing is single-threaded, a command that takes time to run will block all others that come after it. You should review the commands that you're issuing to your Redis server to understand their performance impacts. For instance, the [KEYS](https://redis.io/commands/keys) command is often used without knowing that it's an O(N) operation. You can avoid KEYS by using [SCAN](https://redis.io/commands/scan) to reduce CPU spikes.
+
+Using the [SLOWLOG](https://redis.io/commands/slowlog) command, you can measure expensive commands being executed against the server.
 
 ## Server-side bandwidth limitation
 

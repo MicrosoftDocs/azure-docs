@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Cache for Redis client | Microsoft Docs
+title: Troubleshoot Redis client | Microsoft Docs
 description: Learn how to resolve common client-side issues with Azure Cache for Redis
 services: cache
 documentationcenter: ''
@@ -61,7 +61,7 @@ You can [configure your `ThreadPool` Settings](https://gist.github.com/JonCole/e
 
 High client CPU usage indicates the system can't keep up with the work it's been asked to do. Even though the cache sent the response quickly, the client may fail to process the response in a timely fashion.
 
-Monitor the client's system-wide CPU usage using metrics available in the Azure portal or through performance counters on the machine. Be careful not to monitor *process* CPU because a single process can have low CPU usage but the system-wide CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. High CPU may also cause high `in: XXX` values in `TimeoutException` error messages as described in the [Burst of traffic](#burst-of-traffic) section.
+Monitor the client's system-wide CPU usage using metrics available in the Azure portal or through performance counters on the machine. Be careful not to monitor *process* CPU because a single process can have low CPU usage but the system-wide CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. High CPU may also cause high `in: XXX` values in `TimeoutException` error messages as described in the [Traffic burst](#traffic-burst) section.
 
 > [!NOTE]
 > StackExchange.Redis 1.1.603 and later includes the `local-cpu` metric in `TimeoutException` error messages. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
