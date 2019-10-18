@@ -52,7 +52,9 @@ Here's a few things to keep in mind when you enable the change feed.
 
 ## Consuming the change feed
 
-Your client applications can consume the change feed by using the blob change feed processor library that is provided with the SDK. See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
+Your client applications can consume the change feed by using the blob change feed processor library that is provided with the SDK. 
+
+See [Process change feed logs in Azure Blob Storage](storage-blob-change-feed-how-to.md).
 
 ## Understanding change feed organization
 

@@ -349,7 +349,7 @@
     - name: Configure a custom domain
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
-      href: storage-blob-change-feed-how-to.md
+      href: storage-blob-event-quickstart.md
     - name: Process change feed logs
       href: storage-blob-change-feed-how-to.md
     - name: Search Blob storage with Azure Search
