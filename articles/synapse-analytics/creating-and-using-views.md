@@ -33,8 +33,8 @@ Because quickstarts are intended to help new customers use a subscription to qui
 ## Prerequisites
 
 Before reading rest of the article make sure to check following articles:
-- [First time setup](query-data-in-storage.md#First-time-setup)
-- [Prerequisites](query-data-in-storage.md#Prerequisites)
+- [First time setup](query-data-in-storage.md#first-time-setup)
+- [Prerequisites](query-data-in-storage.md#prerequisites)
 
 
 ## Before you begin
@@ -49,7 +49,7 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
-If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#First-Time-Setup).
+If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Creating views
 
@@ -57,7 +57,7 @@ You can create views the same way you create regular SQL Server views.
 
 Following query creates view that reads *population.csv* file.
 
-> Please change the first line in query below to use database you created. If you did not create database, please check [First time setup](query-data-in-storage.md#First-time-setup).
+> Please change the first line in query below to use database you created. If you did not create database, please check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname]
@@ -91,7 +91,7 @@ You can use views in your queries the same way you use views in SQL Server queri
 
 Following query shows how you can use *population_csv* view we created in [Creating views](#Creating-views). It returns country names with their population in 2019 in descending order.
 
-> Please change the first line in query below to use database you created. If you did not create database, please check [First time setup](query-data-in-storage.md#First-time-setup).
+> Please change the first line in query below to use database you created. If you did not create database, please check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ```sql
 USE [mydbname]
