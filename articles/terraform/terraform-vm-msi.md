@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 3/12/2018
+ms.date: 09/20/2019
 ---
 
 # Use an Azure Marketplace image to create a Terraform Linux virtual machine with managed identities for Azure resources

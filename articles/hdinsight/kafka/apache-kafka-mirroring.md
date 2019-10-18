@@ -79,7 +79,7 @@ This architecture features two clusters in different resource groups and virtual
     1. Click **Add**.
     1. On the **Add peering** screen, enter the details as shown in the screenshot below.
 
-        ![add vnet peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        ![HDInsight Kafka add vnet peering](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
 
 1. Configure IP advertising:
     1. Go to the Ambari dashboard for the primary cluster: `https://PRIMARYCLUSTERNAME.azurehdinsight.net`.
@@ -99,7 +99,7 @@ This architecture features two clusters in different resource groups and virtual
     1. Click **Ok** on the **Save Configuration Changes**.
     1. Click **Restart** > **Restart All Affected** in the **Restart Required** notification. Click **Confirm Restart All**.
 
-        ![restart kafka nodes](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+        ![Apache Ambari restart all affected](./media/apache-kafka-mirroring/ambari-restart-notification.png)
 
 1. Configure Kafka to listen on all network interfaces.
     1. Stay on the **Configs** tab under **Services** > **Kafka**. In the **Kafka Broker** section set the **listeners** property to `PLAINTEXT://0.0.0.0:9092`.
@@ -110,7 +110,7 @@ This architecture features two clusters in different resource groups and virtual
     1. Click **Hosts** on the Ambari dashboard.
     1. Make a note of the IP Addresses for the Brokers and Zookeepers. The broker nodes have **wn** as the first two letters of the host name, and the zookeeper nodes have **zk** as the first two letters of the host name.
 
-        ![view ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+        ![Apache Ambari view node ip addresses](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
 
 1. Repeat the previous three steps for the second cluster **kafka-secondary-cluster**: configure IP advertising, set listeners and make a note of the Broker and Zookeeper IP addresses.
 
@@ -246,7 +246,7 @@ This architecture features two clusters in different resource groups and virtual
         6. Change the value of `auto.create.topics.enable` to true, and then select __Save__. Add a note, and then select __Save__ again.
         7. Select the __Kafka__ service, select __Restart__, and then select __Restart all affected__. When prompted, select __Confirm restart all__.
 
-        ![configure topic auto creation](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        ![kafka enable auto create topics](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
 
 ## Start MirrorMaker
 

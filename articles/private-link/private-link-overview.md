@@ -1,11 +1,11 @@
 ---
 title: What is Azure Private Link?
-description: Learn about Azure Private Link.
-services: virtual-network
+description: Learn how to use Azure Private Link to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
+services: private-link
 author: KumudD
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Private Link so that I can securely connect to my Azure PaaS services within the virtual network.
 
-ms.service: virtual-network
+ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
@@ -37,11 +37,11 @@ Azure Private Link provides the following benefits:
 
 |Scenario  |Supported services   |Available regions | Status   |
 |---------|---------|---------|---------|
-|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |West Central US; WestUS; South Central US; East US; North US  |  Preview  |
+|Private Link for customer-owned services|Private Link services behind Standard Load Balancer |West Central US; WestUS; South Central US; East US; North Central US  |  Preview  |
 |Private Link for Azure PaaS services   | Azure Storage        |  East US, West US, West Central US       | Preview         |
 |  | Azure Data Lake Storage Gen2        |  East US, West US, West Central US       | Preview         |
-|  |  Azure SQL Database         | West Central US; WestUS; South Central US; East US; North US       |   Preview      |
-||Azure SQL Data Warehouse| West Central US; WestUS; South Central US; East US; North US |Preview|
+|  |  Azure SQL Database         | West Central US; WestUS; South Central US; East US; North Central US      |   Preview      |
+||Azure SQL Data Warehouse| West Central US; WestUS; South Central US; East US; North Central US |Preview|
 
 For the most up-to-date notifications, check the [Azure Virtual Network updates page](https://azure.microsoft.com/updates/?product=virtual-network). 
 

@@ -42,7 +42,7 @@ Next, you create a file share.
 
     ![Select Files](./media/storage-files-quick-create-use-windows/click-files.png)
 
-1. Select **+ File Share**.
+1. Select **File Share**.
 
     ![Select the add file share button](./media/storage-files-quick-create-use-windows/create-file-share.png)
 

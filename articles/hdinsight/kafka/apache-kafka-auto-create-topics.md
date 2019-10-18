@@ -20,7 +20,7 @@ To enable automatic topic creation on an existing cluster through the Ambari Web
 
 1. From the [Azure portal](https://portal.azure.com), select the Kafka cluster.
 
-2. From the __Cluster overview__, select __Cluster dashboard__. 
+2. From the __Cluster overview__, select __Cluster dashboard__.
 
     ![Image of the portal with cluster dashboard selected](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
 
@@ -30,15 +30,15 @@ To enable automatic topic creation on an existing cluster through the Ambari Web
 
 3. Select the Kafka service from the list on the left of the page.
 
-    ![Service list](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
+    ![Apache Ambari service list tab](./media/apache-kafka-auto-create-topics/hdinsight-service-list.png)
 
 4. Select Configs in the middle of the page.
 
-    ![Service config tab](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
+    ![Apache Ambari service configs tab](./media/apache-kafka-auto-create-topics/hdinsight-service-config.png)
 
-5. In the Filter field, enter a value of `auto.create`. 
+5. In the Filter field, enter a value of `auto.create`.
 
-    ![Image of the filter field](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
+    ![Apache Ambari search filter field](./media/apache-kafka-auto-create-topics/hdinsight-filter-field.png)
 
     This filters the list of properties and displays the `auto.create.topics.enable` setting.
 
@@ -48,7 +48,7 @@ To enable automatic topic creation on an existing cluster through the Ambari Web
 
 7. Select the Kafka service, select __Restart__, and then select __Restart all affected__. When prompted, select __Confirm restart all__.
 
-    ![Image of restart selection](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
+    ![Apache Ambari restart all affected](./media/apache-kafka-auto-create-topics/restart-all-affected.png)
 
 > [!NOTE]  
 > You can also set Ambari values through the Ambari REST API. This is generally more difficult, as you have to make multiple REST calls to retrieve the current configuration, modify it, etc. For more information, see the [Manage HDInsight clusters using the Apache Ambari REST API](../hdinsight-hadoop-manage-ambari-rest-api.md) document.

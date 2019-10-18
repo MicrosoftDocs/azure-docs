@@ -3,10 +3,8 @@ title: Working with security policies | Microsoft Docs
 description: This article describes how to work with security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +12,8 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/18/2019
-ms.author: v-mohabe
+ms.date: 07/18/2019
+ms.author: memildin
 ---
 
 # Working with security policies
@@ -39,7 +37,7 @@ When you enable Security Center, the security policy built-in to Security Center
 If your organization has many subscriptions, you may need a way to efficiently manage access, policies, and compliance for those subscriptions. Azure Management Groups provides a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance policies to the management groups. All subscriptions within a management group automatically inherit the policies applied to the management group. Each directory is given a single top-level management group called the "root" management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This root management group allows for global policies and RBAC assignments to be applied at the directory level. To set up management groups for use with Azure Security Center, follow the instructions in [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md).
 
 > [!NOTE]
-> It’s important that you understand the hierarchy of management groups and subscriptions. See [Organize your resources with Azure Management Groups](../governance/management-groups/index.md#root-management-group-for-each-directory) to learn more about management groups, root management, and management group access.
+> It’s important that you understand the hierarchy of management groups and subscriptions. See [Organize your resources with Azure Management Groups](../governance/management-groups/overview.md#root-management-group-for-each-directory) to learn more about management groups, root management, and management group access.
 >
 
 ## How security policies work
@@ -223,7 +221,7 @@ This example shows you how to remove an assignment:
 |SQL Auditing |Monitor unaudited SQL database in Azure Security Center |sqlAuditingMonitoringEffect|
 |System updates |Monitor missing system updates in Azure Security Center |systemUpdatesMonitoringEffect|
 |Storage encryption |Audit missing blob encryption for storage accounts |storageEncryptionMonitoringEffect|
-|JIT Network access |Monitor possible network Just In Time (JIT) access in Azure Security Center |jitNetworkAccessMonitoringEffect |
+|JIT Network access |Monitor possible network just-in-time (JIT) access in Azure Security Center |jitNetworkAccessMonitoringEffect |
 |Adaptive application controls |Monitor possible app Whitelisting in Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Network security groups |Monitor permissive network access in Azure Security Center |networkSecurityGroupsMonitoringEffect| 
 |Security configurations |Monitor OS vulnerabilities in Azure Security Center |systemConfigurationsMonitoringEffect| 

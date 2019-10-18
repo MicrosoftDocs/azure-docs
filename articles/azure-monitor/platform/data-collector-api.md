@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: bwren
 ---
 
@@ -227,7 +227,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $LogType = "MyRecordType"
 
 # You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
-$TimeStampField = ""
+$TimeStampField = "DateValue"
 
 
 # Create two records with the same set of properties to create
@@ -235,13 +235,13 @@ $json = @"
 [{  "StringValue": "MyString1",
     "NumberValue": 42,
     "BooleanValue": true,
-    "DateValue": "2016-05-12T20:00:00.625Z",
+    "DateValue": "2019-09-12T20:00:00.625Z",
     "GUIDValue": "9909ED01-A74C-4874-8ABF-D2678E3AE23D"
 },
 {   "StringValue": "MyString2",
     "NumberValue": 43,
     "BooleanValue": false,
-    "DateValue": "2016-05-12T20:00:00.625Z",
+    "DateValue": "2019-09-12T20:00:00.625Z",
     "GUIDValue": "8809ED01-A74C-4874-8ABF-D2678E3AE23D"
 }]
 "@

@@ -26,11 +26,11 @@ To view your hosts, open the Ambari Web UI. Each node will be updated with  new 
 
 2. Select **All users** from the left-hand menu, then select **New user**.
 
-    ![All users pane](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
+    ![Azure portal users and groups all](./media/hdinsight-sync-aad-users-to-cluster/users-and-groups-new.png)
 
 3. Complete the new user form. Select groups you created for assigning cluster-based permissions. In this example, create a group named "HiveUsers", to which you can assign new users. The [example instructions](hdinsight-domain-joined-configure.md) for creating an ESP cluster include adding two groups, `HiveUsers` and `AAD DC Administrators`.
 
-    ![New user pane](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
+    ![Azure portal user pane select groups](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-new-user-form.png)
 
 4. Select **Create**.
 
@@ -42,7 +42,7 @@ The following method uses POST with the Ambari REST API. For more information, s
 
 1. [Connect to your cluster with SSH](hdinsight-hadoop-linux-use-ssh-unix.md). From the overview pane for your cluster in the Azure portal, select the **Secure Shell (SSH)** button.
 
-    ![Secure Shell (SSH)](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
+    ![HDInsight Secure Shell (SSH) icon](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-secure-shell.png)
 
 2. Copy the displayed `ssh` command and paste it into your SSH client. Enter the ssh user password when prompted.
 
@@ -126,15 +126,15 @@ Open the [Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) to verify tha
 
 1. From the Ambari dashboard, select **Manage Ambari** under the **admin** menu.
 
-    ![Manage Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
+    ![Apache Ambari dashboard Manage Ambari](./media/hdinsight-sync-aad-users-to-cluster/manage-apache-ambari.png)
 
 2. Select **Users** under the **User + Group Management** menu group on the left-hand side of the page.
 
-    ![Users menu item](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
+    ![HDInsight users and groups menu](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-menu-item.png)
 
 3. The new user should be listed within the Users table. The Type is set to `LDAP` rather than  `Local`.
 
-    ![Users page](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
+    ![HDInsight aad users page overview](./media/hdinsight-sync-aad-users-to-cluster/hdinsight-users-page.png)
 
 ## Log in to Ambari as the new user
 

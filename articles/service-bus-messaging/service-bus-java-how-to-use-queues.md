@@ -38,7 +38,7 @@ In this tutorial, you learn how to create Java applications to send messages to 
 ## Configure your application to use Service Bus
 Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:
 
-![Screenshot of the Libraries tab where you can add libraries](./media/service-bus-java-how-to-use-queues/eclipselibs.png)
+![Add Microsoft Azure Libraries for Java to your Eclipse project](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 Add the following `import` statements to the top of the Java file:
 

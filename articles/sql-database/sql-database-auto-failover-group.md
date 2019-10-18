@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 09/06/2019
+ms.date: 10/09/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -168,9 +168,6 @@ When designing a service with business continuity in mind, follow these general 
 
 ## Best practices of using failover groups with managed instances
 
-> [!IMPORTANT]
-> Auto-failover groups for Managed Instance is in public preview.
-
 The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance. 
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
@@ -302,9 +299,6 @@ This sequence is recommended specifically to avoid the problem where the seconda
 > [!NOTE]
 > If you created secondary database as part of the failover group configuration it is not recommended to downgrade the secondary database. This is to ensure your data tier has sufficient capacity to process your regular workload after failover is activated.
 
-> [!IMPORTANT]
-> Upgrading or downgrading a Managed Instance which is a member of a failover group is currently not supported.
-
 ## Preventing the loss of critical data
 
 Due to the high latency of wide area networks, continuous copy uses an asynchronous replication mechanism. Asynchronous replication makes some data loss unavoidable if a failure occurs. However, some applications may require no data loss. To protect these critical updates, an application developer can call the [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) system procedure immediately after committing the transaction. Calling `sp_wait_for_database_copy_sync` blocks the calling thread until the last committed transaction has been transmitted to the secondary database. However, it does not wait for the transmitted transactions to be replayed and committed on the secondary. `sp_wait_for_database_copy_sync` is scoped to a specific continuous copy link. Any user with the connection rights to the primary database can call this procedure.
@@ -360,7 +354,7 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Updates a failover group. |
 |  | |
 
-### REST API: Manage failover groups with Managed Instances (preview)
+### REST API: Manage failover groups with Managed Instances
 
 | API | Description |
 | --- | --- |

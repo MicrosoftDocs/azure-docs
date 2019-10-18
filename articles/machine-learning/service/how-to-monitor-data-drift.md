@@ -18,7 +18,7 @@ In this article, you learn how to monitor for data drift between the training da
 
 ## What is data drift?
 
-Data drift happens when data served to a model in production is different from the data used to train the model. It is one of the top reasons where model accuracy degrades over time, thus monitoring data drift helps detect model performance issues. 
+In the context of machine learning, data drift is the change in model input data that leads to model performance degradation. It is one of the top reasons where model accuracy degrades over time, thus monitoring data drift helps detect model performance issues. 
 
 ## What can I monitor?
 

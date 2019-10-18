@@ -20,13 +20,6 @@ ms.collection: M365-identity-device-management
 
 Using Azure Active Directory (Azure AD) portal, you can bulk download the list of all the groups in your organization to a comma-separated values (CSV) file.
 
-> [!NOTE]
-> Azure AD bulk operations are a public preview feature of Azure AD and are available with any paid Azure AD license plan. For more information about preview use terms, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-## Bulk download service limits
-
-Each bulk activity to download a group list can run for up to one hour. This enables you to download a list of at least 300,000 groups.
-
 ## To download a list of groups
 
 1. Sign in to [the Azure portal](https://portal.azure.com) with an administrator account in the organization.
@@ -40,6 +33,10 @@ Each bulk activity to download a group list can run for up to one hour. This ena
 You can see the status of all of your pending bulk requests in the **Bulk operation results (preview)** page.
 
    ![The Bulk operations results page shows you bulk request status](./media/groups-bulk-download/bulk-center.png)
+
+## Bulk download service limits
+
+Each bulk activity to download a group list can run for up to one hour. This enables you to download a list of at least 300,000 groups.
 
 ## Next steps
 

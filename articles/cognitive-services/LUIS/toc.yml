@@ -20,6 +20,8 @@
     - name: 2. Deploy an app
       href: get-started-portal-deploy-app.md
       displayName: assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish
+  - name: Use browser
+    href: luis-get-started-get-intent-from-browser.md
   - name: Use .NET SDK
     items: 
     - name: Create and manage app
@@ -33,17 +35,7 @@
   - name: Use REST APIs
     items:
     - name: Get intent
-      items:
-      - name: C#
-        href: luis-get-started-cs-get-intent.md
-      - name: Go
-        href: luis-get-started-go-get-intent.md
-      - name: Java
-        href: luis-get-started-java-get-intent.md
-      - name: Node.js
-        href: luis-get-started-node-get-intent.md
-      - name: Python
-        href: luis-get-started-python-get-intent.md
+      href: luis-get-started-get-intent-from-rest.md
     - name: Change model
       items:
       - name: C#
@@ -110,10 +102,6 @@
       - name: 2. Add telemetry to Application Insights
         displayName: Application insight, kusto
         href: luis-tutorial-bot-nodejs-appinsights.md      
-- name: Samples
-  items:
-  - name: Code samples
-    href: https://github.com/Azure-Samples/cognitive-services-language-understanding
 - name: Concepts
   items:
   - name: Best practices
@@ -338,6 +326,9 @@
       href: reference-entity-regular-expression.md      
     - name: Simple entity
       href: reference-entity-simple.md
+  - name: Developer resources
+    href: developer-reference-resource.md
+    displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
   - name: Azure CLI
     href: https://go.microsoft.com/fwlink/?linkid=2092156
   - name: Azure RM PowerShell
@@ -401,8 +392,6 @@
   items:
   - name: Azure Bot Service
     href: https://dev.botframework.com/
-  - name: Bot Builder 3.x SDK C#
-    href: https://github.com/Microsoft/BotBuilder
   - name: Bot Builder 4.x SDK C#
     href: https://github.com/Microsoft/botbuilder-dotnet
   - name: QnA maker
@@ -419,6 +408,8 @@
     href: https://github.com/Microsoft/Cognitive-Samples-IntelligentKiosk
 - name: Resources
   items:
+  - name: Code samples
+    href: https://github.com/Azure-Samples/cognitive-services-language-understanding  
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Language and region support

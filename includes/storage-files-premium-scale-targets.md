@@ -22,6 +22,6 @@ ms.author: rogarana
 |Size                  |1 TiB         |1 TiB|
 |Max IOPS per file     |5,000         |1,000|
 |Concurrent handles    |2,000         |2,000|
-|Ingress  |300 MiB/sec|      See standard file throughput values|
-|Egress   |200 Mib/sec| See standard file throughput values|
+|Egress  |300 MiB/sec|      See standard file throughput values|
+|Ingress  |200 MiB/sec| See standard file throughput values|
 |Throughput| See premium file ingress/egress values| Up to 60 MiB/sec|
