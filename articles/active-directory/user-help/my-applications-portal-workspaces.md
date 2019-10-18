@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 10/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
@@ -26,13 +26,13 @@ Workspaces are different app views you see in the **My Apps** (preview) portal. 
 
 ## Access apps using workspaces
 
-The list of workspaces in the **My Apps** portal always starts with one named **All**, which has every app you have access to.
+The list of workspaces in the **My Apps** portal defaults to show one named **All Apps**, which has every app you have access to:
 
-** SCREENSHOT OF ALL APPS WORKSPACE **
+![All apps page in the My Apps portal](media/my-applications-portal-workspaces/my-apps-all.png)
 
-Any other workspace you see in this list was created by your admin and shared with you. You can choose one of those workspaces to see a more scoped set of apps.
+Any other workspace you see in this list was created by your admin and shared with you. You can choose one of those workspaces to see a more scoped set of apps, such as *Support* in the following example:
 
-** SCREENSHOT OF A NAMED WORKSPACE **
+![Individual workspace and scoped set of apps in the My Apps portal](media/my-applications-portal-workspaces/my-apps-workspace.png)
 
 When you select and view a workspace, you only see the default applications that you have access to. Not all available applications are listed. For example, you may have a *Design* workspace. A new design app is available that requires a license, so your administrator only wants people who need to use app to have access. The administrator adds the app to the *Design* workspace, but it's not shown by default. Instead, anyone with access to the *Design* workspace can request access for that new app as needed. To learn more, see [Add or request access to apps](my-applications-portal-add-apps.md).
 

@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 10/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
@@ -26,15 +26,15 @@ When you use organizational applications in the **My Apps** (preview) portal, yo
 
 ## Manage app permissions
 
-To view the permissions consented to by you or your administrator, choose an app in the **My Apps** portal and select **Manage app**.
+To view the permissions consented to by you or your administrator, select **...** when you hover over an app in the **My Apps** portal, then select **Manage your application**:
 
-** SCREENSHOT OF APP MENU **
+![Manage an application in the My Apps portal](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
 
 The top part of permissions window shows what you personally consented to. Examples of apps permissions include the ability to access your calendar, contacts, or camera.
 
-You can revoke any of the permissions you consented to, however revoking a permission may break some of the apps functionality. If you have problems after you remove permissions or accounts, contact your organization's Helpdesk for additional assistance.
+You can revoke any of the permissions you consented to by selecting **Revoke Permissions**, however removing a permission may break some of the apps functionality. If you have problems after you remove permissions or accounts, contact your organization's Helpdesk for additional assistance.
 
-** SCREENSHOT OF PERMISSIONS PAGE **
+![Revoke permissions for an application in the My Apps portal](media/my-applications-portal-permissions-saved-accounts/revoke-permissions.png)
 
 The bottom part of the permissions window shows what your administrator consented to on your behalf. This section isn't shown if there are no admin-consented permissions. You can't revoke these permissions because the administrator consented to them, and they're often required for your organization's policy.
 
