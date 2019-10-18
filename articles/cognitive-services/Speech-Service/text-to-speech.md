@@ -82,19 +82,19 @@ We offer quickstarts designed to have you running code in less than 10 minutes. 
 
 | Quickstart (SDK) | Platform | API reference |
 |------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C#, Unity](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-csharp&tabs=unity) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-cpp&tabs=linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-java&tabs=android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, Unity](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=unity) | Windows, Android | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp&tabs=linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
 | [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/tts/objectivec-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
 | [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/tts/objectivec-ios.mde) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
 | [Swift](~/articles/cognitive-services/speech-service/quickstarts/tts/swift-macos.md) | macOS | [Browse](https://aka.ms/csspeech/objectivecref) |
 | [Swift](~/articles/cognitive-services/speech-service/quickstarts/tts/swift-ios.md) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
-| [Python](~/articles/cognitive-services/Speech-Service/quickstarts/tts/quickstart-text-to-speech.md?pivots=programming-language-python) | Window, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
+| [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | Window, Linux, macOS | [Browse](https://aka.ms/csspeech/pythonref) |
 
 ### REST quickstarts
 

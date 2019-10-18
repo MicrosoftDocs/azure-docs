@@ -14,15 +14,15 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in C++ on macOS by using the Speech SDK
 
-In this article, you create a C++ console application for macOS 10.13 and above. You use the Cognitive Services [Speech SDK](../../../speech-sdk.md) to transcribe speech to text in real time from your Mac's microphone. The application is built with the [Speech SDK for macOS](https://aka.ms/csspeech/macosbinary) and your Mac's default C++ compiler (for example, `g++`).
+In this article, you create a C++ console application for macOS 10.13 and above. You use the Cognitive Services [Speech SDK](~/articles/cognitive-services/Speech-Service/speech-sdk.md) to transcribe speech to text in real time from your Mac's microphone. The application is built with the [Speech SDK for macOS](https://aka.ms/csspeech/macosbinary) and your Mac's default C++ compiler (for example, `g++`).
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](../../../get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.
 
 ## Install Speech SDK
 
-[!INCLUDE [License Notice](../../../../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 The Speech SDK for macOS can be downloaded as a zipped framework bundle from https://aka.ms/csspeech/macosbinary.
 
@@ -63,7 +63,7 @@ Download and install the SDK as follows:
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 ## Build the app
 

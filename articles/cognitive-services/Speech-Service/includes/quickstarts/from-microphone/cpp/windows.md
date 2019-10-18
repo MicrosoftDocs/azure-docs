@@ -14,15 +14,15 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech in C++ on Windows by using the Speech SDK
 
-In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](../../../speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
+In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](~/articles/cognitive-services/Speech-Service/speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](../../../get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.
 
 ## Create a Visual Studio project
 
-[!INCLUDE [Quickstart C++ project](../../../../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## Add sample code
 
@@ -34,7 +34,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. From the menu bar, choose **File** > **Save All**.
 
@@ -46,7 +46,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which transcribes to text and sends it back to the application for display.
 
-   ![Console output after successful recognition](../../../media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ![Console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-08-console-output-release.png)
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.author: chlandsi
 
 # Quickstart: Recognize speech with the Speech SDK for Python
 
-Quickstarts are also available for [speech-synthesis](../../tts/quickstart-text-to-speech.md?pivots=programming-language-python)
+Quickstarts are also available for [speech-synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
 
 This article shows how to use the Speech Services through the Speech SDK for Python. It illustrates how to recognize speech from microphone input.
 

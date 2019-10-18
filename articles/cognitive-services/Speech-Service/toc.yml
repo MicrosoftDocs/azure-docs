@@ -34,7 +34,9 @@
     - name: Convert speech to text from file
       href: quickstarts/from-file/speech-to-text-from-file.md
     - name: Convert speech to text from microphone
-      href: quickstarts/from-microphone/speech-to-text-from-microphone.md
+      href: quickstarts/speech-to-text-from-microphone.md
+    - name: Convert text to speech
+      href: quickstarts/text-to-speech.md
     - name: Convert speech to text from blob storage
       href: https://aka.ms/ignite2019/speech/placeholder
   - name: How-to guides

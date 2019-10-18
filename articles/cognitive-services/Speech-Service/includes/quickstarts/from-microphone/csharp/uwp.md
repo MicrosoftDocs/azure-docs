@@ -17,7 +17,7 @@ ms.author: erhopf
 Before you get started, make sure to:
 
 1. [Create a Speech resource and get a subscription key]().
-2. [Setup your development environment](../../../quickstart-platform-csharp-unity.md). Use this quickstart to install and configure Unity.
+2. [Setup your development environment](~/articles/cognitive-services/Speech-Service/quickstart-platform-csharp-unity.md). Use this quickstart to install and configure Unity.
 
 If you've already done this, great. Let's keep going.
 
@@ -75,15 +75,15 @@ Now you are ready to build and test your application.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP speech recognition application in C# - quickstart](../../../media/sdk/qs-csharp-uwp-helloworld-window.png)
+   ![Sample UWP speech recognition application in C# - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-helloworld-window.png)
 
 1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
 
-   ![Microphone access permission request](../../../media/sdk/qs-csharp-uwp-10-access-prompt.png)
+   ![Microphone access permission request](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
 1. Select **Speech recognition with microphone input**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
 
-   ![Speech recognition user interface](../../../media/sdk/qs-csharp-uwp-11-ui-result.png)
+   ![Speech recognition user interface](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-11-ui-result.png)
 
 ## Next steps
 

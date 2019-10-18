@@ -21,7 +21,7 @@ ms.author: erhopf
 Before you get started, make sure to:
 
 1. [Create a Speech resource and get a subscription key]().
-2. [Setup your development environment](../../../quickstart-platform-csharp-unity.md). Use this quickstart to install and configure Unity.
+2. [Setup your development environment](~/articles/cognitive-services/Speech-Service/quickstart-platform-csharp-unity.md). Use this quickstart to install and configure Unity.
 
 If you've already done this, great. Let's keep going.
 
@@ -29,10 +29,10 @@ If you've already done this, great. Let's keep going.
 
 1. Open Unity. If you're using Unity for the first time, the **Unity Hub** *<version number>* window appears. (You can also open Unity Hub directly to get to this window.)
 
-   [![Unity Hub window](../../../media/sdk/qs-csharp-unity-hub.png)](../../../media/sdk/qs-csharp-unity-hub.png#lightbox)
+   [![Unity Hub window](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-hub.png#lightbox)
 1. Select **New**. The **Create a new project with Unity** *<version number>* window appears.
 
-   [![Create a new project in Unity Hub](../../../media/sdk/qs-csharp-unity-create-a-new-project.png)](../../../media/sdk/qs-csharp-unity-create-a-new-project.png#lightbox)
+   [![Create a new project in Unity Hub](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-create-a-new-project.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-create-a-new-project.png#lightbox)
 1. In **Project Name**, enter **csharp-unity**.
 1. In **Templates**, if **3D** isn't already selected, select it.
 1. In **Location**, select or create a folder to save the project in.
@@ -50,7 +50,7 @@ Now let's add a minimal UI to our scene. This UI consists of a button to trigger
 
    This action creates three game objects that you can see in the **Hierarchy** window: a **Button** object, a **Canvas** object containing the button, and an **EventSystem** object.
 
-   [![Unity Editor environment](../../../media/sdk/qs-csharp-unity-editor-window.png)](../../../media/sdk/qs-csharp-unity-editor-window.png#lightbox)
+   [![Unity Editor environment](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-editor-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-editor-window.png#lightbox)
 
 1. [Navigate the **Scene** view](https://docs.unity3d.com/Manual/SceneViewNavigation.html) so you have a good view of the canvas and the button in the [**Scene** view](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 
@@ -62,7 +62,7 @@ Now let's add a minimal UI to our scene. This UI consists of a button to trigger
 
 When you're done, the **Scene** view should look similar to this screenshot:
 
-[![Scene view in the Unity Editor](../../../media/sdk/qs-csharp-unity-02-ui-inline.png)](../../../media/sdk/qs-csharp-unity-02-ui-inline.png#lightbox)
+[![Scene view in the Unity Editor](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-02-ui-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-02-ui-inline.png#lightbox)
 
 ## Add the sample code
 
@@ -70,7 +70,7 @@ To add the sample script code for the Unity project, follow these steps:
 
 1. In the [Project window](https://docs.unity3d.com/Manual/ProjectView.html), select **Create** > **C# script** to add a new C# script.
 
-   [![Project window in the Unity Editor](../../../media/sdk/qs-csharp-unity-project-window.png)](../../../media/sdk/qs-csharp-unity-project-window.png#lightbox)
+   [![Project window in the Unity Editor](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-project-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-project-window.png#lightbox)
 1. Name the script `HelloWorld`.
 
 1. Double-click `HelloWorld` to edit the newly created script.
@@ -84,7 +84,7 @@ To add the sample script code for the Unity project, follow these steps:
 
 1. Find and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
-1. Find and replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
+1. Find and replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
 1. Save the changes to the script.
 
@@ -94,7 +94,7 @@ Now return to the Unity Editor and add the script as a component to one of your 
 
 1. In the **Inspector** window, select the **Add Component** button.
 
-   [![Inspector window in the Unity Editor](../../../media/sdk/qs-csharp-unity-inspector-window.png)](../../../media/sdk/qs-csharp-unity-inspector-window.png#lightbox)
+   [![Inspector window in the Unity Editor](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-inspector-window.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-inspector-window.png#lightbox)
 
 1. In the drop-down list, search for the `HelloWorld` script we created above and add it. A **Hello World (Script)** section appears in the **Inspector** window, listing two uninitialized properties, **Output Text** and **Start Reco Button**. These Unity component properties match public properties of the `HelloWorld` class.
 
@@ -116,7 +116,7 @@ Now you're ready to run the application within the Unity Editor.
 
 1. Select the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the **Game** view.
 
-   [![Game view in the Unity Editor](../../../media/sdk/qs-csharp-unity-03-output-inline.png)](../../../media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
+   [![Game view in the Unity Editor](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 
 1. Check the [**Console** window](https://docs.unity3d.com/Manual/Console.html) for debug messages. If the **Console** window isn't showing, go to the menu bar and select **Window** > **General** > **Console** to display it.
 
