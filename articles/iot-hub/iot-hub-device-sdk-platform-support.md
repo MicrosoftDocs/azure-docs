@@ -51,11 +51,13 @@ The [Azure IoT Hub C device SDK](https://github.com/Azure/azure-iot-sdk-c) is te
 
 The [Azure IoT Hub Python device SDK](https://github.com/Azure/azure-iot-sdk-python) is tested with and supports the following configurations.
 
-| OS                  | Compiler                       |
-|---------------------|--------------------------------|
-| Linux               | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
-| MacOS High Sierra   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
-| Windows 10 family   | Python 2.7, 3.4, 3.5, 3.6, 3.7 |
+| OS                  | Compiler                          |
+|---------------------|-----------------------------------|
+| Linux               | Python 2.7*, 3.4*, 3.5*, 3.6, 3.7 |
+| MacOS High Sierra   | Python 2.7*, 3.4*, 3.5*, 3.6, 3.7 |
+| Windows 10 family   | Python 2.7*, 3.4*, 3.5*, 3.6, 3.7 |
+
+*Only Python version 3.5.3 or later support the asynchronous APIs, we recommend using 3.7 or later.
 
 ### .NET SDK
 
