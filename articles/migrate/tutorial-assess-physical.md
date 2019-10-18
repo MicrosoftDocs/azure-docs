@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Complete](tutorial-prepare-vmware.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
     - [Set up Azure permissions](tutorial-prepare-vmware.md#prepare-azure) for Azure Migrate.
-    - [Prepare physical servers](tutorial-prepare-vmware.md#prepare-for-physical-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
+    - [Prepare physical servers](tutorial-prepare-vmware.md#prepare-for-vcenter-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
 
 
 ## Set up an Azure Migrate project
@@ -151,7 +151,7 @@ Set up the appliance using the following steps.
 
 Now, connect from the appliance to the physical servers to be discovered, and start the discovery.
 
-1. In **User name** and **Password**, add one windows credential and one linux credential that the appliance will use to discover the servers. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-physical-server-permissions).
+1. In **User name** and **Password**, add one windows credential and one linux credential that the appliance will use to discover the servers. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
 2. Click **Add server**, and specify the physical server name and whether it is a windows or linux server.
 3. Click **Validate** to make sure that the appliance can connect to the servers.
 4. After the connection is established, click **Save and start discovery**.
