@@ -26,7 +26,17 @@ To learn more, review the Kubernetes documentation about [Deployments](https://k
 
 The Live Metrics and Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-The Live Deployments (preview) feature performs a one time (refreshable) load against the deployments endpoint `‘`/apis/apps/v1/deployments`.  It allows you to select a given deployment and load the describe details for that specific deployment against the deployment endpoint `‘`/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`. 
+The Live Deployments (preview) feature performs a one time (refreshable) load against the deployments endpoint `/apis/apps/v1/deployments`. It allows you to select a given deployment and load the describe details for that specific deployment against the deployment endpoint `/apis/apps/v1/namespaces/${nameSpace}/deployments/${deploymentName}`. 
+
+Selecting **Refresh** in the top left of the page refreshes the deployment list. This simulates re-running the `kubectl` command. 
+
+>[!IMPORTANT]
+>No data is stored permanently during operation of this feature. All information captured during the session is deleted when you close your browser or navigate away from it.  
+
+>[!NOTE]
+>You cannot pin the live data to an Azure dashboard.
+
+## Deployments describe
 
 To view Deployments, perform the following steps.
 
