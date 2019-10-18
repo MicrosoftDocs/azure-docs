@@ -45,6 +45,8 @@ landingContent:
             url: service/how-to-configure-environment.md
           - text: Set up training compute targets
             url: service/how-to-set-up-training-targets.md
+          - text: Try ML pipelines
+            url: service/concept-ml-pipelines.md           
             
   # PYTHON
   - title: 'Experiment: Python SDK'
@@ -107,11 +109,11 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Python SDK docs
+          - text: SDK for Python
             url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-          - text: R SDK docs
+          - text: SDK for R
             url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
-          - text: CLI docs
+          - text: Machine learning CLI
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
           - text: Algorithms & modules (Designer)
             url: algorithm-module-reference/module-reference.md
