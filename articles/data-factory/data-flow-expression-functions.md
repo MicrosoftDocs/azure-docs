@@ -1031,7 +1031,7 @@ Positive Modulus of pair of numbers.
 ___
 ### <code>partitionId</code>
 <code><b>partitionId() => integer</b></code><br/><br/>
-Returns the current partition id the input row is in
+Returns the current partition ID the input row is in
 
 * ``partitionId()``
 
