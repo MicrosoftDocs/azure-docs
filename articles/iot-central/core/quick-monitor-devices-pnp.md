@@ -4,42 +4,34 @@ description: As an operator, use your Azure IoT Central application to monitor y
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/06/2019
-ms.topic: tutorial
+ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
 ---
 
-# Tutorial: Use Azure IoT Central to monitor your devices (preview features)
+# Quickstart: Use Azure IoT Central to monitor your devices (preview features)
+
+*This article applies to operators, builders, and administrators.*
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as an operator, how to use your Microsoft Azure IoT Central application to monitor your devices and change settings.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Receive a notification
-> * Investigate an issue
-> * Remediate an issue
+This quickstart shows you, as an operator, how to use your Microsoft Azure IoT Central application to monitor your devices and change settings.
 
 ## Prerequisites
 
-Before you begin, the builder should complete the two builder quickstarts to create the Azure IoT Central application:
-
-* [Add a simulated device to your IoT Central application](./quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
-* [Configure rules and actions for your device](quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+Before you begin, you should complete the three previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), [Add a simulated device to your IoT Central application](./quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) and [Configure rules and actions for your device](quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Receive a notification
 
 Azure IoT Central sends notifications about devices as email messages. The builder added a rule to send a notification when the temperature in a connected environmental sensor device exceeded a threshold. Check the emails sent to the account the builder chose to receive notifications.
 
-Open the email message you received at the end of the [Configure rules and actions for your device](quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. In the email, select the link to the device:
+Open the email message you received at the end of the [Configure rules and actions for your device](quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart. In the email, select the link to the device:
 
 ![Alert notification email](media/quick-monitor-devices-pnp/email.png)
 
-The **Dashboard** view for the environmental sensor simulated device you created in the previous tutorials opens in your browser:
+The **Dashboard** view for the environmental sensor simulated device you created in the previous quickstarts opens in your browser:
 
 ![Device that triggered the notification email message](media/quick-monitor-devices-pnp/dashboard.png)
 
@@ -65,7 +57,7 @@ To make a change to the device, use the **Environmental Sensor properties** page
 
 ## Next steps
 
-In this tutorial, you learned how to:
+In this quickstart, you learned how to:
 
 * Receive a notification
 * Investigate an issue
@@ -74,4 +66,4 @@ In this tutorial, you learned how to:
 Now that you know now to monitor your device, the suggested next step is to:
 
 > [!div class="nextstepaction"]
-> [Configure rules and actions for your device](tutorial-configure-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+> [Build and manage a device template](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).

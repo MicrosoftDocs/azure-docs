@@ -21,7 +21,7 @@ In this quickstart, you create a rule that sends an email when the temperature i
 
 ## Prerequisites
 
-Before you begin, you should complete the [Add a simulated device to your IoT Central application](./quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart to create the **Environment Sensor** device template to work with.
+Before you begin, you should complete the two previous quickstarts [Create an Azure IoT Central application](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) and [Add a simulated device to your IoT Central application](./quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) to create the **Environment Sensor** device template to work with.
 
 ## Create a telemetry-based rule
 
