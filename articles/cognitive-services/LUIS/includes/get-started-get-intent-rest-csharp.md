@@ -18,7 +18,7 @@ ms.author: diberry
 
 ## Get LUIS key
 
-[!INCLUDE [Use authoring key for endpoint](../includes/get-key-for-quickstart.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## Get intent programmatically
 
