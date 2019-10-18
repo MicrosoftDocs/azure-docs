@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 05/15/2019
+ms.date: 10/15/2019
 # As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
 
