@@ -20,7 +20,9 @@ The following example can help you better understand how Virtual WAN routing app
 
 In this example, we have a virtual WAN with three hubs. The first hub is in the East US region, second hub is in the West Europe region, and the third hub is in the West US region. In a virtual WAN, all hubs are interconnected. In this example, we will assume that the East US and West Europe hubs have connections from on-premises branches (spokes) and Azure virtual networks (spokes).
 
-An Azure VNet spoke (10.4.0.0/16) with a Network Virtual Appliance (10.4.0.6) is further peered to a VNet (10.5.0.0/16). (You can use Hub Route Table – See Additional info later in this article). Let's also assume that the West Europe Branch 1 is connected to East US hub, as well as to the West Europe hub. An ExpressRoute circuit in East US connects Branch 2 to the East US hub.
+An Azure VNet spoke (10.4.0.0/16) with a Network Virtual Appliance (10.4.0.6) is further peered to a VNet (10.5.0.0/16). See [Additional information](#abouthubroute) later in this article for more information about the hub route table.
+
+In this example, we also assume that the West Europe Branch 1 is connected to East US hub, as well as to the West Europe hub. An ExpressRoute circuit in East US connects Branch 2 to the East US hub.
 
 ![diagram](./media/effective-routes-virtual-hub/diagram.png)
 
@@ -54,7 +56,7 @@ You can create a virtual hub route and apply the route to the virtual hub route 
 
 #### <a name="aboutdefaultroute"></a>About default route (0.0.0.0/0)
 
-A virtual hub has the ability to propagate a learned default route to a virtual network, a site-to-site VPN, and an ExpressRoute connection if the flag is ‘Enabled’ on the connection. This flag is visible when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection. 
+A virtual hub has the ability to propagate a learned default route to a virtual network, a site-to-site VPN, and an ExpressRoute connection if the flag is ‘Enabled’ on the connection. This flag is visible when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection.
 
 * By default, the flag is disabled when a site or an ExpressRoute circuit is connected to a hub.
 * By default, the flag is enabled when a virtual network connection is added in order to connect a VNet to a virtual hub.
