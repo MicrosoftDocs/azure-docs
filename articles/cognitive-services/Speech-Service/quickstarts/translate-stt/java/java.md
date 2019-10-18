@@ -50,7 +50,7 @@ If you're running Linux, make sure these dependencies are installed before start
 
 ## Create and configure project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
 ## Add sample code
 
