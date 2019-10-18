@@ -18,7 +18,7 @@ Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse) is a limitl
 
 Azure Synapse Analytics has four components:
 - SQL Analytics 
-    - Provisioned (formerly SQL DW)
+    - SQL pool (formerly SQL DW)
     - On-demand (Preview)
 - Spark : Deeply integrated Apache Spark (Preview) 
 - Data Integration : Hybrid data integration (Preview)
