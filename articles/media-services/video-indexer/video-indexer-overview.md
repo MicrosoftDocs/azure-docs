@@ -77,7 +77,7 @@ When indexing by one channel partial result for those models will be available
 
 * **Keywords extraction**: Extracts keywords from speech and visual text.
 * **Named entities extraction**: Extracts brands, locations, and people from speech and visual text via natural language processing (NLP).
-* **Topic inference**: Makes inference of main topics from transcripts. The 1st-level IPTC taxonomy is included.
+* **Topic inference**: Makes inference of main topics from transcripts. The 2nd-level IPTC taxonomy is included.
 * **Artifacts**: Extracts rich set of "next level of details" artifacts for each of the models.
 * **Sentiment analysis**: Identifies positive, negative, and neutral sentiments from speech and visual text.
 

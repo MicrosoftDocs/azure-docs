@@ -39,12 +39,12 @@ To complete this quickstart, you need to install the following software on your 
     npm i -g dps-keygen
     ```
 
-### Install Azure IoT Device Workbench
+### Install Azure IoT Tools
 
-Use the following steps to install the Azure IoT Device Workbench extension in VS Code:
+Use the following steps to install the Azure IoT Tools extension pack in VS Code:
 
 1. In VS Code, select the **Extensions** tab.
-1. Search for **Azure IoT Device Workbench**.
+1. Search for **Azure IoT Tools**.
 1. Select **Install**.
 
 ## Prepare the development environment

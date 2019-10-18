@@ -53,4 +53,4 @@ The user’s session expires when the lifetime of the token issued by Azure AD e
 ## Next steps
 
 * Learn more about other [Application types and scenarios](app-types.md)
-* Learn about the Azure AD [authentication basics](authentication-scenarios.md)
+* Learn about the Azure AD [authentication basics](v1-authentication-scenarios.md)

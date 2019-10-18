@@ -9,16 +9,16 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
 
 ---
 
-# Use Key Vault references for App Service and Azure Functions (preview)
+# Use Key Vault references for App Service and Azure Functions
 
 > [!NOTE] 
-> Key Vault references are currently in preview.
+> Key Vault references are not currently available in Linux consumption plans.
 
 This topic shows you how to work with secrets from Azure Key Vault in your App Service or Azure Functions application without requiring any code changes. [Azure Key Vault](../key-vault/key-vault-overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history.
 
@@ -49,7 +49,7 @@ A Key Vault reference is of the form `@Microsoft.KeyVault({referenceString})`, w
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | The **VaultName** should the name of your Key Vault resource. The **SecretName** should be the name of the target secret. The **SecretVersion** should be the version of the secret to use. |
 
 > [!NOTE] 
-> In the current preview, versions are required. When rotating secrets, you will need to update the version in your application configuration.
+> Versions are currently required. When rotating secrets, you will need to update the version in your application configuration.
 
 For example, a complete reference would look like the following:
 
@@ -189,7 +189,9 @@ If a reference is not resolved properly, the reference value will be used instea
 
 Most commonly, this is due to a misconfiguration of the [Key Vault access policy](#granting-your-app-access-to-key-vault). However, it could also be due to a secret no longer existing or a syntax error in the reference itself.
 
-If the syntax is correct, you can view other causes for error by checking the current resolution status using a built-in detector.
+If the syntax is correct, you can view other causes for error by checking the current resolution status in the portal. Navigate to Application Settings and select "Edit" for the reference in question. Below the setting configuration, you should see status information, including any errors. The absence of these implies that the reference syntax is invalid.
+
+You can also use one of the built-in detectors to get additional information.
 
 ### Using the detector for App Service
 

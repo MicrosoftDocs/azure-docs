@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Understand Azure Policy effects
 
@@ -50,6 +49,11 @@ There currently isn't any order of evaluation for the **EnforceRegoPolicy** effe
 This effect is useful for testing situations or for when the policy definition has parameterized the
 effect. This flexibility makes it possible to disable a single assignment instead of disabling all
 of that policy's assignments.
+
+An alternative to the Disabled effect is **enforcementMode** which is set on the policy assignment.
+When **enforcementMode** is _Disabled_, resources are still evaluated. Logging, such as Activity
+logs, and the policy effect don't occur. For more information, see
+[policy assignment - enforcement mode](./assignment-structure.md#enforcement-mode).
 
 ## Append
 
@@ -120,8 +124,9 @@ will be created.
 
 Modify is used to add, update, or remove tags on a resource during creation or update. A common
 example is updating tags on resources such as costCenter. A Modify policy should always have `mode`
-set to _Indexed_. Existing non-compliant resources can be remediated with a [remediation task](../how-to/remediate-resources.md).
-A single Modify rule can have any number of operations.
+set to _Indexed_ unless the target resource is a resource group. Existing non-compliant resources
+can be remediated with a [remediation task](../how-to/remediate-resources.md). A single Modify rule
+can have any number of operations.
 
 > [!IMPORTANT]
 > Modify is currently only for use with tags. If you are managing tags, it's recommended to use

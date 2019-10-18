@@ -1,4 +1,4 @@
---- 
+﻿--- 
 title: Azure VMware Solution by CloudSimple - Configure DNS for CloudSimple Private Cloud
 description: Describes how to set up DNS name resolution for access to vCenter server on a CloudSimple Private Cloud from on-premises workstations
 author: sharaths-cs 
@@ -62,7 +62,7 @@ zone “cloudsimple.io”
 3. Select the appropriate option depending on your environment and click **Next**.
 
     ![New Zone](media/DNS03.png)
-4. Select **Forward lookup zone** and click **Next**.
+4. Select **Forward lookup zone** and click **Next**.
 
     ![New Zone](media/DNS01.png)
 5. Enter the zone name and click **Next**.

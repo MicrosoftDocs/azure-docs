@@ -14,7 +14,7 @@ ms.author: diberry
 
 ---
 
-# Quickstart: Personalize client library for Node.js
+# Quickstart: Personalizer client library for Node.js
 
 Display personalized content in this Node.js quickstart with the Personalizer service.
 

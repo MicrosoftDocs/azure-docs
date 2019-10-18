@@ -41,6 +41,12 @@ In this section, you create a virtual network and the subnet that you will later
     |||
 1. Leave the rest as default, and then select **Create**.
 
+## Permissons
+
+If you didn't create the subnet you would like to delegate to an Azure service, you need the follwoing permission: `Microsoft.Network/virtualNetworks/subnets/write`.
+
+The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
+
 ## Delegate a subnet to an Azure service
 
 In this section, you delegate the subnet that you created in the preceding section to an Azure service.

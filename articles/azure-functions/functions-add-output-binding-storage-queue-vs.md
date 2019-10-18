@@ -13,9 +13,7 @@ manager: gwallace
 
 # Connect functions to Azure Storage using Visual Studio
 
-Azure Functions lets you connect functions to Azure services and other resources without having to write your own integration code. These pre-defined connections are called *bindings*. Bindings allow a function to use Azure services and other resources as input and output to a function.
-
-Function execution is started by a single *trigger*. A trigger is a special type of input binding. While a function has only one trigger, it can have multiple input and output bindings. To learn more, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 This article shows you how to use Visual Studio to connect the function you created in the [previous quickstart article] to Azure Storage. The output binding that you add to this function writes data from the HTTP request to a message in an Azure Queue storage queue. 
 
@@ -27,7 +25,7 @@ Before you start this article, you must:
 
  - Complete [part 1 of the Visual Studio quickstart][./functions-create-first-function-vs-code.md]. 
 
-- Sign in to your Azure subscription from Visual Studio
+- Sign in to your Azure subscription from Visual Studio.
 
 ## Download the function app settings
 

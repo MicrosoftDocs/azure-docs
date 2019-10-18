@@ -137,6 +137,6 @@ For higher-throughput loading distributed over the cluster, use the MapReduce lo
 ## Next steps
 
 * [Bulk Data Loading with Apache Phoenix](https://phoenix.apache.org/bulk_dataload.html)
-* [Use Apache Phoenix with Linux-based Apache HBase clusters in HDInsight](../hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [Use Apache Phoenix with Linux-based Apache HBase clusters in HDInsight](../hbase/apache-hbase-query-with-phoenix.md)
 * [Salted Tables](https://phoenix.apache.org/salted.html)
 * [Apache Phoenix Grammar](https://phoenix.apache.org/language/index.html)

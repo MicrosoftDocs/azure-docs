@@ -320,7 +320,7 @@ Suppose the compute unit price is $0.000073/vCore/second.  Then the compute bill
 
 ## Available regions
 
-The serverless compute tier is available worldwide except the following regions: Australia Central, China East, China North, France South, Germany Central, Germany Northeast, India West, Korea South, South Africa West, UK North, UK South, UK West, and West Central US.
+The serverless compute tier is available worldwide except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South 2, West Central US, and US Gov Central (Iowa).
 
 ## Next steps
 
