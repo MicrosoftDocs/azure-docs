@@ -11,7 +11,7 @@ ms.date: 02/28/2018
 
 The below sample code illustrates connection pooling in java.
 
-```
+```java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
