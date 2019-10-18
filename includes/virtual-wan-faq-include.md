@@ -128,10 +128,6 @@ No, the Virtual WAN does not require ExpressRoute from each site. It uses standa
 
 Number of branches is limited to 1000 connections per hub/region and a total of 20 Gbps in the hub. You can have 1 hub per region.
 
-### I don't see the 20 Gbps setting for the virtual hub in the portal. How do I configure that?
-
-Navigate to the VPN gateway inside a hub on the portal and click on the scale unit to change it to the appropriate setting.
-
 ### How many VPN connections does a Virtual WAN hub support?
 
 An Azure Virtual WAN hub can support up to 1,000 S2S connections, 10,000 P2S connections, and 4 ExpressRoute connections simultaneously.
@@ -139,6 +135,10 @@ An Azure Virtual WAN hub can support up to 1,000 S2S connections, 10,000 P2S con
 ### What is the total VPN throughput of a VPN tunnel and a connection?
 
 The total VPN throughput of a hub is up to 20 Gbps based on the chosen scale unit. Throughput is shared by all existing connections. Each tunnel in a connection can support up to 1 Gbps.
+
+### I don't see the 20 Gbps setting for the virtual hub in the portal. How do I configure that?
+
+Navigate to the VPN gateway inside a hub on the portal and click on the scale unit to change it to the appropriate setting.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel, or is it always a single VPN tunnel?
 
