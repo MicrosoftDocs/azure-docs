@@ -13,6 +13,8 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
+# Quickstart: Recognize speech from a microphone
+
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](./header.md)]
 [!INCLUDE [C# quickstart](./csharp/stt-mic-csharp.md)]
