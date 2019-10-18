@@ -25,15 +25,17 @@
         href: storage-quickstart-blobs-cli.md
     - name: Develop with blobs
       items:
-      - name: .NET
+      - name: .NET (v11)
         href: storage-quickstart-blobs-dotnet.md
-      - name: Java
+      - name: .NET (v12)
+        href: storage-quickstart-blobs-dotnet-v12.md
+      - name: Java (v8)
         href: storage-quickstart-blobs-java.md
       - name: Python
         href: storage-quickstart-blobs-python.md
-      - name: Javascript (Node.js)
+      - name: Javascript (v10 for Node.js)
         href: storage-quickstart-blobs-nodejs-v10.md
-      - name: Javascript (browser)
+      - name: Javascript (v10 for browser)
         href: storage-quickstart-blobs-javascript-client-libraries-v10.md
       - name: Go
         href: storage-quickstart-blobs-go.md

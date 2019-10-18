@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/20/2019
+ms.date: 10/19/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -23,7 +23,7 @@ Use the Azure Blob Storage client library for .NET v12 to:
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12.0.0-preview.4) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -79,7 +79,7 @@ Time Elapsed 00:00:05.88
 While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.4
+dotnet add package Azure.Storage.Blobs --version 12.0
 ```
 
 ### Set up the app framework
@@ -107,7 +107,8 @@ namespace blob_quickstart_v12
 {
     class Program
     {
-        private static readonly string myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + '\\';
+        private static readonly string myDocumentsPath = 
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + '\\';
 
         public static void Main()
         {
@@ -150,7 +151,7 @@ setx ACCOUNT_NAME "<youraccountname>"
 setx ACCESS_KEY "<youraccesskey>"
 ```
 
-After you add the environment variables in Windows, you must start a new instance of the command window.
+   After you add the environment variables in Windows, you must start a new instance of the command window.
 
 #### Linux
 
@@ -165,6 +166,8 @@ export ACCESS_KEY "<youraccesskey>"
 export ACCOUNT_NAME "<youraccountname>"
 export ACCESS_KEY "<youraccesskey>"
 ```
+
+#### Restart programs
 
 After you add the environment variables, restart any running programs that will need to read them. For example, restart your development environment or editor before continuing.
 
