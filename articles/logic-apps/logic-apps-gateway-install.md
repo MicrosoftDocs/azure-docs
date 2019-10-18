@@ -26,16 +26,18 @@ This article shows how to download, install, and set up your on-premises data ga
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure account with a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
   * You need to use the same Azure account to install and to administer the gateway on your local computer.
 
-    During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure subscription and only that subscription. Later, in the Azure portal, you need to use the same Azure account for creating an Azure gateway resource that links to your gateway installation. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources.
+    During gateway installation, you sign in with your Azure account, which links your gateway installation to your Azure account and only that account. Later, in the Azure portal, you need to use the same Azure account for creating an Azure gateway resource that registers and claims your gateway installation. In Azure Logic Apps, on-premises triggers and actions then use the gateway resource for connecting to on-premises data sources.
 
     > [!NOTE]
-    > You can't link the same gateway installation to multiple subscriptions or gateway resources. 
-    > However, in an on-premises trigger or action, you can select a gateway resource from your 
-    > various Azure subscriptions. Each gateway resource is linked to a single gateway installation.
+    > You can link only one gateway installation and one Azure gateway resource to each other. 
+    > You can't link the same gateway installation to multiple Azure accounts or Azure gateway resources. 
+    > However, an Azure account can link to multiple gateway installations and Azure gateway resources. 
+    > In an on-premises trigger or action, you can select from your various Azure subscriptions, 
+    > and then select an associated gateway resource.
 
   * You need to sign in with either a work account or school account, also known as an *organization* account, which looks like `username@contoso.com`. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as @hotmail.com or @outlook.com.
 
@@ -45,10 +47,12 @@ This article shows how to download, install, and set up your on-premises data ga
     > within a tenant in an Azure Active Directory (Azure AD). In most cases, the User Principal 
     > Name (UPN) for your Azure AD account is the same as your email address.
     >
-    > To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) that's associated 
-    > with a Microsoft account, first [create a tenant in Azure AD](../active-directory/develop/quickstart-create-new-tenant.md), 
-    > or use the default directory. Add a user with a password to the directory, then give that user access to your subscription. 
-    > You can then sign in during gateway installation with this username and password.
+    > To use a [Visual Studio Standard subscription](https://visualstudio.microsoft.com/vs/pricing/) 
+    > that's linked to a Microsoft account, first 
+    > [create a tenant in Azure AD](../active-directory/develop/quickstart-create-new-tenant.md)
+    > or use the default directory. Add a user with a password to the directory, and then give that 
+    > user access to your Azure subscription. You can then sign in during gateway installation 
+    > with this username and password.
 
 * Here are requirements for your local computer:
 
@@ -104,11 +108,11 @@ This article shows how to download, install, and set up your on-premises data ga
 
    ![Review requirements and accept terms of use](./media/logic-apps-gateway-install/accept-terms.png)
 
-1. After the gateway successfully installs, provide the email address for your Azure subscription, and then select **Sign in**, for example:
+1. After the gateway successfully installs, provide the email address for your Azure account, and then select **Sign in**, for example:
 
    ![Sign in with work or school account](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   Your gateway installation can map to one Azure account and subscription.
+   Your gateway installation can link to only one Azure account.
 
 1. Select **Register a new gateway on this computer** > **Next**. This step registers your gateway installation with the [gateway cloud service](#gateway-cloud-service).
 
@@ -166,7 +170,7 @@ The on-premises data gateway depends on [Azure Service Bus](../service-bus-messa
 
 To avoid single points of failure for on-premises data access, you can have multiple gateway installations (standard mode only) with each on a different computer, and set them up as a cluster or group. That way, if the primary gateway is unavailable, data requests are routed to the second gateway, and so on. Because you can install only one standard gateway on a computer, you must install each additional gateway that's in the cluster on a different computer. All the connectors that work with the on-premises data gateway support high availability.
 
-* You must already have at least one gateway installation within the same Azure subscription as the primary gateway and the recovery key for that installation.
+* You must already have at least one gateway installation with the same Azure account as the primary gateway and the recovery key for that installation.
 
 * Your primary gateway must be running the gateway update from November 2017 or later.
 
@@ -248,15 +252,15 @@ These steps describe what happens when you interact with an element that's conne
 
 A stored credential is used to connect from the gateway to on-premises data sources. Regardless of the user, the gateway uses the stored credential to connect. There might be authentication exceptions for specific services, such as DirectQuery and LiveConnect for Analysis Services in Power BI.
 
-### Azure Active Directory
+### Azure Active Directory (Azure AD)
 
-Microsoft cloud services use [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) to authenticate users. An Azure AD tenant contains usernames and security groups. Typically, the email address that you use for sign-in is the same as the User Principal Name (UPN) for your account.
+Microsoft cloud services use [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) to authenticate users. An Azure AD tenant contains usernames and security groups. Typically, the email address that you use for sign-in is the same as the User Principal Name (UPN) for your account.
 
 ### What is my UPN?
 
 If you're not a domain admin, you might not know your UPN. To find the UPN for your account, run the `whoami /upn` command from your workstation. Although the result looks like an email address, the result is the UPN for your local domain account.
 
-### Synchronize an on-premises Active Directory with Azure Active Directory
+### Synchronize an on-premises Active Directory with Azure AD
 
 The UPN for your on-premises Active Directory accounts and Azure AD accounts must be the same. So, make sure that each on-premises Active Directory account matches your Azure AD account. The cloud services know only about accounts within Azure AD. So, you don't need to add an account to your on-premises Active Directory. If the account doesn't exist in Azure AD, you can't use that account.
 
