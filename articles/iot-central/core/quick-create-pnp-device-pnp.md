@@ -157,7 +157,7 @@ After you create a new simulated device, the builder can use this device to cont
 
 1. Choose the **Device templates** tab in the left pane and select the **Environmental Sensor** template.
 
-1. Select any of the views you would like to edit, or create a new view. Click **Configure preview device**, then **Select from a running device**. Here you can choose between having no preview device, using a real device you can configure for testing, or from an existing device you have added into IoT Central.
+1. Select any of the views you would like to edit, or create a new view. Click **Configure preview device**, then **Select from a running device**. Here you can choose between having no preview device, using a real device you can configure for testing, or from an existing device you've added into IoT Central.
 
 1. Choose your simulated device in the list. Then select **Apply**. Now you can see the same simulated device in your device template views building experience. This view is useful for charts and other visualizations.
 
