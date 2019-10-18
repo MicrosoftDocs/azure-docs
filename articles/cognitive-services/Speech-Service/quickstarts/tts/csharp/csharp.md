@@ -12,9 +12,9 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-**Select your development environment**
+**Select your target environment**
 
-#### [Visual Studio](#tab/dotnet)
+#### [.Net](#tab/dotnet)
 [!INCLUDE [Header](../header.md)]
 [!INCLUDE [vs](./windows.md)]
 #### [.Net Core](#tab/dotnetcore)
