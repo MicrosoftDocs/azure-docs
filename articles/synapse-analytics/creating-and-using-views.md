@@ -1,9 +1,9 @@
 ---
 title: Creating and using views #Required; update as needed page title displayed in search results. Include the brand.
 description: This section explains how to leverage views to wrap SQL on demand queries so you can reuse your queries. Views are also needed if you want tools like Power BI to leverage SQL on demand Query. #Required; Add article description that is displayed in search results.
-services: sql-analytics #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
+services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-analytics #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
+ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
 ms.topic: overview #Required
 ms.subservice: design #Required will update once these are established.
 ms.date: 10/07/2019 #Update with current date; mm/dd/yyyy format.
@@ -89,7 +89,7 @@ WITH (
 
 You can use views in your queries the same way you use views in SQL Server queries. 
 
-Following query shows how you can use *population_csv* view we created in [Creating views](#Creating-views). It returns country names with their population in 2019 in descending order.
+Following query shows how you can use *population_csv* view we created in [Creating views](#creating-views). It returns country names with their population in 2019 in descending order.
 
 > Please change the first line in query below to use database you created. If you did not create database, please check [First time setup](query-data-in-storage.md#first-time-setup).
 
