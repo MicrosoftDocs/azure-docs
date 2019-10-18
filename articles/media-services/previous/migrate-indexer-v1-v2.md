@@ -73,9 +73,9 @@ Some known differences include:
 * Audio Indexing Blob (AIB) files will no longer be supported. This feature was specific to the Indexer 1 technology and is no longer offered.  
 * Cognitive Services Speech Services does not support keyword extraction. However, Video Indexer and Media Services v3 AudioAnalyzerPreset both offer a more robust set of keywords in JSON file format. 
 
-## Contact us 
+## Need help?
 
-If you have questions on the deprecation of Azure Media Indexer 1 and Azure Media Indexer 2 or on migrating to any of the other services, please reach out to us via amshelp@microsoft.com 
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## Next steps
 
