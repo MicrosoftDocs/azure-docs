@@ -19,7 +19,7 @@ Speaker Recognition APIs are cloud-based APIs that provide the advanced AI algor
 
 ## Speaker Verification
 
-Voice has unique characteristics to identify a person, just like a fingerprint.  Applications can use voice and passphrases as signals to simplify the authentication experience in scenarios like call centers authentication, web services, and smart building.
+Voice has unique characteristics to identify a person.  Applications can use voice together with passphrases as signals to simplify the identity verification experience in scenarios like call centers, web services, and smart building.
 
 Speaker Verification APIs serve an intelligent tool to automatically verify users using both their voice and speech phrases.
 
@@ -29,7 +29,7 @@ Enrollment for speaker verification is text-dependent, which means that the spea
 
 In the enrollment phase, the speaker's voice is recorded saying a specific phrase. Many features are extracted to form a unique voice signature while the chosen phrase is recognized. Together, both the voice signature and the chosen phrase would be used to verify the speaker's identity.
 
-The speech audio and features extracted are stored in a highly secure way. You can create, update, and remove the enrollment audio and the voice signatures through API calls. When the subscription is removed, all the stored data under the subscription ID would be removed automatically.
+The speech audio and features extracted are stored in secure way. You can individually create, update, and remove an enrollment audio or a voice signature through API calls. When the subscription is deleted, all the stored data under the subscription would be deleted at once.
 
 ### Verification
 
