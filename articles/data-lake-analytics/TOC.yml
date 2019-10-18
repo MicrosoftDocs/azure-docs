@@ -118,7 +118,7 @@
       href: data-lake-analytics-cicd-test.md
     - name: U-SQL SDK
       href: data-lake-analytics-u-sql-sdk.md
-  - name: Troubleshoot
+  - name: Troubleshoot U-SQL jobs
     items:
     - name: Troubleshoot U-SQL runtime changes
       href: data-lake-analytics-runtime-troubleshoot.md
