@@ -50,9 +50,9 @@ Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` f
 
 You will need to create a resource Group and an App Service Plan before you deploy the service in VS Code.
 
-## Sign in to Azure
+### Sign in to Azure
 
-Naviagte to the href="https://portal.azure.com/" target="_blank">azure website</a> and sign in to your Azure subscription.
+Naviagte to the <a href="https://portal.azure.com/" target="_blank">azure website</a> and sign in to your Azure subscription.
 
 ### Create a resource group
 
@@ -84,8 +84,6 @@ Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSamp
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
-
 ## Adding Azure Cosmos DB to your Web App
 
 In this tutorial, you've deployed an ASP.NET Core Web App in Azure, and then configured and deployed a Unity App. You created Spatial Anchors with the app, and shared them with other devices by using your ASP.NET Core Web App.
@@ -111,6 +109,8 @@ In **Solution Explorer**, open `SharingService\appsettings.json`.
 Locate the `StorageConnectionString` property, and set the value to be the same as the `Connection String` value that you copied in the [create a database account step](#create-a-database-account). Save the file.
 
 You can publish the Sharing Service again and finally deploy the app.
+
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 

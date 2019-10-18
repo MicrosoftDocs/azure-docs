@@ -10,6 +10,7 @@ ms.author: rgarcia
 
 The Java android sample supports sharing across devices.
 Open the file `SharedActivity.java` from the samples folder in Android Studio and enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+
 Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
 
 The first scenario lets you create an anchor that can be located later on the same device or on a different one.
@@ -22,6 +23,7 @@ information. Later on, you'll place an anchor in the world, wait for it to save,
 
 The Objective-C iOS sample supports sharing across devices.
 Open the file `SharedDemoViewController.m` in the samples folder and enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+
 Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
 
 The first scenario lets you create an anchor that can be located later on the same device or on a different one.
@@ -34,6 +36,7 @@ information. Later on, you'll place an anchor in the world, wait for it to save,
 
 Both Xamarin Android and iOS samples support sharing across devices.
 Open the file `AccountDetails.cs` in the samples folder and enter the `Sharing Anchors Service url` (from your ASP.NET web app Azure deployment) as the value for `AnchorSharingServiceUrl`, replacing `index.html` with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
+
 Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
 
 The first scenario lets you create an anchor that can be located later on the same device or on a different one.
