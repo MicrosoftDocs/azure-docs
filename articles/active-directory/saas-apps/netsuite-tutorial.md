@@ -72,7 +72,7 @@ To configure and test Azure AD SSO with NetSuite, complete the following buildin
     a. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with user B.Simon.  
     b. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable user B.Simon to use Azure AD single sign-on.
 1. **[Configure NetSuite SSO](#configure-netsuite-sso)** to configure the single sign-on settings on the application side.
-    * **[Create NetSuite test user](#create-netsuite-test-user)** to have a counterpart of user B.Simon in NetSuite that's linked to the Azure AD representation of the user.
+    * **[Create the NetSuite test user](#create-the-netsuite-test-user)** to have a counterpart of user B.Simon in NetSuite that's linked to the Azure AD representation of the user.
 1. **[Test SSO](#test-sso)** to verify that the configuration works.
 
 ## Configure Azure AD SSO
@@ -268,7 +268,7 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
 
     m. Select **Save**.
 
-### Create a NetSuite test user
+### Create the NetSuite test user
 
 In this section, a user called B.Simon is created in NetSuite. NetSuite supports just-in-time user provisioning, which is enabled by default. There's no action item for you in this section. If a user doesn't already exist in NetSuite, a new one is created after authentication.
 
