@@ -496,8 +496,18 @@
           href: insights/container-insights-analyze.md
         - name: Disable monitoring
           href: insights/container-insights-optout.md
-        - name: View live logs
-          href: insights/container-insights-live-logs.md
+        - name: View live data
+          items:
+          - name: Setup
+            href: insights/container-insights-livedata-setup.md
+          - name: View cluster metrics
+            href: insights/container-insights-livedata-metrics.md
+          - name: View cluster logs and events
+            href: insights/container-insights-livedata-events-logs.md
+          - name: View deployments
+            href: insights/container-insights-livedata-deployments.md
+          - name: Live console
+            href: insights/container-insights-livedata-console.md
         - name: Analyze data with log queries
           href: insights/container-insights-log-search.md
         - name: Alerting
