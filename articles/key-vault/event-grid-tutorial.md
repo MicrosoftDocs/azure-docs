@@ -28,7 +28,7 @@ This guide will show you how to receive Key Vault notifications through Azure Ev
 
 ## Concepts
 
-Azure Event Grid is an eventing service for the cloud. In this guide, you will subscribe to events for key vault and route events to Azure Automation. When one of the keys in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation execution of PowerShell script. 
+Azure Event Grid is an eventing service for the cloud. In this guide, you will subscribe to events for key vault and route events to Azure Automation. When one of the secrets in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation execution of PowerShell script. 
 
 ![image](media/image1.png)
 
@@ -185,7 +185,7 @@ write-Error "No input data found."
 
 1.  Under metrics, see if an events were captured.
 
-    1.  Two events are expected : SecretNewVersion and SecretNearExpiry. This validates that event grid successfully captured the status change of the key in your key vault.
+    1.  Two events are expected : SecretNewVersion and SecretNearExpiry. This validates that event grid successfully captured the status change of the secret in your key vault.
 
     ![](media/image11.png)
 
@@ -193,7 +193,7 @@ write-Error "No input data found."
 
 1.  Select the "Runbooks" tab, and click on the runbook you created
 
-1.  Select the "Webhooks" tab, and look at the "last triggered" timestamp, confirm that this is the same time as when you created the new key version (within 60 seconds).
+1.  Select the "Webhooks" tab, and look at the "last triggered" timestamp, confirm that this is the same time as when you created the new secret (within 60 seconds).
 
     1.  This validates that event grid made a POST to the webhook with the event details of the status change in your key vault, and the webhook was triggered.
 
