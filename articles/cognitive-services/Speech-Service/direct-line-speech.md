@@ -22,8 +22,6 @@ ms.author: travisw
 
 Direct Line Speech offers the highest levels of customization and sophistication for Voice Assistants. It is well-suited to conversational scenarios that’re open-ended, natural, or hybrids of these with task completion or command-and-control use. This high degree of flexibility comes with a greater complexity, and scenarios that are scoped to well-defined tasks using natural language input may want to consider [Custom Commands Preview](custom-commands.md) for a streamlined solution experience.
 
-***<Image: bot scenario />***
-
 ## Getting started with Direct Line Speech
 
 The first steps for creating a Voice Assistant using Direct Line Speech are to get a speech subscription key, create a new bot associated with that subscription, and connect the bot to the Direct Line Speech Channel. 
