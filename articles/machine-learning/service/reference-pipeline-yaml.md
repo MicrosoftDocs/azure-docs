@@ -114,8 +114,7 @@ Steps define a computational environment, along with the files to run on the env
 | YAML key | Description |
 | ----- | ----- |
 | `script_name` | The name of the U-SQL script (relative to the `source_directory`). |
-| `name` | TBD |
-| `compute_target` | TBD |
+| `compute_target` | The Azure Data Lake compute target to use for this step. |
 | `parameters` | [Parameters](#parameters) to the pipeline. |
 | `inputs` | TBD |
 | `outputs` | TBD |
@@ -130,6 +129,7 @@ Steps define a computational environment, along with the files to run on the env
 
 | YAML key | Description |
 | ----- | ----- |
+| `compute_target` | The Azure Batch compute target to use for this step. |
 | `source_directory` | Directory that contains the module binaries, executable, assemblies, etc. |
 | `executable` | Name of the command/executable that will be ran as part of this job. |
 | `create_pool` | Boolean flag to indicate whether to create the pool before running the job. |
@@ -144,6 +144,7 @@ Steps define a computational environment, along with the files to run on the env
 
 | YAML key | Description |
 | ----- | ----- |
+| `compute_target` | The Azure Databricks compute target to use for this step. |
 | `run_name` | The name in Databricks for this run. |
 | `source_directory` | Directory that contains the script and other files. |
 | `num_workers` | The static number of workers for the Databricks run cluster. |
@@ -154,6 +155,7 @@ Steps define a computational environment, along with the files to run on the env
 
 | YAML key | Description |
 | ----- | ----- |
+| `compute_target` | The Azure Data Factory compute target to use for this step. |
 | `source_data_reference` | Input connection that serves as the source of data transfer operations. Supported values are TBD. |
 | `destination_data_reference` | Input connection that serves as the destination of data transfer operations. Supported values are TBD. |
 | `allow_reuse` | Determines whether the step should reuse previous results when re-run with the same settings. |
@@ -162,7 +164,17 @@ Steps define a computational environment, along with the files to run on the env
 
 | YAML key | Description |
 | ----- | ----- |
+| `compute_target` | The compute target to use for this step. The compute target can be an Azure Machine Learning Compute, Virtual Machine (such as the Data Science VM), or HDInsight. |
 | `script_name` | The name of the Python script (relative to `source_directory`). |
 | `source_directory` | Directory that contains the script, Conda environment, etc. |
 | `runconfig` | The path to a `.runconfig` file. This file is a YAML representation of the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) class. For more information on the structure of this file, see [TBD]. |
 | `allow_reuse` | Determines whether the step should reuse previous results when re-run with the same settings. |
+
+## Inputs
+
+| YAML key | Description |
+| ----- | ----- |
+| `type` | The type of input. Valid values are `mount` and `download`. |
+| `path_on_compute` | For `download` mode, the local path the step will read the data from. |
+| `overwrite` | For `download` mode, indicates whether to overwrite existing data. |
+| `source` | The data source. This can refer to [Parameters](#parameters)
