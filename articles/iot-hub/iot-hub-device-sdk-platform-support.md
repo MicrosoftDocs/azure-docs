@@ -66,6 +66,8 @@ The [Azure IoT Hub .NET (C#) device SDK](https://github.com/Azure/azure-iot-sdk-
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop and Server SKUs   | .NET Core 2.1, .NET Framework 4.5.1, or .NET Framework 4.7 |
 
+The .NET SDK can also be used with Windows IoT Core with the [Azure Device Agent](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) or [a custom NTService that can use RPC to communicate with UWP applications](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
+
 ### Node.js SDK
 
 The [Azure IoT Hub Node.js device SDK](https://github.com/Azure/azure-iot-sdk-node) is tested with and supports the following configurations.
