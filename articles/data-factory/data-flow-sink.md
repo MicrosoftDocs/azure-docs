@@ -57,6 +57,10 @@ When you choose rule-based mapping, you are instructing ADF to evaluate your mat
 
 Details on pattern matching are at [Column Pattern documentation](concepts-data-flow-column-pattern.md).
 
+You can also enter regular expression patterns when using rule based matching by expanding the row and entering a regular expression next to "Name Matches:".
+
+![Regex Mapping](media/data-flow/scdt1g4.png "Regex mapping")
+
 ## File name options
 
 Set up file naming: 
