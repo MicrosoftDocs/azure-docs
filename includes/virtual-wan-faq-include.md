@@ -126,7 +126,7 @@ Yes.
 
 ### Does Virtual WAN require ExpressRoute from each site?
 
-No, the Virtual WAN does not require ExpressRoute from each site. It uses standard IPsec site-to-site connectivity via Internet links from the device to an Azure Virtual WAN hub. Your sites may be connected to a provider network using an ExpressRoute circuit. For Sites that are connected using ExpressRoute in a virtual hub, sites can have branch to branch traffic flow between VPN and ExpressRoute.
+No, the Virtual WAN does not require ExpressRoute from each site. It uses standard IPsec site-to-site connectivity via internet links from the device to an Azure Virtual WAN hub. Your sites may be connected to a provider network using an ExpressRoute circuit. For Sites that are connected using ExpressRoute in a virtual hub, sites can have branch to branch traffic flow between VPN and ExpressRoute.
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
@@ -156,9 +156,9 @@ For information about global transit architecture, see [Global transit network a
 
 The traffic follows the pattern: branch device ->ISP->Microsoft network edge->Microsoft DC (hub VNet)->Microsoft network edge->ISP->branch device
 
-### In this model, what do you need at each site? Just an Internet connection?
+### In this model, what do you need at each site? Just an internet connection?
 
-Yes. An Internet connection and physical device that supports IPsec, preferably from our integrated [Virtual WAN partners](../articles/virtual-wan/virtual-wan-locations-partners.md). Optionally, you can manually manage the configuration and connectivity to Azure from your preferred device.
+Yes. An internet connection and physical device that supports IPsec, preferably from our integrated [Virtual WAN partners](../articles/virtual-wan/virtual-wan-locations-partners.md). Optionally, you can manually manage the configuration and connectivity to Azure from your preferred device.
 
 ### How do I enable default route (0.0.0.0/0) in a connection (VPN, ExpressRoute, or Virtual Network):
 
