@@ -7,7 +7,7 @@ author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: quickstart
+ms.topic: include
 ms.date: 6/24/2019
 ms.author: yinhew
 ---
