@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: overview
-ms.date: 04/09/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.custom: pim 
 ms.collection: M365-identity-device-management
@@ -21,11 +21,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) is a serv
 
 ## Reasons to use
 
-Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor getting that access, or an authorized user inadvertently impacting a sensitive resource. However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps. Organizations can give users just-in-time (JIT) privileged access to Azure resources and Azure AD. There is a need for oversight for what those users are doing with their administrator privileges. Privileged Identity Management helps to mitigate the risk of excessive, unnecessary, or misused access rights.
+Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor hijacking that access, or an authorized user accidentally impacting a sensitive resource. However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps, so there is a need for oversight over what users do with their administrator permissions. If you want to give users just-in-time (JIT) privileged access to Azure resources and Azure AD, Privileged Identity Management can help to mitigate the risk of excessive, unnecessary, or misused access permissions.
 
 ## What does it do?
 
-Privileged Identity Management essentially helps you manage the who, what, when, where, and why for resources that you care about. Here are some of the key features of Privileged Identity Management:
+Use Privileged Identity Management to manage the who, what, when, where, and why for resources that you care about. Here are some of the key features of Privileged Identity Management:
 
 - Provide **just-in-time** privileged access to Azure AD and Azure resources
 - Assign **time-bound** access to resources using start and end dates
@@ -79,16 +79,16 @@ To better understand Privileged Identity Management and its documentation, you s
 | Term or concept | Role assignment category | Description |
 | --- | --- | --- |
 | eligible | Type | A role assignment that requires a user to perform one or more actions to use the role. If a user has been made eligible for a role, that means they can activate the role when they need to perform privileged tasks. There's no difference in the access given to someone with a permanent versus an eligible role assignment. The only difference is that some people don't need that access all the time. |
-| active | Type | A role assignment that doesn't require a user to perform any action to use the role. Users assigned as active have the privileges assigned to the role. |
-| activate |  | The process of performing one or more actions to use a role that a user is eligible for. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers. |
-| assigned | State | A user that has an active role assignment. |
-| activated | State | A user that has an eligible role assignment, performed the actions to activate the role, and is now active.  Once activated, the user can use the role for a preconfigured period-of-time before they need to activate again. |
+| active | Type | A role assignment that doesn't require a user to perform any action to use the role. Users assigned as active have the permissions assigned to the role. |
+| activate |  | The process of performing one or more actions to use a role that a user is eligible for. Actions might include performing a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers. |
+| assigned | State | A user who has an active role assignment. |
+| activated | State | A user who<br><li>has an eligible role assignment<li>performed the actions to activate the role<li>is now active.<br>Once activated, the user can use the role for an assigned period of time before they are required to activate again. |
 | permanent eligible | Duration | A role assignment where a user is always eligible to activate the role. |
-| permanent active | Duration | A role assignment where a user can always use the role without performing any actions. |
+| permanent active | Duration | A role assignment where a user can always use the role without first  performing any actions. |
 | expire  eligible | Duration | A role assignment where a user is eligible to activate the role within a specified start and end date. |
-| expire active | Duration | A role assignment where a user can use the role without performing any actions within a specified start and end date. |
+| expire active | Duration | A role assignment where a user can use the role without first performing any actions within a specified start and end date. |
 | just-in-time (JIT) access |  | A model in which users receive temporary permissions to perform privileged tasks, which prevents malicious or unauthorized users from gaining access after the permissions have expired. Access is granted only when users need it. |
-| principle of least privilege access |  | A recommended security practice in which every user is provided with only the minimum privileges needed to accomplish the tasks they are authorized to perform. This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios. |
+| principle of least privileged access |  | A recommended security practice in which every user is provided with only the minimum permissions needed to accomplish the tasks they are authorized to perform. This practice minimizes the number of Global Administrators and instead uses specific administrator roles for certain scenarios. |
 
 ## License requirements
 
