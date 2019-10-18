@@ -4,7 +4,7 @@ description: Describes the functions to use in an Azure Resource Manager templat
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/18/2019
 ms.author: tomfitz
 
 ---
@@ -811,6 +811,112 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
     }
 }
 ```
+
+## subscriptionResourceId
+
+`subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
+
+Returns the unique identifier for a resource deployed at the subscription level.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId |No |string (in GUID format) |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. |
+| resourceType |Yes |string |Type of resource including resource provider namespace. |
+| resourceName1 |Yes |string |Name of resource. |
+| resourceName2 |No |string |Next resource name segment, if needed. |
+
+Continue adding resource names as parameters when the resource type includes more segments.
+
+### Return value
+
+The identifier is returned in the following format:
+
+**/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+
+### Remarks
+
+You use this function to get the resource ID for resources that are [deployed to the subscription](deploy-to-subscription.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a resource group value.
+
+## SubscriptionResourceID example
+
+The following template assigns a built-in role. You can deploy it to either a resource group or subscription.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "principalId": {
+            "type": "string",
+            "metadata": {
+                "description": "The principal to assign the role to"
+            }
+        },
+        "builtInRoleType": {
+            "type": "string",
+            "allowedValues": [
+                "Owner",
+                "Contributor",
+                "Reader"
+            ],
+            "metadata": {
+                "description": "Built-in role to assign"
+            }
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
+            }
+        }
+    },
+    "variables": {
+        "Owner": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '8e3af657-a8ff-443c-a75c-2fe8c4bcb635')]",
+        "Contributor": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')]",
+        "Reader": "[subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2018-09-01-preview",
+            "name": "[parameters('roleNameGuid')]",
+            "properties": {
+                "roleDefinitionId": "[variables(parameters('builtInRoleType'))]",
+                "principalId": "[parameters('principalId')]"
+            }
+        }
+    ]
+}
+```
+
+## tenantResourceId
+
+`tenantResourceId(resourceType, resourceName1, [resourceName2], ...)`
+
+Returns the unique identifier for a resource deployed at the tenant level.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| resourceType |Yes |string |Type of resource including resource provider namespace. |
+| resourceName1 |Yes |string |Name of resource. |
+| resourceName2 |No |string |Next resource name segment, if needed. |
+
+Continue adding resource names as parameters when the resource type includes more segments.
+
+### Return value
+
+The identifier is returned in the following format:
+
+**/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+
+### Remarks
+
+You use this function to get the resource ID for a resource that is deployed to the tenant. The returned ID differs from the values returned by other resource ID functions by not including resource group or subscription values.
 
 ## Next steps
 
