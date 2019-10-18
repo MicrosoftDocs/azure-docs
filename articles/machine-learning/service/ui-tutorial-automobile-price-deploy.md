@@ -14,38 +14,20 @@ ms.date: 10/09/2019
 
 # Tutorial: Deploy a machine learning model with the visual interface
 
-To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as a web service. In part 1, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
+To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as a real-time endpoint. In part 1, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
 
 > [!div class="checklist"]
-> * Publish a pipeline
-> * Deploy a web service
+> * Deploy a real-time endpoint
 > * Create an inferencing cluster
-> * Test a web service
+> * Test a real-time endpoint
 
 ## Prerequisites
 
 Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md) to learn how to train and score a machine learning model in the visual interface.
 
-## Publish a pipeline
+## Deploy a real-time endpoint
 
-In order to deploy your pipeline as a web service, you must first publish your *training pipeline* as a *real-time inference pipeline*.
-
-A real-time inference pipeline is a special type of pipeline that is configured to accept user-provided data and output processed values in real time. In this tutorial, the pipeline can output the predicted price of a car based on the features for a car it has not seen.
-
-1. Select **Publish** at the top of the pipeline canvas.
-
-1. In the Setup **Pipeline Run** dialog, expand the **PipelineEndpoint** drop-down menu and select **+New PipelineEndpoint**
-
-1. Select **Publish**
-
-    ![Screenshot showing how to publish a pipeline](./media/ui-tutorial-automobile-price-deploy/publish-pipeline.png)
-
-    
-    So far, you have been working on a *pipeline draft*. Publishing a pipeline to a Pipeline Endpoint confirms the configuration of your pipeline and begins version tracking. Pipeline Endpoints let you organize similar pipelines together for management and organization.
-
-## Deploy a web service
-
-In order to deploy your published pipeline, you must:
+In order to deploy your pipeline, you must:
 
 1. Convert the training pipeline into a real-time inference pipeline, which removes training modules and adds inputs and outputs for inferencing requests.
 1. Deploy the inference pipeline.
@@ -99,7 +81,7 @@ In the dialog that appears, you can select from existing Azure Kubernetes Servic
     > It takes approximately 15 minutes to create a new AKS service. You can check the provisioning state on the **Inference Clusters** page
     >
 
-### Deploy the web service
+### Deploy the real-time endpoint
 
 After your AKS service has finished provisioning, return to the real-time inferencing pipeline to complete deployment.
 
@@ -115,19 +97,19 @@ After your AKS service has finished provisioning, return to the real-time infere
 
     A success notification above the canvas will appear when deployment completes, it may take a few minutes.
 
-## Test the web service
+## Test the real-time endpoint
 
-You can test your web services by navigating to the **Endpoints** page in the workspace navigation pane on the left.
+You can test your real-time endpoint by navigating to the **Endpoints** page in the workspace navigation pane on the left.
 
-1. On the **Endpoints** page, select the web service you deployed.
+1. On the **Endpoints** page, select the endpoint you deployed.
 
-    ![Screenshot showing the real-time endpoints tab with the recently created web service highlighted](./media/ui-tutorial-automobile-price-deploy/web-services.png)
+    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
 1. Select **Test**.
 
 1. Input testing data or use the autofilled sample data and select **Test**.
 
-    The test request is submitted to the web service and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
+    The test request is submitted to the endpoint and the results are shown on page. Although a price value is generated for the input data, it is not used to generate the prediction value.
 
     ![Screenshot showing how to test the real-time endpoint with the scored label for price highlighted](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
 
