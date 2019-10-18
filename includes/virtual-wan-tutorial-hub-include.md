@@ -9,20 +9,27 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-A virtual wan **hub** contains the gateway. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites. It takes about 30 minutes to create the hub and gateway.
+A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites. It takes 30 minutes to create the site-to-site VPN gateway in the virtual hub.
 
 1. Locate the Virtual WAN that you created. On the Virtual WAN page, under the **Virtual WAN architecture** section, select **Hubs**.
 2. On the Hubs page, select **+New Hub** to open the **Create virtual hub** page.
+
+    ![Basics](./media/virtual-wan-tutorial-hub-include/basics.png "Basics")
 3. On the **Create virtual hub** page, complete the following fields:
 
-    **Virtual Hub Details**
+    **Project details**
 
    * Region (previously referred to as Location)
    * Name
-   * Hub private address space
+   * Hub private address space. The minimum address space is /24 to create a hub, which implies anything range from /25 to /32 will produce an error during creation.
+4. Select **Next: Site-to-site**.
 
-4. Select **Review + Create**  to validate.
-5. Select **Create** to create the hub. After 30 minutes, **Refresh** to view the hub on the **Hubs** page.
-6. Once your hub has created, locate it on the **Hubs** page and select it. Click **VPN (Site to site)** to open the VPN page. Select **Create VPN gateway**.
-7. On the **Create VPN Gateway** page, select the Gateway scale units for your gateway.
-8. Click **Create** to create the gateway and update the hub. This takes about 30 minutes to complete.
+    ![Site-to-site](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site-to-site")
+
+5. On the **Site-to-site page**, complete the following fields:
+
+   * Select **Yes** to create a Site-to-site VPN.
+   * The AS Number field is not editable in the virtual hub at this time.
+   * Select the **Gateway scale units** value from the dropdown. The scale unit lets you pick the aggregate throughput of the VPN gateway being created in the virtual hub to connect sites to. If you pick 1 scale unit = 500 Mbps, it implies that two instances for redundancy will be created, each having a maximum throughput of 500 Mbps. For example, if you had five branches, each doing 10 Mbps at the branch, you will need an aggregate of 50 Mbps at the head end. Planning for aggregate capacity of the Azure VPN gateway should be done after assessing the capacity needed to support the number of branches to the hub.
+6. Select **Review + Create** to validate.
+7. Select **Create** to create the hub. After 30 minutes, **Refresh** to view the hub on the **Hubs** page.

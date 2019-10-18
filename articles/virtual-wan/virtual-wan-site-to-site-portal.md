@@ -242,36 +242,6 @@ If you need instructions to configure your device, you can use the instructions 
 2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
 3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
 
-## <a name="viewhealth"></a>9. View your resource health
-
-1. Navigate to your WAN.
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
-
-## <a name="connectmon"></a>10. Monitor a connection
-
-Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](~/articles/network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
-
-## <a name="cleanup"></a>11. Clean up resources
-
-When you no longer need these resources, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
-
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a WAN
-> * Create a site
-> * Create a hub
-> * Connect a hub to a site
-> * Connect a VNet to a hub
-> * Download and apply the VPN device configuration
-> * View your virtual WAN
-> * View resource health
-> * Monitor a connection
 
 To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
