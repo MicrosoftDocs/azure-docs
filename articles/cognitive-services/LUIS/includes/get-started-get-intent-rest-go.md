@@ -31,25 +31,30 @@ Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
     /* Do dependencies */
     import (
         "fmt"
-        "flag"
         "net/http"
         "net/url"
         "io/ioutil"
         "log"
     )
+    func main() {
+    	
+    	// public app
+        var appID = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"
+    	
+    	// utterance for public app
+    	var utterance = "turn on all lights"
+    	
+    	// YOUR-KEY - your starter or prediction key
+    	var endpointKey = "YOUR-KEY"
+    	
+    	// YOUR-ENDPOINT - example is westus2.api.cognitive.microsoft.com
+        var endpoint = "YOUR-ENDPOINT"
     
-    /* 
-        Predict utterance
+    	endpointPrediction(appID, endpointKey, endpoint, utterance)
+    }
+    func endpointPrediction(appID string, endpointKey string, endpoint string, utterance string) {
     
-        appID = public app ID = be402ffc-57f4-4e1f-9c1d-f0d9fa520aa4
-        Key = Azure Language Understanding key, or Authoring key if it still has quota
-        endpoint = Azure Language Understanding prediction endpoint
-        utterance = text to analyze
-    
-    */
-    func endpointPrediction(appID string, endpointKey string, region string, utterance string) {
-    
-        var endpointUrl = fmt.Sprintf("https://%s/luis/prediction/v3.0/apps/%s/slots/production/predict?subscription-key=%s&verbose=true&show-all-intents=true&query=%s", region, appID, endpointKey, url.QueryEscape(utterance))
+        var endpointUrl = fmt.Sprintf("https://%s/luis/prediction/v3.0/apps/%s/slots/production/predict?subscription-key=%s&verbose=true&show-all-intents=true&query=%s", endpoint, appID, endpointKey, url.QueryEscape(utterance))
         
         response, err := http.Get(endpointUrl)
     
@@ -70,44 +75,24 @@ Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
         fmt.Println("response")
         fmt.Println(string(response2))
     }
-    
-    func main() {
-    	
-    	// public app
-        var appID = flag.String("appID", "df67dcdb-c37d-46af-88e1-8b97951ca1c2", "LUIS appID")
-    	
-    	// utterance for public app
-    	var utterance = flag.String("utterance", "turn on all lights", "utterance to predict")
-    	
-    	// YOUR-KEY - your starter or prediction key
-    	var endpointKey = flag.String("endpointKey", "", "LUIS endpoint key")
-    	
-    	// YOUR-ENDPOINT - example is westus2.api.cognitive.microsoft.com
-        var endpoint = flag.String("endpoint", "", "LUIS app publish endpoint")
-    
-    
-        flag.Parse()
-        
-        fmt.Println("appID has value", *appID)
-        fmt.Println("endpointKey has value", *endpointKey)
-        fmt.Println("endpoint has value", *endpoint)
-        fmt.Println("utterance has value", *utterance)
-    
-        endpointPrediction(*appID, *endpointKey, *endpoint, *utterance)
-    
-    }
     ```
 
-2. With a command prompt in the same directory as where you created the file, enter `go build endpoint.go` to compile the Go file. The command prompt does not return any information for a successful build.
+1. Replace the following values:
 
-3. Run the Go application from the command line by entering the following text in the command prompt: 
+    * `YOUR-KEY` with your starter key
+    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
 
-    ```CMD
-    go run predict.go -appID df67dcdb-c37d-46af-88e1-8b97951ca1c2 -endpointKey YOUR-KEY -endpoint YOUR-ENDPOINT
+1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file.:
+
+    ```console
+    go build endpoint.go
+    ```  
+
+1. Run the Go application from the command line by entering the following text in the command prompt: 
+
+    ```console
+    go run predict.go
     ```
-    
-    * Replace `YOUR-KEY` with the value of your starter key.  
-    * Replace `YOUR-ENDPOINT` with the value of your endpoint. An example is `westus2.api.cognitive.microsoft.com`.
     
     The command prompt response is: 
     

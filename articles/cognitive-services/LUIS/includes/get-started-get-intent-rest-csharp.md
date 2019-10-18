@@ -95,7 +95,10 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
    ```
 
-1. Replace the value of `YOUR-KEY` with your LUIS key.
+1. Replace the following values:
+
+    * `YOUR-KEY` with your starter key
+    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
 
 1. Build the console application. 
 
@@ -106,7 +109,7 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 1. Run the console application. The console output displays the same JSON that you saw earlier in the browser window.
 
     ```csharp
-    dotnet build
+    dotnet run
     ```
 
 1. Review prediction response in JSON format:
