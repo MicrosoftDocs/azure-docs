@@ -23,7 +23,7 @@ Are you having a problem with Privileged Identity Management (PIM) in Azure Acti
 
 ### Problem
 
-As an active owner or user access administrator for an Azure resource, you are able to see your resource inside Privileged Identity Management but can't perform any actions such as making an eligible assignment or viewing a list of role assignments from the resource overview page. Any of these actions will result in an authorization error.
+As an active owner or user access administrator for an Azure resource, you are able to see your resource inside Privileged Identity Management but can't perform any actions such as making an eligible assignment or viewing a list of role assignments from the resource overview page. Any of these actions results in an authorization error.
 
 ### Cause
 
