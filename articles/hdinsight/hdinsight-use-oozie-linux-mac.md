@@ -1,13 +1,14 @@
 ---
 title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight 
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
-ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/06/2019
 ---
+
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
 
 Learn how to use Apache Oozie with Apache Hadoop on Azure HDInsight. Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
@@ -31,14 +32,13 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 * **An Azure SQL Database**.  See [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named `oozietest`.
 
-* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
-
+* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI would be `wasbs://`. See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
 
 ## Example workflow
 
 The workflow used in this document contains two actions. Actions are definitions for tasks, such as running Hive, Sqoop, MapReduce, or other processes:
 
-![Workflow diagram][img-workflow-diagram]
+![HDInsight oozie workflow diagram](./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png)
 
 1. A Hive action runs an HiveQL script to extract records from the `hivesampletable` that's included with HDInsight. Each row of data describes a visit from a specific mobile device. The record format appears like the following text:
 
@@ -504,29 +504,29 @@ To access the Oozie web UI, complete the following steps:
 
 3. From the left side of the page, select **Oozie** > **Quick Links** > **Oozie Web UI**.
 
-    ![Image of the menus](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
+    ![Apache Ambari oozie web ui steps](./media/hdinsight-use-oozie-linux-mac/hdi-oozie-web-ui-steps.png)
 
 4. The Oozie web UI defaults to display the running workflow jobs. To see all the workflow jobs, select **All Jobs**.
 
-    ![All jobs displayed](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
+    ![Oozie web console workflow jobs](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-jobs.png)
 
 5. To view more information about a job, select the job.
 
-    ![Job info](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
+    ![HDInsight Apache Oozie job info](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-info.png)
 
 6. From the **Job Info** tab, you can see the basic job information and the individual actions within the job. You can use the tabs at the top to view the **Job Definition**, **Job Configuration**, access the **Job Log**, or view a directed acyclic graph (DAG) of the job under **Job DAG**.
 
    * **Job Log**: Select the **Get Logs** button to get all logs for the job, or use the **Enter Search Filter** field to filter the logs.
 
-       ![Job Log](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
+       ![HDInsight Apache Oozie job log](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-log.png)
 
    * **Job DAG**: The DAG is a graphical overview of the data paths taken through the workflow.
 
-       ![Job DAG](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
+       ![HDInsight Apache Oozie job dag](./media/hdinsight-use-oozie-linux-mac/hdinsight-oozie-job-dag.png)
 
 7. If you select one of the actions from the **Job Info** tab, it brings up information for the action. For example, select the **RunSqoopExport** action.
 
-    ![Action info](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
+    ![HDInsight oozie job action info](./media/hdinsight-use-oozie-linux-mac/oozie-job-action-info.png)
 
 8. You can see details for the action, such as a link to the **Console URL**. Use this link to view job tracker information for the job.
 
@@ -626,18 +626,18 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
 
 7. If you go to the Oozie web UI and select the **Coordinator Jobs** tab, you see information like in the following image:
 
-    ![Coordinator Jobs tab](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
+    ![Oozie web console coordinator jobs tab](./media/hdinsight-use-oozie-linux-mac/coordinator-jobs-tab.png)
 
     The **Next Materialization** entry contains the next time that the job runs.
 
 8. Like the earlier workflow job, if you select the job entry in the web UI it displays information on the job:
 
-    ![Coordinator Job Info](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
+    ![Apache Oozie coordinator job info](./media/hdinsight-use-oozie-linux-mac/coordinator-job-info.png)
 
     > [!NOTE]  
     > This image only shows successful runs of the job, not the individual actions within the scheduled workflow. To see the individual actions, select one of the **Action** entries.
 
-    ![Coordinator Action info](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
+    ![OOzie web console job info tab](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
 ## Troubleshooting
 
@@ -741,7 +741,6 @@ In this article, you learned how to define an Oozie workflow and how to run an O
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/oozie-workflow-diagram.png
 [img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 

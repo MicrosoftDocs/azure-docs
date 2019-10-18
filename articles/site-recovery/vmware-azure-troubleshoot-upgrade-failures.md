@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures | Microsoft Docs
 description: Understand and 
-author: vDonGlover
-manager: jarrettr
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
-ms.author: v-doglov
+ms.author: raynew
 ---
 
 # Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures

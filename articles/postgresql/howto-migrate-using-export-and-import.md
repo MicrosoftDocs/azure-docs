@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 09/24/2019
 ---
 # Migrate your PostgreSQL database using export and import
 You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) to extract a PostgreSQL database into a script file and [psql](https://www.postgresql.org/docs/current/static/app-psql.html) to import the data into the target database from that file.
@@ -13,8 +13,8 @@ You can use [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.
 ## Prerequisites
 To step through this how-to guide, you need:
 - An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) with firewall rules to allow access and database under it.
-- [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) command-line utility installed
-- [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command-line utility installed
+- [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) command-line utility installed
+- [psql](https://www.postgresql.org/docs/current/static/app-psql.html) command-line utility installed
 
 Follow these steps to export and import your PostgreSQL database.
 

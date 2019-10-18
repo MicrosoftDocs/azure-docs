@@ -39,11 +39,14 @@ Azure Migrate uses the [Service Map](../operations-management-suite/operations-m
     ![Add workspace](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - While associating a workspace, you will get the option to create a new workspace or attach an existing one:
-  - When you create a new workspace, you need to specify a name for the workspace. The workspace is then created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
+  - When you create a new workspace, you need to specify a name for the workspace. You can choose the [region](https://azure.microsoft.com/global-infrastructure/regions/) in which the workspace will be created.
   - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Note that only those workspaces are listed which were created in a region where [Service Map is supported](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). To be able to attach a workspace, ensure that you have 'Reader' access to the workspace.
 
   > [!NOTE]
   > Once you have attached a workspace to a project, you cannot change it later.
+
+  > [!NOTE]
+  > Azure Migrate currently supports creation or association of Log Analytics workspaces that are in East US, Southeast Asia and West Europe regions. If the workspace is created outside of Azure Migrate in an unsupported region, it currently cannot be associated with an Azure Migrate project. 
 
 - The associated workspace is tagged with the key **Migration Project**, and value **Project name**, which you can use to search in the Azure portal.
 - To navigate to the workspace associated with the project, you can go to **Essentials** section of the project **Overview** page and access the workspace

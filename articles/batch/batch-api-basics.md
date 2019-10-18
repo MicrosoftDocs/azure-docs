@@ -145,9 +145,9 @@ When you create a pool, you need to select the appropriate **nodeAgentSkuId**, d
 
 #### Custom images for Virtual Machine pools
 
-To use a custom image, you'll need to prepare the image by generalizing it. For information about preparing custom Linux images from Azure VMs, see [How to create an image of a virtual machine or VHD](../virtual-machines/linux/capture-image.md). For information about preparing custom Windows images from Azure VMs, see [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md). 
+To learn how to create a pool with custom images, see [Use the Shared Image Gallery to create a custom pool](batch-sig-images.md).
 
-For detailed requirements and steps, see [Use a custom image to create a pool of virtual machines](batch-custom-images.md).
+Alternatively, you can create a custom pool of virtual machines using a [managed image](batch-custom-images.md) resource. For information about preparing custom Linux images from Azure VMs, see [How to create an image of a virtual machine or VHD](../virtual-machines/linux/capture-image.md). For information about preparing custom Windows images from Azure VMs, see [Create a managed image of a generalized VM in Azure](../virtual-machines/windows/capture-image-resource.md).
 
 #### Container support in Virtual Machine pools
 

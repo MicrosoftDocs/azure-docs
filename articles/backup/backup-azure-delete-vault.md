@@ -1,4 +1,4 @@
----
+﻿---
 title: Delete a Microsoft Azure Backup Recovery Services vault 
 description: This article describes how to delete a Microsoft Azure Backup Recovery Services vault.
 
@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 09/20/2019
 ms.author: dacurwin
 ---
 # Delete an Azure Backup Recovery Services vault
@@ -28,6 +28,9 @@ You can't delete a Recovery Services vault that has dependencies, such as protec
 
   ![Delete the protected server error.](./media/backup-azure-delete-vault/error-message.jpg)
 
+- If backup items are in soft deleted state below warning message appears and you will have to wait till they are permanently deleted. For more information, refer to this [article](https://aka.ms/SoftDeleteCloudWorkloads).
+
+   ![Delete the vault error.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
 To delete the vault, choose the scenario that matches your setup and follow the recommended steps:
 
@@ -76,7 +79,7 @@ First, read the **[Before you start](#before-you-start)** section to understand 
 
         ![For MARS, select your vault to open its dashboard.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - For MABS or DPM, select **Backup Management Servers**. Then, select the server that you want to delete. 
+      - For MABS or DPM, select **Backup Management Servers**. Then, select the server that you want to delete. 
 
 
           ![For MABS, select your vault to open its dashboard.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)

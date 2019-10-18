@@ -28,7 +28,7 @@ Single databases, pooled databases in elastic pools, and instance databases in a
 For more information about the metrics and log categories supported by the various Azure services, see:
 
 - [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Overview of Azure diagnostics logs](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Overview of Azure diagnostics logs](../azure-monitor/platform/resource-logs-overview.md)
 
 This article provides guidance to help you enable diagnostics telemetry for Azure SQL databases, elastic pools, and managed instances. It also can help you understand how to configure Azure SQL Analytics as a monitoring tool for viewing database diagnostics telemetry.
 
@@ -299,7 +299,7 @@ Read about how to [change diagnostics settings by using the Azure Monitor REST A
 
 ### Resource Manager template
 
-Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-logs-stream-template.md).
+Read about how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/platform/diagnostic-settings-template.md).
 
 ## Stream into Azure SQL Analytics
 
@@ -707,7 +707,7 @@ Learn more about the [Intelligent Insights log format](sql-database-intelligent-
 To learn how to enable logging and to understand the metrics and log categories supported by the various Azure services, see:
 
 - [Overview of metrics in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
-- [Overview of Azure diagnostics logs](../azure-monitor/platform/diagnostic-logs-overview.md)
+- [Overview of Azure diagnostics logs](../azure-monitor/platform/resource-logs-overview.md)
 
 To learn about Event Hubs, read:
 

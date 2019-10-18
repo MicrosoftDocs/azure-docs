@@ -4,7 +4,7 @@ description: Shows which Azure resource types support tags. Provides details for
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
 ---
 
@@ -35,7 +35,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft.Billing](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -118,6 +117,7 @@ Jump to a resource provider namespace:
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft.ObjectStore](#microsoftobjectstore)
 > - [Microsoft.OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -388,6 +388,7 @@ Jump to a resource provider namespace:
 > | billingAccounts/customers | No |No |
 > | billingAccounts/customers/billingSubscriptions | No |No |
 > | billingAccounts/customers/initiateTransfer | No |No |
+> | billingAccounts/customers/policies | No |No |
 > | billingAccounts/customers/products | No |No |
 > | billingAccounts/customers/transactions | No |No |
 > | billingAccounts/customers/transfers | No |No |
@@ -435,13 +436,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | mapApis | Yes |Yes |
 > | updateCommunicationPreference | No |No |
-
-## Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Supports tags | Tag in cost report |
-> | ------------- | ----------- | ----------- |
-> | BizTalk | Yes |Yes |
 
 ## Microsoft.Blockchain
 
@@ -537,7 +531,7 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | capabilities | No |No |
-> | domainNames | Yes |Yes |
+> | domainNames | No |No |
 > | domainNames/capabilities | No |No |
 > | domainNames/internalLoadBalancers | No |No |
 > | domainNames/serviceCertificates | No |No |
@@ -551,7 +545,7 @@ Jump to a resource provider namespace:
 > | quotas | No |No |
 > | resourceTypes | No |No |
 > | validateSubscriptionMoveAvailability | No |No |
-> | virtualMachines | Yes |Yes |
+> | virtualMachines | No |No |
 > | virtualMachines/diagnosticSettings | No |No |
 > | virtualMachines/metricDefinitions | No |No |
 > | virtualMachines/metrics | No |No |
@@ -572,10 +566,10 @@ Jump to a resource provider namespace:
 > | expressRouteCrossConnections | No |No |
 > | expressRouteCrossConnections/peerings | No |No |
 > | gatewaySupportedDevices | No |No |
-> | networkSecurityGroups | Yes |Yes |
+> | networkSecurityGroups | No |No |
 > | quotas | No |No |
-> | reservedIps | Yes |Yes |
-> | virtualNetworks | Yes |Yes |
+> | reservedIps | No |No |
+> | virtualNetworks | No |No |
 > | virtualNetworks/remoteVirtualNetworkPeeringProxies | No |No |
 > | virtualNetworks/virtualNetworkPeerings | No |No |
 
@@ -591,7 +585,7 @@ Jump to a resource provider namespace:
 > | osPlatformImages | No |No |
 > | publicImages | No |No |
 > | quotas | No |No |
-> | storageAccounts | Yes |Yes |
+> | storageAccounts | No |No |
 > | storageAccounts/blobServices | No |No |
 > | storageAccounts/fileServices | No |No |
 > | storageAccounts/metricDefinitions | No |No |
@@ -629,10 +623,10 @@ Jump to a resource provider namespace:
 > | diskEncryptionSets | Yes |Yes |
 > | disks | Yes |Yes |
 > | galleries | Yes |Yes |
-> | galleries/applications | Yes |Yes |
-> | galleries/applications/versions | Yes |Yes |
-> | galleries/images | Yes |Yes |
-> | galleries/images/versions | Yes |Yes |
+> | galleries/applications | No |No |
+> | galleries/applications/versions | No |No |
+> | galleries/images | No |No |
+> | galleries/images/versions | No |No |
 > | hostGroups | Yes |Yes |
 > | hostGroups/hosts | Yes |Yes |
 > | images | Yes |Yes |
@@ -640,13 +634,11 @@ Jump to a resource provider namespace:
 > | restorePointCollections | Yes |Yes |
 > | restorePointCollections/restorePoints | No |No |
 > | sharedVMImages | Yes |Yes |
-> | sharedVMImages/versions | Yes |Yes |
+> | sharedVMImages/versions | No |No |
 > | snapshots | Yes |Yes |
 > | virtualMachines | Yes |Yes |
 > | virtualMachines/extensions | Yes |Yes |
 > | virtualMachines/metricDefinitions | No |No |
-> | virtualMachines/scriptJobs | No |No |
-> | virtualMachines/softwareUpdateDeployments | No |No |
 > | virtualMachineScaleSets | Yes |Yes |
 > | virtualMachineScaleSets/extensions | No |No |
 > | virtualMachineScaleSets/networkInterfaces | No |No |
@@ -914,6 +906,9 @@ Jump to a resource provider namespace:
 > | serverGroups | Yes |Yes |
 > | servers | Yes |Yes |
 > | servers/advisors | No |No |
+> | servers/privateEndpointConnectionProxies | No |No |
+> | servers/privateEndpointConnections | No |No |
+> | servers/privateLinkResources | No |No |
 > | servers/queryTexts | No |No |
 > | servers/recoverableServers | No |No |
 > | servers/topQueryStatistics | No |No |
@@ -1194,6 +1189,7 @@ Jump to a resource provider namespace:
 > | clusters/databases | No |No |
 > | clusters/databases/dataconnections | No |No |
 > | clusters/databases/eventhubconnections | No |No |
+> | clusters/sharedidentities | No |No |
 
 ## Microsoft.LabServices
 
@@ -1358,11 +1354,13 @@ Jump to a resource provider namespace:
 > | Resource type | Supports tags | Tag in cost report |
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | Yes |Yes |
+> | netAppAccounts/backupPolicies | Yes |Yes |
 > | netAppAccounts/capacityPools | Yes |Yes |
 > | netAppAccounts/capacityPools/volumes | Yes |Yes |
+> | netAppAccounts/capacityPools/volumes/backups | No |No |
 > | netAppAccounts/capacityPools/volumes/mountTargets | Yes |Yes |
 > | netAppAccounts/capacityPools/volumes/snapshots | Yes |Yes |
-
+> | netAppAccounts/vaults | No |No |
 ## Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1453,6 +1451,7 @@ Jump to a resource provider namespace:
 > [!NOTE]
 > For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported.
 
+
 ## Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1460,6 +1459,13 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ----------- |
 > | namespaces | Yes |No |
 > | namespaces/notificationHubs | Yes |No |
+
+## Microsoft.ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | osNamespaces | Yes |Yes |
 
 ## Microsoft.OffAzure
 
@@ -1609,6 +1615,8 @@ Jump to a resource provider namespace:
 > | resources | No |No |
 > | subscriptions | No |No |
 > | subscriptions/providers | No |No |
+> | subscriptions/resourceGroups | No |No |
+> | subscriptions/resourcegroups/resources | No |No |
 > | subscriptions/resources | No |No |
 > | subscriptions/tagnames | No |No |
 > | subscriptions/tagNames/tagValues | No |No |
@@ -1675,6 +1683,7 @@ Jump to a resource provider namespace:
 > | securityStatusesSummaries | No |No |
 > | serverVulnerabilityAssessments | No |No |
 > | settings | No |No |
+> | subAssessments | No |No |
 > | tasks | No |No |
 > | topologies | No |No |
 > | workspaceSettings | No |No |

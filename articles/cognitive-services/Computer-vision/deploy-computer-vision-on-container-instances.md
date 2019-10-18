@@ -1,5 +1,5 @@
 ---
-title: Run Azure Container Instances
+title: Run Computer Vision container in Azure Container Instances
 titleSuffix: Azure Cognitive Services
 description: Deploy the Computer Vision container to an Azure Container Instance, and test it in a web browser.
 services: cognitive-services

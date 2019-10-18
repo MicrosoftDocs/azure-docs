@@ -25,48 +25,29 @@ In this tutorial, you learn how to:
 > * Grant permissions to the web API
 > * Update the sample to use the application
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## Prerequisites
 
 Complete the steps and prerequisites in [Tutorial: Enable desktop app authentication with accounts using Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
 
 ## Add a web API application
 
-Web API resources need to be registered in your tenant before they can accept and respond to protected resource requests by client applications that present an access token.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
-3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. Select **Applications**, and then select **Add**.
-5. Enter a name for the application. For example, *webapi1*.
-6. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
-7. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. In this tutorial, the sample runs locally and listens at `https://localhost:5000`.
-8. For **App ID URI**, enter the identifier used for your web API. The full identifier URI including the domain is generated for you. For example, `https://contosotenant.onmicrosoft.com/api`.
-9. Click **Create**.
-10. On the properties page, record the application ID that you'll use when you configure the web application.
+[!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
 ## Configure scopes
 
 Scopes provide a way to govern access to protected resources. Scopes are used by the web API to implement scope-based access control. For example, some users could have both read and write access, whereas other users might have read-only permissions. In this tutorial, you define read permissions for the web API.
 
-1. Select **Applications**, and then select *webapi1*.
-2. Select **Published scopes**.
-3. For **scope**, enter `Hello.Read`, and for description, enter `Read access to hello`.
-4. For **scope**, enter `Hello.Write`, and for description, enter `Write access to hello`.
-5. Click **Save**.
-
-The published scopes can be used to grant a client app permission to the web API.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## Grant permissions
 
 To call a protected web API from an application, you need to grant your application permissions to the API. In the prerequisite tutorial, you created a web application in Azure AD B2C named *app1*. You use this application to call the web API.
 
 1. Select **Applications**, and then select *nativeapp1*.
-2. Select **API access**, and then select **Add**.
-3. In the **Select API** dropdown, select *webapi1*.
-4. In the **Select Scopes** dropdown, select the **Hello.Read** and **Hello.Write** scopes that you previously defined.
-5. Click **OK**.
+1. Select **API access**, and then select **Add**.
+1. In the **Select API** dropdown, select *webapi1*.
+1. In the **Select Scopes** dropdown, select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.
+1. Select **OK**.
 
 A user authenticates with Azure AD B2C to use the WPF desktop application. The desktop application obtains an authorization grant from Azure AD B2C to access the protected web API.
 
@@ -79,6 +60,7 @@ Now that the web API is registered and you have scopes defined, you configure th
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
+
 The Node.js web API sample uses the Passport.js library to enable Azure AD B2C to protect calls to the API.
 
 1. Open the `index.js` file.

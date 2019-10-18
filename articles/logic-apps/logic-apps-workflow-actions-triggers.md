@@ -2669,23 +2669,38 @@ in trigger or action definition.
 
 ### Change trigger concurrency
 
-By default, logic app instances run at the same time, concurrently, or in parallel up to the 
-[default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
-So, each trigger instance fires before the preceding workflow instance finishes running. 
-This limit helps control the number of requests that backend systems receive. 
+By default, logic app instances run at the same time (concurrently or in parallel) up to the [default limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). So, each trigger instance fires before the preceding workflow instance finishes running. This limit helps control the number of requests that backend systems receive. 
 
-To change the default limit, you can use either the code view editor or Logic Apps Designer 
-because changing the concurrency setting through the designer adds or updates the 
-`runtimeConfiguration.concurrency.runs` property in the underlying trigger definition 
-and vice versa. This property controls the maximum number of workflow instances that can run in parallel. 
+To change the default limit, you can use either the code view editor or Logic Apps Designer because changing the concurrency setting through the designer adds or updates the `runtimeConfiguration.concurrency.runs` property in the underlying trigger definition and vice versa. This property controls the maximum number of workflow instances that can run in parallel. Here are some considerations when you use the concurrency control:
 
-> [!NOTE] 
-> If you set the trigger to run sequentially 
-> either by using the designer or the code view editor,
-> don't set the trigger's `operationOptions` property 
-> to `SingleInstance` in the code view editor. 
-> Otherwise, you get a validation error. 
-> For more information, see [Trigger instances sequentially](#sequential-trigger).
+* While concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
+
+  * To interrupt this state, cancel the earliest instances that are *still running*.
+
+    1. On your logic app's menu, select **Overview**.
+
+    1. In the **Runs history** section, select the earliest instance that is still running, for example:
+
+       ![Select earliest running instance](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
+
+       > [!TIP]
+       > To view only instances that are still running, open the **All** list, and select **Running**.    
+
+    1. Under **Logic app run**, select **Cancel run**.
+
+       ![Find earliest running instance](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
+
+  * To work around this possibility, add a timeout to any action that might hold up these runs. If you're working in the code editor, see [Change asynchronous duration](#asynchronous-limits). Otherwise, if you're using the designer, follow these steps:
+
+    1. In your logic app, on the action where you want to add a timeout, in the upper-right corner, select the ellipses (**...**) button, and then select **Settings**.
+
+       ![Open action settings](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+
+    1. Under **Timeout**, specify the timeout duration in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
+
+       ![Specify timeout duration](./media/logic-apps-workflow-actions-triggers/timeout.png)
+
+* If you want to run your logic app sequentially, you can set the trigger's concurrency to `1` either by using the code view editor or the designer. However, don't also set the trigger's `operationOptions` property to `SingleInstance` in the code view editor. Otherwise, you get a validation error. For more information, see [Trigger instances sequentially](#sequential-trigger).
 
 #### Edit in code view 
 

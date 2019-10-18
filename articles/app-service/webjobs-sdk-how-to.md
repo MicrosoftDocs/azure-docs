@@ -813,7 +813,7 @@ For information about how to handle cancellation tokens, see the Azure Functions
 
 If your web app runs on multiple instances, a continuous WebJob runs on each instance, listening for triggers and calling functions. The various trigger bindings are designed to efficiently share work collaboratively across instances, so that scaling out to more instances allows you to handle more load.
 
-The queue and blob triggers automatically prevent a function from processing a queue message or blob more than once; functions don't have to be idempotent.
+While some triggers may result in double-processing, queue and blob storage triggers automatically prevent a function from processing a queue message or blob more than once. For more information, see [Designing for identical input](../azure-functions/functions-idempotent.md) in the Azure Functions documentation.
 
 The timer trigger automatically ensures that only one instance of the timer runs, so you don't get more than one function instance running at a given scheduled time.
 

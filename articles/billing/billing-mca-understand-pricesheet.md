@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 09/26/2019
 ms.author: banders
 ---
 # Terms in your Microsoft Customer Agreement price sheet
@@ -24,27 +24,32 @@ The following section describes the important terms shown in your Microsoft Cust
 
 | **Field Name**   | **Description**   |
 | --- | --- |
+| basePrice  | The market price at the time the customer signs on or the market price at the time the service meter launches if it is after sign-on.   |
 | billingAccountId  | Unique identifier for the billing account.   |
 | billingAccountName  | Name of the billing account.  |
+| billingCurrency | Currency in which charges are posted |
 | billingProfileId  | Unique identifier for the billing profile.   |
 | billingProfileName  | Name of the billing profile that is set up to receive invoices. The prices in the price sheet are associated with this billing profile. |
-| productOrderName  | Name of the purchased product plan. |
-| serviceFamily  | Type of Azure service.Ex: Compute, Analytics, Security |
+| currency | Currency in which all the prices are reflected. |
+| discount | The price discount offered for Graduation Tier, Free Tier, Included Quantity, or Negotiated discounts when applicable. Represented as a percentage. |
+| effectiveEndDate  | End date of the effective price. |
+| effectiveStartDate  | Start date when the price becomes effective. |
+| includedQuantity | Quantities of a specific service to which a customer is entitled to consume without incremental charges. |
+| marketPrice | The current, prevailing market price for a given service. |
+| meterId  | Unique identifier for the meter. |
+| meterCategory  | Name of the classification category for the meter. For example, _Cloud services_, _Networking_, etc. |
+| meterName  | Name of the meter. The meter represents the deployable resource of an Azure service. |
+| meterSubCategory  | Name of the meter sub-classification category.  |
+| meterType  |  Name of the meter type. |
+| meterRegion  | Name of the region where the meter for the service is available. Identifies the location of the datacenter for certain services that are priced based on datacenter location.    |
 | Product  | Name of the product accruing the charges.Ex: Basic SQL DB vs Standard SQL DB  |
 | productId  | Unique identifier for the product whose meter is consumed. |
-| unitOfMeasure  | Identifies the units of measure for billing for the service. For example, compute services are billed per hour. |
-| meterId  | Unique identifier for the meter. |
-| meterName  | Name of the meter. The meter represents the deployable resource of an Azure service. |
-| meterCategory  | Name of the classification category for the meter. For example, _Cloud services_, _Networking_, etc. |
-| meterType  |  Name of the meter type. |
-| meterSubCategory  | Name of the meter sub-classification category.  |
-| meterRegion  | Name of the region where the meter for the service is available. Identifies the location of the datacenter for certain services that are priced based on datacenter location.    |
-| tierId  | Identifies the pricing tier when applicable. This works in conjunction with tierMinimumUnits for setting tiered prices when prices vary based on the number of units consumed.    |
+| productOrderName  | Name of the purchased product plan. |
+| serviceFamily  | Type of Azure service.Ex: Compute, Analytics, Security |
 | tierMinimumUnits  | Defines the lower bound of the tier range for which prices are defined. For example, if the range is 0 to 100, tierMinimumUnits would be 0.  |
-| effectiveStartDate  | Start date when the price becomes effective. |
-| effectiveEndDate  | End date of the effective price. |
+| unitOfMeasure  | Identifies the units of measure for billing for the service. For example, compute services are billed per hour. |
 | unitPrice  | Price per unit at the time of billing (not the effective blended price) as specific to a meter and product order name.  Note: The unit price is not the same as the effective price in usage details downloads in case of services that have differential prices across tiers.  In case of services with multi-tiered pricing, the effective price is a blended rate across the tiers and does not show a tier-specific unit price. The blended price or effective price is the net price for the consumed quantity spanning across the multiple tiers (where each tier has a specific unit price). |
-| basePrice  | The market price at the time the customer signs on or the market price at the time the service meter launches if it is after sign-on.   |
+
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

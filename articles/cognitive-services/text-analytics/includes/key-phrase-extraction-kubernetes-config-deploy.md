@@ -6,12 +6,12 @@ services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 08/21/2019
+ms.topic: include
+ms.date: 09/19/2019
 ms.author: dapine
 ---
 
-## Deploy the Key Phrase Extraction container to an AKS cluster
+### Deploy the Key Phrase Extraction container to an AKS cluster
 
 1. Open the Azure CLI, and sign in to Azure.
 

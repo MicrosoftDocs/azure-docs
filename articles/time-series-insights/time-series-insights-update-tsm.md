@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
 ---
 
@@ -287,20 +287,20 @@ Variables are stored in the type definition of a Time Series Model and can be pr
 Variables conform to the following JSON example:
 
 ```JSON
-"Interpolated Speed": {​
-    "kind": "numeric",​
-    "value": {​
-        "tsx": "$event.[speed].Double"​
-    },​
-    "filter": null,​
-    "interpolation": {​
-        "kind": "step",​
-        "boundary": {​
-             “span": "P1D"​
-        }​
-    },​
-    "aggregation": {​
-        "tsx": "left($value)"​
+"Interpolated Speed": {
+    "kind": "numeric",
+    "value": {
+        "tsx": "$event.[speed].Double"
+    },
+    "filter": null,
+    "interpolation": {
+        "kind": "step",
+        "boundary": {
+             "span": "P1D"
+        }
+    },
+    "aggregation": {
+        "tsx": "left($value)"
     }
 }
 ```

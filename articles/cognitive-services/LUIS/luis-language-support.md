@@ -29,18 +29,18 @@ LUIS understands utterances in the following languages:
 |--|--|:--:|:--:|:--:|:--:|
 | American English |`en-US` | ✔ | ✔  |✔|✔|
 | *[Chinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Dutch |`nl-NL` |-|  -   |-|✔|
-| French (France) |`fr-FR` |-| ✔ |✔ |✔|
+| Dutch |`nl-NL` |✔|  -   |-|✔|
+| French (France) |`fr-FR` |✔| ✔ |✔ |✔|
 | French (Canada) |`fr-CA` |-|   -   |-|✔|
-| German |`de-DE` |-| ✔ |✔ |✔|
+| German |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
-| Italian |`it-IT` |-| ✔ |✔|✔|
-| *[Japanese](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Key phrase only|
-| Korean |`ko-KR` |-|   -   |-|Key phrase only|
-| Portuguese (Brazil) |`pt-BR` |-| ✔ |✔ |not all sub-cultures|
-| Spanish (Spain) |`es-ES` |-| ✔ |✔|✔|
+| Italian |`it-IT` |✔| ✔ |✔|✔|
+| *[Japanese](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Key phrase only|
+| Korean |`ko-KR` |✔|   -   |-|Key phrase only|
+| Portuguese (Brazil) |`pt-BR` |✔| ✔ |✔ |not all sub-cultures|
+| Spanish (Spain) |`es-ES` |✔| ✔ |✔|✔|
 | Spanish (Mexico)|`es-MX` |-|  -   |✔|✔|
-| Turkish | `tr-TR` |-|-|-|Sentiment only|
+| Turkish | `tr-TR` |✔|-|-|Sentiment only|
 
 
 Language support varies for [prebuilt entities](luis-reference-prebuilt-entities.md) and [prebuilt domains](luis-reference-prebuilt-domains.md).
@@ -68,7 +68,9 @@ See Speech [Supported languages](https://docs.microsoft.com/azure/cognitive-serv
 See Bing Spell Check [Supported languages](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) for a list of supported languages and status.
 
 ## Rare or foreign words in an application
-In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](luis-how-to-add-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
+In the `en-us` culture, LUIS learns to distinguish most English words, including slang. In the `zh-cn` culture, LUIS learns to distinguish most Chinese characters. If you use a rare word in `en-us` or character in `zh-cn`, and you see that LUIS seems unable to distinguish that word or character, you can add that word or character to a [phrase-list feature](luis-how-to-add-features.md). For example, words outside of the culture of the application -- that is, foreign words -- should be added to a phrase-list feature. 
+
+<!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
 ### Hybrid languages
 Hybrid languages combine words from two cultures such as English and Chinese. These languages are not supported in LUIS because an app is based on a single culture.

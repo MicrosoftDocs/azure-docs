@@ -241,6 +241,8 @@
         items:
         - name: Troubleshoot user provisioning
           href: application-provisioning-config-problem.md
+        - name: Quarantine status
+          href: application-provisioning-quarantine-status.md
         - name: Provisioning logs
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Sync an attribute for mapping - gallery app
@@ -293,6 +295,8 @@
             href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Publishing walkthroughs
           items:
+          - name: Integrate with Azure AD Domain Services
+            href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
           - name: Integrate with Power BI
             href: application-proxy-integrate-with-power-bi.md
           - name: Integrate with Cloud App Security
@@ -355,10 +359,14 @@
          href: provisioning-agent-release-version-history.md
     - name: Application Proxy for on-premises apps
       items:
+       - name: Application Proxy FAQ
+         href: application-proxy-faq.md
        - name: Application Proxy version history
          href: application-proxy-release-version-history.md
   - name: Resources
     items:
+        - name: Support and help options for developers
+          href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Azure feedback forum
           href: https://feedback.azure.com/forums/169401-azure-active-directory
         - name: MSDN forum
