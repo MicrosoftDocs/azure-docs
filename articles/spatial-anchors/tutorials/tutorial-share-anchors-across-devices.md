@@ -40,13 +40,13 @@ It's worth noticing that, although you'll be using Unity and an ASP.NET Core Web
 
 ## Deploy your Sharing Anchors Service
 
-# [Visual Studio] (#tab/VS)
+# [Visual Studio](#tab/VS)
 
 Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` folder.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-# [Visual Studio Code] (#tab/VSC)
+# [Visual Studio Code](#tab/VSC)
 
 Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSample` folder. Follow <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-3.0" target="_blank">this tutorial</a> to deploy the sharing service through Visual Studio Code.
 
