@@ -29,7 +29,7 @@ Because of this upgrade to .NET 4.7.2, there's a potential to introduce breaking
 Check for the potential of backwards-compatibility breaking issues by running the .NET compatibility checks on your .NET code in your U-SQL custom assemblies.
 
 > [!Note]
-The tool doesn't detect actual breaking changes. it only identifies called .NET APIs that may (for certain inputs) cause issues. If you get notified of an issue, your code may still be fine, however you should check in more details.
+> The tool doesn't detect actual breaking changes. it only identifies called .NET APIs that may (for certain inputs) cause issues. If you get notified of an issue, your code may still be fine, however you should check in more details.
 
 1. Run the backwards-compatibility checker on your .NET DLLs either by
    1. Using the Visual Studio Extension at [.NET Portability Analyzer Visual Studio Extension](https://marketplace.visualstudio.com/items?itemName=ConnieYau.NETPortabilityAnalyzer)
