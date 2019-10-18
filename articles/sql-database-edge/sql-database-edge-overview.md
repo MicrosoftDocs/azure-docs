@@ -24,6 +24,16 @@ Azure SQL Database Edge is available on the Azure Marketplace and can be deploye
 
 :::image type="content" source="media/sql-database-edge-overview/sql-database-edge-overview.png" alt-text="SQL Database Edge overview diagram":::
 
+## Editions of SQL Database Edge
+
+SQL Database Edge is available with three different editions or software plans. These editions have identical feature sets and only differ in terms of their usage rights and the amount of cpu/memory they support.
+
+   |**Plan**  |**Description**  |
+   |---------|---------|
+   |Developer  |  Development only sku, with the same throttling limits as imposed by Standard sku mentioned below |
+   |Standard   |  Standard plan supports up to 4 CPU's and up to 32 GB of memory for the SQL Database Edge Container. |
+   |Premium    |  Premium sku supports up to 8 cores and up to 64 GB of memory for the SQL Database Edge Container. |
+
 ## Pricing and Availability
 
 Azure SQL Database is currently in preview. For more information on the pricing and availability, see [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
