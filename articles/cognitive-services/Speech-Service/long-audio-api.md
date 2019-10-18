@@ -34,8 +34,8 @@ This diagram provides a high-level overview of the workflow.
 When preparing your text file, make sure it:
 
 * Is either plain text (.txt) or SSML text (.txt)
-  * For plain text, each paragraph is separated by hitting **Enter/Return**
-  * For SSML text, each SSML document is considered a paragraph
+  * For plain text, each paragraph is separated by hitting **Enter/Return** - View [plain text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/en-US.txt)
+  * For SSML text, each SSML piece is considered a paragraph. SSML pieces shall be separated by different paragraphs - View [SSML text input example](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/SSMLTextInputSample.txt). For language code, see [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)
 * Is encoded as [UTF-8 with Byte Order Mark (BOM)](https://www.w3.org/International/questions/qa-utf8-bom.en#bom)
 * Contains more than 10,000 characters or more than 50 paragraphs
 * Is a single file, not a zip
@@ -58,11 +58,18 @@ The following audio output formats are supported by the Long Audio API:
 * audio-24khz-96kbitrate-mono-mp3
 * audio-24khz-160kbitrate-mono-mp3
 
-## Next steps
+## Get started with Long Audio API
 
+We offer quickstarts designed to help you run the Long Audio API successfully. This table includes a list of Long Audio API quickstarts organized by language.
 * [Quickstart: Python](https://aka.ms/long-audio-python)
 * [Quickstart: C#](https://aka.ms/long-audio-csharp)
 * [Quickstart: Java](https://aka.ms/long-audio-java)
+
+## Sample code
+Sample code for Long Audio API is available on GitHub. 
+* [Sample code: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
+* [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
+* [Sample code: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
 
 ## See also
 
