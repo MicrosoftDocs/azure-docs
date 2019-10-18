@@ -54,240 +54,156 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 }
 ```
 
-## Iterate through change feed records
+## Initialize the change feed
 
-The simplest way to iterate through a collection of records is to use the **ChangeFeedReader** class. This example iterates through all records. For each record, this code calls a helper method named ``printAvroRecordsToConsole`` to print values to the console. The code in that helper method appears in the next section. 
- 
+Explanation here.
+
 ```csharp
-public async Task ProcessRecords(CloudBlobClient cloudBlobClient)
+
+public async Task<ChangeFeed> GetChangeFeed(CloudBlobClient cloudBlobClient)
 {
     CloudBlobContainer changeFeedContainer =
         cloudBlobClient.GetContainerReference("$blobchangefeed");
 
     ChangeFeed changeFeed = new ChangeFeed(changeFeedContainer);
     await changeFeed.InitializeAsync();
+
+    return changeFeed;
+}
+```
+
+## Read all records
+
+The simplest way to iterate through a collection of records is to use the **ChangeFeedReader** class. This example iterates through all records. You can read records by using the **record** property of a **ChangeFeedRecord** object.
+ 
+```csharp
+public async Task ProcessRecords(ChangeFeed changeFeed)
+{
     ChangeFeedReader processor = await changeFeed.CreateChangeFeedReaderAsync();
 
     ChangeFeedRecord currentRecord = null;
     do
     {
         currentRecord = await processor.GetNextItemAsync();
+
         if (currentRecord != null)
         {
-            printAvroRecordsToConsole(currentRecord);
+                string subject = currentRecord.record["subject"].ToString();
+                string eventType = ((GenericEnum)currentRecord.record["eventType"]).Value;
+
+                Console.WriteLine("Subject: " + subject + "\n" +
+               "Event Type: " + eventType + "\n");
         }
+
     } while (currentRecord != null);
 }
-
 ```
 <a id="read-change-record" />
 
-## Read a change feed record
+## Read all records by using segments
 
-You can read those values by using the **record** property of a **ChangeFeedRecord** object.  TODO: Put more values in here. For example: string api = ((GenericEnum)((GenericRecord)currentRecord.record["data"])["api"]).Value;
+The change feed organizes logs into **hourly** *segments*.  You can read records of changes that occur within specific ranges of time. This section shows you one way to read records from segments your application has not yet consumed.
 
-```csharp
-private void printAvroRecordsToConsole(ChangeFeedRecord currentRecord)
-{
-    string subject = currentRecord.record["subject"].ToString();
-    string eventType = ((GenericEnum)currentRecord.record["eventType"]).Value;
+### Get the starting segment
 
-    Console.WriteLine("Subject: " + subject + "\n" +
-        "Event Type: " + eventType + "\n");
-} 
-```
+You can keep track of the last segment that your application consumed. To keep things simple, this example refers a Dictionary that stores a date and time offset of the last consumed segment. Your application might use a database or a file in Azure Blob storage.
 
-## Iterate through segments of records
-
-Use the **ChangeFeedSegmentReader** class to iterate through records by time segment.  This example iterates through all records by time segment and then calls a helper method named ``printAvroRecordsToConsole`` to print record values to the console. The code in that helper method appears in the [Read a change feed record](#read-change-record) section of this article.  
+This example gets the next segment that needs to be processed. If no segments have yet been processed, this example returns the first segment in the change feed. 
 
 ```csharp
-public async Task ProcessSegments(CloudBlobClient cloudBlobClient)
+public async Task<ChangeFeedSegment> GetStartSegment(ChangeFeed changeFeed)
 {
-    CloudBlobContainer changeFeedContainer =
-        cloudBlobClient.GetContainerReference("$blobchangefeed");
+    // Retrieve the last segment processed from some sort of persistent storage.
+    string dateTimeOffsetString = ChangeFeedState["dateTimeOffset"];
 
-    ChangeFeed changeFeed = new ChangeFeed(changeFeedContainer);
-    await changeFeed.InitializeAsync();
-
-    List<DateTimeOffset> segments = 
-        (await changeFeed.ListAvailableSegmentTimesAsync()).ToList();
-    DateTimeOffset initialSegment = segments[0];
-    
-    ChangeFeedSegment currentSegment = 
-        new ChangeFeedSegment(segments[0], changeFeed);
-
-    await currentSegment.InitializeAsync();
-
-    while (currentSegment != null &&
-            currentSegment.timeWindowStatus == ChangefeedSegmentStatus.Finalized &&
-            currentSegment.startTime <= changeFeed.LastConsumable)
+    if (dateTimeOffsetString != null)
     {
-        ChangeFeedSegmentReader reader = 
-            await currentSegment.CreateChangeFeedSegmentReaderAsync();
+        ChangeFeedSegment lastConsumedChangeFeedSegment =
+            new ChangeFeedSegment(DateTimeOffset.Parse
+                (dateTimeOffsetString), changeFeed);
 
-        ChangeFeedRecord currentRecord = null;
-        do
-        {
-            currentRecord = await reader.GetNextItemAsync();
-
-            if (currentRecord != null)
-            {
-                printAvroRecordsToConsole(currentRecord);
-            }
-        } while (currentRecord != null);
-
-        currentSegment = await currentSegment.GetNextSegmentAsync();
-        if (currentSegment != null)
-        {
-            await currentSegment.InitializeAsync();
-        }
-    }
-}
-```
-
-## Iterate through shards of records
-
-A segment can point to multiple log files. This pointer appears in segment file and is referred to as a *chunkFilePath* or *shard*. The system internally partitions records into multiple shards to manage publishing throughput. You can use the **ChangeFeedSegmentShardReader** class to iterate through records at the shard level if that's most efficient for your scenario. 
-
-This example iterates through all segments, and for each segment, reads all records in all shards. 
-
-```csharp
-public async Task ProcessShards(CloudBlobClient cloudBlobClient)
-{
-    CloudBlobContainer changeFeedContainer =
-        cloudBlobClient.GetContainerReference("$blobchangefeed");
-
-    ChangeFeed changeFeed = new ChangeFeed(changeFeedContainer);
-    await changeFeed.InitializeAsync();
-
-    List<DateTimeOffset> segments = 
-        (await changeFeed.ListAvailableSegmentTimesAsync()).ToList();
-    DateTimeOffset initialSegment = segments[0];
-
-    ChangeFeedSegment currentSegment = 
-        new ChangeFeedSegment(segments[0], changeFeed);
-
-    await currentSegment.InitializeAsync();
-
-    while (currentSegment != null && 
-            currentSegment.startTime <= changeFeed.LastConsumable)
-    {
-        List<ChangeFeedSegmentShard> shards = 
-            currentSegment.GetChangeFeedSegmentShards().ToList();
-
-        foreach (ChangeFeedSegmentShard shard in shards)
-        {
-            ChangeFeedSegmentShardReader reader = 
-                await shard.CreateChangeFeedSegmentShardReaderAsync();
-
-            ChangeFeedRecord currentRecord = null;
-
-            do
-            {
-                currentRecord = await reader.GetNextItemAsync();
-
-                if (currentRecord != null)
-                {
-                    printAvroRecordsToConsole(currentRecord);
-                }
-            } while (currentRecord != null);
-        }
-
-        currentSegment = await currentSegment.GetNextSegmentAsync();
-        if (currentSegment != null)
-        {
-            await currentSegment.InitializeAsync();
-        }
-    }
-}
-
-```
-
-## Iterate through segments by using a checkpoint
-
-Your application can save the time of the last consumed segment, and then periodically poll the change feed for new records that have been added after that time period.
-
-You can also serialize the reader by calling **SerializeState** method of the reader object. Then, you can instantiate the reader at a later time by passing that serialized string into any of these methods.
-
-- **ChangeFeed.CreateChangeFeedReaderFromPointerAsync()**
-- **ChangeFeedSegment.CreateChangeFeedSegmentReaderFromPointerAsync()**
-- **ChangeFeedSegmentShard.CreateChangeFeedSegmentShardReaderFromPointerAsync()**
-
-This example reads segments starting at a specific checkpoint. This example uses a helper method named  ``IsSegmentConsumableAsync`` to ensure that the segment is finalized and ready to be read. 
-
-```csharp
-public async Task ProcessSegmentsWithCheckpoints(CloudBlobClient cloudBlobClient, 
-    string currentSegmentTimestamp)
-{
-    CloudBlobContainer changeFeedContainer =
-        cloudBlobClient.GetContainerReference("$blobchangefeed");
-
-    ChangeFeed changeFeed = new ChangeFeed(changeFeedContainer);
-
-    await changeFeed.InitializeAsync();
-
-    DateTimeOffset dateTimeOffset;
-
-    if (currentSegmentTimestamp != null)
-    {
-        dateTimeOffset = DateTimeOffset.Parse(currentSegmentTimestamp);
+        // Return the next segment.
+        return await lastConsumedChangeFeedSegment.GetNextSegmentAsync();
     }
     else
     {
         List<DateTimeOffset> segments =
             (await changeFeed.ListAvailableSegmentTimesAsync()).ToList();
-        DateTimeOffset initialSegment = segments[0];
-        dateTimeOffset = segments[0];
+
+        return new ChangeFeedSegment(segments[0], changeFeed);
+    }          
+
+}
+```
+
+### Read all records
+
+This example creates a **ChangeFeedSegmentReader** class to iterate through records by time segment and print record values to the console.  
+
+You can serialize the reader in case your application process is interrupted or closes unexpectedly. That way, you can restart your application process and initialize the reader to its previous state. This example serialized the reader for each segment that is processed. This example also stores the date and time offset of the last consumed segment. 
+
+>[!NOTE]
+> A segment can point to multiple log files. This pointer appears in segment file and is referred to as a *chunkFilePath* or *shard*. The system internally partitions records into multiple shards to manage publishing throughput. You can use the **ChangeFeedSegmentShardReader** class to iterate through records at the shard level if that's most efficient for your scenario. 
+
+```csharp
+public async Task ProcessSegments(ChangeFeed changeFeed, ChangeFeedSegment currentSegment)
+{
+    await currentSegment.InitializeAsync();
+
+    ChangeFeedSegmentReader reader = null;
+
+    string readerPointer = ChangeFeedState["segmentReader"];
+
+    if (readerPointer == null)
+    {
+        reader = await currentSegment.CreateChangeFeedSegmentReaderAsync();
+    }
+    else
+    {
+        // If process was interrupted. Restore the reader to its previous state.
+        reader = await currentSegment.CreateChangeFeedSegmentReaderFromPointerAsync
+            (readerPointer);
     }
 
-    ChangeFeedSegment currentSegment = new ChangeFeedSegment(dateTimeOffset, changeFeed);         
-
-    while (true)
+    while (currentSegment != null &&
+            currentSegment.timeWindowStatus == ChangefeedSegmentStatus.Finalized &&
+            currentSegment.startTime <= changeFeed.LastConsumable)
     {
-        await currentSegment.InitializeAsync();
-
-        while (!await IsSegmentConsumableAsync(currentSegment, changeFeed)) 
-        {
-            await Task.Delay(60 * 1000);
-        }
-
-        ChangeFeedSegmentReader reader = await currentSegment.CreateChangeFeedSegmentReaderAsync(); 
-
+        ChangeFeedRecord currentRecord = null;
         do
         {
-            await reader.CheckForFinalizationAsync();
+            // Save the reader state for resiliancy.
+            ChangeFeedState["segmentReader"] = reader.SerializeState();
 
-            ChangeFeedRecord currentRecord = null;
+            currentRecord = await reader.GetNextItemAsync();
 
-            do
+            if (currentRecord != null)
             {
-                currentRecord = await reader.GetNextItemAsync();
+                string subject = currentRecord.record["subject"].ToString();
+                string eventType = ((GenericEnum)currentRecord.record["eventType"]).Value;
 
-                if (currentRecord != null)
-                {
-                    printAvroRecordsToConsole(currentRecord);
-                }
-            } while (currentRecord != null);
+                Console.WriteLine("Subject: " + subject + "\n" +
+               "Event Type: " + eventType + "\n");
+            }
+        } while (currentRecord != null);
 
-        } while (currentSegment.timeWindowStatus != ChangefeedSegmentStatus.Finalized);
+        // Reset time and reader state.
+        ChangeFeedState["segmentReader"] = null;
 
+        // Save this as the last processed segment.
+        ChangeFeedState["dateTimeOffset"] = 
+            currentSegment.startTime.ToString(CultureInfo.InvariantCulture);
+
+        // Get next segment.
         currentSegment = await currentSegment.GetNextSegmentAsync();
-    }
 
+        if (currentSegment != null)
+        {
+            await currentSegment.InitializeAsync();
+            reader = await currentSegment.CreateChangeFeedSegmentReaderAsync();
+        }
+    }            
 }
-
-private async Task<bool> IsSegmentConsumableAsync(ChangeFeedSegment segment, 
-    ChangeFeed changeFeed)
-{
-    if (changeFeed.LastConsumable >= segment.startTime)
-    {
-        return true;
-    }
-    await changeFeed.InitializeAsync();
-    return changeFeed.LastConsumable >= segment.startTime;
-}
-
 ```
 
 ## Next steps
