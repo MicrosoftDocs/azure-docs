@@ -1,6 +1,6 @@
 ---
-title: Azure Front Door Service - URL Redirect | Microsoft Docs
-description: This article helps you understand how Azure Front Door Service supports URL redirection for their routes, if configured.
+title: Azure Front Door - URL Redirect | Microsoft Docs
+description: This article helps you understand how Azure Front Door supports URL redirection for their routes, if configured.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -14,7 +14,7 @@ ms.author: sharadag
 ---
 
 # URL redirect
-You can use Azure Front Door Service to redirect traffic. You can redirect traffic at multiple levels (protocol, hostname, path, query string) and all of the functionality can be configured for individual microservices as the redirection is path-based. This simplifies application configuration, optimizes the resource usage, and supports new redirection scenarios including global and path-based redirection.
+You can use Azure Front Door to redirect traffic. You can redirect traffic at multiple levels (protocol, hostname, path, query string) and all of the functionality can be configured for individual microservices as the redirection is path-based. This simplifies application configuration, optimizes the resource usage, and supports new redirection scenarios including global and path-based redirection.
 </br>
 
 ![Azure Front Door URL Redirect][1]
@@ -30,7 +30,7 @@ A redirect type sets the response status code for the clients to understand the 
 ## Redirection protocol
 You can set the protocol that will be used for redirection. This allows for one of the most common use cases of redirect feature, that is to set HTTP to HTTPS redirection.
 
-- **HTTPS only**: Set the protocol to HTTPS only, if you are looking to redirect the traffic from HTTP to HTTPS. Azure Front Door Service recommends that you should always set the redirection to HTTPS only.
+- **HTTPS only**: Set the protocol to HTTPS only, if you are looking to redirect the traffic from HTTP to HTTPS. Azure Front Door recommends that you should always set the redirection to HTTPS only.
 - **HTTP only**: This redirects the incoming request to HTTP. Use this value only if you want to keep your traffic HTTP that is, non-encrypted.
 - **Match request**: This option retains the protocol used by the incoming request. So, an HTTP request remains HTTP and an HTTPS request remains HTTPS post redirection.
 

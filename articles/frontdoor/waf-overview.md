@@ -1,6 +1,6 @@
 ---
 title: What is Azure web application firewall for Azure Front Door? (Preview)
-description: Learn how Azure web application firewall for Azure Front Door service protects your web applications from malicious attacks.  
+description: Learn how Azure web application firewall for Azure Front Door protects your web applications from malicious attacks.  
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -109,7 +109,7 @@ A managed Bot protection rule set can be enabled for your WAF to take custom act
 > [!IMPORTANT]
 > Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 
-If Bot Protection is enabled, incoming requests that match Malicious Bots client IPs are logged at FrontdoorWebApplicationFirewallLog log. You may access WAF logs from storage account, event hub or log analytics. 
+If Bot Protection is enabled, incoming requests that match Malicious Bots client IPs are logged at FrontdoorWebApplicationFirewallLog log. You may access WAF logs from storage account, event hub, or log analytics. 
 
 ## Configuration
 

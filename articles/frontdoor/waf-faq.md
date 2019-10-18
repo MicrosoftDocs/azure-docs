@@ -1,6 +1,6 @@
 ---
 title: Azure web application firewall - Frequently Asked Questions
-description: This page provides answers to frequently asked questions about Azure Front Door Service
+description: This page provides answers to frequently asked questions about Azure Front Door
 services: frontdoor
 documentationcenter: ''
 author: KumudD
@@ -22,15 +22,15 @@ This article answers common questions about Azure web application firewall (WAF)
 
 Azure WAF is a web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting and other web exploits. You can define a WAF policy consisting of a combination of custom and managed rules to control access to your web applications.
 
-An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Door services.
+An Azure WAF policy can be applied to web applications hosted on Application Gateway or Azure Front Doors.
 
-## What is WAF for Azure Front Door Service? 
+## What is WAF for Azure Front Door? 
 
 Azure Front Door is a highly scalable, globally distributed application and content delivery network. Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the Azure network edge, close to attack sources before they enter your virtual network, offers protection without sacrificing performance.
 
 ## Does Azure WAF support HTTPS?
 
-Front Door Service offers SSL offloading. WAF is natively integrated with Front Door and can inspect a request after it is decrypted.
+Front Door offers SSL offloading. WAF is natively integrated with Front Door and can inspect a request after it is decrypted.
 
 ## Does Azure WAF support IPv6?
 
@@ -46,14 +46,11 @@ Deploying a WAF policy globally usually takes about 5 minutes and often complete
 
 ## Can WAF policies be different for different regions?
 
-When integrated with Front Door Service, WAF is a global resource. Same configuration applies across all Front Door locations.
+When integrated with Front Door, WAF is a global resource. Same configuration applies across all Front Door locations.
  
 ## How do I limit access to my back-end to be from Front Door only?
 
 You may configure IP Access Control List in your back-end to allow for only Front Door outbound IP address ranges and deny any direct access from Internet. Service tags are supported for you to use on your virtual network. In addition, you can verify that the X-Forwarded-Host HTTP header field is valid for your web application.
-
-
-
 
 ## Which Azure WAF options should I choose?
 

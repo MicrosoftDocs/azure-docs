@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Front Door Service Documentation
+title: Azure Front Door Documentation
 metadata:
-  title: Azure Front Door Service Documentation
-  meta.description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  title: Azure Front Door Documentation
+  meta.description: Azure Front Door provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
   services: frontdoor
   author: dlepow
   ms.service: frontdoor
@@ -11,7 +11,7 @@ metadata:
   ms.date: 9/14/2018
   ms.author: danlep
 abstract:
-  description: Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
+  description: Azure Front Door provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -27,7 +27,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to configure Azure Front Door Service for your needs.
+    text: Learn how to configure Azure Front Door for your needs.
   - type: list
     style: unordered
     items:
