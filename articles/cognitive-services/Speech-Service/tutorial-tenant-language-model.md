@@ -290,7 +290,7 @@ Next, you'll need rebuild and run the project from the command line. There are a
    dotnet TenantLMSample.dll --Username=<Username> --Password=<Password> --SubscriptionKey=<Subscription-Key> --EndpointUri=<Endpoint-Uri>
    ```
 
-## See also
+## Next steps
 
 * [Speech Studio](https://speech.microsoft.com/)
 * [Speech SDK](speech-sdk.md)
