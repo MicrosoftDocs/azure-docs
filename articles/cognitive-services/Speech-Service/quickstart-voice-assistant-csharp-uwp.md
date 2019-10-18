@@ -399,7 +399,7 @@ Now you are ready to build and test your application.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP voice assistant application in C# - quickstart](media/sdk/qs-speech-assistant-uwp-helloworld-window.png)
+   ![Sample UWP voice assistant application in C# - quickstart](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
 1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
 
