@@ -12,12 +12,6 @@ ms.date: 9/19/2019
 ms.author: yinhew
 ---
 
-# Quickstart: Synthesize speech with the Speech SDK for Unity
-
-Use this guide to create a text-to-speech application using [Unity](https://unity3d.com/) and the Speech SDK for Unity.
-When finished, you can synthesize speech from text in real time to your device's speaker.
-If you are not familiar with Unity, it is recommended to study the [Unity User Manual](https://docs.unity3d.com/Manual/UnityManual.html) before starting your application development.
-
 > [!NOTE]
 > It supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64), and iOS (x64 simulator, ARM32 and ARM64).
 

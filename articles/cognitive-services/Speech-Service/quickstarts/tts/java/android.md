@@ -12,15 +12,6 @@ ms.date: 09/19/2019
 ms.author: yulili
 ---
 
-# Quickstart: Synthesize speech in Java on Android by using the Speech SDK
-
-In this article, you'll learn how to develop a Java application for Android using the Cognitive Services Speech SDK to synthesize speech from text.
-The application is based on the Speech SDK Maven Package, version 1.7.0, and Android Studio 3.3.
-The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
-
-> [!NOTE]
-> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](../../../speech-devices-sdk.md).
-
 ## Prerequisites
 
 You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](../../../get-started.md) for details.

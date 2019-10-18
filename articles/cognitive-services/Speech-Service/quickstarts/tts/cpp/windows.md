@@ -12,12 +12,6 @@ ms.date: 08/24/2019
 ms.author: yinhew
 ---
 
-# Quickstart: Synthesize speech in C++ on Windows by using the Speech SDK
-
-In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](../../../speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
-
-For a complete list of languages/voices available for speech synthesis, see [language support](../../../language-support.md#text-to-speech).
-
 ## Prerequisites
 
 You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](../../../get-started.md) for details.

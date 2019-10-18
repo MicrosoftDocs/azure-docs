@@ -12,10 +12,6 @@ ms.date: 09/14/2019
 ms.author: yulili
 ---
 
-# Quickstart: Synthesize speech with the Speech SDK for Python
-
-This article shows how to use the Speech Services through the Speech SDK for Python. It illustrates how to synthesize speech from text and play it with the default audio output.
-
 ## Prerequisites
 
 * An Azure subscription key for the Speech Services. [Get one for free](../../../get-started.md).

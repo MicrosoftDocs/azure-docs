@@ -12,10 +12,6 @@ ms.date: 08/19/2019
 ms.author: yinhew
 ---
 
-# Quickstart: Synthesize speech in a UWP app by using the Speech SDK
-
-In this article, you develop a C# Universal Windows Platform (UWP) application by using the Cognitive Services [Speech SDK](../../../speech-sdk.md). The program synthesizes speech from text in real time to your device's speaker. You build the application using the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
-
 > [!NOTE]
 > The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
 

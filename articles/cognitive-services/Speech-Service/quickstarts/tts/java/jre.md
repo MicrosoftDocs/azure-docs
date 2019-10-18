@@ -12,13 +12,6 @@ ms.date: 09/19/2019
 ms.author: yulili
 ---
 
-# Quickstart: Synthesize speech with the Speech SDK for Java
-
-In this article, you create a Java console application by using the [Speech SDK](../../../speech-sdk.md). You synthesize speech from text and play it with your PC's default speaker. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It runs on a 64-bit Java 8 runtime environment (JRE).
-
-> [!NOTE]
-> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](../../../speech-devices-sdk.md).
-
 ## Prerequisites
 
 This quickstart requires:

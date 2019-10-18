@@ -12,12 +12,6 @@ ms.date: 08/27/2019
 ms.author: yinhew
 ---
 
-# Quickstart: Synthesize speech with the Speech SDK for .NET Framework (Windows)
-
-Use this guide to create a text-to-speech console application using the .NET framework for Windows and the Speech SDK. When finished, you can synthesize speech from text, and hear the speech on your speaker in real time.
-
-For a quick demonstration (without building the Visual Studio project yourself, as described in this article), get the latest [Cognitive Services Speech SDK Samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk) from GitHub.
-
 ## Prerequisites
 
 To complete this project, you'll need:

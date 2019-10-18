@@ -21,3 +21,5 @@ Let's write some code!
 
 > [!TIP]
 > If you prefer a demo to a quickstart, check out our [Speech SDK samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+
+For a complete list of languages/voices available for speech synthesis, see [language support](../../../language-support.md#text-to-speech).
