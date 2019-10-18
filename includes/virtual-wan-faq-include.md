@@ -12,13 +12,13 @@
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN VPN gateway?
 
-Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. When you connect a site to a Virtual WAN VPN gateway, it is different from a regular virtual network gateway that uses a gateway type 'VPN'. Similarly, when you connect an ExpressRoute circuit to a Virtual WAN hub, it uses a different resource for the ExpressRoute gateway than the regular virtual network gateway that uses gateway type 'ExpressRoute'. Virtual WAN supports up to 20 Gbps aggregate throughput both for VPN and ExpressRoute. Virtual WAN also has automation for connectivity with an ecosystem of CPE branch device partners. CPE branch devices have built-in automation that autoprovisions and connects into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners. See the [Preferred Partner List](../articles/virtual-wan/virtual-wan-locations-partners.md).
+Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. When you connect a site to a Virtual WAN VPN gateway, it is different from a regular virtual network gateway that uses a gateway type 'VPN'. Similarly, when you connect an ExpressRoute circuit to a Virtual WAN hub, it uses a different resource for the ExpressRoute gateway than the regular virtual network gateway that uses gateway type 'ExpressRoute'. Virtual WAN supports up to 20 Gbps aggregate throughput both for VPN and ExpressRoute. Virtual WAN also has automation for connectivity with an ecosystem of CPE branch device partners. CPE branch devices have built-in automation that auto-provisions and connects into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners. See the [Preferred Partner List](../articles/virtual-wan/virtual-wan-locations-partners.md).
 
-### What is a branch connection to Azure Virtual WAN?
+### How is Virtual WAN different from an Azure virtual network gateway?
 
-A connection from a branch device into Azure Virtual WAN supports up to four links. A link is the physical connectivity link at the branch location (for example: ATT, Verizon etc.). Each link connection is composed of two active/active IPsec tunnels.
+A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
-### Which device providers (Virtual WAN partners) are supported at launch time?
+### Which device providers (Virtual WAN partners) are supported?
 
 At this time, many partners support the fully automated Virtual WAN experience. For more information, see [Virtual WAN partners](../articles/virtual-wan/virtual-wan-locations-partners.md). 
 
@@ -40,6 +40,10 @@ Software-defined connectivity solutions typically manage their branch devices us
 
 No. You can use any VPN-capable device that adheres to the Azure requirements for IKEv2/IKEv1 IPsec support.
 
+### How is Virtual WAN supporting SD-WAN devices?
+
+Virtual WAN partners automate IPsec connectivity to Azure VPN end points. If the Virtual WAN partner is an SD-WAN provider, then it is implied that the SD-WAN controller manages automation and IPsec connectivity to Azure VPN end points. If the SD-WAN device requires its own end point instead of Azure VPN for any proprietary SD-WAN functionality, you can deploy the SD-WAN end point in an Azure VNet and coexist with Azure Virtual WAN.
+
 ### Does Virtual WAN change any existing connectivity features?
 
 There are no changes to existing Azure connectivity features.
@@ -55,14 +59,6 @@ Up to 1,000 connections are supported per virtual hub. Each connection consists 
 ### Can the on-premises VPN device connect to multiple Hubs?
 
 Yes. Traffic flow, when commencing, is from the on-premises device to the closest Microsoft network edge, and then to the virtual hub.
-
-### Is Global VNet peering supported with Azure Virtual WAN? 
-
-You can connect a VNet in a different region than your virtual WAN.
-
-### Can spoke VNets connected to a virtual hub communicate with each other?
-
-Yes. Spoke VNets can communicate directly via Virtual Network Peering. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md). We also support VNets communicating transitively through the hub.
 
 ### Can I deploy and use my favorite network virtual appliance (in an NVA VNet) with Azure Virtual WAN?
 
@@ -104,6 +100,18 @@ Yes as long as the device supports IPsec IKEv1 or IKEv2. Virtual WAN partners au
 
 A simple configuration of one Virtual WAN with one hub and one vpnsite can be created using an [quickstart template](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network). Virtual WAN is primarily a REST or portal driven service.
 
+### Is Global VNet peering supported with Azure Virtual WAN? 
+
+You can connect a VNet in a different region than your virtual WAN.
+
+### Can spoke VNets connected to a virtual hub communicate with each other?
+
+Yes. Spoke VNets can communicate directly via Virtual Network Peering. For more information, see [Virtual Network Peering](../articles/virtual-network/virtual-network-peering-overview.md). We also support VNets communicating transitively through the hub.
+
+### What is a branch connection to Azure Virtual WAN?
+
+A connection from a branch device into Azure Virtual WAN supports up to four links. A link is the physical connectivity link at the branch location (for example: ATT, Verizon etc.). Each link connection is composed of two active/active IPsec tunnels.
+
 ### Is branch-to-branch connectivity allowed in Virtual WAN?
 
 Yes, branch-to-branch connectivity is available in Virtual WAN for VPN and VPN to ExpressRoute.
@@ -111,14 +119,6 @@ Yes, branch-to-branch connectivity is available in Virtual WAN for VPN and VPN t
 ### Does branch-to-branch traffic traverse through the Azure Virtual WAN?
 
 Yes.
-
-### How is Virtual WAN different from an Azure virtual network gateway?
-
-A virtual network gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections per region (virtual hub) with aggregate of 20 Gbps per hub. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
-
-### How is Virtual WAN supporting SD-WAN devices?
-
-Virtual WAN partners automate IPsec connectivity to Azure VPN end points. If the Virtual WAN partner is an SD-WAN provider, then it is implied that the SD-WAN controller manages automation and IPsec connectivity to Azure VPN end points. If the SD-WAN device requires its own end point instead of Azure VPN for any proprietary SD-WAN functionality, you can deploy the SD-WAN end point in an Azure VNet and coexist with Azure Virtual WAN.
 
 ### Does Virtual WAN require ExpressRoute from each site?
 
