@@ -30,7 +30,7 @@ landingContent:
           - text: Azure Advisor videos
             url: https://azure.microsoft.com/resources/videos/index/?services=advisor
   # Card 
-  - title: Get Started   
+  - title: Get started   
     linkLists:     
       - linkListType: get-started
         links:

@@ -37,7 +37,7 @@ landingContent:
             url: https://www.microsoft.com/videoplayer/embed/RE2OgX6
   
   # Card 
-  - title: Get Notified
+  - title: Get notified
     linkLists:
       - linkListType: how-to-guide
         links:
