@@ -127,6 +127,6 @@ To learn about Peering Service concepts, see [Peering Service Connection](peerin
 
 To learn about Peering Service telemetry concepts, see [Peering Service Connection Telemetry](peering-service-connection-telemetry.md).
 
-To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal.md.)
+To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal.md).
 
-To register the connection using Azure CLI, see [Peering Service connection](peering-service-CLI.md.)
+To register the connection using Azure CLI, see [Peering Service connection](peering-service-CLI.md).

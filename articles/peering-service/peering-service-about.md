@@ -35,7 +35,7 @@ For instructions on how to register a Peering Service, refer [here](peering-serv
 - It’s a collaboration platform with SPs and a value-added service that is intended to offer optimal and reliable routing to customer via partner service provider to Microsoft Cloud over the public network.
 
 > [!Note]
-> For more information about **ExpressRoute**, refer [here](https://docs.microsoft.com/en-us/azure/expressroute/)
+> For more information about **ExpressRoute**, refer [here](https://docs.microsoft.com/azure/expressroute/)
 >
 
 ## Background
@@ -47,7 +47,7 @@ Microsoft and partner SPs ensure that traffic for the prefixes registered with P
 ![first mile ](./media/peering-service-about/peering-service-background-final.png)
 
 > [!Note]
-> For more information about the Microsoft Global Network, refer [here](https://docs.microsoft.com/en-us/azure/networking/microsoft-global-network).
+> For more information about the Microsoft Global Network, refer [here](https://docs.microsoft.com/azure/networking/microsoft-global-network).
 >
 
 ## Why Peering Service?

@@ -112,6 +112,6 @@ To learn more about Peering Service concepts, see [Peering Service Connection](p
 
 To measure the telemetry, see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).
 
-To register the connection using PowerShell, see [Peering Service connection](peering-service-powershell.md.)
+To register the connection using PowerShell, see [Peering Service connection](peering-service-powershell.md).
 
-To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal.md.)
+To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal.md).
