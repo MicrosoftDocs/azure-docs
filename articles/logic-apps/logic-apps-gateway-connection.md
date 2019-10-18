@@ -13,7 +13,7 @@ ms.date: 10/18/2019
 
 # Connect to on-premises data sources from Azure Logic Apps
 
-Before you can access data sources on premises from your logic apps, you need to create an Azure resource after you [install the *on-premises data gateway* installed on a local computer](../logic-apps/logic-apps-gateway-install.md). Your logic apps then use this Azure gateway resource in the triggers and actions provided by the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) that are available for Azure Logic Apps.
+Before you can access data sources on premises from your logic apps, you need to create an Azure resource after you [install the *on-premises data gateway* on a local computer](../logic-apps/logic-apps-gateway-install.md). Your logic apps then use this Azure gateway resource in the triggers and actions provided by the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) that are available for Azure Logic Apps.
 
 This article shows how to create your Azure gateway resource for a previously [installed gateway on your local computer](../logic-apps/logic-apps-gateway-install.md). For more information about the gateway, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
@@ -166,7 +166,7 @@ To create a different gateway resource, link your gateway installation to a diff
 
 * Your gateway resource and gateway installation have to use the same region. However, your logic app location can differ from your gateway resource location.
 
-* Your gateway installation is already registered and claimed by another gateway resource. These installations won't appear in the **Installation Name** list. To review your gateway registrations in the Azure portal, find all your Azure resources that have the **On-premises Data Gateways** type across *all* your Azure subscriptions.
+* Your gateway installation is already registered and claimed by another gateway resource. These installations won't appear in the **Installation Name** list. To review your gateway registrations in the Azure portal, find all your Azure resources that have the **On-premises Data Gateways** type across *all* your Azure subscriptions. To unlink the gateway installation from the other gateway resource, see [Delete gateway resource](#change-delete-gateway-resource).
 
 [!INCLUDE [existing-gateway-location-changed](../../includes/logic-apps-existing-gateway-location-changed.md)]
 
