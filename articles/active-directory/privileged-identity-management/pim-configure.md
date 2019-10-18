@@ -17,11 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 # What is Azure AD Privileged Identity Management?
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) is a service that enables you to manage, control, and monitor access to important resources in your organization. This includes access to resources in Azure AD, Azure resources, and other Microsoft Online Services like Office 365 or Microsoft Intune.
+Privileged Identity Management (PIM) is a service in Azure Active Directory (Azure AD) that you can use to manage, control, and monitor access to Azure resources. You can manage access to resources in Azure AD, Azure resources, and other Microsoft Online Services like Office 365 or Microsoft Intune. Privileged Identity Management can help to mitigate the risk of excessive, unnecessary, or misused access permissions.
 
 ## Reasons to use
 
-Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor hijacking that access, or an authorized user accidentally impacting a sensitive resource. However, users still need to carry out privileged operations in Azure AD, Azure, Office 365, or SaaS apps, so there is a need for oversight over what users do with their administrator permissions. If you want to give users just-in-time (JIT) privileged access to Azure resources and Azure AD, Privileged Identity Management can help to mitigate the risk of excessive, unnecessary, or misused access permissions.
+Organizations want to minimize the number of people who have access to secure information or resources, because that reduces the chance of a malicious actor hijacking that access, or an authorized user accidentally impacting a sensitive resource. Users who act with privileged permissions in Azure AD, Azure, Office 365, or SaaS apps require oversight over what they do with their permissions. Your organization might benefit from users with just-in-time privileged access to Azure and Azure AD resource.
 
 ## What does it do?
 
@@ -44,11 +44,23 @@ Once you set up Privileged Identity Management, you'll see **Tasks**, **Manage**
 
 ## Who can do what?
 
-If you're the first person to use Privileged Identity Management, you are automatically assigned the [Security Administrator](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) and [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roles in the directory.
+If you're the first person to use Privileged Identity Management, you are automatically assigned the following Azure AD administrative roles in your organization:
 
-For Azure AD roles in Privileged Identity Management, only a user who is in the Privileged Role Administrator role can manage assignments for other administrators. You can [grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md). Global Administrators, Security Administrators, Global readers, and Security Readers can also view assignments to Azure AD roles in Privileged Identity Management.
+- [Security Administrator](../users-groups-roles/directory-assign-admin-roles.md#security-administrator)
+- [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 
-For Azure resource roles in Privileged Identity Management, only a subscription administrator, a resource Owner, or a resource User Access administrator can manage assignments for other administrators. Users who are Privileged Role Administrators, Security Administrators, or Security Readers do not by default have access to view assignments to Azure resource roles in Privileged Identity Management.
+Only a user who is assigned the Privileged Role Administrator role in Azure AD can manage assignments for other administrators in Privileged Identity Management. You can [grant access to other administrators to manage Privileged Identity Management](pim-how-to-give-access-to-pim.md). The following Azure AD roles can also view assignments to Azure AD roles in Privileged Identity Management:
+
+- Global administrator
+- Security administrator
+- Global reader
+- Security reader
+
+Only a subscription administrator, a resource Owner, or a resource scope User Access administrator can manage Azure resource access assignments for other administrators in Privileged Identity Management. The following Azure AD roles, only when combined with one of the preceding Azure roles, can view assignments to Azure resource roles in Privileged Identity Management:
+
+- Privileged Role Administrators
+- Security Administrators
+- Security Readers
 
 ## Scenarios
 
@@ -80,7 +92,7 @@ To better understand Privileged Identity Management and its documentation, you s
 | --- | --- | --- |
 | eligible | Type | A role assignment that requires a user to perform one or more actions to use the role. If a user has been made eligible for a role, that means they can activate the role when they need to perform privileged tasks. There's no difference in the access given to someone with a permanent versus an eligible role assignment. The only difference is that some people don't need that access all the time. |
 | active | Type | A role assignment that doesn't require a user to perform any action to use the role. Users assigned as active have the permissions assigned to the role. |
-| activate |  | The process of performing one or more actions to use a role that a user is eligible for. Actions might include performing a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers. |
+| activate |  | The process of performing one or more actions to use a role that a user is eligible for. Actions might include a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers. |
 | assigned | State | A user who has an active role assignment. |
 | activated | State | A user who<br><li>has an eligible role assignment<li>performed the actions to activate the role<li>is now active.<br>Once activated, the user can use the role for an assigned period of time before they are required to activate again. |
 | permanent eligible | Duration | A role assignment where a user is always eligible to activate the role. |
