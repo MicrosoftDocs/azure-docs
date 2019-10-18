@@ -23,15 +23,15 @@ Inner join only outputs rows that have matching values both tables.
 
 ### Left Outer
 
-Left outer join returns all rows from the left stream and matched records from the right stream. If a row from the left stream has no match, the output columns from the right stream are set to NULL. The output will be all rows returned by an inner join in addition to all unmatched rows from the left stream.
+Left outer join returns all rows from the left stream and matched records from the right stream. If a row from the left stream has no match, the output columns from the right stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the left stream.
 
 ### Right Outer
 
-Left outer join returns all rows from the right stream and matched records from the left stream. If a row from the right stream has no match, the output columns from the right stream are set to NULL. The output will be all rows returned by an inner join in addition to all unmatched rows from the right stream.
+Left outer join returns all rows from the right stream and matched records from the left stream. If a row from the right stream has no match, the output columns from the right stream are set to NULL. The output will be the rows returned by an inner join plus the unmatched rows from the right stream.
 
 ### Full Outer
 
-Full outer join outputs all columns and rows from both sides with NULL values for columns are not matched.
+Full outer join outputs all columns and rows from both sides with NULL values for columns aren't matched.
 
 ### Cross Join
 
@@ -47,11 +47,11 @@ Cross join outputs the cross product of the two streams based upon a condition. 
 
 ## Optimizing join performance
 
-Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't need to be sorted first. The join operation occurs based on the optimal join operation in Spark, either broadcast or map-side join.
+Unlike merge join in tools like SSIS, the join transformation isn't a mandatory merge join operation. The join keys don't require sorting. The join operation occurs based on the optimal join operation in Spark, either broadcast or map-side join.
 
 ![Join Transformation optimize](media/data-flow/joinoptimize.png "Join Optimization")
 
-If one or both of the data streams fits into worker node memory, further optimize your performance by enabling **Broadcast** in the optimize tab. You can also repartition your data on the join operation so that it fits better into memory per worker.
+If one or both of the data streams fit into worker node memory, further optimize your performance by enabling **Broadcast** in the optimize tab. You can also repartition your data on the join operation so that it fits better into memory per worker.
 
 ## Self-Join
 
@@ -78,7 +78,7 @@ When testing the join transformations with data preview in debug mode, use a sma
 
 ### Inner join example
 
-The below example is an join transformation named `JoinMatchedData` that takes left stream `TripData` and right stream `TripFare`.  The join condition is the expression `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` that returns true if the `hack_license`, `medallion`, `vendor_id` and `pickup_datetime` columns in each stream match. The `joinType` is `'inner'`. We are enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
+The below example is a join transformation named `JoinMatchedData` that takes left stream `TripData` and right stream `TripFare`.  The join condition is the expression `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}` that returns true if the `hack_license`, `medallion`, `vendor_id`, and `pickup_datetime` columns in each stream match. The `joinType` is `'inner'`. We're enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
 
 In the Data Factory UX, this transformation looks like the below image:
 
@@ -100,7 +100,7 @@ TripData, TripFare
 
 ### Cross join example
 
-The below example is an join transformation named `CartesianProduct` that takes left stream `TripData` and right stream `TripFare`. This transformation takes in two streams and returns a cartesian product of their rows. The join condition is `true()` because it outputs a full cartesian product. The `joinType` in `cross`. We are enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
+The below example is a join transformation named `CartesianProduct` that takes left stream `TripData` and right stream `TripFare`. This transformation takes in two streams and returns a cartesian product of their rows. The join condition is `true()` because it outputs a full cartesian product. The `joinType` in `cross`. We're enabling broadcasting in only the left stream so `broadcast` has value `'left'`.
 
 In the Data Factory UX, this transformation looks like the below image:
 
