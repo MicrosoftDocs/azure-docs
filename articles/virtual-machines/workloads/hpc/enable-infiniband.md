@@ -17,9 +17,14 @@ ms.author: amverma
 
 # Enable InfiniBand with SR-IOV
 
-InfiniBand with SR-IOV is available for all RDMA enabled VMs on Azure. RDMA capable VMs include [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) and [High-performance compute (HPC)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VMs.
+The Azure NC, ND, and H-series of VMs are all backed by a dedicated InfiniBand network. All RDMA-enabled sizes are capable of leveraging that network using Intel MPI. Some VM series have expanded support for all MPI implementations and RDMA verbs through SR-IOV. RDMA capable VMs include [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) and [High-performance compute (HPC)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VMs.
 
-To get started with IaaS VMs for HPC, the simplest solution is to use the [CentOS-HPC 7.6 VM OS image](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), which is already configured with InfiniBand. Since this image is already configured with InfiniBand, you don't have to configure it manually. 
+
+To get started, the simplest option is to use a platform image pre-configured for InfiniBand, where available:
+
+- HPC IaaS VMs – To get started with IaaS VMs for HPC, the simplest solution is to use the [CentOS-HPC 7.6 VM OS image](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), which is already configured with InfiniBand. Since this image is already configured with InfiniBand, you don't have to configure it manually.
+
+- GPU IaaS VMs – No platform images are currently pre-configured for GPU optimized VMs. See [Manually install Mellanox OFED](#manually-install-mellanox-ofed) to learn how how to configure your image with InfiniBand.
 
 If you're using a custom VM image or a [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) VM, you should configure it with InfiniBand by adding the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment. Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
 
@@ -27,7 +32,7 @@ If you're using a custom VM image or a [GPU optimized](https://docs.microsoft.co
 
 To manually configure InfiniBand with SR-IOV, use the following steps. The example in these steps shows syntax for RHEL/CentOS, but the steps are general and can be used for any compatible operating system such as Ubuntu (16.04, 18.04 19.04) and SLES (12 SP4 and 15). The inbox drivers work as well, but the Mellanox OpenFabrics drivers provide more features.
 
-For more information on the supported distributions for the Mellanox driver, see the latest [Mellanox OpenFabrics drivers](https://www.mellanox.com/page/products_dyn?product_family=26). For more information on the Mellanox OpenFabrics driver, see the [Mellanox user guide](https://docs.mellanox.com/category/mlnxofedib). 
+For more information on the supported distributions for the Mellanox driver, see the latest [Mellanox OpenFabrics drivers](https://www.mellanox.com/page/products_dyn?product_family=26). For more information on the Mellanox OpenFabrics driver, see the [Mellanox user guide](https://docs.mellanox.com/category/mlnxofedib).
 
 See the following example for how to configure InfiniBand on Linux:
 
