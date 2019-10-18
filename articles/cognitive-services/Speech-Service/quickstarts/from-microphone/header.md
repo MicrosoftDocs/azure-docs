@@ -12,8 +12,6 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Recognize speech from a microphone
-
 In this quickstart you'll use the Speech SDK to convert speech-to-text using a microphone. Regardless of your language/platform preference, there are a few things that you'll do as you work your way through this article:
 
 1. Consume the Speech SDK.
