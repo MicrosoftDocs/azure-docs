@@ -26,6 +26,8 @@ Large file shares enabled accounts support LRS or ZRS. For now, large file share
 
 ## Create a new storage account
 
+### Portal
+
 Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Storage Accounts**. As you begin typing, the list filters based on your input. Select **Storage Accounts**.
@@ -54,7 +56,14 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Select **Create**.
 
+
+### CLI
+
+az storage account create –name youstorageacocunt -g yourresourcegroup -l eastuseuap –sku Standard_LRS –enable-large-file-share
+
 ## Enable on existing account
+
+### Portal
 
 You can also enable large file shares on existing accounts. If you do this, then the account will no longer be able to convert to GZRS, GRS, or RA-GRS. This choice is irreversible on this account.
 
@@ -69,7 +78,11 @@ You've now enabled large file shares on your storage account.
 
 If you receive the following error: "Large file shares are not available for the account yet." You can either wait some time, as your region is likely in the middle of completing roll out, or, if you have urgent needs, reach out to support.
 
+### CLI
+
 ## Create a large file share
+
+### Portal
 
 Creating a large file share is almost identical to creating a standard file share. The main difference is that you can set a quota up to 100 TiB.
 
@@ -79,7 +92,11 @@ Creating a large file share is almost identical to creating a standard file shar
 
 ![large-file-shares-create-share.png](media/storage-files-how-to-create-large-file-share/large-file-shares-create-share.png)
 
+### CLI
+
 ## Expand existing file shares
+
+### Portal
 
 Once you've enabled large file shares on your storage account, you can expand existing shares to the higher quota.
 
@@ -88,6 +105,8 @@ Once you've enabled large file shares on your storage account, you can expand ex
 1. Enter the new size that you desire, then select **OK**.
 
 ![update-large-file-share-quota.png](media/storage-files-how-to-create-large-file-share/update-large-file-share-quota.png)
+
+### CLI
 
 ## Next steps
 
