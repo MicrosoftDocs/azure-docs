@@ -1,5 +1,5 @@
 ---
-title: Access Azure Blob Storage from Azure Databricks using Azure Key Vault tutorial
+title: Access blob storage using key vault - Azure Databricks
 description: This tutorial describes how to access Azure Blob Storage from Azure Databricks using secrets stored in a key vault.
 author: mamccrea
 ms.author: mamccrea

@@ -132,7 +132,7 @@ New-AzResourceGroupDeployment `
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli
-templateFile="{provide-the-path-to-the-template-file}"
+$templateFile="{provide-the-path-to-the-template-file}"
 az group deployment create \
   --name blanktemplate \
   --resource-group myResourceGroup \

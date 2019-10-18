@@ -13,7 +13,7 @@ ms.author: diberry
 #Customer intent: As a developer, I want implement a Personalizer loop so that I can understand how to use the Rank and Reward calls.
 ---
 
-# Quickstart: Personalize client library for Python
+# Quickstart: Personalizer client library for Python
 
 Display personalized content in this python quickstart with the Personalizer service.
 

@@ -154,7 +154,7 @@ namespace ConsoleApp
             configuration.InstrumentationKey = "removed";
             configuration.TelemetryInitializers.Add(new HttpDependenciesParsingTelemetryInitializer());
 
-            var telemetryClient = new TelemetryClient();
+            var telemetryClient = new TelemetryClient(configuration);
             using (InitializeDependencyTracking(configuration))
             {
                 // run app...

@@ -41,10 +41,8 @@ landingContent:
         links:
           - text: Azure Time Series Insights Preview tutorial
             url: time-series-insights-update-create-environment.md
-          - text: Create a single-page web app
-            url: tutorial-create-tsi-sample-spa.md
-          - text: Time Series Insights JavaScript client library
-            url: tutorial-explore-js-client-lib.md
+          - text: Client SDK sample visualization
+            url: https://tsiclientsample.azurewebsites.net/
       - linkListType: how-to-guide
         links:
           - text: Provision and manage
@@ -76,7 +74,6 @@ landingContent:
         links:
           - text: Time Series Model
             url: time-series-insights-update-tsm.md
-
   - title: Get started with GA
     linkLists:
       - linkListType: quickstart
@@ -87,10 +84,8 @@ landingContent:
         links:
           - text: Create a Time Series Insights environment
             url: tutorial-create-populate-tsi-environment.md
-          - text: Create a single-page web app
-            url: tutorial-create-tsi-sample-spa.md
-          - text: Time Series Insights JavaScript client library
-            url: tutorial-explore-js-client-lib.md
+          - text: Client SDK sample visualization
+            url: https://tsiclientsample.azurewebsites.net/
       - linkListType: how-to-guide
         links:
           - text: Create an environment
@@ -127,9 +122,9 @@ landingContent:
         links:
           - text: Azure Time Series Insights
             url: /rest/api/time-series-insights/
-          - text: Azure Time Series Insights Preview
+          - text: Data Access Concepts Preview
             url: /rest/api/time-series-insights/preview
-          - text: Azure Time Series Insights GA
+          - text: Data Access GA
             url: /rest/api/time-series-insights/ga
           - text: JavaScript Client SDK
             url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md

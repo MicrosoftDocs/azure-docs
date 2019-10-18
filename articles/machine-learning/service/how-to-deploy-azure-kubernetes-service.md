@@ -109,7 +109,7 @@ For more information, see the [az ml computetarget create ask](https://docs.micr
 
 **Time estimate:** Approximately 5 minutes.
 
-If you already have AKS cluster in your Azure subscription, and it is version 1.12.##, you can use it to deploy your image.
+If you already have AKS cluster in your Azure subscription, and it is lower than version 1.14, you can use it to deploy your image.
 
 > [!TIP]
 > The existing AKS cluster can be in a Azure region than your Azure Machine Learning workspace.
@@ -128,7 +128,7 @@ For more information on creating an AKS cluster using the Azure CLI or portal, s
 * [Create an AKS cluster (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
-The following examples demonstrate how to attach an existing AKS 1.12.## cluster to your workspace:
+The following examples demonstrate how to attach an existing AKS cluster to your workspace:
 
 **Using the SDK**
 

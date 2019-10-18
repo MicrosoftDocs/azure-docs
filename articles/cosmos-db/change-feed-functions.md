@@ -24,7 +24,7 @@ With the [Azure Functions trigger for Cosmos DB](../azure-functions/functions-bi
 
 To implement a serverless event-based flow, you need:
 
-* **The monitored container**: The monitored container is the Azure Cosmos container being monitored, and it stores the data from which the change feed is generated. Any inserts and changes (e.g., CRUD) to the monitored container are reflected in the change feed of the container.
+* **The monitored container**: The monitored container is the Azure Cosmos container being monitored, and it stores the data from which the change feed is generated. Any inserts, updates to the monitored container are reflected in the change feed of the container.
 * **The lease container**: The lease container maintains state across multiple and dynamic serverless Azure Function instances and enables dynamic scaling. This lease container can be manually or automatically created by the Azure Functions trigger for Cosmos DB. To automatically create the lease container, set the *CreateLeaseCollectionIfNotExists* flag in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Partitioned lease containers are required to have a `/id` partition key definition.
 
 ## Create your Azure Functions trigger for Cosmos DB
