@@ -133,6 +133,7 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
         }
     }
     ```
+    
 ## LUIS keys
 
 [!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
