@@ -40,16 +40,16 @@ Here is a quick comparison:
 
 || Machine Learning Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-|| Generally available (GA) | In preview|
-| Drag and drop interface | Yes | Yes - Azure Machine Learning designer |
+|| Generally available (GA) | Generally available (GA) |
+| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../service/ui-concept-visual-interface.md) |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Modules for drag-and-drop interface | Many | Initial set of popular [modules](../algorithm-module-reference/module-reference.md)|
 |Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../service/concept-compute-target.md#train))|
 |Inferencing compute targets| Proprietary web service format, not customizable |  Azure Kubernetes Service and AML Compute <br/>([Other computes supported in SDK](../service/how-to-deploy-and-where.md)) |
 | ML Pipeline | Not supported | [Pipelines](../service/concept-ml-pipelines.md) supported |
-| ML Ops | Basic model management and deployment | Configurable deployment - model and pipeline versioning and tracking |
+| MLOps | Basic model management and deployment | Configurable deployment - model and pipeline versioning and tracking |
 | Model format | Proprietary format, Studio only | Standard format depending on training job type |
-|Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> (Supported in the SDK and workspace landing page) | 
+|Automated model training and hyperparameter tuning | No | Not yet in the designer <br/> ([Supported in the SDK and workspace landing page](../service/concept-automated-ml.md)) | 
 
 Try out the designer with [Tutorial: Predict automobile price with the designer](../service/ui-tutorial-automobile-price-train-score.md)
 
@@ -66,7 +66,7 @@ Download the **Microsoft Azure Machine Learning Studio (classic) Capabilities Ov
 ## Components of a Studio (classic)  experiment
 An experiment consists of datasets that provide data to analytical modules, which you connect together to construct a predictive analysis model. Specifically, a valid experiment has these characteristics:
 
-* The experiment has atleast one dataset and one module
+* The experiment has at least one dataset and one module
 * Datasets may be connected only to modules
 * Modules may be connected to either datasets or other modules
 * All input ports for modules must have some connection to the data flow
