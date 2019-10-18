@@ -4,7 +4,7 @@ description: Transfer data with AzCopy and file storage.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ---

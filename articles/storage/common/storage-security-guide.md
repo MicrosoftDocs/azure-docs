@@ -21,7 +21,7 @@ Azure Storage provides a comprehensive set of security capabilities that togethe
     - You can assign RBAC roles scoped to the storage account to security principals and use Azure AD to authorize resource management operations such as key management.
     - Azure AD integration is supported for blob and queue data operations. You can assign RBAC roles scoped to a subscription, resource group, storage account, or an individual container or queue to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).   
 - Data can be secured in transit between an application and Azure by using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
-- OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+- OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).
 - Delegated access to the data objects in Azure Storage can be granted using a shared access signature. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
 
 This article provides an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
@@ -324,7 +324,7 @@ The solution does not support the following scenarios, features, and technology 
 This feature ensures that all data on your virtual machine disks is encrypted at rest in Azure Storage.
 
 #### Resources
-* [Azure Disk Encryption for Windows and Linux IaaS VMs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
+* [Azure Disk Encryption for Windows and Linux IaaS VMs](../../security/fundamentals/encryption-overview.md)
 
 ### Comparison of Azure Disk Encryption, SSE, and Client-Side Encryption
 

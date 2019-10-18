@@ -26,7 +26,7 @@ The `linkerd` client binary runs on your client machine and allows you to intera
 New-Item -ItemType Directory -Force -Path "C:\Linkerd"
 Copy-Item -Path ".\linkerd2-cli-$LINKERD_VERSION-windows.exe" -Destination "C:\Linkerd\linkerd.exe"
 
-# Add C:\Istio to PATH. 
+# Add C:\Linkerd to PATH. 
 # Make the new PATH permanently available for the current User, and also immediately available in the current shell.
 $PATH = [environment]::GetEnvironmentVariable("PATH", "User") + "; C:\Linkerd\"
 [environment]::SetEnvironmentVariable("PATH", $PATH, "User") 
