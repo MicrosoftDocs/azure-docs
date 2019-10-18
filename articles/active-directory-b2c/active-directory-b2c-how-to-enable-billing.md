@@ -50,10 +50,11 @@ Once you've created the Azure AD B2C resource in an Azure subscription, you shou
 
 You can use this resource to:
 
-* Navigate to the subscription to review billing information.
+* Navigate to the subscription to review billing information
+* Get the Azure AD B2C tenant's tenant ID in GUID format
 * Go to your Azure AD B2C tenant
 * Submit a support request
-* Move your Azure AD B2C tenant resource to another Azure subscription or to another Resource Group.
+* Move your Azure AD B2C tenant resource to another Azure subscription or resource group
 
 ![B2C Resource settings page in the Azure portal](./media/active-directory-b2c-how-to-enable-billing/portal-02-b2c-resource-overview.png)
 
