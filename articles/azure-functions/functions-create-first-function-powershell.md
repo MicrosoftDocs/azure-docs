@@ -91,7 +91,7 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
 
     You can also execute the GET request from a browser.
 
-    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a 500 error. When you review the code in run.ps1, you see that this error occurs by design.
+    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a [HttpStatusCode]::BadRequest error. When you review the code in run.ps1, you see that this error occurs by design.
 
 1. To stop debugging, press Shift + F5.
 

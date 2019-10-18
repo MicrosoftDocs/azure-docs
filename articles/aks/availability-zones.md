@@ -67,9 +67,14 @@ az provider register --namespace Microsoft.ContainerService
 
 AKS clusters can currently be created using availability zones in the following regions:
 
+* Central US
 * East US 2
+* East US
+* France Central
+* Japan East
 * North Europe
 * Southeast Asia
+* UK South
 * West Europe
 * West US 2
 

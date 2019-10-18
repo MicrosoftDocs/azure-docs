@@ -117,7 +117,7 @@ For example, in a game app, send an event whenever a user wins the game:
 *JavaScript*
 
 ```javascript
-appInsights.trackEvent("WinGame");
+appInsights.trackEvent({name:"WinGame"});
 ```
 
 *C#*

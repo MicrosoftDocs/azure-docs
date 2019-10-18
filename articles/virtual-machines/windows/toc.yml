@@ -197,7 +197,15 @@
     - name: Benchmark scores
       href: compute-benchmark-scores.md
     - name: vCPU quotas
-      href: quotas.md
+      href: quotas.md    
+    - name: Reserved instances
+      items:
+      - name: Prepay for VMs
+        href: prepay-reserved-vm-instances.md
+      - name: What are Azure reservations?
+        href: ../../billing/billing-save-compute-costs-reservations.md
+      - name: VM instance size flexibility
+        href: reserved-vm-instance-size-flexibility.md
   - name: Dedicated hosts
     href: dedicated-hosts.md
   - name: Maintenance and updates
@@ -226,6 +234,10 @@
     items:
     - name: Security and policy
       href: security-policy.md
+    - name: Azure Disk Encryption
+      href: disk-encryption-overview.md
+    - name: Built-in security controls
+      href: virtual-machines-windows-security-controls.md
   - name: States and lifecycle
     href: states-lifecycle.md
   - name: Monitoring
@@ -234,8 +246,6 @@
     href: backup-recovery.md
   - name: Infrastructure example
     href: infrastructure-example.md
-  - name: Built-in security controls
-    href: virtual-machines-windows-security-controls.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -278,8 +288,31 @@
     - name: Just-in-time access
       href: ../../security-center/security-center-just-in-time.md
     - name: Encrypt
-      href: encrypt-disks.md
-      displayName: encryption
+      items:
+        - name: Disk encryption scenarios for Windows
+          href: disk-encryption-windows.md
+        - name: VM encryption with Azure CLI
+          href: disk-encryption-cli-quickstart.md
+        - name: VM encryption with Azure PowerShell
+          href: disk-encryption-powershell-quickstart.md
+        - name: VM encryption with Azure portal
+          href: disk-encryption-portal-quickstart.md
+        - name: Key vault for Azure Disk Encryption
+          href: disk-encryption-key-vault.md
+        - name: Disk encryption sample scripts
+          href: disk-encryption-sample-scripts.md
+        - name: Disk encryption troubleshooting
+          href: disk-encryption-troubleshooting.md
+        - name: Disk encryption FAQ
+          href: disk-encryption-faq.md
+        - name: Disk encryption - previous version (AAD)
+          items:
+          - name: Overview
+            href: disk-encryption-overview-aad.md
+          - name: Key vault for Azure Disk Encryption
+            href: disk-encryption-key-vault-aad.md
+          - name: Disk encryption scenarios for Windows
+            href: disk-encryption-windows-aad.md
     - name: Use WinRM
       href: winrm.md
     - name: Use access controls
@@ -359,14 +392,6 @@
       href: ../../azure-monitor/platform/alerts-metric.md
     - name: Create log alerts
       href: ../../azure-monitor/platform/alerts-log.md
-  - name: Manage costs
-    items:
-    - name: Prepay for VMs - Azure reservations
-      href: prepay-reserved-vm-instances.md
-    - name: What are Azure reservations?
-      href: ../../billing/billing-save-compute-costs-reservations.md
-    - name: VM instance size flexibility
-      href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
     - name: Shared images 
@@ -422,8 +447,6 @@
     - name: Create a proximity placement group
       href: proximity-placement-groups.md    
     - name: Vertically scale
-      href: vertical-scaling-automation.md
-    - name: Create VM in availability zone
       items:
       - name: PowerShell
         href: create-powershell-availability-zone.md

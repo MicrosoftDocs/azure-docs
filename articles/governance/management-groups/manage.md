@@ -1,5 +1,5 @@
 ---
-title: How to change, delete, or manage your management groups - Azure Governance
+title: How to work with your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
 author: rthorn17
 ms.service: governance
