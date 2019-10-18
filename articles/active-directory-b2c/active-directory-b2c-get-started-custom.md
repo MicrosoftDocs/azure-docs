@@ -128,6 +128,13 @@ Next, expose the API by adding a scope:
 1. Select **Register**.
 1. Record the **Application (client) ID** for use in a later step.
 
+Next, specify that the application should be treated as a public client:
+
+1. Under **Manage**, select **Authentication**.
+1. Select **Try out the new experience** (if shown).
+1. Under **Advanced settings**, enable **Treat application as a public client** (select **Yes**).
+1. Select **Save**.
+
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
 
 1. Under **Manage**, select **API permissions**.
