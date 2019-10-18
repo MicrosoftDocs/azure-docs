@@ -35,7 +35,7 @@ To get access to Custom Neural Voice, you'll need to start by filling out our on
 
 Access to the Custom Neural Voice service is subject to Microsoft’s sole discretion based on our eligibility criteria, vetting process, and availability to support a limited number of customers during this gated preview.
 
-As part of the application process, you will need to commit to obtaining explicit written permission from voice talent prior to creating a voice font, which includes sharing the Neural TTS Transparency Note. You must also agree that when deploying the voice font, your implementation will [disclose the synthetic nature](concepts-disclosure-guidelines.md) of the service to users, provide attribution to the Microsoft synthetic speech service in your terms of service, and support a feedback channel that allows users of the service to report issues and share details with Microsoft. Learn more about our Terms of Use [here](https://aka.ms/neural-tts-transparency-note).
+As part of the application process, you will need to commit to obtaining explicit written permission from voice talent prior to creating a voice font, which includes sharing the [Neural TTS Transparency Note](https://aka.ms/neural-tts-transparency-note). You must also agree that when deploying the voice font, your implementation will [disclose the synthetic nature](concepts-disclosure-guidelines.md) of the service to users, provide attribution to the Microsoft synthetic speech service in your terms of service, and support a feedback channel that allows users of the service to report issues and share details with Microsoft. Learn more about our Terms of Use [here](https://aka.ms/neural-tts-transparency-note).
 
 ## Reference docs
 
