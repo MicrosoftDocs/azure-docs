@@ -97,8 +97,12 @@
       href: cache-how-to-monitor.md#operations-and-alerts
   - name: Diagnose and troubleshoot
     items:
-    - name: Troubleshoot cache issues
-      href: cache-how-to-troubleshoot.md
+    - name: Troubleshoot Redis server
+      href: cache-howto-troubleshoot-server.md
+    - name: Troubleshoot Redis client
+      href: cache-howto-troubleshoot-client.md
+    - name: Troubleshoot timeouts
+      href: cache-howto-troubleshoot-timeouts.md
     - name: Troubleshoot data loss
       href: cache-howto-troubleshoot-data-loss.md
   - name: Scale
