@@ -17,7 +17,7 @@ There's an agent troubleshooter for the Hybrid Worker agent to determine the und
 
 If you encounter issues while you're trying to onboard the solution on a virtual machine, check the **Operations Manager** log under **Application and Services Logs** on the local machine for events with event ID 4502 and event details that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
-The following section highlights specific error messages and a possible resolution for each. For other onboarding issues see [Troubleshoot solution onboarding](onboarding.md).
+The following section highlights specific error messages and possible resolutions for each. For other onboarding issues see [Troubleshoot solution onboarding](onboarding.md).
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
