@@ -15,6 +15,12 @@ ms.custom: seodec18
 
 Azure Machine Learning is a cloud service that you use to train, deploy, automate, and manage machine learning models, all at the broad scale that the cloud provides.
 
+> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
+
+> [!Tip]
+> **Free trial!**  If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today. You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged.
+
+
 ## What is machine learning?
 
 Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. By using machine learning, computers learn without being explicitly programmed.
@@ -25,7 +31,6 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud.
 
-> [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
 The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
 
@@ -66,7 +71,7 @@ For code-free training, try:
 
   Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
 
-  [![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+  [![Azure Machine Learning studio navigation pane](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
 
 
 ### Deploy & operationalize (MLOps)
@@ -88,7 +93,7 @@ If you want to use scripts to automate your machine learning workflow, the [mach
 
 To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
-## <a name="sku"></a>Basic & enterprise editions
+## <a name="sku"></a>Basic & Enterprise editions
 
 Azure Machine Learning offers two editions tailored for your machine learning needs:
 + Basic (generally available)
@@ -101,40 +106,6 @@ Basic workspaces allow you to continue using Azure Machine Learning and pay for 
 You assign the edition whenever you create a workspace. And, pre-existing workspaces have been converted to the Basic edition for you. Basic edition includes all features that were already generally available as of October 2019. Any experiments in those workspaces that were built using Enterprise edition features will continue to be available to you in read-only until you upgrade to Enterprise. Learn how to [upgrade a Basic workspace to Enterprise edition](how-to-manage-workspace.md#upgrade). 
 
 Customers are responsible for costs incurred on compute and other Azure resources during this time.
-
-## Free trial
-
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
-
-You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Or [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which give you credits every month that you can use for paid Azure services.
-
-## How Azure Machine Learning differs from Studio
-
-[ML Studio (classic)](../studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
-
-Meanwhile, **Azure Machine Learning** provides both a web interface called the designer (preview) and several SDKs and CLI to quickly prep data, train and deploy machine learning models. The designer provides a similar drag-and-drop experience to Studio (classic). However, unlike the proprietary compute platform of Studio (classic), the designer uses your own compute resources, is scalable, and is fully integrated into Azure Machine Learning.
-
-Here is a quick comparison.
-
-
-|| Studio (classic) | Azure Machine Learning designer|
-|---| --- | --- |
-|| Generally available (GA) | In preview|
-|Drag-and-drop interface| Yes | Yes|
-|Experiment| Scale (10GB training data limit) | Scale with compute target|
-|Modules for interface| Many | Many popular modules|
-|Training compute targets| Proprietary compute target, CPU only|AML Compute(GPU/CPU)<br/> Notebook VMs |
-|Inferencing compute targets| Proprietary web service format, not customizable | Azure Kubernetes Service(real-time inferencing) <br/>AML Compute(batch inferencing) |
-|ML Pipeline| Not supported | Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](concept-ml-pipelines.md)|
-|ML Ops| Basic model management and deployment | Configurable deployment, model and pipeline versioning|
-|Model| Proprietary format. Can not be used outside of Studio | Standard format, various depends on the training job|
-|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the Python SDK and workspace landing page.) |
-
-Try out the designer (preview) with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
-
-> [!NOTE]
-
-> Models created in ML Studio (classic) can't be deployed or managed by Azure Machine Learning. However, models created and deployed in the designer can be managed through the Azure Machine Learning workspace.
 
 ## Next steps
 
