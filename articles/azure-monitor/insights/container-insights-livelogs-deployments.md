@@ -22,7 +22,7 @@ To view Deployments, perform the following steps.
 
 3. Select the **Deployments (preview)** tab.
 
-    [!Deployments view in the Azure portal](./media/container-insights-livelogs-deployments/Deployment-view-01.png)
+    [!Deployments view in the Azure portal](./media/container-insights-livelogs-deployments/deployment-view-01.png)
 
 
 The following three views give you a wholistic experience and highlight important information pertaining to viewing a deployment and diagnosing its current state. 
