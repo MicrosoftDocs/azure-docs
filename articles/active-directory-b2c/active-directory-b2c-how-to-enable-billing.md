@@ -60,9 +60,15 @@ You can use this resource to:
 
 ![B2C Resource settings page in the Azure portal](./media/active-directory-b2c-how-to-enable-billing/portal-02-b2c-resource-overview.png)
 
-## Azure Cloud Solution Providers (CSP) subscriptions
+### Azure Cloud Solution Providers (CSP) subscriptions
 
-Azure Cloud Solution Providers (CSP) subscriptions are supported in Azure AD B2C. The functionality is available using APIs or the Azure portal for Azure AD B2C and for all Azure resources. CSP subscription administrators can link, move, and delete relationships with Azure AD B2C in the same way that it's done for all Azure resources. The management of Azure AD B2C using role-based access control is not affected by the association between the Azure AD B2C tenant and an Azure CSP subscription. Role-based access control is achieved by using tenant-base roles, not subscription-based roles.
+Azure Cloud Solution Providers (CSP) subscriptions are supported in Azure AD B2C. The functionality is available using APIs or the Azure portal for Azure AD B2C and for all Azure resources. CSP subscription administrators can link, move, and delete relationships with Azure AD B2C as done with other Azure resources.
+
+The management of Azure AD B2C using role-based access control is not affected by the association between the Azure AD B2C tenant and an Azure CSP subscription. Role-based access control is achieved by using tenant-based roles, not subscription-based roles.
+
+### Regional restrictions
+
+If you've established regional restrictions for Azure resource creation in your subscription, that restriction may prevent you from creating the Azure AD B2C resource. To mitigate this issue, relax your regional restrictions.
 
 ## Change the Azure AD B2C tenant billing subscription
 
@@ -71,12 +77,6 @@ Azure AD B2C tenants can be moved to another subscription if the source and dest
 To learn how to move Azure resources like your Azure AD B2C tenant to another subscription, see [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
 Before you initiate the move, be sure to read the entire article to fully understand the limitations and requirements for such a move. In addition to instructions for moving resources, it includes critical information like a pre-move checklist and how to validate the move operation.
-
-## Known Issues
-
-### Self-imposed restrictions
-
-If you've established a regional restriction for Azure resource creation, that restriction may prevent the creation of the Azure AD B2C resource. To mitigate, relax the restriction.
 
 ## Next steps
 
