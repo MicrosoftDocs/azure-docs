@@ -57,16 +57,18 @@ To begin any test, the JavaScript client must be embedded in your Web applicatio
 2. Add a description for your test in the **Description** field. 
 3. Click **Configure Endpoint** - a tab will appear from the right-hand side. Select the type of endpoint you'd like to configure- a single Azure region, multiple Azure regions, or a custom endpoint.
 
-***Preconfigured endpoints: single and multiple Azure region combinations***
-* Select a region or set of regions from a [predetermined list of Azure endpoints](internet-analyzer-faq.md).
-* Next, select the type of application or content delivery architecture you'd like to evaluate. 
-    * Single Azure region: Site acceleration ([Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/)), static content caching ([Azure CDN for Microsoft](https://azure.microsoft.com/en-us/services/cdn/)), or none. 
-    * Multiple Azure regions: Site acceleration ([Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/)), DNS routing ([Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager/)) 
+    > 
+    ***Preconfigured endpoints: single and multiple Azure region combinations***
+    * Select a region or set of regions from a [predetermined list of Azure endpoints](internet-analyzer-faq.md).
+    * Next, select the type of application or content delivery architecture you'd like to evaluate. 
+        * Single Azure region: Site acceleration ([Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/)), static content caching ([Azure CDN for Microsoft](https://azure.microsoft.com/en-us/services/cdn/)), or none. 
+        * Multiple Azure regions: Site acceleration ([Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/)), DNS routing ([Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager/))  
 
-***Custom endpoints***
-* Download the one-pixel image provided on the page and host it on the endpoint server you would like to measure. Internet Analyzer assumes your custom endpoint is Internet-facing. 
-* Paste the location of the one-pixel imagine in the portal and the HTTPS URL. 
-* More detailed instructions can be found on the [Create Custom Endpoint](internet-analyzer-custom-endpoint.md) page. 
+    ***Custom endpoints***
+    * Download the one-pixel image provided on the page and host it on the endpoint server you would like to measure. Internet Analyzer assumes your custom endpoint is Internet-facing. 
+    * Paste the location of the one-pixel imagine in the portal and the HTTPS URL. 
+    * More detailed instructions can be found on the [Create Custom Endpoint](internet-analyzer-custom-endpoint.md) page. 
+    >
 
 4. Click **Add** to add the endpoint to your test. 
 5. Repeat steps 1-5 to configure your second endpoint. Endpoint A is always measured relative to Endpoint B - when configuring endpoints, consider which endpoint should be your experiment control. 
