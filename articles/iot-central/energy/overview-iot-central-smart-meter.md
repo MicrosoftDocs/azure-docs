@@ -13,19 +13,28 @@ manager: abjork
 
 # What is Smart Meter Monitoring App?
 
-The Smart Meter Monitoring App enables utilities and partner companies to monitor smart meter data, such as energy consumption and connection status, in near real time. It also sends notifications based on defined threshold criteria. Finally, it performs various command and control activities, such as disconnect meter and update software. There is no new coding and no additional cost required to try this app, see tutorial section on deployment details. Also the app allows users to egress the data to other business applications and to develop custom solutions. 
+## Overview 
+The smart meter monitoring app enables utilities and partner companies to monitor smart meter, such as energy consumption and connection status, in near real time. It can send notifications based on defined threshold criteria. Finally, it performs various command and control activities, such as disconnect meter and update software. There is no new coding and no additional cost required to try this app, see tutorial section on deployment details. Also, the app allows users to egress the data to other business applications and to develop custom solutions.
 
-Smart Meter App showcases the below capablities, which you can use with your Smart Meters:
+The App’s key capabilities: 
 
-* Smart Meters connectivity to Azure Cloud 
-* Smart Meters management capabilities
-* Data visualization and dashboards 
-* Rules management and root-cause analysis
-* Extensibility for custom solution development 
+* Smart meter device model sample 
+* Data ingestion and operational store 
+* Device command and control 
+* Built-in visualization and dashboards
+* Rule management and built-in integration with other azure services
+* Extensibility option for custom solution development
 
+You can try [Smart Meter Monitoring App for free](tba) without an Azure Subscription, free of charge, and commitments.
+
+> [!div class="nextstepaction"]
+> [Try smart meter monitoring app for free](addlinkhere)
+
+After you deployed the app, it comes with a monitoring dashboard as shown below figure. Please note this is a sample template and you can easily extend and customize it for your specific use cases. Refer the [concepts section](tba) to learn more.
+
+![Smart Meter App Dashboard](media/overview-iot-central-smart-meter/smart-meter-app-dashboard.png)
 
 ## Next steps
-* Get started with Smart Meter Monitoring App, [Create Smart Meter App](https://apps.azureiotcentral-ppe.com/build/smart-meter-analytics/new).
-* For detailed documentaiton, see [tutorial section](https://apps.azureiotcentral-ppe.com/build/smart-meter-analytics/new).
-
-
+* Try Smart Meter Monitoring App for free, [create smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
+* For detailed documentation, see [tutorial section](tutorial-smart-meter-app)
+* Learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
