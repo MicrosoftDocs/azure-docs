@@ -1,4 +1,6 @@
 ---
+layout: HubPage
+hide_bc: false
 title: Azure Monitor Log Data Documentation | Microsoft Docs
 description: Azure Monitor can collect different sources as log data and store it for correlation and analysis using its query language.
 ms.service:  azure-monitor
