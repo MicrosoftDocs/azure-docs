@@ -153,12 +153,12 @@
     items:
     - name: Conversation transcription (REST)
       href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
-- name: Voice assistants
+- name: Voice Assistants
   exanded: false
   items:
   - name: Overview
     items:
-    - name: What is a voice assistant?
+    - name: What is a Voice Assistant?
       href: voice-assistants.md
   - name: Building your assistant
     items:

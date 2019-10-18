@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Custom voice assistant, Java (Windows, Linux) - Speech Service'
+title: 'Quickstart: Custom Voice Assistant, Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to use the Cognitive Services Speech Software Development Kit (SDK) in a Java console application. You will learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice assistant experience.
+description: In this quickstart, you'll learn how to use the Cognitive Services Speech Software Development Kit (SDK) in a Java console application. You will learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a Voice Assistant experience.
 services: cognitive-services
 author: bidishac
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 07/05/2019
 ms.author: bidishac
 ---
 
-# Quickstart: Create a voice assistant with the Speech SDK, Java
+# Quickstart: Create a Voice Assistant with the Speech SDK, Java
 
 Quickstarts are also available for [speech-to-text](quickstart-java-jre.md), [text-to-speech](quickstart-text-to-speech-java-jre.md), and [speech-translation](quickstart-translate-speech-java-jre.md).
 
@@ -29,7 +29,7 @@ This quickstart requires:
 * A pre-configured bot created using Bot Framework version 4.2 or above. The bot would need to subscribe to the new "Direct Line Speech" channel to receive voice inputs.
 
     > [!NOTE]
-    > Please refer to [the list of supported regions for voice assistants](regions.md#Voice assistants) and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for Voice Assistants](regions.md#Voice Assistants) and ensure your resources are deployed in one of those regions.
 
 If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before starting Eclipse:
 
@@ -140,7 +140,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
     * Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription.
 
     > [!NOTE]
-    > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for Voice Assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
     ```java
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
@@ -471,7 +471,7 @@ Additional samples, such as how to read speech from an audio file, are available
 
 ## See also
 
-- [About voice assistants](voice-assistants.md)
+- [About Voice Assistants](voice-assistants.md)
 - [Get a Speech Services subscription key for free](get-started.md)
 - [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
