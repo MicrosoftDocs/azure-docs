@@ -7,7 +7,7 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 06/20/2019
+ms.date: 11/04/2019
 ---
 
 # Customer Lockbox for Microsoft Azure
@@ -118,7 +118,7 @@ The following services are now currently in preview for Customer Lockbox:
 
 - Azure subscription transfers
 
-To enable Customer Lockbox for these preview offerings for your organization: [need link/instructions]
+To enable Customer Lockbox for these preview offerings for your organization, sign up for [Customer Lockbox for Azure Public Preview](https://aka.ms/customerlockbox/insiderprogram).
 
 
 ## Exclusions
