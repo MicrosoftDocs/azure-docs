@@ -16,7 +16,7 @@ ms.author: erhopf
 
 [Audio Content Creation](https://aka.ms/audiocontentcreation) is an online tool that allows you to customize and fine-tune Microsoft's text-to-speech output for your apps and products. You can use this tool to fine-tune public and custom voices for more accurate natural expressions, and manage your output in the cloud.
 
-The Audio Content Creation tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). To simplify customization and tuning, Audio Content Generation allows you to visually inspect your text-to-speech outputs in real time.
+The Audio Content Creation tool is based on [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). To simplify customization and tuning, Audio Content Creation allows you to visually inspect your text-to-speech outputs in real time.
 
 ## How does it work?
 
@@ -31,7 +31,7 @@ This diagram shows the steps it takes to tune and export customized speech-to-te
    > Gated access is available for Custom Neural Voices, which allow you to create high-definition voices similar to natural-sounding speech. For additional details, see [Gating process](https://aka.ms/ignite2019/speech/ethics).
 
 4. Review the default result. Then use the tuning tool to adjust pronunciation, pitch, rate, intonation, voice style, and more. For a complete list of options, see [Speech Synthesis Markup Language](speech-synthesis-markup.md).
-5. Save and [export your tuned audio](#export-tuned-audio). When you save the tuning track in the system, you can continue to work and iterate on the  output. When you're satisfied with the output, you can create an audio generation task with the export feature. You can observe the status of the export task, and download the output for use with your apps and products.
+5. Save and [export your tuned audio](#export-tuned-audio). When you save the tuning track in the system, you can continue to work and iterate on the  output. When you're satisfied with the output, you can create an audio creation task with the export feature. You can observe the status of the export task, and download the output for use with your apps and products.
 6. The last step is to use the custom tuned voice in your apps and products.
 
 ## Create a Speech resource
@@ -86,7 +86,7 @@ Welcome to use Audio Content Creation to customize audio output for your product
 
 After you've reviewed your audio output and are satisfied with your tuning and adjustment, you can export the audio.
 
-1. From the [Audio Content Creation](https://aka.ms/audiocontentcreation) tool, click **Export** to create an audio generation task.
+1. From the [Audio Content Creation](https://aka.ms/audiocontentcreation) tool, click **Export** to create an audio creation task.
 2. Choose the output format for your tuned audio. A list of supported formats and sample rates is available below.
 3. You can view the status of the task on the **Export task** tab. If the task fails, see the detailed information page for a full report.
 4. When the task is complete, your audio is available for download on the **Audio Library** tab.
@@ -103,3 +103,7 @@ After you've reviewed your audio output and are satisfied with your tuning and a
 
 > [!div class="nextstepaction"]
 > [Speech Studio](https://speech.microsoft.com)
+
+## See also
+
+* [Long Audio API](https://aka.ms/long-audio-api)
