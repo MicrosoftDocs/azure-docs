@@ -8,10 +8,10 @@ ms.author: erhopf
 
 ## Select your development environment
 
-#### [Visual Studio](#tab/vs)
+#### [Linux](#tab/linux)
 [!INCLUDE [vs](./linux.md)]
-#### [Unity](#tab/unity)
+#### [MacOS](#tab/MacOS)
 [!INCLUDE [vs](./macos.md)]
-#### [UWP](#tab/uwp)
+#### [Windows](#tab/Windows)
 [!INCLUDE [vs](./windows.md)]
 * * *
