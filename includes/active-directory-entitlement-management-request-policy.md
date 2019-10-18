@@ -93,7 +93,9 @@ Follow these steps if you want to bypass access requests and allow administrator
 
 In the Approval section, you specify whether an approval is required when users request this access package. The approval settings work in the following way:
 
-- Only one of the selected approvers or fallback approvers needs to approve a request. Approval from all approvers is not required.
+- Only one of the selected approvers or fallback approvers needs to approve a request for single-stage approval. 
+- Only one of the selected approvers from stage 1 and only one of hte selected approvers from stage 2 needs to approve a request for multi-stage approval.
+- Approval from every selected approvers is not required for single or multi-stage approval.
 - The approval decision is based on whichever approver reviews the request first.
 
 1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. To have requests automatically approved, set the toggle to **No**.
@@ -102,7 +104,10 @@ In the Approval section, you specify whether an approval is required when users 
 
 1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
 
-1. Determine if the request will require a single or multi-stage approval. Set the **How many stages** toggle to **1** for single-stage.
+1. Now determine if requests will require single or multi-stage approval, and follow either the single-stage approval or multi-stage approval procedure.
+
+### Single-stage approval
+1. If the request will require a single-stage approval, set the **How many stages** toggle to **1** for single-stage.
 
 1. For approvers, select **Manager as approver** or **Choose specific approvers**.
 
@@ -121,6 +126,26 @@ In the Approval section, you specify whether an approval is required when users 
 1. To require users to provide a justification to request the access package, set **Require justification** to **Yes**.
 
     A justification is visible to other approvers and the requestor.
+
+### Multi-stage approval
+
+1. If you require multi-stage approval, set the **How many stages** toggle to **2**
+
+1. You will have to select at least two approvers. Under **First Approver**, select **Manager as approver** or add a specific user by clicking **Add users or groups** under **Choose specific approvers**. 
+
+1. If you selected Manager as approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver in case entitlement management cannot find the manager.
+
+1. If you selected **Choose specific approvers**, click **Add approvers** to select one user in your directory to be the first approver.
+
+1. Specify the number of days the first approver has to approve the request next to **Duration for this stage**. 
+
+1. Set the **Require approver justification** toggle to **Yes** or **No**. 
+
+1. Under **Second Approver**, select add a specific user by clicking **Add users or groups** under **Choose specific approvers**. 
+
+1. Specify the number of days the second approver has to approve the request 
+
+1. Set the **Require approver justification** toggle to **Yes** or **No**.  
 
 ## Enable requests
 
