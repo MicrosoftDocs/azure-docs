@@ -1,5 +1,5 @@
 ---
-title: Guidelines for Responsible Deployment
+title: Guidelines for responsible deployment of synthetic voice technology
 titleSuffix: Azure Cognitive Services
 description: Microsoft’s general design guidelines for using synthetic voice technology. These were developed in studies that Microsoft conducted with voice talent, consumers, as well individuals with speech disorders to guide the responsible development of synthetic voice.
 services: cognitive-services
@@ -11,10 +11,13 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
 ---
-# Guidelines for Responsible Deployment of Synthetic Voice Technology
-Here are Microsoft’s general design guidelines for using synthetic voice technology. These were developed in studies that Microsoft conducted with voice talent, consumers, as well individuals with speech disorders to guide the responsible development of synthetic voice.
 
-## General Considerations
+# Guidelines for responsible deployment of synthetic voice technology
+Here are Microsoft’s general design guidelines for using synthetic voice technology. These were developed in studies that Microsoft conducted with voice talent, consumers, as well as individuals with speech disorders to guide the responsible development of synthetic voice.
+
+## General considerations
+For deployment of synthetic speech technology, the following guidelines apply across most scenarios.
+
 ### Disclose when the voice is synthetic
 Disclosing that a voice is computer generated not only minimizes the risk of harmful outcomes from deception but also increases the trust in the organization delivering the voice. Learn more about [how to disclose](concepts-disclosure-guidelines.md).
 
@@ -27,13 +30,16 @@ Users are more likely to have higher expectations when interacting with high-fid
 ### Provide optional human support
 In ambiguous, transactional scenarios (for example, a call support center), users don't always trust a computer agent to appropriately respond to their requests. Human support may be necessary in these situations, regardless of the realistic quality of the voice or capability of the system.
 
-
 ## Considerations for voice talent
+When working with voice talent, such as voice actors, to create synthetic voices, the guideline below applies.
+
 ### Obtain meaningful consent from voice talent
 Voice talent expect to have control over their voice font (how and where it will be used) and be compensated anytime it's used. System owners should therefore obtain explicit written permission from voice talent, and have clear contractual specifications on use cases, duration of use, compensation, and so on. Some voice talent are unaware of the potential malicious uses of the technology and should be educated by system owners about the capabilities of the technology. For more on voice talent and consent, read our [Transparency Note](https://aka.ms/neural-tts-transparency-note).
 
 
 ## Considerations for those with speech disorders
+When working with individuals with speech disorders, to create or deploy synthetic voice technology, the following guidelines apply.
+
 ### Provide guidelines to establish contracts
 Provide guidelines for establishing contracts with individuals who use synthetic voice for assistance in speaking. The contract should consider specifying the parties who own the voice, duration of use, ownership transfer criteria, procedures for deleting the voice font, and how to prevent unauthorized access. Additionally, enable the contractual transfer of voice font ownership after death to family members if that person has given permission.
 
@@ -46,13 +52,14 @@ Individuals with speech disorders desire to make updates to their synthetic voic
 
 ## Reference docs
 
-* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
+* [Transparency Note](concepts-transparency-note.md)
 * [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 * [Disclosure Design Patterns](concepts-disclosure-patterns.md)
 
 ## Next steps
 
-* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
+* [Transparency Note](concepts-transparency-note.md)
+* [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 * [Disclosure Design Patterns](concepts-disclosure-patterns.md)

@@ -195,8 +195,8 @@
     items:
     - name: Gating Overview
       href: concepts-gating-overview.md
-    - name: Responsible Deployment Guidelines
-      href: concepts-deployment-guidelines.md
+    - name: Responsible Deployment of Synthetic Technology Guidelines
+      href: concepts-guidelines-responsible-deployment-synthetic.md
     - name: Disclosure Design Guidelines
       href: concepts-disclosure-guidelines.md
     - name: Disclosure Design Patterns

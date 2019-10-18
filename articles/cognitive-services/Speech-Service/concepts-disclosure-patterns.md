@@ -1,4 +1,4 @@
----
+concepts-guidelines-responsible-deployment-synthetic.md---
 title: Disclosure Design Patterns
 titleSuffix: Azure Cognitive Services
 description: Design patterns and best practices for disclosure.
@@ -12,7 +12,7 @@ ms.date: 10/10/2019
 ms.author: angle
 ---
 
-# Disclosure Design Patterns
+# Disclosure design patterns
 
 ## Overview
 
@@ -23,7 +23,7 @@ Now that you&#39;ve determined the right [level of disclosure](concepts-disclosu
 
 
 
-| Explicit Disclosure Patterns                                                                                                                                                                                    | Implicit Disclosure Ptterns                                                                 |
+| Explicit disclosure patterns                                                                                                                                                                                    | Implicit disclosure patterns                                                                 |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------|
 |[Transparent Introduction](#transparent-introduction)<br> [Verbal Transparent Introduction](#verbal-transparent-introduction)<br>  [Explicit Byline](#explicit-byline)<br>  [Customization and Calibration](#customization-and-calibration)<br> [Parental Disclosure](#parental-disclosure)<br> [Providing opportunities to learn more about how the voice was made](#providing-opportunities-to-learn-more-about-how-the-voice-was-made) | [Capability Disclosure](#capability-disclosure)<br>[Implicit Cues and Feedback](#implicit-cues--feedback)<br> [Conversational Transparency](#conversational-transparency) |
 
@@ -33,7 +33,7 @@ Use the following chart to refer directly to the patterns that apply to your syn
 
 
 
-| If your synthetic voice experience… | Recommendations | Design Patterns |
+| If your synthetic voice experience… | Recommendations | Design patterns |
 | --- | --- | --- |
 | Requires High Disclosure  | Use at least one explicit pattern and implicit cues up front to helps users build associations. |[Explicit Disclosure](#explicit-disclosure)<br>[Implicit Disclosure](#implicit-disclosure)  |
 | Requires Low Disclosure | Disclosure may be minimal or unnecessary, but could benefit from some implicit patterns. | [Capability Disclosure](#capability-disclosure)<br>[Conversational Transparency](#conversational-transparency)  |
@@ -45,15 +45,15 @@ Use the following chart to refer directly to the patterns that apply to your syn
 
 
 
-## Explicit Disclosure
-
+## Explicit disclosure
+If your synthetic voice experience requires high disclosure, it's best to use at least one of the following explicit patterns to clearly state the synthetic nature.
 ### Transparent Introduction
 
 Before the voice experience begins, introduce the digital assistant by being fully transparent about the origins of its voice and its capabilities. The optimal moment to use this pattern is when onboarding a new user or when introducing new features to a returning user. Implementing implicit cues during an introduction helps users form a mental model about the synthetic nature of the digital agent.
 
 #### First-time user experience
 
-![Transparent introduction during first run experience](media/responsible-ai/disclosure-patterns/transparent-intro-first.png)
+![Transparent introduction during first run experience](media/responsible-ai/disclosure-patterns/transparent-intro-first.png) <br>
 *The synthetic voice is introduced while onboarding a new user.*
 
 Recommendations
@@ -67,7 +67,7 @@ Recommendations
 If a user skips the onboarding experience, continue to offer entry points to the Transparent Introduction experience until the user triggers the voice for the first time.
 <br/>
 
-![Transparent introduction during return user experience](media/responsible-ai/disclosure-patterns/transparent-intro-return.png)
+![Transparent introduction during return user experience](media/responsible-ai/disclosure-patterns/transparent-intro-return.png)<br/>
 *Provide a consistent entry point to the synthetic voice experience. Allow the user to return to the onboarding experience when they trigger the voice for the first time at any point in the user journey.*
 
 
@@ -77,10 +77,10 @@ A spoken prompt stating the origins of the digital assistant&#39;s voice is expl
 <br/>
 
 ![Verbally spoken transparent introduction](media/responsible-ai/disclosure-patterns/spoken-prompt-1.png)
-*Use a transparent introduction when there are moments in the user experience where you might already introduce or attribute a person&#39;s voice.*
+<br/>*Use a transparent introduction when there are moments in the user experience where you might already introduce or attribute a person&#39;s voice.*
 
 
-![Verbally spoken transparent introduction in first person](media/responsible-ai/disclosure-patterns/spoken-prompt-2.png)
+![Verbally spoken transparent introduction in first person](media/responsible-ai/disclosure-patterns/spoken-prompt-2.png)<br/>
 *For additional transparency, the voice actor can disclose the origins of the synthetic voice in the first person.*
 
 ### Explicit Byline
@@ -129,7 +129,7 @@ Recommendations
 In addition to complying with COPPA regulations, provide disclosure to parents if your primary intended audience is young children and your exposure level is high. For sensitive uses, consider gating the experience until an adult has acknowledged the use of the synthetic voice. Encourage parents to communicate the message to their children.
 
 ![Disclosure for parents](media/responsible-ai/disclosure-patterns/parental-disclosure.png)<br/>
-*An optimized transparent introduction that ensures an adult was made aware of the synthetic nature of the voice before a child interacts with it.*
+*A transparent introduction optimized for parents ensures that an adult was made aware of the synthetic nature of the voice before a child interacts with it.*
 
 Recommendations
 
@@ -152,10 +152,11 @@ Once a user requests more information about the synthetic voice, the primary goa
 
 Recommendations
 
-- Simplify concepts and avoid using legalese and technical jargon
+- Simplify complex concepts and avoid using legalese and technical jargon
+- Don't bury this content in privacy and terms of use statements
 - Keep content concise and use imagery when available
 
-## Implicit Disclosure
+## Implicit disclosure
 
 Consistency is the key to achieving disclosure implicitly throughout the user journey. Consistent use of visual and auditory cues across devices and modes of interaction can help build associations between implicit patterns and explicit disclosure.
 
@@ -168,23 +169,11 @@ Anthropomorphism can manifest in different ways, from the actual visual represen
 ![Visual cues and feedback](media/responsible-ai/disclosure-patterns/visual-affordances.png)<br/>
 *These cues help anthropomorphize the agent without being too human-like. They can also become effective disclosure mechanisms on their own when used consistently over time.*
 
-The following is a spectrum of different types of cues that could apply:
+Consider the different modes of interactions of your experience when incorporating the following types of cues:
 
-#### Visual Cues
-
-Lights
-
-Patterns
-
-Feedback animation (e.g., active state, listening state)
-
-#### Auditory Cues
-
-Sonicon (e.g., a short series of musical notes)
-
-#### Haptic Cues
-
-Vibration
+| Visual Cues                                                                                                                                                               | Auditory Cues                                                      | Haptic Cues |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|-------------|
+|  Avatar <br>Responsive real-time cues (e.g., animations)<br> Non-screen cues (e.g., lights and patterns on a device)<br>  | Sonicon (e.g., a brief distinctive sound, series of musical notes) | Vibration   |
 
 ### Capability Disclosure
 
@@ -200,10 +189,10 @@ When conversations fall in unexpected paths, consider crafting default responses
 
 <br/>
 Off-task or &quot;personal&quot; questions directed to the agent are a good time to remind users of the synthetic nature of the agent and steer them to engage with it appropriately or to redirect them to a real person.
-<br/>
+
 ![Handling off task questions](media/responsible-ai/disclosure-patterns/conversational-transparency-2.png)<br/>
 
-## When to Disclose
+## When to disclose
 
 There are many opportunities for disclosure throughout the user journey. Design for the first use, second use, nth use…, but also embrace moments of &quot;failure&quot; to highlight transparency—like when the system makes a mistake or when the user discovers a limitation of the agent&#39;s capabilities.
 
@@ -211,7 +200,7 @@ There are many opportunities for disclosure throughout the user journey. Design 
 
 Example of a standard digital assistant user journey highlighting various disclosure opportunities.
 
-### Upfront/Onboarding
+### Up-front
 
 The optimal moment for disclosure is the first time a person interacts with the synthetic voice.  In a personal voice assistant scenario, this would be during onboarding, or the first time the user virtually unboxes the experience. In other scenarios, it could be the first time a synthetic voice reads content on a website or the first time a user interacts with a virtual character.
 
@@ -220,7 +209,7 @@ The optimal moment for disclosure is the first time a person interacts with th
 - [Customization and Calibration](#customization-and-calibration)
 - [Implicit Cues](#implicit-cues--feedback)
 
-### Upon Request
+### Upon request
 
 Users should be able to easily access additional information, control preferences, and receive transparent communication at any point during the user journey when requested.
 
@@ -254,7 +243,7 @@ Use disclosure as an opportunity to fail gracefully.
 ## Reference docs
 
 * [Transparency Note](https://aka.ms/neural-tts-transparency-note)
-* [Guidelines for Responsible Deployment](concepts-deployment-guidelines.md)
+* [Guidelines for responsible deployment of synthetic voice technology](concepts-guidelines-responsible-deployment-synthetic.md)
 * [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 

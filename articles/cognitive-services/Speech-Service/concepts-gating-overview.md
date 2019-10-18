@@ -11,7 +11,9 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
 ---
-# Custom Neural Voice Gating Overview
+# Custom Neural Voice gating overview
+
+Learn more about the process for getting started with Custom Neural Voice.
 
 ## Commitment to responsible innovation
 
@@ -37,10 +39,10 @@ To get started with Custom Neural Voice, begin your application [here](https://s
 
 ## Reference docs
 
-* [Transparency Note](https://aka.ms/neural-tts-transparency-note)
-* [Guidelines for Responsible Deployment](concepts-deployment-guidelines.md)
-* [Disclosure Design Patterns](concepts-disclosure-patterns.md)
+* [Transparency note](https://aka.ms/neural-tts-transparency-note)
+* [Guidelines for responsible deployment of synthetic voice technology](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Disclosure design patterns](concepts-disclosure-patterns.md)
 
 ## Next steps
 
-* [Guidelines for Responsible Deployment](concepts-deployment-guidelines.md)
+* [Guidelines for responsible deployment of synthetic voice technology](concepts-guidelines-responsible-deployment-synthetic.md)
