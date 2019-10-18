@@ -13,7 +13,7 @@ ms.author: mbaldwin
 
 ---
 
-# How to: Route Key Vault keys events to Automation Runbook (preview)
+# How to: Route Key Vault Events to Automation Runbook (preview)
 
 Key Vault integration with Azure Event Grid enables users to be notified when the status of a secret stored in key vault has changed. For an overview of the feature, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
 
@@ -28,9 +28,7 @@ This guide will show you how to receive Key Vault notifications through Azure Ev
 
 ## Concepts
 
-Event Grid allows you to select an Azure Resource, such as a key vault, to subscribe to and monitor for pre-defined "events". When an event triggers, the result is sent to an endpoint. Thw endpoint is a URL that is set up to receive an HTTP POST request from Event Grid.
-
-In this guide, Event Grid will be subscribed to the key vault as a "topic resource". When one of the keys in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation logic application, called a "runbook", which execute a PowerShell script. The script programmatically generate a new version of the key.
+Azure Event Grid is an eventing service for the cloud. In this guide, you will subscribe to events for key vault and route events to Azure Automation. When one of the keys in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation execution of PowerShell script. 
 
 ![image](media/image1.png)
 
@@ -169,9 +167,9 @@ write-Error "No input data found."
 ## Test and Verify
 
 > [!NOTE]
-> This test assumes that you have subscribed to the new-version notification for keys in Step 4.
+> This test assumes that you have subscribed to the new-version notification for secrets in Step 4.
 >
-> This test assumes that you have the necessary privileges to create a new version of a key in a key vault.
+> This test assumes that you have the necessary privileges to create a new version of a secret in a key vault.
 
 ![](media/image9.png)
 
@@ -179,18 +177,15 @@ write-Error "No input data found."
 
 1.  Go to your key vault on the Azure Portal
 
-1.  Create a new key for testing purposes name the key and keep the remaining parameters in their default settings.
-
-1.  Select the key that you have created and create a new version of the
-    key.
+1.  Create a new secret, for testing purposes set expiration to date to next day.
 
 1.  Now navigate to the events tab in your key vault.
 
 1.  Click on the event grid subscription you created.
 
-1.  Under metrics, see if an event was captured.
+1.  Under metrics, see if an events were captured.
 
-    1.  This validates that event grid successfully captured the status change of the key in your key vault.
+    1.  Two events are expected : SecretNewVersion and SecretNearExpiry. This validates that event grid successfully captured the status change of the key in your key vault.
 
     ![](media/image11.png)
 
@@ -218,7 +213,7 @@ write-Error "No input data found."
 
     ![](media/image14.png)
 
-1. If the "event type" parameter in the JSON object matches the event which occurred in the key vault (in this example, Microsoft.KeyVault.KeyNewVersionCreated) the test was successful.
+1. If the "event type" parameter in the JSON object matches the event which occurred in the key vault (in this example, Microsoft.KeyVault.SecretNearExpiry) the test was successful.
 
 ### So Now What?
 
@@ -227,8 +222,6 @@ Congratulations! If you have followed all the steps above, you are now ready to 
 -   If have been using a polling-based system to look for status changes of secrets in your key vaults, migrate to using this notification feature.
 
 -   Replace the test script in your runbook with code to programmatically renew your secrets when they are about to expire.
-
--   Stay connected with the User Voice forum and get notified when additional notification features become available.
 
 ## Troubleshooting
 
