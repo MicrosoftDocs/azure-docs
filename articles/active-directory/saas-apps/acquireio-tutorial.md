@@ -129,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![My apps extension](common/install-myappssecure-extension.png)
 
-1. After adding extension to the browser, click on **Set up AcquireIO** will direct you to the AcquireIO application. From there, provide the admin credentials to sign into AcquireIO. The browser extension will automatically configure the application for you and automate steps 3-6.
+1. After adding the extension to the browser, click **Set up AcquireIO**, which directs you to the AcquireIO application. From there, provide the admin credentials to sign in to AcquireIO. The browser extension will automatically configure the application for you and automate steps 3-6.
 
 	![Setup configuration](common/setup-sso.png)
 
