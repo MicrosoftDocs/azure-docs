@@ -13,11 +13,12 @@ ms.author: diberry
 ## Prerequisites
 
 * [.NET Core V2.2+](https://dotnet.microsoft.com/download)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * Public app ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 ## Get LUIS key
 
-[!INCLUDE [Use authoring key for endpoint](..//includes/get-key-for-quickstart.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-for-quickstart.md)]
 
 ## Get intent programmatically
 
@@ -134,7 +135,7 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
     ```
 ## LUIS keys
 
-[!INCLUDE [Use authoring key for endpoint](..//includes/starter-key-explanation.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## Clean up resources
 

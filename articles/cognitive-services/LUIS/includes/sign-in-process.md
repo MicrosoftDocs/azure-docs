@@ -19,11 +19,11 @@ A new user to LUIS needs to follow this procedure:
 1. Sign in to [LUIS portal](https://www.luis.ai), select your country and agree to the terms of use.
 1. Select **Create Azure resource** then select **Create an authoring resource to migrate your apps to.**
 
-    ![Choose a type of Language Understanding authoring resource](../media/luis-how-to-azure-subscription/sign-in-create-resource.png)
+    ![Choose a type of Language Understanding authoring resource](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
 1. Fill in the details for the resource.
 
-    ![Create authoring resource](../media/migrate-authoring-key/choose-authoring-resource-form.png)
+    ![Create authoring resource](./media/migrate-authoring-key/choose-authoring-resource-form.png)
 
     When **creating a new authoring resource**, provide the following information: 
 
