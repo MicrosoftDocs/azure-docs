@@ -23,7 +23,7 @@ ms.custom: include file
     | **Subscription** | Your subscription | The subscription under which this new function app is created. |
     | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  *myResourceGroup* | Name for the new resource group in which to create your function app. |
     | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  |
-    |**Publish**| Code | Option to publish code files or a Docker conatiner |
+    |**Publish**| Code | Option to publish code files or a Docker container. |
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
     |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
 
