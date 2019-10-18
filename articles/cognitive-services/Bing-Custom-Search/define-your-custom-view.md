@@ -155,5 +155,5 @@ If you subscribed to Custom Search at the appropriate level (see the [pricing pa
 
 - [Call your custom search](./search-your-custom-view.md)
 - [Configure your hosted UI experience](./hosted-ui.md)
-- [Use decoration markers to highlight text](./hit-highlighting.md)
+- [Use decoration markers to highlight text](../bing-web-search/hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

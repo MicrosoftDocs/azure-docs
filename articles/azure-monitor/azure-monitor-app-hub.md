@@ -3,13 +3,12 @@ layout: HubPage
 hide_bc: false
 title: Azure Monitor Application insights Documentation - Tutorials, API Reference | Microsoft Docs
 description: Azure Monitor Application Insights provides deep code-level application performance monitoring.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
 ms.service: application-insights
-ms.topic: landing-page
-ms.date: 01/15/2019
+ms.subservice: 
+ms.topic: hub-page
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 01/15/2019
 
 ---
 
@@ -72,7 +71,6 @@ ms.author: mbullwin
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
 												            <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
-												            <a href="./learn/java-quick-start.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
 												            <a href="./app/website-monitoring.md">Browser/client-side monitoring</a>
 														</p>

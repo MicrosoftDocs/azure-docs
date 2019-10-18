@@ -8,7 +8,7 @@ manager: gwallace
 tags: 
 
 ms.service: virtual-machines
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 
 #Customer intent: As an app developer, I want to learn how to get access tokens by using the Microsoft identity platform endpoint so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ms.collection: M365-identity-device-management
@@ -24,16 +24,13 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Sign in users and acquire an access token from a JavaScript single-page application
 
-In this quickstart, you learn how to use a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API.
-
-![How the sample app in this quickstart works](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+In this quickstart, you use a code sample to learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API. (See [How the sample works](#how-the-sample-works) for an illustration.)
 
 ## Prerequisites
 
-This quickstart requires the following setup:
-* To run the project with a Node.js server, download and install [Node.js](https://nodejs.org/en/download/).
-* To edit the project files, download and install [Visual Studio Code](https://code.visualstudio.com/download).
-* To run the project as a Visual Studio solution, download and install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Node.js](https://nodejs.org/en/download/).
+* Either [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files), or [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (ro run the project as a Visual Studio Solution).
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
@@ -81,8 +78,6 @@ Select the option that's suitable to your development environment:
 
 * (Optional) To run the project with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extract the zip file to a local folder (for example, *C:\Azure-Samples*).
 
-
-
 #### Step 3: Configure your JavaScript app
 
 > [!div renderon="docs"]
@@ -95,7 +90,8 @@ Select the option that's suitable to your development environment:
 var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here"
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
+        redirectURI: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -143,6 +139,10 @@ After the browser loads the application, select **Sign In**. The first time that
 
 ## More information
 
+### How the sample works
+
+![How the sample app in this quickstart works](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+
 ### msal.js
 
 The MSAL library signs in users and requests the tokens that are used to access an API that's protected by Microsoft identity platform. The quickstart *index.html* file contains a reference to the library:
@@ -168,7 +168,8 @@ The quickstart code also shows how to initialize the MSAL library:
 var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here"
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
+        redirectURI: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -181,8 +182,9 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 > |Where  |  |
 > |---------|---------|
-> |`ClientId`     | The application ID of the application that's registered in the Azure portal.|
+> |`clientId`     | The application ID of the application that's registered in the Azure portal.|
 > |`authority`    | (Optional) The authority URL that supports account types, as described previously in the configuration section. The default authority is `https://login.microsoftonline.com/common`. |
+> |`redirectURI`     | The application registration's configured reply/redirect URI. In this case, `http://localhost:30662/`. |
 > |`cacheLocation`  | (Optional) Sets the browser storage for the auth state. The default is sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Optional) The library that stores the authentication request state that's required for validation of the authentication flows in the browser cookies. This cookie is set for IE and Edge browsers to mitigate certain [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 

@@ -174,8 +174,10 @@ SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
 Requires a minimum of two arguments, which are unique value generation rules defined using expressions. The function evaluates each rule and then checks the value generated for uniqueness in the target app/directory. The first unique value found will be the one returned. If all of the values already exist in the target, the entry will get escrowed and the reason gets logged in the audit logs. There is no upper bound to the number of arguments that can be provided.
 
 > [!NOTE]
->1. This is a top-level function, it cannot be nested.
->2. This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
+> - This is a top-level function, it cannot be nested.
+> - This function cannot be applied to attributes that have a matching precedence. 	
+> - This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
+> - This function is currently only supported for "Workday to Active Directory User Provisioning". It cannot be used with other provisioning applications. 
 
 
 **Parameters:**<br> 
@@ -205,7 +207,7 @@ Returns a single appRoleAssignment from the list of all appRoleAssignments assig
 Split(source, delimiter)
 
 **Description:**<br> 
-Splits a string into a mulit-valued array, using the specified delimiter character.
+Splits a string into a multi-valued array, using the specified delimiter character.
 
 **Parameters:**<br> 
 
@@ -389,7 +391,7 @@ Based on the user's first name, middle name and last name, you need to generate 
 
     SelectUniqueValue( 
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
-        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com"),
         Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
     )
 

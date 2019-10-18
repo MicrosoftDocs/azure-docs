@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 08/13/2019
 ms.author: bwren
 ---
 
@@ -47,6 +47,7 @@ The following sections describe elements of the Kusto query language that aren't
 
 ### Plugins not supported in Azure Monitor
 
+* [Python plugin](/azure/kusto/query/pythonplugin)
 * [sql_request plugin](/azure/kusto/query/sqlrequestplugin)
 
 

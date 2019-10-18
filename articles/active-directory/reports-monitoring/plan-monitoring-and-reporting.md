@@ -3,16 +3,10 @@
 title: Plan an Azure Active Directory reporting and monitoring deployment
 description: Describes how to plan and execute implmentation of reporting and monitoring.
 services: active-directory
-documentationcenter: ''
 author: BarbaraSelden
 manager: daveba
-editor: ''
-
-ms.assetid:
 ms.service: active-directory
-ms.devlang: na
-ms.topic: plan
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
@@ -168,8 +162,6 @@ Depending on the decisions you have made earlier using the design guidance above
 ### Consume and archive Azure AD logs
 
 [Find activity reports in the Azure portal](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-find-activity-reports)
-
-[Use Power BI content Pack for Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-power-bi-content-pack)
 
 [Archive Azure AD logs to an Azure Storage account](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account)
 

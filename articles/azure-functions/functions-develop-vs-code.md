@@ -1,13 +1,11 @@
 ---
 title: Develop Azure Functions by using Visual Studio Code | Microsoft Docs
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
-services: functions
 author: ggailey777  
-manager: jeconnoc
-
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 08/21/2019
 ms.author: glenga
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -88,7 +86,7 @@ The project template creates a project in your chosen language and installs requ
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
 
-At this point, you can add input and output bindings to your function by [modifying the function.json file](#javascript-2) or by [adding a parameter to a C# class library function](#c-class-library-2).
+At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
 
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
@@ -96,11 +94,11 @@ You can also [add a new function to your project](#add-a-function-to-your-projec
 
 Except for HTTP and timer triggers, bindings are implemented in extension packages. You must install the extension packages for the triggers and bindings that need them. The process for installing binding extensions depends on your project's language.
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### C\# class library
+# [C\#](#tab/csharp)
 
 Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in the Terminal window to install the extension packages that you need in your project. The following command installs the Azure Storage extension, which implements bindings for Blob, Queue, and Table storage.
 
@@ -108,19 +106,23 @@ Run the [dotnet add package](/dotnet/core/tools/dotnet-add-package) command in t
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
+---
+
 ## Add a function to your project
 
 You can add a new function to an existing project by using one of the predefined Functions trigger templates. To add a new function trigger, select F1 to open the command palette, and then search for and run the command **Azure Functions: Create Function**. Follow the prompts to choose your trigger type and define the required attributes of the trigger. If your trigger requires an access key or connection string to connect to a service, get it ready before you create the function trigger.
 
 The results of this action depend on your project's language:
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 A new folder is created in the project. The folder contains a new function.json file and the new JavaScript code file.
 
-### C\# class library
+# [C\#](#tab/csharp)
 
 A new C# class library (.cs) file is added to your project.
+
+---
 
 ## Add input and output bindings
 
@@ -128,7 +130,7 @@ You can expand your function by adding input and output bindings. The process fo
 
 The following examples connect to a storage queue named `outqueue`, where the connection string for the storage account is set in the `MyStorageConnection` application setting in local.settings.json.
 
-### JavaScript
+# [JavaScript](#tab/nodejs)
 
 Visual Studio Code lets you add bindings to your function.json file by following a convenient set of prompts. To create a binding, right-click (Ctrl+click on macOS) the **function.json** file in your function folder and select **Add binding**:
 
@@ -166,7 +168,7 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 
 To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---javascript-example) reference.
 
-### C\# class library
+# [C\#](#tab/csharp)
 
 Update the function method to add the following parameter to the `Run` method definition:
 
@@ -180,6 +182,8 @@ This code requires you to add the following `using` statement:
 using Microsoft.Azure.WebJobs.Extensions.Storage;
 ```
 
+---
+
 The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
 
 To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output---c-example) documentation.
@@ -190,28 +194,17 @@ To learn more, see the [Queue storage output binding](functions-bindings-storage
 
 Visual Studio Code lets you publish your Functions project directly to Azure. In the process, you create a function app and related resources in your Azure subscription. The function app provides an execution context for your functions. The project is packaged and deployed to the new function app in your Azure subscription.
 
-When you publish from Visual Studio Code, you can use one of two deployment methods:
+When you publish from Visual Studio Code to a new function app in Azure, you are offered both a quick function app create path and an advanced path. 
 
-* [Zip deploy with Run From Package enabled](functions-deployment-technologies.md#zip-deploy): Used for most Azure Functions deployments.
-* [External package URL](functions-deployment-technologies.md#external-package-url): Used for deployment to Linux apps on a [Consumption plan](functions-scale.md#consumption-plan).
+When you publish from Visual Studio Code, you take advantage of the [Zip deploy](functions-deployment-technologies.md#zip-deploy) technology. 
 
-### Quick function app creation
+### Quick function app create
 
-By default, Visual Studio Code automatically generates values for the Azure resources needed by your function app. These values are based on the function app name that you choose. For an example of using defaults to publish your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
+When you choose **+ Create new function app in Azure...**, the extension automatically generates values for the Azure resources needed by your function app. These values are based on the function app name that you choose. For an example of using defaults to publish your project to a new function app in Azure, see the [Visual Studio Code quickstart article](functions-create-first-function-vs-code.md#publish-the-project-to-azure).
 
-If you want to provide explicit names for the created resources, you must enable publishing with advanced options.
+If you want to provide explicit names for the created resources, you must choose the advanced create path.
 
-### Enable publishing with advanced create options
-
-To get control over the settings associated with creating Azure Functions apps, update the Azure Functions extension to enable advanced settings:
-
-1. Select **File** > **Preferences** > **Settings**.
-
-1. Go to **User Settings** > **Extensions** > **Azure Functions**.
-
-1. Select **Azure Function: Advanced Creation**.
-
-### Publish a project to a new function app in Azure by using advanced options
+### <a name="enable-publishing-with-advanced-create-options"></a>Publish a project to a new function app in Azure by using advanced options
 
 The following steps publish your project to a new function app created with advanced create options:
 
@@ -221,7 +214,7 @@ The following steps publish your project to a new function app created with adva
 
 1. If you're not signed in, you're prompted to **Sign in to Azure**. You can also **Create a free Azure account**. After signing in from the browser, go back to Visual Studio Code.
 
-1. If you have multiple subscriptions, **Select a subscription** for the function app, and then select **Create New Function App in Azure**.
+1. If you have multiple subscriptions, **Select a subscription** for the function app, and then select **+ Create New Function App in Azure... _Advanced_**. This _Advanced_ option gives you more control over the resources you create in Azure. 
 
 1. Following the prompts, provide this information:
 

@@ -62,7 +62,7 @@ We are increasing the storage limits in our General Purpose and Memory Optimized
 |              | **General Purpose** | **Memory Optimized** |
 |:-------------|:--------------------|:---------------------|
 | Storage type | Azure Premium Storage | Azure Premium Storage |
-| Storage size | 32 GB to 16 TB| 32 to 16 TB |
+| Storage size | 32 GB to 16 TB| 32 GB to 16 TB |
 | Storage increment size | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
 
@@ -102,6 +102,9 @@ The service automatically takes backups of your server. The minimum retention pe
 ## Scale resources
 
 After you create your server, you can independently change the vCores, the hardware generation, the pricing tier (except to and from Basic), the amount of storage, and the backup retention period. You can't change the backup storage type after a server is created. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).
+
+> [!NOTE] 
+> The storage size can only be increased. You cannot go back to a smaller storage size after the increase.
 
 When you change the number of vCores, the hardware generation, or the pricing tier, a copy of the original server is created with the new compute allocation. After the new server is up and running, connections are switched over to the new server. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is less than a minute.
 

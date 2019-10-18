@@ -82,7 +82,7 @@ The following snippets are all taken from the **app.js** file.
 * The `CosmosClient` is initialized.
 
     ```javascript
-    const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+    const client = new CosmosClient({ endpoint, key });
     ```
 
 * A new database is created.
@@ -106,21 +106,25 @@ The following snippets are all taken from the **app.js** file.
 * A SQL query over JSON is performed.
 
     ```javascript
-    const querySpec = {
-        query: "SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName",
-        parameters: [
-            {
-                name: "@lastName",
-                value: "Andersen"
-            }
-        ]
-    };
+	  const querySpec = {
+		query: 'SELECT VALUE r.children FROM root r WHERE r.lastName = @lastName',
+		parameters: [
+		  {
+			name: '@lastName',
+			value: 'Andersen'
+		  }
+		]
+	  }
 
-    const { result: results } = await client.database(databaseId).container(containerId).items.query(querySpec).toArray();
-    for (var queryResult of results) {
-        let resultString = JSON.stringify(queryResult);
-        console.log(`\tQuery returned ${resultString}\n`);
-    }
+	  const { resources: results } = await client
+		.database(databaseId)
+		.container(containerId)
+		.items.query(querySpec)
+		.fetchAll()
+	  for (var queryResult of results) {
+		let resultString = JSON.stringify(queryResult)
+		console.log(`\tQuery returned ${resultString}\n`)
+	  }
     ```    
 
 ## Update your connection string
@@ -137,9 +141,9 @@ Now go back to the Azure portal to get your connection string information and co
 
     `config.endpoint = "https://FILLME.documents.azure.com"`
 
-4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.primaryKey` in `config.js`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
+4. Then copy your PRIMARY KEY value from the portal and make it the value of the `config.key` in `config.js`. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
 
-    `config.primaryKey = "FILLME"`
+    `config.key = "FILLME"`
     
 ## Run the app
 1. Run `npm install` in a terminal to install required npm modules

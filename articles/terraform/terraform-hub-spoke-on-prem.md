@@ -8,7 +8,7 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
+ms.date: 09/20/2019
 ---
 
 # Tutorial: Create on-premises virtual network with Terraform in Azure
@@ -61,7 +61,7 @@ Create the Terraform configuration file that declares an on-premises VNet.
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     locals {
       onprem-location       = "SouthCentralUS"
       onprem-resource-group = "onprem-vnet-rg"

@@ -1,5 +1,5 @@
 ---
-title: Query a SQL Server Linux Docker container in a virtual network from an Azure Databricks notebook
+title: Query a SQL Server Linux Docker container with Azure Databricks
 description: This article describes how to deploy Azure Databricks to your virtual network, also known as VNet injection.
 services: azure-databricks
 author: mamccrea

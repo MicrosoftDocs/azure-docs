@@ -96,7 +96,7 @@ If you need to directly restore across subscription, vote for this capability [h
 
 ## Geo-redundant restore
 
-You can [restore your data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell#restore-from-an-azure-geographical-region-using-powershell) to any region supporting SQL Data Warehouse at your chosen performance level.
+You can [restore your data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup#restore-from-an-azure-geographical-region-through-powershell) to any region supporting SQL Data Warehouse at your chosen performance level.
 
 > [!NOTE]
 > To perform a geo-redundant restore you must not have opted out of this feature.

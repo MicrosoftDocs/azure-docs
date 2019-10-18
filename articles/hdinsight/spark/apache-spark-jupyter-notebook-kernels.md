@@ -3,16 +3,15 @@ title: Kernels for Jupyter notebook on Spark clusters in Azure HDInsight
 description: Learn about the PySpark, PySpark3, and Spark kernels for Jupyter notebook available with Spark clusters on Azure HDInsight.
 keywords: jupyter notebook on spark,jupyter spark
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.author: hrasheed
 ---
 
-# Kernels for Jupyter notebook on Apache Spark clusters in Azure HDInsight 
+# Kernels for Jupyter notebook on Apache Spark clusters in Azure HDInsight
 
 HDInsight Spark clusters provide kernels that you can use with the Jupyter notebook on [Apache Spark](https://spark.apache.org/) for testing your applications. A kernel is a program that runs and interprets your code. The three kernels are:
 
@@ -32,7 +31,7 @@ An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark
 
 2. From the **Overview** view, in the **Cluster dashboards** box, select **Jupyter notebook**. If prompted, enter the admin credentials for the cluster.
 
-    ![Jupyter notebook on Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter notebook on Spark") 
+    ![Jupyter notebook on Apache Spark](./media/apache-spark-jupyter-notebook-kernels/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Jupyter notebook on Spark")
   
    > [!NOTE]  
    > You may also reach the Jupyter notebook on Spark cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
@@ -40,8 +39,8 @@ An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
 
 3. Select **New**, and then select either **Pyspark**, **PySpark3**, or **Spark** to create a notebook. Use the Spark kernel for Scala applications, PySpark kernel for Python2 applications, and PySpark3 kernel for Python3 applications.
-   
-    ![Kernels for Jupyter notebook on Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels for Jupyter notebook on Spark") 
+
+    ![Kernels for Jupyter notebook on Spark](./media/apache-spark-jupyter-notebook-kernels/kernel-jupyter-notebook-on-spark.png "Kernels for Jupyter notebook on Spark")
 
 4. A notebook opens with the kernel you selected.
 
@@ -50,7 +49,7 @@ An Apache Spark cluster in HDInsight. For instructions, see [Create Apache Spark
 Here are a few benefits of using the new kernels with Jupyter notebook on Spark HDInsight clusters.
 
 - **Preset contexts**. With  **PySpark**, **PySpark3**, or the **Spark** kernels, you do not need to set the Spark or Hive contexts explicitly before you start working with your applications. These are available by default. These contexts are:
-   
+
   * **sc** - for Spark context
   * **sqlContext** - for Hive context
    
@@ -58,11 +57,11 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
    
          sc = SparkContext('yarn-client')
          sqlContext = HiveContext(sc)
-   
+
     Instead, you can directly use the preset contexts in your application.
 
 - **Cell magics**. The PySpark kernel provides some predefined "magics", which are special commands that you can call with `%%` (for example, `%%MAGIC` `<args>`). The magic command must be the first word in a code cell and allow for multiple lines of content. The magic word should be the first word in the cell. Adding anything before the magic, even comments, causes an error.     For more information on magics, see [here](https://ipython.readthedocs.org/en/stable/interactive/magics.html).
-   
+
     The following table lists the different magics available through the kernels.
 
    | Magic | Example | Description |
@@ -82,6 +81,7 @@ Here are a few benefits of using the new kernels with Jupyter notebook on Spark 
 - **Auto visualization**. The Pyspark kernel automatically visualizes the output of Hive and SQL queries. You can choose between several different types of visualizations including Table, Pie, Line, Area, Bar.
 
 ## Parameters supported with the %%sql magic
+
 The `%%sql` magic supports different parameters that you can use to control the kind of output that you receive when you run queries. The following table lists the output.
 
 | Parameter | Example | Description |
@@ -132,19 +132,23 @@ Jupyter notebooks on Spark HDInsight clusters are supported only on Google Chrom
 The new kernels are in evolving stage and will mature over time. This could also mean that APIs could change as these kernels mature. We would appreciate any feedback that you have while using these new kernels. This is useful in shaping the final release of these kernels. You can leave your comments/feedback under the **Feedback** section at the bottom of this article.
 
 ## <a name="seealso"></a>See also
+
 * [Overview: Apache Spark on Azure HDInsight](apache-spark-overview.md)
 
 ### Scenarios
+
 * [Apache Spark with BI: Perform interactive data analysis using Spark in HDInsight with BI tools](apache-spark-use-bi-tools.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight for analyzing building temperature using HVAC data](apache-spark-ipython-notebook-machine-learning.md)
 * [Apache Spark with Machine Learning: Use Spark in HDInsight to predict food inspection results](apache-spark-machine-learning-mllib-ipython.md)
 * [Website log analysis using Apache Spark in HDInsight](apache-spark-custom-library-website-log-analysis.md)
 
 ### Create and run applications
+
 * [Create a standalone application using Scala](apache-spark-create-standalone-application.md)
 * [Run jobs remotely on an Apache Spark cluster using Apache Livy](apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
+
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Apache Spark applications remotely](apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Apache Zeppelin notebooks with an Apache Spark cluster on HDInsight](apache-spark-zeppelin-notebook.md)
@@ -152,5 +156,6 @@ The new kernels are in evolving stage and will mature over time. This could also
 * [Install Jupyter on your computer and connect to an HDInsight Spark cluster](apache-spark-jupyter-notebook-install-locally.md)
 
 ### Manage resources
+
 * [Manage resources for the Apache Spark cluster in Azure HDInsight](apache-spark-resource-manager.md)
 * [Track and debug jobs running on an Apache Spark cluster in HDInsight](apache-spark-job-debugging.md)

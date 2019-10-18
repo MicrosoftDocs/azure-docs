@@ -56,8 +56,6 @@ Clicking on either of the charts will bring you to a pre-filtered list of regist
 
 Using the control in the upper, right-hand corner, you can change the date range for the audit data shown in the Registrations and Resets charts to 24 hours, 7 days, or 30 days.
 
-Registration data from the 
-
 ### Registration details
 
 Clicking on the **Users registered**, **Users enabled**, or **Users capable** tiles or insights will bring you to the registration details.

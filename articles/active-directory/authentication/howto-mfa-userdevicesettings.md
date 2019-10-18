@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/29/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,9 +29,12 @@ As an administrator assigned the Authentication Administrator role you can requi
 
 ![Manage authentication methods from the Azure portal](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
-1. Reset Password will reset the user's password and assign a temporary password that must be changed on the next sign in.
-2. Require Re-register MFA will make it so that when the user signs in next time, they will be requested to setup a new MFA authentication method.
-3. Revoke MFA Sessions clears the user's remembered MFA sessions and requires them to perform MFA the next time it is required by the policy on the device.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. On the left, select **Azure Active Directory** > **Users** > **All users**.
+1. Choose the user you wish to perform an action on and select **Authentication methods**.
+   - **Reset Password** will reset the user's password and assign a temporary password that must be changed on the next sign in.
+   - **Require Re-register MFA** will make it so that when the user signs in next time, they will be requested to setup a new MFA authentication method.
+   - **Revoke MFA Sessions** clears the user's remembered MFA sessions and requires them to perform MFA the next time it is required by the policy on the device.
 
 ## Require users to provide contact methods again
 

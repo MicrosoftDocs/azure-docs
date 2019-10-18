@@ -87,7 +87,7 @@ This section describes the offline-backup workflow so that your data can be deli
 
 4. In the Confirmation page of the wizard, click **Back Up**. The initial backup is written to the staging area as part of the setup.
 
-   ![Confirm that you're ready to Backup now](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
+   ![Confirm that you're ready to Back up now](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
     After the operation finishes, the staging location is ready to be used for disk preparation.
 

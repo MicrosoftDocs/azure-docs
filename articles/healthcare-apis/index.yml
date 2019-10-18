@@ -22,7 +22,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
     - type: paragraph
-      text: Learn how Azure API for FHIR Preview can power healthcare iteroperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
+      text: Learn how Azure API for FHIR Preview can power healthcare interoperability in Azure by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
     - type: table
       style: dataMatrix
       columns:
@@ -46,4 +46,4 @@ sections:
           - href: fhir-oss-portal-quickstart.md
           - href: fhir-oss-powershell-quickstart.md
           - href: fhir-oss-cli-quickstart.md
-  
+          

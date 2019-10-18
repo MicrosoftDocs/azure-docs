@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 05/07/2019
+ms.topic: conceptual
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -38,7 +38,7 @@ LUIS includes the recognized value of a **`builtin.number`** entity in the `reso
 ## Resolution for prebuilt number
 
 
-### API version 2.x
+#### [V2 prediction endpoint response](#tab/V2)
 
 The following example shows a JSON response from LUIS, that includes the resolution of the value 24, for the utterance "two dozen".
 
@@ -78,7 +78,7 @@ The following example shows a JSON response from LUIS, that includes the resolut
 }
 ```
 
-### Preview API version 3.x
+#### [V3 prediction endpoint response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
@@ -136,6 +136,10 @@ The following JSON is with the `verbose` parameter set to `true`:
 }
 ```
 
+* * * 
+
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [currency](luis-reference-prebuilt-currency.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md). 

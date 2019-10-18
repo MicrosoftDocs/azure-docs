@@ -136,27 +136,29 @@ Create two VMs in the virtual network.
 
 1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
 2. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
-3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
+3. Enter, or select, the following information, and accept the defaults for the remaining settings:
 
     |Setting|Value|
     |---|---|
-    |Name|myVmWeb|
-    |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Select your subscription.|
     |Resource group| Select **Use existing** and select **myResourceGroup**.|
-    |Location| Select **East US**|
+    |Name|myVmWeb|
+    |Location| Select **East US**.|
+    |User name| Enter a user name of your choosing.|
+    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+
+   
 
 4. Select a size for the VM and then select **Select**.
-5. Under **Settings**, select the following values, accept the remaining defaults, and then select **OK**:
+5. Under **Networking**, select the following values, and accept the remaining defaults:
 
     |Setting|Value|
     |---|---|
-    |Virtual network |Select **myVirtualNetwork**|
-    |Network Security Group | Select **Advanced**.|
-    |Network security group (firewall)| Select **(new) myVmWeb-nsg**, and then under **Choose network security group**, select **None**. |
+    |Virtual network |Select **myVirtualNetwork**.|
+    |NIC network security group |Select **Advanced**.|
+    |Public Inbound Ports|Select **None**. |
 
-6. Under **Create** of the **Summary**, select **Create** to start VM deployment.
+6. Select **Review + Create** at the bottom, left corner, select **Create** to start VM deployment.
 
 ### Create the second VM
 

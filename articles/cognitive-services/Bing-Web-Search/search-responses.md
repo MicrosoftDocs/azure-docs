@@ -118,7 +118,7 @@ The [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices-bing
 
 Use the `displayText` query string and the `webSearchUrl` URL to create a hyperlink that takes the user to the Bing search results page for the related query. You could also use the `text` query string in your own Web Search API query and display the results yourself.
 
-For information about how to handle the highlighting markers in `displayText`, see [Hit Highlighting](./hit-highlighting.md).
+For information about how to handle the highlighting markers in `displayText`, see [Hit Highlighting](../bing-web-search/hit-highlighting.md).
 
 The following shows an example of the related queries usage in Bing.com.
 

@@ -47,6 +47,6 @@ After the enable replication job runs and the initial replication finishes, the 
 
 
 
-# Next steps
+## Next steps
 
 [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

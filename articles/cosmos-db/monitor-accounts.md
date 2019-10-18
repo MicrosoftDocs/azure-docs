@@ -45,7 +45,7 @@ Metrics can be reviewed on the Account page, the new Metrics page, or in Azure M
 ## Set up alerts in the portal
 
 > [!NOTE]
-> The classic alerts in Azure Monitor will be retired by August 31, 2019. Azure portal offers a [migration tool](../azure-monitor/platform/alerts-using-migration-tool.md) to migrate classic alert rules. However, not all classic alerts on Azure Cosmos DB metrics can be migrated, there are some exceptions, see the [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) article for a list of classic alerts that can't be migrated. 
+> The classic alerts in Azure Monitor will be retired soon. Azure portal offers a [migration tool](../azure-monitor/platform/alerts-using-migration-tool.md) to migrate classic alert rules. However, not all classic alerts on the Azure Cosmos DB metrics can be migrated, there are some exceptions, see the [Azure monitor](../azure-monitor/platform/alerts-understand-migration.md#cosmos-db-metrics) article for a list of classic alerts that can't be migrated. 
 
 1. In the [Azure portal](https://portal.azure.com/), click **All services**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to set up performance metric alerts.
 2. In the resource menu, click **Alert Rules** to open the Alert rules page.  

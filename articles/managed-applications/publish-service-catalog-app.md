@@ -1,5 +1,5 @@
 ---
-title: Create and publish an Azure service catalog managed application | Microsoft Docs
+title: Publish Azure service catalog managed application
 description: Shows how to create an Azure managed application that is intended for members of your organization.
 services: managed-applications
 author: tfitzmac
@@ -134,6 +134,7 @@ Add the following starter JSON to the file and save it.
             "location": "[location()]"
         }
     }
+}
 ```
 
 To learn more, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).

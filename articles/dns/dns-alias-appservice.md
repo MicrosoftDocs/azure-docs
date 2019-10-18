@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 7/13/2019
+ms.date: 08/10/2019
 ms.author: victorh
 ---
 
@@ -47,24 +47,24 @@ Create two Web App Service plans in your resource group using the following tabl
 
 Create two web apps, one in each App Service plan.
 
-1. On upper left corner of the Azure portal page, click **Create a resource**.
+1. On upper left corner of the Azure portal page, select **Create a resource**.
 2. Type **Web app** in the search bar and press Enter.
-3. Click **Web App**.
-4. Click **Create**.
+3. Select **Web App**.
+4. Select **Create**.
 5. Accept the defaults, and use the following table to configure the two web apps:
 
-   |Name<br>(must be unique within .azurewebsites.net)|Resource Group |App Service Plan/Location
-   |---------|---------|---------|
-   |App-01|Use existing<br>Select your resource group|ASP-01(East US)|
-   |App-02|Use existing<br>Select your resource group|ASP-02(Central US)|
+   |Name<br>(must be unique within .azurewebsites.net)|Resource Group |Runtime stack|Region|App Service Plan/Location
+   |---------|---------|-|-|-------|
+   |App-01|Use existing<br>Select your resource group|.NET Core 2.2|East US|ASP-01(D1)|
+   |App-02|Use existing<br>Select your resource group|.NET Core 2.2|Central US|ASP-02(D1)|
 
 ### Gather some details
 
-Now you need to note the IP address and host name for the apps.
+Now you need to note the IP address and host name for the web apps.
 
-1. Open your resource group and click your first app (**App-01** in this example).
-2. In the left column, click **Properties**.
-3. Note the address under **URL**, and under **Outbound IP Addresses** note the first IP address in the list. You will use this information later when you configure your Traffic Manager end points.
+1. Open your resource group and select your first web app (**App-01** in this example).
+2. In the left column, select **Properties**.
+3. Note the address under **URL**, and under **Outbound IP Addresses** note the first IP address in the list. You'll use this information later when you configure your Traffic Manager end points.
 4. Repeat for **App-02**.
 
 ## Create a Traffic Manager profile
@@ -77,9 +77,9 @@ For information about creating a Traffic Manager profile, see [Quickstart: Creat
 
 Now you can create the endpoints for the two web apps.
 
-1. Open your resource group and click your Traffic Manager profile.
-2. In the left column, click **Endpoints**.
-3. Click **Add**.
+1. Open your resource group and select your Traffic Manager profile.
+2. In the left column, select **Endpoints**.
+3. Select **Add**.
 4. Use the following table to configure the endpoints:
 
    |Type  |Name  |Target  |Location  |Custom Header settings|
@@ -91,35 +91,50 @@ Now you can create the endpoints for the two web apps.
 
 You can either use an existing DNS zone for testing, or you can create a new zone. To create and delegate a new DNS zone in Azure, see [Tutorial: Host your domain in Azure DNS](dns-delegate-domain-azure-dns.md).
 
-### Add the alias record set
+## Add a TXT record for custom domain validation
 
-When your DNS zone is ready, you can add an alias record for the zone apex.
+When you add a custom hostname to your web apps, it will look for a specific TXT record to validate your domain.
 
-1. Open your resource group and click the DNS zone.
-2. Click **Record set**.
+1. Open your resource group and select the DNS zone.
+2. Select **Record set**.
+3. Add the record set using the following table. For the value, use the actual web app URL that you previously recorded:
+
+   |Name  |Type  |Value|
+   |---------|---------|-|
+   |@     |TXT|App-01.azurewebsites.net|
+
+
+## Add a custom domain
+
+Add a custom domain for both web apps.
+
+1. Open your resource group and select your first web app.
+2. In the left column, select **Custom domains**.
+3. Under **Custom Domains**, select **Add custom domain**.
+4. Under **Custom domain**, type your custom domain name. For example, contoso.com.
+5. Select **Validate**.
+
+   Your domain should pass validation and show green check marks next to **Hostname availability** and **Domain ownership**.
+5. Select **Add custom domain**.
+6. To see the new hostname under **Hostnames assigned to site**, refresh your browser. The refresh on the page doesn't always show changes right away.
+7. Repeat this procedure for your second web app.
+
+## Add the alias record set
+
+Now add an alias record for the zone apex.
+
+1. Open your resource group and select the DNS zone.
+2. Select **Record set**.
 3. Add the record set using the following table:
 
    |Name  |Type  |Alias record set  |Alias type  |Azure resource|
    |---------|---------|---------|---------|-----|
    |@     |A|Yes|Azure resource|Traffic Manager - your profile|
 
-## Add custom hostnames
-
-Add a custom hostname to both web apps.
-
-1. Open your resource group and click your first web app.
-2. In the left column, click **Custom domains**.
-3. Click **Add hostname**.
-4. Under Hostname, type your domain name. For example, contoso.com.
-
-   Your domain should pass validation and show green check marks next to **hostname availability** and **domain ownership**.
-5. Click **Add hostname**.
-6. To see the new hostname under **Hostnames assigned to site**, refresh your browser. The refresh on the page does not always show changes right away.
-7. Repeat this procedure for your second web app.
 
 ## Test your web apps
 
-Now you can test to make sure you can reach your web app and that it is being load balanced.
+Now you can test to make sure you can reach your web app and that it's being load balanced.
 
 1. Open a web browser and browse to your domain. For example, contoso.com. You should see the default web app page.
 2. Stop your first web app.

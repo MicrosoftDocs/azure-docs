@@ -14,7 +14,7 @@ ms.date: 03/13/2019
 ---
 # Create an Elastic Job agent using PowerShell
 
-[Elastic jobs](sql-database-job-automation-overview.md#elastic-database-jobs) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
+[Elastic jobs](sql-database-job-automation-overview.md#elastic-database-jobs-preview) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
 
 In this tutorial, you learn the steps required to run a query across multiple databases:
 

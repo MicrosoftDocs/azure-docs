@@ -3,7 +3,7 @@ title: How to write stored procedures, triggers, and user-defined functions in A
 description: Learn how to define stored procedures, triggers, and user-defined functions in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: sample
+ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mjbrown
 ---
@@ -43,11 +43,11 @@ Once written, the stored procedure must be registered with a collection. To lear
 
 ### <a id="create-an-item"></a>Create an item using stored procedure
 
-When you create an item by using stored procedure, the item is inserted into the Azure Cosmos DB container and an id for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error. 
+When you create an item by using stored procedure, the item is inserted into the Azure Cosmos container and an id for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error. 
 
 The stored procedure also includes a parameter to set the description, it's a boolean value. When the parameter is set to true and the description is missing, the stored procedure will throw an exception. Otherwise, the rest of the stored procedure continues to run.
 
-The following example stored procedure takes a new Azure Cosmos DB item as input, inserts it into the Azure Cosmos DB container and returns the id for the newly created item. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md)
+The following example stored procedure takes a new Azure Cosmos item as input, inserts it into the Azure Cosmos container and returns the id for the newly created item. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md)
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -82,7 +82,7 @@ function sample(arr) {
 
 ### <a id="transactions"></a>Transactions within stored procedures
 
-You can implement transactions on items within a container by using a stored procedure. The following example uses transactions within a fantasy football gaming app to trade players between two teams in a single operation. The stored procedure attempts to read the two Azure Cosmos DB items each corresponding to the player IDs passed in as an argument. If both players are found, then the stored procedure updates the items by swapping their teams. If any errors are encountered along the way, the stored procedure throws a JavaScript exception that implicitly aborts the transaction.
+You can implement transactions on items within a container by using a stored procedure. The following example uses transactions within a fantasy football gaming app to trade players between two teams in a single operation. The stored procedure attempts to read the two Azure Cosmos items each corresponding to the player IDs passed in as an argument. If both players are found, then the stored procedure updates the items by swapping their teams. If any errors are encountered along the way, the stored procedure throws a JavaScript exception that implicitly aborts the transaction.
 
 ```javascript
 // JavaScript source code
@@ -209,7 +209,7 @@ Azure Cosmos DB supports pre-triggers and post-triggers. Pre-triggers are execut
 
 ### <a id="pre-triggers"></a>Pre-triggers
 
-The following example shows how a pre-trigger is used to validate the properties of an Azure Cosmos DB item that is being created. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md), to add a timestamp property to a newly added item if it doesn't contain one.
+The following example shows how a pre-trigger is used to validate the properties of an Azure Cosmos item that is being created. In this example, we are leveraging the ToDoList sample from the [Quickstart .NET SQL API](create-sql-api-dotnet.md), to add a timestamp property to a newly added item if it doesn't contain one.
 
 ```javascript
 function validateToDoItemTimestamp() {
@@ -230,7 +230,7 @@ function validateToDoItemTimestamp() {
 }
 ```
 
-Pre-triggers cannot have any input parameters. The request object in the trigger is used to manipulate the request message associated with the operation. In the previous example, the pre-trigger is run when creating an Azure Cosmos DB item, and the request message body contains the item to be created in JSON format.
+Pre-triggers cannot have any input parameters. The request object in the trigger is used to manipulate the request message associated with the operation. In the previous example, the pre-trigger is run when creating an Azure Cosmos item, and the request message body contains the item to be created in JSON format.
 
 When triggers are registered, you can specify the operations that it can run with. This trigger should be created with a `TriggerOperation` value of `TriggerOperation.Create`, which means using the trigger in a replace operation as shown in the following code is not permitted.
 

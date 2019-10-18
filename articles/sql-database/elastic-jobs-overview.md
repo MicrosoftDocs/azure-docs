@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Elastic Database Jobs | Microsoft Docs
-description: 'Configure Elastic Database Jobs to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
+title: Azure SQL Elastic Database Jobs (preview) | Microsoft Docs
+description: 'Configure Elastic Database Jobs (preview) to run Transact-SQL (T-SQL) scripts across a set of one or more Azure SQL databases'
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out

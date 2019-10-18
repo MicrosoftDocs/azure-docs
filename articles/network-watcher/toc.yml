@@ -22,7 +22,7 @@
   - name: Diagnose a communication problem between networks
     href: diagnose-communication-problem-between-networks.md
   - name: Log VM network traffic
-    href: network-watcher-nsg-flow-logging-portal.md  
+    href: network-watcher-nsg-flow-logging-portal.md
 - name: Concepts
   items:
   - name: Diagnose VM network traffic filter problems
@@ -46,15 +46,15 @@
   - name: Configure Network Watcher
     href: network-watcher-create.md
   - name: Diagnose VM network problems
-    items: 
+    items:
     - name: Install VM extension
-      items: 
+      items:
       - name: Windows
         href: ../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
       - name: Linux
         href: ../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
     - name: Diagnose a routing problem
-      items: 
+      items:
       - name: Azure PowerShell
         href: diagnose-vm-network-routing-problem-powershell.md
       - name: Azure CLI
@@ -101,13 +101,15 @@
         href: network-watcher-nsg-flow-logging-cli.md
       - name: REST
         href: network-watcher-nsg-flow-logging-rest.md
+    - name: Delete NSG flow log storage blobs
+      href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Analyze NSG flow logs
       items:
       - name: Read NSG flow logs
         href: network-watcher-read-nsg-flow-logs.md
       - name: Use traffic analytics
         href: traffic-analytics.md
-        items:  
+        items:
         - name: Frequently asked questions
           href: traffic-analytics-faq.md
         - name: Schema and Data Aggregation
@@ -170,6 +172,8 @@
     href: /rest/api/network-watcher/
 - name: Resources
   items:
+  - name: Network Watcher FAQs
+    href: frequently-asked-questions.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum

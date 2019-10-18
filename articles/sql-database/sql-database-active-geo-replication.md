@@ -71,7 +71,7 @@ To achieve real business continuity, adding database redundancy between datacent
 > [!NOTE]
 > The log replay is delayed on the secondary database if there are schema updates on the Primary. The latter requires a schema lock on the secondary database.
 > [!IMPORTANT]
-> You can use geo-replication to create a secondary database in the same region as the primary. You can use this secondary to load-balance a read-only workloads in the same region. However, a secondary database in the same region does not provide additional fault resilience and therefore is not a suitable failover target for disaster recovery. It will also not guarantee avaialability zone isolation. Use Business critical or Premium service tier with [zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration) to achieve avaialability zone isolation.   
+> You can use geo-replication to create a secondary database in the same region as the primary. You can use this secondary to load-balance a read-only workloads in the same region. However, a secondary database in the same region does not provide additional fault resilience and therefore is not a suitable failover target for disaster recovery. It will also not guarantee availability zone isolation. Use Business critical or Premium service tier with [zone redundant configuration](sql-database-high-availability.md#zone-redundant-configuration) to achieve availability zone isolation.   
 >
 
 - **Planned failover**
@@ -101,6 +101,10 @@ To achieve real business continuity, adding database redundancy between datacent
 ## Preparing secondary database for failover
 
 To ensure that your application can immediately access the new primary after failover,  ensure the authentication requirements for your secondary server and database are properly configured. For details, see [SQL Database security after disaster recovery](sql-database-geo-replication-security-config.md). To guarantee compliance after failover, make sure that the backup retention policy on the secondary database matches that of the primary. These settings are not part of the database and are not replicated. By default, the secondary will be configured with a default PITR retention period of seven days. For details, see [SQL Database automated backups](sql-database-automated-backups.md).
+
+> [!IMPORTANT]
+> If your database is a member of a failover group, you cannot initiate its failover using the geo-replication faiover command. Consider using failover command for the group. If you need to failover an individual database, you must remove it from the failover group first. See  [failover groups](sql-database-auto-failover-group.md) for details. 
+
 
 ## Configuring secondary database
 

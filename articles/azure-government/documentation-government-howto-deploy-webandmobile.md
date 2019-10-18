@@ -41,8 +41,6 @@ If you don't have an Azure Government subscription, create a [free account](http
 
     If you've installed Visual Studio already, add the workload in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
-* Follow [these instructions](documentation-government-get-started-connect-with-vs.md) to configure Visual Studio to connect to Azure Government account.
-
 ## Sign in to Azure Government 
 
 To connect, browse to the portal at [https://portal.azure.us](https://portal.azure.us) and sign in with your Azure Government credentials. 

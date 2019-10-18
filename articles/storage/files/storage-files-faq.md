@@ -63,7 +63,7 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="redundancy-options"></a>
   **What storage redundancy options are supported by Azure Files?**  
-    Currently, Azure Files supports locally redundant storage (LRS), zone redundant storage (ZRS), and geo-redundant storage (GRS). We plan to support read-access geo-redundant (RA-GRS) storage in the future, but we don't have timelines to share at this time.
+    Currently, Azure Files supports locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview). We plan to support read-access geo-redundant (RA-GRS) storage in the future, but we don't have timelines to share at this time.
 
 * <a id="tier-options"></a>
   **What storage tiers are supported in Azure Files?**  
@@ -95,7 +95,7 @@ This article answers common questions about Azure Files features and functionali
    
     \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
-    For example, the first conflict of CompanyReport.docx would become CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict would be named CompanyReport-CentralServer-1.docx.
+    For example, the first conflict of CompanyReport.docx would become CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict would be named CompanyReport-CentralServer-1.docx. Azure File Sync supports 100 conflict files per file. Once the maximum number of conflict files has been reached, the file will fail to sync until the number of conflict files is less than 100.
 
 * <a id="afs-storage-redundancy"></a>
   **Is geo-redundant storage supported for Azure File Sync?**  
@@ -163,7 +163,7 @@ This article answers common questions about Azure Files features and functionali
     
 ## Security, authentication, and access control
 * <a id="ad-support"></a>
-**Is Identity-based authentication and access control supported by Azure Files?**  
+**Is identity-based authentication and access control supported by Azure Files?**  
     
     Yes, Azure Files supports identity-based authentication and access control leveraging Azure AD Domain Service(Azure AD DS). Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. For more details, see [Overview of Azure Files Azure Active Directory Domain Service (Azure AD DS) Authentication Support for SMB Access](storage-files-active-directory-overview.md). 
 
@@ -276,7 +276,7 @@ This article answers common questions about Azure Files features and functionali
     Standard transaction and standard storage cost will apply to snapshot. Snapshots are incremental in nature. The base snapshot is the share itself. All the subsequent snapshots are incremental and will only store the diff from the previous snapshot. This means that the delta changes that will be seen in the bill will be minimal if your workload churn is minimal. See [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for Standard Azure Files pricing information. Today the way to look at size consumed by share snapshot is by comparing the billed capacity with used capacity. We are working on tooling to improve the reporting.
 
 * <a id="ntfs-acls-snaphsots"></a>
-**Are NTFS ACLs on directories and files persisted in share snapshots?**
+**Are NTFS ACLs on directories and files persisted in share snapshots?**  
     NTFS ACLs on directories and files are persisted in share snapshots.
 
 ### Create share snapshots
@@ -339,7 +339,12 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="need-larger-share"></a>
 **What sizes are available for Azure file shares?**  
-    Azure file share sizes (premium and standard) can scale up to 100 TiB. Premium file shares sizes up to 100 TiB are available as a GA offering. Standard file shares sizes up to 5 TiB are available as a GA offering, while sizes up to 100 TiB are in preview. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares preview for the standard tier.
+    Azure file share sizes (premium and standard) can scale up to 100 TiB. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares for the standard tier.
+
+* <a id="lfs-performance-impact"></a>
+**Does expanding my file share quota impact my workloads or Azure File Sync?**
+    
+    No. Expanding the quota will not impact your workloads or Azure File Sync.
 
 * <a id="open-handles-quota"></a>
 **How many clients can access the same file simultaneously?**   

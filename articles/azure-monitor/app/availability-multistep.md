@@ -133,7 +133,17 @@ In all cases, you should create an account in your application just for the purp
 Record a web test in the usual way. Delete cookies first.
 
 **SAML authentication**
-Use the SAML plugin that is available for web tests. Access the plugin by...
+
+|Property name| Description|
+|----|-----|
+| Audience Uri | The audience URI for the SAML token.  This is the URI for the Access Control Service (ACS) – including ACS namespace and host name. |
+| Certificate Password | The password for the client certificate which will grant access to the embedded private key. |
+| Client Certificate  | The client certificate value with private key in Base64 encoded format. |
+| Name Identifier | The name identifier for the token |
+| Not After | The timespan for which the token will be valid.  The default is 5 minutes. |
+| Not Before | The timespan for which a token created in the past will be valid (to address time skews).  The default is (negative) 5 minutes. |
+| Target Context Parameter Name | The context parameter that will receive the generated assertion. |
+
 
 **Client secret**
 If your app has a sign-in route that involves a client secret, use that route. Azure Active Directory (AAD) is an example of a service that provides a client secret sign-in. In AAD, the client secret is the App Key.

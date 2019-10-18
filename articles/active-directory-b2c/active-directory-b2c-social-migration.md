@@ -11,10 +11,11 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: marsma
 ms.subservice: B2C
+ms.custom: fasttrack-edit
 ---
 
 # Azure Active Directory B2C: Migrate users with social identities
-When you plan to migrate your identity provider to Azure AD B2C, you may also need to migrate users with social identities. This article explains how to migrate existing social identities accounts, such as: Facebook, LinkedIn, Microsoft, and Google accounts to Azure AD B2C. This article also applies to federated identities, however these migrations are less common.
+When you plan to migrate your identity provider to Azure AD B2C, you may also need to migrate users with social identities. This article explains how to migrate existing social identities accounts, such as: Facebook, LinkedIn, Microsoft, and Google accounts to Azure AD B2C. This article also applies to federated identities, however these migrations are less common. For the remainder of this article, consider anything that applies to social accounts to also apply to other types of federated accounts.
 
 ## Prerequisites
 This article is a continuation of the user migration article, and focuses on social identity migration. Before you start, read [user migration](active-directory-b2c-user-migration.md).
@@ -25,11 +26,11 @@ This article is a continuation of the user migration article, and focuses on soc
 
 * **Social accounts'** identities are stored in `userIdentities` collection. The entry specifies the `issuer` (identity provider name) such as facebook.com and the `issuerUserId`, which is a unique user identifier for the issuer. The `userIdentities` attribute contains one or more UserIdentity records that specify the social account type and the unique user identifier from the social identity provider.
 
-* **Combine local account with social identity**. As mentioned, local account sign-in names, and social account identities are stored in different attributes. `signInNames` is used for local account, while `userIdentities` for social account. A single Azure AD B2C account, can be a local account only, social account only, or combine a local account with social identity in one user record. This behavior allows you to manage a single account, while a user can sign in with the local account credential(s) or with the social identities.
+* **Combine local account with social identity**. As mentioned, local account sign-in names, and social account identities are stored in different attributes. `signInNames` is used for local account, while `userIdentities` is used for social accounts. A single Azure AD B2C account can be a local account only, social account only, or combine a local account with one or more social identities in one user record. This behavior allows you to manage a single account, while a user can sign in with the local account credential(s) or with the social identities.
 
 * `UserIdentity` Type - Contains information about the identity of a social account user in an Azure AD B2C tenant:
   * `issuer` The string representation of the identity provider that issued the user identifier, such as facebook.com.
-  * `issuerUserId` The unique user identifier used by the social identity provider in base64 format.
+  * `issuerUserId` The unique user identifier used by the social identity provider in Base64-encoded format.
 
     ```JSON
     "userIdentities": [{
@@ -39,11 +40,11 @@ This article is a continuation of the user migration article, and focuses on soc
     ]
     ```
 
-* Depending on the identity provider, the **Social user ID** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider. Or another application within the same development account.
+* Depending on the identity provider, the **Issuer User ID** is a unique value for a given user per application or development account. Configure the Azure AD B2C policy with the same application ID that was previously assigned by the social provider or another application within the same development account.
 
 ## Use Graph API to migrate users
-You create the Azure AD B2C user account via [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). 
-To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and authentication to Azure AD. The application credentials are Application ID and Application Secret. The application acts as itself, not as a user, to call the Graph API. Follow the instructions in step 1 in [User migration](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) article.
+You create the Azure AD B2C user account via the [Graph API](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-devquickstarts-graph-dotnet). 
+To communicate with the Graph API, you first must have a service account with administrative privileges. In Azure AD, you register an application and authentication to Azure AD. The application credentials are Application ID and Application Secret. The application acts as itself, not as a user, to call the Graph API. Follow the instructions in step 1 in the [User migration](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-user-migration) article.
 
 ## Required properties
 The following list shows the properties that are required when you create a user.
@@ -52,7 +53,7 @@ The following list shows the properties that are required when you create a user
 * **passwordProfile** - The password profile for the user. 
 
 > [!NOTE]
-> For social account only (without local account credentials), you still must specify the password. Azure AD B2C ignores the password you specify for social accounts.
+> For social accounts only (without local account credentials), you still must specify the password. Azure AD B2C ignores the password you specify for social accounts.
 
 * **userPrincipalName** - The user principal name (someuser@contoso.com). The user principal name must contain one of the verified domains for the tenant. To specify the UPN, generate new GUID value, concatenate with `@` and your tenant name.
 * **mailNickname** - The mail alias for the user. This value can be the same ID that you use for the userPrincipalName. 
@@ -63,7 +64,7 @@ The following list shows the properties that are required when you create a user
 For more information, see: [Graph API reference](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## Migrate social account (only)
-To create social account only, without local account credentials. Send HTTPS POST request to Graph API. The request body contains the properties of the social account user to create. At a minimum, you must specify the required properties. 
+To create social account only, without local account credentials, send an HTTPS POST request to Graph API. The request body contains the properties of the social account user to create. At a minimum, you must specify the required properties. 
 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
@@ -95,7 +96,7 @@ Submit the following form-data:
 }
 ```
 ## Migrate social account with local account
-To create a combined local account with social identities. Send HTTPS POST request to Graph API. The request body contains the properties of the social account user to create. At a minimum, you must specify the required properties. 
+To create a combined local account with social identities, send an HTTPS POST request to the Graph API. The request body contains the properties of the social account user to create including the sign in name for the local account. At a minimum, you must specify the required properties. 
 
 **POST**  https://graph.windows.net/tenant-name.onmicrosoft.com/users
 
@@ -144,8 +145,8 @@ The issuer name, or the identity provider name, is configured in your policy. If
 > [!NOTE]
 > Use a B2C tenant administrator account that is local to the B2C tenant. The account name syntax is admin@tenant-name.onmicrosoft.com.
 
-### Is it possible to add social identity to an existing local account?
-Yes. You can add the social identity after the local account has been created. Run HTTPS PATCH request. Replace the userObjectId with the user ID you want to update. 
+### Is it possible to add a social identity to an existing user?
+Yes. You can add the social identity after the Azure AD B2C account has been created (whether that is a local or social account, or combination thereof). Run an HTTPS PATCH request. Replace the userObjectId with the user ID you want to update. 
 
 **PATCH** https://graph.windows.net/tenant-name.onmicrosoft.com/users/userObjectId
 

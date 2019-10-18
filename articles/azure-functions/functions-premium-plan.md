@@ -7,7 +7,6 @@ manager: jeconnoc
 
 ms.assetid:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan

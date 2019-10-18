@@ -11,7 +11,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 05/03/2019
+ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 
@@ -131,7 +131,7 @@ No, Azure AD Connect does not support on-premises forests or domains where the N
 No, Azure AD Connect does not support a pure IPv6 environment.
 
 **Q:I have a multi-forest environment and the network between the two forests is using NAT (Network Address Translation). Is using Azure AD Connect between these two forests supported?**</br>
- No, using Azure AD Connect over NAT is not supported. 
+No, using Azure AD Connect over NAT is not supported. 
 
 ## Federation
 **Q: What do I do if I receive an email that asks me to renew my Office 365 certificate?**  
@@ -146,6 +146,12 @@ No. Changing the server name renders the sync engine unable to connect to the SQ
 
 **Q: Are Next Generation Cryptographic (NGC) sync rules supported on a FIPS-enabled machine?**  
 No.  They are not supported.
+
+**Q. If I disabled a synced device (for example: HAADJ) in the Azure portal, why it is re-enabled?**<br>
+Synced devices might be authored or mastered on premises. If a synced device is enabled on premises, it might be re-enabled in the Azure portal even if was previously disabled by an administrator. To disable a synced device, use the on-premises Active Directory to disable the computer account.
+
+**Q. If I block user sign-in at the Office 365 or Azure AD portal for synced users, why it is unblocked upon signing in again?**<br>
+Synced users might be authored or mastered on premises. If the account is enabled on premises, it can unblock the sign-in block placed by administrator.
 
 ## Identity data
 **Q: Why doesn't the userPrincipalName (UPN) attribute in Azure AD match the on-premises UPN?**  
@@ -259,3 +265,7 @@ If you need help upgrading to a newer version of Azure AD Connect, open a suppor
 * Search for technical questions and answers or ask your own questions by going to [the Azure AD community](https://social.msdn.microsoft.com/Forums/azure/en-US/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required).
 
 [Get support for Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto)
+
+**Q: Why am I seeing Events 6311 and 6401 occur after Sync Step Errors?**
+
+The events 6311 - **The server encountered an unexpected error while performing a callback** and 6401 - **The management agent controller encountered an unexpected error** - are always logged after a synchronization step error. To resolve these errors, you need to clean up the synchronization step errors.  For more information, see [Troubleshooting errors during synchronization](tshoot-connect-sync-errors.md) and [Troubleshoot object synchronization with Azure AD Connect sync](tshoot-connect-objectsync.md)
