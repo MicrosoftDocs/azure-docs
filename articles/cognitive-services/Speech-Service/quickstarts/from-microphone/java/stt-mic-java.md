@@ -12,7 +12,7 @@ ms.author: erhopf
 
 1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
 
-   ![Screenshot of New Java Class window](../../media/sdk/qs-java-jre-06-create-main-java.png)
+   ![Screenshot of New Java Class window](../../../media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Replace all code in `Main.java` with the following snippet:
 
@@ -20,7 +20,7 @@ ms.author: erhopf
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. Save changes to the project.
 
@@ -29,4 +29,4 @@ ms.author: erhopf
 Press F11, or select **Run** > **Debug**.
 The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
-![Screenshot of console output after successful recognition](../../media/sdk/qs-java-jre-07-console-output.png)
+![Screenshot of console output after successful recognition](../../../media/sdk/qs-java-jre-07-console-output.png)

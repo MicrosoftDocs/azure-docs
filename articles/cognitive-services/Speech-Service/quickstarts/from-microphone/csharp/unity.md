@@ -77,7 +77,7 @@ To add the sample script code for the Unity project, follow these steps:
 
 1. Find and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
-1. Find and replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
+1. Find and replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
 1. Save the changes to the script.
 
