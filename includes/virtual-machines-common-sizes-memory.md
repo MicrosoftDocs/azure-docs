@@ -5,8 +5,8 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/08/2019
- ms.author: azcspmt;jonbeck;cynthn;joelpell
+ ms.date: 10/17/2019
+ ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
 
@@ -16,7 +16,7 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 
 * The Preview sizes of Eav3-series and Easv3-series utilize AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452 processor in a multi-threaded configuration with up to 256MB L3 cache, increasing options for running most memory optimized workloads.  The Eav3-series and Easv3-series have the same memory and disk configurations as the Ev3 & Esv3-series.
 
-* The Mv2-Series offers the highest vCPU count (up to 208 vCPUs) and largest memory (up to 5.7 TiB) of any VM in the cloud. It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
+* The Mv2-Series offers the highest vCPU count (up to 416 vCPUs) and largest memory (up to 8.19 TiB) of any VM in the cloud. It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 
 * The M-Series offers a high vCPU count (up to 128 vCPUs) and a large amount of memory (up to 3.8 TiB). It’s also ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 
@@ -64,7 +64,7 @@ Premium Storage caching: Supported
 
 Easv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Easv3-series sizes are ideal for memory-intensive enterprise applications.
 
-[Click here to signup for the preview](http://aka.ms/azureamdpreview).
+[Sign up for the preview](http://aka.ms/azureamdpreview).
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |---|---|---|---|
@@ -115,7 +115,7 @@ Premium Storage caching: Not Supported
 
 Eav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Eav3-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Easv3-series sizes. The pricing and billing meters for Easv3 sizes are the same as the Eav3-series.
 
-[Click here to signup for the preview](http://aka.ms/azureamdpreview).
+[Sign up for the preview](http://aka.ms/azureamdpreview).
 
 | Size             | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |------------------|------|-------------|-------------------------|
@@ -129,63 +129,28 @@ Eav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452 processor 
 
 ## Mv2-series
 
+ACU: 188-280<sup>1</sup>
+
 Premium Storage: Supported
 
 Premium Storage caching: Supported
 
 Write Accelerator: [Supported](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
-The Mv2-series features high throughput, low latency, directly mapped local NVMe storage running on a hyper-threaded Intel® Xeon® Platinum 8180M 2.5GHz (Skylake) processor with an all core base frequency of 2.5 GHz and a max turbo frequency of 3.8 GHz. All Mv2-series virtual machine sizes can use both standard and premium persistent disks. Mv2-series instances are memory optimized VM sizes providing unparalleled computational performance to support large in-memory databases and workloads, with a high memory-to-CPU ratio that is ideal for relational database servers, large caches, and in-memory analytics. 
+The Mv2-series features high throughput, low latency platform running on a hyper-threaded Intel® Xeon® Platinum 8180M 2.5GHz (Skylake) processor with an all core base frequency of 2.5 GHz and a max turbo frequency of 3.8 GHz. All Mv2-series virtual machine sizes can use both standard and premium persistent disks. Mv2-series instances are memory optimized VM sizes providing unparalleled computational performance to support large in-memory databases and workloads, with a high memory-to-CPU ratio that is ideal for relational database servers, large caches, and in-memory analytics.
 
 |Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
-| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
-| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
+| Standard_M208ms_v2<sup>2</sup> | 208 | 5700 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
+| Standard_M208s_v2<sup>2</sup> | 208 | 2850 | 4096 | 64 | 80000 / 800 (7040) | 40000 / 1000 | 8 / 16000 |
+| Standard_M416ms_v2<sup>2, 3</sup> | 416 | 11400 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
+| Standard_M416s_v2<sup>2, 3</sup> | 416 | 5700 | 8192 | 64 | 250000 / 1600 (14080) | 80000 / 2000 | 8 / 32000 |
 
-Mv2-series VM’s feature Intel® Hyper-Threading Technology  
+<sup>1</sup> Mv2-series VM’s feature Intel® Hyper-Threading Technology
 
-<sup>1</sup> These large VMs require one of these supported guest OSes: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
+<sup>2</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see [Support for generation 2 VMs on Azure](../articles/virtual-machines/linux/generation-2.md) for instructions on how to find and select an image.
 
-<sup>2</sup> Mv2-series VMs are generation 2 only. If you're using Linux, see the following section for how to find and select a SUSE Linux image.
-
-#### Find a SUSE image
-
-To select an appropriate SUSE Linux image in the Azure portal: 
-
-1. In the Azure portal, select **Create a resource** 
-1. Search for “SUSE SAP” 
-1. SLES for SAP generation 2 images are available as either pay-as-you-go, or bring your own subscription (BYOS). In the search results, expand the desired image category:
-
-    * SUSE Linux Enterprise Server (SLES) for SAP
-    * SUSE Linux Enterprise Server (SLES) for SAP (BYOS)
-    
-1. SUSE images compatible with the Mv2-series are prefixed with the name `GEN2:`. The following SUSE images are available for Mv2-series VMs:
-
-    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP Applications
-    * GEN2: SUSE Linux Enterprise Server (SLES) 15 for SAP Applications
-    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP Applications (BYOS)
-    * GEN2: SUSE Linux Enterprise Server (SLES) 15 for SAP Applications (BYOS)
-
-#### Select a SUSE image via Azure CLI
-
-To see a list of the currently available SLES for SAP image for Mv2-series VMs, use the following [`az vm image list`](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) command:
-
-```azurecli
-az vm image list --output table --publisher SUSE --sku gen2 --all
-```
-
-The command outputs the currently available Generation 2 VMs available from SUSE for Mv2-series VMs. 
-
-Example output:
-
-```
-Offer          Publisher  Sku          Urn                                        Version
--------------  ---------  -----------  -----------------------------------------  ----------
-SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
-SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
-SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
-SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
-```
+<sup>3</sup> For the M416ms_v2 and M416s_v2 sizes, note that there is initial support for the following image only: “GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 for SAP Applications."
 
 ## M-series 
 

@@ -323,6 +323,8 @@
         href: confluencemicrosoft-tutorial.md
       - name: Consent2Go
         href: consent2go-tutorial.md
+      - name: Contentful
+        href: contentful-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
       - name: Control
@@ -1178,6 +1180,8 @@
         href: sharepoint-on-premises-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
+      - name: ShipHazmat
+        href: shiphazmat-tutorial.md
       - name: Shmoop For Schools
         href: shmoopforschools-tutorial.md
       - name: Showpad
@@ -1376,6 +1380,8 @@
         href: vibehcm-tutorial.md
       - name: Vidyard
         href: vidyard-tutorial.md
+      - name: Visit.org
+        href: visitorg-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
       - name: Vocoli
@@ -1499,6 +1505,8 @@
         href: 15five-provisioning-tutorial.md
     - name: A - L
       items:
+      - name: Airstack
+        href: airstack-provisioning-tutorial.md
       - name: Amazon Web Services (AWS) - Role Provisioning
         href: amazon-web-service-tutorial.md#configure-azure-ad-single-sign-on
       - name: Asana
@@ -1573,6 +1581,8 @@
         href: leapsome-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
+      - name: Meta Networks Connector
+        href: meta-networks-connector-provisioning-tutorial.md
       - name: myPolicies
         href: mypolicies-provisioning-tutorial.md
       - name: Mindtickle

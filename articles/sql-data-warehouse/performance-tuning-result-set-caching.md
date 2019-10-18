@@ -29,11 +29,10 @@ When result set caching is enabled, Azure SQL Data Warehouse automatically cache
 Once result set caching is turned ON for a database, results are cached for all queries until the cache is full, except for these queries:
 - Queries using non-deterministic functions such as DateTime.Now()
 - Queries using user defined functions
+- Queries using tables with row level security or column level security enabled
 - Queries returning data with row size larger than 64KB
 
 Queries with large result sets (for example, > 1 million rows) may experience slower performance during the first run when the result cache is being created.
-
-Row level security is not supported by result set caching.  
 
 ## When cached results are used
 

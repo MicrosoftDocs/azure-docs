@@ -83,7 +83,7 @@ Output:
 
 ![monitor-messages command output](media/howto-use-iotc-explorer/monitormessages.png)
 
-To watch a specific device, just add the device id to the end of the command:
+To watch a specific device, just add the device ID to the end of the command:
 
 ```cmd/sh
 iotc-explorer monitor-messages <your-device-id>
