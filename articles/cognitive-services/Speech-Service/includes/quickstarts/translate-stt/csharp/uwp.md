@@ -15,7 +15,7 @@ ms.topic: quickstart
 
 # Quickstart: Translate speech with the Speech SDK for C# (UWP)
 
-Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/from-microphone/speech-to-text-from-microphone.md), [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
+Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/from-microphone/speech-to-text-from-microphone.md), [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) and [voice-first virtual assistant](~/articles/cognitive-services/Speech-Service/quickstart-virtual-assistant-csharp-uwp.md).
 
 In this quickstart, you'll create a Universal Windows Platform (UWP) application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and it's built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019.
 
@@ -53,7 +53,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 1. In the `SpeechTranslationFromMicrophone_ButtonClicked` handler in this file, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
-1. In the `SpeechTranslationFromMicrophone_ButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
+1. In the `SpeechTranslationFromMicrophone_ButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
 
 1. From the menu bar, choose **File** > **Save All** to save your changes.
 
