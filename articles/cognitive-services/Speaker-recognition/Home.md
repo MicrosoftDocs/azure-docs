@@ -35,7 +35,7 @@ The speech audio and features extracted are stored in a highly secure way. You c
 
 In the verification phase, the speaker verification algorithm extracts many features from the input speech recording. Then it compares the features against the voice signature of the known speaker and determines any match.  Also, the speech recognition algorithm compares the speech phrases with the passphrases chosen by the known speaker.  The response returns "accept" or "reject" with different confidence levels.  Both results would be used to verify whether this person is the known speaker saying the correct passphrase.
 
-The threshold is related to the scenario. We recommend you to experiment with the confidence level for the wanted accuracy.
+The threshold is related to the scenario. We recommend you experiment with the confidence level for the wanted accuracy.
 
 The speech recording or the extracted features wouldn't be stored.
 
@@ -55,7 +55,7 @@ In the enrollment phase, the speaker's voice is recorded, and many features are 
 
 In the identification phase, the speaker identification algorithm extracted many features from the input speech recording. Then it compares the features against the voice signature of each speaker in the group. When the best match is found, the response returns the ID of the speaker with different confidence levels.  Otherwise, the response returns "reject" when no speaker is a match.
 
-The threshold is related to the scenario. We recommend you to experiment with the confidence level for the wanted accuracy.
+The threshold is related to the scenario. We recommend you experiment with the confidence level for the wanted accuracy.
 
 The speech recording or the extracted features wouldn't be stored.
 
