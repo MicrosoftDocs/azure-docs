@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Setup configuration](common/setup-sso.png)
 
-1. If you want to setup PurelyHR manually, open a new web browser window and sign into your PurelyHR company site as an administrator and perform the following steps:
+1. If you want to set up PurelyHR manually, open a new web browser window and sign in to your PurelyHR company site as an administrator and perform the following steps:
 
 1. Open the **Dashboard** from the options in the toolbar and click **SSO Settings**.
 
