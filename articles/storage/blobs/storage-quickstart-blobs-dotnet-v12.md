@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Azure Blob storage client library for .NET version 12"
-description: In this quickstart, you learn how to use the Azure Blob storage client library for .NET version 12 to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+title: "Quickstart: Azure Blob storage client library version 12 for .NET"
+description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -10,11 +10,11 @@ ms.subservice: blobs
 ms.topic: quickstart
 ---
 
-# Quickstart: Azure Blob storage client library for .NET version 12
+# Quickstart: Azure Blob storage client library version 12 for .NET
 
-Get started with the Azure Blob Storage client library for .NET v12. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob Storage client library for .NET v12 to:
+Use the Azure Blob Storage client library v12 for .NET to:
 
 * Create a container
 * Set permissions on a container
@@ -23,7 +23,7 @@ Use the Azure Blob Storage client library for .NET v12 to:
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12.0.0-preview.4) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12) | [Samples](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -35,7 +35,7 @@ Use the Azure Blob Storage client library for .NET v12 to:
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library for .NET v12.
+This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for .NET.
 
 ### Create the project
 
@@ -79,7 +79,7 @@ Time Elapsed 00:00:05.88
 While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
 
 ```console
-dotnet add package Azure.Storage.Blobs --version 12.0
+dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.4
 ```
 
 ### Set up the app framework
@@ -87,7 +87,7 @@ dotnet add package Azure.Storage.Blobs --version 12.0
 From the project directory:
 
 1. Open the *Program.cs* file in your editor
-2. Remove the `Console.WriteLine` statement
+2. Remove the `Console.WriteLine("Hello World!");` statement
 3. Add `using` directives
 4. Declare and initialize a member variable that contains the path to the local *Documents* directory
 4. Create a `ProcessAsync` method where the main code for the example will reside
@@ -133,12 +133,15 @@ namespace blob_quickstart_v12
 When the sample application makes a request to Azure Storage, it must be authorized. To authorize a request, add your storage account name and access key to the application. View your storage account credentials by following these steps:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-2. Locate your storage account.
+2. Select your storage account.
 3. In the **Settings** section of the storage account overview, select **Access keys**. Here, you can view your storage account name and access keys.
 4. Find the **Storage account name** and select the **Copy** button to copy the connection string. You will add the account name string value to an environment variable in the next step. Paste the string into a blank file in your text editor.
+
+    ![Screenshot showing how to copy the account name from the Azure portal](./media/storage-quickstart-blobs-dotnet-v12/portal-storage-account-name.png)
+
 5. Find the **Key** value under **key1**, and select the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step. Paste the string into a blank file in your text editor.
 
-    ![Screenshot showing how to copy a connection string from the Azure portal](../../../includes/media/storage-copy-connection-string-portal/portal-connection-string.png)
+    ![Screenshot showing how to copy the access key from the Azure portal](./media/storage-quickstart-blobs-dotnet-v12/portal-storage-access-key.png)
 
 ### Configure your storage account name and access key
 
@@ -181,7 +184,7 @@ Azure Blob storage is optimized for storing massive amounts of unstructured data
 
 The following diagram shows the relationship between these resources.
 
-![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-dotnet/blob1.png)
+![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-dotnet-v12/blob1.png)
 
 Use the following .NET classes to interact with these resources:
 
