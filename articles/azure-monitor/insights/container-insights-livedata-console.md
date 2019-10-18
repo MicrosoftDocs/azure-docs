@@ -27,7 +27,7 @@ This article provides a detailed overview and helps you understand how to use th
 >[!NOTE]
 >This feature is available in all Azure regions, including Azure China. It is currently not available in Azure US Government.
 
-For help setting up or troubleshooting the Live Metrics and Data (preview) feature, review our [setup guide](container-insights-livelogs-setup.md). This feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](container-insights-livelogs-setup.md#authentication-model). 
+For help setting up or troubleshooting the Live Metrics and Data (preview) feature, review our [setup guide](container-insights-livedata-setup.md). This feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](container-insights-livedata-setup.md#authentication-model). 
 
 ## Live console functionality overview
 

@@ -34,7 +34,7 @@ When you select a deployment from the list, a property pane automatically displa
 
 While you review deployment details, you can see container logs and events in real time. Select the **Show live console** and the Live console pane will appear below the deployments data grid where you can view live log data in a continuous stream. If the fetch status indicator shows a green check mark, which is on the far right of the pane, it means data can be retrieved and it begins streaming to your console.
 
-You can also filter by namespace or cluster level events. To learn more about the Live console, see [View live data with Azure Monitor for containers Live console (preview)](container-insights-livelogs-console.md). 
+You can also filter by namespace or cluster level events. To learn more about the Live console, see [View live data with Azure Monitor for containers Live console (preview)](container-insights-livedata-console.md). 
 
 ![Deployment Live console events](./media/container-insights-livedata-deployments/deployment-live-console-events.png)
 

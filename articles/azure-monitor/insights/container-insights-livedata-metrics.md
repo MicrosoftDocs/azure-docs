@@ -27,11 +27,11 @@ This article provides a detailed overview and helps you understand how to use th
 >[!NOTE]
 >This feature is available in all Azure regions, including Azure China. It is currently not available in Azure US Government.
 
-For help setting up or troubleshooting the Live Metrics and Data (preview) feature, review our [setup guide](container-insights-livelogs-setup.md).
+For help setting up or troubleshooting the Live Metrics and Data (preview) feature, review our [setup guide](container-insights-livedata-setup.md).
 
 ## How it Works 
 
-The Live Metrics and Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](container-insights-livelogs-setup.md#authentication-model). 
+The Live Metrics and Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](container-insights-livedata-setup.md#authentication-model). 
 
 Live metrics feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` and `/api/v1/pods`), which is five seconds by default. This data is cached in your browser and charted in the four performance charts included in Azure Monitor for containers on the **Cluster** tab. Each subsequent poll is charted into a rolling five-minute visualization window. 
 
@@ -67,7 +67,7 @@ This also helps you understand if there are nodes being pushed to their limits a
 
 This performance chart maps to an equivalent of invoking `kubectl get nodes` and mapping the **STATUS** column to a chart grouped by status types.
 
-![Kubectl get nodes example results](./media/container-insights-livedata/kubectl-get-nodes-example.png)
+![Kubectl get nodes example results](./media/container-insights-livedata-metrics/kubectl-get-nodes-example.png)
 
 ![Nodes count chart](./media/container-insights-livedata-metrics/cluster-view-node-count-01.png)
 
@@ -78,9 +78,9 @@ For example, to understand if your nodes are falling into failed states. Utilizi
 
 This performance chart maps to an equivalent of invoking `kubectl get pods –all-namespaces` and maps the **STATUS** column the chart grouped by status types.
 
-![Kubectl get pods example results](./media/container-insights-livedata/kubectl-get-pods-example.png)
+![Kubectl get pods example results](./media/container-insights-livedata-metrics/kubectl-get-pods-example.png)
 
-![Nodes pod count chart](./media/container-insights-livedata-metrics/cluster-view-node-pod-count-01.png)
+![Nodes pod count chart](./media/container-insights-livedata-metrics/cluster-view-node-pod-count.png)
 
 >[!NOTE]
 >Names of status as interpreted by `kubectl` may not exactly match in the chart. The names are derived from the Kubernetes API and interpreted to match the status names as presented data stored in your Log Analytics workspace when viewing the chart from the **Historical** view (which is the default for the performance charts on this tab). 
