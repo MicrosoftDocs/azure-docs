@@ -74,11 +74,12 @@ When you're using the Premium plan, instances of the Azure Functions host are ad
 
 Information on how you can configure these options can be found in the [Azure Functions premium plan document](functions-premium-plan.md).
 
-Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds, execution time, and memory used across needed and reserved instances.  At least one instance must be warm at all times. This means that there is a fixed monthly cost per active plan, regardless of the number of executions.
+Instead of billing per execution and memory consumed, billing for the Premium plan is based on the number of core seconds and memory used across needed and pre-warmed instances. At least one instance must be warm at all times per plan. This means that there is a minimum monthly cost per active plan, regardless of the number of executions. Keep in mind that all function apps in a Premium plan share pre-warmed and active instances.
 
 Consider the Azure Functions premium plan in the following situations:
 
 * Your function apps run continuously, or nearly continuously.
+* You have a high number of small executions and have a high execution bill but low GB second bill in the consumption plan.
 * You need more CPU or memory options than what is provided by the Consumption plan.
 * Your code needs to run longer than the [maximum execution time allowed](#timeout) on the Consumption plan.
 * You require features that are only available on a Premium plan, such as VNET/VPN connectivity.

@@ -29,7 +29,7 @@ Use the Form Recognizer client library for .NET to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
 * The current version of [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 ## Setting up
@@ -117,6 +117,7 @@ Before you define any methods, add the following variable definitions to the top
 
 * You can find your service's Endpoint value in the **Overview** section in the Azure portal. 
 * To retrieve the SAS URL for your training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* If you need a sample form to analyze, you can use one of the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). This guide only uses PDF forms.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 

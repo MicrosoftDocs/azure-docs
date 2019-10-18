@@ -123,13 +123,13 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 ## Using mapping data flow debug for a normal workday (Preview Pricing)
 
-As a Data Engineer, you are responsible for designing, building, and testing Mapping Data Flows every day. You log into the ADF UI in the morning and enable the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. You work throughout the day for 10 hours, so your Debug session never expires. Therefore, your charge for the day will be:
+As a Data Engineer, you are responsible for designing, building, and testing mapping data flows every day. You log into the ADF UI in the morning and enable the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. You work throughout the day for 10 hours, so your Debug session never expires. Therefore, your charge for the day will be:
 
 **10 (hours) x 8 (cores) x $0.112 = $8.96**
 
 ## Transform data in blob store with mapping data flows (Preview Pricing)
 
-In this scenario, you want to transform data in Blob Store visually in ADF Mapping Data Flows on an hourly schedule.
+In this scenario, you want to transform data in Blob Store visually in ADF mapping data flows on an hourly schedule.
 
 To accomplish the scenario, you need to create a pipeline with the following items:
 
