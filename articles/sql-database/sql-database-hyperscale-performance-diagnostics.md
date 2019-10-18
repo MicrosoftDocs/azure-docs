@@ -1,16 +1,14 @@
 ---
-title: Performance diagnostics in the Hyperscale service tier | Microsoft Docs
+title: Azure SQL Database - performance diagnostics in the Hyperscale service tier | Microsoft Docs
 description: This article describes how to troubleshoot Hyperscale performance problems in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: 
-ms.devlang: 
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
-ms.date: 10/09/2019
+ms.date: 10/18/2019
 ---
 
 
