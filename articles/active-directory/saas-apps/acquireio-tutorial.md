@@ -133,7 +133,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Setup configuration](common/setup-sso.png)
 
-1. If you want to setup AcquireIO manually, in a different web browser window, sign in to AcquireIO as an Administrator.
+1. If you want to set up AcquireIO manually, in a different web browser window, sign in to AcquireIO as an Administrator.
 
 1. From the left side of menu, click on **App Store**.
 
