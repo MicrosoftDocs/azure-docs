@@ -46,6 +46,13 @@ landingContent:
           - text: Using the REST API (cURL)
             url: quickstarts/curl-train-extract.md
 
+  - title: Build a training data set
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Build a training data set
+            url: build-training-data-set.md
+
   - title: Extract data from receipts
     linkLists:
       - linkListType: quickstart
@@ -53,12 +60,18 @@ landingContent:
           - text: Using the .NET SDK
             url: quickstarts/dotnet-sdk.md
 
-  - title: Build a training data set
+  - title: Use the Feedback Loop feature
     linkLists:
+      - linkListType: concept
+        links:
+            - text: Feedback Loop
+              url: feedback-loop.md
       - linkListType: how-to-guide
         links:
-          - text: Build a training data set
-            url: build-training-data-set.md
+            - text: Use Feedback Loop REST API with Python
+              url: python-feedback-loop.md
+
+
 
   - title: Use containers
     linkLists:
