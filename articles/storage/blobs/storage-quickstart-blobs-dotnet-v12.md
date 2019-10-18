@@ -37,7 +37,7 @@ This section walks you through preparing a project to work with the Azure Blob S
 
 ### Create the project
 
-First, create a .NET Core application named *blob-quickstart-v12*.
+Create a .NET Core application named *blob-quickstart-v12*.
 
 1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *blob-quickstart-v12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
@@ -55,22 +55,22 @@ First, create a .NET Core application named *blob-quickstart-v12*.
    dotnet build
    ```
 
-The expected output from the build should look something like this:
+3. The expected output from the build should look something like this:
 
-```output
-C:\QuickStarts\blob-quickstart-v12> dotnet build
-Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
-Copyright (C) Microsoft Corporation. All rights reserved.
-
-  Restore completed in 42.22 ms for C:\Users\mhopkins\Code\blob-quickstart-v12\blob-quickstart-v12.csproj.
-  blob-quickstart-v12 -> C:\Users\mhopkins\Code\blob-quickstart-v12\bin\Debug\netcoreapp3.0\blob-quickstart-v12.dll
-
-Build succeeded.
-    0 Warning(s)
-    0 Error(s)
-
-Time Elapsed 00:00:05.88
-```
+   ```output
+   C:\QuickStarts\blob-quickstart-v12> dotnet build
+   Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
+   Copyright (C) Microsoft Corporation. All rights reserved.
+   
+    Restore completed in 42.22 ms for C:\Users\mhopkins\Code\blob-quickstart-v12\blob-quickstart-v12.csproj.
+     blob-quickstart-v12 -> C:\Users\mhopkins\Code\blob-quickstart-v12\bin\Debug\netcoreapp3.0\blob-quickstart-v12.dll
+   
+   Build succeeded.
+       0 Warning(s)
+       0 Error(s)
+   
+   Time Elapsed 00:00:05.88
+   ```
 
 ### Install the package
 
@@ -85,21 +85,21 @@ dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.4
 From the project directory:
 
 1. Open the *Program.cs* file in your editor
-2. Remove the `Console.WriteLine("Hello World!");` statement
-3. Add `using` directives
-4. Declare and initialize a member variable that contains the path to the local *Documents* directory
-4. Create a `ProcessAsync` method where the main code for the example will reside
-5. Asynchronously call the `ProcessAsync` method from `Main`
+1. Remove the `Console.WriteLine("Hello World!");` statement
+1. Add `using` directives
+1. Declare and initialize a member variable that contains the path to the local *Documents* directory
+1. Create a `ProcessAsync` method where the main code for the example will reside
+1. Asynchronously call the `ProcessAsync` method from `Main`
 
 Here's the code:
 
 ```csharp
-    using Azure.Storage;
-    using Azure.Storage.Blobs;
-    using Azure.Storage.Blobs.Models;
-    using System;
-    using System.IO;
-    using System.Threading.Tasks;
+using Azure.Storage;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+using System;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace blob_quickstart_v12
 {
@@ -133,17 +133,17 @@ When the sample application makes a request to Azure Storage, it must be authori
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Select your storage account.
 3. In the **Settings** section of the storage account overview, select **Access keys**. Here, you can view your storage account name and access keys.
-4. Find the **Storage account name** and select the **Copy** button to copy the connection string. You will add the account name string value to an environment variable in the next step. Paste the string into a blank file in your text editor.
+4. Find the **Storage account name** and select the **Copy** button to copy the connection string to the clipboard. Paste the string into a blank file in your text editor. You will add the account name string value to an environment variable in the next section.
 
     ![Screenshot showing how to copy the account name from the Azure portal](./media/storage-quickstart-blobs-dotnet-v12/portal-storage-account-name.png)
 
-5. Find the **Key** value under **key1**, and select the **Copy** button to copy the connection string. You will add the connection string value to an environment variable in the next step. Paste the string into your text editor.
+5. Find the **Key** value under **key1**, and select the **Copy** button to copy the connection string to the clipboard. Paste the string into your text editor. You will add the connection string value to an environment variable in the next section.
 
     ![Screenshot showing how to copy the access key from the Azure portal](./media/storage-quickstart-blobs-dotnet-v12/portal-storage-access-key.png)
 
 ### Configure your storage account name and access key
 
-After you have copied your credential strings, write them to new environment variables on the local machine running the application. To set the environment variable, open a console window, and follow the instructions for your operating system. Replace `<youraccountname>` with your actual **Storage account name** value that you copied into your text editor. Replace `<youraccesskey>` with your actual **Key** value, also from your text editor.
+After you have copied your account name and access key strings from the Azure portal, write them to new environment variables on your local machine. To set the environment variables, open a console window, and follow the instructions for your operating system. Replace `<youraccountname>` with your actual **Storage account name** value that you copied into your text editor. Replace `<youraccesskey>` with your actual **Key** value, also from your text editor.
 
 #### Windows
 
@@ -152,7 +152,7 @@ setx ACCOUNT_NAME "<youraccountname>"
 setx ACCESS_KEY "<youraccesskey>"
 ```
 
-   After you add the environment variables in Windows, you must start a new instance of the command window.
+After you add the environment variables in Windows, you must start a new instance of the command window.
 
 #### Linux
 
