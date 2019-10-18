@@ -24,22 +24,26 @@ ms.custom: include file
     | ------------ | ---------------- | ----------- |
     | **Subscription** | Your subscription | The subscription under which this new function app is created. |
     | **[Resource Group](../articles/azure-resource-manager/resource-group-overview.md)** |  *myResourceGroup* | Name for the new resource group in which to create your function app. |
-    | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  |
-    |**Publish**| Code | Option to publish code files or a Docker conatiner |
+    | **Function App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z` (case insensitive), `0-9`, and `-`.  |
+    |**Publish**| Code | Option to publish code files or a Docker container. |
     | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
     |**Region**| Preferred region | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
 
-1. Select the **Next : Hosting >** button and enter the following settings.
+    Select the **Next : Hosting >** button.
+
+1. Enter the following hosting settings.
 
     ![Hosting](./media/functions-premium-create/function-app-premium-create-hosting.png)
 
     | Setting      | Suggested value  | Description |
     | ------------ | ---------------- | ----------- |
-    | **[Storage account](../articles/storage/common/storage-quickstart-create-account.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meets the [storage account requirements](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
-    |**Operating system**| Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection. |
+    | **[Storage account](../articles/storage/common/storage-quickstart-create-account.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](../articles/azure-functions/functions-scale.md#storage-account-requirements). |
+    |**Operating system**| Preferred operating system | An operating system is pre-selected for you based on your runtime stack selection, but you can change the setting if necessary. |
     | **[Plan](../articles/azure-functions/functions-scale.md)** | Premium | Select defaults for the *Windows Plan* and *Sku and size* selections.  |
 
-1. Select **Next : Monitoring >** and enter the following settings.
+    Select the **Next : Monitoring >** button.
+
+1. Enter the following monitoring settings.
 
     ![Monitoring](./media/functions-create-function-app-portal/function-app-create-monitoring.png)
 
@@ -47,6 +51,6 @@ ms.custom: include file
     | ------------ | ---------------- | ----------- |
     | **[Application Insights](../articles/azure-functions/functions-monitoring.md)** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. |
 
-1. Select **Review + Create** to review the app configuration selections.
+    Select **Review + Create** to review the app configuration selections.
 
 1. Select **Create** to provision and deploy the function app.
