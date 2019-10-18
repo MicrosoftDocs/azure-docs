@@ -123,7 +123,7 @@
     - name: Troubleshoot U-SQL runtime changes
       href: data-lake-analytics-runtime-troubleshoot.md
     - name: Troubleshoot a .NET upgrade
-      href: data-lake-analytics-net-upgrade-troubleshoot.md
+      href: data-lake-analytics-dotnet-upgrade-troublehoot.md
 - name: Reference
   items:
   - name: Azure PowerShell
