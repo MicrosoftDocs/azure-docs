@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2018
+ms.date: 10/18/2018
 ms.author: barclayn
 
 ---
@@ -271,8 +271,8 @@ documentation.
 
 ## Next steps
 
-* [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
-
 * [Shared responsibility in the cloud](shared-responsibility.md)
+
+* [Azure DDoS Protection product page](https://azure.microsoft.com/services/ddos-protection/)
 
 * [Azure DDoS Protection documentation](/azure/virtual-network/ddos-protection-overview)
