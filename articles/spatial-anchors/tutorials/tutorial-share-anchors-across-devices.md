@@ -56,7 +56,7 @@ Naviagte to the href="https://portal.azure.com/" target="_blank">azure website</
 
 ### Create a resource group
 
-[!INCLUDE [resource group intro text](resource-group.md)]
+[!INCLUDE [resource group intro text](../../../includes/resource-group.md)]
 
 Next to **Resource Group**, select **New**.
 
@@ -64,7 +64,7 @@ Name the resource group **myResourceGroup** and select **OK**.
 
 ### Create an App Service plan
 
-[!INCLUDE [app-service-plan](app-service-plan.md)]
+[!INCLUDE [app-service-plan](../../../includes/app-service-plan.md)]
 
 Next to **Hosting Plan**, select **New**.
 
