@@ -8,6 +8,7 @@ ms.author: arjagann
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
+ms.date: 10/04/2019
 ---
 
 # Indexing blobs to produce multiple search documents
