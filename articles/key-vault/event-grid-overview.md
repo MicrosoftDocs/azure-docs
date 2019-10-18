@@ -26,6 +26,11 @@ Event grid uses [event subscriptions](../event-grid/concepts.md#event-subscripti
 
 For more information, see the [Key Vault event schema](../event-grid/event-schema-key-vault.md).
 
+> [!NOTE]
+> Events are triggered only for secrets versions (all three types) created after subscription is set.
+>
+> For existing secrets generating new versions is required
+
 ## Practices for consuming events
 
 Applications that handle Key Vault events should follow a few recommended practices:
@@ -37,5 +42,5 @@ Applications that handle Key Vault events should follow a few recommended practi
 
 ## Next steps
 
-* [Tutorial: Enable Key Vault monitoring with Azure Event Grid](event-grid-tutorial.md)
+* [How To: Route Key Vault Events to Automation Runbook](event-grid-tutorial.md)
 * [Azure Event Grid schema for Azure Key Vault](../event-grid/event-schema-key-vault.md)
