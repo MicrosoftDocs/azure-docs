@@ -1,5 +1,5 @@
 ---
-title: How to update an existing assignment from the portal
+title: Update an existing assignment from the portal
 description: Learn about the mechanism for updating an existing assignment from the portal in Azure Blueprints.
 author: DCtheGeek
 ms.author: dacoulte

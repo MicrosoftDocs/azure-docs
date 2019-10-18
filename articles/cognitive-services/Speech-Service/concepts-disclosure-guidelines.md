@@ -13,7 +13,7 @@ ms.author: angle
 ---
 
 # Disclosure design guidelines
-
+Learn how to build and maintain trust with customers by being transparent about the synthetic nature of your voice experience.
 
 ## What is disclosure?
 
@@ -24,6 +24,7 @@ Disclosure is a means of letting people know they&#39;re interacting with or lis
 The need to disclose the synthetic origins of a computer-generated voice is relatively new. In the past, computer-generated voices were obviously that—no one would ever mistake them for a real person. Every day, however, the realism of synthetic voices improves, and they become increasingly indistinguishable from human voices.
 
 ## Goals
+These are the principles to keep in mind when designing synthetic voice experiences:
 
 **Reinforce trust**
 <br>Design with the intention to fail the Turing Test without degrading the experience. Let the users in on the fact that they're interacting with a synthetic voice while allowing them to  engage seamlessly with the experience.
@@ -71,7 +72,7 @@ Use the following diagram to determine whether your synthetic voice experience r
 ## Reference docs
 
 * [Transparency note](https://aka.ms/neural-tts-transparency-note)
-* [Guidelines for responsible deployment of synthetic voice technology](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Guidelines for responsible deployment of synthetic voice technology](concepts-guidelines-for-responsible-deployment-of-synthetic-voice-technology.md)
 * [Gating overview](concepts-gating-overview.md)
 
 ## Next steps

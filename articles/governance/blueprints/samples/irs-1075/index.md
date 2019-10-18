@@ -1,5 +1,5 @@
 ---
-title: Sample - IRS 1075 blueprint - Overview
+title: IRS 1075 blueprint sample - Overview
 description: Overview of the IRS 1075 blueprint sample. This blueprint sample helps customers asses specific IRS 1075 controls.
 author: DCtheGeek
 ms.author: dacoulte

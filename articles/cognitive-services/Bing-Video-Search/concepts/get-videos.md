@@ -1,5 +1,5 @@
 ---
-title: "Sending search requests to the Bing Video Search API"
+title: "Search for videos using the Bing Video Search API"
 titleSuffix: Azure Cognitive Services
 description: Learn about sending search queries to the Bing Video Search API.
 services: cognitive-services

@@ -1,4 +1,4 @@
-concepts-guidelines-responsible-deployment-synthetic.md---
+---
 title: Disclosure Design Patterns
 titleSuffix: Azure Cognitive Services
 description: Design patterns and best practices for disclosure.
@@ -13,12 +13,12 @@ ms.author: angle
 ---
 
 # Disclosure design patterns
-
+Now that you&#39;ve determined the right [level of disclosure](concepts-disclosure-guidelines.md#disclosure-assessment) for your synthetic voice experience, it&#39;s a good time to explore potential design patterns. 
 ## Overview
-
+There's a spectrum of disclosure design patterns you can apply to your synthetic voice experience. If the outcome of your disclosure assessment was 'High Disclosure', we recommend [**explicit disclosure**](#explicit-disclosure), which means communicating the origins of the synthetic voice outright. [**Implicit disclosure**](#implicit-disclosure) includes cues and interaction patterns that benefit voice experiences whether or not required disclosure levels are high or low.
 ![Spectrum of disclosure patterns](media/responsible-ai/disclosure-patterns/affordances.png)
 
-Now that you&#39;ve determined the right [level of disclosure](concepts-disclosure-guidelines.md#disclosure-assessment) for your synthetic voice experience, it&#39;s a good time to explore potential design patterns. If the outcome of your disclosure assessment was 'High Disclosure', we recommend [**explicit disclosure**](#explicit-disclosure), which means communicating the origins of the synthetic voice outright. [**Implicit disclosure**](#implicit-disclosure) includes cues and interaction patterns that benefit voice experiences whether or not required disclosure levels are high or low.
+
 
 
 
@@ -68,7 +68,7 @@ If a user skips the onboarding experience, continue to offer entry points to the
 <br/>
 
 ![Transparent introduction during return user experience](media/responsible-ai/disclosure-patterns/transparent-intro-return.png)<br/>
-*Provide a consistent entry point to the synthetic voice experience. Allow the user to return to the onboarding experience when they trigger the voice for the first time at any point in the user journey.*
+*Provide a consistent entry point to the synthetic voice experience. Allow the user to return to the onboarding experience when they trigger the voice for the first time at any point in the user journey.* 
 
 
 ### Verbal Transparent Introduction
@@ -243,7 +243,7 @@ Use disclosure as an opportunity to fail gracefully.
 ## Reference docs
 
 * [Transparency Note](https://aka.ms/neural-tts-transparency-note)
-* [Guidelines for responsible deployment of synthetic voice technology](concepts-guidelines-responsible-deployment-synthetic.md)
+* [Guidelines for responsible deployment of synthetic voice technology](concepts-guidelines-for-responsible-deployment-of-synthetic-voice-technology.md)
 * [Gating Overview](concepts-gating-overview.md)
 * [How to Disclose](concepts-disclosure-guidelines.md)
 

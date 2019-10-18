@@ -1,17 +1,13 @@
 ---
 title: Azure Functions C# script developer reference
 description: Understand how to develop Azure Functions using C# script.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
+author: craigshoemaker
+manager: gwallace
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
-
 ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
-ms.author: glenga
+ms.author: cshoe
 
 ---
 # Azure Functions C# script (.csx) developer reference

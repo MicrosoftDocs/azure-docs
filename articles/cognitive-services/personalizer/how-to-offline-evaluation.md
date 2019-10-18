@@ -1,5 +1,5 @@
 ---
-title: Offline evaluation - Personalizer
+title: How to perform offline evaluation - Personalizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to analyze your learning loop with an offline evaluation
 services: cognitive-services
