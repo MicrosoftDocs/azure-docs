@@ -8,7 +8,7 @@
     href: overview-what-is-azure-ml.md
   - name: Azure Machine Learning vs Studio
     displayName: AML, Studio, designer
-    href: ../overview-azureml-vs-studio.md
+    href: ../compare-azure-ml-to-studio-classic.md
   - name: Architecture & terms
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
