@@ -54,7 +54,7 @@ If you can't find appropriate credential, check [First time setup](query-data-in
 
 You can query Parquet files the same way you read CSV files. The only difference is FILEFORMAT parameter that should be set to PARQUET. Examples in this section show specifics of reading Parquet files.
 
-> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on demand Query service will utilize metadata in parquet file and bind columns by name.  
+> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand Query service will utilize metadata in parquet file and bind columns by name.  
 
 We will use folder *parquet/taxi* for following sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016. to June 2018.
 
@@ -107,7 +107,7 @@ You do not have to use OPENROWSET WITH clause when reading Parquet files because
 
 This sample shows automatic schema inference capabilities for Parquet files. It returns number of rows in September 2017. without specifying schema. 
 
-> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on demand Query service will utilize metadata in parquet file and bind columns by name.  
+> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand Query service will utilize metadata in parquet file and bind columns by name.  
 
 ```sql
 SELECT 
@@ -125,7 +125,7 @@ FROM
 
 You can target specific partitions using filepath function, just like we did in CSV examples. This example show fare amounts by year, month and payment_type, for first three months of 2017.
 
-> Please note that SQL on demand Query is compatible with Hive/Hadoop partitioning scheme.
+> Please note that SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
 
 ```sql
 SELECT 

@@ -1,6 +1,6 @@
 ---
 title: Creating and using views #Required; update as needed page title displayed in search results. Include the brand.
-description: This section explains how to leverage views to wrap SQL on demand queries so you can reuse your queries. Views are also needed if you want tools like Power BI to leverage SQL on demand Query. #Required; Add article description that is displayed in search results.
+description: This section explains how to leverage views to wrap SQL on-demand queries so you can reuse your queries. Views are also needed if you want tools like Power BI to leverage SQL on-demand Query. #Required; Add article description that is displayed in search results.
 services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
 ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
@@ -13,15 +13,15 @@ ms.reviewer: jrasnick
 
 # Quickstart: Creating and using views 
 
-This section explains how to leverage views to wrap SQL on demand queries so you can reuse your queries. 
+This section explains how to leverage views to wrap SQL on-demand queries so you can reuse your queries. 
 
-Views are also needed if you want tools like Power BI to leverage SQL on demand Query.
+Views are also needed if you want tools like Power BI to leverage SQL on-demand Query.
 
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
 --->
 
-In this quickstart, you will query a specific file.
+In this quickstart, we will query a specific file.
 
 If you don’t have a <service> subscription, create a free trial account...
 <!--- Required, if a free trial account exists
@@ -32,7 +32,7 @@ Because quickstarts are intended to help new customers use a subscription to qui
 
 ## Prerequisites
 
-Before reading rest of the article make sure to check following articles:
+Before reading rest of the article, make sure to check following articles:
 - [First time setup](query-data-in-storage.md#first-time-setup)
 - [Prerequisites](query-data-in-storage.md#prerequisites)
 
@@ -49,7 +49,7 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
-If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#first-time-setup).
+If you can't find appropriate credential, check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Creating views
 
