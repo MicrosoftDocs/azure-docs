@@ -5,81 +5,210 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/24/2018
+ ms.date: 08/15/2019
  ms.author: rogarana
  ms.custom: include file
 ---
 
-# Enabling Azure ultra SSDs
+# Using Azure ultra disks
 
-Azure ultra SSD deliver high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
+Azure ultra disks offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
-Currently, ultra SSD are in preview and you must [enroll](https://aka.ms/UltraSSDPreviewSignUp) in the preview in order to access them.
+## Check if your subscription has access
 
-Once approved, run one of the following commands to determine which zone in East US 2 to deploy your ultra disk to:
+If you already signed up for ultra disks and you want to check if your subscription is enabled for ultra disks, use either of the following commands: 
 
-PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
+CLI: `az feature show --namespace Microsoft.Compute --name UltraSSD`
 
-CLI: `az vm list-skus --resource-type disks --query “[?name==’UltraSSD_LRS’]”`
+PowerShell: `Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName UltraSSD`
 
-The response will be similar to the form below, where X is the Zone to use for deploying in East US 2. X could be either 1, 2, or 3.
+If your subscription is enabled, then your output should look something like this:
+
+```bash
+{
+  "id": "/subscriptions/<yoursubID>/providers/Microsoft.Features/providers/Microsoft.Compute/features/UltraSSD",
+  "name": "Microsoft.Compute/UltraSSD",
+  "properties": {
+    "state": "Registered"
+  },
+  "type": "Microsoft.Features/providers/features"
+}
+```
+
+## Determine your availability zone
+
+Once approved, you need to determine which availability zone you are in, in order to use ultra disks. Run either of the following commands to determine which zone to deploy your ultra disk to, make sure to replace the **region**, **vmSize**, and **subscription** values first:
+
+CLI:
+
+```bash
+$subscription = "<yourSubID>"
+$region = "<yourLocation>, example value is southeastasia"
+$vmSize = "<yourVMSize>, example value is Standard_E64s_v3"
+
+az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
+```
+
+PowerShell:
+
+```powershell
+$region = "southeastasia"
+$vmSize = "Standard_E64s_v3"
+(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})[0].LocationInfo[0].ZoneDetails
+```
+
+The response will be similar to the form below, where X is the zone to use for deploying in your chosen region. X could be either 1, 2, or 3. Currently, only three regions support ultra disks, they are: East US 2, SouthEast Asia, and North Europe.
+
+Preserve the **Zones** value, it represents your availability zone and you will need it in order to deploy an Ultra disk.
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-If there was no response from the command, that means your registration to the feature is either still pending, or not approved yet.
+> [!NOTE]
+> If there was no response from the command, then your registration to the feature is either still pending, or you are using an old version of CLI or PowerShell.
 
-Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with ultra SSD.
+Now that you know which zone to deploy to, follow the deployment steps in this article to either deploy a VM with an ultra disk attached or attach an ultra disk to an existing VM.
 
-## Deploying an ultra SSD
+## Deploy an ultra disk using Azure Resource Manager
 
-First, determine the VM Size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
-Also refer to the sample [Create a VM with multiple ultra SSD](https://aka.ms/UltraSSDTemplate), which shows how to create a VM with multiple ultra SSD.
+First, determine the VM size to deploy. For now, only DsV3 and EsV3 VM families support ultra disks. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
 
-The following describe the new/modified Resource Manager template changes:
-**apiVersion** for `Microsoft.Compute/virtualMachines` and `Microsoft.Compute/Disks` must be set as `2018-06-01` (or later).
+If you would like to create a VM with multiple ultra disks, refer to the sample [Create a VM with multiple ultra disks](https://aka.ms/ultradiskArmTemplate).
 
-Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, and throughput in MBps to create an ultra disk. The following is an example that creates a disk with 1,024 GiB (GiB = 2^30 Bytes), 80,000 IOPS, and 1,200 MBps  (MBps = 10^6 Bytes per second):
+If you intend to use your own template, make sure that **apiVersion** for `Microsoft.Compute/virtualMachines` and `Microsoft.Compute/Disks` is set as `2018-06-01` (or later).
 
-```json
-"properties": {  
-    "creationData": {  
-    "createOption": "Empty"  
-},  
-"diskSizeGB": 1024,  
-"diskIOPSReadWrite": 80000,  
-"diskMBpsReadWrite": 1200,  
-}
-```
-
-Add an additional capability on the properties of the VM to indicate its ultra enabled (refer to the [sample](https://aka.ms/UltraSSDTemplate) for the full Resource Manager template):
-
-```json
-{
-    "apiVersion": "2018-06-01",
-    "type": "Microsoft.Compute/virtualMachines",
-    "properties": {
-                    "hardwareProfile": {},
-                    "additionalCapabilities" : {
-                                    "ultraSSDEnabled" : "true"
-                    },
-                    "osProfile": {},
-                    "storageProfile": {},
-                    "networkProfile": {}
-    }
-}
-```
+Set the disk sku to **UltraSSD_LRS**, then set the disk capacity, IOPS, availability zone, and throughput in MBps to create an ultra disk.
 
 Once the VM is provisioned, you can partition and format the data disks and configure them for your workloads.
 
-## Additional ultra SSD scenarios
+## Deploy an ultra disk using CLI
 
-- During VM Creation, ultra SSD can be implicitly created as well. However, these disks will receive a default value for IOPS (500) and throughput (8 MiB/s).
-- Additional ultra SSD can be attached to compatible VMs.
-- Ultra SSD support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
-- Growing the disk capacity does require a virtual machine to be de-allocated.
+First, determine the VM size to deploy. For now, only DsV3 and EsV3 VM families support ultra disks. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
+
+You must create a VM that is capable of using ultra disks, in order to attach an ultra disk.
+
+Replace or set the **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variables with your own values. Set **$zone**  to the value of your availability zone that you got from the [start of this article](#determine-your-availability-zone). Then run the following CLI command to create an ultra enabled VM:
+
+```azurecli-interactive
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
+```
+
+### Create an ultra disk using CLI
+
+Now that you have a VM that is capable of attaching ultra disks, you can create and attach an ultra disk to it.
+
+```azurecli-interactive
+$location="eastus2"
+$subscription="xxx"
+$rgname="ultraRG"
+$diskname="ssd1"
+$vmname="ultravm1"
+$zone=123
+
+#create an ultra disk
+az disk create `
+--subscription $subscription `
+-n $diskname `
+-g $rgname `
+--size-gb 4 `
+--location $location `
+--zone $zone `
+--sku UltraSSD_LRS `
+--disk-iops-read-write 1000 `
+--disk-mbps-read-write 50
+```
+
+## Attach an ultra disk to a VM using CLI
+
+Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
+
+```bash
+$rgName = "<yourResourceGroupName>"
+$vmName = "<yourVMName>"
+$diskName = "<yourDiskName>"
+$subscriptionId = "<yourSubscriptionID>"
+
+az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
+```
+
+### Adjust the performance of an ultra disk using CLI
+
+Ultra disks offer a unique capability that allows you to adjust their performance, the following command depicts how to use this feature:
+
+```azurecli-interactive
+az disk update `
+--subscription $subscription `
+--resource-group $rgname `
+--name $diskName `
+--set diskIopsReadWrite=80000 `
+--set diskMbpsReadWrite=800
+```
+
+## Deploy an ultra disk using PowerShell
+
+First, determine the VM size to deploy. For now, only DsV3 and EsV3 VM families support ultra disks. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
+
+To use ultra disks, you must create a VM that is capable of using ultra disks. Replace or set the **$resourcegroup** and **$vmName** variables with your own values. Set **$zone** to the value of your availability zone that you got from the [start of this article](#determine-your-availability-zone). Then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create an ultra enabled VM:
+
+```powershell
+New-AzVm `
+    -ResourceGroupName $resourcegroup `
+    -Name $vmName `
+    -Location "eastus2" `
+    -Image "Win2016Datacenter" `
+    -EnableUltraSSD `
+    -size "Standard_D4s_v3" `
+    -zone $zone
+```
+
+### Create an ultra disk using PowerShell
+
+Now that you have a VM that is capable of using ultra disks, you can create and attach an ultra disk to it:
+
+```powershell
+$diskconfig = New-AzDiskConfig `
+-Location 'EastUS2' `
+-DiskSizeGB 8 `
+-DiskIOPSReadWrite 1000 `
+-DiskMBpsReadWrite 100 `
+-AccountType UltraSSD_LRS `
+-CreateOption Empty `
+-zone $zone;
+
+New-AzDisk `
+-ResourceGroupName $resourceGroup `
+-DiskName 'Disk02' `
+-Disk $diskconfig;
+```
+
+## Attach an ultra disk to a VM using PowerShell
+
+Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
+
+```powershell
+# add disk to VM
+$subscription = "<yourSubscriptionID>"
+$resourceGroup = "<yourResourceGroup>"
+$vmName = "<yourVMName>"
+$diskName = "<yourDiskName>"
+$lun = 1
+Login-AzureRMAccount -SubscriptionId $subscription
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+$disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
+$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+```
+
+### Adjust the performance of an ultra disk using PowerShell
+
+Ultra disks have a unique capability that allows you to adjust their performance, the following command is an example that adjusts the performance without having to detach the disk:
+
+```powershell
+$diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
+Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
+```
 
 ## Next steps
 
-If you would like to try the new disk type and haven't signed up for the preview yet, [request access through this survey](https://aka.ms/UltraSSDPreviewSignUp).
+If you would like to try the new disk type [request access with this survey](https://aka.ms/UltraDiskSignup).

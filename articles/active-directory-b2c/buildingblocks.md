@@ -2,14 +2,14 @@
 title: BuildingBlocks - Azure Active Directory B2C | Microsoft Docs
 description: Specify the BuildingBlocks element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -63,6 +63,8 @@ The **BuildingBlocks** element contains the following elements that must be spec
     - Creating a string claim from the provided parameter in the policy.
     - Creating a random string using the random number generator.
     - Formatting a claim according to the provided format string. This transformation uses the C# `String.Format` method.
+    
+- InputValidation - This element allows you to perform boolean aggregations that are similar to *and* and *or*.
 
 - [ContentDefinitions](contentdefinitions.md) - Contains URLs for HTML5 templates to use in your user journey. In a custom policy, a content definition defines the HTML5 page URI that's used for a specified step in the user journey. For example, the sign-in or sign-up, password reset, or error pages. You can modify the look and feel by overriding the LoadUri for the HTML5 file. Or you can create new content definitions according to your needs. This element may contain a localized resources reference using a localization ID.
 

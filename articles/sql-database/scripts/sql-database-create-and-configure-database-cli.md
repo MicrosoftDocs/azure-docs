@@ -7,12 +7,10 @@ ms.subservice: single-database
 ms.custom: 
 ms.devlang: azurecli
 ms.topic: sample
-author: CarlRabeler
-manager: craigg
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 02/08/2019
+ms.date: 06/25/2019
 ---
 # Use CLI to create a single Azure SQL database and configure a firewall rule
 
@@ -26,14 +24,14 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh?highlight=9-10 "Create SQL Database")]
+[!code-azurecli-interactive[main](../../../cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh "Create SQL Database")]
 
 ## Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name $resourceGroupName
 ```
 
 ## Script explanation

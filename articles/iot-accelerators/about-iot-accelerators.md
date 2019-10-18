@@ -40,7 +40,7 @@ You can use the remote monitoring dashboard to view the telemetry from your conn
 
 ### Connected Factory
 
-Use the [Connected Factory solution accelerator](iot-accelerators-connected-factory-sample-walkthrough.md) to collect telemetry from industrial assets with an [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) interface and to control them. Industrial assets might include assembly and test stations on a factory production line.
+Use the [Connected Factory solution accelerator](iot-accelerators-connected-factory-features.md) to collect telemetry from industrial assets with an [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) interface and to control them. Industrial assets might include assembly and test stations on a factory production line.
 
 You can use the connected factory dashboard to monitor and manage your industrial devices:
 
@@ -83,7 +83,7 @@ The original solution accelerators were written using .NET using a model-view-co
 | Connected Factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Device Simulation      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-To learn more about the microservices architecture, see [Introduction to the Azure IoT reference architecture](iot-accelerators-architecture-overview.md).
+To learn more about the microservices architecture, see [Introduction to the Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/).
 
 ## Deployment options
 

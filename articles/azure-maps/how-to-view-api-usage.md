@@ -1,8 +1,8 @@
 ---
 title: How to view the Azure Maps API usage | Microsoft Docs 
 description: Learn how to view the metrics for your Azure Maps API calls in the portal.
-author: dsk-2015
-ms.author: dkshir
+author: walsehgal
+ms.author: v-musehg
 ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: azure-maps
@@ -54,6 +54,11 @@ Continue to the next section if you need to customize these graphs for your part
 ## Next steps
 
 Learn more about the Azure Maps APIs you want to track usage for:
+> [!div class="nextstepaction"]	
+> [Azure Maps Web SDK How-To](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]	
+> [Azure Maps Android SDK How-To](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps REST API documentation](https://docs.microsoft.com/rest/api/maps)

@@ -6,10 +6,9 @@ ms.service: sql-database
 ms.subservice: development
 ms.devlang: php
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: v-masebo
-manager: craigg
 ms.date: 02/12/2019
 ---
 # Quickstart: Use PHP to query an Azure SQL database

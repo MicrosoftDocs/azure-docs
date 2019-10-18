@@ -145,7 +145,7 @@
   - name: Scale
     items:
     - name: Scale-up an app
-      href: ../app-service/web-sites-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+      href: ../app-service/manage-scale-up.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
     - name: App Service Environment
       href: ../app-service/environment/intro.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
       items:
@@ -157,8 +157,8 @@
         href: ../app-service/environment/app-service-environment-auto-scale.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
   - name: Manage
     items:
-    - name: Configure
-      href: ../app-service/web-sites-configure.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
+    - name: Configure common settings
+      href: ../app-service/configure-common.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
     - name: Custom domains
       items:
       - name: Buy and configure custom domains
@@ -186,18 +186,6 @@
         href: ../app-service/environment/app-service-app-service-environment-network-architecture-overview.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
       - name: Network configuration details with ExpressRoute
         href: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json
-  - name: Migrate
-    items:
-    - name: How does App Service compare to Mobile Services?
-      href: app-service-mobile-value-prop-migration-from-mobile-services.md
-    - name: Migrate an existing Mobile Service to App Service
-      href: app-service-mobile-migrating-from-mobile-services.md
-    - name: Upgrade an existing Mobile Service to App Service
-      items:
-      - name: .NET backend
-        href: app-service-mobile-net-upgrading-from-mobile-services.md
-      - name: Node.js backend
-        href: app-service-mobile-node-backend-upgrading-from-mobile-services.md
   - name: Secure
     items:
     - name: Authenticate with identity providers

@@ -19,6 +19,8 @@ ms.date: 1/24/2019
 
 In this tutorial, you'll use the Azure portal to create a data factory. Then, you'll use the Copy Data tool to create a pipeline that incrementally copies new and changed files only, based on their **LastModifiedDate** from Azure Blob storage to Azure Blob storage.
 
+By doing so, ADF will scan all the files from the source store, apply the file filter by their LastModifiedDate, and copy the new and updated file only since last time to the destination store.  Please note that if you let ADF scan huge amounts of files but only copy a few files to destination, you would still expect the long duration due to file scanning is time consuming as well.   
+
 > [!NOTE]
 > If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
@@ -46,15 +48,13 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 2. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
-      
-     ![New data factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
  
    The name for your data factory must be _globally unique_. You might receive the following error message:
    
-   ![New data factory error message](./media/tutorial-copy-data-tool/name-not-available-error.png)
+   ![New data factory error message](./media/doc-common-process/name-not-available-error.png)
 
    If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 3. Select the Azure **subscription** in which you'll create the new data factory. 
@@ -75,14 +75,14 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	![Deploying Data Factory Tile](media/tutorial-copy-data-tool/deploying-data-factory.png)
 10. After creation is finished, the **Data Factory** home page is displayed.
    
-    ![Data factory home page](./media/tutorial-copy-data-tool/data-factory-home-page.png)
+    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
 11. To open the Azure Data Factory user interface (UI) on a separate tab, select the **Author & Monitor** tile. 
 
 ## Use the Copy Data tool to create a pipeline
 
 1. On the **Let's get started** page, select the **Copy Data** title to open the Copy Data tool. 
 
-   ![Copy Data tool tile](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+   ![Copy Data tool tile](./media/doc-common-process/get-started-page.png)
    
 2. On the **Properties** page, take the following steps:
 

@@ -154,7 +154,6 @@ Replace the “{SubscriptionId}" in the below script with your Azure subscriptio
     $role.Actions.Add("Microsoft.Sql/servers/databases/advisors/recommendedActions/write");
     $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/read");
     $role.Actions.Add("Microsoft.Sql/servers/databases/automaticTuning/write");
-    $role.Actions.Add("Microsoft.Sql/servers/databases/*");
     $role.Actions.Add("Microsoft.Sql/servers/advisors/read");
     $role.Actions.Add("Microsoft.Sql/servers/advisors/write");
     $role.Actions.Add("Microsoft.Sql/servers/advisors/recommendedActions/read");
@@ -188,7 +187,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+> - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to the solution.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
 #### High CPU on Azure SQL Database elastic pools
@@ -203,7 +202,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+> - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to the solution.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
 #### Azure SQL Database storage in average above 95% in the last 1 hr
@@ -220,7 +219,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
+> - Pre-requirement of setting up this alert is that monitored databases stream Basic metrics to the solution.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
 > - The output is a list of database resources that are above the storage_threshold within the time_range defined.
 
@@ -282,7 +281,7 @@ AzureDiagnostics
 
 ### Pricing
 
-While the solution is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. Note that more active databases with heavier workloads ingest more data versus idle databases. You can easily monitor your data ingestion consumption in the solution by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
+While the solution is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. Note that more active databases with heavier workloads ingest more data versus idle databases. You can easily monitor your data ingestion consumption in the solution by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
 
 ## Next steps
 

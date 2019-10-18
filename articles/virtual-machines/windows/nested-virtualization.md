@@ -4,7 +4,7 @@ description: How to enable nested virtualization in Azure Virtual Machines
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 
 ms.author: cynthn
 ms.date: 10/09/2017
@@ -78,7 +78,7 @@ Create a new virtual network adapter for the guest virtual machine and configure
 2. Create an internal switch.
 
     ```powershell
-    New-VMSwitch -Name "InternalNATSwitch" -SwitchType Internal
+    New-VMSwitch -Name "InternalNAT" -SwitchType Internal
     ```
 
 3. View the properties of the switch and note the ifIndex for the new adapter.
@@ -117,6 +117,10 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 
 ## Create the guest virtual machine
+
+>[!IMPORTANT] 
+>
+>The Azure guest agent is not supported on nested VMs, and may cause issues on both the host and nested VMs. Don’t install the Azure agent on nested VMs, and don't use an image for creating the nested VMs that already has the Azure guest agent installed.
 
 1. Open Hyper-V Manager and create a new virtual machine. Configure the virtual machine to use the new Internal network you created.
     
@@ -166,7 +170,7 @@ If you did not configure DHCP to dynamically assign an IP address to the guest v
 
 2. Right-click the guest virtual machine and click Connect.
 
-3. Log on to the guest virtual machine.
+3. Sign in to the guest virtual machine.
 
 4. On the guest virtual machine, open the Network and Sharing Center.
 

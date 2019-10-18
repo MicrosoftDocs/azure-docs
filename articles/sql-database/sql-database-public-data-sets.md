@@ -7,10 +7,9 @@ ms.subservice: development
 ms.custom:
 ms.devlang: 
 ms.topic: reference
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 10/01/2018
 ---
 # Public data sets for testing and prototyping

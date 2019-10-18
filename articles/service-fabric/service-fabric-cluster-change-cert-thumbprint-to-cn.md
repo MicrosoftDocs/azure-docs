@@ -3,9 +3,9 @@ title: Update an Azure Service Fabric cluster to use certificate common name | M
 description: Learn how to switch a Service Fabric cluster from using certificate thumbprints to using certificate common name.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
-editor: aljo
+
 
 ms.assetid: 
 ms.service: service-fabric
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/01/2019
-ms.author: aljo
+ms.date: 09/06/2019
+ms.author: atsenthi
 
 ---
 # Change cluster from certificate thumbprint to common name
@@ -64,7 +64,7 @@ $resourceId = $newKeyVault.ResourceId
 
 # Add the certificate to the key vault.
 $PasswordSec = ConvertTo-SecureString -String $Password -AsPlainText -Force
-$KVSecret = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certName `
+$KVSecret = Import-AzKeyVaultCertificate -VaultName $vaultName -Name $certName `
     -FilePath $certFilename -Password $PasswordSec
 
 $CertificateThumbprint = $KVSecret.Thumbprint
@@ -98,7 +98,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
 > Scale set secrets do not support the same resource ID for two separate secrets, as each secret is a versioned, unique resource. 
 
 ## Download and update the template from the portal
-The certificate has been installed on the underlying scale set, but you also need to update the Service Fabric cluster to use that certificate and its common name.  Now, download the template for your cluster deployment.  Log in to the [Azure portal](https://portal.azure.com) and navigate to the resource group hosting the cluster.  In **Settings**, select **Deployments**.  Select the most recent deployment and click **View template**.
+The certificate has been installed on the underlying scale set, but you also need to update the Service Fabric cluster to use that certificate and its common name.  Now, download the template for your cluster deployment.  Sign in to the [Azure portal](https://portal.azure.com) and navigate to the resource group hosting the cluster.  In **Settings**, select **Deployments**.  Select the most recent deployment and click **View template**.
 
 ![View templates][image1]
 
@@ -123,7 +123,7 @@ Next, open the template file in a text editor and make three updates to support 
     },
     ```
 
-    Also consider removing the *certificateThumbprint*, it may no longer be needed.
+    Also consider removing the *certificateThumbprint*, it may no longer be referenced in the Resource Manager template.
 
 2. In the **Microsoft.Compute/virtualMachineScaleSets** resource, update the virtual machine extension to use the common name in certificate settings instead of the thumbprint.  In **virtualMachineProfile**->**extensionProfile**->**extensions**->**properties**->**settings**->**certificate**, add `"commonNames": ["[parameters('certificateCommonName')]"],` and remove `"thumbprint": "[parameters('certificateThumbprint')]",`.
     ```json

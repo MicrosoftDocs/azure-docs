@@ -2,14 +2,14 @@
 title: Creating, updating statistics - Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 05/09/2018
-ms.author: kevin
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
 ---
 
@@ -66,7 +66,7 @@ The table_name is the name of the table that contains the statistics to display.
 
 ## Updating statistics
 
-One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country and you bring in data from a new country, resulting in data from multiple countries being stored, then you need to update statistics on the country column.
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country/region column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country/region and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
 
 The following are recommendations updating statistics:
 

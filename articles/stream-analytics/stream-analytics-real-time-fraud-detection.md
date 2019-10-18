@@ -24,7 +24,7 @@ This tutorial uses the example of real-time fraud detection based on phone-call 
 
 ## Scenario: Telecommunications and SIM fraud detection in real time
 
-A telecommunications company has a large volume of data for incoming calls. The company wants to detect fraudulent calls in real time so that they can notify customers or shut down service for a specific number. One type of SIM fraud involves multiple calls from the same identity around the same time but in geographically different locations. To detect this type of fraud, the company needs to examine incoming phone records and look for specific patterns—in this case, for calls made around the same time in different countries. Any phone records that fall into this category are written to storage for subsequent analysis.
+A telecommunications company has a large volume of data for incoming calls. The company wants to detect fraudulent calls in real time so that they can notify customers or shut down service for a specific number. One type of SIM fraud involves multiple calls from the same identity around the same time but in geographically different locations. To detect this type of fraud, the company needs to examine incoming phone records and look for specific patterns—in this case, for calls made around the same time in different countries/regions. Any phone records that fall into this category are written to storage for subsequent analysis.
 
 ## Prerequisites
 
@@ -125,26 +125,27 @@ Before you start the TelcoGenerator app, you must configure it so that it will s
 
 ### Start the app
 1.	Open a command window and change to the folder where the TelcoGenerator app is unzipped.
+
 2.	Enter the following command:
 
-        ```cmd
-        telcodatagen.exe 1000 0.2 2
-        ```
+   ```cmd
+   telcodatagen.exe 1000 0.2 2
+   ```
 
-    The parameters are: 
+   The parameters are: 
 
-    * Number of CDRs per hour. 
-    * SIM Card Fraud Probability: How often, as a percentage of all calls, that the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
-    * Duration in hours. The number of hours that the app should run. You can also stop the app any time by pressing Ctrl+C at the command line.
+   * Number of CDRs per hour. 
+   * SIM Card Fraud Probability: How often, as a percentage of all calls, that the app should simulate a fraudulent call. The value 0.2 means that about 20% of the call records will look fraudulent.
+   * Duration in hours. The number of hours that the app should run. You can also stop the app any time by pressing Ctrl+C at the command line.
 
-    After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub.
+   After a few seconds, the app starts displaying phone call records on the screen as it sends them to the event hub.
 
 Some of the key fields that you will be using in this real-time fraud detection application are the following:
 
 |**Record**|**Definition**|
 |----------|--------------|
 |`CallrecTime`|The timestamp for the call start time. |
-|`SwitchNum`|The telephone switch used to connect the call. For this example, the switches are strings that represent the country of origin (US, China, UK, Germany, or Australia). |
+|`SwitchNum`|The telephone switch used to connect the call. For this example, the switches are strings that represent the country/region of origin (US, China, UK, Germany, or Australia). |
 |`CallingNum`|The phone number of the caller. |
 |`CallingIMSI`|The International Mobile Subscriber Identity (IMSI). This is the unique identifier of the caller. |
 |`CalledNum`|The phone number of the call recipient. |
@@ -200,7 +201,7 @@ A simple query might just read all the incoming data. However, you often create 
 
 The queries you create here will just display the transformed data to the screen. In a later section, you'll configure an output sink and a query that writes the transformed data to that sink.
 
-To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/dn834998.aspx).
+To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).
 
 ### Get sample data for testing queries
 
@@ -270,7 +271,7 @@ In many cases, your analysis doesn't need all the columns from the input stream.
 
 Suppose you want to count the number of incoming calls per region. In streaming data, when you want to perform aggregate functions like counting, you need to segment the stream into temporal units (since the data stream itself is effectively endless). You do this using a Streaming Analytics [window function](stream-analytics-window-functions.md). You can then work with the data inside that window as a unit.
 
-For this transformation, you want a sequence of temporal windows that don't overlap—each window will have a discrete set of data that you can group and aggregate. This type of window is referred to as a *Tumbling window*. Within the Tumbling window, you can get a count of the incoming calls grouped by `SwitchNum`, which represents the country where the call originated. 
+For this transformation, you want a sequence of temporal windows that don't overlap—each window will have a discrete set of data that you can group and aggregate. This type of window is referred to as a *Tumbling window*. Within the Tumbling window, you can get a count of the incoming calls grouped by `SwitchNum`, which represents the country/region where the call originated. 
 
 1. Change the query in the code editor to the following:
 
@@ -282,11 +283,11 @@ For this transformation, you want a sequence of temporal windows that don't over
         GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
         ```
 
-    This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. (If no field is specified, the windowing operation uses the time that each event arrives at the event hub. See "Arrival Time Vs Application Time" in [Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx). 
+    This query uses the `Timestamp By` keyword in the `FROM` clause to specify which timestamp field in the input stream to use to define the Tumbling window. In this case, the window divides the data into segments by the `CallRecTime` field in each record. (If no field is specified, the windowing operation uses the time that each event arrives at the event hub. See "Arrival Time Vs Application Time" in [Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). 
 
     The projection includes `System.Timestamp`, which returns a timestamp for the end of each window. 
 
-    To specify that you want to use a Tumbling window, you use the [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) function in the `GROUP BY` clause. In the function, you specify a time unit (anywhere from a microsecond to a day) and a window size (how many units). In this example, the Tumbling window consists of 5-second intervals, so you will get a count by country for every 5 seconds' worth of calls.
+    To specify that you want to use a Tumbling window, you use the [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) function in the `GROUP BY` clause. In the function, you specify a time unit (anywhere from a microsecond to a day) and a window size (how many units). In this example, the Tumbling window consists of 5-second intervals, so you will get a count by country/region for every 5 seconds' worth of calls.
 
 2. Click **Test** again. In the results, notice that the timestamps under **WindowEnd** are in 5-second increments.
 
@@ -296,7 +297,7 @@ For this transformation, you want a sequence of temporal windows that don't over
 
 For this example, consider fraudulent usage to be calls that originate from the same user but in different locations within 5 seconds of one another. For example, the same user can't legitimately make a call from the US and Australia at the same time. 
 
-To check for these cases, you can use a self-join of the streaming data to join the stream to itself based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country of origin) is not the same.
+To check for these cases, you can use a self-join of the streaming data to join the stream to itself based on the `CallRecTime` value. You can then look for call records where the `CallingIMSI` value (the originating number) is the same, but the `SwitchNum` value (country/region of origin) is not the same.
 
 When you use a join with streaming data, the join must provide some limits on how far the matching rows can be separated in time. (As noted earlier, the streaming data is effectively endless.) The time bounds for the relationship are specified inside the `ON` clause of the join, using the `DATEDIFF` function. In this case, the join is based on a 5-second interval of call data.
 
@@ -411,5 +412,5 @@ For more information about Stream Analytics in general, see these articles:
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Scale Azure Stream Analytics jobs](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Azure Stream Analytics Management REST API Reference](https://msdn.microsoft.com/library/azure/dn835031.aspx)

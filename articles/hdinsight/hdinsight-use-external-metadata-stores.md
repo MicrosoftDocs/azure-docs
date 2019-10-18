@@ -1,15 +1,15 @@
 ---
 title: Use external metadata stores - Azure HDInsight 
-description: Use external metadata stores with HDInsight clusters.
-services: hdinsight
+description: Use external metadata stores with Azure HDInsight clusters, and best practices.
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 05/27/2019
 ---
+
 # Use external metadata stores in Azure HDInsight
 
 The Apache Hive metastore in HDInsight is an essential part of the Apache Hadoop architecture. A metastore is the central schema repository that can be used by other big data access tools such as Apache Spark, Interactive Query (LLAP), Presto, or Apache Pig. HDInsight uses an Azure SQL Database as the Hive metastore.
@@ -45,7 +45,7 @@ HDInsight also supports custom metastores, which are recommended for production 
 
 ### Select a custom metastore during cluster creation
 
-You can point your cluster to a previously created Azure SQL Database during cluster creation, or you can configure the SQL Database after the cluster is created. This option is specified with the Storage > Metastore settings while creating a new Hadoop, Spark, or interactive Hive cluster from Azure portal.
+You can point your cluster to a previously created Azure SQL Database during cluster creation, or you can configure the SQL Database after the cluster is created. This option is specified with the **Storage > Metastore settings** while creating a new Hadoop, Spark, or interactive Hive cluster from Azure portal.
 
 ![HDInsight Hive Metadata Store Azure portal](./media/hdinsight-use-external-metadata-stores/metadata-store-azure-portal.png)
 
@@ -65,6 +65,7 @@ Here are some general HDInsight Hive metastore best practices:
 - Monitor your metastore for performance and availability using Azure SQL Database Monitoring tools, such as the Azure portal or Azure Monitor logs.
 - When a new, higher version of Azure HDInsight is created against an existing custom metastore database, the system upgrades the schema of the metastore, which is irreversible without restoring the database from backup.
 - If you share a metastore across multiple clusters, ensure all the clusters are the same HDInsight version. Different Hive versions use different metastore database schemas. For example, you cannot share a metastore across Hive 1.2 and Hive 2.1 versioned clusters. 
+- In HDInsight 4.0, Spark and Hive use independent catalogs for accessing SparkSQL or Hive tables. A table created by Spark resides in the Spark catalog. A table created by Hive resides in the Hive catalog. This is different than HDInsight 3.6 where Hive and Spark shared common catalog. Hive and Spark Integration in HDInsight 4.0 relies on Hive Warehouse Connector (HWC). HWC works as a bridge between Spark and Hive. [Learn about Hive Warehouse Connector](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
 
 ##  Apache Oozie Metastore
 

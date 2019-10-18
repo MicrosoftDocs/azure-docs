@@ -4,16 +4,16 @@ description: Storage architecture of how to deploy SAP HANA on Azure (Large Inst
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/05/2019
-ms.author: rclaus
+ms.date: 07/04/2019
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
 
 ---
@@ -86,9 +86,9 @@ Few examples of running multiple SAP HANA instances might look like the followin
 There are other variations as well. 
 
 ## Encryption of data at rest
-The storage used for HANA Large Instance allows a transparent encryption of the data as it's stored on the disks. When a HANA Large Instance unit is deployed, you can enable this kind of encryption. You also can change to encrypted volumes after the deployment takes place. The move from non-encrypted to encrypted volumes is transparent and doesn't require downtime. 
+The storage used for HANA Large Instance uses transparent encryption for the data as it's stored on the disks since end of the year 2018. In earlier deployments, you could choose to get the volumes encrypted. If you decided against that option, you can request to get the volumes encrypted online. The move from non-encrypted to encrypted volumes is transparent and doesn't require downtime. 
 
-With the Type I class of SKUs, the volume the boot LUN is stored on, is encrypted. For the Type II class of SKUs of HANA Large Instance, you need to encrypt the boot LUN with OS methods. For more information, contact the Microsoft Service Management team.
+With the Type I class of SKUs, the volume the boot LUN is stored on, is encrypted. In Revision 3 HANA Large Instance stamps, using the Type II class of SKUs of HANA Large Instance, you need to encrypt the boot LUN with OS methods. In Revision 4 HANA Large Instance stamps, using Type II units the volume the boot LUN is stored and is encrypted at rest by default as well. 
 
 ## Required settings for larger HANA instances on HANA Large Instances
 The storage used in HANA Large Instances has a file size limitation. The [size limitation is 16 TB](https://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-vsmg%2FGUID-AA1419CF-50AB-41FF-A73C-C401741C847C.html) per file. Unlike in file size limitations in the EXT3 file systems, HANA is not aware implicitly of the storage limitation enforced by the HANA Large Instances storage. As a result HANA will not automatically create a new data file when the file size limit of 16TB is reached. As HANA attempts to grow the file beyond 16 TB, HANA will report errors and the index server will crash at the end.

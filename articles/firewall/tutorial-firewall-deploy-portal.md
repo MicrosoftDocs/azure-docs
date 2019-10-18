@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 4/9/2019
+ms.date: 08/29/2019
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -63,6 +63,9 @@ The resource group contains all the resources for the tutorial.
 
 This VNet will contain three subnets.
 
+> [!NOTE]
+> The size of the AzureFirewallSubnet subnet is /26. For more information about the subnet size, see [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size).
+
 1. From the Azure portal home page, select **Create a resource**.
 2. Under **Networking**, select **Virtual network**.
 4. For **Name**, type **Test-FW-VN**.
@@ -71,11 +74,8 @@ This VNet will contain three subnets.
 7. For **Resource group**, select **Test-FW-RG**.
 8. For **Location**, select the same location that you used previously.
 9. Under **Subnet**, for **Name** type **AzureFirewallSubnet**. The firewall will be in this subnet, and the subnet name **must** be AzureFirewallSubnet.
-10. For **Address range**, type **10.0.1.0/24**.
+10. For **Address range**, type **10.0.1.0/26**.
 11. Accept the other default settings, and then select **Create**.
-
-> [!NOTE]
-> The minimum size of the AzureFirewallSubnet subnet is /26.
 
 ### Create additional subnets
 
@@ -232,12 +232,12 @@ Now, test the firewall to confirm that it works as expected.
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
 2. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address.
 
-3. Open Internet Explorer and browse to http://www.google.com.
+3. Open Internet Explorer and browse to https://www.google.com.
 4. Select **OK** > **Close** on the Internet Explorer security alerts.
 
    You should see the Google home page.
 
-5. Browse to http://www.microsoft.com.
+5. Browse to https://www.microsoft.com.
 
    You should be blocked by the firewall.
 

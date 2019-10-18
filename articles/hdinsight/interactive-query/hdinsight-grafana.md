@@ -1,16 +1,15 @@
 ---
 title: Use Grafana on Azure HDInsight
-description: Learn how to access Grafana in Azure HDInsight.
-services: hdinsight
-ms.service: hdinsight
+description: Learn how to access the Grafana dashboard with Apache Hadoop clusters in Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/11/2018
 ---
-# Access Grafana in Azure HDInsight
 
+# Access Grafana in Azure HDInsight
 
 [Grafana](https://grafana.com/) is a popular, open-source graph and dashboard builder. Grafana is feature rich; not only does it let users create customizable and shareable dashboards, it also offers templated/scripted dashboards, LDAP integration, multiple data sources, and more.
 
@@ -22,9 +21,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this section, you create an Interactive Query cluster in HDInsight using an Azure Resource Manager template. Resource Manager template experience is not required for following this article. 
 
-1. Click the **Deploy to Azure** button below to sign in to Azure and open the Resource Manager template in the Azure portal. 
+1. Click the **Deploy to Azure** button below to sign in to Azure and open the Resource Manager template in the Azure portal.
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-interactive-hive%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-grafana/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
 2. Enter or select the values as suggested in the following screenshot:
 
@@ -46,22 +45,22 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
     |**Cluster Name**     | Enter a name for the Apache Hadoop cluster. Because all clusters in HDInsight share the same DNS namespace this name needs to be unique. The name can consist of up to 59 characters includings letters, numbers, and hyphens. The first and last characters of the name cannot be hyphens. |
     |**Cluster login name and password**     | The default login name is **admin**. The password must be at least 10 characters in length and must contain at least one digit, one uppercase, and one lower case letter, one non-alphanumeric character (except characters ' " ` \). Make sure you **do not provide** common passwords such as "Pass@word1".|
     |**SSH username and password**     | The default username is **sshuser**.  You can rename the SSH username.  The SSH user password has the same requirements as the cluster login password.|
-       
+
     Some properties have been hardcoded in the template.  You can configure these values from the template. For more explanation of these properties, see [Create Apache Hadoop clusters in HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
 3. Select **I agree to the terms and conditions stated above** and **Pin to dashboard**, and then select **Purchase**. You shall see a new tile titled **Submitting deployment** on the portal dashboard. It takes about 20 minutes to create a cluster.
 
-    ![Template deployment progress](./media/hdinsight-grafana/deployment-progress-tile.png "Azure Template deployment progress")
+    ![Azure Template deployment progress](./media/hdinsight-grafana/deployment-progress-tile.png "Azure Template deployment progress")
 
-4. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. The tile also lists the HDInsight cluster that is created within the resource group. 
-   
+4. Once the cluster is created, the caption of the tile is changed to the resource group name you specified. The tile also lists the HDInsight cluster that is created within the resource group.
+
     ![HDInsight Linux get started resource group](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight cluster resource group")
-    
+
 5. The tile also lists the default storage associated with the cluster. Each cluster has an [Azure Storage account](../hdinsight-hadoop-use-blob-storage.md) or an [Azure Data Lake account](../hdinsight-hadoop-use-data-lake-store.md) dependency. It is referred as the default storage account. HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters does not delete the storage account.
     
 
 > [!NOTE]  
-> For other cluster creation methods and understanding the properties used in this tutorial, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). 
+> For other cluster creation methods and understanding the properties used in this article, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md). 
 
 ## Access the Grafana dashboard
 
@@ -79,9 +78,7 @@ In this section, you create an Interactive Query cluster in HDInsight using an A
 
 6. The Grafana dashboard appears and looks like this example:
 
-    ![HDInsight Grafana dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana dashboard")
-
-   
+    ![HDInsight Grafana web dashboard](./media/hdinsight-grafana/hdinsight-grafana-dashboard.png "HDInsight Grafana dashboard")
 
 ## Clean up resources
 After you complete the article, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. 
@@ -93,7 +90,7 @@ After you complete the article, you may want to delete the cluster. With HDInsig
 
 1. Go back to the browser tab where you have the Azure portal. You shall be on the cluster overview page. If you only want to delete the cluster but retain the default storage account, select **Delete**.
 
-    ![HDInsight delete cluster](./media/hdinsight-grafana/hdinsight-delete-cluster.png "Delete HDInsight cluster")
+    ![Azure portal delete cluster icon](./media/hdinsight-grafana/hdinsight-delete-cluster.png "Delete HDInsight cluster")
 
 2. If you want to delete the cluster as well as the default storage account, select the resource group name (highlighted in the previous screenshot) to open the resource group page.
 
@@ -103,7 +100,7 @@ After you complete the article, you may want to delete the cluster. With HDInsig
 In this article, you learned how to create a Linux-based HDInsight cluster using a Resource Manager template, and how to perform basic Apache Hive queries. In the next article, you learn how to perform an extract, transform, and load (ETL) operation using Hadoop on HDInsight.
 
 > [!div class="nextstepaction"]
->[Extract, transform, and load data using Apache Hive on HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+>[Extract, transform, and load data using Interactive Query on HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 
 If you're ready to start working with your own data and need to know more about how HDInsight stores data or how to get data into HDInsight, see the following articles:
 

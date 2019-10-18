@@ -7,7 +7,8 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
-ms.author: alkarche, glenga
+ms.author: alkarche
+ms.reviewer: glenga
 
 ---
 # Frequently asked questions about networking in Azure Functions
@@ -23,11 +24,14 @@ Deploying a function in an App Service Environment is currently the only way to 
 You can restrict internet access in a couple of ways:
 
 * [IP restrictions](../app-service/app-service-ip-restrictions.md): Restrict inbound traffic to your function app by IP range.
+    * Under IP restrictions, you are also able to configure [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), which restrict your Function to only accept inbound traffic from a particular virtual network.
 * Removal of all HTTP triggers. For some applications, it's enough to simply avoid HTTP triggers and use any other event source to trigger your function.
 
 Keep in mind that the Azure portal editor requires direct access to your running function. Any code changes through the Azure portal will require the device you're using to browse the portal to have its IP whitelisted. But you can still use anything under the platform features tab with network restrictions in place.
 
 ## How do I restrict my function app to a virtual network?
+
+You are able to restrict **inbound** traffic for a function app to a virtual network using [Service Endpoints](./functions-networking-options.md#private-site-access). This configuration still allows the function app to make outbound calls to the internet.
 
 The only way to totally restrict a function such that all traffic flows through a virtual network is to use an internally load-balanced App Service Environment. This option deploys your site on a dedicated infrastructure inside a virtual network and sends all triggers and traffic through the virtual network. 
 
@@ -39,12 +43,15 @@ You can access resources in a virtual network from a running function by using v
 
 ## How do I access resources protected by service endpoints?
 
-By using virtual network integration (currently in preview), you can access service-endpoint-secured resources from a running function. For more information, see [Preview virtual network integration](functions-networking-options.md#preview-version-of-virtual-network-integration).
+By using virtual network integration you can access service-endpoint-secured resources from a running function. For more information, see [virtual network integration](functions-networking-options.md#virtual-network-integration).
 
 ## How can I trigger a function from a resource in a virtual network?
 
-You can trigger a function from a resource in a virtual network only by deploying your function app to an App Service Environment. For details on using an App Service Environment, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
+You are able to allow HTTP triggers to be called from a virtual network using [Service Endpoints](./functions-networking-options.md#private-site-access). 
 
+You can also trigger a function from a resource in a virtual network by deploying your function app to an App Service Environment. For details on using an App Service Environment, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
+
+The Premium and App Service plan support HTTP triggers from a virtual network, but only an App Service environment support all other function trigger types through a virtual network.
 
 ## How can I deploy my function app in a virtual network?
 

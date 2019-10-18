@@ -11,6 +11,7 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
+ROBOTS: NOINDEX
 ---
 
 # Interpret Method

@@ -3,21 +3,16 @@ title: Process large-scale datasets by using Data Factory and Batch | Microsoft 
 description: Describes how to process huge amounts of data in an Azure Data Factory pipeline by using the parallel processing capability of Azure Batch.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Process large-scale datasets by using Data Factory and Batch
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Custom activities in Data Factory](../transform-data-using-dotnet-custom-activity.md).
@@ -122,7 +117,7 @@ Create a Batch pool with at least two compute nodes.
    f. Select **OK** to create the pool.
 
 #### Azure Storage Explorer
-You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
+You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
 
 1. Create a container named **mycontainer** with private access (no anonymous access).
 
@@ -407,7 +402,7 @@ The method has a few key components that you need to understand:
 #### Execute method
 This section provides more details about the code in the Execute method.
 
-1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) namespace. To iterate through the blob collection, you're required to use the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [Use Blob storage from .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). A basic loop is shown here:
+1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) namespace. To iterate through the blob collection, you're required to use the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [Use Blob storage from .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). A basic loop is shown here:
 
 	```csharp
 	// Initialize the continuation token.
@@ -430,7 +425,7 @@ This section provides more details about the code in the Execute method.
 	} while (continuationToken != null);
 
     ```
-   For more information, see the documentation for the [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) method.
+   For more information, see the documentation for the [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented) method.
 
 1. The code for working through the set of blobs logically goes within the do-while loop. In the **Execute** method, the do-while loop passes the list of blobs to a method named **Calculate**. The method returns a string variable named **output** that is the result of having iterated through all the blobs in the segment.
 

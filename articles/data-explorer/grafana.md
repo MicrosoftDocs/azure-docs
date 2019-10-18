@@ -6,12 +6,18 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 6/30/2019
 ---
 
 # Visualize data from Azure Data Explorer in Grafana
 
 Grafana is an analytics platform that enables you to query and visualize data, then create and share dashboards based on your visualizations. Grafana provides an Azure Data Explorer *plugin*, which enables you to connect to and visualize data from Azure Data Explorer. In this article, you learn how to set up Azure Data Explorer as a data source for Grafana, and then visualize data from a sample cluster.
+
+Using the following video, you can learn to use Grafana's Azure Data Explorer plugin, set up Azure Data Explorer as a data source for Grafana, and then visualize data. 
+
+> [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
+
+Alternatively you can [configure the data source](#configure-the-data-source) and [visualize data](#visualize-data) as detailed in the article below.
 
 ## Prerequisites
 
@@ -203,6 +209,6 @@ Now you've finished configuring Azure Data Explorer as a data source for Grafana
 
 ## Next steps
 
-[Write queries for Azure Data Explorer](write-queries.md)
+* [Write queries for Azure Data Explorer](write-queries.md)
 
-[Tutorial: Visualize data from Azure Data Explorer in Power BI](visualize-power-bi.md)
+* [Tutorial: Visualize data from Azure Data Explorer in Power BI](visualize-power-bi.md)

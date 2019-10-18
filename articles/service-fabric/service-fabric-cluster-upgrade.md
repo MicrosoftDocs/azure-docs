@@ -3,7 +3,7 @@ title: Upgrade an Azure Service Fabric cluster | Microsoft Docs
 description: Learn about upgrading the version or configuration of an Azure Service Fabric cluster.  This article describes setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and what you can expect when the upgrades are performed
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
-ms.author: aljo
+ms.author: atsenthi
 
 ---
 # Upgrading and updating an Azure Service Fabric cluster
@@ -95,7 +95,7 @@ You can specify the custom health policies or review the current settings under 
 Many different configuration settings can be customized on a cluster, such as the reliability level of the cluster and node properties. For more information, read [Service Fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md).
 
 ## Patch the OS in the cluster nodes
-The patch orchestration application (POA) is a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. The [Patch Orchestration Application for Windows](service-fabric-patch-orchestration-application.md) or [Patch Orchestration Application for Linux](service-fabric-patch-orchestration-application-linux.md) can be deployed on your cluster to install patches in an orchestrated manner while keeping the services available all the time. 
+The patch orchestration application (POA) is a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. The [Patch Orchestration Application for Windows](service-fabric-patch-orchestration-application.md) can be deployed on your cluster to install patches in an orchestrated manner while keeping the services available all the time.
 
 
 ## Next steps

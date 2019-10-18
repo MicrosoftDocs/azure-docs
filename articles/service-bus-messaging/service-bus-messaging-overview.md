@@ -94,7 +94,7 @@ If an error occurs that causes the client to have any doubt about the outcome of
 
 ### SAS, RBAC, and Managed identities for Azure resources
 
-Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control](service-bus-role-based-access-control.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
+Service Bus supports security protocols such as [Shared Access Signatures](service-bus-sas.md) (SAS), [Role Based Access Control](authenticate-application.md) (RBAC) and [Managed identities for Azure resources](service-bus-managed-service-identity.md).
 
 ### Geo-disaster recovery
 
@@ -126,3 +126,4 @@ To get started using Service Bus messaging, see the following articles:
 * Learn more about Azure Service Bus [Standard and Premium](https://azure.microsoft.com/pricing/details/service-bus/) tiers and their pricing
 * [Performance and Latency of Azure Service Bus Premium tier](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * Try the quickstarts in [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md), or [JMS](service-bus-java-how-to-use-jms-api-amqp.md)
+* [Manage Service Bus resources with the Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

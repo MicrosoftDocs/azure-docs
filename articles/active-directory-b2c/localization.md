@@ -1,15 +1,15 @@
 ---
-title: Localization - Azure Active Directory B2C | Microsoft Docs
+title: Localization - Azure Active Directory B2C
 description: Specify the Localization element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+ms.date: 08/27/2019
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -43,7 +43,7 @@ The **Localization** element contains following XML elements
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| SupportedLanguages | 1:n | List of supported languages. | 
+| SupportedLanguages | 1:n | List of supported languages. |
 | LocalizedResources | 0:n | List of localized resources. |
 
 ## SupportedLanguages
@@ -61,7 +61,7 @@ The **SupportedLanguages** element contains the following elements:
 
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| SupportedLanguage | 1:n | Displays content that conforms to a language tag per RFC 5646 - Tags for Identifying Languages. | 
+| SupportedLanguage | 1:n | Displays content that conforms to a language tag per RFC 5646 - Tags for Identifying Languages. |
 
 ## LocalizedResources
 
@@ -108,6 +108,7 @@ The **Item** element contains the following attributes:
 | --------- | -------- | ----------- |
 | Text | Yes | The user-friendly display string that should be shown to the user in the user interface for this option. |
 | Value | Yes | The string claim value associated with selecting this option. |
+| SelectByDefault | No | Indicates whether or not this option should be selected by default in the UI. Possible values: True or False. |
 
 The following example shows the use of the **LocalizedCollections** element. It contains two **LocalizedCollection** elements, one for English and another one for Spanish. Both set the **Restriction** collection of the claim `Gender` with a list of items for English and Spanish.
 
@@ -127,7 +128,6 @@ The following example shows the use of the **LocalizedCollections** element. It 
       <Item Text="Masculino" Value="M" />
     </LocalizedCollection>
 </LocalizedCollections>
-
 ```
 
 ### LocalizedStrings
@@ -143,7 +143,7 @@ The **LocalizedString** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | ElementType | Yes | A reference to a claim type element or a user interface element in the policy. Possible values: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, or  . The `ClaimType` value is used to localize one of the claim attributes, as specified in the StringId. The `UxElement` value is used to localize one of the user interface elements as specified in the StringId. The `ErrorMessage` value is used to localize one of the system error messages as specified in the StringId. The `Predicate` value is used to localize one of the [Predicate](predicates.md) error messages, as specified in the StringId. The `InputValidation` value is used to localize one of the [PredicateValidation](predicates.md) group error messages as specified in the StringId. |
-| ElementId | Yes | If **ElementType** is set to `ClaimType`, `Predicate`, or `InputValidation`, this element contains a reference to a claim type already defined in the ClaimsSchema section. | 
+| ElementId | Yes | If **ElementType** is set to `ClaimType`, `Predicate`, or `InputValidation`, this element contains a reference to a claim type already defined in the ClaimsSchema section. |
 | StringId | Yes | If **ElementType** is set to `ClaimType`, this element contains a reference to an attribute of a claim type. Possible values: `DisplayName`, `AdminHelpText`, or `PatternHelpText`. The `DisplayName` value is used to set the claim display name. The `AdminHelpText` value is used to set the help text name of the claim user. The `PatternHelpText` value is used to set the claim pattern help text. If **ElementType** is set to `UxElement`, this element contains a reference to an attribute of a user interface element. If **ElementType** is set to `ErrorMessage`, this element specifies the identifier of an error message. See [Localization string IDs](localization-string-ids.md) for a complete list of the `UxElement` identifiers.|
 
 
@@ -183,7 +183,7 @@ The following example shows a localized the **UserHelpText** of **Predicate** wi
 
 <LocalizedString ElementType="InputValidation" ElementId="StrongPassword" StringId="CharacterClasses">The password must have at least 3 of the following:</LocalizedString>
 
-<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>				
+<LocalizedString ElementType="Predicate" ElementId="IsLengthBetween8And64" StringId="HelpText">The password must be between 8 and 64 characters.</LocalizedString>
 ```
 
 ## Set up localization
@@ -203,12 +203,13 @@ Under the **BuildingBlocks** element, add the **Localization** element with the 
 </Localization>
 ```
 
-### Provide language-specific strings and collections 
+### Provide language-specific strings and collections
 
-Add **LocalizedResources** elements inside the **Localization** element after the close of the **SupportedLanguages** element. You add **LocalizedResources** elements for each page (content definition) and any language you want to support. To customize the unified sign-up or sign-in page, sign-up and multi-factor authentication (MFA) pages for English, Spanish, and France, you add the following **LocalizedResources** elements.  
+Add **LocalizedResources** elements inside the **Localization** element after the close of the **SupportedLanguages** element. You add **LocalizedResources** elements for each page (content definition) and any language you want to support. To customize the unified sign-up or sign-in page, sign-up and multi-factor authentication (MFA) pages for English, Spanish, and France, you add the following **LocalizedResources** elements.
+
 - Unified sign-up or sign-in page, English `<LocalizedResources Id="api.signuporsignin.en">`
 - Unified sign-up or sign-in page, Spanish `<LocalizedResources Id="api.signuporsignin.es">`
-- Unified sign-up or sign-in page, France `<LocalizedResources Id="api.signuporsignin.fr">` 
+- Unified sign-up or sign-in page, France `<LocalizedResources Id="api.signuporsignin.fr">`
 - Sign-Up, English `<LocalizedResources Id="api.localaccountsignup.en">`
 - Sign-Up, Spanish `<LocalizedResources Id="api.localaccountsignup.es">`
 - Sign-Up, France `<LocalizedResources Id="api.localaccountsignup.fr">`
@@ -216,7 +217,7 @@ Add **LocalizedResources** elements inside the **Localization** element after th
 - MFA, Spanish `<LocalizedResources Id="api.phonefactor.es">`
 - MFA, France `<LocalizedResources Id="api.phonefactor.fr">`
 
-Each **LocalizedResources** element contains all of the required  **LocalizedStrings** elements with multiple **LocalizedString** elements and **LocalizedCollections** elements with multiple **LocalizedCollection** elements.  The following example adds the sign-up page English localization: 
+Each **LocalizedResources** element contains all of the required  **LocalizedStrings** elements with multiple **LocalizedString** elements and **LocalizedCollections** elements with multiple **LocalizedCollection** elements.  The following example adds the sign-up page English localization:
 
 Note: This example makes a reference to `Gender` and `City` claim types. To use this example, make sure you define those claims. For more information, see [ClaimsSchema](claimsschema.md).
 
@@ -272,7 +273,7 @@ The sign-up page localization for Spanish.
 </LocalizedResources>
 ```
 
-### Edit the ContentDefinition for the page 
+### Edit the ContentDefinition for the page
 
 For each page that you want to localize, specify the language codes to look for in the **ContentDefinition**.
 
@@ -359,7 +360,3 @@ The following example shows the final XML:
   </Localization>
 </BuildingBlocks>
 ```
-
-
-
-

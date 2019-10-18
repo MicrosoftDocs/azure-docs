@@ -6,6 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: victorh
+ms.topic: conceptual
 ---
 
 # Customize web application firewall rules through the Azure portal
@@ -28,11 +29,14 @@ The Azure Application Gateway web application firewall (WAF) provides protection
 
 ## Search for rules to disable
 
-The **Web application firewall settings** blade provides the capability to filter the rules through a text search. The result displays only the rule groups and rules that contain the text you searched for.
+The **Web application firewall settings** page provides the capability to filter the rules through a text search. The result displays only the rule groups and rules that contain the text you searched for.
 
 ![Search for rules][2]
 
 ## Disable rule groups and rules
+
+> [!IMPORTANT]
+> Use caution when disabling any rule groups or rules. This may expose you to increased security risks.
 
 When you're disabling rules, you can disable an entire rule group or specific rules under one or more rule groups. 
 
@@ -46,7 +50,9 @@ When you're disabling rules, you can disable an entire rule group or specific ru
 
 ## Mandatory rules
 
-The following list contains conditions that cause the WAF to block the request while in Prevention Mode (in Detection Mode they are logged as exceptions). These can't be configured or disabled:
+The following list contains conditions that cause the WAF to block the request while in Prevention Mode. In Detection Mode, they're logged as exceptions.
+
+These can't be configured or disabled:
 
 * Failure to parse the request body results in the request being blocked, unless body inspection is turned off (XML, JSON, form data)
 * Request body (with no files) data length is larger than the configured limit

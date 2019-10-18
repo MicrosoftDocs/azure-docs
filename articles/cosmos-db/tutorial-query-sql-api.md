@@ -6,7 +6,7 @@ ms.author: rimman
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 05/21/2019
 ms.reviewer: sngun
 ---
 
@@ -56,7 +56,7 @@ The SQL queries in this article use the following sample document.
 You can run queries using the Data Explorer in the Azure portal, via the [REST API and SDKs](sql-api-sdk-dotnet.md), and even the [Query playground](https://www.documentdb.com/sql/demo), which runs queries on an existing set of sample data.
 
 For more information about SQL queries, see:
-* [SQL query and SQL syntax](how-to-sql-query.md)
+* [SQL query and SQL syntax](sql-query-getting-started.md)
 
 ## Prerequisites
 

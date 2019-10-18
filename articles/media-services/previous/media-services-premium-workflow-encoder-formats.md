@@ -13,7 +13,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
-ms.author: juliako;anilmur
+ms.author: juliako
+ms.reviewer: anilmur
 
 ---
 # Media Encoder Premium Workflow formats and codecs

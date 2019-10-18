@@ -3,8 +3,8 @@ title: Service-to-service apps in Azure Active Directory
 description: Describes what service-to-service applications and the basics on protocol flow, registration, and token expiration for this app type. 
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
@@ -69,4 +69,4 @@ When the first application uses its authorization code to get a JWT access token
 ## Next steps
 
 - Learn more about other [Application types and scenarios](app-types.md)
-- Learn about the Azure AD [authentication basics](authentication-scenarios.md)
+- Learn about the Azure AD [authentication basics](v1-authentication-scenarios.md)

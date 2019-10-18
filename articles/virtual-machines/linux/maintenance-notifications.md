@@ -11,9 +11,9 @@ ms.assetid:
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 08/22/2019
 ms.author: shants
 
 ---
@@ -25,13 +25,13 @@ Azure periodically performs updates to improve the reliability, performance, and
 
 - If the maintenance does not require a reboot, Azure uses in-place migration to pause the VM while the host is updated. These non-rebootful maintenance operations are applied fault domain by fault domain, and progress is stopped if any warning health signals are received.
 
-- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you are given a time window where you can start the maintenance yourself, when it works for you.
+- If maintenance requires a reboot, you get a notice of when the maintenance is planned. In these cases, you are given a time window that is typically 35 days where you can start the maintenance yourself, when it works for you.
 
 
 Planned maintenance that requires a reboot is scheduled in waves. Each wave has different scope (regions).
 
 - A wave starts with a notification to customers. By default, notification is sent to subscription owner and co-owners. You can add more recipients and messaging options like email, SMS, and webhooks, to the notifications using Azure [Activity Log Alerts](../../azure-monitor/platform/activity-logs-overview.md).  
-- At the time of the notification, a *self-service window* is made available. During this window, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
+- At the time of the notification, a *self-service window* is made available. During this window that is typically 35 days, you can find which of your virtual machines are included in this wave and proactively start maintenance according to your own scheduling needs.
 - After the self-service window, a *scheduled maintenance window* begins. At some point during this window, Azure schedules and applies the required maintenance to your virtual machine. 
 
 The goal in having two windows is to give you enough time to start maintenance and reboot your virtual machine while knowing when Azure will automatically start maintenance.
@@ -138,7 +138,7 @@ azure compute virtual-machine initiate-maintenance --service-name myService --na
 
 **A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, see [Regions and availability for virtual machines in Azure](regions-and-availability.MD).
+For more information about high availability, see [Availability for virtual machines in Azure](availability.MD).
 
 **Q: How do I get notified about planned maintenance?**
 
@@ -158,7 +158,7 @@ For more information about high availability, see [Regions and availability for 
 
 **Q: What is the experience in the case of Virtual Machine Scale Sets?**
 
-**A:** Planned maintenance is now available for Virtual Machine Scale Sets. For instructions on how to initiate self-service maintenance refer [planned maintenance for VMSS](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) document.
+**A:** Planned maintenance is now available for Virtual Machine Scale Sets. For instructions on how to initiate self-service maintenance refer [planned maintenance for virtual machine scale sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-maintenance-notifications.md) document.
 
 **Q: What is the experience in the case of Cloud Services (Web/Worker Role) and Service Fabric?**
 

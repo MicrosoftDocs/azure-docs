@@ -3,6 +3,7 @@ title: Mount a gitRepo volume Azure Container Instances
 description: Learn how to mount a gitRepo volume to clone a Git repository into your container instances
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
@@ -15,7 +16,7 @@ ms.author: danlep
 Learn how to mount a *gitRepo* volume to clone a Git repository into your container instances.
 
 > [!NOTE]
-> Mounting a *gitRepo* volume is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> Mounting a *gitRepo* volume is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers).
 
 ## gitRepo volume
 

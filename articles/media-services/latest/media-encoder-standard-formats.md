@@ -1,6 +1,6 @@
 ---
-title: Media Encoder Standard formats and codecs - Azure
-description: This topic gives an overview of Media Encoder Standard formats and codecs.
+title: Standard Encoder formats and codecs - Azure
+description: This topic gives an overview of Standard Encoder formats and codecs.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,10 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
-ms.author: juliako;anilmur
+ms.author: juliako
+ms.reviewer: anilmur
 
 ---
-# Media Encoder Standard formats and codecs
+# Standard Encoder formats and codecs
 
 This article contains a list of the most common import and export file formats that you can use with [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). For information on how to create custom presets using **StandardEncoderPreset**, see [Create a transform with a custom preset](customize-encoder-presets-how-to.md).
 
@@ -36,13 +37,9 @@ This article contains a list of the most common import and export file formats t
 | WAVE/WAV (.wav) |Yes |
 | QuickTime (.mov) |Yes |
 
-> [!NOTE]
-> Above is a list of the more commonly encountered file extensions. Media Encoder Standard does support many others (for example: .m2ts, .mpeg2video, .qt). If you try to encode a file and you get an error message about the format not being supported, provide your feedback [here](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
-> 
-> 
-
 ### Audio formats in input containers
-Media Encoder Standard supports carrying the following audio formats in input containers:
+
+Standard Encoder supports carrying the following audio formats in input containers:
 
 * MXF, GXF, and QuickTime files, which have audio tracks with interleaved stereo or 5.1 samples
 

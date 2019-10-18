@@ -1,27 +1,24 @@
 ---
-title: Index blobs containing multiple search index documents from Azure Blob indexer for full text search - Azure Search
-description: Crawl Azure blobs for text content using the Azure Search Blob indexer. Each blob might contain one or more Azure Search index documents.
+title: Index one blob into many search index documents from Azure Blob indexer for full text search
+description: Crawl Azure blobs for text content using the Azure Search Blob indexer. Each blob might yield one or more Azure Search index documents.
 
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
-manager: briansmi
+manager: nitinme
 ms.author: arjagann
 
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.custom: seofeb2018
+
 ---
 
-# Indexing blobs producing multiple search documents
+# Indexing blobs to produce multiple search documents
 By default, a blob indexer will treat the contents of a blob as a single search document. Certain **parsingMode** values support scenarios where an individual blob can result in multiple search documents. The different types of **parsingMode** that allow an indexer to extract more than one search document from a blob are:
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` parsing mode is in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 ## One-to-many document key
 Each document that shows up in an Azure Search index is uniquely identified by a document key. 
@@ -98,12 +95,10 @@ If you do want to set up an explicit field mapping, make sure that the _sourceFi
 > [!NOTE]
 > The approach used by `AzureSearch_DocumentKey` of ensuring uniqueness per extracted entity is subject to change and therefore you should not rely on it's value for your application's needs.
 
-## See also
+## Next steps
 
-+ [Indexers in Azure Search](search-indexer-overview.md)
-+ [Indexing Azure Blob Storage with Azure Search](search-howto-index-json-blobs.md)
-+ [Indexing CSV blobs with Azure Search blob indexer](search-howto-index-csv-blobs.md)
-+ [Indexing JSON blobs with Azure Search blob indexer](search-howto-index-csv-blobs.md)
+If you aren't already familiar with the basic structure and workflow of blob indexing, you should review [Indexing Azure Blob Storage with Azure Search](search-howto-index-json-blobs.md) first. For more information about parsing modes for different blob conten types, review the following articles.
 
-## <a name="NextSteps"></a>Next steps
-* To learn more about Azure Search, see the [Search service page](https://azure.microsoft.com/services/search/).
+> [!div class="nextstepaction"]
+> [Indexing  CSV blobs](search-howto-index-csv-blobs.md)
+> [Indexing JSON blobs](search-howto-index-json-blobs.md)

@@ -8,7 +8,7 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
 ---
@@ -29,7 +29,7 @@ Alternatively, you can specify the country/region using the `cc` query parameter
 > - Recipe, shopping, and pages-including insights are available in the en-US market only.
 
 
-## Countries
+## Countries/Regions
 
 |Country/region|Code|
 |-------|----|

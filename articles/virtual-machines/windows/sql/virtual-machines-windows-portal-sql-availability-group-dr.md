@@ -1,4 +1,4 @@
-﻿---
+---
 title: SQL Server Availability Groups - Azure Virtual Machines - Disaster Recovery | Microsoft Docs
 description: "This article explains how to configure a SQL Server availability group on Azure virtual machines with a replica in a different region."
 services: virtual-machines
@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
@@ -142,7 +142,7 @@ The replica in the remote data center is part of the availability group but it i
 
 Preferably, update the client connection strings to set `MultiSubnetFailover=Yes`. See [Connecting With MultiSubnetFailover](https://msdn.microsoft.com/library/gg471494#Anchor_0).
 
-If you cannot modify the connection strings, you can configure name resolution caching. See [Connection Timeouts in Multi-subnet Availability Group](https://blogs.msdn.microsoft.com/alwaysonpro/2014/06/03/connection-timeouts-in-multi-subnet-availability-group/).
+If you cannot modify the connection strings, you can configure name resolution caching. See [Time-out error and you cannot connect to a SQL Server 2012 AlwaysOn availability group listener in a multi-subnet environment](https://support.microsoft.com/help/2792139/time-out-error-and-you-cannot-connect-to-a-sql-server-2012-alwayson-av).
 
 ## Fail over to remote region
 

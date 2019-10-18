@@ -1,14 +1,15 @@
 ---
 title: Troubleshooting Azure Diagnostics extension
 description: Troubleshoot problems when using Azure diagnostics in Azure Virtual Machines, Service Fabric, or Cloud Services.
-services: azure-monitor
-author: rboucher
-ms.service: azure-monitor
+ms.service:  azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+author: rboucher
 ms.author: robb
+ms.date: 05/08/2019
+
 ---
+
 # Azure Diagnostics troubleshooting
 This article describes troubleshooting information that's relevant to using Azure Diagnostics. For more information about Azure diagnostics, see [Azure Diagnostics overview](diagnostics-extension-overview.md).
 
@@ -42,7 +43,7 @@ Following are the paths to some important logs and artifacts. We refer to this i
 | **Monitoring agent configuration file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **Status file** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Azure Diagnostics extension package** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **Log collection utility path** | C:\WindowsAzure\Packages |
+| **Log collection utility path** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **MonAgentHost log file** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## Metric data doesn't appear in the Azure portal

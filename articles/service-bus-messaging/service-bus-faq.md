@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus frequently asked questions (FAQ) | Microsoft Docs
-description: Answers some frequently-asked questions about Azure Service Bus.
+description: Answers some frequently asked questions about Azure Service Bus.
 services: service-bus-messaging
 author: axisc
 manager: timlt
@@ -37,6 +37,48 @@ A conventional queue or topic is handled by a single message broker and stored i
 Ordering is not ensured when using partitioned entities. In the event that a partition is unavailable, you can still send and receive messages from the other partitions.
 
  Partitioned entities are no longer supported in the [Premium SKU](service-bus-premium-messaging.md). 
+
+### What ports do I need to open on the firewall? 
+You can use the following protocols with Azure Service Bus to send and receive messages:
+
+- Advanced Message Queuing Protocol (AMQP)
+- Service Bus Messaging Protocol (SBMP)
+- HTTP
+
+See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
+
+| Protocol | Ports | Details | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 and 5672 | See [AMQP protocol guide](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 to 9354 | See [Connectivity mode](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP, HTTPS | 80, 443 | 
+
+### What IP addresses do I need to whitelist?
+To find the right IP addresses to white list for your connections, follow these steps:
+
+1. Run the following command from a command prompt: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Note down the IP address returned in `Non-authoritative answer`. This IP address is static. The only point in time it would change is if you restore the namespace on to a different cluster.
+
+If you use the zone redundancy for your namespace, you need to do a few additional steps: 
+
+1. First, you run nslookup on the namespace.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
+
 
 ## Best practices
 ### What are some Azure Service Bus best practices?
@@ -88,7 +130,7 @@ When you delete a namespace from a subscription, wait for 4 hours before recreat
 For a list of possible Service Bus exceptions, see [Exceptions overview][Exceptions overview].
 
 ### What is a Shared Access Signature and which languages support generating a signature?
-Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node.js, PHP, Java, and C\#, see the [Shared Access Signatures][Shared Access Signatures] article.
+Shared Access Signatures are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node.js, PHP, Java, Python, and C#, see the [Shared Access Signatures][Shared Access Signatures] article.
 
 ## Subscription and namespace management
 ### How do I migrate a namespace to another Azure subscription?
@@ -97,7 +139,7 @@ You can move a namespace from one Azure subscription to another, using either th
 
 #### Portal
 
-To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+To use the Azure portal to migrate Service Bus namespaces to another subscription, follow the directions [here](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### PowerShell
 

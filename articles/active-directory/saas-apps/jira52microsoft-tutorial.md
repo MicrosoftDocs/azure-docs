@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Description
 
-Use your Microsoft Azure Active Directory account with Atlassian JIRA server to enable single sign-on. This way all your organization users can use the Azure AD credentials to signin into the JIRA application. This plugin uses SAML 2.0 for federation.
+Use your Microsoft Azure Active Directory account with Atlassian JIRA server to enable single sign-on. This way all your organization users can use the Azure AD credentials to sign in into the JIRA application. This plugin uses SAML 2.0 for federation.
 
 ## Prerequisites
 
@@ -62,7 +62,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 * JIRA also supports 6.0 to 7.12. For more details, click [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)
 
 > [!NOTE]
-> Please note that JIRA also supports Linux Ubuntu version 16.04
+> Please note that our JIRA Plugin also works on Ubuntu Version 16.04
 
 ## Scenario description
 
@@ -291,4 +291,4 @@ When you click the JIRA SAML SSO by Microsoft (V5.2) tile in the Access Panel, y
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -1,6 +1,6 @@
 ---
-title: Bash in Azure Cloud Shell Quickstart | Microsoft Docs
-description: Quickstart for Bash in Cloud Shell
+title: Azure Cloud Shell Quickstart | Microsoft Docs
+description: Quickstart for Azure Cloud Shell
 services: 
 documentationcenter: ''
 author: maertendMSFT

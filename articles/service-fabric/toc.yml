@@ -73,10 +73,14 @@
       href: service-fabric-tutorial-upgrade-cluster.md
     - name: 5- Delete a cluster
       href: service-fabric-tutorial-delete-cluster.md
-  - name: Create a standalone cluster on AWS
+  - name: Create a standalone cluster 
     items:
-    - name: 1- Create the infrastructure on AWS
-      href: service-fabric-tutorial-standalone-create-infrastructure.md
+    - name: 1- Create the infrastructure
+      items:
+      - name: Using AWS
+        href: service-fabric-tutorial-standalone-create-infrastructure.md
+      - name: Using Azure
+        href: service-fabric-tutorial-standalone-azure-create-infrastructure.md
     - name: 2- Set up Service Fabric
       href: service-fabric-tutorial-standalone-create-service-fabric-cluster.md
     - name: 3- Deploy an application into the cluster
@@ -97,12 +101,15 @@
     href: service-fabric-best-practices-infrastructure-as-code.md
   - name: Monitoring and diagnostics
     href: service-fabric-best-practices-monitoring.md
+  - name: Application design
+    href: service-fabric-best-practices-applications.md
   - name: Production readiness checklist
     href: service-fabric-production-readiness-checklist.md  
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=service-fabric
+    href: https://docs.microsoft.com/samples/browse/
+
   - name: Azure PowerShell
     href: service-fabric-powershell-samples.md
   - name: Service Fabric CLI
@@ -125,8 +132,8 @@
       href: service-fabric-application-and-service-security.md
     - name: Service Fabric Cluster security
       href: service-fabric-cluster-security.md
-    - name: Azure Common Security Attributes
-      href: service-fabric-security-attributes.md
+    - name: Built-in security controls
+      href: service-fabric-security-controls.md
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications
@@ -191,6 +198,8 @@
     items:
     - name: Application model
       href: service-fabric-application-model.md
+    - name: Create application model templates
+      href: service-fabric-concept-resource-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
     - name: Application and service manifest examples
@@ -268,7 +277,7 @@
       items:
       - name: Overview of Azure clusters
         href: service-fabric-azure-clusters-overview.md
-      - name: Node types and VM Scale Sets
+      - name: Node types and virtual machine scale sets
         href: service-fabric-cluster-nodetypes.md
       - name: Upgrading clusters in Azure
         href: service-fabric-cluster-upgrade.md
@@ -344,6 +353,13 @@
       href: service-fabric-diagnostics-partners.md
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
+  - name: App Resource model
+    href: service-fabric-concept-resource-model.md
+  - name: Managed Identity (preview)
+    href: concepts-managed-identity.md
+  - name: Configure container repository credentials
+    href: configure-container-repository-credentials.md
+  
 - name: How-to guides
   items:
   - name: Set up your development environment
@@ -515,6 +531,8 @@
         href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
       - name: Set up a Linux cluster on Windows
         href: service-fabric-local-linux-cluster-windows.md
+      - name: Deploy a .NET Core app to a remote Linux cluster from VS
+        href: service-fabric-how-to-publish-linux-app-vs.md
     - name: Work in a Linux/Eclipse dev environment
       items:
       - name: Get started with Eclipse plugin for Java development
@@ -539,8 +557,8 @@
       href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
     - name: Recommended practices
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
-    - name: Refactor a migrated app
-      href: /azure/architecture/service-fabric/refactor-migrated-app
+    - name: Modernize your application
+      href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
   - name: Manage application lifecycle
     items:
     - name: Package an application
@@ -609,6 +627,8 @@
           href: service-fabric-cluster-azure-deployment-preparation.md
         - name: Create in Azure portal
           href: service-fabric-cluster-creation-via-portal.md
+        - name: Deploy an Azure Service Fabric Cluster across Availability Zones
+          href: service-fabric-cross-availability-zones.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
         - name: Create a custom cluster template
@@ -639,8 +659,6 @@
           href: service-fabric-cluster-config-upgrade-azure.md
         - name: Patch cluster nodes (Windows)
           href: service-fabric-patch-orchestration-application.md
-        - name: Patch cluster nodes (Linux)
-          href: service-fabric-patch-orchestration-application-linux.md  
         - name: Enable disk encryption (Windows)
           href: service-fabric-enable-azure-disk-encryption-windows.md
         - name: Enable disk encryption (Linux)
@@ -691,6 +709,8 @@
     items:
     - name: Diagnose common scenarios
       href: service-fabric-diagnostics-common-scenarios.md
+    - name: Diagnose code package errors
+      href: service-fabric-diagnostics-code-package-errors.md
     - name: Monitor applications
       items:
       - name: Add logging to your application
@@ -731,6 +751,26 @@
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
+  - name: Use Managed Identity for Service Fabric apps (preview)
+    items:
+    - name: Cluster setup
+      items:
+      - name: Configure existing cluster with managed identity
+        href: configure-existing-cluster-enable-managed-identity-token-service.md
+      - name: Configure new Azure Service Fabric cluster with managed identity
+        href: configure-new-azure-service-fabric-enable-managed-identity.md
+    - name: Application setup
+      items:
+      - name: How to deploy application with managed identity
+        items:
+          - name: How to deploy application with a system-assigned managed identity
+            href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
+          - name: How to deploy application with a user-assigned managed identity
+            href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
+    - name: Use MITS with Service Fabric application code
+      href: how-to-managed-identity-service-fabric-app-code.md
+    - name: Grant access to other Azure resources
+      href: how-to-grant-access-other-resources.md
 
 - name: Reference
   items:
@@ -841,8 +881,8 @@
     href: https://azure.microsoft.com/pricing/details/service-fabric/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Troubleshooting guides
-    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
+  - name: Release notes
+    href: release-notes.md
   - name: Sample code
     href: https://aka.ms/servicefabricsamples
   - name: Support options
@@ -851,5 +891,7 @@
     href: service-fabric-versions.md
   - name: Service Updates
     href: https://azure.microsoft.com/updates/?product=service-fabric
+  - name: Troubleshooting guides
+    href: https://github.com/Azure/Service-Fabric-Troubleshooting-Guides
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric

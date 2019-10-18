@@ -5,19 +5,20 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
 # Use the Azure portal to access blob or queue data
 
-When you access blob or queue data using the [Azure portal](https://portal.azure.com), the portal makes requests to Azure Storage under the covers. These requests to Azure Storage can be authenticated and authorized using either your Azure AD account or the storage account access key. The portal indicates which authentication method you are using, and enables you to switch between the two if you have the appropriate permissions.  
+When you access blob or queue data using the [Azure portal](https://portal.azure.com), the portal makes requests to Azure Storage under the covers. A request to Azure Storage can be authorized using either your Azure AD account or the storage account access key. The portal indicates which method you are using, and enables you to switch between the two if you have the appropriate permissions.  
 
 ## Permissions needed to access blob or queue data
 
-Depending on how you want to authenticate access blob or queue data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via role-based access control (RBAC). For more information about RBAC, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
+Depending on how you want to authorize access to blob or queue data in the Azure portal, you'll need specific permissions. In most cases, these permissions are provided via role-based access control (RBAC). For more information about RBAC, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
 
 ### Account access key
 
@@ -37,7 +38,7 @@ When you attempt to access blob or queue data in the Azure portal, the portal fi
 To access blob or queue data from the Azure portal using your Azure AD account, both of the following statements must be true for you:
 
 - You have been assigned the Azure Resource Manager [Reader](../../role-based-access-control/built-in-roles.md#reader) role, at a minimum, scoped to the level of the storage account or higher. The **Reader** role grants the most restricted permissions, but another Azure Resource Manager role that grants access to storage account management resources is also acceptable.
-- You have been assigned either a built-in or custom role that provides access to blobs or queue data.
+- You have been assigned either a built-in or custom role that provides access to blob or queue data.
 
 The **Reader** role assignment or another Azure Resource Manager role assignment is necessary so that the user can view and navigate storage account management resources in the Azure portal. The RBAC roles that grant access to blob or queue data do not grant access to storage account management resources. To access blob or queue data in the portal, the user needs permissions to navigate storage account resources. For more information about this requirement, see [Assign the Reader role for portal access](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 

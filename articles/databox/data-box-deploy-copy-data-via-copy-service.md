@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Copy data to your Microsoft Azure Data Box device via the data copy service | Microsoft Docs'
+title: Tutorial to copy data to Azure Data Box device via data copy service | Microsoft Docs
 description: In this tutorial, you learn how to copy data to your Azure Data Box device via the data copy service
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/24/2019
+ms.date: 06/18/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -55,7 +55,7 @@ To copy data by using the data copy service, you need to create a job:
     |-------------------------------|---------|
     |**Job name**                       |A unique name fewer than 230 characters for the job. These characters aren't allowed in the job name: \<, \>, \|, \?, \*, \\, \:, \/, and \\\.         |
     |**Source location**                |Provide the SMB path to the data source in the format: `\\<ServerIPAddress>\<ShareName>` or `\\<ServerName>\<ShareName>`.        |
-    |**Username**                       |Username in `\\<DomainName><UserName>` format to access the data source.        |
+    |**Username**                       |Username in `\\<DomainName><UserName>` format to access the data source. If a local administrator is connecting, they will need explicit security permissions. Right-click the folder, select **Properties** and then select **Security**. This should add the local administrator in the **Security** tab.       |
     |**Password**                       |Password to access the data source.           |
     |**Destination storage account**    |Select the target storage account to upload data to from the list.         |
     |**Destination type**       |Select the target storage type from the list: **Block Blob**, **Page Blob**, or **Azure Files**.        |

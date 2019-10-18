@@ -1,17 +1,17 @@
 ---
-title: 'Common questions: Azure-to-Azure disaster recovery with Azure Site Recovery | Microsoft Docs'
-description: This article summarizes common questions when you set up disaster recovery of Azure VMs to another Azure region by using Azure Site Recovery
+title: Common questions about Azure-to-Azure disaster recovery with Azure Site Recovery
+description: This article answers common questions about disaster recovery of Azure VMs to another Azure region using Azure Site Recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/29/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
 
 ---
-# Common questions: Azure-to-Azure replication
+# Common questions: Azure-to-Azure disaster recovery
 
-This article provides answers to common questions about deploying disaster recovery (DR) of Azure VMs to another Azure region by using Azure Site Recovery. If you have questions after reading this article, post them on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+This article provides answers to common questions about disaster recovery of Azure VMs to another Azure region by using [Site Recovery](site-recovery-overview.md). 
 
 
 ## General
@@ -23,20 +23,28 @@ Every instance that is protected with Azure Site Recovery is free for the first 
 ### During the first 31 days, will I incur any other Azure charges?
 Yes, even though Azure Site Recovery is free during the first 31 days of a protected instance, you might incur charges for Azure Storage, storage transactions and data transfer. A recovered virtual machine might also incur Azure compute charges. Get complete details on pricing [here](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### What are the best practices for configuring Site Recovery on Azure VMs?
+### Where can I find best practices for Azure VM disaster recovery? 
 1. [Understand Azure-to-Azure architecture](azure-to-azure-architecture.md)
 2. [Review the supported and not-supported configurations](azure-to-azure-support-matrix.md)
 3. [Set up disaster recovery for Azure VMs](azure-to-azure-how-to-enable-replication.md)
 4. [Run a test failover](azure-to-azure-tutorial-dr-drill.md)
 5. [Fail over and fail back to the primary region](azure-to-azure-tutorial-failover-failback.md)
 
-### How is capacity guaranteed in target region for Azure VMs?
-The Azure Site Recovery (ASR) team works with Azure capacity management team to plan for sufficient infrastructure capacity, in an attempt to ensure that VMs protected by ASR for disaster recovery will successfully be deployed in the disaster recovery (DR) region, whenever ASR failover operations are initiated.
+### How is capacity guaranteed in the target region?
+The Site Recovery team works with the Azure capacity management team to plan sufficient infrastructure capacity, and to help ensure that VMs protected by Site Recovery for will successfully be deployed target region when failover is initiated.
 
 ## Replication
 
 ### Can I replicate VMs enabled through Azure disk encryption?
-Yes, you can replicate them. See the article [Replicate Azure disk encryption enabled virtual machines to another Azure region](azure-to-azure-how-to-enable-replication-ade-vms.md). Currently, Azure Site Recovery supports only Azure VMs that are running a Windows OS and enabled for encryption with Azure Active Directory (Azure AD) apps.
+
+Yes, Site Recovery supports disaster recovery of VMs with Azure disk encryption (ADE) enabled. When you enable replication, all the required disk encryption keys and secrets are copied from the source region to the target region in the user context. If you don't have appropriate permission, a ready-to-use script can be handed to the security administrator, to copy the keys and secrets.
+
+- Site Recovery supports ADE for Azure VMs running Windows.
+- Site recovery supports ADE version 0.1, with a schema using Azure Active Directory (AAD), and version 1.1, without AAD. [Learn more](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- ADE version 1.1, the Windows VMs must be used managed disks.
+- [Learn more](azure-to-azure-how-to-enable-replication-ade-vms.md) about enabling replication for encrypted VMs.
+
+
 
 ### Can I replicate VMs to another subscription?
 Yes, you can replicate Azure VMs to a different subscription within the same Azure AD tenant.
@@ -48,6 +56,16 @@ Yes, you can [replicate zone-pinned VMs](https://azure.microsoft.com/blog/disast
 ### Can I exclude disks?
 
 Yes, you can exclude disks at the time of protection by using PowerShell. For more information, refer [article](azure-to-azure-exclude-disks.md)
+
+### Can I add new disks to replicated VMs and enable replication for them?
+
+Yes, this is supported for Azure VMs with managed disks. When you add a new disk to an Azure VM that’s enabled for replication, replication health for the VM shows a warning, with a note specifying that one or more disks on the VM are available for protection. You can enable replication for added disks.
+- If you enable protection for the added disks, the warning will disappear after the initial replication.
+- If you choose not to enable replication for the disk, you can select to dismiss the warning.
+- When you fail over a VM to which you add a disk and enable replication for it, replication points will show the disks that are available for recovery. For example, if a VM has a single disk and you add a new one, replication points that were created before you added the disk will show that the replication point consists of "1 of 2 disks".
+
+Site Recovery doesn’t support “hot remove” of a disk from a replicated VM. If you remove a VM disk, you need to disable and then re-enable replication for the VM.
+
 
 ### How often can I replicate to Azure?
 Replication is continuous when you're replicating Azure VMs to another Azure region. For more information, see the [Azure-to-Azure replication architecture](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
@@ -62,9 +80,9 @@ With Site Recovery, you can replicate and recover VMs between any two regions wi
 
 No, Site Recovery does not require internet connectivity. But it does require access to Site Recovery URLs and IP ranges, as mentioned in [this article](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-### Can I replicate the application having separate resource group for separate tiers? 
+### Can I replicate the application having separate resource group for separate tiers?
 Yes, you can replicate the application and keep the disaster recovery configuration in separate resource group too.
-For example, if you have an application with each tiers app, db and web in separate resource group, then you have to click the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice to protect all the tiers. ASR will replicate these three tiers in three different resource group.
+For example, if you have an application with each tiers app, db and web in separate resource group, then you have to click the [replication wizard](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) thrice to protect all the tiers. Site Recovery will replicate these three tiers in three different resource groups.
 
 ## Replication policy
 
@@ -84,12 +102,12 @@ Today, most applications can recover well from crash-consistent snapshots. A cra
 ### What is the frequency of crash-consistent recovery point generation?
 Site Recovery creates a crash-consistent recovery point every 5 minutes.
 
-### What is an application-consistent recovery point? 
-Application-consistent recovery points are created from application-consistent snapshots. Application-consistent recovery points capture the same data as crash-consistent snapshots, with the addition of all data in memory and all transactions in process. 
+### What is an application-consistent recovery point?
+Application-consistent recovery points are created from application-consistent snapshots. Application-consistent recovery points capture the same data as crash-consistent snapshots, with the addition of all data in memory and all transactions in process.
 Because of their extra content, application-consistent snapshots are the most involved and take the longest to perform. We recommend application-consistent recovery points for database operating systems and applications such as SQL Server.
 
 ### What is the impact of application-consistent recovery points on application performance?
-Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This, if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for app-consistent recovery points for non- database workloads and even for database workload 1 hour is enough. 
+Considering application-consistent recovery points captures all the data in memory and in process it requires the framework like VSS on windows to quiesce the application. This, if done very frequently can have performance impact if the workload is already very busy. It is usually suggested not to use low frequency for app-consistent recovery points for non- database workloads and even for database workload 1 hour is enough.
 
 ### What is the minimum frequency of application-consistent recovery point generation?
 Site Recovery can creates an application-consistent recovery point with a minimum frequency of in 1 hour.
@@ -128,7 +146,7 @@ Yes. If you increase the retention period from 24 hours to 72 hours, Site Recove
 It means making sure that the recovery point is consistent across all the replicated virtual machines.
 Site Recovery provides an option of "Multi-VM consistency," which, when you select it, creates a replication group to replicate all the machines together that are part of the group.
 All the virtual machines will have shared crash-consistent and app-consistent recovery points when they're failed over.
-Go through the tutorial to [enable Multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
+Go through the tutorial to [enable Multi-VM consistency](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication-for-a-vm).
 
 ### Can I failover single virtual machine within a Multi-VM consistency replication group?
 By selecting the "Multi-VM consistency" option, you are stating that the application has a dependency on all the virtual machines within a group. Hence, single virtual machine failover is not allowed.
@@ -142,8 +160,8 @@ Because it is CPU intensive, enabling Multi-VM consistency can affect workload p
 
 ## Failover
 
-### How is capacity guaranteed in target region for Azure VMs?
-The Azure Site Recovery (ASR) team works with Azure capacity management team to plan for sufficient infrastructure capacity, in an attempt to ensure that VMs protected by ASR for disaster recovery will successfully be deployed in the disaster recovery (DR) region, whenever ASR failover operations are initiated.
+### How is capacity assured in target region for Azure VMs?
+The Site Recovery team works with Azure capacity management team to plan for sufficient infrastructure capacity, to help ensure that VMs enabled for disaster recovery will be deployed successfully in the target region when failover is initiated.
 
 ### Is failover automatic?
 
@@ -151,15 +169,19 @@ Failover isn't automatic. You start failovers with a single click in the portal,
 
 ### Can I retain a public IP address after failover?
 
-The public IP address of the production application *cannot be retained on failover*. Workloads brought up as part of the failover process must be assigned an Azure public IP resource that's available in the target region. You can do this step manually or automate it through a recovery plan. To assign a public IP address by using a recovery plan, see [Set up public IP addresses after failover](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan).  
+The public IP address of the production application can't be retained after failover.
+- Workloads brought up as part of the failover process must be assigned an Azure public IP resource that's available in the target region.
+- You can do this manually, or automate it with a recovery plan.
+- Learn how to [set up public IP addresses after failover](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
 
 ### Can I retain a private IP address during failover?
-Yes, you can retain a private IP address. By default, when you enable DR for Azure VMs, Site Recovery creates target resources based on source resource settings. For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use. To retain private IP address under different conditions, see [Retain IP addresses during failover](site-recovery-retain-ip-azure-vm-failover.md).
+Yes, you can keep a private IP address. By default, when you enable disaster recovery for Azure VMs, Site Recovery creates target resources based on source resource settings. - For Azure VMs configured with static IP addresses, Site Recovery tries to provision the same IP address for the target VM, if it's not in use.
+Learn about [retaining IP addresses during failover](site-recovery-retain-ip-azure-vm-failover.md).
 
-### After failover, the server doesn't have the same IP address as the source VM. Why is it assigned a new IP address?
+### After failover, why is the server assigned a new IP address?
 
 Site Recovery tries to provide the IP address at the time of failover. If another virtual machine is taking that address, Site Recovery sets the next available IP address as the target.
-For a full explanation of how Site Recovery handles addressing, see [Set up network mapping and IP addressing for virtual networks](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
+Learn more about [setting up network mapping and IP addressing for VNets](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
 ### What are **Latest (lowest RPO)** recovery points?
 The **Latest (lowest RPO)** option first processes all the data that has been sent to the Site Recovery service, to create a recovery point for each VM before failing over to it. This option provides the lowest recovery point objective (RPO), because the VM created after failover has all the data replicated to Site Recovery when the failover was triggered.
@@ -170,10 +192,10 @@ Yes. Site Recovery processes all pending data before failing over, so this optio
 ### What does the **Latest processed** option in recovery points mean?
 The **Last processed** option fails over all VMs in the plan to the latest recovery point that Site Recovery processed. To see the latest recovery point for a specific VM, check **Latest Recovery Points** in the VM settings. This option provides a low RTO, because no time is spent processing unprocessed data.
 
-### If I'm replicating between two Azure regions, what happens if my primary region experiences an unexpected outage?
+### What happens if my primary region experiences an unexpected outage?
 You can trigger a failover after the outage. Site Recovery doesn't need connectivity from the primary region to perform the failover.
 
-### What is a RTO of a virtual machine failover ?
+### What is a RTO of a VM failover ?
 Site Recovery has a [RTO SLA of 2 hours](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). However, most of the time, Site Recovery fail over virtual machines within minutes. You can calculate the RTO by going to the failover Jobs which shows the time it took to bring up the VM. For Recovery plan RTO, refer below section.
 
 ## Recovery plans
@@ -209,21 +231,27 @@ No. When you [fail over](https://docs.microsoft.com/azure/site-recovery/azure-to
 It depends on the situation. For example, if the source region VM exists, only changes between the source disk and the target disk are synchronized. Site Recovery computes the differentials by comparing the disks, and then it transfers the data. This process usually takes a few hours. For more information about what happens during reprotection, see [Reprotect failed over Azure VMs to the primary region]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### How much time does it take to fail back?
-After reprotection, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region.
+After reprotection, the amount of time for failback is generally similar to the time that was needed for failover from the primary region to a secondary region.
 
-## Capacity
-### Does Site Recovery work with Reserved Instance?
-Yes, You can purchase [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the DR region and ASR failover operations will use them. </br> No additional configuration is required from the customers.
+## <a name="capacity"></a>Capacity
+
+### How is capacity assured in target region for Azure VMs?
+The Site Recovery team works with Azure capacity management team to plan for sufficient infrastructure capacity, to help ensure that VMs enabled for disaster recovery will successfully be deployed in the target region when failover is initiated.
+
+### Does Site Recovery work with reserved instances?
+Yes, You can purchase [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the disaster recovery region, and Site Recovery failover operations will use them. </br> No additional configuration is needed.
 
 
 ## Security
+
 ### Is replication data sent to the Site Recovery service?
-No, Site Recovery doesn't intercept replicated data, and it doesn't have any information about what's running on your virtual machines. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
+No, Site Recovery doesn't intercept replicated data, and  doesn't have any information about what's running on your VMs. Only the metadata needed to orchestrate replication and failover is sent to the Site Recovery service.  
 Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the process of SOC2 and FedRAMP JAB assessments.
 
 ### Does Site Recovery encrypt replication?
-Yes, both encryption-in-transit and [encryption in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
+Yes, both encryption-in-transit and [encryption at-rest in Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) are supported.
 
 ## Next steps
 * [Review](azure-to-azure-support-matrix.md) support requirements.
 * [Set up](azure-to-azure-tutorial-enable-replication.md) Azure to Azure replication.
+- If you have questions after reading this article, post them on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).

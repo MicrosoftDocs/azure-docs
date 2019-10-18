@@ -3,8 +3,8 @@ title: Azure CLI commands in Resource Manager mode | Microsoft Docs
 description: Azure command line interface (CLI) commands to manage resources in the Resource Manager deployment model
 services: virtual-machines-linux,virtual-machines-windows,virtual-network,mobile-services,cloud-services
 documentationcenter: ''
-author: dlepow
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: command-line-interface
 ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
-ms.author: danlep
+ms.author: cynthn
 
 ---
 # Azure CLI commands in Resource Manager mode
@@ -966,6 +966,7 @@ Parameter options:
      -s, --subscription <subscription>      the subscription identifier
 
 <BR>
+
     network lb address-pool delete [options] <resource-group> <lb-name> <name>
 
 Removes the backend IP pool range resource from load balancer.
@@ -1330,6 +1331,7 @@ Parameter options:
     -s, --subscription <subscription>            the subscription identifier
 
 <br>
+
     network public-ip list [options] <resource-group>
 Lists all public IP resources within a resource group.
 
@@ -1351,7 +1353,9 @@ Parameter options:
     --json                                 use json output
     -g, --resource-group <resource-group>  the name of the resource group
     -s, --subscription <subscription>      the subscription identifier
+
 <BR>
+
     network public-ip show [options] <resource-group> <name>
 
 Displays public ip properties for a public ip resource within a resource group.

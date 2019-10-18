@@ -1,5 +1,5 @@
 ---
-title: Transform data with Azure Data Box Edge | Microsoft Docs
+title: Tutorial to filter, analyze data with compute on Azure Data Box Edge | Microsoft Docs
 description: Learn how to configure compute role on Data Box Edge and use it to transform data before sending to Azure.
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ---
@@ -57,6 +57,9 @@ To configure compute on your Data Box Edge, you'll create an IoT Hub resource.
     
     ![Get started with compute](./media/data-box-edge-deploy-configure-compute/configure-compute-3.png)
 
+    > [!NOTE]
+    > If the **Configure Compute** dialog is closed before the IoT Hub is associated with the Data Box Edge device, the IoT Hub gets created but is not shown in the compute configuration. 
+    
     When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource. An IoT Edge Runtime is also running on this IoT Edge device. At this point, only the Linux platform is available for your IoT Edge device.
 
 

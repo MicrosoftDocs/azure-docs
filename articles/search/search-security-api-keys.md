@@ -2,20 +2,20 @@
 title: Create, manage, and secure admin and query api-keys - Azure Search
 description: api-keys control access to the service endpoint. Admin keys grant write access. Query keys can be created for read-only access.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 tags: azure-portal
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 
 ---
 
 # Create and manage api-keys for an Azure Search service
 
-All requests to a search service need a read-only api-key that was generated specifically for your service. The api-key is the sole mechanism for authenticating access to your search service endpoint and must be included on every request. In [REST solutions](search-get-started-nodejs.md#update-the-configjs-with-your-search-service-url-and-api-key), the api-key is typically specified in a request header. In [.NET solutions](search-howto-dotnet-sdk.md#core-scenarios), a key is often specified as a configuration setting and then passed as [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (admin key) or [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (query key) on [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
+All requests to a search service need a read-only api-key that was generated specifically for your service. The api-key is the sole mechanism for authenticating access to your search service endpoint and must be included on every request. In [REST solutions](search-get-started-postman.md), the api-key is typically specified in a request header. In [.NET solutions](search-howto-dotnet-sdk.md#core-scenarios), a key is often specified as a configuration setting and then passed as [Credentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (admin key) or [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (query key) on [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
 
 Keys are created with your search service during service provisioning. You can view and obtain key values in the [Azure portal](https://portal.azure.com).
 
@@ -30,7 +30,7 @@ Two types of keys are used to access your search service: admin (read-write) and
 |Key|Description|Limits|  
 |---------|-----------------|------------|  
 |Admin|Grants full rights to all operations, including the ability to manage the service, create and delete indexes, indexers, and data sources.<br /><br /> Two admin keys, referred to as *primary* and *secondary* keys in the portal, are generated when the service is created and can be individually regenerated on demand. Having two keys allows you to roll over one key while using the second key for continued access to the service.<br /><br /> Admin keys are only specified in HTTP request headers. You cannot place an admin api-key in a URL.|Maximum of 2 per service|  
-|Query|Grants read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.<br /><br /> Query keys are created on demand. You can create them manually in the portal or programmatically via the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Query keys can be specified  in an HTTP request header for search, suggestion, or lookup operation. Alternatively, you can pass a query key  as a parameter on a URL. Depending on how your client application formulates the request, it might be easier to pass the key as a query parameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2017-11-11&api-key=[query key]`|50 per service|  
+|Query|Grants read-only access to indexes and documents, and are typically distributed to client applications that issue search requests.<br /><br /> Query keys are created on demand. You can create them manually in the portal or programmatically via the [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> Query keys can be specified  in an HTTP request header for search, suggestion, or lookup operation. Alternatively, you can pass a query key  as a parameter on a URL. Depending on how your client application formulates the request, it might be easier to pass the key as a query parameter:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06&api-key=[query key]`|50 per service|  
 
  Visually, there is no distinction between an admin key or query key. Both keys are strings composed of 32 randomly generated alpha-numeric characters. If you lose track of what type of key is specified in your application, you can [check the key values in the portal](https://portal.azure.com) or use the [REST API](https://docs.microsoft.com/rest/api/searchmanagement/) to return the value and key type.  
 

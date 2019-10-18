@@ -10,13 +10,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: brahmnes
-ms.date: 03/07/2019
+ms.date: 08/06/2019
 ms.author: mbullwin
 ---
 # Debug snapshots on exceptions in .NET apps
 When an exception occurs, you can automatically collect a debug snapshot from your live web application. The snapshot shows the state of source code and variables at the moment the exception was thrown. The Snapshot Debugger (preview) in [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors exception telemetry from your web app. It collects snapshots on your top-throwing exceptions so that you have the information you need to diagnose issues in production. Include the [Snapshot collector NuGet package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) in your application, and optionally configure collection parameters in [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Snapshots appear on [exceptions](../../azure-monitor/app/asp-net-exceptions.md) in the Application Insights portal.
 
-You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2017 Enterprise. In Visual Studio, you can also [set Snappoints to interactively take snapshots](https://aka.ms/snappoint) without waiting for an exception.
+You can view debug snapshots in the portal to see the call stack and inspect variables at each call stack frame. To get a more powerful debugging experience with source code, open snapshots with Visual Studio 2019 Enterprise. In Visual Studio, you can also [set Snappoints to interactively take snapshots](https://aka.ms/snappoint) without waiting for an exception.
 
 Debug snapshots are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
@@ -75,9 +75,9 @@ In the Debug Snapshot view, you see a call stack and a variables pane. When you 
 Snapshots might include sensitive information, and by default they aren't viewable. To view snapshots, you must have the `Application Insights Snapshot Debugger` role assigned to you.
 
 ## View Snapshots in Visual Studio 2017 Enterprise or above
-1. Click the **Download Snapshot** button to download a `.diagsession` file, which can be opened by Visual Studio 2017 Enterprise.
+1. Click the **Download Snapshot** button to download a `.diagsession` file, which can be opened by Visual Studio Enterprise.
 
-2. To open the `.diagsession` file, you need to have the Snapshot Debugger VS component installed. The Snapshot Debugger component is a required component of the ASP.net workload in VS and can be selected from the Individual Component list in the VS installer. If you are using a version of Visual Studio 2017 prior to 15.5 you will need to install the extension from the [VS marketplace](https://aka.ms/snapshotdebugger).
+2. To open the `.diagsession` file, you need to have the Snapshot Debugger Visual Studio component installed. The Snapshot Debugger component is a required component of the ASP.net workload in Visual Studio and can be selected from the Individual Component list in the Visual Studio installer. If you are using a version of Visual Studio prior to Visual Studio 2017 version 15.5, you will need to install the extension from the [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. After you open the snapshot file, the Minidump Debugging page in Visual Studio appears. Click **Debug Managed Code** to start debugging the snapshot. The snapshot opens to the line of code where the exception was thrown so that you can debug the current state of the process.
 
@@ -106,7 +106,7 @@ The main process continues to run and serve traffic to users with little interru
 
 ## Limitations
 
-The default data retention period is 7 days. For each Application Insights instance, a maximum number of 50 snapshots is allowed per day.
+The default data retention period is 15 days. For each Application Insights instance, a maximum number of 50 snapshots is allowed per day.
 
 ### Publish symbols
 The Snapshot Debugger requires symbol files on the production server to decode variables and to provide a debugging experience in Visual Studio.
@@ -117,6 +117,10 @@ Version 15.2 (or above) of Visual Studio 2017 publishes symbols for release buil
 ```
 
 For Azure Compute and other types, make sure that the symbol files are in the same folder of the main application .dll (typically, `wwwroot/bin`) or are available on the current path.
+
+> [!NOTE]
+> For more information on the different symbol options that are available consult the [Visual Studio documentation](https://docs.microsoft.com/visualstudio/ide/reference/advanced-build-settings-dialog-box-csharp?view=vs-2019#output
+). For best results, we recommend using “Full”, “Portable” or “Embedded”.
 
 ### Optimized builds
 In some cases, local variables can't be viewed in release builds because of optimizations that are applied by the JIT compiler.

@@ -3,8 +3,8 @@ title: Manage packet captures with Azure Network Watcher - PowerShell | Microsof
 description: This page explains how to manage the packet capture feature of Network Watcher using PowerShell
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Manage packet captures with Azure Network Watcher using PowerShell
@@ -126,8 +126,7 @@ Once the preceding steps are complete, the packet capture agent is installed on 
 The next step is to retrieve the Network Watcher instance. This variable is passed to the `New-AzNetworkWatcherPacketCapture` cmdlet in step 4.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName  
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
 ### Step 2

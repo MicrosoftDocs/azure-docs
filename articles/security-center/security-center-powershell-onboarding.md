@@ -3,18 +3,16 @@ title: Use PowerShell to onboard Azure Security Center and protect your network 
 description: This document walks you through the process of onboarding Azure Security Center using PowerShell cmdlets.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: e400fcbf-f0a8-4e10-b571-5a0d0c3d0c67
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/2/2018
-ms.author: rkarlin
+ms.date: 10/02/2018
+ms.author: memildin
 
 ---
 # Automate onboarding of Azure Security Center using PowerShell
@@ -97,7 +95,7 @@ You can now use these PowerShell cmdlets with automation scripts to programmatic
 ## See also
 To learn more about how you can use PowerShell to automate onboarding to Security Center, see the following article:
 
-* [Az.Security](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Security/Commands.Security/help/Az.Security.md).
+* [Az.Security](https://docs.microsoft.com/powershell/module/az.security).
 
 To learn more about Security Center, see the following article:
 

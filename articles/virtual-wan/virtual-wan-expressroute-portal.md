@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 06/10/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
@@ -42,7 +42,8 @@ Before you can configure Virtual WAN, you must first enroll your subscription in
 
 **Preview Considerations:**
 
-The ExpressRoute circuit must be enabled in a country that supports [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
+  * The ExpressRoute circuit must be enabled in a country/region that supports [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
+  * The ExpressRoute circuit must be a Premium circuit in order to connect to Virtual WAN hub. 
 
 ## <a name="vnet"></a>1. Create a virtual network
 

@@ -7,8 +7,9 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 10/11/2019
 ms.author: juliako
 ---
 
@@ -755,7 +756,7 @@ Video Indexer identifies emotions based on speech and audio cues. The identified
 
 #### topics
 
-Video Indexer makes inference of main topics from transcripts. When possible, the 1st-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
+Video Indexer makes inference of main topics from transcripts. When possible, the 2nd-level [IPTC](https://iptc.org/standards/media-topics/) taxonomy is included. 
 
 |Name|Description|
 |---|---|

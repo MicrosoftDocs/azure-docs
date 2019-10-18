@@ -1,5 +1,5 @@
 ---
-title: Copy data to  your Microsoft Azure Data Box via NFS| Microsoft Docs
+title: Tutorial to copy data to Azure Data Box via NFS| Microsoft Docs
 description: Learn how to copy data to your Azure Data Box via NFS
 services: databox
 author: alkohli
@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 06/25/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -84,6 +84,12 @@ Once you are connected to the Data Box shares, the next step is to copy data. Be
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 - We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
 - **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
+- If ingesting case-sensitive directory and file names from an NFS share to NFS on Data Box: 
+    - The case is preserved in the name.
+    - The files are case-insensitive.
+    
+    For example, if copying `SampleFile.txt` and `Samplefile.Txt`, the case will be preserved in the name when copied to Data Box but the second file will overwrite the first one as these are considered the same file.
+
 
 If you're using a Linux host computer, use a copy utility similar to Robocopy. Some of the alternatives available in Linux are [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).  
 
@@ -126,7 +132,9 @@ If using rsync option for a multi-threaded copy, follow these guidelines:
 > [!IMPORTANT]
 > The following Linux file types are not supported: symbolic links, character files, block files, sockets, and pipes. These file types will result in failures during the **Prepare to ship** step.
 
-- To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
+Open the target folder to view and verify the copied files. If you have any errors during the copy process, download the error files for troubleshooting. For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
+
+To ensure data integrity, checksum is computed inline as the data is copied. Once the copy is complete, verify the used space and the free space on your device.
     
    ![Verify free and used space on dashboard](media/data-box-deploy-copy-data/verify-used-space-dashboard.png)
 

@@ -1,15 +1,15 @@
 ---
 title: Create Apache Hadoop clusters using .NET - Azure HDInsight 
 description: Learn how to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on Linux for HDInsight using the HDInsight .NET SDK.
-services: hdinsight
-author: mamccrea
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.author: mamccrea
+ms.author: hrasheed
 ---
+
 # Create Linux-based clusters in HDInsight using the .NET SDK
 
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -28,11 +28,11 @@ Learn how to create an [Apache Hadoop](https://hadoop.apache.org/) cluster in Az
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * **An Azure storage account**. See [Create a storage account](../storage/common/storage-quickstart-create-account.md).
-* **Visual Studio 2013, Visual Studio 2015 or Visual Studio 2017**.
+* **Visual Studio**.
 
 ## Create clusters
 
-1. Open Visual Studio 2017.
+1. Open Visual Studio.
 2. Create a new Visual C# console application.
 3. From the **Tools** menu, click **NuGet Package Manager**, and then click **Package Manager Console**.
 4. Run the following command in the console to install the packages:
@@ -388,7 +388,6 @@ Now that you have successfully created an HDInsight cluster, use the following t
 
 ### Run jobs
 * [Run Apache Hive jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
-* [Run Apache Pig jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md)
 * [Run Apache Sqoop jobs in HDInsight using .NET SDK](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md)
 * [Run Apache Oozie jobs in HDInsight](hdinsight-use-oozie-linux-mac.md)
 

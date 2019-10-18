@@ -3,18 +3,14 @@ title: Protecting App Services in Azure Security Center | Microsoft Docs
 description: This article helps you to get started protecting your App Services in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: monhaber
-manager: barbkess
-editor: ''
+author: memildin
+manager: rkarlin
 
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
 ms.service: security-center
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 1/27/2019
-ms.author: monhaber
+ms.date: 01/27/2019
+ms.author: memildin
 
 ---
 # Protect App Service with Azure Security Center
@@ -43,9 +39,8 @@ Security Center is natively integrated with App Service, eliminating the need fo
 ## Enabling monitoring and protection of App Service
 
 1. In Azure, choose Security Center.
-2. Go to **Security policy** and choose a subscription.
-3. At the end of the row of the subscription, click **Edit settings**.
-4. Under **Pricing tier**, in the **App service** row, toggle your plan to **Enabled**.
+2. Go to **Pricing & settings** and choose a subscription.
+3. Under **Pricing tier**, in the **App service** row, toggle your plan to **Enabled**.
 
 ![app service toggle](./media/security-center-app-services/app-services-toggle.png)
 

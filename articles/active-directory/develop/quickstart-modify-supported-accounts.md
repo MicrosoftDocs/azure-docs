@@ -1,10 +1,10 @@
 ---
-title: Modify the accounts supported by an application registered with the Microsoft identity platform | Azure
+title: Modify Microsoft identify platform app accounts | Azure
 description: Configure an application registered with the Microsoft identity platform to change who, or what accounts, can access the application.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an application developer, I need to know how to modify the accounts supported by my application.
 ms.collection: M365-identity-device-management
 ---
 
-# Quickstart: Modify the accounts supported by an application (Preview)
+# Quickstart: Modify the accounts supported by an application
 
 When registering an application in the Microsoft identity platform, you may want your application to be accessed only by users in your organization. Alternatively, you may also want your application to be accessible by users in external organizations, or by users in external organizations as well as users that are not necessarily part of an organization (personal accounts).
 
@@ -34,7 +34,6 @@ To get started, make sure you complete these prerequisites:
 * Learn about the supported [permissions and consent](v2-permissions-and-consent.md), which is important to understand when building applications that need to be used by other users or applications.
 * Have a tenant that has applications registered to it.
   * If you don't have apps registered, [learn how to register applications with the Microsoft identity platform](quickstart-register-app.md).
-* Opt-in to the Preview experience for app registrations in the Azure portal. The steps in this quickstart correspond to the new UI and only work if you opted-in to the Preview experience.
 
 ## Sign in to the Azure portal and select the app
 
@@ -42,7 +41,7 @@ Before you can configure the app, follow these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations (Preview)**.
+1. In the left-hand navigation pane, select the **Azure Active Directory** service and then select **App registrations**.
 1. Find and select the application you want to configure. Once you've selected the app, you'll see the application's **Overview** or main registration page.
 1. Follow the steps to [change the application registration to support different accounts](#change-the-application-registration-to-support-different-accounts).
 1. If you have a single-page application, [enable OAuth 2.0 implicit grant](#enable-oauth-20-implicit-grant-for-single-page-applications).

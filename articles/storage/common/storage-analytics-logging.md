@@ -1,15 +1,15 @@
 ---
-title: "Azure Storage Analytics logging"
+title: Azure Storage Analytics logging
 description: Learn how to log details about requests made against Azure Storage.
-services: storage
-author: fhryo-msft
-
+author: normesta
 ms.service: storage
-ms.topic: article
-ms.date: 03/11/2019
-ms.author: fryu
 ms.subservice: common
+ms.topic: conceptual
+ms.date: 03/11/2019
+ms.author: normesta
+ms.reviewer: fryu
 ---
+
 # Azure Storage analytics logging
 
 Storage Analytics logs detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
@@ -20,6 +20,8 @@ Storage Analytics logs detailed information about successful and failed requests
 
 > [!NOTE]
 >  Storage Analytics logging is currently available only for the Blob, Queue, and Table services. However, premium storage account is not supported.
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Requests logged in logging
 ### Logging authenticated requests
@@ -71,7 +73,7 @@ Most storage browsing tools enable you to view the metadata of blobs; you can al
  }  
  ```  
 
-For information about listing blobs programmatically, see [Enumerating Blob Resources](http://msdn.microsoft.com/library/azure/hh452233.aspx) and [Setting and Retrieving Properties and Metadata for Blob Resources](http://msdn.microsoft.com/library/azure/dd179404.aspx).  
+For information about listing blobs programmatically, see [Enumerating Blob Resources](https://msdn.microsoft.com/library/azure/hh452233.aspx) and [Setting and Retrieving Properties and Metadata for Blob Resources](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
 
 ### Log naming conventions
 

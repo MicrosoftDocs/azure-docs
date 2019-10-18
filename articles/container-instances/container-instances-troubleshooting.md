@@ -3,18 +3,20 @@ title: Troubleshooting Azure Container Instances
 description: Learn how to troubleshoot issues with Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
 ---
 
 # Troubleshoot common issues in Azure Container Instances
 
-This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances.
+This article shows how to troubleshoot common issues for managing or deploying containers to Azure Container Instances. See also [Frequently asked questions](container-instances-faq.md).
+
+If you need additional support, see available **Help + support** options in the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## Naming conventions
 
@@ -42,11 +44,7 @@ If you specify an image that Azure Container Instances doesn't support, an `OsVe
 }
 ```
 
-This error is most often encountered when deploying Windows images that are based on a Semi-Annual Channel (SAC) release. For example, Windows versions 1709 and 1803 are SAC releases, and generate this error upon deployment.
-
-Azure Container Instances currently supports Windows images based only on the **Windows Server 2016 Long-Term Servicing Channel (LTSC)** release. To mitigate this issue when deploying Windows containers, always deploy Windows Server 2016 (LTSC)-based images. Images based on Windows Server 2019 (LTSC) are not supported.
-
-For details about the LTSC and SAC versions of Windows, see [Windows Server Semi-Annual Channel overview][windows-sac-overview].
+This error is most often encountered when deploying Windows images that are based on Semi-Annual Channel release 1709 or 1803, which are not supported. For supported Windows images in Azure Container Instances, see [Frequently asked questions](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## Unable to pull image
 
@@ -98,7 +96,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -152,7 +150,7 @@ The two primary factors that contribute to container startup time in Azure Conta
 * [Image size](#image-size)
 * [Image location](#image-location)
 
-Windows images have [additional considerations](#cached-windows-images).
+Windows images have [additional considerations](#cached-images).
 
 ### Image size
 
@@ -172,14 +170,12 @@ The key to keeping image sizes small is ensuring that your final image does not 
 
 Another way to reduce the impact of the image pull on your container's startup time is to host the container image in [Azure Container Registry](/azure/container-registry/) in the same region where you intend to deploy container instances. This shortens the network path that the container image needs to travel, significantly shortening the download time.
 
-### Cached Windows images
+### Cached images
 
-Azure Container Instances uses a caching mechanism to help speed container startup time for images based on common Windows and Linux images. For a detailed list of cached images and tags, use the [List Cached Images][list-cached-images] API.
+Azure Container Instances uses a caching mechanism to help speed container startup time for images built on common [Windows base images](container-instances-faq.md#what-windows-base-os-images-are-supported), including `nanoserver:1809`, `servercore:ltsc2019`, and `servercore:1809`. Commonly used Linux images such as `ubuntu:1604` and `alpine:3.6` are also cached. For an up-to-date list of cached images and tags, use the [List Cached Images][list-cached-images] API.
 
-To ensure the fastest Windows container startup time, use one of the **three most recent** versions of the following **two images** as the base image:
-
-* [Windows Server Core 2016][docker-hub-windows-core] (LTSC only)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> Use of Windows Server 2019-based images in Azure Container Instances is in preview.
 
 ### Windows containers slow network readiness
 
@@ -202,16 +198,35 @@ This error indicates that due to heavy load in the region in which you are attem
 
 Azure Container Instances does not expose direct access to the underlying infrastructure that hosts container groups. This includes access to the Docker API running on the container's host and running privileged containers. If you require Docker interaction, check the [REST reference documentation](https://aka.ms/aci/rest) to see what the ACI API supports. If there is something missing, submit a request on the [ACI feedback forums](https://aka.ms/aci/feedback).
 
-## IPs may not be accessible due to mismatched ports
+## Container group IP address may not be accessible due to mismatched ports
 
-Azure Container Instances does not currently support port mapping like with regular docker configuration, however this fix is on the roadmap. If you find IPs are not accessible when you believe it should be, ensure you have configured your container image to listen to the same ports you expose in your container group with the `ports` property.
+Azure Container Instances doesn't yet support port mapping like with regular docker configuration. If you find a container group's IP address is not accessible when you believe it should be, ensure you have configured your container image to listen to the same ports you expose in your container group with the `ports` property.
+
+If you want to confirm that Azure Container Instances can listen on the port you configured in your container image, test a deployment of the `aci-helloworld` image that exposes the port. Also run the `aci-helloworld` app so that it listens on the port. `aci-helloworld` accepts an optional environment variable `PORT` to override the default port 80 it listens on. For example, to test port 9000:
+
+1. Set up the container group to expose port 9000, and pass the port number as the value of the environment variable:
+    ```azurecli
+    az container create --resource-group myResourceGroup \
+    --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --ip-address Public --ports 9000 \
+    --environment-variables 'PORT'='9000'
+    ```
+1. Find the IP address of the container group in the command output of `az container create`. Look for the value of **ip**. 
+1. After the container is provisioned successfully, browse to the IP address and port of the container app in your browser, for example: `192.0.2.0:9000`. 
+
+    You should see the "Welcome to Azure Container Instances!" message displayed by the web app.
+1. When you're done with the container, remove it using the `az container delete` command:
+
+    ```azurecli
+    az container delete --resource-group myResourceGroup --name mycontainer
+    ```
 
 ## Next steps
 
 Learn how to [retrieve container logs and events](container-instances-get-logs.md) to help debug your containers.
 
 <!-- LINKS - External -->
-[azure-name-restrictions]: https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions
+[azure-name-restrictions]: https://docs.microsoft.com/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming
 [windows-sac-overview]: https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview
 [docker-multi-stage-builds]: https://docs.docker.com/engine/userguide/eng-image/multistage-build/
 [docker-hub-windows-core]: https://hub.docker.com/_/microsoft-windows-servercore

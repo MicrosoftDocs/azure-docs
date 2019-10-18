@@ -2,13 +2,13 @@
 title: 'Best practices for choosing a Time Series ID in Azure Time Series Insights Preview | Microsoft Docs'
 description: Understanding best practices when you choose a Time Series ID in Azure Time Series Insights Preview.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 08/09/2019
 ms.custom: seodec18
 ---
 
@@ -24,6 +24,7 @@ Choosing a Time Series ID is like choosing a partition key for a database. It's 
 > The Time Series ID is case-sensitive and immutable (it can't be changed after it is set).
 
 With that in mind, selecting the appropriate Time Series ID is critical. When you select a Time Series ID, consider following these best practices:
+
 * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (for example, hundreds or thousands). For many customers, this will be something like the DeviceID or SensorID in your JSON.
 * The Time Series ID should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
 * A Time Series ID property name character string can have up to 128 characters, and Time Series ID property values can have up to 1024 characters.
@@ -36,13 +37,13 @@ Additionally, you can select up to *three* (3) key properties as your Time Serie
 
 The following scenarios describe selecting more than one key property as your Time Series ID:  
 
-### Scenario 1
+### Scenario one
 
-* You have legacy fleets of assets, each with a unique key. 
-* For example, one fleet is uniquely identified by the property *deviceId* and another where the unique property is *objectId*. Neither fleet contains the other fleet’s unique property. In this example, you would select two keys, deviceId and objectId, as unique keys. 
+* You have legacy fleets of assets, each with a unique key.
+* For example, one fleet is uniquely identified by the property *deviceId* and another where the unique property is *objectId*. Neither fleet contains the other fleet’s unique property. In this example, you would select two keys, deviceId and objectId, as unique keys.
 * We accept null values, and the lack of a property’s presence in the event payload counts as a `null` value. This is also the appropriate way to handle sending data to two different event sources where the data in each event source has a unique Time Series ID.
 
-### Scenario 2
+### Scenario two
 
 * You require multiple properties to be unique within the same fleet of assets. 
 * For example, let’s say you're a smart building manufacturer and deploy sensors in every room. In each room, you typically have the same values for *sensorId*, such as *sensor1*, *sensor2*, and *sensor3*.
@@ -52,4 +53,5 @@ The following scenarios describe selecting more than one key property as your Ti
 ## Next steps
 
 * Read more about [Data modeling](./time-series-insights-update-tsm.md).
+
 * Plan your [Azure Time Series Insights (preview) environment](./time-series-insights-update-plan.md).

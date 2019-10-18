@@ -4,7 +4,7 @@ description: This article compares Azure Government and global Azure.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: Juliako
+author: dumartinmsft
 manager: femila
 
 ms.service: azure-government
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 4/1/2019
-ms.author: juliako
+ms.date: 10/06/2019
+ms.author: dumartin
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
 ---
@@ -77,6 +77,9 @@ For the most current list of services, see the [Products available by region](ht
 * [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)
 * [Azure Cosmos DB](documentation-government-services-database.md#azure-cosmos-db)
 * [Azure Cache for Redis](documentation-government-services-database.md#azure-cache-for-redis)
+* [Azure Database for PostgreSQL](documentation-government-services-database.md#azure-database-for-postgresql)
+* [Azure Database for MariaDB](documentation-government-services-database.md#azure-database-for-mariadb)
+* [Azure Database for MySQL](documentation-government-services-database.md#azure-database-for-mysql)
 
 ## Data + Analytics
 
@@ -96,14 +99,14 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Enterprise Integration
 
-* [Logic Apps](documentation-government-services-integration.md#logic-apps)
+* [Logic Apps](documentation-government-services-integration.md#logic-apps-and-connector-variations)
 * [Service Bus](documentation-government-networking.md#support-for-service-bus)
 * [StorSimple](documentation-government-services-storage.md)
 * [SQL Server Stretch Database](documentation-government-services-database.md#sql-server-stretch-database)
 
 ## Security + Identity
 
-* [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center) (Preview)
+* [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center)
 * [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)
 * [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2)
 * [Key Vault](documentation-government-services-securityandidentity.md#key-vault)

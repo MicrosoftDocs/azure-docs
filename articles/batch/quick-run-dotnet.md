@@ -3,7 +3,7 @@ title: Azure Quickstart - Run Batch job - .NET
 description: Quickly run a Batch job and tasks with the Batch .NET client library.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.service: batch
 ms.devlang: dotnet
@@ -23,7 +23,7 @@ This quickstart runs an Azure Batch job from a C# application built on the Azure
 
 ## Prerequisites
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs), or [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) for Linux, macOS, or Windows. 
+* [Visual Studio 2017 or later](https://www.visualstudio.com/vs), or [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) for Linux, macOS, or Windows. 
 
 * A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
@@ -109,7 +109,7 @@ See the file `Program.cs` and the following sections for details.
 
 ### Preliminaries
 
-To interact with a storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
+To interact with a storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount), and from that creates a [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
 
 ```csharp
 CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();

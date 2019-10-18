@@ -10,8 +10,8 @@ ms.date: 12/14/2017
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
 ---
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 # Dynamic groups and Azure Active Directory B2B collaboration
 
 ## What are dynamic groups?
-Dynamic configuration of security group membership for Azure Active Directory (Azure AD) is available in [the Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as userType, department, or country). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Read more about dynamic groups in [Dedicated groups in Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
+Dynamic configuration of security group membership for Azure Active Directory (Azure AD) is available in [the Azure portal](https://portal.azure.com). Administrators can set rules to populate groups that are created in Azure AD based on user attributes (such as userType, department, or country/region). Members can be automatically added to or removed from a security group based on their attributes. These groups can provide access to applications or cloud resources (SharePoint sites, documents) and to assign licenses to members. Read more about dynamic groups in [Dedicated groups in Azure Active Directory](../active-directory-accessmanagement-dedicated-groups.md).
 
 The appropriate [Azure AD Premium P1 or P2 licensing](https://azure.microsoft.com/pricing/details/active-directory/) is required to create and use dynamic groups. Learn more in the article [Create attribute-based rules for dynamic group membership in Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md).
 
@@ -43,5 +43,5 @@ What such a group might look like:
 
 - [B2B collaboration user properties](user-properties.md)
 - [Adding a B2B collaboration user to a role](add-guest-to-role.md)
-- [Conditional access for B2B collaboration users](conditional-access.md)
+- [Conditional Access for B2B collaboration users](conditional-access.md)
 

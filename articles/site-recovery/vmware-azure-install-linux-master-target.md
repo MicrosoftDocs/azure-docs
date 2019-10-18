@@ -42,7 +42,7 @@ Create the master target in accordance with the following sizing guidelines:
 - **Additional disk size for retention drive**: 1 TB
 - **CPU cores**: 4 cores or more
 
-The following supported Ubuntu kernels are supported.
+The following Ubuntu kernels are supported.
 
 
 |Kernel Series  |Support up to  |
@@ -80,7 +80,7 @@ Keep an Ubuntu 16.04.2 minimal 64-bit ISO in the DVD drive and start the system.
 1. Select **No** (the default option), and then select **Enter**.
 
      ![Configure the keyboard](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Select **English (US)** as the country of origin for the keyboard, and then select **Enter**.
+1. Select **English (US)** as the country/region of origin for the keyboard, and then select **Enter**.
 
 1. Select **English (US)** as the keyboard layout, and then select **Enter**.
 
@@ -211,12 +211,11 @@ To download it using Linux, type:
 
 ### Apply custom configuration changes
 
-To apply custom configuration changes, use the following steps:
-
+To apply custom configuration changes, use the following steps as a ROOT user:
 
 1. Run the following command to untar the binary.
 
-	`tar -zxvf latestlinuxmobsvc.tar.gz`
+	`tar -xvf latestlinuxmobsvc.tar.gz`
 
     ![Screenshot of the command to run](./media/vmware-azure-install-linux-master-target/image16.png)
 
@@ -242,7 +241,7 @@ Use the following steps to create a retention disk:
 
     ![Multipath ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
+3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/\<Retention disk's multipath id>**.
 	
     ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -259,7 +258,7 @@ Use the following steps to create a retention disk:
 	
 	Select **Insert** to begin editing the file. Create a new line, and then insert the following text. Edit the disk multipath ID based on the highlighted multipath ID from the previous command.
 
-	**/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+	**/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
 	Select **Esc**, and then type **:wq** (write and quit) to close the editor window.
 

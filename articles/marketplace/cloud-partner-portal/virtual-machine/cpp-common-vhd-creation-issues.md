@@ -1,21 +1,13 @@
 ---
-title: Common issues during VHD creation (FAQ) for the Azure Marketplace | Microsoft Docs
+title: Common issues during VHD creation (FAQ) for the Azure Marketplace 
 description: Frequently asked questions about VHD creation and associated issues.
 services: Azure Marketplace
-documentationcenter: ''
 author: HannibalSII
-manager: Patrick.Butler
-editor: 
-
-ms.assetid: e39563d8-8646-4cb7-b078-8b10ac35b494
 ms.service: marketplace
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: Azure
-ms.workload: na
 ms.date: 10/02/2018
-ms.author: hascipio; v-divte; v-miclar
-
+ms.author: hascipio
+ms.reviewer: v-divte; v-miclar
 ---
 
 # Common issues during VHD creation (FAQ)

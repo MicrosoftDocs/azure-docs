@@ -75,8 +75,6 @@ The **azure-iot-connected-factory** repository includes a **build.ps1** PowerShe
 
 Learn more about the Connected Factory solution accelerator by reading the following articles:
 
-* [Connected Factory solution accelerator walkthrough][lnk-rm-walkthrough]
-* [Deploy a gateway for Connected Factory][lnk-connect-cf]
 * [Permissions on the azureiotsolutions.com site][lnk-permissions]
 * [Connected Factory FAQ](iot-accelerators-faq-cf.md)
 * [FAQ][lnk-faq]
@@ -89,7 +87,5 @@ Learn more about the Connected Factory solution accelerator by reading the follo
 [img-published]: ./media/iot-accelerators-connected-factory-customize/published.png
 
 
-[lnk-rm-walkthrough]:iot-accelerators-connected-factory-sample-walkthrough.md
-[lnk-connect-cf]:iot-accelerators-connected-factory-gateway-deployment.md
 [lnk-permissions]: iot-accelerators-permissions.md
 [lnk-faq]: iot-accelerators-faq.md

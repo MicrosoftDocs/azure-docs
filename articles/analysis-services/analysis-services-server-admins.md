@@ -2,10 +2,9 @@
 title: Manage server admins in Azure Analysis Services | Microsoft Docs
 description: Learn how to manage server admins for an Analysis Services server in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -14,8 +13,7 @@ ms.reviewer: minewiskan
 
 Server administrators must be a valid user or security group in the Azure Active Directory (Azure AD) for the tenant in which the server resides. You can use **Analysis Services Admins** for your server in Azure portal, Server Properties in SSMS, PowerShell, or REST API to manage server administrators. 
 
-> [!NOTE]
-> Security groups must have the `MailEnabled` property set to `True`.
+**Security groups** must be [mail-enabled](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) with the `MailEnabled` property set to `True`. When specifying a group by email address use `obj:groupid@tenantid`.
 
 ## To add server administrators by using Azure portal
 

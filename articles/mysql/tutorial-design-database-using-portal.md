@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Design an Azure Database for MySQL using Azure portal'
-description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure Portal.
+description: This tutorial explains how to create and manage Azure Database for MySQL server and database using Azure portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
@@ -53,6 +53,9 @@ An Azure Database for MySQL server is created with a defined set of [compute and
     Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
     
    ![Pricing tier](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
+
+   > [!TIP]
+   > With **auto-growth** enabled your server increases storage when you are approaching the allocated limit, without impacting your workload.
 
 3. Click **Create**. In a minute or two, a new Azure Database for MySQL server is running in the cloud. You can click **Notifications** button on the toolbar to monitor the deployment process.
 

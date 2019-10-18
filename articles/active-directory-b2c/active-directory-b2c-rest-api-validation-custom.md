@@ -1,15 +1,15 @@
 ---
-title: REST API claims exchanges as validation in Azure Active Directory B2C | Microsoft Docs
-description: A topic on Azure Active Directory B2C custom policies.
+title: REST API claims exchanges as validation in Azure Active Directory B2C
+description: A walkthrough for creating an Azure AD B2C user journey that interacts with RESTful services.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/24/2017
-ms.author: davidmu
+ms.date: 08/21/2019
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-The Identity Experience Framework (IEF) that underlies Azure Active Directory B2C (Azure AD B2C) enables the identity developer to integrate an interaction with a RESTful API in a user journey.  
+The Identity Experience Framework (IEF) that underlies Azure Active Directory B2C (Azure AD B2C) enables the identity developer to integrate an interaction with a RESTful API in a user journey.
 
 At the end of this walkthrough, you will be able to create an Azure AD B2C user journey that interacts with RESTful services.
 
@@ -87,8 +87,10 @@ A technical profile is the full configuration of the exchange desired with the R
             <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
             <Metadata>
                 <Item Key="ServiceUrl">https://wingtipb2cfuncs.azurewebsites.net/api/CheckPlayerTagWebHook?code=L/05YRSpojU0nECzM4Tp3LjBiA2ZGh3kTwwp1OVV7m0SelnvlRVLCg==</Item>
-                <Item Key="AuthenticationType">None</Item>
                 <Item Key="SendClaimsIn">Body</Item>
+                <!-- Set AuthenticationType to Basic or ClientCertificate in production environments -->
+                <Item Key="AuthenticationType">None</Item>
+                <!-- REMOVE the following line in production environments -->
                 <Item Key="AllowInsecureAuthInProduction">true</Item>
             </Metadata>
             <InputClaims>
@@ -106,6 +108,8 @@ A technical profile is the full configuration of the exchange desired with the R
 ```
 
 The `InputClaims` element defines the claims that will be sent from the IEF to the REST service. In this example, the contents of the claim `givenName` will be sent to the REST service as `playerTag`. In this example, the IEF does not expect claims back. Instead, it waits for a response from the REST service and acts based on the status codes that it receives.
+
+The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful APIs with basic auth](active-directory-b2c-custom-rest-api-netfw-secure-basic.md) and [Secure RESTful APIs with certificate auth](active-directory-b2c-custom-rest-api-netfw-secure-cert.md).
 
 ## Step 3: Include the RESTful service claims exchange in self-asserted technical profile where you want to validate the user input
 
@@ -128,3 +132,10 @@ To add the claims exchange to the self-asserted technical profile:
 [Modify the profile edit and user registration to gather additional information from your users](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)
 
 [Walkthrough: Integrate REST API claims exchanges in your Azure AD B2C user journey as an orchestration step](active-directory-b2c-rest-api-step-custom.md)
+
+[Reference: RESTful technical profile](restful-technical-profile.md)
+
+To learn how to secure your APIs, see the following articles:
+
+* [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
+* [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

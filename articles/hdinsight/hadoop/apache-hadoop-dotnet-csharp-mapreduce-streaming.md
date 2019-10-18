@@ -1,7 +1,6 @@
 ---
 title: Use C# with MapReduce on Hadoop in HDInsight - Azure 
 description: Learn how to use C# to create MapReduce solutions with Apache Hadoop in Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
@@ -9,8 +8,8 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-
 ---
+
 # Use C# with MapReduce streaming on Apache Hadoop in HDInsight
 
 Learn how to use C# to create a MapReduce solution on HDInsight.
@@ -148,7 +147,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
 4. Expand the HDInsight cluster that you wish to deploy this application to. An entry with the text __(Default Storage Account)__ is listed.
 
-    ![Server Explorer showing the storage account for the cluster](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/storage.png)
+    ![Server Explorer showing the storage account for the cluster](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
 
     * If this entry can be expanded, you are using an __Azure Storage Account__ as default storage for the cluster. To view the files on the default storage for the cluster, expand the entry and then double-click the __(Default Container)__.
 
@@ -158,7 +157,7 @@ After creating the application, build it to produce the `/bin/Debug/reducer.exe`
 
    * If using an __Azure Storage Account__, click the upload icon, and then browse to the **bin\debug** folder for the **mapper** project. Finally, select the **mapper.exe** file and click **Ok**.
 
-       ![upload icon](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/upload.png)
+        ![HDInsight upload icon for mapper](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
     
    * If using __Azure Data Lake Storage__, right-click an empty area in the file listing, and then select __Upload__. Finally, select the **mapper.exe** file and click **Open**.
 

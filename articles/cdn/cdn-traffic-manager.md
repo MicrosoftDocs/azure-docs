@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -76,6 +76,10 @@ After you set up your CDN and Traffic Manager profiles, follow these steps to ad
 2.	From your Azure CDN profile, select the first CDN endpoint (Akamai). Select **Add custom domain** and input *cdndemo101.dustydogpetcare.online*. Verify that the checkmark to validate the custom domain is green. 
 
     Azure CDN uses the *cdnverify* subdomain to validate the DNS mapping to complete this registration process. For more information, see [Create a CNAME DNS record](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). This step enables Azure CDN to recognize the custom domain so that it can respond to its requests.
+    
+    > [!NOTE]
+    > To enable SSL on an **Azure CDN from Akamai** profiles, you must directly cname the custom domain to your endpoint. cdnverify for enabling SSL is not yet supported. 
+    >
 
 3.	Return to the web site for the domain provider of your custom domain and update the first DNS mapping you created in so that the custom domain is mapped to your second CDN endpoint.
                              

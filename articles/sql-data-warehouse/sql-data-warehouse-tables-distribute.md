@@ -2,13 +2,13 @@
 title: Distributed tables design guidance - Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 

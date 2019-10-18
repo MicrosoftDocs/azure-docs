@@ -1,12 +1,11 @@
 ---
-title: Support matrix for backup of machines running the Microsoft Azure Recovery Services (MARS) agent with Azure Backup
+title: Support matrix for the Microsoft Azure Recovery Services (MARS) agent
 description: This article summarizes Azure Backup support when you back up machines that are running the Microsoft Azure Recovery Services (MARS) agent.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
-ms.date: 02/17/2019
+ms.date: 08/30/2019
 ms.topic: conceptual
-ms.author: raynew
+ms.author: dacurwin
 manager: carmonm
 ---
 
@@ -19,14 +18,14 @@ You can use the [Azure Backup service](backup-overview.md) to back up on-premise
 Azure Backup uses the MARS agent to back up data from on-premises machines and Azure VMs to a backup Recovery Services vault in Azure. The MARS agent can:
 - Run on on-premises Windows machines so that they can back up directly to a backup Recovery Services vault in Azure.
 - Run on Windows VMs so that they can back up directly to a vault.
-- Run on Microsoft Azure Backup Server (MABS) or a System Center Data Protection Manager (DPM) server. In this scenario, machines and workloads back up to MABS or to the DPM server. The MARS agent then backs up this server to a vault in Azure. 
+- Run on Microsoft Azure Backup Server (MABS) or a System Center Data Protection Manager (DPM) server. In this scenario, machines and workloads back up to MABS or to the DPM server. The MARS agent then backs up this server to a vault in Azure.
 
 Your backup options depend on where the agent is installed. For more information, see [Azure Backup architecture using the MARS agent](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). For information about MABS and DPM backup architecture, see [Back up to DPM or MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Also see [requirements](backup-support-matrix-mabs-dpm.md) for the backup architecture.
 
 **Installation** | **Details**
 --- | ---
 Download the latest MARS agent | You can download the latest version of the agent from the vault, or [download it directly](https://aka.ms/azurebackup_agent).
-Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the [supported operating systems](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Install directly on a machine | You can install the MARS agent directly on an on-premises Windows server or on a Windows VM that's running any of the [supported operating systems](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Install on a backup server | When you set up DPM or MABS to back up to Azure, you download and install the MARS agent on the server. You can install the agent on [supported operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) in the backup server support matrix.
 
 > [!NOTE]
@@ -40,8 +39,8 @@ When you use the MARS agent to back up data, the agent takes a snapshot of the d
 
 **Cache** | **Details**
 --- | ---
-Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data. 
-Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume. 
+Size |  Free space in the cache folder should be at least 5 to 10 percent of the overall size of your backup data.
+Location | The cache folder must be locally stored on the machine that's being backed up, and it must be online. The cache folder shouldn't be on a network share, on removable media, or on an offline volume.
 Folder | The cache folder should be encrypted on a deduplicated volume or in a folder that's compressed, that's sparse, or that has a reparse point.
 Location changes | You can change the cache location by stopping the backup engine (`net stop bengine`) and copying the cache folder to a new drive. (Ensure the new drive has sufficient space.) Then update two registry entries under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** and **Config/CloudBackupProvider/ScratchLocation**) to the new location and restart the engine.
 
@@ -68,20 +67,22 @@ Network throttling | Not available for backed-up machines that run Windows Serve
 
 You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure VMs. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
 
-**Operating system** | **Files/folders** | **System state**
---- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Yes | No
-Windows 8.1 (Enterprise, Pro)| Yes |No
-Windows 8 (Enterprise, Pro) | Yes | No
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No
-Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes
-Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes
-Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes
-Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Yes
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No
-Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No
+**Operating system** | **Files/folders** | **System state** | **Software/Module requirements**
+--- | --- | --- | ---
+Windows 10 (Enterprise, Pro, Home) | Yes | No |  Check the corresponding server version for software/module requirements
+Windows 8.1 (Enterprise, Pro)| Yes |No | Check the corresponding server version for software/module requirements
+Windows 8 (Enterprise, Pro) | Yes | No | Check the corresponding server version for software/module requirements
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | Yes | No | Check the corresponding server version for software/module requirements
+Windows Server 2016 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Yes | Yes | - .NET 4.5 <br> -	Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2012 (Standard, Datacenter, Foundation) | Yes | Yes |- .NET 4.5 <br> -	Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
+Windows Server 2008 R2 (Standard, Enterprise, Datacenter, Foundation) | Yes | Yes | - .NET 3.5 , .Net 4.5 <br> -	Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe)
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Yes | No | - .NET 3.5 , .Net 4.5 <br> - Windows PowerShell <br> - Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0 <br> - Deployment Image Servicing and Management (DISM.exe) <br> - Virtual Server 2005 base +  KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (Standard, Workgroup) | Yes | No | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
+Windows Server 2019 (Standard, Datacenter, Essentials) | Yes | Yes | - .NET 4.5 <br> - Windows PowerShell <br> - Latest Compatible Microsoft VC++ Redistributable <br> - Microsoft Management Console (MMC) 3.0
 
 For more information, see [Supported MABS and DPM operating systems](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
+
 
 ## Backup limits
 
@@ -98,9 +99,9 @@ Windows 7	| 1,700 GB
 
 ## Supported file types for backup
 
-**Type** | **Support** 
---- | --- 
-Encrypted	| Supported. 
+**Type** | **Support**
+--- | ---
+Encrypted	| Supported.
 Compressed | Supported.
 Sparse | Supported.
 Compressed and sparse |	Supported.
@@ -109,7 +110,7 @@ Reparse point	| Not supported. Skipped.
 Encrypted and sparse |	Not supported. Skipped.
 Compressed stream	| Not supported. Skipped.
 Sparse stream	| Not supported. Skipped.
-OneDrive (synced files are sparse streams)	| Not supported. 
+OneDrive (synced files are sparse streams)	| Not supported.
 
 ## Supported drives or volumes for backup
 

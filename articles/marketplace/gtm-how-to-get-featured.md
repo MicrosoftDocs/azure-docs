@@ -2,16 +2,9 @@
 title: Go-To-Market Services - How to get featured in marketplace | Azure
 description: Go-To-Market Services - This section describes how to get a listing featured in Azure Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
-author: qianw211
-manager: Patrick.Butler
-editor:
 
-ms.assetid: 
+author: qianw211
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
@@ -22,7 +15,7 @@ ms.author: ellacroi
 
 Azure Marketplace and AppSource have **featured apps** sections, where you can get your app featured:
 
-* First, if you have a TRIAL or TRANSACTION offer, you can use your “category promotion” benefit through Go-to-Market benefits.
+* First, if you have a TRIAL or TRANSACTION offer, you can use your “category promotion” benefit through [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 * Second, review the list of best practices and criteria below to earn a spot.
 
 The featured apps selection algorithm generates a score to an app by Microsoft, just like a person’s credit score in the US.  The weekly selection of featured apps will be based on a calculation of app and service performance.
@@ -48,7 +41,7 @@ Your GTM support also includes a full library of self-help templates, web conten
 
 ## Next steps
 
-To learn more about marketplace GTM services, go to [Go-to-market services](https://partner.microsoft.com/reach-customers/gtm).
+Learn more about your [commercial marketplace benefits](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits).
 
 Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
 

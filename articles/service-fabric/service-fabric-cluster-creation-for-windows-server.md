@@ -18,12 +18,12 @@ ms.author: dekapur
 
 ---
 # Create a standalone cluster running on Windows Server
-You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package.
+You can use Azure Service Fabric to create Service Fabric clusters on any virtual machines or computers running Windows Server. This means you can deploy and run Service Fabric applications in any environment that contains a set of interconnected Windows Server computers, be it on premises or with any cloud provider. Service Fabric provides a setup package to create Service Fabric clusters called the standalone Windows Server package. Traditional Service Fabric clusters on Azure are available as a managed service, while standalone Service Fabric clusters are self-service.
 
 This article walks you through the steps for creating a Service Fabric standalone cluster.
 
 > [!NOTE]
-> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "[Preview features included in this package](#previewfeatures_anchor)." section for the list of the preview features. You can [download a copy of the EULA](https://go.microsoft.com/fwlink/?LinkID=733084) now.
+> This standalone Windows Server package is commercially available at no cost and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "[Preview features included in this package](#previewfeatures_anchor)." section for the list of the preview features. You can [download a copy of the EULA](https://go.microsoft.com/fwlink/?LinkID=733084) now.
 > 
 > 
 

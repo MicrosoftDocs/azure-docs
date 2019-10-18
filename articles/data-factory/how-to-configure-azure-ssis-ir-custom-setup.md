@@ -35,6 +35,8 @@ You can install both free or unlicensed components, and paid or licensed compone
 
 -   Administrative share is currently not supported on the Azure-SSIS IR.
 
+-   IBM iSeries Access ODBC Driver is not supported on the Azure-SSIS IR. You may see installation error during custom setup. Please contact IBM support for assistance.
+
 ## Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -77,7 +79,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
       ![Create a blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-   1. Select the new container and upload your custom setup script and its associated files. Make sure that you upload `main.cmd` at the top level of your container, not in any folder. Please also ensure that your container contains only the necessary custom setup files, so downloading them onto your Azure-SSIS IR later will not take a long time.
+   1. Select the new container and upload your custom setup script and its associated files. Make sure that you upload `main.cmd` at the top level of your container, not in any folder. Please also ensure that your container contains only the necessary custom setup files, so downloading them onto your Azure-SSIS IR later will not take a long time. The maximum period for custom setup is currently set at 45 minutes before it times out and this includes the time to download all files from your container and install them on Azure-SSIS IR. If a longer period is needed, please raise a support ticket.
 
       ![Upload files to the blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 

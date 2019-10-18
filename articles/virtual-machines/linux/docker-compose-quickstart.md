@@ -4,7 +4,7 @@ description: How to install and use Docker and Compose on Linux virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with FM:Systems, perform the following step
     `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
 	
 	> [!NOTE]
-	> This value is not real. Update this value with the actual Reply URL. Contact [FM:Systems Client support team](https://fmsystems.com/ask-us/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> This value is not real. Update this value with the actual Reply URL. Contact [FM:Systems Client support team](https://fmsystems.com/support-services/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with FM:Systems, perform the following step
 
 ### Configure FM:Systems Single Sign-On
 
-To configure single sign-on on **FM:Systems** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [FM:Systems support team](https://fmsystems.com/ask-us/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **FM:Systems** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [FM:Systems support team](https://fmsystems.com/support-services/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -207,5 +207,5 @@ When you click the FM:Systems tile in the Access Panel, you should be automatica
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

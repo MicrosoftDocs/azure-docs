@@ -3,8 +3,8 @@ title: Troubleshoot Azure Virtual Network Gateway and Connections - PowerShell |
 description: This page explains how to use the Azure Network Watcher troubleshoot PowerShell cmdlet
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: f6f0a813-38b6-4a1f-8cfc-1dfdf979f595
@@ -14,8 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 06/19/2017
-ms.author: jdial
-
+ms.author: kumud
 ---
 
 # Troubleshoot Virtual Network Gateway and Connections using Azure Network Watcher PowerShell
@@ -46,8 +45,7 @@ Resource troubleshooting provides the ability troubleshoot issues that arise wit
 The first step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet in step 4.
 
 ```powershell
-$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
 ```
 
 ## Retrieve a Virtual Network Gateway Connection

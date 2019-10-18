@@ -4,8 +4,8 @@ title: Get started integrating Azure AD with apps | Microsoft Docs
 description: This article is a getting started guide for integrating Azure Active Directory (AD) with on-premises applications, and cloud applications.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 
 ms.collection: M365-identity-device-management
@@ -88,7 +88,7 @@ The following articles describe ways you can manage access to applications once 
 * [Sharing accounts](../active-directory-sharing-accounts.md)
 
 ## Next steps
-For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](https://aka.ms/deploymentplans). For gallery applications, you can download deployment plans for single sign-on, conditional access, and user provisioning through the [Azure portal](https://portal.azure.com). 
+For in-depth information, you can download Azure Active Directory deployment plans from [GitHub](https://aka.ms/deploymentplans). For gallery applications, you can download deployment plans for single sign-on, Conditional Access, and user provisioning through the [Azure portal](https://portal.azure.com). 
 
 To download a deployment plan from the Azure portal:
 

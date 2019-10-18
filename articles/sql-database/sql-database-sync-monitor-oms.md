@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 12/20/2018
 ---
 # Monitor SQL Data Sync with Azure Monitor logs 

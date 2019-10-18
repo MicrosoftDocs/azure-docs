@@ -1,12 +1,11 @@
 ---
 title: Set up disaster recovery for an Azure IaaS VM to a secondary Azure region
 description: This quickstart provides the steps required for disaster recovery of an Azure IaaS VM between Azure regions, using the Azure Site Recovery service.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 08/28/2019
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -39,7 +38,7 @@ Log in to the Azure portal at https://portal.azure.com.
 
 After the replication job has finished, you can check the replication status, modify replication settings, and test the deployment.
 
-1. In the VM menu, click **Disaster recovery**.
+1. In **Operations**, click **Disaster recovery**.
 2. You can verify replication health, the recovery points that have been created, and source, target regions on the map.
 
    ![Replication status](media/azure-to-azure-quickstart/replication-status.png)

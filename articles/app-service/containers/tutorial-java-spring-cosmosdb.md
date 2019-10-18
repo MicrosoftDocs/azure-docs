@@ -9,15 +9,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: mvc
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 
-# Tutorial: Build a Java web app using Spring and Azure Cosmos DB
+# Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
 
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](/azure/app-service/containers).
 
-![Java app running in Azure appservice](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+![Spring Boot application storing data in Azure Cosmos DB](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 In this tutorial, you learn how to:
 
@@ -77,7 +77,7 @@ The name of Cosmos DB must use only lower case letters. Note down the `documentE
         -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
     ```
 
-4. Get your Azure Cosmos DB key to connect to the app. Keep the he `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
+4. Get your Azure Cosmos DB key to connect to the app. Keep the `primaryMasterKey`, `documentEndpoint` nearby as you'll need them in the next step.
 
     ```bash
     az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
@@ -168,7 +168,7 @@ bash-3.2$ mvn package spring-boot:run
 
 You can access Spring TODO App locally using this link once the app is started: [http://localhost:8080/](http://localhost:8080/).
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
+ ![Access Spring TODO app locally](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
 If you see exceptions instead of the "Started TodoApplication" message, check that the `bash` script in the previous step exported the environment variables properly and that the values are correct for the Azure Cosmos DB database you created.
 
@@ -262,7 +262,7 @@ open https://spring-todo-app.azurewebsites.net
 
 You should see the app running with the remote URL in the address bar:
 
- ![](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
+ ![Spring Boot application running with a remote URL](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
 ## Stream diagnostic logs
 

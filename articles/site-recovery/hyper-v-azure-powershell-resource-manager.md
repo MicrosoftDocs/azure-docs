@@ -5,7 +5,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 06/18/2019
 ms.author: sutalasi
 
 ---
@@ -102,12 +102,23 @@ Set the vault context as follows:
 ## Step 5: Install the Provider and agent
 
 1. Download the installer for the latest version of the Provider from [Microsoft](https://aka.ms/downloaddra).
-2. Run the installer on theHyper-V host.
+2. Run the installer on the Hyper-V host.
 3. At the end of the installation continue to the registration step.
 4. When prompted, provide the downloaded key, and complete registration of the Hyper-V host.
 5. Verify that the Hyper-V host is registered to the site as follows:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
+
+If you're running a Hyper-V core server, download the setup file and follow these steps:
+1. Extract the files from AzureSiteRecoveryProvider.exe to a local directory by running this command:
+```AzureSiteRecoveryProvider.exe /x:. /q```
+2. Run ```.\setupdr.exe /i```
+Results are logged to %Programdata%\ASRLogs\DRASetupWizard.log.
+
+3. Register the server by running this command:
+
+    ```cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"```
+
 
 ## Step 6: Create a replication policy
 
@@ -129,10 +140,13 @@ Before you start, note that the storage account specified should be in the same 
         $protectionContainer = Get-AsrProtectionContainer
 3. Associate the protection container with the replication policy, as follows:
 
-     $Policy = Get-AsrPolicy -FriendlyName $PolicyName
-     $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
-
+        $Policy = Get-AsrPolicy -FriendlyName $PolicyName
+        $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 4. Wait for the association job to complete successfully.
+
+5. Retrieve the protection container mapping.
+
+        $ProtectionContainerMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $protectionContainer
 
 ## Step 7: Enable VM protection
 
@@ -142,8 +156,8 @@ Before you start, note that the storage account specified should be in the same 
         $ProtectableItem = Get-AsrProtectableItem -ProtectionContainer $protectionContainer -FriendlyName $VMFriendlyName
 2. Protect the VM. If the VM you are protecting has more than one disk attached to it, specify the operating system disk by using the *OSDiskName* parameter.
 
-        $Ostype = "Windows"                                 # "Windows" or "Linux"
-        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS Windows -RecoveryResourceGroupId
+        $OSType = "Windows"                                 # "Windows" or "Linux"
+        $DRjob = New-AsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID
 
 3. Wait for the VMs to reach a protected state after the initial replication. This can take a while, depending on factors such as the amount of data to be replicated, and the available upstream bandwidth to Azure. When a protected state is in place, the job State and StateDescription are updated as follows:
 

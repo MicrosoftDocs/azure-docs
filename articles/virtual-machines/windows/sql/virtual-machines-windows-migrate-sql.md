@@ -11,7 +11,7 @@ ms.assetid: 00fd08c6-98fa-4d62-a3b8-ca20aa5246b1
 ms.service: virtual-machines-sql 
 ms.workload: iaas-sql-server
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.devlang: na
+
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
@@ -21,7 +21,11 @@ ms.reviewer: jroth
 
 There are a number of methods to migrate an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods and recommend the best method for various scenarios.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 and SQL Server 2008 R2 are approaching the [end of their support life cycle](https://www.microsoft.com/sql-server/sql-server-2008) for on-premises instances. To extend support, you can either migrate your SQL Server instance to an Azure VM, or buy Extended Security Updates to keep it on-premises. For more information, see [Extend support for SQL Server 2008 and 2008 R2 with Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## What are the primary migration methods?
 The primary migration methods are:
@@ -90,7 +94,7 @@ Use this method to migrate all system and user databases in an on-premises SQL S
 ## Ship hard drive
 Use the [Windows Import/Export Service method](../../../storage/common/storage-import-export-service.md) to transfer large amounts of file data to Azure Blob storage in situations where uploading over the network is prohibitively expensive or not feasible. With this service, you send one or more hard drives containing that data to an Azure data center, where your data will be uploaded to your storage account.
 
-## Next Steps
+## Next steps
 For more information about running SQL Server on Azure Virtual Machines, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
 
 > [!TIP]

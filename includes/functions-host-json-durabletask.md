@@ -4,7 +4,7 @@ description: include file
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
@@ -33,7 +33,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
     "eventGridKeySettingName":  "EventGridKey",
     "eventGridPublishRetryCount": 3,
     "eventGridPublishRetryInterval": "00:00:30",
-    "eventGridPublishEventTypes": ["Started", "Pending", "Failed", "Terminated"]
+    "eventGridPublishEventTypes": ["Started", "Completed", "Failed", "Terminated"]
   }
 }
 ```
