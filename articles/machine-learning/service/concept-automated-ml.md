@@ -7,9 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: nacharya1
-ms.author: nilesha
-ms.date: 06/20/2019
+author: cartacioS
+ms.author: sacartac
+ms.date: 10/21/2019
 ms.custom: seodec18
 ---
 
