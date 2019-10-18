@@ -1,5 +1,5 @@
 ---
-title: Xamarin iOS considerations (Microsoft Authentication Library for .NET) | Azure
+title: Xamarin iOS considerations (Microsoft Authentication Library for .NET) | Microsoft identity platform
 description: Learn about specific considerations when using Xamarin iOS with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name

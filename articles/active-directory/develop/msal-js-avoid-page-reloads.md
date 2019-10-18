@@ -1,5 +1,5 @@
 ---
-title: Avoid page reloads (Microsoft Authentication Library for JavaScript) | Azure
+title: Avoid page reloads (Microsoft Authentication Library for JavaScript) | Microsoft identity platform
 description: Learn how to avoid page reloads when acquiring and renewing tokens silently using the Microsoft Authentication Library for JavaScript (MSAL.js).
 services: active-directory
 documentationcenter: dev-center-name

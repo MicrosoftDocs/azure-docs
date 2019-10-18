@@ -1,5 +1,5 @@
 ---
-title: App Registration Portal Help Topics | Microsoft Docs
+title: App Registration Portal Help Topics | Microsoft identity platform
 description: A description of various features in the Microsoft app registration portal.
 services: active-directory
 documentationcenter: ''

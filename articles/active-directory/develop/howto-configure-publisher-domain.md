@@ -1,5 +1,5 @@
 ---
-title: Configure an application's publisher domain | Azure
+title: Configure an application's publisher domain | Microsoft identity platform
 description: Learn how to configure an application's publisher domain to let users know where their information is being sent.
 services: active-directory
 documentationcenter: dev-center-name

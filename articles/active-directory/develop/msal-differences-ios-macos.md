@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authentication Library (MSAL) for iOS & macOS  | Azure
+title: Microsoft Authentication Library (MSAL) for iOS & macOS  | Microsoft identity platform
 description: Describes Microsoft Authentication Library (MSAL) usage differences between iOS and macOS.
 services: active-directory
 documentationcenter: dev-center-name

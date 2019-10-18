@@ -1,5 +1,5 @@
 ---
-title: Customize claims for an app in an Azure AD tenant (Public Preview)
+title: Customize claims for an Azure AD tenant app (Public Preview) | Microsoft identity platform
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
 author: rwike77

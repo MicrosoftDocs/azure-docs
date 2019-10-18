@@ -1,5 +1,5 @@
 ---
-title: Branding guidelines for applications | Microsoft Docs
+title: Branding guidelines for applications | Microsoft identity platform
 description: A comprehensive guide to developer-oriented resources for Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name

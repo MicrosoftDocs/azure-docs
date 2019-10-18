@@ -1,5 +1,5 @@
 ---
-title: Instantiate a public client app with options (Microsoft Authentication Library for .NET) | Azure
+title: Instantiate a public client app with options (Microsoft Authentication Library for .NET) | Microsoft identity platform
 description: Learn how to instantiate a public client application with configuration options using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
