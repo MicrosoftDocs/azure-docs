@@ -91,7 +91,7 @@ You need to register these two applications in your Azure AD B2C tenant only onc
 1. Select **Register**.
 1. Record the **Application (client) ID** for use in a later step.
 
-Next, expose an API scope:
+Next, expose the API by adding scope:
 
 1. Under **Manage**, select **Expose an API**.
 1. Select **Add a scope**, then select **Save and continue** to accept the default application ID URI.
@@ -126,6 +126,7 @@ Next, expose an API scope:
 1. For **Redirect URI**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant.
 1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
 1. Select **Register**.
+1. Record the **Application (client) ID** for use in a later step.
 
 Now, grant permissions to the API scope you exposed earlier in the *IdentityExperienceFramework* registration:
 
