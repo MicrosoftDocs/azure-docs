@@ -40,11 +40,9 @@ You should also have a general understanding of these technologies:
 - [Azure resource groups](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> At this time, SQL Server failover cluster instances on Azure Virtual Machines are supported only with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To change from full extension mode to lightweight mode, delete the **SQL Virtual Machine** resource for the applicable VMs and then register them with the SQL VM resource provider in lightweight mode. When you delete the **SQL Virtual Machine** resource by using the Azure portal, be sure to deselect the actual virtual machine.
+> At this time, SQL Server failover cluster instances on Azure Virtual Machines are supported only with the [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode of the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md). To change from full extension mode to lightweight mode, delete the **SQL Virtual Machine** resource for the corresponding VMs and then register them with the SQL VM resource provider in [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) mode. When you delete the **SQL Virtual Machine** resource by using the Azure portal, clear the check box next to the correct virtual machine. 
 >
->The full extension supports features like automated backup, patching, and advanced portal management. These features won't work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
-
-### Workload capacities
+> The full extension supports features like automated backup, patching, and advanced portal management. These features won't work for SQL Server VMs after the agent is reinstalled in [lightweight](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) management mode.
 
 Premium file shares provide IOPS and throughout capacities that will meet the needs of many workloads. For IO-intensive workloads, consider [SQL Server Failover Cluster Instances with Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md), based on managed premium disks or ultra disks.  
 
