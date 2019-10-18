@@ -57,12 +57,11 @@ Although the gateway itself doesn't incur additional costs, the [Logic Apps pric
 
 * You haven't previously linked your gateway installation to another gateway resource in Azure.
 
-  When you create a gateway resource in Azure, you select a gateway installation to use with your gateway resource and only that resource. The gateway installation is [linked to one and only one Azure subscription](../logic-apps/logic-apps-gateway-install.md#prerequisites). However, in Azure Logic Apps, on-premises triggers and actions can use gateway resources from your other Azure subscriptions.
-  
+  When you create a gateway resource in the Azure portal, you select a gateway installation to use with your gateway resource and only that resource. In Azure Logic Apps, on-premises triggers and actions can then use the gateway resource for connecting to on-premises data sourcess. In those triggers and actions, you can select a gateway resource from your various Azure subscriptions. Each gateway resource links to only one gateway installation, which links to only one Azure subscription.
+
   > [!TIP]
-  > If you want to set up more than one gateway installation to use with an Azure subscription, 
-  > you need to create an Azure gateway resource in that subscription for each installation. 
-  > You can't directly link a gateway installation to multiple subscriptions or gateway resources.
+  > To use more than one gateway installation in an Azure subscription, 
+  > you need to create an Azure gateway resource for each installation. 
 
 <a name="create-gateway-resource"></a>
 
@@ -88,7 +87,7 @@ After you install the gateway on a local computer, create the Azure resource for
    | **Subscription** | Your Azure subscription, which must be the same as gateway installation and logic app. The default subscription is based on the Azure account that you used to sign in. |
    | **Resource group** | The [Azure resource group](../azure-resource-manager/resource-group-overview.md) that you want to use |
    | **Location** | The same region as the location that was selected for the gateway cloud service during [gateway installation](../logic-apps/logic-apps-gateway-install.md). Otherwise, your gateway installation won't appear in the **Installation Name** list for you to select. Your logic app location can differ from your gateway resource location. |
-   | **Installation Name** | Select a gateway installation that already exists on a local computer. This list shows only gateway installations that meet these conditions: <p><p>- Not already linked to other Azure gateway resources <br>- Already linked to the Azure subscription and account that you're using to create the gateway resource. <p><p>Although a gateway installation maps to only one gateway resource and one subscription, in Azure Logic Apps, on-premises triggers and actions can select gateway resources from your other Azure subscriptions. |
+   | **Installation Name** | Select a gateway installation that's already on a local computer. The list shows only gateway installations that meet these conditions: <p><p>- Not already linked to other Azure gateway resources <br>- Already linked to the Azure account and subscription that you're currently using to create the gateway resource. <p><p>Although a gateway installation maps to only one gateway resource and one subscription, in Azure Logic Apps, on-premises triggers and actions can select a gateway resource from your various Azure subscriptions. |
    |||
 
    Here is an example:
@@ -109,7 +108,7 @@ After you create your gateway resource and associate your Azure subscription wit
 
 1. Under **Gateways**, from the **Subscriptions** list, select your Azure subscription that has the gateway resource you want.
 
-1. From the **Connection Gateway** list, which shows the gateway resources in your selected subscription, select the gateway resource you want. Each gateway resource is linked to a single gateway installation.
+1. From the **Connection Gateway** list, which shows the available gateway resources in your selected subscription, select the gateway resource that you want. Each gateway resource is linked to a single gateway installation.
 
    > [!NOTE]
    > The gateways list includes gateway resources in other regions because your 
