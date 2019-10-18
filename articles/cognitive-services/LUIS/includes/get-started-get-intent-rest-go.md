@@ -21,7 +21,7 @@ ms.author: diberry
 
 ## Get intent programmatically
 
-You can use Go to access the same results you saw in the browser window in the previous step. 
+Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-prediction) to get the prediction result.
 
 1. Create a new file named `predict.go`. Add the following code:
     
@@ -175,4 +175,4 @@ When you are finished with this quickstart, close the Visual Studio project and 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with Go](../luis-get-started-go-add-utterance.md)
+> [Add utterances and train](../luis-get-started-go-add-utterance.md)

@@ -22,7 +22,7 @@ ms.author: diberry
 
 ## Get intent programmatically
 
-Use Node.js to query the prediction endpoint GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to get the prediction result.
+Use Node.js to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-prediction) to get the prediction result.
 
 1. Copy the following code snippet to a file named `predict.js`:
 
@@ -148,4 +148,4 @@ When you are finished with this quickstart, delete the file from the file system
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with Node.js](../luis-get-started-node-add-utterance.md)
+> [Add utterances and train](../luis-get-started-node-add-utterance.md)

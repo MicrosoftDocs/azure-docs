@@ -22,7 +22,7 @@ ms.author: diberry
 
 ## Get intent programmatically
 
-Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to get the prediction result. 
+Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-prediction) to get the prediction result. 
 
 1. Create a new console application targeting the C# language, with a project and folder name of `predict-with-rest`. 
 
@@ -48,11 +48,16 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
         {
             static void Main(string[] args)
             {
+                // YOUR-KEY: for example, the starter key
                 var key = "YOUR-KEY";
-                var endpoint = "westus2.api.cognitive.microsoft.com";
-                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"; //public sample app
+                
+                // YOUR-ENDPOINT: example is westus2.api.cognitive.microsoft.com
+                var endpoint = "YOUR-ENDPOINT";
+
+                // //public sample app
+                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"; 
     
-                var utterance = "turn on the left light";
+                var utterance = "turn on all lights";
     
                 MakeRequest(key, endpoint, appId, utterance);
     
@@ -108,32 +113,52 @@ Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.m
 
     ```console
     Hit ENTER to exit...
-    {"query":"query=turn on the left light","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.219572827},"None":{"score":0.1371486},"HomeAutomation.TurnOff":{"score":0.0241389349}},"entities":{}}}
+    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
     The JSON response formatted for readability: 
 
     ```JSON
     {
-        "query": "query=turn on the left light",
+        "query": "turn on all lights",
         "prediction": {
             "topIntent": "HomeAutomation.TurnOn",
             "intents": {
                 "HomeAutomation.TurnOn": {
-                    "score": 0.219572827
+                    "score": 0.5375382
                 },
                 "None": {
-                    "score": 0.1371486
+                    "score": 0.08687421
                 },
                 "HomeAutomation.TurnOff": {
-                    "score": 0.0241389349
+                    "score": 0.0207554
                 }
             },
-            "entities": {}
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
         }
     }
     ```
-    
+
 ## LUIS keys
 
 [!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
@@ -145,4 +170,4 @@ When you are finished with this quickstart, delete the project directory from th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train with C#](../luis-get-started-cs-add-utterance.md)
+> [Add utterances and train](../luis-get-started-cs-add-utterance.md)
