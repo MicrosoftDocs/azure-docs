@@ -70,7 +70,7 @@ We add a minimal UI to our scene, consisting of an input field to enter the text
 
 When you're done, the UI should look similar to this screenshot:
 
-[![Screenshot of the quickstart user interface in the Unity Editor](media/sdk/qs-tts-csharp-unity-ui-inline.png)](../../../media/sdk/qs-tts-csharp-unity-ui-expanded.png#lightbox)
+[![Screenshot of the quickstart user interface in the Unity Editor](../../../media/sdk/qs-tts-csharp-unity-ui-inline.png)](../../../media/sdk/qs-tts-csharp-unity-ui-expanded.png#lightbox)
 
 ## Add the sample code
 
@@ -109,7 +109,7 @@ When you're done, the UI should look similar to this screenshot:
 
 * After the app launches, enter some text into the input field and click the button. Your text is transmitted to the Speech Services and synthesized to speech, which plays on your speaker.
 
-  [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-tts-csharp-unity-output-inline.png)](../../../media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
+  [![Screenshot of the running quickstart in the Unity Game Window](../../../media/sdk/qs-tts-csharp-unity-output-inline.png)](../../../media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 
 * Check the [Console Window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
 

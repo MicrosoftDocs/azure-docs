@@ -12,13 +12,14 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
+# 
 
 ## Select your development environment
 
-#### [Visual Studio](#tab/vs)
+#### [Visual Studio](#tab/dotnet)
 [!INCLUDE [Header](../header.md)]
 [!INCLUDE [vs](./windows.md)]
-#### [.Net Core](#tab/vs)
+#### [.Net Core](#tab/dotnetcore)
 [!INCLUDE [Header](../header.md)]
 [!INCLUDE [vs](./dotnetcore.md)]
 #### [Unity](#tab/unity)

@@ -16,8 +16,8 @@ ms.author: erhopf
 
 If you've clicked this tab, you probably didn't see a quickstart in your favorite programming language. Don't worry, we have additional quickstart materials and code samples available on GitHub. Use the table to find the right sample for your programming language and platform/OS combination.
 
-| Language | Additional Documents | Code samples |
-|----------|----------------------|------|
+| Language | Additional Quickstarts | Code samples |
+|----------|------------------------|--------------|
 | C++ | |[Quickstarts](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp), [Samples](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp-linux)|
 | C# | |[.NET Framework](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp-dotnet-windows), [.NET Core](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp-dotnetcore), [UWP](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp-uwp), [Unity](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp-unity), [Xamarin](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp-xamarin) |
 | Java | |[Android](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java-android), [JRE](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java-jre) |

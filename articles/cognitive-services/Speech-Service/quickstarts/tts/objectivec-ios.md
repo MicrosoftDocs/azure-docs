@@ -45,7 +45,7 @@ In the dialogs that follow, make the following selections:
     1. Enter an appropriate organization name and organization identifier, if you already have an Apple developer account. For testing purposes, you can just pick any name like `testorg`. To sign the app, you need a proper provisioning profile. Refer to the [Apple developer site](https://developer.apple.com/) for details.
     1. Make sure Objective-C is chosen as the language for the project.
     1. Disable all checkboxes for tests and core data.
-    ![Project Settings](media/sdk/qs-objectivec-project-settings.png)
+    ![Project Settings](../../media/sdk/qs-objectivec-project-settings.png)
 1. Select project directory
     1. Choose your home directory to put the project in. This creates a `helloworld` directory in your home directory that contains all the files for the Xcode project.
     1. Disable the creation of a Git repo for this example project.

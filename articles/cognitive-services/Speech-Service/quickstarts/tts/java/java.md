@@ -14,10 +14,10 @@ ms.author: erhopf
 
 ## Select your target environment
 
-#### [Java Runtime](#tab/vs)
+#### [Java Runtime](#tab/jre)
 [!INCLUDE [Header](../header.md)]
 [!INCLUDE [vs](./jre.md)]
-#### [Android](#tab/vs)
+#### [Android](#tab/android)
 [!INCLUDE [Header](../header.md)]
 [!INCLUDE [vs](./android.md)]
 * * *
