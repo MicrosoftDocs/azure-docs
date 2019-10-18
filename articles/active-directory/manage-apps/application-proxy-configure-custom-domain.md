@@ -96,7 +96,7 @@ To publish your app through Application Proxy with a custom domain:
    
    ![Click to upload a certificate](./media/application-proxy-configure-custom-domain/certificate.png)
    
-1. On the **SSL certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates](#certificates) section.
+1. On the **SSL certificate** page, browse to and select your PFX certificate file. Enter the password for the certificate, and select **Upload Certificate**. For more information about certificates, see the [Certificates for custom domains](#certificates-for-custom-domains) section.
    
    ![Upload Certificate](./media/application-proxy-configure-custom-domain/ssl-certificate.png)
    
