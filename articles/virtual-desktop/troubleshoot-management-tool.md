@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/17/2019
+ms.date: 10/21/2019
 ms.author: helohr
 ---
 # Troubleshoot the Windows Virtual Desktop management tool
@@ -51,5 +51,7 @@ To fix this, deploy the management tool in a different region.
 
 ## Next steps
 
+- Learn about escalation tracks at [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- Learn how to report issues with Windows Virtual Desktop tools at [ARM Templates for Remote Desktop Services](https://github.com/Azure/RDS-Templates/blob/master/README.md).
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
 - To learn how to deploy the management tool, see [Deploy a management tool](manage-resources-using-ui.md).
