@@ -53,7 +53,7 @@ You can click and drag in the chart to narrow down to a specific time window. Al
 ### Wait statistics 
 
 > [!NOTE]
-> Wait statistics are meant for troubleshooting query performance issues. It is recommended to be turned on only for troubleshooting purposes. <br>If you receive the error message in the Azure portal "*The issue encountered for 'Microsoft.DBforMariaDB'; cannot fulfill the request. If this issue continues or is unexpected, please contact support with this information.*" while viewing wait statistics, use a smaller time period.
+> Wait statistics are meant for troubleshooting query performance issues. It is recommended to be turned on only for troubleshooting purposes. <br><br>If you receive the error message in the Azure portal "*The issue encountered for 'Microsoft.DBforMariaDB'; cannot fulfill the request. If this issue continues or is unexpected, please contact support with this information.*" while viewing wait statistics, use a smaller time period.
 
 Wait statistics provides a view of the wait events that occur during the execution of a specific query. Learn more about the wait event types in the [MySQL engine documentation](https://go.microsoft.com/fwlink/?linkid=2098206).
 
