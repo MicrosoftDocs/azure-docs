@@ -69,7 +69,7 @@ This example is for Azure Functions version 1.x. To make this code work for 2.x:
 - change the type of the log parameter from `TraceWriter` to `ILogger`
 - change `log.Info` to `log.LogInformation`
 
-# [C#](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function reads [message metadata](#trigger---message-metadata) and logs a Service Bus queue message.
 
@@ -109,7 +109,7 @@ public static void Run(string myQueueItem,
 }
 ```
 
-# [C#](#tab/fsharp)
+# [F#](#tab/fsharp)
 
 The following example shows a Service Bus trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function logs a Service Bus queue message. 
 
@@ -137,7 +137,7 @@ let Run(myQueueItem: string, log: ILogger) =
     log.LogInformation(sprintf "F# ServiceBus queue trigger function processed message: %s" myQueueItem)
 ```
 
-# [C#](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 The following example shows a Service Bus trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function reads [message metadata](#trigger---message-metadata) and logs a Service Bus queue message. 
 
@@ -170,7 +170,7 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
-# [C#](#tab/python)
+# [Python](#tab/python)
 
 The following example demonstrates how to read a ServiceBus queue message via a trigger.
 
@@ -221,7 +221,7 @@ def main(msg: func.ServiceBusMessage):
     logging.info(result)
 ```
 
-# [C#](#tab/java)
+# [Java](#tab/java)
 
 The following Java function uses the `@ServiceBusQueueTrigger` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to describe the configuration for a Service Bus queue trigger. The  function grabs the message placed on the queue and adds it to the logs.
 
@@ -317,23 +317,23 @@ The Service Bus account to use is determined in the following order:
 * The `ServiceBusAccount` attribute applied to the class.
 * The "AzureWebJobsServiceBus" app setting.
 
-# [C#](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 **TODO**
 
-# [C#](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 **TODO**
 
-# [C#](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 **TODO**
 
-# [C#](#tab/python)
+# [Python](#tab/python)
 
 **TODO**
 
-# [C#](#tab/java)
+# [Java](#tab/java)
 
 **TODO**
 
@@ -372,23 +372,23 @@ These parameters are for Azure Functions version 1.x; for 2.x, use [`Message`](h
 
 In JavaScript, access the queue or topic message by using `context.bindings.<name from function.json>`. The Service Bus message is passed into the function as either a string or JSON object.
 
-# [C#](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 **TODO**
 
-# [C#](#tab/fsharp)
+# [F#](#tab/fsharp)
 
 **TODO**
 
-# [C#](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 **TODO**
 
-# [C#](#tab/python)
+# [Python](#tab/python)
 
 **TODO**
 
-# [C#](#tab/java)
+# [Java](#tab/java)
 
 **TODO**
 
@@ -467,7 +467,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-# [C#](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 The following example shows a Service Bus output binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
@@ -518,7 +518,7 @@ public static void Run(TimerInfo myTimer, ILogger log, ICollector<string> output
 }
 ```
 
-# [C#](#tab/fsharp)
+# [F#](#tab/fsharp)
 
 The following example shows a Service Bus output binding in a *function.json* file and an [F# script function](functions-reference-fsharp.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
@@ -555,7 +555,7 @@ let Run(myTimer: TimerInfo, log: ILogger, outputSbQueue: byref<string>) =
     outputSbQueue = message
 ```
 
-# [C#](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 The following example shows a Service Bus output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a timer trigger to send a queue message every 15 seconds.
 
@@ -607,7 +607,7 @@ module.exports = function (context, myTimer) {
 };
 ```
 
-# [C#](#tab/python)
+# [Python](#tab/python)
 
 The following example demonstrates how to write out to a ServiceBus queue in Python.
 
@@ -657,7 +657,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-# [C#](#tab/java)
+# [Java](#tab/java)
 
 The following example shows a Java function that sends a message to a Service Bus queue `myqueue` when triggered by a HTTP request.
 
@@ -726,23 +726,23 @@ For a complete example, see [Output - example](#output---example).
 
 You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes).
 
-# [C#](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 **TODO**
 
-# [C#](#tab/fsharp)
+# [F#](#tab/fsharp)
 
 **TODO**
 
-# [C#](#tab/javascript)
+# [JavaScript](#tab/javascript)
 
 **TODO**
 
-# [C#](#tab/python)
+# [Python](#tab/python)
 
 **TODO**
 
-# [C#](#tab/java)
+# [Java](#tab/java)
 
 **TODO**
 
