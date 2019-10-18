@@ -32,9 +32,9 @@
   - name: Quickstarts
     items:
     - name: Convert speech to text from file
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/from-file/speech-to-text-from-file.md
     - name: Convert speech to text from microphone
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/from-microphone/speech-to-text-from-microphone.md
     - name: Convert speech to text from blob storage
       href: https://aka.ms/ignite2019/speech/placeholder
   - name: How-to guides
