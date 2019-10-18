@@ -21,7 +21,7 @@ As part of Microsoft's commitment to designing responsible AI, we have assembled
 
 ### Guidance for deploying Custom Neural Voice
 
-- [Guidelines for Responsible Deployment](concepts-deployment-guidelines.md): our top recommendations based on our research
+- [Guidelines for Responsible Deployment](concepts-guidelines-responsible-deployment-synthetic.md): our top recommendations based on our research
 - [Neural Text-to-Speech Transparency Note](https://aka.ms/neural-tts-transparency-note): what you need to know about the technology to use it responsibly
 - [Disclosure Design](concepts-disclosure-guidelines.md): how to design experiences so that users know when a synthetic voice is being used and trust your service
 
@@ -31,11 +31,13 @@ Our intent is to protect the rights of individuals and society, foster transpare
 
 ### Our gating process
 
-Customers who would like to deploy Microsoft&#39;s Custom Neural Voice are led through this process:
+To get access to Custom Neural Voice, you'll need to start by filling out our online intake form. To get started with Custom Neural Voice, begin your application [here](https://speech.microsoft.com/customvoice).
 
-![Gating process](media/responsible-ai/gating-process.png)
+Access to the Custom Neural Voice service is subject to Microsoft’s sole discretion based on our eligibility criteria and vetting process. Based on adherence to our responsible deployment practices and availability to support in the preview of this service, you may gain access to the technology after applications are reviewed.
 
-To get started with Custom Neural Voice, begin your application [here](https://speech.microsoft.com/customvoice).
+deliberate
+Once you have access, critical things
+AFter you're given access and upload data, it's essential to have consent from voice talent. Once you're deployed, you can read more about the guidances here.
 
 ## Reference docs
 

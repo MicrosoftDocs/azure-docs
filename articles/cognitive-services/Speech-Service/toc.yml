@@ -202,13 +202,15 @@
     - name: Responsible deployment
       items:
       - name: Gating of Custom Voice
-      - href: concepts-gating-overview.md
+        href: concepts-gating-overview.md
       - name: Deployment of synthetic technology
         href: concepts-guidelines-responsible-deployment-synthetic.md
       - name: Disclosure design guidelines
         href: concepts-disclosure-guidelines.md
       - name: Disclosure design patterns
         href: concepts-disclosure-patterns.md
+      - name: Transparency note for Custom Voice
+      - href: https://aka.ms/neural-tts-transparency-note
     - name: Custom Voice portal
       items:
       - name: Get started with Custom Voice
