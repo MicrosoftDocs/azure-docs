@@ -60,15 +60,17 @@ You can use this resource to:
 
 ![B2C Resource settings page in the Azure portal](./media/active-directory-b2c-how-to-enable-billing/portal-02-b2c-resource-overview.png)
 
-### Azure Cloud Solution Providers (CSP) subscriptions
+### Regional restrictions
+
+If you've established regional restrictions for Azure resource creation in your subscription, that restriction may prevent you from creating the Azure AD B2C resource.
+
+To mitigate this issue, relax your regional restrictions.
+
+## Azure Cloud Solution Providers (CSP) subscriptions
 
 Azure Cloud Solution Providers (CSP) subscriptions are supported in Azure AD B2C. The functionality is available using APIs or the Azure portal for Azure AD B2C and for all Azure resources. CSP subscription administrators can link, move, and delete relationships with Azure AD B2C as done with other Azure resources.
 
 The management of Azure AD B2C using role-based access control is not affected by the association between the Azure AD B2C tenant and an Azure CSP subscription. Role-based access control is achieved by using tenant-based roles, not subscription-based roles.
-
-### Regional restrictions
-
-If you've established regional restrictions for Azure resource creation in your subscription, that restriction may prevent you from creating the Azure AD B2C resource. To mitigate this issue, relax your regional restrictions.
 
 ## Change the Azure AD B2C tenant billing subscription
 
