@@ -3204,7 +3204,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure SQL Database Edge</h3>
-                                                    <p>Relational database engine optimized for IoT and Edge deployments.</p>
+                                                    <p>Relational database engine optimized for IoT and edge deployments.</p>
                                                 </div>
                                             </div>
                                         </div>
