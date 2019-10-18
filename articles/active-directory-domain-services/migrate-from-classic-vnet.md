@@ -52,7 +52,8 @@ Azure AD DS managed domains that use a Resource Manager virtual network help you
 
 Some common scenarios for migrating an Azure AD DS managed domain include the following examples.
 
-[!NOTE] Do not convert the Classic virtual network until you have confirmed a successful migration. Converting the virtual network removes the option to roll back or restore the Azure AD DS managed domain if there any problems during the migration and verification stages.
+> [!NOTE]
+> Do not convert the Classic virtual network until you have confirmed a successful migration. Converting the virtual network removes the option to roll back or restore the Azure AD DS managed domain if there any problems during the migration and verification stages.
 
 ### Migrate Azure AD DS to an existing Resource Manager virtual network (recommended)
 
