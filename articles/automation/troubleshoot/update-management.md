@@ -13,19 +13,19 @@ manager: carmonm
 
 This article discusses solutions to issues that you might encounter when you use Update Management.
 
-There's an agent troubleshooter for the Hybrid Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md). For all other issues, see the following information about possible issues.
+There's an agent troubleshooter for the Hybrid Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md). For all other issues, use the following troubleshooting guidance.
 
-If you encounter issues while you're trying to onboard the solution on a virtual machine, check the **Operations Manager** log under **Application and Services Logs** on the local machine for events with event ID **4502** and event messages containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
+If you encounter issues while you're trying to onboard the solution on a virtual machine, check the **Operations Manager** log under **Application and Services Logs** on the local machine for events with event ID 4502 and event details that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
-The following section highlights specific error messages and a possible resolution for each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
+The following section highlights specific error messages and a possible resolution for each. For other onboarding issues see [Troubleshoot solution onboarding](onboarding.md).
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
 ### Issue
 
-You might encounter the following scenarios:
+You experience the following symptoms:
 
-* Your machine shows **Not configured** from the Update Management view of a VM.
+* Your machine shows **Not configured** from the Update Management view of a virtual machine (VM).
 
 * Your machines are missing from the Update Management view of your Automation account.
 
@@ -41,9 +41,9 @@ You might have defined a quota in your workspace that's been reached and that's 
 
 ### Resolution
 
-* Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline) depending on the OS.
+* Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline), depending on the OS.
 
-* Make sure your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Then, make sure this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
+* Make sure your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Also make sure this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
 
 * Make sure the machines show up in your Log Analytics workspace. Run the following query in the Log Analytics workspace that's linked to your Automation account:
 
@@ -70,7 +70,7 @@ You might have defined a quota in your workspace that's been reached and that's 
 
 ### Issue
 
-When you work with solutions in your Automation account, you might encounter the following error:
+When you work with solutions in your Automation account, you encounter the following error:
 
 ```error
 Error details: Unable to register Automation Resource Provider for subscriptions:
@@ -84,13 +84,13 @@ The Automation Resource Provider isn't registered in the subscription.
 
 To register the Automation Resource Provider, follow these steps in the Azure portal:
 
-1. At the bottom Azure service list, select **All services**, and then select **Subscriptions** in the General service group.
+1. In the Azure service list at the bottom of the portal, select **All services**, and then select **Subscriptions** in the General service group.
 2. Select your subscription.
 3. Under **Settings**, select **Resource Providers**.
 4. From the list of resource providers, verify that the **Microsoft.Automation** resource provider is registered.
 5. If it's not listed, register the **Microsoft.Automation** provider by following the steps at [Resolve errors for resource provider registration](/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
-## <a name="components-enabled-not-working"></a>Scenario: The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured
+## <a name="components-enabled-not-working"></a>Scenario: The components for the Update Management solution have been enabled, and now this virtual machine is being configured
 
 ### Issue
 
@@ -104,7 +104,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 
 This error can occur for the following reasons:
 
-- Communication back to the Automation account is being blocked.
+- Communication with the Automation account is being blocked.
 - The VM being onboarded might have come from a cloned machine that wasn't sysprepped with the Microsoft Monitoring Agent (MMA) installed.
 
 ### Resolution
@@ -113,8 +113,8 @@ This error can occur for the following reasons:
 2. If you're using a cloned image:
    1. In your Log Analytics workspace, remove the VM from the saved search for the `MicrosoftDefaultScopeConfig-Updates` scope configuration if it's shown. Saved searches can be found under **General** in your workspace.
    2. Run `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`.
-   3. Run `Restart-Service HealthService` to restart the `HealthService`. This recreates the key and generate a new UUID.
-   4. If this approach doesn't work, run sysprep the image first and then install the MMA agent afterwards.
+   3. Run `Restart-Service HealthService` to restart the `HealthService`. This recreates the key and generates a new UUID.
+   4. If this approach doesn't work, run sysprep on the image first and then install the MMA agent.
 
 ## <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when you create an update deployment for machines in another Azure tenant
 
@@ -159,7 +159,7 @@ Windows Update can be modified by several registry keys, any of which can modify
 
 Review the registry keys listed under [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) to make sure your machines are configured properly.
 
-## <a name="failed-to-start"></a>Scenario: A machine shows "Failed to start" in an update deployment
+## <a name="failed-to-start"></a>Scenario: Machine shows "Failed to start" in an update deployment
 
 ### Issue
 
@@ -177,20 +177,20 @@ This error can occur for one of the following reasons:
 * The machine is turned off and unreachable.
 * The machine has a network connectivity issue, and therefore the hybrid worker on the machine is unreachable.
 * There was an update to the MMA that changed the SourceComputerId.
-* Your update run was throttled if you hit the 2,000 concurrent jobs limit in an Automation account. Each deployment is considered a job and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts towards the concurrent job limit.
+* Your update run was throttled if you hit the 2000 concurrent jobs limit in an Automation account. Each deployment is considered a job and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts towards the concurrent job limit.
 
 ### Resolution
 
-When applicable use [dynamic groups](../automation-update-management-groups.md) for your update deployments. Additionally:
+When applicable, use [dynamic groups](../automation-update-management-groups.md) for your update deployments. Additionally:
 
 * Verify that the machine still exists and is reachable. If it doesn't exist, edit your deployment and remove the machine.
 * See the [network planning](../automation-update-management.md#ports) section for a list of ports and addresses that are required for Update Management, and then verify that your machine meets these requirements.
-* Run the following query in Log Analytics to find machines in your environment whose `SourceComputerId` has changed. Look for computers that have the same `Computer` value but different a `SourceComputerId` value. 
+* Run the following query in Log Analytics to find machines in your environment whose `SourceComputerId` has changed. Look for computers that have the same `Computer` value but a different `SourceComputerId` value. 
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
    ```
-   After you find affected machines, edit the update deployments that target those machines, and then remove and re-add the machines so that `SourceComputerId` reflects the correct value.
+   After you find affected machines, edit the update deployments that target those machines, and then remove and re-add them so that `SourceComputerId` reflects the correct value.
 
 ## <a name="updates-nodeployment"></a>Scenario: Updates are installed without a deployment
 
@@ -273,11 +273,11 @@ The Hybrid Runbook Worker couldn't generate a self-signed certificate.
 
 Verify that the system account has read access to the **C:\ProgramData\Microsoft\Crypto\RSA** folder, and try again.
 
-## <a name="mw-exceeded"></a>Scenario: The update management scheduled failed with the error MaintenanceWindowExceeded
+## <a name="mw-exceeded"></a>Scenario: The scheduled update failed with a MaintenanceWindowExceeded error
 
 ### Issue
 
-The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of six (6) hours, or 360 minutes.
+The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes.
 
 ### Resolution
 
@@ -295,19 +295,18 @@ For more information on maintenance windows, see [Install updates](../automation
 
 ### Cause
 
-The Update Agent (Windows Update Agent on Windows, the package manager for a Linux distribution) isn't configured correctly. Update Management relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Management can't properly report on the patches that are needed or installed.
+The Update Agent (Windows Update Agent on Windows; the package manager for a Linux distribution) isn't configured correctly. Update Management relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of deployed patches. Without this information, Update Management can't properly report on the patches that are needed or installed.
 
 ### Resolution
 
-Try to perform updates locally on the machine. If this fails, this typically means there's a configuration error with the update agent.
+Try to perform updates locally on the machine. If this fails, it typically means there's a configuration error with the update agent.
 
-Common causes of failure include:
+This problem is frequently caused by network configuration and firewall issues. Try the following:
 
-* Network configuration and firewalls.
 * For Linux, check the appropriate documentation to make sure you can reach the network endpoint of your package repository.
 * For Windows, check your agent configuration as listed in [Updates aren't downloading from the intranet endpoint (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
   * If the machines are configured for Windows Update, make sure you can reach the endpoints described in [Issues related to HTTP/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
-  * If the machines are configured for WSUS, make sure you can reach the WSUS server configured by the [WUServer registry key](/windows/deployment/update/waas-wu-settings).
+  * If the machines are configured for Windows Server Update Services (WSUS), make sure you can reach the WSUS server configured by the [WUServer registry key](/windows/deployment/update/waas-wu-settings).
 
 If you see an HRESULT, double-click the exception displayed in red to see the entire exception message. Review the following table for potential solutions or recommended actions:
 
@@ -317,10 +316,10 @@ If you see an HRESULT, double-click the exception displayed in red to see the en
 |`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | These indicate network connectivity issues. Make sure your machine has network connectivity to Update Management. See the [network planning](../automation-update-management.md#ports) section for a list of required ports and addresses.        |
 |`0x8024001E`| The update operation didn't complete because the service or system was shutting down.|
 |`0x8024002E`| Windows Update service is disabled.|
-|`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key have the correct WSUS server.        |
+|`0x8024402C`     | If you're using a WSUS server, make sure the registry values for `WUServer` and `WUStatusServer` under the  `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` registry key specify the correct WSUS server.        |
 |`0x80072EE2`|There's a network connectivity issue or an issue in talking to a configured WSUS server. Check WSUS settings and make sure the service is accessible from the client.|
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Make sure the Windows Update service (wuauserv) is running and not disabled.        |
-|Any other generic exception     | Run a search the internet for  possible solutions, and work with your local IT support.         |
+|Any other generic exception     | Run a search on the internet for  possible solutions, and work with your local IT support.         |
 
 Reviewing the Windowsupdate.log file can also help you determine possible causes. For more information about how to read the log, see [How to read the Windowsupdate.log file](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
@@ -366,7 +365,7 @@ If you can't resolve a patching issue, make a copy of the following log file and
 
 ### I know updates are available, but they don't show as available on my machines
 
-* This often happens if machines are configured to get updates from WSUS or SCCM, but WSUS and SCCM haven't approved the updates.
+* This often happens if machines are configured to get updates from WSUS or System Center Configuration Manager (SCCM) but WSUS and SCCM haven't approved the updates.
 * You can check whether the machines are configured for WSUS and SCCM by [cross-referencing the UseWUServer registry key to the registry keys in the "Configuring Automatic Updates by Editing the Registry" section of this article](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
 * If updates aren't approved in WSUS, they won't be installed. You can check for unapproved updates in Log Analytics by running the following query:
 
@@ -388,7 +387,7 @@ If you can't resolve a patching issue, make a copy of the following log file and
 
 ## Next steps
 
-If you didn't see your problem or can't resolve your issue, use one of the following channels for additional support:
+If you didn't see your problem or can't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
