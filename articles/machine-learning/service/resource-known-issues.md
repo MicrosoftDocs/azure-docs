@@ -128,7 +128,7 @@ If these steps don't solve the issue, try restarting the cluster.
 
 If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
 
-* Upgrade `azureml-sdk[automl_databricks]` package to the latest version.
+* Upgrade `azureml-sdk[automl]` package to the latest version.
 * Add `azure-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
 
