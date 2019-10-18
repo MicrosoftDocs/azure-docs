@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: 
-ms.date: 10/14/2019
+ms.date: 10/18/2019
 ms.author: danlep
 
 ---
 # Azure Container Registry logs for diagnostic evaluation and auditing
 
-This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/platform/resource-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data in several ways:
+This article explains how to collect log data for an Azure container registry using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [resource logs](../azure-monitor/platform/resource-logs-overview.md) (formerly called *diagnostic logs*) for user-driven events in your registry. Collect and consume this data to meet needs such as:
 
 * Audit registry authentication events to ensure security and compliance 
 
@@ -34,7 +34,8 @@ You may incur additional costs to store or process resource log data.
 
 ## Preview limitations
 
-* In preview, logging of repository-level events is limited to artifact push and pull.
+* Portal features to enable registry diagnostic settings are available only in a [preview portal](https://aka.ms/acr/portal/preview).
+* Logging of repository-level events is limited to artifact push and pull.
 
 ## Registry resource logs
 
@@ -83,7 +84,7 @@ For a tutorial on using Log Analytics in the Azure portal, see [Get started with
 
 ### Additional query examples
 
-#### Top 100 registry events
+#### 100 most recent registry events
 
 ```Kusto
 ContainerRegistryRepositoryEvents
