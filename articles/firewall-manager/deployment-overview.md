@@ -13,7 +13,7 @@ ms.author: victorh
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-There's more than one way to Azure Firewall Manager Preview, but the following general procedure is recommended.
+There's more than one way to deploy Azure Firewall Manager Preview, but the following general procedure is recommended.
 
 ## General deployment procedure
 
