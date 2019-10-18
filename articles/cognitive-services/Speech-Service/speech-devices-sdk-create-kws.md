@@ -47,7 +47,7 @@ Before you can use a custom keyword with your device, you'll need to create a ke
 
     ![The Custom Speech Service Portal](media/speech-devices-sdk/wake-word-4.png)
 
-1. At the [Custom Wake Word](https://aka.ms/sdsdk-wakewordportal) page type in the keyword of your choice and click **Add keyword**. We have some [guidelines](#choose-an-effective-wake-word) to help choose an effective keyword. Currently we only support en-US language.
+1. At the [Custom Wake Word](https://aka.ms/sdsdk-wakewordportal) page type in the keyword of your choice and click **Add keyword**. We have some [guidelines](#choose-an-effective-keyword) to help choose an effective keyword. Currently we only support en-US language.
 
     ![Enter your keyword](media/speech-devices-sdk/wake-word-5.png)
 

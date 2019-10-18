@@ -169,11 +169,11 @@
   - name: Quickstarts
     items:
     - name: 'C# (UWP)'
-      href: quickstart-virtual-assistant-csharp-uwp.md
+      href: quickstart-voice-assistant-csharp-uwp.md
     - name: 'Java (Windows, macOS, Linux)'
-      href: quickstart-virtual-assistant-java-jre.md
+      href: quickstart-voice-assistant-java-jre.md
     - name: 'Java (Android)'
-      href: quickstart-virtual-assistant-java-android.md
+      href: quickstart-voice-assistant-java-android.md
   - name: Tutorials
     items:
     - name: Voice enable your bot with Speech SDK
