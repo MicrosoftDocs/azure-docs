@@ -78,4 +78,4 @@ In this quickstart, you learned how to:
 To learn more about monitoring devices connected to your application, continue to the quickstart:
 
 > [!div class="nextstepaction"]
-> [Use Azure IoT Central to monitor your devices](tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+> [Use Azure IoT Central to monitor your devices](quick-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).

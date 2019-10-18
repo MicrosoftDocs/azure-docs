@@ -37,11 +37,11 @@ Azure IoT Central sends notifications about devices as email messages. The build
 
 Open the email message you received at the end of the [Configure rules and actions for your device](quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. In the email, select the link to the device:
 
-![Alert notification email](media/tutorial-monitor-devices-pnp/email.png)
+![Alert notification email](media/quick-monitor-devices-pnp/email.png)
 
 The **Dashboard** view for the environmental sensor simulated device you created in the previous tutorials opens in your browser:
 
-![Device that triggered the notification email message](media/tutorial-monitor-devices-pnp/dashboard.png)
+![Device that triggered the notification email message](media/quick-monitor-devices-pnp/dashboard.png)
 
 ## Investigate an issue
 
@@ -57,11 +57,11 @@ To make a change to the device, use the **Environmental Sensor properties** page
 
 1. Choose **Environmental Sensor properties**. Change **Brightness Level** to 10. Choose **Save** to update the device. When the device confirms the settings change, the status of the property changes to **synced**:
 
-    ![Update settings](media/tutorial-monitor-devices-pnp/change-settings.png)
+    ![Update settings](media/quick-monitor-devices-pnp/change-settings.png)
 
 2. Choose **Dashboard** and verify the new property value:
 
-    ![Updated device dashboard](media/tutorial-monitor-devices-pnp/new-settings.png)
+    ![Updated device dashboard](media/quick-monitor-devices-pnp/new-settings.png)
 
 ## Next steps
 

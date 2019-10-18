@@ -36073,10 +36073,14 @@
       "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/iot-central/core/tutorial-configure-rules-pnp.md",
       "redirect_url": "/azure/iot-central/core/quick-configure-rules-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-monitor-devices-pnp.md",
+      "redirect_url": "/azure/iot-central/core/quick-monitor-devices-pnp",
       "redirect_document_id": false
     },
     {
