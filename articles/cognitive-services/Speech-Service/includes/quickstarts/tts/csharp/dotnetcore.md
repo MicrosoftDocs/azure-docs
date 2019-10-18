@@ -21,7 +21,7 @@ This quickstart requires:
 
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
-* An Azure subscription key for the Speech Service. [Get one for free](../../../get-started.md).
+* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 
 ## Create a Visual Studio project
 

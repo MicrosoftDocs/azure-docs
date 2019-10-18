@@ -20,7 +20,7 @@ This article shows how to use the Speech Services through the Speech SDK for Pyt
 
 ## Prerequisites
 
-* An Azure subscription key for the Speech Services. [Get one for free](../../../get-started.md).
+* An Azure subscription key for the Speech Services. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 * [Python 3.5 or later](https://www.python.org/downloads/).
 * The Python Speech SDK package is available for these operating systems:
     * Windows: x64 and x86.
@@ -46,7 +46,7 @@ This article shows how to use the Speech Services through the Speech SDK for Pyt
 
 ## Install the Speech SDK
 
-[!INCLUDE [License Notice](../../../../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 This command installs the Python package from [PyPI](https://pypi.org/) for the Speech SDK:
 
@@ -56,11 +56,11 @@ pip install azure-cognitiveservices-speech
 
 ## Support and updates
 
-Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](../../../releasenotes.md).
+Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/Speech-Service/releasenotes.md).
 If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
 Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
 
-If you have a problem, or you're missing a feature, see [Support and help options](../../../support.md).
+If you have a problem, or you're missing a feature, see [Support and help options](~/articles/cognitive-services/Speech-Service/support.md).
 
 ## Create a Python application that uses the Speech SDK
 
@@ -84,16 +84,16 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**.
 
-   ![Install the Python extension](../../../media/sdk/qs-python-vscode-python-extension.png)
+   ![Install the Python extension](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. Create a folder to store the project in. An example is by using Windows Explorer.
 1. In Visual Studio Code, select the **File** icon. Then open the folder you created.
 
-   ![Open a folder](../../../media/sdk/qs-python-vscode-python-open-folder.png)
+   ![Open a folder](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-open-folder.png)
 
 1. Create a new Python source file, `speechsdk.py`, by selecting the new file icon.
 
-   ![Create a file](../../../media/sdk/qs-python-vscode-python-newfile.png)
+   ![Create a file](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
 
 1. Copy, paste, and save the [Python code](#sample-code) to the newly created file.
 1. Insert your Speech Services subscription information.
@@ -105,7 +105,7 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 1. To run the sample code, right-click somewhere inside the editor. Select **Run Python File in Terminal**.
    Speak a few words when you're prompted. The transcribed text displays shortly afterward.
 
-   ![Run a sample](../../../media/sdk/qs-python-vscode-python-run.png)
+   ![Run a sample](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-run.png)
 
 If you have issues following these instructions, refer to the more extensive [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 

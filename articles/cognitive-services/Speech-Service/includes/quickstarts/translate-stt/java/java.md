@@ -14,11 +14,11 @@ ms.author: erhopf
 
 # Quickstart: Translate speech with the Speech SDK for Java
 
-Quickstarts are also available for [speech-to-text](quickstart-java-jre.md), [text-to-speech](quickstart-text-to-speech-java-jre.md), and [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md).
+Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/from-microphone/speech-to-text-from-microphone.md), [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
 
 In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It is built with the Speech SDK Maven package and the Eclipse Java IDE.
 
-For a complete list of languages available for speech translation, see [language support](language-support.md).
+For a complete list of languages available for speech translation, see [language support](~/articles/cognitive-services/Speech-Service/language-support.md).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ This quickstart requires:
 * Operating System: 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or macOS 10.13 or later
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 
 If you're running Linux, make sure these dependencies are installed before starting Eclipse.
 
@@ -46,7 +46,7 @@ If you're running Linux, make sure these dependencies are installed before start
    ```
 
 > [!NOTE]
-> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
+> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](~/articles/cognitive-services/Speech-Service/speech-devices-sdk.md).
 
 ## Create and configure project
 
@@ -58,7 +58,7 @@ If you're running Linux, make sure these dependencies are installed before start
 
 1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
 
-   ![Screenshot of New Java Class window](media/sdk/qs-java-jre-06-create-main-java.png)
+   ![Screenshot of New Java Class window](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Replace all code in `Main.java` with the following snippet:
 
@@ -66,7 +66,7 @@ If you're running Linux, make sure these dependencies are installed before start
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. Save changes to the project.
 
@@ -76,7 +76,7 @@ Press F11, or select **Run** > **Debug**.
 
 The speech input from your microphone will be transcribed into German and logged in the console window. Press "Enter" to stop capturing speech.
 
-![Screenshot of console output after successful recognition](media/sdk/qs-translate-java-jre-output.png)
+![Screenshot of console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-java-jre-output.png)
 
 ## Next steps
 
@@ -87,6 +87,6 @@ Additional samples, such as how to read speech from an audio file, and output tr
 
 ## See also
 
-- [Quickstart: Recognize speech, Java (Windows, Linux)](quickstart-java-jre.md)
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Quickstart: Recognize speech, Java (Windows, Linux)](~/articles/cognitive-services/Speech-Service/quickstart-java-jre.md)
+- [Customize acoustic models](~/articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md)
+- [Customize language models](~/articles/cognitive-services/Speech-Service/how-to-customize-language-model.md)
