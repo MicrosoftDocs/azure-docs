@@ -14,22 +14,20 @@ ms.author: yulili
 
 # Quickstart: Synthesize speech in Java on Android by using the Speech SDK
 
-Quickstarts are also available for [speech recognition](quickstart-java-android.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-android.md).
-
 In this article, you'll learn how to develop a Java application for Android using the Cognitive Services Speech SDK to synthesize speech from text.
 The application is based on the Speech SDK Maven Package, version 1.7.0, and Android Studio 3.3.
 The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
 > [!NOTE]
-> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
+> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](../../../speech-devices-sdk.md).
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](get-started.md) for details.
+You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](../../../get-started.md) for details.
 
 ## Create and configure a project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
+[!INCLUDE [](../../../../../../includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
 ## Create user interface
 
@@ -46,11 +44,11 @@ We will create a basic user interface for the application. Edit the layout for y
 1. Use the magic wand icon at the top of the designer to infer layout constraints.
 
 
-    ![Screenshot of magic wand icon](media/sdk/qs-java-android-10-infer-layout-constraints.png)
+    ![Screenshot of magic wand icon](../../../media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
 The text and graphical representation of your UI should now look like this:
 
-![](media/sdk/qs-java-android-11-2-tts-gui.png)
+![](../../../media/sdk/qs-java-android-11-2-tts-gui.png)
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/java-android/app/src/main/res/layout/activity_main.xml)]
 
@@ -64,7 +62,7 @@ The text and graphical representation of your UI should now look like this:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Also replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Also replace the string `YourServiceRegion` with the [region](../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 ## Build and run the app
 
@@ -76,11 +74,11 @@ The text and graphical representation of your UI should now look like this:
 
 1. In the deployment target window that appears, choose your Android device or emulator.
 
-   ![Screenshot of Select Deployment Target window](media/sdk/qs-java-android-12-deploy.png)
+   ![Screenshot of Select Deployment Target window](../../../media/sdk/qs-java-android-12-deploy.png)
 
 Enter a text and press the button in the application to begin a speech synthesis section. You will hear the synthesized audio from the default speaker and see the `speech synthesis succeeded` info on the screen.
 
-![Screenshot of the Android application](media/sdk/qs-java-android-13-2-gui-on-device-tts.png)
+![Screenshot of the Android application](../../../media/sdk/qs-java-android-13-2-gui-on-device-tts.png)
 
 ## Next steps
 
@@ -89,5 +87,5 @@ Enter a text and press the button in the application to begin a speech synthesis
 
 ## See also
 
-- [Customize voice fonts](how-to-customize-voice-font.md)
-- [Record voice samples](record-custom-voice-samples.md)
+- [Customize voice fonts](../../../how-to-customize-voice-font.md)
+- [Record voice samples](../../../record-custom-voice-samples.md)

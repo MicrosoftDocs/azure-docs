@@ -19,5 +19,5 @@ ms.author: erhopf
 [!INCLUDE [vs](./jre.md)]
 #### [Android](#tab/vs)
 [!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./dotnetcore.md)]
+[!INCLUDE [vs](./android.md)]
 * * *
