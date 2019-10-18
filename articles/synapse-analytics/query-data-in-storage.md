@@ -18,7 +18,10 @@ This section contains sample queries you can use to try out SQL on-demand servic
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
 --->
 
-Currently supported files are: CSV, Parquet and JSON.
+Currently supported files are: 
+- CSV
+- Parquet 
+- JSON
 
 If you don’t have a <service> subscription, create a free trial account...
 <!--- Required, if a free trial account exists
@@ -55,9 +58,9 @@ There are two steps prior to using samples:
 
 Since you will use demo environment, you should create your own database for demo purposes. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
-> Please note that databases are used only for view metadata, not for actual data. Databases will be dropped on daily basis. Please keep all your scripts so you can easily regenerate database if needed.
-
-> Please write down database name you use. you will need it later on.
+> Note that databases are used only for view metadata, not for actual data. Databases will be dropped on daily basis. Please keep all your scripts so you can easily regenerate database if needed.
+> 
+> Write down database name you use. you will need it later on.
 
 ```sql
 CREATE DATABASE mydbname
@@ -134,7 +137,7 @@ Demo data contains following data sets:
 
 ## Next steps
 
-Now you are ready to start with following quickstarts:
+Now you are ready to start with following quickstart articles:
 
 1. [Querying single CSV file](querying-single-csv-file.md)
 
