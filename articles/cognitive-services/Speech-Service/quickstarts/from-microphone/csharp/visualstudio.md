@@ -22,16 +22,29 @@ The first step is to make sure that you have your project open in Visual Studio.
 1. Launch Visual Studio 2019.
 2. Load your project and open `Program.cs`.
 
-[!INCLUDE [boilerplate](../../common/boilerplate.md)]
+## Start with some boilerplate code
+
+Let's add some code that works as a skeleton for our project. Make note that you've created an async method called `RecognizeSpeechAsync()`.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program_numbers.cs?range=5-15,43-52)]
 
-[!INCLUDE [createconfig](./createconfig.md)]
+## Create a Speech configuration
+
+Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `RecognizeSpeechAsync()` method.
+
+> [!NOTE]
+> This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program_numbers.cs?range=16)]
 
-[!INCLUDE [initreco](../../common/initreco.md)]
+## Initialize a SpeechRecognizer
+
+Now, let's create a `SpeechRecognizer`. This object is created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `RecognizeSpeechAsync()` method, right below your Speech configuration.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program_numbers.cs?range=17-19,42)]
 
-[!INCLUDE [recophrase](../../common/recophrase.md)]
+## Recognize a phrase
+
+From the `SpeechRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop reconizing speech.
+
+Inside the using statement, add this code:
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program_numbers.cs?range=20)]
 
 ## Display the recognition results (or errors)
@@ -41,7 +54,9 @@ When the recognition result is returned by the Speech service, you'll want to do
 Inside the using statement, below `RecognizeOnceAsync()`, add this code:
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program_numbers.cs?range=22-41)]
 
-[!INCLUDE [checkcode](../../common/checkcode.md)]
+## Check your code
+
+At this point, your code should look like this:
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program_numbers.cs)]
 
 ## Build and run your app

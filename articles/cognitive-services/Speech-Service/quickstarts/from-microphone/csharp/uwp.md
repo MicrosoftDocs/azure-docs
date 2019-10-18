@@ -19,10 +19,9 @@ If you've already done this, great. Let's keep going.
 
 The first step is to make sure that you have your project open in Visual Studio.
 
-1. Launch Visual Studio 2019.
-2. Load your project and open `Program.cs`.
+## Start with some boilerplate code
 
-[!INCLUDE [boilerplate](../../common/boilerplate.md)]
+Let's add some code that works as a skeleton for our project.
 
 1. In **Solution Explorer**, open `MainPage.xaml`.
 
@@ -36,13 +35,24 @@ The first step is to make sure that you have your project open in Visual Studio.
 
 [!code-csharp[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=6-50,55-56,94-154)]
 
-[!INCLUDE [createconfig](./createconfig.md)]
+## Create a Speech configuration
+
+Before you can initialize a `SpeechRecognizer` object, you need to create a configuration that uses your subscription key and subscription region. Insert this code in the `RecognizeSpeechAsync()` method.
+
+> [!NOTE]
+> This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/)
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=51-53)]
 
-[!INCLUDE [initreco](../../common/initreco.md)]
+## Initialize a SpeechRecognizer
+
+Now, let's create a `SpeechRecognizer`. This object is created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `RecognizeSpeechAsync()` method, right below your Speech configuration.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=58,59,93)]
 
-[!INCLUDE [recophrase](../../common/recophrase.md)]
+## Recognize a phrase
+
+From the `SpeechRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop reconizing speech.
+
+Inside the using statement, add this code:
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs?range=66)]
 
 ## Display the recognition results (or errors)
