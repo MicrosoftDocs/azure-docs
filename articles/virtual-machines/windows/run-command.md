@@ -47,7 +47,7 @@ The entity was not found in this Azure location
 
 |**Name**|**Description**|
 |---|---|
-|**RunPowerShellScript**|Executes a PowerShell script|
+|**RunPowerShellScript**|Runs a PowerShell script.|
 |**EnableRemotePS**|Configures the machine to enable remote PowerShell.|
 |**EnableAdminAccount**|Checks if the local administrator account is disabled, and if so enables it.|
 |**IPConfig**| Shows detailed information for the IP address, subnet mask, and default gateway for each adapter bound to TCP/IP.|

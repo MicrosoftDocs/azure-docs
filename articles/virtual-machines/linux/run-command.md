@@ -45,7 +45,7 @@ The entity was not found in this Azure location
 
 |**Name**|**Description**|
 |---|---|
-|**RunShellScript**|Executes a Linux shell script.|
+|**RunShellScript**|Runs a Linux shell script.|
 |**ifconfig**| Gets the configuration of all network interfaces.|
 
 ## Azure CLI
