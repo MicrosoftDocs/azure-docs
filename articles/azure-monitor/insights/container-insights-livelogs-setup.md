@@ -1,5 +1,5 @@
 ---
-title: Setup live container log monitoring with Azure Monitor for containers | Microsoft Docs
+title: Setup live data monitoring with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to setup the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 10/16/2019
 ms.author: magoedte
 ---
 
-# How to setup the Live Metrics and Data feature
+# How to setup the Live Metrics and Data (preview) feature
 
 To view live metrics and data with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real time access to your data through the Kubernetes API directly in the Azure portal.  
 

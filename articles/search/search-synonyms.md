@@ -35,6 +35,8 @@ Incorporating synonyms into your search application is a two-step process:
 
 2.	Configure a searchable field to use the synonym map in the index definition.
 
+You can create multiple synonym maps for your search application (for example, by language if your application supports a multi-lingual customer base). Currently, a field can only use one of them. You can update a field's synonymMaps property at any time.
+
 ### SynonymMaps Resource APIs
 
 #### Add or update a synonym map under your service, using POST or PUT.
@@ -148,16 +150,9 @@ Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and reg
 
 If you need to do a single query that applies synonym expansion and wildcard, regex, or fuzzy searches, you can combine the queries using the OR syntax. For example, to combine synonyms with wildcards for simple query syntax, the term would be `<query> | <query>*`.
 
-## Tips for building a synonym map
-
-- A concise, well-designed synonym map is more efficient than an exhaustive list of possible matches. Excessively large or complex dictionaries take longer to parse and affect the query latency if the query expands to many synonyms. Rather than guess at which terms might be used, you can get the actual terms via a [search traffic analysis report](search-traffic-analytics.md).
-
-- As both a preliminary and validation exercise, enable and then use this report to precisely determine which terms will benefit from a synonym match, and then continue to use it as validation that your synonym map is producing a better outcome. In the predefined report, the tiles "Most common search queries" and "Zero-result search queries" will give you the necessary information.
-
-- You can create multiple synonym maps for your search application (for example, by language if your application supports a multi-lingual customer base). Currently, a field can only use one of them. You can update a field's synonymMaps property at any time.
+If you have an existing index in a development (non-production) environment, experiment with a small dictionary to see how the addition of synonyms changes the search experience, including impact on scoring profiles, hit highlighting, and suggestions.
 
 ## Next steps
 
-- If you have an existing index in a development (non-production) environment, experiment with a small dictionary to see how the addition of synonyms changes the search experience, including impact on scoring profiles, hit highlighting, and suggestions.
-
-- [Enable search traffic analytics](search-traffic-analytics.md) and use the predefined Power BI report to learn which terms are used the most, and which ones return zero documents. Armed with these insights, revise the dictionary to include synonyms for unproductive queries that should be resolving to documents in your index.
+> [!div class="nextstepaction"]
+> [Create a synonym map](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

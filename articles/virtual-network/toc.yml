@@ -61,6 +61,8 @@
     href: public-ip-address-prefix.md
   - name: IPv6 for Azure VNet
     href: ipv6-overview.md
+  - name: Public IPv6 address prefix
+    href: ipv6-public-ip-address-prefix.md
   - name: DDoS protection
     href: ddos-protection-overview.md
   - name: Backend Connectivity Interoperability
@@ -91,22 +93,26 @@
       href: virtual-network-tcpip-performance-tuning.md
   - name: Deploy
     items:
-    - name: IPv6 for VNet - Basic Load Balancer
-      items: 
-      - name: Azure PowerShell
-        href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
-      - name: Azure CLI
-        href: virtual-network-ipv4-ipv6-dual-stack-cli.md
-      - name: Resource Manager template
-        href: ipv6-configure-template-json.md
-    - name: IPv6 for VNet - Standard Load Balancer
-      items: 
-      - name: Azure PowerShell
-        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-      - name: Azure CLI
-        href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-      - name: Resource Manager template
-        href: ipv6-configure-standard-load-balancer-template-json.md
+    - name: IPv6 for VNet
+      items:
+      - name: Basic Public Load Balancer
+        items:  
+        - name: Azure PowerShell
+          href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+        - name: Azure CLI
+          href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+        - name: Resource Manager template
+          href: ipv6-configure-template-json.md
+      - name: Standard Public Load Balancer
+        items: 
+        - name: Azure PowerShell
+          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+        - name: Azure CLI
+          href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+        - name: Resource Manager template
+          href: ipv6-configure-standard-load-balancer-template-json.md
+      - name: Standard Internal Load Balancer
+        href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
     - name: Network security groups
       items:
       - name: Azure PowerShell
@@ -255,6 +261,8 @@
       href: virtual-network-public-ip-address.md
     - name: Public IP prefix
       href: manage-public-ip-address-prefix.md
+    - name: Public IPv6 address prefix
+      href: ipv6-reserve-public-ip-address-prefix.md    
   - name: Move across regions
     items:
     - name: Network security groups - Portal

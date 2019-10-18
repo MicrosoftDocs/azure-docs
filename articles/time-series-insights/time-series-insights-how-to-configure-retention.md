@@ -21,7 +21,7 @@ This article describes how to configure **Data retention time** and **Storage li
 
 Each Azure Time Series Insights environment has a setting to configure **Data retention time**. The value spans from 1 to 400 days. The data is deleted based on the environment storage capacity or retention duration (1-400), whichever comes first.
 
-Each TSI environment has an additional setting **Storage limit exceeded behavior**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two behaviors to choose from:
+Each Time Series Insights environment has an additional setting **Storage limit exceeded behavior**. This setting controls ingress and purge behavior when the max capacity of an environment is reached. There are two behaviors to choose from:
 
 - **Purge old data** (default)
 - **Pause ingress**
@@ -44,10 +44,14 @@ For detailed information to better understand these settings, review [Understand
 
 1. Toggle the **Storage limit exceeded behavior** setting. Select **Purge old data** or **Pause ingress** behavior.
 
-    [![Data retention accept and save.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [![Data retention - accept and save.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. Accept the check box indicating that you've reviewed the documentation and understand the potential risks of data loss. Select **Save** to configure the changes.
 
 ## Next steps
 
 - For more information, review [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md).
+
+- Learn [how to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).
+
+- Learn about [planning out your environment](time-series-insights-environment-planning.md).

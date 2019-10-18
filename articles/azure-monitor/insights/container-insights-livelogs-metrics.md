@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor for containers Live Metrics (preview) | Microsoft Docs
+title: View Azure Monitor for containers Live Metrics (preview) | Microsoft Docs
 description: This article describes the real-time view of metrics without using kubectl with Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''

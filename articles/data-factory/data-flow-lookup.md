@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory Mapping Data Flow Lookup Transformation
-description: Azure Data Factory Mapping Data Flow Lookup Transformation
+title: Azure Data Factory mapping data flow Lookup Transformation
+description: Azure Data Factory mapping data flow Lookup Transformation
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ---
 
-# Azure Data Factory Mapping Data Flow Lookup Transformation
+# Azure Data Factory mapping data flow Lookup Transformation
 
 Use Lookup to add reference data from another source to your Data Flow. The Lookup transform requires a defined source that points to your reference table and matches on key fields.
 
@@ -40,4 +40,4 @@ You can also specify partitioning of your data by selecting "Set Partitioning" o
 
 ## Next steps
 
-[Join](data-flow-join.md) and [Exists](data-flow-exists.md) transformations perform similar tasks in ADF Mapping Data Flows. Take a look at those transformations next.
+[Join](data-flow-join.md) and [Exists](data-flow-exists.md) transformations perform similar tasks in ADF mapping data flows. Take a look at those transformations next.

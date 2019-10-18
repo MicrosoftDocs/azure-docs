@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor for containers Live Console (preview) | Microsoft Docs
+title: View live data with Azure Monitor for containers Live Console (preview) | Microsoft Docs
 description: This article describes the real-time view of Kubernetes logs, events, and pod metrics without using kubectl in Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
@@ -119,3 +119,6 @@ After successfully authenticating, the live console pane will appear below the p
 ![Node properties pane view live metrics option](./media/container-insights-live-logs/node-properties-live-logs-01.png)  
 
 ## Next steps
+- To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+
+- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

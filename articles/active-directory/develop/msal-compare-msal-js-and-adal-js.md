@@ -62,7 +62,7 @@ In v2.0, using the `https://login.microsoftonline.com/common` authority, will al
 
     You can request scopes for any resource API using the URI of the API in this format: appidURI/scope For example: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
-    Only for the MS Graph API, a scope value `user.read` maps to https://graph.microsoft.com/User.Read and can be used interchangeably.
+    Only for the MS Graph API, a scope value `user.read` maps to https:\//graph.microsoft.com/User.Read and can be used interchangeably.
 
     ```javascript
     var request = {
