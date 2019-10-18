@@ -451,6 +451,8 @@ The [host.json](functions-host-json.md#servicebus) file contains settings that c
 
 Use Azure Service Bus output binding to send queue or topic messages.
 
+### Output - example
+
 # [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that sends a Service Bus queue message:
@@ -720,7 +722,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-For a complete example, see [Output - C# example](#output---example).
+For a complete example, see [Output - example](#output---example).
 
 You can use the `ServiceBusAccount` attribute to specify the Service Bus account to use at class, method, or parameter level.  For more information, see [Trigger - attributes](#trigger---attributes).
 
