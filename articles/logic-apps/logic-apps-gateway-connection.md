@@ -13,9 +13,9 @@ ms.date: 10/18/2019
 
 # Connect to on-premises data sources from Azure Logic Apps
 
-Before you can access data sources on premises from your logic apps, you need to create an Azure resource for the *on-premises data gateway* that you first need to [install on a local computer](../logic-apps/logic-apps-gateway-install.md). Your logic apps then use this gateway resource in the triggers and actions provided by the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors). 
+Before you can access data sources on premises from your logic apps, you need to create an Azure resource for an *on-premises data gateway* that you've already [installed on a local computer](../logic-apps/logic-apps-gateway-install.md). Your logic apps then use this gateway resource in the triggers and actions provided by the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors). 
 
-This article shows how to create your Azure gateway resource *after* you [download and install the gateway on a local computer](../logic-apps/logic-apps-gateway-install.md). For more information about the gateway, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
+This article shows how to create your Azure gateway resource *after* you [install the gateway on a local computer](../logic-apps/logic-apps-gateway-install.md). For more information about the gateway, see [How the gateway works](../logic-apps/logic-apps-gateway-install.md#gateway-cloud-service).
 
 > [!TIP]
 > To connect to Azure virtual networks, consider creating an 
@@ -32,7 +32,7 @@ For information about how to use the gateway with other services, see these arti
 
 ## Supported data sources
 
-For Azure Logic Apps, the on-premises data gateway supports [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) for these data sources:
+For Azure Logic Apps, the on-premises data gateway supports the [on-premises connectors](../connectors/apis-list.md#on-premises-connectors) for these data sources:
 
 * BizTalk Server 2016
 * File System
