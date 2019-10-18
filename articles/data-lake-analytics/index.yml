@@ -100,10 +100,10 @@ landingContent:
           - text: Use U-SQL SDK
             url: data-lake-analytics-u-sql-sdk.md
 
-  # Cart (optional)
+  # Card (optional)
   - title: Troubleshoot U-SQL jobs 
-    linklists:
-      - linklistType: how-to-guide
+    linkLists:
+      - linkListType: how-to-guide
         links:
          - text: Troubleshoot U-SQL runtime
            url: data-lake-analytics-runtime-troubleshoot.md
