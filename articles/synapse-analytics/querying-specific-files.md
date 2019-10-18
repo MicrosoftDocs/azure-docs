@@ -14,7 +14,7 @@ ms.reviewer: jrasnick
 # Quickstart: Querying specific files 
 
 ## TODO: Links bellow for syntax should be pointing to correct article!
-SQL on demand Query service can address multiple files and folders as described in [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md). Sometimes you may need to know which row in result set came from which file/folder. In such cases, you can use virtual columns to return file name and/or path in result set, or you can use them to filter data based on file name and/or folder path. These functions are described in syntax section - [filename function](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#filename-function) and [filepath function](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#filepath-function). You can find short descriptions along samples below.
+SQL on-demand Query service can address multiple files and folders as described in [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md). Sometimes you may need to know which row in result set came from which file/folder. In such cases, you can use virtual columns to return file name and/or path in result set, or you can use them to filter data based on file name and/or folder path. These functions are described in syntax section - [filename function](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#filename-function) and [filepath function](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#filepath-function). You can find short descriptions along samples below.
 
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
@@ -31,13 +31,13 @@ Because quickstarts are intended to help new customers use a subscription to qui
 
 ## Prerequisites
 
-Before reading rest of the article make sure to check following articles:
+Before reading rest of the article, make sure to check following articles:
 - [First time setup](query-data-in-storage.md#first-time-setup)
 - [Prerequisites](query-data-in-storage.md#prerequisites)
 
 
 ## Before you begin
-> Please note that all URIs in sample queries are using storage account located in North Europe Azure region. **If your endpoint is located in West US region, please change URI** to point to *partystoragewestus* storage account.
+> Please note that all URIs in sample queries are using storage account located in North Europe Azure region. **If your endpoint is located in West US region, change URI** to point to *partystoragewestus* storage account.
 >
 > Please make sure that you created appropriate credential for your region. Run this query and make sure storage account in your region is listed:
 
@@ -48,7 +48,7 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
-If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#first-time-setup).
+If you can't find appropriate credential, check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Functions
 
@@ -94,7 +94,7 @@ ORDER BY
 
 
 
-Following example shows how filename() can be used in WHERE clause to filter files to be read. Note that it accesses whole folder in OPENROWSET part of query and filters files in WHERE clause. This example returns the same results as previous one. 
+Following example shows how filename() can be used in WHERE clause to filter files to be read. It accesses whole folder in OPENROWSET part of query and filters files in WHERE clause. This example returns the same results as previous one. 
 
 ```sql
 SELECT 
@@ -180,7 +180,7 @@ ORDER BY
 
 
 
-Following example shows how filepath() can be used in WHERE clause to filter files to be read. Note that we used wildcards in OPENROWSET part of query and additionally filter files in WHERE clause. This example returns the same results as previous one. 
+Following example shows how filepath() can be used in WHERE clause to filter files to be read. We used wildcards in OPENROWSET part of query and additionally filter files in WHERE clause. This example returns the same results as previous one. 
 
 ```sql
 SELECT 

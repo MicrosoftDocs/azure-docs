@@ -30,7 +30,7 @@ Because quickstarts are intended to help new customers use a subscription to qui
 
 ## Prerequisites
 
-Before reading rest of the article make sure to check following articles:
+Before reading rest of the article, make sure to check following articles:
 - [First time setup](query-data-in-storage.md#first-time-setup)
 - [Prerequisites](query-data-in-storage.md#prerequisites)
 
@@ -47,7 +47,7 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
-If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#first-time-setup).
+If you can't find appropriate credential, check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Sample JSON files
 
@@ -73,7 +73,7 @@ This section contains sample scripts to read JSON files. Files are stored in *js
 
 ## Reading JSON files
 
-In order to process JSON files using [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) and [JSON_QUERY](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) you need to to read json file from storage as single column. Following script reads *book1.json* file as single column:
+In order to process JSON files using [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) and [JSON_QUERY](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) you need to read json file from storage as single column. Following script reads *book1.json* file as single column:
 
 ```mssql
 SELECT 
@@ -96,7 +96,7 @@ FROM
 
 ## Querying JSON files using JSON_VALUE
 
-Following query shows how to use [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
+Following query shows how to use [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```mssql
 SELECT 
@@ -145,7 +145,7 @@ WHERE
 
 ## Querying JSON files using OPENJSON
 
-Following query shows how to use [OPENJSON](https://docs.microsoft.com/en-us/sql/t-sql/functions/openjson-transact-sql?view=sql-server-2017) to retrieve objects and properties within book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
+Following query shows how to use [OPENJSON](https://docs.microsoft.com/en-us/sql/t-sql/functions/openjson-transact-sql?view=sql-server-2017) to retrieve objects and properties within book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```mssql
 SELECT

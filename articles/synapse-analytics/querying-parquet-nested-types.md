@@ -31,13 +31,13 @@ Because quickstarts are intended to help new customers use a subscription to qui
 
 ## Prerequisites
 
-Before reading rest of the article make sure to check following articles:
+Before reading rest of the article, make sure to check following articles:
 - [First time setup](query-data-in-storage.md#first-time-setup)
 - [Prerequisites](query-data-in-storage.md#prerequisites)
 
 
 ## Before you begin
-> Please note that all URIs in sample queries are using storage account located in North Europe Azure region. **If your endpoint is located in West US region, please change URI** to point to *partystoragewestus* storage account.
+> Please note that all URIs in sample queries are using storage account located in North Europe Azure region. **If your endpoint is located in West US region, change URI** to point to *partystoragewestus* storage account.
 >
 > Please make sure that you created appropriate credential for your region. Run this query and make sure storage account in your region is listed:
 
@@ -48,11 +48,11 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
-If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#first-time-setup).
+If you can't find appropriate credential, check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Read Parquet files
 
-You can query Parquet files the same way you read CSV files. The only difference is FILEFORMAT parameter that should be set to PARQUET. Examples in this section shows specifics of reading Parquet files.
+You can query Parquet files the same way you read CSV files. The only difference is FILEFORMAT parameter that should be set to PARQUET. Examples in this section show specifics of reading Parquet files.
 
 > Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on demand Query service will utilize metadata in parquet file and bind columns by name.  
 

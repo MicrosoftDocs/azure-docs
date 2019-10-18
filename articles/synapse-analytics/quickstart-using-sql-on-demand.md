@@ -1,6 +1,6 @@
 ---
-title: Using SQL on demand #Required; update as needed page title displayed in search results. Include the brand.
-description: In this quickstart, we will show capabilities of SQL on demand and go through examples. #Required; Add article description that is displayed in search results.
+title: Using SQL on-demand #Required; update as needed page title displayed in search results. Include the brand.
+description: In this quickstart, we will show capabilities of SQL on-demand and go through examples. #Required; Add article description that is displayed in search results.
 services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
 ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
@@ -11,16 +11,16 @@ ms.author: v-stazar #Required; update with your microsoft alias of author; optio
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Using SQL on demand 
+# Quickstart: Using SQL on-demand 
 
-In this quickstart we will go through few examples and explain how to use SQL on demand.
+In this quickstart, we will go through few examples and explain how to use SQL on-demand.
 
 Following file extensions are supported: 
 - JSON
 - CSV
 - Parquet
 
-CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats: with and without header row, comma and tab delimited values, Windows and Unix style line endings, non-quoted and quoted values, and escaping characters.
+CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats: with and without header row, comma and tab-delimited values, Windows and Unix style line endings, non-quoted and quoted values, and escaping characters.
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
 --->
@@ -46,8 +46,8 @@ Parameters:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL on demand service endpoint address    | Will be used as server name                                   |
-| SQL on demand service endpoint region     | Will be used to determine what storage will we use in samples |
+| SQL on-demand service endpoint address    | Will be used as server name                                   |
+| SQL on-demand service endpoint region     | Will be used to determine what storage will we use in samples |
 | Username and password for endpoint access | Will be used to access endpoint                               |
 | Database you will use to create views     | This database will be used as starting point in samples       |
 
@@ -56,7 +56,7 @@ Parameters:
 There are two steps prior to using samples:
 
 - Create database for your views (in case you want to use views)
-- Create credentials to be used by SQL on demand to access files in storage
+- Create credentials to be used by SQL on-demand to access files in storage
 
 ### Create database
 
@@ -74,9 +74,9 @@ CREATE DATABASE mydbname
 
 ### Create credentials
 
-We need to create credential before you can run queries. This credential will be used by SQL on demand service to access files in storage.
+We need to create credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
 
-> Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
+> Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
 **Code snippet on how to create credentials for CSV, JSON and Parquet containers**, run:
 
@@ -140,15 +140,15 @@ Demo data contains following data sets:
 
 ## Querying
 
-Bellow you can see 3 examples of querying **CSV**, **Parquet** and **JSON** files.
+Bellow you can see three examples of querying **CSV**, **Parquet** and **JSON** files.
 
 ### Querying CSV file - no header row, Windows style new line
 
-Following query shows how to read CSV file without header row, with Windows-style new line and comma delimited columns.
+Following query shows how to read CSV file without header row, with Windows-style new line and comma-delimited columns.
 
 File preview:
 
-![First ten rows of the CSV file without header, Windows style new line.](./media/querying-single-csv-file/population.png)
+![First 10 rows of the CSV file without header, Windows style new line.](./media/querying-single-csv-file/population.png)
 
 
 ```sql
@@ -176,7 +176,7 @@ You do not have to use OPENROWSET WITH clause when reading Parquet files because
 
 This sample shows automatic schema inference capabilities for Parquet files. It returns number of rows in September 2017. without specifying schema. 
 
-> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on demand service will utilize metadata in parquet file and bind columns by name.  
+> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand service will utilize metadata in parquet file and bind columns by name.  
 
 ```sql
 SELECT 
@@ -211,7 +211,7 @@ Files are stored in *json* container, folder *books*, and contain single book en
 
 #### Querying JSON files using JSON_VALUE
 
-Following query shows how to use [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected Topics*:
+Following query shows how to use [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve scalar values (title, publisher) from book with title *Probabilistic and Statistical Methods in Cryptology, An Introduction by Selected articles*:
 
 ```mssql
 SELECT 

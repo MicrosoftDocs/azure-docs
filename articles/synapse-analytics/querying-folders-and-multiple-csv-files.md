@@ -1,6 +1,6 @@
 ---
 title: Querying folders and multiple csv files #Required; update as needed page title displayed in search results. Include the brand.
-description: Reading multiple files/folders is supported thru usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed. #Required; Add article description that is displayed in search results.
+description: Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed. #Required; Add article description that is displayed in search results.
 services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
 ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying folders and multiple files sss
 
-Reading multiple files/folders is supported thru usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed. Please take a look at following sections for more details.
+Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed. Take a look at following sections for more details.
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
 --->
@@ -46,7 +46,7 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
-If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#first-time-setup).
+If you can't find appropriate credential, check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Read multiple files in folder
 
@@ -66,7 +66,7 @@ Files in *csv/taxi* are named after year and month:
 
 Each file has the following structure:
 
-![First ten rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
+![First 10 rows of the CSV file](./media/querying-folders-and-multiple-csv-files/nyc-taxi.png)
 
 
 

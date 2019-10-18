@@ -1,6 +1,6 @@
 ---
 title: Overview - Query data in storage #Required; update as needed page title displayed in search results. Include the brand.
-description: This section contains sample queries you can use to try out SQL on demand service. #Required; Add article description that is displayed in search results.
+description: This section contains sample queries you can use to try out SQL on-demand service. #Required; Add article description that is displayed in search results.
 services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
 author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
 ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Overview: Query data in storage
 
-This section contains sample queries you can use to try out SQL on demand service.
+This section contains sample queries you can use to try out SQL on-demand service.
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
 --->
@@ -39,8 +39,8 @@ Parameters:
 
 | Parameter                                 | Description                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| SQL on demand service endpoint address    | Will be used as server name                                   |
-| SQL on demand service endpoint region     | Will be used to determine what storage will we use in samples |
+| SQL on-demand service endpoint address    | Will be used as server name                                   |
+| SQL on-demand service endpoint region     | Will be used to determine what storage will we use in samples |
 | Username and password for endpoint access | Will be used to access endpoint                               |
 | Database you will use to create views     | This database will be used as starting point in samples       |
 
@@ -49,7 +49,7 @@ Parameters:
 There are two steps prior to using samples:
 
 - Create database for your views (in case you want to use views)
-- Create credentials to be used by SQL on demand to access files in storage
+- Create credentials to be used by SQL on-demand to access files in storage
 
 ### Create database
 
@@ -67,9 +67,9 @@ CREATE DATABASE mydbname
 
 ### Create credentials
 
-We need to create credential before you can run queries. This credential will be used by SQL on demand service to access files in storage.
+We need to create credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
 
-> Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
+> Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
 **Code snippet on how to create credentials for CSV, JSON and Parquet containers**, run:
 

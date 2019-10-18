@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying single CSV file 
 
-CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats: with and without header row, comma and tab delimited values, Windows and Unix style line endings, non-quoted and quoted values, and escaping characters.
+CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats: with and without header row, comma and tab-delimited values, Windows and Unix style line endings, non-quoted and quoted values, and escaping characters.
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
 --->
@@ -29,13 +29,13 @@ Because quickstarts are intended to help new customers use a subscription to qui
 
 ## Prerequisites
 
-Before reading rest of the article make sure to check following articles:
-- [First time setup](query-data-in-storage.md#First-time-setup)
-- [Prerequisites](query-data-in-storage.md#Prerequisites)
+Before reading rest of the article, make sure to check following articles:
+- [First time setup](query-data-in-storage.md#first-time-setup)
+- [Prerequisites](query-data-in-storage.md#prerequisites)
 
 
 ## Before you begin
-> Please note that all URIs in sample queries are using storage account located in North Europe Azure region. **If your endpoint is located in West US region, please change URI** to point to *partystoragewestus* storage account.
+> Please note that all URIs in sample queries are using storage account located in North Europe Azure region. **If your endpoint is located in West US region, change URI** to point to *partystoragewestus* storage account.
 >
 > Please make sure that you created appropriate credential for your region. Run this query and make sure storage account in your region is listed:
 
@@ -46,15 +46,15 @@ WHERE
 	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
 ```
 
-If you can't find appropriate credential, please check [First time setup](query-data-in-storage.md#First-Time-Setup).
+If you can't find appropriate credential, check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Read CSV file - no header row, Windows style new line
 
-Following query shows how to read CSV file without header row, with Windows-style new line and comma delimited columns.
+Following query shows how to read CSV file without header row, with Windows-style new line and comma-delimited columns.
 
 File preview:
 
-![First ten rows of the CSV file without header, Windows style new line.](./media/querying-single-csv-file/population.png)
+![First 10 rows of the CSV file without header, Windows style new line.](./media/querying-single-csv-file/population.png)
 
 
 ```sql
@@ -78,11 +78,11 @@ WHERE
 
 ## Read CSV file - no header row, Unix-style new line
 
-Following query shows how to read file without header row, with Unix-style new line and comma delimited columns. Note different location of file comparing to other examples.
+Following query shows how to read file without header row, with Unix-style new line and comma-delimited columns. Note different location of file comparing to other examples.
 
 File preview:
 
-![First ten rows of the CSV file without header row and with Unix-Style new line.](./media/querying-single-csv-file/population-unix.png)
+![First 10 rows of the CSV file without header row and with Unix-Style new line.](./media/querying-single-csv-file/population-unix.png)
 
 ```sql
 SELECT * 
@@ -107,11 +107,11 @@ WHERE
 
 ## Read CSV file - header row, Unix-style new line
 
-Following query shows how to read file with header row, with Unix-style new line and comma delimited columns. Note different location of file comparing to other examples.
+Following query shows how to read file with header row, with Unix-style new line and comma-delimited columns. Note different location of file comparing to other examples.
 
 File preview:
 
-![First ten rows of the CSV file with header row and with Unix-Style new line.](./media/querying-single-csv-file/population-unix-hdr.png)
+![First 10 rows of the CSV file with header row and with Unix-Style new line.](./media/querying-single-csv-file/population-unix-hdr.png)
 
 
 ```sql
@@ -138,11 +138,11 @@ WHERE
 
 ## Read CSV file - header row, Unix-style new line, quoted
 
-Following query shows how to read file with header row, with Unix-style new line, comma delimited columns and quoted values. Note different location of file comparing to other examples.
+Following query shows how to read file with header row, with Unix-style new line, comma-delimited columns and quoted values. Note different location of file comparing to other examples.
 
 File preview:
 
-![First ten rows of the CSV file with header row and with Unix-Style new line and quoted values.](./media/querying-single-csv-file/population-unix-hdr-quoted.png)
+![First 10 rows of the CSV file with header row and with Unix-Style new line and quoted values.](./media/querying-single-csv-file/population-unix-hdr-quoted.png)
 
 ```sql
 SELECT * 
@@ -171,11 +171,11 @@ WHERE
 
 ## Read CSV file - header row, Unix-style new line, escape
 
-Following query shows how to read file with header row, with Unix-style new line, comma delimited columns and escape char used for field delimiter (comma) within values. Note different location of file comparing to other examples.
+Following query shows how to read file with header row, with Unix-style new line, comma-delimited columns and escape char used for field delimiter (comma) within values. Note different location of file comparing to other examples.
 
 File preview:
 
-![First ten rows of the CSV file with header row and with Unix-Style new line and escape char used for field delimiter.](./media/querying-single-csv-file/population-unix-hdr-escape.png)
+![First 10 rows of the CSV file with header row and with Unix-Style new line and escape char used for field delimiter.](./media/querying-single-csv-file/population-unix-hdr-escape.png)
 
 ```sql
 SELECT * 
@@ -203,11 +203,11 @@ WHERE
 
 ## Read CSV file - header row, Unix-style new line, tab-delimited
 
-Following query shows how to read file with header row, with Unix-style new line and tab delimited columns. Note different location of file comparing to other examples.
+Following query shows how to read file with header row, with Unix-style new line and tab-delimited columns. Note different location of file comparing to other examples.
 
 File preview:
 
-![First ten rows of the CSV file with header row and with Unix-Style new line and tab delimiter.](./media/querying-single-csv-file/population-unix-hdr-tsv.png)
+![First 10 rows of the CSV file with header row and with Unix-Style new line and tab delimiter.](./media/querying-single-csv-file/population-unix-hdr-tsv.png)
 
 ```sql
 SELECT * 
@@ -235,7 +235,7 @@ WHERE
 
 So far, we specified CSV file schema using WITH and listing all columns. You can specify only columns you actually need in your query by specifying ordinal number for each column you are interested in while omitting columns of no interest.
 
-Following query returns number of distinct country names in file, specifying only columns that are actually needed:
+Following query returns number of distinct country names in file, specifying only columns that are needed:
 
 > Please take a look at WITH clause in query below and note that there is "2" (without quotes) at the end of row where we define *[country_name]* column. It means that *[country_name]* column is second column in the file. Query will ignore all columns in file except the second one.
 
