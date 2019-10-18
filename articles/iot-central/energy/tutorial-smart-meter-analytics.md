@@ -1,128 +1,83 @@
 ---
 title: Create a smart meter analytics app with IoT Central | Microsoft Docs
 description: Learn to build a smart meter analytics application using Azure IoT Central application templates.
-author: philmea
-ms.author: philmea
-ms.date: 09/24/2019
+author: op-ravi
+ms.author: omravi
+ms.date: 10/17/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: eliotgra
+manager: abjork
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# Tutorial: Create a smart meter monitoring app with IoT Central 
 
-<!---Tutorials are scenario-based procedures for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md).
-You only use tutorials to show the single best procedure for completing an approved top 10 customer task.
---->
-
-# Tutorial: <do something with X> 
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
-
-Introductory paragraph.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
-
-In this tutorial, you learn how to:
+This tutorial guides you through the process of creating a smart meter monitoring application that's included a simulated device with data simulation. In this tutorial, you learn:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-<!---Required:
-The outline of the tutorial should be included in the beginning and at the end of every tutorial. These will align to the **procedural** H2 headings for the activity. You do not need to include all H2 headings. Leave out the prerequisites, clean-up resources and next steps--->
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or service to complete a top task, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write tutorials](contribute-how-to-mvc-tutorial.md)
---->
+> * Create smart meter app for free
+> * Verify the app, simulated device, and data
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+
+If you don’t have a subscription, [create a free trial account](https://azure.microsoft.com/free)
 
 ## Prerequisites
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you need them, make Prerequisites your first H2 in a tutorial. If there’s something a customer needs to take care of before they start (for example, creating a VM) it’s OK to link to that content before they begin.--->
+- No specific pre-requisites required to deploy this app
+- Recommended to have Azure subscription, but you can even try without it
 
-## Sign in to <service/product/tool name>
 
-<!-- Sign in to the [<service> portal](url). --->
-<!---If you need to sign in to the portal to do the tutorial, this H2 and link are required.--->
+## Create Smart Meter Monitoring App 
 
-## Procedure 1
+You can create this app template just in simple three steps, so let’s begin 
 
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end procedure. Make sure to use specific naming for setting up accounts and configuring technology.
-Don't link off to other content - include whatever the customer needs to complete the scenario in the article. For example, if the customer needs to set permissions, include the permissions they need to set, and the specific settings in the tutorial procedure. Don't send the customer to another article to read about it.
-In a break from tradition, do not link to reference topics in the procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.
---->
+### Step 1
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+Open [Azure IoT Central home page](https://apps.azureiotcentral-ppe.com) and click **Build** to create a new application. 
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   <!--- ![Browser](media/contribute-how-to-mvc-tutorial/browser.png) --->
-   <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
-   If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
 
-## Procedure 2
+### Step 2
+Select **Energy** tab and click **Create app** under **Smart meter monitoring application**
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+![Build App](media/tutorial-iot-central-smart-meter/smart-meter-build.png)
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
 
-## Procedure 3
+### Step 3
 
-Include a sentence or two to explain only what is needed to complete the procedure.
-<!---Code requires specific formatting. Here are a few useful examples of commonly used code blocks. Make sure to use the interactive functionality where possible.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
+**Create app** will open **New application** form and fill up the requested details as shown in the below figure:
+* **Application name**: pick a name that makes sense to your IoT Central Application
+* **URL** – pick the IoT Central URL, don't worry app will verify the uniqueness.
+* **7-day free trial** – default setting is recommended if you already have an Azure Subscription or else you can start with 7-day free trial. 
+* **Billing Info** – We've got you covered, as this application is free. The Directory, Azure Subscription, and Region details are required to provision the resources.
+* Click **Create** button at the bottom of the page and your app will be ready in a minute or so. 
 
-Here is an example of a code block for Java:
+![New application form](media/tutorial-iot-central-smart-meter/smart-meter-create-new-app.png)
 
-    ```java
-    cluster = Cluster.build(new File("src/remote.yaml")).create();
-    ...
-    client = cluster.connect();
-    ```
 
-or a code block for Azure CLI:
+Behind the scene, IoT Central platform creates the app template with the given parameters and it will open as soon as it's ready for you. 
 
-    ```azurecli-interactive 
-    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-    ```
-    or a code block for Azure PowerShell:
 
-    ```azurepowershell-interactive
-    New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-    ```
+
+## Verify the application and simulated data
+
+At high level, the newly created app comes with – a pre-defined device model for smart meters, which includes data fields, properties, and a default view. It is your application and you can modify it anytime. But, let’s ensure the app template is working as expected before any modifications.
+
+To verify the app and simulated data, you can go to the Dashboard. If you can see the tiles with some data, then it means you successfully deployed it. The data simulation may take a few minutes to generate the data, so give it 1-2 minutes.  
+
+If you don’t see any data after 3-5 mins or any other error, then contact <> 
+
+
 
 ## Clean up resources
+If you're not going to continue to use this application, delete your application with the following steps:
 
-If you're not going to continue to use this application, delete <resources> with the following steps:
+1. From the left-hand menu, open Administration tab
+2. Select Application settings and click Delete button at the bottom of the page. 
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+![Delete application](media/tutorial-iot-central-smart-meter/smart-meter-delete-app.png)
 
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a Clean up resources (H2) should come just before Next steps (H2)
---->
 
 ## Next steps
 
 Advance to the next article to learn how to create...
 > [!div class="nextstepaction"]
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next logical tutorial in a series, or, if there are no other tutorials, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
