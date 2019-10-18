@@ -86,7 +86,9 @@ After you define the condition, you set up the actions to take when the rule fir
 
 1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
 
-After a while, you receive an email message when the rule fires.
+After a while, you receive an email message when the rule fires:
+
+![Example email](media/tutorial-create-telemetry-rules-pnp/email.png)
 
 ## Delete a rule
 
