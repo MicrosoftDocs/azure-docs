@@ -14,6 +14,10 @@ ms.custom: mvc
 
 # Quickstart: Add a simulated device to your IoT Central application (preview features)
 
+*This article applies to operators, builders, and administrators.*
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 A device template defines the capabilities of a device that connects to your IoT Central application. Capabilities include telemetry the device sends, device properties, and the commands a device responds to. From a device template, a builder or operator can add both real and simulated devices to an application. Simulated devices are useful for testing the behavior of your IoT Central application before you connect real devices.
 
 In this quickstart, you create an **Environmental Sensor** device template and add a simulated device. An environmental sensor device:
@@ -166,4 +170,4 @@ In this quickstart, you learned how to you create an **Environment Sensor** devi
 To learn more about monitoring devices connected to your application, continue to the quickstart:
 
 > [!div class="nextstepaction"]
-> [Configure rules](./quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Configure rules and actions](./quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
