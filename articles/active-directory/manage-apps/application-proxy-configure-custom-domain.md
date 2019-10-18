@@ -86,7 +86,9 @@ To publish your app through Application Proxy with a custom domain:
    
    For an app already in **Enterprise applications**, select it from the list, and then select **Application proxy** in the left navigation. 
 
-1. On the **Application proxy** page, in the **External Url** field, drop down the list and select the custom domain you want to use. 
+1. On the **Application proxy** page, in the **Internal Url** field, enter the internal URL for your app. 
+   
+1. In the **External Url** field, drop down the list and select the custom domain you want to use.
    
 1. Select **Save**.
    
