@@ -175,10 +175,10 @@ module.exports = {
 
 ## Retrieve the key
 
-In order to connect to a Cosmos database, you need the database key. Use the [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) command to retrieve the primary key.
+In order to connect to a Cosmos database, you need the database key. Use the [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) command to retrieve the primary key.
 
 ```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
 ```
 
 The Azure CLI outputs information similar to the following example. 
