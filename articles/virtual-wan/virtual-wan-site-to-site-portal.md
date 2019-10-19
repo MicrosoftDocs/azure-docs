@@ -22,35 +22,35 @@ This tutorial shows you how to use Virtual WAN to connect to your resources in A
 
 ## Before you begin
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-s2s-vwan-before-include.md)]
 
 ### <a name="vnet"></a>Create a virtual network
 
 If you do not already have a VNet, you can quickly create one using PowerShell or the Azure portal. If you already have a VNet, verify that it meets the required criteria and does not have a virtual network gateway.
 
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-s2s-vnet-include.md)]
 
 ## <a name="openvwan"></a>1. Create a virtual WAN
 
 From a browser, navigate to the [Azure portal](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-s2s-vwan-include.md)]
 
 ## <a name="hub"></a>2. Create a hub
 
 A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites. It takes 30 minutes to create the site-to-site VPN gateway in the virtual hub.
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
 ## <a name="site"></a>3. Create a site
 
 You are now ready to create the sites corresponding to your physical locations. Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per Virtual Hub in a Virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner (link insert) CPE device , check with them to learn about their automation to Azure. Typically automation implies simple click experience to export large scale branch information into azure and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway (Here is a link to automation guidance from Azure to CPE partners).
 
-[!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-site-include.md)]
+[!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
 ## <a name="connectsites"></a>4. Connect VPN sites
 
-[!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-connect-vpn-site-include.md)]
+[!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
 ## <a name="vnet"></a>5. Connect your VNet to a hub
 
