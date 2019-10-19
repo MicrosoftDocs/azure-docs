@@ -27,7 +27,7 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 
 ## Prerequisites
 
-* [Learn how to use Speech-to-text with the Speech SDK.](quickstart-csharp-dotnet-windows.md)
+* [See how to recognize speech in c#](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp)
 * [Get your Speech trial subscription.](https://azure.microsoft.com/try/cognitive-services/)
 * Speech SDK version 1.5.1 or later is required.
 

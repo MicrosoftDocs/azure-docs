@@ -16,8 +16,6 @@ ms.author: chlandsi
 
 Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-objectivec-macos.md).
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
 In this article, you learn how to create a macOS app in Objective-C by using the Azure Cognitive Services Speech SDK to transcribe speech recorded from a microphone to text.
 
 ## Prerequisites

@@ -16,8 +16,6 @@ ms.author: wolfma
 
 Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-java-android.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-android.md).
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
 In this article, you learn how to develop a Java application for Android by using the Azure Cognitive Services Speech SDK to transcribe speech to text.
 
 The application is based on the Speech SDK Maven Package and Android Studio 3.3. The Speech SDK is currently compatible with Android devices that have 32-bit or 64-bit ARM and Intel x86/x64 compatible processors.
