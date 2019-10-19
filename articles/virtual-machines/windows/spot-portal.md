@@ -27,9 +27,18 @@ You have option to set a max price you are willing to pay, per hour, for the VM.
 >
 > For the early part of the public preview, you can set a max price, but it will be ignored. spot VMs will have a fixed price, so there will not be any price-based evictions.
 
-## Creat the VM
+## Create the VM
 
-The process to create a VM that uses low-priority VMs is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the low-priority flag, and the eviction policy:
-![Create a scale set with low-priority VMs](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+The process to create a VM that uses low-priority VMs is the same as detailed in the [quickstart](quick-create-portal.md). When you are deploying a VM, you can choose to use an Azure spot instance.
+
+
+On the **Basics** tab, in the **Instance details** section, **No** is the default for using an Azure spot instance.
+
+![Screen capture for choosing no, don't use an Azure spot instance](media/spot-portal/no.png)
+
+It you select **Yes**, the section expands and you can choose your {Eviction type and Eviction policy](spot-vms.md#eviction-policy). 
+
+![Screen capture for choosing yes, use an Azure spot instance](media/spot-portal/yes.png)
+
 
 ## Next steps
