@@ -10,35 +10,42 @@ services: iot-central
 manager: eliotgra
 ---
 
-# Store Analytics architecture
+# In-store analytics architecture
 
-This article provides an architectural overview for a solution built with Store Analytics application template in IoT Central.
+In-store analytics solutions allow you to monitor various conditions within the retail store environment. These solutions can be built by leveraging one of the application templates within IoT Central and using the architecture below as guidance.
 
-<br>
 
-![Azure IoT Central Store Analytics](./media/architecture/Store-Analytics-Architecture.png)
+![Azure IoT Central Store Analytics](./media/architecture/Store-Analytics-Architecture-Frame.png)
 
-You can utilize one of the Store Analytics application templates within IoT Central to build an end to end solution that allows you to monitor various conditions within the retail store environment. 
+1. Set of IoT sensors sending telemetry data to a gateway device
+1. Gateway devices sending telemetry and aggregated insights to IoT Central
+1. Continuous data export to the desired Azure service for manipulation
+1. Data can be structured in the desired format and sent to a storage service
+1. Business applications can query data and power retail operations
 
-In the figure above, we highlight various components that generally play a part in a store analytics solution. 
+## Details 
+In this section, we will highlight key components that generally play a part in an in-store analytics solution.
 
-### Get Connected
+### Condition monitoring sensors
 
-An IoT solution starts with a set of sensors capturing meaningful signals from within a retail store environment. This is reflected by a variety of sensors on the far left of the architecture diagram above. 
+An IoT solution starts with a set of sensors capturing meaningful signals from within a retail store environment. This is reflected by a variety of sensors on the far left of the architecture diagram above.
 
-These IoT sensors can feed raw signals directly to IoT Central or to a gateway device that can aggregate the data at the Edge and send summary insights to the IoT Central application.
+### Gateway devices
 
-### Stay Connected
+Many IoT sensors can feed raw signals directly to the cloud or to a gateway device that performs data aggregation at the edge before sending summary insights to an IoT Central application.
 
-The Azure IoT Central tile in the architecture diagram refers to the Central application instance capturing signals from the IoT sensors. The Central user experience enables an operator to monitor and manage the sensor and gateway devices. 
+### IoT Central application
 
-### Transform
-The IoT Central application instance within a solution can be configured to send raw or aggregated insights captured from the IoT sensors over to a multitude of endpoints. 
+The Azure IoT Central application ingests data from a variety of IoT sensors as well gateway devices within the retail store environment and generates a set of meaningful insights.
 
-These endpoints include but are not limited to a variety of Azure services that allow the solution to further transform or consume the insights into a business application. 
+Azure IoT Central also provides a tailored experience to the store operator enabling them to remotely monitor and manage the infrastructure devices.
 
-In the architecture diagram above, we highlight PowerBI as one of the business applications that a retail store manager or staff member might utilize to visualize business insights powered by the IoT data. 
+### Data transform
+The Azure IoT Central application within a solution can be configured to export raw or aggregated insights to a set of Azure PaaS (Platform-as-a Service) services that can perform data manipulation and enrich these insights before landing them in a business application. 
+
+### Business application
+The IoT insights can be used to power a variety of business applications deployed within a retail environment. A retail store manager or staff member can utilize these applications to visualize business insights powered by the IoT data. To learn how to build a real-time Power BI dashboard for your retail team, follow our [tutorial](how-to-health-data-triage.md).
 
 ## Next steps
-* Get started with the [Store Analytics Checkout](https://aka.ms/checkouttemplate) and [Store Analytics Condition Monitoring](https://aka.ms/conditiontemplate) application templates. 
-* Take a look at the [end to end tutorial](https://aka.ms/storeanalytics-tutorial) that walks you through how to build a solution leveraging one of the Store Analytics application template. 
+* Get started with the [In-Store Analytics Checkout](https://aka.ms/checkouttemplate) and [In-Store Analytics Condition Monitoring](https://aka.ms/conditiontemplate) application templates. 
+* Take a look at the [end to end tutorial](https://aka.ms/storeanalytics-tutorial) that walks you through how to build a solution leveraging one of the In-Store Analytics application templates.
