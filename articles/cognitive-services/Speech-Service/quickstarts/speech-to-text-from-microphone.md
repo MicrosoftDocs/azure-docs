@@ -24,16 +24,16 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Header](./header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/java/stt-mic-java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [Header](./header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/python/stt-mic-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
-[!INCLUDE [Header](./header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [More samples](../includes/quickstarts/from-microphone/stt-mic-other-lang.md)]
 ::: zone-end
