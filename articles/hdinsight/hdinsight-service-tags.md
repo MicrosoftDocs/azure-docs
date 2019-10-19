@@ -8,11 +8,13 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/19/2019
 ---
-# HDInsight service tags
+# Firewall service tags for Azure HDInsight
 
 HDInsight service tags for Azure firewall are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../firewall/service-tags.md) provide an alternative method for allowing inbound traffic from specific IP addresses without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your Azure firewall.
 
 These service tags are created and managed by the HDInsight service. You can't create your own service tag, or modify an existing tag. Microsoft manages the address prefixes that match to the service tag, and automatically updates the service tag as addresses change.
+
+## Getting started with service tags
 
 You have two options for using service tags in your Azure firewall:
 
@@ -72,9 +74,7 @@ If your cluster is created in one of the regions in the table below, allow the s
 For example, if your cluster is created in the `East US 2` region, then you will need to add the following service tags to your firewall:
 
 - `HDInsight.EastUS2`
-
 - `HDInsight.WestUS`
-
 - `HDInsight.EastUS`
 
 | Country | Region | Service tag |
