@@ -33,13 +33,13 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
 
 1. Create a new console application targeting the C# language, with a project and folder name of `model-with-rest`. 
 
-    ```csharp
+    ```console
     dotnet new console -lang C# -n model-with-rest
     ```
 
 1. Install required dependencies with the following dotnet CLI commands.
 
-    ```csharp
+    ```console
     dotnet add package System.Net.Http
     dotnet add package JsonFormatterPlus
     ```
@@ -173,20 +173,14 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
 
 1. Build the console application. 
 
-    ```csharp
+    ```console
     dotnet build
     ```
 
 1. Run the console application. The console output displays the same JSON that you saw earlier in the browser window.
 
-    ```csharp
-    dotnet run
-    ```
-
-1. Review console response:
-
     ```console
-
+    dotnet run
     ```
 
 ## LUIS keys

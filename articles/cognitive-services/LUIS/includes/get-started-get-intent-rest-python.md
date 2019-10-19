@@ -61,9 +61,17 @@ Use Python to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v
     * `YOUR-KEY` with your starter key
     * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
 
-1. Install dependencies with `pip install requests`.
+1. Install dependencies with the following console command:
 
-1. Run the script with `python predict.py`. 
+    ```console
+    pip install requests
+    ```
+
+1. Run the script with the following console command:
+
+    ```console
+    python predict.py
+    ``` 
 
 1. Review prediction response in JSON format:
 
