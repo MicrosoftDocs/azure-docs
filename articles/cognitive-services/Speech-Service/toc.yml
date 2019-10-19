@@ -79,7 +79,7 @@
     - name: Synthesize speech to a file
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Synthesize speech to an audio output device
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/text-to-speech.md
   - name: How-to guides
     items:
     - name: Configure speech output with SSML
@@ -129,7 +129,7 @@
   - name: Quickstarts
     items:
     - name: Translate speech-to-text
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/translate-speech-to-text.md
     - name: Translate speech-to-text multi-participant
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Translate speech-to-speech
