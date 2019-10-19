@@ -82,7 +82,7 @@ Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
     * `YOUR-KEY` with your starter key
     * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
 
-1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file.:
+1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
 
     ```console
     go build predict.go

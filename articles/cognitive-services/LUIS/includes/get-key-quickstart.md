@@ -15,5 +15,6 @@ Access to the keys and endpoints is provided in the LUIS portal in the Manage Se
 1. Sign in to the LUIS portal. 
 1. Select your app from the apps list.
 1. Select **Manage** then select **Azure Resources**. 
+1. Copy the values for the key and endpoint for the Starter resource.
 
-    The starter key allows free requests to the authoring API and up to 1000 queries to the prediction endpoint API per month for all your LUIS apps. 
+    The **Starter** key allows free requests to the authoring API and up to 1000 queries to the prediction endpoint API per month for all your LUIS apps. 

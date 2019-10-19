@@ -33,7 +33,7 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     var request = require('request');
     var requestpromise = require('request-promise');
     
-    const LUIS_authoringKey = "YOUR-AUTHORING-KEY";
+    const LUIS_authoringKey = "YOUR-KEY";
     const LUIS_endpoint = "YOUR-ENDPOINT";
     const LUIS_appId = "YOUR-APP-ID";
     const LUIS_versionId = "0.1";

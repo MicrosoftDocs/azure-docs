@@ -60,7 +60,7 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
         class Program
         {
             // NOTE: use your starter key value
-            static string authoringKey = "YOUR-AUTHORING-KEY";
+            static string authoringKey = "YOUR-KEY";
     
             // NOTE: Replace this endpoint with your starter key endpoint
             // for example, westus.api.cognitive.microsoft.com
