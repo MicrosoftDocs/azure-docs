@@ -815,7 +815,7 @@
       href: ./hdinsight-plan-virtual-network-deployment.md
     - name: Required IP Addresses for NSGs and UDRs
       href: ./hdinsight-management-ip-addresses.md
-    - name: HDInsight service tags
+    - name: Service tags for Azure firewall
       href: ./hdinsight-service-tags.md
   - name: How to
     items:

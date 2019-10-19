@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight service tags
+title: Azure Firewall service tags for Azure HDInsight
 description: Use HDInsight service tags to allow inbound traffic to your cluster from HDInsight health and management services nodes, without explicitly adding IP addresses to your Azure firewall.
 author: hrasheed-msft
 ms.author: hrasheed
