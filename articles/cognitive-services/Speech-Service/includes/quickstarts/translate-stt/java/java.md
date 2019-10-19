@@ -62,7 +62,7 @@ If you're running Linux, make sure these dependencies are installed before start
 
 1. Replace all code in `Main.java` with the following snippet:
 
-   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/java/jre/from-microphone/src/speechsdk/quickstart/Main.java#code)]
+   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/translate-speech-to-text/src/speechsdk/quickstart/Main.java#code)]
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 

@@ -32,7 +32,7 @@ If you've already done this, great. Let's keep going.
 
 1. Open **Program.cs**, and replace all the code in it with the following.
 
-   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp/dotnet/from-microphone/helloworld/Program.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/translate-speech-to-text/helloworld/Program.cs#code)]
 
 1. Find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
