@@ -24,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 In this tutorial, you'll learn how to integrate PureCloud by Genesys with Azure Active Directory (Azure AD). After you do that, you can:
 
-* Control through Azure AD which users have access to PureCloud by Genesys.
+* Use Azure AD to control which users can access PureCloud by Genesys.
 * Enable your users to be automatically signed-in to PureCloud by Genesys with their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
@@ -34,17 +34,17 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* PureCloud by Genesys single sign-on (SSO) enabled subscription.
+* An Azure AD subscription. If you don't have one, you can get a [free account](https://azure.microsoft.com/free/).
+* A PureCloud by Genesys single sign-on (SSO)–enabled subscription.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* PureCloud by Genesys supports **SP and IDP** initiated SSO.
+* PureCloud by Genesys supports **SP and IDP**–initiated SSO.
 
 > [!NOTE]
-> The ID for this application is a fixed-string value, so only one instance can be configured in one tenant.
+> Because the ID for this application is a fixed-string value, only one instance can be configured in one tenant.
 
 ## Adding PureCloud by Genesys from the gallery
 
@@ -80,9 +80,9 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. In the **Basic SAML Configuration** section, if you want to configure the application in **IDP** initiated mode, enter the values for the following fields:
+1. In the **Basic SAML Configuration** section, if you want to configure the application in **IDP**-initiated mode, enter the values for the following fields:
 
-    a. In the **Identifier** box, type a URL that corresponds to your region:
+    a. In the **Identifier** box, enter a URL that corresponds to your region:
 
 	| |
 	|--|
@@ -92,7 +92,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 	| `https://login.mypurecloud.ie/saml` |
 	| `https://login.mypurecloud.au/saml` |
 
-    b. In the **Reply URL** box, type a URL that corresponds to your region:
+    b. In the **Reply URL** box, enter a URL that corresponds to your region:
 
 	| |
 	|--|
@@ -104,7 +104,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
 1. Select **Set additional URLs** and take the following step if you want to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** box, type a URL that corresponds to your region:
+    In the **Sign-on URL** box, enter a URL that corresponds to your region:
 	
 	| |
 	|--|
@@ -114,7 +114,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 	| `https://login.mypurecloud.ie` |
 	| `https://login.mypurecloud.com.au` |
 
-1. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
+1. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes:
 
 	![image](common/default-attributes.png)
 
@@ -129,7 +129,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
 	![The Certificate download link](common/certificatebase64.png)
 
-1. In the **Set up PureCloud by Genesys** section, copy the appropriate URL (or URLs) based on your requirements.
+1. In the **Set up PureCloud by Genesys** section, copy the appropriate URL (or URLs), based on your requirements.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -155,12 +155,12 @@ In this section, you'll set up  B.Simon to use Azure single sign-on by granting 
 
    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user**, and then select **Users and groups** in the **Add Assignment** dialog box.
 
 	![The Add User link](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog box, select **B.Simon** from the Users list, and then choose the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list, and then choose the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list, and then choose the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog box, select the **Assign** button.
 
 ## Configure PureCloud by Genesys SSO
@@ -199,11 +199,11 @@ To enable Azure AD users to sign in to PureCloud by Genesys, they must be provis
 
 	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure03.png)
 
-1. On the People page, select **Add Person**.
+1. On the **People** page, select **Add Person**.
 
 	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure04.png)
 
-1. In the **Add People to the Organization** pop-up, follow these steps:
+1. In the **Add People to the Organization** dialog box, follow these steps:
 
 	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure05.png)
 
@@ -217,7 +217,7 @@ To enable Azure AD users to sign in to PureCloud by Genesys, they must be provis
 
 In this section, you test your Azure AD single sign-on configuration by using the Access Panel.
 
-When you select the PureCloud by Genesys tile in the Access Panel, you should be automatically signed in to the PureCloud by Genesys account that you set up SSO for. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the **PureCloud by Genesys** tile in the Access Panel, you should be automatically signed in to the PureCloud by Genesys account that you set up SSO for. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
