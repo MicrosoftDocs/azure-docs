@@ -13,35 +13,6 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
----
-title: "Quickstart: Recognize Intents from a microphone - Speech Service"
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
----
-
----
-title: "Quickstart: Recognize speech from a microphone - Speech Service"
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
-ms.author: erhopf
----
-
 ## Open your project in Visual Studio
 
 The first step is to make sure that you have your project open in Visual Studio.
@@ -52,7 +23,7 @@ The first step is to make sure that you have your project open in Visual Studio.
 ## Start with some boilerplate code
 
 Let's add some code that works as a skeleton for our project. Make note that you've created an async method called `recognizeIntent()`.
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart.refactor/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,73-81)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,73-81)]
 
 ## Create a Speech configuration
 
@@ -63,17 +34,17 @@ This sample uses the `FromSubscription()` method to build the `SpeechConfig`. Fo
 > [!NOTE]
 > It is important to use the LUIS Endpoint key and not the Starter or Authroing keys as only the Endpoint key is valid for speech to intent recognition. See [Create a LUIS application and get an endpoint key](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) for instructions on how to get the correct key.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart.refactor/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
 ## Initialize a IntentRecognizer
 
 Now, let's create an `IntentRecognizer`. Insert this code in the `recognizeIntent()` method, right below your Speech configuration.
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart.refactor/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=28)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=28)]
 
 ## Add a LanguageUnderstandingModel and Intents
 
 You now need to associate a `LanguageUnderstandingModel` with the intent recognizer and add the intents you want recognized.
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart.refactor/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-34)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-34)]
 
 ## Recognize an intent
 
@@ -81,19 +52,19 @@ From the `IntentRecognizer` object, you're going to call the `RecognizeOnceAsync
 For similicity we'll wait on the future returned to complete.
 
 Inside the using statement, add this code:
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart.refactor/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
 
 ## Display the recognition results (or errors)
 
 When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
 
 Inside the using statement, below `RecognizeOnceAsync()`, add this code:
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart.refactor/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=47-72)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=47-72)]
 
 ## Check your code
 
 At this point, your code should look like this: 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart.refactor/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
 
 ## Build and run your app
 

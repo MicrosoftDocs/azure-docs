@@ -13,20 +13,6 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
----
-title: "Quickstart: Recognize speech from a microphone - Speech Service"
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: speech-service
-ms.topic: quickstart
-ms.date: 10/28/2019
-ms.author: erhopf
----
-
 ## Open your project in Visual Studio
 
 The first step is to make sure that you have your project open in Visual Studio.
