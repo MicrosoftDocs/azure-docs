@@ -80,7 +80,7 @@ To add the sample script code for the Unity project, follow these steps:
 
 1. Replace the existing script with the following code:
 
-   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
 1. Find and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
