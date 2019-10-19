@@ -14,7 +14,7 @@ ms.author: chlandsi
 
 # Quickstart: Recognize speech in Objective-C on macOS by using the Speech SDK
 
-Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-objectivec-macos.md).
+Quickstarts are also available for [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech-langs/objectivec-macos.md).
 
 In this article, you learn how to create a macOS app in Objective-C by using the Azure Cognitive Services Speech SDK to transcribe speech recorded from a microphone to text.
 
@@ -22,7 +22,7 @@ In this article, you learn how to create a macOS app in Objective-C by using the
 
 Before you get started, you'll need:
 
-* A [subscription key](get-started.md) for the Speech Service.
+* A [subscription key](~/articles/cognitive-services/Speech-Service/get-started.md) for the Speech Service.
 * A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later and macOS 10.13 or later.
 
 ## Get the Speech SDK for macOS
@@ -44,7 +44,7 @@ In the dialog boxes that follow, make the following selections.
     1. Clear the check boxes to use storyboards and to create a document-based application. The simple UI for the sample app is created programmatically.
     1. Clear all the check boxes for tests and core data.
 
-    ![Project settings](media/sdk/qs-objectivec-macos-project-settings.png)
+    ![Project settings](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-macos-project-settings.png)
 
 1. Select a project directory:
     1. Choose a directory to put the project in. This step creates a helloworld directory in your home directory that contains all the files for the Xcode project.
@@ -53,11 +53,11 @@ In the dialog boxes that follow, make the following selections.
     1. Enable the **App sandbox** setting for the app.
     1. Select the check boxes for **Outgoing Connections** and **Microphone** access.
 
-    ![Sandbox settings](media/sdk/qs-objectivec-macos-sandbox.png)
+    ![Sandbox settings](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-macos-sandbox.png)
 
 1. The app also needs to declare use of the microphone in the `Info.plist` file. Select the file in the overview, and add the **Privacy - Microphone Usage Description** key with a value like *Microphone is needed for speech recognition*.
 
-    ![Settings in Info.plist](media/sdk/qs-objectivec-macos-info-plist.png)
+    ![Settings in Info.plist](~/articles/cognitive-services/Speech-Service/media/sdk/qs-objectivec-macos-info-plist.png)
 
 1. Close the Xcode project. You use a different instance of it later after you set up the CocoaPods.
 
@@ -76,7 +76,7 @@ In the dialog boxes that follow, make the following selections.
 
    [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-macos/helloworld/helloworld/AppDelegate.m#code)]
 1. Replace the string `YourSubscriptionKey` with your subscription key.
-1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, use `westus` for the free trial subscription.
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, use `westus` for the free trial subscription.
 
 ## Build and run the sample
 
