@@ -16,8 +16,6 @@ ms.author: chlandsi
 
 Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-swift-ios.md).
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
 In this article, you learn how to create an iOS app in Swift by using the Azure Cognitive Services Speech SDK to transcribe speech recorded from a microphone to text.
 
 ## Prerequisites

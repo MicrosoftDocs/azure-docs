@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Translate speech with the Speech SDK for Java
 
-Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/from-microphone/speech-to-text-from-microphone.md), [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) and [voice-first virtual assistant](~/articles/cognitive-services/Speech-Service/quickstart-virtual-assistant-csharp-uwp.md).
+Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstart/speech-to-text-from-microphone.md?pivots=programming-language-java), [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) and [voice-first virtual assistant](~/articles/cognitive-services/Speech-Service/quickstart-virtual-assistant-csharp-uwp.md).
 
 In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It is built with the Speech SDK Maven package and the Eclipse Java IDE.
 
@@ -87,6 +87,6 @@ Additional samples, such as how to read speech from an audio file, and output tr
 
 ## See also
 
-- [Quickstart: Recognize speech, Java (Windows, Linux)](~/articles/cognitive-services/Speech-Service/quickstart-java-jre.md)
+- [Quickstart: Recognize speech, Java (Windows, Linux)](~/articles/cognitive-services/Speech-Service/quikcstart/speech-to-text-from-microphone.md?pivots=programming-language-java)
 - [Customize acoustic models](~/articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md)
 - [Customize language models](~/articles/cognitive-services/Speech-Service/how-to-customize-language-model.md)

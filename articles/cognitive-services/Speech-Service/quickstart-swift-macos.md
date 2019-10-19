@@ -16,8 +16,6 @@ ms.author: cbasoglu
 
 Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-swift-macos.md).
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
 In this article, you learn how to create a macOS app in Swift using the Cognitive Services Speech SDK to transcribe speech recorded from a microphone to text.
 
 ## Prerequisites

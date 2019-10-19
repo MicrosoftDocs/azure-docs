@@ -14,8 +14,6 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech with the Speech SDK for Node.js
 
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
 This article shows you how to create a Node.js project by using the JavaScript binding of the Speech SDK for Azure Cognitive Services to transcribe speech to text.
 The application is based on the [Speech SDK for JavaScript](https://aka.ms/csspeech/npmpackage).
 
