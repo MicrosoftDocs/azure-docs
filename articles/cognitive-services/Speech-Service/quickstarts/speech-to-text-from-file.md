@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Convert text-to-speech from a file - Speech Service"
+title: "Quickstart: Recognize speech from an audio file - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -13,39 +13,33 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-# Convert text-to-speech from a file
-
->[!NOTE]
-> This article assumes that you've already created a Speech resource in the Azure portal and setup your development environment. If you haven't completed these steps, use our guides to get started:
-> * [Create a Speech resource](~articles/cognitive-services/Speech-Service/includes/create-speech-resource.md)
-> * [Setup your development environment](../quickstart-platform-csharp-dotnet-windows.md)
+# Quickstart: Recognize speech from an audio file
 
 ::: zone pivot="programming-language-csharp"
-
-A
-
+[!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-file/csharp/header.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/from-file/csharp/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-
-E
-
+[!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-file/cpp/header.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/from-file/cpp/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-
-B
-
+[!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-file/java/header.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/from-file/java/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-
-C
-
+[!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
+[!INCLUDE [Header](../includes/quickstarts/from-file/python/header.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/from-file/python/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
-
-[!INCLUDE [More samples](~/articles/cognitive-services/Speech-Service/includes/quickstarts/from-microphone/stt-mic-other-lang.md)]
-
+[!INCLUDE [Header](../includes/quickstarts/from-file/more/header.md)]
+[!INCLUDE [More samples](../includes/quickstarts/from-file/other-lang.md)]
 ::: zone-end
