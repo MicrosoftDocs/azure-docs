@@ -50,3 +50,12 @@ For this sample, we'll be compiling with g++, so all you need for an empty proje
 
 ::: zone pivot="programming-language-python"
 ::: zone-end
+
+## Next steps
+
+- [Quickstart: Recognize speech from a microphone](speech-to-text-from-microphone.md)
+- [Quickstart: Recognize speech from a file](speech-to-text-from-file.md)
+- [Quickstart: Translate speech-to-text](translate-speech-to-text.md)
+- [Quickstart: Synthesize speech to text](text-to-speech.md)
+- [Quickstart: Recognize Intents](intent-recognition.md)
+
