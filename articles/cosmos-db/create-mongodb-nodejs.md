@@ -51,13 +51,13 @@ Run the following commands to clone the sample repository. This sample repositor
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
     ```bash
-    md "C:\git-samples"
+    md "git-samples"
     ```
 
 2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.
 
     ```bash
-    cd "C:\git-samples"
+    cd "git-samples"
     ```
 
 3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer. 
