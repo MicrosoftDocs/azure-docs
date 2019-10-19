@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/19/2019
 ---
 # HDInsight service tags
 
@@ -16,23 +16,23 @@ These service tags are created and managed by the HDInsight service. You can't c
 
 You have two options for using service tags in your Azure firewall:
 
-1. Use a single HDInsight service tag - this will open your virtual network to all of the IP Addresses that the HDInsight service is using to monitor clusters across all regions. This is the simplest method, but may not be appropriate for customers with restrictive security requirement.
+1. Use a single HDInsight service tag - this will open your virtual network to all of the IP Addresses that the HDInsight service is using to monitor clusters across all regions. This is the simplest method, but may not be appropriate if you have restrictive security requirements.
 
 1. Use multiple regional service tags - this will open your VNet to only the IP Addresses that HDInsight is using in that specific region. However, if you are using multiple regions, then you will need to add multiple service tags to your virtual network.
 
-## Single HDInsight service tag
+## Usa a single global HDInsight service tag
 
-The easiest way to begin using service tags with your HDInsight cluster is to add the tag `HDInsight` to your Azure Firewall. For instructions on how to add service tags to your Azure Firewall, see []().
+The easiest way to begin using service tags with your HDInsight cluster is to add the tag `HDInsight` to your Azure Firewall. For instructions on how to add service tags to your Azure Firewall, see [Security groups: service tags](../virtual-network/security-overview.md#service-tags).
 
 This tag contains the IP addresses of health and management services for all of the regions where HDInsight is available, and will ensure that your cluster can communicate with the necessary health and management services no matter where it is created.
 
-## Regional HDInsight service tags
+## Use regional HDInsight service tags
 
 If option one won't work because you need more restrictive permissions for your firewall, then you can allow only the service tags applicable for your region. The applicable service tags may be one, two, or three service tags, depending on the region where your cluster is created.
 
 To find out which service tags to add for your region, read the following sections of the document.
 
-### Allow only a regional service tag
+### Use a single regional service tag
 
 If you prefer service tag option two, and your cluster is located in one of the regions listed in this table, then you only need to add a single regional service tag to your firewall.
 
@@ -43,7 +43,7 @@ If you prefer service tag option two, and your cluster is located in one of the 
 | &nbsp; | Australia Central | HDInsight.AustraliaCentral |
 | China | China East 2 | HDInsight.ChinaEast2 |
 | &nbsp; | China North 2 | HDInsight.ChinaNorth2 |
-| &nbsp; | North Central US | HDInsight.NorthCentralUS |
+| United States | North Central US | HDInsight.NorthCentralUS |
 | &nbsp; | West US 2 | HDInsight.WestUS2 |
 | &nbsp; | West Central US | HDInsight.WestCentralUS |
 | Canada | Canada East | HDInsight.CanadaEast |
@@ -54,19 +54,28 @@ If you prefer service tag option two, and your cluster is located in one of the 
 | &nbsp; | South India | HDInsight.SouthIndia |
 | Japan | Japan West | HDInsight.JapanWest |
 | France | France Central| HDInsight.FranceCentral |
-| &nbsp; | UK South | HDInsight.UKSouth |
-| United States | North Central US   | HDInsight.NorthCentralUS |
-| &nbsp; | USDoD Central   | HDInsight.USDoDCentral |
+| UK | UK South | HDInsight.UKSouth |
+| Fairfax | USDoD Central   | HDInsight.USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight.USGovTexas |
 | &nbsp; | UsDoD East | HDInsight.USDoDEast |
 
-### Allow regional and global service tags
+### Use multiple regional service tags
 
-If you prefer service tag option two, and the region where your cluster is created was not listed above, then you need to allow one regional service tag and one or more global service tags. The remaining regions are divided into groups based on which global service tags they use.
+If you prefer service tag option two, and the region where your cluster is created was not listed above, then you need to allow multiple regional service tags. This is due to differences in the arrangement of resource providers for the various regions.
+
+The remaining regions are divided into groups based on which regional service tags they use.
 
 #### Group 1
 
 If your cluster is created in one of the regions in the table below, allow the service tags `HDInsight.WestUS` and `HDInsight.EastUS` in addition to the regional service tag listed. Regions in this section require three service tags.
+
+For example, if your cluster is created in the `East US 2` region, then you will need to add the following service tags to your firewall:
+
+- `HDInsight.EastUS2`
+
+- `HDInsight.WestUS`
+
+- `HDInsight.EastUS`
 
 | Country | Region | Service tag |
 | ---- | ---- | ---- |
@@ -93,7 +102,7 @@ Clusters in the regions of **US Gov Iowa** and **US Gov Virginia**, need to allo
 
 #### Group 4
 
-Clusters in the regions of **Germany Central** and ***Germany Northeast**, need to allow two service tags: `HDInsight.GermanyCentral` and `HDInsight.GermanyNorthEast`.
+Clusters in the regions of **Germany Central** and **Germany Northeast**, need to allow two service tags: `HDInsight.GermanyCentral` and `HDInsight.GermanyNorthEast`.
 
 ## Next steps
 
