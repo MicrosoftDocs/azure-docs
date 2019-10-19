@@ -40,7 +40,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
 1. In the source file's `OnRecognitionButtonClicked` handler, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
-1. In the `OnRecognitionButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
+1. In the `OnRecognitionButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](../../../regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
 
 1. Next you need to create a [Xamarin Service](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), which is used to query microphone permissions from different platform projects (UWP, Android and iOS). To do that add new folder `Services` under the `helloworld` project and create new C# source file under it (Right click `Services` folder and **Add** > **New Item** > **Code File**) and rename it to `IMicrophoneService.cs` and place all code from the following snippet in that file:
 
@@ -103,7 +103,7 @@ Now add the C# code that defines the UWP specific part of the application.
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld.UWP/Services/MicrophoneService.cs)]
 
 1. Next double click `Package.appxmanifest` file under the `helloworld.UWP` project inside Visual Studio and under **Capabilities** > **Microphone** is checked and save the file.
-   > Note: In case you see warning : Certificate file does not exist: helloworld.UWP_TemporaryKey.pfx, please check [speech to text](~/articles/cognitive-services/Speech-Service/quickstart-csharp-uwp.md) sample for more information.
+   > Note: In case you see warning : Certificate file does not exist: helloworld.UWP_TemporaryKey.pfx, please check [speech to text](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp) sample for more information.
 
 1. From the menu bar, choose **File** > **Save All** to save your changes.
 
@@ -113,15 +113,15 @@ Now add the C# code that defines the UWP specific part of the application.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP speech recognition application in C# - quickstart](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-helloworld-uwp-window.png)
+   ![Sample UWP speech recognition application in C# - quickstart](../../../media/sdk/qs-csharp-xamarin-helloworld-uwp-window.png)
 
 1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
 
-   ![Microphone access permission request](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
+   ![Microphone access permission request](../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
 1. Select **Start Speech recognition**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
 
-   ![Speech recognition user interface](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
+   ![Speech recognition user interface](../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *
 
 ## Build and run the Android and iOS applications

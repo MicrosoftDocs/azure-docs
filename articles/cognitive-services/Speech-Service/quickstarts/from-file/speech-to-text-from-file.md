@@ -46,6 +46,6 @@ C
 
 ::: zone pivot="programming-language-more"
 
-[!INCLUDE [More samples](~/articles/cognitive-services/Speech-Service/includes/quickstarts/from-microphone/from-microphone/stt-mic-other-lang.md)]
+[!INCLUDE [More samples](~/articles/cognitive-services/Speech-Service/includes/quickstarts/from-microphone/stt-mic-other-lang.md)]
 
 ::: zone-end
