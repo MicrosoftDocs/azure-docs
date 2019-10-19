@@ -9,7 +9,7 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-1. **Create a resource group**. If you don't already have a resource group that you want to use, create a new one. Adjust the PowerShell commands to reflect the resource group name you want to use, then run the cmdlets. Sometimes you will see breaking change warnings. These warnings do not apply to this particular command. It's OK to ignore them.
+1. **Create a resource group**. If you don't already have a resource group that you want to use, create a new one. Adjust the PowerShell commands to reflect the resource group name you want to use, then run the cmdlet. Sometimes you will see breaking change warnings. These warnings do not apply to this particular command. It's OK to ignore them.
 
    ```azurepowershell-interactive
    New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
