@@ -1,5 +1,5 @@
----
-title: Concepts - Azure Kubernetes Service Diagnostics (AKS) Overview
+﻿---
+title: Concepts - Azure Kubernetes Service (AKS) Diagnostics Overview
 description: Learn about self-diagnosing clusters in Azure Kubernetes Service.
 services: container-service
 author: yunjchoi
@@ -34,9 +34,9 @@ Below are the types of checks available in **Cluster Insights**.
 
 ### Cluster Node Issues
 
-**Cluster Node Issues** checks for node-related issues that may cause the node of your cluster to behave unexpectedly.
+**Cluster Node Issues** checks for node-related issues that may cause your cluster to behave unexpectedly.
 
-- Node readiness
+- Node readiness issues
 - Node failures
 - Insufficient resources
 - Node missing IP configuration
@@ -50,17 +50,17 @@ Below are the types of checks available in **Cluster Insights**.
 
 **CRUD Operations** checks for any CRUD operations that may cause issues in your cluster.
 
-- In use subnet delete operation error
+- In-use subnet delete operation error
 - Network security group delete operation error
-- In use route table delete operation error
+- In-use route table delete operation error
 - Referenced resource provisioning error
 - Public IP address delete operation error
-- Deployment failure due to quota
+- Deployment failure due to deployment quota
 - Operation error due to organization policy
 - Missing subscription registration
 - VM extension provisioning error
 - Subnet capacity
-- Exceeded quota
+- Quota exceeded error
 
 ### Identity and Security Management
 
@@ -69,3 +69,7 @@ Below are the types of checks available in **Cluster Insights**.
 - Node authorization failures
 - 401 errors
 - 403 errors
+
+## Next steps 
+
+Post your questions or feedback at [UserVoice](​​​​​​​​​​​​​​https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) by adding "[Diag]" in the title.
