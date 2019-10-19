@@ -12,6 +12,4 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-View or download all our Speech SDK samples on GitHub.
-
-<a href="https://aka.ms/ignite2019/speech/placeholder" class="button is-small is-primary"><span>Speech SDK Samples</span><span class="icon docon docon-arrow-down"></span></a>
+View or download all our Speech SDK samples on GitHub. <a href="https://aka.ms/ignite2019/speech/placeholder" class="button is-small is-primary"><span>Speech SDK Samples</span><span class="icon docon docon-arrow-down"></span></a>
