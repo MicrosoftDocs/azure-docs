@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Batch synthesis for long-form audio in Python
 
-In this quickstart, you'll use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to convert text files greater than 10,000 characters or 50 paragraphs into synthesized speech. For more information, see [Long Audio API](long-audio-api.md).
+In this quickstart, you'll use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to convert text files greater than 10,000 characters or 50 paragraphs into synthesized speech. For more information, see [Long Audio API](../../long-audio-api.md).
 
 ## Prerequisites
 
@@ -42,8 +42,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-
->If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests`.
+> If you haven't used these modules you'll need to install them before running your program. To install these packages, run: `pip install requests`.
 
 These modules are used to parse arguments, construct the HTTP request, and call the text-to-speech long audio REST API.
 
@@ -73,7 +72,7 @@ if args.voices:
 
 ### Test your code
 
-Let's test what you've done so far. Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](aka.ms/azureportal).
+Let's test what you've done so far. Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 
 ```console
 python voice_synthesis_client.py --voices -key <your_key> -region <Region>`
@@ -90,12 +89,12 @@ Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xx
 
 ## Convert text to speech
 
-The next step is to prepare an input text file. It can be either plain text or SSML, but must be more than 10,000 character or 50 paragraphs. For a complete list of requirements, see [Long Audio API](long-audio-api.md).
+The next step is to prepare an input text file. It can be either plain text or SSML, but must be more than 10,000 character or 50 paragraphs. For a complete list of requirements, see [Long Audio API](../../long-audio-api.md).
 
 After you've prepared the text file. The next step is to add code for speech synthesis to your project. Add this code to `voice_synthesis_client.py`:
 
 > [!NOTE]
-> By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio outputs, see [Long Audio API](long-audio-api.md#audio-output-formats).
+> By default, the audio output is set to riff-16khz-16bit-mono-pcm. For more information about supported audio outputs, see [Long Audio API](../../long-audio-api.md#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -270,4 +269,4 @@ The complete `voice_synthesis_client.py` is available for download on [GitHub](h
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about the Long Audio API](long-audio-api.md)
+> [Learn more about the Long Audio API](../../long-audio-api.md)
