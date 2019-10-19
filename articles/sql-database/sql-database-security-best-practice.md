@@ -29,9 +29,17 @@ This document provides guidance on how to solve common security requirements for
 
 ### Audience
 
-The intended audience for this guide consists of technical sellers, solution architects, customer support helping customers secure their data in Azure SQL Database. **The document can also be shared with customers under NDA.** We may also decide to release the document publicly in the future.
+The intended audience for this guide are customers facing questions on how to secure Azure SQL Database. The roles interested in this best practice articles include, but not limited to:
+
+- Security Architects
+- Security Managers
+- Compliance Officers
+- Privacy Officers
+- Security Engineers
 
 ### Using this guide
+
+This document is intended as a companion to our existing [Azure SQL Database security](sql-database-security-overview.md) documentation.
 
 Unless otherwise stated, we recommend you follow all best practices listed in each section to achieve the respective goal or requirement. To meet specific security compliance standards or best practices, important regulatory compliance controls are listed under the Requirements or Goals section wherever applicable. These are the security standards and regulations that are referenced in this paper:
 
@@ -44,39 +52,33 @@ Unless otherwise stated, we recommend you follow all best practices listed in ea
 
 ### Feedback
 
-To make this document as relevant and helpful as possible, we plan on continuing to update the recommendations and best practices listed here. Therefore, we need the help of all the practitioners, architects, and solution specialists working directly with our customers to provide feedback on the content as well as up-to-date information about the latest security threats, customer requirements, and possible solutions. Contact us at <dpsqlsecpm@microsoft.com> if you would like to provide input into this document.
-
-## Security, Privacy, and Compliance: A Brief Overview 
-
-Azure offers advanced security and compliance products and services that fall into four categories and apply to all Azure services, including Azure SQL Database.
-
-- [**Security**](https://azure.microsoft.com/overview/security/): Azure provides multi-layered security across physical datacenters, infrastructure, and operations with cyber security experts actively monitoring to protect customer assets and data. The guidelines in the following sections provide insight into how organizations can use the built-in controls and services across identity, data, networking, key vault, etc. to develop a security strategy that is tailored to their needs to keep data secure incl. from Azure cloud operators.  
-
-- [**Privacy**](https://azure.microsoft.com/overview/trusted-cloud/privacy/): GDPR is applied globally across Microsoft to ensure strict data handling practices are used across all services. Furthermore, privacy is built into services as part of the Microsoft Security Development Lifecycle, which is practiced by all services. Solutions like Compliance Manager and eDiscovery can help accelerate the time it takes enterprises to discover their data assets and track how well they are adhering to ISO and GDPR controls.  
-
-- **Transparency**: Microsoft provides visibility into what we do with customer data, how we protect it, and how our customers are in control. Organizations can obtain copies of all audit reports validated by third parties at the [Service Trust Portal](https://servicetrust.microsoft.com/). 
-
-- [**Compliance**](https://azure.microsoft.com/overview/trusted-cloud/compliance/): Azure has the most comprehensive compliance coverage in the industry, covering more than 70 global regulations and laws, such as FedRAMP, PCI, SOC, and GDPR to name a few. The Azure Trust Center provides a [comprehensive list of offerings from compliance standards to certifications](https://www.microsoft.com/trustcenter/compliance/complianceofferings) for all Azure services including Azure SQL Database. Note that there is no difference between Azure SQL Database and Azure SQL Database managed instance as far as compliance certifications are concerned. In fact, the Azure Trust Center only lists Azure SQL Database since that is the common service name for all SQL offer types incl. singletons, managed instance, and hyperscale.
+We plan on continuing to update the recommendations and best practices listed here. Please provide input or any corrections for this document using the **Feedback** link at the bottom of this article.
 
 ## Authentication
 
+Authentication is the process of proving the user is who they claim to be. Azure SQL Database supports two types of authentication:
+
+- SQL authentication
+- Azure Active Directory authentication
+
 ### Central management for identities
 
-**How to implement**: 
+Central identity management offers the following benefits:
 
-Use Azure Active Directory (Azure AD) for centralized identity management:
+- Manage group accounts and control user permissions without duplicating logins across Azure SQL logical servers and databases.
+- Simplified and flexible permission management.
+- Management of applications at scale.
 
-- Manage group accounts and control user permissions without duplicating logins across Azure SQL logical servers and databases
-- Simplify permission management 
-- Flexible configuration 
-- Manage applications at scale 
+**How to implement**:
+
+- Use Azure Active Directory (Azure AD) authentication for centralized identity management.
 
 **Best practices**:
 
 - Create an Azure AD tenant and [create users](../active-directory/fundamentals/add-users-azure-active-directory.md) to represent human users and create [service principals](../active-directory/develop/app-objects-and-service-principals.md) to represent apps, services, and automation tools. Service principals are equivalent to service accounts in Windows and Linux. 
 
 - Assign access rights to resources to Azure AD principals via group assignment: Create Azure AD groups, grant access to groups, and add individual members to the groups. In your database, create contained database users that map your Azure AD groups. 
-  - See: [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md) as well as [Use Azure AD for authentication with SQL](sql-database-aad-authentication.md).
+  - See the articles, [Configure and manage Azure Active Directory authentication with SQL](sql-database-aad-authentication-configure.md) and [Use Azure AD for authentication with SQL](sql-database-aad-authentication.md).
   > [!NOTE]
   > In managed instance, you can also create logins that map to Azure AD principals in the master database. See [CREATE LOGIN (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 
@@ -86,7 +88,7 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 
   - See the article, [Provision an Azure Active Directory administrator for your Azure SQL Database server](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server).
 
-- Monitor Azure AD group membership changes using Azure Active Directory audit activity reports. 
+- Monitor Azure AD group membership changes using Azure AD audit activity reports. 
 
 - For managed instance, a separate step is required to create Azure AD admin. 
   - See the article, [Provision an Azure Active Directory administrator for your managed instance](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). 
@@ -94,17 +96,19 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 > [!NOTE]
 > - Azure AD authentication is recorded in Azure SQL audit logs, but not in Azure AD sign-in logs.
 > - RBAC permissions granted in Azure do not apply to Azure SQL DB permissions. Such permissions must be created/mapped manually in SQL DB using existing SQL permissions.
-> - On the client-side Azure AD authentication needs access to the internet or via UDR to a VNet.
-> - The Azure AD access token is cached on the client side and its lifetime depends on token configuration. See the article, [Configurable token lifetimes in Azure Active Directory (Preview)](../active-directory/develop/active-directory-configurable-token-lifetimes.md)
+> - On the client-side Azure AD authentication needs access to the internet or via User Defined Route (UDR) to a VNet.
+> - The Azure AD access token is cached on the client side and its lifetime depends on token configuration. See the article, [Configurable token lifetimes in Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md)
 
 ### Multi-Factor Authentication (MFA)
 
 > [!NOTE]
 > Mentioned in: OSA Practice #2, ISO Access Control (AC)
 
+Azure Multi-Factor Authentication (MFA) helps provides additional security by requiring more than one form of authentication.
+
 **How to implement**:
 
-- Enable MFA in Azure AD using Conditional Access and use interactive authentication. 
+- [Enable MFA](../active-directory/authentication/concept-mfa-howitworks.md) in Azure AD using Conditional Access and use interactive authentication. 
 
 - The alternative is to enable MFA for the entire Azure AD or AD domain.
 
@@ -121,9 +125,8 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 - Use Azure AD Interactive authentication mode for SQL DB where a password is requested interactively, followed by MFA authentication:      
   - Use Universal Authentication in SSMS. See the article, [Using Multi-factor AAD authentication with Azure SQL Database and Azure SQL Data Warehouse (SSMS support for MFA)](sql-database-ssms-mfa-authentication.md).
   - Use Interactive Authentication supported in SQL Server Data Tools (SSDT). See the article, [Azure Active Directory support in SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory?view=azuresqldb-current).
-  - Use other SQL tools supporting MFA.
-    - [DacFx support](sql-database-ssms-mfa-authentication.md)  
-    - SSMS Wizard support for Export/Extract/Deploy database  
+  - Use other SQL tools supporting MFA. 
+    - SSMS Wizard support for export/extract/deploy database  
     - [sqlpackage.exe](https://docs.microsoft.com/sql/tools/sqlpackage): option ‘/ua’ 
     - [sqlcmd Utility](https://docs.microsoft.com/sql/tools/sqlcmd-utility): option -G (interactive)
     - [bcp Utility](https://docs.microsoft.com/sql/tools/bcp-utility): option -G (interactive) 
@@ -138,14 +141,16 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 > [!NOTE]
 > Mentioned in: OSA Practice #4, ISO Access Control (AC)
 
+Password based authentication methods are a weaker form of authentication. Credentials can be compromised or mistakenly given away.
+
 **How to implement**:
 
 - Use an Azure AD integrated authentication that eliminates the use of passwords.
 
 **Best practices**:
 
-- Use single sign-on authentication using Windows credentials. Federate the on premises AD domain with Azure AD and use Integrated Windows authentication (for domain-joined machines with Azure AD).
-  - See the articles, [SSMS support for Azure AD Integrated authentication](sql-database-aad-authentication-configure.md#active-directory-integrated-authentication) and [application sample for integrated authentication](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth/integrated) for enabling access SQL DB without any SQL tools.
+- Use single sign-on authentication using Windows credentials. Federate the on-premises AD domain with Azure AD and use Integrated Windows authentication (for domain-joined machines with Azure AD).
+  - See the article, [SSMS support for Azure AD Integrated authentication](sql-database-aad-authentication-configure.md#active-directory-integrated-authentication).
 
 ### Minimize the use of password-based authentication for applications 
 
@@ -161,26 +166,31 @@ Use Azure Active Directory (Azure AD) for centralized identity management:
 - Use [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
   - [System-assigned managed identity](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-sql.md) 
   - [User-assigned managed identity](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
-  - [Use Azure SQL Database from app service with managed identity (without code changes)](https://azure.microsoft.com/resources/samples/app-service-msi-entityframework-dotnet/)
+  - [Use Azure SQL Database from app service with managed identity (without code changes)](https://github.com/Azure-Samples/app-service-msi-entityframework-dotnet)
 
 - Use cert-based authentication for an application. 
   - See this [code sample](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth/token). 
 
 - Use Azure AD authentication for integrated federated domain and domain-joined machine (see section above).
+  - See the [sample application for integrated authentication](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/security/azure-active-directory-auth/integrated).
 
 ### Protect passwords and secrets
 
+For cases when eliminating passwords are not avoidable, make sure they are secured.
+
 **How to implement**:
 
-- Use Azure Key Vault to store passwords and secrets. Whenever applicable, use MFA for SQL DB with Azure AD users.
+- Use Azure Key Vault (AKV) to store passwords and secrets. Whenever applicable, use MFA for SQL DB with Azure AD users.
 
 **Best practices**:
 
-- If avoiding passwords or secrets is not possible, store user passwords and application secrets in Azure Key Vault and manage access through AIM/RBAC/PIM. 
+- If avoiding passwords or secrets is not possible, store user passwords and application secrets in Azure Key Vault and manage access through Key Vault access policies. 
 
 - Various app development frameworks may also offer framework-specific mechanisms for protecting secrets in the app. For example: [ASP.NET core app](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-2.1&tabs=windows).
 
-### Support legacy scenarios, tools, and applications not enabled for Azure AD authentication 
+### Use SQL authentication for legacy applications 
+
+SQL database authentication refers to the authentication of a user when connecting to Azure SQL Database using username and password. A login will need to be created in each logical server or managed instance, and a user created in each database.
 
 **How to implement**:
 
