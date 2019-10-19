@@ -12,12 +12,6 @@ ms.date: 07/05/2019
 ms.author: chlandsi
 ---
 
-# Quickstart: Recognize speech with the Speech SDK for Python
-
-Quickstarts are also available for [speech-synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-
-This article shows how to use the Speech Services through the Speech SDK for Python. It illustrates how to recognize speech from microphone input.
-
 ## Prerequisites
 
 * An Azure subscription key for the Speech Services. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).

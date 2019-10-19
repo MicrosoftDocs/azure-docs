@@ -12,10 +12,6 @@ ms.date: 07/05/2019
 ms.author: wolfma
 ---
 
-# Quickstart: Recognize speech in C++ on Linux by using the Speech SDK
-
-In this article, you create a C++ console application for Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). You use the Cognitive Services [Speech SDK](~/articles/cognitive-services/Speech-Service/speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK for Linux](https://aka.ms/csspeech/linuxbinary) and your Linux distribution's C++ compiler (for example, `g++`).
-
 ## Prerequisites
 
 You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.

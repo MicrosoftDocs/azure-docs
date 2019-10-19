@@ -12,10 +12,6 @@ ms.date: 08/19/2019
 ms.author: wolfma
 ---
 
-# Quickstart: Recognize speech in C++ on Windows by using the Speech SDK
-
-In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](~/articles/cognitive-services/Speech-Service/speech-sdk.md) to transcribe speech to text in real time from your PC's microphone. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
-
 ## Prerequisites
 
 You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.

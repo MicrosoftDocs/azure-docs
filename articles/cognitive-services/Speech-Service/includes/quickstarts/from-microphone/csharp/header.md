@@ -7,14 +7,11 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: include
+ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-**Select your target environment**
-#### [Java Runtime](#tab/jre)
-[!INCLUDE [vs](./jre.md)]
-#### [Android](#tab/android)
-[!INCLUDE [vs](./android.md)]
-* * *
+If you prefer to jump right in, view or download all Speech SDK C# samples on GitHub.
+
+<a href="https://aka.ms/ignite2019/speech/placeholder" class="button is-small is-primary"><span>Speech SDK C# Samples</span><span class="icon docon docon-arrow-down"></span></a>
