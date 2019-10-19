@@ -44,14 +44,14 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone pivot="programming-language-java"
 **Select your target environment**
 #### [Java Runtime](#tab/jre)
-[!INCLUDE [jre](~/quickstart-platform-java-jre.md)]
+[!INCLUDE [jre](../quickstart-platform-java-jre.md)]
 #### [Android](#tab/android)
-[!INCLUDE [android](~/quickstart-platform-java-android.md)]
+[!INCLUDE [android](../quickstart-platform-java-android.md)]
 * * *
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [android](~/quickstart-platform-python.md)]
+[!INCLUDE [android](../quickstart-platform-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

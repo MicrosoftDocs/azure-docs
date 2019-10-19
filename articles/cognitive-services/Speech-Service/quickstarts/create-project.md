@@ -30,6 +30,12 @@ This guide shows how to create an empty project for use in other quickstarts.
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
+**Select your target environment**
+#### [Linux](#tab/linux)
+[!INCLUDE [vs](../includes/quickstarts/g++.md)]
+#### [MacOS](#tab/macos)
+[!INCLUDE [vs](../includes/quickstarts/g++.md)]
+#### [Windows](#tab/windows)
 [!INCLUDE [C++ quickstart](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 ::: zone-end
 
