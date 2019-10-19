@@ -197,15 +197,15 @@ These steps show how to use the managed identity with a trigger or action throug
 1. Make sure that you set the **Audience** value to the resource ID for the target resource or service. Otherwise, by default, the **Audience** property uses the `https://management.azure.com/` resource ID, which is the resource ID for Azure Resource Manager.
 
    > [!IMPORTANT]
-   > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory expects, 
-   > including any required trailing slashes. For example, the Azure Resource Manager resource ID usually requires 
-   > a trailing slash. Check the [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+   > Make sure that the target resource ID *exactly matches* the value that Azure Active Directory (AD) expects, 
+   > including any required trailing slashes. For example, the resource ID for all Azure Blob Storage accounts requires 
+   > a trailing slash. However, the resource ID for a specific storage account doesn't require a trailing slash. Check the [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-   This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account.
+   This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL, `https://fabrikamstorageaccount.blob.core.windows.net`, for a specific storage account.
 
    ![Specify target resource ID in "Audience" property](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
 
-   For more information about authorizing access with Azure Active Directory (AD) for Azure Storage, see these topics:
+   For more information about authorizing access with Azure AD for Azure Storage, see these topics:
 
    * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/common/storage-auth-aad.md)
    * [Authorize with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
