@@ -3,7 +3,7 @@ title: Hunting capabilities using notebooks in Azure Sentinel| Microsoft Docs
 description: This article describes how to use notebooks with the Azure Sentinel hunting capabilities.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: cabailey
 manager: rkarlin
 editor: ''
 
@@ -15,8 +15,8 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
-ms.author: rkarlin
+ms.date: 11/04/2019
+ms.author: cabailey
 ---
 
 # Use Jupyter Notebooks to hunt for security threats
@@ -53,11 +53,23 @@ The initial notebooks include:
 
 The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
 
-## Run a notebook
+To start using Azure Sentinel Notebooks, you can either launch the notebook directly from our Notebooks blade or you can clone all the notebooks into a project in Azure Notebooks.
+
+An Azure Notebooks account is a requirement for launching notebooks directly from within Azure Sentinel.  Learn how to create an account and sign into Azure here.  (link)
+
+## Launch a notebook directly from Azure Sentinel 
+ 
+1. From the Azure portal, navigate to **Azure Sentinel** > **Notebooks** where you can see the full list of notebooks that Azure Sentinel provides. 
+
+2. Select the notebook you want to launch, and select **Launch**: 
+    
+    ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
+
+## Clone a notebook
 
 In the following example, we create an Azure Notebooks project from the Azure Sentinel portal, populating the project with notebooks. Before using these notebooks, it's a good idea to make a copy of the notebook and work on the copy. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
 
-1. In the Azure Sentinel portal, click **Notebooks** in the navigation menu. To create a new Azure Notebooks project, click **Clone Azure Sentinel Notebooks** or to open your existing notebooks projects click **Go to your Notebooks**.
+1. In the Azure Sentinel portal, click **Notebooks** in the navigation menu. To create a new Azure Notebooks project, click **Clone Azure Notebooks** or to open your existing notebooks projects click **Go to your Notebooks**.
   
    ![select notebooks](./media/notebooks/sentinel-azure-notebooks-home.png)
 
