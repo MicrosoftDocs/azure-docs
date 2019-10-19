@@ -18,5 +18,11 @@ In this quickstart you will use the [Speech SDK](https://aka.ms/speech/sdk) to i
 3. Using the ````SpeechRecognizer```` object, start the recognition process for a single utterance.
 4. Inspect the ````SpeechRecognitionResult```` returned.
 
-> [!TIP]
-> If you prefer to jump right in, view or download this sample from our [Speech SDK samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
+If you prefer to jump right in, view or download this sample.
+> [!div class="nextstepaction"]
+> [SAMPLE: Recognize speech from a microphone](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+
+
+or try this
+<a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk" class="button is-small is-primary" data-bi-name="download-zip-file" data-linktype="external"><span>DOWNLOAD SDK</span><span class="icon docon docon-arrow-down"></span></a>
+
