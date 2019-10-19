@@ -64,7 +64,33 @@ The above sample is written with Java, but the APIs used are supported on all th
 
 ### Second: get offline transcription results using remoteconversation-client-sdk
 
-You will need **remoteconversation-client-sdk version 1.0.0** to use the code in this section. Note that **remoteconversation-client-sdk version 1.0.0** is supported only for Java (1.8 or above) on Windows, Linux and Android (API level 26 or above). You can obtain **remoteconversation-client-sdk** from [this location]().
+You will need **remoteconversation-client-sdk version 1.0.0** to use the code in this section. Note that **remoteconversation-client-sdk version 1.0.0** is supported only for Java (1.8 or above) on Windows, Linux and Android (API level 26 or above). You can obtain **remoteconversation-client-sdk** by editing your pom.xml file as follows:
+
+1. At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK, as shown here:
+
+  ```xml
+  <repositories>
+    <repository>
+      <id>maven-cognitiveservices-speech</id>
+      <name>Microsoft Cognitive Services Speech Maven Repository</name>
+      <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+    </repository>
+  </repositories>
+  ```
+
+1. Also add a `dependencies` element, with the remoteconversation-client-sdk 1.0.0 as a dependency:
+
+  ```xml
+  <dependencies>
+    <dependency>
+      <groupId>com.microsoft.cognitiveservices.speech.remoteconversation</groupId>
+      <artifactId>remoteconversation-client-sdk</artifactId>
+      <version>1.0.0</version>
+    </dependency>
+  </dependencies>
+  ```
+
+1. Save the changes.
 
 Refer to the code below. Once you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. Note that **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has successfully finished, you can get the status of **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the result as shown.
 
