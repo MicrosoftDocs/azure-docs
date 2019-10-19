@@ -193,4 +193,4 @@ Look for the code from this article in the **samples/csharp/sharedcontent/consol
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [How to recognize speech](quickstart-csharp-dotnetcore-windows.md)
+> [How to recognize speech](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

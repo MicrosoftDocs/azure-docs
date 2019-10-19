@@ -76,7 +76,7 @@ If your application uses long-lived connections and can't use an available SDK, 
 To get started with the Speech SDK:
 
 1. Download the [Speech SDK](speech-sdk.md).
-1. Work through the Speech Services [quickstart guides](quickstart-csharp-dotnet-windows.md) and [tutorials](how-to-recognize-intents-from-speech-csharp.md). Also look at the [code samples](samples.md) to get experience with the new APIs.
+1. Work through the Speech Services [quickstart guides](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet) and [tutorials](how-to-recognize-intents-from-speech-csharp.md). Also look at the [code samples](samples.md) to get experience with the new APIs.
 1. Update your application to use the Speech Services.
 
 ## Support
@@ -88,7 +88,7 @@ For Speech Service, SDK, and API support, visit the Speech Services [support pag
 ## Next steps
 
 * [Try out Speech Services for free](get-started.md)
-* [Quickstart: Recognize speech in a UWP app using the Speech SDK](quickstart-csharp-uwp.md)
+* [Quickstart: Recognize speech in a UWP app using the Speech SDK](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)
 
 ## See also
 * [Speech Services release notes](releasenotes.md)
