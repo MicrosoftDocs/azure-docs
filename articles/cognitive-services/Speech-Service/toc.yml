@@ -103,6 +103,10 @@
 - name: Intent recognition
   exanded: false
   items:
+  - name: Quickstarts
+    items:
+    - name: Recognize Intents from a microphone
+      href: quickstarts/intent-recognition.md
   - name: How-to guides
     items:
     - name: Recognize speech intents with LUIS, C#

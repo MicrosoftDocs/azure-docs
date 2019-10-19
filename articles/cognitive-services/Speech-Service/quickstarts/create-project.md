@@ -53,3 +53,6 @@ This guide shows how to create an empty project for use in other quickstarts.
 
 ::: zone pivot="programming-language-more"
 ::: zone-end
+
+> [!div class="nextstepaction"]
+> [Create an empty project](~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md)

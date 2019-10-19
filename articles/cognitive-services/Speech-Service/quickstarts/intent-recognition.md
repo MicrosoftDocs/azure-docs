@@ -27,7 +27,7 @@ In this quickstart you will use the [Speech SDK](https://aka.ms/ignite2019/speec
 Before you get started, make sure to:
 
 1. [Create a LUIS application and get an endpoint key](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md)
-2. [Setup your development environment](~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet%2CWindows%2Cjre). Use this quickstart to install and configure Visual Studio 2019.
+2. [Setup your development environment](~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet%2CWindows%2Cjre)
 3. [Created an empty sample project](~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet%2CWindows%2Cjre)
 
 ::: zone pivot="programming-language-csharp"
