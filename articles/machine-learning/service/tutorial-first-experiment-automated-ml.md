@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
@@ -104,9 +104,16 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
         Encoding|Identifies what bit to character schema table to use to read your dataset.| UTF-8
         Column headers| Indicates how the headers of the dataset, if any, will be treated.| All files have same headers
         Skip rows | Indicates how many, if any, rows are skipped in the dataset.| None
-    
+
+    1. The **Schema** form allows for further configuration of your data for this experiment. For this example, select the toggle switch for the **day_of_week** feature, so as to not include it for this experiment. Select **Next**.
+
         ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
+    1.  Review your selections on the Confirm details form.
+
+    1. Select **Profile this dataset after creation** and select the compute you created earlier as your compute for profiling. 
+
+    1. Select **Create**.
 1. Select **Classification** as the prediction task.
 
 1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
@@ -125,7 +132,9 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
    Number of validations | Number of tests. | 2 cross-validations 
    Concurrency| The number of max concurrent iterations.|5
    
-1. Select **Start** to run the experiment. A screen appears with a status message as the experiment preparation begins.
+1. Select **Start** to run the experiment. The **Run details**  screen appears with your run status message on the right as the experiment preparation begins.
+
+![Run detail status](media/tutorial-1st-experiment-automated-ml/run-detail-status.png)
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run. 
