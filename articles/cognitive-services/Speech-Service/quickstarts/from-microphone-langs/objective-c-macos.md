@@ -27,7 +27,7 @@ Before you get started, you'll need:
 
 ## Get the Speech SDK for macOS
 
-[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 The Cognitive Services Speech SDK for Mac is distributed as a framework bundle. It can be used in Xcode projects as a [CocoaPod](https://cocoapods.org/) or downloaded from https://aka.ms/csspeech/macosbinary and linked manually. This article uses a CocoaPod.
 

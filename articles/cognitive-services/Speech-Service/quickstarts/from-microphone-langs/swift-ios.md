@@ -27,7 +27,7 @@ Before you get started, you'll need:
 
 ## Get the Speech SDK for iOS
 
-[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 This tutorial won't work with a version of the SDK earlier than 1.6.0.
 

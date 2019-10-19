@@ -27,7 +27,7 @@ Before you get started, here's a list of prerequisites:
 
 ## Get the Speech SDK for macOS
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 Note that this tutorial will not work with version of the SDK earlier than 1.6.0.
 

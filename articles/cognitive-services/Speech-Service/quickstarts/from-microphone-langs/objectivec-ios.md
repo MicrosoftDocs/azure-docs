@@ -28,7 +28,7 @@ Before you get started, you'll need:
 
 ## Get the Speech SDK for iOS
 
-[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 The Cognitive Services Speech SDK for iOS is currently distributed as a Cocoa framework.
 It can be downloaded from [this website](https://aka.ms/csspeech/iosbinary). Download the file to your home directory.
