@@ -43,11 +43,12 @@ Be sure you have the following items before you begin this tutorial:
 
 LUIS integrates with the Speech Services to recognize intents from speech. You don't need a Speech Services subscription, just LUIS.
 
-LUIS uses two kinds of keys:
+LUIS uses three kinds of keys:
 
 |Key type|Purpose|
 |--------|-------|
 |Authoring|Lets you create and modify LUIS apps programmatically|
+|Starter|Lets you test your LUIS application using text only|
 |Endpoint |Authorizes access to a particular LUIS app|
 
 For this tutorial, you need the endpoint key type. The tutorial uses the example Home Automation LUIS app, which you can create by following the [Use prebuilt Home automation app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) quickstart. If you've created a LUIS app of your own, you can use it instead.
