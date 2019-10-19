@@ -12,7 +12,7 @@ manager: eliotgra
 
 # In-store analytics architecture
 
-In-store analytics solutions allow you to monitor various conditions within the retail store environment. These solutions can be built by leveraging one of the application templates within IoT Central and using the architecture below as guidance.
+In-store analytics solutions allow you to monitor various conditions within the retail store environment. These solutions can be built by leveraging one of the application templates within IoT Central and the architecture below as guidance.
 
 
 ![Azure IoT Central Store Analytics](./media/architecture/Store-Analytics-Architecture-Frame.png)
@@ -32,7 +32,7 @@ An IoT solution starts with a set of sensors capturing meaningful signals from w
 
 ### Gateway devices
 
-Many IoT sensors can feed raw signals directly to the cloud or to a gateway device that performs data aggregation at the edge before sending summary insights to an IoT Central application.
+Many IoT sensors can feed raw signals directly to the cloud or to a gateway device located near them. The gateway device performs data aggregation at the edge before sending summary insights to an IoT Central application. The gateway devices are also responsible for relaying command and control operations to the sensor devices when applicable. 
 
 ### IoT Central application
 
