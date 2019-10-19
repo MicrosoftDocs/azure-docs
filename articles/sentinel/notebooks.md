@@ -53,7 +53,7 @@ The initial notebooks include:
 
 The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
 
-To start using Azure Sentinel Notebooks, you can either launch the notebook directly from our Notebooks blade or you can clone all the notebooks into a project in Azure Notebooks.
+To start using Azure Sentinel Notebooks, you can either launch the notebook directly from the **Notebooks** blade from the Azure portal, or you can clone all the notebooks into a project in Azure Notebooks.
 
 You must have an Azure Notebooks account to launch notebooks directly from within Azure Sentinel. For more information, see [Your user account for Azure Notebooks](https://docs.microsoft.com/azure/notebooks/azure-notebooks-user-account).
 
