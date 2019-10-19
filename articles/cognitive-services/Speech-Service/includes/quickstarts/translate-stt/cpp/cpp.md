@@ -12,8 +12,6 @@ ms.date: 08/24/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Translate speech in C++ on Windows by using the Speech SDK
-
 Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-cpp) and [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-cpp).
 
 In this quickstart, you'll create a C++ application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
@@ -23,10 +21,6 @@ For a complete list of languages available for speech translation, see [language
 ## Prerequisites
 
 You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.
-
-## Create a Visual Studio project
-
-[!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## Add sample code
 

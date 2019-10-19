@@ -24,7 +24,6 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Header](../includes/quickstarts/tts/header.md)]
 [!INCLUDE [C# quickstart](../includes/quickstarts/tts/java/java.md)]
 ::: zone-end
 
