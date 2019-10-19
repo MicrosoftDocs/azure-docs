@@ -57,7 +57,8 @@ Inside the using statement, below your call to `recognize_once()`, add this code
 
 ## Check your code
 
-At this point, your code should look like this: 
+At this point, your code should look like this:
+(We've added some comments to this version)
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
 
 ## Build and run your app
