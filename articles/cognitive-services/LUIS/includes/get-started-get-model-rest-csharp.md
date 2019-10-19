@@ -135,22 +135,25 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
             // Add utterances, train, check status
             static void Main(string[] args)
             {
-                // machine-learned entity with 2 children
-                // first child - day is also machine-learned
-                // second child - month is a prebuilt entity
                 string utterances = @"
+                [
                     {
-                        ''name': 'DayOfMonth',
-                        'children':[
-                            {
-                                'name': 'day'
-                            },
-                            {
-                                'name': 'month',
-                                'instanceOf': 'datetimeV2'
-                            }
-                        ]
+                    'text': 'go to Seattle today',
+                    'intentName': 'BookFlight',
+                    'entityLabels': [
+                        {
+                        'entityName': 'Location::LocationTo',
+                        'startCharIndex': 6,
+                        'endCharIndex': 12
+                        }
+                    ]
+                    },
+                    {
+                        'text': 'a barking dog is annoying',
+                        'intentName': 'None',
+                        'entityLabels': []
                     }
+                ]
                 ";            
                 AddUtterances(utterances).Wait();
                 Train().Wait();
@@ -181,7 +184,7 @@ Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
 1. Review console response:
 
     ```console
-    
+
     ```
 
 ## LUIS keys

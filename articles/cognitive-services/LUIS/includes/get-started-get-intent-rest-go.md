@@ -85,7 +85,7 @@ Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file.:
 
     ```console
-    go build endpoint.go
+    go build predict.go
     ```  
 
 1. Run the Go application from the command line by entering the following text in the command prompt: 
