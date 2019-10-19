@@ -75,7 +75,7 @@ To enable remote build on Linux, the following [application settings](functions-
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-Both the [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) will do this automatically and perform remote builds by default when deploying to Linux.
+By default, both [Azure Functions Core Tools](functions-run-local.md) and the [Azure Functions Extension for Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) perform remote builds when deploying to Linux. Because of this, both tools automatically create these settings for you in Azure. 
 
 When apps are built remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md). 
 
