@@ -26,6 +26,12 @@ ms.author: diberry
 
 Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application. 
 
+1. Make a subdirectory named `lib` and copy in the following java libs:
+
+    * [commons-logging-1.2.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/commons-logging-1.2.jar)
+    * [httpclient-4.5.3.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpclient-4.5.3.jar)
+    * [httpcore-4.4.6.jar](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-language-understanding/master/documentation-samples/quickstarts/analyze-text/java/lib/httpcore-4.4.6.jar)
+
 1. Create a new file named `Model.java`. Add the following code:
 
 
