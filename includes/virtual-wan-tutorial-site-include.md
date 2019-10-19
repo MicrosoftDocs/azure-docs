@@ -32,5 +32,3 @@
 5. You can use the checkbox to delete or add additional links. Four links per VPN Site are supported. For example, if you have four ISP (internet service provider) at the branch location, you can create four links per each ISP and provide the information for each link.
 6. Once you have finished filling out the fields, select **Review + create** to verify and create the site.
 7. View the status on the VPN sites page. The site will go to **Connection Status -> Not connected**. This is because you have to connect the site to this hub.
-
-    ![create](./media/virtual-wan-tutorial-site-include/create.png "create")
