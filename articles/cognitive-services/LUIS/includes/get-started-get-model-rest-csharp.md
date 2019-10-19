@@ -13,57 +13,121 @@ ms.author: diberry
 ## Prerequisites
 
 * Starter key.
-Import the TravelAgent app from the cognitive-services-language-understanding GitHub repository.
-The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
-The utterances.json file containing the example utterances to import.
-The version ID within the application that receives the utterances. The default ID is "0.1".
-
-dotnet add package CommandLineParser --version 2.6.0
+* Import the TravelAgent app from the cognitive-services-language-understanding GitHub repository.
+* The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
+* The version ID within the application that receives the utterances. The default ID is "0.1".
 
 dotnet add package JsonFormatterPlus --version 1.0.2
 
+https://aka.ms/luis-apim-v3-authoring
+
+## Example utterances JSON file
+
+[!INCLUDE [Quickstart explanation of example utterance JSON file](./includes/get-started-get-model-json-example-utterances.md)]
+
+## Create quickstart code 
+
+In Visual Studio, create a new **Windows Classic Desktop Console** app using the .NET Framework. Name the project `ConsoleApp1`.
+
+![Visual Studio project type](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
+
+### Add the System.Web dependency
+
+The Visual Studio project needs **System.Web**. In the Solution Explorer, right-click on **References** and select **Add Reference** from the Assemblies section.
+
+![Add System.web reference](./media/luis-quickstart-cs-add-utterance/system.web.png)
+
+### Add other dependencies
+
+The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**. In the Solution Explorer, right-click on **References** and select **Manage NuGet Packages...**. Browse for and add each of the two packages. 
+
+![Add 3rd party dependencies](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
 
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+### Write the C# code
+The **Program.cs** file should be:
 
-## Get LUIS key
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        }
+    }
+}
+```
 
-## Get intent programmatically
+Update the dependencies so that are:
 
-Use C# to query the prediction endpoint GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) to get the same results as you saw in the browser window in the previous section. 
-
-1. Create a new console application in Visual Studio. 
-
-    ![Create a new console application in Visual Studio](../media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
-
-2. In the Visual Studio project, in the Solutions Explorer, select **Add reference**, then select **System.Web** from the Assemblies tab.
-
-    ![select Add reference, then select System.Web from the Assemblies tab](../media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
-
-3. Overwrite Program.cs with the following code:
-    
-   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
-
-4. Replace the value of `YOUR_KEY` with your LUIS key.
-
-5. Build and run the console application. It displays the same JSON that you saw earlier in the browser window.
-
-    ![Console window displays JSON result from LUIS](../media/luis-get-started-cs-get-intent/console-turn-on.png)
+   [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
 
+Add the LUIS IDs and strings to the **Program** class.
 
-## LUIS keys
+   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=19-30&dedent=8 "Add the LUIS IDs and strings")]
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+Add class to manage command-line parameters to the **Program** class.
+
+   [!code-csharp[Add class to manage command line parameters.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=32-46 "Add class to manage command-line parameters.")]
+
+Add the GET request method to the **Program** class.
+
+   [!code-csharp[Add the GET request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=49-59 "Add the GET request.")]
+
+
+Add the POST request method to the **Program** class. 
+
+   [!code-csharp[Add the POST request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=60-76 "Add the POST request.")]
+
+Add example utterances from file method to the **Program** class.
+
+   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
+
+After the changes are applied to the model, train the model. Add method to the **Program** class.
+
+   [!code-csharp[After the changes are applied to the model, train the model.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=87-96 "After the changes are applied to the model, train the model.")]
+
+Training may not complete immediately, check status to verify training is complete. Add method to the **Program** class.
+
+   [!code-csharp[Training may not complete immediately, check status to verify training is complete.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=97-103 "Training may not complete immediately, check status to verify training is complete.")]
+
+To manage command-line arguments, add the main code. Add method to the **Program** class.
+
+   [!code-csharp[To manage command line arguments, add the main code.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=104-137 "To manage command-line arguments, add the main code.")]
+
+### Copy utterances.json to output directory
+
+In the Solution Explorer, add the `utterances.json` by right-clicking in the Solution Explorer's project name, then selecting **Add**, then selecting **Existing item**. Select the `utterances.json` file. This adds the file to the project. Then it needs to be added to the output directory. Right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
+
+![Mark the JSON file as content](./media/luis-quickstart-cs-add-utterance/content-properties.png)
+
+## Build code
+
+Build the code in Visual Studio. 
+
+## Run code
+
+In the project's /bin/Debug directory, run the application from a command line. 
+
+```console
+ConsoleApp1.exe --add utterances.json --train --status
+```
+
+This command-line displays the results of calling the add utterances API. 
+
+[!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
 
 ## Clean up resources
-
-When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+When you are done with the quickstart, remove all the files created in this quickstart. 
 
 ## Next steps
-
-> [!div class="nextstepaction"]
-> [Add utterances and train with C#](../luis-get-started-cs-add-utterance.md)
-
+> [!div class="nextstepaction"] 
+> [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md) 
