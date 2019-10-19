@@ -114,18 +114,18 @@ After you set up a managed identity for your logic app, you can [give that ident
 
 1. From the resource's menu, select **Access control (IAM)** > **Role assignments** where you can review the current role assignments for that resource. On the toolbar, select **Add** > **Add role assignment**.
 
-   ![Add role assignment](./media/create-managed-service-identity/add-role-to-resource.png)
+   ![Select "Add" > "Add role assignment"](./media/create-managed-service-identity/add-role-to-resource.png)
 
    > [!TIP]
    > If the **Add role assignment** option is disabled, you most likely don't have permissions. 
    > For more information about the permissions that let you manage roles for resources, see 
    > [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
-1. Under **Add role assignment**, select your identity's **Role** based on your logic app's needs.
+1. Under **Add role assignment**, select a **Role** that gives your identity the necessary access to the target resource.
 
-   The role that you select is based on the permissions required by the trigger or action that uses that identity. Learn more about [role-based access control (RBAC) roles](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
+   For this topic's example, your identity needs a [role that can access the blob in an Azure Storage container](../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights):
 
-   ![Assign role](./media/create-managed-service-identity/assign-role.png)
+   ![Select "Storage Blob Data Contributor" role](./media/create-managed-service-identity/assign-role.png)
 
 1. In the **Assign access to** box, select **Azure AD user, group, or service principal**.
 
@@ -163,6 +163,8 @@ These steps show how to use the managed identity with a trigger or action throug
 
    * The **URI** property specifies the endpoint URL for accessing the target Azure resource. This URI syntax usually includes the [resource ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) for the Azure resource or service.
 
+   * The **Headers** property specifies any header values that you need or want to include in the request, such as the API version for the operation that you want to run on the target resource.
+
    * The **Queries** property specifies any query parameters that you need to include in the request, such as the parameter for a specific operation or a specific API version when required.
 
    So, to run the [Snapshot Blob operation](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), the HTTP action specifies these properties:
@@ -173,15 +175,15 @@ These steps show how to use the managed identity with a trigger or action throug
 
      `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name}/{blob-file-name-with-extension}`
 
+   * **Headers**: Specifies `x-ms-blob-type` as `BlockBlob` and `x-ms-version` as `2019-02-02` for the Snapshot Blob operation. For more information, see [Request headers - Snapshot Blob](https://docs.microsoft.com/en-us/rest/api/storageservices/snapshot-blob#request) and [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services).
+
    * **Queries**: Specifies `comp` as the query parameter name and `snapshot` as the parameter value.
+
+   Here is the example HTTP action that shows all these property values:
 
    ![Add an HTTP action to access an Azure resource](./media/create-managed-service-identity/http-action-example.png)
 
-   Here is an example request that the HTTP action creates and sends:
-
-   `PUT https://fabrikamstorageaccount.blob.core.windows.net/emails/attachments/attachment.txt?comp=snapshot`
-
-   For more information about the available Azure REST API operations, see the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/).
+   For more information about all the available Azure REST API operations, see the [Azure REST API Reference](https://docs.microsoft.com/rest/api/azure/).
 
 1. From the **Authentication** list, select **Managed Identity**. If the [**Authentication** property is supported](logic-apps-securing-a-logic-app.md#add-authentication-outbound) but hidden, open the **Add new parameter** list, and select **Authentication**.
 
@@ -199,10 +201,14 @@ These steps show how to use the managed identity with a trigger or action throug
    > including any required trailing slashes. For example, the Azure Resource Manager resource ID usually requires 
    > a trailing slash. Check the [resource IDs for the Azure services that support Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-   This example sets the **Audience** property to `https://fabrikamstorageaccount.blob.core.windows.net`:
+   This example sets the **Audience** property to `https://storage.azure.com/` so that the access tokens used for authentication are valid for all storage accounts. However, you can also specify the root service URL `https://fabrikamstorageaccount.blob.core.windows.net` for a specific storage account.
 
    ![Specify target resource ID in "Audience" property](./media/create-managed-service-identity/specify-audience-url-target-resource.png)
 
+   For more information about authorizing access with Azure Active Directory (AD) for Azure Storage, see these topics:
+
+   * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/common/storage-auth-aad.md)
+   * [Authorize with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 <a name="remove-identity"></a>
 
