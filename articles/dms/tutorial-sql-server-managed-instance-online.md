@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 10/18/2019
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Database managed instance online using DMS
 
 You can use Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to an [Azure SQL Database managed instance](../sql-database/sql-database-managed-instance.md) with minimal downtime. For additional methods that may require some manual effort, see the article [SQL Server instance migration to Azure SQL Database managed instance](../sql-database/sql-database-managed-instance-migrate.md).
 
-In this tutorial, you migrate the **Adventureworks2012** database from an on-premises instance of SQL Server to an Azure SQL Database managed instance with minimal downtime by using Azure Database Migration Service.
+In this tutorial, you migrate the **Adventureworks2012** database from an on-premises instance of SQL Server to a SQL Database managed instance with minimal downtime by using Azure Database Migration Service.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -28,24 +28,24 @@ In this tutorial, you learn how to:
 > * Cutover the migration when you are ready.
 
 > [!IMPORTANT]
-> For online migrations from SQL Server to an Azure SQL Database managed instance using Azure Database Migration Service, you must provide the full database backup and subsequent log backups in the SMB network share that the service can use to migrate your databases. Azure Database Migration Service does not initiate any backups, but rather uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
+> For online migrations from SQL Server to a SQL Database managed instance using Azure Database Migration Service, you must provide the full database backup and subsequent log backups in the SMB network share that the service can use to migrate your databases. Azure Database Migration Service does not initiate any backups, but rather uses existing backups, which you may already have as part of your disaster recovery plan, for the migration.
 > Be sure that you take [backups using the WITH CHECKSUM option](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). In addition, make sure not to append multiple backups (i.e. full and t-log) into a single backup media; take each backup on a separate backup file.
 
 > [!NOTE]
-> Using the Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
+> Using Azure Database Migration Service to perform an online migration requires creating an instance based on the Premium pricing tier.
 
 > [!IMPORTANT]
-> For an optimal migration experience, Microsoft recommends creating an instance of the Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
+> For an optimal migration experience, Microsoft recommends creating an instance of  Azure Database Migration Service in the same Azure region as the target database. Moving data across regions or geographies can slow down the migration process and introduce errors.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-This article describes an online migration from SQL Server to an Azure SQL Database managed instance. For an offline migration, see [Migrate SQL Server to an Azure SQL Database managed instance offline using DMS](tutorial-sql-server-to-managed-instance.md).
+This article describes an online migration from SQL Server to a SQL Database managed instance. For an offline migration, see [Migrate SQL Server to an Azure SQL Database managed instance offline using DMS](tutorial-sql-server-to-managed-instance.md).
 
 ## Prerequisites
 
 To complete this tutorial, you need to:
 
-* Create an Azure Virtual Network (VNet) for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Learn network topologies for Azure SQL Database managed instance migrations using the Azure Database Migration Service](https://aka.ms/dmsnetworkformi). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
+* Create an Azure Virtual Network (VNet) for Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Learn network topologies for Azure SQL Database managed instance migrations using the Azure Database Migration Service](https://aka.ms/dmsnetworkformi). For more information about creating a VNet, see the [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/), and especially the quickstart articles with step-by-step details.
 
     > [!NOTE]
     > During VNet setup, if you use ExpressRoute with network peering to Microsoft, add the following service [endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) to the subnet in which the service will be provisioned:
@@ -56,22 +56,27 @@ To complete this tutorial, you need to:
     >
     > This configuration is necessary because the Azure Database Migration Service lacks internet connectivity.
 
+    > [!IMPORTANT]
+    > Regarding the storage account used as part of the migration, you must either:
+    > * Choose to allow all network to access the storage account.
+    > * Set up ACLs for the VNet. For more information, see the article [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+
 * Ensure that your VNet Network Security Group rules don't block the following inbound communication ports to Azure Database Migration Service: 443, 53, 9354, 445, 12000. For more detail on Azure VNet NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configure your [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Open your Windows Firewall to allow the Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
-* If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that the Azure Database Migration Service can connect to a named instance on your source server.
-* If you're using a firewall appliance in front of your source databases, you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration, as well as files via SMB port 445.
-* Create an Azure SQL Database managed instance by following the detail in the article [Create an Azure SQL Database managed instance in the Azure portal](https://aka.ms/sqldbmi).
+* Open your Windows Firewall to allow Azure Database Migration Service to access the source SQL Server, which by default is TCP port 1433.
+* If you're running multiple named SQL Server instances using dynamic ports, you may wish to enable the SQL Browser Service and allow access to UDP port 1434 through your firewalls so that Azure Database Migration Service can connect to a named instance on your source server.
+* If you're using a firewall appliance in front of your source databases, you may need to add firewall rules to allow Azure Database Migration Service to access the source database(s) for migration, as well as files via SMB port 445.
+* Create a SQL Database managed instance by following the detail in the article [Create an Azure SQL Database managed instance in the Azure portal](https://aka.ms/sqldbmi).
 * Ensure that the logins used to connect the source SQL Server and the target managed instance are members of the sysadmin server role.
-* Provide an SMB network share that contains all your database full database backup files and subsequent transaction log backup files the Azure Database Migration Service can use for database migration.
+* Provide an SMB network share that contains all your database full database backup files and subsequent transaction log backup files Azure Database Migration Service can use for database migration.
 * Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
-* Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. The Azure Database Migration Service impersonates the user credential to upload the backup files to Azure storage container for restore operation.
-* Create an Azure Active Directory Application ID that generates the Application ID key that DMS Service can use to connect to target Azure Database managed instance and Azure Storage Container. For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+* Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. Azure Database Migration Service impersonates the user credential to upload the backup files to Azure storage container for restore operation.
+* Create an Azure Active Directory Application ID that generates the Application ID key that Azure Database Migration Service can use to connect to target Azure Database managed instance and Azure Storage Container. For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
 
   > [!NOTE]
-  > DMS requires the Contributor permission on the subscription for the specified Application ID. We are actively working to reduce these permissions requirements.
+  > Azure Database Migration Service requires the Contributor permission on the subscription for the specified Application ID. We are actively working to reduce these permissions requirements.
 
-* Create or make a note of **Standard Performance tier**, Azure Storage Account, that allows DMS service to upload the database backup files to and use for migrating databases.  Make sure to create the Azure Storage Account in the same region as the DMS service created.
+* Create or make a note of **Standard Performance tier**, Azure Storage Account, that allows DMS service to upload the database backup files to and use for migrating databases.  Make sure to create the Azure Storage Account in the same region as the Azure Database Migration Service instance is created.
 
 ## Register the Microsoft.DataMigration resource provider
 
@@ -79,13 +84,13 @@ To complete this tutorial, you need to:
 
     ![Show portal subscriptions](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)
 
-2. Select the subscription in which you want to create the instance of the Azure Database Migration Service, and then select **Resource providers**.
+2. Select the subscription in which you want to create the instance of Azure Database Migration Service, and then select **Resource providers**.
 
     ![Show resource providers](media/tutorial-sql-server-to-managed-instance-online/portal-select-resource-provider.png)
 
 3. Search for migration, and then to the right of **Microsoft.DataMigration**, select **Register**.
 
-    ![Register resource provider](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)   
+    ![Register resource provider](media/tutorial-sql-server-to-managed-instance-online/portal-register-resource-provider.png)
 
 ## Create an Azure Database Migration Service instance
 
@@ -103,7 +108,7 @@ To complete this tutorial, you need to:
 
 5. Select an existing VNet or create one.
 
-    The VNet provides the Azure Database Migration Service with access to the source SQL Server and target Azure SQL Database managed instance.
+    The VNet provides Azure Database Migration Service with access to the source SQL Server and target SQL Database managed instance.
 
     For more information on how to create a VNet in Azure portal, see the article [Create a virtual network using the Azure portal](https://aka.ms/DMSVnet).
 
@@ -126,7 +131,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 1. In the Azure portal, select **All services**, search for Azure Database Migration Service, and then select **Azure Database Migration Services**.
 
-    ![Locate all instances of the Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
+    ![Locate all instances of Azure Database Migration Service](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
 2. On the **Azure Database Migration Service** screen, search for the name of the instance that you created, and then select the instance.
 
@@ -134,7 +139,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 4. On the **New migration project** screen, specify a name for the project, in the **Source server type** text box, select **SQL Server**, in the **Target server type** text box, select **Azure SQL Database Managed Instance**, and then for **Choose type of activity**, select **Online data migration**.
 
-   ![Create DMS Project](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
+   ![Create Azure Database Migration Service Project](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 
 5. Select **Create and run activity** to create the project.
 
@@ -224,7 +229,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 ## Performing migration cutover
 
-After the full database backup is restored on the target instance of Azure SQL Database managed instance, the database is available for performing a migration cutover.
+After the full database backup is restored on the target instance of SQL Database managed instance, the database is available for performing a migration cutover.
 
 1. When you're ready to complete the online database migration, select **Start Cutover**.
 
@@ -244,6 +249,6 @@ After the full database backup is restored on the target instance of Azure SQL D
 
 ## Next steps
 
-- For a tutorial showing you how to migrate a database to a managed instance using the T-SQL RESTORE command, see [Restore a backup to a managed instance using the restore command](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
-- For information about managed instance, see [What is a managed instance](../sql-database/sql-database-managed-instance.md).
-- For information about connecting apps to a managed instance, see [Connect applications](../sql-database/sql-database-managed-instance-connect-app.md).
+* For a tutorial showing you how to migrate a database to a managed instance using the T-SQL RESTORE command, see [Restore a backup to a managed instance using the restore command](../sql-database/sql-database-managed-instance-restore-from-backup-tutorial.md).
+* For information about managed instance, see [What is a managed instance](../sql-database/sql-database-managed-instance.md).
+* For information about connecting apps to a managed instance, see [Connect applications](../sql-database/sql-database-managed-instance-connect-app.md).
