@@ -17,7 +17,7 @@ ms.author: erhopf
 Before you get started, make sure to:
 
 1. [Create a Speech resource and get a subscription key]().
-2. [Setup your development environment](~/articles/cognitive-services/Speech-Service/quickstart-platform-csharp-dotnet.md). Use this quickstart to install and configure Visual Studio 2019.
+2. [Setup your development environment](~/articles/cognitive-services/Speech-Service/quickstart-platform-csharp-dotnet-windows.md). Use this quickstart to install and configure Visual Studio 2019.
 
 If you've already done this, great. Let's keep going.
 

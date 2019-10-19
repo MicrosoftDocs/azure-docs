@@ -29,13 +29,13 @@ The common helloworld project contains platform-independent implementations for 
 
 1. In the designer's XAML view, insert the following XAML snippet into the **Grid** tag between `<StackLayout>` and `</StackLayout>`:
 
-   [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/from-microphone/helloworld/helloworld/MainPage.xaml)]
+   [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/MainPage.xaml)]
 
 1. In **Solution Explorer**, open the code-behind source file `MainPage.xaml.cs`. It's grouped under `MainPage.xaml`.
 
 1. Replace all the code in it with the following snippet:
 
-   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/from-microphone/helloworld/helloworld/MainPage.xaml.cs)]
+   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/MainPage.xaml.cs)]
 
 1. In the source file's `OnRecognitionButtonClicked` handler, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
@@ -44,7 +44,7 @@ The common helloworld project contains platform-independent implementations for 
 
 1. Next, you need to create a [Xamarin Service](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), which is used to query microphone permissions from different platform projects, such as UWP, Android, and iOS. To do that, add a new folder named *Services* under the helloworld project, and create a new C# source file under it. You can right-click the *Services* folder, and select **Add** > **New Item** > **Code File**. Rename the file `IMicrophoneService.cs`, and place all code from the following snippet in that file:
 
-   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/from-microphone/helloworld/helloworld/Services/IMicrophoneService.cs)]
+   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
 #### [Android](#tab/android)
 ## Add sample code for the `helloworld.Android` project
@@ -55,11 +55,11 @@ Now add the C# code that defines the Android-specific part of the application.
 
 1. Replace all the code in it with the following snippet:
 
-   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/from-microphone/helloworld/helloworld.Android/MainActivity.cs)]
+   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.Android/MainActivity.cs)]
 
 1. Next, add Android-specific implementation for `MicrophoneService` by creating the new folder *Services* under the helloworld.Android project. After that, create a new C# source file under it. Rename the file `MicrophoneService.cs`. Copy and paste the following code snippet into that file:
 
-   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/from-microphone/helloworld/helloworld.Android/Services/MicrophoneService.cs)]
+   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.Android/Services/MicrophoneService.cs)]
 
 1. After that, open `AndroidManifest.xml` under the *Properties* folder. Add the following uses-permission setting for the microphone between `<manifest>` and `</manifest>`:
 
@@ -75,11 +75,11 @@ Now add the C# code that defines the iOS-specific part of the application. Also 
 
 1. Replace all the code in it with the following snippet:
 
-   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/from-microphone/helloworld/helloworld.iOS/AppDelegate.cs)]
+   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.iOS/AppDelegate.cs)]
 
 1. Next, add iOS-specific implementation for `MicrophoneService` by creating the new folder *Services* under the helloworld.iO project. After that, create a new C# source file under it. Rename the file `MicrophoneService.cs`. Copy and paste the following code snippet into that file:
 
-   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/from-microphone/helloworld/helloworld.iOS/Services/MicrophoneService.cs)]
+   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.iOS/Services/MicrophoneService.cs)]
 
 1. Open `Info.plist` under the helloworld.iOS project in the text editor. Add the following key value pair under the dict section:
 
@@ -102,11 +102,11 @@ Now add the C# code that defines the UWP-specific part of the application.
 
 1. Replace all the code in it with the following snippet:
 
-   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/from-microphone/helloworld/helloworld.UWP/MainPage.xaml.cs)]
+   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.UWP/MainPage.xaml.cs)]
 
 1. Next, add a UWP-specific implementation for `MicrophoneService` by creating the new folder *Services* under the helloworld.UWP project. After that, create a new C# source file under it. Rename the file `MicrophoneService.cs`. Copy and paste the following code snippet into that file:
 
-   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/from-microphone/helloworld/helloworld.UWP/Services/MicrophoneService.cs)]
+   [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld.UWP/Services/MicrophoneService.cs)]
 
 1. Next, double-click the `Package.appxmanifest` file under the helloworld.UWP project inside Visual Studio. Under **Capabilities**, make sure that **Microphone** is selected, and save the file.
 

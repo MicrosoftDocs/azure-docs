@@ -28,7 +28,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Replace all the code with the following snippet:
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/cpp/windows/from-microphone/helloworld/helloworld.cpp?range=2-#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/translate-speech-to-text/helloworld/helloworld.cpp?range=2-#code)]
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
