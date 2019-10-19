@@ -55,13 +55,13 @@ The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-
 
 To start using Azure Sentinel Notebooks, you can either launch the notebook directly from our Notebooks blade or you can clone all the notebooks into a project in Azure Notebooks.
 
-An Azure Notebooks account is a requirement for launching notebooks directly from within Azure Sentinel.  Learn how to create an account and sign into Azure here.  (link)
+You must have an Azure Notebooks account to launch notebooks directly from within Azure Sentinel. Learn how to create an account and sign into Azure here.  (link)
 
 ## Launch a notebook directly from Azure Sentinel 
  
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**, where you can see the full list of notebooks that Azure Sentinel provides. 
 
-2. Select the notebook you want to launch, and select **Launch**: 
+2. Select the notebook you want to launch, and select **Launch**. For example: 
     
     ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
