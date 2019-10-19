@@ -23,7 +23,7 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 - The ROOBO DevKit is the supported hardware environment for creating conversation transcriptions. This kit provides a circular multi-microphone array that can be utilized efficiently for speaker identification. For more information, see [Speech Devices SDK](speech-devices-sdk.md).
 - Speech SDK support for conversation transcription is limited to audio pull and push streams with 8 channels of 16-bit 16 kHz PCM audio. The following kits support 8 channel audio capture:
   - [ROOBO Smart Audio Circular 7-Mic Dev Kit](https://ddk.roobo.com/)
-  - [Azure Kinect Dev Kit](https://azure.microsoft.com/en-in/services/kinect-dk/)
+  - [Azure Kinect Dev Kit](https://azure.microsoft.com/services/kinect-dk/)
 
 ## Optional sample code resources
 
