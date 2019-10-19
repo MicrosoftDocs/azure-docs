@@ -159,8 +159,8 @@ if args.submit:
 
 Let's try making a request to synthesize text using your input file as a source. You'll need to update a few things in the request below:
 
-* Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](aka.ms/azureportal).
-* Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](aka.ms/azureportal).
+* Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
+* Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<input>` with the path to the text file you're looking to convert from text-to-speech.
 * Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md#neural-voices).
 * Replace `<voice_guid>` with the desired voice for the audio output. Use one of the voices returned by [Get a list of supported voices](#get-a-list-of-supported-voices) or use the list of neural voices provided in [language support](language-support.md#neural-voices).
@@ -231,7 +231,7 @@ if args.delete:
 
 ### Test your code
 
-Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](aka.ms/azureportal).
+Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 
 ```console
 python voice_synthesis_client.py – syntheses -key <your_key> -region <Region>
@@ -246,7 +246,7 @@ ID : xxx , Name : xxx, Status : Running
 ID : xxx , Name : xxx : Succeeded
 ```
 
-Now let's use some of these values to remove/delete previously submitted requests. Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](aka.ms/azureportal). The `<synthesis_id>` should be one of the values returned in the previous request.
+Now let's use some of these values to remove/delete previously submitted requests. Run this command, replacing `<your_key>` with your Speech subscription key, and `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal). The `<synthesis_id>` should be one of the values returned in the previous request.
 
 > [!NOTE]
 > Requests with a status of ‘Running’/'Waiting' cannot be removed or deleted.
