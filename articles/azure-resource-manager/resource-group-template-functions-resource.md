@@ -12,14 +12,43 @@ ms.author: tomfitz
 
 Resource Manager provides the following functions for getting resource values:
 
+* [extensionResourceId](#extensionresourceid)
 * [list*](#list)
 * [providers](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
 * [subscription](#subscription)
+* [subscriptionResourceId](#subscriptionresourceid)
+* [tenantResourceId](#tenantresourceid)
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](resource-group-template-functions-deployment.md).
+
+## extensionResourceId
+
+```json
+tenantResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
+```
+
+Returns the resource ID for an extension resource.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| resourceId |No |string |The resource ID for the resource that the extension resource is applied to. |
+| resourceType |Yes |string |Type of resource including resource provider namespace. |
+| resourceName1 |Yes |string |Name of resource. |
+| resourceName2 |No |string |Next resource name segment, if needed. |
+
+Continue adding resource names as parameters when the resource type includes more segments.
+
+### Return value
+
+The identifier is returned in the following format:
+
+**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+
 
 <a id="listkeys" />
 <a id="list" />
@@ -684,13 +713,7 @@ To get the resource ID for a resource in a different subscription and resource g
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-When used with a [subscription-level deployment](deploy-to-subscription.md), the `resourceId()` function can only retrieve the ID of resources deployed at that level. For example, you can get the ID of a policy definition or role definition, but not the ID of a storage account. For deployments to a resource group, the opposite is true. You can't get the resource ID of resources deployed at the subscription-level.
-
-To get the resource ID of a subscription-level resource when deploying at the subscription scope, use:
-
-```json
-"[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
-```
+To get the resource ID of a resource deployed to the subscription, use [subscriptionResourceId](#subscriptionresourceid). For tenant level, use [tenantResourceId](#tenantResourceId). To get the resource ID for an extension resource, use [extensionResourceId](#extensionResourceId). Extension resources are applied to another resource type, like a resource lock or an event subscription.
 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The following example shows how a resource from an external resource group can easily be used:
 
@@ -839,9 +862,9 @@ The identifier is returned in the following format:
 
 You use this function to get the resource ID for resources that are [deployed to the subscription](deploy-to-subscription.md) rather than a resource group. The returned ID differs from the value returned by the [resourceId](#resourceid) function by not including a resource group value.
 
-## SubscriptionResourceID example
+### subscriptionResourceID example
 
-The following template assigns a built-in role. You can deploy it to either a resource group or subscription.
+The following template assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the subscriptionResourceId function to get the resource ID for built-in roles.
 
 ```json
 {
