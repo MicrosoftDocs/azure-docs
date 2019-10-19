@@ -143,7 +143,7 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
     * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
     * `YOUR-APP-ID` with your app's ID
 
-1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file.:
+1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
 
     ```console
     go build model.go
