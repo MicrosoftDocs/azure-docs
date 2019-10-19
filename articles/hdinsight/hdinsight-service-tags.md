@@ -16,9 +16,9 @@ These service tags are created and managed by the HDInsight service. You can't c
 
 You have two options for using service tags in your Azure firewall:
 
-1. Use a single HDInsight service tag - this will open your virtual network to all of the IP Addresses that the HDInsight service is using to monitor clusters across all regions. This is the simplest method, but may not be appropriate if you have restrictive security requirements.
+1. Use a single HDInsight service tag - this option will open your virtual network to all of the IP Addresses that the HDInsight service is using to monitor clusters across all regions. This option is the simplest method, but may not be appropriate if you have restrictive security requirements.
 
-1. Use multiple regional service tags - this will open your VNet to only the IP Addresses that HDInsight is using in that specific region. However, if you are using multiple regions, then you will need to add multiple service tags to your virtual network.
+1. Use multiple regional service tags - this option will open your VNet to only the IP Addresses that HDInsight is using in that specific region. However, if you are using multiple regions, then you will need to add multiple service tags to your virtual network.
 
 ## Usa a single global HDInsight service tag
 
@@ -55,13 +55,13 @@ If you prefer service tag option two, and your cluster is located in one of the 
 | Japan | Japan West | HDInsight.JapanWest |
 | France | France Central| HDInsight.FranceCentral |
 | UK | UK South | HDInsight.UKSouth |
-| Fairfax | USDoD Central   | HDInsight.USDoDCentral |
+| Azure Government (Fairfax) | USDoD Central   | HDInsight.USDoDCentral |
 | &nbsp; | USGov Texas | HDInsight.USGovTexas |
 | &nbsp; | UsDoD East | HDInsight.USDoDEast |
 
 ### Use multiple regional service tags
 
-If you prefer service tag option two, and the region where your cluster is created was not listed above, then you need to allow multiple regional service tags. This is due to differences in the arrangement of resource providers for the various regions.
+If you prefer service tag option two, and the region where your cluster is created was not listed above, then you need to allow multiple regional service tags. The need to use more than one is due to differences in the arrangement of resource providers for the various regions.
 
 The remaining regions are divided into groups based on which regional service tags they use.
 
