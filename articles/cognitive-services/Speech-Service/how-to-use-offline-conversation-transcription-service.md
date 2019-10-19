@@ -66,7 +66,7 @@ The above sample is written with Java, but the APIs used are supported on all th
 
 You will need **remoteconversation-client-sdk version 1.0.0** to use the code in this section. Note that **remoteconversation-client-sdk version 1.0.0** is supported only for Java (1.8 or above) on Windows, Linux and Android (API level 26 or above). You can obtain **remoteconversation-client-sdk** by editing your pom.xml file as follows:
 
-1. At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK, as shown here:
+- At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK, as shown here:
 
   ```xml
   <repositories>
@@ -78,7 +78,7 @@ You will need **remoteconversation-client-sdk version 1.0.0** to use the code in
   </repositories>
   ```
 
-1. Also add a `dependencies` element, with the remoteconversation-client-sdk 1.0.0 as a dependency:
+- Also add a `dependencies` element, with the remoteconversation-client-sdk 1.0.0 as a dependency:
 
   ```xml
   <dependencies>
@@ -90,7 +90,7 @@ You will need **remoteconversation-client-sdk version 1.0.0** to use the code in
   </dependencies>
   ```
 
-1. Save the changes.
+- Save the changes.
 
 Refer to the code below. Once you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. Note that **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has successfully finished, you can get the status of **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the result as shown.
 
@@ -135,4 +135,4 @@ System.out.println("Operation finished");
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
+> [explore our samples on github](https://aka.ms/csspeech/samples)
