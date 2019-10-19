@@ -17,7 +17,7 @@ ms.author: diberry
 
 ## Example utterances JSON file
 
-[!INCLUDE [Quickstart explanation of example utterance JSON file](./includes/get-started-get-model-json-example-utterances.md)]
+[!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 
 ## Get LUIS key
