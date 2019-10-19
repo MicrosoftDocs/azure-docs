@@ -13,9 +13,11 @@ ms.author: diberry
 ## Prerequisites
 
 * Starter key.
-* Import the TravelAgent app from the cognitive-services-language-understanding GitHub repository.
+* Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
 * The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
 * The version ID within the application that receives the utterances. The default ID is "0.1".
+* [.NET Core V2.2+](https://dotnet.microsoft.com/download)
+* [Visual Studio Code](https://code.visualstudio.com/)
 
 ## Example utterances JSON file
 

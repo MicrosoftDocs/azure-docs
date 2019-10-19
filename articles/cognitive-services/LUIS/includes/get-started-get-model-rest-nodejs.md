@@ -11,6 +11,10 @@ ms.author: diberry
 ---
 ## Prerequisites
 
+* Starter key.
+* Import the [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) app from the cognitive-services-language-understanding GitHub repository.
+* The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
+* The version ID within the application that receives the utterances. The default ID is "0.1".
 * [Node.js](https://nodejs.org/) programming language 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
