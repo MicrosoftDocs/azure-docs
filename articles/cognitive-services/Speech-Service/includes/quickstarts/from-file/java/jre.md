@@ -33,4 +33,8 @@ ms.author: erhopf
 Press F11, or select **Run** > **Debug**.
 The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
-![Screenshot of console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-jre-07-console-output.png)
+```text
+
+TODO: CONSOLE OUTPUT FOR JAVA QUICKSTART
+
+```

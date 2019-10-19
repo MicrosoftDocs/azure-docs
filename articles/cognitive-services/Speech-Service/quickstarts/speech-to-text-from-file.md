@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Convert text-to-speech from an audio file - Speech Service"
+title: "Quickstart: Recognize speech from an audio file - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-# Convert text-to-speech from a file
+# Quickstart: Recognize speech from an audio file
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]

@@ -26,11 +26,11 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Replace all the code with the following snippet:
 
-````C++
+   ````C++
 
-// INSERT C++ CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
+   // TODO INSERT C++ CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
 
-````
+   ````
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
@@ -46,7 +46,11 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which transcribes to text and sends it back to the application for display.
 
-   ![Console output after successful recognition](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-08-console-output-release.png)
+   ```text
+
+   TODO INSERT CONSOLE OUTPUT HERE
+
+   ```
 
 ## Next steps
 

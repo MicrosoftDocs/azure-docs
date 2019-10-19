@@ -55,11 +55,11 @@ Download and install the SDK as follows:
 
 1. Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
 
-````C++
+   ````C++
 
-// INSERT C++ CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
+   // TODO INSERT C++ CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
 
-````
+   ````
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
