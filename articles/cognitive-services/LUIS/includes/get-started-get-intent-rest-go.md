@@ -155,7 +155,7 @@ Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
 ## Clean up resources
 
-When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+When you are finished with this quickstart, delete the file from the file system. 
 
 ## Next steps
 

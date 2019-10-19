@@ -52,13 +52,13 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
             {
     
                 // The ID of a public sample LUIS app that recognizes intents for turning on and off lights
-                String AppId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+                String AppId = "YOUR-APP-ID";
                 
                 // Add your endpoint key 
-                String Key = "a7b206911f714e71a1ddae36928a61cc";//"YOUR-KEY";
+                String Key = "YOUR-KEY";
     
                 // Add your endpoint, example is westus.api.cognitive.microsoft.com
-                String Endpoint = "westus2.api.cognitive.microsoft.com"; //"YOUR-ENDPOINT";
+                String Endpoint = "YOUR-ENDPOINT";
     
                 String Utterance = "[{'text': 'go to Seattle today','intentName': 'BookFlight','entityLabels': [{'entityName': 'Location::LocationTo',"
                     + "'startCharIndex': 6,'endCharIndex': 12}]},{'text': 'a barking dog is annoying','intentName': 'None','entityLabels': []}]";
@@ -141,6 +141,9 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
 
 ## Clean up resources
 
-When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+When you are finished with this quickstart, delete the file from the file system. 
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Best practices for an app](../luis-concept-best-practices.md)

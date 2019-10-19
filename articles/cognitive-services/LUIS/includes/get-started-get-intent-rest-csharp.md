@@ -168,7 +168,7 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
 ## Clean up resources
 
-When you are finished with this quickstart, delete the project directory from the file system. 
+When you are finished with this quickstart, delete the file from the file system. 
 
 ## Next steps
 

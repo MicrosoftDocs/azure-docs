@@ -161,9 +161,9 @@ Use Go to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authori
 
 ## Clean up resources
 
-When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+When you are finished with this quickstart, delete the file from the file system. 
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Add utterances and train](../luis-get-started-go-add-utterance.md)
+> [Best practices for an app](../luis-concept-best-practices.md)
