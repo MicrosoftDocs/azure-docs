@@ -173,7 +173,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
    * **URI**: Specifies the resource ID for an Azure Blob Storage file in the Azure Global (public) environment and uses this syntax:
 
-     `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name}/{blob-file-name-with-extension}`
+     `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}`
 
    * **Headers**: Specifies `x-ms-blob-type` as `BlockBlob` and `x-ms-version` as `2019-02-02` for the Snapshot Blob operation. For more information, see [Request headers - Snapshot Blob](https://docs.microsoft.com/en-us/rest/api/storageservices/snapshot-blob#request) and [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services).
 
