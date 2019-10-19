@@ -28,7 +28,7 @@ To complete this project, you'll need:
 
 1. Open **Program.cs** and replace the automatically generated code with this sample:
 
-   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnet-windows/helloworld/Program.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/text-to-speech/helloworld/Program.cs#code)]
 
 1. Find the string `YourSubscriptionKey`, and replace it with your Speech Services subscription key.
 

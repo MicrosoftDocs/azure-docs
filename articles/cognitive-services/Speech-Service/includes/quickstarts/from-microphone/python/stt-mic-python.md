@@ -70,7 +70,7 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 
 ### Sample code
 
-[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
+[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/from-microphone/quickstart.py#code)]
 
 ### Install and use the Speech SDK with Visual Studio Code
 

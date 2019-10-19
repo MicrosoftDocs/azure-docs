@@ -26,7 +26,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 1. Replace all the code with the following snippet:
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-windows/helloworld/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/text-to-speech/helloworld/helloworld.cpp#code)]
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 

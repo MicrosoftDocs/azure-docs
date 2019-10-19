@@ -73,7 +73,7 @@ Download and install the SDK as follows:
 
 1. Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
 
-   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/cpp-linux/helloworld.cpp#code)]
+   [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/text-to-speech/helloworld.cpp#code)]
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 

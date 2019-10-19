@@ -54,7 +54,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 
 1. Replace all code in `Main.java` with the following snippet:
 
-   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/java-jre/src/speechsdk/quickstart/Main.java#code)]
+   [!code-java[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/text-to-speech/src/speechsdk/quickstart/Main.java#code)]
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 

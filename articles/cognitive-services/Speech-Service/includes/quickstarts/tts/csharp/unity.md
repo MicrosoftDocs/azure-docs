@@ -77,7 +77,7 @@ When you're done, the UI should look similar to this screenshot:
 
 1. Replace all code with the following:
 
-   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/text-to-speech/Assets/Scripts/HelloWorld.cs#code)]
 
 1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 

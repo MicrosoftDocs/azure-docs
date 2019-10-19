@@ -31,7 +31,7 @@ This quickstart requires:
 
 1. Open `Program.cs`, and replace all the code in it with the following.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/csharp-dotnetcore/helloworld/Program.cs#code)]
+    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnetcore/text-to-speech/helloworld/Program.cs#code)]
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
