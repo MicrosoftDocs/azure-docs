@@ -12,8 +12,6 @@ ms.date: 08/28/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Translate speech with the Speech SDK for .NET Framework (Windows)
-
 Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp) and [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp).
 
 In this quickstart, you'll create a .NET Framework application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application can run on 32-bit or 64-bit Windows, and it's built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019.
@@ -22,14 +20,13 @@ For a complete list of languages available for speech translation, see [language
 
 ## Prerequisites
 
-This quickstart requires:
+Before you get started, make sure to:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
+1. [Create a Speech resource and get a subscription key]().
+2. [Setup your development environment](~/articles/cognitive-services/Speech-Service/quickstart-platform-csharp-dotnet-windows.md). Use this quickstart to install and configure Visual Studio 2019.
+3. [Created an empty sample project](~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?pivots=programming-language-csharp)
 
-## Create a Visual Studio project
-
-[!INCLUDE [Create project](~/includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+If you've already done this, great. Let's keep going.
 
 ## Add sample code
 
