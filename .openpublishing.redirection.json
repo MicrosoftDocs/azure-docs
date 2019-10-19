@@ -751,6 +751,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-cs-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest.md#pivots=programming-language-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-go-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest.md#pivots=programming-language-go",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-java-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest.md#pivots=programming-language-java",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-node-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest.md#pivots=programming-language-nodejs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-get-started-python-add-utterance.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest.md#pivots=programming-language-python",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-java-get-intent.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-intent-from-rest",
       "redirect_document_id": false
