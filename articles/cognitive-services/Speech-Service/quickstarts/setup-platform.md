@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-three
 ---
 
 # Quickstart: Setup development environment.
@@ -54,5 +54,5 @@ zone_pivot_groups: programming-languages-set-two
 [!INCLUDE [android](../quickstart-platform-python.md)]
 ::: zone-end
 
-::: zone pivot="programming-language-more"
-::: zone-end
+> [!div class="nextstepaction"]
+> [Create an empty project](~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md)
