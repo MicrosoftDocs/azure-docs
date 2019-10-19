@@ -34,7 +34,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Complete](tutorial-prepare-vmware.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
     - [Set up Azure permissions](tutorial-prepare-vmware.md#prepare-azure) for Azure Migrate.
-    - [Prepare physical servers](tutorial-prepare-vmware.md#prepare-for-vcenter-server-assessment) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
+    - [Prepare physical servers](tutorial-prepare-vmware.md#prepare-azure) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
 
 
 ## Set up an Azure Migrate project
