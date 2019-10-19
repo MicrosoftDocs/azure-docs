@@ -299,7 +299,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 
 **New features**
 
-* Support for Objective-C on iOS. Check out our [Objective-C quickstart for iOS](quickstart-objectivec-ios.md).
+* Support for Objective-C on iOS. Check out our [Objective-C quickstart for iOS](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md).
 * Support for JavaScript in browser. Check out our [JavaScript quickstart](quickstart-js-browser.md).
 
 **Breaking changes**
@@ -337,7 +337,7 @@ In our [sample repository](https://aka.ms/csspeech/samples), a new sample for Ja
 
 **New features**
 
-* Support Android platform (API 23: Android 6.0 Marshmallow or higher). Check out the [Android quickstart](quickstart-java-android.md).
+* Support Android platform (API 23: Android 6.0 Marshmallow or higher). Check out the [Android quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android).
 * Support .NET Standard 2.0 on Windows. Check out the [.NET Core quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore).
 * Experimental: Support UWP on Windows (version 1709 or later).
   * Check out the [UWP quickstart](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp).

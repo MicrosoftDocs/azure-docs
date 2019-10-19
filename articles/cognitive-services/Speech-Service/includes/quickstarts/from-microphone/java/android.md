@@ -14,7 +14,7 @@ ms.author: wolfma
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this quickstart. You can get one for free. For more information, see [Try Speech Services for free](get-started.md).
+You need a Speech Services subscription key to complete this quickstart. You can get one for free. For more information, see [Try Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md).
 
 ## Create and configure a project
 
@@ -32,11 +32,11 @@ Now we'll create a basic user interface for the application. Edit the layout for
 
 * Use the magic wand icon at the top of the designer to infer layout constraints.
 
-  ![Screenshot of magic wand icon](media/sdk/qs-java-android-10-infer-layout-constraints.png)
+  ![Screenshot of magic wand icon](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-10-infer-layout-constraints.png)
 
 The text and graphical representation of your UI should now look like this:
 
-![User interface](media/sdk/qs-java-android-11-gui.png)
+![User interface](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-11-gui.png)
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
 
@@ -52,7 +52,7 @@ The text and graphical representation of your UI should now look like this:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Also replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, use `westus` for the free trial subscription.
+1. Also replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, use `westus` for the free trial subscription.
 
 ## Build and run the app
 
@@ -64,11 +64,11 @@ The text and graphical representation of your UI should now look like this:
 
 1. In the deployment target window that appears, select your Android device.
 
-   ![Screenshot of Select Deployment Target window](media/sdk/qs-java-android-12-deploy.png)
+   ![Screenshot of Select Deployment Target window](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
 Select the button in the application to begin a speech recognition section. The next 15 seconds of English speech will be sent to Speech Services and transcribed. The result appears in the Android application, and in the logcat window in Android Studio.
 
-![Screenshot of the Android application](media/sdk/qs-java-android-13-gui-on-device.png)
+![Screenshot of the Android application](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 
 ## Next steps
 
@@ -77,5 +77,5 @@ Select the button in the application to begin a speech recognition section. The 
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Customize acoustic models](~/articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md)
+- [Customize language models](~/articles/cognitive-services/Speech-Service/how-to-customize-language-model.md)

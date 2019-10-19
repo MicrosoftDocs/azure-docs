@@ -16,8 +16,7 @@ zone_pivot_groups: programming-languages-set-two
 # Setup your development environment
 
 >[!NOTE]
-> This article assumes that you've already created a Speech resource in the Azure portal. If you haven't completed this step, see [Create a Speech resource](create-speech-resource.md).
-
+> This article assumes that you've already created a Speech resource in the Azure portal. If you haven't completed this step, see [Create a Speech resource](~/articles/cognitive-services/Speech-Service/includes/create-speech-resource.md).
 
 
 ::: zone pivot="programming-language-csharp"

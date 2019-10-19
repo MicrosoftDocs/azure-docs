@@ -22,7 +22,7 @@ In this article, you learn how to create a macOS app in Swift using the Cognitiv
 
 Before you get started, here's a list of prerequisites:
 
-* A [subscription key](get-started.md) for the Speech Service.
+* A [subscription key](~/articles/cognitive-services/Speech-Service/get-started.md) for the Speech Service.
 * A macOS machine with [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) or later and [CocoaPods](https://cocoapods.org/) installed.
 
 ## Get the Speech SDK for macOS

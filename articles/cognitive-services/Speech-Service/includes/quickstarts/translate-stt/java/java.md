@@ -87,6 +87,6 @@ Additional samples, such as how to read speech from an audio file, and output tr
 
 ## See also
 
-- [Quickstart: Recognize speech, Java (Windows, Linux)](~/articles/cognitive-services/Speech-Service/quikcstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
+- [Quickstart: Recognize speech, Java (Windows, Linux)](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
 - [Customize acoustic models](~/articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md)
 - [Customize language models](~/articles/cognitive-services/Speech-Service/how-to-customize-language-model.md)
