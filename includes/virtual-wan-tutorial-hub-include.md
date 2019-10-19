@@ -9,8 +9,6 @@
  ms.author: cherylmc
  ms.custom: include file
 ---
-A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites. It takes 30 minutes to create the site-to-site VPN gateway in the virtual hub.
-
 1. Locate the Virtual WAN that you created. On the Virtual WAN page, under the **Virtual WAN architecture** section, select **Hubs**.
 2. On the Hubs page, select **+New Hub** to open the **Create virtual hub** page.
 
