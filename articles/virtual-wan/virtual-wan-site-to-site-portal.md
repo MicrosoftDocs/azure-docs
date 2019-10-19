@@ -24,6 +24,12 @@ This tutorial shows you how to use Virtual WAN to connect to your resources in A
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
+### <a name="vnet"></a>Create a virtual network
+
+If you do not already have a VNet, you can quickly create one using PowerShell or the Azure portal. If you already have a VNet, verify that it meets the required criteria and does not have a virtual network gateway.
+
+[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
+
 ## <a name="openvwan"></a>1. Create a virtual WAN
 
 From a browser, navigate to the [Azure portal](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
@@ -46,13 +52,7 @@ You are now ready to create the sites corresponding to your physical locations. 
 
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-connect-vpn-site-include.md)]
 
-## <a name="vnet"></a>5. Create a virtual network
-
-If you do not already have a VNet, you can quickly create one using PowerShell or the Azure portal. If you already have a VNet, verify that it meets the required criteria and does not have a virtual network gateway.
-
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
-
-## <a name="vnet"></a>6. Connect your VNet to a hub
+## <a name="vnet"></a>5. Connect your VNet to a hub
 
 In this step, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
@@ -66,7 +66,7 @@ In this step, you create the peering connection between your hub and a VNet. Rep
     * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
 4. Click **OK** to create the peering connection.
 
-## <a name="device"></a>7. Download VPN configuration
+## <a name="device"></a>6. Download VPN configuration
 
 Use the VPN device configuration to configure your on-premises VPN device.
 
@@ -218,7 +218,7 @@ If you need instructions to configure your device, you can use the instructions 
 * A New Virtual WAN can support both IKEv1 and IKEv2.
 * Virtual WAN can only use route-based VPN devices and device instructions.
 
-## <a name="viewwan"></a>8. View your virtual WAN
+## <a name="viewwan"></a>7. View your virtual WAN
 
 1. Navigate to the virtual WAN.
 2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
