@@ -89,7 +89,7 @@ This section outlines provides instructions for migrating a hub.
 
 1. Go to the Downloads folder (or to whatever folder you exported the template) and find the zip file. In the zip file, the template name is in the format `ExportedTemplate-<ResourceGroupName>`. This example shows a generic hub with no routing configuration. It is an S1 tier hub (with 1 unit) called **ContosoTestHub29358** in region **westus**. Extract that one file (template.json) from the zip file so you can edit it. Here is the template exported in this example.
 
-    ```json
+    ``` json
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
@@ -216,14 +216,14 @@ You have to make some changes before you can use the template to create the new 
     
     Old version:
 
-    ```json 
+    ``` json 
     "name": "[parameters('IotHubs_ContosoTestHub29358_name')]",
     "location": "westus",
     ```
     
     New version: 
 
-    ```json 
+    ``` json 
     "name": "IotHubs_ContosoTestHub29358clone",
     "location": "eastus",
     ```
@@ -232,7 +232,7 @@ You have to make some changes before you can use the template to create the new 
 
     When you're done, your event hub endpoints section should look like this:
 
-    ```json
+    ``` json
     "eventHubEndpoints": {
         "events": {
             "retentionTimeInDays": 1,
@@ -292,53 +292,66 @@ Now create the new hub in the new location.
 
 1. Select the **Purchase** button.
 
-It now validates your template and deploys your cloned hub. 
+The portal now validates your template and deploys your cloned hub. 
 
 ## Managing the devices registered to the IoT hub
 
 Now that you have your clone up and running, you need to copy all of the devices from the original hub to the clone. To do this, you can use the C# Import/Export sample app. This application targets .NET Core, so you can run it on either Windows or Linux. You can download the sample, retrieve your connection strings as needed, set the flags for which bits you want to run, and run it. 
 
-### The sample code, explained
+### Downloading the sample
 
 1. Use the IoT C# samples from this page: [Azure IoT Samples for C#](https://azure.microsoft.com/en-us/resources/samples/azure-iot-samples-csharp/.) Download the zip file and unzip it on your computer. 
 
-1. The pertinent code is in ./iot-hub/Samples/service/ImportExportDevicesSample. You can use VSCode or Visual Studio to edit the code if needed.
+1. The pertinent code is in ./iot-hub/Samples/service/ImportExportDevicesSample. You don't need to view or edit the code in order to run the application -- you specify the data that is passed in, such as the connection strings to the IoT hubs connection, and then specify the command to run the application from the command line.
 
-1. **Program.cs** calls ImportExportDevicesSample.cs, which contains the code for various import/export procedures. There are five variables at the top that you can set:
+1. You specify three connection strings and five options when you run the application. You pass this data in as command-line arguments or use environment variables, or use a combination of the two. We're going to pass the options in as command line arguments, and the connection strings as environment variables. The reason for this is because the connection strings are long and ungainly, and unlikely to change, but you might want to change the options and run the application more than once. To change the value of an environment variable, you have to close the command window and Visual Studio (if you're using it). 
 
-*   addDevices -- set this to true if you want to add virtual devices that are generated for you. Also set numToAdd to how man you want to add. The maximum number of devices you can register to a hub is one million.
+#### Options
 
-*   copyDevices -- set this to true to copy the devices from one hub to another. 
+Here are the five options you specify when you run the application. We'll put these on the command line in a minute.
 
-*   deleteSourceDevices -- set this to true to delete all of the devices registered to the source hub. We recommending waiting until you are certain all of the devices have been transferred before you run this.
+*   **addDevices** (arg1) -- set this to true if you want to add virtual devices that are generated for you. Also set **numToAdd** (arg2) to specify how many devices you want to add. The maximum number of devices you can register to a hub is one million.
 
-*   deleteDestDevices -- set this to true to delete all of the devices registered to the destination hub (the clone). You might want to do this if you want to copy the devices more than once. 
+*   **copyDevices** (arg3) -- set this to true to copy the devices from one hub to another. 
 
-This sample runs **RunSampleAsync** in the class **ImportExportDevicesSample**, which checks the flags and runs the bits where the flag is true. 
+*   **deleteSourceDevices** (arg4) -- set this to true to delete all of the devices registered to the source hub. We recommending waiting until you are certain all of the devices have been transferred before you run this. Once you delete the devices, you can not get them back.
 
-### Run the sample code
+*   **deleteDestDevices** (arg5) -- set this to true to delete all of the devices registered to the destination hub (the clone). You might want to do this if you want to copy the devices more than once. 
 
-You can run the application by setting environment variables and then running the application in Visual Studio or from the command line. You can also pass in the environment variables as arguments on the command line. We'll look at how to use environment variables. 
+The basic command line will be *dotnet ImportExportDevicesSample* -- this tells .NET to build the ImportExportDevicesSample and then run it. You add your command-line arguments to the end of that command. 
 
-#### Set the environment variables
+Your command-line will look like these examples:
+
+``` console 
+    // Add 5000 devices, don't copy them to the other hub, or delete them. 
+    // arg1 is true, numToAdd is 5000, and the other arguments are false.
+    dotnet ImportExportDevicesSample true 5000 false false false 
+
+    // Copy those devices to the other hub; don't delete anything.
+    // arg1 is false, numToAdd is 0, arg3 is true, so the devices will be copied,
+    //   and the delete args are both false
+    dotnet ImportExportDevicesSample false 0 true false false 
+``` console 
+
+#### Connection strings
 
 1. To run the sample, you need the connection strings to the old and new IoT hubs, and to a storage account you can use for temporary work files. 
 
 1. To get the connection string values, sign in to the [Azure portal](https://portal.azure.com). 
 
-1. Put the connection strings somewhere you can retrieve them, such as NotePad. Copy the following, then you can paste the connection strings in directly. Don't add spaces around the equal sign, or it changes the variable name. Also, you do not need double-quotes around the connection strings. If you put quotes around the storage account connection string, it won't work.
+1. Put the connection strings somewhere you can retrieve them, such as NotePad. Copy the following, then you can paste the connection strings in directly where they go. Don't add spaces around the equal sign, or it changes the variable name. Also, you do not need double-quotes around the connection strings. If you put quotes around the storage account connection string, it won't work.
 
-For Windows, this is how the environment variables are defined on the command line:
+For Windows, this is how you set the environment variables:
 
-   ```command  
+   ``` console  
    SET IOTHUB_CONN_STRING=<put connection string to original IoT Hub here>
    SET DEST_IOTHUB_CONN_STRING=<put connection string to destination or clone IoT Hub here>
    SET STORAGE_ACCT_CONN_STRING=<put connection string to the storage account here>
    ```
 
-For Linux, this is how the environment variables are defined:
+For Linux, this is how you define the environment variables:
 
-   ```command  
+   ``` console  
    export IOTHUB_CONN_STRING="<put connection string to original IoT Hub here>"
    export DEST_IOTHUB_CONN_STRING="<put connection string to destination or clone IoT Hub here>"
    export STORAGE_ACCT_CONN_STRING="<put connection string to the storage account here>"
@@ -352,37 +365,54 @@ For Linux, this is how the environment variables are defined:
    
 1. Under the Settings section, select **Access keys** and copy one of the connection strings. Put the connection string in your text file for the appropriate SET command. 
 
-Now that your environment variables are collected and ready, let's set them and run the application.
+Now you have the environment variables in a file with the SET commands, and you know what your command-line arguments are. Let's run the sample. Using both ways to pass the data to the application gives you the flexibility to run the application more than once without having to change the environment variables (assuming your hubs and storage account don't change).
 
-#### Running the sample application
+### Running the sample application from the command-line
 
-1. Open a Command Prompt window and navigate to `./iot-hub/Samples/service/` in your unzipped project folder. This is where you run the application.
+1. Open a command prompt window. Select Windows and type in `command prompt` to get the command prompt window.
 
 1. Copy the commands that set the environment variables, one at a time, and paste them into the Command Prompt window and select Enter. When you're finished, you can type `SET` in the Command Prompt window and it shows your connection strings. Once you've copied these into the Command Prompt window, you don't have to copy them again, unless you open a new Command Prompt window.
 
-1.  Make sure the variables at the top of Program.cs are set correctly. 
+1. In the command prompt window, change directories until you are in ./ImportExportDevicesSample (where the ImportExportDevicesSample.csproj file exists). Then type the following, and include your command-line arguments.
 
-1. To run the application in Visual Studio, run this command in the command line window to open the solution in Visual Studio. You must do this in the same command window where you set the environment variables. Also, change to the folder where the IoTHubServiceSamples.sln file resides before running this command.
-
-    ```command       
-    IoTHubServiceSamples.sln
+    ``` console
+    dotnet ImportExportDevicesSample arg1 arg2 arg3 arg4 arg5
     ```
 
-    Right-click on the project ImportExportDevicesSample and select **Set as startup project**.    
+    The dotnet command builds and runs the application. Because you are passing in the options when you run the application, you can change the values of them each time you run the application. For example, you may want to run it once and just create new devices, then run it again and copy those devices to a new hub, and so on. You can also perform all the steps in the same run, although we recommend not deleting any devices until you are certain you are finished with the cloning. Here is an example that create 5000 devices and then copies them to the other hub.
+
+    ``` console
+    // Add 5000 devices, don't copy them to the other hub, or delete them. 
+    dotnet ImportExportDevicesSample true 5000 false false false 
+
+    // Copy those devices to the other hub; don't delete anything.
+    dotnet ImportExportDevicesSample false 0 true false false 
+    ```
+
+### Running the sample application using Visual Studio
+
+If you want to run the application in Visual Studio, run this command in the command line window to open the solution in Visual Studio. You must do this in the same command window where you set the environment variables. Also, change to the folder where the IoTHubServiceSamples.sln file resides before running this command. 
+
+   ``` console       
+   IoTHubServiceSamples.sln
+   ```
     
-    Select F5 to run the application. 
+Right-click on the project *ImportExportDevicesSample* and select **Set as startup project**.    
+    
+Before running the application, set the variables at the top of Program.cs for the five options (like copyDevices).
 
-1. To run the application without using Visual Studio, you can type this command in the same command window where you set the environment variables. It builds and then runs the application.
+Select F5 to run the application. 
 
-    ```command
-    dotnet run --project ImportExportDevicesSample
-    ```
+
+#### View the results 
+
+After the application finishes running, you can view the results in the Azure portal.
 
 1. Go to the new hub using the [Azure portal](https://portal.azure.com). Select your hub, then select **IoT Devices**. You see the devices you just copied from the old hub to the clone. You can also view the properties for the clone. 
 
 1. To check for errors, go to the Azure storage account in the [Azure portal](https://portal.azure.com) and look in the `devicefiles` container for the `ImportErrors.log`. If this file is empty, there were no errors. If you try to import the same device more than once, it rejects the device the second time and adds an error message to the log file.
 
-At this point, you have copied your hub to the new regions, and migrated the devices to the new clone. Make the changes needed to make sure the devices work with the cloned hub, and you should be finished.
+At this point, you have copied your hub to the new location and migrated the devices to the new clone. Make the changes needed to make sure the devices work with the cloned hub, and you should be finished.
 
 ## Routing 
 
