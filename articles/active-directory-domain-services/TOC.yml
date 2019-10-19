@@ -9,10 +9,8 @@
 - name: Tutorials
   expanded: true
   items:
-    - name: Create a basic managed domain
+    - name: Create a managed domain
       href: tutorial-create-instance.md
-    - name: Configure the virtual network for apps
-      href: tutorial-configure-networking.md
     - name: Domain-join a Windows Server VM
       href: join-windows-vm.md
     - name: Install management tools
@@ -21,8 +19,6 @@
       href: tutorial-configure-ldaps.md
     - name: Configure password hash sync
       href: tutorial-configure-password-hash-sync.md
-    - name: Create an advanced managed domain
-      href: tutorial-create-instance-advanced.md
 - name: Samples
   items:
     - name: Create a managed domain using Azure PowerShell

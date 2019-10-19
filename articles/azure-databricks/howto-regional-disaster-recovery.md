@@ -15,7 +15,7 @@ This article describes a disaster recovery architecture useful for Azure Databri
 
 ## Azure Databricks architecture
 
-At a high level, when you create an Azure Databricks workspace from the Azure portal, a [managed appliance](../managed-applications/overview.md) is deployed as an Azure resource in your subscription, in the chosen Azure region (for example, West US). This appliance is deployed in an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with a [Network Security Group](../virtual-network/manage-network-security-group.md) and an Azure Storage account, available in your subscription. The virtual network provides perimeter level security to the Databricks workspace and is protected via network security group. Within the workspace, you can create Databricks clusters by providing the worker and driver VM type and Databricks runtime version. The persisted data is available in your storage account, which can be Azure Blob Storage or Azure Data Lake Store. Once the cluster is created, you can run jobs via notebooks, REST APIs, ODBC/JDBC endpoints by attaching them to a specific cluster.
+At a high level, when you create an Azure Databricks workspace from the Azure portal, a [managed appliance](../managed-applications/overview.md) is deployed as an Azure resource in your subscription, in the chosen Azure region (for example, West US). This appliance is deployed in an [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with a [Network Security Group](../virtual-network/manage-network-security-group.md) and an Azure Storage account, available in your subscription. The virtual network provides perimeter level security to the Databricks workspace and is protected via network security group. Within the workspace, you can create Databricks clusters by providing the worker and driver VM type and Databricks runtime version. The persisted data is available in your storage account, which can be Azure Blob Storage or Azure Data Lake Storage. Once the cluster is created, you can run jobs via notebooks, REST APIs, ODBC/JDBC endpoints by attaching them to a specific cluster.
 
 The Databricks control plane manages and monitors the Databricks workspace environment. Any management operation such as create cluster will be initiated from the control plane. All metadata, such as scheduled jobs, is stored in an Azure Database with geo-replication for fault tolerance.
 
@@ -278,9 +278,9 @@ To create your own regional disaster recovery topology, follow these requirement
 
    There's currently no straightforward way to migrate libraries from one workspace to another. Instead, reinstall those libraries into the new workspace manually. It is possible to automate using combination of [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) to upload custom libraries to the workspace and [Libraries CLI](https://github.com/databricks/databricks-cli#libraries-cli).
 
-8. **Migrate Azure blob storage and Azure Data Lake Store mounts**
+8. **Migrate Azure blob storage and Azure Data Lake Storage mounts**
 
-   Manually remount all [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) and [Azure Data Lake Store (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) mount points using a notebook-based solution. The storage resources would have been mounted in the primary workspace, and that has to be repeated in the secondary workspace. There is no external API for mounts.
+   Manually remount all [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) and [Azure Data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) mount points using a notebook-based solution. The storage resources would have been mounted in the primary workspace, and that has to be repeated in the secondary workspace. There is no external API for mounts.
 
 9. **Migrate cluster init scripts**
 
