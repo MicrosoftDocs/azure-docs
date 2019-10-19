@@ -92,7 +92,7 @@ class Program
 
 ## Transcribing conversations in real time
 
-Refer to the sample code and description below.
+Refer to the sample code, comments, and description below.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -103,25 +103,25 @@ public class MyConversationTranscriber
 {
     public static async Task ConversationWithPullAudioStreamAsync()
     {
-        // Creates an instance of a speech config with specified subscription key and service region.
-        // Replace with your own subscription key and region.
+        // Creates an instance of a speech config with specified subscription key and service region
+        // Replace with your own subscription key and region
         var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
         config.SetProperty("ConversationTranscriptionInRoomAndOnline", "true");
         var stopTranscription = new TaskCompletionSource<int>();
 
-        // Create an audio stream from a wav file or from the default microphone if you want to stream live audio from the supported devices.
+        // Create an audio stream from a wav file or from the default microphone if you want to stream live audio from the supported devices
         // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             var meetingId = Guid.NewGuid().ToString();
             using (var conversation = new Conversation(config, meetingId))
             {
-                    // Creates a conversation transcriber using audio stream input.
+                // Create a conversation transcriber using audio stream input
                 using (var conversationTranscriber = new ConversationTranscriber(audioInput))
                 {
                     await conversationTranscriber.JoinConversationAsync(conversation);
 
-                    // Subscribes to events.
+                    // Subscribe to events
                     conversationTranscriber.Transcribing += (s, e) =>
                     {
                             Console.WriteLine($"TRANSCRIBING: Text={e.Result.Text}");
@@ -192,9 +192,9 @@ public class MyConversationTranscriber
 }
 ```
 
-To transcribe conversations with multiple participants, we create a `Conversation` object from `SpeechConfig` (you need to substitute real information for "YourSubscriptionKey" and "YourServiceRegion").
+Note that you'll need to substitute real information for "YourSubscriptionKey" and "YourServiceRegion" when creating the SpeechConfig object.
 
-With a meeting ID that is a GUID, we add participants to the conversation, create a `ConversationTranscriber`, join the conversation, and then stream audio. You can add or remove the number of speakers and their specifics to suit your needs.
+We create a `Conversation` object from the `SpeechConfig` object and a meeting ID generated using `Guid.NewGuid().ToString();`. To start transcribing the audio, create a `ConversationTranscriber` object and join the conversation with `JoinConversationAsync()`. We then register the events of interest, add or remove participants to the conversation using the Conversation object, and then stream audio. The transcription and speaker ID come back in the registered events.
 
 ## See also
 
@@ -202,4 +202,5 @@ For an example of offline conversation transcription, see [Offline multi-partici
 
 ## Next steps
 
-> [!div class="nextstepaction"][explore our samples on github](https://aka.ms/csspeech/samples)
+> [!div class="nextstepaction"]
+> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)

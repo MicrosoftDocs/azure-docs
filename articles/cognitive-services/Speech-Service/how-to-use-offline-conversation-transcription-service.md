@@ -1,9 +1,9 @@
 ---
-title: Offline multi-participant conversation transcription with the Speech SDK - Speech Service
+title: Offline multi-participant conversation transcription - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use Remote Conversation Transcription with the Speech SDK. Available for Java only.
+description: Learn how to use offline conversation transcription using the Speech Service. Available for Java only.
 services: cognitive-services
-author: amishu
+author: markamos
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
@@ -12,34 +12,23 @@ ms.date: 10/18/2019
 ms.author: amishu
 ---
 
-# Offline multi-participant conversation transcription with the Speech SDK
+# Offline multi-participant conversation transcription
 
-In this article, offline conversation transcription is demonstrated using the **RemoteConversationTranscriptionClient** API in the Speech SDK. If you have configured the Conversation Transcription Service to perform offline conversation transcription and have a `conversationId`, you can obtain the transcription associated with that `conversationId` using the **RemoteConversationTranscriptionClient** API.
+In this article, offline conversation transcription is demonstrated using the **RemoteConversationTranscriptionClient** API. If you have configured the Conversation Transcription Service to perform offline conversation transcription and have a `conversationId`, you can obtain the transcription associated with that `conversationId` using the **RemoteConversationTranscriptionClient** API.
 
-## Limitations
+## Offline transcription vs. real-time plus offline transcription
 
-- Offline conversation transcription is supported for Java (version 1.8 or above) on Windows, Linux, and Android (API 26 or above).
-- All the same limitations listed in [How to use conversation transcription service for real-time transcription](how-to-use-conversation-transcription-service.md) apply here.
-
-## Prerequisites
-
-This feature is available in the extension **remoteconversation-client-sdk version 1.0.0** which uses Microsoft cognitive speech client-sdk 1.8.0 or later. The **remoteconversation-client-sdk version 1.0.0** uses **azure-core 1.0.0-preview.5** and **azure-core-http-netty 1.0.0-preview.5**.
-
-- Learn how to use Speech-to-text with the Speech SDK version 1.8.0 or later. For more information, see [What are Speech Services](overview.md).
-- A Speech Services subscription. You can get a Speech trial subscription [HERE](https://azure.microsoft.com/try/cognitive-services/) if you do not already have one.
-- Learn how to use real-time conversation transcription [HERE](how-to-use-conversation-transcription-service.md).
-
-## Creating voice signatures for participants
-
-If you have not already done so, perform the steps [HERE](how-to-use-conversation-transcription-service.md#creating-voice-signatures-for-participants) for creating voice signatures and setting requirements for the input wave file to use in this guide.
-
-### Offline transcription vs. real-time plus offline transcription
-
-In offline transcription you stream the conversation audio but do not expect the transcription to return to the client. Instead, once the audio is sent successfully, use the `conversationId` of `ConversationTranscriber` to query the status of the offline transcription. Once the offline transcription is successfully completed get a `RemoteConversationTranscriptionResult`.
+In offline transcription you stream the conversation audio but do not expect the transcription to return to the client. Instead, once the audio is sent successfully, use the `conversationId` of `ConversationTranscriber` to query the status of the offline transcription. Once the offline transcription is successfully completed, you get a `RemoteConversationTranscriptionResult`.
 
 With real-time plus offline, you get the transcription in real-time but can also get the transcription by querying the service with the `conversationId` (similar to offline scenario). This is covered in greater detail in the topics listed above.
 
-In the example code below, the service is set for offline mode only as it is presented here (you need to substitute real information for "YourSubscriptionKey" and "YourServiceRegion").
+## Code examples
+
+There are two parts to offline conversation transcription.
+
+### First: upload the audio to the service using the Speech SDK
+
+Before offline transcription can be performed, we send the audio to Conversation Transcription Service using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe multi-participant conversations in real time with the Speech SDK](how-to-use-conversation-transcription-service.md). In the example code below, the service is set for offline mode. Note that you need to substitute real information for "YourSubscriptionKey" and "YourServiceRegion".
 
 ```java
 // Create the speech config object
@@ -61,7 +50,7 @@ String conversationId = transcriber.getConversationId();
 
 ```
 
-Note that if you want real-time plus offline, you will need to comment and uncomment the following lines as shown:
+If you want real-time _plus_ offline, you will need to comment and uncomment the following lines as shown:
 
 ```java
 // Set the property for offline transcription
@@ -71,11 +60,13 @@ Note that if you want real-time plus offline, you will need to comment and uncom
 speechConfig.setServiceProperty("transcriptionMode", "RealTimeOffline", ServicePropertyChannel.UriQueryParameter);
 ```
 
-Although this topic does not show how to use real-time transcription, it is shown [HERE](how-to-use-conversation-transcription-service.md).
+The above sample is written with Java, but the APIs used are supported on all the platforms and languages specified in the **Limitations** section of [this topic](how-to-use-conversation-transcription-service.md#limitations).
 
-### Get offline transcription results
+### Second: get offline transcription results using remoteconversation-client-sdk
 
-Refer to the code example and description below.
+You will need **remoteconversation-client-sdk version 1.0.0** to use the code in this section. Note that **remoteconversation-client-sdk version 1.0.0** is supported only for Java (1.8 or above) on Windows, Linux and Android (API level 26 or above). You can obtain **remoteconversation-client-sdk** from [this location]().
+
+Refer to the code below. Once you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. Note that **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has successfully finished, you can get the status of **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the result as shown.
 
 ```java
 // Create the speech config object
@@ -97,13 +88,14 @@ operation.getObserver()
                             System.out.println("Poll response status : " + pollResponse.getStatus());
                             if(pollResponse.getValue().getConversationTranscriptionResults() != null) {
                                 for (int i = 0; i < pollResponse.getValue().getConversationTranscriptionResults().size(); i++) {
-                                    System.out.println(pollResponse.getValue().getConversationTranscriptionResults().get(i).getOffset());
-                                    System.out.println(pollResponse.getValue().getConversationTranscriptionResults().get(i).getDuration());
-                                    System.out.println(pollResponse.getValue().getConversationTranscriptionResults().get(i).getUserId());
-                                    System.out.println(pollResponse.getValue().getConversationTranscriptionResults().get(i).getReason());
-                                    System.out.println(pollResponse.getValue().getConversationTranscriptionResults().get(i).getResultId());
-                                    System.out.println(pollResponse.getValue().getConversationTranscriptionResults().get(i).getText());
-                                    System.out.println(pollResponse.getValue().getConversationTranscriptionResults().get(i).toString());
+                                    ConversationTranscriptionResult result = pollResponse.getValue().getConversationTranscriptionResults().get(i);
+                                    System.out.println(result.getOffset());
+                                    System.out.println(result.getDuration());
+                                    System.out.println(result.getUserId());
+                                    System.out.println(result.getReason());
+                                    System.out.println(result.getResultId());
+                                    System.out.println(result.getText());
+                                    System.out.println(result.toString());
                                 }
                             }
                         }
@@ -114,8 +106,7 @@ operation.block();
 System.out.println("Operation finished");
 ```
 
-Once you have the `conversationId`, create a remote operation object **_RemoteConversationTranscriptionOperation_** at the client to query the status of the offline conversation transcription service. The remote operation object is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java) in [azure-core](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/core/azure-core). **_Poller_** is built using the [reactor framework](https://projectreactor.io/) for Java. Once the poller has successfully completed, you can get the RemoteConversationTranscriptionResult by subscribing to the poller.
-
 ## Next steps
 
-> [!div class="nextstepaction"][explore our samples on github](https://aka.ms/csspeech/samples)
+> [!div class="nextstepaction"]
+> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)

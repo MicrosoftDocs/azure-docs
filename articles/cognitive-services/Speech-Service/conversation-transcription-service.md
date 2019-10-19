@@ -74,4 +74,5 @@ Currently, Conversation Transcription supports "en-US" and "zh-CN" in the follow
 
 ## Next steps
 
-> [!div class="nextstepaction"][transcribe multi-participant conversations with the speech sdk](how-to-use-conversation-transcription-service.md)
+> [!div class="nextstepaction"]
+> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
