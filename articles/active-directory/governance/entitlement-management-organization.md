@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/15/2019
+ms.date: 10/18/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -36,6 +36,14 @@ You can configure two connected organizations -- one for Graphic Design Institut
 
 ![Connected organization example](./media/entitlement-management-organization/connected-organization-example.png)
 
+ The authentication types for connected organizations are the following:
+
+| Authentication type | Status |
+| --- | --- |
+| Azure AD | Supported |
+| [Direct federation](../b2b/direct-federation.md) | Preview |
+| [One-time passcode](../b2b/one-time-passcode.md) (domain) | Preview |
+
 ## Add a connected organization
 
 Follow these steps to add an external Azure AD directory or domain as a connected organization.
@@ -56,16 +64,16 @@ Follow these steps to add an external Azure AD directory or domain as a connecte
 
 1. Type a domain name to search for the Azure AD directory or domain. You must type the entire domain name.
 
-1. Verify it is the correct organization by the provided directory name and initial domain.
+1. Verify it is the correct organization by the provided name and authentication type. How users will sign in depends on the authentication type.
 
     ![Add connected organization - Select directories + domains](./media/entitlement-management-organization/organization-select-directories-domains.png)
 
-1. Click **Add** to add the organization.
+1. Click **Add** to add the Azure AD directory or domain. Currently, you can only add one Azure AD directory or domain per connected organization.
 
     > [!NOTE]
-    > All users from the organization will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md).
+    > All users from the Azure AD directory or domain will be able to request this access package. This includes users in Azure AD from all subdomains associated with the directory, unless those domains are blocked by the Azure B2B allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md).
 
-1. Once you have added all the Azure AD directories and domains you'd like to include, click **Select**.
+1. Once you have added the Azure AD directory or domain, click **Select**.
 
     The organization appears in the list.
 
@@ -74,6 +82,8 @@ Follow these steps to add an external Azure AD directory or domain as a connecte
 1. On the **Sponsors** tab, add optional sponsors for this connected organization.
 
     Sponsors are internal or external users already in your directory that are the point of contact for the relationship with this connected organization. Internal sponsors are member users in your directory. External sponsors are guest users from the connected organization that were previously invited and are already in your directory. Sponsors can be utilized as approvers when users in this connected organization request access to this access package. For information about how to invite a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../b2b/add-users-administrator.md).
+
+    When you click **Add/Remove**, a pane appears to select the internal or external sponsors. The pane displays an unfiltered list of users and groups in your directory.
 
     ![Access package - Policy - Add connected organization - Sponsors tab](./media/entitlement-management-organization/organization-sponsors.png)
 
