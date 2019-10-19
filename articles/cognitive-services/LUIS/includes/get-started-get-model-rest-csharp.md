@@ -17,117 +17,182 @@ ms.author: diberry
 * The LUIS application ID for the imported TravelAgent app. The application ID is shown in the application dashboard.
 * The version ID within the application that receives the utterances. The default ID is "0.1".
 
-dotnet add package JsonFormatterPlus --version 1.0.2
-
-https://aka.ms/luis-apim-v3-authoring
-
 ## Example utterances JSON file
 
 [!INCLUDE [Quickstart explanation of example utterance JSON file](./includes/get-started-get-model-json-example-utterances.md)]
 
-## Create quickstart code 
+## Get LUIS key
 
-In Visual Studio, create a new **Windows Classic Desktop Console** app using the .NET Framework. Name the project `ConsoleApp1`.
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
-![Visual Studio project type](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
+## Change model programmatically
 
-### Add the System.Web dependency
+Use C# to add a machine-learned entity [API](https://aka.ms/luis-apim-v3-authoring) to the application. 
 
-The Visual Studio project needs **System.Web**. In the Solution Explorer, right-click on **References** and select **Add Reference** from the Assemblies section.
+1. Create a new console application targeting the C# language, with a project and folder name of `model-with-rest`. 
 
-![Add System.web reference](./media/luis-quickstart-cs-add-utterance/system.web.png)
+    ```csharp
+    dotnet new console -lang C# -n model-with-rest
+    ```
 
-### Add other dependencies
+1. Install required dependencies with the following dotnet CLI commands.
 
-The Visual Studio project needs **JsonFormatterPlus** and **CommandLineParser**. In the Solution Explorer, right-click on **References** and select **Manage NuGet Packages...**. Browse for and add each of the two packages. 
+    ```csharp
+    dotnet add package System.Net.Http
+    dotnet add package JsonFormatterPlus
+    ```
+1. Overwrite Program.cs with the following code:
 
-![Add 3rd party dependencies](./media/luis-quickstart-cs-add-utterance/add-dependencies.png)
-
-
-### Write the C# code
-The **Program.cs** file should be:
-
-```csharp
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsoleApp1
-{
-    class Program
+    ```csharp
+    using System;
+    using System.IO;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Collections.Generic;
+    using System.Linq;
+    
+    // 3rd party NuGet packages
+    using JsonFormatterPlus;
+    
+    namespace AddUtterances
     {
-        static void Main(string[] args)
+        class Program
         {
+            // NOTE: use your starter key value
+            static string authoringKey = "YOUR-AUTHORING-KEY";
+    
+            // NOTE: Replace this endpoint with your starter key endpoint
+            // for example, westus.api.cognitive.microsoft.com
+            static string endpoint = "YOUR-ENDPOINT";
+    
+            // NOTE: Replace this with the ID of your LUIS application
+            static string appID = "YOUR-APP-ID";
+    
+            // NOTE: Replace this your version number
+            static string appVersion = "0.1";
+    
+            static string host = String.Format("https://{0}/luis/authoring/v3.0-preview/apps/{1}/versions/{2}/", endpoint, appID, appVersion);
+    
+            // GET request with authentication
+            async static Task<HttpResponseMessage> SendGet(string uri)
+            {
+                using (var client = new HttpClient())
+                using (var request = new HttpRequestMessage())
+                {
+                    request.Method = HttpMethod.Get;
+                    request.RequestUri = new Uri(uri);
+                    request.Headers.Add("Ocp-Apim-Subscription-Key", authoringKey);
+                    return await client.SendAsync(request);
+                }
+            }
+            // POST request with authentication
+            async static Task<HttpResponseMessage> SendPost(string uri, string requestBody)
+            {
+                using (var client = new HttpClient())
+                using (var request = new HttpRequestMessage())
+                {
+                    request.Method = HttpMethod.Post;
+                    request.RequestUri = new Uri(uri);
+    
+                    if (!String.IsNullOrEmpty(requestBody))
+                    {
+                        request.Content = new StringContent(requestBody, Encoding.UTF8, "text/json");
+                    }
+    
+                    request.Headers.Add("Ocp-Apim-Subscription-Key", authoringKey);
+                    return await client.SendAsync(request);
+                }
+            }        
+            // Add utterances as string with POST request
+            async static Task AddUtterances(string utterances)
+            {
+                string uri = host + "examples";
+    
+                var response = await SendPost(uri, utterances);
+                var result = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Added utterances.");
+                Console.WriteLine(JsonFormatter.Format(result));
+            }
+            // Train app after adding utterances
+            async static Task Train()
+            {
+                string uri = host  + "train";
+    
+                var response = await SendPost(uri, null);
+                var result = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Sent training request.");
+                Console.WriteLine(JsonFormatter.Format(result));
+            }    
+            // Check status of training
+            async static Task Status()
+            {
+                var response = await SendGet(host  + "train");
+                var result = await response.Content.ReadAsStringAsync();
+                Console.WriteLine("Requested training status.");
+                Console.WriteLine(JsonFormatter.Format(result));
+            }    
+            // Add utterances, train, check status
+            static void Main(string[] args)
+            {
+                // machine-learned entity with 2 children
+                // first child - day is also machine-learned
+                // second child - month is a prebuilt entity
+                string utterances = @"
+                    {
+                        ''name': 'DayOfMonth',
+                        'children':[
+                            {
+                                'name': 'day'
+                            },
+                            {
+                                'name': 'month',
+                                'instanceOf': 'datetimeV2'
+                            }
+                        ]
+                    }
+                ";            
+                AddUtterances(utterances).Wait();
+                Train().Wait();
+                Status().Wait();
+            }
         }
     }
-}
-```
+    ```
 
-Update the dependencies so that are:
+1. Replace the following values:
 
-   [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
+    * `YOUR-KEY` with your starter key
+    * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
+    * `YOUR-APP-ID` with your app's ID
 
+1. Build the console application. 
 
-Add the LUIS IDs and strings to the **Program** class.
+    ```csharp
+    dotnet build
+    ```
 
-   [!code-csharp[Add the LUIS IDs and strings](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=19-30&dedent=8 "Add the LUIS IDs and strings")]
+1. Run the console application. The console output displays the same JSON that you saw earlier in the browser window.
 
-Add class to manage command-line parameters to the **Program** class.
+    ```csharp
+    dotnet run
+    ```
 
-   [!code-csharp[Add class to manage command line parameters.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=32-46 "Add class to manage command-line parameters.")]
+1. Review console response:
 
-Add the GET request method to the **Program** class.
+    ```console
+    
+    ```
 
-   [!code-csharp[Add the GET request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=49-59 "Add the GET request.")]
+## LUIS keys
 
-
-Add the POST request method to the **Program** class. 
-
-   [!code-csharp[Add the POST request.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=60-76 "Add the POST request.")]
-
-Add example utterances from file method to the **Program** class.
-
-   [!code-csharp[Add example utterances from file.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=77-86 "Add example utterances from file.")]
-
-After the changes are applied to the model, train the model. Add method to the **Program** class.
-
-   [!code-csharp[After the changes are applied to the model, train the model.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=87-96 "After the changes are applied to the model, train the model.")]
-
-Training may not complete immediately, check status to verify training is complete. Add method to the **Program** class.
-
-   [!code-csharp[Training may not complete immediately, check status to verify training is complete.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=97-103 "Training may not complete immediately, check status to verify training is complete.")]
-
-To manage command-line arguments, add the main code. Add method to the **Program** class.
-
-   [!code-csharp[To manage command line arguments, add the main code.](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=104-137 "To manage command-line arguments, add the main code.")]
-
-### Copy utterances.json to output directory
-
-In the Solution Explorer, add the `utterances.json` by right-clicking in the Solution Explorer's project name, then selecting **Add**, then selecting **Existing item**. Select the `utterances.json` file. This adds the file to the project. Then it needs to be added to the output directory. Right-click the `utterances.json` and select **Properties**. In the properties windows, mark the **Build Action** of `Content`, and the **Copy to Output Directory** of `Copy Always`.  
-
-![Mark the JSON file as content](./media/luis-quickstart-cs-add-utterance/content-properties.png)
-
-## Build code
-
-Build the code in Visual Studio. 
-
-## Run code
-
-In the project's /bin/Debug directory, run the application from a command line. 
-
-```console
-ConsoleApp1.exe --add utterances.json --train --status
-```
-
-This command-line displays the results of calling the add utterances API. 
-
-[!INCLUDE [Quickstart response from API calls](../../../includes/cognitive-services-luis-qs-change-model-json-results.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## Clean up resources
-When you are done with the quickstart, remove all the files created in this quickstart. 
+
+When you are finished with this quickstart, delete the project directory from the file system. 
 
 ## Next steps
-> [!div class="nextstepaction"] 
-> [Build a LUIS app programmatically](luis-tutorial-node-import-utterances-csv.md) 
+
+> [!div class="nextstepaction"]
+> [Best practices for an app](../luis-concept-best-practices.md)
