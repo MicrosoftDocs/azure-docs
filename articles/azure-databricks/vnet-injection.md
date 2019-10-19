@@ -96,7 +96,7 @@ When you use this template, you do not need to do any manual whitelisting of sub
 
 ### Network security groups
 
-To create network security groups with the required rules for an existing virtual network, use the [Network Security Group Template for Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection).
+To create network security groups with the required rules for an existing virtual network, use the [Network Security Group Template for Databricks VNet Injection](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/).
 
 When you use this template, you do not need to do any manual whitelisting of subnet traffic.
 

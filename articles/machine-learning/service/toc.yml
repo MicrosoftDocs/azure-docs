@@ -97,6 +97,9 @@
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
+  - name: Git integration
+    displayName: git github gitlab
+    href: concept-train-model-git-integration.md
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -267,6 +270,8 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Schedule ML pipelines in Python
+      href: how-to-schedule-pipelines.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
