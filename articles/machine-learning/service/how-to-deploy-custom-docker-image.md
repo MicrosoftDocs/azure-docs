@@ -178,15 +178,16 @@ Microsoft provides several docker images on a publicly accessible repository, wh
 | Image | Description |
 | ----- | ----- |
 | `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` | Basic image for Azure Machine Learning |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0` | Contains the ONNX runtime. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-cuda10.0-cudnn7` | Contains the ONNX runtime and CUDA components. |
-| `mcr.microsoft.com/azureml/onnxruntime:v0.4.0-tensorrt19.03` | Contains ONNX runtime and TensorRT. |
+| `mcr.microsoft.com/azureml/onnxruntime:latest` | Contains ONNX Runtime for CPU inferecning |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-cuda` | Contains the ONNX Runtime and CUDA for GPU |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-tensorrt` | Contains ONNX Runtime and TensorRT for GPU |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-vadm ` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Vision Accelerator Design based on Movidius<sup>TM</sup> MyriadX VPUs |
+| `mcr.microsoft.com/azureml/onnxruntime:latest-openvino-myriad` | Contains ONNX Runtime and OpenVINO for Intel<sup></sup> Movidius<sup>TM</sup> USB sticks |
+
+For more information about the ONNX Runtime base images see the [ONNX Runtime dockerfile section](https://github.com/microsoft/onnxruntime/blob/master/dockerfiles/README.md) in the GitHub repo.
 
 > [!TIP]
 > Since these images are publicly available, you do not need to provide an address, username or password when using them.
-
-> [!IMPORTANT]
-> Microsoft images that use CUDA or TensorRT must be used on Microsoft Azure Services only.
 
 For more information, see [Azure Machine Learning containers](https://github.com/Azure/AzureML-Containers).
 

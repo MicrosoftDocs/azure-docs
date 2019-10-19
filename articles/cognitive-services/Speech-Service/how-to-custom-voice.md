@@ -54,6 +54,6 @@ To create your first project, select the **Text-to-Speech/Custom Voice** tab, th
 
 ## Next steps
 
-- [Prepare Custom Voice data](how-to-custom-voice.md)
+- [Prepare Custom Voice data](how-to-custom-voice-prepare-data.md)
 - [Create a Custom Voice](how-to-custom-voice-create-voice.md)
 - [Guide: Record your voice samples](record-custom-voice-samples.md)

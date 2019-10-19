@@ -1,13 +1,13 @@
 ---
 title: 'How to debug UDFs in Azure Digital Twins | Microsoft Docs'
 description: Guideline about how to debug UDFs in Azure Digital Twins.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: v-adgera
+ms.date: 10/01/2019
 ms.custom: seodec18
 ---
 
@@ -50,6 +50,13 @@ AzureDiagnostics
 | Query value | Replace with |
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
+
+To see all recent telemetry logs query:
+
+```Kusto
+AzureDiagnostics
+| order by CorrelationId desc
+```
 
 If you enable logging for your user-defined function, those logs appear in your log analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in log analytics:
 

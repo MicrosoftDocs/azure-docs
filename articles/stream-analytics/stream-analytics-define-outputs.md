@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 10/8/2019
 ---
 
 # Understand outputs from Azure Stream Analytics
@@ -47,21 +47,20 @@ The following table lists property names and their descriptions to configure you
 
 You can use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) as an output for data that's relational in nature or for applications that depend on content being hosted in a relational database. Stream Analytics jobs write to an existing table in SQL Database. The table schema must exactly match the fields and their types in your job's output. You can also specify [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) as an output via the SQL Database output option. To learn about ways to improve write throughput, see the [Stream Analytics with Azure SQL Database as output](stream-analytics-sql-output-perf.md) article.
 
+You can also use [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) as an output. You have to [configure public endpoint in Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) and then manually configure the following settings in Azure Stream Analytics. Azure virtual machine running SQL Server with a database attached is also supported by manually configuring the settings below.
+
 The following table lists the property names and their description for creating a SQL Database output.
 
 | Property name | Description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this database. |
 | Database | The name of the database where you're sending your output. |
-| Server name | The SQL Database server name. |
+| Server name | The SQL Database server name. For Azure SQL Database Managed Instance, it is required to specify the port 3342. For example, *sampleserver.public.database.windows.net,3342* |
 | Username | The username that has write access to the database. Stream Analytics supports only SQL authentication. |
 | Password | The password to connect to the database. |
 | Table | The table name where the output is written. The table name is case-sensitive. The schema of this table should exactly match the number of fields and their types that your job output generates. |
 |Inherit partition scheme| An option for inheriting the partitioning scheme of your previous query step, to enable fully parallel topology with multiple writers to the table. For more information, see [Azure Stream Analytics output to Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Max batch count| The recommended upper limit on the number of records sent with every bulk insert transaction.|
-
-> [!NOTE]
-> The Azure SQL Database offering is supported for a job output in Stream Analytics, but an Azure virtual machine running SQL Server with a database attached or in a SQL Azure Managed Instance is not supported yet. This is subject to change in future releases.
 
 ## Blob storage and Azure Data Lake Gen2
 
@@ -100,7 +99,7 @@ When you're using Blob storage as output, a new file is created in the blob in t
 
 ## Event Hubs
 
-The [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an event hub as output is when the output of a Stream Analytics job becomes the input of another streaming job.
+The [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) service is a highly scalable publish-subscribe event ingestor. It can collect millions of events per second. One use of an event hub as output is when the output of a Stream Analytics job becomes the input of another streaming job. For information about the maximum message size and batch size optimization, see the [output batch size](#output-batch-size) section.
 
 You need a few parameters to configure data streams from event hubs as an output.
 
@@ -115,7 +114,7 @@ You need a few parameters to configure data streams from event hubs as an output
 | Event serialization format | The serialization format for output data. JSON, CSV, and Avro are supported. |
 | Encoding | For CSV and JSON, UTF-8 is the only supported encoding format at this time. |
 | Delimiter | Applicable only for CSV serialization. Stream Analytics supports a number of common delimiters for serializing data in CSV format. Supported values are comma, semicolon, space, tab, and vertical bar. |
-| Format | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects. This array is closed only when the job stops or Stream Analytics has moved on to the next time window. In general, it's preferable to use line-separated JSON, because it doesn't require any special handling while the output file is still being written to. |
+| Format | Applicable only for JSON serialization. **Line separated** specifies that the output is formatted by having each JSON object separated by a new line. **Array** specifies that the output is formatted as an array of JSON objects.  |
 | Property columns | Optional. Comma-separated columns that need to be attached as user properties of the outgoing message instead of the payload. More information about this feature is in the section [Custom metadata properties for output](#custom-metadata-properties-for-output). |
 
 ## Power BI

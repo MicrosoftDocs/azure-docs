@@ -1,13 +1,13 @@
 ---
 title: Enterprise Security Package with Azure Active Directory in HDInsight
 description: Learn how to set up and configure a HDInsight Enterprise Security Package cluster by using Azure Active Directory Domain Services.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 04/23/2019
+ms.date: 10/02/2019
 ---
 
 # Enterprise Security Package configurations with Azure Active Directory Domain Services in HDInsight
@@ -65,7 +65,7 @@ Once the managed identity is created and given the correct role, the AAD-DS admi
 ## Networking considerations
 
 > [!NOTE]  
-> Azure AD-DS must be deployed in an Azure Resource Manager based vNET. Classic virtual networks are not supported for Azure AD-DS. Please refer to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md#create-and-configure-the-virtual-network) for more details.
+> Azure AD-DS must be deployed in an Azure Resource Manager based vNET. Classic virtual networks are not supported for Azure AD-DS. For more information, see [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md#create-and-configure-the-virtual-network).
 
 After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs). Configure your Azure AD-DS Virtual Network (VNET) to use these custom DNS servers. To locate the right IP addresses, select **Properties** under the **Manage** category and look at the IP Addresses listed beneath **IP Address on Virtual Network**.
 
@@ -81,23 +81,23 @@ After the VNETs are peered, configure the HDInsight VNET to use a custom DNS ser
 
 ![Configuring Custom DNS Servers for Peered VNET](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-If you are using Network Security Groups (NSG) rules in your HDInsight subnet, you should allow the [required IPs](../hdinsight-management-ip-addresses.md) for both Inbound and Outbound traffic. 
+If you're using Network Security Groups (NSG) rules in your HDInsight subnet, you should allow the [required IPs](../hdinsight-management-ip-addresses.md) for both Inbound and Outbound traffic.
 
 **To test** if your networking is set up correctly, join a windows VM to the HDInsight VNET/Subnet and ping the domain name (it should resolve to an IP), then run **ldp.exe** to access Azure AD-DS domain. Then **join this windows VM to the domain to confirm** that all the required RPC calls succeed between the client and server. You can also use **nslookup** to confirm networking access to your storage account or any external DB you might use (for example, external Hive metastore or Ranger DB).
-You should make sure that all of the [required ports](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) are whitelisted in the AAD-DS subnet Network Security Group rules, if AAD-DS is secured by an NSG. If the domain joining of this windows VM is successful, then you can proceed to the next step and create ESP clusters.
+You should make sure that all of the [required ports](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) are whitelisted in the AAD-DS subnet Network Security Group rules, if AAD-DS is secured by an NSG. If the domain joining of this windows VM is successful, then you can continue to the next step and create ESP clusters.
 
 ## Create a HDInsight cluster with ESP
 
-After setting up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package in the **custom** tab. If you prefer to use an Azure Resource Manager template for deployment, use the portal experience once and download the pre-filled template on the last "Summary" page for future reuse.
+After setting up the previous steps correctly, the next step is to create the HDInsight cluster with ESP enabled. When you create an HDInsight cluster, you can enable Enterprise Security Package in the **Security + networking** tab. If you prefer to use an Azure Resource Manager template for deployment, use the portal experience once and download the pre-filled template on the **Review + create** page for future reuse.
 
 > [!NOTE]  
 > The first six characters of the ESP cluster names must be unique in your environment. For example, if you have multiple ESP clusters in different VNETs, you should choose a naming convension that ensures the first six characters on the cluster names are unique.
 
-![Azure HDInsight Enterprise security package domain validation](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate.png)
+![Azure HDInsight Enterprise security package domain validation](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp.png)
 
-Once you enable ESP, common misconfigurations related to Azure AD-DS will be automatically detected and validated. After fixing these errors, you can proceed with the next step: 
+Once you enable ESP, common misconfigurations related to Azure AD-DS will be automatically detected and validated. After fixing these errors, you can continue with the next step:
 
-![Azure HDInsight Enterprise security package failed domain validation](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-create-cluster-esp-domain-validate-failed.png)
+![Azure HDInsight Enterprise security package failed domain validation](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-esp-error.png)
 
 When you create a HDInsight cluster with ESP, you must supply the following parameters:
 
@@ -107,13 +107,9 @@ When you create a HDInsight cluster with ESP, you must supply the following para
 
 - **LDAPS URL**: An example is `ldaps://contoso.com:636`.
 
-The following screenshot shows a successful configuration in the Azure portal:
-
-![Azure HDInsight ESP Active Directory Domain Services configuration](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-domain-joined-configuration-azure-aads-portal.png).
-
 The managed identity you created can be chosen in from the user-assigned managed identity dropdown when creating a new cluster.
 
-![Azure HDInsight ESP Active Directory Domain Services managed identity](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-identity-managed-identity.png).
+![Azure HDInsight ESP Active Directory Domain Services managed identity](./media/apache-domain-joined-configure-using-azure-adds/azure-portal-cluster-security-networking-identity.png).
 
 ## Next steps
 

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -21,7 +21,7 @@ Age is managed from the [Recognizers-text](https://github.com/Microsoft/Recogniz
 
 ## Resolution for prebuilt age entity
 
-### API version 2.x
+#### [V2 prediction endpoint response](#tab/V2)
 
 The following example shows the resolution of the **builtin.age** entity.
 
@@ -47,7 +47,7 @@ The following example shows the resolution of the **builtin.age** entity.
 }
 ```
 
-### Preview API version 3.x
+#### [V3 prediction endpoint response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
@@ -111,6 +111,10 @@ The following JSON is with the `verbose` parameter set to `true`:
 }
 ```
 
+* * * 
+
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [currency](luis-reference-prebuilt-currency.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), and [dimension](luis-reference-prebuilt-dimension.md) entities. 
