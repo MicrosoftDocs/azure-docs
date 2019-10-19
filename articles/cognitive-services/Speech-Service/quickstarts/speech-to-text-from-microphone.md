@@ -24,8 +24,7 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-[!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/java/stt-mic-java.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/java/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"

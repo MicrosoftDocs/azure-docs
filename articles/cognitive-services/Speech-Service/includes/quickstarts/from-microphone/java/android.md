@@ -12,24 +12,13 @@ ms.date: 07/05/2019
 ms.author: wolfma
 ---
 
-# Quickstart: Recognize speech in Java on Android by using the Speech SDK
-
-Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-java-android.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-android.md).
-
-In this article, you learn how to develop a Java application for Android by using the Azure Cognitive Services Speech SDK to transcribe speech to text.
-
-The application is based on the Speech SDK Maven Package and Android Studio 3.3. The Speech SDK is currently compatible with Android devices that have 32-bit or 64-bit ARM and Intel x86/x64 compatible processors.
-
-> [!NOTE]
-> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
-
 ## Prerequisites
 
 You need a Speech Services subscription key to complete this quickstart. You can get one for free. For more information, see [Try Speech Services for free](get-started.md).
 
 ## Create and configure a project
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
 ## Create a user interface
 
