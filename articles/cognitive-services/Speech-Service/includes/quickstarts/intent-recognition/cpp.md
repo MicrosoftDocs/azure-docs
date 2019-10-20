@@ -64,6 +64,7 @@ Inside the using statement, below `RecognizeOnceAsync()`, add this code:
 ## Check your code
 
 At this point, your code should look like this: 
+(We've added some comments to this version)
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
 
 ## Build and run your app

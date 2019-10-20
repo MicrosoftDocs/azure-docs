@@ -63,6 +63,7 @@ Inside the using statement, below `RecognizeOnceAsync()`, add this code:
 ## Check your code
 
 At this point, your code should look like this: 
+(We've added some comments to this version)
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
 
 ## Build and run your app
