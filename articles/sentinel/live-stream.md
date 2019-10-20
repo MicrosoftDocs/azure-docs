@@ -24,7 +24,7 @@ Use Live Stream to create interactive sessions that let you test newly created q
 
 - Test newly created queries as events occur
     
-    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selectng **Elevate to alert**.  
+    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecitng an **Elevate to alert** option.  
 
 - Get notified when threats occur
     
