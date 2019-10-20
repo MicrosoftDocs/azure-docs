@@ -18,7 +18,7 @@ ms.subservice: B2C
 Azure Active Directory B2C (Azure AD B2C) usage is billed to a linked Azure subscription and uses a monthly active users (MAU) billing model. Learn how to link an Azure AD B2C resource to a subscription and how the MAU billing model works in the following sections.
 
 > [!TIP]
-> For the latest information about usage billing and pricing for Azure AD B2C, see [Azure AD B2C Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+> For the latest information about usage billing and pricing, see [Azure Active Directory B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 ## Monthly active users (MAU) billing
 
