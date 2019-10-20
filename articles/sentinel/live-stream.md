@@ -54,9 +54,9 @@ You can create a Live Stream session from an existing hunting query, or create y
     1. Select the **Live Stream** tab
     2. Select **Live Stream**.
     
-4. On the **Live Stream** blade, create your query, and then select **Play**.  
+4. On the **Live Stream** blade, create your query, and then select **Play** from the command bar.  
     
-    The status bar under the command bar indicates whether your Live Stream is running or paused. For example:
+    The status bar under the command bar indicates whether your Live Stream is running or paused. In the following example, the session is running:
     
     > [!div class="mx-imgBorder"]
     > ![create Live Stream session from Azure Sentinel hunting](./media/live-stream/live-stream-session.png)
