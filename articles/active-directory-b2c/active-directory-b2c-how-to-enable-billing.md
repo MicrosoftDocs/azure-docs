@@ -1,6 +1,6 @@
 ---
-title: How to Link an Azure Subscription - Azure Active Directory B2C | Microsoft Docs
-description: Step-by-step guide to enable billing for Azure AD B2C tenant into an Azure subscription.
+title: Billing details for Azure Active Directory B2C
+description: Learn about Azure AD B2C's monthly active user (MAU) billing model and how to enable billing for a specific Azure subscription.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -13,14 +13,58 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Link an Azure subscription to an Azure Active Directory B2C tenant
+# Billing details for Azure Active Directory B2C
 
-Usage charges for Azure Active Directory B2C (Azure AD B2C) are billed to an Azure subscription. When an Azure AD B2C tenant is created, the tenant administrator needs to explicitly link the Azure AD B2C tenant to an Azure subscription. This article shows you how.
+Azure Active Directory B2C (Azure AD B2C) usage is billed to a linked Azure subscription and uses a monthly active users (MAU) billing model. Learn how to link an Azure AD B2C resource to a subscription and how the MAU billing model works in the following sections.
 
-> [!IMPORTANT]
+> [!TIP]
 > For the latest information about usage billing and pricing for Azure AD B2C, see [Azure AD B2C Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
+## Monthly active users (MAU) billing
+
+Azure AD B2C billing is metered on the count of unique users with authentication activity within a calendar month, known as monthly active users (MAU) billing.
+
+Starting **01 November 2019**, all newly created Azure AD B2C tenants are billed per monthly active users (MAU). Existing tenants that are [linked to a subscription](#link-an-azure-ad-b2c-tenant-to-a-subscription) on or after 01 November 2019 will be billed per-monthly active users (MAU).
+
+If you have an existing Azure AD B2C tenant that was linked to a subscription Prior to 01 November 2019, you can:
+
+* Upgrade to the monthly active users (MAU) billing model
+* Stay on the per-authentication billing model
+
+### Upgrade to MAU billing
+
+Azure subscription owners that have administrative access to the Azure AD B2C resource and the Azure AD B2C tenant can switch to the MAU billing model.
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as the subscription owner.
+1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure AD B2C tenant that you want to upgrade to MAU billing.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. On the **Overview** page, select the **Resource name**. You're directed to the Azure AD B2C resource.
+1. On the **Overview** page of the Azure AD B2C resource, select **Billable unit**.
+1. Select **Confirm** to complete the upgrade to MAU billing.
+
+### What to expect you transition to MAU billing from per-authentication billing
+
+MAU-based metering is enabled as soon as the subscription/resource owner confirms the change. Your monthly bill will reflect the units of authentication billed until the change, and new units of MAU starting with the change.
+
+Users are not double-counted during the transition month. Unique active users who authenticate prior to the change are charged a per-authentication rate in a calendar month and are included in the MAU calculation for the remainder of the subscription's billing cycle. For example:
+
+* The Contoso B2C tenant has 1,000 users. 250 users are active in any given month. The subscription administrator changes from per-authentication to monthly active users (MAU) on the 10th of the month.
+* Billing for 1st-10th is billed using the per-authentication model.
+  * If 100 users sign in during this period (1st-10th), those users are tagged as "paid for the month."
+* Billing from the 10th (the effective time of transition) is  billed at the MAU rate.
+  * If an additional 150 users sign in during this period (10th-30th), only the additional 150 are billed.
+  * The continued activity of the first 100 users does not impact billing for the remainder of the calendar month.
+
+During the billing period of the transition, the subscription owner will likely see entries for both methods (per-authentication and per-MAU) appear in their Azure subscription billing statement:
+
+* An entry for the usage until the date/time of change that reflects per-authentication.
+* An entry for the usage after the change that reflects monthly active users (MAU).
+
+For the latest information about usage billing and pricing for Azure AD B2C, see [Azure AD B2C Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
 ## Link an Azure AD B2C tenant to a subscription
+
+Usage charges for Azure Active Directory B2C (Azure AD B2C) are billed to an Azure subscription. When an Azure AD B2C tenant is created, the tenant administrator needs to explicitly link the Azure AD B2C tenant to an Azure subscription.
 
 The subscription link is achieved by creating an Azure AD B2C *resource* within the target Azure subscription. Several Azure AD B2C resources can be created in a single Azure subscription, along with other Azure resources like virtual machines, Storage accounts, and Logic Apps. You can see all of the resources within a subscription by going to the Azure Active Directory (Azure AD) tenant that the subscription is associated with.
 
@@ -45,6 +89,8 @@ A subscription linked to an Azure AD B2C tenant can be used for the billing of A
 1. Under **Resource group**, select **Create new**, and then specify the **Resource group location**. The resource group settings here have no impact on your Azure AD B2C tenant location, performance, or billing status.
 1. Select **Create**.
     ![The Azure AD B2C Resource creation page in Azure portal](./media/active-directory-b2c-how-to-enable-billing/portal-01-create-b2c-resource-page.png)
+
+After you complete these steps for an Azure AD B2C tenant, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details, if applicable.
 
 ### Manage your Azure AD B2C tenant resources
 
@@ -82,6 +128,4 @@ Before you initiate the move, be sure to read the entire article to fully unders
 
 ## Next steps
 
-After you complete these steps for each of your Azure AD B2C tenants, your Azure subscription is billed in accordance with your Azure Direct or Enterprise Agreement details.
-
-You can review the usage and billing details within your selected Azure subscription. You can also review detailed day-by-day usage reports using the [usage reporting API](active-directory-b2c-reference-usage-reporting-api.md).
+In addition to reviewing the usage and billing details within a selected Azure subscription, you can review detailed day-by-day usage reports by using the [usage reporting API](active-directory-b2c-reference-usage-reporting-api.md).
