@@ -52,7 +52,7 @@ The view shows a list of all the running deployments along with the namespace an
 
 ![Deployment properties pane details](./media/container-insights-livedata-deployments/deployment-properties-pane-details.png)
 
-When you select a deployment from the list, a property pane automatically displays on the right side of the page. It shows information related to the selected deployment that you would view if you ran the command `kubectl describe deployment {deploymentName}`. From the pane, you also can view the raw information from the kube-api server by selecting the **Raw** tab.
+When you select a deployment from the list, a property pane automatically displays on the right side of the page. It shows information related to the selected deployment that you would view if you ran the command `kubectl describe deployment {deploymentName}`. You may have noticed that the describe information is missing some details. Most notably the **Template** is missing. Selecting the **Raw** tab allows you to navigate to the un-parsed Describe details.  
 
 ![Deployment properties pane raw details](./media/container-insights-livedata-deployments/deployment-properties-pane-raw.png)
 
@@ -63,3 +63,7 @@ You can also filter by namespace or cluster level events. To learn more about th
 ![Deployment Live console events](./media/container-insights-livedata-deployments/deployment-live-console-events.png)
 
 ## Next steps
+
+- To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+
+- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.
