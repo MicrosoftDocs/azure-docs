@@ -26,13 +26,13 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
 1. Create a new console application targeting the C# language, with a project and folder name of `predict-with-rest`. 
 
-    ```csharp
+    ```console
     dotnet new console -lang C# -n predict-with-rest
     ```
 
 1. Install required dependencies with the following dotnet CLI commands.
 
-    ```csharp
+    ```console
     dotnet add package System.Net.Http
     ```
 1. Overwrite Program.cs with the following code:
@@ -102,13 +102,13 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
 1. Build the console application. 
 
-    ```csharp
+    ```console
     dotnet build
     ```
 
 1. Run the console application. The console output displays the same JSON that you saw earlier in the browser window.
 
-    ```csharp
+    ```console
     dotnet run
     ```
 
@@ -168,7 +168,7 @@ Use C# to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
 ## Clean up resources
 
-When you are finished with this quickstart, delete the project directory from the file system. 
+When you are finished with this quickstart, delete the file from the file system. 
 
 ## Next steps
 

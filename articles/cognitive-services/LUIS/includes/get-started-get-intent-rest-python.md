@@ -6,7 +6,7 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
-ms.date: 09/27/2019
+ms.date: 10/18/2019
 ms.author: diberry
 ---
 
@@ -61,9 +61,17 @@ Use Python to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v
     * `YOUR-KEY` with your starter key
     * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
 
-1. Install dependencies with `pip install requests`.
+1. Install dependencies with the following console command:
 
-1. Run the script with `python predict.py`. 
+    ```console
+    pip install requests
+    ```
+
+1. Run the script with the following console command:
+
+    ```console
+    python predict.py
+    ``` 
 
 1. Review prediction response in JSON format:
 
@@ -120,7 +128,7 @@ Use Python to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v
 
 ## Clean up resources
 
-When you are finished with this quickstart, delete the project directory from the file system.  
+When you are finished with this quickstart, delete the file from the file system. 
 
 ## Next steps
 

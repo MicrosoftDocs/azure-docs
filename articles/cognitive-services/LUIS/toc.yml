@@ -37,17 +37,7 @@
     - name: Get intent
       href: luis-get-started-get-intent-from-rest.md
     - name: Change model
-      items:
-      - name: C#
-        href: luis-get-started-cs-add-utterance.md
-      - name: Go
-        href: luis-get-started-go-add-utterance.md
-      - name: Java
-        href: luis-get-started-java-add-utterance.md
-      - name: Node.js
-        href: luis-get-started-node-add-utterance.md
-      - name: Python
-        href: luis-get-started-python-add-utterance.md
+      href: get-started-get-model-rest-apis.md
 - name: Tutorials
   items:
   - name: Build app

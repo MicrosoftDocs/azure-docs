@@ -82,10 +82,10 @@ Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
     * `YOUR-KEY` with your starter key
     * `YOUR-ENDPOINT` with your endpoint, for example, `westus2.api.cognitive.microsoft.com`
 
-1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file.:
+1. With a command prompt in the same directory as where you created the file, enter the following command to compile the Go file:
 
     ```console
-    go build endpoint.go
+    go build predict.go
     ```  
 
 1. Run the Go application from the command line by entering the following text in the command prompt: 
@@ -155,7 +155,7 @@ Use Go to query the prediction endpoint GET [API](https://aka.ms/luis-apim-v3-pr
 
 ## Clean up resources
 
-When you are finished with this quickstart, close the Visual Studio project and remove the project directory from the file system. 
+When you are finished with this quickstart, delete the file from the file system. 
 
 ## Next steps
 
