@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Harness | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Harness.
 services: active-directory
@@ -140,11 +140,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 3. If you want to setup Harness manually, open a new web browser window and sign into your Harness company site as an administrator and perform the following steps:
 
-4. On the top-right of the page, click on **Continuous Security** > **Access Management** > **Authentication Settings**.
+4. On the top-right of the page, click on **Continuous Security** > **Access Management** > **Authentication Settings**.
 
 	![Harness configuration](./media/harness-tutorial/configure01.png)
 
-5. On the **SSO Providers** section, click on **+ Add SSO Providers** > **SAML**.
+5. On the **SSO Providers** section, click on **+ Add SSO Providers** > **SAML**.
 
 	![Harness configuration](./media/harness-tutorial/configure03.png)
 
@@ -168,11 +168,11 @@ To enable Azure AD users to sign in to Harness, they must be provisioned into Ha
 
 1. Sign in to Harness as an Administrator.
 
-1. On the top-right of the page, click on **Continuous Security** > **Access Management** > **Users**.
+1. On the top-right of the page, click on **Continuous Security** > **Access Management** > **Users**.
 
     ![Harness configuration](./media/harness-tutorial/configure04.png)
 
-1. On the right side of page, click on **+ Add User**.
+1. On the right side of page, click on **+ Add User**.
 
     ![Harness configuration](./media/harness-tutorial/configure05.png)
 

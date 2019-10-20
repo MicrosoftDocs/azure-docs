@@ -24,6 +24,9 @@ Using Visual Studio in a preconfigured Azure virtual machine (VM) is a quick, ea
 
 New to Azure? [Create a free Azure account](https://azure.microsoft.com/free).
 
+> [!NOTE]
+> Not all subscriptions are eligble to deploy Windows 10 images. For more information see [Use Windows client in Azure for dev/test scenarios](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
+
 ## What configurations and versions are available?
 Images for the most recent major versions, Visual Studio 2019, Visual Studio 2017 and Visual Studio 2015, can be found in the Azure Marketplace.  For each released major version, you see the originally "released to web" (RTW) version and the latest updated versions.  Each of these versions offers the Visual Studio Enterprise and the Visual Studio Community editions.  These images are updated at least every month to include the latest Visual Studio and Windows updates.  While the names of the images remain the same, each image's description includes the installed product version and the image's "as of" date.
 

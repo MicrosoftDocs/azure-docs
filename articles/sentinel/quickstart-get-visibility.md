@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Sentinel Quickstart - Get started with Azure Sentinel| Microsoft Docs
 description: Azure Sentinel Quickstart - Get started with Azure Sentinel
 services: sentinel
@@ -120,7 +120,7 @@ Generate detections on the [data sources that you connected to Azure Sentinel](c
 
 When you create a new detection, leverage the built-in detections crafted by Microsoft security researchers that are tailored to the data sources you connected.
 
-To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Azure Sentinel built-in rules.
+To view all the out-of-the-box detections, go to **Analytics** and then **Rule templates**. This tab contains all the Azure Sentinel built-in rules.
 
    ![Use built-in detections to find threats with Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 

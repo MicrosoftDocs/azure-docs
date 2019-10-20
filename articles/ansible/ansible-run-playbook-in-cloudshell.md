@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Run Ansible playbooks via Bash in Azure Cloud Shell | Microsoft Docs
+title: Quickstart - Run Ansible playbooks via Bash in Azure Cloud Shell
 description: In this quickstart, learn how to carry out various Ansible tasks with Bash in Azure Cloud Shell
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 ms.topic: quickstart
