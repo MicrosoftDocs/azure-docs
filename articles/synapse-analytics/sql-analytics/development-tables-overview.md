@@ -8,7 +8,7 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
 ms.date: 10/20/2019
-ms.author: filippopovic
+ms.author: fipopovi
 ms.reviewer: jrasnick
 ---
 
