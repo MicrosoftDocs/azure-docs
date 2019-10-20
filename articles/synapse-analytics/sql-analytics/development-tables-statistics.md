@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 15/10/2019
+ms.date: 10/15/2019
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: 
