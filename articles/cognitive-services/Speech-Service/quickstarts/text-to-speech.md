@@ -41,5 +41,5 @@ zone_pivot_groups: programming-languages-set-two
 
 ::: zone pivot="programming-language-more"
 [!INCLUDE [Header](../includes/quickstarts/tts/more/header.md)]
-[!INCLUDE [More](../includes/quickstarts/tts/more/other-lang.md)]
+[!INCLUDE [More](../includes/quickstarts/tts/more/more.md)]
 ::: zone-end

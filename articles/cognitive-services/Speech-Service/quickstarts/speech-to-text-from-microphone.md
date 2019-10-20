@@ -41,5 +41,5 @@ zone_pivot_groups: programming-languages-set-two
 
 ::: zone pivot="programming-language-more"
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/more/header.md)]
-[!INCLUDE [More samples](../includes/quickstarts/from-microphone/stt-mic-other-lang.md)]
+[!INCLUDE [More samples](../includes/quickstarts/from-microphone/more/more.md)]
 ::: zone-end
