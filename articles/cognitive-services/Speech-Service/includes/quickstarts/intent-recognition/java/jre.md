@@ -73,16 +73,11 @@ It's important to release the speech resources when you're done using them. Inse
 
 ## Check your code
 
-At this point, your code should look like this: 
+At this point, your code should look like this:
+(We've added some comments to this version)
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
 
 ## Build and run your app
-
-Now you're ready to build your app and test our speech recognition using the Speech service.
-
-1. **Compile the code** - From the menu bar of Visual Stuio, choose **Build** > **Build Solution**.
-2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
-3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
 
 ## Next steps
 
