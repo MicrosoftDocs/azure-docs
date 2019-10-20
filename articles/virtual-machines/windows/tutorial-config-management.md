@@ -124,7 +124,7 @@ To schedule a new update deployment for the VM, select **Schedule update deploym
 |**Schedule settings**|Choose the time to start, and select either **Once** or **Recurring**.|
 | **Pre-scripts + Post-scripts**|Choose the scripts to run before and after your deployment.|
 | **Maintenance window** | Enter the number of minutes set for updates. Valid values range from 30 to 360 minutes. |
-| **Reboot control**| Select how reboots are handled. Available selections are:<ul><li>**Reboot if required**</li><li>**Always reboot**</li><li>**Never reboot**</li><li>**Only reboot**</li></ul><br/>**Reboot if required** is the default selection. If you select **Only reboot**, updates aren't installed.|
+| **Reboot control**| Select how reboots are handled. Available selections are:<ul><li>**Reboot if required**</li><li>**Always reboot**</li><li>**Never reboot**</li><li>**Only reboot**</li></ul>**Reboot if required** is the default selection. If you select **Only reboot**, updates aren't installed.|
 
 After you have finished configuring the schedule, click **Create** to return to the status dashboard. The **Scheduled** table shows the deployment schedule you created.
 
