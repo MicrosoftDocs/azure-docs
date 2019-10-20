@@ -51,7 +51,7 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [android](../quickstart-platform-python.md)]
+[!INCLUDE [python](../quickstart-platform-python.md)]
 ::: zone-end
 
 > [!div class="nextstepaction"]
