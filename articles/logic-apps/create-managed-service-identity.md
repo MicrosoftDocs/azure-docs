@@ -180,7 +180,7 @@ These steps show how to use the managed identity with a trigger or action throug
 
      `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}`
 
-   * **Headers**: Specifies `x-ms-blob-type` as `BlockBlob` and `x-ms-version` as `2019-02-02` for the Snapshot Blob operation. For more information, see [Request headers - Snapshot Blob](https://docs.microsoft.com/en-us/rest/api/storageservices/snapshot-blob#request) and [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services).
+   * **Headers**: Specifies `x-ms-blob-type` as `BlockBlob` and `x-ms-version` as `2019-02-02` for the Snapshot Blob operation. For more information, see [Request headers - Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) and [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services).
 
    * **Queries**: Specifies `comp` as the query parameter name and `snapshot` as the parameter value.
 
