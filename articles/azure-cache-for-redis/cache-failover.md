@@ -62,11 +62,11 @@ Whenever a failover occurs, the Standard and Premium caches need to replicate da
 
 The number of errors seen by the client application will depend on how many operations were pending on that connection at the time of the failover. Any connection that is routed through the node that closed connections will see errors. Many client libraries can throw different types of errors including timeout exceptions, connection exceptions, or socket exceptions when connections break. The number and type of exceptions depends on where in the code path the request is when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs may get a timeout exception. New requests on the closed connection object will receive connection exceptions until the reconnection happens successfully.
 
-Most client libraries will attempt to reconnect to the cache if configured to do so but unforseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a pre-configured amount of time, the connection object should be recreated. In .NET and other object oriented languages, recreating the connection without restarting the application can be accomplished using [a Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
+Most client libraries will attempt to reconnect to the cache if configured to do so but unforeseen bugs can occasionally place the library objects into an unrecoverable state. If errors persist for longer than a pre-configured amount of time, the connection object should be recreated. In .NET and other object oriented languages, recreating the connection without restarting the application can be accomplished using [a Lazy\<T\> pattern](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#reconnecting-with-lazyt-pattern).
 
 ### What should I do in my application?
 
-Since a failover cannot be completed avoided, client applications should be written for resiliency to connection breaks and failed requests. Despite most client libraries automatically reconnecting to the cache endpoint, few client libraries attempt to retry failed requests. Depending on the application scenario, retry logic with back-off may make sense.
+Since a failover cannot be completely avoided, client applications should be written for resiliency to connection breaks and failed requests. Despite most client libraries automatically reconnecting to the cache endpoint, few client libraries attempt to retry failed requests. Depending on the application scenario, retry logic with back-off may make sense.
 
 To test a client application's resiliency, use a [reboot](cache-administration.md#reboot) as a manual trigger for connection breaks. Additionally, it's recommended to [schedule updates](cache-administration.md#schedule-updates) on a cache to tell the management service to have the Redis runtime patches apply during specified weekly windows. These windows are typically chosen to periods when client application traffic is lower to avoid potential incidents.
 
@@ -78,4 +78,4 @@ Certain client-side network configuration changes can trigger "No connection ava
 
 - [Schedule updates](cache-administration.md#schedule-updates) for your cache.
 - Test application resiliency using a [reboot](cache-administration.md#reboot).
-- [Configure](cache-configure.md#memory-policies) memory reservations and policies
+- [Configure](cache-configure.md#memory-policies) memory reservations and policies.
