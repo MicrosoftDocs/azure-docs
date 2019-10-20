@@ -66,7 +66,7 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ````
 
-## Create an ````AudioConfig```` object
+## Create an Audio configuration
 
 Now, you need to create an ````AudioConfig```` object that points to your audio file. This object is created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `RecognizeSpeechAsync()` method, right below your Speech configuration.
 
