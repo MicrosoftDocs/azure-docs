@@ -17,20 +17,20 @@ To access the resources in other Azure Active Directory (Azure AD) tenants and a
 
 For more information, see these topics:
 
-* [Triggers and actions that support managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication)
-* [Azure services that support Azure AD authentication with managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), such as Azure Resource Manager and Azure Storage
-* [Supported authentication types on outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+* [Triggers and actions that support managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+* [Azure services that support Azure AD authentication with managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)
+* [Supported authentication types on outbound calls](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 * [Managed identity limits for logic apps](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 
 ## Prerequisites
 
-* An Azure subscription, or if you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). The managed identity and the target Azure resource that you want to access have to exist in the same Azure subscription.
+* An Azure subscription, or if you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/). Both the managed identity and the target Azure resource where you want access need to use the same Azure subscription.
 
-* To give a managed identity access to an Azure resource, you need to add a role to the target resource for that identity. To add roles, you need [Azure AD administrator permissions](../active-directory/users-groups-roles/directory-assign-admin-roles.md) that can assign roles to identities in the corresponding Azure AD tenant.
+* [Azure AD administrator permissions](../active-directory/users-groups-roles/directory-assign-admin-roles.md) that can assign roles to managed identities in the same Azure AD tenant as the target resource. To give a managed identity access to an Azure resource, you need to add a role for that identity on the target resource.
 
-* The target Azure resource that you want to access by using the managed identity that represents your logic app
+* The target Azure resource that you want to access
 
-* The logic app where you want to use the managed identity
+* A logic app that uses [triggers and actions that support managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 
 <a name="system-assigned"></a>
 
