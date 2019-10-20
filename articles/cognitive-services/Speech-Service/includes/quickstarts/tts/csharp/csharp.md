@@ -15,15 +15,12 @@ ms.author: erhopf
 **Select your target environment**
 
 #### [.Net](#tab/dotnet)
-[!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./windows.md)]
+[!INCLUDE [dotnet](./windows.md)]
 #### [.Net Core](#tab/dotnetcore)
-[!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./dotnetcore.md)]
+[!INCLUDE [dotnetcore](./dotnetcore.md)]
 #### [Unity](#tab/unity)
-[!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./unity.md)]
+[!INCLUDE [unity](./unity.md)]
 #### [UWP](#tab/uwp)
-[!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./uwp.md)]
+[!INCLUDE [uwp](./uwp.md)]
+
 * * *
