@@ -21,10 +21,6 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
 
-## Create a Visual Studio project
-
-[!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
-
 ## Add sample code
 
 1. Open the source file **helloworld.cpp**.

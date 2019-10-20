@@ -8,8 +8,6 @@ ms.author: erhopf
 
 ## Prerequisites
 
-Before you get started, make sure to:
-
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
