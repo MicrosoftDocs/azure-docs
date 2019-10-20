@@ -20,11 +20,11 @@ ms.author: cabailey
 
 # Use Live Stream while hunting in Azure Sentinel to detect threats
 
-Use Live Stream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a Live Stream session using any log analytics query.
+Use Live Stream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a Live Stream session using any Log Analytics query.
 
 - **Test newly created queries as events occur**
     
-    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecitng an option to elevate the session to an alert.  
+    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecting an option that elevates the session to an alert.
 
 - **Get notified when threats occur**
     
