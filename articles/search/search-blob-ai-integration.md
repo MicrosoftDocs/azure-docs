@@ -1,5 +1,5 @@
 ---
-title: Use AI to understand Blob data
+title: Use AI to understand Blob storage data
 titleSuffix: Azure Search
 description: Add semantic, natural language processing and image analysis to Azure blobs using an AI enrichment pipeline in Azure Search.
 
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/09/2019
 ---
 
-# Use AI to understand Blob data
+# Use AI to understand Blob storage data
 
 Data in Azure Blob storage is often a variety of unstructured content such as images, long text, PDFs, and Office documents. By using the AI capabilities in Azure Search, you can understand and extract valuable information from blobs in a variety of ways. Examples of applying AI to blob content include:
 
@@ -108,7 +108,6 @@ An enriched document at the end of the pipeline differs from its original input 
 
 There’s a lot more you can do with AI enrichment to get the most out of your data in Azure Storage, including combining Cognitive Services in different ways, and authoring custom skills for cases where there’s no existing Cognitive Service for the scenario. You can learn more by following the links below.
 
-> [!div class="nextstepaction"]
-> [AI enrichment overview](cognitive-search-concept-intro.md) 
-> [Create a skillset](cognitive-search-defining-skillset.md)
-> [Map nodes in an annotation tree](cognitive-search-output-field-mapping.md)
++ [AI enrichment overview](cognitive-search-concept-intro.md) 
++ [Create a skillset](cognitive-search-defining-skillset.md)
++ [Map nodes in an annotation tree](cognitive-search-output-field-mapping.md)
