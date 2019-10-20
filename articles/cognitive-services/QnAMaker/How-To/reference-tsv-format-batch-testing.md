@@ -17,3 +17,24 @@ ms.author: diberry
 
 Use the following information to understand and implement the TSV format for batch testing. 
 
+## TSV input fields
+
+|TSV input file fields|Notes|
+|--|--|
+|KBID||
+|Question||
+|Metadata tags|optional|
+|Top parameter|optional| 
+|Expected answer ID|optional|
+
+## TSV output fields 
+
+|TSV Output file parameters|Notes|
+|KBID||
+|Question||
+|Answer||
+|Answer ID||
+|Score||
+|Metadata tags|associated with returned answer|
+|Expected answer ID|optional (only when expected answer ID is given)|
+|Judgement label|optional-values could be Correct/ Incorrect (only when expected answer is given)|
