@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, C++ (Linux) - Speech Service'
+title: 'Quickstart: Recognize speech from an audio file, C++ (Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in C++ on Linux by using the Speech SDK
 services: cognitive-services

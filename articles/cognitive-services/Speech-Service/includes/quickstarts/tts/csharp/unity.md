@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Synthesize speech, Unity - Speech Service'
+title: 'Quickstart: Synthesize speech, C# (Unity) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to create a text-to-speech application with Unity and the Speech SDK for Unity. When finished, you can synthesize speech from text in real time to your device's speaker.
 services: cognitive-services

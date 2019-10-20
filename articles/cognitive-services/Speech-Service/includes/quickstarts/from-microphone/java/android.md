@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Java (Android) - Speech Service'
+title: 'Quickstart: Recognize speech from a microphone, Java (Android) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Java on Android by using the Speech SDK
 services: cognitive-services
