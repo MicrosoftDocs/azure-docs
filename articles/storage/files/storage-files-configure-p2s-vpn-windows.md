@@ -10,11 +10,11 @@ ms.subservice: files
 ---
 
 # Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files
-You can use a Point-to-Site (P2S) VPN connection to mount your Azure file shares over SMB from outside of Azure, without opening up port 445. A Point-to-Site VPN connection is a VPN connections between Azure and an individual client. To use a P2S VPN connection with Azure Files, a P2S VPN connection will need to be configured for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a Site-to-Site (S2S) VPN connection instead of a Point-to-Site connection for each client. To learn more, see [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
+You can use a Point-to-Site (P2S) VPN connection to mount your Azure file shares over SMB from outside of Azure, without opening up port 445. A Point-to-Site VPN connection is a VPN connection between Azure and an individual client. To use a P2S VPN connection with Azure Files, a P2S VPN connection will need to be configured for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a Site-to-Site (S2S) VPN connection instead of a Point-to-Site connection for each client. To learn more, see [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
 
-We strongly recommend that you read [Azure Files networking overview](storage-files-networking-overview.md) before continuing with this how to article for a complete discussion of the networking options available for Azure Files.
+We strongly recommend that you read [Networking considerations for direct Azure file share access](storage-files-networking-overview.md) before continuing with this how to article for a complete discussion of the networking options available for Azure Files.
 
-The article details the steps to configure a Point-to-Site VPN on Windows (Windows client and Windows Server) to mount Azure file shares directly on-premises. If you're looking to route sync traffic for Azure File Sync over a VPN, please see [configuring Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md).
+The article details the steps to configure a Point-to-Site VPN on Windows (Windows client and Windows Server) to mount Azure file shares directly on-premises. If you're looking to route Azure File Sync traffic over a VPN, please see [configuring Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md).
 
 ## Prerequisites
 - The most recent version of the Azure PowerShell module. For more information on how to install the Azure PowerShell, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) and select your operating system. If you prefer to use the Azure CLI on Windows, you may, however the instructions below are presented for Azure PowerShell.
@@ -35,7 +35,7 @@ The article details the steps to configure a Point-to-Site VPN on Windows (Windo
 ## Deploy a virtual network
 To access your Azure file share and other Azure resources from on-premises via a Point-to-Site VPN, you must create a virtual network, or VNet. The P2S VPN connection you will automatically create is a bridge between your on-premises Windows machine and this Azure virtual network.
 
-The following PowerShell will create an Azure virtual network with three subnets: one for your storage account's service endpoint, one for your storage account's private endpoint, which is required to access the storage account on-premises without creating custom routing for the public IP of the storage account which may change, and one for your the virtual network gateway which provides the VPN service. 
+The following PowerShell will create an Azure virtual network with three subnets: one for your storage account's service endpoint, one for your storage account's private endpoint, which is required to access the storage account on-premises without creating custom routing for the public IP of the storage account that may change, and one for your virtual network gateway that provides the VPN service. 
 
 Remember to replace `<region>`, `<resource-group>`, and `<desired-vnet-name>` with the appropriate values for your environment.
 
@@ -83,9 +83,9 @@ $gatewaySubnet = $virtualNetwork.Subnets | `
 ```
 
 ## Restrict the storage account to the virtual network
-By default when you create a storage account, you can access it from anywhere in the world as long as you have the means to authenticate your request (such as with your Active Directory identity or with the storage account key). To restrict access to this storage account to within the virtual network you just created, you need to create a network rule set that allows access within the virtual network and denies all other access.
+By default when you create a storage account, you can access it from anywhere in the world as long as you have the means to authenticate your request (such as with your Active Directory identity or with the storage account key). To restrict access to this storage account to the virtual network you just created, you need to create a network rule set that allows access within the virtual network and denies all other access.
 
-Restricting the storage account to within the virtual network requires the use of a service endpoint. The service endpoint is a networking construct by which the public DNS/public IP can be accessed only from within the virtual network. Since the public IP address is not guaranteed to remain the same, we ultimately want to use a private endpoint rather than a service endpoint for the storage account, however it is not possible to restrict the storage account unless a service endpoint is also exposed.
+Restricting the storage account to the virtual network requires the use of a service endpoint. The service endpoint is a networking construct by which the public DNS/public IP can be accessed only from within the virtual network. Since the public IP address is not guaranteed to remain the same, we ultimately want to use a private endpoint rather than a service endpoint for the storage account, however it is not possible to restrict the storage account unless a service endpoint is also exposed.
 
 Remember to replace `<storage-account-name>` with the storage account you want to access.
 
@@ -110,7 +110,7 @@ Update-AzStorageAccountNetworkRuleSet `
 ``` 
 
 ## Create a private endpoint (preview) for your storage account
-Create a private endpoint for your storage account gives your storage account an IP address within the IP address space of your virtual network. When you mount your Azure file share from on-premises using this private IP address, the routing rules auto-defined by the VPN installation will route your mount request to the storage account via the VPN. 
+Create a private endpoint for your storage account gives your storage account an IP address within the IP address space of your virtual network. When you mount your Azure file share from on-premises using this private IP address, the routing rules autodefined by the VPN installation will route your mount request to the storage account via the VPN. 
 
 ```PowerShell
 $internalVnet = Get-AzResource `
@@ -428,5 +428,6 @@ Invoke-Command `
 ```
 
 ## See also
-- [Azure Files networking overview](storage-files-networking-overview.md)
+- [Networking considerations for direct Azure file share access](storage-files-networking-overview.md)
 - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
+- [Configure a Site-to-Site (S2S) VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)
