@@ -30,89 +30,119 @@ This tutorial shows you how to create an Azure Function in Java that is triggere
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+<!-- [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] -->
+
 ## Prerequisites
 
-<!-- TODO links -->
-
 * [Java Developer Kit](https://aka.ms/azure-jdks), version 8
-* [Visual Studio Code](https://code.visualstudio.com)
-* [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for VS Code
-* [Azure Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer) extension for VS Code
+* [Maven](https://maven.apache.org)
+* [Azure CLI](/cli/azure/install-azure-cli)
+* [Azure Functions Core Tools](https://www.npmjs.com/package/azure-functions-core-tools)
 
-<!-- TODO include info on Azure CLI and Cloud Shell -->
-
-<!-- 
-To create Azure Functions in Python, you need to install a few tools.
-
-- [Python 3.6](https://www.python.org/downloads/release/python-360/)
-- [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
-- A code editor such as [Visual Studio Code](https://code.visualstudio.com/) -->
-
-<!-- TODO consider replacing portal instructions/topic-links with Azure CLI snippets -->
+<!-- TODO include info on Azure CLI and Cloud Shell if needed -->
 
 ## Create Azure resources
 
-First, create the following resources:
+In this topic, you'll need these resources:
 
-* A resource group
-* An Event Hubs namespace and event hub
-* A Cosmos DB account, database, and collection
-* A function app and a storage account to host it
+* A resource group to contain the other resources.
+* An Event Hubs namespace, event hub, and authorization rule.
+* A Cosmos DB account, database, and collection.
+* A function app and a storage account to host it.
 
-You can use the following commands to create these resources:
+The following sections show you how to create these resources using the Azure CLI.
+
+### Log in to Azure
+
+First, you'll need to access your account. You should also set the default subscription if you have access to more than one. Open a Bash prompt and run the following commands:
 
 ```azurecli
-export SUBSCRIPTION_ID=<value>
+az login
+az account set --subscription <the ID for the existing Azure subscription to use>
+```
+
+### Set environment variables
+
+Next, create some environment variables for the info needed to create your resources. Use the following command, replacing the `<value>` placeholders with values of your choosing. For the `LOCATION` variable, use one of the values produced by the [az functionapp list-consumption-locations](/cli/azure/functionapp?view=azure-cli-latest#az-functionapp-list-consumption-locations) command.
+
+```azurecli
 export RESOURCE_GROUP=<value>
-export LOCATION=<value>
 export EVENT_HUB_NAMESPACE=<value>
 export EVENT_HUB_NAME=<value>
+export EVENT_HUB_AUTHORIZATION_RULE=<value>
 export COSMOS_DB_ACCOUNT=<value>
 export STORAGE_ACCOUNT=<value>
 export FUNCTION_APP=<value>
-
+export LOCATION=<value>
 export DATABASE_NAME=TelemetryDb
 export COLLECTION_NAME=TelemetryInfo
 export PARTITION_KEY_PATH='/temperatureStatus'
+```
 
-az login
+### Create a resource group
 
-az account set --subscription $SUBSCRIPTION_ID
+Azure uses resource groups to collect all related resources in your account. That way, you can view them as a unit and delete them with a single command when you are done with them. Use the following command to create a group:
 
+```azurecli
 az group create \
     --name $RESOURCE_GROUP \
     --location $LOCATION
+```
 
+### Create an event hub
+
+Next, create an Azure Event Hubs namespace, event hub, and authorization rule using the following commands:
+
+```azurecli
 az eventhubs namespace create \
     --name $EVENT_HUB_NAMESPACE \
     --resource-group $RESOURCE_GROUP
-
 az eventhubs eventhub create \
     --name $EVENT_HUB_NAME \
     --namespace-name $EVENT_HUB_NAMESPACE \
-    --resource-group $RESOURCE_GROUP
+    --resource-group $RESOURCE_GROUP \
+    --message-retention 1
+az eventhubs eventhub authorization-rule create \
+    --name $EVENT_HUB_AUTHORIZATION_RULE \
+    --eventhub-name $EVENT_HUB_NAME \
+    --namespace-name $EVENT_HUB_NAMESPACE \
+    --resource-group $RESOURCE_GROUP \
+    --rights Listen Send
+```
 
+The Event Hubs namespace contains the actual event hub and its authorization rule. The authorization rule enables your functions to send messages to the hub and listen for the corresponding events. One function will send messages representing telemetry data, and another function will listen for events in order to analyze the data and store the results in a Cosmos DB.
+
+### Create a Cosmos DB
+
+Next, create an Azure Cosmos DB account, database, and collection using the following commands:
+
+```azurecli
 az cosmosdb create \
     --name $COSMOS_DB_ACCOUNT \
     --resource-group $RESOURCE_GROUP
-
 az cosmosdb database create \
     --db-name $DATABASE_NAME \
     --name $COSMOS_DB_ACCOUNT \
     --resource-group-name $RESOURCE_GROUP
-
  az cosmosdb collection create \
     --collection-name $COLLECTION_NAME \
     --db-name $DATABASE_NAME \
     --name $COSMOS_DB_ACCOUNT \
     --partition-key-path $PARTITION_KEY_PATH \
     --resource-group-name $RESOURCE_GROUP
+```
 
+<!-- TODO say something about partition keys -->
+
+### Create a storage account and function app
+
+Next, create a storage account to host your Azure Functions app, then create the function app. Use the following commands:
+
+```azurecli
 az storage account create \
     --name $STORAGE_ACCOUNT \
     --resource-group $RESOURCE_GROUP \
     --sku Standard_LRS
-
 az functionapp create \
     --name $FUNCTION_APP \
     --resource-group $RESOURCE_GROUP \
@@ -121,80 +151,141 @@ az functionapp create \
     --runtime java
 ```
 
-<!-- ## Create an Event Hub
+## Configure your function app
 
-First, use the Azure portal to create a resource group, an Event Hubs namespace, and an event hub. Follow the instructions at [Quickstart: Create an event hub using Azure portal](/azure/event-hubs/event-hubs-create).
+Your function app will need to access the other resources in order to work correctly. The following sections use a combination of Bash, Azure CLI, and Azure Functions Core Tools commands to configure your function app and enable you to test it on your local machine.
 
-## Create a Cosmos DB
+### Retrieve resource connection strings
 
-Next, create a Cosmos DB account in the same resource group. Then, add a container using `TelemetryDb` for the database ID, `TelemetryInfo` for the container ID, and  `/temperatureStatus` for the partition key. For instructions, see [Quickstart: Create an Azure Cosmos account, container, and items with the Azure portal](/azure/cosmos-db/create-cosmosdb-resources-portal).
+Use the following commands to retrieve the storage, event hub, and Cosmos DB connection strings and save them in environment variables:
 
-## Create a function app
-
-Next, create a function app in the same resource group and region that you used previously. Follow the instructions at [Create your first function in the Azure portal](/azure/azure-functions/functions-create-first-azure-function), but skip the part where you create a new function. Be sure to set the runtime stack to Java. For storage, select **Create new**. This storage account is where your function app will be hosted.
- -->
-
-## Create a function project in Visual Studio Code
-
-Next, use Visual Studio to create a 
-For this tutorial, we will use Visual Studio code to create the function. If you haven’t used it before, follow the steps  https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-vs-code and create your functions project with a function. If this is your first function app and you are unsure of the values to input for groupId, artifactId, package – see https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-java-maven#generate-a-new-functions-project to as a reference. Use similar (yet not same) values so they make sense for your app. Make sure to change the appname (it has to be unique, so change the numbers at the end).p We now have a function app with http trigger set up.  
-
-## Configure the project
-
-Open the `local.settings.json` file and replace it with the following code. Replace the placeholders with the connection strings for the resources you created previously. You can find these connection strings in the Azure portal. Navigate to your storage account and select **Access keys** > **key1** > **Connection string**
-
-
-<!-- TODO more details on where to find in portal. screenshots? -->
-
-```json
-{
-  "IsEncrypted": false,
-  "Values": {
-    "AzureWebJobsStorage": "<storage account connection string>",
-    "EventHubConnection": "<Event Hub connection string>",
-    "AzureWebJobsCosmosDBConnectionString": "<Cosmos DB connection string>",
-    "FUNCTIONS_WORKER_RUNTIME": "java"
-  }
-}
+```azurecli
+export AZURE_WEB_JOBS_STORAGE=` \
+    az storage account show-connection-string \
+        --name $STORAGE_ACCOUNT \
+        --query connectionString \
+        --output tsv`
+export EVENT_HUB_CONNECTION_STRING=` \
+    az eventhubs eventhub authorization-rule keys list \
+        --name $EVENT_HUB_AUTHORIZATION_RULE \
+        --eventhub-name $EVENT_HUB_NAME \
+        --namespace-name $EVENT_HUB_NAMESPACE \
+        --resource-group $RESOURCE_GROUP \
+        --query primaryConnectionString \
+        --output tsv`
+export COSMOS_DB_CONNECTION_STRING=` \
+    az cosmosdb keys list \
+        --name $COSMOS_DB_ACCOUNT \
+        --resource-group $RESOURCE_GROUP \
+        --type connection-strings \
+        --query connectionStrings[0].connectionString \
+        --output tsv`
 ```
 
-AzureWebJobsStorage –  
-In the portal, go to your resource-group -> storage account. Select **Access Keys** under “Settings”. Copy the connection string for key 1 and paste it for AzureWebJobsStorage in local.settings.json 
+Each variable is set to a value retrieved using an Azure CLI command with a JMESPath query. Each query extracts the connection string from the JSON payload returned by the CLI command.
 
+### Update your function app settings
 
-EventHubConnection –  
-In the portal, go to your resource-group -> event hub namespace -> (left sub pane) Event hubs and click on your event hub. Select **Shared Access policies** and add policy with Manage permissions. Once added, click on the policy and copy the connection string-primary key that shows up. Paste that value in EventHubConnection setting in local.settings.json 
+Next, use the following command to transfer the connection string values to app settings in your Azure Functions account:
 
-**Shared access policies** > **RootManageSharedAccessKey** > **Connection string--primary key**
+```azurecli
+az functionapp config appsettings set \
+    --name $FUNCTION_APP \
+    --resource-group $RESOURCE_GROUP \
+    --settings \
+        AzureWebJobsStorage=$AZURE_WEB_JOBS_STORAGE \
+        EventHubConnectionString=$EVENT_HUB_CONNECTION_STRING \
+        CosmosDBConnectionString=$COSMOS_DB_CONNECTION_STRING
+```
 
-AzureWebJobsCosmosDBConnectionString –  
-In the portal, go to your resource-group -> cosmos db account. Click on “Keys” in Sub left nav under “Settings”. From the Read/Write keys tab, copy the Primary connection string and paste it for AzureWebJobsCosmosDBConnectionString in local.settings.json 
+Your Azure resources have now been created and configured to work properly together.
 
-**Keys** > **Read-write Keys** > **PRIMARY CONNECTION STRING**
+## Create and test your functions
 
-## Add code
+Next, you will create a project on your local machine, add Java code, and test it using Maven and the Azure Functions Core Tools. Your functions will run locally, but will use the cloud-based resources you've created. After you get the functions working locally, you can deploy them to the cloud and watch your data and analytics accumulate.
 
-Open the `Function.java` file and replace the contents with the following code. Replace `<Event Hub name>` with the name of the Event Hub you created inside your Event Hub namespace.
+### Create a local functions project
+
+Use the following Maven command to create a functions project and add the required dependencies. This command will prompt you to supply a `groupId` value, such as `com.example`, an `artifactId`, such as `example-functions`. You can accept the default values for `version` and `package`. For `appName`, `appRegion`, and `resourceGroup`, use the values that you specified earlier in this topic.
+
+<!-- TODO update to use batch mode instead of interactive mode -->
+
+```bash
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype
+```
+
+This command generates several files inside a folder named after your `artifactId` value:
+
+* A `pom.xml` file for use with Maven.
+* A `local.settings.json` file to hold app settings for local testing.
+* A `host.json` file that enables the Azure Functions Extension Bundle, required for Cosmos DB output binding in your data analysis function.
+* A `Function.java` file that includes a default function implementation.
+* A few test files that this topic doesn't need.
+
+To avoid compilation errors, you will need to delete the test files. First, navigate to the newly created project folder, then run the following command:
+
+```bash
+rm -r src/test
+```
+
+### Retrieve your function app settings for local use
+
+For local testing, your function project will need the connection strings that you added to your Azure Functions account earlier in this topic. Use the following Azure Functions Core Tools command to retrieve all the function app settings stored in the cloud, and add them to your `local.settings.json` file:
+
+```bash
+func azure functionapp fetch-app-settings $FUNCTION_APP
+```
+
+### Add Java code
+
+Open the `Function.java` file and replace the contents with the following code. Replace `<event hub name>` with the name of the Event Hub you created inside your Event Hub namespace.
 
 <!-- TODO replace namespace, too, or direct user to use weatherdetector -->
 
 ```java
-package com.weatherdetector.function;
+package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 import com.microsoft.azure.functions.*;
-import com.weatherdetector.function.TelemetryItem.status;
+import com.kweather.TelemetryItem.status;
+import java.time.*;
 
 public class Function {
+
+    @FunctionName("EventHubOutput-Java")
+    @EventHubOutput(
+        name = "event",
+        eventHubName = "<event hub name>",
+        connection = "EventHubConnectionString")
+    public TelemetryItem generateSensorData(
+        @TimerTrigger(
+            name = "timerInfo",
+            schedule = "*/10 * * * * *") // every 10 seconds
+            String timerInfo,
+        final ExecutionContext context) {
+
+        context.getLogger().info("Java Timer trigger function executed at: " + LocalDateTime.now());
+        double temperature = Math.random() * 100;
+        double pressure = Math.random() * 50;
+        return new TelemetryItem(temperature, pressure);
+    }
+
     @FunctionName("EventHubTrigger-Java")
-    public void run(
-        @EventHubTrigger(name = "msg", eventHubName = "<Event Hub name>",
-            cardinality = Cardinality.ONE, connection = "EventHubConnection")
-        TelemetryItem item,
-        @CosmosDBOutput(name = "databaseOutput",
-            databaseName = "TelemetryDb", collectionName = "TelemetryInfo",
-            connectionStringSetting = "AzureWebJobsCosmosDBConnectionString")
-        OutputBinding<TelemetryItem> document,
+    public void processSensorData(
+        @EventHubTrigger(
+            name = "msg",
+            eventHubName = "karlertesthub",
+            cardinality = Cardinality.ONE,
+            connection = "EventHubConnectionString")
+            TelemetryItem item,
+        @CosmosDBOutput(
+            name = "databaseOutput",
+            databaseName = "TelemetryDb",
+            collectionName = "TelemetryInfo",
+            connectionStringSetting = "CosmosDBConnectionString")
+            OutputBinding<TelemetryItem> document,
         final ExecutionContext context) {
 
         context.getLogger().info("Event hub message received: " + item.toString());
@@ -207,7 +298,7 @@ public class Function {
 
         if (item.getTemperature() < 40) {
             item.setTemperatureStatus(status.COOL);
-        } else if (item.getTemperature() > 90) { 
+        } else if (item.getTemperature() > 90) {
             item.setTemperatureStatus(status.HOT);
         } else {
             item.setTemperatureStatus(status.WARM);
@@ -218,10 +309,12 @@ public class Function {
 }
 ```
 
-Next, create a new file called `TelemetryItem.java` in the same location as `Function.java` and add the following code:
+As you can see, this file contains two functions, `generateSensorData` and `processSensorData`. The `generateSensorData` function simulates a sensor that sends temperature and pressure readings to the event hub. A timer trigger runs the function every 10 seconds, and an event hub output binding sends the return value to the event hub. When the event hub receives the message, it generates an event. The `processSensorData` function runs when it receives the event. It then processes the event data and uses a Cosmos DB output binding to send the results to Cosmos DB.
+
+The data used by these functions is stored in an object called `TelemetryItem`, so you'll need an implementation of that. Create a new file called `TelemetryItem.java` in the same location as `Function.java` and add the following code:
 
 ```java
-package com.weatherdetector.function;
+package com.example;
 
 public class TelemetryItem {
 
@@ -234,6 +327,11 @@ public class TelemetryItem {
         COOL,
         WARM,
         HOT
+    }
+
+    public TelemetryItem(double temperature, double pressure) {
+        this.temperature = temperature;
+        this.pressure = pressure;
     }
 
     public String getId() {
@@ -271,30 +369,18 @@ public class TelemetryItem {
 }
 ```
 
-<!-- TODO remove test code or provide instructions that skip the test phase -->
-
 ## Run locally
 
-Running locally: 
-Click F5 to run the function app locally. If you see an error saying “.Net Core is needed on path”, download it from the website mentioned and run ln -s /usr/local/share/dotnet/dotnet /usr/local/bin/ for linking it symbolically. This is a known issue and is currently being worked on. 
-  
-Testing locally: 
-Get the Azure Event Hub Explorer VSCode extension.  
-Start the function app locally (F5) if it isn’t already running. 
-Then in the menu bar, click View -> Command Palette >EventHub: Select Event Hub 
-Follow the prompts to pick your subscription, resource-group, event hub namespace and event hub entity. 
-Then open the command palette again and go to >EventHub: Send message to event hub 
+You can now build and run the functions locally and see data appear in your Cosmos DB.
 
-Enter a message such as:
+Use the following Maven commands to build and run the functions:
 
-```json
-{ "pressure": "38.8", "temperature": "28.8" }
+```bash
+mvn clean package
+mvn azure-functions:run
 ```
 
-to send and hit Enter 
-See your function execute 
-
-
+<!-- 
 Cosmos DB account > **Data Explorer** > **TelemetryDb** > **TelemetryInfo** > **Items**
 
 example:
@@ -310,18 +396,20 @@ example:
     "_attachments": "attachments/",
     "_ts": 1570584587
 }
-or screenshot
-
-Windows: If you are running on Windows, you could also download service bus explorer using  https://github.com/paolosalvatori/ServiceBusExplorer and do File / Connect / select "Connection String". You will now see the function app being triggered in your VSCode terminal window.
+or screenshot -->
 
 ## Deploy to Azure
 
-In VSCode command pallet, do >Azure Functions: Upload Local Settings. Follow prompts – Select your function app in Azure. Go to the portal -> Function App -> and in the Overview tab, under Configured Features, click Configuration. to make sure all your settings are uploaded correctly.  
-Then in the command palette do >Azure Functions: Deploy to Function App and select your function app. Once deployment is successful, you should be able to in your portal, see function.json in your app. 
+TBD
+
+<!-- In VSCode command pallet, do >Azure Functions: Upload Local Settings. Follow prompts – Select your function app in Azure. Go to the portal -> Function App -> and in the Overview tab, under Configured Features, click Configuration. to make sure all your settings are uploaded correctly.  
+Then in the command palette do >Azure Functions: Deploy to Function App and select your function app. Once deployment is successful, you should be able to in your portal, see function.json in your app.  -->
 
 ## Test in Azure
 
-Follow the same steps that you used to test locally. This time your function app is running in Azure. Based on the function app logic, you can go to the cosmos db created in your resource group to see items being creates (as we used output binding). 
+TBD
+
+<!-- Follow the same steps that you used to test locally. This time your function app is running in Azure. Based on the function app logic, you can go to the cosmos db created in your resource group to see items being creates (as we used output binding).  -->
 
 ## Clean up resources
 
@@ -333,7 +421,7 @@ az group delete --name $RESOURCE_GROUP
 
 ## Next steps
 
-In this tutorial, you learned how to ...
+In this tutorial, you learned how to ... TBD
 
 <!-- build and customize an HTTP API with Azure Functions to make predictions using a TensorFlow model. You also learned how to call the API from a web application.
 
