@@ -1,6 +1,6 @@
 ---
 title: Export data and visualize insights in Azure IoT Central | Microsoft Docs
-description: In this tutorial, learn how to export data from IoT Central, and visual insights in a Power BI dashboard.
+description: In this tutorial, learn how to export data from IoT Central, and visualize insights in a Power BI dashboard.
 services: iot-central
 ms.service: iot-central
 ms.topic: tutorial
@@ -12,7 +12,7 @@ ms.date: 10/13/2019
 
 # Tutorial: Export data from Azure IoT Central and visualize insights in Power BI
 
-In the two previous tutorials, you created and customized an IoT Central application using  the **Store Analytics - Condition Monitoring** application template. In this tutorial, you configure your IoT Central application to export telemetry collected from the devices. You then use Power BI to create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
+In the two previous tutorials, you created and customized an IoT Central application using  the **In-store analytics - checkout** application template. In this tutorial, you configure your IoT Central application to export telemetry collected from the devices. You then use Power BI to create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -24,7 +24,7 @@ In this tutorial, you learn how to:
 
 To complete this tutorial, you need:
 
-* To complete the previous two tutorials, [Create a condition monitoring retail application in Azure IoT Central](./tutorial-condition-monitor-create-app-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) and [Customize the operator dashboard and manage devices in Azure IoT Central](./tutorial-condition-monitor-customize-dashboard-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* To complete the previous two tutorials, [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) and [Customize the operator dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * A Power BI account. If you don't have a Power BI account, sign up for a [free Power BI Pro trial](https://app.powerbi.com/signupredirect?pbi_source=web) before you begin.
 
