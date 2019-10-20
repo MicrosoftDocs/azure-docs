@@ -15,13 +15,20 @@ ms.custom:
 
 # Statistics in SQL Analytics
 
-For recommendations and examples for creating and updating query-optimization statistics on tables in SQL Analytics pool check sections below. For SQL Analytics on demand check [Statistics in SQL Analytics on demand](#SQL-Analytics-on-demand).
+Recommendations and examples for creating and updating query-optimization statistics in:
 
-## Why use statistics
+- [SQL Analytics pool](#statistics-in-sql-analytics-pool)
+- [SQL Analytics on-demand](#statistics-in-sql-analytics-on-demand)
+
+## Statistics in SQL Analytics pool
+
+### Why use statistics
 
 The more SQL Analytics pool knows about your data, the faster it can execute queries against it. After loading data into SQL Analytics pool, collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Analytics pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
-## Automatic creation of statistic
+The more SQL Analytics on-demand knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Analytics on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+
+### Automatic creation of statistic
 
 When the database AUTO_CREATE_STATISTICS option is on, SQL Analytics pool analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan. Automatic creation of statistics is currently turned on by default.
 
@@ -64,7 +71,7 @@ DBCC SHOW_STATISTICS (<table_name>, <target>)
 
 The table_name is the name of the table that contains the statistics to display. This cannot be an external table. The target is the name of the target index, statistics, or column for which to display statistics information.
 
-## Updating statistics
+### Updating statistics
 
 One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country/region column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country/region and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
 
@@ -115,7 +122,7 @@ WHERE
 
 For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics).
 
-## Implementing statistics management
+### Implementing statistics management
 
 It is often a good idea to extend your data-loading process to ensure that statistics are updated at the end of the load. The data load is when tables most frequently change their size and/or their distribution of values. Therefore, this is a logical place to implement some management processes.
 
@@ -129,11 +136,11 @@ The following guiding principles are provided for updating your statistics durin
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-## Examples: Create statistics
+### Examples: Create statistics
 
 These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
-### Create single-column statistics with default options
+#### Create single-column statistics with default options
 
 To create statistics on a column, simply provide a name for the statistics object and the name of the column.
 
@@ -149,7 +156,7 @@ For example:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1);
 ```
 
-### Create single-column statistics by examining every row
+#### Create single-column statistics by examining every row
 
 The default sampling rate of 20 percent is sufficient for most situations. However, you can adjust the sampling rate.
 
@@ -165,7 +172,7 @@ For example:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### Create single-column statistics by specifying the sample size
+#### Create single-column statistics by specifying the sample size
 
 Alternatively, you can specify the sample size as a percent:
 
@@ -173,7 +180,7 @@ Alternatively, you can specify the sample size as a percent:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-### Create single-column statistics on only some of the rows
+#### Create single-column statistics on only some of the rows
 
 You can also create statistics on a portion of the rows in your table. This is called a filtered statistic.
 
@@ -188,7 +195,7 @@ CREATE STATISTICS stats_col1 ON table1(col1) WHERE col1 > '2000101' AND col1 < '
 > [!NOTE]
 > For the query optimizer to consider using filtered statistics when it chooses the distributed query plan, the query must fit inside the definition of the statistics object. Using the previous example, the query's WHERE clause needs to specify col1 values between 2000101 and 20001231.
 
-### Create single-column statistics with all the options
+#### Create single-column statistics with all the options
 
 You can also combine the options together. The following example creates a filtered statistics object with a custom sample size:
 
@@ -198,7 +205,7 @@ CREATE STATISTICS stats_col1 ON table1 (col1) WHERE col1 > '2000101' AND col1 < 
 
 For the full reference, see [CREATE STATISTICS](/sql/t-sql/statements/create-statistics-transact-sql).
 
-### Create multi-column statistics
+#### Create multi-column statistics
 
 To create a multi-column statistics object, simply use the previous examples, but specify more columns.
 
@@ -213,7 +220,7 @@ CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category)
 
 Because there is a correlation between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
 
-### Create statistics on all columns in a table
+#### Create statistics on all columns in a table
 
 One way to create statistics is to issue CREATE STATISTICS commands after creating the table:
 
@@ -235,7 +242,7 @@ CREATE STATISTICS stats_col2 on dbo.table2 (col2);
 CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 ```
 
-### Use a stored procedure to create statistics on all columns in a database
+#### Use a stored procedure to create statistics on all columns in a database
 
 SQL Analytics pool does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 
@@ -347,14 +354,14 @@ EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
 
 To create sampled statistics on all columns
 
-## Examples: Update statistics
+### Examples: Update statistics
 
 To update statistics, you can:
 
 - Update one statistics object. Specify the name of the statistics object you want to update.
 - Update all statistics objects on a table. Specify the name of the table instead of one specific statistics object.
 
-### Update one specific statistics object
+#### Update one specific statistics object
 
 Use the following syntax to update a specific statistics object:
 
@@ -370,7 +377,7 @@ UPDATE STATISTICS [dbo].[table1] ([stats_col1]);
 
 By updating specific statistics objects, you can minimize the time and resources required to manage statistics. This requires some thought to choose the best statistics objects to update.
 
-### Update all statistics on a table
+#### Update all statistics on a table
 
 A simple method for updating all the statistics objects on a table is:
 
@@ -393,11 +400,11 @@ For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables
 
 For the full syntax, see [Update Statistics](/sql/t-sql/statements/update-statistics-transact-sql).
 
-## Statistics metadata
+### Statistics metadata
 
 There are several system views and functions that you can use to find information about statistics. For example, you can see if a statistics object might be out of date by using the stats-date function to see when statistics were last created or updated.
 
-### Catalog views for statistics
+#### Catalog views for statistics
 
 These system views provide information about statistics:
 
@@ -411,7 +418,7 @@ These system views provide information about statistics:
 | [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |One row for each table (includes external tables). |
 | [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |One row for each data type. |
 
-### System functions for statistics
+#### System functions for statistics
 
 These system functions are useful for working with statistics:
 
@@ -420,7 +427,7 @@ These system functions are useful for working with statistics:
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql) |Date the statistics object was last updated. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql) |Summary level and detailed information about the distribution of values as understood by the statistics object. |
 
-### Combine statistics columns and functions into one view
+#### Combine statistics columns and functions into one view
 
 This view brings columns that relate to statistics and results from the STATS_DATE() function together.
 
@@ -460,7 +467,7 @@ AND     st.[user_created] = 1
 ;
 ```
 
-## DBCC SHOW_STATISTICS() examples
+### DBCC SHOW_STATISTICS() examples
 
 DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data comes in three parts:
 
@@ -470,7 +477,7 @@ DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data
 
 The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQL Analytics pool computes cardinality estimates with any of the data in the statistics object.
 
-### Show header, density, and histogram
+#### Show header, density, and histogram
 
 This simple example shows all three parts of a statistics object:
 
@@ -484,7 +491,7 @@ For example:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1);
 ```
 
-### Show one or more parts of DBCC SHOW_STATISTICS()
+#### Show one or more parts of DBCC SHOW_STATISTICS()
 
 If you're only interested in viewing specific parts, use the `WITH` clause and specify which parts you want to see:
 
@@ -498,7 +505,7 @@ For example:
 DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 ```
 
-## DBCC SHOW_STATISTICS() differences
+### DBCC SHOW_STATISTICS() differences
 
 DBCC SHOW_STATISTICS() is more strictly implemented in SQL Analytics pool compared to SQL Server:
 
@@ -510,23 +517,23 @@ DBCC SHOW_STATISTICS() is more strictly implemented in SQL Analytics pool compar
 - Cannot use column names to identify statistics objects.
 - Custom error 2767 is not supported.
 
-## Next steps
+### Next steps
 
 For further improve query performance, see [Monitor your workload](../../sql-data-warehouse/sql-data-warehouse-manage-monitor.md)
 
 
 
-# Statistics in SQL Analytics on demand
+## Statistics in SQL Analytics on-demand
 
 Statistics are created per particular column for particular dataset (OENROWSET path).
 
-## Why use statistics
+### Why use statistics
 
-The more SQL Analytics on demand knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Analytics on demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+The more SQL Analytics on-demand knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Analytics on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
-## Automatic creation of statistic
+### Automatic creation of statistic
 
-SQL Analytics on demand analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
+SQL Analytics on-demand analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan.
 
 SELECT statement will trigger automatic creation of statistics.
 
@@ -535,15 +542,15 @@ SELECT statement will trigger automatic creation of statistics.
 
 Automatic creation of statistics is done synchronously so you may incur slightly degraded query performance if your columns are missing statistics. The time to create statistics for a single column depends on the size of the files targeted. 
 
-## Manual creation of statistics
+### Manual creation of statistics
 
-SQL Analytics on demand lets you create statistics manually. For CSV files you have to create statistics manually because automatic creation of statistics is not turned on for CSV files. See examples below for instructions on how to create statistics manually.
+SQL Analytics on-demand lets you create statistics manually. For CSV files you have to create statistics manually because automatic creation of statistics is not turned on for CSV files. See examples below for instructions on how to create statistics manually.
 
-## Updating statistics
+### Updating statistics
 
 Changes to data in files, deleting and adding files result in data distribution changes and make statistics out of date. In that case statistics needs to be updated.
 
-SQL Analytics on demand automatically recreates statistics if data is significantly changed. Every time statistics are automatically created, current state of the dataset it also saved - file paths, sizes, last modification dates.
+SQL Analytics on-demand automatically recreates statistics if data is significantly changed. Every time statistics are automatically created, current state of the dataset it also saved - file paths, sizes, last modification dates.
 
 If statistics are stale, new ones are created. The algorithm goes through the data and compares it to the current state of the dataset. If the size of changes (files deleted, added, changed) is greater than specific threshold, old stats are deleted and will be created again over the new dataset.
 
@@ -561,7 +568,7 @@ When the number of rows has changed substantially, or there is a material change
 
 For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics).
 
-## Implementing statistics management
+### Implementing statistics management
 
 You may want to extend your data pipeline to ensure that statistics are updated when data is significantly changed through addition, deletion or change of files.
 
@@ -574,11 +581,11 @@ The following guiding principles are provided for updating your statistics:
 
 For more information, see [Cardinality Estimation](/sql/relational-databases/performance/cardinality-estimation-sql-server).
 
-## Examples: Create statistics
+### Examples: Create statistics
 
 These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
-### Create single-column statistics with default options
+#### Create single-column statistics with default options
 
 To create statistics on a column, provide query that returns column you need statistics for.
 
@@ -608,7 +615,7 @@ WITH (
 
 
 
-### Create single-column statistics by examining every row
+#### Create single-column statistics by examining every row
 
 The default sampling rate of 5 percent is sufficient for most situations. However, you can adjust the sampling rate.
 
@@ -624,7 +631,7 @@ For example:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
 ```
 
-### Create single-column statistics by specifying the sample size
+#### Create single-column statistics by specifying the sample size
 
 You can specify the sample size as a percent:
 
@@ -632,7 +639,7 @@ You can specify the sample size as a percent:
 CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
 ```
 
-## Examples: Update statistics
+### Examples: Update statistics
 
 To update statistics, you need to drop and create statistics.
 
@@ -670,7 +677,3 @@ WITH (
 ) AS [r]
 '
 ```
-
-
-
- 
