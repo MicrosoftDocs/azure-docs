@@ -6,6 +6,13 @@ ms.date: 08/06/2019
 ms.author: erhopf
 ---
 
+## Prerequisites
+
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
+
 ## Add sample code
 
 1. To add a new empty class to your Java project, select **File** > **New** > **Class**.

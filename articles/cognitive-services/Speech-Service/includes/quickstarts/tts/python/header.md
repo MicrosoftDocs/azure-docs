@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C# - Speech Service"
+title: "Quickstart: Synthesize speech, Python - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -12,6 +12,4 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-[!INCLUDE [dotnet](./dotnet.md)]
-
-* * *
+If you prefer to jump right in, view or download all <a href="https://aka.ms/ignite2019/speech/placeholder">Speech SDK Python Samples</a> on GitHub. Otherwise, let's get started.

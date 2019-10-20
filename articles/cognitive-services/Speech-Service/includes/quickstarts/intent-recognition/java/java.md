@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C# - Speech Service"
+title: "Quickstart: Recognize Intents from a microphone, Java - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,8 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
+zone_pivot_groups: programming-languages-set-two
 ---
 
-[!INCLUDE [dotnet](./dotnet.md)]
-
-* * *
+[!INCLUDE [vs](./jre.md)]

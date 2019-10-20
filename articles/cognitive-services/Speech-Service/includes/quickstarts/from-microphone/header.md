@@ -12,8 +12,9 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-In this quickstart you will use the [Speech SDK](https://aka.ms/ignite2019/speech/placeholder) to interactively recognize speech from audio data captured from a microphone. After satisfying a few prerequisites, recognizing speech from a microphone takes only four steps:
-1. Create a ````SpeechConfig```` object from your subscription key and region.
-2. Create a ````SpeechRecognizer```` object using the ````SpeechConfig```` object from above.
-3. Using the ````SpeechRecognizer```` object, start the recognition process for a single utterance.
-4. Inspect the ````SpeechRecognitionResult```` returned.
+In this quickstart you will use the [Speech SDK](https://aka.ms/ignite2019/speech/placeholder) to interactively recognize speech from audio data captured from a microphone. After satisfying a few prerequisites, recognizing speech from a microphone only takes four steps:
+> [!div class="checklist"]
+> * Create a ````SpeechConfig```` object from your subscription key and region.
+> * Create a ````SpeechRecognizer```` object using the ````SpeechConfig```` object from above.
+> * Using the ````SpeechRecognizer```` object, start the recognition process for a single utterance.
+> * Inspect the ````SpeechRecognitionResult```` returned.

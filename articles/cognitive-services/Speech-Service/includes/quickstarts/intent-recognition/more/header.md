@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C# - Speech Service"
+title: "Quickstart: Recognize Intents from a microphone - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -12,6 +12,4 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-[!INCLUDE [dotnet](./dotnet.md)]
-
-* * *
+View or download all <a href="https://aka.ms/ignite2019/speech/placeholder">Speech SDK Samples</a> on GitHub.

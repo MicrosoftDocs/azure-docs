@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize Intents from a microphone - Speech Service"
+title: "Quickstart: Recognize Intents from a microphone, Java - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -12,6 +12,16 @@ ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
+
+## Prerequisites
+
+Before you get started, make sure to:
+
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
 
 ## Open your project
 

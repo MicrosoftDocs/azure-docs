@@ -7,15 +7,9 @@ author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: include
+ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-**Select your target environment**
-
-#### [Java Runtime](#tab/jre)
-[!INCLUDE [jre](./jre.md)]
-#### [Android](#tab/android)
-[!INCLUDE [android](./android.md)]
-* * *
+If you prefer to jump right in, view or download all <a href="https://aka.ms/ignite2019/speech/placeholder">Speech SDK Java Samples</a> on GitHub. Otherwise, let's get started.
