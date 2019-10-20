@@ -30,7 +30,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="azure"></a>Clone the vignettes folder
+## <a name="clone"></a>Clone the vignettes folder
 
 This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) if you prefer to have control over your environment, packages and dependencies.
 
@@ -48,7 +48,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. There is a folder displayed for each user who accesses the workspace.  Select your folder to clone the **vignettes**  folder there.
 
-## <a name="azure"></a>Create a compute instance
+## <a name="compute-instance"></a>Create a compute instance
 
 From your workspace, create a cloud resource to get started using R Studio. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning with R.
 
