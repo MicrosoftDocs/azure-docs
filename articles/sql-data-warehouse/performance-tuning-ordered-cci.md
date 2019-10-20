@@ -121,10 +121,6 @@ Creating an ordered CCI is an offline operation.  For tables with no partitions,
 5.	Repeat step 3 and 4 for each partition in Table_A.
 6.	Once all partitions are switched from Table_A to Table_B and have been rebuilt, drop Table_A, and rename Table_B to Table_A. 
 
->[!NOTE]
->During the preview of ordered clustered columnstore index (CCI) in Azure SQL Data Warehouse, duplicate data may be generated if the ordered CCI is created or rebuilt via CREATE CLUSTERED COLUMNSTORE INDEX on a partitioned table. There is no data loss involved. A fix to this issue will be available soon. For a workaround, users can create ordered CCI on a partitioned table using CTAS command
-
-
 ## Examples
 
 **A. To check for ordered columns and order ordinal:**
