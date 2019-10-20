@@ -44,31 +44,49 @@ Use Live Stream to create interactive sessions that let you test newly created q
 2. To create a Live Stream session from a hunting query:
     
     1. Locate the hunting query to use.
-    2. Right-click the query and select **Add to Live Stream**.
+    2. Right-click the query and select **Add to Live Stream**:
+    
+    > [!div class="mx-imgBorder"]
+    > ![create Live Stream session from Azure Sentinel hunting query](./media/live-stream/live-stream-from-query.png)
 
 3. To create a Live Stream session from scratch: 
     
     1. Select the **Live Stream** tab
     2. Select **Live Stream**.
-    3. On the **Live Stream** blade, create your query, and then select **Play**.  The status bar under the command bar indicates whether your Live Stream is running or paused.
- 
+    
+4. On the **Live Stream** blade, create your query, and then select **Play**.  
+    
+    The status bar under the command bar indicates whether your Live Stream is running or paused.
+    
+    > [!div class="mx-imgBorder"]
+    > ![create Live Stream session from Azure Sentinel hunting](./media/live-stream/live-stream-session.png)
+
 ## View and edit your Live Stream sessions
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Live Stream** tab.
 
-2. Select the Live Stream session you want to view or edit.
+2. Select the Live Stream session you want to view or edit. For example:
+    
+    > [!div class="mx-imgBorder"]
+    > ![create Live Stream session from Azure Sentinel hunting query](./media/live-stream/live-stream-tab.png)
 
 3. If you make any changes to the query, select **Play** from the command bar. To save your changes, select **Save**.
 
 ## Receive notifications when new events occur
 
-Because Live Stream notifications for new events use Azure portal notifications, you see these notifications whenever you use the Azure portal. 
+Because Live Stream notifications for new events use Azure portal notifications, you see these notifications whenever you use the Azure portal. For example:
+
+> [!div class="mx-imgBorder"]
+> ![Azure portal notification for Live Stream](./media/live-stream/notification.png)
 
 Select the notifications to open the **Live Stream** blade.
  
 ## Elevate a Live Stream session to an alert
 
-You can promote a Live Stream session to a new alert by selecting **Elevate to alert** from the command bar on the relevant Live Stream session. 
+You can promote a Live Stream session to a new alert by selecting **Elevate to alert** from the command bar on the relevant Live Stream session:
+
+> [!div class="mx-imgBorder"]
+> ![Elevate Live Stream session to an alert](./media/live-stream/elevate-to-alert.png)
 
 This action opens the detection rule creation wizard, which is  prepopulated with the query that is associated with the Live Stream session.
 
