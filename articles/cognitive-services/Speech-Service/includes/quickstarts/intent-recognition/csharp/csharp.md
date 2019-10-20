@@ -13,4 +13,4 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-[!INCLUDE [vs](./dotnet.md)]
+[!INCLUDE [dotnet](./dotnet.md)]

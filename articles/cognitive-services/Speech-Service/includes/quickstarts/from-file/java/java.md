@@ -12,6 +12,6 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-[!INCLUDE [vs](./jre.md)]
+[!INCLUDE [jre](./jre.md)]
 
 * * *

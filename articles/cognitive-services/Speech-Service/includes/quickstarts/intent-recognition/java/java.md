@@ -13,4 +13,4 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-[!INCLUDE [vs](./jre.md)]
+[!INCLUDE [jre](./jre.md)]

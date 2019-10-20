@@ -13,6 +13,6 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-[!INCLUDE [vs](./windows.md)]
+[!INCLUDE [windows](./windows.md)]
 
 * * *

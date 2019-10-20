@@ -72,7 +72,42 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 
 ````Python
 
-# INSERT PYTHON CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
+import azure.cognitiveservices.speech as speechsdk
+
+# Creates an instance of a speech config with specified subscription key and service region.
+# Replace with your own subscription key and service region (e.g., "westus").
+speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+
+# Creates an audio configuration that points to 
+# Replace with your own audio filename.
+audio_filename = "whatstheweatherlike.wav"
+audio_input = speechsdk.AudioConfig(filename=audio_filename)
+
+# Creates a recognizer with the given settings
+speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
+
+print("Recognizing first result...")
+
+
+# Starts speech recognition, and returns after a single utterance is recognized. The end of a
+# single utterance is determined by listening for silence at the end or until a maximum of 15
+# seconds of audio is processed.  The task returns the recognition text as result. 
+# Note: Since recognize_once() returns only a single utterance, it is suitable only for single
+# shot recognition like command or query. 
+# For long-running multi-utterance recognition, use start_continuous_recognition() instead.
+result = speech_recognizer.recognize_once()
+
+# Checks result.
+if result.reason == speechsdk.ResultReason.RecognizedSpeech:
+    print("Recognized: {}".format(result.text))
+elif result.reason == speechsdk.ResultReason.NoMatch:
+    print("No speech could be recognized: {}".format(result.no_match_details))
+elif result.reason == speechsdk.ResultReason.Canceled:
+    cancellation_details = result.cancellation_details
+    print("Speech Recognition canceled: {}".format(cancellation_details.reason))
+    if cancellation_details.reason == speechsdk.CancellationReason.Error:
+        print("Error details: {}".format(cancellation_details.error_details))
 
 ````
 
@@ -101,9 +136,12 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
    To install the Speech SDK package, open a terminal. Bring up the command palette again (Ctrl+Shift+P) and enter **Terminal: Create New Integrated Terminal**.
    In the terminal that opens, enter the command `python -m pip install azure-cognitiveservices-speech` or the appropriate command for your system.
 1. To run the sample code, right-click somewhere inside the editor. Select **Run Python File in Terminal**.
-   Speak a few words when you're prompted. The transcribed text displays shortly afterward.
+   The first 15 seconds of speech input from your audio file will be recognized and logged in the console window.
 
-   ![Run a sample](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-run.png)
+   ```text
+   Recognizing first result...
+   We recognized: What's the weather like?
+   ```
 
 If you have issues following these instructions, refer to the more extensive [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 

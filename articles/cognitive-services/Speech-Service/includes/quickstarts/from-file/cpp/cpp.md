@@ -14,9 +14,9 @@ ms.author: erhopf
 
 **Select your target environment**
 #### [Linux](#tab/linux)
-[!INCLUDE [vs](./linux.md)]
+[!INCLUDE [linux](./linux.md)]
 #### [MacOS](#tab/MacOS)
-[!INCLUDE [vs](./macos.md)]
+[!INCLUDE [macos](./macos.md)]
 #### [Windows](#tab/Windows)
-[!INCLUDE [vs](./windows.md)]
+[!INCLUDE [windows](./windows.md)]
 * * *

@@ -18,25 +18,25 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/csharp/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/csharp/csharp.md)]
+[!INCLUDE [csharp](../includes/quickstarts/from-microphone/csharp/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/cpp/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/cpp/cpp.md)]
+[!INCLUDE [cpp](../includes/quickstarts/from-microphone/cpp/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/java/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/java/java.md)]
+[!INCLUDE [java](../includes/quickstarts/from-microphone/java/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/python/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/python/stt-mic-python.md)]
+[!INCLUDE [python](../includes/quickstarts/from-microphone/python/stt-mic-python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

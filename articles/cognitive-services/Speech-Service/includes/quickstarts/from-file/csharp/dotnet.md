@@ -34,7 +34,24 @@ Let's add some code that works as a skeleton for our project. Make note that you
 
 ````C#
 
-// TODO INSERT C# CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
+using System;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
+
+namespace helloworld
+{
+    class Program
+    {
+        public static async Task RecognizeSpeechAsync()
+        {
+        }
+
+        static void Main()
+        {
+            RecognizeSpeechAsync().Wait();
+        }
+    }
+}
 
 ````
 
@@ -44,30 +61,39 @@ Before you can initialize a `SpeechRecognizer` object, you need to create a conf
 
 > [!NOTE]
 > This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+
 ````C#
+var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+````
 
-// TODO INSERT C# CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
+## Create an ````AudioConfig```` object
 
+Now, you need to create an ````AudioConfig```` object that points to your audio file. This object is created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `RecognizeSpeechAsync()` method, right below your Speech configuration.
+
+````C#
+using (var audioInput = AudioConfig.FromWavFileInput(@"whatstheweatherlike.wav"))
+{
+}
 ````
 
 ## Initialize a SpeechRecognizer
 
-Now, let's create a `SpeechRecognizer`. This object is created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `RecognizeSpeechAsync()` method, right below your Speech configuration.
+Now, let's create the `SpeechRecognizer` object using the `SpeechConfig` and `AudioConfig` objects created earlier. This object is also created inside of a using statement to ensure the proper release of unmanaged resources. Insert this code in the `RecognizeSpeechAsync()` method, inside the using statement that wraps your ````AudioConfig```` object.
+
 ````C#
-
-// TODO INSERT C# CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
-
+using (var recognizer = new SpeechRecognizer(config, audioInput))
+{
+}
 ````
 
 ## Recognize a phrase
 
-From the `SpeechRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop reconizing speech.
+From the `SpeechRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
 
 Inside the using statement, add this code:
 ````C#
-
-// TODO INSERT C# CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
-
+Console.WriteLine("Recognizing first result...");
+var result = await recognizer.RecognizeOnceAsync();
 ````
 
 ## Display the recognition results (or errors)
@@ -76,18 +102,87 @@ When the recognition result is returned by the Speech service, you'll want to do
 
 Inside the using statement, below `RecognizeOnceAsync()`, add this code:
 ````C#
+if (result.Reason == ResultReason.RecognizedSpeech)
+{
+    Console.WriteLine($"We recognized: {result.Text}");
+}
+else if (result.Reason == ResultReason.NoMatch)
+{
+    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+}
+else if (result.Reason == ResultReason.Canceled)
+{
+    var cancellation = CancellationDetails.FromResult(result);
+    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
 
-// TODO INSERT C# CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
-
+    if (cancellation.Reason == CancellationReason.Error)
+    {
+        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+    }
+}
 ````
 
 ## Check your code
 
 At this point, your code should look like this:
+
 ````C#
+//
+// Copyright (c) Microsoft. All rights reserved.
+// Licensed under the MIT license. See LICENSE.md file in the project root for full license information.
+//
 
-// TODO INSERT C# CODE HERE... Copy from "from-microphone", and paste directly here, adding AudioConfig/file name portion
+using System;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
 
+namespace helloworld
+{
+    class Program
+    {
+        public static async Task RecognizeSpeechAsync()
+        {
+            var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+            using (var audioInput = AudioConfig.FromWavFileInput(@"whatstheweatherlike.wav"))
+            {
+                using (var recognizer = new SpeechRecognizer(config, audioInput))
+                {
+                    Console.WriteLine("Recognizing first result...");
+                    var result = await recognizer.RecognizeOnceAsync();
+
+                    if (result.Reason == ResultReason.RecognizedSpeech)
+                    {
+                        Console.WriteLine($"We recognized: {result.Text}");
+                    }
+                    else if (result.Reason == ResultReason.NoMatch)
+                    {
+                        Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                    }
+                    else if (result.Reason == ResultReason.Canceled)
+                    {
+                        var cancellation = CancellationDetails.FromResult(result);
+                        Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+
+                        if (cancellation.Reason == CancellationReason.Error)
+                        {
+                            Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+                            Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+                            Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                        }
+                    }
+                }
+            }
+        }
+
+        static void Main()
+        {
+            RecognizeSpeechAsync().Wait();
+        }
+    }
+}
 ````
 
 ## Build and run your app
@@ -96,7 +191,12 @@ Now you're ready to build your app and test our speech recognition using the Spe
 
 1. **Compile the code** - From the menu bar of Visual Stuio, choose **Build** > **Build Solution**.
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
-3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
+3. **Start recognition** - Your audio file is sent to the Speech service, transcribed as text, and rendered in the console.
+
+   ```text
+   Recognizing first result...
+   We recognized: What's the weather like?
+   ```
 
 ## Next steps
 

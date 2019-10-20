@@ -18,25 +18,25 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-file/csharp/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-file/csharp/csharp.md)]
+[!INCLUDE [csharp](../includes/quickstarts/from-file/csharp/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-file/cpp/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-file/cpp/cpp.md)]
+[!INCLUDE [cpp](../includes/quickstarts/from-file/cpp/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-file/java/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-file/java/java.md)]
+[!INCLUDE [java](../includes/quickstarts/from-file/java/java.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Header](../includes/quickstarts/from-file/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-file/python/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-file/python/python.md)]
+[!INCLUDE [python](../includes/quickstarts/from-file/python/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
