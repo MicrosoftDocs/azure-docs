@@ -69,8 +69,12 @@ You can create a Live Stream session from an existing hunting query, or create y
     
     > [!div class="mx-imgBorder"]
     > ![create Live Stream session from Azure Sentinel hunting query](./media/live-stream/live-stream-tab.png)
+    
+    Your selected Live Stream session opens.
 
-3. To make changes, first select **Pause** from the command. Then   make your changes to the query, and select **Play**. To save your changes, select **Save**.
+3. To make changes, first select **Pause** from the command. Then   make your changes to the query, and select **Play**. 
+    
+    Select **Save** to save your changes.
 
 ## Receive notifications when new events occur
 
