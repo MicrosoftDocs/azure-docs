@@ -4,7 +4,7 @@ description: An overview of networking options for Azure Files.
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 08/29/2019
+ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -67,14 +67,14 @@ SMB 3.0 was designed with the explicit requirement of being internet safe file s
 
 1. Ensure that SMB 1.0 is removed or disabled on your organization's devices. All currently supported versions of Windows and Windows Server support removing or disabling SMB 1.0, and starting with Windows 10, version 1709, SMB 1.0 is not installed on the Windows by default. To learn more about how to disable SMB 1.0, see our OS-specific pages:
     - [Securing Windows/Windows Server](storage-how-to-use-files-windows.md#securing-windowswindows-server)
-    - Securing macOS
-    - Securing Linux
+    - [Securing Linux](storage-how-to-use-files-linux.md#securing-your-linux-distribution)
 1. Ensure that no products within your organization require SMB 1.0 and remove the ones that do. We maintain an [SMB1 Product Clearinghouse](https://aka.ms/stillneedssmb1), which contains all the first and third-party products known to Microsoft to require SMB 1.0. 
 1. (Optional) Use a third-party firewall with your organization's on-premises network to prevent SMB 1.0 traffic.
 
 If your organization requires port 445 to be blocked per policy or regulation, you can use Azure VPN Gateway or ExpressRoute to tunnel traffic over port 443. To learn more about the specific steps for deploying these, see our specific how to pages:
-- [Configure a Point-to-Site (P2S) VPN for use with Azure Files](storage-files-configure-p2s-vpn.md)
 - [Configure a Site-to-Site (S2S) VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)
+- [Configure a Point-to-Site (P2S) VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
+- [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
 
 Your organization may have the additional requirement that traffic outbound from your on-premises site must follow a deterministic path to your resources in the cloud. If so, ExpressRoute is capable of meeting this requirement.
 
@@ -82,3 +82,7 @@ Your organization may have the additional requirement that traffic outbound from
 When you are accessing your Azure file share in the cloud, you may wish to use VNets to limit which VMs or other Azure resources are allowed to make network connections (SMB mounts or REST API calls to your Azure file share). We always recommend putting your Azure file share in a VNet if you allow unencrypted traffic to your storage account. Otherwise, whether or not you use VNets is a decision that should be driven by your business requirements and organizational policy.
 
 The principal reason to allow unencrypted traffic to your Azure file share is to support Windows Server 2008 R2, Windows 7, or other older OS accessing your Azure file share with SMB 2.1 (or SMB 3.0 without encryption for some Linux distributions). We do not recommend using SMB 2.1 or SMB 3.0 without encryption on operating systems which support SMB 3.0+ with encryption.
+
+## See also
+- [Azure Files overview](storage-files-introduction.md)
+- [Planning for an Azure Files deployment](storage-files-planning.md)

@@ -4,7 +4,7 @@ description: How to configure a Site-to-Site (S2S) VPN for use with Azure Files
 author: roygara
 ms.service: storage
 ms.topic: overview
-ms.date: 08/29/2019
+ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -103,4 +103,5 @@ The final step in configuring a S2S VPN is verifying that it works for Azure Fil
 
 ## See also
 - [Azure Files networking overview](storage-files-networking-overview.md)
-- [Configure a Point-to-Site (P2S) VPN with Azure Files](storage-files-configure-p2s-vpn.md)
+- [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
+- [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)

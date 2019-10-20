@@ -4,7 +4,7 @@ description: Learn how to mount an Azure file share over SMB on Linux.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/05/2019
+ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -64,15 +64,15 @@ uname -r
 
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may, however the instructions below are presented for the Azure CLI.
 
-* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine. Replace **<your-resource-group>** and **<your-storage-account>**
+* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.  Replace **<your-resource-group>** and **<your-storage-account>**
     ```bash
-    resourceGroup="<your-resource-group>"
-    storageAccount="<your-storage-account>"
+    resourceGroupName="<your-resource-group>"
+    storageAccountName="<your-storage-account>"
     
     # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
-        --resource-group $resourceGroup \
-        --name $storageAccount \
+        --resource-group $resourceGroupName \
+        --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))
     fileHost=$(echo $fileHost | tr -d "/")
@@ -86,6 +86,8 @@ uname -r
     Connection to <your-storage-account> 445 port [tcp/microsoft-ds] succeeded!
     ```
 
+    If you are unable to open up port 445 on your corporate network or are blocked from doing so by an ISP, you may use a VPN connection or ExpressRoute to work around port 445. See [Azure Files networking overview](storage-files-networking-overview.md) for more information.
+
 ## Using an Azure file share with Linux
 To use an Azure file share with your Linux distribution, you must create a directory to serve as the mount point for the Azure file share. A mount point can be created anywhere on your Linux system, but it's common convention to create this under /mnt. After the mount point, you use the `mount` command to access the Azure file share.
 
@@ -95,11 +97,11 @@ You can mount the same Azure file share to multiple mount points if desired.
 1. **Create a folder for the mount point**: Replace **<your-resource-group>**, **<your-storage-account>**, and **<your-file-share>** with the appropriate information for your environment:
 
     ```bash
-    resourceGroup="<your-resource-group>"
-    storageAccount="<your-storage-account>"
-    fileShare="<your-file-share>"
+    resourceGroupName="<your-resource-group>"
+    storageAccountName="<your-storage-account>"
+    fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccount/$fileShare"
+    mntPath="/mnt/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```
@@ -108,17 +110,17 @@ You can mount the same Azure file share to multiple mount points if desired.
 
     ```bash
     httpEndpoint=$(az storage account show \
-        --resource-group $resourceGroup \
-        --name $storageAccount \
+        --resource-group $resourceGroupName \
+        --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
     smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShare
 
     storageAccountKey=$(az storage account keys list \
-        --account-name $storageAccount \
-        --resource-group $resourceGroup \
+        --resource-group $resourceGroupName \
+        --account-name $storageAccountName \
         --query "[0].value" | tr -d '"')
 
-    sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccount,password=$storageAccountKey,serverino
+    sudo mount -t cifs $smbPath $mntPath -o vers=3.0,username=$storageAccountName,password=$storageAccountKey,serverino
     ```
 
     > [!Note]  
@@ -130,11 +132,11 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
 1. **Create a folder for the mount point**: A folder for a mount point can be created anywhere on the file system, but it's common convention to create this under /mnt. For example, the following command creates a new directory, replace **<your-resource-group>**, **<your-storage-account>**, and **<your-file-share>** with the appropriate information for your environment:
 
     ```bash
-    resourceGroup="<your-resource-group>"
-    storageAccount="<your-storage-account>"
-    fileShare="<your-file-share>"
+    resourceGroupName="<your-resource-group>"
+    storageAccountName="<your-storage-account>"
+    fileShareName="<your-file-share>"
 
-    mntPath="/mnt/$storageAccount/$fileShare"
+    mntPath="/mnt/$storageAccountName/$fileShareName"
 
     sudo mkdir -p $mntPath
     ```
@@ -143,17 +145,17 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
 
     ```bash
     if [ ! -d "/etc/smbcredentials" ]; then
-        sudo mkdir /etc/smbcredentials
+        sudo mkdir "/etc/smbcredentials"
     fi
 
     storageAccountKey=$(az storage account keys list \
-        --account-name $storageAccount \
-        --resource-group $resourceGroup \
+        --resource-group $resourceGroupName \
+        --account-name $storageAccountName \
         --query "[0].value" | tr -d '"')
     
-    smbCredentialFile="/etc/smbcredentials/$storageAccount.cred"
+    smbCredentialFile="/etc/smbcredentials/$storageAccountName.cred"
     if [ ! -f $smbCredentialFile ]; then
-        echo "username=$storageAccount" | sudo tee $smbCredentialFile > /dev/null
+        echo "username=$storageAccountName" | sudo tee $smbCredentialFile > /dev/null
         echo "password=$storageAccountKey" | sudo tee -a $smbCredentialFile > /dev/null
     else 
         echo "The credential file $smbCredentialFile already exists, and was not modified."
@@ -170,10 +172,10 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
 
     ```bash
     httpEndpoint=$(az storage account show \
-        --resource-group $resourceGroup \
-        --name $storageAccount \
+        --resource-group $resourceGroupName \
+        --name $storageAccountName \
         --query "primaryEndpoints.file" | tr -d '"')
-    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShare
+    smbPath=$(echo $httpEndpoint | cut -c7-$(expr length $httpEndpoint))$fileShareName
 
     if [ -z "$(grep $smbPath\ $mntPath /etc/fstab)" ]; then
         echo "$smbPath $mntPath cifs nofail,vers=3.0,credentials=$smbCredentialFile,serverino" | sudo tee -a /etc/fstab > /dev/null
@@ -216,9 +218,6 @@ You can check to see if your linux distribution supports the `disable_legacy_dia
 ```bash
 sudo modinfo -p cifs | grep disable_legacy_dialects
 ```
-
-> [!Note]  
-> Not all distributions have modinfo in the command path (you can view this via `echo $PATH`, so you may need to run `whereis modinfo` to find where the command is installed).
 
 This command should output the following message:
 
