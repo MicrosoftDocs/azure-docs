@@ -1,6 +1,6 @@
 ---
 title: Creating, updating statistics - SQL Analytics | Microsoft Docs
-description: Recommendations and examples for creating and updating query-optimization statistics on tables in SQL Analytics pool.
+description: Recommendations and examples for creating and updating query-optimization statistics in SQL Analytics.
 services: sql-data-warehouse
 author: filippopovic
 manager: craigg
@@ -25,8 +25,6 @@ Recommendations and examples for creating and updating query-optimization statis
 ### Why use statistics
 
 The more SQL Analytics pool knows about your data, the faster it can execute queries against it. After loading data into SQL Analytics pool, collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Analytics pool query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
-
-The more SQL Analytics on-demand knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Analytics on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ### Automatic creation of statistic
 
@@ -525,7 +523,7 @@ For further improve query performance, see [Monitor your workload](../../sql-dat
 
 ## Statistics in SQL Analytics on-demand
 
-Statistics are created per particular column for particular dataset (OENROWSET path).
+Statistics are created per particular column for particular dataset (OPENROWSET path).
 
 ### Why use statistics
 
@@ -566,8 +564,6 @@ When the number of rows has changed substantially, or there is a material change
 > [!NOTE]
 > If there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.
 
-For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics).
-
 ### Implementing statistics management
 
 You may want to extend your data pipeline to ensure that statistics are updated when data is significantly changed through addition, deletion or change of files.
@@ -585,16 +581,30 @@ For more information, see [Cardinality Estimation](/sql/relational-databases/per
 
 These examples show how to use various options for creating statistics. The options that you use for each column depend on the characteristics of your data and how the column will be used in queries.
 
+> [!NOTE]
+> You can create single-column statistics only at this moment.
+
+Following stored procedure is used to create statistics:
+```sql
+sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+```
+Arguments:
+[ @stmt = ] N'statement_text'
+Is a Transact-SQL statement that will return column values to be used for statistics. You can use TABLESAMPLE to specify sample of data to be used. Default TABLESAMPLE is 5%.
+
+> [!NOTE]
+> CSV sampling does not work at this moment, FULLSCAN will be used instead.
+
 #### Create single-column statistics with default options
 
 To create statistics on a column, provide query that returns column you need statistics for.
 
-By default, SQL Analytics pool samples **5 percent** of each file in dataset when it creates statistics.
+By default, SQL Analytics on-demand samples **5 percent** of data in provided dataset when it creates statistics.
 
 [!NOTE]
 CSV sampling reads rows from top of file. Sampling will be improved in the future so it will take percentage of rows from across the file, not only from beginning. For this reason, it is recommended to use FULLSCAN for CSV datasets. 
 
-For example, to create statistics for year column for dataset based on population.csv file:
+For example, to create statistics with default options (sample 5%) for year column for dataset based on population.csv file:
 
 ```sql
 EXEC sys.sp_create_file_statistics N'SELECT year 
@@ -613,35 +623,60 @@ WITH (
 '
 ```
 
-
-
 #### Create single-column statistics by examining every row
 
-The default sampling rate of 5 percent is sufficient for most situations. However, you can adjust the sampling rate.
+The default sampling rate of 5 percent may be sufficient for your scenario. However, you can adjust the sampling rate or sample full table using TABLESAMPLE (FULLSCAN)
 
 To sample the full table, use this syntax:
 
 ```sql
-CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]) WITH FULLSCAN;
+EXEC sys.sp_create_file_statistics N'SELECT year 
+FROM OPENROWSET(
+		BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
+ 		FORMAT = ''CSV'', 
+		FIELDTERMINATOR ='','', 
+		ROWTERMINATOR = ''\n''
+	)
+WITH (
+	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+	[year] smallint,
+	[population] bigint
+) AS [r] WITH TABLESAMPLE(FULLSCAN)
+'
 ```
 
-For example:
-
-```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH FULLSCAN;
-```
 
 #### Create single-column statistics by specifying the sample size
 
 You can specify the sample size as a percent:
 
 ```sql
-CREATE STATISTICS col1_stats ON dbo.table1 (col1) WITH SAMPLE = 50 PERCENT;
+EXEC sys.sp_create_file_statistics N'SELECT year 
+FROM OPENROWSET(
+		BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
+ 		FORMAT = ''CSV'', 
+		FIELDTERMINATOR ='','', 
+		ROWTERMINATOR = ''\n''
+	)
+WITH (
+	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+	[year] smallint,
+	[population] bigint
+) AS [r] WITH TABLESAMPLE(15 PERCENT)
+'
 ```
 
 ### Examples: Update statistics
 
-To update statistics, you need to drop and create statistics.
+To update statistics, you need to drop and create statistics. Following stored procedure is used to drop statistics:
+```sql
+sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+```
+Arguments:
+[ @stmt = ] N'statement_text'
+Is the same Transact-SQL statement used when statistics were created. 
 
 To update statistics for year column for dataset based on population.csv file, you need to drop and create statistics:
 
