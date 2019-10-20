@@ -79,7 +79,7 @@ import azure.cognitiveservices.speech as speechsdk
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
-# Creates an audio configuration that points to 
+# Creates an audio configuration that points to an audio file.
 # Replace with your own audio filename.
 audio_filename = "whatstheweatherlike.wav"
 audio_input = speechsdk.AudioConfig(filename=audio_filename)
