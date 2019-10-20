@@ -55,7 +55,7 @@ In this quickstart, you use a code sample to learn how a JavaScript single-page 
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter a name for your application.
 > 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-> 1. Under the **Redirect URI** section, in the drop-down list, select the **Web** platform, and then set the value to `http://localhost:30662/`.
+> 1. Under the **Redirect URI** section, in the drop-down list, select the **Web** platform, and then set the value to `http://localhost:30662/index.html`.
 > 1. Select **Register**. On the app **Overview** page, note the **Application (client) ID** value for later use.
 > 1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left pane of the registered application, select **Authentication**.
 > 1. In the **Advanced settings** section, under **Implicit grant**, select the **ID tokens** and **Access tokens** check boxes. ID tokens and access tokens are required, because this app needs to sign in users and call an API.
