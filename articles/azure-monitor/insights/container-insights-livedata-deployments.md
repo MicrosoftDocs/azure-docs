@@ -38,7 +38,7 @@ Selecting **Refresh** in the top left of the page refreshes the deployment list.
 
 ## Deployments describe
 
-To view Deployments, perform the following steps.
+To view Describe details for a deployment, which is the equivalent to `kubectl describe deployment`, perform the following steps.
 
 1. In the Azure portal, browse to the AKS cluster resource group and select your AKS resource.
 
@@ -48,7 +48,7 @@ To view Deployments, perform the following steps.
 
     [!Deployments view in the Azure portal](./media/container-insights-livedata-deployments/deployment-view-01.png)
 
-The view shows a list of all the running deployments along with the namespace and other detailed information, emulating execution of the command `kubectl get deployments –all-namespaces`. 
+The view shows a list of all the running deployments along with the namespace and other detailed information, emulating execution of the command `kubectl get deployments –all-namespaces`. You can sort the results by selecting any one of the columns. 
 
 ![Deployment properties pane details](./media/container-insights-livedata-deployments/deployment-properties-pane-details.png)
 
