@@ -37,10 +37,10 @@ Use Live Stream to create interactive sessions that let you test newly created q
 
 ## Create a Live Stream session
 
+You can create a Live Stream session from an existing hunting query, or create your session from scratch.
+
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting**.
-    
-    You can create a Live Stream session from an existing hunting query, or create your session from scratch.
- 
+
 2. To create a Live Stream session from a hunting query:
     
     1. Locate the hunting query to use.
@@ -56,7 +56,7 @@ Use Live Stream to create interactive sessions that let you test newly created q
     
 4. On the **Live Stream** blade, create your query, and then select **Play**.  
     
-    The status bar under the command bar indicates whether your Live Stream is running or paused.
+    The status bar under the command bar indicates whether your Live Stream is running or paused. For example:
     
     > [!div class="mx-imgBorder"]
     > ![create Live Stream session from Azure Sentinel hunting](./media/live-stream/live-stream-session.png)
@@ -76,10 +76,9 @@ Use Live Stream to create interactive sessions that let you test newly created q
 
 Because Live Stream notifications for new events use Azure portal notifications, you see these notifications whenever you use the Azure portal. For example:
 
-> [!div class="mx-imgBorder"]
-> ![Azure portal notification for Live Stream](./media/live-stream/notification.png)
+![Azure portal notification for Live Stream](./media/live-stream/notification.png)
 
-Select the notifications to open the **Live Stream** blade.
+Select the notification to open the **Live Stream** blade.
  
 ## Elevate a Live Stream session to an alert
 
@@ -88,7 +87,7 @@ You can promote a Live Stream session to a new alert by selecting **Elevate to a
 > [!div class="mx-imgBorder"]
 > ![Elevate Live Stream session to an alert](./media/live-stream/elevate-to-alert.png)
 
-This action opens the detection rule creation wizard, which is  prepopulated with the query that is associated with the Live Stream session.
+This action opens the rule creation wizard, which is prepopulated with the query that is associated with the Live Stream session.
 
 
 ## Next steps
