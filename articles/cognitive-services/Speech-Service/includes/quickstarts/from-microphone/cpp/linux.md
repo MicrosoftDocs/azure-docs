@@ -14,7 +14,10 @@ ms.author: wolfma
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.
+Before you get started, make sure to:
+1. [Create an Azure Speech Resource](../../../create-speech-resource.md)
+1. [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=linux)
+1. [Created an empty sample project](../../../../quickstarts/create-project.md?tabs=linux)
 
 ## Install Speech SDK
 

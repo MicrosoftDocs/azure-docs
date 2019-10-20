@@ -14,11 +14,10 @@ ms.author: wolfma
 
 ## Prerequisites
 
-You need a Speech Services subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Services for free](~/articles/cognitive-services/Speech-Service/get-started.md) for details.
-
-## Create a Visual Studio project
-
-[!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+Before you get started, make sure to:
+1. [Create an Azure Speech Resource](../../../create-speech-resource.md)
+1. [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
+1. [Created an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
 
 ## Add sample code
 
