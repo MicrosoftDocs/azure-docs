@@ -1,16 +1,16 @@
 ---
-title: Process change feed logs in Azure Blob Storage (Preview) | Microsoft Docs
+title: Process change feed in Azure Blob Storage (Preview) | Microsoft Docs
 description: Learn how to process change feed logs in a .NET client application
 author: normesta
 ms.author: normesta
-ms.date: 10/17/2019
+ms.date: 10/20/2019
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
 ---
 
-# Process change feed logs in Azure Blob Storage (Preview)
+# Process change feed in Azure Blob Storage (Preview)
 
 Change feed provides transaction logs of all the changes that occur to the blobs and the blob metadata in your storage account. This article shows you how to read change feed records by using the blob change feed processor library that is provided with the SDK.
 
@@ -18,7 +18,6 @@ To learn more about the change feed, see [Change feed in Azure Blob Storage (Pre
 
 > [!NOTE]
 > The change feed is in public preview, and is available in the **westcentralus** and **westus2** regions. To learn more about this feature along with known issues and limitations, see [Change feed support in Azure Blob Storage](storage-blob-change-feed.md).
- 
 
 ## Connect to the storage account
 
@@ -46,7 +45,7 @@ public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageCon
 
 ## Initialize the change feed
 
-Add the following using statements to the top of your code file.
+Add the following using statements to the top of your code file. 
 
 ```csharp
 using Avro.Generic;
@@ -68,7 +67,10 @@ public async Task<ChangeFeed> GetChangeFeed(CloudBlobClient cloudBlobClient)
 }
 ```
 
-## Read records
+## Reading records
+
+> [!NOTE]
+> The change feed is an immutable and read-only entity in your storage account. Any number of applications can choose to read and process the change feed simultenosly and independently at thier own convenience. Records are not removed from the change feed when an application reads them. The read or iteration state of each consuming reader is independent and maintained by your application only.
 
 The simplest way to read records is to create an instance of the **ChangeFeedReader** class. 
 
@@ -98,79 +100,57 @@ public async Task ProcessRecords(ChangeFeed changeFeed)
     } while (currentRecord != null);
 }
 ```
-## Read records by using segments
 
-You can read records from individual segments or ranges of segments. Your application needs to track the date and time offset of the last processed segment. Later, your application can use that date and time offset to read only new segments.
+## Resuming reading records from a saved position
 
-### Get the starting segment
-
-To keep things simple, this example refers to values in a [Dictionary](https://docs.microsoft.com/dotnet/api/system.collections.generic.dictionary-2) object to obtain the date and time offset of the last consumed segment. Your application might refer to a database or a file in Azure Blob storage.
-
+You can choose to save your read position in your change feed and resume iterating the records at a future time. You can save the state of your iteration of the change feed at any time using the **ChangeFeedReader.SerializeState()** method. The state is a **string** and you application can choose to save it based on your needs for eg. to a database or a file.
 
 ```csharp
-public async Task<ChangeFeedSegment> GetStartSegment(ChangeFeed changeFeed)
+    string currentReadState = processor.SerializeState();
+```
+
+You can resume iterating from the last state by creating the **ChangeFeedReader** using the **CreateChangeFeedReaderFromPointerAsync** method
+
+```csharp
+public async Task ProcessRecordsFromLastPosition(ChangeFeed changeFeed, string lastReadState)
 {
-    // Retrieve the last segment processed from some sort of persistent storage.
-    string dateTimeOffsetString = ChangeFeedState["dateTimeOffset"];
+    ChangeFeedReader processor = await cf.CreateChangeFeedReaderFromPointerAsync(lastReadState);
 
-    if (dateTimeOffsetString != null)
+    ChangeFeedRecord currentRecord = null;
+    do
     {
-        ChangeFeedSegment lastConsumedChangeFeedSegment =
-            new ChangeFeedSegment(DateTimeOffset.Parse
-                (dateTimeOffsetString), changeFeed);
+        currentRecord = await processor.GetNextItemAsync();
 
-        // Return the next segment.
-        return await lastConsumedChangeFeedSegment.GetNextSegmentAsync();
-    }
-    else
-    {
-        List<DateTimeOffset> segments =
-            (await changeFeed.ListAvailableSegmentTimesAsync()).ToList();
+        if (currentRecord != null)
+        {
+            string subject = currentRecord.record["subject"].ToString();
+            string eventType = ((GenericEnum)currentRecord.record["eventType"]).Value;
+            string api = ((GenericEnum)((GenericRecord)currentRecord.record["data"])["api"]).Value;
 
-        return new ChangeFeedSegment(segments[0], changeFeed);
-    }          
+            Console.WriteLine("Subject: " + subject + "\n" +
+                "Event Type: " + eventType + "\n" +
+                "Api: " + api);
+        }
 
+    } while (currentRecord != null);
 }
 ```
 
-### Read records from the starting segment 
+## Stream processing of records
 
-This example creates a **ChangeFeedSegmentReader** class to iterate through the records in each time segment, and then print to the console a few values from each record. 
-
-This example saves the date and time offset of each segment that is processed. It also serializes the reader. That way, if the application is interrupted or closes unexpectedly while a segment is being read, the reader can be initialized to it's previous state, and the application can finish reading the segment.  
-
+You can choose to wait on the tail of appended records in the change feed and process them as they arrive. See [Specifications](storage-blob-change-feed.md#specifications).
 
 ```csharp
-public async Task ProcessSegments(ChangeFeed changeFeed, ChangeFeedSegment currentSegment)
+public async Task ProcessRecordsStream(ChangeFeed changeFeed, int waitTimeMs)
 {
-    await currentSegment.InitializeAsync();
+    ChangeFeedReader processor = await changeFeed.CreateChangeFeedReaderAsync();
 
-    ChangeFeedSegmentReader reader = null;
-
-    string readerPointer = ChangeFeedState["segmentReader"];
-
-    if (readerPointer == null)
+    ChangeFeedRecord currentRecord = null;
+    while (true)
     {
-        reader = await currentSegment.CreateChangeFeedSegmentReaderAsync();
-    }
-    else
-    {
-        // If process was interrupted. Restore the reader to its previous state.
-        reader = await currentSegment.CreateChangeFeedSegmentReaderFromPointerAsync
-            (readerPointer);
-    }
-
-    while (currentSegment != null &&
-            currentSegment.timeWindowStatus == ChangefeedSegmentStatus.Finalized &&
-            currentSegment.startTime <= changeFeed.LastConsumable)
-    {
-        ChangeFeedRecord currentRecord = null;
         do
         {
-            // Save the reader state for resiliency.
-            ChangeFeedState["segmentReader"] = reader.SerializeState();
-
-            currentRecord = await reader.GetNextItemAsync();
+            currentRecord = await processor.GetNextItemAsync();
 
             if (currentRecord != null)
             {
@@ -182,29 +162,180 @@ public async Task ProcessSegments(ChangeFeed changeFeed, ChangeFeedSegment curre
                     "Event Type: " + eventType + "\n" +
                     "Api: " + api);
             }
+
         } while (currentRecord != null);
 
-        // Reset time and reader state.
-        ChangeFeedState["segmentReader"] = null;
+        await Task.Delay(waitTimeMs);
+    }
+}
+```
 
-        // Save this as the last processed segment.
-        ChangeFeedState["dateTimeOffset"] = 
-            currentSegment.startTime.ToString(CultureInfo.InvariantCulture);
+## Reading records within a time range
 
-        // Get next segment.
-        currentSegment = await currentSegment.GetNextSegmentAsync();
+Change feed is organized into hourly segments based on the change event time. See [Specifications](storage-blob-change-feed.md#specifications). You can choose to read records within happened within a time range by reading the records from the change feed segments in that time range.
 
-        if (currentSegment != null)
+### Selecting segments for a time range
+
+```csharp
+public List<DateTimeOffset> GetChangeFeedSegmentRefsForTimeRange(ChangeFeed cf, DateTimeOffset st, DateTimeOffset en)
+{
+    List<DateTimeOffset> result = new List<DateTimeOffset>();
+
+    DateTimeOffset stAdj = st.AddMinutes(-15);
+    DateTimeOffset enAdj = en.AddMinutes(15);
+
+    DateTimeOffset lastConsumable = cf.LastConsumable;
+
+    List<DateTimeOffset> segments = (await cf.ListAvailableSegmentTimesAsync()).ToList();
+    foreach(segmentStart in segments)
+    {
+        if(lastConsumable.CompareTo(segmentStart) < 0)
         {
-            await currentSegment.InitializeAsync();
-            reader = await currentSegment.CreateChangeFeedSegmentReaderAsync();
+            break;
         }
-    }            
+
+        if(enAdj.CompareTo(segmentStart) < 0)
+        {
+            break;
+        }
+
+        DateTimeOffset segmentEnd = segmentStart.AddMinutes(60);
+        bool overlaps = stAdj.CompareTo(segmentEnd) < 0 && segStart.CompareTo(enAdj) < 0;
+        if(overlaps)
+        {
+            result.Add(segmentStart)
+        }
+    }
+
+    return result;
+}
+```
+
+### Reading records in a segment
+
+You can read records from individual segments or ranges of segments.
+
+```csharp
+public async Task ProcessRecordsInSegment(ChangeFeed changeFeed, DateTimeOffset segmentOffset)
+{
+    ChangeFeedSegment segment = new ChangeFeedSegment(segmentOffset, cf);
+    await segment.InitializeAsync();
+
+    ChangeFeedSegmentReader processor = await currentWindow.CreateChangeFeedSegmentReaderAsync();
+
+    ChangeFeedRecord currentRecord = null;
+    do
+    {
+        currentRecord = await processor.GetNextItemAsync();
+
+        if (currentRecord != null)
+        {
+            string subject = currentRecord.record["subject"].ToString();
+            string eventType = ((GenericEnum)currentRecord.record["eventType"]).Value;
+            string api = ((GenericEnum)((GenericRecord)currentRecord.record["data"])["api"]).Value;
+
+            Console.WriteLine("Subject: " + subject + "\n" +
+                "Event Type: " + eventType + "\n" +
+                "Api: " + api);
+        }
+
+    } while (currentRecord != null);
+}
+```
+
+## Read records starting from a time
+
+You can choose to read the records of the change feed from a starting segment till the end. Similar to reading records within a time range, you can list the segments and choose a segment to start iterating from.
+
+```csharp
+public DateTimeOffset GetChangeFeedSegmentRefAfterTime(ChangeFeed cf, DateTimeOffset timestamp)
+{
+    DateTimeOffset result;
+
+    DateTimeOffset lastConsumable = cf.LastConsumable;
+    DateTimeOffset lastConsumableEnd = lastConumable.AddMinutes(60);
+
+    DateTimeOffset timestampAdj = timestamp.AddMinutes(-15);
+
+    if(lastConsumableEnd.CompareTo(timestampAdj) < 0)
+    {
+        return result;
+    }
+
+    List<DateTimeOffset> segments = (await cf.ListAvailableSegmentTimesAsync()).ToList();
+    foreach(segmentStart in segments)
+    {
+        DateTimeOffset segmentEnd = segmentStart.AddMinutes(60);
+        if(timestampAdj.CompareTo(segmentEnd) <= 0)
+        {
+            result = segmentStart;
+            break;
+        }
+    }
+
+    return result;
+}
+```
+
+```csharp
+public async Task ProcessRecordsStartingFromSegment(ChangeFeed changeFeed, DateTimeOffset segmentStart)
+{
+    ChangeFeedSegment segment = new ChangeFeedSegment(segmentStart, changeFeed);
+    await segment.InitializeAsync();
+
+    while (true)
+    {
+        while (!await IsWindowConsumableAsync(segment, changeFeed))
+        {
+            await Task.Delay(waitTime);
+        }
+
+        ChangeFeedSegmentReader reader = await segment.CreateChangeFeedSegmentReaderAsync();
+
+        do
+        {
+            await reader.CheckForFinalizationAsync();
+
+            ChangeFeedRecord currentItem = null;
+            do
+            {
+                currentItem = await reader.GetNextItemAsync();
+                if (currentItem != null)
+                {
+                    string subject = currentRecord.record["subject"].ToString();
+                    string eventType = ((GenericEnum)currentRecord.record["eventType"]).Value;
+                    string api = ((GenericEnum)((GenericRecord)currentRecord.record["data"])["api"]).Value;
+
+                    Console.WriteLine("Subject: " + subject + "\n" +
+                        "Event Type: " + eventType + "\n" +
+                        "Api: " + api);
+                }
+            } while (currentItem != null);
+
+            if (segment.timeWindowStatus != ChangefeedSegmentStatus.Finalized)
+            {
+                await Task.Delay(waitTime);
+            }
+        } while (currentWindow.timeWindowStatus != ChangefeedSegmentStatus.Finalized);
+
+        ChangeFeedSegment nextWindow = await currentWindow.GetNextSegmentAsync(); // TODO: What if next window doesn't yet exist?
+        await currentWindow.InitializeAsync(); // Should update status, shard list.
+    }
+}
+
+private async Task<bool> IsSegmentConsumableAsync(ChangeFeed changefeed, ChangeFeedSegment segment)
+{
+    if (changeFeed.LastConsumable >= segment.startTime)
+    {
+        return true;
+    }
+    await changeFeed.InitializeAsync();
+    return changeFeed.LastConsumable >= segment.startTime;
 }
 ```
 
 >[!TIP]
-> A segment can point to multiple log files. This pointer appears in segment file and is referred to as a *chunkFilePath* or *shard*. The system internally partitions records into multiple shards to manage publishing throughput. You can use the **ChangeFeedSegmentShardReader** class to iterate through records at the shard level if that's most efficient for your scenario. 
+> A segment of the can have change feed logs in one or more *chunkFilePath*. In case of multiple *chunkFilePath* the system has internally partitioned the records into multiple shards to manage publishing throughput. It is guaranteed that each partition of the segment will contain changes for mututally exclusive blobs and can be processed independently without voilating the ordering. You can use the **ChangeFeedSegmentShardReader** class to iterate through records at the shard level if that's most efficient for your scenario.
 
 ## Next steps
 
