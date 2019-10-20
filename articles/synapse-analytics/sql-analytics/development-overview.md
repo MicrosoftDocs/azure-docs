@@ -1,15 +1,15 @@
 ---
-title: Resources for developing an Azure SQL Data Warehouse | Microsoft Docs
-description: Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse.
+title: Resources for developing an Azure SQL Analytics | Microsoft Docs
+description: Development concepts, design decisions, recommendations and coding techniques for SQL Analytics.
 services: sql-data-warehouse
-author: XiaoyuMSFT
+author: fipopovi
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
-ms.date: 08/29/2018
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 10/20/2019
+ms.author: fipopovi
+ms.reviewer: jrasnick
 ---
 
 # Design decisions and coding techniques for SQL Data Warehouse
