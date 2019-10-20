@@ -155,6 +155,10 @@
     href: troubleshooting.md
   - name: Limits
     href: limits.md
+  - name: File formats
+    items: 
+    - name: Batch testing TSV
+      href: reference-tsv-format-batch-testing.md
   - name: Samples
     items: 
     - name: QnA Maker help bot
