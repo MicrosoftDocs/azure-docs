@@ -15,9 +15,11 @@ ms.author: wolfma
 ## Prerequisites
 
 Before you get started, make sure to:
-1. [Create an Azure Speech Resource](../../../create-speech-resource.md)
-1. [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-1. [Created an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
 
 ## Create a Visual Studio project
 
