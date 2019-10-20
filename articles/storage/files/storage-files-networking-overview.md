@@ -1,5 +1,5 @@
 ---
-title: Azure Files networking overview | Microsoft Docs
+title: Network considerations for direct Azure file share access | Microsoft Docs
 description: An overview of networking options for Azure Files.
 author: roygara
 ms.service: storage
@@ -9,29 +9,26 @@ ms.author: rogarana
 ms.subservice: files
 ---
 
-# Azure Files networking overview
-Because Azure file shares are hosted in Azure, rather than on-premises like file servers or NAS appliances you may be using today, you must consider additional networking configuration to make use of your Azure file share. Azure Files has two main access patterns:
+# Network considerations for direct Azure file share access
+You can connect to an Azure file share in two ways:
 
 1. Accessing the share directly via the SMB or FileREST protocols. This access pattern is primarily employed when to eliminate as many on-premises servers as possible.
 1. Creating a cache of the Azure file share on an on-premises server with Azure File Sync, and accessing the file share's data from the on-premises server with your protocol of choice (SMB, NFS, FTPS, etc.) for your use case. This access pattern is particularly handy because it combines the best of both on-premises performance and cloud scale and serverless attachable services, such as Azure Backup.
 
 This article focuses on how to configure networking for when your use case calls for accessing the Azure file share directly rather than using Azure File Sync. For more information about networking considerations for an Azure File Sync deployment, see [configuring Azure File Sync proxy and firewall settings](storage-sync-files-firewall-and-proxy.md).
 
-## Basic networking primitives
-Azure provides multiple layers of networking settings to secure access to your environment. From a logical perspective, the main layers of networking settings that concern an Azure Files deployment are those which are exposed on the storage account level and those which are exposed for Azure subscriptions. A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. 
+## Storage account settings
+A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blob containers or queues. Azure storage accounts expose two basic sets of settings to secure the network: encryption in transit and firewalls and virtual networks (VNets).
 
-### Storage account settings
-Azure storage accounts expose two basic sets of settings to secure the network: encryption in transit and firewalls and virtual networks (VNets).
-
-#### Encryption in transit
+### Encryption in transit
 By default, all Azure storage accounts have encryption in transit enabled. This means that when you mount a file share over SMB or access it via the FileREST protocol (such as through the Azure portal, PowerShell/CLI, or Azure SDKs), Azure Files will only allow the connection if it is made with SMB 3.0+ with encryption or HTTPS. Clients which do not support SMB 3.0 or clients which support SMB 3.0 but not SMB encryption will not be able to mount the Azure file share if encryption in transit is enabled. For more information about which operating systems support SMB 3.0 with encryption, see our detailed documentation for [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), and [Linux](storage-how-to-use-files-linux.md). All current versions of the PowerShell, CLI, and SDKs support HTTPS.  
 
-You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files will also allow SMB 2.1, SMB 3.0 without encryption, and un-encrypted FileREST API calls over HTTP. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system (such as Windows Server 2008 R2 or older Linux distribution). Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, will not be able to access the file share.
+You can disable encryption in transit for an Azure storage account. When encryption is disabled, Azure Files will also allow SMB 2.1, SMB 3.0 without encryption, and un-encrypted FileREST API calls over HTTP. The primary reason to disable encryption in transit is to support a legacy application that must be run on an older operating system, such as Windows Server 2008 R2 or older Linux distribution. Azure Files only allows SMB 2.1 connections within the same Azure region as the Azure file share; an SMB 2.1 client outside of the Azure region of the Azure file share, such as on-premises or in a different Azure region, will not be able to access the file share.
 
 For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-#### Firewalls and virtual networks 
-A firewall is a network policy which requests are allowed to access the Azure file shares in your storage account. When a storage account is created with the default networking settings, it is not restricted to a specific network and therefore is internet accessible. This does not mean anyone on the internet can access the data stored on the Azure file shares hosted in your storage account, but rather that the storage account will accept authorized requests from any network. Requests can be authorized with a storage account key, a shared access signature (SAS) token (FileREST only), or with an Active Directory user principal. 
+### Firewalls and virtual networks 
+A firewall is a network policy which requests are allowed to access the Azure file shares and other storage resources in your storage account. When a storage account is created with the default networking settings, it is not restricted to a specific network and therefore is internet accessible. This does not mean anyone on the internet can access the data stored on the Azure file shares hosted in your storage account, but rather that the storage account will accept authorized requests from any network. Requests can be authorized with a storage account key, a shared access signature (SAS) token (FileREST only), or with an Active Directory user principal. 
 
 The firewall policy for a storage account may be used to restrict access to certain IP addresses or ranges, or to a virtual network. In general, most firewall policies for a storage account will restrict networking access to a virtual network. 
 
@@ -41,7 +38,7 @@ When resources such as an Azure VM are added to a virtual network, a virtual net
 
 A storage account can be added to one or more virtual networks. To learn more about how to add your storage account to a virtual network or configure other firewall settings, see [configure Azure storage firewalls and virtual networks](../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
-### Azure networking configuration
+## Azure networking configuration
 By default, Azure services including Azure Files can be accessed over the internet. Since by default traffic to your storage account is encrypted (and SMB 2.1 mounts are never allowed outside of an Azure region), there is nothing inherently insecure about accessing your Azure file shares over the internet. Based on your organization's policy or unique regulatory requirements, you may require more restrictive communication with Azure, and therefore Azure provides several ways to restrict how traffic from outside of Azure gets to Azure Files. You can further secure your networking when accessing your Azure file share by using the following service offerings:
 
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an alternate location (such as on-premises) over the internet. An Azure VPN Gateway is an Azure resource which can be deployed in a resource group along side of a storage account or other Azure resources. VPN gateways expose two different types of connections:
@@ -49,16 +46,10 @@ By default, Azure services including Azure Files can be accessed over the intern
     - [Site-to-Site (S2S) VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti), which are VPN connections between Azure and your organization's network. A S2S VPN connection enables you to configure a VPN connection once, for a VPN server or device hosted on your organization's network, rather than doing for every client device that needs to access your Azure file share.
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), which enables you to create a defined route between Azure and your on-premises network that doesn't traverse the internet. Because ExpressRoute provides a dedicated path between your on-premises datacenter and Azure, ExpressRoute may be particularly useful when network performance is a consideration. ExpressRoute is also a good option when your organization's policy or regulatory requirements require a deterministic path to your resources in the cloud.
 
-## Securing access to your Azure file share 
-How you configure the networking for your Azure file share depends on your use case. The main use cases for accessing an Azure file share directly are: 
+## Securing access to your Azure file shares from on-premises clients 
+When you migrate general-purpose file shares (for things like Office documents, PDFs, CAD documents, etc.) to Azure Files, your users typically will continue to need to access their files from on-premises devices such as their workstations, laptops, and tablets. The main consideration for a general-purpose file share is how on-premises users can securely access their file shares through the internet or WAN.
 
-1. **Replacing general purpose file shares hosted on an on-premises file server or NAS device with an Azure file share.**  
-    General purpose file shares are used by end users for anything and everything under the sun: Office documents such as Word, Excel, or PDF files, computer assisted design (CAD) documents, project files for editing and mastering multimedia, ad-hoc scratch shares, etc. When you migrate your file shares to Azure Files, your end users usually stay on-premises, since their workstations, laptops, and tablets are physical devices which they directly interact with. This means that the primary consideration for a general purpose file share migration is how on-premises users will securely access their file shares through the internet or WAN.
-1. **Lifting and shifting an on-premises application or database to the cloud.**  
-    Generally, when an on-premises application is lifted and shifted to the cloud, the application and the application's data are moved at the same time. This means that the primary consideration for a lift and shift migration is locking down access to the Azure file share to the specific virtual machines or Azure services that require access to the file share to operate. 
-
-### Accessing an Azure file share from on-premises clients
-The easiest way to access your Azure file share from on-premises is to open your on-premises network to port 445, the port that SMB uses, and mount the UNC path provided by the Azure portal - no special networking required. Many customers are reluctant to open port 445 because of outdated security guidance around SMB 1.0, which Microsoft does not consider to be an internet safe protocol. Azure Files does not implement SMB 1.0. 
+The easiest way to access your Azure file share from on-premises is to open your on-premises network to port 445, the port that SMB uses, and mount the UNC path provided by the Azure portal. This requires no special networking required. Many customers are reluctant to open port 445 because of outdated security guidance around SMB 1.0, which Microsoft does not consider to be an internet safe protocol. Azure Files does not implement SMB 1.0. 
 
 SMB 3.0 was designed with the explicit requirement of being internet safe file share protocols. Therefore, when using SMB 3.0+, from the perspective of computer networking, opening port 445 is no different than opening port 443, the port used for HTTPS connections. Rather than blocking port 445 to prevent insecure SMB 1.0 traffic, Microsoft recommends the following steps:
 
@@ -78,8 +69,10 @@ If your organization requires port 445 to be blocked per policy or regulation, y
 
 Your organization may have the additional requirement that traffic outbound from your on-premises site must follow a deterministic path to your resources in the cloud. If so, ExpressRoute is capable of meeting this requirement.
 
-### Accessing an Azure file share in the cloud
-When you are accessing your Azure file share in the cloud, you may wish to use VNets to limit which VMs or other Azure resources are allowed to make network connections (SMB mounts or REST API calls to your Azure file share). We always recommend putting your Azure file share in a VNet if you allow unencrypted traffic to your storage account. Otherwise, whether or not you use VNets is a decision that should be driven by your business requirements and organizational policy.
+## Securing access to your Azure file shares from cloud-based resources
+Generally, when an on-premises application is lifted and shifted to the cloud, the application and the application's data are moved at the same time. This means that the primary consideration for a lift and shift migration is locking down access to the Azure file share to the specific virtual machines or Azure services that require access to the file share to operate. 
+
+You may wish to use VNets to limit which VMs or other Azure resources are allowed to make network connections (SMB mounts or REST API calls to your Azure file share). We always recommend putting your Azure file share in a VNet if you allow unencrypted traffic to your storage account. Otherwise, whether or not you use VNets is a decision that should be driven by your business requirements and organizational policy.
 
 The principal reason to allow unencrypted traffic to your Azure file share is to support Windows Server 2008 R2, Windows 7, or other older OS accessing your Azure file share with SMB 2.1 (or SMB 3.0 without encryption for some Linux distributions). We do not recommend using SMB 2.1 or SMB 3.0 without encryption on operating systems which support SMB 3.0+ with encryption.
 
