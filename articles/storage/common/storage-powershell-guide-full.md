@@ -248,4 +248,4 @@ This article also provided references to several other articles, such as how to 
 
 * [Azure Storage control plane PowerShell cmdlets](/powershell/module/az.storage/)
 * [Azure Storage data plane PowerShell cmdlets](/powershell/module/azure.storage/)
-* [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Windows PowerShell Reference](/powershell/scripting/developer/windows-powershell)

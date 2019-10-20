@@ -3,7 +3,7 @@ title: Run your first query using Azure CLI
 description: This article walks you through the steps to enable the Resource Graph extension for Azure CLI and run your first query.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/26/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
 ---
@@ -58,7 +58,7 @@ Resource Graph query. The query will return the first five Azure resources with 
    # Login first with az login if not using Cloud Shell
 
    # Run Azure Resource Graph query
-   az graph query -q 'project name, type | limit 5'
+   az graph query -q 'Resources | project name, type | limit 5'
    ```
 
    > [!NOTE]
@@ -69,7 +69,7 @@ Resource Graph query. The query will return the first five Azure resources with 
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with 'order by'
-   az graph query -q 'project name, type | limit 5 | order by name asc'
+   az graph query -q 'Resources | project name, type | limit 5 | order by name asc'
    ```
 
    > [!NOTE]
@@ -81,7 +81,7 @@ Resource Graph query. The query will return the first five Azure resources with 
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   az graph query -q 'project name, type | order by name asc | limit 5'
+   az graph query -q 'Resources | project name, type | order by name asc | limit 5'
    ```
 
 When the final query is run several times, assuming that nothing in your environment is changing,

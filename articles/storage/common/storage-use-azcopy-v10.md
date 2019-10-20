@@ -4,7 +4,7 @@ description: AzCopy is a command-line utility that you can use to copy data to, 
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ---
@@ -24,7 +24,8 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 First, download the AzCopy V10 executable file to any directory on your computer. AzCopy V10 is just an executable file, so there's nothing to install.
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 
@@ -288,6 +289,14 @@ The URL appears in the output of this command. Your script can then download AzC
 ### Escape special characters in SAS tokens
 
 In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an addition `%` character next to existing `%` characters in the SAS token string.
+
+### Run scripts by using Jenkins
+
+If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to place the following command at the beginning of the script.
+
+```
+/usr/bin/keyctl new_session
+```
 
 ## Use AzCopy in Storage Explorer
 
