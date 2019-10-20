@@ -157,7 +157,6 @@
     - name: Train API
       href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train
     href: https://go.microsoft.com/fwlink/?linkid=2092179 
-<<<<<<< HEAD
   - name: Troubleshooting
     href: troubleshooting.md
   - name: Limits
@@ -166,8 +165,6 @@
     items: 
     - name: Batch testing TSV
       href: reference-tsv-format-batch-testing.md
-=======
->>>>>>> ac43a7f35b352364e6b19da3a6d540b6e81dd26c
   - name: Samples
     items: 
     - name: QnA Maker help bot
