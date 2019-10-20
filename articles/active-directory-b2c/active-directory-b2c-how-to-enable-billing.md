@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) usage is billed to a linked Azure subs
 
 Azure AD B2C billing is metered on the count of unique users with authentication activity within a calendar month, known as monthly active users (MAU) billing.
 
-Starting **01 November 2019**, all newly created Azure AD B2C tenants are billed per monthly active users (MAU). Existing tenants that are [linked to a subscription](#link-an-azure-ad-b2c-tenant-to-a-subscription) on or after 01 November 2019 will be billed per-monthly active users (MAU).
+Starting **01 November 2019**, all newly created Azure AD B2C tenants are billed per-monthly active users (MAU). Existing tenants that are [linked to a subscription](#link-an-azure-ad-b2c-tenant-to-a-subscription) on or after 01 November 2019 will be billed per-monthly active users (MAU).
 
 If you have an existing Azure AD B2C tenant that was linked to a subscription prior to 01 November 2019, you can:
 
