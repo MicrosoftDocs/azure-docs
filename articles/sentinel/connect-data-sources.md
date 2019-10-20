@@ -14,7 +14,7 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ms.author: rkarlin
 
 ---
@@ -67,6 +67,10 @@ The following data connection methods are supported by Azure Sentinel:
         - [Palo Alto](connect-paloalto.md)
         - [Other CEF appliances](connect-common-event-format.md)
         - [Other Syslog appliances](connect-syslog.md)
+        - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
+        - [Citrix Analytics (Security)](connect-analytics.md)
+        - [ExtraHop Reveal(x)](connect-extrahop.md)
+        - [One Identity Safeguard](connect-one-identity.md)
     - DLP solutions
     - [Threat intelligence providers](connect-threat-intelligence.md)
     - [DNS machines](connect-dns.md) - agent installed directly on the DNS machine
