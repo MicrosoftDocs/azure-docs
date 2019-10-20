@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 # Upgrade a virtual WAN from Basic to Standard
 
-This article helps you upgrade a Basic WAN to a Standard WAN. A 'Basic' WAN type creates all hubs inside of it as Basic SKU hubs. A 'Standard' WAN type creates all the hubs inside of it as Standard SKU hubs. In a Basic hub, you are limited to site-to-site VPN functionality only. When you use Standard hubs, you can enable ExpressRoute, User (Point-to-site) VPN, a full mesh hub, and VNet-to-VNet transit through the Azure hubs.
+This article helps you upgrade a Basic WAN to a Standard WAN. A 'Basic' WAN type creates all hubs inside of it as Basic SKU hubs. In a Basic hub, you are limited to site-to-site VPN functionality only. A 'Standard' WAN type creates all the hubs inside of it as Standard SKU hubs. When you use Standard hubs, you can enable ExpressRoute, User (Point-to-site) VPN, a full mesh hub, and VNet-to-VNet transit through the Azure hubs.
 
 The following table shows the configurations available for each WAN type:
 
