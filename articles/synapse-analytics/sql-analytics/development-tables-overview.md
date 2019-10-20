@@ -14,9 +14,15 @@ ms.reviewer: jrasnick
 
 # Designing tables in SQL Analytics
 
-[SQL Analytics on-demand](sql-on-demand.md) is a query service over the data in your data lake. It has no local storage that you can ingest data to. 
-
 This document is related to key concepts for designing tables in Azure SQL Analytics pool. 
+
+[SQL Analytics on-demand](sql-on-demand.md) is a query service over the data in your data lake. It has no local storage that you can ingest data to. Therefore this document that does not apply to SQL Analytics on-demand. You can check following content instead:
+
+- [Data types](development-tables-data-types.md)
+- [Statistics](development-tables-statistics.md)
+- [Temporary tables](development-tables-temporary.md)
+- [External tables](development-tables-external-tables.md)
+- [CETAS](development-tables-cetas.md)
 
 ## Determine table category 
 
