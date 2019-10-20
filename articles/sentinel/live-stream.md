@@ -22,15 +22,15 @@ ms.author: cabailey
 
 Use Live Stream to create interactive sessions that let you test newly created queries as events occur, get notifications from the sessions when a match is found, and launch investigations if necessary. You can quickly create a Live Stream session using any log analytics query.
 
-- Test newly created queries as events occur
+- **Test newly created queries as events occur**
     
-    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecitng an **Elevate to alert** option.  
+    You can test and adjust queries without any conflicts to current rules that are being actively applied to events. After you confirm these new queries work as expected, it's easy to promote them to custom alert rules by selecitng an option to elevate the session to an alert.  
 
-- Get notified when threats occur
+- **Get notified when threats occur**
     
     You can compare threat data feeds to aggregated log data and be notified when a match occurs. Threat data feeds are ongoing streams of data that are related to potential or current threats, so the notification might indicate a potential threat to your organization. Create a Live Stream session instead of a custom alert rule when you want to be notified of a potential issue without the overheads of maintaining a custom alert rule.
 
-- Launch investigations
+- **Launch investigations**
     
     If there is an active investigation in the organization involving an asset such as a host or user, you can view specific (or any) activity in the log data as it occurs on that asset. You can be notified when that activity occurs.
 
@@ -70,7 +70,7 @@ You can create a Live Stream session from an existing hunting query, or create y
     > [!div class="mx-imgBorder"]
     > ![create Live Stream session from Azure Sentinel hunting query](./media/live-stream/live-stream-tab.png)
 
-3. If you make any changes to the query, select **Play** from the command bar. To save your changes, select **Save**.
+3. To make changes, first select **Pause** from the command. Then   make your changes to the query, and select **Play**. To save your changes, select **Save**.
 
 ## Receive notifications when new events occur
 
