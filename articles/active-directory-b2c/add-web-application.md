@@ -17,7 +17,9 @@ ms.subservice: B2C
 
  Register web API resources in your tenant so that they can accept and respond to requests by client applications that present an access token. This article shows you how to register a web API in Azure Active Directory B2C (Azure AD B2C).
 
-#### [Applications](#tab/portal/)
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+
+#### [Applications](#tab/applications/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose the directory that contains your tenant.
@@ -30,12 +32,12 @@ ms.subservice: B2C
 9. Click **Create**.
 10. On the properties page, record the application ID that you'll use when you configure the web application.
 
-#### [App registrations (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/app-reg-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **Applications (Preview)**, and then select **New registration**.
+1. Select **App registrations (Preview)**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *webapi1*.
 1. Under **Redirect URI**, select **Web**, and then enter an endpoint where Azure AD B2C should return any tokens that your application requests. In a production application, you might set the redirect URI an endpoint like `https://localhost:5000`. During development or testing, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). You can add and modify redirect URIs in your registered applications at any time.
 1. Select **Register**.

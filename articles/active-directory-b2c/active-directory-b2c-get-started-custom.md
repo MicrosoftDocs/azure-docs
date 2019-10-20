@@ -69,7 +69,9 @@ You need to register these two applications in your Azure AD B2C tenant only onc
 
 ### Register the IdentityExperienceFramework application
 
-#### [Applications](#tab/portal/)
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+
+#### [Applications](#tab/applications/)
 
 1. Select **All services** in the top-left corner of the Azure portal.
 1. In the search box, enter `Azure Active Directory`.
@@ -81,9 +83,9 @@ You need to register these two applications in your Azure AD B2C tenant only onc
 1. For **Sign-on URL**, enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name. All URLs should now be using [b2clogin.com](b2clogin.md).
 1. Select **Create**. After it's created, copy the application ID and save it to use later.
 
-#### [App registrations (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/app-reg-preview/)
 
-1. Select **Applications (Preview)**, and then select **New registration**.
+1. Select **App registrations (Preview)**, and then select **New registration**.
 1. For **Name**, enter `IdentityExperienceFramework`.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, where `your-tenant-name` is your Azure AD B2C tenant domain name.
@@ -105,7 +107,7 @@ Next, expose the API by adding a scope:
 
 ### Register the ProxyIdentityExperienceFramework application
 
-#### [Applications](#tab/portal/)
+#### [Applications](#tab/applications/)
 
 1. In **App registrations (Legacy)**, select **New application registration**.
 1. For **Name**, enter `ProxyIdentityExperienceFramework`.
@@ -117,9 +119,9 @@ Next, expose the API by adding a scope:
 1. Select the check box next to **Access IdentityExperienceFramework**, click **Select**, and then click **Done**.
 1. Select **Grant permissions**, and then confirm by selecting **Yes**.
 
-#### [App registrations (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/app-reg-preview/)
 
-1. Select **Applications (Preview)**, and then select **New registration**.
+1. Select **App registrations (Preview)**, and then select **New registration**.
 1. For **Name**, enter `ProxyIdentityExperienceFramework`.
 1. Under **Supported account types**, select **Accounts in this organizational directory only**.
 1. Under **Redirect URI**, use the drop-down to select **Public client/native (mobile & desktop)**.

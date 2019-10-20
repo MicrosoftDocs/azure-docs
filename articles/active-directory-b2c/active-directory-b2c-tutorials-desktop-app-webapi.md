@@ -47,7 +47,7 @@ To call a protected web API from a native client application, you need to grant 
 
 In the prerequisite tutorial, you registered a native client application named *nativeapp1*. The following steps configure that native application registration with the API scopes you exposed for *webapi1* in the previous section. This allows the desktop application to obtain an access token from Azure AD B2C that the web API can use to verify and provide scoped access to its resources. You configure and run both the desktop application and web API code samples later in the tutorial.
 
-#### [Applications](#tab/portal/)
+#### [Applications](#tab/applications/)
 
 1. Select **Applications**, and then select *nativeapp1*.
 1. Select **API access**, and then select **Add**.
@@ -55,9 +55,9 @@ In the prerequisite tutorial, you registered a native client application named *
 1. In the **Select Scopes** dropdown, select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.
 1. Select **OK**.
 
-#### [App registrations (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/app-reg-preview/)
 
-1. Select **Applications (Preview)**, and then select the native client application that should have access to the API. For example, *nativeapp1*.
+1. Select **App registrations (Preview)**, and then select the native client application that should have access to the API. For example, *nativeapp1*.
 1. Under **Manage**, select **API permissions**.
 1. Under **Configured permissions**, select **Add a permission**.
 1. Select the **My APIs** tab.

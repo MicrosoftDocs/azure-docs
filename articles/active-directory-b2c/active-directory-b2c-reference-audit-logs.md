@@ -97,7 +97,7 @@ Follow these steps register an application, grant it the required Microsoft Grap
 
 ### Assign API access permissions
 
-#### [Applications](#tab/portal/)
+#### [Applications](#tab/applications/)
 
 1. On the **Registered app** overview page, select **Settings**.
 1. Under **API ACCESS**, select **Required permissions**.
@@ -107,7 +107,7 @@ Follow these steps register an application, grant it the required Microsoft Grap
 1. Select the **Select** button, and then select **Done**.
 1. Select **Grant permissions**, and then select **Yes**.
 
-#### [App registrations (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/app-reg-preview/)
 
 1. Under **Manage**, select **API permissions**.
 1. Under **Configured permissions**, select **Add a permission**.
