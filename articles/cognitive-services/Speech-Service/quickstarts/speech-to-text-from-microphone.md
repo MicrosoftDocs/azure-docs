@@ -18,13 +18,13 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/csharp/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/csharp/stt-mic-csharp.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/csharp/csharp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/cpp/header.md)]
-[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/cpp/stt-mic-cpp.md)]
+[!INCLUDE [C# quickstart](../includes/quickstarts/from-microphone/cpp/cpp.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

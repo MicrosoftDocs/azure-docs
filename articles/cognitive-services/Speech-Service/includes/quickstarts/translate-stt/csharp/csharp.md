@@ -16,11 +16,11 @@ ms.author: erhopf
 
 #### [.Net](#tab/dotnet)
 [!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./dotnet.md)]
+[!INCLUDE [dotnet](./dotnet.md)]
 #### [.Net Core](#tab/dotnetcore)
 [!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./dotnetcore.md)]
+[!INCLUDE [dotnetcore](./dotnetcore.md)]
 #### [UWP](#tab/uwp)
 [!INCLUDE [Header](../header.md)]
-[!INCLUDE [vs](./uwp.md)]
+[!INCLUDE [uwp](./uwp.md)]
 * * *
