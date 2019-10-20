@@ -5,7 +5,6 @@ description: Understand the TSV format for batch testing
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
@@ -53,4 +52,4 @@ Use the following information to understand and implement the TSV format for bat
 |Score|Prediction score for answer. |
 |Metadata tags|associated with returned answer|
 |Expected answer ID|optional (only when expected answer ID is given)|
-|Judgement label|optional, values could be: correct or incorrect (only when expected answer is given)|
+|Judgment label|optional, values could be: correct or incorrect (only when expected answer is given)|
