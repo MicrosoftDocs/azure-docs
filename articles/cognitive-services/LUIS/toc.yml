@@ -37,7 +37,7 @@
     - name: Get intent
       href: luis-get-started-get-intent-from-rest.md
     - name: Change model
-      href: luis-get-started-get-model-from-rest.md
+      href: get-started-get-model-rest-apis.md
 - name: Tutorials
   items:
   - name: Build app
