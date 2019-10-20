@@ -36,7 +36,7 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/header.md)]
 [!INCLUDE [Header](../includes/quickstarts/from-microphone/python/header.md)]
-[!INCLUDE [python](../includes/quickstarts/from-microphone/python/stt-mic-python.md)]
+[!INCLUDE [python](../includes/quickstarts/from-microphone/python/python.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"
