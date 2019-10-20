@@ -13,9 +13,14 @@ ms.date: 10/11/2019
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
 
-To access resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. Learn more about [Azure services that support managed identities for Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), such as Azure Resource Manager.
+To access the resources in other Azure Active Directory (Azure AD) tenants and authenticate your identity without signing in, your logic app can use the system-assigned [managed identity](../active-directory/managed-identities-azure-resources/overview.md) (formerly known as Managed Service Identity or MSI), rather than credentials or secrets. Azure manages this identity for you and helps secure your credentials because you don't have to provide or rotate secrets. This article shows how to set up and use the system-assigned managed identity in your logic app.
 
-Your logic app can use managed identities only in [triggers and actions that support managed identities](logic-apps-securing-a-logic-app.md#managed-identity-authentication). This article shows how to set up and use the system-assigned managed identity for your logic app. For limits on managed identities in logic apps, see [Managed identity limits](../logic-apps/logic-apps-limits-and-config.md#managed-identity). For more information about the authentication types where available in triggers and actions, see [Add authentication to outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound).
+For more information, see these topics:
+
+* [Triggers and actions that support managed identities](../logic-apps/logic-apps-securing-a-logic-app.md#managed-identity-authentication)
+* [Azure services that support Azure AD authentication with managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication), such as Azure Resource Manager and Azure Storage
+* [Supported authentication types on outbound calls](logic-apps-securing-a-logic-app.md#add-authentication-outbound)
+* [Managed identity limits for logic apps](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 
 ## Prerequisites
 
