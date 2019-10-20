@@ -97,6 +97,8 @@
       href: notebooks.md
     - name: Use bookmarks to hunt
       href: bookmarks.md
+    - name: Use Live Stream to hunt
+      href: live-stream.md
   - name: Remove Azure Sentinel
     href: offboard.md
 - name: Resources
