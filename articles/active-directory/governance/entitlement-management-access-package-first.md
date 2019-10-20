@@ -67,10 +67,10 @@ A resource directory has one or more resources to share. In this step, you creat
 
 1. Create or configure the following two users. You can use these names or different names. **Admin1** can be the user you are currently signed in as.
 
-    | Name | Directory role | Description |
-    | --- | --- | --- |
-    | **Admin1** | Global administrator<br/>-or-<br/>Limited administrator (User administrator) | Administrator |
-    | **Requestor1** | User | Internal requestor |
+    | Name | Directory role |
+    | --- | --- |
+    | **Admin1** | Global administrator<br/>-or-<br/>User administrator |
+    | **Requestor1** | User |
 
 1. Create an Azure AD security group named **Marketing resources** with a membership type of **Assigned**.
 
