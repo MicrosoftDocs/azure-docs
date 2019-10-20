@@ -29,16 +29,9 @@ This article provides a quick view into the network connectivity in Azure Virtua
 
 There are two types of virtual WANs: Basic and Standard. The following table shows the available configurations for each type.
 
-| **Virtual WAN type** | **Hub type** | **Available configurations** |
-|---|---|---|
-|Basic | Basic | Site-to-site VPN only |
-| Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through the virtual hub |
+[!INCLUDE [Basic and Standard SKUs](../../includes/virtual-wan-standard-basic-include.md)]
 
-To change a Basic hub to a Standard hub in the portal, navigate to **WAN -> Configuration** and edit the WAN settings.
-
->[!NOTE]
->You can change a Basic hub to Standard, but cannot revert a Standard hub back to Basic.
->
+For the steps to upgrade a virtual WAN, see [Upgrade a virtual WAN from Basic to Standard](upgrade-virtual-wan-to-standard.md).
 
 ## <a name="resources"></a>Virtual WAN resources
 
