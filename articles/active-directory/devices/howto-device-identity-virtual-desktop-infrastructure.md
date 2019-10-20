@@ -83,6 +83,7 @@ When deploying non-persistent VDI, IT administrators should pay close attention 
    - For Windows down-level devices – autoworkplace.exe /leave
 - Define and implement process for [managing stale devices](manage-stale-devices.md).
    - Once you have a strategy to identify your non-persistent Hybrid Azure AD joined devices, you can be more aggressive on the clean-up of these devices to ensure your directory does not get consumed with lots of stale devices.
+   - You can automate cleaning Azure AD stale devices using [Azure AD Device Cleanup](https://gallery.technet.microsoft.com/Azure-AD-Device-Cleanup-5aacdec8) script.
  
 ## Next steps
 
