@@ -2,13 +2,13 @@
 title: Designing tables - SQL Analytics | Microsoft Docs
 description: Introduction to designing tables in SQL Analytics. 
 services: sql-data-warehouse
-author: fipopovi
+author: filippopovic
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: development
 ms.date: 10/20/2019
-ms.author: fipopovi
+ms.author: filippopovic
 ms.reviewer: jrasnick
 ---
 
