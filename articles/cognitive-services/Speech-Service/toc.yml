@@ -77,7 +77,7 @@
   - name: Quickstarts
     items:
     - name: Synthesize speech to a file
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/text-to-speech-audio-file.md
     - name: Synthesize speech to an audio output device
       href: quickstarts/text-to-speech.md
   - name: How-to guides
