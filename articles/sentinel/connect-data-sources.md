@@ -68,7 +68,7 @@ The following data connection methods are supported by Azure Sentinel:
         - [Other CEF appliances](connect-common-event-format.md)
         - [Other Syslog appliances](connect-syslog.md)
         - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
-        - [Citrix Analytics (Security)](connect-analytics.md)
+        - [Citrix Analytics (Security)](connect-citrix-analytics.md)
         - [ExtraHop Reveal(x)](connect-extrahop.md)
         - [One Identity Safeguard](connect-one-identity.md)
     - DLP solutions
