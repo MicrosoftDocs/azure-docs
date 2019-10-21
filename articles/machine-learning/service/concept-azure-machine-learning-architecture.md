@@ -81,7 +81,7 @@ An activity represents a long running operation. The following operations are ex
 
 Activities can provide notifications through the SDK or the web UI so that you can easily monitor the progress of these operations.
 
-### Notebook VM
+### <a name="compute-instance"></a>Notebook VM
 
 An **Azure Machine Learning Notebook VM** is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Notebook VMs can be used as a compute target for smaller training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
