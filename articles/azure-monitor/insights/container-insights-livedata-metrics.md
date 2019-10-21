@@ -57,7 +57,7 @@ These two performance charts map to an equivalent of invoking `kubectl top nodes
 
 ![Kubectl top nodes example results](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 
-![Nodes memory and CPU utilization percent charts](./media/container-insights-livedata-metrics/cluster-view-node-cpu-memory-util.png)
+![Nodes CPU utilization percent chart](./media/container-insights-livedata-metrics/cluster-view-node-cpu-util.png)
 
 The percentile calculations will function in larger clusters to help identify outlier nodes in your cluster. For example, to understand if there are nodes being under utilized for scale down purposes. Utilizing the **Min** aggregation you can see if there are nodes with extremely low utilization in the cluster. For further investigation, you would select the **Nodes** tab and sort the grid by CPU or memory utilization.
 
