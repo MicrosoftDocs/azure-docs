@@ -190,7 +190,7 @@ To add tiles to display environmental data from the RuuviTag sensors:
 
     ![Azure IoT Central all RuuviTag tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/all-ruuvitag-tiles.png)
 
-1. Optionally, remove both the **People traffic** and **Wait list** tiles, and add them back to the dashboard. These tiles are based on the simulated **Occupany Sensor v2**. Reuse all existing settings on each tile, except show data for only two checkout zones rather than three. 
+1. Optionally, remove both the **People traffic** and **Wait list** tiles, and add them back to the dashboard. These tiles are based on the simulated **Occupancy Sensor v2**. Reuse all existing settings on each tile, except show data for only two checkout zones rather than three. 
 
     ![Azure IoT Central occupancy tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/occupancy-tiles.png)
 
@@ -235,4 +235,4 @@ In this tutorial, you learned how to:
 Now that you've customized the dashboard in your Azure IoT Central in-store analytics application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Export data and visualize insights](./tutorial-in-store-analytics-export-data-visualize-insights-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)****
+> [Export data and visualize insights](./tutorial-in-store-analytics-export-data-visualize-insights-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
