@@ -17,33 +17,32 @@ In-store analytics solutions allow you to monitor various conditions within the 
 
 ![Azure IoT Central Store Analytics](./media/architecture/Store-Analytics-Architecture-Frame.png)
 
-1. Set of IoT sensors sending telemetry data to a gateway device
-1. Gateway devices sending telemetry and aggregated insights to IoT Central
-1. Continuous data export to the desired Azure service for manipulation
-1. Data can be structured in the desired format and sent to a storage service
-1. Business applications can query data and power retail operations
+- Set of IoT sensors sending telemetry data to a gateway device
+- Gateway devices sending telemetry and aggregated insights to IoT Central
+- Continuous data export to the desired Azure service for manipulation
+- Data can be structured in the desired format and sent to a storage service
+- Business applications can query data and power retail operations
+ 
+Let's take a look at key components that generally play a part in an in-store analytics solution.
 
-## Details 
-In this section, we will highlight key components that generally play a part in an in-store analytics solution.
-
-### Condition monitoring sensors
+## Condition monitoring sensors
 
 An IoT solution starts with a set of sensors capturing meaningful signals from within a retail store environment. It is reflected by a variety of sensors on the far left of the architecture diagram above.
 
-### Gateway devices
+## Gateway devices
 
 Many IoT sensors can feed raw signals directly to the cloud or to a gateway device located near them. The gateway device performs data aggregation at the edge before sending summary insights to an IoT Central application. The gateway devices are also responsible for relaying command and control operations to the sensor devices when applicable. 
 
-### IoT Central application
+## IoT Central application
 
 The Azure IoT Central application ingests data from a variety of IoT sensors as well gateway devices within the retail store environment and generates a set of meaningful insights.
 
 Azure IoT Central also provides a tailored experience to the store operator enabling them to remotely monitor and manage the infrastructure devices.
 
-### Data transform
+## Data transform
 The Azure IoT Central application within a solution can be configured to export raw or aggregated insights to a set of Azure PaaS (Platform-as-a Service) services that can perform data manipulation and enrich these insights before landing them in a business application. 
 
-### Business application
+## Business application
 The IoT data can be used to power a variety of business applications deployed within a retail environment. A retail store manager or staff member can utilize these applications to visualize business insights and take meaningful actions in real time. To learn how to build a real-time Power BI dashboard for your retail team, please follow the [tutorial](tutorial-condition-monitor-export-data-visualize-insights-pnp.md).
 
 ## Next steps
