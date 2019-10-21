@@ -342,22 +342,22 @@
       href: speech-sdk.md
     - name: Scenario availability
       href: scenario-availability.md
+  - name: Quickstarts
+    items:
+    - name: Setup Speech SDK with C#
+      href: quickstarts/setup-platform.md?pivots=programming-language-csharp
+    - name: Setup Speech SDK with C++
+      href: quickstarts/setup-platform.md?pivots=programming-language-cpp
+    - name: Setup Speech SDK with Java
+      href: quickstarts/setup-platform.md?pivots=programming-language-java
+    - name: Setup Speech SDK with Python
+      href: quickstarts/setup-platform.md?pivots=programming-language-python
+    - name: Setup Speech SDK with Other Platforms
+      href: quickstarts/setup-platform.md?pivots=programming-language-more
   - name: How-to guides
     items:
     - name: Enable logging
       href: how-to-use-logging.md
-    - name: Setup Speech SDK
-      items:
-      - name: Setup Speech SDK with C#
-        href: quickstarts/setup-platform.md?pivots=programming-language-csharp
-      - name: Setup Speech SDK with C++
-        href: quickstarts/setup-platform.md?pivots=programming-language-cpp
-      - name: Setup Speech SDK with Java
-        href: quickstarts/setup-platform.md?pivots=programming-language-java
-      - name: Setup Speech SDK with Python
-        href: quickstarts/setup-platform.md?pivots=programming-language-python
-      - name: Setup Speech SDK with Other Platforms
-        href: quickstarts/setup-platform.md?pivots=programming-language-more
   - name: Samples
     items:
     - name: Speech SDK Samples (GitHub)
