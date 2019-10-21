@@ -75,7 +75,7 @@ With variable pricing, you have option to set a max price, in USD, using up to 5
 
 **Q:** How is quota managed for spot VMs?
 
-**A:** spot VMs and regular VMs will have separate quota pools. 
+**A:** Spot VMs and regular VMs will have separate quota pools. 
 
 > [!IMPORTANT]
 > For the early part of the public preview, regular VMs and spot VMs will share quota.
