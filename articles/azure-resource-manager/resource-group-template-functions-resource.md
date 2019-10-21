@@ -45,17 +45,21 @@ Continue adding resource names as parameters when the resource type includes mor
 
 ### Return value
 
-The identifier is returned in the following format:
+When the extension resource is applied to a resource, the resource ID is returned in the following format:
 
-`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
 
-If the extension resource is applied to a resource group, the format is:
+When the extension resource is applied to a resource group, the format is:
 
-`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
 
 ### Remarks
 
-An extension resource is a resource that extends another resource's capabilities. For example, you apply a resource lock to a another resource to prevent it from being deleted or modified. Or, you apply an Event Grid subscription to another resource to send events from that resource to an endpoint.
+An extension resource is a resource that extends another resource's capabilities. For example, you apply a resource lock to a another resource to prevent it from being deleted or modified. Or, you apply an Event Grid subscription to another resource to send events from that resource to an endpoint. For a list of extension types, see [Resource types that extend capabilities of other resources](extension-resource-types.md).
 
 The resource ID for extension resource types includes the resource being extended.
 
@@ -701,8 +705,9 @@ Continue adding resource names as parameters when the resource type includes mor
 
 The identifier is returned in the following format:
 
-**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
-
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
 
 ### Remarks
 
@@ -732,7 +737,7 @@ To get the resource ID for a resource in a different subscription and resource g
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-To get the resource ID of a resource deployed to the subscription, use [subscriptionResourceId](#subscriptionresourceid). For tenant level, use [tenantResourceId](#tenantResourceId). To get the resource ID for an extension resource, use [extensionResourceId](#extensionResourceId). Extension resources are applied to another resource type, like a resource lock or an event subscription.
+To get the resource ID of a resource deployed to the subscription, use [subscriptionResourceId](#subscriptionresourceid). For tenant level, use [tenantResourceId](#tenantresourceid). To get the resource ID for an extension resource, use [extensionResourceId](#extensionresourceid). Extension resources are applied to another resource type, like a resource lock or an event subscription.
 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The following example shows how a resource from an external resource group can easily be used:
 
@@ -879,7 +884,9 @@ Continue adding resource names as parameters when the resource type includes mor
 
 The identifier is returned in the following format:
 
-**/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+```json
+/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
 
 ### Remarks
 
