@@ -44,7 +44,7 @@ Some of the questions Network Watcher can answer are:
 * How can I troubleshoot connectivity issues between two points in a network (i.e. VMs)?
 * How can I troubleshoot connectivity issues between a Web application and various locations on the network? 
 * How can I compare my current network topology and performance to my historical topology?
-* How can I trouble shoot my existing cloud topologies (involving VMs, VNETs, VPNs, and VWANs)? 
+* How can I troubleshoot my existing cloud topologies (involving VMs, VNETs, VPNs, and VWANs)? 
 
 
 ## Next steps
