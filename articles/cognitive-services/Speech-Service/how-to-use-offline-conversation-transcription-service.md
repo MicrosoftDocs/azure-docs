@@ -92,7 +92,7 @@ You will need **remoteconversation-client-sdk version 1.0.0** to use the code in
 
 - Save the changes.
 
-Refer to the code below. Once you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. Note that **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has successfully finished, you can get the status of **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the result as shown.
+After you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. Note that **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has successfully finished, you can get the status of **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the result as shown.
 
 ```java
 // Create the speech config object
