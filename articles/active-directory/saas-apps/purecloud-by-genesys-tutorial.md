@@ -1,11 +1,12 @@
 ---
-title: Tutorial: Azure Active Directory single sign-on (SSO) integration with PureCloud by Genesys | Microsoft Docs
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with PureCloud by Genesys | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PureCloud by Genesys.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
+
 ms.assetid: e16a46db-5de2-4681-b7e0-94c670e3e54e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -16,6 +17,7 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
+
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with PureCloud by Genesys
@@ -205,7 +207,7 @@ To enable Azure AD users to sign in to PureCloud by Genesys, they must be provis
 
 	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure05.png)
 
-	a. In **Full Name** box, enter the name of a user. For example: **B.simon**.
+	a. In the **Full Name** box, enter the name of a user. For example: **B.simon**.
 
 	b. In the **Email** box, enter the email of the user. For example: **b.simon\@contoso.com**.
 
