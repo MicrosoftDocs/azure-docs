@@ -1,10 +1,10 @@
 ﻿---
 title: 'Azure Time Series Insights Preview data querying | Microsoft Docs'
 description: Azure Time Series Insights Preview data querying.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual

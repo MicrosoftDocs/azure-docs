@@ -1,10 +1,10 @@
 ﻿---
 title: 'Diagnose and troubleshoot the Azure Time Series Insights Preview | Microsoft Docs'
 description: Understand how to diagnose and troubleshoot with the Azure Time Series Insights Preview.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
