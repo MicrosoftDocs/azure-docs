@@ -278,7 +278,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ## Unregister VM from resource provider 
 
-To unregister your SQL Server VM with the SQL VM resource provider, delete the SQL Virtual Machine *resource* using the Azure portal or Azure CLI. Deleting the SQL Virtual Machine *resource* does not delete the SQL Server VM. However, use caution and follow the steps carefully because it is possible to inadvertantly delete the virtual machine when attempting to remove the *resource*. 
+To unregister your SQL Server VM with the SQL VM resource provider, delete the SQL Virtual Machine *resource* using the Azure portal or Azure CLI. Deleting the SQL Virtual Machine *resource* does not delete the SQL Server VM. However, use caution and follow the steps carefully because it is possible to inadvertently delete the virtual machine when attempting to remove the *resource*. 
 
 Unregistering the SQL VM with the SQL VM resource provider is necessary to downgrade the management mode from full. 
 
