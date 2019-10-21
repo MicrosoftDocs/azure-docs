@@ -63,7 +63,7 @@ To change the partitioning on any transformation, select the **Optimize** tab an
 
 A best practice is to start with default partitioning and then try different partitioning options. You can test by using pipeline debug runs, and view execution time and partition usage in each transformation grouping from the monitoring view. For more information, see [Monitoring data flows](concepts-data-flow-monitoring.md).
 
-Below are the available partitioning options.
+The following partitioning options are available.
 
 ##### Round robin 
 
