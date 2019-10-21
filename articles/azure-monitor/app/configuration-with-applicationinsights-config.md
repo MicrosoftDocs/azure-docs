@@ -1,21 +1,16 @@
 ---
 title: ApplicationInsights.config reference - Azure | Microsoft Docs
 description: Enable or disable data collection modules, and add performance counters and other parameters.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-
-ms.assetid: 6e397752-c086-46e9-8648-a1196e8078c2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.reviewer: olegan
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 05/22/2019
 
+ms.reviewer: olegan
 ---
+
 # Configuring the Application Insights SDK with ApplicationInsights.config or .xml
 The Application Insights .NET SDK consists of a number of NuGet packages. The
 [core package](https://www.nuget.org/packages/Microsoft.ApplicationInsights) provides the API for sending telemetry to
