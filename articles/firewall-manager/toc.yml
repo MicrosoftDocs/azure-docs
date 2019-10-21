@@ -14,6 +14,8 @@
   items:
   - name: What is a secured virtual hub?
     href: secured-virtual-hub.md
+  - name: General deployment process
+    href: deployment-overview.md
 - name: How-to guides
 - name: Reference
   items:

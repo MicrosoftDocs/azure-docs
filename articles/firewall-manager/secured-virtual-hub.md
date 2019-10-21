@@ -11,6 +11,8 @@ ms.author: victorh
 
 # What is a secured virtual hub?
 
+[!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
+
 A virtual hub is a Microsoft-managed virtual network that enables connectivity from other resources. When a virtual hub is created from a Virtual WAN in the Azure portal, a virtual hub VNet and gateways (optional) are created as its components.
 
 A *secured* virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan-about.md#resources) with associated security and routing policies configured by Azure Firewall Manager. Use secured virtual hubs to easily create hub-and-spoke and transitive architectures with native security services for traffic governance and protection. 
