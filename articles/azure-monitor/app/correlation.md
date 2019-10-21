@@ -1,18 +1,16 @@
 ---
 title: Azure Application Insights telemetry correlation | Microsoft Docs
 description: Application Insights telemetry correlation
-services: application-insights
-documentationcenter: .net
-author: lgayhardt
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 06/07/2019
-ms.reviewer: sergkanz
+author: lgayhardt
 ms.author: lagayhar
+ms.date: 06/07/2019
+
+ms.reviewer: sergkanz
 ---
+
 # Telemetry correlation in Application Insights
 
 In the world of microservices, every logical operation requires work to be done in various components of the service. Each of these components can be monitored separately by [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). The web-app component communicates with the authentication provider component to validate user credentials, and with the API component to get data for visualization. The API component can query data from other services and use cache-provider components to notify the billing component about this call. Application Insights supports distributed telemetry correlation, which you use to detect which component is responsible for failures or performance degradation.
