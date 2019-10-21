@@ -10,6 +10,7 @@ ms.author: emalani
 ---
 
 # Add Authentication and manage user identities in your mobile apps
+
 Having a view of the user and their behavior across your application empowers developers to better engage users by creating tailored experiences for them. Whether you are an application developer building a collaboration application for users inside your organization or are creating the next social network platform, you will need a way to authenticate users and manage user identities. Using an identity management service is one of the most important features of a mobile backend service.
 
 Use the following services to enable user authentication in your mobile apps.

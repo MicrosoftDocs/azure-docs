@@ -21,9 +21,9 @@ The more you look down into the data, the more you could find ways to improve yo
 - **Learn** which parts of your application drives value and performance.
 - **Data-driven insights** into issues concerning churn and retention.
 
-## Services
+Use the following services to enable mobile application analytics.
 
-### Visual Studio App Center
+## Visual Studio App Center
 [App Center Analytics](/appcenter/analytics/) lets you grow your audience by focusing on what’s important, with deep reporting and insights about user sessions, top devices, OS versions, and behavioral analytics. Easily create custom events to track anything with extensive application analytics.
 
    **Key features**
@@ -35,11 +35,11 @@ The more you look down into the data, the more you could find ways to improve yo
    - **One-line SDK integration** to get started within minutes.
    - **Platform Support** - iOS, Android, macOS, tvOS, Xamarin, React Native, Unity, Cordova.
 
-**References**
+   **References**
    - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
    - [Get started with App Center Analytics](/appcenter/analytics/)
 
-### **Azure Monitor**
+## **Azure Monitor**
 Azure Monitor includes [Application Insights](/azure/azure-monitor/app/app-insights-overview) that provides tools for collecting and analyzing telemetry to maximize performance and monitor your mobile application. You can take advantage of Application Insights by using App Center Analytics and set up export to Application Insights. Application Insights can query, segment, filter, and analyze the custom event telemetry from your applications, beyond the analytics tools App Center provides.
 
 **Key features**
@@ -56,7 +56,7 @@ Azure Monitor includes [Application Insights](/azure/azure-monitor/app/app-insig
 - [Analyze your mobile application with App Center and Application Insights](/azure/azure-monitor/learn/mobile-center-quickstart)
 - [Usage Analytics with Application Insights](/azure/azure-monitor/app/usage-overview)
 
-### Azure PlayFab
+## Azure PlayFab
 [Azure PlayFab](https://playfab.com/) offers a complete backend platform with game services, real-time analytics, and LiveOps that you need to create world class cloud-connected games. These services reduce the barriers to launch for game developers, offering both large and small studios cost-effective development solutions that scale with their games and help them engage, retain and monetize players. PlayFab enables developers to use the intelligent cloud to build and operate games, analyze gaming data and improve overall gaming experiences.
 
 **Key features**

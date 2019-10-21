@@ -28,7 +28,7 @@ Developers can build native single platform client applications with languages l
 ## DevOps and continuous monitoring
 Developers creating mobile and cloud-focused applications can take advantage of continuous integration (CI), continuous delivery (CD), and continuous monitoring services to produce native builds for all platforms run UI automation tests on thousands of physical devices, automate their releases through beta testing channels, or deploy directly to app stores. In addition, they can gather usage analytics, crash, and exception information for their applications.
 
-## Additional Services
+## Additional services
 There are many Azure services that can be consumed depending on the type and nature of application being built.
   - Azure Search for searching all types of internal data, with fast querying.
   - Azure Cognitive Services to use Artificial Intelligence in your application.

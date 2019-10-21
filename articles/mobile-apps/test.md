@@ -15,7 +15,7 @@ Testing can be challenging and increasingly complex due to a variety of reasons 
 
 These challenges can be efficiently tackled by testing mobile applications across a wide range of devices, which can be achieved by **automated testing**. You can leverage cloud service to speed up release of mobile apps and overcome testing challenges that add bottlenecks to the development and deployment of applications.
 
-## Why should you run Automated Tests on multiple devices before releasing your application?
+## Importance of Automated Testing
 - **Increase your test coverage** by targeting different form factors, connectivity types, and OS versions.
 - **Save time, money, and resources** by testing on different device and OS coverage.
 - **Improve Accuracy** by avoiding repetitive manual tests and have more time to create new automated software tests and deal with complex features.

@@ -18,7 +18,7 @@ Microsoft provides a variety of services that eliminates the need to spin up ser
 
 Use the following services to manage and store mobile applciation data in the cloud.
 
-## **Visual Studio App Center**
+## Visual Studio App Center
 [App Center Data](/appcenter/data/) is a data management service that enables applications to manage, persist, and sync application data in the cloud across different devices and platforms in both online and offline scenarios. **Built on top of Cosmos DB** service that scales as your user base and number of applications grows, this service ensures low latency, high availability, and high scalability for all of your data.
 
 **Key features**
