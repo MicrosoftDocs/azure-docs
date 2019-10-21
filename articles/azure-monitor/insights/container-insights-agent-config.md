@@ -127,7 +127,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     ```
 
     >[!NOTE]
-    >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase. 
+    >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. It must be all uppercase. 
 
 6. To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
 
@@ -206,7 +206,7 @@ The output will show similar to the following with the annotation schema-version
 
 ## Query Prometheus metrics data
 
-To view prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-search.md#query-prometheus-metric-data) and [Query config or scraping errors](container-insights-log-search.md#query-config-or-scraping-errors).
+To view prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-search.md#query-prometheus-metrics-data) and [Query config or scraping errors](container-insights-log-search.md#query-config-or-scraping-errors).
 
 
 ## Next steps

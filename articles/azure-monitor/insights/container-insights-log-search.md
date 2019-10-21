@@ -124,7 +124,7 @@ InsightsMetrics
 ```
 The output will show results similar to the following:
 
-![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-usage-03.png)
+![Log query results of data ingestion volume](./media/container-insights-log-search/log-query-example-usage-03.png)
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
@@ -139,7 +139,7 @@ InsightsMetrics
 
 The output will show results similar to the following:
 
-![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-usage-02.png)
+![Log query results of data ingestion volume](./media/container-insights-log-search/log-query-example-usage-02.png)
 
 Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md).
 
@@ -153,7 +153,7 @@ KubeMonAgentEvents | where Level != "Info"
 
 The output will show results similar to the following:
 
-![Log query results of informational events from agent](./media/container-insights-agent-config/log-query-example-kubeagent-events.png)
+![Log query results of informational events from agent](./media/container-insights-log-search/log-query-example-kubeagent-events.png)
 
 ## Next steps
 
