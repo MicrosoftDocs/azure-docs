@@ -61,9 +61,9 @@
         href: releasenotes.md
     - name: REST APIs
       items:
-      - name: Speech-to-text (REST)
+      - name: Speech-to-text REST API
         href: rest-speech-to-text.md
-      - name: Batch transcription & customization (REST)
+      - name: Batch transcription REST APIs
         href: https://westus.cris.ai/swagger/ui/index
 - name: Text-to-speech
   exanded: false
@@ -141,7 +141,7 @@
         href: releasenotes.md
     - name: LUIS Service
       items:
-      - name: Overview
+      - name: LUIS Developer Resources for LUIS
         href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
 - name: Speech translation
   exanded: false
@@ -207,7 +207,7 @@
         href: releasenotes.md
     - name: REST APIs
       items:
-      - name: Conversation transcription (REST)
+      - name: Conversation transcription REST APIs
         href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
 - name: Conversational agents
   exanded: false
@@ -311,6 +311,12 @@
         href: speech-container-howto-on-premises.md
       - name: Azure container instances
         href: deploy-speech-on-container-instances.md
+  - name: Samples
+    items:
+    - name: Text-to-speech REST samples
+      href: https://github.com/Azure-Samples/Cognitive-Speech-TTS
+    - name: Batch transcription REST samples
+      href: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch
   - name: Reference
     items:
     - name: REST APIs
@@ -353,7 +359,11 @@
       - name: Setup Speech SDK with Other Platforms
         href: quickstarts/setup-platform.md?pivots=programming-language-more
   - name: Samples
-    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+    items:
+    - name: Speech SDK Samples (GitHub)
+      href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+    - name: Speech Device SDK Samples (GitHub)
+      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
   - name: Reference
     items:
     - name: C++ API Reference
