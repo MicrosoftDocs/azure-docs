@@ -406,7 +406,7 @@ return topologyBuilder;
 You are now ready to submit the topology to your HDInsight cluster.
 
 > [!NOTE]
-> To submit and access Storm topologies in your HDInsight cluster from Visual Studio, you need to have at least co-administrator access to your subscription. For information, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
+> To submit and access Storm topologies in your HDInsight cluster from Visual Studio, you need to have at least co-administrator access to your subscription. To change administrators for a subscription, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
 
 1. In **Solution Explorer**, right-click the project, and select **Submit to Storm on HDInsight**.
 
