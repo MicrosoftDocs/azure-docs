@@ -144,7 +144,7 @@ After you create the application, build it to produce the */bin/Debug/reducer.ex
 Next, you need to upload the *mapper* and *reducer* apps to HDInsight storage.
 
 > [!NOTE]
-> To upload to storage on your HDInsight cluster from Visual Studio, you need to have at least co-administrator access to your subscription. To change administrators for a subscription, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
+> To upload to storage on your HDInsight cluster from Visual Studio, you need to have at least co-administrator access to your Azure subscription. To change administrators for a subscription, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
 
 1. In Visual Studio, open **Server Explorer**.
 

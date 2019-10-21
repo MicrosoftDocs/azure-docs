@@ -19,6 +19,8 @@ Learn how to use the Data Lake tools for Visual Studio to query Apache Hive. The
 
 * An Apache Hadoop cluster on HDInsight. For information about creating this item, see [Create Apache Hadoop cluster in Azure HDInsight using Resource Manager template](./apache-hadoop-linux-tutorial-get-started.md).
 
+* Co-administrator access to your Azure subscription. To change administrators for a subscription, see [Add or change Azure subscription administrators](../../billing/billing-add-change-azure-subscription-administrator.md).
+
 * [Visual Studio](https://visualstudio.microsoft.com/vs/). The steps in this article use Visual Studio 2019.
 
 * HDInsight tools for Visual Studio or Azure Data Lake tools for Visual Studio. For information on installing and configuring the tools, see [Install Data Lake Tools for Visual Studio](apache-hadoop-visual-studio-tools-get-started.md#install-data-lake-tools-for-visual-studio).
@@ -32,7 +34,7 @@ You have two options for creating and running Hive queries:
 
 ### Create an ad-hoc Hive query
 
-Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
+Ad-hoc queries can be executed in either **Batch** or **Interactive** mode.
 
 1. Open **Visual Studio**.
 
@@ -130,8 +132,8 @@ The following example relies on the `log4jLogs` table created in the previous pr
 
     * `CREATE TABLE IF NOT EXISTS`: Creates a table if it doesn't already exist. Because the `EXTERNAL` keyword isn't used, this statement creates an internal table. Internal tables are stored in the Hive data warehouse and are managed by Hive.
     
-    > [!NOTE]  
-    > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
+      > [!NOTE]  
+      > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
 
     * `STORED AS ORC`: Stores the data in optimized row columnar (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
     

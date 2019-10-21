@@ -148,13 +148,13 @@ Next, add the code for the spout, which is used to read data in a topology from 
 
 1. Open *Spout.cs*. The main components for a spout are:
 
-   * **NextTuple**: Called by Storm when the spout is allowed to emit new tuples.
+   * `NextTuple`: Called by Storm when the spout is allowed to emit new tuples.
 
-   * **Ack** (transactional topology only): Handles acknowledgments started by other components in the topology for tuples sent from the spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
+   * `Ack` (transactional topology only): Handles acknowledgments started by other components in the topology for tuples sent from the spout. Acknowledging a tuple lets the spout know that it was processed successfully by downstream components.
 
-   * **Fail** (transactional topology only): Handles tuples that are fail-processing other components in the topology. Implementing a **Fail** method allows you to re-emit the tuple so that it can be processed again.
+   * `Fail` (transactional topology only): Handles tuples that are fail-processing other components in the topology. Implementing a `Fail` method allows you to re-emit the tuple so that it can be processed again.
 
-2. Replace the contents of the **Spout** class with the following text:
+2. Replace the contents of the `Spout` class with the following text:
 
     ```csharp
     private Context ctx;
@@ -229,9 +229,9 @@ Now create two Storm bolts in this example:
      > [!NOTE]  
      > These bolts read and write to streams, but you can also use a bolt to communicate with sources such as a database or service.
 
-3. Open *Splitter.cs*. It has only one method by default: **Execute**. The Execute method is called when the bolt receives a tuple for processing. Here, you can read and process incoming tuples, and emit outbound tuples.
+3. Open *Splitter.cs*. It has only one method by default: `Execute`. The `Execute` method is called when the bolt receives a tuple for processing. Here, you can read and process incoming tuples, and emit outbound tuples.
 
-4. Replace the contents of the **Splitter** class with the following code:
+4. Replace the contents of the `Splitter` class with the following code:
 
     ```csharp
     private Context ctx;
@@ -341,7 +341,7 @@ The spout emits sentences that are distributed to instances of the Splitter bolt
 
 Because the Counter instance holds the word count locally, you want to make sure that specific words flow to the same Counter bolt instance. Each instance keeps track of specific words. Since the Splitter bolt maintains no state, it really doesn't matter which instance of the splitter receives which sentence.
 
-Open *Program.cs*. The important method is **GetTopologyBuilder**, which is used to define the topology that is submitted to Storm. Replace the contents of **GetTopologyBuilder** with the following code to implement the topology described previously:
+Open *Program.cs*. The important method is `GetTopologyBuilder`, which is used to define the topology that is submitted to Storm. Replace the contents of `GetTopologyBuilder` with the following code to implement the topology described previously:
 
 ```csharp
 // Create a new topology named 'WordCount'
@@ -538,7 +538,7 @@ Recent releases of SCP.NET support package upgrade through NuGet. When a new upd
 > If your project was created with an earlier version of SCP.NET that did not use NuGet, you must perform the following steps to update to a newer version:
 >
 > 1. In **Solution Explorer**, right-click the project, and select **Manage NuGet Packages**.
-> 2. Using the **Search** field, search for, and then add, **Microsoft.SCP.Net.SDK** to the project.
+> 2. Using the **Search** field, search for, and then add, `Microsoft.SCP.Net.SDK` to the project.
 
 ## Troubleshoot common issues with topologies
 
@@ -582,7 +582,7 @@ Although it's easy to deploy a topology to a cluster, in some cases, you may nee
     using Microsoft.SCP;
     ```
 
-1. Use the following code as the contents of the **LocalTest** class:
+1. Use the following code as the contents of the `LocalTest` class:
 
     ```csharp
     // Drives the topology components
@@ -661,7 +661,7 @@ Although it's easy to deploy a topology to a cluster, in some cases, you may nee
     }
     ```
 
-    Take a moment to read through the code comments. This code uses **LocalContext** to run the components in the development environment. It persists the data stream between components to text files on the local drive.
+    Take a moment to read through the code comments. This code uses `LocalContext` to run the components in the development environment. It persists the data stream between components to text files on the local drive.
 
 1. Open *Program.cs*, and add the following code to the `Main` method:
 
@@ -686,7 +686,7 @@ Although it's easy to deploy a topology to a cluster, in some cases, you may nee
 
 1. Save the changes, and then select **F5** or choose **Debug** > **Start Debugging** to start the project. A console window should appear, and log status as the tests progress. When **Tests finished** appears, select any key to close the window.
 
-1. Use **Windows Explorer** to locate the directory that contains your project. (For example: *C:\\Users\\\<your_user_name>\\source\\repos\\WordCount\\WordCount*.) Then in this directory, open **Bin**, and then select **Debug**. You should see the text files that were produced when the tests ran: `sentences.txt`, `counter.txt`, and `splitter.txt`. Open each text file and inspect the data.
+1. Use **Windows Explorer** to locate the directory that contains your project. (For example: *C:\\Users\\\<your_user_name>\\source\\repos\\WordCount\\WordCount*.) Then in this directory, open *Bin*, and then select *Debug*. You should see the text files that were produced when the tests ran: *sentences.txt*, *counter.txt*, and *splitter.txt*. Open each text file and inspect the data.
 
    > [!NOTE]  
    > String data persists as an array of decimal values in these files. For example, `[[97,103,111]]` in the **splitter.txt** file represents the word *ago*.
