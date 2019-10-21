@@ -52,7 +52,7 @@ You will need to create a resource Group and an App Service Plan before you depl
 
 ### Sign in to Azure
 
-Navigate to the <a href="https://portal.azure.com/" target="_blank">Azure website</a> and sign in to your Azure subscription.
+Navigate to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and sign in to your Azure subscription.
 
 ### Create a resource group
 
