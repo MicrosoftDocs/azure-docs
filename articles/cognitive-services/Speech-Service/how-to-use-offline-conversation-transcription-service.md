@@ -60,7 +60,7 @@ If you want real-time _plus_ offline, you will need to comment and uncomment the
 speechConfig.setServiceProperty("transcriptionMode", "RealTimeOffline", ServicePropertyChannel.UriQueryParameter);
 ```
 
-The above sample is written with Java, but the APIs used are supported on all the platforms and languages specified in the **Limitations** section of [this topic](how-to-use-conversation-transcription-service.md#limitations).
+This sample is written with Java, but the APIs used are supported on all the platforms and languages specified in the **Limitations** section of [this topic](how-to-use-conversation-transcription-service.md#limitations).
 
 ### Second: get offline transcription results using remoteconversation-client-sdk
 
