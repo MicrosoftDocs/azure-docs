@@ -64,16 +64,16 @@ You must have an Azure Notebooks account to launch notebooks directly from withi
 2. Select the notebook you want to launch, and select **Launch Notebook**. For example: 
     
     > [!div class="mx-imgBorder"]
-    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
+    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch2.png)
 
 ## Clone a notebook
 
-In the following example, we created an Azure Notebooks project from the Azure portal, populating the project with notebooks. Before using these notebooks, it's a good idea to make a copy of the notebook and work on the copy. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
+These instruction use an example that creates an Azure Notebooks project from the Azure portal, populating the project with notebooks. Before you use these notebooks, it's a good idea to make a copy of the notebook and work on the copy. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
 
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks** and then select **Clone Notebooks** from the command bar:
   
     > [!div class="mx-imgBorder"]
-    >![clone notebooks](./media/notebooks/clone-notebooks.png)
+    >![clone notebooks](./media/notebooks/sentinel-azure-clone-notebooks.png)
 
 2. When the following dialog appears, select **Import** to clone the GitHub repo into your Azure Notebooks project. If you don't have an existing Azure Notebooks account, you'll be prompted to create one and sign in.
 
