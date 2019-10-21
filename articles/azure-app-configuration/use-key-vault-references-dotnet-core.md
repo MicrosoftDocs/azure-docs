@@ -24,7 +24,7 @@ In this tutorial, you learn how to use the Azure App Configuration service toget
 
 App Configuration helps you use the services together by creating keys that reference values stored in Key Vault. When App Configuration creates such keys, it stores the URIs of Key Vault values rather than the values themselves.
 
-Your application uses the App Configuration client provider to retrieve the Key Vault values, just as it does for any other keys stored in App Configuration. Because the client provider recognizes the keys as Key Vault references, it uses Key Vault to retrieve their values.
+Your application uses the App Configuration client provider to retrieve values from Key Vault, just as it does for any other keys stored in App Configuration. In this case, the values stored in App Configuration are URIs that reference the values in the Key Vault. They are not Key Vault values or credentials. Because the client provider recognizes the keys as Key Vault references, it uses Key Vault to retrieve their values.
 
 Your application is responsible for authenticating properly to both App Configuration and Key Vault. The two services don't communicate directly.
 
@@ -50,13 +50,13 @@ Before you start this tutorial, install the [.NET Core SDK](https://dotnet.micro
 
     ![Output after key vault creation is complete](./media/quickstarts/search-services.png)
 1. In the search box, enter **Key Vault**.
-1. From the results list, select **Key Vault**.
-1. In the **Key Vault** pane, select **Create**.
-1. In the **Create key vault** pane, provide the following information:
-    - In **Name**, a unique name is required. For this tutorial, enter **Contoso-vault2**.
+1. From the results list, select **Key vaults** on the left.
+1.In **Key vaults**, select **Create**.
+1. On the right in **Create key vault**, provide the following information:
+    - In **Key vault name**, a unique name is required. For this tutorial, enter **Contoso-vault2**.
     - In **Subscription**, choose a subscription.
-    - Under **Resource Group**, select **Create new** and enter a resource group name.
-    - In the **Location** drop-down menu, choose a location.
+    - In **Resource Group**, select **Create new** and enter a resource group name.
+    - In the **Region** drop-down menu, choose a location.
 1. Leave the other **Create key vault** options with their default values.
 1. Select **Create**.
 
@@ -71,7 +71,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 1. From the Key Vault properties pages, select **Secrets**.
 1. Select **Generate/Import**.
 1. In the **Create a secret** pane, enter the following values:
-    - **Upload options**: Enter **manual**.
+    - **Upload options**: Enter **Manual**.
     - **Name**: Enter **Message**.
     - **Value**: Enter **Hello from Key Vault**.
 1. Leave the other **Create a secret** properties with their default values.
@@ -210,7 +210,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 ## Next steps
 
-In this tutorial, you added an Azure-managed service identity to streamline access to App Configuration and to improve credential management for your app. To learn more about how to use App Configuration, continue to the Azure CLI samples.
+In this tutorial, you created an App Configuration key that references a value stored in Key Vault. To learn how to add an Azure-managed service identity that streamlines access to App Configuration and Key Vault, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [CLI samples](./cli-samples.md)
