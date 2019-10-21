@@ -117,7 +117,7 @@ You can use the following steps to investigate possible root causes.
 
 ## Additional information
 
-- [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Troubleshoot Azure Cache for Redis client-side issues](cache-howto-troubleshoot-client.md)
+- [Troubleshoot Azure Cache for Redis server-side issues](cache-howto-troubleshoot-server.md)
 - [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
-- [How can I run Redis commands?](cache-faq.md#how-can-i-run-redis-commands)
 - [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)

@@ -108,5 +108,5 @@ Resolutions for large response sizes are varied but include:
 
 ## Additional information
 
-- [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
+- [Troubleshoot Azure Cache for Redis server-side issues](cache-howto-troubleshoot-server.md)
 - [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
