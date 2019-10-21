@@ -38,6 +38,8 @@ Internet Analyzer is designed to give you networking performance insights based 
 * How does Azure CDN from Microsoft stack up? 
     *  *Suggested Test: Custom (other CDN endpoint) vs. Azure CDN from Microsoft*
 
+Learn more about [Microsoft's Internet Connectivity Monitoring](internet-analyzer-network-watcher.md). 
+
 ## Which tests can I run in preview? 
 
 Each test you create in Internet Analyzer is composed of two endpoints—Endpoint A and Endpoint B. Any of the following combinations can be run as tests:  

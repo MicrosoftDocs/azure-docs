@@ -22,6 +22,8 @@
     href: internet-analyzer-faq.md
   - name: CLI 
     href: internet-analyzer-cli.md   
+  - name: Internet Connectivity Monitoring Overview
+    href: internet-analyzer-network-watcher.md     
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog

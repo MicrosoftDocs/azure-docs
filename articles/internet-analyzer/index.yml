@@ -51,4 +51,6 @@ landingContent:
         links:
           - text: CLI
             url: internet-analyzer-cli.md
+          - text: Internet Connectivity Monitoring Overview
+            url: internet-analyzer-network-watcher.md
 
