@@ -17,55 +17,49 @@ ms.date: 11/04/2019
 > Knowledge store is in preview and should not be used in production. Both the Azure portal and the [Search REST API version 2019-05-06-Preview](search-api-preview.md) provide this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is a feature in Azure Cognitive Search that persists output from an AI enrichment pipeline for later analyses or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them using Azure Cognitive Search, and applies AI enrichments from Cognitive Services (such as image analysis and natural language processing). One of the outputs of AI enrichment is a knowledge store in Azure storage. You can use tools like Power BI or Storage Explorer to explore knowledge store contents, or use the enriched content in a data analysis.
+Knowledge store is a feature in Azure Cognitive Search that persists output from a cognitive skills pipeline for later analyses or other downstream processing. Cognitive skills accept image files and unstructured text files, apply AI processes through Cognitive Services (such as image analysis and natural language processing). One of the outputs create by cognitive skills is a [knowledge store](knowledge-store-concept-intro.md) in Azure storage. You can use tools like Power BI or Storage Explorer to explore knowledge store contents, or use the enriched content in a data analysis.
 
-## Prerequisites
+In this quickstart, you'll combine services and technology in the Azure cloud to create the skillset. Once the services and data are in place, you will run the Import data wizard in the portal to pull it all together. The end result is a knowledge store that you can view from another portal tool ([Storage explorer](knowledge-store-view-storage-explorer.md)).
 
-+ [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-+ [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data and the knowledge store. Your storage account must use the same location (such as US-WEas your Azure Cognitive Search service, and the *Account kind* must be *StorageV2 (general purpose V2)* (default) or *Storage (general purpose V1)*.
+## Create services and load data
 
-## Load the data
+This quickstart uses Azure Cognitive Search, Azure Blob storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. 
 
-Load the hotel reviews CSV file into Azure Blob storage so it can be accessed by an Azure Cognitive Search indexer and fed through the AI enrichment pipeline.
+Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily when invoked from Azure Cognitive Search. As long as you use the sample data we provide, you can skip creating or attaching a Cognitive Services resource.
 
-### Create an Azure Blob container with the data
+1. [Download HotelReviews_Free.csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). This data is hotel review data saved in a CSV file (originates from Kaggle.com) and contains customer feedback about a single hotel. 
 
-1. [Download the hotel review data saved in a CSV file (HotelReviews_Free.csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). This data originates from Kaggle.com and contains customer feedback about hotels.
-1. [Sign in to the Azure portal](https://portal.azure.com), and navigate to your Azure storage account.
-1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) To do this, in the left navigation bar for your storage account, click **Blobs**, and then click **+ Container** on the command bar.
-1. For the new container **Name**, enter `hotel-reviews`.
-1. Select any **Public Access Level**. We used the default.
-1. Click **OK** to create the Azure Blob container.
-1. Open the new `hotels-review` container, click **Upload**, and  select the **HotelReviews-Free.csv** file you downloaded in the first step.
+1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under your current subscription. 
+
+   Choose the same region as Azure Cognitive Search. Choose the StorageV2 (general purpose V2) account type if you want to try out the knowledge store feature later, in a different walkthrough. 
+
+1. Open the Blob services pages and create a container.  
+
+1. Click **Upload**.
 
     ![Upload the data](media/knowledge-store-create-portal/upload-command-bar.png "Upload the hotel reviews")
 
-1. Click **Upload** to import the CSV file into Azure Blob Storage. The new container will appear.
+1. Select the **HotelReviews-Free.csv** file you downloaded in the first step.
 
     ![Create the Azure Blob container](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Create the Azure Blob container")
 
-### Get the Azure Storage account connection string
+1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. Get a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net`
 
-1. On the portal, navigate to your Azure Storage account.
-1. In the left navigation for the service,  click **Access keys**.
-1. Under **key 1**, copy and save the *Connection string*. The string starts with `DefaultEndpointsProtocol=https`. Your storage account name and key are embedded in the string. Keep this string handy. You will need it in future steps.
+1. [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under the same subscription. You can use a free service for this quickstart.
 
-## Create and run AI enrichments
+You are now ready to move on the Import data wizard.
 
-Use the Import Data wizard to create the knowledge store. You will create a data source, choose enrichments, configure a knowledge store and an index, and then execute.
+## Run the Import data wizard
 
-### Start the Import data wizard
+In the search service Overview page, click **Import data** on the command bar to create a knowledge store in four steps.
 
-1. On the Azure portal, [Find your search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices).
+  ![Import data command](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
-1. On the command bar, click **Import data** to start the import wizard.
+### Step 1: Create a data source
 
-### Connect to your data (Import data wizard)
-
-In this wizard step, you will create a data source from the Azure Blob with your hotels data.
-
-1. In the **Data Source** list, select **Azure Blob Storage**.
+1. In **Connect to your data**, choose **Azure Blob storage**, select the account and container you created. 
 1. For the **Name**, enter `hotel-reviews-ds`.
 1. For **Parsing mode**, select **Delimited text**, and then select the **First Line Contains Header** checkbox. Make sure the **Delimiter character** is a comma (,).
 1. Enter your storage service **Connection String** that you saved in a previous step.
@@ -74,9 +68,11 @@ In this wizard step, you will create a data source from the Azure Blob with your
 
       ![Create a data source object](media/knowledge-store-create-portal/hotel-reviews-ds.png "Create a data source object")
 
-## Add AI enrichment (Import data wizard)
+1. Continue to the next page.
 
-In this wizard step, you will create a skillset with cognitive skill enrichments. The skills we use in this sample will extract key phrases and detect the language and sentiment. These enrichments will be "projected" into a knowledge store as Azure tables.
+### Step 2: Add cognitive skills
+
+In this wizard step, you will create a skillset with cognitive skill enrichments. The skills we use in this sample will extract key phrases and detect the language and sentiment. In a later step, these enrichments will be "projected" into a knowledge store as Azure tables.
 
 1. Expand **Attach Cognitive Services**. **Free (Limited enrichments)** is selected by default. You can use this resource because number of records in HotelReviews-Free.csv is 19 and this free resource allows up to 20 transactions a day.
 1. Expand **Add Enrichments**.
@@ -99,9 +95,9 @@ In this wizard step, you will create a skillset with cognitive skill enrichments
 
     ![Configure knowledge store](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configure knowledge store")
 
-1. Click **Next: Customize target index**.
+1. Continue to the next page.
 
-### Import data (Import data wizard)
+### Step 3: Configure the index
 
 In this wizard step, you will configure an index for optional full-text search queries. The wizard will sample your data source to infer fields and data types. You only need to select the attributes for your desired behavior. For example, the **Retrievable** attribute will allow the search service to return a field value while the **Searchable** will enable full text search on the field.
 
@@ -115,9 +111,9 @@ In this wizard step, you will configure an index for optional full-text search q
 
     ![Configure an index](media/knowledge-store-create-portal/hotel-reviews-idx.png "Configure an index")
 
-1. Click **Next: Create an indexer**.
+1. Continue to the next page.
 
-### Create an indexer
+### Step 4: Configure the indexer
 
 In this wizard step, you will configure an indexer that will pull together the data source, skillset, and the index you defined in the previous wizard steps.
 
