@@ -29,13 +29,13 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 
 The Speech Device SDK provides sample code in Java for real-time audio capture using 8 channels. The sample then streams the audio into the conversation transcription service.
 
-- The sample code for ROOBO device is located [HERE](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java).
-- The sample code for Azure Kinect Dev Kit is located [HERE](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java).
+- [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
+- [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
 ## Prerequisites
 
 - Learn how to use Speech-to-text with the Speech SDK version 1.8.0 or later. For more information, see [What are Speech Services](overview.md).
-- A Speech Services subscription. You can get a Speech trial subscription [HERE](https://azure.microsoft.com/try/cognitive-services/) if you do not already have one.
+- A Speech Services subscription. You can [get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you do not already have one.
 
 ## Creating voice signatures for participants
 
@@ -211,4 +211,4 @@ For an example of offline conversation transcription, see [Offline multi-partici
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
+> [explore our samples on github](https://aka.ms/csspeech/samples)
