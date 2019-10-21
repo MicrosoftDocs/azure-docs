@@ -41,7 +41,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment. Veracode supports identity provider initiated SSO and just-in-time user provisioning.
 
-## Adding Veracode from the gallery
+## Add Veracode from the gallery
 
 To configure the integration of Veracode into Azure AD, add Veracode from the gallery to your list of managed SaaS apps.
 
