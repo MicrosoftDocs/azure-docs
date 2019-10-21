@@ -563,12 +563,12 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
 7. The storage used by Azure NetApp Files has a file size limitation or 16 TB. SAP HANA is not implicitly aware of the storage limitation and will not automatically create new data file, when the file size limit of 16 TB is reached. As SAP HANA attempts to grow the file beyond 16 TB, that will result in errors and eventually index server crash. 
 
-> [!IMPORTANT]
-> To prevent SAP HANA trying to grow data files beyond the [16TB limit](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) of the storage sybsystem, set the following parameters in `global.ini`.  
-> -  datavolume_striping=true
-> - datavolume_striping_size_gb = 15000
-> For details see SAP note [2400005](https://launchpad.support.sap.com/#/notes/2400005).
-> Beware of SAP note [2631285](https://launchpad.support.sap.com/#/notes/2631285). 
+   > [!IMPORTANT]
+   > To prevent SAP HANA trying to grow data files beyond the [16TB limit](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-resource-limits) of the storage sybsystem, set the following parameters in `global.ini`.  
+   > -  datavolume_striping=true
+   > - datavolume_striping_size_gb = 15000
+   > For details see SAP note [2400005](https://launchpad.support.sap.com/#/notes/2400005).
+   > Beware of SAP note [2631285](https://launchpad.support.sap.com/#/notes/2631285). 
 
 ## Test SAP HANA failover 
 
