@@ -12,7 +12,7 @@ manager: carmonm
 ---
 # View Azure Update Management update assessments
 
-In your Automation account, select **Update Management** to view the status of your machines.
+In your Azure Automation account, select **Update Management** to view the status of your machines.
 
 This view provides information about your machines, missing updates, update deployments, and scheduled update deployments. In the **COMPLIANCE** column, you can see the last time the machine was assessed. In the **UPDATE AGENT READINESS** column, you can see the health of the update agent. If there's an issue, select the link to go to troubleshooting documentation that can help you correct the problem.
 
