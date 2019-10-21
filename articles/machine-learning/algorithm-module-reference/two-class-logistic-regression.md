@@ -32,7 +32,7 @@ To train this model, you must provide a dataset that contains a label or class c
 
 For example, the label column might be [Voted] with possible values of "Yes" or "No". Or, it might be [Credit Risk], with possible values of "High" or "Low". 
   
-1.  Add the **Two-Class Logistic Regression** module to your experiment.  
+1.  Add the **Two-Class Logistic Regression** module to your pipeline.  
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
@@ -63,14 +63,14 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
   
      This optimization parameter limits the amount of memory that is used to compute the next step and direction. When you specify less memory, training is faster but less accurate.  
   
-6.  For **Random number seed**, type an integer value. Defining a seed value is important if you want the results to be reproducible over multiple runs of the same experiment.  
+6.  For **Random number seed**, type an integer value. Defining a seed value is important if you want the results to be reproducible over multiple runs of the same pipeline.  
   
   
-8. Add a tagged dataset to the experiment, and connect one of the [training modules](module-reference.md).  
+8. Add a tagged dataset to the pipeline, and connect one of the [training modules](module-reference.md).  
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
   
-9. Run the experiment.  
+9. Run the pipeline.  
   
 ## Results
 
