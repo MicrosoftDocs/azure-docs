@@ -42587,6 +42587,11 @@
       "source_path": "articles/security/fundamentals/service-fabric-checklist.md",
       "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors.md",
+      "redirect_url": "articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md",
+      "redirect_document_id": true
     }
   ]
 }

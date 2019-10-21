@@ -31,7 +31,7 @@
       href: quickstarts/get-started-xamarin-ios.md
 - name: Tutorials
   items:
-  - name: Sharing in Unity
+  - name: Sharing across sessions and devices
     href: tutorials/tutorial-share-anchors-across-devices.md
   - name: Starting a new Unity HoloLens app
     href: tutorials/tutorial-new-unity-hololens-app.md
