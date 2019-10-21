@@ -55,8 +55,6 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 
 [!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-You can now move on to [Next steps](#next-steps) below.
-
 ## Next steps
 
 [!INCLUDE [windows](../quickstart-list.md)]

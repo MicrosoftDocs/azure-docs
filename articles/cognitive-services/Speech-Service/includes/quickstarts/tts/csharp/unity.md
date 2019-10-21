@@ -98,7 +98,7 @@ When you're finished, the UI should look similar to this screenshot:
 * Select the **Play** button in the Unity Editor toolbar that's underneath the menu bar.
 * After the app launches, enter some text in the input field and select the button. Your text is transmitted to Speech Service and synthesized to speech, which plays on your speaker.
 
-  [![Screenshot of the running quickstart in the Unity Game window](media/sdk/qs-tts-csharp-unity-output-inline.png)](media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
+  [![Screenshot of the running quickstart in the Unity Game window](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-inline.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 
 * Check the [Console window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
 

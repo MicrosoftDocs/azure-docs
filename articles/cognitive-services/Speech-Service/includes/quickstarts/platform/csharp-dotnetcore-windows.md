@@ -12,7 +12,7 @@ ms.date: 10/10/2019
 ms.author: erhopf
 ---
 
-This guide shows how to install the [Speech SDK](speech-sdk.md) for C# .NET Core.
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C# .NET Core.
 
 > [!NOTE]
 > .NET Core is an open-source, cross-platform .NET platform that implements the [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard) specification.
