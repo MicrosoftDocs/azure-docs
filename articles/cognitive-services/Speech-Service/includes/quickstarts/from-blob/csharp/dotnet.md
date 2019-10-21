@@ -37,7 +37,7 @@ The first step is to make sure that you have your project open in Visual Studio.
 Let's add some code that works as a skeleton for our project.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-43,138,277)]
-(You'll need to replace the values of `SubscriptionKey`, `Region`, and `RecordingsBlogUri` with your own values.)
+(You'll need to replace the values of `YourSubscriptionKey`, `YourServiceRegion`, and `YourFileUrl` with your own values.)
 ## JSON Wrappers
 
 As the REST API's take requests in JSON format and also return results in JSON we could interact with them using only strings, but that's not recommended.
