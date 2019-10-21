@@ -12,9 +12,9 @@ ms.date: 11/04/2019
 ---
 # What is Azure Cognitive Search?
 
-Azure Cognitive Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. Optionally, you can add cognitive skills to apply AI processing. Doing so can add new information and structures useful for search or other applications.
+Azure Cognitive Search ([formerly known as just "Azure Search"](whats-new.md#new-service-name)) is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. Optionally, you can add cognitive skills to apply AI processing during indexing. Doing so can add new information and structures useful for search and other scenarios.
 
-On the other side, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Cognitive Search, with query execution over a persisted index that you create, own, and store in your service.
+On the other side of your service, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Cognitive Search, with query execution over a persisted index that you create, own, and store in your service.
 
 ![Azure Cognitive Search architecture](media/search-what-is-azure-search/azure-search-diagram.svg "Azure Cognitive Search architecture")
 

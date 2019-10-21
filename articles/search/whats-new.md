@@ -14,6 +14,8 @@ ms.date: 11/04/2019
 
 Learn what's new in the service. Bookmark this page to keep up-to-date with the service.
 
+<a name="new-service-name"></a>
+
 ## New service name for Azure Search
 
 Azure Search is now renamed to **Azure Cognitive Search** to reflect the expanded use of cognitive skills and AI processing in core operations. While cognitive skills add new capabilities, using AI is strictly optional. You can continue to use Azure Cognitive Search without AI to build rich, full text search solutions over private, heterogenous content in an index that you create and manage in the cloud.
