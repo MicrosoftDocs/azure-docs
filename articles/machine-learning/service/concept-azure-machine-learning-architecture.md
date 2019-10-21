@@ -53,7 +53,7 @@ Use these tools for Azure Machine Learning:
 
 ## Glossary
 + <a href="#activities">Activity</a>
-+ <a href="#compute-instance">Compute instance</a>
++ <a href="#compute-instance">Notebook VM</a>
 + <a href="#compute-targets">Compute targets</a>
 + <a href="#datasets-and-datastores">Dataset & datastores</a>
 + <a href="#endpoints">Endpoints</a>
@@ -81,11 +81,11 @@ An activity represents a long running operation. The following operations are ex
 
 Activities can provide notifications through the SDK or the web UI so that you can easily monitor the progress of these operations.
 
-### Compute instance
+### Notebook VM
 
-An **Azure Machine Learning compute instance** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Compute instances can be used as a compute target for smaller training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
+An **Azure Machine Learning Notebook VM** (formerly Notebook VM) is a fully managed cloud-based workstation that includes multiple tools and environments installed for machine learning. Notebook VMs can be used as a compute target for smaller training and inferencing jobs. For large tasks, [Azure Machine Learning compute clusters](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
-Learn more about compute instances.
+Learn more about Notebook VMs.
 
 ### Compute targets
 

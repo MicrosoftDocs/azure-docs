@@ -520,7 +520,7 @@ RunDetails(published_pipeline_run).show()
 
 Don't complete this section if you plan to run other Azure Machine Learning tutorials.
 
-### Stop the compute instance
+### Stop the Notebook VM
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

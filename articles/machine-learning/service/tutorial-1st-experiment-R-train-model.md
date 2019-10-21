@@ -42,7 +42,7 @@ In this part of the tutorial, you run the code in the sample Jupyter notebook `t
 
 1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
 
-   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the compute instance itself.  If you delete the compute instance, you'll still keep all your work.  When you create a new compute instance later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
+   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the Notebook VM itself.  If you delete the Notebook VM, you'll still keep all your work.  When you create a new Notebook VM later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
 
 1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **not** the `.yml` file of the same name. 
 
@@ -194,7 +194,7 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the compute instance
+### Stop the Notebook VM
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

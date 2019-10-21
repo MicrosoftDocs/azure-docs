@@ -20,8 +20,8 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 > * Create an [Azure Machine Learning Workspace](concept-workspace.md) to use in the next tutorial.
-> * Create a cloud-based compute instance, which has the Azure Machine Learning SDK for R installed and pre-configured.
-> * Launch RStudio on the compute instance.
+> * Create a cloud-based Notebook VM, which has the Azure Machine Learning SDK for R installed and pre-configured.
+> * Launch RStudio on the Notebook VM.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
@@ -31,7 +31,7 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="azure"></a>Create a compute instance
+## <a name="azure"></a>Create a Notebook VM
 
 This example uses a cloud workstation in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
 
@@ -41,9 +41,9 @@ From your workspace, you create a cloud resource to get started using R Studio. 
 
 1. On your workspace page in the Azure Machine Learning studio, select **Compute** on the left.
 
-1. Select **+ Add Compute** to create a new Azure Machine Learning compute instance.
+1. Select **+ Add Compute** to create a new Azure Machine Learning Notebook VM.
 
-1. Provide a name for your compute instance. 
+1. Provide a name for your Notebook VM. 
    + The name must be between 2 to 16 characters. Valid characters are letters, digits, and the - character.  
    + The name must also be unique across your Azure subscription.
 
@@ -62,8 +62,8 @@ From your workspace, you create a cloud resource to get started using R Studio. 
 In this tutorial, you completed these tasks:
 
 * Created an Azure Machine Learning workspace.
-* Created and configured a compute instance in your workspace.
-* Started RStudio on the compute instance.
+* Created and configured a Notebook VM in your workspace.
+* Started RStudio on the Notebook VM.
 
 In part two of the tutorial, you run the code in `tutorial-1st-experiment-sdk-train.Rmd` to train a machine learning model. 
 
@@ -71,4 +71,4 @@ In part two of the tutorial, you run the code in `tutorial-1st-experiment-sdk-tr
 > [Tutorial: Train your first model](tutorial-1st-experiment-r-train-model.md)
 
 > [!IMPORTANT]
-> If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the compute instance](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.
+> If you do not plan on following part 2 of this tutorial or any other tutorials, you should [stop the Notebook VM](tutorial-1st-experiment-sdk-train.md#clean-up-resources) when you are not using it to reduce cost.
