@@ -67,7 +67,7 @@ MYSQL | MySQL should be installed. You can install manually, or Site Recovery ca
 
 ## Sizing and capacity requirements
 
-The following table summarizes capacity requirements for the configuration server. If you're replicating multiple VMware VMs, you should review the [capacity planning considerations](site-recovery-plan-capacity-vmware.md), and run the [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md) tool. 
+The following table summarizes capacity requirements for the configuration server. If you're replicating multiple VMware VMs, you should review the [capacity planning considerations](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) and run the [Azure Site Recovery Deployment Planner tool](../articles/site-recovery/site-recovery-deployment-planner.md).
 
 
 **CPU** | **Memory** | **Cache disk** | **Data change rate** | **Replicated machines**
