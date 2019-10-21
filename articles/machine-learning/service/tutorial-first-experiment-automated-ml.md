@@ -91,7 +91,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
     1. Give your dataset a unique name and provide an optional description. 
 
-    1. Select **Next** on the bottom left,  to  upload it to the default container that was automatically set up during your workspace creation. Public preview supports only local file uploads. 
+    1. Select **Next** on the bottom left,  to  upload it to the default container that was automatically set up during your workspace creation.  
     
        When the upload is complete, the Settings and preview form is pre-populated based on the file type. 
        
@@ -109,11 +109,12 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
         ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
-    1.  Review your selections on the Confirm details form.
+    1. On the **Confirm details** form, verify the information matches what was previously  populated on the **Basic info** and **Settings and preview** forms.
 
-    1. Select **Profile this dataset after creation** and select the compute you created earlier as your compute for profiling. 
+    1. Create a profile for this dataset using **aml-compute** from the dropdown. This creates a profile of your dataset using the compute resource you created for this experiment. 
 
     1. Select **Create**.
+
 1. Select **Classification** as the prediction task.
 
 1. Select **y** as the target column, what you want to predict. This column indicates whether the client subscribed to a term deposit or not.
@@ -132,35 +133,35 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
    Number of validations | Number of tests. | 2 cross-validations 
    Concurrency| The number of max concurrent iterations.|5
    
-1. Select **Start** to run the experiment. The **Run details**  screen appears with your run status message on the right as the experiment preparation begins.
-
-![Run detail status](media/tutorial-1st-experiment-automated-ml/run-detail-status.png)
+1. Select **Start** to run the experiment. The **Run detail**  screen opens with the run status  on the right as the experiment preparation begins.
 
 >[!IMPORTANT]
-> Preparation takes **10-15 minutes** to prepare the experiment run. 
+> Preparation takes **10-15 minutes** to prepare the experiment run.
 > Once running, it takes **2-3 minutes more for each iteration**.  
 >
-> In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the iteration results as they complete while the others are still running. 
+> In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the tested algorithms on the Models tab as they complete while the others are still running. 
 
-##  Explore iteration results
+##  Explore modelss
 
-As the experiment progresses, the screen updates the **Iteration chart** and **Iteration list** with the different iterations (models) created as they complete. By default, the iterations are ordered by metric score. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
+Select **Refresh** to see the status of the run as the experiment progresses. Navigate to the **Models** tab to see the algorithms (models) tested. By default, the tested models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
-While you wait for all of the experiment iterations to finish, select the **Name** of a completed iteration to explore its performance details. 
+While you wait for all of the experiment models to finish, select the **Name** of a completed model to explore its performance details. 
 
-The following shows the charts and run metrics generated for each iteration such as, a precision-recall curve, confusion matrix, weighted accuracy scores, etc. 
+The following navigates through the **Model details** tab to show the properties and metrics, and the **Visualizations** tab for charts generated such as, a precision-recall curve, confusion matrix, etc. 
 
 ![Run iteration detail](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
 
 ## Deploy the model
 
-Automated machine learning in Azure Machine Learning studio allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
+Automated machine learning in Azure Machine Learning studio allows you to deploy the best model as a web service in a few steps. Deployment is the integration of the model so it can predict on new data and identify potential areas of opportunity. 
 
-Once the run is complete, navigate back to the **Iteration chart** and **Iterations list** detail page. 
+For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
+
+Once the run is complete, navigate back to the **Run Detail** page and select the **Models** tab . Select **Refresh**. 
 
 In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
-1. Select the **Deploy Best Model** button in the top-right corner.
+1. Select the **Deploy Best Model** button in the bottom-left corner.
 
 1. Populate the **Deploy Best Model** pane as follows:
 
@@ -173,7 +174,7 @@ In this experiment context, **VotingEnsemble** is considered the best model, bas
     
 1. Select **Deploy**.  
 
-    A deployment complete message appears when deployment successfully finishes.
+    In the **Recommended model** pane, a deployment message appears under **Deploy status** when deployment begins. Select **Refresh** periodically to check the deployment status.
     
 Now you have an operational web service to generate predictions.
 
