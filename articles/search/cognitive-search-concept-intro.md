@@ -72,7 +72,7 @@ Internally, the pipeline generates a collection of enriched documents. You can d
 
 #### Add a knowledgeStore element to save enrichments
 
-[Search service REST api-version=2019-05-06](search-api-preview.md) extends skillsets with a knowledgeStore definition that provides an Azure storage connection and projections that describe how the enrichments are stored. 
+[Search REST api-version=2019-05-06-Preview](search-api-preview.md) extends skillsets with a `knowledgeStore` definition that provides an Azure storage connection and projections that describe how the enrichments are stored. 
 
 Adding a knowledge store to a skillset gives you the ability to project a representation of your enrichments for scenarios other than full text search. For more information, see [Knowledge store (preview)](knowledge-store-concept-intro.md).
 
@@ -92,17 +92,17 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 
 | Concept | Description| Links |
 |---------|------------|-------|
-| Skillset | A top-level named resource containing a collection of skills. A skillset is the enrichment pipeline. It is invoked during indexing by an indexer. | [Define a skillset](cognitive-search-defining-skillset.md) |
+| Skillset | A top-level named resource containing a collection of skills. A skillset is the enrichment pipeline. It is invoked during indexing by an indexer. | See [Define a skillset](cognitive-search-defining-skillset.md) |
 | Cognitive skill | An atomic transformation in an enrichment pipeline. Often, it is a component that extracts or infers structure, and therefore augments your understanding of the input data. Almost always, the output is text-based and the processing is natural language processing or image processing that extracts or generates text from image inputs. Output from a skill can be mapped to a field in an index, or used as an input for a downstream enrichment. A skill is either predefined and provided by Microsoft, or custom: created and deployed by you. | [Predefined skills](cognitive-search-predefined-skills.md) |
-| Data extraction | Covers a broad range of processing, but pertaining to AI enrichment, the entity recognition skill is most typically used to extract data (an entity) from a source that doesn't provide that information natively. | [Entity Recognition Skill](cognitive-search-skill-entity-recognition.md)| 
-| Image processing | Infers text from an image, such as the ability to recognize a landmark, or extracts text from an image. Common examples include OCR for lifting characters from a scanned document (JPEG) file, or recognizing a street name in a photograph containing a street sign. | [Image Analysis Skill](cognitive-search-skill-image-analysis.md) or [OCR Skill](cognitive-search-skill-ocr.md)
-| Natural language processing | Text processing for insights and information about text inputs. Language detection, sentiment analysis, and key phrase extraction are skills that fall under natural language processing.  | [Key Phrase Extraction Skill](cognitive-search-skill-keyphrases.md), [Language Detection Skill](cognitive-search-skill-language-detection.md), [Sentiment Analysis Skill](cognitive-search-skill-sentiment.md) |
-| Document cracking | The process of extracting or creating text content from non-text sources during indexing. Optical character recognition (OCR) is an example, but generally it refers to core indexer functionality as the indexer extracts content from application files. The data source providing source file location, and the indexer definition providing field mappings, are both key factors in document cracking. | See [Indexers](search-indexer-overview.md) |
-| Shaping | Consolidate text fragments into a larger structure, or conversely break down larger text chunks into a manageable size for further downstream processing. | [Shaper Skill](cognitive-search-skill-shaper.md), [Text Merger Skill](cognitive-search-skill-textmerger.md), [Text Split Skill](cognitive-search-skill-textsplit.md) |
-| Enriched documents | A transitory internal structure, generated during processing, with final output reflected in a search index. A skillset determines which enrichments are performed. Field mappings determine which data elements are added to the index. Optionally, you can create a knowledge store to persist and explore enriched documents using tools like Storage Explorer, Power BI, or any other tool that connects to Azure Blob storage. | See [Knowledge store (preview)](knowledge-store-concept-intro.md). |
+| Data extraction | Covers a broad range of processing, but pertaining to AI enrichment, the entity recognition skill is most typically used to extract data (an entity) from a source that doesn't provide that information natively. | See [Entity Recognition Skill](cognitive-search-skill-entity-recognition.md)| 
+| Image processing | Infers text from an image, such as the ability to recognize a landmark, or extracts text from an image. Common examples include OCR for lifting characters from a scanned document (JPEG) file, or recognizing a street name in a photograph containing a street sign. | See [Image Analysis Skill](cognitive-search-skill-image-analysis.md) or [OCR Skill](cognitive-search-skill-ocr.md)
+| Natural language processing | Text processing for insights and information about text inputs. Language detection, sentiment analysis, and key phrase extraction are skills that fall under natural language processing.  | See [Key Phrase Extraction Skill](cognitive-search-skill-keyphrases.md), [Language Detection Skill](cognitive-search-skill-language-detection.md), [Sentiment Analysis Skill](cognitive-search-skill-sentiment.md) |
+| Document cracking | The process of extracting or creating text content from non-text sources during indexing. Optical character recognition (OCR) is an example, but generally it refers to core indexer functionality as the indexer extracts content from application files. The data source providing source file location, and the indexer definition providing field mappings, are both key factors in document cracking. | See [Indexers overview](search-indexer-overview.md) |
+| Shaping | Consolidate text fragments into a larger structure, or conversely break down larger text chunks into a manageable size for further downstream processing. | See [Shaper Skill](cognitive-search-skill-shaper.md), [Text Merger Skill](cognitive-search-skill-textmerger.md), [Text Split Skill](cognitive-search-skill-textsplit.md) |
+| Enriched documents | A transitory internal structure, generated during processing, with final output reflected in a search index. A skillset determines which enrichments are performed. Field mappings determine which data elements are added to the index. Optionally, you can create a knowledge store to persist and explore enriched documents using tools like Storage Explorer, Power BI, or any other tool that connects to Azure Blob storage. | See [Knowledge store (preview)](knowledge-store-concept-intro.md) |
 | Indexer |  A crawler that extracts searchable data and metadata from an external data source and populates an index based on field-to-field mappings between the index and your data source for document cracking. For AI enrichments, the indexer invokes a skillset, and contains the field mappings associating enrichment output to target fields in the index. The indexer definition contains all of the instructions and references for pipeline operations, and the pipeline is invoked when you run the indexer. | [Indexers](search-indexer-overview.md) |
-| Data Source  | An object used by an indexer to connect to an external data source of supported types on Azure. | See [Indexers](search-indexer-overview.md) |
-| Index | A persisted search index in Azure Cognitive Search, built from an index schema that defines field structure and usage. | [Indexes in Azure Cognitive Search](search-what-is-an-index.md) | 
+| Data Source  | An object used by an indexer to connect to an external data source of supported types on Azure. | See [Indexers overview](search-indexer-overview.md) |
+| Index | A persisted search index in Azure Cognitive Search, built from an index schema that defines field structure and usage. | See [Create a basic index](search-what-is-an-index.md) | 
 
 <a name="where-do-i-start"></a>
 
@@ -116,11 +116,11 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
 + [Example: Creating a custom skill for AI enrichment (C#)](cognitive-search-create-custom-skill-example.md)
 
-We recommend the Free service for learning purposes, however the number of free transactions is limited to 20 documents per day. To run both the quickstart and tutorial in one day, use a smaller file set (10 documents) so that you can fit in both exercises, or delete the indexer you used in the quickstart or tutorial.
+We recommend the Free service for learning purposes, however the number of free transactions is limited to 20 documents per day. To run both the quickstart and tutorial in one day, use a smaller file set (10 documents) so that you can fit in both exercises, or delete the indexer you used in the quickstart or tutorial to rest the counter to zero.
 
 **Step 3: Review the API**
 
-You can use REST `api-version=2019-05-06` on requests or the .NET SDK. 
+You can use REST `api-version=2019-05-06` on requests or the .NET SDK. If you are exploring knowledge store, use the preview REST API instead (`api-version=2019-05-06-Preview`).
 
 This step uses the REST APIs to build an AI enrichment solution. Only two APIs are added or extended for AI enrichment. Other APIs have the same syntax as the generally available versions.
 

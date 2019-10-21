@@ -26,7 +26,7 @@ API versions, Nuget packages, namespaces, and endpoints are unchanged. Your exis
 
 November 4, 2019 - Ignite Conference
 
-+ [Knowledge store](knowledge-store-concept-intro.md) is now generally available. If you previously used `api-version=2019-05-06-Preview` to create a knowledge, you can now drop the `-Preview` from the version designation.
+<!-- + [Knowledge store](knowledge-store-concept-intro.md) is now generally available. If you previously used `api-version=2019-05-06-Preview` to create a knowledge, you can now drop the `-Preview` from the version designation. -->
 
 + [Power BI templates](knowledge-store-connect-power-bi.md) can jumpstart your visualizations and analysis of enriched content in a knowledge store in Power BI desktop.
 
@@ -43,4 +43,4 @@ November 4, 2019 - Ignite Conference
 
 ## Service updates
 
-[Service update announcements](https://azure.microsoft.com/en-us/updates/?product=search&status=all) for Azure Cognitive Search can be found on the Azure web site.
+[Service update announcements](https://azure.microsoft.com/updates/?product=search&status=all) for Azure Cognitive Search can be found on the Azure web site.
