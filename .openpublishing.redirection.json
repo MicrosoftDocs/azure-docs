@@ -42592,11 +42592,6 @@
       "source_path": "articles/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors.md",
       "redirect_url": "articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md",
       "redirect_document_id": true
-    },
-    {
-        "source_path": "articles/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors.md",
-        "redirect_url": "articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md",
-        "redirect_document_id": true
     }
   ]
 }
