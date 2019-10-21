@@ -69,7 +69,7 @@ The following FAQs cover basic concepts and questions about Azure Cache for Redi
 * [Performance considerations around connections](#performance-considerations-around-connections)
 
 ## Monitoring and troubleshooting FAQs
-The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Cache for Redis instances, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) and [How to troubleshoot Azure Cache for Redis](cache-how-to-troubleshoot.md).
+The FAQs in this section cover common monitoring and troubleshooting questions. For more information about monitoring and troubleshooting your Azure Cache for Redis instances, see [How to monitor Azure Cache for Redis](cache-how-to-monitor.md) and the various troubleshoot guides.
 
 * [How do I monitor the health and performance of my cache?](#how-do-i-monitor-the-health-and-performance-of-my-cache)
 * [Why am I seeing timeouts?](#why-am-i-seeing-timeouts)
@@ -439,7 +439,7 @@ These tools enable you to monitor the health of your Azure Cache for Redis insta
 <a name="cache-timeouts"></a>
 
 ### Why am I seeing timeouts?
-Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Client-side troubleshooting](cache-how-to-troubleshoot.md#client-side-troubleshooting) and [StackExchange.Redis timeout exceptions](cache-how-to-troubleshoot.md#stackexchangeredis-timeout-exceptions).
+Timeouts happen in the client that you use to talk to Redis. When a command is sent to the Redis server, the command is queued up and Redis server eventually picks up the command and executes it. However the client can time out during this process and if it does an exception is raised on the calling side. For more information on troubleshooting timeout issues, see [Client-side troubleshooting](cache-how-to-troubleshoot.md#client-side-troubleshooting) and [StackExchange.Redis timeout exceptions](cache-how-to-troubleshoot-timeouts.md#stackexchangeredis-timeout-exceptions).
 
 <a name="cache-disconnect"></a>
 
