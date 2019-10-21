@@ -103,6 +103,8 @@
           href: quickstart-create-nat-gateway-powershell.md
         - name: Create and validate NAT gateway - Azure CLI
           href: tutorial-create-validate-nat-gateway-cli.md
+        - name: Create and validate NAT gateway - Azure PowerShell
+          href: tutorial-create-validate-nat-gateway-powershell.md
     - name: IPv6 for VNet
       items:
       - name: Basic Public Load Balancer

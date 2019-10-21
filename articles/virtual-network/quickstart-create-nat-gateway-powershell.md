@@ -70,7 +70,7 @@ This section details how you can create and configure the following components o
 Create a global Azure NAT Gateway with [New-AzNatGateway](https://docs.microsoft.com/powershell/module/az.network/new-aznatgateway) named **myNATgateway** that uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix** and changes the idle timeout to 10 minutes.  The result of this command will be stored in a variable named **$natGateway** for later use.
 
 ```azurepowershell-interactive
-  $natGateway = New-AzNatGateway -Name myNATgateway -ResourceGroupName myResourceGroupNAT -PublicIpAddress $publicIP -PublicIpPrefix $publicPrefix -Location eastus2 -Sku Standard -IdleTimeoutInMinutes 10      
+  $natGateway = New-AzNatGateway -Name myNATgateway -ResourceGroupName myResourceGroupNAT -PublicIpAddress $publicIP -PublicIpPrefix $publicIPPrefix -Location eastus2 -Sku Standard -IdleTimeoutInMinutes 10      
   ```
 
 At this point, the NAT gateway is functional and all that is missing is to configure which subnets of a virtual network should use it.
@@ -106,7 +106,7 @@ We create a public IP to be used to access the VM.  Use [New-AzPublicIpAddress](
 Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) and [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create a NSG resource named **myNSG** and a NSG rule for SSH access named **ssh** in **myResourceGroupNAT**.  The result of this command will be stored in variable named **$nsg** for later use.
 
 ```azurepowershell-interactive
-  $sshrule = New-AzNetworkSecurityRuleConfig -Name ssh -Description "SSH access" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix Internet -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
+  $sshrule = New-AzNetworkSecurityRuleConfig -Name ssh -Description "SSH access" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
 
   $nsg = New-AzNetworkSecurityGroup -ResourceGroupName myResourceGroupNAT -Name myNSG -Location eastus2 -SecurityRules $sshrule 
 ```
@@ -173,7 +173,7 @@ Wait for the VM to finish deploying then proceed with the rest of the steps.
 
 ## Discover the IP address of the VM
 
-First we need to discover the IP address of the VM you've created. To retrieve the public IP address of the VM, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest). 
+First we need to discover the IP address of the VM you've created. To get the public IP address of the VM, use [Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress?view=latest). 
 
 ```azurepowershell-interactive
   Get-AzPublicIpAddress -ResourceGroupName myResourceGroupNAT -Name myPublicIPVM | select IpAddress
