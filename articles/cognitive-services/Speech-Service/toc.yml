@@ -15,32 +15,32 @@
       href: speech-to-text.md
   - name: Quickstarts
     items:
-    - name: Convert speech to text from file
+    - name: Recognize speech in audio file
       href: quickstarts/speech-to-text-from-file.md
-    - name: Convert speech to text from microphone
+    - name: Recognize speech from microphone
       href: quickstarts/speech-to-text-from-microphone.md
-    - name: Convert speech to text from blob storage
+    - name: Recognize speech in blob storage
       href: quickstarts/from-blob.md
   - name: How-to guides
     items:
-    - name: Automatic language detection
-      href: how-to-automatic-language-detection.md
-    - name: Specify source language
-      href: how-to-specify-source-language.md
-    - name: Consume compressed audio
+    - name: Compressed audio input
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Continuous recognition
       href: shttps://aka.ms/ignite2019/speech/placeholder
-    - name: Improve recognition with Phrase Lists
+    - name: Improve accuracy with Custom Speech
+      href: how-to-custom-speech.md
+    - name: Improve accuracy with Phrase Lists
       href: how-to-phrase-lists.md
-    - name: Select an audio input device
-      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Non-default microphone input devices
+      href: how-to-select-audio-input-devices.md
+    - name: Specify source language
+      href: how-to-specify-source-language.md
+    - name: Use automatic language detection
+      href: how-to-automatic-language-detection.md
   - name: Tutorials
     items:
-    - name: Intent recognition with LUIS
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Voice enable your bot with Speech SDK
-      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Improve accuracy with Tenant Language Models
+      href: tutorial-tenant-language-model.md
   - name: Reference
     items:
     - name: Speech SDK
@@ -74,18 +74,16 @@
       href: text-to-speech.md
   - name: Quickstarts
     items:
-    - name: Synthesize speech to a file
+    - name: Synthesize speech into an audio file
       href: quickstarts/text-to-speech-audio-file.md
-    - name: Synthesize speech to an audio output device
+    - name: Synthesize speech onto speakers
       href: quickstarts/text-to-speech.md
   - name: How-to guides
     items:
-    - name: Configure speech output with SSML
+    - name: Improve output with SSML
       href: speech-synthesis-markup.md
-  - name: Tutorials
-    items:
-    - name: Build a Flask app to translate and synthesize text, REST
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
+    - name: Improve output with Custom Voices
+      href: how-to-custom-voice.md
   - name: Reference
     items:
     - name: Speech SDK
@@ -141,7 +139,7 @@
         href: releasenotes.md
     - name: LUIS Service
       items:
-      - name: LUIS Developer Resources for LUIS
+      - name: LUIS Developer Resources 
         href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
 - name: Speech translation
   exanded: false
@@ -158,6 +156,10 @@
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Translate speech-to-speech
       href: https://aka.ms/ignite2019/speech/placeholder
+  - name: Tutorials
+    items:
+    - name: Build a Flask app to translate and synthesize text, REST
+      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
   - name: Reference
     items:
     - name: Speech SDK
@@ -321,13 +323,13 @@
     items:
     - name: REST APIs
       items:
+      - name: Batch transcription & customization REST API
+        href: https://westus.cris.ai/swagger/ui/index
+      - name: Conversation Transcription REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
       - name: Speech-to-text REST API
         href: https://aka.ms/ignite2019/speech/placeholder
       - name: Text-to-speech REST API
-        href: https://aka.ms/ignite2019/speech/placeholder
-      - name: Batch transcription & customization REST API
-        href: https://aka.ms/ignite2019/speech/placeholder
-      - name: Conversation Transcription REST API
         href: https://aka.ms/ignite2019/speech/placeholder
       - name: Webhooks REST API
         href: https://aka.ms/ignite2019/speech/placeholder
