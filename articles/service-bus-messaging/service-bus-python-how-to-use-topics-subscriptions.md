@@ -46,9 +46,9 @@ Use the following code to create a **ServiceBusService** object. Replace \<mynam
 
 ```python
 bus_service = ServiceBusService(
-    service_namespace='mynamespace',
-    shared_access_key_name='sharedaccesskeyname',
-    shared_access_key_value='sharedaccesskey')
+    service_namespace='<mynamespace'>,
+    shared_access_key_name='<sharedaccesskeyname>',
+    shared_access_key_value='<sharedaccesskeyvalue>')
 ```
 
 ## Create a topic
