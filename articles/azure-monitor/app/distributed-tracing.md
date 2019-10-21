@@ -1,15 +1,14 @@
 ---
 title: Distributed Tracing in Azure Application Insights | Microsoft Docs
 description: Provides information about Microsoft's support for distributed tracing through our local forwarder and partnership in the OpenCensus project
-services: application-insights
-keywords:
+ms.service:  azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: nikmd23
 ms.author: nimolnar
-ms.reviewer: mbullwin
 ms.date: 09/17/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
+
+ms.reviewer: mbullwin
 ---
 
 # What is Distributed Tracing?
