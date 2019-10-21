@@ -38,8 +38,8 @@
     - name: Use compressed audio input formats
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Use continuous recognition
-      href: shttps://aka.ms/ignite2019/speech/placeholder
-    - name: Use speech-to-text with Docker containers
+      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Use speech recognition with Docker containers
       href: speech-container-howto.md
   - name: Reference
     items:
@@ -84,7 +84,7 @@
       href: speech-synthesis-markup.md
     - name: Improve output with Custom Voices
       href: how-to-custom-voice.md
-    - name: Use text-to-speech with Docker containers
+    - name: Use speech synthesis with Docker containers
       href: speech-container-howto.md
   - name: Reference
     items:
