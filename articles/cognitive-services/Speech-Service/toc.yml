@@ -20,7 +20,7 @@
     - name: Convert speech to text from microphone
       href: quickstarts/speech-to-text-from-microphone.md
     - name: Convert speech to text from blob storage
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/from-blob.md
   - name: How-to guides
     items:
     - name: Automatic language detection
