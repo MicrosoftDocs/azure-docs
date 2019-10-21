@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize Intents from a microphone, Python - Speech Service"
+title: "Quickstart: Recognize Intents from a microphone, C# - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -19,59 +19,87 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
+> * [Upload a source file to an azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md)
 
-## Open your project
+## Download and install the API client library
 
-Open Quickstart.py in your python editor.
+To execute the sample you need to generate the Python library for the REST API which is generated through [Swagger](swagger.io).
+
+Follow these steps for the installation:
+
+1. Go to https://editor.swagger.io.
+1. Click **File**, then click **Import URL**.
+1. Enter the Swagger URL including the region for your Speech Services subscription: `https://<your-region>.cris.ai/docs/v2.0/swagger`.
+1. Click **Generate Client** and select **Python**.
+1. Save the client library.
+1. Extract the downloaded python-client-generated.zip somewhere in your file system.
+1. Install the extracted python-client module in your Python environment using pip: `pip install path/to/package/python-client`.
+1. The installed package has the name `swagger_client`. You can check that the installation worked using the command `python -c "import swagger_client"`.
+
+> **Note:**
+> Due to a [known bug in the Swagger autogeneration](https://github.com/swagger-api/swagger-codegen/issues/7541), you might encounter errors on importing the `swagger_client` package.
+> These can be fixed by deleting the line with the content
+> ```py
+> from swagger_client.models.model import Model  # noqa: F401,E501
+> ```
+> from the file `swagger_client/models/model.py` and the line with the content
+> ```py
+> from swagger_client.models.inner_error import InnerError  # noqa: F401,E501
+> ```
+> from the file `swagger_client/models/inner_error.py` inside the installed package. The error message will tell you where these files are located for your installation.
+
+## Install other dependencies
+
+The sample uses the `requests` library. You can install it with the command
+
+```bash
+pip install requests
+```
 
 ## Start with some boilerplate code
 
 Let's add some code that works as a skeleton for our project.
-[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-7)]
 
-## Create a Speech configuration
+[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
+(You'll need to replace the values of `YourSubscriptionKey`, `YourServiceRegion`, and `YourFileUrl` with your own values.)
 
-Before you can initialize a `IntentRecognizer` object, you need to create a configuration that uses your LUIS Endpoing key and region. Insert this code next.
+## Create and configure an Http Client
+The first thing we'll need is an Http Client that has a correct base URL and authtentication set.
+Insert this code in `transcribe`
+[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
 
-This sample constructs the `SpeechConfig` object using LUIS key and region. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
+## Generate a transcription request
+Next, we'll generate the transcription request. Add this code to `transcribe`
+[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
-> [!NOTE]
-> It is important to use the LUIS Endpoint key and not the Starter or Authroing keys as only the Endpoint key is valid for speech to intent recognition. See [Create a LUIS application and get an endpoint key](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) for instructions on how to get the correct key.
+## Send the request and check its status
+Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has recived the requet. The service will return a Url in the response headers that's the location where it will store the transscription status.
+[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=65-73)]
 
-[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
+## Wait for the transcription to complete
+Since the service processes the transcription asyncronously, we need to poll for its status every so often. We'll check every 5 seconds.
 
-## Initialize a IntentRecognizer
+We'll enumerate all the transcriptions that this Speech Service resource is processing and look for the one we created.
 
-Now, let's create a `IntentRecognizer`. Insert this code right below your Speech configuration.
-[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
+Here's the polling code with status display for everything except a successful completion, we'll do that next.
+[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=75-94,99-112)]
 
-## Add a LanguageUnderstandingModel and Intents
+## Display the transcription results
+Once the service has successfully completed the transcription the results will be stored in another Url that we can get from the status response.
 
-You now need to associate a `LanguageUnderstandingModel` with the intent recognizer and add the intents you want recognized.
-[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
-
-## Recognize an intent
-
-From the `IntentRecognizer` object, you're going to call the `recognize_once()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop reconizing speech.
-[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
-
-## Display the recognition results (or errors)
-
-When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
-
-Inside the using statement, below your call to `recognize_once()`, add this code:
-[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
+Here we get that result JSON and display it.
+[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=95-98)]
 
 ## Check your code
-
-At this point, your code should look like this:
+At this point, your code should look like this: 
 (We've added some comments to this version)
-[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
+[!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-118)]
 
 ## Build and run your app
+
+Now you're ready to build your app and test our speech recognition using the Speech service.
 
 ## Next steps
 
