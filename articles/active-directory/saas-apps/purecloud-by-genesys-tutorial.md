@@ -68,15 +68,15 @@ To configure and test Azure AD SSO with PureCloud by Genesys, complete the follo
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure PureCloud by Genesys SSO](#configure-purecloud-by-genesys-sso)** to configure the single sign-on settings on application side.
     1. **[Create a PureCloud by Genesys test user](#create-purecloud-by-genesys-test-user)** to have a counterpart of B.Simon in PureCloud by Genesys that's linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+1. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ## Configure Azure AD SSO
 
 To enable Azure AD SSO in the Azure portal, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **PureCloud by Genesys** application integration page, find the **Manage** section and select **single sign-on**.
-1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, select the pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Select a Single Sign-On method** page, select **SAML**.
+1. On the **Set up Single Sign-On with SAML** page, select the pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -125,7 +125,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 	| Email | user.userprinicipalname |
 	| OrganizationName | `Your organization name` |
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
