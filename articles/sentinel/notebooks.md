@@ -55,26 +55,27 @@ The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-
 
 To start using Azure Sentinel Notebooks, you can either launch the notebook directly from the **Notebooks** blade from the Azure portal, or you can clone all the notebooks into a project in Azure Notebooks.
 
-You must have an Azure Notebooks account to launch notebooks directly from within Azure Sentinel. For more information, see [Your user account for Azure Notebooks](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks).
+You must have an Azure Notebooks account to launch notebooks directly from within Azure Sentinel. For more information, see [Quickstart: Sign in and set a user ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) from the Azure Notebooks documentation.
 
 ## Launch a notebook directly from Azure Sentinel 
  
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**, where you can see the full list of notebooks that Azure Sentinel provides. 
 
-2. Select the notebook you want to launch, and select **Launch**. For example: 
+2. Select the notebook you want to launch, and select **Launch Notebook**. For example: 
     
     > [!div class="mx-imgBorder"]
     > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
 ## Clone a notebook
 
-In the following example, we create an Azure Notebooks project from the Azure portal, populating the project with notebooks. Before using these notebooks, it's a good idea to make a copy of the notebook and work on the copy. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
+In the following example, we created an Azure Notebooks project from the Azure portal, populating the project with notebooks. Before using these notebooks, it's a good idea to make a copy of the notebook and work on the copy. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
 
-1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**. To create a new Azure Notebooks project, click **Clone Azure Notebooks** or to open your existing notebooks projects click **Go to your Notebooks**.
+1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks** and then select **Clone Notebooks** from the command bar:
   
-   ![select notebooks](./media/notebooks/sentinel-azure-notebooks-home.png)
+    > [!div class="mx-imgBorder"]
+    >![clone notebooks](./media/notebooks/clone-notebooks.png)
 
-2. If you chose **Clone Azure Sentinel Notebooks** in the previous step, the following dialog will appear. Click **Import** to clone the GitHub repo into your Azure Notebooks project. If you don't have an existing Azure Notebooks account, you'll be prompted to create one and sign in.
+2. When the following dialog appears, select **Import** to clone the GitHub repo into your Azure Notebooks project. If you don't have an existing Azure Notebooks account, you'll be prompted to create one and sign in.
 
    ![Import notebook](./media/notebooks/sentinel-notebooks-clone.png)
 
