@@ -33,7 +33,7 @@ For help setting up or troubleshooting the Live Metrics and Data (preview) featu
 
 ### Search
 
-![Live console pane filter example](./media/container-insights-livedata-console/livedata-pane-filter-example-01.png)
+![Live console pane filter example](./media/container-insights-livedata-console/livedata-pane-filter-example.png)
 
 The Live Events and Logs (preview) feature includes search functionality. In the **Search** field, you can filter results by typing a key word or term and any matching results are highlighted to allow quick review. While viewing events, you can additionally limit the results using the **Filter** pill found to the right of the search bar. Depending on what resource you have selected, the pill lists a Pod, Namespace, or cluster to chose from.  
 
