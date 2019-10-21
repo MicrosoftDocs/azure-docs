@@ -19,7 +19,7 @@ ms.date: 04/20/2019
 ---
 # What is Machine Learning Studio (classic)?
 
-[!INCLUDE [Designer notice](../../../includes/esigner-notice.md)]
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
 Microsoft Azure Machine Learning Studio (classic) is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data.  The classic version of Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 
