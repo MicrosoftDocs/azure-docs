@@ -48,20 +48,25 @@ The first step is to create voice signatures for the conversation participants. 
 
 ### Sample code for creating voice signatures
 
-The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#. Note that you'll need to substitute real information for "Ocp-Apim-Subscription-Key" and "YourSubscriptionKey".
+The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#. Note that you'll need to substitute real information for "YourSubscriptionKey", your wave file name for "speakerVoice.wav", and your desired region for `{region}` and "YourServiceRegion" (_centralus_ or _eastasia_).
 
 ```csharp
 class Program
 {
     static async Task CreateVoiceSignatureByUsingFormData()
     {
+        // Replace with your own region
         var region = "YourServiceRegion";
+        // Change the name of the wave file to match yours
         byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
         var form = new MultipartFormDataContent();
         var content = new ByteArrayContent(fileBytes);
         form.Add(content, "file", "file");
         var client = new HttpClient();
+        // Add your subscription key to the header Ocp-Apim-Subscription-Key directly
+        // Replace "YourSubscriptionKey" with your own subscription key
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
+        // Edit with your desired region for `{region}`
         var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
         // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
         // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
@@ -70,12 +75,17 @@ class Program
 
     static async Task CreateVoiceSignatureByUsingBody()
     {
+        // Replace with your own region
         var region = "YourServiceRegion";
+        // Change the name of the wave file to match yours
         byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
         var content = new ByteArrayContent(fileBytes);
 
         var client = new HttpClient();
+        // Add your subscription key to the header Ocp-Apim-Subscription-Key directly
+        // Replace "YourSubscriptionKey" with your own subscription key
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
+        // Edit with your desired region for `{region}`
         var response = await client.PostAsync($"https://signature.{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
         // A voice signature contains Version, Tag and Data key values from the Signature json structure from the Response body.
         // Voice signature format example: { "Version": <Numeric value>, "Tag": "string", "Data": "string" }
