@@ -67,13 +67,13 @@ Configure and test Azure AD SSO with NetSuite by using a test user called **B.Si
 
 To configure and test Azure AD SSO with NetSuite, complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
+1. [Configure Azure AD SSO](#configure-azure-ad-sso) to enable your users to use this feature.
 
-    a. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with user B.Simon.  
-    b. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable user B.Simon to use Azure AD single sign-on.
-1. **[Configure NetSuite SSO](#configure-netsuite-sso)** to configure the single sign-on settings on the application side.
-    * **[Create the NetSuite test user](#create-the-netsuite-test-user)** to have a counterpart of user B.Simon in NetSuite that's linked to the Azure AD representation of the user.
-1. **[Test SSO](#test-sso)** to verify that the configuration works.
+    a. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with user B.Simon.  
+    b. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable user B.Simon to use Azure AD single sign-on.
+1. [Configure NetSuite SSO](#configure-netsuite-sso) to configure the single sign-on settings on the application side.
+    * [Create the NetSuite test user](#create-the-netsuite-test-user) to have a counterpart of user B.Simon in NetSuite that's linked to the Azure AD representation of the user.
+1. [Test SSO](#test-sso) to verify that the configuration works.
 
 ## Configure Azure AD SSO
 
@@ -151,7 +151,7 @@ In this section, you create a test user in the Azure portal called B.Simon.
 1. In the **User** properties pane, follow these steps:
 
    a. In the **Name** box, enter **B.Simon**.  
-   b. In the **User name** box, enter the username@companydomain.extension (for example, **B.Simon@contoso.com**).  
+   b. In the **User name** box, enter the username@companydomain.extension (for example, B.Simon@contoso.com).  
    c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.  
    d. Select **Create**.
 
@@ -262,7 +262,7 @@ In this section, you enable user B.Simon to use Azure single sign-on by granting
 
     ![Configure single sign-on](./media/NetSuite-tutorial/ns-edit-user.png)
 
-    l. On the Roles pane, assign the appropriate role that you have created.
+    l. In the **Roles** pane, assign the appropriate role that you have created.
 
     ![Configure single sign-on](./media/NetSuite-tutorial/ns-add-role.png)
 
