@@ -129,7 +129,7 @@ For more information on advanced security setup in Kubernetes, review the [Kuber
 
 ## Granting permissions
 
-Each Azure AD account must be granted permission to the appropriate APIs in Kubernetes in order to access the Live Metrics and Data (preview) feature. The steps to grant the Azure Active Directory account are similar to the steps described in the [Kubernetes RBAC authentication](#kubernetes-rbac-authentication-(existing-cluster)) section. Before applying the yaml configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user. 
+Each Azure AD account must be granted permission to the appropriate APIs in Kubernetes in order to access the Live Metrics and Data (preview) feature. The steps to grant the Azure Active Directory account are similar to the steps described in the [Kubernetes RBAC authentication](#kubernetes-rbac-authentication-(existing-cluster))) section. Before applying the yaml configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user. 
 
 >[!IMPORTANT]
 >If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the userPrincipalName. If the user is in a different Azure AD tenant, query for and use the objectId property.
@@ -138,4 +138,4 @@ For additional help configuring your AKS cluster **ClusterRoleBinding**, see [Cr
 
 ## Next steps
 
-Now that you have setup authentication, you can view live [metric data](container-insights-livedata-metrics.md), [deployments](container-insights-livedata-deployments.md), and [events and logs](container-insights-livedata-events-logs.md) from your cluster.
+Now that you have setup authentication, you can view live [metric data](container-insights-livedata-metrics.md), [deployments](container-insights-livedata-deployments.md), and [events and logs](container-insights-livedata-console.md) from your cluster.
