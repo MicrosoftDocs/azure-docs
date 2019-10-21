@@ -82,11 +82,11 @@ You can analyze metrics for Azure Machine Learning by opening **Metrics** from t
 
 All metrics for Azure Machine Learning are in the namespace **Machine Learning Service Workspace**.
 
-[!Metrics Explorer with Machine Learning Service Workspace selected](tbd)
+![Metrics Explorer with Machine Learning Service Workspace selected](tbd)
 
 For metrics that support dimensions, you can filter the metric with the desired dimension value. The following screenshot demonstrates using a filter to show **Active Cores** for the **Cluster Name** of `cpu-cluster`:
 
-[!Filtering results to a cluster name of cpu-cluster](tbd)
+![Filtering results to a cluster name of cpu-cluster](tbd)
 
 ## Analyzing log data
 
