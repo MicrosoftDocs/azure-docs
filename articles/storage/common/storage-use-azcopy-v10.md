@@ -290,6 +290,14 @@ The URL appears in the output of this command. Your script can then download AzC
 
 In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an addition `%` character next to existing `%` characters in the SAS token string.
 
+### Run scripts by using Jenkins
+
+If you plan to use [Jenkins](https://jenkins.io/) to run scripts, make sure to place the following command at the beginning of the script.
+
+```
+/usr/bin/keyctl new_session
+```
+
 ## Use AzCopy in Storage Explorer
 
 If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.

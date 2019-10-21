@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure virtual networks from Azure Logic Apps through an integration service environment (ISE)
-description: Create an integration service environment (ISE) so logic apps and integration accounts can access Azure virtual networks (VNETs), while staying private and isolated from public or "global" Azure
+title: Connect to Azure virtual networks with an ISE - Azure Logic Apps
+description: Create an integration service environment (ISE) that can access Azure virtual networks (VNETs) from Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
