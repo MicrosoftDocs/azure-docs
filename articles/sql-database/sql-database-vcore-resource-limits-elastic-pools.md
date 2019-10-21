@@ -158,10 +158,10 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB max data size (GB)|333|
 |Storage type|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|
-|??Target IOPS (64 KB)|36000|
-|??Log rate limits (MBps)|37.5|
-|??Max concurrent workers per pool (requests) *|1680|
-|??Max concurrent logins per pool (requests) *|1680|
+|Target IOPS (64 KB)|36000|
+|Log rate limits (MBps)|37.5|
+|Max concurrent workers per pool (requests) *|1680|
+|Max concurrent logins per pool (requests) *|1680|
 |Min/max elastic pool vCore choices per database|0-72|
 |Number of replicas|1|
 |Multi-AZ|N/A|
@@ -303,11 +303,11 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|??Target IOPS (64 KB)|40000|
-|??Log rate limits (MBps)|120|
-|??Max concurrent workers per pool (requests) *|1680|
-|??Max concurrent logins per pool (requests) *|1680|
-|??Max allowed sessions|30000|
+|Target IOPS (64 KB)|40000|
+|Log rate limits (MBps)|120|
+|Max concurrent workers per pool (requests) *|1680|
+|Max concurrent logins per pool (requests) *|1680|
+|Max allowed sessions|30000|
 |Min/max elastic pool vCore choices per database|0-128|
 |Number of replicas|4|
 |Multi-AZ|Yes|
