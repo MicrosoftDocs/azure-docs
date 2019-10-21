@@ -72,8 +72,10 @@
   - name: Manage
     items: 
     - name: Licensing model
+      displayName: ahb, ahub, payg, change, modify, update
       href: virtual-machines-windows-sql-ahb.md
     - name: Edition 
+      displayName: change, modify, update
       href: virtual-machines-windows-sql-change-edition.md
     - name: Azure Storage for backup & restore
       href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
