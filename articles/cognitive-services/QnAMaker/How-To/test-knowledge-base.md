@@ -79,7 +79,7 @@ Use the batch testing tool when you want to:
 
 Batch testing is provided with the batch testing tool, **bt.exe**. This tool is available as an [zipped executable](https://qnamakerstore.blob.core.windows.net/qnamakerdata/batchtesting/bt.zip) for download or as [C# source code](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
 
-[Reference documentation about the tool](reference-tsv-format-batch-testing.md) includes:
+[Reference documentation about the tool](../reference-tsv-format-batch-testing.md) includes:
 
 * the command-line example of the tool
 * the format for TSV input and outfile files 
