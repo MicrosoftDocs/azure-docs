@@ -1,6 +1,6 @@
 ---
-title: Azure Cognitive Services 
-description: Learn about the service to build intelligent mobile applications poweed by Artificial Intelligence.
+title: Use Artificial Intelligence to solve business problems with Azure Cognitive Services 
+description: Learn about the service to build intelligent mobile applications powered by Artificial Intelligence.
 author: elamalani
 ms.assetid: 34a8a070-0123-4faf-8588-ccff02097224
 ms.service: vs-appcenter
@@ -9,7 +9,7 @@ ms.date: 08/30/2019
 ms.author: emalani
 ---
 
-# Azure Cognitive Services
+# Azure Cognitive Services to solve business problems using Artificial Intelligence
 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) provides powerful services to infuse your apps with intelligent algorithms to see, hear, speak, understand, and interpret your user needs to transform your business with AI. You can make your mobile applications smart, engaging, and contextually relevant for your users. The APIs, SDKs, and services allow developers to add AI to their offering and help build intelligent applications without having direct AI or data science skills.
 
 ## Cognitive Services capabilities
@@ -50,7 +50,7 @@ ms.author: emalani
 - Support for **Containers** for Cognitive Services
 
  ## References
-   - [Azure Portal](https://portal.azure.com) 
+   - [Azure portal](https://portal.azure.com) 
    - [Documentation](/azure/cognitive-services/welcome)
    - [Quickstarts](/azure/cognitive-services/cognitive-services-apis-create-account)
    - [Container support](/azure/cognitive-services/cognitive-services-container-support)

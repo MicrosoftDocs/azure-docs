@@ -1,5 +1,5 @@
 ---
-title: Test mobile apps on real devices
+title: Test mobile applicatins on thousands of real devices using App Center
 description: Learn about App Center as a service to continually test mobile applications on thousands of real devices.
 author: elamalani
 ms.assetid: 12a8a079-9b3c-4faf-0000-ccff02097224
@@ -22,13 +22,11 @@ These challenges can be efficiently tackled by testing mobile applications acros
 - **Test continuously**, analyze **application performance**, **find, and fix issues** before your users run into them, and **release fast**.
 - **Deliver high-quality applications** by ensuring that your customers on a wide range of devices get the best experience.
 
-## Services
-
-### Visual Studio App Center
+## Visual Studio App Center
 
 [App Center Test](/appcenter/test-cloud/) is a cloud-based service that lets you run automated UI tests on thousands of real-world devices in the cloud across Android and iOS for native and hybrid mobile apps. With over 2000 devices, you can easily write test scripts that can be executed automatically to make testing easy.
 
-**Key Features**
+**Key features**
    - **Run tests on real devices** that are not rooted or jailbroken, providing the best approximation of your users' environmentS.
    - **Screenshots** are automatically captured and attached to each test step and can be viewed side by side for all targeted devices in a test run.
    - **View the device log** for all target devices in a test run and stack traces for failed test steps.

@@ -1,5 +1,5 @@
 ---
-title: Choose the front-end development platform for building client applications
+title: Choose the front-end development platform for building client applications with Visual Studio and Azure services
 description: Learn about the supported native and cross platform languages to build client applications.
 author: elamalani
 manager: elamalani
@@ -15,31 +15,31 @@ Developers can use client-side technologies to build mobile applications themsel
 ## Native platforms
 Building a native application requires platform-specific programming languages, SDKs, development environment and other tools provided by OS vendors.
 
-### 1. iOS
+### iOS
 Created and developed by Apple, apps built on iOS runs on Apple devices, namely iPhone and iPad.
 
 - **Programming Languages** - Objective-C, Swift
 - **IDE** - Xcode
 - **SDK** - iOS SDK
 
-### 2. Android
+### Android
 Designed by Google and the most popular OS in the world, applications built on Android can run on a range of smartphones and tablets.
 
 - **Programming Language** - Java, Kotlin 
 - **IDE** - Android Studio and Android Developer Tools 
 - **SDK** - Android SDK
 
-### 3. Windows
+### Windows
 - **Programming Language** - C#
 - **IDE** - Visual Studio, Visual Studio Code
 - **SDK** - Windows SDK
 
-### Pros
+#### Pros
 - Good user experience
 - Responsive applications with high Performance and ability to interface with native libraries
 - Highly secure applications
 
-### Cons
+#### Cons
 - Application runs only on one platform
 - More developer resource and expensive to build an application
 - Lower code reuse
@@ -47,7 +47,7 @@ Designed by Google and the most popular OS in the world, applications built on A
 ## Cross-platforms and Hybrid applications
 Cross-platform applications gives you the power to write native mobile applications once, share code, and run them on iOS, Android, and Windows.
 
-### 1. Xamarin
+### Xamarin
 Owned by Microsoft, [Xamarin](https://visualstudio.microsoft.com/xamarin/) lets you build robust, cross-platform mobile applications in C#, with a class library and runtime that works across many platforms, including iOS, Android, and Windows, while still compiling native (non-interpreted) applications that are highly performant. Xamarin combines all of the abilities of the native platforms and adds a number of powerful features of its own.
 
 - **Programming Language** - C#
@@ -59,19 +59,19 @@ Released by Facebook in 2015, [React Native](https://facebook.github.io/react-na
 - **Programming Language** - JavaScript
 - **IDE** - Visual Studio Code
 
-### 3. Unity
+### Unity
  Unity is an engine optimized for creating games which enables developers to craft high-quality 2D/3D applications with C# for different platforms including Windows, iOS, Android, and Xbox.
 
-### 4. Cordova
+### Cordova
 Cordova lets you build Hybrid applications using Visual Studio Tools for Apache Codova or Visual Studio Code with extensions for Cordova. With the Hybrid approach, you can share components with websites and reuse web server-based applications with hosted web applications approaches based on Cordova.
 
-### Pros
+#### Pros
 - Increased code usability by creating one codebase for multiple platforms
 - Cater to a wider audience across many platforms
 - Dramatic reduction in development time
 - Easy to launch and update
 
-### Cons
+#### Cons
 - Lower performance
 - Lack of flexibility
 - Each platform has a unique set of features and functionality to make the native application more creative

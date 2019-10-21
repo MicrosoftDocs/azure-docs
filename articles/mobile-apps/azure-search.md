@@ -1,5 +1,5 @@
 ---
-title: Azure Search
+title: AI-powered cloud search service for mobile application development using Azure Search
 description: Learn about a service to use AI-powered cloud search service for mobile application development.
 author: elamalani
 ms.assetid: 34a8a070-0123-8982-8345-ccff02097224
@@ -9,10 +9,10 @@ ms.date: 09/10/2019
 ms.author: emalani
 ---
 
-# Azure Search
-[Azure Search](https://azure.microsoft.com/en-us/services/search/) is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. On the other side, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Search, with query execution over a persisted index that you create, own, and store in your service.
+# AI-powered cloud service with Azure Search
+[Azure Search](https://azure.microsoft.com/services/search/) is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. On the other side, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Search, with query execution over a persisted index that you create, own, and store in your service.
 
-## Azure Search Features
+## Azure Search features
 - **Free-form text search** with full text search, simple query syntax, and lucene query syntax.
 - **Simple scoring profiles** to model relevance as a function of values in the documents themselves.
 - **Geo-search** enables users to explore data based on the proximity of a search result to a physical location.
@@ -25,7 +25,7 @@ ms.author: emalani
 Find detailed description on Azure Search [Features](/azure/search/search-what-is-azure-search#feature-descriptions).
 
 ## References
-- [Azure Portal](https://portal.azure.com) 
+- [Azure portal](https://portal.azure.com) 
 - [Documentation](/azure/search/)
 - [Developer guide](https://azure.microsoft.com/resources/iot-developers-guide/)
 - [How to use Azure Search](/azure/search/search-what-is-azure-search#how-to-use-azure-search)

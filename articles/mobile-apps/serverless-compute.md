@@ -1,5 +1,5 @@
 ---
-title: Serverless Compute
+title: Build serverless mobile application backend with Azure services
 description: Learn about the Compute services to build solid, serverless mobile application backend.
 author: elamalani
 manager: elamalani
@@ -10,7 +10,7 @@ ms.date: 09/10/2019
 ms.author: emalani
 ---
 
-# Compute
+# Build mobile backend components with Compute services
 Every mobile application needs a backend that is responsible for data storage, business logic, and security. Managing the infrastructure to host and execute backend code requires you to size, provision and scale a bunch of servers, manage OS updates and hardware involved, apply security patches and then monitor all of these infrastructure components for performance, availability, and fault tolerance. This is when serverless architecture comes in handy as developers have no servers to manage, no OS, or related software/hardware updates to manage. It saves a lot of developer time and cost which means faster time-to-market and focused energy on building applications.
 
 ## Benefits of Compute
@@ -20,12 +20,12 @@ Every mobile application needs a backend that is responsible for data storage, b
 - Micro billing ensures you are only billed for when your code is actually running.
 - Write code that runs in the cloud in the language of your choice.
 
-## Services
+Use the following services to enable serverless compute capabilities in your mobile apps.
 
-### Azure Functions
+## Azure Functions
 [Azure Functions](https://azure.microsoft.com/services/functions/) is an event-driven compute experience that allows you to execute your code, written in the programming language of your choice, without worrying about servers. Developers don't have to manage the application or the infrastructure to run it on. Functions scale on demand and you pay only for the time your code runs. Azure Functions are a great way to implement an API for a mobile application because they are very easy to implement and maintain, and accessible through HTTP.
 
-**Key Features**
+**Key features**
 - **Event-driven and scalable** where developers can use **triggers and bindings** to define when a function is invoked and to what data it connects.
 - **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.
 - **Integrated security** lets you protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.
@@ -43,10 +43,10 @@ Every mobile application needs a backend that is responsible for data storage, b
 - [Quickstarts](/azure/azure-functions/functions-create-first-function-vs-code)
 - [Samples](/samples/browse/?products=azure-functions&languages=csharp)
 
-### App Service
-[Azure App Service](https://azure.microsoft.com/en-us/services/app-service/) Azure App Service enables you to build and host web apps, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
+## App Service
+[Azure App Service](https://azure.microsoft.com/services/app-service/) Azure App Service enables you to build and host web apps, and RESTful APIs in the programming language of your choice without managing infrastructure. It offers auto-scaling and high availability, supports both Windows and Linux, and enables automated deployments from GitHub, Azure DevOps, or any Git repo.
 
-**Key Features**
+**Key features**
 - **Multiple languages and frameworks** support for ASP.NET, ASP.NET Core, Java, Ruby, Node.js, PHP, or Python. You can also run PowerShell and other scripts or executables as background services.
 - **DevOps optimization** - Set up continuous integration and deployment with Azure DevOps, GitHub, BitBucket, Docker Hub, or Azure Container Registry. Manage your apps in App Service by using Azure PowerShell or the cross-platform command-line interface (CLI).
 - **Global scale with high availability** to scale up or out manually or automatically.
@@ -62,10 +62,10 @@ Every mobile application needs a backend that is responsible for data storage, b
 - [Samples](/azure/app-service/samples-cli)
 - [Tutorials](/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb)
 
-### Azure Kubernetes Service (AKS)
+## Azure Kubernetes Service (AKS)
 [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/) manages your hosted Kubernetes environment, making it quick and easy to deploy and manage containerized applications without container orchestration expertise. It also eliminates the burden of ongoing operations and maintenance by provisioning, upgrading, and scaling resources on demand, without taking your applications offline. 
 ​
-**Key Features**
+**Key features**
 - **Easily migrate existing applications** to Containers and run within AKS.
 - **Simplify the deployment and management** of Microservices based applications.
 - **Secure DevOps for AKS** to achieve balance between speed and security and deliver code faster at scale.
@@ -79,10 +79,10 @@ Every mobile application needs a backend that is responsible for data storage, b
 - [Quickstarts](/azure/aks/kubernetes-walkthrough-portal)
 - [Tutorials](/azure/aks/tutorial-kubernetes-prepare-app)
 
-### Azure Container Instances
+## Azure Container Instances
 [Azure Container Instances (ACI)](https://azure.microsoft.com/services/container-instances/) is a great solution for any scenario that can operate in isolated containers, including simple applications, task automation, and build jobs. Develop apps fast without managing VMs.
 
-**Key Features**
+**Key features**
 - **Fast startup times** as ACI can start containers in Azure in seconds, without the need to provision and manage VMs.
 - **Public IP connectivity and custom DNS name**.
 - **Hypervisor-level security** that guarantees your application is as isolated in a container as it would be in a VM.

@@ -1,5 +1,5 @@
 ---
-title: Cloud Data Storage
+title: Store, manage, and persist application data in the cloud with ApP Center and Azure services
 description: Learn about the services such as App Center that lets you store, manage, and persist mobile application data in the cloud.
 author: elamalani
 ms.assetid: 12344321-0123-4678-8588-ccff02097224
@@ -16,12 +16,12 @@ On top of that, your application users will not always have internet connectivit
 
 Microsoft provides a variety of services that eliminates the need to spin up servers, pick your database, or worry about scale or security to provide as rich experience as possible. These services provide a great developer experience that lets you store application data in the cloud using SQL or NoSQL APIs, sync data on all the devices, and enable the application to work with or without a network connection to help build scalable and robust applications.
 
-## Services
+Use the following services to manage and store mobile applciation data in the cloud.
 
-### **Visual Studio App Center**
+## **Visual Studio App Center**
 [App Center Data](/appcenter/data/) is a data management service that enables applications to manage, persist, and sync application data in the cloud across different devices and platforms in both online and offline scenarios. **Built on top of Cosmos DB** service that scales as your user base and number of applications grows, this service ensures low latency, high availability, and high scalability for all of your data.
 
-**Key Features**
+**Key features**
 - Easily **provision a new Cosmos DB database** or **connect to an existing Cosmos DB database** from the App Center portal.
 - **NoSQL database support** to easily store, sync, and query application data.
 - **Built on top of Cosmos DB**, this service inherits most of the key features offered by Azure Cosmos DB and can **scale globally** to meet your business needs.
@@ -33,10 +33,10 @@ Microsoft provides a variety of services that eliminates the need to spin up ser
 - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
 - [Get started with App Center Data](/appcenter/data/getting-started)
 
-### Azure Cosmos DB
+## Azure Cosmos DB
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is Microsoft's globally distributed, multi-model database service that helps you build planet-scale applications. With a click of a button, Cosmos DB enables you to elastically and independently scale throughput and storage across any number of Azure regions worldwide. You can elastically scale throughput and storage, and take advantage of fast, single-digit-millisecond data access using your favorite API surfaces including SQL, MongoDB, Cassandra, Tables, or Gremlin. Cosmos DB uniquely provides comprehensive service level agreements (SLAs) for throughput, latency, availability, and consistency.
 
-**Key Features**
+**Key features**
 - Supports a **wide range of APIs** includes SQL(Core) API, Cassandra API, MongoDB API, Gremlin API, and Table API.
 - **Turnkey global distribution** replicates your data wherever your users are, so your users can interact with a replica of the data that is closest to them.
 - **No schema or index management** as the database engine is fully schema-agnostic.
@@ -50,10 +50,10 @@ Microsoft provides a variety of services that eliminates the need to spin up ser
 - [Azure portal](https://portal.azure.com) 
 - [Documentation](/azure/cosmos-db/introduction)   
 
-### Azure SQL Database
+## Azure SQL Database
  [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) is a general-purpose relational database managed service that enables you to create a highly available and high-performance data storage layer for applications and solutions in Azure cloud.
 
-**Key Features**
+**Key features**
 - **Elastic database models and tools** - An elastic database gives developers the ability to pool resources to use among a group of databases for scaling, which can then be administratively managed by submitting a script as a job, and the SQL Database performs the script across the databases.
 - **High performance** - High-throughput applications can take advantage of the latest version, which delivers 25% more premium database power.
 - **Backups, replication, and high availability** - Built-in replication and a Microsoft-backed SLA at the database level provide application continuity and protection against catastrophic events. Active geo replication, lets you configure failover and self-service restore, which provide full control over “oops recovery” (data restoration from available data backups of up to 35 days).

@@ -1,5 +1,5 @@
 ---
-title: Authentication
+title: Add Authentication to your mobile apps with App Center and Azure services
 description: Learn about the services such as App Center that help set up user authentication and enable mobile applications to authenticate with social accounts, Azure Active Directory, and custom authentication.
 author: elamalani
 ms.assetid: 34a8a070-2222-4faf-9090-ccff02097224
@@ -9,15 +9,15 @@ ms.date: 08/27/2019
 ms.author: emalani
 ---
 
-# Authentication
+# Add Authentication and manage user identities in your mobile apps
 Having a view of the user and their behavior across your application empowers developers to better engage users by creating tailored experiences for them. Whether you are an application developer building a collaboration application for users inside your organization or are creating the next social network platform, you will need a way to authenticate users and manage user identities. Using an identity management service is one of the most important features of a mobile backend service.
 
-## Services
+Use the following services to enable user authentication in your mobile apps.
 
-### Visual Studio App Center
+## Visual Studio App Center
 [App Center Auth](/appcenter/auth/) is a cloud-based identity management service that enables developers to authenticate users and manage user identities. App Center Auth also integrates with other parts of App Center, enabling developers to leverage user identity to [view user data](/appcenter/data/index) in other services and even [send push notifications to users instead of individual devices](/appcenter/push/push-to-user#app-center-auth-set-identity). 
 
-**Key Features**
+**Key features**
 - **Powered by Azure Active Directory B2C (Azure AD B2C)** 
     - Enterprise-grade.
     - Highly available.
@@ -34,10 +34,10 @@ Having a view of the user and their behavior across your application empowers de
 - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs) 
 - [Get started with App Center Auth](/appcenter/auth/)
 
-### Azure Active Directory B2C
+## Azure Active Directory B2C
 [Azure AD B2C](https://azure.microsoft.com/services/active-directory-b2c/) is a business-to-consumer identity management service that enables developers to authenticate their customers. This white-label service let developers customize and control how users securely interact with their web, desktop, mobile, or single-page applications. Using Azure AD B2C, users can sign up, sign in, reset passwords, and edit profiles. Azure AD B2C implements a form of the OpenID Connect and OAuth 2.0 protocols. 
 
-**Key Features**
+**Key features**
 - Securely authenticate customers with their preferred identity provider.
 - **Customer identity and access management**.
 - Social logins supported such as Facebook, GitHub, Google, LinkedIn, Twitter, WeChat, Weibo.
@@ -52,15 +52,15 @@ Having a view of the user and their behavior across your application empowers de
 - [Quickstarts](/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app)
 - [Samples](/azure/active-directory-b2c/code-samples)
 
-### Azure Active Directory
+## Azure Active Directory
 [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) is Microsoft's cloud-based identity and access management service, which helps your employee sign in and access.
-    - External resources, such as Microsoft Office 365, the Azure portal, and thousands of other SaaS applications.
-    - Internal resources, such as apps on your corporate network and intranet, along with any cloud apps developed by your own organization.
+- External resources, such as Microsoft Office 365, the Azure portal, and thousands of other SaaS applications.
+- Internal resources, such as apps on your corporate network and intranet, along with any cloud apps developed by your own organization.
 
-**Key Features**
+**Key features**
 - **Seamless, highly secure access** by connecting users to the applications they need.
 - **Comprehensive identity protection** and enhanced security for identities and access based on user, location, device, data, and application context.
-- **Thousands of pre-integrated apps** both commericial and custom applications such as Office 365, Salesforce.com, and Box.
+- **Thousands of pre-integrated apps** both commercial and custom applications such as Office 365, Salesforce.com, and Box.
 - **Manage access at scale**.
 
 **References**

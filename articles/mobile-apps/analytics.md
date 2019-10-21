@@ -1,5 +1,5 @@
 ---
-title: Understand mobile application usage and user behavior with Analytics 
+title: Understand mobile application usage and user behavior with App Center and Azure services
 description: Learn about the services like App Center that help you make smart business decisions by understanding how users use your mobile application.
 author: elamalani
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
@@ -9,12 +9,12 @@ ms.date: 08/15/2019
 ms.author: emalani
 ---
 
-# Analyze and understand usage of your mobile application
+# Analyze and understand usage of mobile applications
 How well do you understand how your users use your applications? How many active users does your application have and how is usage changing over time? What features are they using and which ones are used the most? Where are these users based? How many users are using the latest version of the application? All these questions are important to understand to turn your app into a successful business. To answer those kinds of usage analytics questions, you need to collect usage data from your apps.
 
 The more you look down into the data, the more you could find ways to improve your application and keep your users happy. It's important to use data to find actionable insights and keep users happy.
 
-## Importance of leveraging Analytics for mobile applications
+## Importance of Analytics
 - **Understand** your users, how they interact with your application, and what brings them back to fine-tune your application and provide great experiences to grow your business.
 - **Track** your usage metrics to make informed decisions on how to market your application and better serve your customer.
 - **Measure** your application performance.
@@ -26,7 +26,7 @@ The more you look down into the data, the more you could find ways to improve yo
 ### Visual Studio App Center
 [App Center Analytics](/appcenter/analytics/) lets you grow your audience by focusing on what’s important, with deep reporting and insights about user sessions, top devices, OS versions, and behavioral analytics. Easily create custom events to track anything with extensive application analytics.
 
-   **Key Features**
+   **Key features**
    - **Track** usage patterns, user adoption, and other engagement metrics for free.
    - **Identify** trends, user behavior, and engagement through custom events.
    - **Out-of-the-box metrics** and **detailed insights** on application usage (daily, weekly, monthly), sessions, device properties and user demographics in a **single dashboard**.
@@ -42,7 +42,7 @@ The more you look down into the data, the more you could find ways to improve yo
 ### **Azure Monitor**
 Azure Monitor includes [Application Insights](/azure/azure-monitor/app/app-insights-overview) that provides tools for collecting and analyzing telemetry to maximize performance and monitor your mobile application. You can take advantage of Application Insights by using App Center Analytics and set up export to Application Insights. Application Insights can query, segment, filter, and analyze the custom event telemetry from your applications, beyond the analytics tools App Center provides.
 
-**Key Features**
+**Key features**
    - **Query** your custom event telemetry.
    - **Filter** event telemetry with powerful segmentation capabilities.
    - **Analyze** conversion, retention, and navigation patterns in your application.
@@ -59,7 +59,7 @@ Azure Monitor includes [Application Insights](/azure/azure-monitor/app/app-insig
 ### Azure PlayFab
 [Azure PlayFab](https://playfab.com/) offers a complete backend platform with game services, real-time analytics, and LiveOps that you need to create world class cloud-connected games. These services reduce the barriers to launch for game developers, offering both large and small studios cost-effective development solutions that scale with their games and help them engage, retain and monetize players. PlayFab enables developers to use the intelligent cloud to build and operate games, analyze gaming data and improve overall gaming experiences.
 
-**Key Features**
+**Key features**
    - **Monitor** real-time dashboards.
    - **Evaluate** your game's performance through top metrics.
    - **Report** to review summaries of your game's daily and monthly performance through auto-generated reports that can be viewed in Game Manager and downloaded or delivered to your inbox daily.

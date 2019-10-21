@@ -1,5 +1,5 @@
 ---
-title: Host your mobile application source code in the cloud
+title: Host your mobile application source code in the cloud with GitHub and Azure DecOps
 description: Learn about the services to host your mobile application code in the cloud with Microsoft services.
 author: elamalani
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
@@ -21,12 +21,12 @@ Cloud hosting is much easier than on-premises options as it requires less hardwa
 - **Faster release cycle** as your team can work faster and **easily contribute** to your projects.
 - **Reduce the cost** without having to worry about maintaining your own hardware, servers, VPN and so on.
 
-## Services
+Use the following services to host your application data in the cloud.
 
-### GitHub
+## GitHub
 [GitHub](https://github.com/) is an open-source repository hosting service that hosts source code projects in a variety of different programming languages and keeps track of the various changes made to every iteration.
 
-**Key Features**
+**Key features**
 - **Code Hosting** with all your code in one place. Private, public, or open source, all repositories are equipped with tools to help you host, version, and release code.
 - Seamless **code review** and built-in review tools makes code review an essential part of any teams process.
     - Protect branches, propose changes and request reviews.
@@ -48,10 +48,10 @@ Cloud hosting is much easier than on-premises options as it requires less hardwa
 - [GitHub Community Forum](https://github.community/)
 - [GitHub Marketplace](https://github.com/marketplace)
 
-### Azure DevOps
+## Azure DevOps
 [Azure DevOps](https://azure.microsoft.com/services/devops/) supports [Azure Repos](https://azure.microsoft.com/services/devops/repos/) and [Team Foundation Version Control (TFVC)](https://docs.microsoft.com/azure/devops/repos/tfvc/index?view=azure-devops) as source control options. It has unlimited free private repositories with collaborative code reviews, advanced file management, code search, and branch policies to ensure high-quality code. Azure Repos is great for small projects as well as large organizations that need native AAD support and advanced policies.
     
-**Key Features**
+**Key features**
 - **Unlimited cloud hosted Git source code repository** for your public and private repos
     - Support for any Git client.
     - Web hooks and API integration.

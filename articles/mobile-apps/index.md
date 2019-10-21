@@ -1,5 +1,5 @@
 ---
-title: Building mobile applications with Microsoft
+title: Building mobile applications with App Center and Azure services
 description: Learn how to the services such as App Center that lets you build real-world mobile applications along with other Azure services. 
 author: elamalani
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
