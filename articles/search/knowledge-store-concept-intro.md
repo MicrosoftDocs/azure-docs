@@ -19,7 +19,7 @@ ms.date: 10/04/2019
 
 Knowledge store is a feature in Azure Cognitive Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for later analysis or other downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. 
 
-If you have used AI skills with Azure Cognitive Search in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, share the same content, but are stored and used in very different ways.
+If you have used cognitive skills with Azure Cognitive Search in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, share the same content, but are stored and used in very different ways.
 
 Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), either Azure Table storage, Azure Blob storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 

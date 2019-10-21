@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ---
 # What is Azure Cognitive Search?
 
-Azure Cognitive Search ([formerly known as just "Azure Search"](whats-new.md#new-service-name)) is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. Optionally, you can add cognitive skills to apply AI processing during indexing. Doing so can add new information and structures useful for search and other scenarios.
+Azure Cognitive Search ([formerly known as "Azure Search"](whats-new.md#new-service-name)) is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) to create and load an index. Optionally, you can add cognitive skills to apply AI processing during indexing. Doing so can add new information and structures useful for search and other scenarios.
 
 On the other side of your service, your application code issues query requests and handles responses. The search experience is defined in your client using functionality from Azure Cognitive Search, with query execution over a persisted index that you create, own, and store in your service.
 
@@ -26,7 +26,7 @@ Azure Cognitive Search is well suited for the following application scenarios:
 
 + Consolidation of heterogeneous content types into a private, single, searchable index. Queries are always over an index that you create and load with documents, and the index always resides in the cloud on your Azure Cognitive Search service. You can populate an index with streams of JSON documents from any source or platform. Alternatively, for content sourced on Azure, you can use an *indexer* to pull data into an index. Index definition and management/ownership is a key reason for using Azure Cognitive Search.
 
-+ Raw content is large undifferentiated text, image files, or application files such as Office content types. You can apply cognitive skills during indexing to add structure or extract meaning from image and application files.
++ Raw content is large undifferentiated text, image files, or application files such as Office content types on an Azure data source such as Azure Blob storage or Cosmos DB. You can apply cognitive skills during indexing to add structure or extract meaning from image and application files.
 
 + Easy implementation of search-related features. Azure Cognitive Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, typeahead queries, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
 

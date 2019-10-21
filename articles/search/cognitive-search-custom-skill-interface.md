@@ -13,7 +13,7 @@ ms.date: 10/04/2019
 
 # How to add a custom skill to an Azure Cognitive Search enrichment pipeline
 
-An [enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search can be assembled from [predefined skills](cognitive-search-predefined-skills.md) as well as [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and add to the pipeline. In this article, learn how to create a custom skill that exposes an interface allowing it to be included in an AI enrichment pipeline. 
+An [enrichment pipeline](cognitive-search-concept-intro.md) in Azure Cognitive Search can be assembled from [built-in cognitive skills](cognitive-search-predefined-skills.md) as well as [custom skills](cognitive-search-custom-skill-web-api.md) that you personally create and add to the pipeline. In this article, learn how to create a custom skill that exposes an interface allowing it to be included in an AI enrichment pipeline. 
 
 Building a custom skill gives you a way to insert transformations unique to your content. A custom skill executes independently, applying whatever enrichment step you require. For example, you could define field-specific custom entities, build custom classification models to differentiate business and financial contracts and documents, or add a speech recognition skill to reach deeper into audio files for relevant content. For a step-by-step example, see [Example: Creating a custom skill for AI enrichment](cognitive-search-create-custom-skill-example.md).
 
