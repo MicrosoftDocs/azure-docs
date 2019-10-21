@@ -40,19 +40,19 @@ It's worth noticing that, although you'll be using Unity and an ASP.NET Core Web
 
 ## Deploy your Sharing Anchors Service
 
-# [Visual Studio](#tab/VS)
+## [Visual Studio](#tab/VS)
 
 Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` folder.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-# [Visual Studio Code](#tab/VSC)
+## [Visual Studio Code](#tab/VSC)
 
 You will need to create a resource Group and an App Service Plan before you deploy the service in VS Code.
 
 ### Sign in to Azure
 
-Naviagte to the <a href="https://portal.azure.com/" target="_blank">azure website</a> and sign in to your Azure subscription.
+Navigate to the <a href="https://portal.azure.com/" target="_blank">Azure website</a> and sign in to your Azure subscription.
 
 ### Create a resource group
 
@@ -78,19 +78,19 @@ In the **Configure Hosting Plan** dialog box, use these settings:
 
 Select **OK**.
 
-Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSample` folder. Follow <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-3.0" target="_blank">this tutorial</a> to deploy the sharing service through Visual Studio Code.
+Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSample` folder. Follow <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-3.0" target="_blank">this tutorial</a> to deploy the sharing service through Visual Studio Code.
 
 ---
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
-## Adding Azure Cosmos DB to your Web App
+## (Optional) Adding Azure Cosmos DB to your Web App
 
 In this tutorial, you've deployed an ASP.NET Core Web App in Azure, and then configured and deployed a Unity App. You created Spatial Anchors with the app, and shared them with other devices by using your ASP.NET Core Web App.
 
 You can improve your ASP.NET Core Web App so that it uses Azure Cosmos DB to store your shared Spatial Anchor identifiers. Azure Cosmos DB will give persistence to your ASP.NET Core Web App. Doing so will allow your app to create an anchor today, and come back days later to be able to locate it again, by using the anchor identifier stored in your web app.
 
-Add an Azure Cosmos Databse to the resource group you created in earlier. 
+Add an Azure Cosmos Database to the resource group you created in earlier. 
 
 ### Create a database account
 
