@@ -50,8 +50,6 @@ Enabling Azure Monitor for containers for the hybrid Kubernetes cluster consists
 
 2. Enable the Azure Monitor for containers HELM chart with Log Analytics workspace.
 
-3. Enable 
-
 ### How to add the Azure Monitor Containers solution
 
 You can deploy the solution with the provided Azure Resource Manager template by using the Azure PowerShell cmdlet `New-AzResourceGroupDeployment` or with Azure CLI.
@@ -66,12 +64,42 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 This method includes two JSON templates. One template specifies the configuration to enable monitoring, and the other contains parameter values that you configure to specify the following:
 
-- **SubscriptionId** with Azure subscription Id containing the workspace
-- **resourceGroup** with the display name of your Resource Group containing the workspace
-- **workspaceName** with the display name of your Log Analytics workspace
-- **workspaceRegion** with the region the workspace is created in, which is also referred to as **Location** in the workspace properties when viewing from the Azure portal.
+- **workspaceResourceId** - the full resource ID of your Log Analytics workspace.
+- **workspaceRegion** - the region the workspace is created in, which is also referred to as **Location** in the workspace properties when viewing from the Azure portal.
 
-1. Copy and paste the following JSON syntax into your file:
+To first identify the full resource ID of your Log Analytics workspace required for the `workspaceResourceId` parameter value, in the **containerSolutionParams.json** file, perform the following steps and then run the PowerShell cmdlet or Azure CLI command to add the solution.
+
+1. List all the subscriptions which you have access using the following command:
+
+    ```azurecli
+    az account list --all -o table
+    ```
+
+    The output will resemble the following:
+
+    ```azurecli
+    Name                                  CloudName    SubscriptionId                        State    IsDefault
+    ------------------------------------  -----------  ------------------------------------  -------  -----------
+    Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
+    ```
+
+    Copy the value for **SubscriptionId**.
+
+2. Switch to the subscription hosting the Log Analytics workspace using the following command:
+
+    ```azurecli
+    az account set -s <subscriptionId of the workspace>
+    ```
+
+3. The following example displays the list of workspaces in your subscriptions in the default JSON format. 
+
+    ```
+    az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
+    ```
+
+    In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **id**.
+
+4. Copy and paste the following JSON syntax into your file:
 
     ```json
     {
@@ -130,9 +158,9 @@ This method includes two JSON templates. One template specifies the configuratio
    }
     ```
 
-2. Save this file as containerSolution.json to a local folder.
+5. Save this file as containerSolution.json to a local folder.
 
-3. Paste the following JSON syntax into your file:
+6. Paste the following JSON syntax into your file:
 
     ```json
     {
@@ -140,7 +168,7 @@ This method includes two JSON templates. One template specifies the configuratio
       "contentVersion": "1.0.0.0",
       "parameters": {
         "workspaceResourceId": {
-          "value": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
+          "value": "<workspaceResourceId>"
       },
       "workspaceRegion": {
         "value": "<workspaceRegion>"
@@ -149,11 +177,11 @@ This method includes two JSON templates. One template specifies the configuratio
     }
     ```
 
-4. Edit the values for **subscriptionId**, **resourceGroup**, **workspaceName**, and **workspaceRegion** using the values on the Log Analytics workspace overview page or using Azure CLI command [az monitor log-analytics workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and **workspaceRegion** copying the value after running the Azure CLI command [az monitor log-analytics workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
 
-5. Save this file as containerSolutionParams.json to a local folder.
+8. Save this file as containerSolutionParams.json to a local folder.
 
-6. You are ready to deploy this template. 
+9. You are ready to deploy this template. 
 
    * To deploy with Azure PowerShell, use the following commands in the folder that contains the template:
 
