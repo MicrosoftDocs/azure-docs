@@ -62,7 +62,7 @@ Here are the three credentials you should write down and the cmdlets you need to
 - Tenant ID:
 
     ```powershell
-    $aadContext.TenantId.Guid
+    $aadContext.Tenant.Id.Guid
     ```
 
 - Application ID:
@@ -97,7 +97,7 @@ After you create a role assignment for the service principal, make sure the serv
 
 ```powershell
 $creds = New-Object System.Management.Automation.PSCredential($svcPrincipal.AppId, (ConvertTo-SecureString $svcPrincipalCreds.Value -AsPlainText -Force))
-Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.TenantId.Guid
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com" -Credential $creds -ServicePrincipal -AadTenantId $aadContext.Tenant.Id.Guid
 ```
 
 After you've signed in, make sure everything works by testing a few Windows Virtual Desktop PowerShell cmdlets with the service principal.
