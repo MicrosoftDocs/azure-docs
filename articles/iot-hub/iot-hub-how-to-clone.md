@@ -12,17 +12,17 @@ ms.author: robinsh
 ---
 # How to clone an Azure IoT hub 
 
-This article explores ways to clone an IoT Hub and provides some questions you need to answer before you start. There are several reasons you might want to clone an IoT hub from one region to another. 
-
-* You want to migrate your hub from the Free tier to a Basic or Standard tier. You can't do this using the Azure portal, Azure PowerShell, or Azure CLI.
-
-* You are moving your company from one region to another, such as from Europe to North America (or vice versa), and you want your resources and data to be geographically close to your new location.
+This article explores ways to clone an IoT Hub and provides some questions you need to answer before you start. There are several reasons you might want to clone an IoT hub.
+ 
+* You are moving your company from one region to another, such as from Europe to North America (or vice versa), and you want your resources and data to be geographically close to your new location, so you need to move your hub.
 
 * You are setting up a hub for a development vs production environment.
 
 * You want to do a custom implementation of multi-hub high availability. For more information, see the [How to achieve cross region HA section of IoT Hub high availability and disaster recovery](iot-hub-ha-dr.md#achieve-cross-region-ha).
 
-To move a hub to a different region, you need a subscription with administrative access to the original hub. You can put the new hub in a new resource group and region, in the same subscription as the original hub, or even in a new subscription. You just can't use the same name because the hub name has to be globally unique.
+* You want to increase the number of [partitions](iot-hub-scaling.md#partitions) configured for your hub. This is set when you first create your hub, and can not be changed. As the traffic has increased on your hub, you may have realized that you need more partitions. You can use the information in this article to clone your hub and when the clone is created, increase the number of partitions.
+
+To clone a hub, you need a subscription with administrative access to the original hub. You can put the new hub in a new resource group and region, in the same subscription as the original hub, or even in a new subscription. You just can't use the same name because the hub name has to be globally unique.
 
 > [!NOTE]
 > At this time, there's no first-class feature for cloning an IoT hub. It's primarily a manual process, and thus is fairly error-prone. The complexity of cloning a hub is directly proportional to the simplicity of the hub. For example, cloning an IoT hub with no message routing is fairly simple. If you add message routing as just one complexity, cloning the hub becomes at least an order of magnitude more complicated.
