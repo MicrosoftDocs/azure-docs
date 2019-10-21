@@ -31,10 +31,10 @@ This article describes how to use Python with Azure Service Bus to:
 
 ## Prerequisites
 - An Azure subscription. To get one, you can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- A Service Bus *namespace* and *connection string*. Follow the instructions in [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md) to create a namespace and get the connection string.
+- A Service Bus *namespace*. Copy the namespace shared access key name and Primary Key value to use later in this quickstart. For instructions, see [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions](service-bus-quickstart-topics-subscriptions-portal.md).
 - Python 3.4x or above, with the [Azure Python SDK][Azure Python package] package installed. For more information, see the [Python Installation Guide](/azure/python/python-sdk-azure-install).
 
-## Work with topics
+## Create a ServiceBusService object
 
 The **ServiceBusService** object lets you work with topics and subscriptions. To programmatically access Service Bus, add the following code near the top of any Python file:
 
@@ -42,22 +42,26 @@ The **ServiceBusService** object lets you work with topics and subscriptions. To
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
 ```
 
-## Create a topic
-
-The following code creates a **ServiceBusService** object. Replace `mynamespace`, `sharedaccesskeyname`, and `sharedaccesskey` with your actual namespace, Shared Access Signature (SAS) key name, and key value. You can get these values from the [Azure portal][Azure portal].
+Use the following code to create a **ServiceBusService** object. Replace \<mynamespace>, \<sharedaccesskeyname>, and \<sharedaccesskeyvalue> with your actual namespace name, Shared Access Signature (SAS) key name, and primary key value. You can find these values under **Shared access policies** in your Service Bus namespace in the [Azure portal][Azure portal].
 
 ```python
 bus_service = ServiceBusService(
     service_namespace='mynamespace',
     shared_access_key_name='sharedaccesskeyname',
     shared_access_key_value='sharedaccesskey')
+```
 
+## Create a topic
+
+Use the following code to create a Service Bus topic called `mytopic`:
+
+```python
 bus_service.create_topic('mytopic')
 ```
 
-### Set maximum topic size and TTL
+### Set maximum topic size and time to live
 
-The `create_topic` method has options that let you override default topic settings, such as message time to live or maximum topic size. The following example sets the maximum topic size to 5 GB, and a time to live (TTL) value of one minute:
+The `create_topic` method has options that let you override default topic settings, such as message time to live (TTL) or maximum topic size. The following example sets the maximum topic size to 5 GB, and a TTL value of one minute:
 
 ```python
 topic_options = Topic()
@@ -71,14 +75,14 @@ bus_service.create_topic('mytopic', topic_options)
 
 The **ServiceBusService** object also creates subscriptions to topics. Subscriptions have a name, and can have an optional filter that restricts the message set delivered to the subscription's virtual queue.
 
-> [!NOTE]
-> By default, subscriptions are persistent, and will exist until you delete them or the topics they subscribe to. To automatically delete subscriptions after a certain time period, set the [auto_delete_on_idle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
-
-If you don't specify a filter, new subscriptions use the default **MatchAll** filter. All messages published to the topic are placed in the subscription's virtual queue. The following example creates a subscription named `AllMessages` with the default **MatchAll** filter.
+If you don't specify a filter, new subscriptions use the default **MatchAll** filter. All messages published to `mytopic` are placed in the `AllMessages` virtual queue. The following example creates a subscription to `mytopic` named `AllMessages`, which uses the default **MatchAll** filter:
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
+
+> [!NOTE]
+> By default, subscriptions are persistent, and exist until you delete them or the topics they subscribe to. To automatically delete subscriptions after a certain time period, set the [auto_delete_on_idle property](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python).
 
 ### Use filters with subscriptions
 
@@ -91,7 +95,7 @@ You can add filters to a new or existing subscription by using the `create_rule`
 > [!NOTE]
 > Because the default filter applies automatically to all new subscriptions, you must remove it, or **MatchAll** will override any other filters you specify. You can remove the default rule by using the `delete_rule` method of the **ServiceBusService** object.
 > 
-The following example creates a subscription named `HighMessages`, with a **SqlFilter** called `HighMessageFilter`. The `HighMessageFilter` rule selects only messages with a `messagenumber` property greater than 3:
+The following example creates a subscription named `HighMessages`, with a **SqlFilter** rule named `HighMessageFilter`. The `HighMessageFilter` rule selects only messages with a `messagenumber` property greater than 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -104,7 +108,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-The following example creates a subscription named `LowMessages`, with a **SqlFilter** called `LowMessageFilter` that  selects only messages with a `messagenumber` property less than or equal to 3:
+The following example creates a subscription named `LowMessages`, with a **SqlFilter** rule named `LowMessageFilter`. The `LowMessageFilter` rule selects only messages with a `messagenumber` property less than or equal to 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -117,7 +121,7 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-When a message is sent to `mytopic`, it is always delivered to receivers subscribed to the **AllMessages** topic subscription. The message is selectively delivered to the **HighMessages** or **LowMessages** subscriptions, depending on the message's `messagenumber` property value. 
+A message sent to `mytopic` is always delivered to receivers subscribed to the **AllMessages** topic subscription. The message is also selectively delivered to the **HighMessages** or **LowMessages** subscription, depending on the message's `messagenumber` property value. 
 
 ## Send messages to a topic
 
@@ -140,7 +144,7 @@ For more information about quotas, see [Service Bus quotas][Service Bus quotas].
 
 ## Receive messages from a subscription
 
-Use the `receive_subscription_message` method on the **ServiceBusService** object to receive messages from a subscription:
+Use the `receive_subscription_message` method on the **ServiceBusService** object to receive messages from a subscription. The following example receives messages from the `LowMessages` subscription to`mytopic`:
 
 ```python
 msg = bus_service.receive_subscription_message(
@@ -150,11 +154,11 @@ print(msg.body)
 
 ### Use the peek_lock parameter
 
-Set the `peek_lock` parameter to **False** to have messages deleted from the subscription as they are read. Read (peek) and lock the message without deleting it from the queue by setting the  `peek_lock` parameter to **True**.
+Set the `peek_lock` parameter of `receive_subscription_message` to **False** to have messages deleted from the subscription as they are read. Set the `peek_lock` parameter to **True** to read (peek) and lock the message without deleting it from the queue.
 
-The behavior of reading and deleting the message as part of the receive operation is the simplest, and works best for scenarios in which an application can tolerate not processing a message when there is a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it has missed the message that was consumed prior to the crash.
+The `peek_lock=False` behavior of reading and deleting the message as part of the receive operation is simplest. This behavior works best for scenarios in which an application can tolerate not processing a message when there's a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it has missed the message that was consumed before the crash.
 
-If the `peek_lock` parameter is set to **True**, receive is a two-stage operation, which supports applications that can't tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers receiving it, and then returns it to the application. After the application finishes processing the message, or stores it reliably for future processing, it completes the second stage of the receive process by calling the `delete` method on the **Message** object. The `delete` method marks the message as being consumed and removes it from the subscription.
+If the `peek_lock` parameter is set to **True**, receive is a two-stage operation, which supports applications that can't tolerate missing messages. When Service Bus receives a request, it finds the next message to be consumed, locks it to prevent other consumers from receiving it, and then returns it to the application. After the application finishes processing the message, or stores it reliably for future processing, it completes the second stage of the receive process by calling the `delete` method on the **Message** object. The `delete` method marks the message as being consumed and removes it from the subscription. The following example demonstrates `peek_lock=True` behavior:
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -169,26 +173,24 @@ Service Bus provides functionality to help you gracefully recover from errors in
 
 There's also a timeout for messages locked within the subscription. If an application fails to process a message before the lock timeout expires, for example if the application crashes, Service Bus unlocks the message automatically and makes it available to be received again.
 
-If an application crashes after processing the message but before calling the `delete` method, the message will be redelivered to the application when it restarts. This behavior is often called *At-least-once Processing*. Each message is processed at least once, but in certain situations the same message may be redelivered. If your scenario can't tolerate duplicate processing, add logic to your application to handle duplicate message delivery. To do this, you can use the **MessageId** property of the message, which remains constant across delivery attempts.
+If an application crashes after processing the message but before calling the `delete` method, the message will be redelivered to the application when it restarts. This behavior is often called *At-least-once Processing*. Each message is processed at least once, but in certain situations the same message may be redelivered. If your scenario can't tolerate duplicate processing, you can use the **MessageId** property of the message, which remains constant across delivery attempts, to handle duplicate message delivery. 
 
 ## Delete topics and subscriptions
 
-Topics and subscriptions are persistent unless the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) property is set. You can delete topics and subscriptions through the [Azure portal][Azure portal] or programmatically. The following code shows how to delete the topic named `mytopic`:
+Topics and subscriptions are persistent unless the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) property is set. To delete topics and subscriptions, use the [Azure portal][Azure portal] or the `delete_topic` method. The following code deletes the topic named `mytopic`:
 
 ```python
 bus_service.delete_topic('mytopic')
 ```
 
-Deleting a topic also deletes any subscriptions to the topic. 
-
-You can also delete subscriptions independently. The following code shows how to delete a subscription named `HighMessages` from the `mytopic` topic:
+Deleting a topic deletes all subscriptions to the topic. You can also delete subscriptions independently. The following code deletes a subscription named `HighMessages` from the `mytopic` topic:
 
 ```python
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 > [!NOTE]
-> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs, and events hubs. 
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality, and the ability to test topic, queues, subscriptions, relay services, notification hubs, and events hubs. 
 
 ## Next steps
 
