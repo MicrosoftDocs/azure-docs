@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
-# Register a Peering Service connection using PowerShell
+# Register a Peering Service connection using Azure PowerShell
 
 *Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. In this article, you will learn how to register a *Peering Service* connection using PowerShell.
 
@@ -28,7 +28,7 @@ Use the **Azure PowerShell** module to register and manage *Peering Service*. Re
 
 ## Register the Peering Service
 
-## Pre-requisites  
+## Prerequisites  
 
 ### Azure account
 

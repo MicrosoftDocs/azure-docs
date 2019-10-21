@@ -28,7 +28,7 @@ Customer can establish a single connection or multiple connections as per the re
 >For more information about connection telemetry, refer [Peering Service connection telemetry](peering-service-connection-telemetry.md).
 >
   
-## How to register a connection?
+## How to register the connection?
 
 ![first mile ](./media/peering-service-about/peering-service-geo-shortest.png)
 

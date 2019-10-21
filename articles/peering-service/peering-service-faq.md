@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 011/04/2019
+ms.date: 11/04/2019
 ms.author: ypitsch
 ---
 
@@ -26,7 +26,13 @@ A. Yes, customers can sign up for the *Peering Service* with multiple providers 
 
 **Q. Can a customer select a unique ISP for their sites per geographical region?**  
 
- Yes, customer can do so. It is recommended to select the Partner ISP per region that suits their business and operational needs.
+A. Yes, customer can do so. It is recommended to select the Partner ISP per region that suits their business and operational needs.
+
+**Q. What is Microsoft Edge PoP?**
+
+A. It is a physical location where Microsoft interconnects with other networks. In that Microsoft Edge PoP location, services such as Azure Front Door and Azure CDN are hosted. Refer [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features) for more information.
+
+## Peering Service - Unique characteristics
 
 **Q. How is Peering Service different from normal Internet access?**
 
@@ -35,12 +41,6 @@ A. Partners who have registered to teh Microsoft Peering service have been worki
 **Q. How is Peering Service different from ExpressRoute?**
 
 A. ExpressRoute is a private, dedicated connection from given one or multiple locations. While Peering Service offers optimized Public connectivity and does not support any private connectivity. It also offers optimized connectivity for local internet breakouts.
-
-
-**Q. What is Microsoft Edge PoP?**
-
-A. It is a physical location where Microsoft interconnects with other networks. In that Microsoft Edge PoP location, services such as Azure Front Door and Azure CDN are hosted. Refer [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-features) for more information.
-
 
 ## Next steps
 

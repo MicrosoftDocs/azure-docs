@@ -18,6 +18,8 @@ Peering Service connection telemetry is the insights collected for a *Peering Se
 
 To measure the Peering Service connection telemetry, you must register the Peering Service connection into the Azure portal. To learn how to register the connection, refer [register the connection](peering-service-azure-portal.md).
 
+## View Latency Report
+
 To view the latency report for a specific Peering Service connection, do the following:
 
 1. Click on **ALL resources** from the left pane and click on the Peering Service connection. Following that, click on the **Open** below the **Prefixes** as depicted below:  
