@@ -14,9 +14,9 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for .NET Framework (Windows) platform setup
 
-This guide shows how to install the [Speech SDK](speech-sdk.md) for .NET Framework (Windows).
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for .NET Framework (Windows).
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Prerequisites
 
@@ -44,7 +44,7 @@ You'll need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nu
 
    If the check box next to **.NET desktop development** is already selected, select **Close** to exit the dialog box.
 
-   ![Enable .NET desktop development](../../cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
+   ![Enable .NET desktop development](~/articles/cognitive-services/speech-service//media/sdk/vs-enable-net-desktop-workload.png)
 
 1. Close Visual Studio Installer.
 
@@ -52,7 +52,7 @@ You'll need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nu
 
 1. In the Solution Explorer, right-click the **helloworld** project, and then select **Manage NuGet Packages** to show the NuGet Package Manager.
 
-   ![NuGet Package Manager](../../cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
+   ![NuGet Package Manager](~/articles/cognitive-services/speech-service/media/sdk/vs-nuget-package-manager.png)
 
 1. In the upper-right corner, find the **Package Source** drop-down box, and make sure that **`nuget.org`** is selected.
 
@@ -62,7 +62,7 @@ You'll need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nu
 
 1. From the search results, select the **Microsoft.CognitiveServices.Speech** package, and then select **Install** to install the latest stable version.
 
-   ![Install Microsoft.CognitiveServices.Speech NuGet package](../../cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
+   ![Install Microsoft.CognitiveServices.Speech NuGet package](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-03-nuget-install-1.0.0.png)
 
 1. Accept all agreements and licenses to start the installation.
 
@@ -72,6 +72,4 @@ You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 
-* [Quickstart: Recognize speech from a microphone]()
-* [Quickstart: Synthesize speech from a file]()
-* [Quickstart: Translate speech-to-text]()
+[!INCLUDE [windows](../quickstart-list.md)]

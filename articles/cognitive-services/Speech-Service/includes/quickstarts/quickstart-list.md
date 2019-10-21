@@ -1,0 +1,7 @@
+- [Quickstart: Recognize speech from a microphone](speech-to-text-from-microphone.md)
+- [Quickstart: Recognize speech from a file](speech-to-text-from-file.md)
+- [Quickstart: Recognize speech from an Azure Blog](from-blob.md)
+- [Quickstart: Translate speech-to-text](translate-speech-to-text.md)
+- [Quickstart: Synthesize text to an audio device](text-to-speech.md)
+- [Quickstart: Synthesize text to a file](text-to-speech-audio-file.md)
+- [Quickstart: Recognize Intents](intent-recognition.md)

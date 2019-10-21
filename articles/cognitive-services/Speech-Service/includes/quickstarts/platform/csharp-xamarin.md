@@ -14,9 +14,9 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for C# (Xamarin) platform setup
 
-This guide shows how to install the [Speech SDK](speech-sdk.md) for [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), an open-source platform for building modern and performant applications for iOS, Android, and Windows with .NET. 
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for [Xamarin](https://docs.microsoft.com/xamarin/get-started/what-is-xamarin), an open-source platform for building modern and performant applications for iOS, Android, and Windows with .NET. 
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ This quickstart requires:
 
 ## Create a Visual Studio project and install the Speech SDK
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-xamarin-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-xamarin-create-proj.md)]
 
 The Speech SDK is now installed. You may now delete or re-use the "helloworld" project you created in the previous steps.
 
@@ -34,6 +34,4 @@ You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 
-* [Quickstart: Recognize speech from a microphone]()
-* [Quickstart: Synthesize speech from a file]()
-* [Quickstart: Translate speech-to-text]()
+[!INCLUDE [windows](../quickstart-list.md)]

@@ -16,7 +16,7 @@ ms.author: erhopf
 
 This guide shows how to install the [Speech SDK](speech-sdk.md) for Python.
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Supported operating systems
 
@@ -53,7 +53,7 @@ This guide shows how to install the [Speech SDK](speech-sdk.md) for Python.
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python** and click **Install**.
 
-   ![Install the Python extension](media/sdk/qs-python-vscode-python-extension.png)
+   ![Install the Python extension](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. Also from within Visual Studio Code, install the Speech SDK Python package from the integrated command line:
    1. Open a terminal (from the drop-down menus, **Terminal** > **New Terminal**)
@@ -85,14 +85,12 @@ This is shown in more detail within the code examples listed in [Next steps](#ne
 
 ## Support and updates
 
-Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](./releasenotes.md).
+Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/speech-service/releasenotes.md).
 If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
 Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
 
-If you have a problem, or you're missing a feature, see [Support and help options](./support.md).
+If you have a problem, or you're missing a feature, see [Support and help options](~/articles/cognitive-services/speech-service/support.md).
 
 ## Next steps
 
-- [Quickstart: Recognize speech from a microphone]()
-- [Quickstart: Synthesize speech from a file]()
-- [Quickstart: Translate speech-to-text]()
+[!INCLUDE [windows](../quickstart-list.md)]

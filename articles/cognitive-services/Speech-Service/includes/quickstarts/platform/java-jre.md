@@ -14,12 +14,12 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for Java (Windows, Linux, macOS) platform setup
 
-This guide shows how to install the [Speech SDK](speech-sdk.md) for 64-bit Java 8 JRE.
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for 64-bit Java 8 JRE.
 
 > [!NOTE]
-> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
+> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](~/articles/cognitive-services/speech-service/speech-devices-sdk.md).
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Supported operating systems
 
@@ -53,12 +53,10 @@ This guide shows how to install the [Speech SDK](speech-sdk.md) for 64-bit Java 
 
 ## Create an Eclipse project and install the Speech SDK
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
 You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 
-- [Quickstart: Recognize speech from a microphone]()
-- [Quickstart: Synthesize speech from a file]()
-- [Quickstart: Translate speech-to-text]()
+[!INCLUDE [windows](../quickstart-list.md)]

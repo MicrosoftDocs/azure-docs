@@ -16,7 +16,7 @@ ms.author: erhopf
 
 This guide shows how to install the [Speech SDK](speech-sdk.md) for Linux
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## System requirements
 
@@ -77,12 +77,10 @@ Download and install the SDK as follows:
 
    The directory listing should contain the third-party notice and license files, as well as an `include` directory containing header (`.h`) files and a `lib` directory containing libraries.
 
-   [!INCLUDE [Linux Binary Archive Content](../../../includes/cognitive-services-speech-service-linuxbinary-content.md)]
+   [!INCLUDE [Linux Binary Archive Content](~/includes/cognitive-services-speech-service-linuxbinary-content.md)]
 
 You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 
-* [Quickstart: Recognize speech from a microphone]()
-* [Quickstart: Synthesize speech from a file]()
-* [Quickstart: Translate speech-to-text]()
+[!INCLUDE [windows](../quickstart-list.md)]

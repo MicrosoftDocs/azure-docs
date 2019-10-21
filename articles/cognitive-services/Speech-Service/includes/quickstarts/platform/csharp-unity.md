@@ -14,12 +14,12 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for Unity platform setup - Speech Service
 
-This guide shows how to install the [Speech SDK](speech-sdk.md) for [Unity](https://unity3d.com/).
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for [Unity](https://unity3d.com/).
 
 > [!NOTE]
 > The Speech SDK for Unity supports Windows Desktop (x86 and x64) or Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) and iOS (x64 simulator, ARM32 and ARM64)
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ To install the Speech SDK for Unity, follow these steps:
 
 1. Download and open the [Speech SDK for Unity](https://aka.ms/csspeech/unitypackage), which is packaged as a Unity asset package (.unitypackage), and should already be associated with Unity. When the asset package is opened, the **Import Unity Package** dialog box appears. You may need to create and open an empty project for this step to work.
 
-   [![Import Unity Package dialog box in the Unity Editor](media/sdk/qs-csharp-unity-01-import.png)](media/sdk/qs-csharp-unity-01-import.png#lightbox)
+   [![Import Unity Package dialog box in the Unity Editor](media/sdk/qs-csharp-unity-01-import.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-unity-01-import.png#lightbox)
 
 1. Ensure that all files are selected, and select **Import**. After a few moments, the Unity asset package is imported into your project.
 
@@ -45,6 +45,4 @@ You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 
-- [Quickstart: Recognize speech from a microphone]()
-- [Quickstart: Synthesize speech from a file]()
-- [Quickstart: Translate speech-to-text]()
+[!INCLUDE [windows](../quickstart-list.md)]

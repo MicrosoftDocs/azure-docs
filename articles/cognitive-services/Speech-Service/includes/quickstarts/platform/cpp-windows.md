@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for C++ (Windows) platform setup
 
-This guide shows how to install the [Speech SDK](speech-sdk.md) for C++ on Windows Desktop.
+This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C++ on Windows Desktop.
 
 ## Prerequisites
 
@@ -24,12 +24,10 @@ This quickstart requires:
 
 ## Create a Visual Studio project and install the Speech SDK
 
-[!INCLUDE [Quickstart C++ project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](!/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 You can now move on to [Next steps](#next-steps) below.
 
 ## Next steps
 
-* [Quickstart: Recognize speech from a microphone]()
-* [Quickstart: Synthesize speech from a file]()
-* [Quickstart: Translate speech-to-text]()
+[!INCLUDE [windows](../quickstart-list.md)]
