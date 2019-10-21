@@ -39,7 +39,7 @@
           href: cache-best-practices.md
         - name: Azure Architecture Best Practices for Caching
           href: https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json
-    - name: Failover and patching explained
+    - name: Failover and patching
       href: cache-failover.md
 - name: How-to guides
   items:
