@@ -38,7 +38,6 @@ The following tables list the platform metrics collected for Azure Machine learn
 
 | Model | Unit | Description |
 | ----- | ----- | ----- |
-| **Metric** | **Unit** | **Description** |
 | Model deploy failed | Count | The number of model deployments that failed. |
 | Model deploy started | Count | The number of model deployments started. |
 | Model deploy succeeded | Count | The number of model deployments that succeeded. |
