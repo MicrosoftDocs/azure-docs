@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/18/2019
+ ms.date: 11/04/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -32,4 +32,4 @@
     * **Connecting**: Azure VPN gateway is trying to reach out to the actual on-premises VPN site.
     * **Connected**: Connectivity is established between Azure VPN gateway and on-premises VPN site.
     * **Disconnected**: This status is seen if, for any reason (on-premises or in Azure), the connection was disconnected.
-4. You can additionally edit/delete the VPN Connection, delete the site  in the Azure portal, or download a branch specific configuration for details about the Azure side from the context (…) menu next to the Site. If you want to download the configuration for all connected sites in your hub, select **Download VPN Config** on the top menu.
+4. You can additionally, within a hub VPN site, edit or delete the VPN Connection, delete the site  in the Azure portal, or download a branch specific configuration for details about the Azure side from the context (…) menu next to the Site. If you want to download the configuration for all connected sites in your hub, select **Download VPN Config** on the top menu.

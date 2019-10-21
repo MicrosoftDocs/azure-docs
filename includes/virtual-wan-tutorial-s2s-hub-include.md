@@ -5,11 +5,11 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 10/07/2019
+ ms.date: 11/04/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
-1. Locate the Virtual WAN that you created. On the Virtual WAN page, under the **Virtual WAN architecture** section, select **Hubs**.
+1. Locate the Virtual WAN that you created. On the Virtual WAN page, under the **Connectivity** section, select **Hubs**.
 2. On the Hubs page, select **+New Hub** to open the **Create virtual hub** page.
 
     ![Basics](./media/virtual-wan-tutorial-hub-include/basics.png "Basics")

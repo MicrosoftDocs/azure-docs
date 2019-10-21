@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/19/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -60,7 +60,7 @@ In this step, you connect your VPN site to the hub.
 
 ## <a name="vnet"></a>5. Connect the VNet to the hub
 
-In this step, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
+In this step, you create the connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
 1. On the page for your virtual WAN, click **Virtual network connections**.
 2. On the virtual network connection page, click **+Add connection**.
@@ -70,21 +70,16 @@ In this step, you create the peering connection between your hub and a VNet. Rep
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
     * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
-4. Click **OK** to create the peering connection.
+4. Click **OK** to create the virtual network connection.
 
-
-## <a name="viewwan"></a>6. Connect VNet gateway to the virtual WAN
-
-[!INCLUDE [Connect the gateway to the vWAN](../../includes/virtual-wan-tutorial-s2s-connect-vnetgw-vwan-include.md)]
-
-## <a name="device"></a>7. Download VPN configuration
+## <a name="device"></a>6. Download VPN configuration
 
 Use the VPN device configuration to configure your on-premises VPN device.
 
 1. On the page for your virtual WAN, click **Overview**.
-2. At the top of the Overview page, click **Download VPN configuration**. Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
+2. At the top of the **Hub ->VPNSite** page, click **Download VPN config**. Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
 3. Once the file has finished creating, you can click the link to download it.
-4. Apply the configuration to your VPN device.
+4. Apply the configuration to your on-premises VPN device.
 
 ### Understanding the VPN device configuration file
 
@@ -229,11 +224,11 @@ If you need instructions to configure your device, you can use the instructions 
 * A New Virtual WAN can support both IKEv1 and IKEv2.
 * Virtual WAN can only use route-based VPN devices and device instructions.
 
-## <a name="viewwan"></a>8. View your virtual WAN
+## <a name="viewwan"></a>7. View your virtual WAN
 
 1. Navigate to the virtual WAN.
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
-3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
+2. On the **Overview** page, each point on the map represents a hub. Hover over any point to view the hub health summary, connection status, and bytes in and out.
+3. In the Hubs and connections section, you can view hub status, VPN sites, etc. You can click on a specific hub name and navigate to the VPN Site for additional details.
 
 ## Next steps
 
