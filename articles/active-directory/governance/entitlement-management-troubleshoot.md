@@ -33,7 +33,7 @@ This article describes some items you should check to help you troubleshoot Azur
 ## Checklist for entitlement management administration
 
 * If you get an access denied message when configuring entitlement management, and you are a Global administrator, ensure that your directory has an [Azure AD Premium P2 (or EMS E5) license](entitlement-management-overview.md#license-requirements).  
-* If you get an access denied message when creating or viewing access packages, and you are a member of a Catalog creator group, you must create a catalog prior to creating your first access package.
+* If you get an access denied message when creating or viewing access packages, and you are a member of a Catalog creator group, you must [create a catalog](entitlement-management-catalog-create.md) prior to creating your first access package.
 
 ## Checklist for adding a resource
 
@@ -41,9 +41,13 @@ This article describes some items you should check to help you troubleshoot Azur
 
 * For a group to be a resource in an access package, it must be able to be modifiable in Azure AD.  Groups that originate in an on-premises Active Directory cannot be assigned as resources because their owner or member attributes cannot be changed in Azure AD.   Groups that originate in Exchange Online as Distribution groups cannot be modified in Azure AD either. 
 
-* SharePoint Online document libraries and individual documents cannot be added as resources.  Instead, create an Azure AD security group, include that group and a site role in the access package, and in SharePoint Online use that group to control access to the document library or document.
+* SharePoint Online document libraries and individual documents cannot be added as resources.  Instead, create an [Azure AD security group](../fundamentals/active-directory-groups-create-azure-portal.md), include that group and a site role in the access package, and in SharePoint Online use that group to control access to the document library or document.
 
 * If there are users that have already been assigned to a resource that you want to manage with an access package, be sure that the users are assigned to the access package with an appropriate policy. For example, you might want to include a group in an access package that already has users in the group. If those users in the group require continued access, they must have an appropriate policy for the access packages so that they don't lose their access to the group. You can assign the access package by either asking the users to request the access package containing that resource, or by directly assigning them to the access package. For more information, see [Change request and approval settings for an access package](entitlement-management-access-package-request-policy.md).
+
+## Checklist for removing a resource
+
+* When you remove a member of a team, they are removed from the Office 365 Group as well. Removal from the team's chat functionality might be delayed. For more information, see [Group membership](https://docs.microsoft.com/microsoftteams/office-365-groups#group-membership).
 
 ## Checklist for providing external users access
 
