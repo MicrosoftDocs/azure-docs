@@ -11,7 +11,7 @@ ms.date: 10/15/2019
 
 # Configure agent data collection for Azure Monitor for containers
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS-Engine clusters hosted in Azure. This article describes the how to enable monitoring of Kuberentes clusters hosted outside of Azure and achieve the same monitoring experience.
+Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS-Engine clusters hosted in Azure. This article describes the how to enable monitoring of Kuberentes clusters hosted outside of Azure and achieve a similar monitoring experience.
 
 ## Prerequisites
 
@@ -20,6 +20,10 @@ Before you start, make sure that you have the following:
 * **A Log Analytics workspace.**
 
     Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
+
+    >[!NOTE]
+    >Enable monitoring of multiple clusters with the same cluster name to same Log Analytics workspace is not supported. Cluster names must be unique.
+    >
 
 * You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage access to workspace and log data](../platform/manage-access.md)
 
@@ -40,12 +44,13 @@ Before you start, make sure that you have the following:
 
 ## Enable monitoring
 
-Enabling Azure Monitor for containers for the hybrid Kubernetes cluster consists of the following high-level steps.
+Enabling Azure Monitor for containers for the hybrid Kubernetes cluster consists of performing the following steps in order.
 
-- Configure your Log Analytics workspace with Container Insights solution.
+1. Configure your Log Analytics workspace with Container Insights solution.
 
-- Enable the Azure Monitor for containers HELM chart with Log Analytics workspace.
+2. Enable the Azure Monitor for containers HELM chart with Log Analytics workspace.
 
+3. Enable 
 
 ### How to add the Azure Monitor Containers solution
 
@@ -209,12 +214,19 @@ To enable the HELM chart, do the following:
 
     ```
     $ helm install --name myrelease-1 \
-     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name>  incubator/azuremonitor-containers 
+     --set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers 
     ```
 
     If the Log Analytics workspace is in Azure US Government, run the following command:
 
     ```
     $ helm install --name myrelease-1 \
-    --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name>  incubator/azuremonitor-containers
+    --set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
     ```
+
+## Configure agent data collection
+
+Staring with chart version 1.0.0, the agent data collection settings are controlled from the ConfigMap. Refer to documentation about agent data collection settings [here](container-insights-agent-config.md). 
+
+After you have successfully deployed the chart, you can review the data for your hybrid Kubernetes cluster in Azure Monitor for containers from the Azure portal.  
+
