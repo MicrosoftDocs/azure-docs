@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Peering Service | Microsoft Docs
-description: Learn about Microsoft Azure Peering Service
+title: Azure Peering Service connection telemetry
+description: Learn about Microsoft Azure Peering Service connection telemetry
 services: peering-service
 author: ypitsch
 ms.service: peering-service
@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2019
+ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 # Peering Service connection telemetry
@@ -21,7 +21,7 @@ Connection telemetry is composed of the following scopes:
 
 - **Latency measurement**
 
-Measures the latency from the client to the Microsoft Edge for the registered prefixes.
+Measures the latency from the client to the Microsoft Edge PoP for the registered prefixes.
 
 - **Route(Prefix) monitoring and protection** 
 

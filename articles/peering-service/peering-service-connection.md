@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Peering Service | Microsoft Docs
-description: Learn about Microsoft Azure Peering Service
+title: Azure Peering Service connection 
+description: Learn about Microsoft Azure Peering Service connection
 services: peering-service
 author: ypitsch
 ms.service: peering-service
@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2019
+ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 

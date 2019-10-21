@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Peering Service | Microsoft Docs'
-description: Learn about Microsoft Azure Peering Service
+title: Microsoft Azure Peering Service Onboarding model
+description: Learn about on how to onboard Microsoft Azure Peering Service
 services: networking
 documentationcenter: na
 author: ypitsch
@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2019
+ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 

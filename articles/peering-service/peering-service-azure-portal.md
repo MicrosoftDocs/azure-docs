@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Peering Service | Microsoft Docs
-description: Learn about Microsoft Azure Peering Service
+title: Register Azure Peering Service - Azure portal
+description: Learn on how to register Azure Peering Service using Azure portal
 services: peering-service
 author: ypitsch
 ms.service: peering-service
@@ -8,15 +8,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2019
+ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
-# Register the Peering Service using the Azure portal
+# Register Peering Service using the Azure portal
 
 *Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet
 
-In this article, you will learn how to cerate a *Peering Service* connection using Azure portal.
+In this article, you will learn how to create a *Peering Service* connection using Azure portal.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -95,4 +95,4 @@ To measure the telemetry, see [Measure connection telemetry](peering-service-mea
 
 To register the connection using PowerShell, see [Peering Service connection](peering-service-powershell.md).
 
-To register the connection using Azure CLI, see [Peering Service connection](peering-service-CLI.md).
+To register the connection using Azure CLI, see [Peering Service connection](peering-service-cli.md).

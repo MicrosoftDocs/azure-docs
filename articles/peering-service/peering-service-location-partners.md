@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Peering Service | Microsoft Docs'
-description: 
+title: Microsoft Azure Peering Service location and partners
+description: Learn about Microsoft Azure Peering Service location and partners
 services: networking
 documentationcenter: na
 author: ypitsch
@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2019
+ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
@@ -21,16 +21,17 @@ The table in this article provides information on the *Peering Service* connecti
 
 | **Partners** | **Market**|
 |-----------|---------|
-| BBIX |Asia  |
-| CCL |Asia |
+| BBIX |Japan |
+| CCL |Oceania |
+| Colt|Europe|
 | DE-CIX|Europe |
 | Intercloud|Europe  |
 | KDDI |Japan  |
-| Kordia |Asia |
+| Kordia |Oceania  |
 | Liquid Telecom | Africa  |
 | NTT | Asia |
 | PCCW |Asia |
-| TATA | India  |
+| TATA | Asia  |
 
 ## Next steps
 

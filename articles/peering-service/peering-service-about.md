@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Peering Service | Microsoft Docs
-description: Learn about Microsoft Azure Peering Service
+title: Azure Peering Service Overview
+description: Learn about Azure Peering Service Overview
 services: peering-service
 author: ypitsch
 ms.service: peering-service
@@ -8,13 +8,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2019
+ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
-# What is Peering Service? 
+# What is Peering Service?
 
-Peering Service is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. Microsoft has partnered with *Internet Service Providers [ISP]*, *Internet Exchange Providers [IXP]* and, *Software Defined Cloud Interconnect (SDCI)* providers, worldwide to provide highly reliable and performant public connectivity with the optimal routing to/from for the customers.
+Peering Service is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. Microsoft has partnered with Internet Service Providers [ISP], Internet Exchange Providers [IXP] and, Software Defined Cloud Interconnect (SDCI) providers, worldwide to provide highly reliable and performant public connectivity with the optimal routing to/from for the customers.
 
 By selecting “*Peering Service*”, an end user is selecting a partner Service Provider [SP] in a given region, which is well connected to Microsoft through highly reliable interconnections. These connections are optimized for high reliability and minimal latency from  cloud services to the end user location.
 
@@ -40,9 +40,9 @@ For instructions on how to register a Peering Service, refer [here](peering-serv
 
 ## Background
 
-Office 365, Dynamics 365,  and any other Microsoft SaaS services are hosted in multiple Microsoft data centers and can be accessed from any geographic location. The *Microsoft Global Network* has Edge locations around the world where it can connect to an end user via their Service Provider (SP).  
+Office 365, Dynamics 365,  and any other Microsoft SaaS services are hosted in multiple Microsoft data centers and can be accessed from any geographic location. The *Microsoft Global Network* has Microsoft Edge Point of Presence locations around the world where it can connect to an end user via their Service Provider (SP).  
 
-Microsoft and partner SPs ensure that traffic for the prefixes registered with Peering Service connection enters and exits the nearest Microsoft Edge (PoP) locations on the *Microsoft Global Network*. Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Edge locations on the *Microsoft Global Network*.
+Microsoft and partner SPs ensure that traffic for the prefixes registered with Peering Service connection enters and exits the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*. Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*.
 
 ![first mile ](./media/peering-service-about/peering-service-background-final.png)
 
@@ -63,7 +63,7 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 ### Robust, Reliable Peering
 
 - **Local Redundancy**
-   - Microsoft and SP interconnect across multiple Edge locations to deliver *Peering Service*. In each location, interconnection must support failover across two routers.
+   - Microsoft and SP interconnect across multiple Microsoft Edge PoP locations to deliver *Peering Service*. In each location, interconnection must support failover across two routers.
    - Each peering location is provisioned with redundant and diverse peering links.
 
 - **Geo Redundancy**
@@ -95,7 +95,7 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 
       - Monitors the routing path for those prefixes registered with Peering Service and captures as event log for any failover events.
 
-      - Measures the networking performance by validating the round-trip time taken from the client to reach the Edge. Customer can view latency reports for different geographic locations.
+      - Measures the networking performance by validating the round-trip time taken from the client to reach the Microsoft Edge PoP. Customer can view latency reports for different geographic locations.
 
       - View latency reports for different geographic locations.
 

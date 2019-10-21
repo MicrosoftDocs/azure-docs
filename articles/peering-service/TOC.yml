@@ -23,7 +23,7 @@
       - name: Azure PowerShell
         href: peering-service-powershell.md
       - name: Azure CLI
-        href: peering-service-CLI.md
+        href: peering-service-cli.md
   - name: Measure Connection telemetry 
     href: peering-service-measure-connection-telemetry.md
 - name: Reference

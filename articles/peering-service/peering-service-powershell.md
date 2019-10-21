@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Peering Service | Microsoft Docs
-description: Learn about Microsoft Azure Peering Service
+title: Register Azure Peering Service - Azure PowerShell
+description: Learn about on how to register Azure Peering Service using Azure PowerShell
 services: peering-service
 author: ypitsch
 ms.service: peering-service
@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2019
+ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
@@ -73,7 +73,7 @@ To register the *Peering Service*, execute the below listed commands:
 
 ```loc = "Washington"
 $provider = "TestPeer1"
-$resourceGroup = "Building40"
+$resourceGroup = "MyResourceGroup"
 $name = “myPeeringService”
 $peeringService = New-AzPeeringService -ResourceGroupName $resourceGroup -Name $name -PeeringLocation $loc -PeeringServiceProvider $provider 
 ```
@@ -84,7 +84,7 @@ To specify the prefix through which the networking traffic is originated execute
 
 ```$loc = "Washington"
 $provider = "TestPeer1"
-$resourceGroup = "Building40"
+$resourceGroup = "MyResourceGroup"
 $name = “myPeeringService”
 $peeringService = New-AzPeeringService -ResourceGroupName $resourceGroup -Name $name -PeeringLocation $loc -PeeringServiceProvider $provider
 $prefixName = "prefix1"
@@ -108,7 +108,7 @@ To view all the *Peering Services Prefixes*, execute the following command:
 ```
 
 ```
-$prefix = Get-AzPeeringServicePrefix -PeeringServiceName "myPeeringService" -ResourceGroupName "Building40" -Name "prefix1"
+$prefix = Get-AzPeeringServicePrefix -PeeringServiceName "myPeeringService" -ResourceGroupName "MyResourceGroup" -Name "prefix1"
 ```
 
 ### Remove a Peering Service Prefix
@@ -116,7 +116,7 @@ $prefix = Get-AzPeeringServicePrefix -PeeringServiceName "myPeeringService" -Res
 To remove a *Peering Services Prefix*, execute the following command:
 
 ```
-Remove-AzPeeringServicePrefix -ResourceGroupName  "Building40" -Name "prefix1" -PeeringServiceName "myPeeringService"
+Remove-AzPeeringServicePrefix -ResourceGroupName  "MyResourceGroup" -Name "prefix1" -PeeringServiceName "myPeeringService"
 ```
 
 ## Next steps
@@ -129,4 +129,4 @@ To learn about Peering Service telemetry concepts, see [Peering Service Connecti
 
 To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal.md).
 
-To register the connection using Azure CLI, see [Peering Service connection](peering-service-CLI.md).
+To register the connection using Azure CLI, see [Peering Service connection](peering-service-cli.md).
