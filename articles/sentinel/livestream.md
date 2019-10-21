@@ -108,7 +108,7 @@ This action opens the rule creation wizard, which is prepopulated with the query
 
 ## Next steps
 
-In this article, you learned how to use hunting livestream in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+In this article, you learned how to use hunting Livestream in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
 
 
 - [Proactively hunt for threats](hunting.md)
