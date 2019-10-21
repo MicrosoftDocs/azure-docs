@@ -127,7 +127,7 @@
   href: storage-resource-deletion-errors.md
 - name: Errors when deleting classic storage resources
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: Windows activation
+- name: Troubleshoot VM restart issues
   items: 
   - name: Unexpected reboots of VMs with attached VHDs
     href: unexpected-reboots-attached-vhds.md
