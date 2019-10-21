@@ -69,8 +69,6 @@ After successfully authenticating, the Live console pane will appear below the p
 ![Node properties pane view live data option](./media/container-insights-livedata-console/node-properties-pane.png)  
 
 The pane title shows the name of the pod the container is grouped with.
-    
-![Live console pane retrieved data](./media/container-insights-livedata-console/live-console-pane.png)
 
 ## Live Events
 
