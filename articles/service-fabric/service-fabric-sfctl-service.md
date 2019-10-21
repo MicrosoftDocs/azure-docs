@@ -102,7 +102,7 @@ Creates the specified Service Fabric service.
 |Argument|Description|
 | --- | --- |
 | --app-id       [Required] | The identity of the application. This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the '\~' character. For example, if the application name is 'fabric\:/myapp/app1', the application identity would be 'myapp\~app1' in 6.0+ and 'myapp/app1' in previous versions. |
-| --name         [Required] | Name of the service. This should be a child of the application id. This is the full name including the `fabric\:` URI. For example service `fabric\:/A/B` is a child of application `fabric\:/A`. |
+| --name         [Required] | Name of the service. This should be a child of the application ID. This is the full name including the `fabric\:` URI. For example service `fabric\:/A/B` is a child of application `fabric\:/A`. |
 | --service-type [Required] | Name of the service type. |
 | --activation-mode | The activation mode for the service package. |
 | --constraints | The placement constraints as a string. Placement constraints are boolean expressions on node properties and allow for restricting a service to particular nodes based on the service requirements. For example, to place a service on nodes where NodeType is blue specify the following\:"NodeColor == blue". |

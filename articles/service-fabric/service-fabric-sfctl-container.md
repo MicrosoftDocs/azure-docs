@@ -38,7 +38,7 @@ Invoke container API on a container deployed on a Service Fabric node for the gi
 | --application-id           [Required] | The identity of the application. <br><br> This is typically the full name of the application without the 'fabric\:' URI scheme. Starting from version 6.0, hierarchical names are delimited with the "\~" character. For example, if the application name is "fabric\:/myapp/app1", the application identity would be "myapp\~app1" in 6.0+ and "myapp/app1" in previous versions. |
 | --code-package-instance-id [Required] | ID that uniquely identifies a code package instance deployed on a service fabric node. <br><br> Can be retrieved by 'service code-package-list'. |
 | --code-package-name        [Required] | The name of code package specified in service manifest registered as part of an application type in a Service Fabric cluster. |
-| --container-api-uri-path   [Required] | Container REST API URI path, use '{id}' in place of container name/id. |
+| --container-api-uri-path   [Required] | Container REST API URI path, use '{ID}' in place of container name/id. |
 | --node-name                [Required] | The name of the node. |
 | --service-manifest-name    [Required] | The name of a service manifest registered as part of an application type in a Service Fabric cluster. |
 | --container-api-body | HTTP request body for container REST API. |
