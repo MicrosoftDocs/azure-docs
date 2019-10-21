@@ -75,7 +75,13 @@ For this quickstart, you'll need a virtual network and a virtual machine to asso
 
 5. Select **Review + create**. 
 
-## Create a NAT gateway resource
+## Create the NAT Gateway
+
+### Create a public IP address
+
+### Create a public IP prefix
+
+### Create a NAT gateway resource
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **NAT gateway**.
 
@@ -87,8 +93,7 @@ For this quickstart, you'll need a virtual network and a virtual machine to asso
    _ Select the **Public IP** tab, or select **Next: Public IP**.
 
 3. In the **Public IP** tab, type or select the following values:
-   - **Public IP Prefixes**: Select **Create a new public IP prefix**, and in the **Add a public IP prefix** window, for **Name**: Type **myPublicIPprefix**.  The **SKU** and **IP version** should already be set to **Standard** and **IPv4**.  For **Prefix size**, select **31**.  Select **OK**.
-   - Select the **Subnet** tab, or select **Next: Subnet**.
+   
 
 4. In the **Subnet** tab, type or select the following values:
   - **Virtual Network**: Select **myResourceGroupNAT** > **myVnet**.
