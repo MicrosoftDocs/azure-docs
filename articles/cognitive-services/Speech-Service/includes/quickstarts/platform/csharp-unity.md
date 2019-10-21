@@ -12,8 +12,6 @@ ms.date: 10/10/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Speech SDK for Unity platform setup - Speech Service
-
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for [Unity](https://unity3d.com/).
 
 > [!NOTE]

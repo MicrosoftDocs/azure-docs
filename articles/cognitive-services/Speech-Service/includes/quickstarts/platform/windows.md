@@ -12,8 +12,6 @@ ms.date: 10/10/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Speech SDK for C# .NET Core platform setup - Speech Service
-
 This guide shows how to install the [Speech SDK](speech-sdk.md) for C# .NET Core.
 
 > [!NOTE]

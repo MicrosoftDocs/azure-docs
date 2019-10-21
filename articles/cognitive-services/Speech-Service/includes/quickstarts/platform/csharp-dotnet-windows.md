@@ -12,8 +12,6 @@ ms.date: 10/10/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Speech SDK for .NET Framework (Windows) platform setup
-
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for .NET Framework (Windows).
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]

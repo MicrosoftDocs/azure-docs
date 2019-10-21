@@ -12,8 +12,6 @@ ms.date: 10/11/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Speech SDK for Java (Android) platform setup
-
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for Java on Android. The setup is based on the Speech SDK Maven Package, and Android Studio 3.3.
 
 > [!NOTE]

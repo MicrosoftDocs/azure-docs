@@ -12,8 +12,6 @@ ms.date: 10/11/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Speech SDK for Java (Windows, Linux, macOS) platform setup
-
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for 64-bit Java 8 JRE.
 
 > [!NOTE]

@@ -12,8 +12,6 @@ ms.date: 10/14/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Speech SDK C++ (macOS) platform setup
-
 This guide shows how to install the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for C++ on macOS 10.13 and above.
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
