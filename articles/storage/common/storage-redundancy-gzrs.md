@@ -21,7 +21,7 @@ Microsoft recommends using GZRS for applications requiring consistency, durabili
 
 ## About the preview
 
-Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md). GZRS and RA-GZRS support block blobs, page blobs that are not VHD disks, files, tables, and queues.
+Only general-purpose v2 storage accounts support GZRS and RA-GZRS. For more information about storage account types, see [Azure storage account overview](storage-account-overview.md). GZRS and RA-GZRS support block blobs, page blobs (that are not VHD disks), files, tables, and queues.
 
 GZRS and RA-GZRS are currently available for preview in the following regions:
 
