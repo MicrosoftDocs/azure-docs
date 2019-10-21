@@ -23,16 +23,16 @@ The following table shows the configurations available for each WAN type:
 
 1. On the page for your virtual WAN, select **Configuration** to open the Configuration page.
 
-   ![Virtual WAN diagram](./media/upgrade-virtual-wan-to-standard/1.png)
+   ![Virtual WAN diagram](./media/upgrade-virtual-wan/1.png)
 2. For the Virtual WAN type, select **Standard** from the dropdown.
 
-   ![Virtual WAN diagram](./media/upgrade-virtual-wan-to-standard/2.png)
+   ![Virtual WAN diagram](./media/upgrade-virtual-wan/2.png)
 3. Understand that if you upgrade to a Standard virtual WAN, you cannot revert back to a Basic virtual WAN. Select **Confirm** if you want to upgrade.
 
-   ![Virtual WAN diagram](./media/upgrade-virtual-wan-to-standard/4.png)
+   ![Virtual WAN diagram](./media/upgrade-virtual-wan/4.png)
 4. Once the change has been saved, your virtual WAN page looks similar to this example.
 
-   ![Virtual WAN diagram](./media/upgrade-virtual-wan-to-standard/5.png)
+   ![Virtual WAN diagram](./media/upgrade-virtual-wan/5.png)
 
 ## Next steps
 

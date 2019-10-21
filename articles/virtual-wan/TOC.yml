@@ -27,7 +27,7 @@
 - name: How-to guides
   items:
   - name: Upgrade virtual WAN to Standard
-    href: upgrade-virtual-wan-to-standard.md
+    href: upgrade-virtual-wan.md
   - name: Create a VPN connection over ExpressRoute private peering
     href: vpn-over-expressroute.md
   - name: Configure custom IPsec policy
