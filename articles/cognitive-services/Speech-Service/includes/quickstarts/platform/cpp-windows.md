@@ -24,7 +24,7 @@ This quickstart requires:
 
 ## Create a Visual Studio project and install the Speech SDK
 
-[!INCLUDE [Quickstart C++ project](!/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Quickstart C++ project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 You can now move on to [Next steps](#next-steps) below.
 

@@ -44,7 +44,7 @@ You'll need to install the [Speech SDK NuGet package](https://aka.ms/csspeech/nu
 
    If the check box next to **.NET desktop development** is already selected, select **Close** to exit the dialog box.
 
-   ![Enable .NET desktop development](~/articles/cognitive-services/speech-service//media/sdk/vs-enable-net-desktop-workload.png)
+   ![Enable .NET desktop development](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
 1. Close Visual Studio Installer.
 

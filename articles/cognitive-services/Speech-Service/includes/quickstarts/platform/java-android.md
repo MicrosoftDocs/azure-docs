@@ -19,7 +19,7 @@ This guide shows how to install the [Speech SDK](~/articles/cognitive-services/s
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](~/articles/cognitive-services/speech-service/speech-devices-sdk.md).
 
-[!INCLUDE [License Notice](.~./includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 
 ## Supported platforms
 
