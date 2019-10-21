@@ -48,7 +48,9 @@ Start by collecting the cpu, memory, and storage throughput requirements of the 
 
 ## Storage guidance
 
-Azure blob cache with premium SSDs is recommended for all production workloads. Please refer to the blog [Optimize OLTP performance](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) for detailed testing of SQL Server performance on Azure VMs with TPC-E and TPC_C benchmarks.
+For detailed testing of SQL Server performance on Azure VMs with TPC-E and TPC_C benchmarks, refer to the blog [Optimize OLTP performance](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794). 
+
+Azure blob cache with premium SSDs is recommended for all production workloads. 
 
 > [!WARNING]
 > Standard HDDs and SSDs have varying latencies and bandwidth and are only recommended for dev/test workloads. Production workloads should use premium SSDs.
