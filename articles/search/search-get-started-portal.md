@@ -1,26 +1,28 @@
 ---
-title: 'Quickstart: Create a search index using Azure portal'
+title: Create a search index in the Azure portal
 titleSuffix: Azure Cognitive Search
-description: Use the Import Data wizard in Azure portal to create, load, and query your first index in Azure Cognitive Search. 
+description: Use the Import Data wizard to create, load, and query your first search index in Azure Cognitive Search. 
 
 author: lobrien
 manager: nitinme
 ms.author: laobri
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
-# Quickstart: Create an Azure Cognitive Search index using the Azure portal
+# Quickstart: Create an Azure Cognitive Search index in the Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
+> * [C#](search-get-started-dotnet.md)
+> * [Java](search-get-started-java.md)
+> * [Node.js](search-get-started-nodejs.md)
 > * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [C#](search-get-started-dotnet.md)
 
-For a fast ramp up on Azure Cognitive Search concepts, try the built-in tools in the Azure portal. Wizards and editors do not offer full parity with the .NET and REST APIs, but you can get started quickly with a code-free introduction, writing interesting queries against an index within minutes.
+Use the portal to quickly ramp upon Azure Cognitive Search concepts, and write interesting queries against an index within minutes.
 
 > [!div class="checklist"]
 > * Start with a free public sample data set hosted on Azure

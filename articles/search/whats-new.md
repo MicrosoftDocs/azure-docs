@@ -26,8 +26,6 @@ API versions, Nuget packages, namespaces, and endpoints are unchanged. Your exis
 
 November 4, 2019 - Ignite Conference
 
-<!-- + [Knowledge store](knowledge-store-concept-intro.md) is now generally available. If you previously used `api-version=2019-05-06-Preview` to create a knowledge, you can now drop the `-Preview` from the version designation. -->
-
 + [Power BI templates](knowledge-store-connect-power-bi.md) can jumpstart your visualizations and analysis of enriched content in a knowledge store in Power BI desktop.
 
 + Incremental processing, now in preview, allows you to process and retain content in chunks so that you can build up an index or a knowledge store in phases. This is especially useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
