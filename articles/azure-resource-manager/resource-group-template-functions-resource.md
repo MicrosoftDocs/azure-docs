@@ -4,7 +4,7 @@ description: Describes the functions to use in an Azure Resource Manager templat
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.author: tomfitz
 
 ---
@@ -27,7 +27,7 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 ## extensionResourceId
 
 ```json
-tenantResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
+extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
 ```
 
 Returns the resource ID for an extension resource.
@@ -36,7 +36,7 @@ Returns the resource ID for an extension resource.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| resourceId |No |string |The resource ID for the resource that the extension resource is applied to. |
+| resourceId |Yes |string |The resource ID for the resource that the extension resource is applied to. |
 | resourceType |Yes |string |Type of resource including resource provider namespace. |
 | resourceName1 |Yes |string |Name of resource. |
 | resourceName2 |No |string |Next resource name segment, if needed. |
@@ -47,15 +47,26 @@ Continue adding resource names as parameters when the resource type includes mor
 
 The identifier is returned in the following format:
 
-**/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
 
+If the extension resource is applied to a resource group, the format is:
+
+`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`
+
+### Remarks
+
+An extension resource is a resource that extends another resource's capabilities. For example, you apply a resource lock to a another resource to prevent it from being deleted or modified. Or, you apply an Event Grid subscription to another resource to send events from that resource to an endpoint.
+
+The resource ID for extension resource types includes the resource being extended.
 
 <a id="listkeys" />
 <a id="list" />
 
 ## list*
 
-`list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)`
+```json
+list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
+```
 
 The syntax for this function varies by name of the list operations. Each implementation returns values for the resource type that supports a list operation. The operation name must start with `list`. Some common usages are `listKeys` and `listSecrets`. 
 
@@ -286,7 +297,9 @@ To get the SAS token, pass an object for the expiry time. The expiry time must b
 
 ## providers
 
-`providers(providerNamespace, [resourceType])`
+```json
+providers(providerNamespace, [resourceType])
+```
 
 Returns information about a resource provider and its supported resource types. If you don't provide a resource type, the function returns all the supported types for the resource provider.
 
@@ -361,7 +374,9 @@ For the **Microsoft.Web** resource provider and **sites** resource type, the pre
 
 ## reference
 
-`reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
+```json
+reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
+```
 
 Returns an object representing a resource's runtime state.
 
@@ -583,7 +598,9 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ## resourceGroup
 
-`resourceGroup()`
+```json
+resourceGroup()
+```
 
 Returns an object that represents the current resource group. 
 
@@ -662,7 +679,9 @@ The preceding example returns an object in the following format:
 
 ## resourceId
 
-`resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)`
+```json
+resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2], ...)
+```
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. 
 
@@ -800,7 +819,9 @@ The output from the preceding example with the default values is:
 
 ## subscription
 
-`subscription()`
+```json
+subscription()
+```
 
 Returns details about the subscription for the current deployment. 
 
@@ -837,7 +858,9 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ## subscriptionResourceId
 
-`subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)`
+```json
+subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceName2], ...)
+```
 
 Returns the unique identifier for a resource deployed at the subscription level.
 
@@ -917,7 +940,9 @@ The following template assigns a built-in role. You can deploy it to either a re
 
 ## tenantResourceId
 
-`tenantResourceId(resourceType, resourceName1, [resourceName2], ...)`
+```json
+tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
+```
 
 Returns the unique identifier for a resource deployed at the tenant level.
 
@@ -935,7 +960,9 @@ Continue adding resource names as parameters when the resource type includes mor
 
 The identifier is returned in the following format:
 
-**/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}**
+```json
+/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+```
 
 ### Remarks
 
