@@ -55,7 +55,7 @@ The configuration file for the app would declare two `authorities`. One for each
 }
 ```
 
-The `redirect_uri` must be registered in the app configuration, and also in  `AndroidManifest.xml` to support redirection during the [authorization code grant flow](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+The `redirect_uri` must be registered in the app configuration, and also in  `AndroidManifest.xml` to support redirection during the [authorization code grant flow](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## Initialize IPublicClientApplication
 
@@ -216,7 +216,7 @@ String id = account.getId();
 // Get the IdToken Claims
 //
 // For more information about B2C token claims, see reference documentation
-// https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens
+// https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
 Map<String, ?> claims = account.getClaims();
 
 // Get the 'preferred_username' claim through a convenience function
