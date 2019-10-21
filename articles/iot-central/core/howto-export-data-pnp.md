@@ -70,10 +70,10 @@ Now that you have a destination to export data to, follow these steps to set up 
 
 1. Sign in to your IoT Central application.
 
-2. In the left menu, select **Data Export**.
+2. In the left pane, select **Data Export**.
 
     > [!Note]
-    > If you don't see Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
+    > If you don't see Data Export in the left pane, you are not an administrator in your app. Talk to an administrator to set up data export.
 
 3. Select the **+ New** button in the top right. Choose one of **Azure Event Hubs**, **Azure Service Bus**, or **Azure Blob storage** as the destination of your export. The maximum number of exports per application is five.
 

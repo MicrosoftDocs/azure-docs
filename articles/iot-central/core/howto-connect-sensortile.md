@@ -62,7 +62,7 @@ In this section, you learn how to push the application firmware onto the device.
 
 In this section you learn how to connect the SensorTile.box to the mobile application, and connect the mobile application to the cloud.
 
-1. Using the left menu, select the **Cloud Logging** button.
+1. Using the left pane, select the **Cloud Logging** button.
 
     ![Cloud logging](media/howto-connect-sensortile/cloud-logging.png)
 
