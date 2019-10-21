@@ -7,16 +7,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.reviewer: sgilley
-author: davidsmi
-ms.author: revodavid
-ms.date: 09/20/2019
+author: revodavid
+ms.author: davidsmi
+ms.date: 10/21/2019
 ---
 
 # Tutorial: Train your first ML model using R & Azure Machine Learning
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and a compute instance](tutorial-1st-experiment-R-setup.md).  In this tutorial, you learn the foundational design patterns in Azure Machine Learning.  You'll train and deploy a  logistic regression model using `azuremlsdk` and `caret`  to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
+This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and a compute instance](tutorial-1st-experiment-R-set-up.md).  In this tutorial, you learn the foundational design patterns in Azure Machine Learning.  You'll train and deploy a  logistic regression model using `azuremlsdk` and `caret`  to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
 
 In this tutorial, you learn the following tasks:
 
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-The only prerequisite is to run part one of this tutorial, [Tutorial: Get started with Azure Machine Learning and its R SDK](tutorial-1st-experiment-r-set-up).
+The only prerequisite is to run part one of this tutorial, [Tutorial: Get started with Azure Machine Learning and its R SDK](tutorial-1st-experiment-r-set-up.md).
 
 In this part of the tutorial, you run `R-Tutorial.Rmd` in RStudio which you cloned in part one. This article walks through the that code.
 
