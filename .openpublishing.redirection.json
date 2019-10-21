@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md",
+      "redirect_url": "/azure//virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-load-data.md",
       "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
       "redirect_document_id": false
@@ -42566,6 +42571,21 @@
     {
       "source_path": "articles/aks/consul-install.md",
       "redirect_url": "/azure/aks/servicemesh-consul-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/iot-overview.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/service-fabric-overview.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/service-fabric-checklist.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
       "redirect_document_id": false
     }
   ]
