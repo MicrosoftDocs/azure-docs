@@ -39,7 +39,7 @@ Below is the current list of stable release NuGet Packages for Application Insig
 | Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Application Insights Windows Server NuGet package provides automatic collection of application insights telemetry for .NET applications. This package can be used as a dependent package for Application Insights platform-specific packages or as a standalone package for .NET applications that are not covered by platform-specific packages (like for .NET worker roles). | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  |
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Provides a telemetry channel to Application Insights Windows Server SDK that will preserve telemetry in offline scenarios. | [Download Package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 
-## Common packages for OpenCensus Python
+## Common packages for Python using OpenCensus
 | Package Name | Stable Version | Description | Download |
 |-------------------------------|-----------------------|------------|----|
 | opencensus-ext-azure | 1.0.0 | Application Insights for Python applications under Azure Monitor via OpenCensus. | [Download Package](https://pypi.org/project/opencensus-ext-azure/) |
