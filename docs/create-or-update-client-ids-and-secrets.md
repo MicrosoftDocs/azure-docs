@@ -58,7 +58,7 @@ If your add-in is a service and it needs OAuth client IDs and client secrets, fo
 
 ### To add a client ID
 
-1. Sign in to [Partner Center](https://partner.microsoft-int.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
+1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
 
 2. On the **Client IDs** tab, select **Add new client ID**.
 
@@ -127,7 +127,7 @@ Update your client secret in the following situations:
 
 ### To generate additional client secrets
 
-1. 1. Sign in to [Partner Center](https://partner.microsoft-int.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
+1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
 
 2. On the **Client IDs** tab, select the client ID with which you want to associate additional client secrets.
 
@@ -149,7 +149,7 @@ Update your client secret in the following situations:
 
 ### To delete a client secret
 
-1. Sign in to [Partner Center](https://partner.microsoft-int.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
+1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
 
 2. On the **Client IDs** tab, select **Delete** next to the client ID that has the client secret that you want to delete.
     
@@ -172,7 +172,7 @@ You might want to delete a client ID in certain situations, for example:
 
 ### To delete a client ID
 
-1. Sign in to [Partner Center](https://partner.microsoft-int.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
+1. Sign in to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview) with your developer account and go to the **Product overview** page for your add-in.
 
 2. On the **Client IDs** tab, select **Delete** next to the client ID that has the client secret that you want to delete.
 
