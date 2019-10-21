@@ -548,7 +548,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Overview</h3>
-                                                    <p>Learn more about what it takes to build a conversational assistant.</p>
+                                                    <p>Learn more about what it takes to build a voice assistant.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -567,7 +567,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Build an assistant, no code required</h3>
-                                                    <p>Use this tutorial to stand up a speech-enabled bot without writing a line of code.</p>
+                                                    <p>Use this tutorial to stand up a voice-enabled assistant without writing a line of code.</p>
                                                 </div>
                                             </div>
                                         </div>
