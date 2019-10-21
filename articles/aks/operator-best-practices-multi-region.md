@@ -61,9 +61,9 @@ Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door Service](
 
 ### Interconnect regions with global vnet peering
 
-If the clusters need to talk to each other, connecting both virtual networks to each other can be achieved through [Virtual Network Peering][https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview]. This technology interconnects Virtual Networks to each other providing high bandwidth across Microsoft's backbone network, even across different geographic regions.
+If the clusters need to talk to each other, connecting both virtual networks to each other can be achieved through [Virtual Network Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). This technology interconnects Virtual Networks to each other providing high bandwidth across Microsoft's backbone network, even across different geographic regions.
 
-A prerequisite to peer the virtual networks where AKS clusters are running is that you have deployed your AKS cluster in your own Virtual Network, either using kubenet or the Azure CNI. Additionally, make sure to use the standard Load Balancer in your AKS cluster, so that kubernetes services are reachable across the Virtual Network peering.
+A prerequisite to peer the virtual networks where AKS clusters are running is using the standard Load Balancer in your AKS cluster, so that kubernetes services are reachable across the Virtual Network peering.
 
 ## Enable geo-replication for container images
 
