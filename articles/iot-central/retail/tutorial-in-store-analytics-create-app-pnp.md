@@ -69,9 +69,9 @@ To create a new Azure IoT Central checkout and condition monitoring application 
     ![Azure IoT Central Create Application page](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template.png)
 
 ## Customize application settings
-As a builder, you can change several settings to customize the user experience in your application.
+As a builder, you can change several settings to customize the user experience in your application. In this section, you learn how to  select a predefined application theme, create a custom theme, and update the application image. A custom theme enables you to set the application browser colors, browser icon, and the application logo that appears in the masthead.
 
-To change the application theme:
+To select a predefined application theme:
 
 1. Select **Settings** on the masthead.
 
@@ -81,7 +81,7 @@ To change the application theme:
 
 3. Select **Save**.
 
-To change the application logo and browser icon:
+To create a custom theme: 
 
 1. Expand the left pane, if not already expanded.
 
