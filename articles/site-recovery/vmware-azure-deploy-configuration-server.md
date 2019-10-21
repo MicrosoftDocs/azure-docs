@@ -23,7 +23,7 @@ Configuration server must be set up as a highly available VMware VM with certain
 
 ## Prerequisites
 
-Minimum hardware requirements for a configuration server are summarized in the following table.
+Minimum hardware requirements for a configuration server are summarized in the following sections.
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
