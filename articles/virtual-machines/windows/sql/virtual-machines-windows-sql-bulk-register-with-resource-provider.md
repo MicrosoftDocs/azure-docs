@@ -223,8 +223,10 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ## Full script
 
+(this is expected to fail for now)
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 
+(this will be removed, it's just to showcase how the script will look embedded)
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
 ## Next steps
