@@ -18,11 +18,13 @@ ms.custom:
 Recommendations and examples for creating and updating query-optimization statistics in:
 
 - [SQL Analytics pool](#statistics-in-sql-analytics-pool)
+
 [Why use statistics](#why-use-statistics)
 
 - [SQL Analytics on-demand](#statistics-in-sql-analytics-on-demand)
 
-  [Why use statistics](#why-use-statistics-sqlod)
+
+[Why use statistics](#why-use-statistics-sqlod)
 
 ## Statistics in SQL Analytics pool
 
