@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---
-# Predefined skills for content enrichment (Azure Cognitive Search)
+# Built-in cognitive skills for content enrichment (Azure Cognitive Search)
 
 In this article, you learn about the cognitive skills provided with Azure Cognitive Search. A *cognitive skill* is an operation that transforms content in some way. Often, it is a component that extracts data or infers structure, and therefore augments our understanding of the input data. Almost always, the output is text-based. A *skillset* is collection of skills that define the enrichment pipeline. 
 
@@ -20,7 +20,7 @@ In this article, you learn about the cognitive skills provided with Azure Cognit
 > Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
-## Predefined skills
+## Built-in skills
 
 Several skills are flexible in what they consume or produce. In general, most skills are based on pre-trained models, which means you cannot train the model using your own training data. The following table enumerates and describes the skills provided by Microsoft. 
 
