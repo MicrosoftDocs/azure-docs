@@ -42567,6 +42567,21 @@
       "source_path": "articles/aks/consul-install.md",
       "redirect_url": "/azure/aks/servicemesh-consul-install",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/iot-overview.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/service-fabric-overview.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/service-fabric-checklist.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+      "redirect_document_id": false
     }
   ]
 }
