@@ -21,8 +21,8 @@ In this tutorial, you learn how to:
 > * Change the dashboard name
 > * Customize image tiles on the dashboard
 > * Arrange tiles to modify the layout
-> * Add tiles to show telemetry
-> * Add tiles to visualize device health
+> * Add telemetry tiles to display conditions
+> * Add property tiles to visualize device health
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ To customize the operator dashboard, you edit the default dashboard in your appl
     ![Azure IoT Central change dashboard name](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
 ## Customize image tiles on the dashboard
-An Azure IoT Central application dashboard consists of one or more tiles. A tile is a rectangular container for displaying content on a dashboard. You associate various types of content with tiles, and you drag, drop, and resize tiles to customize a dashboard layout. There are four types of tiles for displaying content. Image tiles contain images. Label tiles display plain text. Markdown tiles contain formatted content and let you set an image, a URL, a title, and markdown code that renders as HTML. Data tiles generate a real-time display of device data based on telemetry, properties, or commands. 
+An Azure IoT Central application dashboard consists of one or more tiles. A tile is a rectangular container for displaying content on a dashboard. You associate various types of content with tiles, and you drag, drop, and resize tiles to customize a dashboard layout. There are several types of tiles for displaying content. Image tiles contain images. Label tiles display plain text. Markdown tiles contain formatted content and let you set an image, a URL, a title, and markdown code that renders as HTML. Telemetry, property, or command tiles display device-specific data. 
 
 In this section, you learn how to customize image tiles on the dashboard.
 
@@ -153,10 +153,10 @@ To create a placeholder label tile:
 
 1. Select **Save** to save your customized layout. 
 
-## Add tiles to show telemetry
-After you customize the dashboard layout, you are ready to add tiles to show telemetry. To create a data tile, you select a device template and device instance, then you select device-specific telemetry, properties, or commands, to generate the data. The **In-store analytics - checkout** application template includes several data tiles in the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** and **Wait time** tiles show combined views of the checkout zone telemetry. 
+## Add telemetry tiles to display conditions
+After you customize the dashboard layout, you are ready to add tiles to show telemetry. To create a telemetry tile, select a device template and device instance, then select device-specific telemetry to display in the tile. The **In-store analytics - checkout** application template includes several telemetry tiles in the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** and **Wait time** tiles show combined views of the checkout zone telemetry. 
 
-In this section, you add two more data tiles to show environmental telemetry from the RuuviTag sensors you added in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
+In this section, you add two more telemetry tiles to show environmental telemetry from the RuuviTag sensors you added in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
 
 To add tiles to display environmental data from the RuuviTag sensors:
 
@@ -194,7 +194,7 @@ To add tiles to display environmental data from the RuuviTag sensors:
 
     ![Azure IoT Central occupancy tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/occupancy-tiles.png)
 
-## Add tiles to visualize device health
+## Add property tiles to visualize device health
 Application operators use the dashboard to manage devices and monitor device status. Add a tile for the simulated occupancy sensor to display its status and connectivity.
 
 To add a tile for the Occupancy Sensor v2:
@@ -229,8 +229,8 @@ In this tutorial, you learned how to:
 * Change the dashboard name
 * Customize image tiles on the dashboard
 * Arrange tiles to modify the layout
-* Add tiles to show telemetry
-* Add tiles to visualize device health
+* Add telemetry tiles to display conditions
+* Add property tiles to visualize device health
 
 Now that you've customized the dashboard in your Azure IoT Central in-store analytics application, here is the suggested next step:
 
