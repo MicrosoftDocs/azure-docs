@@ -72,7 +72,7 @@ To customize the image tile that displays a brand image on the dashboard:
 
     ![Azure IoT Central save brand image](./media/tutorial-in-store-analytics-customize-dashboard-pnp/brand-image-save.png)
 
-1. Optionally, select **Configure** on the titled **Documentation**, and specify a URL for support content. 
+1. Optionally, select **Configure** on the tile titled **Documentation**, and specify a URL for support content. 
 
 To customize the image tile that displays a map of the sensor zones in the store:
 

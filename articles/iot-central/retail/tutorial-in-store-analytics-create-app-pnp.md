@@ -157,7 +157,7 @@ To customize the built-in interfaces of a device template in your application:
 
 1. Scroll in the list of capabilities and find the `humidity` telemetry type. It's the row item with the editable **Display name** value of *humidity*.
 
-In the following steps you customize the `humidity` telemetry type for the RuuviTag sensors. Optionally, customize some of the other interfaces.
+In the following steps you customize the `humidity` telemetry type for the RuuviTag sensors. Optionally, customize some of the other telemetry types.
 
 For the `humidity` telemetry type, make the following changes:
 
