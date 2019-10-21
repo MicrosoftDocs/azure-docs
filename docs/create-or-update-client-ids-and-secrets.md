@@ -27,7 +27,7 @@ Open Authorization (OAuth) is an open protocol for authorization. OAuth enables 
 
 With OAuth, users can authorize a service provider (for example, SharePoint) to provide tokens instead of credentials (for example, user name and password) to their data that is hosted by a given service provider (for example, SharePoint). Each token grants access to a specific site (for example, a SharePoint document repository), for specific resources (for example, documents from a folder), and for a defined duration. Users can then grant a third-party site access to information that is stored with another service provider (for example, SharePoint), without sharing their user name and password and without sharing all the data that they have on SharePoint.
 
-If your add-in requires this type of authorization, you have to associate OAuth client ID and client secrets with your add-in. You can generate OAuth client ID and client secrets in the Microsoft Seller Dashboard, and then add them to the code of your add-in.
+If your add-in requires this type of authorization, you have to associate OAuth client ID and client secrets with your add-in. You can generate OAuth client secrets in Partner Center, and then add them to your add-in code.
 
 When a user installs an add-in that has an associated client ID and client secret, a consent dialog box appears. If the user gives consent, the add-in can act on behalf of the user to access the data that the add-in requires. Users can only grant the permissions that they have. Grants represent the permissions that a user has delegated to an add-in. 
 
@@ -48,9 +48,9 @@ You can associate only one client ID with your add-in, but you can associate mul
 > - Block access for all countries except China.
 > - Create a separate add-in listing for China. 
 >
-> For more information about submitting apps or add-ins and blocking access, see [Use the Seller Dashboard to submit solutions to AppSource](use-the-seller-dashboard-to-submit-to-the-office-store.md). For more information about distributing add-ins for China, see [Submit apps for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md). 
+> For more information about distributing add-ins to China, see [Submit apps for Office 365 operated by 21Vianet in China](submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md). 
 
-Inbound data to your add-in is signed by using only one signing client secret. In the Seller Dashboard, this is the client secret with a green check mark next to it. If you delete the signing client secret that your add-in uses, the next valid client secret is used instead.
+Inbound data to your add-in is signed by using only one signing client secret. In Partner Center, this is the client secret with a green check mark next to **Active** in the Status column on the **Client IDs** page. If you delete the signing client secret that your add-in uses, the next valid client secret is used instead.
 
 Your add-in can use any valid client secrets as passwords to communicate with Microsoft. When a client secret expires, it can no longer be used as a password. If there is only one client secret associated with your client ID, deleting that secret can prevent your add-in from accessing the data it needs.
 
@@ -192,7 +192,7 @@ You might want to delete a client ID in certain situations, for example:
 5. On the **Product overview** page, choose **Publish**.
     
     > [!NOTE]
-    > Customers using your add-in will experience downtime during the update to your code and the Seller Dashboard approval process.
+    > Customers using your add-in will experience downtime during the update to your code and the Partner Center approval process.
 
 <a name="bk_addresources"> </a>
 ## See also
