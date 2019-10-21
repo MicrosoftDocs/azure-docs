@@ -13,7 +13,7 @@
 2. On the Hubs page, select **+New Hub** to open the **Create virtual hub** page.
 
     ![Basics](./media/virtual-wan-tutorial-hub-include/basics.png "Basics")
-3. On the **Create virtual hub** page, complete the following fields:
+3. On the **Create virtual hub** page **Basics** tab, complete the following fields:
 
     **Project details**
 
@@ -24,7 +24,7 @@
 
     ![Site-to-site](./media/virtual-wan-tutorial-hub-include/site-to-site.png "Site-to-site")
 
-5. On the **Site-to-site page**, complete the following fields:
+5. On the **Site-to-site** tab, complete the following fields:
 
    * Select **Yes** to create a Site-to-site VPN.
    * The AS Number field is not editable in the virtual hub at this time.
