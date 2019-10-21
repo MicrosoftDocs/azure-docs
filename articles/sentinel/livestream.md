@@ -38,7 +38,7 @@ Use hunting Livestream to create interactive sessions that let you test newly cr
 
 - **Launch investigations**
     
-    If there is an active investigation in the organization involving an asset such as a host or user, you can view specific (or any) activity in the log data as it occurs on that asset. You can be notified when that activity occurs.
+    If there is an active investigation that involves an asset such as a host or user, you can view specific (or any) activity in the log data as it occurs on that asset. You can be notified when that activity occurs.
 
 
 ## Create a Livestream session
