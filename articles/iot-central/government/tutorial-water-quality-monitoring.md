@@ -103,7 +103,14 @@ You now have created a water quality monitoring app using the Azure IoT Central 
 
    ![Water Quality Monitoring application dasboard](media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.PNG)
 
-At high level, the newly created app comes with – a pre-defined device model for smart meters, which includes data fields, properties, and a default view. It is your application and you can modify it anytime. But, let’s ensure the app template is working as expected before any modifications.
+Your newly created application comes with pre-configured:
+* Sample operator dashboards
+* Sample pre-defined water quality monitor device templates
+* Simulated water quality monitor devices
+* Pre-configured rules and jobs
+* Sample Branding using white labeling 
+
+It is your application and you can modify it anytime. Let’s explore the application and make some customizations.  
 
 
 ## Explore sample operator dashboard 
