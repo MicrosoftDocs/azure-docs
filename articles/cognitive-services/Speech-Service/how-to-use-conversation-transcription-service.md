@@ -104,7 +104,7 @@ class Program
 
 The following sample code demonstrates how to transcribe conversations in real time for three speakers, and assumes you've already created voice signatures for each as shown above. Note that you'll need to substitute real information for "YourSubscriptionKey" and "YourServiceRegion" when creating the SpeechConfig object.
 
-We create a `Conversation` object from the `SpeechConfig` object and a meeting ID generated using `Guid.NewGuid().ToString();`. To start transcribing the audio, create a `ConversationTranscriber` object and join the conversation with `JoinConversationAsync()`. We then register the events of interest, add or remove participants to the conversation using the Conversation object, and then stream audio. The transcription and speaker ID come back in the registered events.
+We create a `Conversation` object from the `SpeechConfig` object and a meeting ID generated using `Guid.NewGuid()`. To start transcribing the audio, create a `ConversationTranscriber` object and join the conversation with `JoinConversationAsync()`. We then register the events of interest, add or remove participants to the conversation using the Conversation object, and then stream audio. The transcription and speaker ID come back in the registered events.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
