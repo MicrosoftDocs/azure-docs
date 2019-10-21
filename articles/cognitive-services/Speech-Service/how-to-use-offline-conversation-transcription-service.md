@@ -1,5 +1,5 @@
 ---
-title: Offline multi-participant conversation transcription - Speech Service
+title: Offline multi-participant conversation transcription (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use offline conversation transcription using the Speech Service. Available for Java only.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 10/18/2019
 ms.author: amishu
 ---
 
-# Offline multi-participant conversation transcription
+# Offline multi-participant conversation transcription (Preview)
 
 In this article, offline conversation transcription is demonstrated using the **RemoteConversationTranscriptionClient** API. If you have configured the Conversation Transcription Service to perform offline conversation transcription and have a `conversationId`, you can obtain the transcription associated with that `conversationId` using the **RemoteConversationTranscriptionClient** API.
 

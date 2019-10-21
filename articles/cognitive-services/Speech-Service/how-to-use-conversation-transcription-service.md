@@ -1,5 +1,5 @@
 ---
-title: Transcribe multi-participant conversations in real time with the Speech SDK - Speech Service
+title: Transcribe multi-participant conversations in real time with the Speech SDK - Speech Service (Preview)
 titleSuffix: Azure Cognitive Services
 description: Learn how to use real-time Conversation Transcription with the Speech SDK. Available for C++, C#, and Java.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 10/17/2019
 ms.author: weixu
 ---
 
-# Transcribe multi-participant conversations in real time with the Speech SDK
+# Transcribe multi-participant conversations in real time with the Speech SDK (Preview)
 
 The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetings and other conversations with the ability to add, remove, and identify participants by streaming audio to Speech Services using `PullStream` or `PushStream`.
 

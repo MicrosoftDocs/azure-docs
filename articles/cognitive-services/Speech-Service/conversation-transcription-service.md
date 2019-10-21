@@ -1,7 +1,7 @@
 ---
-title: Conversation Transcription - Speech Service
+title: What is Conversation Transcription (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
-description: "Conversation Transcription is a speech-to-text solution that combines speech recognition, speaker identification, and sentence attribution to each speaker (also known as diarization) to provide real-time and/or offline transcription of any conversation. This service makes conversations more inclusive for everyone, such as participants who are deaf and hard of hearing."
+description: Conversation Transcription is a speech-to-text solution that combines speech recognition, speaker identification, and sentence attribution to each speaker (also known as diarization) to provide real-time and/or offline transcription of any conversation. This service makes conversations more inclusive for everyone, such as participants who are deaf and hard of hearing.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -12,7 +12,7 @@ ms.date: 10/17/2019
 ms.author: erhopf
 ---
 
-# What is Conversation Transcription?
+# What is Conversation Transcription (Preview)?
 
 Conversation Transcription is a [speech-to-text](speech-to-text.md) solution that combines speech recognition, speaker identification, and sentence attribution to each speaker (also known as _diarization_) to provide real-time and/or offline transcription of any conversation. Conversation Transcription distinguishes speakers in a conversation to determine who said what and when, and makes it easy for developers to add speech-to-text to their applications that perform multi-speaker diarization.
 
