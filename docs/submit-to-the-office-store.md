@@ -13,6 +13,9 @@ Microsoft AppSource provides a convenient location for you to upload new Office 
 - [Register as an app developer](https://developer.microsoft.com/store/register). After you create your account, it goes through an approval process.
 - [Use the Seller Dashboard to submit your solution to AppSource and within Office](use-the-seller-dashboard-to-submit-to-the-office-store.md).
 
+>[!IMPORTANT]
+>We're migrating management of Office solutions from Seller Dashboard to Partner Center. For details, see [Moving from Seller Dashboard to Partner Center](https://developer.microsoft.com/office/blogs/moving-management-of-solutions-from-seller-dashboard-to-partner-center/).
+
 For information about how to submit Power BI custom visuals to AppSource, see [Publish custom visuals to AppSource and make them available within Office](/power-bi/developer/office-store).
 
 > [!NOTE]
