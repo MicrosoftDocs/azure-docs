@@ -66,7 +66,7 @@ The CPU and memory usage are tracked and displayed to the you for the following 
 - Understand the capacity of resources purchased.
 - Capacity planning that helps you decide to scale up/down.
 
-## Messaging unit- How many are needed?
+## Messaging unit - How many are needed?
 
 When provisioning an Azure Service Bus Premium namespace, the number of messaging units allocated must be specified. These messaging units are dedicated resources that are allocated to the namespace.
 
