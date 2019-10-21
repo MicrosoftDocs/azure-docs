@@ -115,7 +115,7 @@ To delete the remaining unused tiles:
 
 1. Delete the three tiles grouped with **Checkout 3**. This tutorial uses the occupancy sensor and monitors only two checkout areas.
 
-        ![Azure IoT Central delete checkout 3 tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-checkout-3.png)
+    ![Azure IoT Central delete checkout 3 tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-checkout-3.png)
 
 1. Select **Save**.
 
@@ -154,7 +154,7 @@ To create a placeholder label tile:
 1. Select **Save** to save your customized layout. 
 
 ## Add tiles to show telemetry
-After you customized the dashboard layout, you are ready to add tiles to show telemetry. To create a data tile, you select a device template and device instance, then you select device-specific telemetry, properties, or commands, to generate the data. The **In-store analytics - checkout** application template includes several data tiles in the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** and **Wait time** tiles show combined views of the checkout zone telemetry. 
+After you customize the dashboard layout, you are ready to add tiles to show telemetry. To create a data tile, you select a device template and device instance, then you select device-specific telemetry, properties, or commands, to generate the data. The **In-store analytics - checkout** application template includes several data tiles in the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** and **Wait time** tiles show combined views of the checkout zone telemetry. 
 
 In this section, you add two more data tiles to show environmental telemetry from the RuuviTag sensors you added in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
 
@@ -203,13 +203,13 @@ To add a tile for the Occupancy Sensor v2:
 
 1. Select `Occupancy Sensor v2` in the **Device template** list. 
 
-1. Select 'Occupancy' in **Device instance**.
+1. Select `Occupancy` in **Device instance**.
 
 1. Select **Properties > Connectivity** and **Properties > Device status**. 
 
-1, Select **Combine**. 
+1. Select **Combine**. 
 
-1. Select **Configure** on the new title titled **Connectivity, Device status**. 
+1. Select **Configure** on the new tile titled **Connectivity, Device status**. 
 
 1. Change the **Title** to *Occupancy connectivity, status*. 
 
@@ -217,7 +217,7 @@ To add a tile for the Occupancy Sensor v2:
 
 1. Delete the existing title titled **Occupancy sensor settings**. The tile is based on a sensor that this tutorial does not use.
 
-1. Drag and drop the new **Occupancy sensor settings** tile directly beneath the store map tile. 
+1. Drag and drop the new **Occupancy connectivity, status** tile directly beneath the store map tile. 
 
 1. Select **Save**.  
 
