@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 Testing your QnA Maker knowledge base is an important part of an iterative process to improve the accuracy of the responses being returned. You can test the knowledge base through an enhanced chat interface that also allows you make edits.
 
-## Test answer matching in QnA Maker portal
+## Interactively test in QnA Maker portal
 
 1. Access your knowledge base by selecting its name on the **My knowledge bases** page.
 1. To access the Test slide-out panel, select **Test** in your application's top panel.
@@ -70,7 +70,7 @@ You can test the published version of knowledge base in the test pane. Once you 
 
 ![Test against a published KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
-## Batch testing 
+## Batch test with BT.exe tool
 
 Use the batch testing tool when you want to:
 
