@@ -295,12 +295,4 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-In this tutorial, you did the following tasks:
-
-> [!div class="checklist"]
-> * Connected your workspace and created an experiment
-> * Loaded data and trained scikit-learn models
-> * Viewed training results in the portal and retrieved models
-
-[Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
-Learn how to develop [automated machine learning](tutorial-auto-train-models.md) experiments.
+Now that you have completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
