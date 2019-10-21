@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 08/05/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
 ---
 
@@ -33,9 +33,9 @@ Explore and prepare data, train and test models, and deploy them using rich tool
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## What can I do with Azure Machine Learning?
+## What can I do with Azure Machine Learning service?
 
-Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
+Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
 
 You can choose from many machine learning components available in open-source Python packages, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, and <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -49,7 +49,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 ### UI-based, low-code experience
 
-For code-free training, try:
+For code-free training and deployment, try:
 
 + Creating [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
 + The [drag-n-drop experimenting in the visual interface](ui-tutorial-automobile-price-train-score.md).
@@ -85,10 +85,15 @@ Here is a quick comparison.
 || Machine Learning Studio | Azure Machine Learning:<br/>Visual interface|
 |---| --- | --- |
 || Generally available (GA) | In preview|
+|Drag-and-drop interface| Yes | Yes|
+|Experiment| Scale (10GB training data limit) | Scale with compute target|
 |Modules for interface| Many | Initial set of popular modules|
-|Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
-|Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](how-to-deploy-and-where.md) supported in SDK) |
-|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal /workspace landing page.) |
+|Training compute targets| Proprietary compute target, CPU only|AML Compute(GPU/CPU)<br/> Notebook VMs |
+|Inferencing compute targets| Proprietary web service format, not customizable | Azure Kubernetes Service(real-time inferencing) <br/>AML Compute(batch inferencing) |
+|ML Pipeline| Not supported | Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](concept-ml-pipelines.md)|
+|ML Ops| Basic model management and deployment | Configurable deployment, model and pipeline versioning|
+|Model| Proprietary format. Can not be used outside of Studio | Standard format, various depends on the training job|
+|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the Python SDK and workspace landing page.) |
 
 Try out the visual interface (preview) with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
 

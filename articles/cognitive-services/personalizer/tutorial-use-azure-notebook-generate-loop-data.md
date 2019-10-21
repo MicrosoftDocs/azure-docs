@@ -118,7 +118,7 @@ personalization_base_url = "https://<your-resource-name>.cognitiveservices.azure
 resource_key = "<your-resource-key>"
 ```
 
-### Print current data and time
+### Print current date and time
 Use this function to note the start and end times of the iterative function, iterations.
 
 These cells have no output. The function does output the current date and time when called.
