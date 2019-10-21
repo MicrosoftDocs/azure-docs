@@ -14,6 +14,8 @@ ms.date: 03/04/2019
 ---
 # How to choose algorithms for Azure Machine Learning Studio (classic)
 
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
 The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends on what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
 Machine Learning Studio (classic) provides state-of-the-art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages, like Vowpal Wabbit, are also included. The classic version of Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules](/azure/machine-learning/studio-module-reference/index).

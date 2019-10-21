@@ -41,7 +41,7 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
    Field|Description 
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.  
-   Workspace type | Select **Basic** or **Enterprise**.  This workspace type determines the features to which you’ll have access and pricing. Learn more about [Basic and Enterprise SKU offerings](overview-what-is-azure-ml.md#sku). 
+   Workspace type | Select **Basic** or **Enterprise**.  This workspace type determines the features to which you’ll have access and pricing. Learn more about [Basic and Enterprise edition offerings](overview-what-is-azure-ml.md#sku). 
    Subscription |Select the Azure subscription that you want to use.
    Resource group | Use an existing resource group in your subscription or enter a name to create a new resource group. A resource group holds related resources for an Azure solution. In this example, we use **docs-aml**. 
    Location | Select the location closest to your users and the data resources to create your workspace.
@@ -65,9 +65,9 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
    
    Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a Notebook VM, this file is added to the correct directory on the VM for you.
 
-## <a name="upgrade"></a>Upgrade to Enterprise SKU
+## <a name="upgrade"></a>Upgrade to Enterprise edition
 
-You can upgrade your workspace from Basic SKU to Enterprise SKU to take advantage of the enhanced features such low-code experiences and enhanced security features.
+You can upgrade your workspace from Basic edition to Enterprise edition to take advantage of the enhanced features such low-code experiences and enhanced security features.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -76,7 +76,7 @@ You can upgrade your workspace from Basic SKU to Enterprise SKU to take advantag
 1. Select **Upgrade**.
 
 > [!IMPORTANT]
-> You cannot downgrade an Enterprise SKU workspace to a Basic SKU workspace.  
+> You cannot downgrade an Enterprise edition workspace to a Basic edition workspace.  
 
 ## <a name="view"></a>View a workspace
 

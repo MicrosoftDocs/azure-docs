@@ -27,17 +27,31 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Create a workspace
 
-An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the SDK. If you already have an Azure Machine Learning workspace, [skip to the next section](#azure). Otherwise, create one now.
+An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the SDK. If you already have an Azure Machine Learning workspace, [skip to the next section](#clone). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="azure"></a>Create a compute instance
+## <a name="clone"></a>Clone the vignettes folder
 
-This example uses a cloud workstation in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages, and dependencies.
+This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) if you prefer to have control over your environment, packages and dependencies.
 
-From your workspace, you create a cloud resource to get started using R Studio. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning with R.
+You complete the following experiment set-up and run steps in Azure Machine Learning studio, a consolidated interface that includes machine learning tools to perform data science scenarios for data science practitioners of all skill levels.
 
-1. Open your workspace in the [Azure Machine Learning studio](https://ml.azure.com/). 
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+
+1. Select your subscription and the workspace you created.
+
+1. Select **Notebooks and Files** on the left.
+
+1. Select the **"..."** at the right of the **vignettes** folder and then select **Clone**.
+
+    ![Clone folder](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
+
+1. There is a folder displayed for each user who accesses the workspace.  Select your folder to clone the **vignettes**  folder there.
+
+## <a name="compute-instance"></a>Create a compute instance
+
+From your workspace, create a cloud resource to get started using R Studio. This resource is a cloud-based Linux virtual machine pre-configured with everything you need to run Azure Machine Learning with R.
 
 1. On your workspace page in the Azure Machine Learning studio, select **Compute** on the left.
 
