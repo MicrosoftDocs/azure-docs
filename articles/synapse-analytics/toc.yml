@@ -350,8 +350,8 @@
         href: ../sql-data-warehouse/sql-data-warehouse-develop-group-by-options.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Labels
         href: ../sql-data-warehouse/sql-data-warehouse-develop-label.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      # - name: Storage files
-      #   href: article-template.md
+      - name: Storage files
+        href: ../synapse-analytics/querying-storage-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Workload management
       items:
       - name: Resource classes & workload management
