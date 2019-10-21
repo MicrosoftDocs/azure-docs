@@ -28,7 +28,7 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Recognize speech from a file</h3>
+                                                    <h3>Recognize speech from an audio file</h3>
                                                     <p>Use the Speech SDK to recognize speech from a single file and transcribe the output.</p>
                                                 </div>
                                             </div>
@@ -47,7 +47,7 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Recognize speech from a microphone</h3>
+                                                    <h3>Recognize speech with a microphone</h3>
                                                     <p>Use the Speech SDK to recognize speech from a microphone and transcribe the output.</p>
                                                 </div>
                                             </div>
@@ -66,7 +66,7 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Asynchronously recognize speech from blob storage</h3>
+                                                    <h3>Asynchronously recognize speech in blob storage</h3>
                                                     <p>Use the Speech service to asynchronously recognize speech from files stored in Azure Blob Storage.</p>
                                                 </div>
                                             </div>
@@ -147,7 +147,7 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Synthesize speech to file</h3>
+                                                    <h3>Synthesize speech to an audio file</h3>
                                                     <p>Learn how to convert text-to-speech and save it to file.</p>
                                                 </div>
                                             </div>
@@ -166,7 +166,7 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Synthesize speech to an audio output device</h3>
+                                                    <h3>Synthesize speech to a speaker</h3>
                                                     <p>Learn how to convert text-to-speech and play the audio on an output device.</p>
                                                 </div>
                                             </div>
