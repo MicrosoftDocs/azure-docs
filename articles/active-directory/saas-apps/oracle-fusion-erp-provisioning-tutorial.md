@@ -160,8 +160,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ## Connector limitations
 
-* Groups in Oracle Fusion ERP are defined as roles.
-* Oracle Fusion ERP only supports Basic Authentication for SCIM Authentication today.
+* Oracle Fusion ERP only supports Basic Authentication for their SCIM endpoint.
+* Oracle Fusion ERP does not support group provisioning.
+* Roles in Oracle Fusion ERP are mapped to groups in Azure AD. To assign roles to users in Oracle Fusion ERP from Azure AD, you will need to assign users to the desired Azure AD groups that are named after roles in Oracle Fusion ERP.
 
 ## Additional resources
 
