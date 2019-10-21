@@ -141,13 +141,13 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 >
 > In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the tested algorithms on the Models tab as they complete while the others are still running. 
 
-##  Explore modelss
+##  Explore models
 
-Select **Refresh** to see the status of the run as the experiment progresses. Navigate to the **Models** tab to see the algorithms (models) tested. By default, the tested models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
+Select **Refresh** periodically to see the status of the run as the experiment progresses. Navigate to the **Models** tab to see the algorithms (models) tested. By default, the tested models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
 While you wait for all of the experiment models to finish, select the **Name** of a completed model to explore its performance details. 
 
-The following navigates through the **Model details** tab to show the properties and metrics, and the **Visualizations** tab for charts generated such as, a precision-recall curve, confusion matrix, etc. 
+The following navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
 
 ![Run iteration detail](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
 
@@ -157,7 +157,7 @@ Automated machine learning in Azure Machine Learning studio allows you to deploy
 
 For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable web solution for identifying potential fixed term deposit customers. 
 
-Once the run is complete, navigate back to the **Run Detail** page and select the **Models** tab . Select **Refresh**. 
+Once the run is complete, navigate back to the **Run Detail** page and select the **Models** tab. Select **Refresh**. 
 
 In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete. The deployment process entails several steps including registering the model, generating resources, and configuring them for the web service.
 
@@ -174,7 +174,7 @@ In this experiment context, **VotingEnsemble** is considered the best model, bas
     
 1. Select **Deploy**.  
 
-    In the **Recommended model** pane, a deployment message appears under **Deploy status** when deployment begins. Select **Refresh** periodically to check the deployment status.
+    In the **Recommended model** pane, a deployment success message appears under **Deploy status** when deployment completes. Select **Refresh** periodically to check the deployment status.
     
 Now you have an operational web service to generate predictions.
 
