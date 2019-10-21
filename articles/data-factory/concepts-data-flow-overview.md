@@ -35,6 +35,38 @@ The graph displays the transformation stream. It shows the lineage of source dat
 
 ![Canvas](media/data-flow/canvas2.png "Canvas")
 
+### Azure integration runtime data flow properties
+
+![Debug button](media/data-flow/debugbutton.png "Debug button")
+
+When you begin working with data flows in ADF, you will want to turn on the "Debug" switch for data flows at the top of the browser UI. This will spin-up an Azure Databricks cluster to use for interactive debugging, data previews, and pipeline debug executions. You can set the size of the cluster being utilized by choosing a custom [Azure Integration Runtime](concepts-integration-runtime.md). The debug session will stay alive for up to 60 minutes after your last data preview or last debug pipeline execution.
+
+When you operationalize your pipelines with data flow activities, ADF will use the Azure Integration Runtime associated with the [activity](control-flow-execute-data-flow-activity.md) in the "Run On" property.
+
+The default Azure Integration Runtime is a small 4-core single worker node cluster intended to allow you to preview data and quickly execute debug pipelines at minimal costs. Set a larger Azure IR configuration if you are performing operations against large datasets.
+
+You can instruct ADF to maintain a pool of cluster resources (VMs) by setting a TTL in the Azure IR data flow properties. This will result in faster job execution on subsequent activities.
+
+#### Azure integration runtime and data flow strategies
+
+##### Execute data flows in parallel
+
+If you execute data flows in a pipeline in parallel, ADF will spin-up separate Azure Databricks clusters for each activity execution based on the settings in your Azure Integration Runtime attached to each activity. To design parallel executions in ADF pipelines, add your data flow activities without precedence constraints in the UI.
+
+Of these three options, this option will likely execute in the shortest amount of time. However, each parallel data flow will execute at the same time on separate clusters, so the ordering of events is non-deterministic.
+
+##### Overload single data flow
+
+If you put all of your logic inside a single data flow, ADF will all execute in that same job execution context on a single Spark cluster instance.
+
+This option can possibly be more difficult to follow and troubleshoot because your business rules and business logic will be jumble together. This option also doesn't provide much re-usability.
+
+##### Execute data flows serially
+
+If you execute your data flow activities in serial in the pipeline and you have set a TTL on the Azure IR configuration, then ADF will reuse the compute resources (VMs) resulting in faster subsequent execution times. You will still receive a new Spark context for each execution.
+
+Of these three options, this will likely take the longest time to execute end-to-end. But it does provide a clean separation of logical operations in each data flow step.
+
 ### Configuration panel
 
 The configuration panel shows the settings specific to the currently selected transformation. If no transformation is selected, it shows the data flow. In the overall data flow configuration, you can edit the name and description under the **General** tab or add parameters via the **Parameters** tab. For more information, see [Mapping data flow parameters](parameters-data-flow.md).
