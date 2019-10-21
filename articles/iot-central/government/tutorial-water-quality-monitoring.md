@@ -151,33 +151,6 @@ To change the application logo and browser icon:
 * Use the **Select image** button to choose an image to upload as the application image. This image appears on the application tile in the **My Apps** page in the Azure IoT Central application manager.
 
 
-## Procedure 1
-
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end procedure. Make sure to use specific naming for setting up accounts and configuring technology.
-Don't link off to other content - include whatever the customer needs to complete the scenario in the article. For example, if the customer needs to set permissions, include the permissions they need to set, and the specific settings in the tutorial procedure. Don't send the customer to another article to read about it.
-In a break from tradition, do not link to reference topics in the procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.
---->
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   <!--- ![Browser](media/contribute-how-to-mvc-tutorial/browser.png) --->
-   <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
-   If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
-
-## Procedure 2
-
-Include a sentence or two to explain only what is needed to complete the procedure.
-
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
    
 
 ## Clean up resources
