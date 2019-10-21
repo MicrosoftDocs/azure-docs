@@ -125,7 +125,7 @@ In this wizard step, you will configure an indexer that will pull together the d
 1. For **Schedule**, keep the default **Once**.
 1. Click **Submit** to run the indexer. Data extraction, indexing, application of cognitive skills all happen in this step.
 
-## Monitor the Notifications queue for status
+## Monitor status
 
 Cognitive skills takes longer to complete than typical text-based indexing. The wizard should open the Indexer list in the overview page so that you can track progress. For self-navigation, go to the Overview page and click **Indexers**.
 

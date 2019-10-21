@@ -107,7 +107,7 @@ The indexer is a high-level resource that drives the indexing process. It specif
 
 1. Click **Submit** to create and simultaneously run the indexer.
 
-## Monitor indexing
+## Monitor status
 
 Cognitive skills takes longer to complete than typical text-based indexing. The wizard should open the Indexer list in the overview page so that you can track progress. For self-navigation, go to the Overview page and click **Indexers**.
 
@@ -116,6 +116,8 @@ The warning occurs because JPG and PNG files are image files, and we omitted the
   ![Azure Cognitive Search notification](./media/cognitive-search-quickstart-blob/indexer-notification.png)
 
 Indexing and enrichment can take time, which is why smaller data sets are recommended for early exploration. 
+
+In the Azure portal, you can also monitor the Notifications activity log for a clickable **Azure Cognitive Search notification** status link. Execution may take several minutes to complete.
 
 ## Query in Search explorer
 
