@@ -7,11 +7,12 @@ ms.subservice: high-availability
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: jovanpop-msft
+author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 10/11/2019
+ms.date: 10/14/2019
 ---
+
 # High-availability and Azure SQL Database
 
 The goal of the High Availability architecture in Azure SQL Database is to guarantee that your database is up and running 99.99% of time, without worrying about the impact of maintenance operations and outages. Azure automatically handles critical servicing tasks, such as patching, backups,  Windows and SQL upgrades, as well as unplanned events such as underlying hardware, software or network failures.  When the underlying SQL instance is patched or fails over, the downtime is not noticeable if you [employ retry logic](sql-database-develop-overview.md#resiliency) in your app. Azure SQL Database can quickly recover even in the most critical circumstances ensuring that your data is always available.
@@ -82,6 +83,13 @@ The zone redundant version of the high availability architecture is illustrated 
 ## Accelerated Database Recovery (ADR)
 
 [Accelerated Database Recovery (ADR)](sql-database-accelerated-database-recovery.md) is a new SQL database engine feature that greatly improves database availability, especially in the presence of long running transactions. ADR is currently available for single databases, elastic pools, and Azure SQL Data Warehouse.
+
+## Testing database fault resiliency
+
+High availability is a fundamenental part of Azure SQL Database platform and works transparently for your database application. However, we recognize that you may want to test how the automatic failover operations initiated during planned or unplanned events would impact the application before you deploy it for production. You can call a special API to restart the database or the elastic pool, which will in turn trigger the failover. In the case of zone redundant database or elastic pool, the API call would result in redirecting the client connections to the new primary in a different AZ. So in addition to testing how failover impacts the existing database sessions, you can also verify if it impacts the end-to-end performance. Because the restart operation is intrusive and a large number of them could stress out the platform, only one failover call is allowed every 30 minutes for each database or elastic pool. For details, see [Database failover](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) and [Elastic pool failover](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
+
+> [!IMPORTANT]
+> The Failover command is currently not available for Hypescale databases and Managed instancses.  
 
 ## Conclusion
 

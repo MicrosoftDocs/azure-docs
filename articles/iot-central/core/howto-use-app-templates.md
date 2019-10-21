@@ -13,6 +13,8 @@ manager: philmea
 
 # Use application templates
 
+[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
+
 This article describes how, as a solution manager, to create and use application templates.
 
 When you create an Azure IoT Central application, you have a choice of built-in sample templates. You can also create your own application templates from existing IoT Central applications. You can then use your own application templates when you create new applications.
