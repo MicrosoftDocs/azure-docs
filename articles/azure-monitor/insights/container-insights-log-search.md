@@ -153,7 +153,7 @@ KubeMonAgentEvents | where Level != "Info"
 
 The output will show results similar to the following:
 
-![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-kubeagent-events.png)
+![Log query results of informational events from agent](./media/container-insights-agent-config/log-query-example-kubeagent-events.png)
 
 ## Next steps
 
