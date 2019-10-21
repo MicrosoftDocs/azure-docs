@@ -39,10 +39,9 @@ By following these best practices, you can help maximize the performance and cos
      > [!NOTE]
      > This guidance is specific to the *connection attempt* and not related to the time you're willing to wait for an *operation* like GET or SET to complete.
  
-
  * **Avoid expensive commands** - Some redis operations, like the [KEYS command](https://redis.io/commands/keys), are *very* expensive and should be avoided.  For more information, see [some considerations around expensive commands](cache-how-to-troubleshoot.md#expensive-commands)
 
-
+ * **Use TLS encryption** - Azure Cache for Redis requires TLS encrypted communications by default.  TLS versions 1.0, 1.1 and 1.2 are currently supported.  However, TLS 1.0 and 1.1 are on a path to deprecation industry-wide, so use TLS 1.2 if at all possible.  If your client library or tool doesn't support TLS, then enabling unencrypted connections can be done [through the Azure portal](cache-configure.md#access-ports) or [management APIs](https://docs.microsoft.com/rest/api/redis/redis/update).  In such cases where encrypted connections aren't possible, placing your cache and client application into a virtual network would be recommended.  For details on which ports are used for 
  
 ## Memory management
 There are several things related to memory usage within your Redis server instance that you may want to consider.  Here are a few:
