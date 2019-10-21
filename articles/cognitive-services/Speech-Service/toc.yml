@@ -6,22 +6,6 @@
   items:
   - name: What is the Speech service?
     href: overview.md
-- name: Quickstarts
-  items:
-  - name: Get a Speech service key
-    href: https://aka.ms/ignite2019/speech/placeholder
-  - name: Platform setup
-    items:
-    - name: C#
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: C++
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Java
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Python
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Other platforms
-      href: https://aka.ms/ignite2019/speech/placeholder
 - name: Speech-to-text
   expanded: false
   items:
@@ -39,14 +23,16 @@
       href: https://aka.ms/ignite2019/speech/placeholder
   - name: How-to guides
     items:
-    - name: Specify source language
-      href: how-to-specify-source-language.md
     - name: Automatic language detection
       href: how-to-automatic-language-detection.md
-    - name: Continuous recognition
-      href: shttps://aka.ms/ignite2019/speech/placeholder
+    - name: Specify source language
+      href: how-to-specify-source-language.md
     - name: Consume compressed audio
       href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Continuous recognition
+      href: shttps://aka.ms/ignite2019/speech/placeholder
+    - name: Improve recognition with Phrase Lists
+      href: how-to-phrase-lists.md
     - name: Select an audio input device
       href: https://aka.ms/ignite2019/speech/placeholder
   - name: Tutorials
@@ -59,14 +45,26 @@
     items:
     - name: Speech SDK
       items:
-      - name: Overview
-        href: speech-sdk.md
+      - name: C++ API Reference
+        href: https://aka.ms/csspeech/cppref
+      - name: C# API Reference
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java API Reference
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript API Reference
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C API Reference
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python API Reference
+        href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
-    - name: Speech-to-text (REST)
-      href: rest-speech-to-text.md
-    - name: Batch transcription & customization (REST)
-      href: https://westus.cris.ai/swagger/ui/index
+    - name: REST APIs
+      items:
+      - name: Speech-to-text (REST)
+        href: rest-speech-to-text.md
+      - name: Batch transcription & customization (REST)
+        href: https://westus.cris.ai/swagger/ui/index
 - name: Text-to-speech
   exanded: false
   items:
@@ -92,14 +90,26 @@
     items:
     - name: Speech SDK
       items:
-      - name: Overview
-        href: speech-sdk.md
+      - name: C++ API Reference
+        href: https://aka.ms/csspeech/cppref
+      - name: C# API Reference
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java API Reference
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript API Reference
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C API Reference
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python API Reference
+        href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
-    - name: Text-to-speech (REST)
-      href: rest-text-to-speech.md
-    - name: Audio content generation (REST)
-      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: REST APIs
+      items:
+      - name: Text-to-speech REST API
+        href: rest-text-to-speech.md
+      - name: Audio content generation REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
 - name: Intent recognition
   exanded: false
   items:
@@ -115,11 +125,21 @@
     items:
     - name: Speech SDK
       items:
-      - name: Overview
-        href: speech-sdk.md
+      - name: C++ API Reference
+        href: https://aka.ms/csspeech/cppref
+      - name: C# API Reference
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java API Reference
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript API Reference
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C API Reference
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python API Reference
+        href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
-    - name: LUIS
+    - name: LUIS Service
       items:
       - name: Overview
         href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
@@ -142,8 +162,18 @@
     items:
     - name: Speech SDK
       items:
-      - name: Overview
-        href: speech-sdk.md
+      - name: C++ API Reference
+        href: https://aka.ms/csspeech/cppref
+      - name: C# API Reference
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java API Reference
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript API Reference
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C API Reference
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python API Reference
+        href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
 - name: Conversation transcription
@@ -153,10 +183,32 @@
     items:
     - name: What is conversation transcription?
       href: conversation-transcription-service.md
+  - name: Quickstarts
+    items:
+    - name: Transcribe a conversation
+      href: https://aka.ms/ignite2019/speech/placeholder
   - name: Reference
     items:
-    - name: Conversation transcription (REST)
-      href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+    - name: Speech SDK
+      items:
+      - name: C++ API Reference
+        href: https://aka.ms/csspeech/cppref
+      - name: C# API Reference
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java API Reference
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript API Reference
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C API Reference
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python API Reference
+        href: https://aka.ms/csspeech/pythonref
+      - name: Release notes
+        href: releasenotes.md
+    - name: REST APIs
+      items:
+      - name: Conversation transcription (REST)
+        href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
 - name: Conversational agents
   exanded: false
   items:
@@ -239,17 +291,85 @@
         href: https://example.com
   - name: Custom wake word/key word spotting
     href: speech-devices-sdk-create-kws.md
-- name: Containers
-  exanded: false
+- name: Speech Service
+  expanded: false
   items:
-  - name: Install and run containers
-    href: speech-container-howto.md
-  - name: Configure containers
-    href: speech-container-configuration.md
-  - name: Kubernetes and Helm
-    href: speech-container-howto-on-premises.md
-  - name: Azure container instances
-    href: deploy-speech-on-container-instances.md
+  - name: How-to guides
+    items:
+    - name: Try Speech Service for free
+      href: get-started
+    - name: Create Speech Service Resource
+      href: get-started?#create-a-speech-resource-in-azure
+    - name: Containers
+      exanded: false
+      items:
+      - name: Install and run containers
+        href: speech-container-howto.md
+      - name: Configure containers
+        href: speech-container-configuration.md
+      - name: Kubernetes and Helm
+        href: speech-container-howto-on-premises.md
+      - name: Azure container instances
+        href: deploy-speech-on-container-instances.md
+  - name: Reference
+    items:
+    - name: REST APIs
+      items:
+      - name: Speech-to-text REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
+      - name: Text-to-speech REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
+      - name: Batch transcription & customization REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
+      - name: Conversation Transcription REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
+      - name: Webhooks REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Swagger documentation
+      href: https://aka.ms/ignite2019/speech/placeholder
+- name: Speech SDK
+  expanded: false
+  items:
+  - name: Overview
+    items:
+    - name: About the Speech SDK
+      href: speech-sdk.md
+    - name: Scenario availability
+      href: scenario-availability.md
+  - name: How-to guides
+    items:
+    - name: Enable logging
+      href: how-to-use-logging.md
+    - name: Setup Speech SDK
+      items:
+      - name: Setup Speech SDK with C#
+        href: quickstarts/setup-platform.md?pivots=programming-language-csharp
+      - name: Setup Speech SDK with C++
+        href: quickstarts/setup-platform.md?pivots=programming-language-cpp
+      - name: Setup Speech SDK with Java
+        href: quickstarts/setup-platform.md?pivots=programming-language-java
+      - name: Setup Speech SDK with Python
+        href: quickstarts/setup-platform.md?pivots=programming-language-python
+      - name: Setup Speech SDK with Other Platforms
+        href: quickstarts/setup-platform.md?pivots=programming-language-more
+  - name: Samples
+    href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+  - name: Reference
+    items:
+    - name: C++ API Reference
+      href: https://aka.ms/csspeech/cppref
+    - name: C# API Reference
+      href: https://aka.ms/csspeech/csharpref
+    - name: Java API Reference
+      href: https://aka.ms/csspeech/javaref
+    - name: JavaScript API Reference
+      href: https://aka.ms/csspeech/javascriptref
+    - name: Objective-C API Reference
+      href: https://aka.ms/csspeech/objectivecref
+    - name: Python API Reference
+      href: https://aka.ms/csspeech/pythonref
+    - name: Release notes
+      href: releasenotes.md
 - name: Migration
   exanded: false
   items:
