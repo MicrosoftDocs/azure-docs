@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/07/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -20,76 +20,47 @@ This tutorial shows you how to use Virtual WAN to connect to your resources in A
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
 
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create a WAN
-> * Create a site
-> * Create a hub
-> * Connect a hub to a site
-> * Create a compatible VNet (if you don't already have one)
-> * Connect a VNet to a hub
-> * Download and apply the VPN device configuration
-> * View your virtual WAN
-> * View resource health
-> * Monitor a connection
-
 ## Before you begin
 
-[!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
+Verify that you have met the following criteria before beginning your configuration:
+
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Obtain an IP address range for your hub region. The hub is a virtual network and the address range that you specify for the hub region cannot overlap with any of your existing virtual networks that you connect to. It also cannot overlap with your address ranges that you connect to on premises. If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
+
+* If you already have a virtual network that you want to connect to, verify that none of the subnets of your on-premises network overlap with the virtual networks that you want to connect to. Your virtual network does not require a gateway subnet and cannot contain any virtual network gateways.
+
+* If you don't already have a VNet, you can quickly create one using the following PowerShell steps. To quickly create a VNet, click "Try It" to open a PowerShell console in Azure Cloud Shell. Adjust the values, then copy and paste the commands into the console window. Be sure to verify that the address space for the VNet that you create does not overlap with any of the address ranges for other VNets that you want to connect to, or with your on-premises network address spaces.
+
+  [!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-s2s-vnet-include.md)]
 
 ## <a name="openvwan"></a>1. Create a virtual WAN
 
 From a browser, navigate to the [Azure portal](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
-[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-s2s-vwan-include.md)]
 
-## <a name="site"></a>2. Create a site
+## <a name="hub"></a>2. Create a hub
 
-Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. At this time, you can specify only one private address space for your site.
+A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites. It takes 30 minutes to create the site-to-site VPN gateway in the virtual hub.
 
-1. Click the WAN you created. On the WAN page, under **Virtual WAN Architecture**, click **VPN sites** to open the VPN sites page.
-2. On the **VPN sites** page, click **+Create site**.
-3. On the **Create site** page, fill in the following fields:
+[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-   * **Name** - The name by which you want to refer to your on-premises site.
-   * **Public IP address** - The public IP address of the VPN device that resides on your on-premises site.
-   * **Private address space** - This is the IP address space that is located on your on-premises site. Traffic destined for this address space is routed to your local site.
-   * **Subscription** - Verify the subscription.
-   * **Resource Group** - The resource group you want to use.
-   * **Location**
-4. Click **Show advanced** to view additional settings. 
+## <a name="site"></a>3. Create a site
 
-   You can select **BGP** to enable BGP, which will enable BGP functionality on all connections created for this site in Azure. Configuring BGP on a Virtual WAN is equivalent to configuring BGP on an Azure VPN gateway. Your on-premises BGP peer address *must not* be the same as the public IP address of your VPN to device or the VNet address space of the VPN site. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device. However, it *cannot* be an APIPA (169.254.*x*.*x*) address. Specify this address in the corresponding Local Network Gateway representing the location. For BGP prerequisites, see [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md).
+You are now ready to create the sites corresponding to your physical locations. Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per Virtual Hub in a Virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner (link insert) CPE device, check with them to learn about their automation to Azure. Typically automation implies simple click experience to export large-scale branch information into azure and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway (Here is a link to automation guidance from Azure to CPE partners).
 
-   You can also enter **Device information** (optional fields). Doing so can help the Azure Team better understand your environment to add additional optimization possibilities in the future, or to help you troubleshoot.
-   
-5. Click **Confirm**.
-6. After you click **Confirm**, view the status on the VPN sites page. The site will go from **Provisioning** to **Provisioned**.
+[!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
-## <a name="hub"></a>3. Create a hub
+## <a name="connectsites"></a>4. Connect the VPN site to the hub
 
-[!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
+In this step, you connect your VPN site to the hub.
 
-## <a name="associate"></a>4. Associate the sites with the hub
+[!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
-Hubs should generally be associated to sites that are in the same region that the VNet resides in.
+## <a name="vnet"></a>5. Connect the VNet to the hub
 
-1. On the **VPN sites** page, select the site or sites that you want to associate with the hub, then click **+New hub association**.
-2. On the **Associate sites with one or more hubs** page, select a hub from the dropdown. You can associate a site with additional hubs by clicking **+Add an association**.
-3. You can also add a specific **PSK** here, or use the default.
-4. Click **Confirm**.
-5. You can view the connection status on the **VPN sites** page.
-
-## <a name="vnet"></a>5. Create a virtual network
-
-If you do not already have a VNet, you can quickly create one using PowerShell or the Azure portal. If you already have a VNet, verify that it meets the required criteria and does not have a virtual network gateway.
-
-[!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-vnet-include.md)]
-
-## <a name="vnet"></a>6. Connect your VNet to a hub
-
-In this step, you create the peering connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
+In this step, you create the connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
 1. On the page for your virtual WAN, click **Virtual network connections**.
 2. On the virtual network connection page, click **+Add connection**.
@@ -99,16 +70,16 @@ In this step, you create the peering connection between your hub and a VNet. Rep
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
     * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
-4. Click **OK** to create the peering connection.
+4. Click **OK** to create the virtual network connection.
 
-## <a name="device"></a>7. Download VPN configuration
+## <a name="device"></a>6. Download VPN configuration
 
 Use the VPN device configuration to configure your on-premises VPN device.
 
 1. On the page for your virtual WAN, click **Overview**.
-2. At the top of the Overview page, click **Download VPN configuration**. Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
+2. At the top of the **Hub ->VPNSite** page, click **Download VPN config**. Azure creates a storage account in the resource group 'microsoft-network-[location]', where location is the location of the WAN. After you have applied the configuration to your VPN devices, you can delete this storage account.
 3. Once the file has finished creating, you can click the link to download it.
-4. Apply the configuration to your VPN device.
+4. Apply the configuration to your on-premises VPN device.
 
 ### Understanding the VPN device configuration file
 
@@ -250,45 +221,15 @@ If you need instructions to configure your device, you can use the instructions 
 
 * The instructions on the VPN devices page are not written for Virtual WAN, but you can use the Virtual WAN values from the configuration file to manually configure your VPN device. 
 * The downloadable device configuration scripts that are for VPN Gateway do not work for Virtual WAN, as the configuration is different.
-* A New Virtual WAN can support both IKEv1 and IKEv2.
+* A new Virtual WAN can support both IKEv1 and IKEv2.
 * Virtual WAN can only use route-based VPN devices and device instructions.
 
-## <a name="viewwan"></a>8. View your virtual WAN
+## <a name="viewwan"></a>7. View your virtual WAN
 
 1. Navigate to the virtual WAN.
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
-3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
-
-## <a name="viewhealth"></a>9. View your resource health
-
-1. Navigate to your WAN.
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
-
-## <a name="connectmon"></a>10. Monitor a connection
-
-Create a connection to monitor communication between an Azure VM and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](~/articles/network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the Site IP.
-
-## <a name="cleanup"></a>11. Clean up resources
-
-When you no longer need these resources, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myResourceGroup -Force
-```
+2. On the **Overview** page, each point on the map represents a hub. Hover over any point to view the hub health summary, connection status, and bytes in and out.
+3. In the Hubs and connections section, you can view hub status, VPN sites, etc. You can click on a specific hub name and navigate to the VPN Site for additional details.
 
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a WAN
-> * Create a site
-> * Create a hub
-> * Connect a hub to a site
-> * Connect a VNet to a hub
-> * Download and apply the VPN device configuration
-> * View your virtual WAN
-> * View resource health
-> * Monitor a connection
 
 To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
