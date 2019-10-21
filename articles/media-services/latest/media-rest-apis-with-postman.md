@@ -43,11 +43,9 @@ Clone a GitHub repository that contains the  Postman collection and environment 
 
 ## Configure Postman
 
-This section configures the Postman.
-
 ### Configure the environment 
 
-1. Open the **Postman**.
+1. Open the **Postman** app.
 2. On the right of the screen, select the **Manage environment** option.
 
     ![Manage env](./media/develop-with-postman/postman-import-env.png)
@@ -76,7 +74,7 @@ This section configures the Postman.
 
 Before you start manipulating AMS v3 resources you need to get and set Azure AD Token for Service Principal Authentication.
 
-1. In the left window of the Postman, select "Step 1: Get AAD Auth token".
+1. In the left window of the Postman app, select "Step 1: Get AAD Auth token".
 2. Then, select "Get Azure AD Token for Service Principal Authentication".
 3. Press **Send**.
 
