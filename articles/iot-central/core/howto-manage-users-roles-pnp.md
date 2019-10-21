@@ -3,7 +3,7 @@ title: Manage users and roles in Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage users and roles in your Azure IoT Central application
 author: v-krghan
 ms.author: v-krghan
-ms.date: 10/17/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -98,7 +98,7 @@ When you define a custom role, you choose the set of permissions that a user is 
 | Delete | View   |
 | Full Control | View, Update, Create, Delete |
 
-**White labeling permissions**
+**Branding, favicon, and colors permissions**
 
 | Name | Dependencies |
 | ---- | -------- |
@@ -143,17 +143,17 @@ When you define a custom role, you choose the set of permissions that a user is 
 | ---- | -------- |
 | View | None     |
 | Update | View   |
-| Copy | View <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, white labeling, help links, custom roles, rules |
+| Copy | View <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, branding, help links, custom roles, rules |
 | Delete | View   |
-| Full Control | View, Update, Copy, Delete <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, white labeling, help links, custom roles, rules |
+| Full Control | View, Update, Copy, Delete <br/> Other dependencies: View device templates, device instances, device groups, dashboards, data export, branding, help links, custom roles, rules |
 
 **Application template export permissions**
 
 | Name | Dependencies |
 | ---- | -------- |
 | View | None     |
-| Export | View <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, white labeling, help links, custom roles, rules |
-| Full Control | View, Export <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, white labeling, help links, custom roles, rules |
+| Export | View <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, branding, help links, custom roles, rules |
+| Full Control | View, Export <br/> Other dependencies:  View device templates, device instances, device groups, dashboards, data export, branding, help links, custom roles, rules |
 
 **Billing permissions**
 
