@@ -59,13 +59,13 @@ In this part of the tutorial, you run `R-Tutorial.Rmd` in RStudio which you clon
 > Switch to RStudio now if you want to read along as you run the code.
 
 
-```
+```R
 library(azuremlsdk)
 ```
 
 You'll use these additional R packages:
 
-```{r packages, eval=FALSE, echo=FALSE}
+```R
 install.packages("DAAG")
 install.packages("caret")
 ```
@@ -74,7 +74,7 @@ install.packages("caret")
 
 Now define a workspace object in R by loading your config file.
 
-```{r load_workpace}
+```R
 ws <- load_workspace_from_config()
 ```
 
@@ -82,7 +82,7 @@ ws <- load_workspace_from_config()
 
 This tutorial uses data from the [DAAG package](https://cran.r-project.org/package=DAAG). This dataset includes data from over 25,000 car crashes in the US, with variables you can use to predict the likelihood of a fatality. First, import the data into R and transform it into a new dataframe `accidents` for analysis, and export it to an `Rdata` file.
 
-```{r load_data}
+```R
 library(DAAG)
 data(nassCDS)
 
@@ -98,7 +98,7 @@ saveRDS(accidents, file="accidents.Rd")
 Azure Machine Learning workspaces provide a default datastore where you can store data and other files needed for analysis.
 Here, upload the accidents data you created above to the datastore.
 
-```{r upload_data}
+```R
 ds <- get_default_datastore(ws)
 target_path <- "accidentdata"
 upload_files_to_datastore(ds,
@@ -112,7 +112,7 @@ upload_files_to_datastore(ds,
 When you need more power than your local laptop to train a model, create a compute resource. 
 Here you create a virtual machine in Azure (and give it a name of `rcluster`) to use for training your model.
 
-```{r create_cluster}
+```R
 cluster_name <- "rcluster"
 compute_target <- get_compute(ws, cluster_name = cluster_name)
 if (is.null(compute_target)) {
@@ -139,7 +139,7 @@ To run the training script:
 * Create an `experiment` to start the computation.
 * Submit the experiment and wait until it's finished.
 
-```{r train}
+```R
 est <- estimator(source_directory = ".",
                  entry_script = "accidents.R",
                  script_params = list("--data_folder" = ds$path(target_path)),
@@ -161,7 +161,7 @@ In the file `accidents.R`, you stored a metric from your model: the accuracy of 
 
 You can see metrics in your workspace in [Azure Machine Learning studio](https://ml.azure.com), or extract them to the local session as an R list as follows:
 
-```{r metrics}
+```R
 metrics <- get_run_metrics(run)
 metrics
 ```
@@ -185,7 +185,7 @@ You see lower probabilities of death with:
 
 The vehicle year of manufacture does not have a significant effect.
 
-```{r retrieve-model}
+```R
 download_files_from_run(run, prefix="outputs/")
 accident_model <- readRDS("outputs/model.rds")
 summary(accident_model)
@@ -193,7 +193,7 @@ summary(accident_model)
 
 You can use this model to make new predictions:
 
-```{r manual_predict}
+```R
 newdata <- data.frame( # valid values shown below
  dvcat="10-24",        # "1-9km/h" "10-24"   "25-39"   "40-54"   "55+"  
  seatbelt="none",      # "none"   "belted"  
@@ -214,7 +214,7 @@ With your model, you can predict the danger death from of other types of collisi
 
 First, register the model you downloaded for deployment:
 
-```{r register_model}
+```R
 model <- register_model(ws, 
                         model_path = "outputs/model.rds", 
                         model_name = "accidents_model",
@@ -227,13 +227,13 @@ To create a web service for your model, you first need to create an **entry scri
 
 Next, define an **environment** for your deployed model. With an environment, you specify R packages (from CRAN or elsewhere) that are needed for your entry script to run. You also provide the values of environment variables that your script can reference to modify its behavior. If you need software other than R to be available, specify a custom Docker image to use. In this tutorial, there are no special requirements, so create an environment with no special attributes:
 
-```{r Create environment, eval=FALSE}
+```R
 r_env <- r_environment(name = "basic_env")
 ```
 
 Now you have everything you need to create an **inference config**:
 
-``` {r Create inference config, eval=FALSE}
+```R
 inference_config <- inference_config(
   entry_script = "accident-predict.R",
   source_directory = ".",
@@ -242,7 +242,7 @@ inference_config <- inference_config(
 
 You'll deploy your service to Azure Container Instances. This code provisions a single container to respond to inbound requests, which is suitable for testing and light loads. (For production scale, you can also deploy to Azure Kubernetes Service.)
 
-``` {r Web service configuration, eval=FALSE}
+```R
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
 ```
 
@@ -251,7 +251,7 @@ Now you deploy your service.
 > NOTE
 > Deployment can take several minutes.
 
-```{r Deploy web service to AKS}
+```R
 aci_service <- deploy_model(ws, 
                         'accident-pred', 
                         list(model), 
@@ -264,7 +264,7 @@ wait_for_deployment(aci_service, show_output = TRUE)
 
 Now that your model is deployed as a service, you can test the service from R.  Provide a new set of data to predict from, convert it to JSON, and send it to the service.
 
-```{r test_deployment}
+```R
 newdata <- data.frame( # valid values shown below
  dvcat="10-24",        # "1-9km/h" "10-24"   "25-39"   "40-54"   "55+"  
  seatbelt="none",      # "none"   "belted"  
