@@ -35,7 +35,7 @@ With incremental indexing, the current version of the enrichment pipeline does t
 
 ## Indexer cache
 
-Incremental indexing adds an indexer cache to the enrichment pipeline. The indexer caches the results from document cracking and the outputs of each skills for every document. When a skillset is updated, only the changed, or downstream, skills are rerun. The updated results are written to the cache and the document is updated in the index and the knowledge store.
+Incremental indexing adds an indexer cache to the enrichment pipeline. The indexer caches the results from document cracking and the outputs of each skill for every document. When a skillset is updated, only the changed, or downstream, skills are rerun. The updated results are written to the cache and the document is updated in the index and the knowledge store.
 
 Physically, the cache is a storage account. All indexes within a search service may share the same storage account for the indexer cache. Each indexer is assigned a unique and immutable cache identifier.
 
