@@ -58,7 +58,7 @@ The examples are based on a scenario where multiple devices send measurements or
 
 In the following example, there's a single Azure IoT Hub message where the outer array contains a shared section of common dimension values. The outer array uses reference data to increase the efficiency of the message. Reference data contains device metadata that doesn't change with every event, but it provides useful properties for data analysis. Batching common dimension values and employing reference data saves on bytes sent over the wire, which makes the message more efficient.
 
-Consider the following JSON payload sent to your Time Series Insights GA environment using an [IoT Device Message object that is serialized into JSON when sent to Azure cloud:
+Consider the following JSON payload sent to your Time Series Insights GA environment using an [IoT Device Message object](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) that is serialized into JSON when sent to Azure cloud:
 
 
 ```JSON
