@@ -230,3 +230,5 @@ Staring with chart version 1.0.0, the agent data collection settings are control
 
 After you have successfully deployed the chart, you can review the data for your hybrid Kubernetes cluster in Azure Monitor for containers from the Azure portal.  
 
+>[!NOTE]
+>Ingestion latency is around five to ten minutes from agent to commit in the Azure Log Analytics workspace. Status of the cluster show the value **No data** or **Unknown** until all the required monitoring data is available in Azure Monitor. 
