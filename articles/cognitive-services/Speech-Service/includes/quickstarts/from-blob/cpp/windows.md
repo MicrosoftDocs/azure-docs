@@ -19,9 +19,9 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=windows)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=windows)
+> * [Upload a source file to an azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## Open your project in Visual Studio
 
@@ -30,60 +30,71 @@ The first step is to make sure that you have your project open in Visual Studio.
 1. Launch Visual Studio 2019.
 2. Load your project and open `helloworld.cpp`.
 
+## Add a references
+
+To speed up our code development we'll be using a couple of external components:
+* [CPP Rest SDK](https://github.com/microsoft/cpprestsdk)
+    A client library for making REST calls to a REST service.
+* [nlohmann/json](https://github.com/nlohmann/json)
+    Handy JSON Parsing / Serialization / Deserialization library.
+
+Both can be installed using [vcpkg](https://github.com/Microsoft/vcpkg/).
+
+```
+vcpkg install cpprestsdk cpprestsdk:x64-windows
+vcpkg install nlohmann-json
+```
+
 ## Start with some boilerplate code
 
-Let's add some code that works as a skeleton for our project. Make note that you've created an async method called `recognizeIntent()`.
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,73-81)]
+Let's add some code that works as a skeleton for our project.
 
-## Create a Speech configuration
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-32,187-190,300-309)]
+(You'll need to replace the values of `YourSubscriptionKey`, `YourServiceRegion`, and `YourFileUrl` with your own values.)
 
-Before you can initialize a `IntentRecognizer` object, you need to create a configuration that uses your LUIS Endpoing key and region. Insert this code in the `recognizeIntent()` method.
+## JSON Wrappers
 
-This sample uses the `FromSubscription()` method to build the `SpeechConfig`. For a full list of available methods, see [SpeechConfig Class](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+As the REST API's take requests in JSON format and also return results in JSON we could interact with them using only strings, but that's not recommended.
+In order to make the requests and responses easier to manage, we'll declare a few classes to use for serializing / deserializing the JSON and some methods to assist nlohmann/json.
 
-> [!NOTE]
-> It is important to use the LUIS Endpoint key and not the Starter or Authroing keys as only the Endpoint key is valid for speech to intent recognition. See [Create a LUIS application and get an endpoint key](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md) for instructions on how to get the correct key.
+Go ahead and put their declarations before `recognizeSpeech`.
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=33-185)]
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
+## Create and configure an Http Client
+The first thing we'll need is an Http Client that has a correct base URL and authentication set.
+Insert this code in `recognizeSpeech`
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]
 
-## Initialize a IntentRecognizer
+## Generate a transcription request
+Next, we'll generate the transcription request. Add this code to `recognizeSpeech`
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]
 
-Now, let's create an `IntentRecognizer`. Insert this code in the `recognizeIntent()` method, right below your Speech configuration.
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=28)]
+## Send the request and check its status
+Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has received the request. The service will return a Url in the response headers that's the location where it will store the transcription status.
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=204-216)]
 
-## Add a LanguageUnderstandingModel and Intents
+## Wait for the transcription to complete
+Since the service processes the transcription asynchronously, we need to poll for its status every so often. We'll check every 5 seconds.
 
-You now need to associate a `LanguageUnderstandingModel` with the intent recognizer and add the intents you want recognized.
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-34)]
+We can check the status by retrieving the content at the Url we got when the posted the request. When we get the content back, we deserialize it into one of our helper class to make it easier to interact with.
 
-## Recognize an intent
+Here's the polling code with status display for everything except a successful completion, we'll do that next.
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=222-245,285-299)]
 
-From the `IntentRecognizer` object, you're going to call the `RecognizeOnceAsync()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop reconizing speech.
-For similicity we'll wait on the future returned to complete.
+## Display the transcription results
+Once the service has successfully completed the transcription the results will be stored in another Url that we can get from the status response.
 
-Inside the using statement, add this code:
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
-
-## Display the recognition results (or errors)
-
-When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
-
-Inside the using statement, below `RecognizeOnceAsync()`, add this code:
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=47-72)]
+We'll download the contents of that URL, deserialize the JSON, and loop through the results printing out the display text as we go.
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=246-284)]
 
 ## Check your code
-
 At this point, your code should look like this: 
 (We've added some comments to this version)
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-308)]
 
 ## Build and run your app
 
 Now you're ready to build your app and test our speech recognition using the Speech service.
-
-1. **Compile the code** - From the menu bar of Visual Stuio, choose **Build** > **Build Solution**.
-2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
-3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
 
 ## Next steps
 
