@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech, intents, and entities, C++ - Speech Service"
+title: "Quickstart: Translate speech-to-text - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,9 +10,6 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
 ---
 
-[!INCLUDE [windows](./windows.md)]
-
-* * *
+View or download all <a href="https://aka.ms/ignite2019/speech/placeholder">Speech SDK Samples</a> on GitHub.

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize Intents from a microphone - Speech Service"
+title: "Quickstart: Recognize speech stored in blob storage - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

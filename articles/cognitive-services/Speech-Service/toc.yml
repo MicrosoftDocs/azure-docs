@@ -15,15 +15,17 @@
       href: speech-to-text.md
   - name: Quickstarts
     items:
-    - name: Recognize speech in audio file
+    - name: Recognize speech from an audio file
       href: quickstarts/speech-to-text-from-file.md
-    - name: Recognize speech from microphone
+    - name: Recognize speech with microphone input
       href: quickstarts/speech-to-text-from-microphone.md
-    - name: Recognize speech in blob storage
+    - name: Recognize speech stored in blob storage
       href: quickstarts/from-blob.md
   - name: How-to guides
     items:
-    - name: Compressed audio input
+    - name: Change recognition source language
+      href: how-to-specify-source-language.md
+    - name: Compressed audio input formats
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Continuous recognition
       href: shttps://aka.ms/ignite2019/speech/placeholder
@@ -31,16 +33,12 @@
       href: how-to-custom-speech.md
     - name: Improve accuracy with Phrase Lists
       href: how-to-phrase-lists.md
-    - name: Non-default microphone input devices
-      href: how-to-select-audio-input-devices.md
-    - name: Specify source language
-      href: how-to-specify-source-language.md
-    - name: Use automatic language detection
-      href: how-to-automatic-language-detection.md
-  - name: Tutorials
-    items:
     - name: Improve accuracy with Tenant Language Models
       href: tutorial-tenant-language-model.md
+    - name: Selecting microphone input devices
+      href: how-to-select-audio-input-devices.md
+    - name: Use automatic source language detection
+      href: how-to-automatic-language-detection.md
   - name: Reference
     items:
     - name: Speech SDK
@@ -76,7 +74,7 @@
     items:
     - name: Synthesize speech into an audio file
       href: quickstarts/text-to-speech-audio-file.md
-    - name: Synthesize speech onto speakers
+    - name: Synthesize speech with speaker output
       href: quickstarts/text-to-speech.md
   - name: How-to guides
     items:
@@ -113,7 +111,7 @@
   items:
   - name: Quickstarts
     items:
-    - name: Recognize Intents from a microphone
+    - name: Recognize speech, intents, and entities
       href: quickstarts/intent-recognition.md
   - name: How-to guides
     items:
@@ -152,7 +150,7 @@
     items:
     - name: Translate speech-to-text
       href: quickstarts/translate-speech-to-text.md
-    - name: Translate speech-to-text multi-participant
+    - name: Translate speech to multiple target languages
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Translate speech-to-speech
       href: https://aka.ms/ignite2019/speech/placeholder

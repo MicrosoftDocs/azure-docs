@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize Intents from a microphone - Speech Service"
+title: "Quickstart: Recognize speech, intents, and entities - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -13,6 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
+# Quickstart: Recognize speech, intents, and entities with LUIS
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]

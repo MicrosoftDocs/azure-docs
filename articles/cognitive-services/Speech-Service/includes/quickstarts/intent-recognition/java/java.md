@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize Intents from a microphone, Java - Speech Service"
+title: "Quickstart: Recognize speech, intents, and entities, Java - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

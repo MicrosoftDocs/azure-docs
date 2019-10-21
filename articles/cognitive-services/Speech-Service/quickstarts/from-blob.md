@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech using batch"
+title: "Quickstart: Recognize speech stored in blob storage"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -13,6 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
+# Quickstart: Recognize speech stored in blob storage
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]

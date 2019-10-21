@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Synthesize speech Speech Service'
+title: 'Quickstart: Translate speech-to-text - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to synthesize speech in Objective-C on iOS using the Speech SDK
+description: TBD
 services: cognitive-services
 author: yulin-li
 manager: nitinme
