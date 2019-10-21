@@ -247,7 +247,7 @@ For Application Gateway and WAF v2, the logs show a little more information:
 
 ### Performance log
 
-The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It is available only for the V1 SKU. For V2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
+The performance log is generated only if you have enabled it on each Application Gateway instance, as detailed in the preceding steps. The data is stored in the storage account that you specified when you enabled the logging. The performance log data is generated in 1-minute intervals. It is available only for the v1 SKU. For the v2 SKU, use [Metrics](application-gateway-metrics.md) for performance data. The following data is logged:
 
 
 |Value  |Description  |
