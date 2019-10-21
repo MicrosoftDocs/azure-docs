@@ -58,11 +58,9 @@ Clone a GitHub repository that contains the  Postman collection and environment 
 
 ## Configure Postman
 
-This section configures the Postman.
-
 ### Configure the environment 
 
-1. Open the **Postman**.
+1. Open the **Postman** app.
 2. On the right of the screen, select the **Manage environment** option.
 
     ![Manage env](./media/develop-with-postman/postman-import-env.png)
@@ -103,7 +101,7 @@ In this section, we send requests that are relevant to encoding and creating URL
 
 ### Get Azure AD Token 
 
-1. In the left window of the Postman, select "Step 1: Get AAD Auth token".
+1. In the left window of the Postman app, select "Step 1: Get AAD Auth token".
 2. Then, select "Get Azure AD Token for Service Principal Authentication".
 3. Press **Send**.
 
@@ -121,7 +119,7 @@ In this section, we send requests that are relevant to encoding and creating URL
 
 The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. 
 
-1. In the left window of the Postman, select "Assets".
+1. In the left window of the Postman app, select "Assets".
 2. Then, select "Create or update an Asset".
 3. Press **Send**.
 
@@ -152,7 +150,7 @@ You can use a built-in EncoderNamedPreset or use custom presets.
 > [!Note]
 > When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method. This tutorial assumes you are creating the transform with a unique name.
 
-1. In the left window of the Postman, select "Encoding and Analysis".
+1. In the left window of the Postman app, select "Encoding and Analysis".
 2. Then, select "Create Transform".
 3. Press **Send**.
 
@@ -187,7 +185,7 @@ A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to
 
 In this example, the job's input is based on an HTTPS URL ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
-1. In the left window of the Postman, select "Encoding and Analysis".
+1. In the left window of the Postman app, select "Encoding and Analysis".
 2. Then, select "Create or Update Job".
 3. Press **Send**.
 
@@ -239,7 +237,7 @@ When creating a [Streaming Locator](https://docs.microsoft.com/rest/api/media/st
 
 Your Media Service account has a quota for the number of **Streaming Policy** entries. You should not be creating a new **Streaming Policy** for each **Streaming Locator**.
 
-1. In the left window of the Postman, select "Streaming Policies".
+1. In the left window of the Postman app, select "Streaming Policies".
 2. Then, select "Create a Streaming Locator".
 3. Press **Send**.
 
@@ -265,7 +263,7 @@ Your Media Service account has a quota for the number of **Streaming Policy** en
 
 Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators) has been created, you can get the streaming URLs
 
-1. In the left window of the Postman, select "Streaming Policies".
+1. In the left window of the Postman app, select "Streaming Policies".
 2. Then, select "List Paths".
 3. Press **Send**.
 

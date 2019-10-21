@@ -25,7 +25,7 @@ Create the following services:
 
 - Create an [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) to store the sample data and the knowledge store. Your storage account must use the same location (such as US-West) for your Azure Search service. The value for **Account kind** must be **StorageV2 (general purpose V2)** (default) or **Storage (general purpose V1)**.
 
-- Recommended: Get the [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search. You can use the REST API with any tool that's capable of working with HTTP requests and responses. Postman is a good choice for exploring REST APIs. We use Postman in this article. Also, the [source code](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) for this article includes a Postman collection of requests. 
+- Recommended: Get the [Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search. You can use the REST API with any tool that's capable of working with HTTP requests and responses. Postman is a good choice for exploring REST APIs. We use Postman in this article. Also, the [source code](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) for this article includes a Postman collection of requests. 
 
 ## Store the data
 
