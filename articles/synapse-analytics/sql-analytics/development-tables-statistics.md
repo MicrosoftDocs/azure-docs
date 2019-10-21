@@ -15,16 +15,7 @@ ms.custom:
 
 # Statistics in SQL Analytics
 
-Recommendations and examples for creating and updating query-optimization statistics in:
-
-- [SQL Analytics pool](#statistics-in-sql-analytics-pool)
-
-[Why use statistics](#why-use-statistics)
-
-- [SQL Analytics on-demand](#statistics-in-sql-analytics-on-demand)
-
-
-[Why use statistics](#why-use-statistics-sqlod)
+Recommendations and examples for creating and updating query-optimization statistics.
 
 ## Statistics in SQL Analytics pool
 
@@ -528,7 +519,6 @@ For further improve query performance, see [Monitor your workload](../../sql-dat
 
 
 ## Statistics in SQL Analytics on-demand
-
 Statistics are created per particular column for particular dataset (OPENROWSET path).
 
 ### <a id="why-use-statistics-sqlod"/>Why use statistics
@@ -596,81 +586,49 @@ sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
 ```
 Arguments:
 [ @stmt = ] N'statement_text'
-Is a Transact-SQL statement that will return column values to be used for statistics. You can use TABLESAMPLE to specify sample of data to be used. Default TABLESAMPLE is 5%.
-
-> [!NOTE]
-> CSV sampling does not work at this moment, FULLSCAN will be used instead.
-
-#### Create single-column statistics with default options
-
-To create statistics on a column, provide query that returns column you need statistics for.
-
-By default, SQL Analytics on-demand samples **5 percent** of data in provided dataset when it creates statistics.
-
-[!NOTE]
-CSV sampling reads rows from top of file. Sampling will be improved in the future so it will take percentage of rows from across the file, not only from beginning. For this reason, it is recommended to use FULLSCAN for CSV datasets. 
-
-For example, to create statistics with default options (sample 5%) for year column for dataset based on population.csv file:
-
+Is a Transact-SQL statement that will return column values to be used for statistics. You can use TABLESAMPLE to specify sample of data to be used. If TABLESAMPLE is not specified, FULLSCAN will be used. 
 ```sql
-EXEC sys.sp_create_file_statistics N'SELECT year 
-FROM OPENROWSET(
-		BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
- 		FORMAT = ''CSV'', 
-		FIELDTERMINATOR ='','', 
-		ROWTERMINATOR = ''\n''
-	)
-WITH (
-	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-	[year] smallint,
-	[population] bigint
-) AS [r]
-'
+<tablesample_clause> ::= TABLESAMPLE ( sample_number PERCENT )
 ```
+> [!NOTE]
+> CSV sampling does not work at this moment, only FULLSCAN is supported for CSV.
 
 #### Create single-column statistics by examining every row
 
-The default sampling rate of 5 percent may be sufficient for your scenario. However, you can adjust the sampling rate or sample full table using TABLESAMPLE (FULLSCAN)
+To create statistics on a column, provide query that returns column you need statistics for.
 
-To sample the full table, use this syntax:
+By default, if you don't specify otherwise, SQL Analytics on-demand uses 100%  of data in provided dataset when it creates statistics.
+
+For example, to create statistics with default options (FULLSCAN) for year column for dataset based on population.csv file:
 
 ```sql
 EXEC sys.sp_create_file_statistics N'SELECT year 
 FROM OPENROWSET(
-		BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
- 		FORMAT = ''CSV'', 
-		FIELDTERMINATOR ='','', 
-		ROWTERMINATOR = ''\n''
-	)
+        BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
+        FORMAT = ''CSV'', 
+        FIELDTERMINATOR ='','', 
+        ROWTERMINATOR = ''\n''
+    )
 WITH (
-	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-	[year] smallint,
-	[population] bigint
-) AS [r] WITH TABLESAMPLE(FULLSCAN)
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
+    [country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
+    [year] smallint,
+    [population] bigint
+) AS [r]
 '
 ```
-
 
 #### Create single-column statistics by specifying the sample size
 
 You can specify the sample size as a percent:
 
 ```sql
-EXEC sys.sp_create_file_statistics N'SELECT year 
+EXEC sys.sp_create_file_statistics N'SELECT payment_type 
 FROM OPENROWSET(
-		BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
- 		FORMAT = ''CSV'', 
-		FIELDTERMINATOR ='','', 
-		ROWTERMINATOR = ''\n''
-	)
-WITH (
-	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-	[year] smallint,
-	[population] bigint
-) AS [r] WITH TABLESAMPLE(15 PERCENT)
+		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
+ 		FORMAT = ''PARQUET''
+	) AS [nyc] 
+	TABLESAMPLE(5 PERCENT)
 '
 ```
 
@@ -687,35 +645,21 @@ Is the same Transact-SQL statement used when statistics were created.
 To update statistics for year column for dataset based on population.csv file, you need to drop and create statistics:
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT year 
+EXEC sys.sp_drop_file_statistics N'SELECT payment_type 
 FROM OPENROWSET(
-		BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
- 		FORMAT = ''CSV'', 
-		FIELDTERMINATOR ='','', 
-		ROWTERMINATOR = ''\n''
-	)
-WITH (
-	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-	[year] smallint,
-	[population] bigint
-) AS [r]
+		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
+ 		FORMAT = ''PARQUET''
+	) AS [nyc] 
+	TABLESAMPLE(5 PERCENT)
 '
 GO
 
-EXEC sys.sp_create_file_statistics N'SELECT year 
+EXEC sys.sp_create_file_statistics N'SELECT payment_type 
 FROM OPENROWSET(
-		BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
- 		FORMAT = ''CSV'', 
-		FIELDTERMINATOR ='','', 
-		ROWTERMINATOR = ''\n''
-	)
-WITH (
-	[country_code] VARCHAR (5) COLLATE Latin1_General_BIN2,
-	[country_name] VARCHAR (100) COLLATE Latin1_General_BIN2,
-	[year] smallint,
-	[population] bigint
-) AS [r]
+		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
+ 		FORMAT = ''PARQUET''
+	) AS [nyc] 
+	TABLESAMPLE(5 PERCENT)
 '
 ```
 
