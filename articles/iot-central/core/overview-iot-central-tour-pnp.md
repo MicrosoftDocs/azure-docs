@@ -83,7 +83,7 @@ You can choose between a light theme or a dark theme for the UI:
 
 * The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a builder, you can customize the application dashboard for other users by adding tiles.
 
-* As an operator, you can create personalized dashboards and switch between them and the default dashboard. To learn more, see the [Create and manage personal dashboards](howto-personalize-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) how-to article.
+* As an operator, you can create personalized dashboards and switch between them and the default dashboard. To learn more, see the [Create Azure IoT Central personal dashboards](howto-create-personal-dashboards.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) how-to article.
 
 ## Devices
 
