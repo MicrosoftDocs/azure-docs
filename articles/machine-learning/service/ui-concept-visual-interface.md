@@ -1,7 +1,7 @@
 ---
 title: Build ML models with designer
 titleSuffix: Azure Machine Learning
-description: Learn about the terms, concepts, and workflow that make up the designer for Azure Machine Learning.
+description: Learn about the terms, concepts, and workflow that makes up the designer for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -88,17 +88,22 @@ The web services provide an interface between an application and your scoring mo
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](ui-tutorial-automobile-price-deploy.md).
 
-## Visual interface and the designer
+## Moving from the visual interface to the designer
 
-Visual interface(preview) has been updated to Azure Machine Learning designer with more modules, richer ML pipeline functionality and updated UI. Below are concept mapping from visual interface to the designer. 
-| visual interface concept| corresponding concept in the designer  |
+The visual interface (preview) has been redesigned as Azure Machine Learning designer (preview). The designer has a new, pipeline-based, architecture that fully integrates with the rest of the Azure Machine Learning experience. Following the update, some concepts and terminology for the visual interface have changed.
+
+| Concept in the designer | Previously in the visual interface |
 | ---- |:----:|
-| experiments |pipeline drafts |
-| datasets | datasets |
-| web services | real-time endpoints |
+| Pipeline draft | Experiment |
+|  Real-time endpoint | Web service |
+| Datasets | Datasets |
 
-Check [how to migrate from visual interface to the designer] 
-[!INCLUDE [](../../../includes/aml-vi-designer-migration.md)]
+### Migrating to the designer
+
+Visual interface assets can be automatically converted to comparable assets in the designer. Use the following steps to migrate existing experiments and web services:
+
+[!INCLUDE [migrate from the visual interface](../../../includes/aml-vi-designer-migration.md)]
+
 
 ## Next steps
 
