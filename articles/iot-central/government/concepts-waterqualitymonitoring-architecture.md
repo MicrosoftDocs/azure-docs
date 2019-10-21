@@ -24,7 +24,7 @@ Make the first word following "Tutorial:" a verb.
 
 A water quality monitoring solution can be built using the **IoT Central Water quality monitoring app template** as a kickstarted and using the below reference architecture. Note that the reference architecture is a high level guidance to help you understand architecture concepts and how to build a solution with IoT Central. 
 
-![Water quality monitoring architecture](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring.PNG)
+![Water quality monitoring architecture](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring-architecture.PNG)
 
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
