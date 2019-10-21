@@ -1,6 +1,6 @@
 ---
-title: Quickstart - Create and automate your first workflow with Azure Logic Apps
-description: Create your first logic app that automates tasks, processes, and workflows by using Azure Logic Apps. Create logic apps for system integration and enterprise application integration (EAI) solutions for your systems & cloud services.
+title: Create and automate your first workflow - Azure Logic Apps
+description: Quickstart - Create your first automated task or workflow by using Azure Logic Apps for system integration and enterprise application integration (EAI) solutions
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
