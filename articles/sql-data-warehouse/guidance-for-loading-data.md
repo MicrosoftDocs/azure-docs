@@ -1,6 +1,6 @@
 ---
-title: Data loading best practices - Azure SQL Data Warehouse | Microsoft Docs
-description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse.
+title: Data loading best practices - Azure SQL Analytics | Microsoft Docs
+description: Recommendations and performance optimizations for loading data into Azure SQL Analytics.
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seoapril2019
 ---
 
-# Best practices for loading data into Azure SQL Data Warehouse
+# Best practices for loading data into Azure SQL Analytics (formerly SQL DW)
 
-Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse.
+Recommendations and performance optimizations for loading data into Azure SQL Analytics.
 
 ## Preparing data in Azure Storage
 
@@ -84,7 +84,7 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 - Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
 ## Increase batch size when using SQLBulkCopy API or BCP
-As mentioned before, loading with PolyBase will provide the highest throughput with SQL Data Warehouse. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput. 
+As mentioned before, loading with PolyBase will provide the highest throughput with SQL Analytics. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput. 
 
 ## Handling loading failures
 
