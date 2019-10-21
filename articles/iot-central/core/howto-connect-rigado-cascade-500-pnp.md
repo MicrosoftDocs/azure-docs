@@ -17,7 +17,7 @@ This article describes how, as a solution builder, to connect a Rigado Cascade 5
 To step through this how-to guide, you need the following resources:
 
 * A Rigado Cascade 500 device. For more information, please visit [Rigado](https://www.rigado.com/).
-* An Azure IoT Central application created from one of the preview application templates. For more information, see the [create a new application](https://docs.microsoft.com/en-us/azure/iot-central/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+* An Azure IoT Central application created from one of the preview application templates. For more information, see the [create a new application](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## What is Cascade 500?
 
