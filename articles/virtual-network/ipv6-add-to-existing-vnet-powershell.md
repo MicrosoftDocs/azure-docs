@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2019
+ms.date: 10/21/2019
 ms.author: kumud
 ---
 
 # Upgrade an IPv4 application to IPv6 in Azure virtual network - PowerShell (Preview)
 
-This article shows you how to upgrade an IPv4 public IP address to an IPv6 address for a Standard Load Balancer in Azure.  The in-place upgrade includes a virtual network and subnet, a Standard Load Balancer with IPv4 front-end configuration, VMs with NICs that have a IPv4 configuration, network security group, and public IPs.
+This article shows you how to upgrade an IPv4 public IP address to an IPv6 address for a Standard Load Balancer in Azure.  The in-place upgrade includes a virtual network and subnet, a Standard Load Balancer with IPv4 + IPV6 frontend configurations, VMs with NICs that have a IPv4 + IPv6 configurations, network security group, and public IPs.
 
 > [!Important]
 > IPv6 support for Azure Virtual Network is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -41,7 +41,7 @@ It takes up to 30 minutes for feature registration to complete. You can check yo
 Check on the registration as follows:
 ```azurepowershell
 Get-AzProviderFeature -FeatureName AllowIPv6VirtualNetwork -ProviderNamespace Microsoft.Network
-Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace 
+Get-AzProviderFeature -FeatureName AllowIPv6CAOnStandardLB -ProviderNamespace Microsoft.Network
 ```
 After the registration is complete, run the following command:
 
@@ -54,7 +54,7 @@ This article assumes that you deployed a Standard Load Balancer as described in 
 
 ## Retrieve the resource group
 
-Before you can create your dual-stack virtual network, you must retrieve the resource group with [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup). 
+Before you can create your dual-stack virtual network, you must retrieve the resource group with [Get-AzResourceGroup](/powershell/module/az.resources/get-azresourcegroup).
 
 ```azurepowershell
  $rg = Get-AzResourceGroup  -ResourceGroupName "myResourceGroupSLB"
@@ -125,7 +125,7 @@ Add IPv6 address ranges to the virtual network and subnet hosting the load balan
 ```azurepowershell
 #Add IPv6 ranges to the VNET and subnet
 #Retreive the VNET object
-$vnet = Get-AzVirtualNetwork  -ResourceGroupName $rg.ResourceGroupName -Name "MyVnet" 
+$vnet = Get-AzVirtualNetwork  -ResourceGroupName $rg.ResourceGroupName -Name "myVnet" 
 #Add IPv6 prefix to the VNET
 $vnet.addressspace.addressprefixes.add("ace:cab:deca::/48")
 #Update the running VNET
@@ -146,23 +146,27 @@ Configure both of the VM NICs with an IPv6 address using [Add-AzNetworkInterface
 ```azurepowershell
 
 #Retrieve the NIC objects
-$NIC_1 = Get-AzNetworkInterface -Name "NIC1" -ResourceGroupName $rg.ResourceGroupName
-$NIC_2 = Get-AzNetworkInterface -Name "NIC2" -ResourceGroupName $rg.ResourceGroupName
-#Add an IPv6 IPconfig to NIC_1 and Update the NIC on the running VM
+$NIC_1 = Get-AzNetworkInterface -Name "myNic1" -ResourceGroupName $rg.ResourceGroupName
+$NIC_2 = Get-AzNetworkInterface -Name "myNic2" -ResourceGroupName $rg.ResourceGroupName
+$NIC_3 = Get-AzNetworkInterface -Name "myNic3" -ResourceGroupName $rg.ResourceGroupName
+#Add an IPv6 IPconfig to NIC_1 and update the NIC on the running VM
 $NIC_1 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_1 | Set-AzNetworkInterface
-#Add an IPv6 IPconfig to NIC_2 and Update the NIC on the running VM
+#Add an IPv6 IPconfig to NIC_2 and update the NIC on the running VM
 $NIC_2 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
 $NIC_2 | Set-AzNetworkInterface
+#Add an IPv6 IPconfig to NIC_3 and update the NIC on the running VM
+$NIC_3 | Add-AzNetworkInterfaceIpConfig -Name MyIPv6Config -Subnet $vnet.Subnets[0]  -PrivateIpAddressVersion IPv6 -LoadBalancerBackendAddressPool $backendPoolv6 
+$NIC_3 | Set-AzNetworkInterface
 
 ```
 
 ## View IPv6 dual stack virtual network in Azure portal
 You can view the IPv6 dual stack virtual network in Azure portal as follows:
-1. In the portal's search bar, enter *dsVnet*.
-2. When **dsVnet** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *myVNet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *mySubnet*.
+1. In the portal's search bar, enter *myVnet*.
+2. When **myVnet** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *myVNet*. The dual stack virtual network shows the three NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *mySubnet*.
 
-  ![IPv6 dual stack virtual network in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
+  ![IPv6 dual stack virtual network in Azure](./media/ipv6-add-to-existing-vnet-powershell/ipv6-dual-stack-vnet.png)
 
 > [!NOTE]
 > The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
