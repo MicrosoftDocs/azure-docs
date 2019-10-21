@@ -48,7 +48,7 @@ Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` f
 
 ## [Visual Studio Code](#tab/VSC)
 
-You will need to create a resource Group and an App Service Plan before you deploy the service in VS Code.
+You will need to create a resource group and an App Service Plan before you deploy the service in VS Code.
 
 ### Sign-in to Azure
 
