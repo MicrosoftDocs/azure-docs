@@ -1,5 +1,5 @@
 ---
-title: Create customer insights dashboard = Azure Logic Apps
+title: Create customer insights dashboard - Azure Logic Apps
 description: Manage customer feedback, social media data, and more by building a customer dashboard with Azure Logic Apps and Azure Functions
 services: logic-apps
 ms.service: logic-apps
