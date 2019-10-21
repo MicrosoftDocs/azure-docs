@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 10/18/2019
+ms.date: 10/20/2019
 ---
 # Resource limits for single databases using the vCore purchasing model
 
@@ -26,7 +26,7 @@ You can set the service tier, compute size, and storage amount for a single data
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](sql-database-single-database-scale.md).
 
-## General Purpose service tier for provisioned compute
+## General purpose - provisioned compute - Gen4
 
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
@@ -77,6 +77,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+## General purpose - provisioned compute - Gen5
+
 ### Gen5 compute generation (part 1)
 
 |Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
@@ -123,6 +125,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+## General purpose - provisioned compute - Fsv2-series
+
 ### Fsv2-series compute generation (preview)
 
 |Compute size|GP_Fsv2_72|
@@ -148,9 +152,9 @@ You can set the service tier, compute size, and storage amount for a single data
 
 
 
-## General Purpose service tier for serverless compute
+## General purpose - serverless compute - Gen5
 
-The [serverless compute tier](sql-database-serverless.md) is in preview.
+The [serverless compute tier](sql-database-serverless.md) is currently available on Gen5 hardware only.
 
 ### Gen5 compute generation (part 1)
 
@@ -200,7 +204,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Read Scale-out|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
-## Business Critical service tier for provisioned compute
+## Business Critical - provisioned compute - Gen4
 
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
@@ -253,6 +257,8 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+## Business Critical - provisioned compute - Gen5
+
 ### Gen5 compute compute (part 1)
 
 |Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
@@ -302,6 +308,8 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
 
+## Business Critical - provisioned compute - M-series
+
 ### M-series compute generation (preview)
 
 |Compute size|GP_M_128|
@@ -327,7 +335,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 
 
 
-## Hyperscale service tier for provisioned compute
+## Hyperscale service - provisioned compute - Gen5
 
 ### Gen5 compute generation
 
