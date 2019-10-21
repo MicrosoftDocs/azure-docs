@@ -26,7 +26,7 @@ With real-time plus offline, you get the transcription in real-time but can also
 
 There are two parts to offline conversation transcription.
 
-### First: upload the audio to the service using the Speech SDK
+### Upload the audio with the Speech SDK
 
 Before offline transcription can be performed, we send the audio to Conversation Transcription Service using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe multi-participant conversations in real time with the Speech SDK](how-to-use-conversation-transcription-service.md). In the example code below, the service is set for offline mode. Note that you need to substitute real information for "YourSubscriptionKey" and "YourServiceRegion".
 
