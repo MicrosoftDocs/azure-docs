@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ---
 
 # Quickstart: Collect data from a Linux computer in a hybrid environment with Azure Monitor
@@ -32,7 +32,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics workspaces**.
 
-    ![Azure portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Finding Log Analytics workspace in the Azure portal](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Select **Create**, and then select choices for the following items:
 
@@ -42,7 +42,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
    * Select the **Location** your VMs are deployed to.  For additional information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
    * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing EA enrollment, select your preferred pricing tier.  For additional information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Create Log Analytics resource blade](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Creating a Log Analytics workspace in the Azure portal](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. After providing the required information on the **Log Analytics workspace** pane, select **OK**.  
 
@@ -60,7 +60,7 @@ Before installing the Log Analytics agent for Linux, you need the workspace ID a
 
 3. Select **Advanced settings**:
 
-    ![Log Analytics Advance Settings](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png) 
+    ![Advanced Settings menu for Log Analytics in the Azure portal](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
  
 4. Select **Connected Sources**, and then select **Linux Servers**.
 
@@ -124,7 +124,7 @@ Azure Monitor can collect events from the Linux Syslog and performance counters 
 
 7. When you first configure Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters. They are listed with a checkbox next to each.
 
-    ![Default Windows performance counters selected](media/quick-collect-azurevm/linux-perfcounters-default.png)
+    ![Default Linux performance counters selected in Azure Monitor](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Select **Apply below configuration to to my machines** and then select **Add the selected performance counters**. They are added and preset with a ten second collection sample interval.  
 

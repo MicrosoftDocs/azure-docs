@@ -23,14 +23,13 @@
         href: sql-database-purchase-models.md
       - name: vCore-based model
         href: sql-database-service-tiers-vcore.md
+        items:
+        - name: Serverless compute tier
+          href: sql-database-serverless.md
+        - name: Prepay for reserved capacity
+          href: sql-database-reserved-capacity.md
       - name: DTU service tiers
         href: sql-database-service-tiers-dtu.md
-      - name: Serverless compute tier
-        href: sql-database-serverless.md
-      - name: Prepay for reserved capacity
-        href: sql-database-reserved-capacity.md
-      - name: Migrate from Premium RS service tier
-        href: sql-database-service-tiers-prs.md
     - name: Compute & storage
       items:
       - name: Overview
@@ -44,6 +43,8 @@
         href: sql-database-service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: sql-database-service-tier-hyperscale-faq.md
+      - name: Migrate from Premium RS service tier
+        href: sql-database-service-tiers-prs.md
 
 - name: Quickstarts
   expanded: true
@@ -214,22 +215,21 @@
 
   - name: Backup, restore, high availability (BCDR)
     items:
-      - name: Recovery using backups
-        href: sql-database-recovery-using-backups.md
-      - name: Accelerated database recovery
-        href: sql-database-accelerated-database-recovery.md
-      - name: Outage recovery guidance
-        href: sql-database-disaster-recovery.md
-      - name: Recovery drills
-        href: sql-database-disaster-recovery-drills.md
       - name: Business continuity
         href: sql-database-business-continuity.md
       - name: High availability
         href: sql-database-high-availability.md
-      - name: Automated backups
-        href: sql-database-automated-backups.md
-      - name: Long-term backup retention
-        href: sql-database-long-term-retention.md
+      - name: Backups
+        items:
+        - name: Automated backups
+          href: sql-database-automated-backups.md
+        - name: Recovery using backups
+          href: sql-database-recovery-using-backups.md
+        - name: Accelerated database recovery
+          href: sql-database-accelerated-database-recovery.md
+        - name: Long-term backup retention
+          href: sql-database-long-term-retention.md
+
       - name: Failover groups and geo-replication
         items: 
         - name: Active geo-replication
@@ -237,7 +237,13 @@
         - name: Auto-failover groups
           href: sql-database-auto-failover-group.md
         - name: Configure security for replicas
-          href: sql-database-geo-replication-security-config.md
+          href: sql-database-geo-replication-security-config.md  
+        - name: Outage recovery guidance
+          href: sql-database-disaster-recovery.md
+        - name: Recovery drills
+          href: sql-database-disaster-recovery-drills.md
+        - name: Configure failover group
+          href: sql-database-configure-failover-group.md
 
   - name: Monitor and tune
     items:
@@ -283,6 +289,8 @@
           href: sql-database-xevent-code-event-file.md
         - name: Extended events - ring buffer
           href: sql-database-xevent-code-ring-buffer.md
+    - name: Hyperscale performance diagnostics
+      href: sql-database-hyperscale-performance-diagnostics.md
 
   - name: Scalability
     items:
@@ -489,7 +497,7 @@
     items:
     - name: Create
       items: 
-      - name: Using Azure Portal
+      - name: Using Azure portal
         href: sql-database-single-database-get-started.md
       - name: Using template
         displayName: Azure Resource Manager template, ARM
@@ -511,7 +519,7 @@
       href: sql-database-active-geo-replication-portal.md
     - name: Set up Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
-    - name: Add to a failover group to Elastic pool
+    - name: Add elastic pool to a failover group
       href: sql-database-elastic-pool-failover-group-tutorial.md
     - name: Configure security
       href: sql-database-security-tutorial.md
@@ -638,8 +646,6 @@
       href: sql-database-geo-replication-portal.md
     - name: Configure security for geo-replicas
       href: sql-database-geo-replication-security-config.md
-    - name: Configure failover group
-      href: sql-database-configure-failover-group.md
     - name: Try in-memory features
       href: sql-database-in-memory-sample.md  
     - name: Enable automatic tuning
@@ -724,7 +730,7 @@
     items:
     - name: Create
       items: 
-      - name: Using Azure Portal
+      - name: Using Azure portal
         href: sql-database-managed-instance-get-started.md
       - name: Using PowerShell
         href: scripts/sql-database-create-configure-managed-instance-powershell.md
@@ -751,6 +757,8 @@
         href: replication-with-sql-database-managed-instance.md
       - name: Configure security
         href: sql-database-managed-instance-aad-security-tutorial.md
+      - name: Add managed instance to a failover group
+        href: sql-database-managed-instance-failover-group-tutorial.md
 
   - name: Concepts
     items:
