@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/18/2019
+ms.date: 10/20/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -62,7 +62,7 @@ There are several ways that you can configure entitlement management for your or
 > | **2.** [Delegate users to access package manager role](entitlement-management-delegate-managers.md) | Catalog owner |
 > | **3.** [Create and manage access packages](entitlement-management-access-package-create.md) | Access package manager |
 
-## Govern access in your organization
+## Govern access for users in your organization
 
 ### Allow employees in your organization to request access to resources
 
@@ -103,7 +103,7 @@ There are several ways that you can configure entitlement management for your or
 > | **1.** [Sign in to the My Access portal](entitlement-management-request-access.md#sign-in-to-the-my-access-portal) | Requestor |
 > | **2.** Request an extension of your access to an access package | Requestor |
 
-## Govern access outside your organization
+## Govern access for users outside your organization
 
 ### Collaborate with an external partner organization
 
