@@ -24,11 +24,11 @@ landingContent:
             url: v1-overview.md
       - linkListType: concept
         links:
-        - text: Authentication basics
-          url: authentication-scenarios.md
-        - linkListType: deploy
-          links:
-            - text: Best practices
+          - text: Authentication basics
+            url: authentication-scenarios.md
+          - linkListType: deploy
+            links:
+              - text: Best practices
               url: identity-platform-integration-checklist.md
       - linkListType: learn
         links:
