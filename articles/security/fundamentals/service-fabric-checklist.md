@@ -4,7 +4,7 @@ title: Azure service fabric security checklist| Microsoft Docs
 description: This article provides a set of checklist for Azure fabric security security.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/16/2019
-ms.author: tomsh
+ms.author: terrylan
 
 ---
 # Azure Service Fabric security checklist
