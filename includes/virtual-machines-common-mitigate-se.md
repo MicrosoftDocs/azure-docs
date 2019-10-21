@@ -5,13 +5,13 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 06/04/2019
+ ms.date: 08/08/2019
  ms.author: cynthn;kareni
  ms.custom: include file
 ---
 
 
-**Last document update**: 4 June 2019 3:00 PM PST.
+**Last document update**: 9 August 2019 10:00 AM PST.
 
 The disclosure of a [new class of CPU vulnerabilities](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002) known as speculative execution side-channel attacks has resulted in questions from customers seeking more clarity.  
 
@@ -164,6 +164,7 @@ This article provides guidance to the below speculative execution side-channel a
 - CVE-2017-5715 - Branch Target Injection (BTI)  
 - CVE-2017-5754 - Kernel Page Table Isolation (KPTI)
 - CVE-2018-3639 – Speculative Store Bypass (KPTI) 
+- [CVE-2019-1125](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1125) – Windows Kernel Information – variant of Spectre Variant 1
  
 [L1 Terminal Fault (L1TF)](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV180018):
 - CVE-2018-3615 - Intel Software Guard Extensions (Intel SGX)

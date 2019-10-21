@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/19/2019
+ms.date: 07/18/2019
 ms.author: spelluru
 
 ---
@@ -43,7 +43,7 @@ Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 ### What if my question isn't answered here?
 If your question isn't listed here, let us know, so we can help you find an answer.
 
-- Post a question at the end of this FAQ. Engage with the Azure Cache team and other community members about this article.
+- Post a question at the end of this FAQ. 
 - To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Engage with the Azure DevTest Labs team and other members of the community.
 - For feature requests, submit your requests and ideas to [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
@@ -387,6 +387,19 @@ VM deployment errors are captured in activity logs. You can find lab VM activity
 
 Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. Activity logs are located at the bottom of the **Configuration and policies** settings. For more information about using activity logs in Azure, see [View activity logs to audit actions on resources](../azure-resource-manager/resource-group-audit.md).
 
+### Why do I get "location is not available for resource type" error when trying to create a lab?
+You may see an error message similar to the following one when you try to create a lab: 
 
+```
+The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
+```
+
+You can resolve this error by taking one of the following steps:
+
+#### Option 1
+Check availability of the resource type in Azure regions on the [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page. If the resource type isn't available in a certain region, DevTest Labs doesn't support creation of a lab in that region. Select another region when creating your lab. 
+
+#### Option 2
+If the resource type is available in your region, check if it's registered with your subscription. It can be done at the subscription owner level as shown in [this article](../azure-resource-manager/resource-manager-supported-services.md). 
 
 

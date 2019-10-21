@@ -1,17 +1,17 @@
 ---
-title: Automatically scale Windows Virtual Desktop Preview session hosts - Azure
-description: Describes how to set up the automatic scaling script for Windows Virtual Desktop Preview session hosts.
+title: Automatically scale Windows Virtual Desktop session hosts - Azure
+description: Describes how to set up the automatic scaling script for Windows Virtual Desktop session hosts.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 10/02/2019
 ms.author: helohr
 ---
-# Automatically scale session hosts
+# Scale session hosts dynamically
 
-For many Windows Virtual Desktop Preview deployments in Azure, the virtual machine costs represent significant portion of the total Windows Virtual Desktop deployment cost. To reduce costs, it's best to shut down and deallocate session host virtual machines (VMs) during off-peak usage hours, then restart them during peak usage hours.
+For many Windows Virtual Desktop deployments in Azure, the virtual machine costs represent significant portion of the total Windows Virtual Desktop deployment cost. To reduce costs, it's best to shut down and deallocate session host virtual machines (VMs) during off-peak usage hours, then restart them during peak usage hours.
 
 This article uses a simple scaling script to automatically scale session host virtual machines in your Windows Virtual Desktop environment. To learn more about how the scaling script works, see the [How the scaling script works](#how-the-scaling-script-works) section.
 
@@ -60,7 +60,7 @@ Next, you'll need to create the securely stored credentials:
     Install-Module Microsoft.RdInfra.RdPowershell
     ```
     
-3. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file.
+3. Open the edit pane and load the **Function-PSStoredCredentials.ps1** file, then run the whole script (F5)
 4. Run the following cmdlet:
     
     ```powershell
@@ -106,7 +106,7 @@ After configuring the configuration .xml file, you'll need to configure the Task
 4. Go to the **Triggers** tab, then select **New…**
 5. In the **New Trigger** dialog, under **Advanced settings**, check **Repeat task every** and select the appropriate period and duration (for example, **15 minutes** or **Indefinitely**).
 6. Select the **Actions** tab and **New…**
-7. In the **New Action** dialog, enter **powershell.exe** into the **Program/script** field, then enter **C:\\scaling\\RDSScaler.ps1** into the **Add arguments (optional)** field.
+7. In the **New Action** dialog, enter **powershell.exe** into the **Program/script** field, then enter **C:\\scaling\\basicScale.ps1** into the **Add arguments (optional)** field.
 8. Go to the **Conditions** and **Settings** tabs and select **OK** to accept the default settings for each.
 9. Enter the password for the administrative account where you plan to run the scaling script.
 

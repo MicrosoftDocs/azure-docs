@@ -2,12 +2,12 @@
 title: Back up Azure VMs in a Recovery Services vault using Azure Backup
 description: Describes how to back up Azure VMs in a Recovery Services vault using the Azure Backup
 service: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: raynew
+ms.author: dacurwin
 ---
 # Back up Azure VMs in a Recovery Services vault
 
@@ -96,7 +96,7 @@ Configure a backup policy for the vault.
    ![Backup button](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
 
-2. In **Backup Goal** > **Where is your workload running?** select **Azure**. In **What do you want to backup?** select **Virtual machine** >  **OK**. This registers the VM extension in the vault.
+2. In **Backup Goal** > **Where is your workload running?** select **Azure**. In **What do you want to back up?** select **Virtual machine** >  **OK**. This registers the VM extension in the vault.
 
    ![Backup and Backup Goal panes](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
@@ -132,7 +132,7 @@ After enabling backup:
 If you selected to create a new backup policy, fill in the policy settings.
 
 1. In **Policy name**, specify a meaningful name.
-2. In **Backup schedule** specify when backups should be taken. You can take daily or weekly backups for Azure VMs.
+2. In **Backup schedule**, specify when backups should be taken. You can take daily or weekly backups for Azure VMs.
 2. In **Instant Restore**, specify how long you want to retain snapshots locally for instant restore.
     - When you restore, backed up VM disks are copied from storage, across the network to the recovery storage location. With instant restore, you can leverage locally-stored snapshots taken during a backup job, without waiting for backup data to be transferred to the vault.
     - You can retain snapshots for instant restore for between one to five days. Two days is the default setting.
@@ -158,12 +158,12 @@ The initial backup will run in accordance with the schedule, but you can run it 
 
 ## Verify Backup job status
 
-The Backup job details for each VM backup consists of 2 phases, the **Snapshot** phase followed by the **Transfer data to vault** phase.<br/>
-The snapshot phase guarantees the availability of a recovery point stored along with the disks for **Instant Restores** and are available for a maximum of 5 days depending on the snapshot retention configured by the user. Transfer data to vault creates a recovery point in the vault for long term retention. Transfer data to vault only starts after the snapshot phase is completed.
+The Backup job details for each VM backup consist of two phases, the **Snapshot** phase followed by the **Transfer data to vault** phase.<br/>
+The snapshot phase guarantees the availability of a recovery point stored along with the disks for **Instant Restores** and are available for a maximum of five days depending on the snapshot retention configured by the user. Transfer data to vault creates a recovery point in the vault for long-term retention. Transfer data to vault only starts after the snapshot phase is completed.
 
   ![Backup Job Status](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-There are two **Sub Tasks** running at the backend, one for front end backup job which can be checked from the **Backup Job** details blade as given below:
+There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details blade as given below:
 
   ![Backup Job Status](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
@@ -222,9 +222,9 @@ If an NSG manages the VM access, allow outbound access for the backup storage to
 4. In **Source port ranges**, enter an asterisk (*) to allow outbound access from any port.
 5. In **Destination**, select **Service Tag**. From the list, select **Storage.region**. The region is where the vault, and the VMs that you want to back up, are located.
 6. In **Destination port ranges**, select the port.
-    - Unmanaged VM with unencrypted storage account: 80
-    - Unmanaged VM with encrypted storage account: 443 (default setting)
-    - Managed VM: 8443.
+    - VM using unmanaged disks with unencrypted storage account: 80
+    - VM using unmanaged disks with encrypted storage account: 443 (default setting)
+    - VM using managed disks: 8443.
 7. In **Protocol**, select **TCP**.
 8. In **Priority**, specify a priority value less than any higher deny rules.
 

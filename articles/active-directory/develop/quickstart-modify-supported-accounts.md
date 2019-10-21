@@ -1,5 +1,5 @@
 ---
-title: Modify the accounts supported by an application registered with the Microsoft identity platform | Azure
+title: Modify Microsoft identify platform app accounts | Azure
 description: Configure an application registered with the Microsoft identity platform to change who, or what accounts, can access the application.
 services: active-directory
 documentationcenter: ''

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Run TensorFlow model in Python - Custom Vision Service"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Run a TensorFlow model in Python.
 services: cognitive-services
 author: areddish

@@ -7,7 +7,6 @@ manager: stefsch
 
 ms.assetid:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg

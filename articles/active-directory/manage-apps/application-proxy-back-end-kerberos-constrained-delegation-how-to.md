@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Kerberos constrained delegation configurations for Application Proxy | Microsoft Docs
+title: Troubleshoot Kerberos constrained delegation configs for App Proxy | Microsoft Docs
 description: Troubleshoot Kerberos Constrained Delegation configurations for Application Proxy
 services: active-directory
 documentationcenter: ''

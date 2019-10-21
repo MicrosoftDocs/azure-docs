@@ -45,7 +45,7 @@ If these solutions don't resolve your problem and you contact support, you can r
 On the agent machine, navigate to `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` and run the following commands:
 
 ```cmd
-set stop healthservice
+net stop healthservice
 StopTracing.cmd
 StartTracing.cmd VER
 net start healthservice

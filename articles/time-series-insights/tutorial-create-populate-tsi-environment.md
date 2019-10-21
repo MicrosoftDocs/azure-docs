@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Create an Azure Time Series Insights environment | Microsoft Docs'
-description: Learn how to create a Time Series Insights environment that's populated with data from simulated devices.
+description: Tutorial to learn how to create a Time Series Insights environment that's populated with data from simulated devices.
 services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 06/18/2019
+ms.date: 10/16/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
@@ -23,16 +23,18 @@ This tutorial guides you through the process of creating an Azure Time Series In
 > * Run a device simulation to stream data into the Time Series Insights environment.
 > * Verify the simulated telemetry data.
 
-## Video
+> [!IMPORTANT]
+> Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
+
+## Prerequisites
+
+* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
+
+## Review video
 
 ### Learn how to use an Azure IoT solution accelerator to generate data and get started with Time Series Insights. </br>
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
-
-## Prerequisites
-
-* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
-* Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Overview
 
@@ -49,7 +51,7 @@ This tutorial also uses an [IoT solution accelerator](https://www.azureiotsoluti
 
 First, create the device simulation solution, which generates test data to populate your Time Series Insights environment.
 
-1. In a separate window or tab, go to [azureiotsolutions.com](https://www.azureiotsolutions.com). Sign in by using the same Azure subscription account, and select the **Device Simulation** accelerator.
+1. In a separate window or tab, go to [azureiotsolutions.com](https://www.azureiotsolutions.com). Sign in by using the same Azure subscription account, and select the **Device Simulation** accelerator. Select **Try Now**.
 
    [![Run the Device Simulation accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
 
@@ -62,7 +64,7 @@ First, create the device simulation solution, which generates test data to popul
    **Deployment options** | Select **Provision new IoT Hub** to create a new IoT hub specific to this tutorial.
    **Azure location** | Specify the same region that was used to create your Time Series Insights environment in the previous section.
 
-   When you're finished, select **Create solution** to provision the solution's Azure resources. It may take up to 20 minutes to complete this process.
+   When you're finished, select **Create** to provision the solution's Azure resources. It may take up to 20 minutes to complete this process.
 
    [![Provision the device simulation solution](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
 
@@ -98,7 +100,7 @@ Second, create a Time Series Insights environment in your Azure subscription.
    **Tier** | Choose the throughput needed. Select **S1**.
    **Capacity** | Capacity is the multiplier applied to the ingress rate and storage capacity associated with the selected SKU. You can change the capacity after creation. Select a capacity of **1**.
 
-   When finished, select **Review + create** to proceed to the next step.
+   When finished, select **Next: Event Source** to proceed to the next step.
 
    [![Create a Time Series Insights environment resource](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
 
@@ -106,17 +108,19 @@ Second, create a Time Series Insights environment in your Azure subscription.
 
    [![Connect the Time Series Insights environment to the created IoT hub](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
 
+   Lastly, select **Review + create**.
+
 1. Check the **Notifications** panel to monitor deployment completion. 
 
    [![Time Series Insights environment deployment succeeded](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## Run device simulation to stream data
+## Run device simulation
 
 Now that the deployment and initial configuration's complete, populate the Time Series Insights environment with sample data from [simulated devices created by the accelerator](#create-a-device-simulation).
 
 Along with the IoT hub, an Azure App Service web application was generated to create and transmit simulated device telemetry.
 
-1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again, if necessary, by using the same Azure account you've been using in this tutorial. Now you can select **Launch** under your "Device Simulation" solution.
+1. Go back to your [Solution accelerators dashboard](https://www.azureiotsolutions.com/Accelerators#dashboard). Sign in again, if necessary, by using the same Azure account you've been using in this tutorial. Select your "Device Solution" and then **Go to your solution accelerator** to launch your deployed solution.
 
      [![Solution accelerators dashboard](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
 
@@ -190,4 +194,4 @@ In this tutorial, you learned how to:
 Now that you know how to create your own Time Series Insights environment, learn how to build a web application that consumes data from a Time Series Insights environment:
 
 > [!div class="nextstepaction"]
-> [Create an Azure Time Series Insights single-page web app](tutorial-create-tsi-sample-spa.md)
+> [See hosted client SDK visualization samples](https://tsiclientsample.azurewebsites.net/)

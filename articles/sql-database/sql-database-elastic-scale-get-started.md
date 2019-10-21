@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Get started with Elastic Database Tools

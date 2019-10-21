@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions for Azure Security Center for IoT Preview| Microsoft Docs
+title: Frequently asked questions for Azure Security Center for IoT| Microsoft Docs
 description: Find answers to the most frequently asked questions about Azure Security Center for IoT features and service.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,18 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
 # Azure Security Center for IoT frequently asked questions  
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This article provides a list of frequently asked questions and answers about Azure Security Center (ASC) for IoT. 
+This article provides a list of frequently asked questions and answers about Azure Security Center for IoT. 
 
 ## Does Azure provide support for IoT security?
 
@@ -33,49 +28,49 @@ Azure provides an integrated view for monitoring and managing your IoT security 
 
 ## What is Azure's unique value proposition for IoT security?
 
-ASC for IoT enables enterprises to extend their existing cyber security view to their entire IoT solution. Azure provides an end to end view of your business solution, enabling you to take business-related actions and decisions based on your enterprise security posture and collected data. Combined security using Azure IoT, Azure IoT Edge, Azure Sphere, Azure Central, and Azure Security Center enable you to create the solution you want with the security you need.
+Azure Security Center for IoT enables enterprises to extend their existing cyber security view to their entire IoT solution. Azure provides an end to end view of your business solution, enabling you to take business-related actions and decisions based on your enterprise security posture and collected data. Combined security using Azure IoT, Azure IoT Edge, and Azure Security Center enable you to create the solution you want with the security you need.
 
-## Who is ASC for IoT made for? 
+## Who is Azure Security Center for IoT made for? 
 
-ASC for IoT is integrated within Azure IoT Hub Security and provides management for the day to day business solution security operations. ASC for IoT is also integrated into Azure Security Center capabilities and provide an integrated view for monitoring and managing your IoT security as part of your overall security solution.
+Azure Security Center for IoT is integrated within Azure IoT Hub Security and provides management for the day to day business solution security operations. Azure Security Center for IoT is also integrated into Azure Security Center capabilities and provide an integrated view for monitoring and managing your IoT security as part of your overall security solution.
 
-## How does ASC for IoT compare to the competition?
+## How does Azure Security Center for IoT compare to the competition?
 
-While other solutions provide a set of capabilities that allow customers to create their own solutions, ASC for IoT provides a unique end-to-end IoT security solution that provides a wide view across the security of all of your related Azure resources. Azure enables fast deployment and full integration with IoT Hub module twins for easy integration with existing device management tools.
+While other solutions provide a set of capabilities that allow customers to create their own solutions, Azure Security Center for IoT provides a unique end-to-end IoT security solution that provides a wide view across the security of all of your related Azure resources. Azure enables fast deployment and full integration with IoT Hub module twins for easy integration with existing device management tools.
 
-## Do I have to be an Azure Security Center (ASC) customer?
+## Do I have to be an Azure Security Center customer to use this service?
 
-No, but it is recommended. Without ASC, ASC for IoT receives limited connected resource data and provides a limited analysis of your potential attack surface, threats, and potential attacks. 
+No, but it is recommended. Without Azure Security Center, Azure Security Center for IoT receives limited connected resource data and provides a limited analysis of your potential attack surface, threats, and potential attacks. 
 
 ## Do I have to be an Azure IoT customer?
 
-Yes. ASC for IoT relies on Azure IoT connectivity  and infrastructure.
+Yes. Azure Security Center for IoT relies on Azure IoT connectivity and infrastructure.
 
 ## Do I have to install an agent?
 
-Agent installation on your IoT devices isn't mandatory in order to enable the Microsoft ASC for IoT. You can choose between the following three options, gaining different levels of security monitoring and management capabilities according to your selection:
+Agent installation on your IoT devices isn't mandatory in order to enable the Microsoft Azure Security Center for IoT. You can choose between the following three options, gaining different levels of security monitoring and management capabilities according to your selection:
 
-1. Install the ASC for IoT security agent with or without modifications. This option provides the highest level of enhanced security insights into device behavior and access.
+1. Install the Azure Security Center for IoT security agent with or without modifications. This option provides the highest level of enhanced security insights into device behavior and access.
 
-2. Create your own agent and implement Microsoft ASC for IoT security message schema. This option enables usage of Microsoft ASC for IoT analysis tools on top of your device security agent.
+2. Create your own agent and implement Microsoft Azure Security Center for IoT security message schema. This option enables usage of Microsoft Azure Security Center for IoT analysis tools on top of your device security agent.
 
 3. No security agent installation on your IoT devices. This option enables IoT Hub communication monitoring, with reduced security monitoring  and management capabilities. 
 
-## What does the ASC for IoT agent do?
+## What does the Azure Security Center for IoT agent do?
 
-ASC for IoT agent provides device level threat coverage for device configuration, behavior, and access (by scanning the configuration), process & connectivity. The ASC for IoT security agent does not scan business-related data or activity.
+Azure Security Center for IoT agent provides device level threat coverage for device configuration, behavior, and access (by scanning the configuration), process & connectivity. The Azure Security Center for IoT security agent does not scan business-related data or activity.
 
-## Where I can get the ASC for IoT security agent?
+## Where can I get the Azure Security Center for IoT security agent?
 
-The ASC for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-Security-IoT-Preview
+The Azure Security Center for IoT security agent is open source and available on GitHub in 32 bit and 64-bit Windows and Linux versions: https://github.com/Azure/Azure-Security-IoT.
 
-## Where does the ASC for IoT agent get installed? 
+## Where does the Azure Security Center for IoT agent get installed? 
 
-Detailed installation and agent deployment information can be found in GitHub: https://github.com/Azure/Azure-Security-IoT-Preview
+Detailed installation and agent deployment information can be found in GitHub: https://github.com/Azure/Azure-Security-IoT.
 
 ## What are the dependencies and prerequisites of the agent?
 
-ASC for IoT supports a wide variety of platforms. See [Supported Device platforms](how-to-deploy-agent.md) to verify support for your specific devices. 
+Azure Security Center for IoT supports a wide variety of platforms. See [Supported Device platforms](how-to-deploy-agent.md) to verify support for your specific devices. 
 
 ## Which data is collected by the agent?
 
@@ -83,17 +78,17 @@ Connectivity, access, firewall configuration, process list & OS baseline are col
 
 ## How much data will the agent generate?
 
-Agent data generation is driven by device, application, connectivity type, and customer agent configuration. Due to the high variability between devices and IoT solutions, we recommend first deploying the agent in a lab or test setting to observe, learn, and set the specific configuration that fits your needs, while measuring the amount of generated data. After starting the service, the ASC for IoT agent provides operational recommendations for optimizing agent throughput to help you with the configuration and customization process.
+Agent data generation is driven by device, application, connectivity type, and customer agent configuration. Due to the high variability between devices and IoT solutions, we recommend first deploying the agent in a lab or test setting to observe, learn, and set the specific configuration that fits your needs, while measuring the amount of generated data. After starting the service, the Azure Security Center for IoT agent provides operational recommendations for optimizing agent throughput to help you with the configuration and customization process.
 
 ## How can I control my billing?
 
-ASC for IoT provides configurable agent scans, data buffers, and the ability to create custom alerts that increase or reduce the amount of data generated by the agent.
+Azure Security Center for IoT provides configurable agent scans, data buffers, and the ability to create custom alerts that increase or reduce the amount of data generated by the agent.
 
 ## Do agent messages use up quota from IoT Hub?
 
 Yes. Agent transmitted data is counted in your IoT Hub quota. 
 
-## What next? I've installed an agent and don't see any activities or logs
+## What next? I've installed an agent and don't see any activities or logs...
 
 1. Check the [agent type fits the designated OS platform of your device](how-to-deploy-agent.md)
 
@@ -101,9 +96,9 @@ Yes. Agent transmitted data is counted in your IoT Hub quota.
 
 2. Check the [service was enabled successfully](quickstart-onboard-iot-hub.md) to **Security** in your IoT Hub. 
 
-3. Check that the device is [configured in IoT Hub with the ASC for IoT module](quickstart-create-security-twin.md).  
+3. Check that the device is [configured in IoT Hub with the Azure Security Center for IoT module](quickstart-create-security-twin.md).  
 
-If the activities or logs are still unavailable, contact your ASC for IoT partner for additional help.
+If the activities or logs are still unavailable, contact your Azure Security Center for IoT partner for additional help.
 
 ## What happens when the internet connection stops working?
 
@@ -115,7 +110,7 @@ The security agent is designed to rerun automatically with each device restart.
 
 ## Can the agent affect the performance of the device or other installed software?
 
-The agent consumes machine resources as any other application/process and should not disrupt normal device activity. Resource consumption on the device the agent runs is coupled with its setup and configuration. We recommend testing your agent configuration in a contained environment, along with interoperability with your other IoT applications and functionality, before attempting to deploy in a production environment.
+The agent consumes machine resources as any other application/process and should not disrupt normal device activity. Resource consumption on the device the agent runs on is coupled with its setup and configuration. We recommend testing your agent configuration in a contained environment, along with interoperability with your other IoT applications and functionality, before attempting to deploy in a production environment.
 
 ## I'm making some maintenance on the device. Can I turn off the agent?
 
@@ -135,18 +130,18 @@ Yes. You can set a customized alert on pre-determined set of behaviors such as I
 
 - Raw data from your security agent can also be stored in your Log Analytics account. Consider size, duration, storage requirements, and associated costs before changing the configuration of this option. 
 
-## Why should I add ASC for IoT to the module identity? What is it used for?
+## Why should I add Azure Security Center for IoT to the module identity? What is it used for?
 
-The ASC for IoT module is used for agent configuration and management.
+The Azure Security Center for IoT module is used for agent configuration and management.
 
 
 ## Next steps
 
-To learn more about how to get started with ASC for IoT, see the following articles:
+To learn more about how to get started with Azure Security Center for IoT, see the following articles:
 
 
-- Read the ASC for IoT [overview](overview.md)
+- Read the Azure Security Center for IoT [overview](overview.md)
 - Verify the [Service prerequisites](service-prerequisites.md)
 - Learn more about how to [Get started](getting-started.md)
-- Understand [ASC for IoT security alerts](concept-security-alerts.md)
+- Understand [Azure Security Center for IoT security alerts](concept-security-alerts.md)
 

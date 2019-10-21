@@ -51,7 +51,7 @@ SharePoint can be deployed on one or more servers using tiered topologies and se
 
 ## Site Recovery support
 
-For creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used. As Site Recovery replication is application agnostic, the recommendations provided here are expected to hold on for following scenarios as well.
+Site Recovery is application-agnostic and should work with any version of SharePoint running on a supported machine. For creating this article, VMware virtual machines with Windows Server 2012 R2 Enterprise were used. SharePoint 2013 Enterprise edition and SQL server 2014 Enterprise edition were used.
 
 ### Source and target
 
@@ -62,13 +62,6 @@ For creating this article, VMware virtual machines with Windows Server 2012 R2 E
 **Physical server** | Yes | Yes
 **Azure** | NA | Yes
 
-### SharePoint Versions
-The following SharePoint server versions are supported.
-
-* SharePoint server 2013 Standard
-* SharePoint server 2013 Enterprise
-* SharePoint server 2016 Standard
-* SharePoint server 2016 Enterprise
 
 ### Things to keep in mind
 
@@ -191,7 +184,7 @@ Follow [this guidance](site-recovery-test-failover-to-azure.md) to do a test fai
 
 For guidance on doing test failover for AD and DNS, refer to [Test failover considerations for AD and DNS](site-recovery-active-directory.md#test-failover-considerations) document.
 
-For guidance on doing test failover for SQL Always ON availability groups, refer to [Performing Application DR with Azure Site Recovery and doing Test failover](site-recovery-sql.md#disaster-recovery-of-application) document.
+For guidance on doing test failover for SQL Always ON availability groups, refer to [Performing Application DR with Azure Site Recovery and doing Test failover](site-recovery-sql.md#disaster-recovery-of-an-application) document.
 
 ## Doing a failover
 Follow [this guidance](site-recovery-failover.md) for doing a failover.

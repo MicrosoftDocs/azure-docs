@@ -4,7 +4,7 @@ description: This article explains how to manage costs of multi-region deploymen
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 07/31/2019
 ms.author: rimman
 ---
 
@@ -30,9 +30,9 @@ Consider you have a container in West US provisioned with throughput 10K RU/s an
 |----|----|----|----|
 |Throughput bill for container in West US (multiple write regions) |10K RU/s * 24 * 31 |$0.016 per 100 RU/s per hour |$1,190.40 |
 |Throughput bill for 3 additional regions - East US, North Europe, and East Asia (multiple write regions) |(3 + 1) * 10K RU/s * 24 * 31 |$0.016 per 100 RU/s per hour |$4,761.60 |
-|Storage bill for container in West US |100 GB |$0.25/GB |$25 |
-|Storage bill for 3 additional regions - East US, North Europe, and East Asia |3 * 1 TB |$0.25/GB |$75 |
-|**Total**|||**$6,052** |
+|Storage bill for container in West US |1 TB (or 1,024 GB) |$0.25/GB |$256 |
+|Storage bill for 3 additional regions - East US, North Europe, and East Asia |3 * 1 TB (or 3,072 GB) |$0.25/GB |$768 |
+|**Total**|||**$6,976** |
 
 ## Improve throughput utilization on a per region-basis
 

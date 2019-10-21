@@ -40,7 +40,7 @@ After you create the application, you can determine or change the accepted token
 3. If you've changed the token version, select **Save**.
 
 > [!NOTE]
-> The web API specifies which token version (v1.0 or v2.0) it accepts. When clients request a token for your web API from the Microsoft identity platform v2.0 endpoint, they'll get a token that indicates which version is accepted by the web API.
+> The web API specifies which token version (v1.0 or v2.0) it accepts. When clients request a token for your web API from the Microsoft identity platform (v2.0) endpoint, they'll get a token that indicates which version is accepted by the web API.
 
 ## No redirect URI
 

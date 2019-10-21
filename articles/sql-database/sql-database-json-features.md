@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer:
-manager: craigg
 ms.date: 01/15/2019
 ---
 # Getting started with JSON features in Azure SQL Database

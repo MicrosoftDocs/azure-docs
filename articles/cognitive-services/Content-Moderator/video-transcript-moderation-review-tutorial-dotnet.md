@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Moderate videos and transcripts in .NET - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: This tutorial helps you understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 services: cognitive-services
 author: PatrickFarley

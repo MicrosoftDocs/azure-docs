@@ -3,18 +3,14 @@ title: Linked services in Azure Data Factory | Microsoft Docs
 description: 'Learn about linked services in Data Factory. Linked services link compute/data stores to data factory.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: craigg
-
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: shlo
-
 ---
 
 # Linked services in Azure Data Factory
@@ -90,10 +86,11 @@ The following linked service is an Azure Storage linked service. Notice that the
 ```
 
 ## Create linked services
+
 You can create linked services by using one of these tools or SDKs: [.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), Azure Resource Manager Template, and Azure portal
 
 ## Data store linked services
-Connecting to data stores can be found in our [supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats). Reference the list for specific connection properties needed for different stores.
+You can find the list of data stored supported by Data Factory from [connector overview](copy-activity-overview.md#supported-data-stores-and-formats) article. Click a data store to learn the supported connection properties.
 
 ## Compute linked services
 Reference [compute environments supported](compute-linked-services.md) for details about different compute environments you can connect to from your data factory as well as the different configurations.

@@ -8,7 +8,6 @@ layout: LandingPage
 ms.assetid:	
 ms.service: iot-accelerators
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 12/17/2018
 ms.author: dobett

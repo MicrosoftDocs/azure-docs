@@ -1,11 +1,9 @@
 ---
 title: 'Azure Premium Storage: Design for performance on Windows VMs | Microsoft Docs'
 description: Design high-performance applications using Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
-services: "virtual-machines-windows,storage"
 author: roygara
 ms.service: virtual-machines-windows
-ms.tgt_pltfrm: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
@@ -23,3 +21,12 @@ ms.subservice: disks
 Before you begin, if you are new to Premium Storage, first read the [Select an Azure disk type for IaaS VMs](disks-types.md) and [Azure Storage scalability and performance targets for storage accounts](../../storage/common/storage-scalability-targets.md).
 
 [!INCLUDE [virtual-machines-common-premium-storage-performance.md](../../../includes/virtual-machines-common-premium-storage-performance.md)]
+
+If you are looking to benchmark your disk, see our article on [Benchmarking a disk](disks-benchmarks.md).
+
+Learn more about the available disk types: [Select a disk type](disks-types.md)  
+
+For SQL Server users, read articles on Performance Best Practices for SQL Server:
+
+* [Performance Best Practices for SQL Server in Azure Virtual Machines](sql/virtual-machines-windows-sql-performance.md)
+* [Azure Premium Storage provides highest performance for SQL Server in Azure VM](https://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

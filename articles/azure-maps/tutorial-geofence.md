@@ -31,7 +31,7 @@ In this tutorial you will learn, how to:
 
 ### Create an Azure Maps account 
 
-To complete the steps in this tutorial, you first need to see [manage account and keys](how-to-manage-account-keys.md) to create and manage your account subscription with S1 pricing tier.
+To complete the steps in this tutorial, follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
 
 ## Upload geofences
 
@@ -51,7 +51,7 @@ Open the Postman app and follow the following steps to upload the construction s
     
     The GEOJSON parameter in the URL path represents the data format of the data being uploaded.
 
-3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps subscription key.
+3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps primary subscription key.
    
     ![Key-Value params Postman](./media/tutorial-geofence/postman-key-vals.png)
 
@@ -143,10 +143,24 @@ Open the Postman app and follow the following steps to upload the construction s
    }
    ```
 
-5. Click send and review the response header. The location header contains the URI to access or download the data for future use. It also contains a unique `udId` for the uploaded data.
+5. Click send and review the response header. Upon a successful request, the **Location** header will contain the status URI to check the current status of the upload request. The status URI will be of the following format. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. Copy your status URI and append a `subscription-key` parameter to it with its value being your Azure Maps account subscription key. The status URI format should be like the one below:
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. To get the, `udId` open a new tab in the Postman app and select GET HTTP method on the builder tab and make a GET request at the status URI. If your data upload was successful, you will receive a udId in the response body. Copy the udId for later use.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## Set up an event handler

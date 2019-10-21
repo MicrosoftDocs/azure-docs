@@ -3,7 +3,7 @@ title: Containerize your Azure Service Fabric services on Windows
 description: Learn how to containerize your Service Fabric Reliable Services and Reliable Actors services on Windows.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: anmolah
 editor: 'roroutra'
 

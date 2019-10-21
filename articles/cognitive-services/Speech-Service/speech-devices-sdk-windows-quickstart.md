@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Windows - Speech Services"
+title: "Quickstart: Run the Speech Devices SDK on Windows - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with a Windows Speech Devices SDK.
 services: cognitive-services

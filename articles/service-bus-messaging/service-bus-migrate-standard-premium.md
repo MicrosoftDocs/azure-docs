@@ -111,7 +111,7 @@ Migration by using the Azure portal has the same logical flow as migrating by us
    1. After the sync is complete, select **Next** at the bottom of the page.
 
 1. Review changes on the summary page. Select **Complete Migration** to switch namespaces and to complete the migration.
-    ![Switch namespace - switch menu][]
+    ![Switch namespace - switch menu][]  
     The confirmation page appears when the migration is complete.
     ![Switch namespace - success][]
 

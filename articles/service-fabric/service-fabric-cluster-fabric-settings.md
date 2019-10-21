@@ -3,7 +3,7 @@ title: Change Azure Service Fabric cluster settings | Microsoft Docs
 description: This article describes the fabric settings and the fabric upgrade policies that you can customize.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/12/2019
-ms.author: aljo
+ms.date: 08/30/2019
+ms.author: atsenthi
 
 ---
 # Customize Service Fabric cluster settings
@@ -232,6 +232,8 @@ The following is a list of Fabric settings that you can customize, organized by 
 |UserMaxStandByReplicaCount |Int, default is 1 |Dynamic|The default max number of StandBy replicas that the system keeps for user services. |
 |UserReplicaRestartWaitDuration |Time in seconds, default is 60.0 \* 30 |Dynamic|Specify timespan in seconds. When a persisted replica goes down; Windows Fabric waits for this duration for the replica to come back up before creating new replacement replicas (which would require a copy of the state). |
 |UserStandByReplicaKeepDuration |Time in seconds, default is 3600.0 \* 24 \* 7 |Dynamic|Specify timespan in seconds. When a persisted replica come back from a down state; it may have already been replaced. This timer determines how long the FM will keep the standby replica before discarding it. |
+|WaitForInBuildReplicaSafetyCheckTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(60 * 10)|Dynamic|Specify timespan in seconds. Configuration entry for the optional WaitForInBuildReplica safety check timeout. This configuration defines the timeout for the WaitForInBuildReplica safety check for node deactivations and upgrades. This safety check fails if any of the below are true: - A primary is being created and the ft target replica set size > 1 - If the current replica is in build and is persisted - If this is the current primary and a new replica is being built This safety check will be skipped if the timeout expires even if one of the previous conditions is still true. |
+|WaitForReconfigurationSafetyCheckTimeout|TimeSpan, default is Common::TimeSpan::FromSeconds(60.0 * 10)|Dynamic|Specify timespan in seconds. Configuration entry for the optional WaitForReconfiguration safety check timeout. This configuration defines the timeout of the WaitForReconfiguration safety check for node deactivations and upgrades. This safety check fails if the replica being checked is part of a partition that is under reconfiguration. The safety check will be skipped after this timeout expires even if the partition is still under reconfiguration.|
 
 ## FaultAnalysisService
 
@@ -305,7 +307,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
 |EnableApplicationTypeHealthEvaluation |Bool, default is false |Static|Cluster health evaluation policy: enable per application type health evaluation. |
-|MaxSuggestedNumberOfEntityHealthReports|Int, default is 500 |Dynamic|The maximum number of health reports that an entity can have before raising concerns about the watchdog's health reporting logic. Each health entity is supposed to have a relatively small number of health reports. If the report count goes above this number; there may be issues with the watchdog's implementation. An entity with too many reports is flagged through a Warning health report when the entity is evaluated. |
+|MaxSuggestedNumberOfEntityHealthReports|Int, default is 100 |Dynamic|The maximum number of health reports that an entity can have before raising concerns about the watchdog's health reporting logic. Each health entity is supposed to have a relatively small number of health reports. If the report count goes above this number; there may be issues with the watchdog's implementation. An entity with too many reports is flagged through a Warning health report when the entity is evaluated. |
 
 ## HealthManager/ClusterHealthPolicy
 
@@ -341,6 +343,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DefaultContainerRepositoryAccountName|string, default is ""|Static|Default credentials used instead of credentials specified in ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|string, default is ""|Static|Default password credentials used instead of credentials specified in ApplicationManifest.xml|
 |DefaultContainerRepositoryPasswordType|string, default is ""|Static|When not empty string, the value can be “Encrypted” or “SecretsStoreRef”.|
+|DefaultDnsSearchSuffixEmpty|bool, default is FALSE|Static|By default the service name is appended to the SF DNS name for container services. This feature stops this behavior so that nothing is appended to the SF DNS name by default in the resolution pathway.|
 |DeploymentMaxFailureCount|int, default is 20| Dynamic|Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.| 
 |DeploymentMaxRetryInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(3600)|Dynamic| Specify timespan in seconds. Max retry interval for the deployment. On every continuous failure the retry interval is calculated as Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(10)|Dynamic|Specify timespan in seconds. Back-off interval for the deployment failure. On every continuous deployment failure the system will retry the deployment for up to the MaxDeploymentFailureCount. The retry interval is a product of continuous deployment failure and the deployment backoff interval. |
@@ -406,6 +409,11 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SharedLogThrottleLimitInPercentUsed|int, default is 0 | Static | The percentage of usage of the shared log that will induce throttling. Value should be between 0 and 100. A value of 0 implies using the default percentage value. A value of 100 implies no throttling at all. A value between 1 and 99 specifies the percentage of log usage above which throttling will occur; for example if the shared log is 10GB and the value is 90 then throttling will occur once 9GB is in use. Using the default value is recommended.|
 |WriteBufferMemoryPoolMaximumInKB | Int, default is 0 |Dynamic|The number of KB to allow the write buffer memory pool to grow up to. Use 0 to indicate no limit. |
 |WriteBufferMemoryPoolMinimumInKB |Int, default is 8388608 |Dynamic|The number of KB to initially allocate for the write buffer memory pool. Use 0 to indicate no limit Default should be consistent with SharedLogSizeInMB below. |
+
+## ManagedIdentityTokenService
+| **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
+| --- | --- | --- | --- |
+|IsEnabled|bool, default is FALSE|Static|Flag controlling the presence and status of the Managed Identity Token Service in the cluster;this is a prerequisite for using the managed identity functionality of Service Fabric applications.|
 
 ## Management
 
@@ -522,7 +530,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DetailedNodeListLimit | Int, default is 15 |Dynamic| Defines the number of nodes per constraint to include before truncation in the Unplaced Replica reports. |
 |DetailedPartitionListLimit | Int, default is 15 |Dynamic| Defines the number of partitions per diagnostic entry for a constraint to include before truncation in Diagnostics. |
 |DetailedVerboseHealthReportLimit | Int, default is 200 | Dynamic|Defines the number of times an unplaced replica has to be persistently unplaced before detailed health reports are emitted. |
-|EnforceUserServiceMetricCapacities|bool, default is FALSE | Static |Enables fabric services protection All user services are under one job object/cgroup and limited to specified amount of resources This needs to be static (requires restart of FabricHost) as creation/removal of user job object and setting limits in done during open of Fabric Host |
+|EnforceUserServiceMetricCapacities|bool, default is FALSE | Static |Enables fabric services protection. All user services are under one job object/cgroup and limited to specified amount of resources. This needs to be static (requires restart of FabricHost) as creation/removal of user job object and setting limits in done during open of Fabric Host. |
 |FaultDomainConstraintPriority | Int, default is 0 |Dynamic| Determines the priority of fault domain constraint: 0: Hard; 1: Soft; negative: Ignore. |
 |GlobalMovementThrottleCountingInterval | Time in seconds, default is 600 |Static| Specify timespan in seconds. Indicate the length of the past interval for which to track per domain replica movements (used along with GlobalMovementThrottleThreshold). Can be set to 0 to ignore global throttling altogether. |
 |GlobalMovementThrottleThreshold | Uint, default is 1000 |Dynamic| Maximum number of movements allowed in the Balancing Phase in the past interval indicated by GlobalMovementThrottleCountingInterval. |
@@ -638,6 +646,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AADClusterApplication|string, default is ""|Static|Web API application name or ID representing the cluster |
 |AADLoginEndpoint|string, default is ""|Static|AAD Login Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us" |
 |AADTenantId|string, default is ""|Static|Tenant ID (GUID) |
+|AcceptExpiredPinnedClusterCertificate|bool, default is FALSE|Dynamic|Flag indicating whether to accept expired cluster certificates declared by thumbprint Applies only to cluster certificates; so as to keep the cluster alive. |
 |AdminClientCertThumbprints|string, default is ""|Dynamic|Thumbprints of certificates used by clients in admin role. It is a comma-separated name list. |
 |AADTokenEndpointFormat|string, default is ""|Static|AAD Token Endpoint, default Azure Commercial, specified for non-default environment such as Azure Government "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|string, default is ""|Dynamic|All possible claims expected from admin clients; the same format as ClientClaims; this list internally gets added to ClientClaims; so no need to also add the same entries to ClientClaims. |

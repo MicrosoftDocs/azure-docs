@@ -15,7 +15,7 @@ For both modes, Resource Manager tries to create all resources specified in the 
 
 ## Complete mode
 
-In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template. Resources that are specified in the template, but not deployed because a [condition](resource-group-authoring-templates.md#condition) evaluates to false, aren't deleted.
+In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template. Resources that are specified in the template, but not deployed because a [condition](conditional-resource-deployment.md) evaluates to false, aren't deleted.
 
 Be careful using complete mode with [copy loops](resource-group-create-multiple.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
 

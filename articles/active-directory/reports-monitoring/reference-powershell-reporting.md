@@ -3,7 +3,7 @@ title: Azure AD PowerShell cmdlets for reporting | Microsoft Docs
 description: Reference of the Azure AD PowerShell cmdlets for reporting.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/12/2019
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
 # Azure AD PowerShell cmdlets for reporting
 
-With Azure Active Directory (Azure AD) reports, you can get the information you need to determine how your environment is doing. You can retrieve report data using the Azure AD PowerShell cmdlets for reporting.
+> [!NOTE] 
+> These Powershell cmdlets currently only work with the [Azure AD Preview](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) Module. Please note that the preview module is not suggested for production use. 
 
-This article gives you an overview of the cmdlet.
+With Azure Active Directory (Azure AD) reports, you can get details on activities around all the write operations in your direction (audit logs) and authentication data (sign-in logs). Although the information is available by using the MS Graph API, now you can retrieve the same data by using the Azure AD PowerShell cmdlets for reporting.
 
-
-
+This article gives you an overview of the PowerShell cmdlets to use for audit logs and sign-in logs.
 
 ## Audit logs
 

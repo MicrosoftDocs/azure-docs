@@ -2,7 +2,7 @@
 title: Connect to Azure SQL Data Warehouse sqlcmd | Microsoft Docs
 description: Use sqlcmd command-line utility to connect to and query an Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: XiaoyuL-Preview 
+author: XiaoyuMSFT 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual

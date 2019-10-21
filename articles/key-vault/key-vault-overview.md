@@ -2,15 +2,15 @@
 title: Azure Key Vault Overview - Azure Key Vault | Microsoft Docs
 description: Azure Key Vault is a cloud service that works as a secure secrets store.
 services: key-vault
-author: barclayn
-manager: barbkess
+author: msmbaldwin
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
-ms.author: barclayn
+ms.author: mbaldwin
 #Customer intent: As an IT Pro, Decision maker or developer I am trying to learn what Key Vault is and if it offers anything that could be used in my organization.
 
 ---
@@ -68,7 +68,7 @@ In addition, Azure Key Vaults allow you to segregate application secrets. Applic
 ### Integrate with other Azure services
 
 As a secure store in Azure, Key Vault has been used to simplify scenarios like:
--  [Azure Disk Encryption](../security/azure-security-disk-encryption.md)
+-  [Azure Disk Encryption](../security/fundamentals/encryption-overview.md)
 -  The [always encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) functionality in SQL server and Azure SQL Database
 - [Azure App Service]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). 
 

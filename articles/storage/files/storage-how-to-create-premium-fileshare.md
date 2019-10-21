@@ -1,7 +1,6 @@
 ---
 title: Create a premium Azure file share
 description: In this article, you learn how to create a premium Azure file share.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -56,7 +55,7 @@ Once your storage account resource has been created, navigate to it.
 ### Create a premium file share
 
 1. In the left menu for the storage account, scroll to the **File service** section, then select **Files**.
-1. Select **+File share** to create a premium file share.
+1. Select **File share** to create a premium file share.
 1. Enter a name and a desired quota for your file share, then select **Create**.
 
 > [!NOTE]

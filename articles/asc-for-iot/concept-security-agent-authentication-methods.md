@@ -1,5 +1,5 @@
 ---
-title: Authentication methods for Azure Security Center for IoT Preview| Microsoft Docs
+title: Authentication methods for Azure Security Center for IoT| Microsoft Docs
 description: Learn about the different authentication methods available when using the Azure Security Center for IoT service.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -14,36 +14,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 07/23/2019
 ms.author: mlottner
 
 ---
 
 # Security agent authentication methods 
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 This article explains the different authentication methods you can use with the AzureIoTSecurity agent to authenticate with the IoT Hub.
 
-For each device onboarded to Azure Security Center (ASC) for IoT in the IoT Hub, a security module is required. To authenticate the device, ASC for IoT can use one of two methods. Choose the method that works best for your existing IoT solution. 
+For each device onboarded to Azure Security Center for IoT in the IoT Hub, a security module is required. To authenticate the device, Azure Security Center for IoT can use one of two methods. Choose the method that works best for your existing IoT solution. 
 
 > [!div class="checklist"]
-> * Security Module option
+> * SecurityModule option
 > * Device option
 
 ## Authentication methods
 
 The two methods for the AzureIoTSecurity agent to perform authentication:
 
- - **Module** authentication mode<br>
-   The Module is authenticated independently of the device twin.
+ - **SecurityModule** authentication mode<br>
+   The agent is authenticated using the security module identity independently of the device identity.
    Use this authentication type if you would like the security agent to use a dedicated authentication method through security module (symmetric key only).
 		
  - **Device** authentication mode<br>
-    In this method, the security agent first authenticates with the device identity. After the initial authentication, the ASC for IoT agent performs a **REST** call to the IoT Hub using the REST API with the authentication data of the device. The ASC for IoT agent then requests the security module authentication method and data from the IoT Hub. In the final step, the ASC for IoT agent performs an authentication against the ASC for IoT module.
+    In this method, the security agent first authenticates with the device identity. After the initial authentication, the Azure Security Center for IoT agent performs a **REST** call to the IoT Hub using the REST API with the authentication data of the device. The Azure Security Center for IoT agent then requests the security module authentication method and data from the IoT Hub. In the final step, the Azure Security Center for IoT agent performs an authentication against the Azure Security Center for IoT module.
     
     Use this authentication type if you would like the security agent to reuse an existing device authentication method (self-signed certificate or symmetric key).	
 
@@ -51,7 +46,7 @@ See [Security agent installation parameters](#security-agent-installation-parame
 								
 ## Authentication methods known limitations
 
-- **Module** authentication mode only supports symmetric key authentication.
+- **SecurityModule** authentication mode only supports symmetric key authentication.
 - CA-Signed certificate is not supported by **Device** authentication mode.  
 
 ## Security agent installation parameters
@@ -60,19 +55,18 @@ When [deploying a security agent](how-to-deploy-agent.md), authentication detail
 These arguments are documented in the following table.
 
 
-|Parameter|Description|Options|
-|---------|---------------|---------------|
-|**identity**|Authentication mode| **Module** or **Device**|
-|**type**|Authentication type|**SymmetricKey** or **SelfSignedCertificate**|
-|**filePath**|Absolute full path for the file containing the certificate or the symmetric key| |
-|**gatewayHostname**|FQDN of the IoT Hub|Example: ContosoIotHub.azure-devices.net|
-|**deviceId**|Device ID|Example: MyDevice1|
-|**certificateLocationKind**|Certificate storage location|**LocalFile** or **Store**|
+|Linux Parameter Name | Windows Parameter Name | Shorthand Parameter |Description|Options|
+|---------------------|---------------|---------|---------------|---------------|
+|authentication-identity|AuthenticationIdentity|aui|Authentication identity| **SecurityModule** or **Device**|
+|authentication-method|AuthenticationMethod|aum|Authentication method|**SymmetricKey** or **SelfSignedCertificate**|
+|file-path|FilePath|f|Absolute full path for the file containing the certificate or the symmetric key| |
+|host-name|HostName|hn|FQDN of the IoT Hub|Example: ContosoIotHub.azure-devices.net|
+|device-id|DeviceId|di|Device ID|Example: MyDevice1|
+|certificate-location-kind|CertificateLocationKind|cl|Certificate storage location|**LocalFile** or **Store**|
+|
 
 
-When using the install security agent script, the following configuration is performed automatically.
-
-To edit the security agent authentication manually, edit the config file. 
+When using the install security agent script, the following configuration is performed automatically. To edit the security agent authentication manually, edit the config file. 
 
 ## Change authentication method after deployment
 

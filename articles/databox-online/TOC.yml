@@ -47,11 +47,15 @@
       href: data-box-gateway-monitor.md
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
+    - name: Contact Microsoft Support
+      href: data-box-edge-contact-microsoft-support.md
   - name: Release notes
     items:
-      - name: 1905 - Current
+      - name: 1906 - Current
+        href: data-box-gateway-1906-release-notes.md
+      - name: 1905
         href: data-box-gateway-1905-release-notes.md
-      - name: General availability
+      - name: General availability (GA)
         href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
@@ -105,15 +109,19 @@
         href: data-box-edge-connect-powershell-interface.md
     - name: Troubleshoot 
       href: data-box-edge-troubleshoot.md
+    - name: Contact Microsoft Support
+      href: data-box-edge-contact-microsoft-support.md
     - name: Monitor
       href: data-box-edge-monitor.md
-    - name: Return device
+    - name: Return or replace device
       href: data-box-edge-return-device.md
   - name: Release notes
     items:
-    - name: 1905 - Current
+    - name: 1906 - Current
+      href: data-box-gateway-1906-release-notes.md
+    - name: 1905
       href: data-box-gateway-1905-release-notes.md
-    - name: General availability
+    - name: General availability (GA)
       href: data-box-gateway-release-notes.md
 - name: Resources
   items:

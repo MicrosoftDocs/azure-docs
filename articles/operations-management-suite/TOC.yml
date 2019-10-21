@@ -74,8 +74,6 @@
         items:
         - name: Use
           href: ../azure-monitor/insights/service-map.md
-        - name: Configure
-          href: ../azure-monitor/insights/service-map-configure.md
         - name: Integration with Operations Manager
           href: ../azure-monitor/insights/service-map-scom.md
       - name: SQL Assessment
@@ -112,10 +110,6 @@
       href: ../azure-monitor/insights/solutions-resources-views.md
     - name: Best practices
       href: ../azure-monitor/insights/solutions-best-practices.md
-  - name: Management scenarios
-    items:
-    - name: Collect analytics data from runbook
-      href: ../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
 - name: Resources
   items:
   - name: Azure Roadmap

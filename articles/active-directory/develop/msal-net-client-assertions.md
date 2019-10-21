@@ -31,7 +31,7 @@ This secret can also be a signed assertion directly.
 MSAL.NET has four methods to provide either credentials or assertions to the confidential client app:
 - `.WithClientSecret()`
 - `.WithCertificate()`
-- `.WithSignedAssertion()`
+- `.WithClientAssertion()`
 - `.WithClientClaims()`
 
 ### Signed assertions

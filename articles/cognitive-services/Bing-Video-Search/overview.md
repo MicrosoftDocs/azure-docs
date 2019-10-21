@@ -1,6 +1,6 @@
 ---
 title: What is the Bing Video Search API?
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to search for videos across the web, using the Bing Video Search API.
 services: cognitive-services
 author: swhite-msft

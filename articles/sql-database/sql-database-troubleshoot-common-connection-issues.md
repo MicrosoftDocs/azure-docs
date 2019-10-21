@@ -8,9 +8,9 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: dalechen
+manager: dcscontentpm
 ms.author: daleche
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Troubleshoot connection issues to Azure SQL Database

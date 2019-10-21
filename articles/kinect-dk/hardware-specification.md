@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Kinect DK hardware specification
 description: Azure Kinect DK specifications and capabilities
 author: tesych
@@ -73,10 +73,30 @@ Azure Kinect DK includes an OV12A10 12MP CMOS sensor rolling shutter sensor. The
 |       4096x3072                          |          4:3           |          MJPEG             |          0, 5, 15           |          90°x74.3°                            |
 |       2048x1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90°x74.3°                            |
 
-The RGB camera is USB Video class-compatible and can be used without the Sensor SDK.
+The RGB camera is USB Video class-compatible and can be used without the Sensor SDK. The RGB camera color space: BT.601 full range [0..255]. 
 
 > [!NOTE]
 > The Sensor SDK can provide color images in the BGRA pixel format. This is not a native mode supported by the device and causes additional CPU load when used. The host CPU is used to convert from MJPEG images received from the device.
+
+## RGB camera exposure time values
+
+Below is the mapping for the acceptable RGB camera manual exposure values:
+
+| exp| 2^exp | 50Hz   |60Hz    |
+|----|-------|--------|--------|
+| -11|     488|    500|    500 |
+| -10|     977|   1250|   1250 |
+|  -9|    1953|   2500|   2500 |
+|  -8|    3906|  10000|   8330 |
+|  -7|    7813|  20000|  16670 |
+|  -6|   15625|  30000|  33330 |
+|  -5|   31250|  40000|  41670 |
+|  -4|   62500|  50000|  50000 |
+|  -3|  125000|  60000|  66670 |
+|  -2|  250000|  80000|  83330 |
+|  -1|  500000| 100000| 100000 |
+|   0| 1000000| 120000| 116670 |
+|   1| 2000000| 130000| 133330 |
 
 ## Camera field of view
 
@@ -182,7 +202,9 @@ Cable requirements:
 - Maximum cable length < 10 m
 - Both stereo and mono cable are supported
 
-More details on [external synchronization setup](https://aka.ms/support)
+When using multiple depth camera's in synchronized captures, depth camera captures should be offset from one another by 160us or more to avoid depth cameras interference.
+
+More details on [external synchronization setup](https://support.microsoft.com/help/4494429)
 
 ## Device recovery
 
@@ -190,7 +212,7 @@ Device firmware can be reset to original firmware using button underneath the lo
 
 ![Azure Kinect DK recovery button](./media/resources/hardware-specs-media/recovery.png)
 
-To recover the device, see [instructions here](https://aka.ms/support).
+To recover the device, see [instructions here](https://support.microsoft.com/help/4494277).
 
 ## Next steps
 

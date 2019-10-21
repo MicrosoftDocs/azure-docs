@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 08/06/2019
 ms.author: "jeedes"
 ms.collection: M365-identity-device-management
 ---
@@ -30,11 +30,8 @@ This tutorial demonstrates the steps to perform in Zendesk and Azure Active Dire
 The scenario outlined in this tutorial assumes that you have:
 
 * An Azure AD tenant.
-* A Zendesk tenant with the [Enterprise](https://www.zendesk.com/product/pricing/) plan or better enabled.
+* A Zendesk tenant with the Professional plan or better enabled.
 * A user account in Zendesk with admin permissions.
-
-> [!NOTE]
-> The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction). This API is available to Zendesk teams on the Enterprise plan or better.
 
 ## Add Zendesk from the Azure Marketplace
 

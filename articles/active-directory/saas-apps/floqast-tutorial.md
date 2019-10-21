@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with FloQast, perform the following steps:
     In the **Sign-on URL** text box, type a URL:
     `https://go.floqast.com/login/sso`
 
-6. FloQast application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
+6. FloQast application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
 
 	![image](common/edit-attribute.png)
 
@@ -221,7 +221,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create FloQast test user
 
-In this section, you create a user called Britta Simon in FloQast. Work with [FloQast support team](mailto:support@floqast.com) to add the users in the FloQast platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in FloQast. Work with [FloQast support team](mailto:support@floqast.com) to add the users in the FloQast platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 

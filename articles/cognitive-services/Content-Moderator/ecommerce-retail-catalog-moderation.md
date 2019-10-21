@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Moderate e-commerce product images - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Set up an application to analyze and classify product images with specified labels (using Azure Computer Vision and Custom Vision). Tag objectionable images to be further reviewed (using Azure Content Moderator).
 services: cognitive-services
 author: PatrickFarley

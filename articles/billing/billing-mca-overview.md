@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: banders
 ---
 
@@ -62,8 +62,8 @@ Azure plans determine the pricing and service level agreements for Azure subscri
 
 | Plan             | Definition  |
 |------------------|-------------|
-|Microsoft Azure Plan   | Allow users to create subscriptions that can run any workloads. For more information, see [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g/) |
-|Microsoft Azure Plan for Dev/Test | Allow Visual Studio subscribers to create subscriptions that are restricted for development or testing workloads. These subscriptions get benefits such as lower rates and access to exclusive virtual machine images in the Azure portal. For more information, see  [Microsoft Azure Plan for DevTest](https://azure.microsoft.com/offers/ms-azr-0148g/)|
+|Microsoft Azure Plan   | Allow users to create subscriptions that can run any workloads.  |
+|Microsoft Azure Plan for Dev/Test | Allow Visual Studio subscribers to create subscriptions that are restricted for development or testing workloads. These subscriptions get benefits such as lower rates and access to exclusive virtual machine images in the Azure portal. |
 
 ## Invoice sections
 

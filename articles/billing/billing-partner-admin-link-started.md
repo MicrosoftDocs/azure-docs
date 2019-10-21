@@ -5,7 +5,7 @@ services: billing
 author: dhirajgandhi
 manager: dhgandhi
 ms.author: banders
-ms.date: 03/12/2019
+ms.date: 10/01/2019
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
@@ -49,7 +49,7 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 ### Use PowerShell to link to a new partner ID
 
-1. Install the [AzureRM.ManagementPartner](https://www.powershellgallery.com/packages/AzureRM.ManagementPartner) PowerShell module.
+1. Install the [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) PowerShell module.
 
 2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
 

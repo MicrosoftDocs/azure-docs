@@ -4,7 +4,7 @@ description: include file
 services: batch
 documentationcenter: 
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 

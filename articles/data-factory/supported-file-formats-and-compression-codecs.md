@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/09/2019
 ms.author: jingwang
 
 ---
@@ -24,6 +24,7 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 * [Parquet format](#parquet-format)
 * [ORC format](#orc-format)
 * [Avro format](#avro-format)
+* [Binary format](#binary-format)
 
 > [!TIP]
 > Learn how copy activity maps your source data to sink from [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md).
@@ -31,7 +32,7 @@ If you want to **copy files as-is** between file-based stores (binary copy), ski
 ## Text format
 
 >[!NOTE]
->Data Factory introduced new delimited text format datset, see [Delimited text format](format-delimited-text.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Data Factory introduced new delimited text format dataset, see [Delimited text format](format-delimited-text.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
 
 If you want to read from a text file or write to a text file, set the `type` property in the `format` section of the dataset to **TextFormat**. You can also specify the following **optional** properties in the `format` section. See [TextFormat example](#textformat-example) section on how to configure.
 
@@ -83,6 +84,9 @@ To use an `escapeChar` instead of `quoteChar`, replace the line with `quoteChar`
 * You are copying from a text file and want to skip a few lines at the beginning that contain no data or header information. Specify `skipLineCount` to indicate the number of lines to be skipped. If the rest of the file contains a header line, you can also specify `firstRowAsHeader`. If both `skipLineCount` and `firstRowAsHeader` are specified, the lines are skipped first and then the header information is read from the input file
 
 ## JSON format
+
+>[!NOTE]
+>Data Factory introduced new JSON format dataset, see [JSON](format-json.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
 
 To **import/export a JSON file as-is into/from Azure Cosmos DB**, see Import/export JSON documents section in [Move data to/from Azure Cosmos DB](connector-azure-cosmos-db.md) article.
 
@@ -409,7 +413,7 @@ The output dataset with **JsonFormat** type is defined as follows: (partial defi
 ## Parquet format
 
 >[!NOTE]
->Data Factory introduced new Parquet format datset, see [Parquet format](format-parquet.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+>Data Factory introduced new Parquet format dataset, see [Parquet format](format-parquet.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
 
 If you want to parse the Parquet files or write the data in Parquet format, set the `format` `type` property to **ParquetFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 
@@ -517,6 +521,9 @@ For copy running on Self-hosted IR with ORC file serialization/deserialization, 
 
 ## AVRO format
 
+>[!NOTE]
+>Data Factory introduced new Avro format dataset, see [Avri format](format-avro.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
+
 If you want to parse the Avro files or write the data in Avro format, set the `format` `type` property to **AvroFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 
 ```json
@@ -531,6 +538,10 @@ To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](
 Note the following points:
 
 * [Complex data types](https://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions, and fixed).
+
+## Binary format
+
+Refer to [Binary format](format-binary.md) article on details.
 
 ## Compression support
 

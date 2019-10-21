@@ -1,5 +1,5 @@
 ---
-title: Detecting color schemes - Computer Vision
+title: Color scheme detection - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to detecting the color scheme in images using the Computer Vision API.
 services: cognitive-services

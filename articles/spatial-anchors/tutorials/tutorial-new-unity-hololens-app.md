@@ -19,7 +19,7 @@ This tutorial will show you how to create a new HoloLens Unity app with Azure Sp
 
 To complete this tutorial, make sure you have:
 
-1. A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.17763.0 or newer)** component, and <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
+1. A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component, and <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
 2. The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
 3. A HoloLens device with [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 October 2018 Update](https://docs.microsoft.com/windows/mixed-reality/release-notes-october-2018 ) (also known as RS5). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
 
@@ -53,10 +53,10 @@ We need to let Unity know that the app we are trying to export should create an 
 > [!NOTE]
 > If you do not see the Windows Store icon, double check to make sure you selected the Windows Store .NET Scripting Backend prior to installation. If not, you may need to reinstall Unity with the correct Windows installation.
 
-**Verify .NET configuration**
+**Verify Scripting Backend configuration**
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).
 2. In the **Inspector Panel** for **Player Settings**, select the **Windows Store** icon.
-3. In the **Other Settings** Configuration section, make sure that **Scripting Backend** is set to **.NET**.
+3. In the **Other Settings** Configuration section, make sure that **Scripting Backend** is set to **IL2CPP**.
 
 **Set capabilities**
 1. Go to **Edit** > **Project Settings** > **Player** (you may still have **Player** open from the previous step).

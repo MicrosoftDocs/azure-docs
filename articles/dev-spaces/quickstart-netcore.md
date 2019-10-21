@@ -1,5 +1,5 @@
 ---
-title: "Develop with .NET Core on Kubernetes using Azure Dev Spaces (Visual Studio Code)"
+title: "Debug and iterate with Visual Studio Code and .NET Core on Kubernetes using Azure Dev Spaces (Visual Studio Code)"
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -11,13 +11,18 @@ description: "Rapid Kubernetes development with containers and microservices on 
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
 manager: gwallace
 ---
-# Quickstart: Develop with .NET Core on Kubernetes using Azure Dev Spaces (Visual Studio Code)
+# Quickstart: Debug and iterate with Visual Studio Code and .NET Core on Kubernetes using Azure Dev Spaces (Visual Studio Code)
 
 In this guide, you will learn how to:
 
 - Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
 - Iteratively develop code in containers using Visual Studio Code.
 - Debug the code in your dev space from Visual Studio Code.
+
+Azure Dev Spaces also allows you debug and iterate using:
+- [Java and Visual Studio Code](quickstart-java.md)
+- [Node.js and Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core and Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## Prerequisites
 
@@ -32,12 +37,15 @@ You need to create an AKS cluster in a [supported region][supported-regions]. Th
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
 ```
 
 ## Enable Azure Dev Spaces on your AKS cluster
 
 Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a *default* dev space.
+
+> [!NOTE]
+> The `use-dev-spaces` command will also install the Azure Dev Spaces CLI if its not already installed. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
@@ -71,7 +79,7 @@ git clone https://github.com/Azure/dev-spaces
 
 Open Visual Studio Code, click *File* then *Open...*, navigate to the *dev-spaces/samples/dotnetcore/getting-started/webfrontend* directory, and click *Open*.
 
-You now have the *webfrontend* project open in Visual Studio Code. To run the application in your dev space, generate the Docker and Helm chart assets using the Azure Dev Spaces extension in the Command Pallette.
+You now have the *webfrontend* project open in Visual Studio Code. To run the application in your dev space, generate the Docker and Helm chart assets using the Azure Dev Spaces extension in the Command Palette.
 
 To open the Command Palette in Visual Studio Code, click *View* then *Command Palette*. Begin typing `Azure Dev Spaces` and click on `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
 

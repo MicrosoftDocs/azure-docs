@@ -165,7 +165,7 @@ To configure the server, we will need the four files in the  *wildfly_config/* d
 
 - **postgresql-42.2.5.jar**: This JAR file is the JDBC driver for Postgres. For more information,  see the [official website](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: This XML file declares a name for the Postgres module (org.postgres). It also specifies the resources and dependencies necessary for the module to be used.
-- **jboss_cli_commands.cl**: This file contains configuration commands that will be executed to by the JBoss CLI. The commands add the Postgres module to the WildFly application server, provide the credentials, declare a JNDI name, set the timeout threshold, etc. If you are unfamiliar with the JBoss CLI, see the [official documentation](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **jboss_cli_commands.cli**: This file contains configuration commands that will be executed to by the JBoss CLI. The commands add the Postgres module to the WildFly application server, provide the credentials, declare a JNDI name, set the timeout threshold, etc. If you are unfamiliar with the JBoss CLI, see the [official documentation](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
 - **startup_script.sh**: Finally, this shell script will be executed whenever your App Service instance is started. The script only performs one function: piping the commands in *jboss_cli_commands.cli* to the JBoss CLI.
 
 We highly suggest reading the contents of these files, especially *jboss_cli_commands.cli*.
@@ -190,7 +190,7 @@ In a terminal window, rebuild and redeploy your application.
 mvn clean install -DskipTests azure-webapp:deploy
 ```
 
-Congratulations! Your application is now using a Postgres database and any records created in the application will be stored in Postgres, rather than the previous H3 in-memory database. To confirm this, you can make a record and restart your App Service. The records will still be there when your application restarts.
+Congratulations! Your application is now using a Postgres database and any records created in the application will be stored in Postgres, rather than the previous H2 in-memory database. To confirm this, you can make a record and restart your App Service. The records will still be there when your application restarts.
 
 ## Clean up
 

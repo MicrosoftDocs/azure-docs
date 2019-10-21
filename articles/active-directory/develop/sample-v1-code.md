@@ -11,7 +11,7 @@ ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/15/2019
@@ -32,7 +32,7 @@ This section provides links to samples you can use to learn more about the Azure
 > [!NOTE]
 > If you are interested in Azure AD V2 code samples, see [v2.0 code samples by scenario](sample-v2-code.md).
 
-To understand the basic scenario for each sample type, see [Authentication scenarios for Azure AD](authentication-scenarios.md).
+To understand the basic scenario for each sample type, see [Authentication scenarios for Azure AD](v1-authentication-scenarios.md).
 
 You can also contribute to our samples on GitHub. To learn how, see [Microsoft Azure Active Directory samples and documentation](https://github.com/Azure-Samples?page=3&query=active-directory).
 

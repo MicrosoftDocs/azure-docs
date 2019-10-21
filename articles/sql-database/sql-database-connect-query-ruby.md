@@ -10,7 +10,6 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/25/2019
 ---
 # Quickstart: Use Ruby to query an Azure SQL database

@@ -1,24 +1,23 @@
 ---
-title: Azure Data Share Preview Terminology 
-description: Azure Data Share Preview Terminology
+title: Azure Data Share Preview terminology 
+description: Learn about common terms used to describe resources used in Azure Data Share Preview (data provider, data consumer, data share, share subscription, snapshot, invitation, recipient.)
 author: joannapea
-
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
 ---
 # Azure Data Share Preview Concepts 
 
 Azure Data Share Preview introduces some new terminology related to data sharing. This article explains some frequently used terms that you may see used throughout the service. 
 
-## Data Provider
+## Data provider
 
-A Data Provider is the organization that is sharing data with their consumers. Typically the data provider can be an owner or a curator of the data. Data providers want to share data of various types. Some examples of data that a data provider may want to share include raw data, such as point of sales or time series data. A data provider may also want to share pre-processed, curated data that already contains analytics and insights. 
+A Data provider is the organization that is sharing data with their consumers. Typically the data provider can be an owner or a curator of the data. Data providers want to share data of various types. Some examples of data that a data provider may want to share include raw data, such as point of sales or time series data. A data provider may also want to share pre-processed, curated data that already contains analytics and insights. 
 
-## Data Consumer 
+## Data consumer 
 
-A Data Consumer is the organization that is receiving data from a data provider. The data consumer may be wanting to join the shared data with their own data to derive insights. In some cases, the data consumer may be receiving data that has already been processed. 
+A Data consumer is the organization that is receiving data from a data provider. The data consumer may be wanting to join the shared data with their own data to derive insights. In some cases, the data consumer may be receiving data that has already been processed. 
 
 ## Data Share
 
@@ -42,13 +41,15 @@ A data provider can enable a snapshot setting for a data share. This setting ena
 
 If a data provider enables this setting, a recurrence interval can be selected. The recurrence interval can be hourly or daily. 
 
-A data consumer has the option to opt-in to this snapshot schedule to receive incremental updates, which includes any data that has changed since they first generated a new snapshot. 
+A data consumer has the option to opt in to this snapshot schedule to receive incremental updates, which include any data that has changed since they first generated a new snapshot. 
 
 ## Invitation
 
 A data provider can invite multiple recipients to their data share. They can do so by adding recipients to the data share. Invitations can also be added after a data share has been created. 
 
-A data provider can delete an invitation after it has been sent. Note that if a data provider deletes an invitation after it has been accepted, the data consumer can still have an active share subscription. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
+A data provider can delete an invitation after it has been sent if it has not been accepted. If the data provider deletes an invitation and it has not yet been accepted, the data consumer will not be able to accept it. 
+
+Invitations can be resent up to five times a day. 
 
 ## Recipient
 

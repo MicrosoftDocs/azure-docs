@@ -2,20 +2,20 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/12/2019	
+ms.date: 08/19/2019	
 ms.author: tomfitz
 ---
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
-| Resources per [resource group](../articles/azure-resource-manager/resource-group-overview.md#resource-groups), per resource type |800 |Varies per resource type |
+| Resources per [resource group](../articles/azure-resource-manager/resource-group-overview.md#resource-groups), per resource type |800 |Some resource types can exceed the 800 limit. See [Resources not limited to 800 instances per resource group](../articles/azure-resource-manager/resources-without-rg-limit.md). |
 | Deployments per resource group in the deployment history |800<sup>1</sup> |800 |
 | Resources per deployment |800 |800 |
 | Management locks per unique scope |20 |20 |
-| Number of tags per resource or resource group |15 |15 |
+| Number of tags per resource or resource group |50 |50 |
 | Tag key length |512 |512 |
 | Tag value length |256 |256 |
 
-<sup>1</sup>If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. Deleting an entry from the deployment history doesn't affect the deployed resources. You can delete entries from the history with [az group deployment delete](/cli/azure/group/deployment) for Azure CLI, or [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) in PowerShell.  For a PowerShell script that automates deleting deployments in a continuous integration and continuous delivery (CI/CD) scenario, see [remove-deployments.ps1](https://gist.github.com/bmoore-msft/ed33fb940dafb09380174b7fca57651f).
+<sup>1</sup>If you reach the limit of 800 deployments per resource group, delete deployments from the history that are no longer needed. Deleting an entry from the deployment history doesn't affect the deployed resources. For more information, see [Resolve error when deployment count exceeds 800](../articles/azure-resource-manager/deployment-quota-exceeded.md).
 
 #### Template limits
 

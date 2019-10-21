@@ -1,9 +1,9 @@
 ---
-title: Azure Status Monitor v2 detailed instructions | Microsoft Docs
-description: Detailed instructions for getting started with Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
+title: Azure Application Insights Agent detailed instructions | Microsoft Docs
+description: Detailed instructions for getting started with Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: alexklim
 ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
 ms.service: application-insights
@@ -13,16 +13,11 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
 ---
-# Status Monitor v2: Detailed instructions
+# Application Insights Agent (formerly named Status Monitor v2): Detailed instructions
 
 This article describes how to onboard to the PowerShell Gallery and download the ApplicationMonitor module.
-It describes the most common parameters that you'll need to get started.
-It also includes manual instructions in case you don't have internet access.
-
-> [!IMPORTANT]
-> Status Monitor v2 is currently in public preview.
-> This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Some features might not be supported, and some might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Included are the most common parameters that you'll need to get started.
+We've also provided manual download instructions in case you don't have internet access.
 
 ## Get an instrumentation key
 
@@ -30,11 +25,10 @@ To get started, you need an instrumentation key. For more information, see [Crea
 
 ## Run PowerShell as Admin with an elevated execution policy
 
-**Run as Admin**
+### Run as Admin
 
 PowerShell needs Administrator-level permissions to make changes to your computer.
-
-**Execution policy**
+### Execution policy
 - Description: By default, running PowerShell scripts is disabled. We recommend allowing RemoteSigned scripts for only the Current scope.
 - Reference: [About Execution Policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) and [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
@@ -245,6 +239,6 @@ See the [API reference](status-monitor-v2-api-enable-monitoring.md) for a detail
 - [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
 - [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
 
-Do more with Status Monitor v2:
+Do more with Application Insights Agent:
 
-- Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+- Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.

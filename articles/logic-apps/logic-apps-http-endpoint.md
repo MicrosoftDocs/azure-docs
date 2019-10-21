@@ -1,6 +1,6 @@
 ---
-title: Call, trigger, or nest workflows with HTTP endpoints - Azure Logic Apps
-description: Set up HTTP endpoints to call, trigger, or nest workflows for Azure Logic Apps
+title: Call, trigger, or nest logic apps - Azure Logic Apps
+description: Set up HTTP endpoints to call, trigger, or nest logic app workflows in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.workload: integration
@@ -14,7 +14,7 @@ ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
 ---
 
-# Call, trigger, or nest workflows with HTTP endpoints in Azure Logic Apps
+# Call, trigger, or nest logic apps by using HTTP endpoints in Azure Logic Apps
 
 You can natively expose synchronous HTTP endpoints as triggers on logic apps so that you can trigger or call your logic apps through a URL. You can also nest workflows in your logic apps by using a pattern of callable endpoints.
 

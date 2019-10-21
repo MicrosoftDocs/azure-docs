@@ -8,7 +8,6 @@ manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
@@ -23,7 +22,7 @@ In this article, you learn how to use the [Azure Functions extension for Visual 
 
 ![Azure Functions code in a Visual Studio project](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-The extension currently supports C#, JavaScript, and Java functions, with Python support currently in Preview. The steps in this article and the article that follows support only JavaScript and C# functions. To learn how to use Visual Studio Code to create and publish Python functions, see [Deploy Python to Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
+The extension currently supports C#, JavaScript, Java, and Python functions. The steps in this article and the article that follows support only JavaScript and C# functions. To learn how to use Visual Studio Code to create and publish Python functions, see [Deploy Python to Azure Functions](https://code.visualstudio.com/docs/python/tutorial-azure-functions). To learn how to use Visual Studio Code to create and publish PowerShell functions, see [Create your first PowerShell function in Azure](functions-create-first-function-powershell.md). 
 
 The extension is currently in preview. To learn more, see the [Azure Functions extension for Visual Studio Code] extension page.
 
@@ -60,11 +59,11 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Run the function in Azure
 
-1. Copy the URL of the HTTP trigger from the **Output** panel. As before, make sure to add the query string `?name=<yourname>` to the end of this URL and execute the request.
+1. Copy the URL of the HTTP trigger from the **Output** panel. This URL includes the function key, which is passed to the `code` query parameter. As before, make sure to add the query string `?name=<yourname>` to the end of this URL and execute the request.
 
     The URL that calls your HTTP-triggered function should be in the following format:
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<functionappname>.azurewebsites.net/api/<functionname>?code=<function_key>&name=<yourname> 
 
 1. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function: 
 

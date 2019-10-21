@@ -70,7 +70,7 @@ Save the query by selecting the **Save** button from the top of the page.
 
 ![Save query](media/tutorial-logs-dashboards/save-query.png)
 
-In the **Save Query** control panel, provide a name such as *Azure VMs - Processor Utilization* and a category such as *Dashboards* and then click **Save**.  This way you can create a library of common queries that you can use and modify.  Finally, pin this to the shared dashboard created earlier by selecting the **Pin** button from the top right corner of the page and then selecting the dashboard name.
+In the **Save Query** control panel, provide a name such as *Azure VMs - Processor Utilization* and a category such as *Dashboards* and then click **Save**.  This way you can create a library of common queries that you can use and modify.  Finally, pin this to the shared dashboard created earlier by selecting the **Pin to dashboard** button from the top right corner of the page and then selecting the dashboard name.
 
 Now that we have a query pinned to the dashboard, you will notice it has a generic title and comment below it.
 

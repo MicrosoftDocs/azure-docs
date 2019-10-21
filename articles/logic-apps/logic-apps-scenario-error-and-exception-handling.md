@@ -1,6 +1,6 @@
 ---
-title: Exception handling & error logging scenario - Azure Logic Apps | Microsoft Docs
-description: Here's a real use case about advanced exception handling and error logging in Azure Logic Apps
+title: Exception handling & error logging scenario - Azure Logic Apps
+description: Real use case and scenario for advanced exception handling and error logging in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -513,4 +513,4 @@ The source code for the Logic Apps exception management API application is avail
 
 * [View more logic app examples and scenarios](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Learn about monitoring logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Create automated deployment templates for logic apps](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

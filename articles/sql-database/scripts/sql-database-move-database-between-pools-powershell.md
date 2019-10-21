@@ -10,7 +10,6 @@ ms.topic: sample
 author: stevestein
 ms.reviewer: 
 ms.author: sstein
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell to create elastic pools and move databases between elastic pools

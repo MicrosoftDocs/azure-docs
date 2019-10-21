@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 07/30/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -33,7 +33,7 @@ To learn more about SaaS app integration with Azure AD, see [What is application
 
 To get started, you need the following items:
 
-* An Azure AD subscription. If you don't have a subscription, you can get one-month free trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Druva single sign-on (SSO) enabled subscription.
 
 ## Scenario description
@@ -53,15 +53,15 @@ To configure the integration of Druva into Azure AD, you need to add Druva from 
 
 ## Configure and test Azure AD single sign-on
 
-Configure and test Azure AD SSO with Druva using a test user called **Britta Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Druva.
+Configure and test Azure AD SSO with Druva using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Druva.
 
 To configure and test Azure AD SSO with Druva, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 2. **[Configure Druva SSO](#configure-druva-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Druva test user](#create-druva-test-user)** - to have a counterpart of Britta Simon in Druva that is linked to the Azure AD representation of user.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+5. **[Create Druva test user](#create-druva-test-user)** - to have a counterpart of B.Simon in Druva that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -79,17 +79,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL:
-    `https://login.druva.com/login`
+    `https://login.druva.com/api/commonlogin/samlconsume`
 
 1. Druva application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![image](./media/druva-tutorial/edited-attribute.png)
 
 1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
 	| Name | Source Attribute|
 	| ------------------- | -------------------- |
-	| insync\_auth\_token |Enter the token generated value |
+	| emailAddress | user.email |
+	| druva_auth_token | SSO Token generated from DCP Admin Console, without quotation marks.  For example: X-XXXXX-XXXX-S-A-M-P-L-E+TXOXKXEXNX=. Azure automatically adds quotation marks around the auth token. |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -117,49 +118,42 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In a different web browser window, sign in to your Druva company site as an administrator.
 
-1. Go to **Manage \> Settings**.
+1. Click on the Druva logo on top left corner and then click **Druva Cloud Settings**.
 
 	![Settings](./media/druva-tutorial/ic795091.png "Settings")
 
-1. On the Single Sign-On Settings dialog, perform the following steps:
+1. On the **Single Sign-On** tab, click **Edit**.
 
 	![Single Sign-On Settings](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
 
-	a. In **ID Provider Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+1. On the **Edit Single Sign-On Settings** page, perform the following steps:
 
-	b. In **ID Provider Logout URL** textbox, paste the value of **Logout URL**, which you have copied from Azure portal
+	![Single Sign-On Settings](./media/druva-tutorial/ic795095.png "Single Sign-On Settings")
 
-	c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
+	1. In **ID Provider Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	d. To open the **Settings** page, click **Save**.
+	1. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **ID Provider Certificate** textbox
 
-1. On the **Settings** page, click **Generate SSO Token**.
+	   > [!NOTE]
+	   > To Enable Single Sign-On for administrators, select **Administrators log into Druva Cloud through SSO provider** and **Allow failsafe access to Druva Cloud administrators(recommended)** checkboxes. Druva recommends to enable **Failsafe for Administrators** so that they have to access the DCP console in case of any failures in IdP. It also enables the administrators to use both SSO and DCP password to access the DCP console.
 
-	![Settings](./media/druva-tutorial/ic795093.png "Settings")
-
-1. On the **Single Sign-on Authentication Token** dialog, perform the following steps:
-
-	![SSO Token](./media/druva-tutorial/ic795094.png "SSO Token")
-
-	a. Click **Copy**, Paste copied value in the **Value** textbox in the **Add Attribute** section in the Azure portal.
-
-	b. Click **Close**.
+	1. Click **Save**. This enables the access to Druva Cloud Platform using SSO.
 
 ### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called Britta Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
 1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
 1. Select **New user** at the top of the screen.
 1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `Britta Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `BrittaSimon@contoso.com`.
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
    1. Click **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you'll enable Britta Simon to use Azure single sign-on by granting access to Druva.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Druva.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Druva**.
@@ -171,47 +165,22 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 	![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **Britta Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create Druva test user
 
-In order to enable Azure AD users to sign in to Druva, they must be provisioned into Druva. In the case of Druva, provisioning is a manual task.
-
-**To configure user provisioning, perform the following steps:**
-
-1. Sign in to your **Druva** company site as administrator.
-
-1. Go to **Manage \> Users**.
-
-	![Manage Users](./media/druva-tutorial/ic795097.png "Manage Users")
-
-1. Click **Create New**.
-
-	![Manage Users](./media/druva-tutorial/ic795098.png "Manage Users")
-
-1. On the Create New User dialog, perform the following steps:
-
-	![Create NewUser](./media/druva-tutorial/ic795099.png "Create NewUser")
-
-    a. In the **Email address** textbox, enter the email of user like **brittasimon\@contoso.com**.
-
-    b. In the **Name** textbox, enter the name of user like **BrittaSimon**.
-
-    c. Click **Create User**.
-
-> [!NOTE]
-> You can use any other Druva user account creation tools or APIs provided by Druva to provision Azure AD user accounts.
+In this section, a user called B.Simon is created in Druva. Druva supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Druva, a new one is created after authentication.
 
 ### Test SSO
 
 When you select the Druva tile in the Access Panel, you should be automatically signed in to the Druva for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

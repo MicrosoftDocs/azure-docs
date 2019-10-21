@@ -46,7 +46,7 @@ In addition to native Azure tools, Azure Migrate integrates with a number of ISV
 
 ### Selecting an ISV tool
 
-After adding an ISV tool to an Azure Migrate project, get started with the tool by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation, to connect the tool with Azure Migrate.
+After adding an ISV tool to an Azure Migrate project, get started with the tool by obtaining a license, or signing up for a free trial, in accordance with the ISV policy. In each tool, there's an option to connect to Azure Migrate. Follow the tool instructions and documentation, to connect the tool with Azure Migrate. Licensing for ISV tools is in accordance with the ISV licensing model.
 
 ## Azure Migrate Server Assessment
 

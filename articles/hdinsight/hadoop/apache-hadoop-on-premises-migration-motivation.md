@@ -1,5 +1,5 @@
 ---
-title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - motivation and benefits
+title: Migrate on-premises Apache Hadoop to Azure HDInsight - motivation and benefits
 description: Learn the motivation and benefits for migrating on-premises Hadoop clusters to Azure HDInsight.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -37,7 +37,7 @@ Azure HDInsight is a cloud distribution of Hadoop components. Azure HDInsight ma
 
 - **Global availability** - HDInsight is available in more [regions](https://azure.microsoft.com/regions/services/) than any other big data analytics offering. Azure HDInsight is also available in Azure Government, China, and Germany, which allows you to meet your enterprise needs in key sovereign areas.
 
-- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/apache-domain-joined-introduction.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
+- **Secure and compliant** - HDInsight enables you to protect your enterprise data assets with [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md), [encryption](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md), and integration with [Azure Active Directory](../domain-joined/hdinsight-security-overview.md). HDInsight also meets the most popular industry and government [compliance standards](https://azure.microsoft.com/overview/trusted-cloud).
 
 - **Simplified version management** - Azure HDInsight manages the version of Hadoop eco-system components and keeps them up-to-date. Software updates are usually a complex process for on-premises deployments.
 
@@ -131,10 +131,10 @@ This section provides template questionnaires to help gather important informati
 |Data destinations|HDFS, RDBMS, Kafka, MPP ||
 |**Topic**: **Meta data**|||
 |Hive DB type|Mysql, Postgres||
-|No. of Hive metastores|2||
-|No. of Hive tables|100||
-|No. of Ranger policies|20||
-|No. of Oozie workflows|100||
+|Number of Hive metastores|2||
+|Number of Hive tables|100||
+|Number of Ranger policies|20||
+|Number of Oozie workflows|100||
 |**Topic**: **Scale**|||
 |Data volume including Replication|100 TB||
 |Daily ingestion volume|50 GB||
@@ -146,11 +146,11 @@ This section provides template questionnaires to help gather important informati
 |Disk space used|75%||
 |Average Network % used|25%
 |**Topic**: **Staff**|||
-|No. of Administrators|2||
-|No. of Developers|10||
-|No. of end users|100||
+|Number of Administrators|2||
+|Number of Developers|10||
+|Number of end users|100||
 |Skills|Hadoop, Spark||
-|No. of available resources for Migration efforts|2||
+|Number of available resources for Migration efforts|2||
 |**Topic**: **Limitations**|||
 |Current limitations|Latency is high||
 |Current challenges|Concurrency issue||
@@ -174,7 +174,7 @@ This section provides template questionnaires to help gather important informati
 |Private and protected data pipeline?|Yes||
 |Domain Joined cluster (ESP)?|     Yes||
 |On-Premises AD Sync to Cloud?|     Yes||
-|No. of AD users to sync?|          100||
+|Number of AD users to sync?|          100||
 |Ok to sync passwords to cloud?|    Yes||
 |Cloud only Users?|                 Yes||
 |MFA needed?|                       No|| 

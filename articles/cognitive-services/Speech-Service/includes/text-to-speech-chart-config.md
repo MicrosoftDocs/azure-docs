@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 06/26/2019
+ms.date: 08/22/2019
 ms.author: dapine
 ---
 
 ### Text-to-Speech (sub-chart: charts/textToSpeech)
 
-To override the "umbrella" chart, add the prefix `textToSpeech.` on any parameter to make it more specific. For example, it will override the corresponding parameter e.g. `textToSpeech.numberOfConcurrentRequest` overrides `numberOfConcurrentRequest`.
+To override the "umbrella" chart, add the prefix `textToSpeech.` on any parameter to make it more specific. For example, it will override the corresponding parameter for example, `textToSpeech.numberOfConcurrentRequest` overrides `numberOfConcurrentRequest`.
 
 |Parameter|Description|Default|
 | -- | -- | -- |
@@ -32,5 +32,6 @@ To override the "umbrella" chart, add the prefix `textToSpeech.` on any paramete
 | `image.args.apikey` (required) | Used to track billing information. ||
 | `service.type` | The Kubernetes service type of the **text-to-speech** service. See the [Kubernetes service types instructions](https://kubernetes.io/docs/concepts/services-networking/service/) for more details and verify cloud provider support. | `LoadBalancer` |
 | `service.port`|  The port of the **text-to-speech** service. | `80` |
+| `service.annotations` | The **text-to-speech** annotations for the service metadata. Annotations are key value pairs. <br>`annotations:`<br>&nbsp;&nbsp;`some/annotation1: value1`<br>&nbsp;&nbsp;`some/annotation2: value2` | |
 | `service.autoScaler.enabled` | Whether the [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) is enabled. If `true`, the `text-to-speech-autoscaler` will be deployed in the Kubernetes cluster. | `true` |
 | `service.podDisruption.enabled` | Whether the [Pod Disruption Budget](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/) is enabled. If `true`, the `text-to-speech-poddisruptionbudget` will be deployed in the Kubernetes cluster. | `true` |

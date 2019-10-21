@@ -3,16 +3,11 @@ title: "Azure Cloud Services Def. LoadBalancerProbe Schema | Microsoft Docs"
 ms.custom: ""
 ms.date: "04/14/2015"
 services: cloud-services
-ms.reviewer: ""
 ms.service: "cloud-services"
-ms.suite: ""
-ms.tgt_pltfrm: ""
 ms.topic: "reference"
-ms.assetid: 113374a8-8072-4994-9d99-de391a91e6ea
 caps.latest.revision: 14
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+author: "georgewallace"
+ms.author: "gwallace"
 ---
 # Azure Cloud Services Definition LoadBalancerProbe Schema
 The load balancer probe is a customer defined health probe of UDP endpoints and endpoints in role instances. The `LoadBalancerProbe` is not a standalone element; it is combined with the web role or worker role in a service definition file. A `LoadBalancerProbe` can be used by more than one role.

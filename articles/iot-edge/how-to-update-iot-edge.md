@@ -20,14 +20,6 @@ Two components of an IoT Edge device need to be updated if you want to move to a
 
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
->[!IMPORTANT]
->If you are running Azure IoT Edge on a Windows device, do not update to version 1.0.5 if one of the following applies to your device: 
->* You have not upgraded your device to Windows build 17763. IoT Edge version 1.0.5 does not support Windows builds older than 17763.
->* You run Java or Node.js modules on your Windows device. Skip version 1.0.5 even if you have updated your Windows device to the latest build. 
->
->For more information about IoT Edge version 1.0.5, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For more information about how to prevent your development tools from updating to the latest version, see [the IoT developer blog](https://devblogs.microsoft.com/iotdev/).
-
-
 ## Update the security daemon
 
 The IoT Edge security daemon is a native component that needs to be updated using the package manager on the IoT Edge device. 
@@ -126,8 +118,7 @@ Release candidate versions follow the same numbering convention of releases, but
 
 As previews, release candidate versions aren't included as the latest version that the regular installers target. Instead, you need to manually target the assets for the RC version that you want to test. Depending on your IoT Edge device operating system, use the following sections to update IoT Edge to a specific version:
 
-* [Linux X64](how-to-install-iot-edge-linux.md#install-a-specific-version)
-* [Linux ARM32](how-to-install-iot-edge-linux-arm.md#install-a-specific-version)
+* [Linux](how-to-install-iot-edge-linux.md#install-a-specific-runtime-version)
 * [Windows](how-to-install-iot-edge-windows.md#offline-installation)
 
 ## Next steps

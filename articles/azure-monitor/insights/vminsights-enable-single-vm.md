@@ -1,18 +1,13 @@
 ---
 title: Enable Azure Monitor for VMs (preview) for evaluation | Microsoft Docs
 description: Learn how to evaluate Azure Monitor for VMs on a single Azure virtual machine or on a virtual machine scale set.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 05/09/2019
+
 ---
 
 # Enable Azure Monitor for VMs (preview) for evaluation

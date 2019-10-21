@@ -7,7 +7,6 @@ author: tfitzmac
 tags: azure-service-management
 
 ms.service: app-service
-ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service

@@ -4,7 +4,7 @@ description: Azure CLI Script Example - Create and manage a Windows pool in Batc
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: 
 
 ms.assetid:

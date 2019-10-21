@@ -1,6 +1,6 @@
 ---
 title: View Azure Stream Analytics jobs in Visual Studio
-description: This article describes how to view Stream Analytics jobs in Visual Studio.
+description: This article describes how to view and manage Azure Stream Analytics jobs in Visual Studio.
 services: stream-analytics
 author: su-jie
 ms.author: sujie

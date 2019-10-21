@@ -30,7 +30,7 @@ Jump ahead to the [live store locator example](https://azuremapscodesamples.azur
 
 ## Prerequisites
 
-To complete the steps in this tutorial, you first need to [create your Azure Maps account](./tutorial-search-location.md#createaccount) and [get the subscription key for your account](./tutorial-search-location.md#getkey).
+To complete the steps in this tutorial, you first need to [create your Azure Maps account](./tutorial-search-location.md#createaccount) and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
 
 ## Design
 
@@ -134,7 +134,7 @@ To create the user interface, add code to *index.html*:
 1. Add a reference to the Azure Maps Services module. The module is a JavaScript library that wraps the Azure Maps REST services and makes them easy to use in JavaScript. The module is useful for powering search functionality.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
 1. Add references to *index.js* and *index.css*:
@@ -412,7 +412,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps subscription key to the map SDK.
+            //Add your Azure Maps primary subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'

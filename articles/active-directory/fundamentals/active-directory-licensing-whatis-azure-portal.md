@@ -3,7 +3,7 @@ title: What is group-based licensing - Azure Active Directory | Microsoft Docs
 description: Learn about Azure Active Directory group-based licensing, including how it works and best practices.
 services: active-directory
 keywords: Azure AD licensing
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -11,7 +11,7 @@ ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/29/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ To address those challenges, Azure AD now includes group-based licensing. You ca
 ## Licensing requirements
 You must have one of the following licenses to use group-based licensing:
 
-- Paid or trial subscription for Azure AD Basic and above
+- Paid or trial subscription for Azure AD Premium P1 and above
 
 - Paid or trial edition of Office 365 Enterprise E3 or Office 365 A3 or Office 365 GCC G3 and above
 

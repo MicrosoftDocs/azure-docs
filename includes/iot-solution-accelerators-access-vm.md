@@ -30,7 +30,7 @@ The following steps show you how to configure the Azure virtual machine to allow
     az network nsg rule update --name SSH --nsg-name contoso-simulation-nsg -g contoso-simulation --access Allow -o table
     ```
 
-    Only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](https://docs.microsoft.com/azure/security/azure-security-network-security-best-practices#disable-rdpssh-access-to-virtual-machines).
+    Only enable SSH access during test and development. If you enable SSH, [you should disable it again as soon as possible](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices#disable-rdpssh-access-to-virtual-machines).
 
 1. Update the password for the **azureuser** account on the virtual machine to a password you know. Choose your own password when you run the following command:
 

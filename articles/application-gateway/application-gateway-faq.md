@@ -5,8 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 6/1/2019
+ms.date: 08/31/2019
 ms.author: victorh
 ---
 
@@ -96,7 +95,7 @@ Yes. See [Modifications to a request](https://docs.microsoft.com/azure/applicati
 
 New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size or count aren't disruptive, and the gateway remains active during this time.
 
-Deployments that use the v2 SKU can take up to 6 minutes to provision.
+Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple Availability Zones with many instances can take more than 6 minutes. 
 
 ### Can I use Exchange Server as a backend with Application Gateway?
 
@@ -273,7 +272,11 @@ Yes, the Application Gateway v2 SKU supports Key Vault. For more information, se
 
 ### How do I configure HTTPS listeners for .com and .net sites? 
 
-For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+For multiple domain-based (host-based) routing, you can create multisite listeners, set up listeners that use HTTPS as the protocol, and associate the listeners with the routing rules. For more information, see [Hosting multiple sites by using Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
+
+### Can I use special characters in my .pfx file password?
+
+No, use only alphanumeric characters in your .pfx file password.
 
 ## Configuration - web application firewall (WAF)
 
@@ -345,7 +348,7 @@ In the portal, on the menu blade of an application gateway, select **Activity Lo
 
 ### Can I set alerts with Application Gateway?
 
-Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics) and [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics) and [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
 ### How do I analyze traffic statistics for Application Gateway?
 
@@ -356,6 +359,13 @@ You can also use a Resource Manager template that installs and runs the popular 
 ### What could cause backend health to return an unknown status?
 
 Usually, you see an unknown status when access to the backend is blocked by a network security group (NSG), custom DNS, or user-defined routing (UDR) on the application gateway subnet. For more information, see [Backend health, diagnostics logging, and metrics for Application Gateway](application-gateway-diagnostics.md).
+
+### Is there any case where NSG flow logs won't show allowed traffic?
+
+Yes. If your configuration matches following scenario, you won't see allowed traffic in your NSG flow logs:
+- You've deployed Application Gateway v2
+- You have an NSG on the application gateway subnet
+- You've enabled NSG flow logs on that NSG
 
 ## Next steps
 

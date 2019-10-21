@@ -1,5 +1,5 @@
 ---
-title: Programming guide - Azure Event Hubs | Microsoft Docs
+title: .NET Programming guide - Azure Event Hubs | Microsoft Docs
 description: This article provides information on how to Write code for Azure Event Hubs using the Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
@@ -8,18 +8,18 @@ author: ShubhaVijayasarathy
 ms.service: event-hubs
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 09/25/2019
 ms.author: shvija
 
 ---
-# Programming guide for Azure Event Hubs
+# .NET Programming guide for Azure Event Hubs
 This article discusses some common scenarios in writing code using Azure Event Hubs. It assumes a preliminary understanding of Event Hubs. For a conceptual overview of Event Hubs, see the [Event Hubs overview](event-hubs-what-is-event-hubs.md).
 
 ## Event publishers
 
 You send events to an event hub either using HTTP POST or via an AMQP 1.0 connection. The choice of which to use and when depends on the specific scenario being addressed. AMQP 1.0 connections are metered as brokered connections in Service Bus and are more appropriate in scenarios with frequent higher message volumes and lower latency requirements, as they provide a persistent messaging channel.
 
-When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient][] and [EventData][] classes. [EventHubClient][] provides the AMQP communication channel over which events are sent to the event hub. The [EventData][] class represents an event, and is used to publish messages to an event hub. This class includes the body, some metadata, and header information about the event. Other properties are added to the [EventData][] object as it passes through an event hub.
+When using the .NET managed APIs, the primary constructs for publishing data to Event Hubs are the [EventHubClient][] and [EventData][] classes. [EventHubClient][] provides the AMQP communication channel over which events are sent to the event hub. The [EventData][] class represents an event, and is used to publish messages to an event hub. This class includes the body, some metadata(Properties), and header information(SystemProperties) about the event. Other properties are added to the [EventData][] object as it passes through an event hub.
 
 ## Get started
 The .NET classes that support Event Hubs are provided in the [Microsoft.Azure.EventHubs](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) NuGet package. You can install using the Visual Studio Solution explorer, or the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) in Visual Studio. To do so, issue the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:
@@ -136,7 +136,10 @@ The [EventProcessorHost][] class also implements an Azure storage-based checkpoi
 
 ## Publisher revocation
 
-In addition to the advanced run-time features of [EventProcessorHost][], Event Hubs enables publisher revocation in order to block specific publishers from sending event to an event hub. These features are useful if a publisher token has been compromised, or a software update is causing them to behave inappropriately. In these situations, the publisher's identity, which is part of their SAS token, can be blocked from publishing events.
+In addition to the advanced run-time features of Event Processor Host, the Event Hubs service enables [publisher revocation](/rest/api/eventhub/revoke-publisher) in order to block specific publishers from sending event to an event hub. These features are useful if a publisher token has been compromised, or a software update is causing them to behave inappropriately. In these situations, the publisher's identity, which is part of their SAS token, can be blocked from publishing events.
+
+> [!NOTE]
+> Currently, only REST API supports this feature ([publisher revocation](/rest/api/eventhub/revoke-publisher)).
 
 For more information about publisher revocation and how to send to Event Hubs as a publisher, see the [Event Hubs Large Scale Secure Publishing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-99ce67ab) sample.
 

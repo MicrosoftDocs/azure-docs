@@ -1,25 +1,17 @@
 ---
-title: Azure Application Gateway Azure CLI Samples | Microsoft Docs
-description: Application Gateway Azure CLI Samples
+title: Azure CLI examples for Azure Application Gateway
+description: Azure CLI examples for Azure Application Gateway
 services: application-gateway
-documentationcenter: networking
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
-
 ms.service: application-gateway
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 01/30/2018
+ms.topic: sample
+ms.date: 08/07/2019
 ms.author: victorh
-ms.custom: mvc
 
 ---
-# Azure Application Gateway Azure CLI samples
+# Azure CLI examples for Azure Application Gateway
 
-The following table includes links to Azure CLI script samples that create application gateways.
+The following table includes links to Azure CLI script examples for Azure Application Gateway.
 
 | | |
 |---|---|

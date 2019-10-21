@@ -3,10 +3,8 @@ title: Gain tenant-wide visibility for Azure Security Center | Microsoft Docs
 description: Learn about gaining tenant-wide visibility in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: barbkess
-editor: ''
-
+author: memildin
+manager: rkarlin
 ms.assetid: b85c0e93-9982-48ad-b23f-53b367f22b10
 ms.service: security-center
 ms.devlang: na
@@ -14,7 +12,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
-ms.author: rkarlin
+ms.author: memildin
 
 ---
 
@@ -51,7 +49,7 @@ You can organize subscriptions into management groups and apply your governance 
 5.  Select **Save**
 
 ### View management groups in the Azure portal
-1. SIgn in to the [Azure portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. To view management groups, select **All services** under the Azure main menu.
 3. Under **General**, select **Management Groups**.
 

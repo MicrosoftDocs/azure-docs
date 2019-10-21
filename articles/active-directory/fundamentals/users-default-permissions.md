@@ -2,7 +2,7 @@
 title: Default user permissions - Azure Active Directory | Microsoft Docs
 description: Learn about the different user permissions available in Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/16/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: vincesm
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management

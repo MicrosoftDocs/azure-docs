@@ -5,14 +5,12 @@ metadata:
   title: Azure API Management documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing back-end services hosted anywhere.
   services: api-management
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: api-management
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/15/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Learn how to use API Management to publish APIs to external, partner, and employee developers securely and at scale. Tutorials, API references, and other documentation show you how to create and manage modern API gateways for existing back-end services hosted anywhere.
 sections:
