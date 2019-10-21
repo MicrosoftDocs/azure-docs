@@ -1,6 +1,6 @@
 ---
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
-description: This article describes how you can configure the Azure Monitor for containers agent to control stdout/stderr and environment variables log collection.
+description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack.
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
@@ -17,7 +17,7 @@ Azure Monitor for containers provides rich monitoring experience for the Azure K
 
 Before you start, make sure that you have the following:
 
-* **A Log Analytics workspace.**
+* A Log Analytics workspace.
 
     Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
@@ -27,9 +27,9 @@ Before you start, make sure that you have the following:
 
 * You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage access to workspace and log data](../platform/manage-access.md)
 
-2. [HELM client](https://helm.sh/docs/using_helm/) to onboard the Azure Monitor for containers chart for the specified Kubernetes cluster.
+* [HELM client](https://helm.sh/docs/using_helm/) to onboard the Azure Monitor for containers chart for the specified Kubernetes cluster.
 
-3. The following proxy and firewall configuration information is required for the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor:
+* The following proxy and firewall configuration information is required for the containerized version of the Log Analytics agent for Linux to communicate with Azure Monitor:
 
     |Agent Resource|Ports |
     |------|---------|   
@@ -38,9 +38,9 @@ Before you start, make sure that you have the following:
     |*.blob.core.windows.net |Port 443 |  
     |*.dc.services.visualstudio.com |Port 443 | 
 
-4. The containerized agent requires `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
+* The containerized agent requires `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
 
-5. The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory datay - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`. 
+* The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory datay - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`. 
 
 ## Enable monitoring
 
