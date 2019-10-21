@@ -19,7 +19,7 @@ Before you start, make sure that you have the following:
 
 * **A Log Analytics workspace.**
 
-    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor).
+    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
 * You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../platform/manage-access.md)
 
@@ -36,12 +36,16 @@ Before you start, make sure that you have the following:
 
 4. The containerized agent requires `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
 
-5. The containerized agent requires the following environmental variables to be speciified on the agent container to communicate with the Kubernetes API service within the cluster to collect inventory datay - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`. 
+5. The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory datay - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`. 
 
 ## Enable monitoring
 
-Enabling Azure Monitor for containers for the Kubernetes cluster consists of the following high-level steps.
+Enabling Azure Monitor for containers for the hybrid Kubernetes cluster consists of the following high-level steps.
 
 - Configure your Log Analytics workspace with Container Insights solution.
 
-- Enable the Azure Monitor for containers HELM chart with Log Analytics workspace
+- Enable the Azure Monitor for containers HELM chart with Log Analytics workspace.
+
+Perform the following steps to enable the agent in your cluster.
+
+1. 
