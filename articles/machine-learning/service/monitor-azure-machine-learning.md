@@ -64,7 +64,9 @@ Quota information is for Azure Machine Learning compute only.
 | Unusable cores | Count |
 | Unusable nodes | Count |
 
-**Training run**
+**Run**
+
+Information on training runs.
 
 | Metric | Unit | Description |
 | ----- | ----- | ----- |
