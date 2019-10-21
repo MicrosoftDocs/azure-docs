@@ -40,7 +40,7 @@ The minimum SAP HANA certified conditions for the different storage types are:
 - Azure Ultra disk at least for the /hana/log volume. The /hana/data volume can be placed on either Premium SSD without Azure Write Accelerator or in order to get faster restart times Ultra disk
 - **NFS v4.1** volumes on top of Azure NetApp Files for /hana/log **and** /hana/data
 
-Some of the storage types can be combined. E.g. it is possible to put /hana/data onto Premium Storage and /hana/log can be placed on Ultra disk storage in order to get the required low latency. However, it is not recommended to mix NFS volumes for e.g. /hana/data and use one of the other certified storage types for /hana/log
+Some of the storage types can be combined. E.g., it is possible to put /hana/data onto Premium Storage and /hana/log can be placed on Ultra disk storage in order to get the required low latency. However, it is not recommended to mix NFS volumes for e.g. /hana/data and use one of the other certified storage types for /hana/log
 
 In the on-premises world, you rarely had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you should be aware of some of those requirements. Some of the minimum throughput characteristics that are asked are resulting in the need to:
 
@@ -144,19 +144,19 @@ The following table shows a configuration of VM types that customers also use to
 | DS14v2 | 112 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E15 |
 | E32v3 | 256 GiB | 768 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
-| E64v3 | 432 GiB | 1200 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
-| GS5 | 448 GiB | 2000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
+| E64v3 | 432 GiB | 1,200 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
+| GS5 | 448 GiB | 2,000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E30 |
 | M32ts | 192 GiB | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
 | M32ls | 256 GiB | 500 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
-| M64ls | 512 GiB | 1000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 |1 x E30 |
-| M64s | 1000 GiB | 1000 MB/s | 2 x P30 | 1 x E30 | 1 x E6 | 1 x E6 |2 x E30 |
-| M64ms | 1750 GiB | 1000 MB/s | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
-| M128s | 2000 GiB | 2000 MB/s |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
-| M128ms | 3800 GiB | 2000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
-| M208s_v2 | 2850 GiB | 1000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
-| M208ms_v2 | 5700 GiB | 1000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
-| M416s_v2 | 5700 GiB | 2000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
-| M416ms_v2 | 11400 GiB | 2000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
+| M64ls | 512 GiB | 1,000 MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 |1 x E30 |
+| M64s | 1,000 GiB | 1,000 MB/s | 2 x P30 | 1 x E30 | 1 x E6 | 1 x E6 |2 x E30 |
+| M64ms | 1,750 GiB | 1,000 MB/s | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
+| M128s | 2,000 GiB | 2,000 MB/s |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
+| M128ms | 3,800 GiB | 2,000 MB/s | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
+| M208s_v2 | 2,850 GiB | 1,000 MB/s | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
+| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
+| M416s_v2 | 5,700 GiB | 2,000 MB/s | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
+| M416ms_v2 | 11400 GiB | 2,000 MB/s | 8 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E50 |
 
 
 M416xx_v2 VM types are not yet made available by Microsoft to the public. The disks recommended for the smaller VM types with 3 x P20 oversize the volumes regarding the space recommendations according to the [SAP TDI Storage Whitepaper](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html). However the choice as displayed in the table was made to provide sufficient disk throughput for SAP HANA. If you need changes to the **/hana/backup** volume, which was sized for keeping backups that represent twice the memory volume, feel free to adjust.   
@@ -171,7 +171,7 @@ Check whether the storage throughput for the different suggested volumes meets t
 >  
 
 ## Azure Ultra disk storage configuration for SAP HANA
-Microsoft is in the process of rolling out a new Azure storage type called [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). The big difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
+Microsoft is in the process of rolling out a new Azure storage type called [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk). The significant difference between Azure storage offered so far and Ultra disk is that the disk capabilities are not bound to the disk size anymore. As a customer you can define these capabilities for Ultra disk:
 
 - Size of a disk ranging from 4 GiB to 65,536 GiB
 - IOPS range from 100 IOPS to 160K IOPS (maximum depends on VM types as well)
@@ -189,18 +189,18 @@ In this configuration, you keep the /hana/data and /hana/log volumes separately.
 
 | VM SKU | RAM | Max. VM I/O<br /> Throughput | /hana/data volume | /hana/data I/O throughput | /hana/data IOPS | /hana/log volume | /hana/log I/O throughput | /hana/log IOPS |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| E64s_v3 | 432 GiB | 1,200 MB/s | 600 GB | 700 MBps | 7500 | 512 GB | 500 MBps  | 2000 |
-| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 7500 | 256 GB | 250 MBps  | 2000 |
-| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 7500 | 256 GB | 250 MBps  | 2000 |
-| M64ls | 512 GiB | 1000 MB/s | 600 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2500 |
-| M64s | 1000 GiB | 1,000 MB/s |  1200 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2500 |
-| M64ms | 1750 GiB | 1,000 MB/s | 2100 GB | 600 MBps | 7500 | 512 GB | 400 MBps  | 2500 |
-| M128s | 2000 GiB | 2,000 MB/s |2400 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3000 | 
-| M128ms | 3800 GiB | 2,000 MB/s | 4800 GB | 1200 MBps |9000 | 512 GB | 800 MBps  | 3000 | 
-| M208s_v2 | 2850 GiB | 1,000 MB/s | 3500 GB | 1000 MBps | 9000 | 512 GB | 400 MBps  | 2500 | 
-| M208ms_v2 | 5700 GiB | 1,000 MB/s | 7200 GB | 1000 MBps | 9000 | 512 GB | 400 MBps  | 2500 | 
-| M416s_v2 | 5700 GiB | 2,000 MB/s | 7200 GB | 1500MBps | 9000 | 512 GB | 800 MBps  | 3000 | 
-| M416ms_v2 | 11400 GiB | 2,000 MB/s | 14400 GB | 1500 MBps | 9000 | 512 GB | 800 MBps  | 3000 |   
+| E64s_v3 | 432 GiB | 1,200 MB/s | 600 GB | 700 MBps | 7,500 | 512 GB | 500 MBps  | 2,000 |
+| M32ts | 192 GiB | 500 MB/s | 250 GB | 400 MBps | 7,500 | 256 GB | 250 MBps  | 2,000 |
+| M32ls | 256 GiB | 500 MB/s | 300 GB | 400 MBps | 7,500 | 256 GB | 250 MBps  | 2,000 |
+| M64ls | 512 GiB | 1,000 MB/s | 600 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
+| M64s | 1,000 GiB | 1,000 MB/s |  1,200 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
+| M64ms | 1,750 GiB | 1,000 MB/s | 2,100 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
+| M128s | 2,000 GiB | 2,000 MB/s |2,400 GB | 1,200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
+| M128ms | 3,800 GiB | 2,000 MB/s | 4,800 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
+| M208s_v2 | 2,850 GiB | 1,000 MB/s | 3,500 GB | 1,000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
+| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,200 GB | 1,000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
+| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,200 GB | 1,500 MBps | 9,000 | 512 GB | 800 MBps  | 3,000 | 
+| M416ms_v2 | 11,400 GiB | 2,000 MB/s | 14,400 GB | 1,500 MBps | 9,000 | 512 GB | 800 MBps  | 3,000 |   
 
 M416xx_v2 VM types are not yet made available by Microsoft to the public. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
@@ -216,14 +216,14 @@ In this configuration, you the /hana/data and /hana/log volumes on the same disk
 | M32ts | 192 GiB | 500 MB/s | 512 GB | 400 MBps | 9,500 | 
 | M32ls | 256 GiB | 500 MB/s | 600 GB | 400 MBps | 9,500 | 
 | M64ls | 512 GiB | 1,000 MB/s | 1,100 GB | 900 MBps | 10,000 | 
-| M64s | 1000 GiB | 1,000 MB/s |  1,700 GB | 900 MBps | 10,000 | 
-| M64ms | 1750 GiB | 1,000 MB/s | 2,600 GB | 900 MBps | 10,000 | 
-| M128s | 2000 GiB | 2,000 MB/s |2,900 GB | 1,800 MBps |12,000 | 
-| M128ms | 3800 GiB | 2,000 MB/s | 5,300 GB | 1,800 MBps |12,000 |  
-| M208s_v2 | 2850 GiB | 1,000 MB/s | 4,000 GB | 900 MBps | 10,000 |  
-| M208ms_v2 | 5700 GiB | 1,000 MB/s | 7,700 GB | 900 MBps | 10,000 | 
-| M416s_v2 | 5700 GiB | 2,000 MB/s | 7,700 GB | 1,800MBps | 12,000 |  
-| M416ms_v2 | 11400 GiB | 2,000 MB/s | 15,000 GB | 1,800 MBps | 12,000 |    
+| M64s | 1,000 GiB | 1,000 MB/s |  1,700 GB | 900 MBps | 10,000 | 
+| M64ms | 1,750 GiB | 1,000 MB/s | 2,600 GB | 900 MBps | 10,000 | 
+| M128s | 2,000 GiB | 2,000 MB/s |2,900 GB | 1,800 MBps |12,000 | 
+| M128ms | 3,800 GiB | 2,000 MB/s | 5,300 GB | 1,800 MBps |12,000 |  
+| M208s_v2 | 2,850 GiB | 1,000 MB/s | 4,000 GB | 900 MBps | 10,000 |  
+| M208ms_v2 | 5,700 GiB | 1,000 MB/s | 7,700 GB | 900 MBps | 10,000 | 
+| M416s_v2 | 5,700 GiB | 2,000 MB/s | 7,700 GB | 1,800MBps | 12,000 |  
+| M416ms_v2 | 11,400 GiB | 2,000 MB/s | 15,000 GB | 1,800 MBps | 12,000 |    
 
 M416xx_v2 VM types are not yet made available by Microsoft to the public. The values listed are intended to be a starting point and need to be evaluated against the real demands. The advantage with Azure Ultra disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.  
 
@@ -290,7 +290,7 @@ The SAP HANA configuration for the layout presented in this article, using Azure
 > [!TIP]
 > You can re-size Azure NetApp Files volumes dynamically, without the need to `unmount` the volumes, stop the virtual machines or stop SAP HANA. That allows flexibility to meet your application both expected and unforeseen throughput demands.
 
-Documentation on how to deploy a SAP HANA scale-out configuration with standby node using NFS v4.1 columes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
+Documentation on how to deploy a SAP HANA scale-out configuration with standby node using NFS v4.1 volumes that are hosted in ANF is published in [SAP HANA scale-out with standby node on Azure VMs with Azure NetApp Files on SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse).
 
 
 ## Next steps
