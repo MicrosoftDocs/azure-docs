@@ -411,13 +411,12 @@ After you've verified that the test migration works as expected, you can migrate
 ## Complete the migration
 
 1. After the migration is done, right-click the VM > **Stop migration**. This stops replication for the on-premises machine, and cleans up replication state information for the VM.
-2. Install the Azure VM [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) or [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) agent on the migrated machines.
-3. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
-4. Perform final application and migration acceptance testing on the migrated application now running in Azure.
-5. Cut over traffic to the migrated Azure VM instance.
-6. Remove the on-premises VMs from your local VM inventory.
-7. Remove the on-premises VMs from local backups.
-8. Update any internal documentation to show the new location and IP address of the Azure VMs. 
+2. Perform any post-migration app tweaks, such as updating database connection strings, and web server configurations.
+3. Perform final application and migration acceptance testing on the migrated application now running in Azure.
+4. Cut over traffic to the migrated Azure VM instance.
+5. Remove the on-premises VMs from your local VM inventory.
+6. Remove the on-premises VMs from local backups.
+7. Update any internal documentation to show the new location and IP address of the Azure VMs. 
 
 ## Post-migration best practices
 
