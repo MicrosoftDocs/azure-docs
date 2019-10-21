@@ -74,7 +74,7 @@ You can follow below steps to create a self-hosted IR using Azure Data Factory U
 ### Set up a self-hosted IR on Azure VM via Azure Resource Manager template 
 You can automate self-hosted IR setup on an Azure virtual machine by using [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). This template provides an easy way to have a fully functioning self-hosted IR inside an Azure virtual network with high-availability and scalability features (as long as you set the node count to 2 or higher).
 
-### Set up an existing self-hosted IR via PowerShell
+### Set up an existing self-hosted IR via local PowerShell
 
 You can use command line for setting up or managing an existing self-hosted IR. This can be used especially for automating installation, registration of self-hosted IR nodes. 
 
@@ -94,7 +94,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Enable remote access on the current node for setting up a High Availability Cluster and/or enabling setting of credentials directly against the self-hosted IR (without going through ADF service) using **New-AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet from a remote machine in same network. | No       |
 | EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Enable remote access to current node when the node is running in Container | No       |
 | DisableRemoteAccess                                         | Disable remote access to current node. Remote access is needed for multi-node setup. The New-**AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet still works even when remote access is disabled as long as it is executed on the same machine as the self-hosted IR node. | No       |
-| Key "`<AuthenticationKey>`"                                 | Overwrite/ update the previous Authentication Key. Be careful as this can result in your previous self-hosted IR node going offline, if the key is of a new integration runtime. | No       |
+| Key "`<AuthenticationKey>`"                                 | Overwrite/ update the previous Authentication Key. Please be careful as this can result in your previous self-hosted IR node going offline, if the key is of a new integration runtime. | No       |
 | GenerateBackupFile "`<filePath>`" "`<password>`"            | Generate backup file for current node, the backup file includes the node key and data store credentials | No       |
 | ImportBackupFile "`<filePath>`" "`<password>`"              | Restore the node from a backup file                          | No       |
 | Restart                                                     | Restart the Integration Runtime (Self-hosted) Host Service   | No       |
@@ -106,7 +106,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | TurnOffAutoUpdate                                           | Turn off Integration Runtime (Self-hosted) auto update       | No       |
 | SwitchServiceAccount "<domain\user>" ["password"]           | Set DIAHostService to run as a new account. Use empty password ("") for system account or virtual account | No       |
 | Loglevel `<logLevel>`                                       | Set ETW log level (Off, Error, Verbose or All). Generally used by Microsoft support while debugging. | No       |
-  
+
 
 ## Command flow and data flow
 When you move data between on-premises and the cloud, the activity uses a self-hosted integration runtime to transfer the data from an on-premises data source to the cloud and vice versa.
