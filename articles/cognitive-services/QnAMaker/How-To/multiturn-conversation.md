@@ -40,7 +40,7 @@ When the user selects an option (#3), the next list of refining options (#4) is 
 
 ### Use multi-turn in a bot
 
-After publishing your KB, you can click on the 'Create Bot' button to deploy your QnA Maker bot to Azure bot service. The prompts will appear in the chat clients that you have enabled for your bot.
+After publishing your KB, you can select the **Create Bot** button to deploy your QnA Maker bot to Azure bot service. The prompts will appear in the chat clients that you have enabled for your bot.
 
 ## Create a multi-turn conversation from a document's structure
 
@@ -48,7 +48,7 @@ When you create a knowledge base, the **Populate your KB** section displays an *
 
 ![Check box for enabling multi-turn extraction](../media/conversational-context/enable-multi-turn.png)
 
-When you select this option, QnA Maker extracts the hierarchy present in the document structure. The hierarchy is converted in to follow up prompts and the root of the hierarchy serves as the parent QnA. In some documents the root of the hierarchy does not have a text assigned to its own, you can provide the 'Default Answer Text' to be used as a substitute answer text to extract such hierarchies.   
+When you select this option, QnA Maker extracts the hierarchy present in the document structure. The hierarchy is converted in to follow up prompts and the root of the hierarchy serves as the parent QnA. In some documents the root of the hierarchy does not have content which could serve as an answer, you can provide the 'Default Answer Text' to be used as a substitute answer text to extract such hierarchies.   
 
 Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. For an example of structure, view an image of a [Microsoft Surface user manual PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). 
 
@@ -56,13 +56,13 @@ Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. F
 
 ### Building your own multi-turn document
 
-If you are creating a multi-turn document from scratch, please keep in mind the following guidelines:
+If you are creating a multi-turn document, please keep in mind the following guidelines:
 
 * Use headings and sub-headings to denote hierarchy. For example You can h1 to denote the parent QnA and h2 to denote the QnA that should be taken as prompt. Use small heading size to denote subsequent hierarchy. Don't use style, color, or some other mechanism to imply structure in your document, QnA Maker will not extract the multi-turn prompts. 
 
 * Do not end a heading with a question mark, `?`. 
 
-* You can use the [sample document]() as an example to create your own multi-turn document.
+* You can use the [sample document](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx) as an example to create your own multi-turn document.
 
 ### Adding files to a multi-turn KB
 
@@ -104,7 +104,7 @@ Add a follow-up prompt to an existing question-and-answer pair that isn't curren
 
 1. To link an existing question-and-answer pair as a follow-up prompt, select the row for the question-and-answer pair. For the Surface manual, search for **Sign out** to reduce the list.
 1. In the row for **Signout**, in the **Answer** column, select **Add follow-up prompt**.
-1. In the fields in the **Follow-up prompt (PREVIEW)** pop-up window, enter the following values:
+1. In the fields in the **Follow-up prompt** pop-up window, enter the following values:
 
     |Field|Value|
     |--|--|
@@ -348,11 +348,8 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
 
 ## Query the knowledge base with the QnA Maker ID
 
-In the initial question's response, any follow-up prompts and its associated `qnaId` is returned. Now that you have the ID, you can pass this in the follow-up prompt's request body. If the request body contains the `qnaId`, and the context object (which contains the previous QnA Maker properties), then GenerateAnswer will return the exact question by ID, instead of using the ranking algorithm to find the answer by the question text. 
+If you are building a custom application using multi-turn feature. In the initial question's response, any follow-up prompts and its associated `qnaId` is returned. Now that you have the ID, you can pass this in the follow-up prompt's request body. If the request body contains the `qnaId`, and the context object (which contains the previous QnA Maker properties), then GenerateAnswer will return the exact question by ID, instead of using the ranking algorithm to find the answer by the question text. 
 
-## Display prompts and send context in the client application 
-
-You have added prompts in your knowledge base and tested the flow in the test pane. Now you need to use these prompts in the client application. For Bot Framework, the prompts aren't automatically displayed in the client applications. You can display the prompts as suggested actions or buttons as part of the answer to the user’s query in client applications by including this [Bot Framework sample](https://aka.ms/qnamakermultiturnsample) in your code. The client application shall store the current QnA Maker ID and the user query, and pass them in the [context object of the GenerateAnswer API](#a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts) for the next user query. 
 
 ## Display order is supported in the Update API
 
