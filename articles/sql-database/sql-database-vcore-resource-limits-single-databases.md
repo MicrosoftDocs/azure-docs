@@ -204,7 +204,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
-## Business Critical - provisioned compute - Gen4
+## Business critical - provisioned compute - Gen4
 
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
@@ -257,7 +257,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
-## Business Critical - provisioned compute - Gen5
+## Business critical - provisioned compute - Gen5
 
 ### Gen5 compute compute (part 1)
 
@@ -308,7 +308,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
 
-## Business Critical - provisioned compute - M-series
+## Business critical - provisioned compute - M-series
 
 ### M-series compute generation (preview)
 
@@ -335,7 +335,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 
 
-## Hyperscale service - provisioned compute - Gen5
+## Hyperscale - provisioned compute - Gen5
 
 ### Gen5 compute generation
 
