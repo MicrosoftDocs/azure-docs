@@ -48,14 +48,6 @@ If you don't want your internal users to be directed through the Application Pro
 
 ![Split-brain DNS](./media/application-proxy-configure-custom-domain/split-brain-dns.png)
 
-### Same internal and external URL, same internal and external behavior 
-
-In this scenario, both the internal and external DNS CNAME entries point to the *msapproxy.net* URL. 
-
-A common case for this scenario is to apply conditional access to the web app or website regardless of device location. For example, only Azure AD Registered/Join Device trusted devices are allowed access. 
-
-![Same internal and external DNS](./media/application-proxy-configure-custom-domain/both-app-proxy.png)
-
 ### Different internal and external URLs 
 
 If the internal and external URLs are different, you don't need to configure split-brain behavior, because user routing is determined by the URL. In this case, you change only the external DNS, and route the external URL to the Application Proxy endpoint. 
