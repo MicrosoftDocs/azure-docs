@@ -274,7 +274,7 @@ You screen text using a term list with **ContentModeratorClient.TextModeration.S
 - A MIME type, which can be "text/html", "text/xml", "text/markdown", or "text/plain".
 - The text to screen.
 - A boolean value. Set this field to **true** to autocorrect the text before screening it.
-- A boolean value. Set this field to **true** to detect Personal Identifiable Information (PII) in the text.
+- A boolean value. Set this field to **true** to detect personal data in the text.
 - The term list ID.
 
 For more information, see the [API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
