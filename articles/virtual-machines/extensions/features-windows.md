@@ -248,6 +248,13 @@ Moving the **command to execute** property to the **protected** configuration se
 }
 ```
 
+On an Azure IaaS VM using extensions, you might notice certificates with subject = **_"Windows Azure CRP Certificate Generator"_** in the certificates console.
+On a Classic RDFE VM, these certificates will have Subject Name = **_"Windows Azure Service Management for Extensions"_**.
+
+These certificates are there to secure the communication between the VM and its host, during the transfer of protected settings (password, etc…) used by extensions. They are built by the Azure Fabric Controller, and passed to the VM Agent. If you stop/start the VM every day, a new certificate might be created by the Fabric Controller and will be stored in the Computer's Personal certificates store. These certificates can be deleted, the VM Agent will recreate one if needed.
+
+
+
 ### How do agents and extensions get updated?
 
 The Agents and Extensions share the same update mechanism. Some updates do not require additional firewall rules.
