@@ -15,7 +15,7 @@ This article discusses solutions to issues that you might encounter when you use
 
 There's an agent troubleshooter for the Hybrid Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md). For all other issues, use the following troubleshooting guidance.
 
-If you encounter issues while you're trying to onboard the solution on a virtual machine, check the **Operations Manager** log under **Application and Services Logs** on the local machine for events with event ID 4502 and event details that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
+If you encounter issues while you're trying to onboard the solution on a virtual machine (VM), check the **Operations Manager** log under **Application and Services Logs** on the local machine for events with event ID 4502 and event details that contain **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
 The following section highlights specific error messages and possible resolutions for each. For other onboarding issues see [Troubleshoot solution onboarding](onboarding.md).
 
@@ -25,15 +25,15 @@ The following section highlights specific error messages and possible resolution
 
 You experience the following symptoms:
 
-* Your machine shows **Not configured** from the Update Management view of a virtual machine (VM).
+* Your machine shows **Not configured** from the Update Management view of a VM.
 
-* Your machines are missing from the Update Management view of your Automation account.
+* Your machines are missing from the Update Management view of your Azure Automation account.
 
 * You have machines that show as **Not Assessed** under **Compliance**. However, you see heartbeat data in Azure Monitor logs for the Hybrid Runbook Worker but not for Update Management.
 
 ### Cause
 
-This issue can be caused by local configuration issues or by improperly configured Scope configuration.
+This issue can be caused by local configuration issues or by improperly configured scope configuration.
 
 You might have to reregister and reinstall the Hybrid Runbook Worker.
 
@@ -66,7 +66,7 @@ You might have defined a quota in your workspace that's been reached and that's 
 
 * If these steps don't resolve your problem, follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. Or, for Linux, [deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
-## <a name="rp-register"></a>Scenario: Unable to register Automation Resource Provider for subscriptions
+## <a name="rp-register"></a>Scenario: Unable to register an Automation Resource Provider for subscriptions
 
 ### Issue
 
@@ -114,7 +114,7 @@ This error can occur for the following reasons:
    1. In your Log Analytics workspace, remove the VM from the saved search for the `MicrosoftDefaultScopeConfig-Updates` scope configuration if it's shown. Saved searches can be found under **General** in your workspace.
    2. Run `Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force`.
    3. Run `Restart-Service HealthService` to restart the `HealthService`. This recreates the key and generates a new UUID.
-   4. If this approach doesn't work, run sysprep on the image first and then install the MMA agent.
+   4. If this approach doesn't work, run sysprep on the image first and then install the MMA.
 
 ## <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when you create an update deployment for machines in another Azure tenant
 
@@ -177,7 +177,7 @@ This error can occur for one of the following reasons:
 * The machine is turned off and unreachable.
 * The machine has a network connectivity issue, and therefore the hybrid worker on the machine is unreachable.
 * There was an update to the MMA that changed the SourceComputerId.
-* Your update run was throttled if you hit the 2000 concurrent jobs limit in an Automation account. Each deployment is considered a job and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts towards the concurrent job limit.
+* Your update run was throttled if you hit the limit of 2,000 concurrent jobs in an Automation account. Each deployment is considered a job, and each machine in an update deployment counts as a job. Any other automation job or update deployment currently running in your Automation account counts toward the concurrent job limit.
 
 ### Resolution
 
@@ -390,5 +390,5 @@ If you can't resolve a patching issue, make a copy of the following log file and
 If you didn't see your problem or can't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) – the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience by connecting the Azure community to the right resources: answers, support, and experts.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.
