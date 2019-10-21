@@ -21,7 +21,7 @@ In-store analytics solutions allow you to monitor various conditions within the 
 - Gateway devices sending telemetry and aggregated insights to IoT Central
 - Continuous data export to the desired Azure service for manipulation
 - Data can be structured in the desired format and sent to a storage service
-- Business applications can query data and power retail operations
+- Business applications can query data and generate insights that power retail operations
  
 Let's take a look at key components that generally play a part in an in-store analytics solution.
 
