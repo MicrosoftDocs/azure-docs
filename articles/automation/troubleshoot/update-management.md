@@ -66,7 +66,7 @@ You might have defined a quota in your workspace that's been reached and that's 
 
 * If these steps don't resolve your problem, follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows. Or, for Linux, [deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md).
 
-## <a name="rp-register"></a>Scenario: Unable to register an Automation Resource Provider for subscriptions
+## <a name="rp-register"></a>Scenario: Unable to register Automation Resource Provider for subscriptions
 
 ### Issue
 
