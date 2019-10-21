@@ -11,15 +11,10 @@ ms.topic: include
 ms.date: 09/20/2019
 ms.author: yulili
 ---
-In this quickstart you'll use the Speech SDK to convert text to synthesized speech. Regardless of your language/platform preference, there are a few things that you'll do as you work your way through this article:
 
-1. Consume the Speech SDK.
-2. Create a configuration that takes your subscription key and region as arguments.
-3. Synthesize speech and play back the result. (or display errors).
-
-Let's write some code!
-
-> [!TIP]
-> If you prefer a demo to a quickstart, check out our [Speech SDK samples on GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk).
-
-For a complete list of languages/voices available for speech synthesis, see [language support](~/articles/cognitive-services/Speech-Service/language-support.md#text-to-speech).
+In this quickstart you will use the [Speech SDK](https://aka.ms/ignite2019/speech/placeholder) to interactively translate speech from one language to text in another language. After satisfying a few prerequisites, translating speech-to-text only takes four steps:
+> [!div class="checklist"]
+> * Create a ````SpeechConfig```` object from your subscription key and region.
+> * Create a ````TranslationRecognizer```` object using the ````SpeechConfig```` object from above.
+> * Using the ````TranslationRecognizer```` object, start the recognition process for a single utterance.
+> * Inspect the ````TranslationRecognitionResult```` returned.

@@ -23,22 +23,24 @@
       href: quickstarts/from-blob.md
   - name: How-to guides
     items:
-    - name: Change recognition source language
+    - name: Change speech recognition source language
       href: how-to-specify-source-language.md
-    - name: Compressed audio input formats
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Continuous recognition
-      href: shttps://aka.ms/ignite2019/speech/placeholder
     - name: Improve accuracy with Custom Speech
       href: how-to-custom-speech.md
     - name: Improve accuracy with Phrase Lists
       href: how-to-phrase-lists.md
     - name: Improve accuracy with Tenant Language Models
       href: tutorial-tenant-language-model.md
-    - name: Selecting microphone input devices
+    - name: Select a specific microphone input device
       href: how-to-select-audio-input-devices.md
     - name: Use automatic source language detection
       href: how-to-automatic-language-detection.md
+    - name: Use compressed audio input formats
+      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Use continuous recognition
+      href: shttps://aka.ms/ignite2019/speech/placeholder
+    - name: Use speech-to-text with Docker containers
+      href: speech-container-howto.md
   - name: Reference
     items:
     - name: Speech SDK
@@ -82,6 +84,8 @@
       href: speech-synthesis-markup.md
     - name: Improve output with Custom Voices
       href: how-to-custom-voice.md
+    - name: Use text-to-speech with Docker containers
+      href: speech-container-howto.md
   - name: Reference
     items:
     - name: Speech SDK
@@ -366,19 +370,19 @@
       href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
   - name: Reference
     items:
-    - name: C++ API Reference
+    - name: API Reference C++
       href: https://aka.ms/csspeech/cppref
-    - name: C# API Reference
+    - name: API Reference C#
       href: https://aka.ms/csspeech/csharpref
-    - name: Java API Reference
+    - name: API Reference Java
       href: https://aka.ms/csspeech/javaref
-    - name: JavaScript API Reference
+    - name: API Reference JavaScript
       href: https://aka.ms/csspeech/javascriptref
-    - name: Objective-C API Reference
+    - name: API Reference Objective-C
       href: https://aka.ms/csspeech/objectivecref
-    - name: Python API Reference
+    - name: API Reference Python
       href: https://aka.ms/csspeech/pythonref
-    - name: Release notes
+    - name: Speech SDK Release notes
       href: releasenotes.md
 - name: Migration
   exanded: false
