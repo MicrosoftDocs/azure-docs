@@ -8,7 +8,7 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-# Customer intent: As someone interested in the monitoring space, I want to better understand the difference between Internet Analyzer and Network Watcher. 
+# Customer intent: As someone interested in the internet monitoring/ connectivity space, I want to better understand the difference between Internet Analyzer and Network Watcher. 
 
 ---
 # Internet Connectivity Monitoring Overview 
@@ -19,7 +19,10 @@ Internet Analyzer measures the performance between your end users' Web applicati
 
 Network Watcher provides tools to monitor, diagnose, and gain insight into your Azure Virtual Network. Network Watcher can be used to understand your **current and historical workloads**. 
 
+
+
 ![internet analyzer vs. network watcher](./media/ia-networkwatcher.png)
+
 
 ## Internet Analyzer scenarios 
 
@@ -47,4 +50,4 @@ Some of the questions Network Watcher can answer are:
 ## Next steps
 
 * Read the [Internet Analyzer overview](internet-analyzer-overview.md)
-* Read the [Network Watcher overview](network-watcher-monitoring-overview.md)
+* Read the [Network Watcher overview](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
