@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 10/09/2019
+ms.date: 10/21/2019
 ms.author: lcozzens
 
 #Customer intent: As a .NET Framework developer, I want to use feature flags to control feature availability quickly and confidently.
@@ -34,14 +34,6 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **+ Create** to add the following key-value pairs:
-
-    | Key | Value |
-    |---|---|
-    | TestApp:Settings:Message | Data from Azure App Configuration |
-
-    Leave **Label** and **Content Type** empty for now.
-
 ## Create a .NET console app
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
@@ -55,8 +47,9 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
 
     ```
-    Microsoft.Azure.AppConfiguration.AspNetCore
-    Microsoft.FeatureManagement.AspNetCore
+    Microsoft.Extensions.DependencyInjection
+    Microsoft.Extensions.Configuration.AzureAppConfiguration
+    Microsoft.FeatureManagement
     ```
 
 1. Open *Program.cs* and add the following statements:
@@ -68,17 +61,17 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
     using Microsoft.FeatureManagement;
     ```
 
-1. Update the `Main` method to display a message if the `Beta` feature flag is enabled.
+1. Update the `Main` method to connect to App Configuration, specifying the `UseFeatureFlags` option so that feature flags are retrieved. Then display a message if the `Beta` feature flag is enabled.
 
     ```csharp
         static void Main(string[] args)
         {
-            IConfigurationRoot configuration = new Microsoft.Extensions.Configuration.ConfigurationBuilder()
+            IConfigurationRoot configuration = new ConfigurationBuilder()
                 .AddAzureAppConfiguration(options => 
                 { 
                     options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
                            .UseFeatureFlags(); 
-                }).Build(); 
+                }).Build();
             
             IServiceCollection services = new ServiceCollection(); 
             services.AddSingleton<IConfiguration>(configuration).AddFeatureManagement(); 
@@ -86,7 +79,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
             
             if (featureManager.IsEnabled("Beta")) 
             { 
-                Console.WriteLine("Warning: You are using a beta version of this application."); 
+                Console.WriteLine("Welcome to the beta"); 
             }
 
             Console.WriteLine("Hello World!");
@@ -107,13 +100,14 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 1. Press Ctrl + F5 to build and run the console app.
 
+    ![App with feature flag enabled](./media/quickstarts/dotnet-app-feature-flag.png)
+
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## Next steps
 
-In this quickstart, you created a feature flag in App Configuration and used it with a .NET Framework console app. To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
+In this quickstart, you created a feature flag in App Configuration and used it with a .NET Framework console app. To learn how to dynamically update feature flags without restarting the application, continue to the next tutorial.
 
-> [!div class="nextstepaction"]
-> [Managed identity integration](./howto-integrate-azure-managed-service-identity.md)
+[Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)
