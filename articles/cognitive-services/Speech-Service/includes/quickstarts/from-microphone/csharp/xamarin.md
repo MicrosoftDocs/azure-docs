@@ -16,8 +16,10 @@ ms.author: erhopf
 
 Before you get started, make sure to:
 
-1. [Create a Speech resource and get a subscription key]().
-2. [Setup your development environment](~/articles/cognitive-services/Speech-Service/quickstart-platform-csharp-unity.md). Use this quickstart to install and configure Unity.
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=xamarin)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=xamarin)
 
 If you've already done this, great. Let's keep going.
 
@@ -63,7 +65,7 @@ Now add the C# code that defines the Android-specific part of the application.
 
 1. After that, open `AndroidManifest.xml` under the *Properties* folder. Add the following uses-permission setting for the microphone between `<manifest>` and `</manifest>`:
 
-   ```xml
+```xml
    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 ```
 #### [iOS](#tab/ios)
