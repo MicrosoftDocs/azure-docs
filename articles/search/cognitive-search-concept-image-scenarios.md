@@ -31,7 +31,7 @@ You cannot turn off image normalization. Skills that iterate over images expect 
 |  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000.|
 
 > [!NOTE]
-> If you set the *imageAction* property to anything other than "none", You'll not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
+> If you set the *imageAction* property to anything other than "none", you'll not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
 
 Set the **parsingMode** parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain JSON arrays and you need each element of an array to be treated as a separate document).
 
