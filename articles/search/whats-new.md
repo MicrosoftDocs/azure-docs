@@ -24,7 +24,7 @@ API versions, Nuget packages, namespaces, and endpoints are unchanged.
 
 November 4, 2019 - Ignite Conference
 
-+ [Knowledge store](knowledge-store-concept-intro.md) is now generally available.
++ [Knowledge store](knowledge-store-concept-intro.md) is now generally available. If you previously used `api-version=2019-05-06-Preview` to create a knowledge, you can now drop the `-Preview` from the version designation.
 
 + [Power BI templates](knowledge-store-connect-power-bi.md) can jumpstart your visualizations and analysis of enriched content in a knowledge store.
 
@@ -34,9 +34,9 @@ November 4, 2019 - Ignite Conference
 
 + Document Cracking Skill is a cognitive skill used during indexing that allows you to extract the contents of a file from within a skillset. Previously, document cracking occurred prior to skillset execution. With the addition of this skill, you can perform this operation within skillset execution.
 
-+ File projections, now in preview ...
+<!-- + File projections, now in preview ...
 
-+ Indexer data source support now includes ...
++ Indexer data source support now includes ... -->
 
 
 ## Service updates
