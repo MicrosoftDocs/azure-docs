@@ -23,7 +23,7 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
 
-## Open your project in Exclipse
+## Open your project in Eclipse
 
 The first step is to make sure that you have your project open in Eclipse.
 

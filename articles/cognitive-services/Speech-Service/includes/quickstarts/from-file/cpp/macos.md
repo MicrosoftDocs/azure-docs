@@ -21,41 +21,6 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=macos)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=macos)
 
-## Install Speech SDK
-
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
-
-The Speech SDK for macOS can be downloaded as a zipped framework bundle from https://aka.ms/csspeech/macosbinary.
-
-Download and install the SDK as follows:
-
-1. Choose a directory to which the Speech SDK files should be extracted, and set the `SPEECHSDK_ROOT` environment variable to point to that directory. This variable makes it easy to refer to the directory in future commands. For example, if you want to use the directory `speechsdk` in your home directory, use a command like the following:
-
-   ```sh
-   export SPEECHSDK_ROOT="$HOME/speechsdk"
-   ```
-
-1. Create the directory if it doesn't exist yet.
-
-   ```sh
-   mkdir -p "$SPEECHSDK_ROOT"
-   ```
-
-1. Download and extract the `.zip` archive containing the Speech SDK framework:
-
-   ```sh
-   wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
-   unzip SpeechSDK-macOS.zip -d "$SPEECHSDK_ROOT"
-   ```
-
-1. Validate the contents of the top-level directory of the extracted package:
-
-   ```sh
-   ls -l "$SPEECHSDK_ROOT"
-   ```
-
-   The directory listing should contain the third-party notice and license files, as well as a `MicrosoftCognitiveServicesSpeech.framework` directory.
-
 ## Add sample code
 
 1. Create a C++ source file named `helloworld.cpp`, and paste the following code into it.
