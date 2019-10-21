@@ -81,7 +81,7 @@ Read the following SAP Notes and papers first:
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 * [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
-* [SAP HANA on NetApp Systems with NFS](https://www.netapp.com/us/media/tr-4435.pdf). The configuration guide contains information how to set up SAP HANA, using NFS provided by Azure NetApp Files
+* [SAP HANA on NetApp Systems with NFS](https://www.netapp.com/us/media/tr-4435.pdf). The configuration guide contains information on how to set up SAP HANA, using NFS provided by Azure NetApp Files.
 
 
 ## Overview
