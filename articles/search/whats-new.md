@@ -26,20 +26,15 @@ API versions, Nuget packages, namespaces, and endpoints are unchanged. Your exis
 
 November 4, 2019 - Ignite Conference
 
-<!-- + [Knowledge store](knowledge-store-concept-intro.md) is now generally available. If you previously used `api-version=2019-05-06-Preview` to create a knowledge, you can now drop the `-Preview` from the version designation. -->
-
 + [Power BI templates](knowledge-store-connect-power-bi.md) can jumpstart your visualizations and analysis of enriched content in a knowledge store in Power BI desktop.
 
-+ Incremental processing, now in preview, allows you to process and retain content in chunks so that you can build up an index or a knowledge store in phases. This is especially useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
++ Incremental indexing, now in preview, allows you to process or re-process only the steps that are absolutely necessary when making modifications to an enrichment pipeline. This is especially useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
 
-+ Lookup Skill is a cognitive skill used during indexing that calls a specific document by its ID for processing within a skillset.
++ Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms.
 
-+ Document Cracking Skill is a cognitive skill used during indexing that allows you to extract the contents of a file from within a skillset. Previously, document cracking occurred prior to skillset execution. With the addition of this skill, you can perform this operation within skillset execution.
++ Document Cracking is a cognitive skill used during indexing that allows you to extract the contents of a file from within a skillset. Previously, document cracking only occurred prior to skillset execution. With the addition of this skill, you can also perform this operation within skillset execution.
 
-<!-- + File projections, now in preview ...
-
-+ Indexer data source support now includes ... -->
-
++ [Text Translation](cognitive-search-skill-text-translation.md) is a cognitive skill used during indexing that evaluates text and, for each record, returns the text translated to the specified target language.
 
 ## Service updates
 
