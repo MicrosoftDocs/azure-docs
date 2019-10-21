@@ -23,6 +23,7 @@ The 'Register-SqlVMs' cmdlet can be used to register all virtual machines in a g
 
 For more information about the resource provider, see [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
+For the full script on GitHub, see [Bulk register SQL VMs with Az PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/4a29e653d93a109c36fa9161625eefcf14f0837d/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
 ## Prerequisites
 
