@@ -78,7 +78,7 @@ Adding cognitive skills is not necessary for document import. Unless you have a 
 
 To skip the step, first go to the next page.
 
-   ![Next page button for add enrichment](media/search-get-started-portal/next-button-add-cog-search.png)
+   ![Next page button for add skills](media/search-get-started-portal/next-button-add-cog-search.png)
 
 From that page you can skip ahead to index customization.
 

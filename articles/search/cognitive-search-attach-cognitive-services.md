@@ -46,7 +46,7 @@ Free (Limited enrichments) resources are restricted to 20 documents per day, per
 
    ![Expanded Attach Cognitive Services section](./media/cognitive-search-attach-cognitive-services/attach1.png "Expanded Attach Cognitive Services section")
 
-1. Continue to the next step, **Add Enrichments**. For a description of skills available in the portal, see [Step 2: Add cognitive skills](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) in the AI enrichment quickstart.
+1. You can now continue on to the next steps,  including **Add cognitive skills**.
 
 ## Use billable resources
 
@@ -76,7 +76,7 @@ You're charged only for skills that call the Cognitive Services APIs. You're not
 
    ![Select the Cognitive Services resource](./media/cognitive-search-attach-cognitive-services/attach2.png "Select the Cognitive Services resource")
 
-1. Expand the **Add Enrichments** section to select the specific cognitive skills that you want to run on your data. Complete the rest of the wizard. For a description of skills available in the portal, see [Step 2: Add cognitive skills](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) in the AI enrichment quickstart.
+1. Expand the **Add cognitive skills** section to select the specific cognitive skills that you want to run on your data. Complete the rest of the wizard.
 
 ## Attach an existing skillset to a Cognitive Services resource
 

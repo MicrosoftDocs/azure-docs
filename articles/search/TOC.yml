@@ -13,10 +13,12 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Create and use an index
+    - name: Create a search index
       href: search-get-started-portal.md
-    - name: Enrich with AI (Cognitive Services)
+    - name: Create a cognitive skillset
       href: cognitive-search-quickstart-blob.md
+    - name: Create a knowledge store
+      href: knowledge-store-create-portal.md
   - name: C#
     href: search-get-started-dotnet.md
   - name: Java
@@ -247,8 +249,6 @@
       href: cognitive-search-resources-documentation.md
     - name: Knowledge store (preview)
       items:
-      - name: Create a knowledge store in Azure portal
-        href: knowledge-store-create-portal.md
       - name: Create using REST and Postman
         href: knowledge-store-create-rest.md
       - name: View with Storage Explorer
