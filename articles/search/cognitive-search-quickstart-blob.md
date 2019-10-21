@@ -12,9 +12,9 @@ ms.date: 11/04/2019
 ---
 # Quickstart: Create an Azure Cognitive Search cognitive skillset in the Azure portal
 
-A skillset is an AI feature that extracts information and structure from large undifferentiated text or image files, and makes it indexable and searchable for full text search queries in Azure Cognitive Search. 
+A skillset is an AI feature that extracts information and structure from large undifferentiated text or image files, and makes it indexable and searchable for full text search querying in Azure Cognitive Search. 
 
-In this quickstart, you'll combine services and technology in the Azure cloud to create the skillset. Once the services and data are in place, you will run the Import data wizard in the portal to pull it all together. The end result is a searchable index that you can query from another portal tool ([Search explorer](search-explorer.md)).
+In this quickstart, you'll combine services and technology in the Azure cloud to create the skillset. Once the services and data are in place, you will run the **Import data** wizard in the portal to pull it all together. The end result is a searchable index that you can query from another portal tool ([Search explorer](search-explorer.md)).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

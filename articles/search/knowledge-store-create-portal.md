@@ -17,9 +17,9 @@ ms.date: 11/04/2019
 > Knowledge store is in preview and should not be used in production. Both the Azure portal and the [Search REST API version 2019-05-06-Preview](search-api-preview.md) provide this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is a feature in Azure Cognitive Search that persists output from a cognitive skills pipeline for later analyses or other downstream processing. Cognitive skills accept image files and unstructured text files, apply AI processes through Cognitive Services (such as image analysis and natural language processing). One of the outputs create by cognitive skills is a [knowledge store](knowledge-store-concept-intro.md) in Azure storage. You can use tools like Power BI or Storage Explorer to explore knowledge store contents, or use the enriched content in a data analysis.
+Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. Cognitive skills accept image files and unstructured text files, apply AI processes through Cognitive Services (such as image analysis and natural language processing). Output is a [knowledge store](knowledge-store-concept-intro.md) in Azure storage, which you can access through tools like Power BI or Storage Explorer.
 
-In this quickstart, you'll combine services and technology in the Azure cloud to create the skillset. Once the services and data are in place, you will run the Import data wizard in the portal to pull it all together. The end result is a knowledge store that you can view from another portal tool ([Storage explorer](knowledge-store-view-storage-explorer.md)).
+In this quickstart, you'll combine services and technology in the Azure cloud to create the knowledge store. Once the services and data are in place, you will run the **Import data** wizard in the portal to pull it all together. The end result is transformed content that you can view from another portal tool ([Storage explorer](knowledge-store-view-storage-explorer.md)).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
