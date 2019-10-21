@@ -35,6 +35,6 @@ Monitors routing path for any suspicious activity and captures the same in the e
 
 ## Next steps
 
-To learn about connection, see [Peering Service connection](peering-service-connection.md).
+To learn about connection, see [Peering Service connection](connection.md).
 
-To measure the telemetry, see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).
+To measure the telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).

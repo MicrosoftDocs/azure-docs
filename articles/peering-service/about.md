@@ -22,9 +22,9 @@ By selecting “*Peering Service*”, an end user is selecting a partner Service
 
 Customers can also opt for *Peering Service telemetry* such as user latency measures to Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering the Peering Service in the Azure portal.  
 
-To use the Peering Service, customer isn't required to register with Microsoft. The only requirement is to reach out to a [Peering Service partner](peering-service-location-partners.md) to procure the service. However, to opt for Peering Service telemetry, the customer must register for the same in the Azure portal.  
+To use the Peering Service, customer isn't required to register with Microsoft. The only requirement is to reach out to a [Peering Service partner](location-partners.md) to procure the service. However, to opt for Peering Service telemetry, the customer must register for the same in the Azure portal.  
 
-For instructions on how to register a Peering Service, refer [here](peering-service-azure-portal.md).  
+For instructions on how to register a Peering Service, refer [here](azure-portal.md).  
 
 ## What Peering Service isn't about?
 
@@ -40,7 +40,7 @@ For instructions on how to register a Peering Service, refer [here](peering-serv
 
 ## Background
 
-Office 365, Dynamics 365,  and any other Microsoft SaaS services are hosted in multiple Microsoft data centers and can be accessed from any geographic location. The *Microsoft Global Network* has Microsoft Edge Point of Presence locations around the world where it can connect to an end user via their Service Provider (SP).  
+Office 365, Dynamics 365, and any other Microsoft SaaS services are hosted in multiple Microsoft data centers and can be accessed from any geographic location. The *Microsoft Global Network* has Microsoft Edge Point of Presence locations around the world where it can connect to an end user via their Service Provider (SP).  
 
 Microsoft and partner SPs ensure that traffic for the prefixes registered with Peering Service connection enters and exits the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*. Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*.
 
@@ -113,12 +113,12 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 
 ## Next steps
 
-To learn about peering Service concepts, see [Peering Service connection](peering-service-faq.md).
+To learn about peering Service concepts, see [Peering Service connection](faq.md).
 
 To find a Service Provider partner, see [Peering Service partners and locations](peering-service-location-partners.md).
 
-To onboard the Peering Service connection, see [Peering Service connection](peering-service-onboarding-model.md).
+To onboard the Peering Service connection, see [Peering Service connection](onboarding-model.md).
 
-To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal.md.
+To register the connection using Azure portal, see [Peering Service connection](azure-portal.md.
 
-To measure the telemetry, see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).
+To measure the telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).

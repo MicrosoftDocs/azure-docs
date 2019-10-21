@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
-# Register a Peering Service connection using Azure CLI
+# Register the Peering Service connection using Azure CLI
 
 *Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. In this article, you will learn how to register a *Peering Service* connection using Azure CLI.
 
@@ -24,7 +24,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ## Register the Peering Service
 
-## Pre-requisites  
+## Prerequisites  
 
 ### Azure account
 
@@ -101,10 +101,10 @@ az peering service prefix create \
 
 ## Next steps
 
-To learn more about Peering Service concepts, see [Peering Service Connection](peering-service-connection.md).
+To learn more about Peering Service concepts, see [Peering Service Connection](connection.md).
 
-To measure the telemetry, see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).
+To measure the telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
 
-To register the connection using PowerShell, see [Peering Service connection](peering-service-powershell.md).
+To register the connection using PowerShell, see [Peering Service connection](powershell.md).
 
-To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal.md).
+To register the connection using Azure portal, see [Peering Service connection](azure-portal.md).

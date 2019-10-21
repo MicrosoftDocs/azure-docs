@@ -121,12 +121,12 @@ Remove-AzPeeringServicePrefix -ResourceGroupName  "MyResourceGroup" -Name "prefi
 
 ## Next steps
 
-Learn about [Peering Service connection](peering-service-faq.md).
+Learn about [Peering Service connection](faq.md).
 
-To learn about Peering Service concepts, see [Peering Service Connection](peering-service-connection.md).
+To learn about Peering Service concepts, see [Peering Service Connection](connection.md).
 
-To learn about Peering Service telemetry concepts, see [Peering Service Connection Telemetry](peering-service-connection-telemetry.md).
+To learn about Peering Service telemetry concepts, see [Peering Service Connection Telemetry](connection-telemetry.md).
 
-To register the connection using Azure portal, see [Peering Service connection](peering-service-azure-portal.md).
+To register the connection using Azure portal, see [Peering Service connection](azure-portal.md).
 
-To register the connection using Azure CLI, see [Peering Service connection](peering-service-cli.md).
+To register the connection using Azure CLI, see [Peering Service connection](cli.md).

@@ -44,12 +44,12 @@ A. ExpressRoute is a private, dedicated connection from given one or multiple lo
 
 ## Next steps
 
-Learn about [Peering Service connection](peering-service-faq.md).
+Learn about [Peering Service connection](faq.md).
 
-To find a Service Provider, see [Peering Service partners and locations](peering-service-location-partners.md).
+To find a Service Provider, see [Peering Service partners and locations](location-partners.md).
 
-To onboard the Peering Service connection, see [Peering Service connection](peering-service-onboarding-model.md).
+To onboard the Peering Service connection, see [Peering Service connection](onboarding-model.md).
 
-To register the connection, see [Peering Service connection](peering-service-azure-portal.md).
+To register the connection, see [Peering Service connection](azure-portal.md).
 
-To measure the telemetry, see [Measure connection telemetry](peering-service-measure-connection-telemetry.md).
+To measure the telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).

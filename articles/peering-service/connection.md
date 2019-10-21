@@ -25,7 +25,7 @@ Customer can establish a single connection or multiple connections as per the re
 
 > [!Note]
 > When you sign up for *Peering Service*, we analyze your Windows and Office 365 telemetry in order to provide you with latency measurements for your selected prefixes. This telemetry data is always aggregated and anonymized.
->For more information about connection telemetry, refer [Peering Service connection telemetry](peering-service-connection-telemetry.md).
+>For more information about connection telemetry, refer [Peering Service connection telemetry](connection-telemetry.md).
 >
   
 ## How to register the connection?
@@ -40,4 +40,4 @@ Customer can establish a single connection or multiple connections as per the re
 
 ## Next steps
 
-To learn step by step process on how to register the Peering Service, see [Register the Peering Service](peering-service-azure-portal.md).
+To learn step by step process on how to register the Peering Service, see [Register the Peering Service](azure-portal.md).
