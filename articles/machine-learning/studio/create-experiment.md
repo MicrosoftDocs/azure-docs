@@ -16,7 +16,7 @@ ms.date: 02/06/2019
 
 # Quickstart: Create your first data science experiment in Azure Machine Learning Studio (classic)
 
-[!INCLUDE [Designer notice](../../../includes/aml-studio-try-ui.md)]
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
 In this quickstart, you create a machine learning experiment in [Azure Machine Learning Studio (classic)](what-is-ml-studio.md) that predicts the price of a car based on different variables such as make and technical specifications.
 
