@@ -26,15 +26,17 @@ The Barracuda CloudGen Firewall (CGFW) connector lets you easily connect your Ba
 
 ## Prerequisites
 
+- Read and write permissions to the Azure Sentinel workspace.
+
+- Barracuda CloudGen Firewall must be configured to export logs via Syslog​.
+
 ## Connect Azure Sentinel to Barracuda CloudGen Firewall
 
 1. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Barracuda CloudGen Firewall** connector.
 
+2. Select **Open connector page**.
 
-## Validate connectivity
-
- 
-
+3. Follow the instructions on the **Barracuda CloudGen Firewall** page.
 
 
 ## Next steps

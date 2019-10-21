@@ -24,16 +24,15 @@ The Trend Micro Deep Security connector lets you easily connect your Deep Securi
 
 ## Prerequisites
 
+- Read and write permissions to the Azure Sentinel workspace.
+
 ## Connect Azure Sentinel to Trend Micro Deep Security
 
 1. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Trend Micro Deep Security** connector.
 
+2. Select **Open connector page**.
 
-## Validate connectivity
-
- 
-
-
+3. Follow the instructions and next steps.
 
 ## Next steps
 In this document, you learned how to connect Trend Micro Deep Security to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:

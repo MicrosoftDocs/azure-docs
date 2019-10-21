@@ -24,16 +24,17 @@ The ExtraHop Reveal(x) data connector lets you easily connect your Reveal(x) sys
 
 ## Prerequisites
 
+- Read and write permissions to the Azure Sentinel workspace.
+
+- ExtraHop Discover or Command appliance with firmware version 7.8 or later with a user account that has Unlimited (administrator) privileges​.
+
 ## Connect Azure Sentinel to ExtraHop Reveal(x)
 
 1. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **ExtraHop Reveal(x)** connector.
 
+2. Select **Open connector page**.
 
-## Validate connectivity
-
- 
-
-
+3. Follow the instructions on the **ExtraHop Reveal(x)** page.
 
 ## Next steps
 In this document, you learned how to connect ExtraHop Reveal(x) to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
