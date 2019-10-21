@@ -152,7 +152,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine does not hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Back up the credentials associated with the self-hosted integration runtime regularly.
-- For automating self-hosted IR setup operations, please refer **Set up an existing self hosted IR via PowerShell** in [this section](#Setting-up-a-self-hosted-Integration-Runtime).  
+- For automating self-hosted IR setup operations, please refer **Set up an existing self hosted IR via PowerShell** in [this section](#setting-up-a-self-hosted-integration-runtime).  
 
 ## Install and register self-hosted IR from the Download Center
 
