@@ -1,13 +1,13 @@
 ---
 title: Create a water quality monitoring app with IoT Central | Microsoft Docs
 description: Learn to build Create a water quality monitoring application using Azure IoT Central application templates.
-author: philmea
-ms.author: philmea
+author: miriambrus
+ms.author: miriamb
 ms.date: 09/24/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: eliotgra
+manager: abjork
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
@@ -16,7 +16,7 @@ manager: eliotgra
 You only use tutorials to show the single best procedure for completing an approved top 10 customer task.
 --->
 
-# Tutorial: <do something with X> 
+# Tutorial: Create a connected waste management application in IoT Central
 <!---Required:
 Starts with "Tutorial: "
 Make the first word following "Tutorial:" a verb.
@@ -27,12 +27,19 @@ Introductory paragraph.
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
 --->
 
+This tutorial guides you to create an Azure IoT Central connected waste management application from the IoT Central Connected Waste Management template. 
+
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
+> * Use the Azure IoT Central **Connected waste management** template to create your app.
+> * Explore sample operator dashboard 
+> * Explore sample connected bin device template
+> * Explore simulated devices
+> * Customize pre-configured rules and add actions. 
+> * Configure jobs.
+> * Customize your application branding using whitelabeling. 
+
 <!---Required:
 The outline of the tutorial should be included in the beginning and at the end of every tutorial. These will align to the **procedural** H2 headings for the activity. You do not need to include all H2 headings. Leave out the prerequisites, clean-up resources and next steps--->
 If you don’t have a <service> subscription, create a free trial account...
