@@ -25,27 +25,27 @@ Indexers have a few key characteristics:
 2. State aware
 3. Can be configured to drive eventual consistency between your data source and index.
 
-Previously, you were responsible for determining the appropriate action when a skill was modified. When you added or update a skill, you had to choose between rerunning all the skills on the entire corpus or tolerating version drift. Rerunning all the skills essentially reset your indexer. Version drift could lead to different documents in your index being enriched with different versions of your skillset.
+Previously, you were responsible for determining the appropriate action when a skill was modified. When you added or update a skill, you had to choose between rerunning all the skills on the entire corpus or tolerating version drift. Rerunning all the skills essentially reset your indexer. Version drift could lead to inconsistencies in which skillset versions incremented your documents.
 
-With the latest update to the preview release of the API (version 2019-05-06-Preview), the indexer's state management has improved. Now, state management includes not only the data source and indexer field mappings but also the skillset, output field mappings, and projections. Incremental indexing vastly improves the efficiency of your enrichment pipeline. It eliminates the painful choice between the time and money of a complete rerun and the potential confusion of version drift.
+With the latest update to the preview release of the API (version 2019-05-06-Preview), the indexer's state management has improved. Now, state management includes not only the data source and indexer field mappings but also the skillset, output field mappings, and projections. Incremental indexing vastly improves the efficiency of your enrichment pipeline. It eliminates the painful choice between the cost of a complete rerun and the potential confusion of version drift.
 
 Indexers now track and respond to changes across your enrichment pipeline. Indexers now can determine which skills have changed and run only those that have been modified and their downstream dependent skills.
 
-By using incremental indexing, all documents in your index will be processed with the current version of your enrichment pipeline with the least amount of work. For scenarios where you want full control, you can use fine-grained controls to determine how a change is handled.
+With incremental indexing, the current version of the enrichment pipeline does the least amount of work to guarantee consistency for all documents in your index. For scenarios where you want full control, you can use fine-grained controls to determine how a change is handled.
 
 ## Indexer cache
 
-Incremental indexing adds an indexer cache to the enrichment pipeline. The indexer caches the results from document cracking and the outputs of each skills for every document. When a data source needs to be reindexed due to a skillset update (new or updated skill), only the affected skills, changed, or downstream of the changes are rerun. The updated results are written to the cache and the document is updated in the index and the knowledge store.
+Incremental indexing adds an indexer cache to the enrichment pipeline. The indexer caches the results from document cracking and the outputs of each skills for every document. When a skillset is updated, only the changed, or downstream, skills are rerun. The updated results are written to the cache and the document is updated in the index and the knowledge store.
 
-Physically, the cache is a storage account. All indexes within a search service may share the same storage account for the indexer cache. Each indexer is assigned a unique and immutable cache IDentifier.
+Physically, the cache is a storage account. All indexes within a search service may share the same storage account for the indexer cache. Each indexer is assigned a unique and immutable cache identifier.
 
 ### Cache configuration
 
-You'll need to set the cache property on the indexer to start benefitting from incremental indexing. Setting this property for the first time will require you to also reset your indexer, `which will result in all documents in your data source being processed again`. The goal of incremental indexing is to make the documents in your index consistent with your data source as defined by the current version of your skillset. Resetting the index is the first step toward this consistency by eliminating any documents enriched by previous versions of the skillset. The indexer needs to be reset to start with a consistent baseline.
+You'll need to set the cache property on the indexer to start benefitting from incremental indexing. Setting this property for the first time will require you to also reset your indexer, `which will result in all documents in your data source being processed again`. The goal of incremental indexing is to make the documents in your index consistent with your data source and the current version of your skillset. Resetting the index is the first step toward this consistency as it eliminates any documents enriched by previous versions of the skillset. The indexer needs to be reset to start with a consistent baseline.
 
 ### Cache lifecycle
 
-The lifecycle of the cache is managed by the indexer. If the cache property in the indexer is set to null or the connection string changed, the existing cache is deleted. The cache lifecycle is also tied to the indexer lifecycle and if an indexer is deleted, the associated cache is also deleted.
+The lifecycle of the cache is managed by the indexer. If the cache property in the indexer is set to null or the connection string changed, the existing cache is deleted. The cache lifecycle is also tied to the indexer lifecycle. If an indexer is deleted, the associated cache is also deleted.
 
 ```json
 {
@@ -73,7 +73,7 @@ The indexer cache can operate in modes where data is only written to the cache o
 
 Incremental indexing gives you granular control over all aspects of the enrichment pipeline. This control allows you to deal with situations where a change might have unintended consequences. For example, editing a skillset and updating the URL for a custom skill will result in the indexer invalidating the cached results for that skill. If you're only moving the endpoint to a different VM or redeploying your skill with a new access key, you really don’t want any existing documents reprocessed.
 
-To ensure that the indexer only performs enrichments you explicitly require, updates to the skillset can optionally set `disableCacheReprocessingChangeDetection` query string parameter to `true`. When set, this parameter will ensure that only updates to the skillset are committed and the change is not evaluated for effects on the existing corpus.
+To ensure that the indexer only does enrichments you explicitly require, updates to the skillset can optionally set `disableCacheReprocessingChangeDetection` query string parameter to `true`. When set, this parameter will ensure that only updates to the skillset are committed and the change isn't evaluated for effects on the existing corpus.
 
 ## Cache invalidation
 
