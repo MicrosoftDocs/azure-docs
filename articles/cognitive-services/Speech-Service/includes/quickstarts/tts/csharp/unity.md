@@ -12,14 +12,6 @@ ms.date: 9/19/2019
 ms.author: yinhew
 ---
 
-# Quickstart: Synthesize speech with the Speech SDK for Unity
-
-Quickstarts are also available for [speech recognition](quickstart-csharp-unity.md).
-
-Use this guide to create a text-to-speech application by using [Unity](https://unity3d.com/) and the Azure Cognitive Services Speech SDK for Unity.
-When you're finished, you can synthesize speech from text in real time to your device's speaker.
-If you aren't familiar with Unity, study the [Unity User Manual](https://docs.unity3d.com/Manual/UnityManual.html) before you start your application development.
-
 > [!NOTE]
 > Unity supports Windows Desktop (x86 and x64) or the Universal Windows Platform (x86, x64, ARM/ARM64), Android (x86, ARM32/64), and iOS (x64 simulator, ARM32 and ARM64).
 
