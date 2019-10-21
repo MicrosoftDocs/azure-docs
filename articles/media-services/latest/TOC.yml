@@ -39,6 +39,8 @@
   - name: Media Services samples
     displayName: .NET, Java
     href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+  - name: Media Services v3 REST samples
+    href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts
   items:
   - name: Overview
