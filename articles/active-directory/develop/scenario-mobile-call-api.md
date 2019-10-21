@@ -1,5 +1,5 @@
 ---
-title: Mobile app that calls web APIs - calling a web API | Microsoft identity platform
+title: Mobile app that calls web APIs - calling a web API - Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs (calling a web API)
 services: active-directory
 documentationcenter: dev-center-name

@@ -1,5 +1,5 @@
 ---
-title: Protected Web API - move to production | Microsoft identity platform
+title: Protected Web API - move to production - Microsoft identity platform
 description: Learn how to build a protected Web API (move to production).
 services: active-directory
 documentationcenter: dev-center-name

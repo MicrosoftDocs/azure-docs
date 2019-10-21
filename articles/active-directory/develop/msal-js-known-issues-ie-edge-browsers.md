@@ -1,5 +1,5 @@
 ---
-title: Known issues on browsers (Microsoft Authentication Library for JavaScript) | Microsoft identity platform
+title: Known issues on browsers (Microsoft Authentication Library for JavaScript) - Microsoft identity platform
 description: Learn about know issues when using the Microsoft Authentication Library for JavaScript (MSAL.js) with Internet Explorer and Microsoft Edge browsers.
 services: active-directory
 documentationcenter: dev-center-name
