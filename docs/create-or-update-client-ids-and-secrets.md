@@ -91,10 +91,10 @@ If your add-in is a service and it needs OAuth client IDs and client secrets, fo
 <a name="bk_associate"> </a>
 ### To associate your client ID and secret with your add-in
 
-After you create your client ID and client secret, you can add them to the code of your add-in and then associate your client ID with your add-in to the Seller Dashboard.
+After you create your client ID and client secret, you can add them to the code of your add-in and then associate your client ID with your add-in in Partner Center.
 
 > [!NOTE]
-> You can add the client ID and client secret to your code at any point in your add-in development process: during development, before testing, or before adding your add-in to the Seller Dashboard. However, to fully test your add-in, we recommend that you add them before you test. You can use the same client ID and secret throughout your add-in development process. If you are unsure where to place the client ID and client secret in your code, refer to the documentation provided for the add-in type you are developing.
+> You can add the client ID and client secret to your code at any point in your add-in development process: during development, before testing, or before adding your add-in to Partner Center. However, to fully test your add-in, we recommend that you add them before you test. You can use the same client ID and secret throughout your add-in development process. If you are unsure where to place the client ID and client secret in your code, refer to the documentation provided for the add-in type you are developing.
 
 ### To associate the client ID and client secret with your add-in in Partner Center
 
