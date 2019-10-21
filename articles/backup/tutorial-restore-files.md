@@ -102,7 +102,7 @@ To restore your files, Azure Backup provides a script to run on your VM that con
 
     The script is downloaded and a password is displayed, as in the following example:
 
-    ```
+    ```output
     File downloaded: myVM_we_1571974050985163527.sh. Use password c068a041ce12465
     ```
 

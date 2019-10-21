@@ -38,6 +38,9 @@ In the portal, set the flag with the following check box:
 
 ![][2]
 
+> [!NOTE]
+> When Sessions are enabled on a queue or a subscription, the client applications can ***no longer*** send/receive regular messages. All messages must be sent as part of a session (by setting the session id) and received by receiving the session.
+
 The APIs for sessions exist on queue and subscription clients. There is an imperative model that controls when sessions and messages are received, and a handler-based model, similar to *OnMessage*, that hides the complexity of managing the receive loop.
 
 ## Session features

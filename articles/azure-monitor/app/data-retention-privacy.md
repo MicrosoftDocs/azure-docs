@@ -1,19 +1,15 @@
 ---
 title: Data retention and storage in Azure Application Insights | Microsoft Docs
 description: Retention and privacy policy statement
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 08/22/2019
 
 ---
+
 # Data collection, retention and storage in Application Insights
 
 When you install [Azure Application Insights][start] SDK in your app, it sends telemetry about your app to the Cloud. Naturally, responsible developers want to know exactly what data is sent, what happens to the data, and how they can keep control of it. In particular, could sensitive data be sent, where is it stored, and how secure is it? 
@@ -95,7 +91,7 @@ It can be exported by you and your team members and could be copied to other loc
 Microsoft uses the data only in order to provide the service to you.
 
 ## Where is the data held?
-* In the USA, Europe or Southeast Asia. You can select the location when you create a new Application Insights resource. 
+* You can select the location when you create a new Application Insights resource. Know more about Application Insights availability per region [here](https://azure.microsoft.com/global-infrastructure/services/?products=all).
 
 #### Does that mean my app has to be hosted in the USA, Europe or Southeast Asia?
 * No. Your application can run anywhere, either in your own on-premises hosts or in the cloud.

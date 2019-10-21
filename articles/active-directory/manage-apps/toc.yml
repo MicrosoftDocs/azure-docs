@@ -22,6 +22,7 @@
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
   - name: Concepts
+    expanded: true
     items: 
     - name: Cloud apps and single sign-on
       items:
@@ -228,14 +229,22 @@
           href: Customize-application-attributes.md
         - name: Scoping filters
           href: define-conditional-rules-for-provisioning-user-accounts.md
+        - name: Skip deletion for out-of-scope users
+          href: skip-out-of-scope-deletions.md
         - name: Check provisioning status
           href: application-provisioning-when-will-provisioning-finish-specific-user.md
         - name: Report on automatic user provisioning
           href: check-status-user-account-provisioning.md
+        - name: Exporting and importing your configuration
+          href: export-import-provisioning-configuration.md  
       - name: Troubleshoot user provisioning
         items:
         - name: Troubleshoot user provisioning
           href: application-provisioning-config-problem.md
+        - name: Quarantine status
+          href: application-provisioning-quarantine-status.md
+        - name: Provisioning logs
+          href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Sync an attribute for mapping - gallery app
           href: user-provisioning-sync-attributes-for-mapping.md
         - name: Taking hours - gallery app
@@ -286,6 +295,8 @@
             href: application-proxy-configure-single-sign-on-on-premises-apps.md
         - name: Publishing walkthroughs
           items:
+          - name: Integrate with Azure AD Domain Services
+            href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
           - name: Integrate with Power BI
             href: application-proxy-integrate-with-power-bi.md
           - name: Integrate with Cloud App Security
@@ -342,12 +353,20 @@
       items:
         - name: Write expressions for attribute mappings
           href: functions-for-customizing-application-data.md
+    - name: Azure AD Connect Provisioning Agent
+      items:
+       - name: Provisioning Agent version history
+         href: provisioning-agent-release-version-history.md
     - name: Application Proxy for on-premises apps
       items:
+       - name: Application Proxy FAQ
+         href: application-proxy-faq.md
        - name: Application Proxy version history
          href: application-proxy-release-version-history.md
   - name: Resources
     items:
+        - name: Support and help options for developers
+          href: /azure/active-directory/develop/developer-support-help-options?context=azure/active-directory/manage-apps/context/manage-apps-context
         - name: Azure feedback forum
           href: https://feedback.azure.com/forums/169401-azure-active-directory
         - name: MSDN forum

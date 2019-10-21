@@ -29,6 +29,8 @@ The CloudSimple solution requires you to do the following:
 
 With this solution, you have full control over vSphere replication and SRM. The familiar UI, API, and CLI interfaces enable use of your existing scripts and tools.
 
+![Site Recovery Manager deployment](media/srm-deployment.png)
+
 You can use any versions of vRA and SRM that are compatible with your Private Cloud and on-premises environments. The examples in this guide use vRA 6.5 and SRM 6.5. These versions are compatible with vSphere 6.5, which is supported by CloudSimple.
 
 ## Deploy the solution

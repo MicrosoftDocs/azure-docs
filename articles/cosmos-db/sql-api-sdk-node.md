@@ -410,7 +410,7 @@ New features and functionality and optimizations are only added to the current S
 Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 > [!WARNING]
-> All versions **1.x** of the Node SDK for SQL API will be retired on **August 30, 2020**.
+> All versions **1.x** of the Node client SDK for SQL API will be retired on **August 30, 2020**. This affects only the client-side Node SDK and does not affect server-side scripts (stored procedures, triggers, and UDFs).
 > 
 >
 <br/>

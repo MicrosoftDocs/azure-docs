@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart 
-ms.date: 08/30/2019
+ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high 
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
@@ -62,7 +62,7 @@ Sign in to the Azure portal at [https://aka.ms/azuredataboxfromdiskdocs](https:/
 > - **Connect and unlock**: Connect the device and unlock the disk to copy the data.
 > - **Copy data to the disk and validate**: Copy data to the disks into the precreated folders.
 > - **Return the disks**: Return the disks to Azure datacenter where data is uploaded into your storage account.
-> - **Verify the data in Azure**: Verify that your data has uploaded into your storage account before you delete it from source date server.
+> - **Verify the data in Azure**: Verify that your data has uploaded into your storage account before you delete it from source data server.
 
 ::: zone-end
 

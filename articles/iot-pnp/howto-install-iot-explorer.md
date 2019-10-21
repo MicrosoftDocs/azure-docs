@@ -62,29 +62,27 @@ Change the source priorities:
 
 You can drag and drop one of the model definition sources to a different ranking in the list. If there's a conflict, definition sources with higher rankings override sources with lower rankings.
 
-### Overview page
+### View devices
 
-#### Device overview
+After the tool connects to your IoT hub, it displays the **Devices** list page that lists the device identities registered with your IoT hub. You can expand any entry in the list to see more information.
 
-After the tool connects to your IoT hub, it displays an overview page that lists of all the device identities registered with your Azure IoT hub. Select a device to view more details.
+On the **Devices** list page you can:
 
-#### Device management
-
-- To register a new device with your hub, select **Add**. Enter a device ID. Use the default settings to autogenerate authentication keys and enable the connection to your hub.
-- To delete a device identity, select **Delete**. Review the device details before you complete this action to be sure you're deleting the right device identity.
-- The tool supports querying by `capabilityID` and `interfaceID`. Add either your `capabilityID` or `interfaceID` as a parameter to query your devices.
+- Select **Add** to register a new device with your hub. Then enter a device ID. Use the default settings to automatically generate authentication keys and enable the connection to your hub.
+- Select a device and then select **Delete** to delete a device identity. Review the device details before you complete this action to be sure you're deleting the right device identity.
+- Query by `capabilityID` and `interfaceID`. Add either your `capabilityID` or `interfaceID` as a parameter to query your devices.
 
 ## Interact with a device
 
-Double-click a device on the overview page to view the next level of detail. There are two sections: **Device** and **Digital Twin**.
+On the **Devices** list page, select a value in the **Device ID** column to view the detail page for the registered device. For device there are two sections: **Device** and **Digital Twin**.
 
 ### Device
 
-This section includes the **Device Identity**, **Telemetry**, and **Device Twin** tabs.
+This section includes the **Device Identity**,  **Device Twin**, and **Telemetry** tabs.
 
-- You can view and update the device identity information on the **Device identity** tab.
-- If a device is connected and actively sending data, you can view the telemetry on the **Telemetry** tab.
-- You can access the device twin information on the **Device Twin** tab.
+- You can view and update the [device identity](../iot-hub/iot-hub-devguide-identity-registry.md) information on the **Device identity** tab.
+- You can access the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) information on the **Device Twin** tab.
+- If a device is connected and actively sending data, you can view the [telemetry](../iot-hub/iot-hub-devguide-messages-read-builtin.md) on the **Telemetry** tab.
 
 ### Digital twin
 
@@ -117,4 +115,4 @@ To view the telemetry for the selected interface, go to its **Telemetry** page.
 
 ## Next steps
 
-In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Manage models](./howto-manage-models.md).
+In this how-to article, you learned how to install and use Azure IoT explorer to interact with your IoT Plug and Play devices. A suggested next step is to learn how to [Install and use Azure CLI extension](./howto-install-pnp-cli.md).

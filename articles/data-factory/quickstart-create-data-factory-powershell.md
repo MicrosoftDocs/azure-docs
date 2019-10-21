@@ -309,14 +309,14 @@ In this procedure, you create a pipeline with a copy activity that uses the inpu
 
 In this step, you create a pipeline run.
 
-1. Run the **Invoke-AzDataFactoryV2Pipeline** cmdlet to create a pipeline run. The cmdlet returns the pipeline run ID for future monitoring.
+Run the **Invoke-AzDataFactoryV2Pipeline** cmdlet to create a pipeline run. The cmdlet returns the pipeline run ID for future monitoring.
 
-    ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline `
-        -DataFactoryName $DataFactory.DataFactoryName `
-        -ResourceGroupName $ResGrp.ResourceGroupName `
-        -PipelineName $DFPipeLine.Name 
-    ```
+  ```powershell
+$RunId = Invoke-AzDataFactoryV2Pipeline `
+    -DataFactoryName $DataFactory.DataFactoryName `
+    -ResourceGroupName $ResGrp.ResourceGroupName `
+    -PipelineName $DFPipeLine.Name 
+```
 
 ## Monitor the pipeline run
 

@@ -31,7 +31,7 @@ You can define additional endpoints in the target environment by using Traffic M
 
 For more information:
 
-- Refresh your knowledge by completing the [Traffic Manager tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Traffic Manager tutorials](https://docs.microsoft.com/azure/traffic-manager).
 - Review the [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md).
 - Learn how to [create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
 - Read about the [Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/).
@@ -51,7 +51,7 @@ Azure Scheduler is being deprecated. Use Azure Logic Apps to create scheduling j
 
 For more information:
 
-- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/#step-by-step-tutorials).
+- Become familiar with features in Azure Logic Apps by completing the [Logic Apps tutorials](https://docs.microsoft.com/azure/logic-apps/tutorial-build-schedule-recurring-logic-app-workflow).
 - Review the [Logic Apps overview](../logic-apps/logic-apps-overview.md).
 
 ## Network Watcher
@@ -60,7 +60,7 @@ Migrating an Azure Network Watcher instance from Azure Germany to global Azure i
 
 For more information:
 
-- Refresh your knowledge by completing the [Network Watcher tutorials](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials).
+- Refresh your knowledge by completing the [Network Watcher tutorials](https://docs.microsoft.com/azure/network-watcher).
 - Review the [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md).
 - Learn about [Network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md).
 - Read about [Connection Monitor](../network-watcher/connection-monitor.md).
@@ -73,9 +73,9 @@ For more information about Site Recovery and to learn how to migrate VMs from Az
 
 Refresh your knowledge by completing these step-by-step tutorials:
 
-- [Azure-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#azure-to-azure)
-- [VMware-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#vmware)
-- [Hyper-V-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#hyper-v)
+- [Azure-to-Azure disaster recovery](../site-recovery/azure-to-azure-about-networking.md)
+- [VMware-to-Azure disaster recovery](../site-recovery/site-recovery-deployment-planner.md)
+- [Hyper-V-to-Azure disaster recovery](../site-recovery/hyper-v-deployment-planner-overview.md)
 
 ## Azure policies
 

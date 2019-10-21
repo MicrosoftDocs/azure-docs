@@ -15,7 +15,7 @@ ms.subservice: B2C
 
 # Azure AD B2C: Frequently asked questions (FAQ)
 
-This page answers frequently asked questions about the Azure Active Directory (Azure AD) B2C. Keep checking back for updates.
+This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
 
 ### Why can't I access the Azure AD B2C extension in the Azure portal?
 
@@ -23,7 +23,7 @@ There are two common reasons for why the Azure AD extension is not working for y
 
 ### Can I use Azure AD B2C features in my existing, employee-based Azure AD tenant?
 
-Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. With custom policies (in public preview), Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
+Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. With custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
 ### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Office 365?
 
@@ -118,11 +118,11 @@ No, Azure AD B2C does not support the same set of reports as Azure AD Premium. H
 
 ### Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
 
-Yes!  Read about [language customization](active-directory-b2c-reference-language-customization.md), which is in public preview. We provide translations for 36 languages, and you can override any string to suit your needs.
+Yes, see [language customization](active-directory-b2c-reference-language-customization.md). We provide translations for 36 languages, and you can override any string to suit your needs.
 
-### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from login.microsoftonline.com to login.contoso.com?
+### Can I use my own URLs on my sign-up and sign-in pages that are served by Azure AD B2C? For instance, can I change the URL from contoso.b2clogin.com to login.contoso.com?
 
-Not currently. This feature is on our roadmap. Verifying your domain in the **Domains** tab in the Azure portal does not accomplish this goal.
+Not currently. This feature is on our roadmap. Verifying your domain in the **Domains** tab in the Azure portal does not accomplish this goal. However, with b2clogin.com, we offer a [neutral top level domain](b2clogin.md), and thus the external appearance can be implemented without the mention of Microsoft.
 
 ### How do I delete my Azure AD B2C tenant?
 

@@ -1,17 +1,17 @@
 ---
-title: Create a Windows Virtual Desktop Preview host pool by using the Azure Marketplace - Azure
-description: How to create a Windows Virtual Desktop Preview host pool by using the Azure Marketplace.
+title: Create a Windows Virtual Desktop host pool by using the Azure Marketplace - Azure
+description: How to create a Windows Virtual Desktop host pool by using the Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 08/30/2019
 ms.author: helohr
 ---
 # Tutorial: Create a host pool by using the Azure Marketplace
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 This tutorial describes how to create a host pool within a Windows Virtual Desktop tenant by using a Microsoft Azure Marketplace offering. The tasks include:
 
@@ -39,7 +39,7 @@ To run the Azure Marketplace offering to provision a new host pool:
 2. Enter **Windows Virtual Desktop** in the Marketplace search window.
 3. Select **Windows Virtual Desktop - Provision a host pool**, and then select **Create**.
 
-Follow the guidance to enter the information for the appropriate blades.
+After that, follow the instructions in the next section to enter the information for the appropriate blades.
 
 ### Basics
 
@@ -51,6 +51,9 @@ Here's what you do for the **Basics** blade:
 4. Select **Create new** and provide a name for the new resource group.
 5. For **Location**, select the same location as the virtual network that has connectivity to the Active Directory server.
 6. Select **OK**.
+
+>[!IMPORTANT]
+>If you're using a pure Azure Active Directory Domain Services and Azure Active Directory solution, make sure to deploy your host pool in the same region as your Azure Active Directory Domain Services to avoid domain-join and credential errors.
 
 ### Configure virtual machines
 
@@ -72,7 +75,7 @@ For the **Virtual machine settings** blade:
 3. Select the virtual network that has connectivity to the Active Directory server, and then choose a subnet to host the virtual machines.
 4. Select **OK**.
 
-### Windows Virtual Desktop Preview tenant information
+### Windows Virtual Desktop tenant information
 
 For the **Windows Virtual Desktop tenant information** blade:
 

@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -51,11 +51,23 @@ For information, see the [ExpressRoute SLA](https://azure.microsoft.com/support/
 
 ## Supported services
 
-ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) for various types of services.
+ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) for various types of services: private peering, Microsoft peering, and public peering.
 
 ### Private peering
 
 * Virtual networks, including all virtual machines and cloud services
+
+### Microsoft peering
+
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* Power BI - Available via an Azure Regional Community, see [here](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant.
+* Azure Active Directory
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
+* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>**The following services are NOT supported**:
+    * CDN
+    * Azure Front Door
+    * Multi-factor Authentication Server (legacy)
+    * Traffic Manager
 
 ### Public peering
 
@@ -64,26 +76,19 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 >
 
 * Power BI
-* Dynamics 365 for Finance and Operations (formerly known as Dynamics AX Online)
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>
   **The following services are NOT supported**:
     * CDN
     * Azure Front Door
-    * Multi-factor Authentication
+    * Multi-factor Authentication Server (legacy)
     * Traffic Manager
 
-### Microsoft peering
+### Is Dynamics 365 supported on ExpressRoute?
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 
-* Power BI - Available via an Azure Regional Community, see [here](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant. 
-* Azure Active Directory
-* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
-* Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br><br>**The following services are NOT supported**:
-    * CDN
-    * Azure Front Door
-    * Multi-factor Authentication
-    * Traffic Manager
+Dynamics 365 and Common Data Service (CDS) environments are hosted on Azure and therefore customers benefit from the underlying ExpressRoute support for Azure resources. You can connect to its service endpoints if your router filter includes the Azure regions your Dynamics 365/CDS environments are hosted in.
+
+> [!NOTE]
+> [ExpressRoute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) is **not** required for Dynamics 365 connectivity via Azure ExpressRoute.
 
 ## Data and connections
 
@@ -258,7 +263,7 @@ ExpressRoute premium is a collection of the following features:
 
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
 * Increased number of VNets and ExpressRoute Global Reach connections that can be enabled on an ExpressRoute circuit (default is 10). For more information, see the [ExpressRoute Limits](#limits) table.
-* Connectivity to Office 365 and Dynamics 365.
+* Connectivity to Office 365
 * Global connectivity over the Microsoft core network. You can now link a VNet in one geopolitical region with an ExpressRoute circuit in another region.<br>
     **Examples:**
 
@@ -328,7 +333,7 @@ ExpressRoute Local is available at the peering locations where one or two Azure 
 > 
 > 
 
-### Can my existing ExpressRoute circuits support connectivity to Office 365 services and Dynamics 365?
+### Can my existing ExpressRoute circuits support connectivity to Office 365 services?
 
 Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Make sure that you have sufficient capacity to connect to Office 365 services and that you have enabled premium add-on. [Network planning and performance tuning for Office 365](https://aka.ms/tune/) helps you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
 
@@ -365,13 +370,9 @@ You will not see any routes. You have to attach a route filter to your circuit t
 
 When using route filters, any customer can turn on Microsoft peering. However, for consuming Office 365 services, you still need to get authorized by Office 365.
 
-### Do I need to get authorization for turning on Dynamics 365 over Microsoft peering?
-
-No, you do not need authorization for Dynamics 365. You can create a rule and select Dynamics 365 community without authorization.
-
 ### I enabled Microsoft peering prior to August 1, 2017, how can I take advantage of route filters?
 
-Your existing circuit will continue advertising the prefixes for Office 365 and Dynamics 365. If you want to add Azure public prefixes advertisements over the same Microsoft peering, you can create a route filter, select the services you need advertised (including the Office 365 service(s) you need and Dynamics 365), and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+Your existing circuit will continue advertising the prefixes for Office 365. If you want to add Azure public prefixes advertisements over the same Microsoft peering, you can create a route filter, select the services you need advertised (including the Office 365 service(s) you need), and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
 
 ### I have Microsoft peering at one location, now I am trying to enable it at another location and I am not seeing any prefixes.
 

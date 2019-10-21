@@ -9,7 +9,7 @@ ms.author: tomfitz
 
 ---
 # Azure Resource Manager template functions
-This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](resource-group-authoring-templates.md#syntax).
+This article describes all the functions you can use in an Azure Resource Manager template. For information about using functions in your template, see [template syntax](template-expressions.md).
 
 To create your own functions, see [User-defined functions](resource-group-authoring-templates.md#functions).
 

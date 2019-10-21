@@ -144,34 +144,28 @@ END
 ## Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
+2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**: 
    
-   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-2. In the **New data factory** page, enter **ADFIncCopyTutorialDF** for the **name**. 
-      
-     ![New data factory page](./media/tutorial-incremental-copy-portal/new-azure-data-factory.png)
+3. In the **New data factory** page, enter **ADFIncCopyTutorialDF** for the **name**. 
  
    The name of the Azure data factory must be **globally unique**. If you see a red exclamation mark with the following error, change the name of the data factory (for example, yournameADFIncCopyTutorialDF) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
        `Data factory name "ADFIncCopyTutorialDF" is not available`
-3. Select your Azure **subscription** in which you want to create the data factory. 
-4. For the **Resource Group**, do one of the following steps:
+4. Select your Azure **subscription** in which you want to create the data factory. 
+5. For the **Resource Group**, do one of the following steps:
      
       - Select **Use existing**, and select an existing resource group from the drop-down list. 
       - Select **Create new**, and enter the name of a resource group.   
          
         To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2** for the **version**.
-5. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
-6. Select **Pin to dashboard**.     
-7. Click **Create**.      
-8. On the dashboard, you see the following tile with status: **Deploying data factory**. 
-
-	![deploying data factory tile](media/tutorial-incremental-copy-portal/deploying-data-factory.png)
+6. Select **V2** for the **version**.
+7. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
+8. Click **Create**.      
 9. After the creation is complete, you see the **Data Factory** page as shown in the image.
    
-   ![Data factory home page](./media/tutorial-incremental-copy-portal/data-factory-home-page.png)
+   ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
 10. Click **Author & Monitor** tile to launch the Azure Data Factory user interface (UI) in a separate tab.
 
 ## Create a pipeline
@@ -179,58 +173,43 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 
 1. In the **get started** page of Data Factory UI, click the **Create pipeline** tile. 
 
-   ![Get started page of Data Factory UI](./media/tutorial-incremental-copy-portal/get-started-page.png)    
+   ![Get started page of Data Factory UI](./media/doc-common-process/get-started-page.png)    
 3. In the **General** page of the **Properties** window for the pipeline, enter **IncrementalCopyPipeline** name. 
 
-   ![Pipeline name](./media/tutorial-incremental-copy-portal/pipeline-name.png)
 4. Let's add the first lookup activity to get the old watermark value. In the **Activities** toolbox, expand **General**, and drag-drop the **Lookup** activity to the pipeline designer surface. Change the name of the activity to **LookupOldWaterMarkActivity**.
 
    ![First lookup activity - name](./media/tutorial-incremental-copy-portal/first-lookup-name.png)
 5. Switch to the **Settings** tab, and click **+ New** for **Source Dataset**. In this step, you create a dataset to represent data in the **watermarktable**. This table contains the old watermark that was used in the previous copy operation. 
 
-   ![New dataset menu - old watermark](./media/tutorial-incremental-copy-portal/new-dataset-old-watermark.png)
-6. In the **New Dataset** window, select **Azure SQL Database**, and click **Finish**. You see a new tab opened for the dataset. 
+6. In the **New Dataset** window, select **Azure SQL Database**, and click **Continue**. You see a new window opened for the dataset. 
 
-   ![Select Azure SQL Database](./media/tutorial-incremental-copy-portal/select-azure-sql-database-old-watermark.png)
-7. In the properties window for the dataset, enter **WatermarkDataset** for **Name**.
+7. In the **Set properties** window for the dataset, enter **WatermarkDataset** for **Name**.
 
-   ![Watermark dataset - name](./media/tutorial-incremental-copy-portal/watermark-dataset-name.png)
-8. Switch to the **Connection** tab, and click **+ New** to make a connection (create a linked service) to your Azure SQL database. 
-
-   ![New linked service button](./media/tutorial-incremental-copy-portal/watermark-dataset-new-connection-button.png)
-9. In the **New Linked Service** window, do the following steps:
+8. For **Linked Service**, select **New**, and then do the following steps:
 
     1. Enter **AzureSqlDatabaseLinkedService** for **Name**. 
     2. Select your Azure SQL server for **Server name**.
-    3. Enter the **name of the user** to access for the Azure SQL server. 
-    4. Enter the **password** for the user. 
+    3. Select your **Database name** from the dropdown list. 
+    4. Enter your **User name** & **Password**. 
     5. To test connection to the Azure SQL database, click **Test connection**.
-    6. Click **Save**.
-    7. In the **Connection** tab, confirm that **AzureSqlDatabaseLinkedService** is selected for **Linked service**.
+    6. Click **Finish**.
+    7. Confirm that **AzureSqlDatabaseLinkedService** is selected for **Linked service**.
        
         ![New linked service window](./media/tutorial-incremental-copy-portal/azure-sql-linked-service-settings.png)
-10. Select **[dbo].[watermarktable]** for **Table**. If you want to preview data in the table, click **Preview data**.
+    8. Select **Finish**.
+9. In the **Connection** tab, select **[dbo].[watermarktable]** for **Table**. If you want to preview data in the table, click **Preview data**.
 
 	![Watermark dataset - connection settings](./media/tutorial-incremental-copy-portal/watermark-dataset-connection-settings.png)
-11. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. In the properties window for the **Lookup** activity, confirm that **WatermarkDataset** is selected for the **Source Dataset** field. 
+10. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. In the properties window for the **Lookup** activity, confirm that **WatermarkDataset** is selected for the **Source Dataset** field. 
 
-	![Pipeline - old watermark dataset](./media/tutorial-incremental-copy-portal/pipeline-old-watermark-dataset-selected.png)
-12. In the **Activities** toolbox, expand **General**, and drag-drop another **Lookup** activity to the pipeline designer surface, and set the name to **LookupNewWaterMarkActivity** in the **General** tab of the properties window. This Lookup activity gets the new watermark value from the table with the source data to be copied to the destination. 
+11. In the **Activities** toolbox, expand **General**, and drag-drop another **Lookup** activity to the pipeline designer surface, and set the name to **LookupNewWaterMarkActivity** in the **General** tab of the properties window. This Lookup activity gets the new watermark value from the table with the source data to be copied to the destination. 
 
-    ![Second lookup activity - name](./media/tutorial-incremental-copy-portal/second-lookup-activity-name.png)
-13. In the properties window for the second **Lookup** activity, switch to the **Settings** tab, and click **New**. You create a dataset to point to the source table that contains the new watermark value (maximum value of LastModifyTime). 
+12. In the properties window for the second **Lookup** activity, switch to the **Settings** tab, and click **New**. You create a dataset to point to the source table that contains the new watermark value (maximum value of LastModifyTime). 
 
-    ![Second lookup activity - new dataset](./media/tutorial-incremental-copy-portal/second-lookup-activity-settings-new-button.png)
-14. In the **New Dataset** window, select **Azure SQL Database**, and click **Finish**. You see a new tab opened for this dataset. You also see the dataset in the tree view. 
-15. In the **General** tab of the properties window, enter **SourceDataset** for **Name**. 
-
-    ![Source dataset - name](./media/tutorial-incremental-copy-portal/source-dataset-name.png)
-16. Switch to the **Connection** tab, and do the following steps: 
-
-    1. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
-    2. Select **[dbo].[data_source_table]** for Table. You specify a query on this dataset later in the tutorial. The query takes the precedence over the table you specify in this step. 
-
-        ![Second lookup activity - new dataset](./media/tutorial-incremental-copy-portal/source-dataset-connection.png)
+13. In the **New Dataset** window, select **Azure SQL Database**, and click **Continue**. 
+14. In the **Set properties** window, enter **SourceDataset** for **Name**. Select **AzureSqlDatabaseLinkedService** for **Linked service**.
+15. Select **[dbo].[data_source_table]** for Table. You specify a query on this dataset later in the tutorial. The query takes the precedence over the table you specify in this step.
+16. Select **Finish**. 
 17. Switch to the pipeline editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. In the properties window for the **Lookup** activity, confirm that **SourceDataset** is selected for the **Source Dataset** field. 
 18. Select **Query** for the **Use Query** field, and enter the following query: you are only selecting the maximum value of **LastModifytime** from the **data_source_table**. Please make sure you have also checked **First row only**.
 
@@ -239,15 +218,13 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     ```
 
     ![Second lookup activity - query](./media/tutorial-incremental-copy-portal/query-for-new-watermark.png)
-19. In the **Activities** toolbox, expand **DataFlow**, and drag-drop the **Copy** activity from the Activities toolbox, and set the name to **IncrementalCopyActivity**. 
+19. In the **Activities** toolbox, expand **Move & Transform**, and drag-drop the **Copy** activity from the Activities toolbox, and set the name to **IncrementalCopyActivity**. 
 
-    ![Copy activity - name](./media/tutorial-incremental-copy-portal/copy-activity-name.png)
 20. **Connect both Lookup activities to the Copy activity** by dragging the **green button** attached to the Lookup activities to the Copy activity. Release the mouse button when you see the border color of the Copy activity changes to blue. 
 
     ![Connection Lookup activities to Copy activity](./media/tutorial-incremental-copy-portal/connection-lookups-to-copy.png)
 21. Select the **Copy activity** and confirm that you see the properties for the activity in the **Properties** window. 
 
-    ![Copy activity properties](./media/tutorial-incremental-copy-portal/back-to-copy-activity-properties.png)
 22. Switch to the **Source** tab in the **Properties** window, and do the following steps:
 
     1. Select **SourceDataset** for the **Source Dataset** field. 
@@ -261,40 +238,27 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
         ![Copy activity - source](./media/tutorial-incremental-copy-portal/copy-activity-source.png)
 23. Switch to the **Sink** tab, and click **+ New** for the **Sink Dataset** field. 
 
-    ![New Dataset button](./media/tutorial-incremental-copy-portal/new-sink-dataset-button.png)
-24. In this tutorial sink data store is of type Azure Blob Storage. Therefore, select **Azure Blob Storage**, and click **Finish** in the **New Dataset** window. 
-
-    ![Select Azure Blob Storage](./media/tutorial-incremental-copy-portal/select-azure-blob-storage.png)
-25. In the **General** tab of the Properties window for the dataset, enter **SinkDataset** for **Name**. 
-
-    ![Sink Dataset - name](./media/tutorial-incremental-copy-portal/sink-dataset-name.png)
-26. Switch to the **Connection** tab, and click **+ New**. In this step, you create a connection (linked service) to your **Azure Blob storage**.
-
-    ![Sink Dataset - new connection](./media/tutorial-incremental-copy-portal/sink-dataset-new-connection.png)
-26. In the **New Linked Service** window, do the following steps: 
+24. In this tutorial sink data store is of type Azure Blob Storage. Therefore, select **Azure Blob Storage**, and click **Continue** in the **New Dataset** window. 
+25. In the **Select Format** window, select the format type of your data, and click **Continue**.
+25. In the **Set Properties** window, enter **SinkDataset** for **Name**. For **Linked Service**, select **+ New**. In this step, you create a connection (linked service) to your **Azure Blob storage**.
+26. In the **New Linked Service (Azure Blob Storage)** window, do the following steps: 
 
     1. Enter **AzureStorageLinkedService** for **Name**. 
     2. Select your Azure Storage account for **Storage account name**.
-    3. Click **Save**. 
+    3. Test Connection and then click **Finish**. 
 
-        ![Azure Storage Linked service - settings](./media/tutorial-incremental-copy-portal/azure-storage-linked-service-settings.png)
-27. In the **Connection** tab, do the following steps:
+27. In the **Set Properties** window, confirm that **AzureStorageLinkedService** is selected for **Linked service**. Then select **Finish**.
+28. Go to the **Connection** tab of SinkDataset and do the following steps:
+    1. For the **File path** field, enter **adftutorial/incrementalcopy**. **adftutorial** is the blob container name and **incrementalcopy** is the folder name. This snippet assumes that you have a blob container named adftutorial in your blob storage. Create the container if it doesn't exist, or set it to the name of an existing one. Azure Data Factory automatically creates the output folder **incrementalcopy** if it does not exist. You can also use the **Browse** button for the **File path** to navigate to a folder in a blob container.
+    2. For the **File** part of the **File path** field, select **Add dynamic content [Alt+P]**, and then enter `@CONCAT('Incremental-', pipeline().RunId, '.txt')`in the opened window. Then select **Finish**. The file name is dynamically generated by using the expression. Each pipeline run has a unique ID. The Copy activity uses the run ID to generate the file name. 
 
-    1. Confirm that **AzureStorageLinkedService** is selected for **Linked service**. 
-    2. For the **folder** part of the **File path** field, enter **adftutorial/incrementalcopy**. **adftutorial** is the blob container name and **incrementalcopy** is the folder name. This snippet assumes that you have a blob container named adftutorial in your blob storage. Create the container if it doesn't exist, or set it to the name of an existing one. Azure Data Factory automatically creates the output folder **incrementalcopy** if it does not exist. You can also use the **Browse** button for the **File path** to navigate to a folder in a blob container. .RunId, '.txt')`.
-    3. Fir the **filename** part of the **File path** field, enter `@CONCAT('Incremental-', pipeline().RunId, '.txt')`. The file name is dynamically generated by using the expression. Each pipeline run has a unique ID. The Copy activity uses the run ID to generate the file name. 
-
-        ![Sink Dataset - connection settings](./media/tutorial-incremental-copy-portal/sink-dataset-connection-settings.png)
 28. Switch to the **pipeline** editor by clicking the pipeline tab at the top or by clicking the name of the pipeline in the tree view on the left. 
 29. In the **Activities** toolbox, expand **General**, and drag-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. **Connect** the green (Success) output of the **Copy** activity to the **Stored Procedure** activity. 
-    
-    ![Copy activity - source](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
+
 24. Select **Stored Procedure Activity** in the pipeline designer, change its name to **StoredProceduretoWriteWatermarkActivity**. 
 
-    ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
-25. Switch to the **SQL Account** tab, and select *AzureSqlDatabaseLinkedService** for **Linked service**. 
+25. Switch to the **SQL Account** tab, and select **AzureSqlDatabaseLinkedService** for **Linked service**. 
 
-    ![Stored Procedure Activity - SQL Account](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Switch to the **Stored Procedure** tab, and do the following steps: 
 
     1. For **Stored procedure name**, select **usp_write_watermark**. 
@@ -308,25 +272,20 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
     ![Stored Procedure Activity - stored procedure settings](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)
 27. To validate the pipeline settings, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report** window, click >>.   
 
-    ![Validate pipeline](./media/tutorial-incremental-copy-portal/validate-pipeline.png)
 28. Publish entities (linked services, datasets, and pipelines) to the Azure Data Factory service by selecting the **Publish All** button. Wait until you see a message that the publishing succeeded. 
 
-    ![Publish button](./media/tutorial-incremental-copy-portal/publish-button.png)
 
 ## Trigger a pipeline run
-1. Click **Trigger** on the toolbar, and click **Trigger Now**. 
+1. Click **Add Trigger** on the toolbar, and click **Trigger Now**. 
 
-    ![Trigger Now button](./media/tutorial-incremental-copy-portal/trigger-now.png)
 2. In the **Pipeline Run** window, select **Finish**. 
 
 ## Monitor the pipeline run
 
 1. Switch to the **Monitor** tab on the left. You can see the status of the pipeline run triggered by the manual trigger. Click **Refresh** button to refresh the list. 
     
-    ![Pipeline runs](./media/tutorial-incremental-copy-portal/pipeline-runs.png)
 2. To view activity runs associated with this pipeline run, click the first link (**View Activity Runs**) in the **Actions** column. You can go back to the previous view by clicking **Pipelines** at the top. Click **Refresh** button to refresh the list.
 
-    ![Activity runs](./media/tutorial-incremental-copy-portal/activity-runs.png)
 
 ## Review the results
 1. Connect to your Azure Storage Account by using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Verify that an output file is created in the **incrementalcopy** folder of the **adftutorial** container.
@@ -383,19 +342,15 @@ PersonID | Name | LastModifytime
 ## Trigger another pipeline run
 1. Switch to the **Edit** tab. Click the pipeline in the tree view if it's not opened in the designer. 
 
-    ![Trigger Now button](./media/tutorial-incremental-copy-portal/edit-tab.png)
-2. Click **Trigger** on the toolbar, and click **Trigger Now**. 
+2. Click **Add Trigger** on the toolbar, and click **Trigger Now**. 
 
-    ![Trigger Now button](./media/tutorial-incremental-copy-portal/trigger-now.png)
 
 ## Monitor the second pipeline run
 
 1. Switch to the **Monitor** tab on the left. You can see the status of the pipeline run triggered by the manual trigger. Click **Refresh** button to refresh the list. 
     
-    ![Pipeline runs](./media/tutorial-incremental-copy-portal/pipeline-runs-2.png)
 2. To view activity runs associated with this pipeline run, click the first link (**View Activity Runs**) in the **Actions** column. You can go back to the previous view by clicking **Pipelines** at the top. Click **Refresh** button to refresh the list.
 
-    ![Activity runs](./media/tutorial-incremental-copy-portal/activity-runs-2.png)
 
 ## Verify the second output
 

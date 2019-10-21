@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create Custom Vision resources in the Azure portal
 
-To use the Custom Vision Service, you'll need to create Custom Vision Training and Prediction resources in the Azure portal. Fill out the dialog window on the [Create Custom Vision](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) page to create both a Training and Prediction resource. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## Create a new project
 
