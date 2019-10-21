@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/20/2019
+ms.date: 10/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -170,16 +170,6 @@ There are several ways that you can configure entitlement management for your or
 > | **3.** [Open the lifecycle settings](entitlement-management-access-package-lifecycle-policy.md#open-lifecycle-settings) | Access package manager |
 > | **4.** [Update the expiration settings](entitlement-management-access-package-lifecycle-policy.md#lifecycle) | Access package manager |
 
-### Update the people for a project
-> [!div class="mx-tableFixed"]
-> |  |  |
-> | --- | --- |
-> | **1.** [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z) | Access package manager |
-> | **2.** [Remove users that no longer need access](entitlement-management-access-package-assignments.md) | Access package manager |
-> | **3.** [Open an existing policy of request and approval settings](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings) | Access package manager |
-> | **4.** [Add users that need access](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) | Access package manager |
-> | **5.** Added users can request access in the My Access portal | Access package manager |
-
 ### Update how access is approved for a project
 
 > [!div class="mx-tableFixed"]
@@ -188,6 +178,24 @@ There are several ways that you can configure entitlement management for your or
 > | **1.** [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z) | Access package manager |
 > | **2.** [Open an existing policy of request and approval settings](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings) | Access package manager |
 > | **3.** [Update the approval settings](entitlement-management-access-package-request-policy.md#approval) | Access package manager |
+
+### Update the people for a project
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **1.** [Watch video: Day-to-day management: Things have changed](https://www.microsoft.com/videoplayer/embed/RE3LD4Z) | Access package manager |
+> | **2.** [Remove users that no longer need access](entitlement-management-access-package-assignments.md) | Access package manager |
+> | **3.** [Open an existing policy of request and approval settings](entitlement-management-access-package-request-policy.md#open-an-existing-policy-of-request-and-approval-settings) | Access package manager |
+> | **4.** [Add users that need access](entitlement-management-access-package-request-policy.md#for-users-in-your-directory) | Access package manager |
+> | **5.** [Added users can request access in the My Access portal](entitlement-management-request-access.md) | Requestor |
+
+### Directly assign specific users to an access package
+> [!div class="mx-tableFixed"]
+> |  |  |
+> | --- | --- |
+> | **1.** [Add a new policy to the access package](entitlement-management-access-package-request-policy.md#add-a-new-policy-of-request-and-approval-settings) | Access package manager |
+> | **2.** [For Users who can request access, select None (administrator direct assignments only)](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only) | Access package manager |
+> | **3.** [Directly assign specific users to the access package](entitlement-management-access-package-assignments.md#directly-assign-a-user) | Access package manager |
 
 ## Assignments and reports
 
