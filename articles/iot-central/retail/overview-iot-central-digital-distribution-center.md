@@ -22,10 +22,10 @@ Benefits are,
 
 Partners can leverage this application template to build Digital Distribution Center to gain actionable insights & above outlined benefits. The published template is focused on device connectivity configuration & management of camera and edge devices in IoT Central. 
 
-!Digital Distribution Center Dashboard](./media/overview-iot-central-connected-logistics/digital_distribution_center_dashboard.png)
+![Digital Distribution Center Dashboard](./media/overview-digital-distribution-center/digital_distribution_center_dashboard.png)
 
 
-##Next steps
+## Next steps
 To get started building a digital distribution center solution:
 * Deploy the application template
 * For detailed documentation, refer to [tutorial section]

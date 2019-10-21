@@ -20,10 +20,10 @@ Smart Inventory management benefits are,
 Partners can leverage template to develop end to end Smart inventory management solutions & outlined benefits.This published template is focused on device connectivity, configuration & management of RFID & Bluetooth low energy (BLE) readers in IoT Central. 
 
 
-![Smart Inventory Management Dashboard](./media/overview-iot-central-connected-logistics/smart_inventory_management_dashboard.png)
+![Smart Inventory Management Dashboard](./media/overview-iot-central-smart-inventory-management/smart_inventory_management_dashboard.png)
 
 
-##Next steps
+## Next steps
 To get started building a Smart inventory management:
 * Deploy the application template
 * For detailed documentation, refer to [tutorial section]
