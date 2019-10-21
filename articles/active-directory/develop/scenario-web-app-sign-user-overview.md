@@ -78,5 +78,24 @@ As a second phase you can also enable your application to call Web APIs on behal
 
 ## Next steps
 
+# [ASP.NET Core](#tab/aspnetcore)
+
 > [!div class="nextstepaction"]
-> [App registration](scenario-web-app-sign-user-app-registration.md)
+> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnetcore?tabs=aspnetcore)
+
+# [ASP.NET](#tab/aspnet)
+
+> [!div class="nextstepaction"]
+> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=aspnet)
+
+# [Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=java)
+
+# [Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [App registration](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-app-registration?tabs=python)
+
+---

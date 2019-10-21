@@ -98,7 +98,7 @@ conceptualContent:
           itemType: concept
           text:  Storage security
       footerLink: 
-        url: azure-security-disk-encryption-overview.md
+        url: /fundamentals/encryption-overview.md
         text: See more
 
     - title: Identity management
