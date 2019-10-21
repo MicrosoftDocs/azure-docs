@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/30/2019
+ms.date: 10/21/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -54,6 +54,8 @@ This article describes some items you should check to help you troubleshoot Azur
 ## Checklist for request issues
 
 * When a user wants to request access to an access package, be sure that they are using the **My Access portal link** for the access package. For more information, see [Share link to request an access package](entitlement-management-access-package-settings.md).  If an external user visits **myaccess.microsoft.com**, then they will see the access packages available to them in their own organization.
+
+* If you open the My Access portal with your browser set to in-private or incognito mode, this might conflict with the sign-in behavior. We recommend that you do not use in-private or incognito mode for your browser when you visit the My Access portal.
 
 * When a user who is not yet in your directory signs in to the My Access portal to request an access package, be sure they authenticate using their organizational account. The organizational account can be either an account in the resource directory, or in a directory that is included in one of the policies of the access package. If the user's account is not an organizational account, or the directory where they authenticate is not included in the policy, then the user will not see the access package. For more information, see [Request access to an access package](entitlement-management-request-access.md).
 
