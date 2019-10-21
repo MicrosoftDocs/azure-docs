@@ -18,7 +18,11 @@ ms.custom:
 Recommendations and examples for creating and updating query-optimization statistics in:
 
 - [SQL Analytics pool](#statistics-in-sql-analytics-pool)
+[Why use statistics](#why-use-statistics)
+
 - [SQL Analytics on-demand](#statistics-in-sql-analytics-on-demand)
+
+  [Why use statistics](#why-use-statistics-sqlod)
 
 ## Statistics in SQL Analytics pool
 
@@ -525,7 +529,7 @@ For further improve query performance, see [Monitor your workload](../../sql-dat
 
 Statistics are created per particular column for particular dataset (OPENROWSET path).
 
-### Why use statistics
+### <a id="why-use-statistics-sqlod"/>Why use statistics
 
 The more SQL Analytics on-demand knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Analytics on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
