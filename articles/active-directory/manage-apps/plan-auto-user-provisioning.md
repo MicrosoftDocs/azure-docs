@@ -167,7 +167,7 @@ Setting up automatic user provisioning is a per-application process. For each ap
 
 The image below shows one version of the required admin credentials:
 
-![Provisioning screen to manage user account provisioning settings](media/auto-user-provision-dp/userprovisioning_admincredentials.png)
+![Provisioning screen to manage user account provisioning settings](media/auto-user-provision-dp/userprovisioning-admincredentials.png)
 
 While some applications require the admin username and password, others may require a bearer token.
 
