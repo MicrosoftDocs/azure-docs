@@ -12,11 +12,11 @@ manager: carmonm
 ---
 # Manage pre and post-scripts
 
-Pre-scripts and post-scripts let you run PowerShell runbooks in your automation account before (pre-task) and after (post-task) an update deployment. Pre and post-scripts run in the Azure context, not locally. Pre-scripts run at the beginning of the update deployment. Post-scripts run at the end of the deployment and after any reboots that are configured.
+Pre-scripts and post-scripts let you run PowerShell runbooks in your Azure Automation account before (pre-task) and after (post-task) an update deployment. Pre and post-scripts run in the Azure context, not locally. Pre-scripts run at the beginning of the update deployment. Post-scripts run at the end of the deployment and after any reboots that are configured.
 
 ## Runbook requirements
 
-For a runbook to be used as a pre or post-script, the runbook must be imported into your automation account and published. To learn more about this process, see [Publish a runbook](manage-runbooks.md#publish-a-runbook).
+For a runbook to be used as a pre or post-script, the runbook must be imported into your Automation account and published. To learn more about this process, see [Publish a runbook](manage-runbooks.md#publish-a-runbook).
 
 ## Using a pre-script or post-script
 
@@ -135,7 +135,7 @@ foreach($summary in $finalStatus)
 
 ## Samples
 
-Samples for pre and post-scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) and the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), or you can import them through the Azure portal. To do that, in your automation account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
+Samples for pre and post-scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) and the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), or you can import them through the Azure portal. To do that, in your Automation account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
 
 ![Gallery list](./media/pre-post-scripts/runbook-gallery.png)
 
@@ -148,7 +148,7 @@ Or you can search for them by their script name, as shown in the following list:
 * Update Management - Run Script with Run Command
 
 > [!IMPORTANT]
-> After you import the runbooks, you must publish them before they can be used. To do that, find the runbook in your automation account, select **Edit**, and then select **Publish**.
+> After you import the runbooks, you must publish them before they can be used. To do that, find the runbook in your Automation account, select **Edit**, and then select **Publish**.
 
 The samples are all based on the basic template that's defined in the following example. This template can be used to create your own runbook to use with pre and post-scripts. The necessary logic for authenticating with Azure and handling the `SoftwareUpdateConfigurationRunContext` parameter is included.
 
@@ -205,7 +205,7 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## Interacting with machines
 
-Pre and post-tasks run as a runbook in your automation account and not directly on the machines in your deployment. Pre and post-tasks also run in the Azure context and don't have access to non-Azure machines. The following sections show how you can interact with the machines directly, whether they're Azure VMs or non-Azure machines.
+Pre and post-tasks run as a runbook in your Automation account and not directly on the machines in your deployment. Pre and post-tasks also run in the Azure context and don't have access to non-Azure machines. The following sections show how you can interact with the machines directly, whether they're Azure VMs or non-Azure machines.
 
 ### Interacting with Azure machines
 
