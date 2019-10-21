@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
-title: Azure Synapse Analytics (SQL DW)  # < 60 chars
-summary: Learn how to use Azure Synapse Analytics (formerly known as Azure SQL Data Warehouse), which combines SQL relational databases with massively parallel processing (MPP). Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse.  # < 160 chars
+title: Azure Synapse Analytics (formerly SQL DW)  # < 60 chars
+summary: Learn how to use Azure Synapse Analytics (formerly SQL DW), which combines SQL relational databases with massively parallel processing (MPP). Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse.  # < 160 chars
 
 metadata:
   title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: description # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Synapse Analytics Enables a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs. # Required; article description that is displayed in search results. < 160 chars.
   services: sql-data-warehouse
   ms.service: sql-data-warehouse #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: design
@@ -39,7 +39,7 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: Create a data warehouse
+          - text: Create a SQL pool (data warehouse)
             url: create-data-warehouse-portal.md
   #         # - text: linktext2
   #         #   url: file2.md
