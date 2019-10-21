@@ -13,6 +13,8 @@ ms.date: 02/11/2019
 ---
 # Tutorial 1: Predict credit risk - Azure Machine Learning Studio (classic)
 
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
 In this tutorial, you take an extended look at the process of developing a predictive analytics solution. You develop a simple model in Machine Learning Studio (classic).  You then deploy the model as an Azure Machine Learning web service.  This deployed model can make predictions using new data. This tutorial is **part one of a three-part tutorial series**.
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
