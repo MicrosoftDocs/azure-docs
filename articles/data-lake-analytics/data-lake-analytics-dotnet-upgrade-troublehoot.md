@@ -22,7 +22,7 @@ After this upgrade to .NET 4.7.2 is complete, the system’s managed code will r
 - If your assembly DLLs are generated for version 4.5.2, the deployed framework will treat them as 4.5.2 libraries, providing (with a few exceptions) 4.5.2 semantics.
 - You can now use U-SQL custom assemblies that make use of version 4.7.2 features, if you target the .NET Framework 4.7.2.  
 
-Because of this upgrade to .NET 4.7.2, there's a potential to introduce breaking changes to your U-SQL jobs (that use U-SQL custom assemblies).  We suggest you check for backwards-compatibility issues using the procedure below.
+Because of this upgrade to .NET 4.7.2, there's a potential to introduce breaking changes to your U-SQL jobs that use .NET custom assemblies.  We suggest you check for backwards-compatibility issues using the procedure below.
 
 ## How to check for backwards-compatibility issues
 
