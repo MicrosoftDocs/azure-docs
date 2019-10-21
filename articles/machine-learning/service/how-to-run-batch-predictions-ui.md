@@ -1,7 +1,7 @@
 ---
 title: Run batch predictions using Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
-description: Learn how to train a model and setup a batch prediction pipeline using the designer. Deploy the pipeline as a parameterized web service, which can be triggered from any HTTP library.
+description: Learn how to train a model and set up a batch prediction pipeline using the designer. Deploy the pipeline as a parameterized web service, which can be triggered from any HTTP library.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,7 +16,7 @@ ms.custom: Ignite2019
 # Run batch predictions using Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this how-to, you learn how to use the designer to train a model and setup a batch prediction web service. Batch prediction allows for continuous and on-demand scoring of trained models on large data sets, optionally configured as a web service that can be triggered from any HTTP library. 
+In this how-to, you learn how to use the designer to train a model and set up a batch prediction pipeline and web service. Batch prediction allows for continuous and on-demand scoring of trained models on large data sets, optionally configured as a web service that can be triggered from any HTTP library. 
 
 For setting up batch scoring services using the SDK, see the accompanying [how-to](how-to-run-batch-predictions.md).
 
@@ -49,7 +49,7 @@ Now that the pipeline has been run, there is a new option available next to **Ru
 
 ![Create batch inference pipeline](media/how-to-run-batch-predictions-ui/ui-batch-scoring-5.png)
 
-The result is a default batch inference pipeline. This includes a node for your your original pipeline experiment setup, a node for raw data for scoring, and a node to score the raw data against your original pipeline.
+The result is a default batch inference pipeline. This includes a node for your original pipeline experiment setup, a node for raw data for scoring, and a node to score the raw data against your original pipeline.
 
 ![Default batch inference pipeline](media/how-to-run-batch-predictions-ui/ui-batch-scoring-6.png)
 
@@ -69,7 +69,7 @@ Next, give the parameter a name and default value. The name will be used to iden
 
 ## Deploy batch inferencing pipeline
 
-Now you are ready to deploy the pipeline. Click the **Deploy** button, which opens the interface to setup an endpoint. Click the dropdown and select **New PipelineEndpoint**.
+Now you are ready to deploy the pipeline. Click the **Deploy** button, which opens the interface to set up an endpoint. Click the dropdown and select **New PipelineEndpoint**.
 
 ![Pipeline deploy](media/how-to-run-batch-predictions-ui/ui-batch-scoring-10.png)
 
