@@ -4,11 +4,11 @@ title: Azure Service Fabric security overview| Microsoft Docs
 description: This article provides an overview of Azure Service Fabric security.
 services: security
 documentationcenter: na
-author: unifycloud
+author: TerryLanfear
 manager: barbkess
 editor: tomsh
 
-ms.assetid: 
+ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
-ms.author: tomsh
+ms.author: terrylan
 
 ---
 # Azure Service Fabric security overview
@@ -89,7 +89,7 @@ The workflow of monitoring and diagnostics consists of three steps:
 
 You can also use [Azure Monitor](../../azure-monitor/overview.md) to monitor many of the Azure resources on which a Service Fabric cluster is built.
 
-A watchdog is a separate service that can watch health and load across services, and report health for anything in the health model hierarchy. Using a watchdog can help prevent errors that would not be detected based on the view of a single service. 
+A watchdog is a separate service that can watch health and load across services, and report health for anything in the health model hierarchy. Using a watchdog can help prevent errors that would not be detected based on the view of a single service.
 
 Watchdogs are also a good place to host code that performs remedial actions without user interaction. An example is cleaning up log files in storage at certain time intervals. You can find a sample watchdog service implementation at [Azure Service Fabric watchdog sample](https://azure.microsoft.com/resources/samples/service-fabric-watchdog-service/).
 
