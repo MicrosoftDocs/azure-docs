@@ -25,7 +25,7 @@ Projections can be tabular, with data stored in rows and columns in Azure Table 
 
 The knowledge store supports three types of projections:
 
-+ **Tables**: For data that are best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
++ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
 
 + **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
 
