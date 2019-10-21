@@ -46,9 +46,9 @@ The first step is to create voice signatures for the conversation participants. 
 - The input audio wave file for creating voice signatures should be in 16-bit samples, 16 kHz sample rate, and a single channel (mono) format.
 - The recommended length for each audio sample is between thirty seconds and two minutes.
 
-### Sample code to create voice signatures
+### Sample code for creating voice signatures
 
-The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#:
+The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#. Note that you'll need to substitute real information for "Ocp-Apim-Subscription-Key" and "YourSubscriptionKey".
 
 ```csharp
 class Program
@@ -90,9 +90,11 @@ class Program
 }
 ```
 
-## Transcribing conversations in real time
+## Sample code for transcribing conversations in real time
 
-Refer to the sample code, comments, and description below.
+The following sample code demonstrates how to transcribe conversations in real time for three speakers, and assumes you've already created voice signatures for each as shown above. Note that you'll need to substitute real information for "YourSubscriptionKey" and "YourServiceRegion" when creating the SpeechConfig object.
+
+We create a `Conversation` object from the `SpeechConfig` object and a meeting ID generated using `Guid.NewGuid().ToString();`. To start transcribing the audio, create a `ConversationTranscriber` object and join the conversation with `JoinConversationAsync()`. We then register the events of interest, add or remove participants to the conversation using the Conversation object, and then stream audio. The transcription and speaker ID come back in the registered events.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -191,10 +193,6 @@ public class MyConversationTranscriber
     }
 }
 ```
-
-Note that you'll need to substitute real information for "YourSubscriptionKey" and "YourServiceRegion" when creating the SpeechConfig object.
-
-We create a `Conversation` object from the `SpeechConfig` object and a meeting ID generated using `Guid.NewGuid().ToString();`. To start transcribing the audio, create a `ConversationTranscriber` object and join the conversation with `JoinConversationAsync()`. We then register the events of interest, add or remove participants to the conversation using the Conversation object, and then stream audio. The transcription and speaker ID come back in the registered events.
 
 ## See also
 
