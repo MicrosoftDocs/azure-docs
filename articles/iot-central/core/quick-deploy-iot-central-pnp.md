@@ -30,16 +30,16 @@ You start creating a new application from a blank template or a pre-population a
 
 To create a new Azure IoT Central application:
 
-1. To start creating a new Azure IoT Central application from an *Industry template*, select an application templates from the list of available templates under the industry pivots. You can also start from a blank template by selecting *Custom app*. 
+1. To start creating a new Azure IoT Central application from an *Industry template*, select an application template from the list of available templates under the industry pivots. You can also start from a blank template by selecting *Custom app*. 
 2. Azure IoT Central automatically suggests an **application name** based on the application template you've selected. You can use this name or enter your own friendly application name. 
-3. Azure IoT Central will also generates a unique **application URL** prefix for you, based on the application name. You'll use this URL to access your application. You're free to change this URL prefix to something more memorable if you'd like.
+3. Azure IoT Central will also generate a unique **application URL** prefix for you, based on the application name. You'll use this URL to access your application. You're free to change this URL prefix to something more memorable if you'd like.
 
 ![Azure IoT Central Create an application page](media/quick-deploy-iot-central-pnp/iotcentralcreate-industry-pnp.png)
 
 > [!NOTE]
 > If you're using the Custom app template, you'll see an **Application template** dropdown field. From here you can switch between preview and generally available templates. You might also see other templates that have been made available for your organization.
 
-4. You'll need to select if you want to create this application using a 7 day trial, or use a Pay-As-You-Go subscription. 
+4. You'll need to select if you want to create this application using a 7-day trial, or use a Pay-As-You-Go subscription. 
     - **Trial** applications are free for seven days and support up to five devices. They can be converted to Pay-As-You-Go at any time before they expire. If you create a Trial application, you need to enter your contact information and choose whether to receive information and tips from Microsoft.
    - **Pay-As-You-Go** applications are charged on a per device basis, with the first two devices being free. Learn more about [IoT Central pricing](https://aka.ms/iotcentral-pricing). If you create a Pay-As-You-Go application, you'll need to select your *Directory*, *Azure Subscription*, and *Region*:
         - *Directory* is the Azure Active Directory (AAD) in which you'll create your application. An Azure AD contains user identities, credentials, and other organizational information. If you don’t have an Azure AD, one is created for you when you create an Azure subscription.
