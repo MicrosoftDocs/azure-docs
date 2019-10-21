@@ -121,7 +121,7 @@ The following steps assume, that you have already deployed [Azure Virtual Networ
 2. Create the NetApp account in the selected Azure region, following the [instructions to create NetApp Account](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-netapp-account).  
 
 3. Set up Azure NetApp Files capacity pool, following the [instructions on how to set up Azure NetApp Files capacity pool](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
-The HANA architecture presented in this article uses single Azure NetApp Files capacity pool, Ultra Service level. We recommend Azure NetApp Files Ultra or Premium [Service Level](https://docs.microsoft.com/bs-latn-ba/azure/azure-netapp-files/azure-netapp-files-service-levels) for HANA workloads on Azure.  
+The HANA architecture presented in this article uses single Azure NetApp Files capacity pool, Ultra Service level. We recommend Azure NetApp Files Ultra or Premium [Service Level](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) for HANA workloads on Azure.  
 
 4. Delegate a subnet to Azure NetApp files as described in the [instructions Delegate a subnet to Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
@@ -143,7 +143,7 @@ When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availabil
 - The minimum volume size is 100 GiB
 - Azure NetApp Files and all virtual machines, where Azure NetApp Files volumes will be mounted, must be in the same Azure Virtual Network or in [peered virtual networks](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) in the same region.  
 - The selected virtual network must have a subnet, delegated to Azure NetApp Files.
-- The throughput of an Azure NetApp volume is a function of the volume quota and Service level, as documented in [Service level for Azure NetApp Files](https://docs.microsoft.com/bs-latn-ba/azure/azure-netapp-files/azure-netapp-files-service-levels). When sizing the HANA Azure NetApp volumes, make sure the resulting throughput meets the HANA system requirements.  
+- The throughput of an Azure NetApp volume is a function of the volume quota and Service level, as documented in [Service level for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). When sizing the HANA Azure NetApp volumes, make sure the resulting throughput meets the HANA system requirements.  
 - Azure NetApp Files offers [export policy](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): you can control the allowed clients, the access type (Read&Write, Read Only, etc.). 
 - Azure NetApp Files feature isn't zone aware yet. Currently Azure NetApp Files feature isn't deployed in all Availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.  
 - It is important to have the virtual machines deployed in close proximity to the Azure NetApp storage for low latency. For SAP HANA workloads low latency is critical. Work with your Microsoft representative to ensure that the virtual machines and the Azure NetApp Files volumes are deployed in close proximity.  
@@ -157,7 +157,7 @@ When considering Azure NetApp Files for the SAP Netweaver on SUSE High Availabil
 
 ### Sizing for HANA database on Azure NetApp Files
 
-The throughput of an Azure NetApp volume is a function of the volume size and Service level, as documented in [Service level for Azure NetApp Files](https://docs.microsoft.com/bs-latn-ba/azure/azure-netapp-files/azure-netapp-files-service-levels). 
+The throughput of an Azure NetApp volume is a function of the volume size and Service level, as documented in [Service level for Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels). 
 
 As you design the infrastructure for SAP in Azure you should be aware of some minimum storage requirements by SAP, which translate into minimum throughput characteristics:
 
@@ -165,7 +165,7 @@ As you design the infrastructure for SAP in Azure you should be aware of some mi
 - Enable read activity of at least 400 MB/sec for /hana/data for 16 MB and 64 MB I/O sizes  
 - Enable write activity of at least 250 MB/sec for /hana/data with 16 MB and 64 MB I/O sizes  
 
-The [Azure NetApp Files throughput limits](https://docs.microsoft.com/bs-latn-ba/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TiB of volume quota are:
+The [Azure NetApp Files throughput limits](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) per 1 TiB of volume quota are:
 - Premium Storage Tier - 64 MiB/s  
 - Ultra Storage Tier - 128 MiB/s  
 
@@ -574,7 +574,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
 1. Simulate node crash on an SAP HANA worker node  
 
-Run the following commands as **hn1**adm to capture the status of the environment, before simulating the node crash.  
+   Run the following commands as **hn1**adm to capture the status of the environment, before simulating the node crash.  
 
    <pre><code>
     # Check the landscape status
@@ -596,12 +596,12 @@ Run the following commands as **hn1**adm to capture the status of the environmen
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GREEN
    </code></pre>
 
-Run the following command as root on the worker node, which is in this case **hanadb2** to simulate a node crash.  
+   Run the following command as root on the worker node, which is in this case **hanadb2** to simulate a node crash.  
    <pre><code>
     echo b > /proc/sysrq-trigger
    </code></pre>
 
-Monitor the system for failover completion. When the failover has completed capture the status - it should look like the status presented below.  
+   Monitor the system for failover completion. When the failover has completed capture the status - it should look like the status presented below.  
    <pre><code>
     # Check the instance status
     sapcontrol -nr <b>03</b>  -function GetSystemInstanceList
@@ -626,7 +626,7 @@ Monitor the system for failover completion. When the failover has completed capt
    > To avoid delays with SAP HANA failover, when a node experiences kernel panic, set `kernel.panic` to 20 seconds on **all** HANA virtual machines. The configuration is done in `/etc/sysctl`. Reboot the virtual machines to activate the change. Failover, when a node is experiencing kernel panic can take 10 or more minutes, if this change is not performed.  
 
 2. Kill the name server  
-Run the following commands as **hn1**adm to check the status of the environment, prior to the test: 
+   Run the following commands as **hn1**adm to check the status of the environment, prior to the test:  
 
    <pre><code>
     #Landscape status 
@@ -648,13 +648,13 @@ Run the following commands as **hn1**adm to check the status of the environment,
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GRAY
    </code></pre>
 
-Run the following commands as **hn1**adm on the active master node, which is in this case **hanadb1**.  
+   Run the following commands as **hn1**adm on the active master node, which is in this case **hanadb1**.  
 
    <pre><code>
     hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill
    </code></pre>
 
-The standby node **hanadb3** will take over as master node. Resource state after the failover test completed:  
+   The standby node **hanadb3** will take over as master node. Resource state after the failover test completed:  
 
    <pre><code>
     # Check the instance status
@@ -676,12 +676,12 @@ The standby node **hanadb3** will take over as master node. Resource state after
     | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
    </code></pre>
 
-Start again the HANA instance on **hanadb1**, that is, on the same virtual machine, where the name server was killed. The **hanadb1** node will rejoin the environment and will keep its standby role. 
+   Start again the HANA instance on **hanadb1**, that is, on the same virtual machine, where the name server was killed. The **hanadb1** node will rejoin the environment and will keep its standby role.  
    <pre><code>
     hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB start
    </code></pre>
 
-Status, after SAP HANA has started on **hanadb1**:  
+   Expect the following status, after SAP HANA has started on **hanadb1**:  
    <pre><code>
     # Check the instance status
     sapcontrol -nr 03 -function GetSystemInstanceList
@@ -702,12 +702,12 @@ Status, after SAP HANA has started on **hanadb1**:
     | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
    </code></pre>
 
-Now, kill again the name server on the currently active master node, that is, on hanadb3.  
+   Now, kill again the name server on the currently active master node, that is, on hanadb3.  
    <pre><code>
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB kill
    </code></pre>
 
-Node **hanadb1** will resume  the role of master node. Status, after the failover test completed will look like this:
+   Node **hanadb1** will resume  the role of master node. Status, after the failover test completed will look like this:
    <pre><code>
     # Check the instance status
     sapcontrol -nr 03  -function GetSystemInstanceList & python /usr/sap/HN1/HDB03/exe/python_support/landscapeHostConfiguration.py
@@ -731,12 +731,12 @@ Node **hanadb1** will resume  the role of master node. Status, after the failove
     | hanadb3 | no     | ignore |          |        |         0 |         0 | default  | default  | master 3   | slave      | standby     | standby     | standby | standby | default | -       |
    </code></pre>
 
-Start SAP HANA on **hanadb3** - it will be ready to serve  as a standby node.  
+   Start SAP HANA on **hanadb3** - it will be ready to serve  as a standby node.  
    <pre><code>
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB start
    </code></pre>
 
-Status after SAP HANA has started on **hanadb3**.  
+   Status after SAP HANA has started on **hanadb3**.  
    <pre><code>
     # Check the instance status
     sapcontrol -nr 03  -function GetSystemInstanceList & python /usr/sap/HN1/HDB03/exe/python_support/landscapeHostConfiguration.py
