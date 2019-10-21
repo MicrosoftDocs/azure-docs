@@ -45,10 +45,5 @@ However metrics for multiple nodes can be plotted together.
 
 ## Next steps
 
-- See [how to set up alerts](howto-alert-on-metric.md) for guidance on creating
-  an alert on a metric.
-- For more information on how to access and export metrics using the Azure
-  portal, REST API, or CLI, see the [Azure Metrics
-Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-- Read our blog on [best practices for monitoring your
-  server](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).
+- See [how to set up alerts](howto-hyperscale-alert-on-metric.md) for guidance
+  on creating an alert on a metric.
