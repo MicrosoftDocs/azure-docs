@@ -66,7 +66,7 @@ The above sample is written with Java, but the APIs used are supported on all th
 
 You will need **remoteconversation-client-sdk version 1.0.0** to use the code in this section. Note that **remoteconversation-client-sdk version 1.0.0** is supported only for Java (1.8 or above) on Windows, Linux and Android (API level 26 or above). You can obtain **remoteconversation-client-sdk** by editing your pom.xml file as follows:
 
-- At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK, as shown here:
+- At the end of the file, before the closing tag `</project>`, create a `repositories` element with a reference to the Maven repository for the Speech SDK:
 
   ```xml
   <repositories>
