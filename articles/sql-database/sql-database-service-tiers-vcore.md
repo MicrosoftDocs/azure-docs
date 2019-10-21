@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/15/2019
+ms.date: 10/18/2019
 ---
 # vCore purchasing model
 
@@ -47,9 +47,9 @@ For information on selecting a service tier for your particular workload, see th
 
 Hardware generation options in the vCore model include Gen 4/5, M-series, and Fsv2-series. The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
 
-### Gen5
+### Gen4/Gen5
 
-- Gen5 hardware is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by M-series or Fsv2-series. 
+- Gen4/Gen5 hardware provides balanced compute and memory resources, and is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by Fsv2-series or M-series.
 
 
 ### Fsv2-series (preview)

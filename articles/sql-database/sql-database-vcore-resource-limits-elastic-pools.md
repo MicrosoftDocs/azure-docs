@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 10/14/2019
+ms.date: 10/18/2019
 ---
 # Resource limits for elastic pools using the vCore-based purchasing model limits
 
@@ -37,7 +37,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 |Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|4|
+|Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
 |Memory (GB)|7|14|21|28|35|42|
 |Max number DBs per pool|100|200|500|500|500|500|
@@ -65,7 +65,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 |Compute size|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|4|
+|Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
 |Memory (GB)|49|56|63|70|112|168|
 |Max number DBs per pool|500|500|500|500|500|500|
@@ -93,7 +93,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 |Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|H/W generation|5|5|5|5|5|5|5|
+|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Max number DBs per pool|100|200|500|500|500|500|500|
@@ -121,7 +121,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 |Compute size|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|H/W generation|5|5|5|5|5|5|5|
+|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |Max number DBs per pool|500|500|500|500|500|500|500|
@@ -151,21 +151,22 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |vCores|72|
 |Memory (GB)|136|
 |Max number DBs per pool|500|
-|??Columnstore support|??|
+|Columnstore support|Yes|
 |In-memory OLTP storage (GB)|N/A|
 |Max data size (GB)|4096|
 |Max log size (GB)|1024|
 |TempDB max data size (GB)|333|
-|??Storage type|??Remote SSD??|
+|Storage type|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|
-|??Max data IOPS (??64 KB??)|36000|
-|??Max log rate (??MBps??)|30|
-|Max concurrent workers (requests)|3600|
-|Max concurrent sessions|30000|
-|??Number of replicas|1|
-|??Multi-AZ|N/A|
-|??Read Scale-out|N/A|
-|??Included backup storage|1X DB size|
+|??Target IOPS (64 KB)|36000|
+|??Log rate limits (MBps)|37.5|
+|??Max concurrent workers per pool (requests) *|1680|
+|??Max concurrent logins per pool (requests) *|1680|
+|Min/max elastic pool vCore choices per database|0-72|
+|Number of replicas|1|
+|Multi-AZ|N/A|
+|Read Scale-out|N/A|
+|Included backup storage|1X DB size|
 
 
 
@@ -181,7 +182,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 |Compute size|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|4|
+|Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|1|2|3|4|5|6|
 |Memory (GB)|7|14|21|28|35|42|
 |Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|
@@ -209,7 +210,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 |Compute size|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
-|H/W generation|4|4|4|4|4|4|
+|Compute generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
 |vCores|7|8|9|10|16|24|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|
 |Max number DBs per pool|100|100|100|100|100|100|
@@ -237,7 +238,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 |Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|H/W generation|5|5|5|5|5|5|5|
+|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|2|4|6|8|10|12|14|
 |Memory (GB)|10.2|20.4|30.6|40.8|51|61.2|71.4|
 |Max number DBs per pool|Only single DBs are supported for this compute size|50|100|100|100|100|100|
@@ -265,7 +266,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 |Compute size|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
-|H/W generation|5|5|5|5|5|5|5|
+|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
 |vCores|16|18|20|24|32|40|80|
 |Memory (GB)|81.6|91.8|102|122.4|163.2|204|408|
 |Max number DBs per pool|100|100|100|100|100|100|100|
@@ -295,21 +296,23 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |vCores|128|
 |Memory (GB)|3767|
 |Max number DBs per pool|100|
-|??Columnstore support|??|
+|Columnstore support|Yes|
 |In-memory OLTP storage (GB)|481|
 |Max data size (GB)|4096|
 |Max log size (GB)|2048|
 |TempDB max data size (GB)|4096|
-|??Storage type|??Remote SSD??|
+|Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|??Max data IOPS (??64 KB??)|204800|
-|??Max log rate (??MBps??)|192|
-|Max concurrent workers (requests)|12800|
-|Max concurrent sessions|30000|
-|??Number of replicas|1|
-|??Multi-AZ|N/A|
-|??Read Scale-out|N/A|
-|??Included backup storage|1X DB size|
+|??Target IOPS (64 KB)|40000|
+|??Log rate limits (MBps)|120|
+|??Max concurrent workers per pool (requests) *|1680|
+|??Max concurrent logins per pool (requests) *|1680|
+|??Max allowed sessions|30000|
+|Min/max elastic pool vCore choices per database|0-128|
+|Number of replicas|4|
+|Multi-AZ|Yes|
+|Read Scale-out|Yes|
+|Included backup storage|1X DB size|
 
 
 
