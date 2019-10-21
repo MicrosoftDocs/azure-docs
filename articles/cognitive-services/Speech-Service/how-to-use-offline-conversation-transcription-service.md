@@ -50,7 +50,7 @@ String conversationId = transcriber.getConversationId();
 
 ```
 
-If you want real-time _plus_ offline, you will need to comment and uncomment the following lines as shown:
+If you want real-time _plus_ offline, you will need to comment and uncomment the following lines:
 
 ```java
 // Set the property for offline transcription
