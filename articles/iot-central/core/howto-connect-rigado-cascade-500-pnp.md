@@ -63,4 +63,4 @@ You are now ready to use your C500 device in your IoT Central application!
 
 ## Next Steps
 
-Now that you've learned how to connect a Rigado Cascade 500 to your Azure IoT Central application, the suggested next step is to learn how to [customize your IoT Central application](../retail/tutorial-condition-monitor-customize-dashboard-pnp.md) to build an end to end solution. 
+Now that you've learned how to connect a Rigado Cascade 500 to your Azure IoT Central application, the suggested next step is to learn how to [customize your IoT Central application](../retail/tutorial-in-store-analytics-customize-dashboard-pnp.md) to build an end to end solution. 
