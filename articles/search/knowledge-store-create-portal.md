@@ -75,7 +75,7 @@ In the search service Overview page, click **Import data** on the command bar to
 In this wizard step, you will create a skillset with cognitive skill enrichments. The skills we use in this sample will extract key phrases and detect the language and sentiment. In a later step, these enrichments will be "projected" into a knowledge store as Azure tables.
 
 1. Expand **Attach Cognitive Services**. **Free (Limited enrichments)** is selected by default. You can use this resource because number of records in HotelReviews-Free.csv is 19 and this free resource allows up to 20 transactions a day.
-1. Expand **Add Enrichments**.
+1. Expand **Add cognitive skills**.
 1. For **Skillset name**, enter `hotel-reviews-ss`.
 1. For **Source data field**, select **reviews_text*.
 1. For **Enrichment granularity level**, select **Pages (5000 characters chunks)**
