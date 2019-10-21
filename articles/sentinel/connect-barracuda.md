@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/13/2019
 ms.author: rkarlin
 
 ---
@@ -33,10 +33,7 @@ Barracuda Web Application Firewall can integrate and export logs directly to Azu
 1. Go to [Barracuda WAF configuration flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/), and follow the instructions to set up the connection, using these parameters:
     - **Workspace ID**: copy the value of your workspace ID from the Azure Sentinel Barracuda connector page.
     - **Primary key**: copy the value of your primary key from the Azure Sentinel Barracuda connector page.
-2. In the Azure Sentinel portal, go to the workspace on which you deployed Azure Sentinel and select the ellipsis (...) at the end of the row and select **Advanced settings**. 
-1. Select **Data** and then **Syslog**.
-1. Make sure the facility you set in Barracuda exists and set the severity and click **Save**.
-6. To use the relevant schema in Log Analytics for the Barracuda events, search for **CommonSecurityLog** and **barracuda_CL**.
+1. To use the relevant schema in Log Analytics for the Barracuda events, search for **CommonSecurityLog** and **barracuda_CL**.
 
 
 ## Validate connectivity

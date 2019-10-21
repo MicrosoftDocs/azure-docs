@@ -1,7 +1,7 @@
 ---
 title:  "Import Data: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn  how to use the Import Data module in Azure Machine Learning service to load data into a machine learning pipeline from existing cloud data services.  
+titleSuffix: Azure Machine Learning
+description: Learn  how to use the Import Data module in Azure Machine Learning to load data into a machine learning experiment from existing cloud data services.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
+ms.date: 10/22/2019
 ---
 # Import Data module
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to load data into a machine learning pipeline from existing cloud data services.  
 
@@ -75,4 +75,4 @@ After importing the data, it might need some additional preparations for modelin
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

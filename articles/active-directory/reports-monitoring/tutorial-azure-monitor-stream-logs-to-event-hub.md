@@ -39,7 +39,7 @@ To use this feature, you need:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
-2. Select **Azure Active Directory** > **Activity** > **Audit logs**. 
+2. Select **Azure Active Directory** > **Monitoring** > **Audit logs**. 
 
 3. Select **Export Settings**.  
     

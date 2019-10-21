@@ -1,5 +1,5 @@
 ---
-title: Understand how to audit the contents of a virtual machine
+title: Learn Azure Policy for Azure Kubernetes Service
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters on Azure Kubernetes Service. 
 author: DCtheGeek
 ms.author: dacoulte
@@ -67,9 +67,22 @@ preview, follow these steps in either the Azure portal or with Azure CLI:
 
   # Feature register: enables installing the add-on
   az feature register --namespace Microsoft.ContainerService --name AKS-AzurePolicyAutoApprove
-
+  
+  # Use the following to confirm the feature has registered
+  az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzurePolicyAutoApprove')].{Name:name,State:properties.state}"
+  
+  # Once the above shows 'Registered' run the following to propagate the update
+  az provider register -n Microsoft.ContainerService
+  
   # Feature register: enables the add-on to call the Azure Policy resource provider
   az feature register --namespace Microsoft.PolicyInsights --name AKS-DataplaneAutoApprove
+  
+  # Use the following to confirm the feature has registered
+  az feature list -o table --query "[?contains(name, 'Microsoft.PolicyInsights/AKS-DataPlaneAutoApprove')].{Name:name,State:properties.state}"
+  
+  # Once the above shows 'Registered' run the following to propagate the update
+  az provider register -n Microsoft.PolicyInsights
+  
   ```
 
 ## Azure Policy Add-on

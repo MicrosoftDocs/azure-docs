@@ -36,7 +36,7 @@ The latest release of Azure Machine Learning includes the following features:
 
 The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal](how-to-manage-workspace.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
-Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure portal](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
+Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure Machine Learning studio](how-to-track-experiments.md#view-the-experiment-in-the-web-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
 <a name="timeline"></a>
 
@@ -50,7 +50,7 @@ All the latest capabilities are available by using this <a href="https://docs.mi
 
 Older run histories are no longer accessible, how you can still see your runs in the latest version.
 
-Run histories are now called **experiments**. You can collect your model's experiments and explore them by using the SDK, the CLI, or the Azure portal.
+Run histories are now called **experiments**. You can collect your model's experiments and explore them by using the SDK, the CLI, or the Azure Machine Learning studio.
 
 The portal's workspace dashboard is supported on Microsoft Edge, Chrome, and Firefox browsers only:
 

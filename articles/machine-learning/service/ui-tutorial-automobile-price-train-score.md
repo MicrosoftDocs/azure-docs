@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Predict automobile price with the visual interface'
+title: 'Tutorial: Predict automobile price with the designer'
 titleSuffix: Azure Machine Learning
-description: Learn how to train, score, and deploy a machine learning model using a drag and drop visual interface. This tutorial is part one of a two-part series on predicting automobile prices using linear regression.
+description: Learn how to train, score, and deploy a machine learning model using a drag and drop interface. This tutorial is part one of a two-part series on predicting automobile prices using linear regression.
 
 author: peterclu
 ms.author: peterlu
@@ -12,9 +12,10 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ---
 
-# Tutorial: Predict automobile price with the visual interface
+# Tutorial: Predict automobile price with the designer (preview)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-In this two-part tutorial, you learn how to use Azure Machine Learning's visual interface to develop and deploy a predictive analytic solution that predicts the price of any car. 
+In this two-part tutorial, you learn how to use Azure Machine Learning designer to develop and deploy a predictive analytic solution that predicts the price of any car. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
 
@@ -37,23 +38,23 @@ To find it, from the **Experiments page**, select **Add New**, then select the *
 
 ## Create a new experiment
 
-To create a visual interface experiment, you first need  an Azure Machine Learning service workspace. In this section you learn how to create both these resources.
+To create a pipeline in the designer, you first need  an Azure Machine Learning workspace. In this section you learn how to create both these resources.
 
 ### Create a new workspace
 
-If you have an Azure Machine Learning workspace, skip to the next section.
+If you have an Azure Machine Learning workspace with an **Enterprise SKU**, [skip to the next section](#experiment).
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
-### Create an experiment
+### <a name="experiment">Create an experiment
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).
+1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com/).
 
-1. In your workspace, select **Visual interface**. Then select **Launch visual interface**. 
+1. In your workspace, select **Designer**. Then select **Launch the designer**. 
 
-    ![Screenshot of the Azure portal showing how to access the Visual interface from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
+    ![Screenshot of Azure Machine Learning studio showing how to access the designer from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
-1. Create a new experiment by selecting **+New** at the bottom of the visual interface window.
+1. Create a new experiment by selecting **+New** at the bottom of the designer window.
 
 1. Select **Blank Experiment**.
 

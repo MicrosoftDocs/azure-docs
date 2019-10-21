@@ -42,7 +42,7 @@ Following are examples of datasets available.
 ## Access to datasets  
 With an Azure account, you can access open datasets using code or through the Azure service interface. The data is colocated with Azure cloud compute resources for use in your machine learning solution.  
 
-Open Datasets provides Azure Notebooks and Azure Databricks notebooks you can use to connect data to Azure Machine Learning service and Azure Databricks. Datasets can also be accessed through a Python SDK. 
+Open Datasets provides Azure Notebooks and Azure Databricks notebooks you can use to connect data to Azure Machine Learning and Azure Databricks. Datasets can also be accessed through a Python SDK. 
 
 However, you don't need an Azure account to access Open Datasets; you can access them from any Python environment with or without Spark.
 

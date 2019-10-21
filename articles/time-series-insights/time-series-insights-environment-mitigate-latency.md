@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
 ---
 
@@ -69,11 +69,11 @@ Alerts can help you to help diagnose and mitigate latency issues caused by your 
 
 ## Throttling and ingress management
 
-* If you are being throttled, you will see a value for the *Ingress Received Message Time Lag*, informing you of how many seconds behind your TSI is from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  
+* If you are being throttled, you will see a value for the *Ingress Received Message Time Lag*, informing you about how many seconds behind your TIme Series Insights environment are from the actual time the message hits the event source (excluding indexing time of appx. 30-60 seconds).  
 
   *Ingress Received Message Count Lag* should also have a value, allowing you to determine how many messages behind you are.  The easiest way to get caught up is to increase your environment's capacity to a size that will enable you to overcome the difference.  
 
-  For example, if you have a single unit S1 environment and see that there is a 5,000,000 message lag, you could increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster. The catch-up period is a common occurrence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
+  For example, if you see that your S1 environment is demonstrating lag of 5,000,000 messages, you might increase the size of your environment to six units for around a day to get caught up.  You could increase even further to catch up faster. The catch-up period is a common occurrence when initially provisioning an environment, particularly when you connect it to an event source that already has events in it or when you bulk upload lots of historical data.
 
 * Another technique is to set an **Ingress Stored Events** alert >= a threshold slightly below your total environment capacity for a period of 2 hours.  This alert can help you understand if you are constantly at capacity, which indicates a high likelihood of latency. 
 
@@ -89,6 +89,6 @@ You can avoid latency and throttling by properly configuring your environment fo
 
 ## Next steps
 
-- For additional troubleshooting steps, [Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md).
+- Read about [Diagnose and solve problems in your Time Series Insights environment](time-series-insights-diagnose-and-solve-problems.md).
 
-- For additional assistance, start a conversation on the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). You can also contact [Azure support](https://azure.microsoft.com/support/options/) for assisted support options.
+- Learn [how to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).

@@ -15,6 +15,7 @@ ms.custom: seodec18
 ---
 
 # Train models with Azure Machine Learning using estimator
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 With Azure Machine Learning, you can easily submit your training script to [various compute targets](how-to-set-up-training-targets.md#compute-targets-for-training), using [RunConfiguration object](how-to-set-up-training-targets.md#whats-a-run-configuration) and [ScriptRunConfig object](how-to-set-up-training-targets.md#submit). That pattern gives you a lot of flexibility and maximum control.
 

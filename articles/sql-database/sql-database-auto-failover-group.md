@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 09/06/2019
+ms.date: 10/09/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -298,9 +298,6 @@ This sequence is recommended specifically to avoid the problem where the seconda
 
 > [!NOTE]
 > If you created secondary database as part of the failover group configuration it is not recommended to downgrade the secondary database. This is to ensure your data tier has sufficient capacity to process your regular workload after failover is activated.
-
-> [!IMPORTANT]
-> Upgrading or downgrading a Managed Instance which is a member of a failover group is currently not supported.
 
 ## Preventing the loss of critical data
 

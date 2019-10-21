@@ -1,7 +1,7 @@
 ---
 title:  "Create Python Model: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Create Python Model model in Azure Machine Learning service to create custom modeling or data processing module.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Create Python Model model in Azure Machine Learning to create custom modeling or data processing module.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

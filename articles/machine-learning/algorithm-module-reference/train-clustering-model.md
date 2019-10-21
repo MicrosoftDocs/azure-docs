@@ -1,7 +1,7 @@
 ---
 title:  "Train Clustering Model: Module Reference"
-titleSuffix: Azure Machine Learning service
-description: Learn how to use the Train Clustering Model module in Azure Machine Learning service to train clustering models.
+titleSuffix: Azure Machine Learning
+description: Learn how to use the Train Clustering Model module in Azure Machine Learning to train clustering models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,7 +13,7 @@ ms.date: 05/06/2019
 ---
 # Train Clustering Model
 
-This article describes a module of the visual interface (preview) for Azure Machine Learning service.
+This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to train a clustering model.
 
@@ -55,4 +55,4 @@ After training has completed:
 
 ## Next steps
 
-See the [set of modules available](module-reference.md) to Azure Machine Learning service. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,7 +1,7 @@
 ---
 title: Use Azure's automated ML interface to train & deploy models
 titleSuffix: Azure Machine Learning
-description: Create, manage and deploy automated machine learning experiments in Azure Machine Learning's workspace landing page (preview).
+description: Create, manage and deploy automated machine learning experiments in Azure Machine Learning studio.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,9 +15,10 @@ ms.date: 09/09/2019
 ---
 
 
-# Create, explore and deploy automated machine learning experiments with Azure Machine Learning's workspace landing page (preview)
+# Create, explore and deploy automated machine learning experiments with Azure Machine Learning studio
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
- In this article, you learn how to create, explore, and deploy automated machine learning experiments in the Azure Machine Learning's workspace landing page without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
+ In this article, you learn how to create, explore, and deploy automated machine learning experiments in Azure Machine Learning studio without a single line of code. Automated machine learning automates the process of selecting the best algorithm to use for your specific data, so you can generate a machine learning model quickly. [Learn more about automated machine learning](concept-automated-ml.md).
 
  If you prefer a more code-based experience, you can also [configure your automated machine learning experiments in Python](how-to-configure-auto-train.md) with the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
@@ -25,17 +26,17 @@ ms.date: 09/09/2019
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
+* An Azure Machine Learning workspace with a type of **Enterprise SKU**. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).  To upgrade an existing workspace to Enterprise SKU, see [Upgrade to Enterprise SKU](how-to-manage-workspace.md#upgrade).
 
 ## Get started
 
-1. Sign in to [the workspace landing page](https://ml.azure.com/workspaceportal/). 
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com). 
 
 1. Select your subscription and workspace. 
 
 1. Navigate to the left pane. Select **Automated ML** under the **Author** section.
 
-[![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
+[![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
  If this is your first time doing any experiments, you'll see the **Get started** screen. 
 

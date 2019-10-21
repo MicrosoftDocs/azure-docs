@@ -1,15 +1,13 @@
 ---
 title: Azure Monitor overview | Microsoft Docs
 description: Overview of Microsoft services and functionalities that contribute to a complete monitoring strategy for your Azure services and applications.
-author: bwren
-manager: carmonm
-editor: ''
-services: monitoring-and-diagnostics
-documentationcenter: monitoring-and-diagnostics
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: overview
-ms.date: 10/07/2019
+author: bwren
 ms.author: bwren
+ms.date: 10/07/2019
+
 ---
 
 # Azure Monitor overview
