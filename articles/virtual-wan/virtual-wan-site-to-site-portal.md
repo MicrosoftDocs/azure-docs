@@ -221,7 +221,7 @@ If you need instructions to configure your device, you can use the instructions 
 
 * The instructions on the VPN devices page are not written for Virtual WAN, but you can use the Virtual WAN values from the configuration file to manually configure your VPN device. 
 * The downloadable device configuration scripts that are for VPN Gateway do not work for Virtual WAN, as the configuration is different.
-* A New Virtual WAN can support both IKEv1 and IKEv2.
+* A new Virtual WAN can support both IKEv1 and IKEv2.
 * Virtual WAN can only use route-based VPN devices and device instructions.
 
 ## <a name="viewwan"></a>7. View your virtual WAN
