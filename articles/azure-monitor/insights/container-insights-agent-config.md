@@ -204,55 +204,8 @@ The output will show similar to the following with the annotation schema-version
 
 ## Query Prometheus metrics data
 
-To view prometheus metrics scraped by Azure Monitor, specify "prometheus" as the Namespace. Here is a sample query to view prometheus metrics from the `default` kubernetes namespace.
+To view prometheus metrics scraped by Azure Monitor and any configuration/scraping errors reported by the agent, review [Query Prometheus metrics data](container-insights-log-search.md#query-prometheus-metric-data) and [Query config or scraping errors](container-insights-log-search.md#query-config-or-scraping-errors).
 
-```
-InsightsMetrics 
-| where Namespace == "prometheus"
-| extend tags=parse_json(Tags)
-| summarize count() by Name
-```
-
-Prometheus data can also be directly queried by name.
-
-```
-InsightsMetrics 
-| where Namespace == "prometheus"
-| where Name contains "some_prometheus_metric"
-```
-
-## Review Prometheus data usage
-
-To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
-
-```
-InsightsMetrics 
-| where Namespace == "prometheus"
-| where TimeGenerated > ago(24h)
-| summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
-| order by VolumeInGB desc
-| render barchart
-```
-The output will show results similar to the following:
-
-![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-usage-03.png)
-
-To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
-
-```
-InsightsMetrics 
-| where Namespace contains "prometheus"
-| where TimeGenerated > ago(24h)
-| summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
-| order by EstimatedGBPer30dayMonth desc
-| render barchart
-```
-
-The output will show results similar to the following:
-
-![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-usage-02.png)
-
-Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md).
 
 ## Next steps
 

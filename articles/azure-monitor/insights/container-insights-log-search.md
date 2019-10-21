@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/12/2019
+ms.date: 10/15/2019
 
 ---
 
@@ -61,6 +61,8 @@ It's often useful to build queries that start with an example or two and then mo
 | **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container memory |
 | InsightsMetrics<br> &#124; where Name == "requests_count"<br> &#124; summarize Val=any(Val) by TimeGenerated=bin(TimeGenerated, 1m)<br> &#124; sort by TimeGenerated asc<br> &#124; project RequestsPerMinute = Val - prev(Val), TimeGenerated <br> &#124; render barchart  | Requests Per Minute with Custom Metrics |
 
+## Query Prometheus metrics data
+
 The following example is a Prometheus metrics query. The metrics collected are counts and in order to determine how many errors occurred within a specific time period, we have to subtract from the count. The dataset is partitioned by *partitionKey*, meaning for each unique set of *Name*, *HostName*, and *OperationType*, we run a subquery on that set that orders the logs by *TimeGenerated*, a process that makes it possible to find the previous *TimeGenerated* and the count recorded for that time, to determine a rate.
 
 ```
@@ -92,6 +94,66 @@ operationData
 The output will show results similar to the following:
 
 ![Log query results of data ingestion volume](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
+
+To view Prometheus metrics scraped by Azure Monitor filtered by Namespace, specify "prometheus". Here is a sample query to view Prometheus metrics from the `default` kubernetes namespace.
+
+```
+InsightsMetrics 
+| where Namespace == "prometheus"
+| extend tags=parse_json(Tags)
+| summarize count() by Name
+```
+
+Prometheus data can also be directly queried by name.
+
+```
+InsightsMetrics 
+| where Namespace == "prometheus"
+| where Name contains "some_prometheus_metric"
+```
+
+To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
+
+```
+InsightsMetrics 
+| where Namespace == "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
+| order by VolumeInGB desc
+| render barchart
+```
+The output will show results similar to the following:
+
+![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-usage-03.png)
+
+To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| where TimeGenerated > ago(24h)
+| summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
+| order by EstimatedGBPer30dayMonth desc
+| render barchart
+```
+
+The output will show results similar to the following:
+
+![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-usage-02.png)
+
+Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md).
+
+### Query config or scraping errors
+
+To investigate any configuration or scraping errors, the following example query returns informational events from the `KubeMonAgentEvents` table.
+
+```
+KubeMonAgentEvents | where Level != "Info" 
+```
+
+The output will show results similar to the following:
+
+![Log query results of data ingestion volume](./media/container-insights-agent-config/log-query-example-kubeagent-events.png)
 
 ## Next steps
 
