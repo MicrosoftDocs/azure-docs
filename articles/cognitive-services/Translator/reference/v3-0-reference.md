@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 10/21/2019
 ms.author: swmachan
 ---
 
@@ -160,3 +160,17 @@ The error code is a 6-digit number combining the 3-digit HTTP status code follow
 | 500000| An unexpected error occurred. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 | 503000| Service is temporarily unavailable. Please retry. If the error persists, report it with date/time of error, request identifier from response header X-RequestId, and client identifier from request header X-ClientTraceId.|
 
+## Metrics 
+Below is a description of metrics to understand how you can monitor translation API calls
+
+| Metrics | Description |
+|:----|:-----|
+| TotalCalls| Total number of API calls.|
+| TotalTokenCalls| Total number of API calls via token service using authentication token.|
+| SuccessfulCalls| Number of successful calls.|
+| TotalErrors| Number of calls with error response.|
+| BlockedCalls| Number of calls that exceeded rate or quota limit.|
+| ServerErrors| Number of calls with server internal error(5XX).|
+| ClientErrors| Number of calls with client side error(4XX).|
+| Latency| Duration to complete request in milliseconds.|
+| CharactersTranslated| Total number of characters in incoming text request.|
