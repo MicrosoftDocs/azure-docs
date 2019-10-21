@@ -34,9 +34,9 @@ A valid and active Microsoft Azure account. This account is required to set up t
 
 ### Register your subscription with the resource provider and feature flag
 
-Before proceeding to the steps of registering the *Peering Service*, you need to register your subscription with the resource provider and feature flag either via PowerShell or CLI. 
+Before proceeding to the steps of registering the *Peering Service*, you need to register your subscription with the resource provider and feature flag either via Azure PowerShell or Azure CLI. 
 
-**PowerShell**
+**Azure PowerShell**
 
 ```PowerShellCopy
 Register-AzProviderFeature-FeatureName AllowPeeringService ProviderNamespace Microsoft.Peering 
@@ -44,7 +44,7 @@ Register-AzProviderFeature-FeatureName AllowPeeringService ProviderNamespace Mic
 Register-AzResourceProvider -ProviderNamespace Microsoft.Peering 
 
 ```
-**CLI**
+**Azure CLI**
 ```azurecli
 az feature register --namespace Microsoft.Peering--name AllowPeeringService
 ```
