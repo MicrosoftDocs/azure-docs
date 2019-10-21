@@ -58,12 +58,9 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select the following entities from the list of prebuilt entities then select **Done**:
 
-   * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-     ![Screenshot of number selected in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
-
-     These entities will help you add name and place recognition to your client application.
+     This entity will help you add place recognition to your client application.
 
 ## Add example utterances to the None intent 
 
@@ -171,7 +168,7 @@ LUIS provides several prebuilt entities for common data extraction.
     }
     ```
 
-    The result predicted the Utilities.Cancel intent with 80% confidence and extracted the city and person name data. 
+    The result predicted the Utilities.Cancel intent with 80% confidence and extracted the city data. 
 
 
 ## Clean up resources
