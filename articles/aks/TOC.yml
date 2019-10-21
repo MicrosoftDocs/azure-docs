@@ -128,7 +128,7 @@
         href: virtual-nodes-portal.md
     - name: Use Virtual Kubelet
       href: virtual-kubelet.md
-    - name: Use Cluster Autoscaler (preview)
+    - name: Use Cluster Autoscaler
       href: cluster-autoscaler.md
     - name: Use Availability Zones
       href: availability-zones.md
