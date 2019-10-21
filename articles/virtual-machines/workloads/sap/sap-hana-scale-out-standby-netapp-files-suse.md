@@ -506,7 +506,7 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
 
 2. **[1]** Verify global.ini  
 
-Display global.ini and make sure the configuration for the internal SAP HANA inter-node communication is in place. Verify section **communication**. It should have the address space for **`hana`** subnet and `listeninterface` should be set to `.internal`. Verify section **internal_hostname_resolution**. It should have the IP addresses for the HANA virtual machines that belong to the **`hana`** subnet.  
+   Display global.ini and make sure the configuration for the internal SAP HANA inter-node communication is in place. Verify section **communication**. It should have the address space for **`hana`** subnet and `listeninterface` should be set to `.internal`. Verify section **internal_hostname_resolution**. It should have the IP addresses for the HANA virtual machines that belong to the **`hana`** subnet.  
 
    <pre><code>
     sudo cat /usr/sap/<b>HN1</b>/SYS/global/hdb/custom/config/global.ini
@@ -547,19 +547,19 @@ Display global.ini and make sure the configuration for the internal SAP HANA int
     "<b>hanadb1</b>","net_publicname","<b>10.23.0.5</b>"
    </code></pre>
 
-See sap note [2183363 - Configuration of SAP HANA internal network](https://launchpad.support.sap.com/#/notes/2183363) for details on how to verify the configuration.  
+   See sap note [2183363 - Configuration of SAP HANA internal network](https://launchpad.support.sap.com/#/notes/2183363) for details on how to verify the configuration.  
 
 6. To optimize SAP HANA for the underlying Azure NetApp files storage, set the following SAP HANA Parameters:
 
-  - `max_parallel_io_requests` **128**
-  - `async_read_submit` **on**
-  - `async_write_submit_active` **on**
-  - `async_write_submit_blocks` **all**
+   - `max_parallel_io_requests` **128**
+   - `async_read_submit` **on**
+   - `async_write_submit_active` **on**
+   - `async_write_submit_blocks` **all**
 
-For details see [SAP HANA on NetApp AFF Systems with NFS Configuration Guide](https://www.netapp.com/us/media/tr-4435.pdf). 
+   For details see [SAP HANA on NetApp AFF Systems with NFS Configuration Guide](https://www.netapp.com/us/media/tr-4435.pdf). 
 
-Starting with SAP HANA 2.0 systems you can set the parameters in `global.ini`. See SAP note [1999930](https://launchpad.support.sap.com/#/notes/1999930).  
-For SAP HANA 1.0 systems, versions up to SPS12, these parameters can be set during the installation, as described in SAP note [2267798](https://launchpad.support.sap.com/#/notes/2267798).  
+   Starting with SAP HANA 2.0 systems you can set the parameters in `global.ini`. See SAP note [1999930](https://launchpad.support.sap.com/#/notes/1999930).  
+   For SAP HANA 1.0 systems, versions up to SPS12, these parameters can be set during the installation, as described in SAP note [2267798](https://launchpad.support.sap.com/#/notes/2267798).  
 
 7. The storage used by Azure NetApp Files has a file size limitation or 16 TB. SAP HANA is not implicitly aware of the storage limitation and will not automatically create new data file, when the file size limit of 16 TB is reached. As SAP HANA attempts to grow the file beyond 16 TB, that will result in errors and eventually index server crash. 
 
