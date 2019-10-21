@@ -32,22 +32,24 @@ Lead with a light intro that describes, in customer-friendly language, what the 
 
 Concepts:
 
-1. Water quality monitor devices 
+1. Devices
 2. Device connectivity 
-3. Connectivity via third party cloud and cloud gateway 
 4. IoT Central 
 5. Continuos data export from IoT Central
 6. Machine Learning and data transformation services for augmenting your data
-7. Line of Busines (LOB) applications 
+7. Line of Business (LoB) applications
 
 
-## Water quality monitor devices
+Devices
+### Water quality monitor devices
 
 
 ## Device Connectivity  
  
 
-### Connectivity via third party cloud and cloud gateway 
+### Connectivity via third party cloud  
+
+#### Cloud gateway 
 
 ### Connectivity via device gateway 
 
