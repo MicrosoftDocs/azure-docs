@@ -121,15 +121,8 @@
       href: paas-applications-using-storage.md
     - name: DB best practices for PaaS
       href: paas-applications-using-sql.md
-  - name: IoT
-    href: iot-overview.md
   - name: Azure Service Fabric security
-    href: service-fabric-overview.md
-    items:
-    - name: Best practices
-      href: service-fabric-best-practices.md
-    - name: Security checklist
-      href: service-fabric-checklist.md
+    href: service-fabric-best-practices.md
 - name: Monitoring, auditing, and operations
   href: management-monitoring-overview.md
   items:
