@@ -39,7 +39,9 @@ For more information on streaming, see [Hadoop Streaming](https://hadoop.apache.
 
 ## Prerequisites
 
-* A familiarity with writing and building C# code that targets .NET Framework 4.5. The steps in this document use Visual Studio 2019.
+* Visual Studio.
+
+* A familiarity with writing and building C# code that targets .NET Framework 4.5.
 
 * A way to upload .exe files to the cluster. The steps in this document use the Data Lake Tools for Visual Studio to upload the files to primary storage for the cluster.
 
