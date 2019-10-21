@@ -75,11 +75,11 @@ The number of messaging units allocated to the Service Bus Premium namespace can
 There are a number of factors to take into consideration when deciding the number of messaging units for your architecture -
 
 1. Start with ***1 or 2 Messaging Units*** allocated to your namespace.
-2. Study the CPU usage metrics within [Resource Usage Metrics](service-bus-metrics-azure-monitor#resource-usage-metrics) for your namespace.
+2. Study the CPU usage metrics within [Resource Usage Metrics](service-bus-metrics-azure-monitor.md#resource-usage-metrics) for your namespace.
     1. If CPU usage is ***below 20%***, you may be able to ***scale down*** the number of messaging units allocated to your namespace.
     2. If CPU usage is ***above 70%***, your application will benefit from ***scaling up*** the number of messaging units allocated to your namespace.
 
-The process of scaling the resources allocated to a Service Bus namespaces can be automated by using [Azure Automation Runbooks](../automation/automation-quickstart-create-runbook)
+The process of scaling the resources allocated to a Service Bus namespaces can be automated by using [Azure Automation Runbooks](../automation/automation-quickstart-create-runbook.md)
 
 > [!NOTE]
 > **Scaling** of the resources allocated to the namespace can be either preemptive or reactive.
