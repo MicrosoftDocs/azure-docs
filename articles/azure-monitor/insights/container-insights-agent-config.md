@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/08/2019
+ms.date: 10/15/2019
 ---
 
 # Configure agent data collection for Azure Monitor for containers
@@ -15,16 +15,12 @@ Azure Monitor for containers collects stdout, stderr, and environmental variable
 
 This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
 
->[!NOTE]
->Support for Prometheus is a feature in public preview at this time.
->
-
 ## ConfigMap file settings overview
 
 A template ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.
 
 >[!IMPORTANT]
->The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is ciprod06142019 or later. The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later. To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.  
+>The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is ciprod06142019 or later. The minimum agent version supported for scraping Prometheus metrics is ciprod10112019 or later. To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.  
 
 ### Data collection settings
 
@@ -90,6 +86,8 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
     
+### Configure scraping of Prometheus metrics
+
 3. To configure collection of Kubernetes services cluster-wide, configure the ConfigMap file using the following example.
 
     ```
@@ -165,7 +163,7 @@ To verify the configuration was successfully applied, use the following command 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Errors related to applying configuration changes for Prometheus are also available for review. The following options are available to perform additional troubleshooting of configuration changes and scraping of Prometheus metrics:
+Errors related to applying configuration changes are also available for review. The following options are available to perform additional troubleshooting of configuration changes and scraping of Prometheus metrics:
 
 - From an agent pod logs using the same `kubectl logs` command. 
 
