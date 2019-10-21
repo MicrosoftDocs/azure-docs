@@ -406,7 +406,7 @@ When you're ready to run your test, use an Azure AD account (work or school acco
 >  > - The application developer adds any additional permissions that require **Admin consent**.
 >  > - Or the tenant is configured (in **Enterprise Applications -> User Settings**) where users cannot consent to apps accessing company data on their behalf.
 >
-> For more information, refer to [Permissions and consent in the Microsoft identity platform endpoint](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent).
+> For more information, refer to [Permissions and consent in the Microsoft identity platform endpoint](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
 <!--end-collapse-->
 
 #### View application results
