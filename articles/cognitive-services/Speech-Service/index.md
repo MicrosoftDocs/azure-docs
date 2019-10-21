@@ -66,7 +66,7 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Asynchronously recognize speech in blob storage</h3>
+                                                    <h3>Asynchronous recognition from blob</h3>
                                                     <p>Use the Speech service to asynchronously recognize speech from files stored in Azure Blob Storage.</p>
                                                 </div>
                                             </div>
