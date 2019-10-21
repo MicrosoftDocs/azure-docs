@@ -109,7 +109,7 @@ The indexer is a high-level resource that drives the indexing process. It specif
 
 ## Monitor indexing
 
-AI processing takes longer to complete than typical text-based indexing. The wizard should open the Indexer list in the overview page so that you can track progress. For self-navigation, go to the Overview page and click **Indexers**.
+Cognitive skills takes longer to complete than typical text-based indexing. The wizard should open the Indexer list in the overview page so that you can track progress. For self-navigation, go to the Overview page and click **Indexers**.
 
 The warning occurs because JPG and PNG files are image files, and we omitted the OCR skill from this pipeline. You'll also find truncation notifications. Azure Cognitive Search limits extraction to 32,000 characters on the Free tier.
 
