@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/20/2019
+ms.date: 10/21/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -38,6 +38,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an access package with a group as a resource
+> * Allow a user in your directory to request access
 > * Demonstrate how an internal user can request the access package
 
 For a step-by-step demonstration of the process of deploying Azure Active Directory entitlement management, including creating your first access package, view the following video:
@@ -94,7 +95,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
     ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-first/access-packages-list.png)
 
-1. On the **Basics** tab, type the name **Marketing Campaign** access package and description **Access package for the Engineering web project**.
+1. On the **Basics** tab, type the name **Marketing Campaign** access package and description **Access to resources for the campaign**.
 
 1. Leave the **Catalog** drop-down list set to **General**.
 
