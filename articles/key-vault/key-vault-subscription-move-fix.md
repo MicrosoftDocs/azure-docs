@@ -47,7 +47,7 @@ az keyvault update -n myvault --remove Properties.accessPolicies           # Rem
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```
 
-Now that your vault is associated with the correct tenant ID and old access policy entries are removed, set new access policy entries with the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet or the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command.
+Now that your vault is associated with the correct tenant ID and old access policy entries are removed, set new access policy entries with the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) cmdlet or the Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command.
 
 If you are using a managed identity for Azure resources, you will need to update it to the new Azure AD tenant as well. For more information on managed identities, see [Provide Key Vault authentication with a managed identity](managed-identity.md).
 

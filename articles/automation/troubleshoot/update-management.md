@@ -15,11 +15,59 @@ This article discusses solutions to resolve issues that you may run across when 
 
 There is an agent troubleshooter for Hybrid Worker agent to determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot update agent issues](update-agent-issues.md). For all other issues, see the detailed information below about possible issues.
 
-## General
+If you encounter issues while attempting to onboard the solution on a virtual machine, check the **Operations Manager** event log under **Application and Services Logs** on the local machine for events with event ID **4502** and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
 
-### <a name="rp-register"></a>Scenario: Unable to register Automation Resource Provider for subscriptions
+The following section highlights specific error messages and a possible resolution for
+each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
 
-#### Issue
+## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
+
+### Issue
+
+You may run across the following scenarios:
+
+* Your machine shows **Not configured** from the Update Management view of a VM
+
+* Your machines are missing from the Update Management view of your Automation Account
+
+* You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Azure Monitor logs for the Hybrid Runbook Worker but not Update Management.
+
+### Cause
+
+This can be caused by potential local configuration issues or by improperly configured Scope Configuration.
+
+The Hybrid Runbook Worker may need to be re-registered and reinstalled.
+
+You may have defined a quota in your workspace that has been reached and stopping data from being stored.
+
+### Resolution
+
+* Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline) depending on the OS.
+
+* Ensure your machine is reporting to the correct workspace. Verify what workspace your machine is reporting to. For instructions on how to verify this, see [Verify agent connectivity to Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Then, ensure this is the workspace that is linked to your Azure Automation account. To confirm this, navigate to your Automation Account and click **Linked workspace** under **Related Resources**.
+
+* Check to ensure the machines show up in your Log Analytics workspace. Run the following query in your Log Analytics workspace that is linked to your Automation Account. If you do not see your machine in the query results, your machine has not recently checked in, which means there is most likely a local configuration issue and you can [re-install the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). If your machine shows up in the query results, then you need to very the scope configuration specified in the following bullet.
+
+  ```loganalytics
+  Heartbeat
+  | summarize by Computer, Solutions
+  ```
+
+* Check for scope configuration problems. [Scope Configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but is not showing up in the **Update Management** portal, you will need to configure the scope config to target the machines. To learn how to do this, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
+
+* In your workspace, run the following query. If you see the result `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` you have a quota defined on your workspace that has been reached and has stopped data from being saved. In your workspace, navigate to **Usage and estimated costs** > **data volume management** and check your quota or remove the quota you have.
+
+  ```loganalytics
+  Operation
+  | where OperationCategory == 'Data Collection Status'
+  | sort by TimeGenerated desc
+  ```
+
+* If the above steps do not solve your problem, Follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows or [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) for Linux.
+
+## <a name="rp-register"></a>Scenario: Unable to register Automation Resource Provider for subscriptions
+
+### Issue
 
 You may receive the following error when working with solutions in your Automation account.
 
@@ -27,11 +75,11 @@ You may receive the following error when working with solutions in your Automati
 Error details: Unable to register Automation Resource Provider for subscriptions:
 ```
 
-#### Cause
+### Cause
 
 The Automation Resource Provider is not registered in the subscription.
 
-#### Resolution
+### Resolution
 
 You can register the Automation Resource Providers by completing the following steps in the Azure portal:
 
@@ -41,21 +89,9 @@ You can register the Automation Resource Providers by completing the following s
 4. From the list of the Resource providers, verify for **Microsoft.Automation** resource provider is registered.
 5. If the provider is not listed, register the **Microsoft.Automation** provider with the steps listed under [](/azure/azure-resource-manager/resource-manager-register-provider-errors).
 
-### <a name="mw-exceeded"></a>Scenario: The update management scheduled failed with the error MaintenanceWindowExceeded
+## <a name="components-enabled-not-working"></a>Scenario: The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured
 
-#### Issue
-
-The default maintenance window for updates, is 120 minutes. You can increase the maintenance window to a maximum of six (6) hours, or 360 minutes.
-
-#### Resolution
-
-Edit any failing scheduled update deployments, and increase the maintenance window.
-
-For more information on maintenance windows, see [Install Updates](../automation-update-management.md#install-updates).
-
-### <a name="components-enabled-not-working"></a>Scenario: The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured
-
-#### Issue
+### Issue
 
 You continue to see the following message on a virtual machine 15 minutes after onboarding:
 
@@ -63,14 +99,14 @@ You continue to see the following message on a virtual machine 15 minutes after 
 The components for the 'Update Management' solution have been enabled, and now this virtual machine is being configured. Please be patient, as this can sometimes take up to 15 minutes.
 ```
 
-#### Cause
+### Cause
 
 This error can be caused by the following reasons:
 
 1. Communication back to the Automation Account is being blocked.
 2. The VM being onboarded may have come from a cloned machine that wasn't sysprepped with the Microsoft Monitoring Agent installed.
 
-#### Resolution
+### Resolution
 
 1. Visit, [Network planning](../automation-hybrid-runbook-worker.md#network-planning) to learn about which addresses and ports need to be allowed for Update Management to work.
 2. If using a cloned image:
@@ -79,9 +115,9 @@ This error can be caused by the following reasons:
    3. Run `Restart-Service HealthService` to restart the `HealthService`. This will recreate the key and generate a new UUID.
    4. If this doesn't work, sysprep the image first and install the MMA agent after the fact.
 
-### <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when creating an update deployment for machines in another Azure tenant.
+## <a name="multi-tenant"></a>Scenario: You receive a linked subscription error when creating an update deployment for machines in another Azure tenant.
 
-#### Issue
+### Issue
 
 You receive the following error when trying to create an update deployment for machines in another Azure tenant:
 
@@ -89,11 +125,11 @@ You receive the following error when trying to create an update deployment for m
 The client has permission to perform action 'Microsoft.Compute/virtualMachines/write' on scope '/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroupName/providers/Microsoft.Automation/automationAccounts/automationAccountName/softwareUpdateConfigurations/updateDeploymentName', however the current tenant '00000000-0000-0000-0000-000000000000' is not authorized to access linked subscription '00000000-0000-0000-0000-000000000000'.
 ```
 
-#### Cause
+### Cause
 
 This error occurs when you create an update deployment that has Azure virtual machines in another tenant included in an update deployment.
 
-#### Resolution
+### Resolution
 
 You'll need to use the following workaround to get them scheduled. You can use the [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet with the switch `-ForUpdate` to create a schedule, and use the [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet and pass the machines in the other tenant to the `-NonAzureComputer` parameter. The following example shows an example on how to do this:
@@ -108,7 +144,53 @@ $s = New-AzureRmAutomationSchedule -ResourceGroupName mygroup -AutomationAccount
 New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -AutomationAccountName $aa -Schedule $s -Windows -AzureVMResourceId $azureVMIdsW -NonAzureComputer $nonAzurecomputers -Duration (New-TimeSpan -Hours 2) -IncludedUpdateClassification Security,UpdateRollup -ExcludedKbNumber KB01,KB02 -IncludedKbNumber KB100
 ```
 
-### <a name="updates-nodeployment"></a>Scenario: Updates install without a deployment
+## <a name="node-reboots"></a>Scenario: Unexplained reboots
+
+### Issue
+
+You have configured **Reboot Control** with **Never Reboot**, but machines are still rebooting after installed updates.
+
+### Cause
+
+Windows Update behavior can be modified by several registry keys which can modify reboot behaviors.
+
+### Resolution
+
+Review the registry keys listed under [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) to ensure your machines are configured properly.
+
+## <a name="failed-to-start"></a>Scenario: A machine shows Failed to start in an update deployment
+
+### Issue
+
+A machine has the status **Failed to start** for a machine. When you view the specific details for the machine you see the following error:
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+### Cause
+
+This error may happen due to one of the following reasons:
+
+* The machine doesn’t exist anymore.
+* The machine is turned off and unreachable.
+* The machine has a network connectivity issue and the hybrid worker on the machine is unreachable.
+* There was an update to the Microsoft Monitoring Agent that changed the SourceComputerId
+* Your update run may have been throttled if you hit the 2,000 concurrent job limit in an Automation Account. Each deployment is considered a job and each machine in an update deployment count as a job. Any other automation job or update deployment currently running in your Automation Account count towards the concurrent job limit.
+
+### Resolution
+
+When applicable use [dynamic groups](../automation-update-management-groups.md) for your update deployments.
+
+* Verify the machine still exists and is reachable. If it does not exist, edit your deployment and remove the machine.
+* See the section on [network planning](../automation-update-management.md#ports) for a list of ports and addresses that are required for Update Management and verify your machine meets these requirements.
+* Run the following query in Log Analytics to find machines in your environment whose `SourceComputerId` changed. Look for computers that have the same `Computer` value, but different `SourceComputerId` value. Once you find the affected machines, you must edit the update deployments that target those machines, and remove and re-add the machines so the `SourceComputerId` reflects the correct value.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
+
+## <a name="updates-nodeployment"></a>Scenario: Updates install without a deployment
 
 ### Issue
 
@@ -124,60 +206,11 @@ The Windows registry key, `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Window
 
 For Update Management clients, we recommend setting this key to "3" - **auto download but do not auto install**.
 
-For more information, see [Configuring Automatic Updates](https://docs.microsoft.com/en-us/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
+For more information, see [Configuring Automatic Updates](https://docs.microsoft.com/windows/deployment/update/waas-wu-settings#configure-automatic-updates).
 
-### <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
+## <a name="machine-already-registered"></a>Scenario: Machine is already registered to a different account
 
-#### Issue
-
-You may run across the following scenarios:
-
-* Your machine shows **Not configured** from the Update Management view of a VM
-
-* Your machines are missing from the Update Management view of your Automation Account
-
-* You have machines that show as **Not Assessed** under **Compliance**, but you see heartbeat data in Azure Monitor logs for the Hybrid Runbook Worker but not Update Management.
-
-#### Cause
-
-This can be caused by potential local configuration issues or by improperly configured Scope Configuration.
-
-The Hybrid Runbook Worker may need to be re-registered and reinstalled.
-
-You may have defined a quota in your workspace that has been reached and stopping data from being stored.
-
-#### Resolution
-
-* Ensure your machine is reporting to the correct workspace. Verify what workspace your machine is reporting to. For instructions on how to verify this, see [Verify agent connectivity to Log Analytics](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-log-analytics). Then, ensure this is the workspace that is linked to your Azure Automation account. To confirm this, navigate to your Automation Account and click **Linked workspace** under **Related Resources**.
-
-* Check to ensure the machines show up in your Log Analytics workspace. Run the following query in your Log Analytics workspace that is linked to your Automation Account. If you do not see your machine in the query results, your machine is not heartbeating, which means there is most likely a local configuration issue. You can run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline) depending on the OS, or you can [re-install the agent](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows). If your machine shows up in the query results, then you need to very the scope configuration specified in the following bullet.
-
-  ```loganalytics
-  Heartbeat
-  | summarize by Computer, Solutions
-  ```
-
-* Check for scope configuration problems. [Scope Configuration](../automation-onboard-solutions-from-automation-account.md#scope-configuration) determines which machines get configured for the solution. If your machine is showing up in your workspace but is not showing up you will need to configure the scope config to target the machines. To learn how to do this, see [Onboard machines in the workspace](../automation-onboard-solutions-from-automation-account.md#onboard-machines-in-the-workspace).
-
-* If the above steps do not solve your problem, Follow the steps at [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) to reinstall the Hybrid Worker for Windows or [Deploy a Linux Hybrid Runbook Worker](../automation-linux-hrw-install.md) for Linux.
-
-* In your workspace, run the following query. If you see the result `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` you have a quota defined on your workspace that has been reached and has stopped data from being saved. In your workspace, navigate to **Usage and estimated costs** > **data volume management** and check your quota or remove the quota you have.
-
-  ```loganalytics
-  Operation
-  | where OperationCategory == 'Data Collection Status'
-  | sort by TimeGenerated desc
-  ```
-
-## Windows
-
-If you encounter issues while attempting to onboard the solution on a virtual machine, check the **Operations Manager** event log under **Application and Services Logs** on the local machine for events with event ID **4502** and event message containing **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent**.
-
-The following section highlights specific error messages and a possible resolution for each. For other onboarding issues see, [troubleshoot solution onboarding](onboarding.md).
-
-### <a name="machine-already-registered"></a>Scenario: Machine is already registered to a different account
-
-#### Issue
+### Issue
 
 You receive the following error message:
 
@@ -185,17 +218,18 @@ You receive the following error message:
 Unable to Register Machine for Patch Management, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
 ```
 
-#### Cause
+### Cause
 
 The machine is already onboarded to another workspace for Update Management.
 
-#### Resolution
+### Resolution
 
-Perform cleanup of old artifacts on the machine by [deleting the hybrid runbook group](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) and try again.
+1. Follow the steps under [Machines don't show up in the portal under Update Management](#nologs) to ensure machine is reporting to the correct workspace.
+2. Perform cleanup of old artifacts on the machine by [deleting the hybrid runbook group](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group) and try again.
 
-### <a name="machine-unable-to-communicate"></a>Scenario: Machine is unable to communicate with the service
+## <a name="machine-unable-to-communicate"></a>Scenario: Machine is unable to communicate with the service
 
-#### Issue
+### Issue
 
 You receive one of the following error messages:
 
@@ -211,17 +245,17 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 The certificate presented by the service <wsid>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.
 ```
 
-#### Cause
+### Cause
 
 There may be a proxy, gateway, or firewall blocking network communication.
 
-#### Resolution
+### Resolution
 
 Review your networking and ensure appropriate ports and addresses are allowed. See [network requirements](../automation-hybrid-runbook-worker.md#network-planning), for a list of ports and addresses that are required by Update Management and Hybrid Runbook Workers.
 
-### <a name="unable-to-create-selfsigned-cert"></a>Scenario: Unable to create self-signed certificate
+## <a name="unable-to-create-selfsigned-cert"></a>Scenario: Unable to create self-signed certificate
 
-#### Issue
+### Issue
 
 You receive one of the following error messages:
 
@@ -229,59 +263,51 @@ You receive one of the following error messages:
 Unable to Register Machine for Patch Management, Registration Failed with Exception AgentService.HybridRegistration. PowerShell.Certificates.CertificateCreationException: Failed to create a self-signed certificate. ---> System.UnauthorizedAccessException: Access is denied.
 ```
 
-#### Cause
+### Cause
 
 The Hybrid Runbook Worker wasn't able to generate a self-signed certificate
 
-#### Resolution
+### Resolution
 
 Verify system account has read access to folder **C:\ProgramData\Microsoft\Crypto\RSA** and try again.
 
-### <a name="failed-to-start"></a>Scenario: A machine shows Failed to start in an update deployment
+## <a name="mw-exceeded"></a>Scenario: The update management scheduled failed with the error MaintenanceWindowExceeded
 
-#### Issue
+### Issue
 
-A machine has the status **Failed to start** for a machine. When you view the specific details for the machine you see the following error:
+The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of six (6) hours, or 360 minutes.
 
-```error
-Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
-```
+### Resolution
 
-#### Cause
+Edit any failing scheduled update deployments, and increase the maintenance window.
 
-This error may happen due to one of the following reasons:
+For more information on maintenance windows, see [Install Updates](../automation-tutorial-update-management.md#schedule-an-update-deployment).
 
-* The machine doesn’t exist anymore.
-* The machine is turned off and unreachable.
-* The machine has a network connectivity issue and the hybrid worker on the machine is unreachable.
-* There was an update to the Microsoft Monitoring Agent that changed the SourceComputerId
-* Your update run may have been throttled if you hit the 2,000 concurrent job limit in an Automation Account. Each deployment is considered a job and each machine in an update deployment count as a job. Any other automation job or update deployment currently running in your Automation Account count towards the concurrent job limit.
+## <a name="hresult"></a>Scenario: Machine shows as Not assessed and shows an HResult exception
 
-#### Resolution
+### Issue
 
-When applicable use [dynamic groups](../automation-update-management.md#using-dynamic-groups) for your update deployments.
+* You have machines that show as **Not Assessed** under **Compliance**, and you see an exception message below it.
+* You have machines that show as not assessed
+* You see an HRESULT error code in the portal.
 
-* Verify the machine still exists and is reachable. If it does not exist, edit your deployment and remove the machine.
-* See the section on [network planning](../automation-update-management.md#ports) for a list of ports and addresses that are required for Update Management and verify your machine meets these requirements.
-* Run the following query in Log Analytics to find machines in your environment whose `SourceComputerId` changed. Look for computers that have the same `Computer` value, but different `SourceComputerId` value. Once you find the affected machines, you must edit the update deployments that target those machines, and remove and re-add the machines so the `SourceComputerId` reflects the correct value.
+### Cause
 
-   ```loganalytics
-   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
-   ```
+The Update Agent (Windows Update Agent on Windows, the package manager for your Linux distribution), is not configured correctly. Update Management relies on the machine's Update Agent to provide the updates that are needed, the status of the patch, and the results of patches deployed. Without this information Update Management can not properly report on the patches that are needed or installed.
 
-### <a name="hresult"></a>Scenario: Machine shows as Not assessed and shows an HResult exception
+### Resolution
 
-#### Issue
+Trying to perform updates locally on the machine. If this fails, this typically means a configuration error with the update agent.
 
-You have machines that show as **Not Assessed** under **Compliance**, and you see an exception message below it.
+Common causes of failure are:
 
-#### Cause
+* Network configuration and firewalls.
+* For Linux, check the appropriate documentation to ensure you are able to reach the network endpoint of your package repository.
+* For Windows, check your agent configuration as listed in [Updates aren't downloading from the intranet endpoint (WSUS/SCCM)](/windows/deployment/update/windows-update-troubleshooting#updates-arent-downloading-from-the-intranet-endpoint-wsussccm).
+  * If the machine(s) are configured for Windows Update, make sure you able to reach the endpoints listed under [](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy).
+  * If the machine(s) are configured for WSUS, make sure you are able to reach the WSUS server configured by the [WUServer Registry Key](/windows/deployment/update/waas-wu-settings).
 
-Windows Update or WSUS is not configured correctly in the machine. Update Management relies of Windows Update or WSUS to provide the updates that are needed, the status of the patch, and the results of patches deployed. Without this information Update Management can not properly report on the patches that are needed or installed.
-
-#### Resolution
-
-Double-click on the exception displayed in red to see the entire exception message. Review the following table for potential solutions or actions to take:
+If you see an HRESULT, double-click on the exception displayed in red to see the entire exception message. Review the following table for potential solutions or actions to take:
 
 |Exception  |Resolution or Action  |
 |---------|---------|
@@ -301,45 +327,27 @@ Additionally you can download and run the [Windows Update troubleshooter](https:
 > [!NOTE]
 > The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) states it is for Windows clients but it works on Windows Server as well.
 
-## Linux
+## Scenario: Update run returns status "Failed"
 
-### Scenario: Update run fails to start
-
-#### Issue
-
-An update runs fail to start on a Linux machine.
-
-#### Cause
-
-The Linux Hybrid Worker is unhealthy.
-
-#### Resolution
-
-Make a copy of the following log file and preserve it for troubleshooting purposes:
-
-```bash
-/var/opt/microsoft/omsagent/run/automationworker/worker.log
-```
-
-### Scenario: Update run starts, but encounters errors
-
-#### Issue
+### Issue
 
 An update run starts, but encounters errors during the run.
 
-#### Cause
+### Cause
 
 Possible causes could be:
 
-* Package manager is unhealthy
-* Specific packages may interfere with cloud based patching
-* Other reasons
+* Package manager is unhealthy.
+* Update Agent (WUA for Windows, distro-specific package manager for Linux) is misconfigured.
+* Specific packages may interfere with cloud based patching.
+* Machine was unreachable.
+* Updates had dependencies which were not resolved.
 
-#### Resolution
+### Resolution
 
-If failures occur during an update run after it starts successfully on Linux, check the job output from the affected machine in the run. You may find specific error messages from your machine's package manager that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
+If failures occur during an update run after it starts successfully, [check the job output](../manage-update-multi.md#view-results-of-an-update-deployment) from the affected machine in the run. You may find specific error messages from your machines that you can research and take action on. Update Management requires the package manager to be healthy for successful update deployments.
 
-In some cases, package updates can interfere with Update Management preventing an update deployment from completing. If you see that, you'll have to either exclude these packages from future update runs or install them manually yourself.
+If specific patches, packages or updates are seen immediately before the job fails, you can try [excluding](../automation-tutorial-update-management.md#schedule-an-update-deployment) those from the next update deployment. To gather log info from Windows Update, see [Windows Update log files](/windows/deployment/update/windows-update-logs).
 
 If you can't resolve a patching issue, make a copy of the following log file and preserve it **before** the next update deployment starts for troubleshooting purposes:
 
@@ -358,39 +366,23 @@ If you can't resolve a patching issue, make a copy of the following log file and
 
 * This often happens if machines are configured to get updates from WSUS/SCCM, but WSUS/SCCM have not approved the updates.
 * You can check if machines are configured for WSUS/SCCM by [cross-referencing the "UseWUServer" registry key to the registry keys in the "Configuring Automatic Updates by Editing the Registry" section of this document](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s)
+* If updates are not approved in WSUS, they will not be installed. You can check for unapproved updates in Log Analytics with the following query.
 
-### **Updates show as installed, but I can't find them on my machine**
+  ```loganalytics
+  Update | where UpdateState == "Needed" and ApprovalSource == "WSUS" and Approved == "False" | summarize max(TimeGenerated) by Computer, KBID, Title
+  ```
+
+### Updates show as installed, but I can't find them on my machine
 
 * Updates are often superseded by other updates. For more information, see ["Update is superseded" in the Windows Update Troubleshooting guide](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)
 
-### **Installing updates by classification on Linux**
+### Installing updates by classification on Linux
 
 * Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These [limitations are documented on the Update Management overview page](https://docs.microsoft.com/azure/automation/automation-update-management#linux-2)
 
-### **KB2267602 is consistently  missing**
+### KB2267602 is consistently  missing
 
 * KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/wdsi/definitions). It is updated daily.
-
-## <a name="other"></a>Scenario: My problem isn't listed above
-
-### Issue
-
-You have an issue that is not resolved by the other scenarios listed.
-
-### Cause
-
-Misconfigured or missing registry keys can cause issues with Update Management.
-
-### Resolution
-
-Delete the registry key `HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker` and restart the **HealthService**.
-
-You can also use the following PowerShell commands.
-
-```powershell
-Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
-Restart-Service healthservice
-```
 
 ## Next steps
 

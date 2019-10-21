@@ -318,5 +318,19 @@ msal4j is in public preview. Signed assertions aren't yet supported
 
 ## Next steps
 
+# [.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [Daemon app - acquiring tokens for the app](./scenario-daemon-acquire-token.md)
+> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=dotnet)
+
+# [Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=python)
+
+# [Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Daemon app - acquiring tokens for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-acquire-token?tabs=java)
+
+---

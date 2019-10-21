@@ -316,10 +316,10 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
    |SDK&nbsp;package&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |For Databricks| Upload Python Egg or PyPI | azureml-sdk[databricks]|
-   |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl_databricks]|
+   |For Databricks -with-<br> automated ML capabilities| Upload Python Egg or PyPI | azureml-sdk[automl]|
 
    > [!Warning]
-   > No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl_databricks].
+   > No other SDK extras can be installed. Choose only one of the preceding options [databricks] or [automl].
 
    * Do not select **Attach automatically to all clusters**.
    * Select  **Attach** next to your cluster name.
