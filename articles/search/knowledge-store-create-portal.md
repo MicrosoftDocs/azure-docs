@@ -33,7 +33,11 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
 1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under your current subscription. 
 
-   Choose the same region as Azure Cognitive Search. Choose the StorageV2 (general purpose V2) account type if you want to try out the knowledge store feature later, in a different walkthrough. 
+   There are two requirements for this account:
+
+   + Choose the same region as Azure Cognitive Search. 
+   
+   + Choose the StorageV2 (general purpose V2) account type. 
 
 1. Open the Blob services pages and create a container.  
 
@@ -123,7 +127,7 @@ In this wizard step, you will configure an indexer that will pull together the d
 
 ### Monitor the Notifications queue for status
 
-1. In the Azure portal, monitor the Notifications activity log for a clickable **Azure Cognitive Search notification** status link. Execution may take several minutes to complete.
+In the Azure portal, monitor the Notifications activity log for a clickable **Azure Cognitive Search notification** status link. Execution may take several minutes to complete.
 
 ## Next steps
 

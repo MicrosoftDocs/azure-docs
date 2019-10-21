@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ---
 # Quickstart: Create an Azure Cognitive Search cognitive skillset in the Azure portal
 
-A skillset is an AI feature of Azure Cognitive Search that extracts information and structure from large undifferentiated text or image files. Structure and information are captured as text and then indexed for full text search queries in Azure Cognitive Search. 
+A skillset is an AI feature that extracts information and structure from large undifferentiated text or image files, and makes it indexable and searchable for full text search queries in Azure Cognitive Search. 
 
 In this quickstart, you'll combine services and technology in the Azure cloud to create the skillset. Once the services and data are in place, you will run the Import data wizard in the portal to pull it all together. The end result is a searchable index that you can query from another portal tool ([Search explorer](search-explorer.md)).
 
@@ -36,9 +36,9 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
    ![Source files in Azure blob storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. In many tutorials, especially those that use the REST API, you will need a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
-
 1. [Create an Azure Cognitive Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under the same subscription. You can use a free service for this quickstart.
+
+<!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. In many tutorials, especially those that use the REST API, you will need a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
 
 You are now ready to move on the Import data wizard.
 
