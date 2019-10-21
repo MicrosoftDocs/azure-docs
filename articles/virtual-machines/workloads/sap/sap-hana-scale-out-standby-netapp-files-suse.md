@@ -81,7 +81,7 @@ Read the following SAP Notes and papers first:
   The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 * [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 * [NetApp SAP Applications on Microsoft Azure using Azure NetApp Files][anf-sap-applications-azure]
-* [SAP HANA on NetApp Systems with NFS](https://www.netapp.com/us/media/tr-4435.pdf). The configuration guide has information 
+* [SAP HANA on NetApp Systems with NFS](https://www.netapp.com/us/media/tr-4435.pdf). The configuration guide contains information how to set up SAP HANA, using NFS provided by Azure NetApp Files
 
 
 ## Overview
@@ -205,8 +205,8 @@ The next steps assume that you have already created the Resource Group, the Azur
 > [!IMPORTANT]
 > Make sure that the OS you select is SAP certified for SAP HANA on the specific VM types you are using. The list  of SAP HANA certified VM types and OS releases for those can be looked up in [SAP HANA Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Make sure to click into the details of the VM type listed to get the complete list of SAP HANA supported OS releases for the specific VM type.  
 
-1. Create an Availability Set for SAP HANA  
-   Set max update domain
+1. Create an Availability Set for SAP HANA. Make sure to set max update domain.  
+
 2. Create three Virtual Machines(**hanadb1**, **hanadb2**, **hanadb3**)  
    - Use a SLES4SAP image in the Azure gallery that is supported for SAP HANA. We used SLES4SAP 12 SP4 image in this example.  
    - Select Availability Set created earlier for SAP HANA.  
@@ -470,38 +470,38 @@ In this example for deploying SAP HANA in scale-out configuration with standby n
     <pre><code>./hdblcm --internal_network=10.23.3.0/24
     </code></pre>
 
-Enter the following values at the prompt.
+   Enter the following values at the prompt.
 
-  * Choose an action:  Enter **1** (for install)
-  * Select additional components for installation: Enter **2, 3**
-  * Enter installation path:  Press Enter (defaults to /hana/shared)
-  * Enter Local Host Name: Press Enter to accept the default
-  * Do you want to add hosts to the system? Enter **y**
-  * Enter coma-separated host names to add: **hanadb2, hanadb3**
-  * Enter Root User Name [root]: press Enter to accept the default
-  * Enter Root User Password: Enter root's password
-  * Select roles for host hanadb2: Enter **1**  (for worker)
-  * Enter Host Failover Group for host hanadb2 [default]:  Press Enter to accept the default
-  * Enter Storage Partition Number for host hanadb2 [<<assign automatically>>]: Press Enter to accept the default
-  * Enter Worker Group for host hanadb2 [default]: Press Enter to accept the default
-  * Select roles for host hanadb3: Enter **2** (for standby)
-  * Enter Host Failover Group for host hanadb3 [default]: Press Enter to accept the default
-  * Enter Worker Group for host hanadb3 [default]: Press Enter to accept the default
-  * Enter SAP HANA System ID: Enter **HN1**
-  * Enter instance number[00]: Enter **03**
-  * Enter Local Host Worker Group[default]: Press Enter to accept the default
-  * Select System Usage / Enter index [4]: Enter **4** (for custom)
-  * Enter Location of Data Volumes [/hana/data/HN1]:  Press Enter to accept the default
-  * Enter Location of Log Volumes [/hana/log/HN1]: Press Enter to accept the default
-  * Restrict maximum memory allocation? [n]: Enter **n**
-  * Enter Certificate Host Name For Host hanadb1 [hanadb1]: Press Enter to accept the default
-  * Enter Certificate Host Name For Host hanadb2 [hanadb2]: Press Enter to accept the default
-  * Enter Certificate Host Name For Host hanadb3 [hanadb3]: Press Enter to accept the default
-  * Enter System Administrator (hn1adm) Password: Enter the password
-  * Enter System Database User (SYSTEM) Password: Enter SYSTEM's password
-  * Confirm System Database User (SYSTEM) Password: Enter SYSTEM's password
-  * Restart system after machine reboot? [n]: Enter **n** 
-  * Do you want to continue (y/n): Validate the Summary and if everything looks good Enter **y**
+     * Choose an action:  Enter **1** (for install)
+     * Select additional components for installation: Enter **2, 3**
+     * Enter installation path:  Press Enter (defaults to /hana/shared)
+     * Enter Local Host Name: Press Enter to accept the default
+     * Do you want to add hosts to the system? Enter **y**
+     * Enter coma-separated host names to add: **hanadb2, hanadb3**
+     * Enter Root User Name [root]: press Enter to accept the default
+     * Enter Root User Password: Enter root's password
+     * Select roles for host hanadb2: Enter **1**  (for worker)
+     * Enter Host Failover Group for host hanadb2 [default]:  Press Enter to accept the default
+     * Enter Storage Partition Number for host hanadb2 [<<assign automatically>>]: Press Enter to accept the default
+     * Enter Worker Group for host hanadb2 [default]: Press Enter to accept the default
+     * Select roles for host hanadb3: Enter **2** (for standby)
+     * Enter Host Failover Group for host hanadb3 [default]: Press Enter to accept the default
+     * Enter Worker Group for host hanadb3 [default]: Press Enter to accept the default
+     * Enter SAP HANA System ID: Enter **HN1**
+     * Enter instance number[00]: Enter **03**
+     * Enter Local Host Worker Group[default]: Press Enter to accept the default
+     * Select System Usage / Enter index [4]: Enter **4** (for custom)
+     * Enter Location of Data Volumes [/hana/data/HN1]:  Press Enter to accept the default
+     * Enter Location of Log Volumes [/hana/log/HN1]: Press Enter to accept the default
+     * Restrict maximum memory allocation? [n]: Enter **n**
+     * Enter Certificate Host Name For Host hanadb1 [hanadb1]: Press Enter to accept the default
+     * Enter Certificate Host Name For Host hanadb2 [hanadb2]: Press Enter to accept the default
+     * Enter Certificate Host Name For Host hanadb3 [hanadb3]: Press Enter to accept the default
+     * Enter System Administrator (hn1adm) Password: Enter the password
+     * Enter System Database User (SYSTEM) Password: Enter SYSTEM's password
+     * Confirm System Database User (SYSTEM) Password: Enter SYSTEM's password
+     * Restart system after machine reboot? [n]: Enter **n** 
+     * Do you want to continue (y/n): Validate the Summary and if everything looks good Enter **y**
 
 
 2. **[1]** Verify global.ini  
