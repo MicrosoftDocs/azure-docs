@@ -18,9 +18,10 @@ Azure Machine Learning visual interface has been updated to Azure Machine Learni
 
     [todo] add gif to show upgrade flow
 
-3. After upgrading, all your visual interface experiments will be converted to designer pipeline draft automatically. It will show up in the designer homepage. Your visual interface web service can be found in Endpoints -> Real-time endpoints.  
+3. After upgrading, all your visual interface experiments will be converted to designer pipeline draft automatically. Your visual interface experiments will show up in the designer homepage -> pipeline draft list. Your visual interface web service can be found in Endpoints -> Real-time endpoints.  
 
-    However, you might need to make additional modifications to make the converted pipeline draft run successfully. Once you click one of the pipeline drafts converted from visual interface, there could be error info hint you on how to resolve the issues from conversion. Below are possible errors you might see:
-        - Update your Import Data or Export Data sources to datastores. For Designer pipelines, data must be in a datastore. Learn how (AKA LINK)
-
-        - Error ():  This visual interface experiment could not be converted to a designer pipeline. To complete the conversion, you must manually rerun this experiment.
+    However, you might need to make additional modifications to make the converted pipeline draft run successfully. Once you click one of the pipeline drafts converted from visual interface, there will show error message to guide you resolve the issues from conversion. Below are known issues you need to solve manually:
+        - Update your **Import Data** or **Export Data** sources to datastores.
+        
+            If you have **Import Data** or **Export Data** module in the visual interface experiment, you will need to update the data source to datastores. Datastores are used to store connection information, check [this article](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-access-data) to learn how to create a datastore. We have copied the cloud storage account information in the comments of Import Data/ Export Data module in the converted pipeline for your quick reference. 
+      

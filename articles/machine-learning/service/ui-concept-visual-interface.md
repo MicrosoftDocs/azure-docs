@@ -88,6 +88,18 @@ The web services provide an interface between an application and your scoring mo
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](ui-tutorial-automobile-price-deploy.md).
 
+## Visual interface and the designer
+
+Visual interface(preview) has been updated to Azure Machine Learning designer with more modules, richer ML pipeline functionality and updated UI. Below are concept mapping from visual interface to the designer. 
+| visual interface concept| corresponding concept in the designer  |
+| ---- |:----:|
+| experiments |pipeline drafts |
+| datasets | datasets |
+| web services | real-time endpoints |
+
+Check [how to migrate from visual interface to the designer] 
+[!INCLUDE [](../../../includes/aml-vi-designer-migration.md)]
+
 ## Next steps
 
 * Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md)
