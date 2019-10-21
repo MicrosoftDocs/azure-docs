@@ -6,11 +6,11 @@
 - name: Tutorials
   items:
     - name: 1- Create a retail application
-      href: tutorial-condition-monitor-create-app-pnp.md
+      href: tutorial-in-store-analytics-create-app-pnp.md
     - name: 2 - Customize the operator dashboard
-      href: tutorial-condition-monitor-customize-dashboard-pnp.md
+      href: tutorial-in-store-analytics-customize-dashboard-pnp.md
     - name: 3 - Export data and visualize insights
-      href: tutorial-condition-monitor-export-data-visualize-insights-pnp.md
+      href: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
 - name: Concepts
 - name: How-to guides
   items:
