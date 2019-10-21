@@ -33,14 +33,12 @@
       href: cli-samples.md
 - name: Concepts
   items:
-    - name: Best Practices
-      items:
-        - name: Best Practices for Azure Cache for Redis
-          href: cache-best-practices.md
-        - name: Azure Architecture Best Practices for Caching
-          href: https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json
+    - name: Best practices
+      href: cache-best-practices.md
     - name: Failover and patching
       href: cache-failover.md
+    - name: Architecture best practices for caching
+      href: https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json
 - name: How-to guides
   items:
   - name: Plan
