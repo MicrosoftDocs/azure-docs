@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/04/2019
 ---
-#  How to process and extract information from images in AI enrichment scenarios
+# How to process and extract information from images in AI enrichment scenarios
 
 Azure Cognitive Search has several capabilities for working with images and image files. During document cracking, you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
@@ -31,7 +31,7 @@ You cannot turn off image normalization. Skills that iterate over images expect 
 |  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000.|
 
 > [!NOTE]
-> If you set the *imageAction* property to anything other than "none", you will not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
+> If you set the *imageAction* property to anything other than "none", You'll not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
 
 Set the **parsingMode** parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain JSON arrays and you need each element of an array to be treated as a separate document).
 
