@@ -78,7 +78,7 @@ In the **Configure Hosting Plan** dialog box, use these settings:
 
 Select **OK**.
 
-Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSample` folder. Follow <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-3.0" target="_blank">this tutorial</a> to deploy the sharing service through Visual Studio Code.
+Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSample` folder. Follow <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2" target="_blank">this tutorial</a> to deploy the sharing service through Visual Studio Code.
 
 ---
 
