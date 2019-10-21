@@ -38,7 +38,7 @@ To find it, from the **Experiments page**, select **Add New**, then select the *
 
 ## Create a new experiment
 
-To create a pipeline in the designer, you first need  an Azure Machine Learning service workspace. In this section you learn how to create both these resources.
+To create a pipeline in the designer, you first need  an Azure Machine Learning workspace. In this section you learn how to create both these resources.
 
 ### Create a new workspace
 

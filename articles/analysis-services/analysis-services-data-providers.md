@@ -4,7 +4,7 @@ description: Describes client libraries required for client applications and too
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -40,7 +40,7 @@ Analysis Services utilize three client libraries, also known as data providers. 
 
 Microsoft client applications like Power BI Desktop and Excel install all three client libraries and update them when new versions are available. Depending on the version or frequency of updates, some client libraries may not be the latest versions required by Azure Analysis Services. The same applies to custom applications or other interfaces such as AsCmd, TOM, ADOMD.NET. These applications require manually or programmatically installing the libraries. The client libraries for manual installation are included in SQL Server feature packs as distributable packages. However, these client libraries are tied to the SQL Server version and may not be the latest.  
 
-Client libraries for client connections are different from data providers required to connect from an Azure Analysis Services server to a data source. To learn more about datasource connections, see [Datasource connections](analysis-services-datasource.md).
+Client libraries for client connections are different from data providers required to connect from an Azure Analysis Services server to a data source. To learn more about data source connections, see [Data source connections](analysis-services-datasource.md).
 
 ## Client library types
 

@@ -3821,7 +3821,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/billing-mca-setup-account.md",
+      "source_path": "articles/billing/billing-mca-setup-account.md",
       "redirect_url": "/azure/billing/mca-setup-account",
       "redirect_document_id": false
     },
@@ -15809,6 +15809,16 @@
       "source_path": "articles/traffic-manager/traffic-manager-endpoints.md",
       "redirect_url": "/azure/traffic-manager/traffic-manager-manage-endpoints",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-cli",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/disk-encryption-powershell",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-advanced-autoscale.md",
@@ -34615,11 +34625,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/security/azure-security-disk-encryption.md",
-      "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/device-management-hybrid-azuread-joined-devices-setup.md",
       "redirect_url": "/azure/active-directory/devices/hybrid-azuread-join-manual-steps",
       "redirect_document_id": true
@@ -34717,6 +34722,26 @@
       "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal-get-started.md",
       "redirect_url": "/azure/active-directory/conditional-access/app-based-mfa",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-administrators.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-azure.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-end-users.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-legacy-auth.md",
+      "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-identityprotection-enable.md",
@@ -34894,6 +34919,56 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/security/azure-security-disk-encryption-appendix.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-faq.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-linux.md",
+      "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-linux-aad.md",
+      "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview-aad",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-overview.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-prerequisites.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-prerequisites-aad.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-tsg.md",
+      "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-windows.md",
+      "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/azure-security-disk-encryption-windows-aad.md",
+      "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview-aad",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/luis/Home.md",
       "redirect_url": "/azure/cognitive-services/luis/what-is-luis",
       "redirect_document_id": true
@@ -34925,7 +35000,7 @@
     },
     {
       "source_path": "articles/security-center/security-center-disk-encryption.md",
-      "redirect_url": "/azure/security/azure-security-disk-encryption-overview",
+      "redirect_url": "/azure/security-center/security-center-apply-disk-encryption",
       "redirect_document_id": false
     },
     {
@@ -42442,6 +42517,56 @@
       "source_path": "articles/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1.md",
       "redirect_url": "/previous-versions/azure/storage/common/storage-import-export-tool-previewing-drive-usage-export-v1",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-network-security.md",
+      "redirect_url": "https://azure.microsoft.com/resources/azure-network-security/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-serverless-platform-security.md",
+      "redirect_url": "https://azure.microsoft.com/resources/azure-functions-serverless-platform-security/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-container-security.md",
+      "redirect_url": "https://azure.microsoft.com/resources/container-security-in-microsoft-azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-operational-security.md",
+      "redirect_url": "https://azure.microsoft.com/resources/azure-operational-security/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/abstract-develop-secure-apps.md",
+      "redirect_url": "https://azure.microsoft.com/resources/develop-secure-applications-on-azure/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/storage-overview.md",
+      "redirect_url": "/azure/storage/common/storage-security-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/global-admin.md",
+      "redirect_url": "/azure/active-directory/authentication/multi-factor-authentication",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/istio-install.md",
+      "redirect_url": "/azure/aks/servicemesh-istio-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/istio-scenario-routing.md",
+      "redirect_url": "/azure/aks/servicemesh-istio-scenario-routing",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/consul-install.md",
+      "redirect_url": "/azure/aks/servicemesh-consul-install",
+      "redirect_document_id": false
     }
   ]
 }

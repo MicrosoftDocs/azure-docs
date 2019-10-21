@@ -6,6 +6,9 @@
   - name: What is Azure Machine Learning?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
+  - name: Azure Machine Learning vs Studio
+    displayName: AML, Studio, designer
+    href: ../compare-azure-ml-to-studio-classic.md
   - name: Architecture & terms
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
@@ -274,12 +277,14 @@
       href: how-to-monitor-data-drift.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
-  - name: Create reusable workflows
+  - name: Build & use ML pipelines
     displayName: pipelines
     items:
-    - name: Create ML pipelines in Python
+    - name: Create ML pipelines (Python)
       href: how-to-create-your-first-pipeline.md
-    - name: Debug and troubleshoot ML pipelines
+    - name: Schedule a pipeline (Python)
+      href: how-to-schedule-pipelines.md
+    - name: Debug & troubleshoot pipelines
       href: how-to-debug-pipelines.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
