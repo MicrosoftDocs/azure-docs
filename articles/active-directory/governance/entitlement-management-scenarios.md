@@ -33,6 +33,7 @@ There are several ways that you can configure entitlement management for your or
 ## Overview
 
 ### New to entitlement management
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -75,6 +76,7 @@ There are several ways that you can configure entitlement management for your or
 > | **4.** [Specify expiration settings](entitlement-management-access-package-create.md#lifecycle) | Access package manager |
 
 ### Request access to resources
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -83,6 +85,7 @@ There are several ways that you can configure entitlement management for your or
 > | **3.** [Request access](entitlement-management-request-access.md#request-an-access-package) | Requestor |
 
 ### Approve requests to resources
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -90,6 +93,7 @@ There are several ways that you can configure entitlement management for your or
 > | **2.** [Approve or deny access request](entitlement-management-request-approve.md#approve-or-deny-request) | Approver |
 
 ### View the resources you already have access to
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -97,6 +101,7 @@ There are several ways that you can configure entitlement management for your or
 > | **2.** View active access packages | Requestor |
 
 ### Extend your existing access
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -121,6 +126,7 @@ There are several ways that you can configure entitlement management for your or
 > | **9.** Send the link to your external partner contact partner to share with their users | Access package manager |
 
 ### Request access to resources as an external user
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -129,6 +135,7 @@ There are several ways that you can configure entitlement management for your or
 > | **3.** [Request access](entitlement-management-request-access.md#request-an-access-package) | Requestor |
 
 ### Approve requests to resources
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -136,6 +143,7 @@ There are several ways that you can configure entitlement management for your or
 > | **2.** [Approve or deny access request](entitlement-management-request-approve.md#approve-or-deny-request) | Approver |
 
 ### View the resources your already have access to
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -162,6 +170,7 @@ There are several ways that you can configure entitlement management for your or
 > | **3.** [Add or remove group and Teams, application, and SharePoint site roles](entitlement-management-access-package-resources.md#add-resource-roles) | Access package manager |
 
 ### Update the duration for a project
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -180,6 +189,7 @@ There are several ways that you can configure entitlement management for your or
 > | **3.** [Update the approval settings](entitlement-management-access-package-request-policy.md#approval) | Access package manager |
 
 ### Update the people for a project
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
@@ -190,6 +200,7 @@ There are several ways that you can configure entitlement management for your or
 > | **5.** [Added users can request access in the My Access portal](entitlement-management-request-access.md) | Requestor |
 
 ### Directly assign specific users to an access package
+
 > [!div class="mx-tableFixed"]
 > |  |  |
 > | --- | --- |
