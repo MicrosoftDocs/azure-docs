@@ -4,8 +4,7 @@ description: Configure your AI enrichment pipeline to drive your data to eventua
 manager: nitinme
 author: Vkurpad
 services: search
-ms.service: search
-ms.subservice: cognitive-search
+ms.service: cognitive-search
 ms.topic: overview
 ms.date: 10/11/2019
 ms.author: vikurpad
@@ -78,7 +77,7 @@ To ensure that the indexer only performs enrichments you explicitly require, upd
 
 ## Cache invalidation
 
-The converse of that scenario is one where you may deploy a new version of a custom skill, nothing within the enrichment pipeline changes, but you need a specific skill invalidated and all affected documents reprocessed to reflect the benefits of an updated model. In such instances, you can call the invalidate skills operation on the skillset. The reset skills API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information on the reset skills API, see the documentation [tk](tk).
+The converse of that scenario is one where you may deploy a new version of a custom skill, nothing within the enrichment pipeline changes, but you need a specific skill invalidated and all affected documents reprocessed to reflect the benefits of an updated model. In such instances, you can call the invalidate skills operation on the skillset. The reset skills API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information on the reset skills API, see the documentation ["Reset Indexer (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
 
 ## Change detection
 

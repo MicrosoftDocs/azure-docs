@@ -6,7 +6,7 @@ description: Extract content and add structure to Azure blobs when building a fu
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2019
 ---

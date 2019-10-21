@@ -8,7 +8,7 @@ manager: eladz
 ms.author: vikurpad
 
 services: search
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seonov2019
