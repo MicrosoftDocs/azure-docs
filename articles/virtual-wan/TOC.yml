@@ -26,6 +26,8 @@
       href: virtual-wan-office365-overview.md
 - name: How-to guides
   items:
+  - name: Upgrade a virtual WAN SKU
+    href: upgrade-virtual-wan.md
   - name: Create a VPN connection over ExpressRoute private peering
     href: vpn-over-expressroute.md
   - name: Configure custom IPsec policy
