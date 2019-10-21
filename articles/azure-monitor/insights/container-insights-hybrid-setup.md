@@ -188,8 +188,14 @@ To first identify the full resource ID of your Log Analytics workspace required 
        ```powershell
        # configure and login to the cloud of log analytics workspace.Specify the corresponding cloud environment of your workspace to below command.
        Connect-AzureRmAccount -Environment <AzureCloud | AzureChinaCloud | AzureUSGovernment>
+       ```
+
+       ```powershell
        # set the context of the subscription of log analytics workspace
        Set-AzureRmContext -SubscriptionId <subscription Id of log analytics workspace>
+       ```
+       
+       ```powershell
        # execute deployment command to add container insights solution to the specified log analytics workspace
        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <resource group of log analytics workspace> -TemplateFile .\containerSolution.json -TemplateParameterFile .\containerSolutionParams.json
        ```
