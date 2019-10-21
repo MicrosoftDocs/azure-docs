@@ -462,7 +462,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversation_transcription_single.jpg" alt="" />
+                                                        <img src="media/hub/speech_conversation_transcription.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
