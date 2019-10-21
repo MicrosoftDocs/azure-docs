@@ -203,15 +203,12 @@ string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
 
 ### Create a container
 
-To create a container, first instantiate a [Uri]() object containing the path to a new container you will create.
-
-Next, create an instance of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, then create the container.
-
-Call the CreateIfNotExistsAsync method to create the container only if it does not already exist.
-Call the [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync) method to create the container only if it does not already exist.
+Decide on a name for the new container. The code below appends a GUID value to the container name to ensure that it is unique.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+
+Next, create an instance of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, then call the [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync) method to create actually the container in your storage account. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync) method to create the container only if it does not already exist.
 
 Add this code to the end of the `Main` method:
 
@@ -240,9 +237,9 @@ await container.SetAccessPolicyAsync(PublicAccessType.BlobContainer);
 The following code snippet:
 
 1. Declares and initializes a member variable that contains the path to the local *Documents* directory.
-1. Creates a local file in the *Documents* directory.
-1. Gets a reference to a `BlobClient` object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
-1. Uploads the local file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+1. Creates a text file in the local *Documents* directory.
+1. Gets a reference to a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
+1. Uploads the local text file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add this code to the end of the `Main` method:
 
@@ -257,10 +254,10 @@ string localFilePath = Path.Combine(myDocumentsPath, localFileName);
 // Write text to the file
 await File.WriteAllTextAsync(localFilePath, "Hello, World!");
 
-Console.WriteLine("Uploading to Blob storage as blob {0}\n", localFileName);
-
 // Get a reference to a blob
 BlobClient blob = container.GetBlobClient(localFileName);
+
+Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blob.Uri);
 
 // Open the file and upload its data
 using FileStream uploadFileStream = File.OpenRead(localFilePath);
@@ -295,7 +292,7 @@ Add this code to the end of the `Main` method:
 // Append the string "DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
 string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
 
-Console.WriteLine("\nDownloading blob to {0}\n", downloadFilePath);
+Console.WriteLine("\nDownloading blob to\n\t {0}\n", downloadFilePath);
 
 // Download the blob's contents and save it to a file
 BlobDownloadInfo download = await blob.DownloadAsync();
@@ -309,15 +306,15 @@ downloadFileStream.Close();
 
 The following code cleans up the resources the app created by deleting the entire container using [​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
 
-The app pauses for user input by calling `Console.ReadLine` before it deletes the container, blob, and files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
+The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
 
 Add this code to the end of the `Main` method:
 
 ```csharp
+// Clean up
 Console.Write("Press any key to begin clean up");
 Console.ReadLine();
 
-// Clean up
 Console.WriteLine("Deleting blob container...");
 await container.DeleteAsync();
 
@@ -348,12 +345,13 @@ The output of the example application is similar to the following example:
 Azure Blob Storage v12 - .NET quickstart sample
 
 Uploading to Blob storage as blob:
-        https://myacct.blob.core.windows.net/quickstartblobs79c3043b-0b0b-4935-9dc3-308fcb89a616/quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
+        https://mystorageacct.blob.core.windows.net/quickstartblobs79c3043b-0b0b-4935-9dc3-308fcb89a616/quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
 
 Listing blobs...
         quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
 
-Downloading blob to C:\Users\myusername\Documents\quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0afDOWNLOADED.txt
+Downloading blob to:
+        C:\Users\myusername\Documents\quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0afDOWNLOADED.txt
 
 Press any key to begin clean up
 Deleting blob container...
