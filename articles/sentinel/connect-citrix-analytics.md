@@ -34,8 +34,9 @@ Citrix Analytics (Security) integration with Azure Sentinel helps you to export 
 
 1. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Citrix Analytics (Security)** connector.
 
-2. Follow the instructions from the [Citrix documentation](https://docs.citrix.com/citrix-analytics/azure-sentinel-integration.html).
+2. Select **Open connector page**.
 
+3. Follow the instructions on the **Citrix Analytics (Security)** page.
 
 ## Next steps
 In this document, you learned how to connect Citrix Analytics (Security) to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
