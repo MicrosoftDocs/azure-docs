@@ -29,8 +29,8 @@ For more information about the resource provider, see [SQL VM resource provider]
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/) with unregistered SQL Server virtual machines. Subscriptions used for the script should be in the same tenant as the PowerShell session. Run `Get-AzSubscription` to verify that the subscription is in the output of the cmdlet. 
-- Client credentials have adequate access to the virtual machines being registered. The supported RBAC roles are: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
-- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
+- The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
+- One or more [SQL Server virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 
 
@@ -45,20 +45,17 @@ Register-SqlVMs -SubscriptionList SubscriptionId1,SubscriptionId2
 Example output: 
 
 ```
-Number of Subscriptions registration failed for because you do not have access or credentials are wrong: 1
-    Total VMs Found: 10
-    VMs Already registered: 1
-    Number of VMs registered successfully: 4
-    Number of VMs failed to register due to error: 1
-    Number of VMs skipped as VM or the 
-    guest agent on VM is not running: 3
-    Number of VMs skipped as they are not 
-    running SQL Server On Windows: 1
+Number of Subscriptions registration failed for 
+because you do not have access or credentials are wrong: 1
+Total VMs Found: 10
+VMs Already registered: 1
+Number of VMs registered successfully: 4
+Number of VMs failed to register due to error: 1
+Number of VMs skipped as VM or the guest agent on VM is not running: 3
+Number of VMs skipped as they are not running SQL Server On Windows: 1
 
-    Please find the detailed report in 
-    file RegisterSqlVMScriptReport1571314821.txt
-    Please find the error details in 
-    file VMsNotRegisteredDueToError1571314821.log
+Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
+Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
 ## All VMs in a single subscription
@@ -72,19 +69,15 @@ Register-SqlVMs -Subscription SubscriptionId1
 Example output:
 
 ```
-    Total VMs Found: 10
-    VMs Already registered: 1
-    Number of VMs registered successfully: 5
-    Number of VMs failed to register due to error: 1
-    Number of VMs skipped as VM or the 
-    guest agent on VM is not running: 2
-    Number of VMs skipped as they are not 
-    running SQL Server On Windows: 1
+Total VMs Found: 10
+VMs Already registered: 1
+Number of VMs registered successfully: 5
+Number of VMs failed to register due to error: 1
+Number of VMs skipped as VM or the  guest agent on VM is not running: 2
+Number of VMs skipped as they are not running SQL Server On Windows: 1
 
-    Please find the detailed report in 
-    file RegisterSqlVMScriptReport1571314821.txt
-    Please find the error details in 
-    file VMsNotRegisteredDueToError1571314821.log
+Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
+Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
 ## All VMs in multiple resource groups
@@ -99,16 +92,13 @@ Example output:
 
 ```
 Total VMs Found: 4
-    VMs Already registered: 1
-    Number of VMs registered successfully: 1
-    Number of VMs failed to register due to error: 1
-    Number of VMs skipped as they are 
-    not running SQL Server On Windows: 1
+VMs Already registered: 1
+Number of VMs registered successfully: 1
+Number of VMs failed to register due to error: 1
+Number of VMs skipped as they are not running SQL Server On Windows: 1
 
-    Please find the detailed report in 
-    file RegisterSqlVMScriptReport1571314821.txt
-    Please find the error details in 
-    file VMsNotRegisteredDueToError1571314821.log
+Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
+Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
 ## All VMs in a resource group
@@ -123,17 +113,13 @@ Example output:
 
 ```
 Total VMs Found: 4
-    VMs Already registered: 1
-    Number of VMs registered successfully: 1
-    Number of VMs failed to register 
-    due to error: 1
-    Number of VMs skipped as VM or the 
-    guest agent on VM is not running: 1
+VMs Already registered: 1
+Number of VMs registered successfully: 1
+Number of VMs failed to register due to error: 1
+Number of VMs skipped as VM or the guest agent on VM is not running: 1
 
-    Please find the detailed report in 
-    file RegisterSqlVMScriptReport1571314821.txt
-    Please find the error details in 
-    file VMsNotRegisteredDueToError1571314821.log
+Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
+Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
 ## Specific VMs in single resource group
@@ -147,18 +133,14 @@ Register-SqlVMs -Subscription SubscriptionId1 -ResourceGroupName ResourceGroup1 
 Example output:
 
 ```
-    Total VMs Found: 3
-    VMs Already registered: 0
-    Number of VMs registered successfully: 1
-    Number of VMs skipped as VM or the 
-    guest agent on VM is not running: 1
-    Number of VMs skipped as they are 
-    not running SQL Server On Windows: 1
+Total VMs Found: 3
+VMs Already registered: 0
+Number of VMs registered successfully: 1
+Number of VMs skipped as VM or the guest agent on VM is not running: 1
+Number of VMs skipped as they are not running SQL Server On Windows: 1
 
-    Please find the detailed report in 
-    file RegisterSqlVMScriptReport1571314821.txt
-    Please find the error details in 
-    file VMsNotRegisteredDueToError1571314821.log
+Please find the detailed report in file RegisterSqlVMScriptReport1571314821.txt
+Please find the error details in file VMsNotRegisteredDueToError1571314821.log
 ```
 
 ## Specific VM
@@ -173,11 +155,10 @@ Example output:
 
 ```
 Total VMs Found: 1
-    VMs Already registered: 0
-    Number of VMs registered successfully: 1
+VMs Already registered: 0
+Number of VMs registered successfully: 1
 
-    Please find the detailed report in 
-    file RegisterSqlVMScriptReport1571314821.txt
+Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 ```
 
 
@@ -191,7 +172,7 @@ The report is generated as a `.txt` file named `RegisterSqlVMScriptReport<Timest
 
 | **Output value** | **Description** |
 | :--------------  | :-------------- | 
-| Number of subscriptions registration failed for because you do not have access or credentials are incorrect | This provides the number and list of subscriptions which had issues with the provided authentication. The detailed error can be found in the log by searching for the subscription ID. | 
+| Number of subscriptions registration failed for because you do not have access or credentials are incorrect | This provides the number and list of subscriptions that had issues with the provided authentication. The detailed error can be found in the log by searching for the subscription ID. | 
 | Number of subscriptions that could not be tried because they are not registered to the RP | This section contains the count and list of subscriptions that have not been registered to the SQL VM resource provider. |
 | Total VMs found | The count of virtual machines that were found in the scope of the parameters passed to the cmdlet. | 
 | VMs already registered | The count of virtual machines that were skipped as they were already registered with the resource provider. |
@@ -236,8 +217,14 @@ az provider register --namespace Microsoft.SqlVirtualMachine
 # Register the new SQL VM resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
+
 ---
 
+## Full script
+
+[!code-powershell-interactive[main](.../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
+
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
 
 ## Next steps
 
