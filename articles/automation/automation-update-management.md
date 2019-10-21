@@ -76,8 +76,8 @@ The following table lists the supported operating systems for update assessments
 |Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents must have access to an update repository.         |
 
 > [!NOTE]
-> Azure VM scale sets can be managed through Update Management. Update Management works on the instances themselves and not on the base image. You'll need to schedule the updates in an incremental way, so that not all the VM instances are updated at once.
-> VMSS nodes can be added by following the steps under [Onboard a non-Azure machine](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
+> Azure virtual machine scale sets can be managed through Update Management. Update Management works on the instances themselves and not on the base image. You'll need to schedule the updates in an incremental way, so that not all the VM instances are updated at once.
+> You can add nodes for virtual machine scale sets by following the steps under [Onboard a non-Azure machine](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
 ### Unsupported client types
 
@@ -116,7 +116,7 @@ VMs that were created from the on-demand Red Hat Enterprise Linux (RHEL) images 
 
 ## Permissions
 
-To create and manage update deployments, you need specific permissions. To learn about these permissions, see [role-based access – Update Management](automation-role-based-access-control.md#update-management).
+To create and manage update deployments, you need specific permissions. To learn about these permissions, see [Role-based access – Update Management](automation-role-based-access-control.md#update-management).
 
 ## Solution components
 
@@ -150,7 +150,7 @@ For more information about how solution management packs are updated, see [Conne
 
 ### Supported agents
 
-The following table describes the connected sources that are supported by this solution:
+The following table describes the connected sources that this solution supports:
 
 | Connected source | Supported | Description |
 | --- | --- | --- |
