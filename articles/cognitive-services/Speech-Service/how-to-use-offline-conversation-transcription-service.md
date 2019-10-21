@@ -62,7 +62,7 @@ speechConfig.setServiceProperty("transcriptionMode", "RealTimeOffline", ServiceP
 
 This sample is written with Java, but the APIs used are supported on all the platforms and languages specified in the **Limitations** section of [this topic](how-to-use-conversation-transcription-service.md#limitations).
 
-### Second: get offline transcription results using remoteconversation-client-sdk
+### Get offline transcription results
 
 You will need **remoteconversation-client-sdk version 1.0.0** to use the code in this section. Note that **remoteconversation-client-sdk version 1.0.0** is supported only for Java (1.8 or above) on Windows, Linux and Android (API level 26 or above). You can obtain **remoteconversation-client-sdk** by editing your pom.xml file as follows:
 
