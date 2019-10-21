@@ -305,16 +305,33 @@ Now you have telemetry flowing from your IoT Central application through your ev
 1. Select **Workspaces > Store Analytics - Condition Monitoring**.
 1. Select **+ Create > Dashboard**.
 1. Enter **Store analytics** as the dashboard name, and select **Create**.
-1. Select **...(More options) > Add Tile**. Select **Custom Streaming Data**, and then select **Next**.
-1. Select **Sensor #1**, and then select **Next**.
-1. On the **Visualization design** step:
-    * Select **Line chart** as the visualization type.
-    * Select **Timestamp** as the axis.
-    * Add **Temperature** and **Humidity** as values.
-    * Choose 10 minutes as the time window to display.
-1. Select **Next**.
-1. On the **Details** step, enter **Sensor #1** as the title. Then select **Apply**.
-1. Add two more tiles to display the telemetry for **Sensor #2** and **Sensor #3**.
+
+
+### Add line charts
+
+Add four line chart tiles to show the temperature and humidity from the two environmental sensors. Use the information in the following table to create the tiles. To add each tile, start by selecting **...(More options) > Add Tile**. Select **Custom Streaming Data**, and then select **Next**:
+
+| Setting | Chart #1 | Chart #2 | Chart #3 | Chart #4 |
+| ------- | -------- | -------- | -------- | -------- |
+| Dataset | Zone 1 Thermostat | Zone 1 Thermostat | Zone 2 Thermostat | Zone 2 Thermostat |
+| Visualization type | Line chart | Line chart | Line chart | Line chart |
+| Axis | Timestamp | Timestamp | Timestamp | Timestamp |
+| Values | Temperature | Humidity | Temperature | Humidity |
+| Time window | 60 minutes | 60 minutes | 60 minutes | 60 minutes |
+| Title | Temperature (1 hour) | Humidity (1 hour) | Temperature (1 hour) | Humidity (1 hour) |
+| Subtitle | Zone 1 | Zone 1 | Zone 2 | Zone 2 |
+
+### Add cards to show environmental data
+
+Add four card tiles to show the most recent temperature and humidity values from the two environmental sensors. Use the information in the following table to create the tiles. To add each tile, start by selecting **...(More options) > Add Tile**. Select **Custom Streaming Data**, and then select **Next**:
+
+| Setting | Card #1 | Card #2 | Card #3 | Card #4 |
+| ------- | ------- | ------- | ------- | ------- |
+| Dataset | Zone 1 Thermostat | Zone 1 Thermostat | Zone 2 Thermostat | Zone 2 Thermostat |
+| Visualization type | Card | Card | Card | Card |
+| Fields | Temperature | Humidity | Temperature | Humidity |
+| Title | Temperature (F) | Humidity (%) | Temperature (F) | Humidity (%) |
+| Subtitle | Zone 1 | Zone 1 | Zone 2 | Zone 2 |
 
 ## Clean up resources
 
