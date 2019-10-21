@@ -38,24 +38,24 @@
     - name: Use compressed audio input formats
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Use continuous recognition
-      href: shttps://aka.ms/ignite2019/speech/placeholder
-    - name: Use speech-to-text with Docker containers
+      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Use speech recognition with Docker containers
       href: speech-container-howto.md
   - name: Reference
     items:
-    - name: Speech SDK
+    - name: Speech SDK APIs
       items:
-      - name: C++ API Reference
+      - name: C++
         href: https://aka.ms/csspeech/cppref
-      - name: C# API Reference
+      - name: C#/
         href: https://aka.ms/csspeech/csharpref
-      - name: Java API Reference
+      - name: Java/
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript API Reference
+      - name: JavaScript/
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C API Reference
+      - name: Objective-C/
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python API Reference
+      - name: Python/
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
@@ -84,23 +84,23 @@
       href: speech-synthesis-markup.md
     - name: Improve output with Custom Voices
       href: how-to-custom-voice.md
-    - name: Use text-to-speech with Docker containers
+    - name: Use speech synthesis with Docker containers
       href: speech-container-howto.md
   - name: Reference
     items:
     - name: Speech SDK
       items:
-      - name: C++ API Reference
+      - name: C++/
         href: https://aka.ms/csspeech/cppref
-      - name: C# API Reference
+      - name: C#/
         href: https://aka.ms/csspeech/csharpref
-      - name: Java API Reference
+      - name: Java/
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript API Reference
+      - name: JavaScript/
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C API Reference
+      - name: Objective-C/
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python API Reference
+      - name: Python/
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
@@ -125,17 +125,17 @@
     items:
     - name: Speech SDK
       items:
-      - name: C++ API Reference
+      - name: C++/
         href: https://aka.ms/csspeech/cppref
-      - name: C# API Reference
+      - name: C#/
         href: https://aka.ms/csspeech/csharpref
-      - name: Java API Reference
+      - name: Java/
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript API Reference
+      - name: JavaScript/
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C API Reference
+      - name: Objective-C/
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python API Reference
+      - name: Python/
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
@@ -166,17 +166,17 @@
     items:
     - name: Speech SDK
       items:
-      - name: C++ API Reference
+      - name: C++/
         href: https://aka.ms/csspeech/cppref
-      - name: C# API Reference
+      - name: C#/
         href: https://aka.ms/csspeech/csharpref
-      - name: Java API Reference
+      - name: Java/
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript API Reference
+      - name: JavaScript/
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C API Reference
+      - name: Objective-C/
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python API Reference
+      - name: Python/
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
@@ -195,17 +195,17 @@
     items:
     - name: Speech SDK
       items:
-      - name: C++ API Reference
+      - name: C++/
         href: https://aka.ms/csspeech/cppref
-      - name: C# API Reference
+      - name: C#/
         href: https://aka.ms/csspeech/csharpref
-      - name: Java API Reference
+      - name: Java/
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript API Reference
+      - name: JavaScript/
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C API Reference
+      - name: Objective-C/
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python API Reference
+      - name: Python/
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
@@ -283,12 +283,10 @@
         href: how-to-custom-voice-create-voice.md
       - name: Record voice samples
         href: record-custom-voice-samples.md
-      - name: Fine-tune text-to-speech output
-        href: how-to-voice-tuning.md
-    - name: Audio Content Generation
+    - name: Audio Content Creation
       items:
-      - name: Placeholder
-        href: https://example.com
+      - name: "How-to: Audio Content Creation"
+        href: how-to-audio-content-creation.md
     - name: Custom Neural Voices
       items:
       - name: Placeholder
@@ -370,17 +368,17 @@
       href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
   - name: Reference
     items:
-    - name: API Reference C++
+    - name: C++
       href: https://aka.ms/csspeech/cppref
-    - name: API Reference C#
+    - name: C#
       href: https://aka.ms/csspeech/csharpref
-    - name: API Reference Java
+    - name: Java
       href: https://aka.ms/csspeech/javaref
-    - name: API Reference JavaScript
+    - name: JavaScript
       href: https://aka.ms/csspeech/javascriptref
-    - name: API Reference Objective-C
+    - name: Objective-C
       href: https://aka.ms/csspeech/objectivecref
-    - name: API Reference Python
+    - name: Python
       href: https://aka.ms/csspeech/pythonref
     - name: Speech SDK Release notes
       href: releasenotes.md
