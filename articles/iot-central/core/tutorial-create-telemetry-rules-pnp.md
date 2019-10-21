@@ -34,7 +34,7 @@ Before you begin, you should complete the [Create an Azure IoT Central applicati
 
 ## Create a rule
 
-To create a telemetry rule, the device template must have at least one telemetry measurement defined. This tutorial uses an environmental sensor device that sends temperature and humidity telemetry. You created added this device template and created a simulated device in the [Add a simulated device to your IoT Central application](./quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart. The rule monitors the temperature reported by the device and sends an email when it goes above 80 degrees.
+To create a telemetry rule, the device template must have at least one telemetry measurement defined. This tutorial uses an environmental sensor device that sends temperature and humidity telemetry. You added this device template and created a simulated device in the [Add a simulated device to your IoT Central application](./quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart. The rule monitors the temperature reported by the device and sends an email when it goes above 80 degrees.
 
 1. In the left pane, select **Rules**.
 
@@ -52,7 +52,7 @@ To create a telemetry rule, the device template must have at least one telemetry
 
 ### Configure the rule conditions
 
-Conditions define the criteria that the rule monitors. In this tuorial you configure the rule to fire when the temperature exceeds  80&deg; F.
+Conditions define the criteria that the rule monitors. In this tutorial, you configure the rule to fire when the temperature exceeds  80&deg; F.
 
 1. Select **Temperature** in the **Telemetry** dropdown.
 
@@ -63,7 +63,7 @@ Conditions define the criteria that the rule monitors. In this tuorial you confi
 1. Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
 
     * Without aggregation, the rule triggers for each telemetry data point that meets the condition. For example, if the rule is configured to trigger when temperature is above 80 then the rule triggers almost instantly when the device reports temperature > 80.
-    * With aggregation, the rule triggers if the aggregate value of the telemetry data points in the time window meets the condition. For example, if the rule is configured to trigger when temperature is above 80, time aggregation is set to 10 minutes, and the aggregation type is average, then the rule triggers when the device reports an average temperature > 80, calculated over a 10 minute interval.
+    * With aggregation, the rule triggers if the aggregate value of the telemetry data points in the time window meets the condition. For example, if the rule is configured to trigger when temperature is above 80, time aggregation is set to 10 minutes, and the aggregation type is average, then the rule triggers when the device reports an average temperature > 80, calculated over a 10-minute interval.
 
      ![Aggregate condition](media/tutorial-create-telemetry-rules-pnp/aggregate-condition-filled-out1.png)
 
