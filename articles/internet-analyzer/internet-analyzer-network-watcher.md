@@ -15,7 +15,7 @@ ms.author: mebeatty
 
 Internet Analyzer and Network Watcher can both contribute to your performance management strategy with Azure. This guide is designed to help you choose the right solution for your scenario. 
 
-Internet Analyzer measures the performance between your end users' Web application and an endpoint through a series of duel-endpoint tests. Internet Analyzer aggregates and analyzes your data and helps you understand the performance of various cloud solutions before you migrate. Internet Analyzer can be used to understand both your **current and future workloads**. 
+Internet Analyzer measures the performance between your end users' Web application and an endpoint through a series of dual-endpoint tests. Internet Analyzer aggregates and analyzes your data and helps you understand the performance of various cloud solutions before you migrate. Internet Analyzer can be used to understand both your **current and future workloads**. 
 
 Network Watcher provides tools to monitor, diagnose, and gain insight into your Azure Virtual Network. Network Watcher can be used to understand your **current and historical workloads**. 
 
