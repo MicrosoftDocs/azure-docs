@@ -1,7 +1,7 @@
 ---
 # aka.ms/skyeye/meta for more information
 layout: HubPage
-ms.date: 09-25-2019
+ms.date: 10-19-2019
 ms.topic: hub-page
 title: Speech Service Documentation
 description: Get started with the Speech service.
@@ -18,7 +18,7 @@ description: Get started with the Speech service.
                         <a href="#speechtotext">Speech-to-text</a>
                         <ul id="speechtotext" class="cardsC">
                             <li>
-                                <a href="/cortana/skills/overview">
+                                <a href="https://aka.ms/speech/sr-file">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -29,7 +29,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Recognize speech from a file</h3>
-                                                    <p>Learn how to use the Speech Service to convert speech-to-text from a single file.</p>
+                                                    <p>Use the Speech SDK to recognize speech from a single file and transcribe the output.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -37,7 +37,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/get-started">
+                                <a href="https://aka.ms/speech/sr-microphone">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -48,7 +48,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Recognize speech from a microphone</h3>
-                                                    <p>Use the Speech Service to convert speech-to-text using an on-device microphone.</p>
+                                                    <p>Use the Speech SDK to recognize speech from a microphone and transcribe the output.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -56,7 +56,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/get-user-profile-context">
+                                <a href="https://aka.ms/speech/sr-blob">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -66,8 +66,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Recognize speech from blob storage</h3>
-                                                    <p>Learn how to use the Speech Service to batch transcribe many files from blob storage asynchronously.</p>
+                                                    <h3>Asynchronously recognize speech from blob storage</h3>
+                                                    <p>Use the Speech service to asynchronously recognize speech from files stored in Azure Blob Storage.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -75,7 +75,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/authentication">
+                                <a href="https://aka.ms/speech/sr-languages">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -94,26 +94,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Concepts, features, and how-to guides</h3>
-                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/bot-framework/cognitive-services-bot-intelligence-overview">
+                                <a href="https://aka.ms/speech/sr-pricing">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -131,13 +112,32 @@ description: Get started with the Speech service.
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://aka.ms/speech/sr-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Documentation</h3>
+                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
                         <a href="#texttospeech">Text-to-speech</a>
                         <ul id="texttospeech" class="cardsC">
                             <li>
-                                <a href="/cortana/skills/design-principles">
+                                <a href="https://aka.ms/speech/tts-file">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -156,7 +156,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/cortana-invocation-guidelines">
+                                <a href="https://aka.ms/speech/tts-speaker">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -175,7 +175,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/performance-guidelines">
+                                <a href="https://aka.ms/speech/tts-ssml">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -194,7 +194,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/performance-guidelines">
+                                <a href="https://aka.ms/speech/tts-languages">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -205,34 +205,15 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Language support</h3>
-                                                    <p>Learn what languages are supported for speech-to-text.</p>
+                                                    <p>Learn what languages are supported for speech synthesis.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>   
+                            </li>                                                                
                             <li>
-                                <a href="/cortana/skills/performance-guidelines">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Concepts, features, and how-to guides</h3>
-                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>                                    
-                            <li>
-                                <a href="/cortana/skills/performance-guidelines">
+                                <a href="https://aka.ms/speech/tts-pricing">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -249,6 +230,25 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/tts-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Documentation</h3>
+                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </li>                                               
                         </ul>
                     </li>
@@ -256,7 +256,7 @@ description: Get started with the Speech service.
                         <a href="#intentrecognition">Intent recognition</a>
                         <ul id="intentrecognition" class="cardsC">
                             <li>
-                                <a href="/cortana/skills/test-debug">
+                                <a href="https://aka.ms/speech/intent-luis-portal">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -266,8 +266,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Intent recognition with LUIS</h3>
-                                                    <p>Lorum ipsum.</p>
+                                                    <h3>Recognize speech, intents, and entities</h3>
+                                                    <p>Use the Speech SDK and LUIS to recognize speech, intents, and entities.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -275,7 +275,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/known-issues">
+                                <a href="https://aka.ms/speech/intent-luis-docs">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -292,6 +292,25 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
+                            </li>
+                            <li>
+                                <a href="https://www.luis.ai/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>LUIS portal</h3>
+                                                    <p>Build natural language into apps, bots, and IoT devices.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </li>                            
                         </ul>
                     </li>
@@ -299,7 +318,7 @@ description: Get started with the Speech service.
                         <a href="#speechtranslation">Speech translation</a>
                         <ul id="speechtranslation" class="cardsC">
                             <li>
-                                <a href="/cortana/skills/test-debug">
+                                <a href="https://aka.ms/speech/sttt-microphone">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -309,8 +328,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Translate speech-to-text</h3>
-                                                    <p>Learn how to translate speech-to-text.</p>
+                                                    <h3>Translate speech-to-text from microphone</h3>
+                                                    <p>Use the Speech SDK to translate speech-to-text from a microphone.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -318,7 +337,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/test-debug">
+                                <a href="https://aka.ms/speech/sttt-multiple-languages">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -328,8 +347,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Translate speech-to-text in multiple languages</h3>
-                                                    <p>Learn how to translate speech into multiple languages.</p>
+                                                    <h3>Translate speech to multiple target languages</h3>
+                                                    <p>Use the Speech SDK to translate speech to multiple target language outputs.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -337,7 +356,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/test-debug">
+                                <a href="https://aka.ms/speech/stst-microphone">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -348,7 +367,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Translate speech-to-speech</h3>
-                                                    <p>Learn how to translate speech-to-speech and render the audio output.</p>
+                                                    <p>Use the Speech SDK to translate speech to speech.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -356,7 +375,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/authentication">
+                                <a href="https://aka.ms/speech/sttt-languages">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -375,26 +394,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Concepts, features, and how-to guides</h3>
-                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/bot-framework/cognitive-services-bot-intelligence-overview">
+                                <a href="https://aka.ms/speech/sttt-pricing">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -411,6 +411,25 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/sttt-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Documentation</h3>
+                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, and products.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </li>              
                         </ul>
                     </li>
@@ -418,7 +437,26 @@ description: Get started with the Speech service.
                         <a href="#conversationtranscription">Conversation transcription</a>
                         <ul id="conversationtranscription" class="cardsC">
                             <li>
-                                <a href="/cortana/skills/test-debug">
+                                <a href="https://aka.ms/speech/cts-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Overview</h3>
+                                                    <p>Learn more about Conversation Transcription and how to integrate it into your products.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/cts-microphone">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -428,8 +466,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Single participant</h3>
-                                                    <p>Learn how you can use conversation transcription for single participant scenarios.</p>
+                                                    <h3>Transcribe a real-time conversation</h3>
+                                                    <p>Learn how to transcribe a conversation in real-time.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -437,7 +475,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/known-issues">
+                                <a href="https://aka.ms/speech/cts-async-op">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -447,8 +485,8 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Multiple participants</h3>
-                                                    <p>Learn how you can use conversation transcription for multi-participant scenarios.</p>
+                                                    <h3>Asynchronously transcribe conversations</h3>
+                                                    <p>Learn how to asynchronously transcribe conversations.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -456,7 +494,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/authentication">
+                                <a href="https://aka.ms/speech/cts-languages">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -475,26 +513,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/bot-framework/nodejs/bot-builder-nodejs-recognize-intent-luis">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Concepts, features, and how-to guides</h3>
-                                                    <p>Learn more about the Speech service and how to use it in your apps, tools, products.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/bot-framework/cognitive-services-bot-intelligence-overview">
+                                <a href="https://aka.ms/speech/cts-pricing">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -515,10 +534,10 @@ description: Get started with the Speech service.
                         </ul>
                     </li>
                     <li>
-                        <a href="#conversational-assistants">Conversational assistants</a>
-                        <ul id="conversational-assistants" class="cardsC">
+                        <a href="#voice-assistants">Voice assistants</a>
+                        <ul id="voice-assistants" class="cardsC">
                             <li>
-                                <a href="/cortana/skills/publish-skill">
+                                <a href="https://aka.ms/speech/va-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -537,7 +556,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/skill-review-guidelines">
+                                <a href="https://aka.ms/speech/va-no-code">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -556,7 +575,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>          
                             <li>
-                                <a href="/cortana/skills/skill-review-guidelines">
+                                <a href="https://aka.ms/speech/va-bot-framework">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -585,26 +604,7 @@ description: Get started with the Speech service.
                         <a href="#speech-to-text-customization">Speech-to-text</a>
                         <ul id="speech-to-text-customization" class="cardsC">
                             <li>
-                                <a href="/cortana/skills/speech-synthesis-markup-language">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Get started with Custom Speech</h3>
-                                                    <p>A set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your apps, tools, and products.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cortana/skills/user-profile-contextual-info">
+                                <a href="https://aka.ms/speech/custom-sr-portal">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -615,7 +615,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Custom Speech Portal</h3>
-                                                    <p>Sign in to the Custom Speech portal to create, evaluate, test, and deploy custom speech models.</p>
+                                                    <p>Create, evaluate, test, and deploy recognition models with the Custom Speech portal.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -623,7 +623,64 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/">
+                                <a href="https://aka.ms/speech/phrase-list">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_custom_speech.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Improve accuracy with Phrase Lists</h3>
+                                                    <p>Use Phrase Lists in the Speech SDK to improve recognition accuracy.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/tlm-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_custom_speech.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Improve accuracy with Tenant Models</h3>
+                                                    <p>Use a Office265 Tenant Model to improve recognition accuracy.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/custom-sr-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Improve accuracy with Custom Speech</h3>
+                                                    <p>A set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your apps, tools, and products.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/custom-sr-pricing">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -641,6 +698,25 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/custom-sr-languages">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Language support</h3>
+                                                    <p>Learn more about programming and spoken language support for Custom Speech.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </li>                            
                         </ul>
                     </li>
@@ -648,26 +724,7 @@ description: Get started with the Speech service.
                         <a href="#text-to-speech-customization">Text-to-speech</a>
                         <ul id="text-to-speech-customization" class="cardsC">
                             <li>
-                                <a href="/cortana/skills/speech-synthesis-markup-language">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Get started with Custom Voice</h3>
-                                                    <p>Build a recognizable, one-of-a-kind voice for your Text-to-Speech apps with your speaking data available.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/cortana/skills/user-profile-contextual-info">
+                                <a href="https://aka.ms/speech/custom-tts-portal">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -678,7 +735,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Custom Voice Portal</h3>
-                                                    <p>Sign in to the Custom Voice portal to create, evaluate, test, and deploy custom speech models.</p>
+                                                    <p>Create, evaluate, test, and deploy voice models with the Custom Voice portal.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -686,7 +743,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/supported-locales">
+                                <a href="https://aka.ms/speech/custom-tts-neural">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -706,7 +763,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/supported-locales">
+                                <a href="https://aka.ms/speech/tts-ssml">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -716,7 +773,7 @@ description: Get started with the Speech service.
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Speech Synthesis Markup Language</h3>
+                                                    <h3>Improve synthesis with SSML</h3>
                                                     <p>Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the text-to-speech service.
                                                     </p>
                                                 </div>
@@ -726,7 +783,45 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/supported-locales">
+                                <a href="https://aka.ms/speech/custom-tts-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Improve synthesis with Custom Voice</h3>
+                                                    <p>Build a recognizable, one-of-a-kind voice for your Text-to-Speech apps with your speaking data available.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/custom-tts-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Improve synthesis with Audio Content Creation</h3>
+                                                    <p>Use the Audio Content Creation tool to fine-tune your synthesized voice outputs.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/custom-tts-pricing">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -737,7 +832,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Pricing</h3>
-                                                    <p>Learn more about the costs of Custom Speech.
+                                                    <p>Learn more about the costs of Custom Voice.
                                                     </p>
                                                 </div>
                                             </div>
@@ -756,7 +851,7 @@ description: Get started with the Speech service.
                         <a href="#resources-all"></a>
                         <ul id="resources-all" class="cardsC">
                             <li>
-                                <a href="/cortana/skills/cortana-support">
+                                <a href="https://aka.ms/speech/sdk-languages">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -775,7 +870,7 @@ description: Get started with the Speech service.
                                 </a>
                             </li>
                             <li>
-                                <a href="/cortana/skills/faq">
+                                <a href="https://aka.ms/speech/languages">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
