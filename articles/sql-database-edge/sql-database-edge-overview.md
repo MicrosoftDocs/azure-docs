@@ -43,7 +43,7 @@ Azure SQL Database is currently in preview. For more information on the pricing 
 
 ## Streaming Capabilities  
 
-Azure SQL Database Edge provides built in streaming capabilities for real-time analytics and complex event-processing. This streaming capabilities are built using constructs as [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and provides similar capabilities as [Azure Stream Analytics on IoT Edge](../stream-analytics/stream-analytics-edge.md).
+Azure SQL Database Edge provides built in streaming capabilities for real-time analytics and complex event-processing. The streaming capability is built using the same constructs as [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) and provides similar capabilities as [Azure Stream Analytics on IoT Edge](../stream-analytics/stream-analytics-edge.md).
 
 The streaming engine for Azure SQL Database Edge is designed for low-latency, resiliency, efficient use of bandwidth and compliance.
 
