@@ -174,7 +174,7 @@ For more information on considerations when using Azure Cache for Redis with oth
 - [Azure China 21Vianet Cloud - Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
-For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud, Azure China 21Vianet Cloud, and Microsoft Azure Germany, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+For information on using Azure Cache for Redis with PowerShell in Azure Government Cloud, Azure China 21Vianet Cloud, and Microsoft Azure Germany, see [How to connect to other clouds - Azure Cache for Redis PowerShell](cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 

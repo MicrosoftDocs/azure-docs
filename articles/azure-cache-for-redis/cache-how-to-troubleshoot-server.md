@@ -79,7 +79,7 @@ To mitigate situations where network bandwidth usage is close to maximum capacit
 
 ## Additional information
 
-- [Troubleshoot Azure Cache for Redis client-side issues](cache-howto-troubleshoot-client.md)
+- [Troubleshoot Azure Cache for Redis client-side issues](cache-how-to-troubleshoot-client.md)
 - [What Azure Cache for Redis offering and size should I use?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 - [How can I benchmark and test the performance of my cache?](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [How to monitor Azure Cache for Redis](cache-how-to-monitor.md)
