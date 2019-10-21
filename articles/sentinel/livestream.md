@@ -49,7 +49,7 @@ You can create a Livestream session from an existing hunting query, or create yo
 
 2. To create a Livestream session from a hunting query:
     
-    1. Locate the hunting query to use.
+    1. From the **Queries** tab, locate the hunting query to use.
     2. Right-click the query and select **Add to Livestream**:
     
     > [!div class="mx-imgBorder"]
@@ -58,18 +58,27 @@ You can create a Livestream session from an existing hunting query, or create yo
 3. To create a Livestream session from scratch: 
     
     1. Select the **Livestream** tab
-    2. Select **Livestream**.
+    2. Select **Go to Livestream**.
     
-4. On the **Livestream** blade, create your query, and then select **Play** from the command bar.  
+4. On the **Livestream** blade:
+    
+    - If you started Livestream from a query, review the query and make any changes you want to make.
+    - If you started Livestream from scratch, create your query. 
+
+5. Select **Play** from the command bar.
     
     The status bar under the command bar indicates whether your Livestream is running or paused. In the following example, the session is running:
     
     > [!div class="mx-imgBorder"]
     > ![create Livestream session from Azure Sentinel hunting](./media/live-stream/live-stream-session.png)
 
-If you leave the Livestream session running, it continues to run until you are signed out from the Azure portal.
+6. Select **Save** from the command bar.
+    
+    Unless you select **Pause**, the session continues to run until you are signed out from the Azure portal.
 
-## View and edit your Livestream sessions
+if you want to leave the Livestream session running when you close the blade, it continues to run until you are signed out from the Azure portal.
+
+## View your Livestream sessions
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Livestream** tab.
 
@@ -78,11 +87,7 @@ If you leave the Livestream session running, it continues to run until you are s
     > [!div class="mx-imgBorder"]
     > ![create Livestream session from Azure Sentinel hunting query](./media/live-stream/live-stream-tab.png)
     
-    Your selected Livestream session opens.
-
-3. To make changes, first select **Pause** from the command. Then make your changes to the query, and select **Play**. 
-    
-    Select **Save** to save your changes.
+    Your selected Livestream session opens for you to play, pause, edit, and so on.
 
 ## Receive notifications when new events occur
 
@@ -100,7 +105,6 @@ You can promote a Livestream session to a new alert by selecting **Elevate to al
 > ![Elevate Livestream session to an alert](./media/live-stream/elevate-to-alert.png)
 
 This action opens the rule creation wizard, which is prepopulated with the query that is associated with the Livestream session.
-
 
 ## Next steps
 
