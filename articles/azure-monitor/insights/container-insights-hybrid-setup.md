@@ -71,8 +71,6 @@ This method includes two JSON templates. One template specifies the configuratio
 - **workspaceName** with the display name of your Log Analytics workspace
 - **workspaceRegion** with the region the workspace is created in, which is also referred to as **Location** in the workspace properties when viewing from the Azure portal.
 
-om). 
-
 1. Copy and paste the following JSON syntax into your file:
 
     ```
