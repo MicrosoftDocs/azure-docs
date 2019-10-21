@@ -118,7 +118,7 @@ It is your application and you can modify it anytime. Let’s explore the applic
 
 ## Explore sample water quality monitor device template
 
-## Explore simulated devices
+## Explore devices
 
 ## Customize pre-configured rules and add actions. 
 
