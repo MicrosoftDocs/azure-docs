@@ -283,12 +283,10 @@
         href: how-to-custom-voice-create-voice.md
       - name: Record voice samples
         href: record-custom-voice-samples.md
-      - name: Fine-tune text-to-speech output
-        href: how-to-voice-tuning.md
-    - name: Audio Content Generation
+    - name: Audio Content Creation
       items:
-      - name: Placeholder
-        href: https://example.com
+      - name: "How-to: Audio Content Creation"
+        href: how-to-audio-content-creation.md
     - name: Custom Neural Voices
       items:
       - name: Placeholder
