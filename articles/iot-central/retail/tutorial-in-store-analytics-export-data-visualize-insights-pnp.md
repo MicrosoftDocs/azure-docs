@@ -12,7 +12,7 @@ ms.date: 10/13/2019
 
 # Tutorial: Export data from Azure IoT Central and visualize insights in Power BI
 
-In the two previous tutorials, you created and customized an IoT Central application using  the **In-store analytics - checkout** application template. In this tutorial, you configure your IoT Central application to export telemetry collected from the devices. You then use Power BI to create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
+In the two previous tutorials, you created and customized an IoT Central application using the **In-store analytics - checkout** application template. In this tutorial, you configure your IoT Central application to export telemetry collected from the devices. You then use Power BI to create a custom dashboard for the store manager to visualize the insights derived from the telemetry.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -30,12 +30,12 @@ To complete this tutorial, you need:
 
 ## Create a resource group
 
-Before you create your event hub and logic app, you need to create a resource group to manage them. The resource group should be in the same location as your **Store Analytics - Condition Monitoring** IoT Central application. To create a resource group:
+Before you create your event hub and logic app, you need to create a resource group to manage them. The resource group should be in the same location as your **In-store analytics - checkout** IoT Central application. To create a resource group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the left navigation, select **Resource groups**. Then select **+ Add**.
 1. For **Subscription**, select the name of the Azure subscription you used to create your IoT Central application.
-1. For the **Resource group** name, enter _retail-store-analysis_**_.
+1. For the **Resource group** name, enter _retail-store-analysis_*.
 1. For the **Region**, select the same region you chose for the IoT Central application.
 1. Select **Review + Create**.
 1. On the **Review + Create** page, select **Create**.
@@ -44,7 +44,7 @@ You now have a resource group called **retail-store-analysis** in your subscript
 
 ## Create an event hub
 
-Before you can configure the retail monitoring application to export telemetry, you need to create the event hub that receives the exported data. The following steps show you how to create your event hub:
+Before you can configure the retail monitoring application to export telemetry, you need to create an event hub to receive the exported data. The following steps show you how to create your event hub:
 
 1. In the Azure portal, click **Create a resource** at the top left of the screen.
 1. In **Search the marketplace**, enter _Event Hubs_, and then press **Enter**.
@@ -66,11 +66,11 @@ Now you have an **Event Hubs Namespace**, you can create an **Event Hub** to use
 
 ## Configure data export
 
-Now you have an event hub, you can configure your **Store Analytics - Condition Monitoring** application to export telemetry from the connected devices. The following steps show you how to configure the export:
+Now you have an event hub, you can configure your **In-store analytics - checkout** application to export telemetry from the connected devices. The following steps show you how to configure the export:
 
-1. Sign in to your **Store Analytics - Condition Monitoring** IoT Central application.
+1. Sign in to your **In-store analytics - checkout** IoT Central application.
 1. Select **Data export** in the left pane.
-1. Select **+ New**, and then select **Azure Event Hubs**.
+1. Select **+ New > Azure Event Hubs**.
 1. Enter _Telemetry export_ as the **Display Name**.
 1. Select your **Event Hubs namespace**.
 1. Select the **store-telemetry** event hub.
@@ -79,17 +79,17 @@ Now you have an event hub, you can configure your **Store Analytics - Condition 
 
 The data export may take a few minutes to start sending telemetry to your event hub. You can see the status of the export on the **Data exports** page.
 
-## Create a Power BI dataset
+## Create the Power BI datasets
 
-Your Power BI dashboard will display data from your retail monitoring application. In this solution, you use Power BI streaming datasets as the data source for the Power BI dashboard. In this section, you define the schema of the streaming datasets so that the logic app can forward data from the event hub. The following steps show you how to create the Power BI streaming datasets:
+Your Power BI dashboard will display data from your retail monitoring application. In this solution, you use Power BI streaming datasets as the data source for the Power BI dashboard. In this section, you define the schema of the streaming datasets so that the logic app can forward data from the event hub. The following steps show you how to create two streaming datasets for the environmental sensors and one streaming dataset for the occupancy sensor:
 
 1. Sign in to your **Power BI** account.
 1. Select **Workspaces**, and then select **Create a workspace**.
-1. On the **Create a workspace** page, enter _Store Analytics - Condition Monitoring_ as the **Workspace name**.
-1. Scroll to the bottom of the **Welcome to the Store Analytics - Condition Monitoring workspace** page, and select **Skip**.
+1. On the **Create a workspace** page, enter _In-store analytics - checkout_ as the **Workspace name**.
+1. Scroll to the bottom of the **Welcome to the In-store analytics - checkout workspace** page, and select **Skip**.
 1. On the workspace page, select **+ Create > Streaming dataset**.
 1. On the **New streaming dataset** page, choose **API**, and then select **Next**.
-1. Enter _Sensor #1_ as the **Dataset name**.
+1. Enter _Zone 1 sensor_ as the **Dataset name**.
 1. Enter the three **Values from stream** in following table:
 
     | Value name  | Value type |
@@ -100,9 +100,27 @@ Your Power BI dashboard will display data from your retail monitoring applicatio
 
 1. Switch **Historic data analysis** on.
 1. Select **Create** and then **Done**.
-1. Create two more streaming datasets called **Sensor #2** and **Sensor #3** with the same schema as the **Sensor #1** streaming dataset.
+1. Create another streaming dataset called **Zone 2 sensor** with the same schema and settings as the **Zone 1 sensor** streaming dataset.
 
-You now have three streaming datasets. The logic app will route telemetry from the three sensors connected to your **Store Analytics - Condition Monitoring** IoT Central application to these three datasets.
+You now have two streaming datasets. The logic app will route telemetry from the two environmental sensors connected to your **In-store analytics - checkout** application to these two datasets.
+
+1. On the workspace page, select **+ Create > Streaming dataset**.
+1. On the **New streaming dataset** page, choose **API**, and then select **Next**.
+1. Enter _Occupancy sensor_ as the **Dataset name**.
+1. Enter the five **Values from stream** in following table:
+
+    | Value name     | Value type |
+    | -------------- | ---------- |
+    | Timestamp      | DateTime   |
+    | Queue Length 1 | Number     |
+    | Queue Length 2 | Number     |
+    | Dwell Time 1   | Number     |
+    | Dwell Time 2   | Number     |
+
+1. Switch **Historic data analysis** on.
+1. Select **Create** and then **Done**.
+
+You now have a third streaming dataset that stores values from the simulated occupancy sensor. This sensor reports the queue length at the two checkouts in the store, and how long customers are waiting in these queues.
 
 This solution uses one streaming dataset for each sensor because it's not possible to apply filters to streaming data in Power BI.
 
@@ -135,7 +153,7 @@ To add the logic to your logic app design, select **Code view**:
 
     ```json
     "actions": {
-        "Initialize_variable": {
+        "Initialize_Device_ID_variable": {
             "inputs": {
                 "variables": [
                     {
@@ -145,6 +163,23 @@ To add the logic to your logic app design, select **Code view**:
                 ]
             },
             "runAfter": {},
+            "type": "InitializeVariable"
+        },
+        "Initialize_Interface_ID_variable": {
+            "inputs": {
+                "variables": [
+                    {
+                        "name": "InterfaceID",
+                        "type": "String",
+                        "value": "Other"
+                    }
+                ]
+            },
+            "runAfter": {
+                "Initialize_Device_ID_variable": [
+                    "Succeeded"
+                ]
+            },
             "type": "InitializeVariable"
         },
         "Parse_Properties": {
@@ -164,6 +199,9 @@ To add the logic to your logic app design, select **Code view**:
                         "iothub-enqueuedtime": {
                             "type": "string"
                         },
+                        "iothub-interface-name": {
+                            "type": "string"
+                        },
                         "iothub-message-source": {
                             "type": "string"
                         },
@@ -181,7 +219,7 @@ To add the logic to your logic app design, select **Code view**:
                 }
             },
             "runAfter": {
-                "Initialize_variable": [
+                "Initialize_Interface_ID_variable": [
                     "Succeeded"
                 ]
             },
@@ -192,10 +230,22 @@ To add the logic to your logic app design, select **Code view**:
                 "content": "@triggerBody()?['ContentData']",
                 "schema": {
                     "properties": {
-                        "humid": {
+                        "DwellTime1": {
                             "type": "number"
                         },
-                        "temp": {
+                        "DwellTime2": {
+                            "type": "number"
+                        },
+                        "count1": {
+                            "type": "number"
+                        },
+                        "count2": {
+                            "type": "number"
+                        },
+                        "humidity": {
+                            "type": "number"
+                        },
+                        "temperature": {
                             "type": "number"
                         }
                     },
@@ -203,13 +253,13 @@ To add the logic to your logic app design, select **Code view**:
                 }
             },
             "runAfter": {
-                "Initialize_variable": [
+                "Initialize_Interface_ID_variable": [
                     "Succeeded"
                 ]
             },
             "type": "ParseJson"
         },
-        "Set_variable": {
+        "Set_Device_ID_variable": {
             "inputs": {
                 "name": "DeviceID",
                 "value": "@body('Parse_Properties')?['iothub-connection-device-id']"
@@ -221,22 +271,50 @@ To add the logic to your logic app design, select **Code view**:
             },
             "type": "SetVariable"
         },
+        "Set_Interface_ID_variable": {
+            "inputs": {
+                "name": "InterfaceID",
+                "value": "@body('Parse_Properties')?['iothub-interface-name']"
+            },
+            "runAfter": {
+                "Set_Device_ID_variable": [
+                    "Succeeded"
+                ]
+            },
+            "type": "SetVariable"
+        },
         "Switch_by_DeviceID": {
             "cases": {
-                "Sensor_#1": {
+                "Occupancy": {
                     "actions": {
+                        "Switch_by_InterfaceID": {
+                            "cases": {
+                                "Dwell_Time_interface": {
+                                    "actions": {},
+                                    "case": "RS40_Occupancy_Sensor_v2_1l0"
+                                },
+                                "People_Count_interface": {
+                                    "actions": {},
+                                    "case": "RS40_Occupancy_Sensor_iv"
+                                }
+                            },
+                            "default": {
+                                "actions": {}
+                            },
+                            "expression": "@variables('InterfaceID')",
+                            "runAfter": {},
+                            "type": "Switch"
+                        }
                     },
-                    "case": "sensor-001"
+                    "case": "Occupancy"
                 },
-                "Sensor_#2": {
-                    "actions": {
-                    },
-                    "case": "sensor-002"
+                "Zone 2 environment": {
+                    "actions": {},
+                    "case": "environmental-sensor-02"
                 },
-                "Sensor_#3": {
-                    "actions": {
-                     },
-                    "case": "sensor-003"
+                "Zone_1_environment": {
+                    "actions": {},
+                    "case": "environmental-sensor-01"
                 }
             },
             "default": {
@@ -247,7 +325,7 @@ To add the logic to your logic app design, select **Code view**:
                 "Parse_Telemetry": [
                     "Succeeded"
                 ],
-                "Set_variable": [
+                "Set_Interface_ID_variable": [
                     "Succeeded"
                 ]
             },
@@ -257,55 +335,70 @@ To add the logic to your logic app design, select **Code view**:
     ```
 
 1. Select **Save** and then select **Designer** to see the visual version of the logic you added.
-1. Select **Switch by DeviceID** to expand the action. Then select **Sensor #1**, and select **Add an action**.
+1. Select **Switch by DeviceID** to expand the action. Then select **Zone 1 environment**, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
 1. Select **Sign in** and follow the prompts to sign in to your Power BI account.
 1. After the sign-in process is complete, in the **Add rows to a dataset** action:
-    * Select **Store Analytics - Condition Monitoring** as the workspace.
-    * Select **Sensor #1** as the dataset.
+    * Select **In-store analytics - checkout** as the workspace.
+    * Select **Zone 1 sensor** as the dataset.
     * Select **RealTimeData** as the table.
     * Select **Add new parameter** and then select the **Timestamp**, **Humidity**, and **Temperature** fields.
-    * Select the **Timestamp** field, and then select **iothub-enqueuedtime** from the **Dynamic content** list.
-    * Select the **Humidity** field, and then select **See more** next to **Parse Telemetry**. Then select **humid**.
-    * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temp**.
-1. Select the **Sensor #2** action, and select **Add an action**.
+    * Select the **Timestamp** field, and then select **x-opt-enqueuedtime** from the **Dynamic content** list.
+    * Select the **Humidity** field, and then select **See more** next to **Parse Telemetry**. Then select **humidity**.
+    * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temperature**.
+    * Select **Save** to save your changes. The **Zone 1 environment** action looks like the following:
+    ![Zone 1 environment](./media/tutorial-in-store-analytics-visualize-insights-pnp/zone-1-action.png)
+1. Select the **Zone 2 environment** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
 1. In the **Add rows to a dataset 2** action:
-    * Select **Store Analytics - Condition Monitoring** as the workspace.
+    * Select **In-store analytics - checkout** as the workspace.
     * Select **Sensor #2** as the dataset.
     * Select **RealTimeData** as the table.
     * Select **Add new parameter** and then select the **Timestamp**, **Humidity**, and **Temperature** fields.
-    * Select the **Timestamp** field, and then select **iothub-enqueuedtime** from the **Dynamic content** list.
-    * Select the **Humidity** field, and then select **See more** next to **Parse Telemetry**. Then select **humid**.
-    * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temp**.
-1. Select the **Sensor #3** action, and select **Add an action**.
+    * Select the **Timestamp** field, and then select **x-opt-enqueuedtime** from the **Dynamic content** list.
+    * Select the **Humidity** field, and then select **See more** next to **Parse Telemetry**. Then select **humidity**.
+    * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temperature**.
+    Select **Save** to save your changes.
+1. Select the **Occupancy** action, and then select the **Switch by Interface ID** action.
+1. Select the **Dwell Time interface** action, and select **Add an action**.
 1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
 1. Select the **Add rows to a dataset (preview)** action.
-1. In the **Add rows to a dataset 3** action:
-    * Select **Store Analytics - Condition Monitoring** as the workspace.
-    * Select **Sensor #3** as the dataset.
+1. In the **Add rows to a dataset** action:
+    * Select **In-store analytics - checkout** as the workspace.
+    * Select **Occupancy Sensor** as the dataset.
     * Select **RealTimeData** as the table.
-    * Select **Add new parameter** and then select the **Timestamp**, **Humidity**, and **Temperature** fields.
-    * Select the **Timestamp** field, and then select **iothub-enqueuedtime** from the **Dynamic content** list.
-    * Select the **Humidity** field, and then select **See more** next to **Parse Telemetry**. Then select **humid**.
-    * Select the **Temperature** field, and then select **See more** next to **Parse Telemetry**. Then select **temp**.
-1. Select **Save** to save your logic app design.
+    * Select **Add new parameter** and then select the **Timestamp**, **Dwell Time 1**, and **Dwell Time 2** fields.
+    * Select the **Timestamp** field, and then select **x-opt-enqueuedtime** from the **Dynamic content** list.
+    * Select the **Dwell Time 1** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime1**.
+    * Select the **Dwell Time 2** field, and then select **See more** next to **Parse Telemetry**. Then select **DwellTime2**.
+    * Select **Save** to save your changes. The **Dwell Time interface** action looks like the following:
+    ![Occupancy action](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-1.png)
+1. Select the **People Count interface** action, and select **Add an action**.
+1. In **Search connectors and actions**, enter **Power BI**, and then press **Enter**.
+1. Select the **Add rows to a dataset (preview)** action.
+1. In the **Add rows to a dataset** action:
+    * Select **In-store analytics - checkout** as the workspace.
+    * Select **Occupancy Sensor** as the dataset.
+    * Select **RealTimeData** as the table.
+    * Select **Add new parameter** and then select the **Timestamp**, **Queue Length 1**, and **Queue Length 2** fields.
+    * Select the **Timestamp** field, and then select **x-opt-enqueuedtime** from the **Dynamic content** list.
+    * Select the **Queue Length 1** field, and then select **See more** next to **Parse Telemetry**. Then select **count1**.
+    * Select the **Queue Length 2** field, and then select **See more** next to **Parse Telemetry**. Then select **count2**.
+    * Select **Save** to save your changes. The **People Count interface** action looks like the following:
+    ![Occupancy action](./media/tutorial-in-store-analytics-visualize-insights-pnp/occupancy-action-2.png)
 
-To start the logic app, navigate to the **Overview** page and select **Run Trigger > When_events_are_available_in_Event_Hub**.
-
-<!-- TODO - check if you do actually need to start the logic app -->
+The logic app runs automatically. To see the status of each run, navigate to the **overview** page for the logic app in the Azure portal:
 
 ## Create a Power BI dashboard
 
 Now you have telemetry flowing from your IoT Central application through your event hub. Then your logic app parses the event hub messages and adds them to a Power BI streaming dataset. Now, you can create a Power BI dashboard to visualize the telemetry:
 
 1. Sign in to your **Power BI** account.
-1. Select **Workspaces > Store Analytics - Condition Monitoring**.
+1. Select **Workspaces > In-store analytics - checkout**.
 1. Select **+ Create > Dashboard**.
 1. Enter **Store analytics** as the dashboard name, and select **Create**.
-
 
 ### Add line charts
 
@@ -313,7 +406,7 @@ Add four line chart tiles to show the temperature and humidity from the two envi
 
 | Setting | Chart #1 | Chart #2 | Chart #3 | Chart #4 |
 | ------- | -------- | -------- | -------- | -------- |
-| Dataset | Zone 1 Thermostat | Zone 1 Thermostat | Zone 2 Thermostat | Zone 2 Thermostat |
+| Dataset | Zone 1 sensor | Zone 1 sensor | Zone 2 sensor | Zone 2 sensor |
 | Visualization type | Line chart | Line chart | Line chart | Line chart |
 | Axis | Timestamp | Timestamp | Timestamp | Timestamp |
 | Values | Temperature | Humidity | Temperature | Humidity |
@@ -327,7 +420,7 @@ Add four card tiles to show the most recent temperature and humidity values from
 
 | Setting | Card #1 | Card #2 | Card #3 | Card #4 |
 | ------- | ------- | ------- | ------- | ------- |
-| Dataset | Zone 1 Thermostat | Zone 1 Thermostat | Zone 2 Thermostat | Zone 2 Thermostat |
+| Dataset | Zone 1 sensor | Zone 1 sensor | Zone 2 sensor | Zone 2 sensor |
 | Visualization type | Card | Card | Card | Card |
 | Fields | Temperature | Humidity | Temperature | Humidity |
 | Title | Temperature (F) | Humidity (%) | Temperature (F) | Humidity (%) |
@@ -345,7 +438,7 @@ You can delete your Power BI datasets and dashboard by deleting the workspace fr
 
 ## Next Steps
 
-These three tutorials have shown you an end-to-end solution that uses the **Store Analytics - Condition Monitoring** IoT Central application template. You've connected devices to the application, used IoT Central to monitor the devices, and used Power BI to build a dashboard view insights. A recommended next step is to explore one of the other IoT Central application templates:
+These three tutorials have shown you an end-to-end solution that uses the **In-store analytics - checkout** IoT Central application template. You've connected devices to the application, used IoT Central to monitor the devices, and used Power BI to build a dashboard view insights. A recommended next step is to explore one of the other IoT Central application templates:
 
 > [!div class="nextstepaction"]
 > * [Build energy solutions with IoT Central](../energy/overview-iot-central-energy.md)
