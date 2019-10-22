@@ -139,7 +139,7 @@ After an index is created, you can submit queries to return documents from the i
 
 1. Select **Change Index** at the top to select the index you created.
 
-1. Enter a search string to query the index, such as `search=Microsoft&searchFields=organizations`.
+1. Enter a search string to query the index, such as `search=Microsoft&searchFields=Organizations`.
 
 Results are returned in JSON, which can be verbose and hard to read, especially in large documents originating from Azure blobs. If you can't scan results easily, use CTRL-F to search within documents. For this query, you could search within the JSON for specific terms. 
 
