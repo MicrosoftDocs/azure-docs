@@ -463,7 +463,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 
 # [Portal](#tab/azure-portal)
-There are no scripts available for the Azure portal.
+There are no scripts available for the Azure portal. 
  
 ---
 
