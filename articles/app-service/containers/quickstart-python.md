@@ -121,6 +121,8 @@ az login
 az login
 ```
 
+---
+
 ## Create a web app and deploy the code
 
 The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app on App Service and deploys your code.
