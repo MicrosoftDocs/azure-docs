@@ -44,7 +44,7 @@ To follow this how-to guide:
 - [Add a private certificate to your app](configure-ssl-cert.md)
 
 > [!NOTE]
-> The easiest way to add a private certificate is to [create a free App Service managed certificate](configure-ssl-cert.md#create-a-free-certificate-preview) (Preview).
+> The easiest way to add a private certificate is to [create a free App Service Managed Certificate](configure-ssl-cert.md#create-a-free-certificate-preview) (Preview).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -85,7 +85,7 @@ Use the following table to help you configure the SSL binding in the **TLS/SSL B
 |-|-|
 | Custom domain | The domain name to add the SSL binding for. |
 | Private Certificate Thumbprint | The certificate to bind. |
-| TLS/SSL Type | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Multiple SNI SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (for more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** - Only one IP SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap A record for IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl).<br/>IP SSL is supported only in Production or Isolated tiers. </li></ul> |
+| TLS/SSL Type | <ul><li>**[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)** - Multiple SNI SSL bindings may be added. This option allows multiple SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (for more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP SSL** - Only one IP SSL binding may be added. This option allows only one SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [Remap A record for IP SSL](#remap-a-record-for-ip-ssl).<br/>IP SSL is supported only in Production or Isolated tiers. </li></ul> |
 
 Once the operation is complete, the custom domain's SSL state is changed to **Secure**.
 

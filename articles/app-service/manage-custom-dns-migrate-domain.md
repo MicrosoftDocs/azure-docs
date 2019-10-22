@@ -132,4 +132,4 @@ DNS queries should start resolving to your App Service app immediately after DNS
 Learn how to bind a custom SSL certificate to App Service.
 
 > [!div class="nextstepaction"]
-> [Bind an existing custom SSL certificate to Azure App Service](app-service-web-tutorial-custom-ssl.md)
+> [Bind an SSL certificate to Azure App Service](configure-ssl-bindings.md)
