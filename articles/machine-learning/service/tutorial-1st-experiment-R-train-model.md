@@ -128,7 +128,7 @@ if (is.null(compute_target)) {
 
 Now fit a logistic regression model on your uploaded data using your remote compute target.
 
-> NOTE
+> [!NOTE]
 > You may need to wait a few minutes for your compute cluster to be provisioned before moving on to the next step.
 
 The script to fit the model is called `accidents.R`. It will be run as a command-line script with `Rscript`.   `Rscript` takes one argument, `-d` to specify the storage folder where the data file is located. The argument will be provided for you by Azure Machine Learning.
@@ -165,7 +165,7 @@ You can see metrics in your workspace in [Azure Machine Learning studio](https:/
 metrics <- get_run_metrics(run)
 metrics
 ```
-> NOTE
+> [!NOTE]
 > If you've run multiple experiments (say, using differing variables, algorithms, or hyperparamers), you can use the metrics from each run to choose the model you'll use in production.
 
 ## Retrieve the model
@@ -248,7 +248,7 @@ aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
 
 Now you deploy your service.
 
-> NOTE
+> [!NOTE]
 > Deployment can take several minutes.
 
 ```R
