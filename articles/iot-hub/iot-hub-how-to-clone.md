@@ -49,15 +49,13 @@ There are several things to consider when cloning an IoT hub.
 
 * You need to update any certificates you are using so you can use them with the new resources. Also, you probably have the hub defined in a DNS table somewhere -- this needs to be updated.
 
-* You can easily move a hub that uses message routing if you do not also move the resources used for the routing endpoints. For more information, see the [section on Routing](#routing).
-
 ## Methodology
 
-This is the general method we recommend for moving an IoT Hub from one region to another. For message routing, this assumes the resources are not being moved to the new region. For more information on that case, see the [section on Routing](#routing).
+This is the general method we recommend for moving an IoT Hub from one region to another. For message routing, this assumes the resources are not being moved to the new region. For more information, see the [section on Message Routing](#message-routing).
 
    1. Export the hub and its settings to a Resource Manager template. 
    
-   1. Make the necessary changes to the template, such as updating all occurrences of the name and the location for the cloned hub. For any resources in the template that are used for message routing endpoints, update the key in the template for that resource.
+   1. Make the necessary changes to the template, such as updating all occurrences of the name and the location for the cloned hub. For any resources in the template used for message routing endpoints, update the key in the template for that resource.
    
    1. Import the template into a new resource group in the new location. This creates the clone.
 
@@ -71,9 +69,38 @@ This is the general method we recommend for moving an IoT Hub from one region to
 
    1. Copy the devices from the original hub to the clone. This is covered in the section [Managing the devices registered to the IoT hub](#managing-the-devices-registered-to-the-iot-hub).
 
+## How to handle Message Routing
+
+If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration, but it does not include the resources themselves. You must choose whether to move the routing resources to the new location or to leave them in place and continue to use them "as is". 
+
+For example, say you have a hub in West US that is routing messages to a storage account (also in West US), and you want to move the hub to East US. You can move the hub and have it still route messages to the storage account in West US, or you can move the hub and also move the storage account. There may be a small performance hit from routing messages to endpoint resources in a different region.
+
+You can move a hub that uses message routing pretty easily if you do not also move the resources used for the routing endpoints. 
+
+If the hub uses message routing, you have two choices. 
+
+1. Move the resources used for the routing endpoints to the new location.
+
+    * You must create the new resources yourself either manually in the [Azure portal](https://portal.azure.com) or through the use of Resource Manager templates. 
+
+    * You must rename all of the resources when you create them in the new location, as they have globally unique names. 
+     
+    * You must update the resource names and the resource keys in the new hub's template, before creating the new hub. The resources should be present when the new hub is created.
+
+1. Don't move the resources used for the routing endpoints. Use them "in place".
+
+   * In the step where you edit the template, you will need to retrieve the keys for each routing resource and put them in the template before you create the new hub. 
+
+   * The hub still references the original routing resources and routes messages to them as configured.
+
+   * You will have a small performance hit because the hub and the routing endpoint resources are not in the same location.
+
+> [!NOTE]
+> If your hub uses [message enhancements](iot-hub-message-enrichments-overview.md), you will have to set them up manually on the new IoT hub, as they are not exported with the Resource Manager template.
+
 ## Steps for migrating the hub to another region
 
-This section provides instructions for migrating the hub.
+This section provides specific instructions for migrating the hub.
 
 ### Find the original hub and export it to a resource template.
 
@@ -92,8 +119,8 @@ This section provides instructions for migrating the hub.
 ### View the template 
 
 1. Go to the Downloads folder (or to whatever folder you exported the template) and find the zip file. Export the file called `template.json` from the zip file so you can edit it.
-
-The following example is for a generic hub with no routing configuration. It is an S1 tier hub (with 1 unit) called **ContosoTestHub29358** in region **westus**. Here is the exported template.
+ 
+    The following example is for a generic hub with no routing configuration. It is an S1 tier hub (with 1 unit) called **ContosoTestHub29358** in region **westus**. Here is the exported template.
 
     ``` json
     {
@@ -264,7 +291,7 @@ You have to make some changes before you can use the template to create the new 
         }
     ```
 
-#### Update the keys for the routing resources that are not being migrated
+#### Update the keys for the routing resources that are not being moved
 
 When you export the Resource Manager template for a hub that has routing configured, you will see that the keys for those resources are not provided in the exported template -- their placement is denoted by asterisks. You must fill them in by going to those resources in the portal and retrieving the keys **before** you import the new hub's template and create the hub. 
 
@@ -293,15 +320,9 @@ When you export the Resource Manager template for a hub that has routing configu
 
 #### Create the new routing resources in the new location
 
-If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration, but it does not include the resources themselves. You choose whether to move the resources used by the routing endpoints to the new location or to leave them in place and continue to use them "as is". 
-
-For example, say you have a hub in West US that is routing messages to a storage account (also in West US), and you want to move the hub to East US. You can move the hub and have it still route messages to the storage account in West US, or you can move the hub and also move the storage account. There may be a small performance hit from routing messages to endpoint resources in a different region.
-
-> [!NOTE]
-> If your hub uses [message enhancements](iot-hub-message-enrichments-overview.md), you will have to set them up manually on the new IoT hub, as they are not exported with the Resource Manager template.
+This section only applies if you are moving the resources used bu the hub for the routing endpoints.
 
 If you want to move the routing resources, you must manually set up the resources in the new location. You can create the routing resources using the Azure portal](https://portal.azure.com), or by exporting the Resource Manager template for each of the resources used by the message routing, editing them, and importing them. After the resources are set up, you can import the hub's template (which includes the routing configuration).
-
 
 1. Create each resource used by the routing. You can do this manually using the [Azure portal](https://portal.azure.com), or create the resources using Resource Manager templates. If you want to use templates, these are the steps to follow:
 
