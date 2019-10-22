@@ -42,16 +42,16 @@ To view the latency report for a specific Peering Service connection, do the fol
 
  Some of the possible events that are captured in the **Prefix Events** are as follows: 
 
-| **Prefix Events** | **Reasoning**|
-|-----------|---------|
-| PrefixBackupRoutePath |Back Route is covering route if prefix mask is > 24 |
-| PrefixBackupRouteAnnouncementEvent| Back Route is covering route if prefix mask is > 2 |
-| PrefixBackupRouteWithdrawalEvent | Back Route is covering route if prefix mask is > 24   |
-| PrefixOriginAsChangeEvent | Exact prefix origin as change   |
-| PrefixBackupRouteOriginAsChangeEvent |Exact backup prefix origin as change  |
-| PrefixCoveringRouteOriginAsChangeEvent |If covering route is /16, anything from /16 to /24 containing prefix |
-| PrefixLeakEvent | Exact prefix leaked   |
-| PrefixBackupRouteLeakEvent  | Exact backup route prefix  |
+| **Prefix Events** | **Event Type**|**Reasoning**|
+|-----------|---------|---------|
+| PrefixAnnouncementEvent |Information|Prefix announcement was received|
+| PrefixWithdrawalEvent|Warning| Prefix withdrawal was received |
+| PrefixBackupRouteAnnouncementEvent |Information|Prefix backup route announcement was received |
+| PrefixBackupRouteWithdrawalEvent|Warning|Prefix backup route withdrawal was received |
+| PrefixActivePath |Information| Current prefix active route   |
+| PrefixBackupPath | Information|Current prefix backup route   |
+| PrefixOriginAsChangeEvent|Critical| Exact prefix received with different origin Autonomous System Number (for active route)| 
+| PrefixBackupRouteOriginAsChangeEvent  | Error|Prefix received with different origin Autonomous System Number (for backup route)  |
 
 ## Next steps
 

@@ -71,7 +71,7 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 
 4.	Next, provide a **Name** to which the *Peering Service* instance should be registered.
  
-5.	Now, click on the **Next: Configuration** button at the bottom.**Configuration** page appears.
+5.	Now, click on the **Next:Configuration** button at the bottom.**Configuration** page appears.
 
 ## Configure the Peering Service connection
 
@@ -79,17 +79,46 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 
 2.	Now, choose the service provider from whom the Peering Service must be obtained by choosing provider name from the **Peering service provider**  drop-down list.
  
-3.	**Prefixes –** 
-Clicking on the **Create new prefix** at the bottom of the **Prefixes** section, text boxes appear. Now, provide **NAME** of the prefix resource and the **PREFIXES** associated with the Service Provider.
+3.	Clicking on the **Create new prefix** at the bottom of the **Prefixes** section, text boxes appear. Now, provide **NAME** of the prefix resource and the **PREFIXES** associated with the Service Provider.
 
 > [!div class="mx-imgBorder"]
 > ![Register Peering Service](./media/peering-service-portal/peering-serviceconfiguration.png)
 
-5.	Now, click on the **Review + create** button at the bottom right of the page. A status message will appear that shows, connection has been registered.
+5.	Now, click on the **Review + create** button at the bottom right of the page. You're taken to the Review + create page and Azure validates your configuration.
 
 > [!div class="mx-imgBorder"]
-> ![Register Peering Service](./media/peering-service-portal/peering-service-validate.png)
- 
+> ![Register Peering Service](./media/peering-service-portal/peering-service-validate.png).
+
+6. When you see the Validation passed message, select **Create**.
+
+7. After registering the Peering Service, additional validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of the **MyPeeringService resource**. If the validation fails, one of the following error messages is displayed:
+
+   - Invalid Peering Service prefix, prefix should be valid format, only Ipv4 prefix is supported.
+
+   - Prefix was not received from Peering Service provider.
+
+   - Prefix announcement does not have valid BGP community, please contact Peering Service provider.
+
+   - Backup route not found, please contact Peering Service provider.
+
+   - Prefix received with longer AS path, please contact Peering Service provider.
+
+   - Prefix received with private AS in path, please contact Peering Service provider.
+
+**To add or remove a Prefix**
+
+Click on **Add prefixes** in the **Prefixes** page to add prefixes.
+
+Click on the ellipses next to the listed Prefix and click on the **Delete** option.
+
+**Delete a Peering Service**
+
+In the **All Resources** page, click the checkbox on the Peering Service and click on the **Delete** option on the top of the page.
+
+> [!Note]
+> You cannot modify an existing Prefix. 
+>
+
 ## Next steps
 
 To learn more about Peering Service concepts, see [Peering Service Connection](connection.md).
