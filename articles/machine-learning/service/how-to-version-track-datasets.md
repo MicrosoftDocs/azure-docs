@@ -35,7 +35,7 @@ For this how-to, you need:
 
 - The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the [azureml-datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) package.
     
-- An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one with the following code or [create a new workspace](setup-create-workspace.md#sdk).
+- An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one with the following code or [create a new workspace](how-to-manage-workspace.md).
 
     ```Python
     import azureml.core
@@ -174,5 +174,5 @@ After registration, you will be able to see the list of models registered with t
 
 ## Next steps
 
-* [Train with datasets](how-to-train-datasets.md).
+* [Train with datasets](how-to-train-with-datasets.md).
 * [More sample notebook of datasets](https://aka.ms/dataset-tutorial).
