@@ -426,6 +426,13 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo umount /srv/nfs/NW2
    </code></pre>
 
+1. **[A]** Install socat
+   
+   Socat is used for listening to load-balancer requests.
+   
+   <pre><code>sudo zypper install socat
+   </code></pre>
+
 1. **[A]** Setup drbd split-brain detection
 
    When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
