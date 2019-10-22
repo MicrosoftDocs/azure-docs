@@ -48,7 +48,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In the search box, type **SQL Server 2019**, and select **Enter** to start the search.
 
-1. Limit the search results by selecting **Operating system** > **Redhat**. Then, under **Publisher**, choose **Microsoft**.
+1. Limit the search results by selecting **Operating system** > **Redhat**.
 
     ![Search filter for SQL Server 2019 VM images](./media/provision-sql-server-linux-virtual-machine/searchfilter.png)
 
@@ -86,7 +86,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    * **SSH public key**: Enter your RSA public key.
    * **Public inbound ports**: Choose **Allow selected ports** and pick the **SSH (22)** port in the **Select public inbound ports** list. In this quickstart, this step is necessary to connect and complete the SQL Server configuration. If you want to remotely connect to SQL Server, you will need to manually allow traffic to the default port (1433) used by Microsoft SQL Server for connections over the Internet after the virtual machine is created.
 
-   ![Inbound ports](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
+     ![Inbound ports](./media/provision-sql-server-linux-virtual-machine/port-settings.png)
 
 1. Make any changes you want to the settings in the following additional tabs or keep the default settings.
     * **Disks**
