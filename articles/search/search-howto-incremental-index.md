@@ -34,7 +34,7 @@ Here, we demonstrate the flow to adding incremental indexing to an existing inde
 
 ### Step 1: Get the indexer
 
-Using an API client construct a GET request to get the current configuration of the indexer to which you want to add incremental indexing.
+Using an API client, construct a GET request to get the current configuration of the indexer to which you want to add incremental indexing.
  
     GET https://[service name].search.windows.net/indexers/[your indexer name]?api-version=2019-05-06-preview
     Content-Type: application/json
@@ -100,3 +100,8 @@ When making updates to the skillset that would result in documents being flagged
 ### Force change detection
 
 Instanced when you want the indexing pipeline to recognize a change to an external entity, like deploying a new version of a custom skill, you'll need to update the skillset and "touch" the specific skill by editing the skill definition, specifically the URL to force change detection and invalidate the cache for that skill.
+
+## Next steps
+
+Learn more about incremental indexing behavior in [What is incremental indexing in Azure Search?](cognitive-search-incremental-indexing-concept.md). 
+
