@@ -14,23 +14,23 @@ ms.author: amishu
 
 # Offline multi-participant conversation transcription (Preview)
 
-In this article, offline conversation transcription is demonstrated using the **RemoteConversationTranscriptionClient** API. If you have configured the Conversation Transcription Service to perform offline conversation transcription and have a `conversationId`, you can obtain the transcription associated with that `conversationId` using the **RemoteConversationTranscriptionClient** API.
+In this article, offline conversation transcription is demonstrated using the **RemoteConversationTranscriptionClient** API. If you have configured the Conversation Transcription Service to do offline conversation transcription and have a `conversationId`, you can obtain the transcription associated with that `conversationId` using the **RemoteConversationTranscriptionClient** API.
 
 ## Offline transcription vs. real-time plus offline transcription
 
-With offline transcription, you stream the conversation audio, but don't expect that a transcription is returned in real-time. Instead, after the audio is sent, use the `conversationId` of `ConversationTranscriber` to query for the status of the offline transcription. When the offline transcription is ready, you'll get a `RemoteConversationTranscriptionResult`.
+With offline transcription, you stream the conversation audio, but don't expect that a transcription is returned in real time. Instead, after the audio is sent, use the `conversationId` of `ConversationTranscriber` to query for the status of the offline transcription. When the offline transcription is ready, you'll get a `RemoteConversationTranscriptionResult`.
 
-With real-time plus offline, you get the transcription in real-time but can also get the transcription by querying the service with the `conversationId` (similar to offline scenario).
+With real-time plus offline, you get the transcription in real time but can also get the transcription by querying the service with the `conversationId` (similar to offline scenario).
 
 ## Upload audio and get transcription results
 
-Two steps are required to accomplish offline transcription. The first sample to upload the audio is written with Java, but the APIs are supported on all the platforms and languages specified in the **Limitations** section of [this topic](how-to-use-conversation-transcription-service.md#limitations). The second sample shows offline transcription with a Java-only API.
+Two steps are required to accomplish offline transcription. The first sample uploads the audio and is in Java. The **Limitations** section of this topic specifies the supported platforms and languages APIs shown in this sample. The second sample does offline transcription and works as a Java-only API.
 
 ### Code sample to upload the audio with the Speech SDK
 
-Before offline transcription can be performed, we send the audio to Conversation Transcription Service using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe multi-participant conversations in real time with the Speech SDK](how-to-use-conversation-transcription-service.md).
+Before offline transcription can be performed, send the audio to Conversation Transcription Service using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe multi-participant conversations in real time with the Speech SDK](how-to-use-conversation-transcription-service.md).
 
-In the example code below, the service is set for offline mode. Note that you need to substitute real information for "YourSubscriptionKey" and "Region".
+In the example code below, the service is set for offline mode. Substitute real information for "YourSubscriptionKey" and "Region".
 
 ```java
 // Create the speech config object
@@ -52,7 +52,7 @@ String conversationId = transcriber.getConversationId();
 
 ```
 
-If you want real-time _plus_ offline, you will need to comment and uncomment the following lines:
+If you want real-time _plus_ offline, comment and uncomment the appropriate lines of code as follows:
 
 ```java
 // Set the property for offline transcription
@@ -64,7 +64,7 @@ speechConfig.setServiceProperty("transcriptionMode", "RealTimeOffline", ServiceP
 
 ### Get offline transcription results
 
-You need **remoteconversation-client-sdk version 1.0.0** to use the code in this section. Note that **remoteconversation-client-sdk version 1.0.0** is supported only for Java (1.8 or above) on Windows, Linux and Android (API level 26 or above).
+You need **remoteconversation-client-sdk version 1.0.0** to use the code in this section. This client SDK is supported only for Java (1.8 or above) on Windows, Linux, and Android (API level 26 or above).
 
 #### Obtaining the client SDK
 
@@ -94,11 +94,11 @@ You can obtain **remoteconversation-client-sdk** by editing your pom.xml file as
   </dependencies>
   ```
 
-- Save the changes.
+- Save the changes
 
-#### Perfoming the transcription and getting the results
+#### Transcribing and getting the results
 
-After you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. Note that **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has successfully finished, you can get the results of **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the object as shown.
+After you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has finished, this sample gets the results of **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the object.
 
 ```java
 // Create the speech config object
