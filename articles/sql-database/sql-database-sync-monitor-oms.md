@@ -131,7 +131,7 @@ To create an alert that uses Azure Monitor logs, do the following things. As a p
 
 2.  Create a query to select the errors and warnings by sync group within the interval you selected. For example:
 
-    `Type=DataSyncLog\_CL LogLevel\_s!=Success| measure count() by SyncGroupName\_s interval 60minute`
+    `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
 
 3.  After running the query, select the bell that says **Alert**.
 
