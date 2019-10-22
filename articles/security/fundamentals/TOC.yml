@@ -4,10 +4,6 @@
   href: overview.md
   expanded: false
   items:
-- name: Architecture and design
-  href: overview.md
-  expanded: false
-  items:
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
   - name: Advanced threat detection
