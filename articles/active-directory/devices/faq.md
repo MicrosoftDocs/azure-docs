@@ -130,11 +130,11 @@ See below on how these actions can be rectified.
 
 ### Q: Why are there devices marked as "Pending" under the REGISTERED column in the Azure portal?
 
-**A**:  Pending indicates the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from on-premises AD and is ready for device registration. These device have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
+**A**:  Pending indicates that the device is not registered. This state indicates that a device has been synchronized using Azure AD connect from an on-premises AD and is ready for device registration. These devices have the JOIN TYPE set to "Hybrid Azure AD joined". Learn more on [how to plan your hybrid Azure Active Directory join implementation](hybrid-azuread-join-plan.md).
 
 >[!NOTE]
 >A device can also change from having a registered state to "Pending"
->* If a device is deleted and from Azure AD first and re-synchronized from on-premises AD.
+>* If a device is deleted from Azure AD first and re-synchronized from an on-premises AD.
 >* If a device is removed from a sync scope on Azure AD Connect and added back.
 >
 >In both cases, you must re-register the device manually on each of these devices. To review whether the device was previously registered, you can [troubleshoot devices using the dsregcmd command](troubleshoot-device-dsregcmd.md).
