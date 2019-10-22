@@ -321,6 +321,8 @@
       items:
       - name: Convert to CSV
         href: ../algorithm-module-reference/convert-to-csv.md
+      - name: Convert to Dataset
+        href: ../algorithm-module-reference/convert-to-dataset.md
     - name: Data input & output
       items:
       - name: Import Data
@@ -341,12 +343,18 @@
       items:
       - name: Select Columns in Dataset
         href: ../algorithm-module-reference/select-columns-in-dataset.md
+      - name: Select Columns Transform
+        href: ../algorithm-module-reference/select-columns-transform.md
       - name: Edit Metadata
         href: ../algorithm-module-reference/edit-metadata.md
       - name: Clean Missing Data
         href: ../algorithm-module-reference/clean-missing-data.md
       - name: Feature Hashing
         href: ../algorithm-module-reference/feature-hashing.md
+      - name: Permutation Feature Importance
+        href: ../algorithm-module-reference/permutation-feature-importance.md
+      - name: Filter Based Feature Selection
+        href: ../algorithm-module-reference/filter-based-feature-selection.md
       - name: Extract N-Gram Features from Text
         href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
       - name: Add Columns
@@ -363,6 +371,8 @@
         href: ../algorithm-module-reference/split-data.md
       - name: Normalize Data
         href: ../algorithm-module-reference/normalize-data.md
+      - name: SMOTE
+        href: ../algorithm-module-reference/smote.md
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
       - name: Clip Values
@@ -373,14 +383,22 @@
       items:
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
+      - name: Score SVD Recommender
+        href: ../algorithm-module-reference/score-svd-recommender.md
       - name: Assign Data To Clusters
         href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
+      - name: Tune Model Hyperparameters
+        href: ../algorithm-module-reference/tune-model-hyperparameters.md
       - name: Train Clustering Model
         href: ../algorithm-module-reference/train-clustering-model.md
+      - name: Cross Validate Model
+        href: ../algorithm-module-reference/cross-validate-model.md
       - name: Evaluate Model
         href: ../algorithm-module-reference/evaluate-model.md
+      - name: Evaluate Recommender
+        href: ../algorithm-module-reference/evaluate-recommender.md
       - name: Apply Transformation
         href: ../algorithm-module-reference/apply-transformation.md
       - name: Linear Regression
