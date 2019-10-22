@@ -70,8 +70,7 @@ portal session to the desired Azure AD tenant.
 1. Find the **Application (client) ID** value of the application. Copy this value, you will need it later.
 1. Find the **Directory (tenant) ID** value of the application. Copy this value, you will need it later.
 1. Select the **Authentication** menu, and then add the following information:
-   - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and
-`https://localhost:8080/msal4jsamples/graph/me`.
+   - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/me`.
    - Select **Save**.
 1. On the left hand menu, choose **Certificates & secrets** and click on **New client secret** in the **Client Secrets**
 section:
@@ -106,14 +105,16 @@ attributes.
 
  1. Extract the zip file to a local folder.
  1. If you use an integrated development environment, open the sample in your favorite IDE (optional).
- 1. Open the **application.properties** file, which can be found in *src/main/resources/*.
- 1. Replace application properties.
-    1. Find `aad.clientId` and update the value of `Enter_the_Application_Id_here` with the **Application (client) ID** value
-    of the application you registered.
-    1. Find `aad.authority` and update the value of `Enter_the_Tenant_Name_Here` with the **Directory (tenant) ID** value of
-    the application you registered.
-    1. Find `aad.secretKey` and update the value of `Enter_the_Client_Secret_Here` with the **Client Secret** you created in
-    **Certificates & Secrets** for the application you registered.
+
+ 1. Open the application.properties file, which can be found in src/main/resources/ folder and replace the value of the fields *aad.clientId*, *aad.authority* and *aad.secretKey* with the respective values of **Application Id**, **Tenant Id** and **Client Secret** as the following:
+
+    ```
+    aad.clientId=Enter_the_Application_Id_here
+    aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/
+    aad.secretKey=Enter_the_Client_Secret_Here
+    aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
+    aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
+    ```
 
 > [!div renderon="docs"]
 > Where:
@@ -127,11 +128,11 @@ you registered.
 To run the project, you can either:
 
 - Run it directly from your IDE by using the embedded spring boot server
-- or package it to a WAR file using [maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html) and deploy it to a J2EE container solution such as [Apache Tomcat](https://tomcat.apache.org/maven-plugin-trunk/tomcat6-maven-plugin/examples/deployment.html).
+- or package it to a WAR file using [maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html) and deploy it to a J2EE container solution such as [Apache Tomcat](http://tomcat.apache.org/).
 
 ##### Running from IDE
 
-1.If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is <http://localhost:8080>
+If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is <http://localhost:8080>
 
 1. The front page contains a **sign-in** button. Click on the **sign-in** button to redirect to Azure Active Directory. The
 user will be prompted for their credentials.  
@@ -141,6 +142,9 @@ information for the signed in account. It will also contain buttons for:
     - *Sign Out*: Will sign out the current user from the application, and redirect them the home page.
     - *Show User Info*: Will acquire a token for the Microsoft Graph, then call the Microsoft Graph with the token attached to
     the request to get the basic information of the signed-in user.
+
+>[!IMPORTANT]
+This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files. For security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see these [instructions](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## More information
 
@@ -186,7 +190,6 @@ To know more about the auth flow for this scenario, see the Oauth 2.0 authorizat
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 
 > [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx
-id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspxid=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
