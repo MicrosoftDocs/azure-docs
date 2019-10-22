@@ -11,7 +11,7 @@ ms.reviewer: vanto
 ms.date: 10/22/2019
 ---
 
-# Tutorial: Migrating SQL Server on-premises Windows users and groups to Azure SQL Database managed instance using T-SQL DDL syntax
+# Tutorial: Migrate SQL Server on-premises Windows users and groups to Azure SQL Database managed instance using T-SQL DDL syntax
 
 > [!NOTE]
 > The syntax used to migrate users and groups to managed instance in this article is in **public preview**.
@@ -308,7 +308,7 @@ Test authenticating to managed instance using the user previously mapped to the 
 1. Log into the federated VM using your MI subscription as  `aadsqlmi\testUser1`
 1. Using SQL Server Management Studio (SSMS), sign into your managed instance using **Active Directory Integrated** authentication, connecting
 to the database `migration`.
-    1. You can also sign in using the testUser1@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log into your managed instance.
+    1. You can also sign in using the testUser1@aadsqlmi.net credentials with the SSMS option **Active Directory – Universal with MFA support**. However, in this case, you can't use the Single Sign On mechanism and you must type a password. You won't need to use a federated VM to log in to your managed instance.
 1. As part of the role member **SELECT**, you can select from the `test` table
 
     ```sql
@@ -330,9 +330,9 @@ Test authenticating to a managed instance using a member of a Windows group `mig
                              
 > [!NOTE] 
 > Due to a known design issue for Azure SQL DB, a create a table statement executed as a member of a group will fail with the following error: </br> </br>
-`Msg 2760, Level 16, State 1, Line 4 
+> `Msg 2760, Level 16, State 1, Line 4 
 The specified schema name "testGroupUser@aadsqlmi.net" either does not exist or you do not have permission to use it.` </br> </br>
-The current workaround is to create a table with an existing schema in the case above <dbo.new>
+> The current workaround is to create a table with an existing schema in the case above <dbo.new>
 
 ## Next steps
 
