@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database vCore-based resource limits - elastic pools| Microsoft Docs
-description: This page describes some common vCore-based resource limits for elastic pools in Azure SQL Database.
+title: Azure SQL Database vCore resource limits - elastic pools| Microsoft Docs
+description: This page describes some common vCore resource limits for elastic pools in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 10/18/2019
+ms.date: 10/20/2019
 ---
-# Resource limits for elastic pools using the vCore-based purchasing model limits
+# Resource limits for elastic pools using the vCore purchasing model
 
-This article provides the detailed resource limits for Azure SQL Database elastic pools and pooled databases using the vCore-based purchasing model.
+This article provides the detailed resource limits for Azure SQL Database elastic pools and pooled databases using the vCore purchasing model.
 
-For DTU-based purchasing model limits, see [SQL Database DTU-based resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
+For DTU purchasing model limits, see [SQL Database DTU resource limits - elastic pools](sql-database-dtu-resource-limits-elastic-pools.md).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
@@ -28,12 +28,12 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 > [!NOTE]
 > The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same compute size. For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
 
-## General Purpose service tier: Storage sizes and compute sizes
+## General purpose - provisioned compute - Gen4
 
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
-### General Purpose service tier: Generation 4 compute platform (part 1)
+### General purpose service tier: Generation 4 compute platform (part 1)
 
 |Compute size|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -61,7 +61,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
-### General Purpose service tier: Generation 4 compute platform (part 2)
+
+### General purpose service tier: Generation 4 compute platform (part 2)
 
 |Compute size|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -89,7 +90,10 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
-### General Purpose service tier: Generation 5 compute platform (part 1)
+
+## General purpose - provisioned compute - Gen5
+
+### General purpose service tier: Generation 5 compute platform (part 1)
 
 |Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -117,7 +121,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
-### General Purpose service tier: Generation 5 compute platform (part 2)
+### General purpose service tier: Generation 5 compute platform (part 2)
 
 |Compute size|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -142,6 +146,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+## General purpose - provisioned compute - Fsv2-series
 
 ### Fsv2-series compute generation (preview)
 
@@ -158,10 +163,10 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB max data size (GB)|333|
 |Storage type|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|
-|??Target IOPS (64 KB)|36000|
-|??Log rate limits (MBps)|37.5|
-|??Max concurrent workers per pool (requests) *|1680|
-|??Max concurrent logins per pool (requests) *|1680|
+|Target IOPS (64 KB)|36000|
+|Log rate limits (MBps)|37.5|
+|Max concurrent workers per pool (requests) *|1680|
+|Max concurrent logins per pool (requests) *|1680|
 |Min/max elastic pool vCore choices per database|0-72|
 |Number of replicas|1|
 |Multi-AZ|N/A|
@@ -173,12 +178,13 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
-## Business Critical service tier: Storage sizes and compute sizes
+
+## Business critical - provisioned compute - Gen4
 
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
-### Business Critical service tier: Generation 4 compute platform (part 1)
+### Business critical service tier: Generation 4 compute platform (part 1)
 
 |Compute size|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -206,7 +212,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
-### Business Critical service tier: Generation 4 compute platform (part 2)
+### Business critical service tier: Generation 4 compute platform (part 2)
 
 |Compute size|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
@@ -234,7 +240,9 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
-#### Business Critical service tier: Generation 5 compute platform (part 1)
+## Business critical - provisioned compute - Gen5
+
+### Business critical service tier: Generation 5 compute platform (part 1)
 
 |Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -262,7 +270,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 \* For the max concurrent workers (requests) for any individual database, see [Single database resource limits](sql-database-vcore-resource-limits-single-databases.md). For example, if the elastic pool is using Gen5 and its max vCore per database is 2, then the max concurrent workers is 200.  If max vCore per database is 0.5, then the max concurrent workers is 50 since on Gen5 there are a max of 100 concurrent workers per vcore.  For other max vCore settings per database that are less 1 vCore or less, the number of max concurrent workers is similarly rescaled.
 
-#### Business Critical service tier: Generation 5 compute platform (part 2)
+### Business critical service tier: Generation 5 compute platform (part 2)
 
 |Compute size|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
@@ -288,6 +296,8 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+## Business critical - provisioned compute - M-series
+
 ### M-series compute generation (preview)
 
 |Compute size|GP_M_128|
@@ -303,11 +313,11 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |TempDB max data size (GB)|4096|
 |Storage type|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|
-|??Target IOPS (64 KB)|40000|
-|??Log rate limits (MBps)|120|
-|??Max concurrent workers per pool (requests) *|1680|
-|??Max concurrent logins per pool (requests) *|1680|
-|??Max allowed sessions|30000|
+|Target IOPS (64 KB)|40000|
+|Log rate limits (MBps)|120|
+|Max concurrent workers per pool (requests) *|1680|
+|Max concurrent logins per pool (requests) *|1680|
+|Max allowed sessions|30000|
 |Min/max elastic pool vCore choices per database|0-128|
 |Number of replicas|4|
 |Multi-AZ|Yes|
@@ -333,9 +343,9 @@ The following table describes the properties for pooled databases.
 
 ## Next steps
 
-- For vCore resource limits for a single database, see [resource limits for single databases using the vCore-based purchasing model](sql-database-vcore-resource-limits-single-databases.md)
-- For DTU resource limits for a single database, see [resource limits for single databases using the DTU-based purchasing model](sql-database-dtu-resource-limits-single-databases.md)
-- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU-based purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
+- For vCore resource limits for a single database, see [resource limits for single databases using the vCore purchasing model](sql-database-vcore-resource-limits-single-databases.md)
+- For DTU resource limits for a single database, see [resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md)
+- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
 - For resource limits for managed instances, see [managed instance resource limits](sql-database-managed-instance-resource-limits.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 - For information about resource limits on a database server, see [overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.

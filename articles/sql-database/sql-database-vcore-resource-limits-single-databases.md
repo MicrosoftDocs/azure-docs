@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database vCore-based resource limits - single database | Microsoft Docs
-description: This page describes some common vCore-based resource limits for a single database in Azure SQL Database.
+title: Azure SQL Database vCore resource limits - single database | Microsoft Docs
+description: This page describes some common vCore resource limits for a single database in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 10/18/2019
+ms.date: 10/20/2019
 ---
-# Resource limits for single databases using the vCore-based purchasing model
+# Resource limits for single databases using the vCore purchasing model
 
-This article provides the detailed resource limits for Azure SQL Database single databases using the vCore-based purchasing model.
+This article provides the detailed resource limits for Azure SQL Database single databases using the vCore purchasing model.
 
-For DTU-based purchasing model limits for single databases on a SQL Database server, see [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md).
+For DTU purchasing model limits for single databases on a SQL Database server, see [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md).
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
@@ -26,7 +26,7 @@ You can set the service tier, compute size, and storage amount for a single data
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](sql-database-single-database-scale.md).
 
-## General Purpose service tier for provisioned compute
+## General purpose - provisioned compute - Gen4
 
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
@@ -77,6 +77,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+## General purpose - provisioned compute - Gen5
+
 ### Gen5 compute generation (part 1)
 
 |Compute size|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
@@ -123,6 +125,8 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+## General purpose - provisioned compute - Fsv2-series
+
 ### Fsv2-series compute generation (preview)
 
 |Compute size|GP_Fsv2_72|
@@ -148,9 +152,9 @@ You can set the service tier, compute size, and storage amount for a single data
 
 
 
-## General Purpose service tier for serverless compute
+## General purpose - serverless compute - Gen5
 
-The [serverless compute tier](sql-database-serverless.md) is in preview.
+The [serverless compute tier](sql-database-serverless.md) is currently available on Gen5 hardware only.
 
 ### Gen5 compute generation (part 1)
 
@@ -200,7 +204,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Read Scale-out|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
-## Business Critical service tier for provisioned compute
+## Business critical - provisioned compute - Gen4
 
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
@@ -253,6 +257,8 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+## Business critical - provisioned compute - Gen5
+
 ### Gen5 compute compute (part 1)
 
 |Compute size|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
@@ -302,6 +308,8 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
 
+## Business critical - provisioned compute - M-series
+
 ### M-series compute generation (preview)
 
 |Compute size|GP_M_128|
@@ -327,7 +335,7 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 
 
 
-## Hyperscale service tier for provisioned compute
+## Hyperscale - provisioned compute - Gen5
 
 ### Gen5 compute generation
 
@@ -363,9 +371,9 @@ The [serverless compute tier](sql-database-serverless.md) is in preview.
 
 ## Next steps
 
-- For DTU resource limits for a single database, see [resource limits for single databases using the DTU-based purchasing model](sql-database-dtu-resource-limits-single-databases.md)
-- For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore-based purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
-- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU-based purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
+- For DTU resource limits for a single database, see [resource limits for single databases using the DTU purchasing model](sql-database-dtu-resource-limits-single-databases.md)
+- For vCore resource limits for elastic pools, see [resource limits for elastic pools using the vCore purchasing model](sql-database-vcore-resource-limits-elastic-pools.md)
+- For DTU resource limits for elastic pools, see [resource limits for elastic pools using the DTU purchasing model](sql-database-dtu-resource-limits-elastic-pools.md)
 - For resource limits for managed instances, see [managed instance resource limits](sql-database-managed-instance-resource-limits.md).
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 - For information about resource limits on a database server, see [overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md) for information about limits at the server and subscription levels.
