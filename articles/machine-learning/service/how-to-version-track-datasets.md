@@ -1,7 +1,7 @@
 ---
 title: Dataset Versioning
 titleSuffix: Azure Machine Learning service
-description: Learn the best practise to version your datasets and how versioning works with machine learning pipelines
+description: Learn the best practice to version your datasets and how versioning works with machine learning pipelines
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,15 +17,14 @@ ms.custom:
 
 # Version & track datasets in experiments
 
-In this how-to, you learn how to version and track Azure Machine Learning datasets for use across machine learning experiments.
+In this how-to, you learn how to version and track Azure Machine Learning datasets for use across machine learning experiments, as well as the following tasks:
 
-This how-to shows examples of the following tasks:
 * [Register and retrieve a dataset version](#register).
-* [Best practice to version your dataset for reproducibility](#best-practice).
-* [Version a pipeline output dataset](#pipeline).
-* [Track dataset usage in machine learning expriments](#track).
+* [Best practice to version datasets for reproducibility](#best-practice).
+* [Version pipeline output datasets](#pipeline).
+* [Track dataset usage in machine learning experiments](#track).
 
-Dataset versioning is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider for versioning:
+Dataset versioning is a way to bookmark the state of your data, so you can apply a specific version of the dataset for future reproduction or experimentation. Typical scenarios to consider for versioning:
 
 * When new data is available for retraining.
 * When you are applying different data preparation or feature engineering approaches.
@@ -54,7 +53,7 @@ After you create a dataset, you need to register the dataset with your workspace
 
 ### Register a dataset version
 
-The following code registers a new version of the dataset, `titanic_ds`, by setting the `create_new_version` parameter to `True`. If there is no existing `titanic_ds` registered with the workspace, it creates a new dataset with the name `titanic_ds` and set its version to 1.
+The following code registers a new version of the dataset, `titanic_ds`, by setting the `create_new_version` parameter to `True`. If there is no existing `titanic_ds` registered with the workspace, it creates a new dataset with the name `titanic_ds` and sets its version to 1.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace = workspace,
@@ -81,7 +80,7 @@ titanic_ds = Dataset.get_by_name(workspace = workspace,
 
 ## Versioning best practice
 
-When creating a dataset version, you are **not** creating an extra copy of data with the workspace. Datasets are references to the data in your storage service, so you only have one single source of truth managed by your storage service. So, if the data referenced by your dataset is overwritten or deleted, calling a specific version of the dataset can not revert the change. 
+When creating a dataset version, you are **not** creating an extra copy of data with the workspace. Datasets are references to the data in your storage service, so you only have one single source of truth managed by your storage service. So, if the data referenced by your dataset is overwritten or deleted, calling a specific version of the dataset cannot revert the change. 
 
 When loading data from a dataset, it will always load the current data content referenced by the dataset. If you want to ensure the reproducibility of each dataset version, we recommend you not modify data content referenced by the dataset version. When new data comes in, save new data files into a separate data folder, and create a new dataset version to include data from that new data folder.
 
