@@ -8,13 +8,13 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
 ---
 
 # Time Series Model
 
-This document describes Time Series Models, their capabilities, and how to start building and updating your own.
+This document describes Time Series Model, its capabilities, and how to start building and updating your own.
 
 > [!TIP]
 >  * Navigate to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
@@ -26,28 +26,28 @@ Traditionally, the data that's collected from IoT devices lack contextual inform
 
 ## Scenario: Contoso's new smart oven
 
-**Consider the fictitious scenario of a new Contoso smart oven.** Suppose that each Contoso smart oven has five temperature sensors, one for each top burner and one for the oven itself. Until recently, each Contoso temperature sensor sent, stored, and visualized its data individually. For its kitchen appliance monitoring, Contoso relied on basic charts, one for each sensor.
+**Consider the fictitious scenario of a new Contoso smart oven.** In this scenario, suppose that each Contoso smart oven has five temperature sensors, one for each of four top burners and one for the oven itself. Until recently, each Contoso temperature sensor sent, stored, and visualized its data individually. For its kitchen appliance monitoring, Contoso relied on basic charts, one for each individual sensor.
 
 While Contoso was satisfied with their initial data aggregation and visualization solution, several limitations became apparent:
 
-* When customers wanted to know how hot the overall oven would get when most of the top burners were on, Contoso had more difficulty analyzing and presenting a unified answer about the conditions of the overall oven.
-* When Contoso engineers wanted to verify that the top burners being run simultaneously wouldn't result in inefficient power draw, there was difficulty cross-referencing which temperature and voltage sensors were associated with each other.
-* When Contoso quality assurance team wanted to audit and compare the history between two sensor versions, there was difficulty determining what data belonged to which sensor version.
+* Customers wanted to know how hot the overall oven would get when most of the top burners were on, Contoso had more difficulty analyzing and presenting a unified answer about the conditions of the overall oven.
+* Contoso engineers wanted to verify that the top burners being run simultaneously wouldn't result in inefficient power draw, and there was difficulty cross-referencing which temperature and voltage sensors were associated with each other and how to locate them in the store.
+* Contoso quality assurance team wanted to audit and compare the history between two sensor versions, and there was difficulty determining what data belonged to which sensor version.
 
 Without the ability to structure, organize, and define the overarching smart oven Time Series Model, each temperature sensor maintained dislocated, isolated, and less informative data points. Turning these data points into actionable insights was more difficult since each data set lived independently of the others.
 
-Eventually, these limitations revealed the importance of smart data aggregation and visualization tools to accompany Contoso's new oven. Even overlaying sensor data into one chart failed to provide the necessary data:
+These limitations revealed the importance of smart data aggregation and visualization tools to accompany Contoso's new oven:
 
-* Data visualization doesn't necessarily associate or combine data into a convenient unified object. For example, showing voltage sensors along with temperature sensors.
-* Managing multi-dimensional data-visualization for several entities along with comparison, zooming, and time range functionalities can be difficult to accomplish.
+* Data visualization proves useful when you're able to associate and combine data into a convenient view. For example, showing voltage sensors along with temperature sensors.
+* Managing multi-dimensional data for several entities along with comparison, zooming, and time range functionalities can be difficult to accomplish.
 
-**Time Series Models provide a convenient solution** for many of the scenarios encountered in the fictitious example above:
+**Time Series Model provide a convenient solution** for many of the scenarios encountered in the fictitious example above:
 
 [![Time Series Model charting](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
 
-* Time Series Models play a vital role in queries and navigation because they contextualize data by allowing comparisons to be drawn across time ranges and between sensor and device kinds.
+* Time Series Model play a vital role in queries and navigation because they contextualize data by allowing comparisons to be drawn across time ranges and between sensor and device kinds.
 * Data is further contextualized because data persisted in a Time Series Model preserves time-series query computations and use the formulas that are stored in them.
-* Time Series Models organize and aggregate data for improved visualization and management capabilities.
+* Time Series Model organize and aggregate data for improved visualization and management capabilities.
 
 ### Key capabilities
 
