@@ -15,7 +15,7 @@ This article shows you how to assess on-premises servers by importing server met
 
 Assessing using import is useful in the following scenarios:
  * You are looking for a quick initial assessment before you can deploy the appliance 
- * You are not able to deploy the Azure Migrate appliance or share credentials to on-premise servers.
+ * You are not able to deploy the Azure Migrate appliance or share credentials to on-premises servers.
  * Security constraints disallow deploying an appliance due to the data collected and sent by the appliance to Azure. With import, you can control what data you share. For example, providing IP address is optional.
 
 [Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
@@ -57,7 +57,7 @@ Set up a new Azure Migrate project as follows.
 
 4. In **Getting started**, click **Add tools**.
 5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
-6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, UK and the United States are supported.
+6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, UK, and the United States are supported.
 
     - The project geography is used only to store the metadata gathered from on-premises VMs.
     - You can select any target region when you run a migration.
@@ -79,7 +79,7 @@ Set up a new Azure Migrate project as follows.
 
 Azure Migrate: Server Assessment requires server information to be provided in a .CSV template.
 
-- The .CSV file enables to provide server metadata and performance data to Azure Migrate Server Assessment.
+- The .CSV file helps to provide server metadata and performance data to Azure Migrate Server Assessment.
 - To prepare the .CSV file:
     - Download the template for .CSV file.
     - Populate the .CSV file with the required data. Note that not all values are mandatory.
@@ -96,7 +96,7 @@ Azure Migrate: Server Assessment requires server information to be provided in a
 
 ### Populate server information
 
-Following are details on each field in the .CSV template. To gather this data, consider exporting it from tools you use to manage on-premise servers such as CMDBs, VMware vSphere. Download this [example file](https://go.microsoft.com/fwlink/?linkid=2108405) to review the sample data for each field.
+Following are details on each field in the .CSV template. To gather this data, consider exporting it from tools you use to manage on-premises servers such as CMDBs, VMware vSphere. Download this [example file](https://go.microsoft.com/fwlink/?linkid=2108405) to review the sample data for each field.
 
 **Field name** | **Mandatory / Optional** | **Details**
 --- | --- | ---
@@ -144,7 +144,6 @@ Server decommission date | Optional | Decommission date of physical server or th
 
 Please ensure the OS names you provide match the name in the following list. The assessment recognizes an OS name that contains one of the following names. For example, providing an OS name of "Windows Server 2016 Datacenter" would work. On the other hand, "Windos Server 2016 Datacenter" would not work. 
 
-    ```
     Apple Mac OS X 10
     Asianux 3
     Asianux 4
@@ -209,30 +208,29 @@ Please ensure the OS names you provide match the name in the following list. The
     Windows Vista
     Windows Web Server 2008 R2
     Windows XP Professional
-    ```
+    
+
 
 ### Adding multiple disks
 
 Individual disk details are provided using the following fields. You can add upto 8 disks by adding more such columns. For example, you can specify size and throughput for a second disk by adding the columns: "Disk 2 size", "Disk 2 read ops", "Disk 2 write ops", "Disk 2 read throughput", "Disk 2 write througput"
 
-    ```
     Disk 1 size
     Disk 1 read ops
     Disk 1 write ops
     Disk 1 read throughput
     Disk 1 write throughput
-    ```
+
 
 ### Adding multiple applications
 
 Individual application details are provided using the following fields. You can add upto 5 applications by adding more such columns. For example, you can specify name and type for a second second by adding the columns: "Application 2 name", "Application 2 type"
 
-    ```
     Application 1 name
     Application 1 type
     Application 1 version
     Application 1 license expiry
-    ```
+
 
 ## Upload the server information
 
