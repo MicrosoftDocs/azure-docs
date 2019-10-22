@@ -6,7 +6,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 10/21/2019
 ms.author: hrasheed
 ---
 
@@ -23,38 +23,44 @@ Both Hive and Pig can pass data to external applications for processing. This pr
 
 * A familiarity with writing and building C# code that targets .NET Framework 4.5.
 
-    * Use whatever IDE you want. We recommend [Visual Studio](https://www.visualstudio.com/vs) 2015, 2017, or [Visual Studio Code](https://code.visualstudio.com/). The steps in this document use Visual Studio 2017.
+    * Use whatever IDE you want. We recommend [Visual Studio](https://www.visualstudio.com/vs) or [Visual Studio Code](https://code.visualstudio.com/). The steps in this document use Visual Studio 2019.
 
-* A way to upload .exe files to the cluster and run Pig and Hive jobs. We recommend the Data Lake Tools for Visual Studio, Azure PowerShell, and Azure Classic CLI. The steps in this document use the Data Lake Tools for Visual Studio to upload the files and run the example Hive query.
+* A way to upload .exe files to the cluster and run Pig and Hive jobs. We recommend the [Data Lake Tools for Visual Studio](../../data-lake-analytics/data-lake-analytics-data-lake-tools-install.md), [Azure PowerShell](/powershell/azure), and [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). The steps in this document use the Data Lake Tools for Visual Studio to upload the files and run the example Hive query.
 
-    For information on other ways to run Hive queries and Pig jobs, see the following documents:
+  For information on other ways to run Hive queries, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md).
 
-    * [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
-
-    * [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
-
-* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create an HDInsight cluster](../hdinsight-hadoop-provision-linux-clusters.md).
+* A Hadoop on HDInsight cluster. For more information on creating a cluster, see [Create HDInsight clusters](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## .NET on HDInsight
 
-* __Linux-based HDInsight__ clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6.
+* *Linux-based HDInsight* clusters using [Mono (https://mono-project.com)](https://mono-project.com) to run .NET applications. Mono version 4.2.1 is included with HDInsight version 3.6.
 
     For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
-* __Windows-based HDInsight__ clusters use the Microsoft .NET CLR to run .NET applications.
+* *Windows-based HDInsight* clusters use the Microsoft .NET CLR to run .NET applications.
 
 For more information on the version of the .NET framework and Mono included with HDInsight versions, see [HDInsight component versions](../hdinsight-component-versioning.md).
 
 ## Create the C\# projects
 
+The following sections describe how to create a C# project in Visual Studio for an Apache Hive UDF and an Apache Pig UDF.
+
 ### Apache Hive UDF
 
-1. Open Visual Studio and create a solution. For the project type, select **Console App (.NET Framework)**, and name the new project **HiveCSharp**.
+To create a C# project for an Apache Hive UDF:
+
+1. Open Visual Studio.
+
+2. In the **Start** window, select **Create a new project**.
+
+3. In the **Create a new project** window, scroll to and select the **Console App (.NET Framework)** template (the C# version), and then select **Next**.
+
+4. In the **Configure your new project** window, enter a **Project name** of *HiveCSharp*, navigate to or create a **Location** to save the new project in, and select **Create**.
 
     > [!IMPORTANT]
     > Select __.NET Framework 4.5__ if you are using a Linux-based HDInsight cluster. For more information on Mono compatibility with .NET Framework versions, see [Mono compatibility](https://www.mono-project.com/docs/about-mono/compatibility/).
 
-2. Replace the contents of **Program.cs** with the following code:
+5. In the Visual Studio IDE, replace the contents of **Program.cs** with the following code:
 
     ```csharp
     using System;
@@ -105,13 +111,21 @@ For more information on the version of the .NET framework and Mono included with
     }
     ```
 
-3. Build the project.
+6. From the menu bar, choose **Build** > **Build Solution** to build the project.
 
 ### Apache Pig UDF
 
-1. Open Visual Studio and create a solution. For the project type, select **Console Application**, and name the new project **PigUDF**.
+To create a C# project for an Apache Hive UDF:
 
-2. Replace the contents of the **Program.cs** file with the following code:
+1. Open Visual Studio.
+
+2. In the **Start** window, select **Create a new project**.
+
+3. In the **Create a new project** window, scroll to and select the **Console App (.NET Framework)** template (the C# version), and then select **Next**.
+
+4. In the **Configure your new project** window, enter a **Project name** of *PigUDF*, navigate to or create a **Location** to save the new project in, and select **Create**.
+
+5. In the Visual Studio IDE, replace the contents of **Program.cs** with the following code:
 
     ```csharp
     using System;
@@ -144,7 +158,7 @@ For more information on the version of the .NET framework and Mono included with
 
     This code parses the lines sent from Pig and reformats lines that begin with `java.lang.Exception`.
 
-3. Save **Program.cs**, and then build the project.
+6. From the menu bar, choose **Build** > **Build Solution** to build the project.
 
 ## Upload to storage
 
@@ -251,5 +265,4 @@ In this document, you have learned how to use a .NET Framework application from 
 For other ways to use Pig and Hive, and to learn about using MapReduce, see the following documents:
 
 * [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
