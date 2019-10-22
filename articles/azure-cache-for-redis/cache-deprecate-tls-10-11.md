@@ -22,7 +22,9 @@ ms.author: yegu
 
 There is an industry-wide push towards using TLS 1.2 or higher exclusively. TLS Versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE and have other Common Vulnerabilities and Exposures (CVE) weaknesses. They also do not support the modern encryption methods and cipher suites recommended by PCI compliance standards. This [TLS security blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explains some of these vulnerabilities in more details.
 
-While none of these pose immediate problems, you should consider moving away from using TLS 1.0 and 1.1 as quickly as possible. Azure Cache for Redis will stop supporting TLS versions 1.0 and 1.1 starting on (date), after which your application will be required to use at least TLS 1.2 in order to communicate with your cache. This article provides general guidance on how to detect and remove these dependencies from your application.
+While none of these pose immediate problems, you should consider moving away from using TLS 1.0 and 1.1 as early as possible. Azure Cache for Redis will stop supporting these TLS versions starting on (date). Your application will be required to use at least TLS 1.2 in order to communicate with your cache after this date.
+
+This article provides general guidance on how to detect and remove these dependencies from your application.
 
 ## Check if your application is already compliant
 
@@ -73,13 +75,13 @@ Predis on PHP 7 won't work since the latter only supports TLS 1.0. On PHP 7.2.1 
 
 ``` PHP
 $redis=newPredis\Client([
-'scheme'=>'tls',
-'host'=>'host',
-'port'=>6380,
-'password'=>'password',
-'ssl'=>[
-'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
-],
+    'scheme'=>'tls',
+    'host'=>'host',
+    'port'=>6380,
+    'password'=>'password',
+    'ssl'=>[
+        'crypto_type'=>STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT,
+    ],
 ]);
 ```
 
