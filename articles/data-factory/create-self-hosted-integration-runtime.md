@@ -63,8 +63,10 @@ You can follow below steps to create a self-hosted IR using Azure Data Factory U
         
     1. Download the self-hosted integration runtime on a local Windows machine. Run the installation.
         
-    1. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved in the previous section, and select **Register**
-   ![Register the integration runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
+    1. On the **Register Integration Runtime (Self-hosted)** page, paste the key you saved in the previous section, and select **Register**.
+    
+	   ![Register the integration runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
+
     1. On the **New Integration Runtime (Self-hosted) Node** page, select **Finish**. 
 
 6. When the self-hosted integration runtime is registered successfully, you see the following message:
@@ -176,7 +178,6 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 	c. Select **Register**.
 
 
-
 ## High availability and scalability
 A self-hosted integration runtime can be associated with multiple on-premises machines or Virtual Machines in Azure. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with a gateway installed) for a logical gateway are:
 * Higher availability of the self-hosted integration runtime so that it's no longer the single point of failure in your big data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to four nodes.
@@ -218,7 +219,7 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 
 ## Sharing the self-hosted integration runtime with multiple data factories
 
-To share an existing self-hosted integration runtime with different data factories, see the following instruction for details: [Sharing the self-hosted integration runtime with multiple data factories](shared-self-hosted-integration-runtime.md).
+To share an existing self-hosted integration runtime with different data factories, see [this instruction](../../includes/shared-self-hosted-integration-runtime.md) for details.
 
 ## Notification area icons and notifications
 
