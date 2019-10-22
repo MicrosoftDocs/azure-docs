@@ -47,11 +47,11 @@ To create a new Azure IoT Central connected waste management application:
 
 * If you have an Azure subscription, sign in with the credentials you use to access it, otherwise sign in using a Microsoft account:
 
-    ![Enter your organization account](media/tutorial-waterqualitymonitoring/sign-in.png)
+    ![Enter your organization account](./media/tutorial-connectedwastemanagement/sign-in.png)
 
 2. Click on **Build** from the left navigation menu and select the **Government** tab. The government page displays several government application templates.
 
-    ![Build Government App templates](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview.png)
+    ![Build Government App templates](./media/tutorial-connectedwastemanagement/iotcentral-government-tab-overview.png)
 
 1. Select the **Connected Waste Management** application template. 
 This template includes sample connected waste bin device template, simulated device, operator dashboard, and pre-configured monitoring rules.    
@@ -65,15 +65,11 @@ This template includes sample connected waste bin device template, simulated dev
 
 5. Click **Create** button at the bottom of the page. 
 
-    ![Azure IoT Central Create Application page](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring.png)
+    ![Azure IoT Central Create Connected Waste Application page](./media/tutorial-connectedwastemanagement/new-application-connectedwastemanagement.png)
 
 6. You now have created a connected waste management app using the Azure IoT Central **Connected waste management template**. IoT Central deploys the application and you will land on the **Dashboard**, which will look like the picture below.
 
-<!-->
-   ![Connected Waste Management application dashboard](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.png)
--->
-
-Your newly created application comes with pre-configured:
+Congratulations! Your newly created application comes with pre-configured:
 * Sample operator dashboards
 * Sample pre-defined connected waste bin device templates
 * Simulated connected waste bin devices
@@ -85,39 +81,40 @@ It is your application and you can modify it anytime. Let’s now explore the ap
 ## Explore and customize operator dashboard 
 After creating the application you land in the **Wide Waste connected waste management dashboard**.
 
-   ![Connected Waste Management dashboard](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.png)
+   ![Connected Waste Management dashboard](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard.png)
 
 As a builder, you can create and customize views on the dashboard for operators. Before you try to customize, let's explore the dashboard. 
 
-All the data displayed in the dashboard is based on simulated device data, which will be explored in the next section. 
+> [!NOTE]
+> All data displayed in the dashboard is based on simulated device data, which will be explored in the next section. 
 
-### Viewing **Wide World connected waste management dashboard**
 The dashboard consists of different kinds of tiles:
 
-<!-- 
-* **Wide World Waste utility image tile**: the first tile in the dashboard is an image tile of a fictitious Waste utility "Wide World Waste". You can customize the tile and put your own image or remove it. 
+* ***Wide World Waste utility image tile***: the first tile in the dashboard is an image tile of a fictitious Waste utility "Wide World Waste". You can customize the tile and put your own image or remove it. 
 
-* **Average pH KPI tile**: you can see that there are KPI tiles at the top like **Average pH in the last 30 minutes**. You can customize KPI tiles and set to a different type and time range.
+* ***Waste bin image tile***: you can use image and content tiles to create a visual representation of the device that is being monitored along with a descriptive text. 
 
-*  **Waste monitoring area map**: IoT Central uses Azure Maps, which you can directly set in your application and display device location. You can also map location information to your device from the application and can use Azure Maps to display it on a map. Try to hover over the map and try the controls over the map. 
+* ***Fill level KPI tile***: the tile displays a value reported by a *fill level* sensor in a waste bin. *Fill level* and other sensors like *odor meter* or *weight* in a waste bin can be remotely monitored. An operator can take action, like dispatching trash collection truck. 
 
-* **Average pH distribution Heatmap chart**: you can choose different visualization charts to display device telemetry data in the way that is most appropriate to your application. Heatmap 
+*  ***Waste monitoring area map***: the map is using Azure Maps, which you can configure directly in Azure IoT Central. The map tile is displaying device location. Try to hover over the map and try the controls over the map, like zoom-in, zoom-out or expand.
 
-* **Critical quality indicators line chart**: you can visualize one or multiple device telemetries plotted as a line chart over a desired time range.  
+     ![Connected Waste Management dashboard map](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-map.png)
 
-* **Concentration of chemical agents bar chart**: you can visualize one or multiple device telemetry data in a bar chart as in the sample. 
 
-* **Action button**: the dashboard includes an example of an action tile that an operator can initiate directly from the monitoring dashboard, like initiating an action to reset device properties. 
+* ***Fill, odor, weight level bar chart**: you can visualize one or multiple device telemetry data in a bar chart. You can also expand the bar chart.  
 
-* **Properties list tiles**: the dashboard has multiple properties tiles representing threshold information, device health information, and maintenance information. 
---> 
+  ![Connected Waste Management dashboard bar chart](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
+
+
+* **Field Services content tile**: the dashboard includes link to how to integrate with Dyanmics 365 Field Services from your Azure IoT Central application. As an example, you can use Field Services to create tickets for dispatching trash collection services. 
+
 
 ### Customize dashboard 
 
 As a builder, you can customize views in dashboard for operators. You can try:
 * Click on **Edit** to customize the **Wide World connected waste management dashboard**. You can customize the dashboard by clicking on the **Edit** menu. Once the dashboard is in **edit** mode, you can add new tiles, or you can configure 
 
-    ![Edit Dashboard](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
+    ![Edit Dashboard](./media/tutorial-connectedwastemanagement/edit-dashboard.png)
 
 * You can also click on **+ New** to create new dashboard and configure from scratch. You can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
 
@@ -132,7 +129,7 @@ To view the device template:
 * Click on **Device templates** from the left navigation pane of your application in IoT Central. 
 * In the Device templates list you will see **Connected Waste Bin**. Open by clicking on the name.
 
-    ![Device Template](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
+    ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
 ### Customizing the device template
 
@@ -151,7 +148,7 @@ Try to customize the following:
 #### Views 
 * The connected waste bin device template comes with pre-defined views. Explore the views and you can make updates. The views define how operators will see the device data but also inputting cloud properties. 
 
-  ![Device Template Views](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate-views.png)
+  ![Device Template Views](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-views.png)
 
 #### Publish 
 
@@ -168,11 +165,11 @@ The **Connected waste management** application you have created from the applica
 ### To view the devices:
 * Navigate to **Device** from IoT Central left navigation pane. 
 
-   ![Devices](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
+   ![Devices](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
 * Select and click on one simulated device 
 
-    ![Device 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
+    ![Device 1](./media/tutorial-connectedwastemanagement/waterqualitymonitor-device1.png)
 
 * From the  **Cloud Properties** tab try updating the `Acidity (pH) Threshold` value from `8` to `9`. 
 * Explore the **Device Properties** tab and **Device Dashboard** tab. 
@@ -192,11 +189,11 @@ The **Connected waste management** application you have created template has two
 ### To view rules:
 * Navigate to **Rules** from IoT Central left navigation pane. 
 
-   ![Rules](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-rules.png)
+   ![Rules](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
 * Select and click on **High pH alert** which is one of the pre-configured rules in the application. 
 
-     ![High pH Alert](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-highphalert.png)
+     ![High pH Alert](./media/tutorial-connectedwastemanagement/connectedwastemanagement-highphalert.png)
 
 * The `High pH alert` rule is configured to check against the condition `Acidity (pH) is greater than 8`. 
 
@@ -235,7 +232,7 @@ As a builder, you can change several settings to customize the user experience i
 * Use the **Change** button to choose a **Browser icon** image that will appear on browser tabs.
 * You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
 
-   ![Azure IoT Central customize your application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application.png)
+   ![Azure IoT Central customize your application](./media/tutorial-connectedwastemanagement/connectedwastemanagement-customize-your-application.png)
 
 ### To update the application image:
 
@@ -251,7 +248,7 @@ If you're not going to continue to use this application, delete your application
 1. Open the Administration tab from the left navigation menu of your IoT Central application. 
 2. Select Application settings and click Delete button at the bottom of the page. 
 
-    ![Delete application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app.PNG)        
+    ![Delete application](./media/tutorial-connectedwastemanagement/connectedwastemanagement-application-settings-delete-app.PNG)        
 
 <!---Required:
 To avoid any costs associated with following the tutorial procedure, a Clean up resources (H2) should come just before Next steps (H2)
