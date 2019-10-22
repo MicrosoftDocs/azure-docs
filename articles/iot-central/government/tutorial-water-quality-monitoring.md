@@ -29,9 +29,9 @@ The tutorial will learn how to:
 > * Explore and customize operator dashboard 
 > * Explore water quality monitor device template
 > * Explore simulated devices
-> * Customize pre-configured rules and add actions. 
-> * Configure jobs.
-> * Customize your application branding using whitelabeling. 
+> * Explore and configure rules
+> * Configure jobs
+> * Customize your application branding using whitelabeling
 
 
 ## Prerequisites
@@ -161,7 +161,6 @@ Try to customize the following:
 
 
 ### Create a new device template 
-You can also add new device template by:
 * Select **+ New** to create a new device template and follow the creation process. 
 You will be able to create a custom device template from scratch or you can choose a device template from the Azure Device Catalog. 
 
@@ -180,84 +179,75 @@ The **Water quality monitoring** application you have created from the applicati
 
     ![Device 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
 
-* From the  **Cloud Properties** tab try updating the `pH Threshold` value from `8` to `9`. 
+* From the  **Cloud Properties** tab try updating the `Acidity (pH) Threshold` value from `8` to `9`. 
 * Explore the **Device Properties** tab and **Device Dashboard** tab. 
 
 > [!NOTE]
-> Note that all the tabs have been configured from the Device Template Views.
+> Note that all the tabs have been configured from the **Device template Views**.
 
 
 ### Add new devices
 You can add new devices by clicking on **+ New** on the **Devices** tab. 
 
 
-## Customize pre-configured rules and add actions. 
+## Explore and configure rules
 
-As part of using sensors in your Azure IoT Central application to monitor conditions, you can create rules to run actions when certain conditions are met. A rule is associated with a device template and one or more devices, and contains conditions that must be met based on device telemetry or events. A rule also has one or more associated actions. The actions may include sending email notifications, or triggering a Microsoft Flow action or a webhook action to send data to other services. The **In-store analytics - checkout** application template includes some predefined rules for the devices in the application.
+In Azure IoT Central you can create rules to automatically monitor on device telemetry, and trigger an action when one or more conditions are met. The actions may include sending email notifications, or triggering a Microsoft Flow action or a webhook action to send data to other services.
 
-In this section you create a rule that checks the maximum relative humidity level based on the RuuviTag sensor telemetry. You add an action to the rule so that if the humidity exceeds the maximum, the application sends email. 
+The **Water quality monitoring** application you have created template has two pre-configured rules.
 
-To create a rule: 
+### To view rules:
+* Navigate to **Rules** from IoT Central left navigation pane. 
 
-1. Expand the left pane.
+   ![Rules](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-rules.png)
 
-1. Select **Rules**.
 
-1. Select **+ New**.
+* Select and click on **High pH alert** which is one of the pre-configured rules in the application. 
 
-1. Enter *Humidity level* as the name of the rule. 
+     ![High pH Alert](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-highphalert.png)
 
-1. Choose the RuuviTag device template in **Scopes**. The rule you define will apply to all sensors based on that template. Optionally, you could create a filter that would apply the rule only to a defined subset of the sensors. 
+* The `High pH alert` rule is configured to check against the condition `Acidity (pH) is greater than 8`. 
 
-1. Choose `Relative humidity` as the **Telemetry**. This is the device capability that you customized in a previous step.
-
-1. Choose `Is greater than` as the **Operator**. 
-
-1. Enter a typical upper range indoor humidity level for your environment as the **Value**. For example, enter *60*. You've set a condition for your rule that occurs when relative humidity in any RuuviTag real or simulated sensor exceeds this value. You may need to adjust the value up or down depending on the seasonal humidity range in your environment.  
-
-   ![Azure IoT Central add rule conditions](./media/tutorial-in-store-analytics-create-app-pnp/rules-add-conditions.png)
+Now let's create an email action.
 
 To add an action to the rule:
 
-1. Select **+ Email**. 
+* Select **+ Email**. 
+* Enter *High pH alert* as the friendly **Display name** for the action.
+* Enter the email address associated with your IoT Central account in **To**. 
+* Optionally, enter a note to include in text of the email.
+* Select **Done** to complete the action.
+* Select **Save** to save and activate the new rule. 
 
-1. Enter *Excess humidity notification* as the friendly **Display name** for the action. 
+Within a few minutes, you should receive email when the configured **condition** is met.
 
-1. Enter the email address associated with your account in **To**. Any email address you use must be for a user who has been added to the application and who has signed in and out at least once. 
+> [!NOTE]
+> The application will send email each time a condition is met. **Disable** the rule to stop receiving email from the automated rule. 
+  
+To create a new rule: 
+* Select **+New** on the **Rules** from the left navigation pane.
 
-1. Optionally, enter a note to include in text of the email.
-
-1. Select **Done** to complete the action.
-
-   ![Azure IoT Central add actions to rules](./media/tutorial-in-store-analytics-create-app-pnp/rules-add-action.png)
-
-1. Select **Save** to save and activate the new rule. 
-
-    Within a few minutes, the specified email account should begin to receive emails. The application sends email each time a sensor indicates that the humidity level exceeded the value in your condition.
-
-## Configure jobs.
+## Configure jobs
 
 
 ## Customize your application 
 As a builder, you can change several settings to customize the user experience in your application.
 
-To change the application theme:
+### To change the application theme:
 
-1. You can change the **Theme** by clicking the **Settings** on the masthead.
+* You can change the **Theme** by clicking the **Settings** on the masthead.
 
- <!--![Azure IoT Central application settings](./media/tutorial-in-store-analytics-create-app-pnp/settings-icon.png) --> 
 
-To change the application logo and browser icon:
+### To change the application logo and browser icon:
 
-1. Expand the left pane, if not already expanded.
-2. Select **Administration > Customize your application**.
-3. Use the **Change** button to choose an image to upload as the **Application logo**.  
-4. Use the **Change** button to choose a **Browser icon** image that will appear on browser tabs.
-5. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
+* Select **Administration > Customize your application**.
+* Use the **Change** button to choose an image to upload as the **Application logo**.
+* Use the **Change** button to choose a **Browser icon** image that will appear on browser tabs.
+* You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
 
    ![Azure IoT Central customize your application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application.png)
 
-3. To update the application image:
+### To update the application image:
 
 * Select **Administration > Application settings**.
 
