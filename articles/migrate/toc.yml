@@ -30,15 +30,15 @@
       href: tutorial-assess-hyper-v.md
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
-   - name: Assess and migrate physical servers
-    items:
+  - name: Assess and migrate physical servers
+     items:
     - name: Prepare physical servers for assessment
-      href: tutorial-prepare-physical.md
+      href: tutorial-assess-physical.md
     - name: Assess physical servers for migration
       href: tutorial-prepare-physical.md
     - name: Migrate physical servers and VMs
       href: tutorial-migrate-physical-virtual-machines.md
-   - name: Assess imported servers for migration
+  - name: Assess imported servers for migration
     items:
     - name: Assess imported servers for migration
       href: tutorial-assess-import.md     
