@@ -17,9 +17,9 @@ ms.date: 11/04/2019
 > Knowledge store is in preview and should not be used in production. Both the Azure portal and the [Search REST API version 2019-05-06-Preview](search-api-preview.md) provide this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. Cognitive skills accept image files and unstructured text files, apply AI processes through Cognitive Services (such as image analysis and natural language processing). Output is a [knowledge store](knowledge-store-concept-intro.md) in Azure storage, which you can access through tools like Power BI or Storage Explorer.
+Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. Cognitive skills accept image files and unstructured text files, apply AI processes through Cognitive Services (such as image analysis and natural language processing). One of the outputs created by this pipeline is a [knowledge store](knowledge-store-concept-intro.md) in Azure storage, which you can access through tools like Power BI or Storage Explorer.
 
-In this quickstart, you'll combine services and technology in the Azure cloud to create the knowledge store. Once the services and data are in place, you will run the **Import data** wizard in the portal to pull it all together. The end result is transformed content that you can view from another portal tool ([Storage explorer](knowledge-store-view-storage-explorer.md)).
+In this quickstart, you'll combine services and data in the Azure cloud to create the knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original plus AI-generated content that you can view in the portal ([Storage explorer](knowledge-store-view-storage-explorer.md)).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,7 +29,7 @@ This quickstart uses Azure Cognitive Search, Azure Blob storage, and [Azure Cogn
 
 Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily when invoked from Azure Cognitive Search. As long as you use the sample data we provide, you can skip creating or attaching a Cognitive Services resource.
 
-1. [Download HotelReviews_Free.csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). This data is hotel review data saved in a CSV file (originates from Kaggle.com) and contains customer feedback about a single hotel. 
+1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). This data is hotel review data saved in a CSV file (originates from Kaggle.com) and contains 19 pieces of customer feedback about a single hotel. 
 
 1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under your current subscription. 
 
@@ -127,7 +127,7 @@ In this wizard step, you will configure an indexer that will pull together the d
 
 ## Monitor status
 
-Cognitive skills takes longer to complete than typical text-based indexing. The wizard should open the Indexer list in the overview page so that you can track progress. For self-navigation, go to the Overview page and click **Indexers**.
+Cognitive skill indexing takes longer to complete than typical text-based indexing. The wizard should open the Indexer list in the overview page so that you can track progress. For self-navigation, go to the Overview page and click **Indexers**.
 
 In the Azure portal, you can also monitor the Notifications activity log for a clickable **Azure Cognitive Search notification** status link. Execution may take several minutes to complete.
 
@@ -135,14 +135,11 @@ In the Azure portal, you can also monitor the Notifications activity log for a c
 
 Now that you have enriched your data using Cognitive Services and projected the results into a knowledge store, you can use Storage Explorer or Power BI to explore your enriched data set.
 
-To learn how to explore this knowledge store using Storage Explorer, see the following walkthrough.
+You can view content in Storage Explorer, or take it a step further with Power BI to gain insights through visualization.
 
 > [!div class="nextstepaction"]
 > [View with Storage Explorer](knowledge-store-view-storage-explorer.md)
-
-To learn how to connect this knowledge store to Power BI, see the following walkthrough.
-
-> [!div class="nextstepaction"]
 > [Connect with Power BI](knowledge-store-connect-power-bi.md)
 
-If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idxr* indexer. Deleting the indexer resets the free daily transaction counter back to zero.
+> [!Tip]
+> If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the *hotel-reviews-idxr* indexer. Deleting the indexer resets the free daily transaction counter back to zero for Cognitive Services processing.
