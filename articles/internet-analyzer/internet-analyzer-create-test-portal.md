@@ -59,7 +59,7 @@ To begin any test, the JavaScript client must be embedded in your Web applicatio
 
     ***Custom endpoints***
     * Follow the instructions on the [Create Custom Endpoint](internet-analyzer-custom-endpoint.md) page. 
-    * More detailed instructions can be found on the [Create Custom Endpoint](internet-analyzer-custom-endpoint.md) page. 
+    * Paste the HTTPS URL location of the one-pixel image in the portal. 
     >
 
 4. Click **Add** to add the endpoint to your test. 
