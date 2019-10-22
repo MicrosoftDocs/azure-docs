@@ -1,17 +1,18 @@
 ---
-title: Upgrade to the Azure Search .NET SDK version 10 - Azure Search
+title: Upgrade to Azure Search .NET SDK version 10
+titleSuffix: Azure Cognitive Search
 description: Migrate code to the Azure Search .NET SDK version 10 from older versions. Learn what is new and which code changes are required.
-author: arv100kri
+
 manager: nitinme
-services: search
-ms.service: search
+author: arv100kri
+ms.author: arjagann
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: arjagann
-ms.custom: seodec2018
+ms.date: 11/04/2019
 ---
-# Upgrade to the Azure Search .NET SDK version 10
+
+# Upgrade to Azure Search .NET SDK version 10
 
 If you're using version 9.0 or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 10.
 
@@ -152,6 +153,6 @@ If you choose to identify skills by a custom name, make sure to update all insta
 ## Next steps
 
 - Changes to the Shaper skill have the most potential impact on new or existing code. As a next step, be sure to revisit this example illustrating the input structure: [Shaper skill JSON definition example](cognitive-search-skill-shaper.md)
-- Go through the [introduction to cognitive search guide](cognitive-search-concept-intro.md).
-- We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Search]".
+- Go through the [AI enrichment overview](cognitive-search-concept-intro.md).
+- We welcome your feedback on the SDK. If you encounter problems, feel free to ask us for help on [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). If you find a bug, you can file an issue in the [Azure .NET SDK GitHub repository](https://github.com/Azure/azure-sdk-for-net/issues). Make sure to prefix your issue title with "[Azure Cognitive Search]".
 
