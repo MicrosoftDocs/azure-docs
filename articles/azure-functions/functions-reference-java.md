@@ -1,19 +1,14 @@
 ---
 title: Java developer reference for Azure Functions | Microsoft Docs
 description: Understand how to develop functions with Java.
-services: functions
-documentationcenter: na
-author: rloutlaw
-manager: justhe
+author: ggailey777
+manager: gwallace
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, java
 ms.service: azure-functions
-ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: routlaw
+ms.author: glenga
 ---
-
-
 
 # Azure Functions Java developer guide
 
@@ -29,8 +24,7 @@ The concepts of [triggers and bindings](functions-triggers-bindings.md) are fund
 
 ## Project Scaffolding
 
-The simplest way to scaffold a Java-based Azure Function project is to use `Apache Maven` archetypes. You can also find project generation wizards on Visual Studio Code, and the Azure Toolkits for Eclipse and IntelliJ.
-
+The simplest way to scaffold a Java-based Azure Function project is to use `Apache Maven` archetypes shown below.  
 There are currently two Azure Functions archetypes for Maven:
 
 ### Java Archetype
@@ -43,6 +37,8 @@ mvn archetype:generate \
 	-DarchetypeArtifactId=azure-functions-archetype 
 ```
 
+To get started, see the [Java quickstart](functions-create-first-java-maven). 
+
 ### Kotlin Archetype (Preview)
 
 This archetype is published under the following groupId and artifactId [com.microsoft.azure:azure-functions-kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
@@ -54,6 +50,14 @@ mvn archetype:generate \
 ```
 
 The source code of these archetypes can be found on the [Azure Maven Archetypes GitHub repository](https://github.com/microsoft/azure-maven-archetypes).
+
+### Maven-based tooling
+
+You'll also find support for creating Java function projects using Maven in the following developer environments: 
+
++ [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
++ [Eclipse](functions-create-maven-eclipse.md)
++ [IntelliJ](functions-create-maven-intellij.md)
 
 ## Folder structure
 
