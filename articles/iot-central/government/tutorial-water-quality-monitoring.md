@@ -17,10 +17,6 @@ You only use tutorials to show the single best procedure for completing an appro
 --->
 
 # Tutorial: Create a water quality monitoring application in IoT Central
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
 
 Introductory paragraph (Revisit)
 <!---Required:
@@ -32,7 +28,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Use the Azure IoT Central **Water quality monitoring** template to create your water quality monitoring application
-> * Explore sample operator dashboard 
+> * Explore and customize operator dashboard 
 > * Explore sample water quality monitor device template
 > * Explore simulated devices
 > * Customize pre-configured rules and add actions. 
@@ -40,23 +36,7 @@ In this tutorial, you learn how to:
 > * Customize your application branding using whitelabeling. 
 
 
-<!--- >> * Customize your application.
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
---->
-<!---Required:
-The outline of the tutorial should be included in the beginning and at the end of every tutorial. These will align to the **procedural** H2 headings for the activity. You do not need to include all H2 headings. Leave out the prerequisites, clean-up resources and next steps--->
-
-<!--- Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or service to complete a top task, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write tutorials](contribute-how-to-mvc-tutorial.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
-
 ## Prerequisites
-
-<!---If you need them, make Prerequisites your first H2 in a tutorial. If there’s something a customer needs to take care of before they start (for example, creating a VM) it’s OK to link to that content before they begin.--->
 
 To complete this tutorial you need:
 -  An Azure subscription is recommended. You can optionally use a free 7-day trial. If you don't have an Azure subscription, you can create one on the [Azure sign-up page](https://aka.ms/createazuresubscription).
@@ -64,14 +44,10 @@ To complete this tutorial you need:
 
 ## Create Water Quality Monitoring app in IoT Central
 
-<!-- Sign in to the [<service> portal](url). --->
-<!---If you need to sign in to the portal to do the tutorial, this H2 and link are required.--->
-
 In this section we will use the Azure IoT Central **Water quality monitoring template** to create your water quality monitoring application in IoT Central.
 
 
 To create a new Azure IoT Central water quality monitoring application:  
-
 
 1. Navigate to the [Azure IoT Central Home page](https://aka.ms/iotcentral) website.
 
@@ -81,7 +57,7 @@ To create a new Azure IoT Central water quality monitoring application:
 
 2. Click on **Build** from the left navigation menu and select the **Government** tab. The government page displays several government application templates.
 
-    ![Build Govenment App templates](media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview.PNG)
+    ![Build Govenment App templates](media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview.png)
 
 
 1. Select the **Water Quality Monitoring** application template. 
@@ -96,12 +72,12 @@ This template includes sample water quality monitoring device template, with sim
 
 5. Click **Create** button at the bottom of the page. 
 
-    ![Azure IoT Central Create Application page](media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring.PNG)
+    ![Azure IoT Central Create Application page](media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring.png)
 
 
-You now have created a water quality monitoring app using the Azure IoT Central **Water quality monitoring template**. IoT Central provisions the application with everything that it is included and you will land on the application dashboard which will look like the picture below. 
+6. You now have created a water quality monitoring app using the Azure IoT Central **Water quality monitoring template**. IoT Central provisions the application with everything that it is included and you will land on the application dashboard which will look like the picture below.
 
-   ![Water Quality Monitoring application dasboard](media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.PNG)
+   ![Water Quality Monitoring application dasboard](media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.png)
 
 Your newly created application comes with pre-configured:
 * Sample operator dashboards
@@ -110,10 +86,43 @@ Your newly created application comes with pre-configured:
 * Pre-configured rules and jobs
 * Sample Branding using white labeling 
 
-It is your application and you can modify it anytime. Let’s explore the application and make some customizations.  
+It is your application and you can modify it anytime. Let’s now explore the application and make some customizations.  
 
 
-## Explore sample operator dashboard 
+## Explore and cusomize operator dashboard 
+After creating your water quality monitoring application you land in the operator **Wilde Water water quality monitoring dashboard** which has been configured from the **Water quality monitoring app template**, which you used to create your application in IoT Central.
+
+As a builder, you can create and customize views on the dashboard for operators. Before you try to customize, let's explore the dashboard. 
+
+Note that all the data displayed in the dashboard is based on simulated device data which we will explore in the next section. 
+
+### Viewing **Wide World water quality monitoring dashboard**
+The dashboard consists of a variety of tiles
+
+* **Wide World Water utility image tile**: the first tile in the dashbord is an image tile of a fictitious Water utility "Wide World Water". You can customize the tile and put your own image or remove it. 
+
+* **Average pH KPI tile**: you can see that there are KPI tiles at the top like **Average pH in the last 30 minutes**. You can customize KPI tiles and set to a different type and time range.
+
+*  **Water monitoring area map**: IoT Central uses Azure Maps which you can directly set in your application and display device location. You can also map location information to your device from the application and be able to use Azure Maps to disaplay it on a map. Try to hoover over the map and try the controls over the map. 
+
+* **Average pH distribution Heatmap chart**: you can choose different visualization charts to display device telemetry data in the way that is most appropriate to your application. Heatmap 
+
+* **Cirtical quality indicators line chart**: you can visualize one or multiple device telemetry plotted as a line chart over a desired time range.  
+
+* **Concentration of chemical agents bar chart**: you can visualize one or multiple device telemetry data in a bar chart as in the sample. 
+
+* **Action button**: the dashboard includes an example of an action tile that an operator can initiate directly from the monitoring dashboar, like initiating an action to reset device properties. 
+
+* **Properties list tiles**: the dashboard has multiple properties tiles representing critical threshold information, device health info and maintenance info. 
+
+
+### Customize dashboard 
+
+As a builder, you can customize views in dashboard for operators. Try:
+* Click on **Edit** to customize the **Wil World water quality monitoring dashboard**. You can customize the dashboard by clicking on the **Edit** menu. Once the dashboard is in **edit** mode, you can add new tiles, or you can configure 
+* Click on **+ New** to create new dashboard and configure from scratch. Note that you can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
+
+    ![Edit Dashboard](media/tutorial-waterqualitymonitoring/edit-dashboard.png)
 
 
 ## Explore sample water quality monitor device template
