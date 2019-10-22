@@ -47,7 +47,7 @@
 
 The signal flow of the test equipment is illustrated below:
 
-![Eqipment Requiremnt](./media/equipment.png)
+![Equipment Requirement](./media/Equipment.png)
 
 
 ## How to Setup Your Test Environment
