@@ -186,7 +186,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Speech Synthesis Markup Language</h3>
-                                                    <p>Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developer specify how input text is converted into synthesize speech using the text-to-speech service.</p>
+                                                    <p>Use Speech Synthesis Markup Language to fine tune pitch, prosody, and speaking rate of your audio output.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -774,7 +774,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Improve synthesis with SSML</h3>
-                                                    <p>Speech Synthesis Markup Language (SSML) is an XML-based markup language that lets developers specify how input text is converted into synthesized speech using the text-to-speech service.
+                                                    <p>Use Speech Synthesis Markup Language to fine tune pitch, prosody, and speaking rate of your audio output.
                                                     </p>
                                                 </div>
                                             </div>
