@@ -197,6 +197,7 @@ For cases when the Web API is unavailable or returns a HTTP error, a friendly er
 
 ## See also
 
++ [Power Skills: a repository of custom skills](https://aka.ms/powerskills)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Add custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [Example: Creating a custom skill for AI enrichment(cognitive-search-create-custom-skill-example.md)
