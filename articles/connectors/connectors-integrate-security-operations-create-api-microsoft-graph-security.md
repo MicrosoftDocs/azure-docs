@@ -1,6 +1,6 @@
 ---
-title: Integrate security operations with Microsoft Graph Security - Azure Logic Apps
-description: Improve your app's threat protection, detection, and response capabilities by managing security operations with Microsoft Graph Security & Azure Logic Apps
+title: Integrate and manage security operations - Azure Logic Apps & Microsoft Graph Security
+description: Improve your app's threat protection, detection, and response with Microsoft Graph Security & Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration

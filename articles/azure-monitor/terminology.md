@@ -1,17 +1,13 @@
 ---
 title: Azure Monitor terminology updates | Microsoft Docs
 description: Describes recent terminology changes made to Azure monitoring services.
-author: bwren
-manager: carmonm
-editor: tysonn
-services: azure-monitor
-documentationcenter: azure-monitor
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/08/2019
+author: bwren
 ms.author: bwren
+ms.date: 10/08/2019
+
 ---
 
 # Azure Monitor naming and terminology changes

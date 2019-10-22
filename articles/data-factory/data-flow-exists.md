@@ -9,17 +9,16 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ---
 
-# Mapping data flow exists transformation
+# Exists transformation in mapping data flow
 
 The exists transformation is a row filtering transformation that checks whether your data exists in another source or stream. The output stream includes all rows in the left stream that either exist or don't exist in the right stream. The exists transformation is similar to ```SQL WHERE EXISTS``` and ```SQL WHERE NOT EXISTS```.
 
 ## Configuration
 
-Choose which data stream you're checking for existence in the **Right stream** dropdown.
-
-Specify whether you're looking for the data to exist or not exist in the **Exist type** setting.
-
-Choose which key columns you want to compare as your exists conditions. By default, data flow looks for equality between one column in each stream. To compare via a compute value, hover over the column dropdown and select **Computed column**.
+1. Choose which data stream you're checking for existence in the **Right stream** dropdown.
+1. Specify whether you're looking for the data to exist or not exist in the **Exist type** setting.
+1. Select whether or not your want a **Custom expression**.
+1. Choose which key columns you want to compare as your exists conditions. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
 
 ![Exists settings](media/data-flow/exists.png "exists 1")
 
@@ -40,11 +39,11 @@ To create a free-form expression that contains operators other than "and" and "e
 ### Syntax
 
 ```
-<lefttream>, <rightStream>
+<leftStream>, <rightStream>
     exists(
         <conditionalExpression>,
-        negate: true | <false>,
-        broadcast: 'none' | 'left' | 'right' | 'both'
+        negate: { true | false },
+        broadcast: {'none' | 'left' | 'right' | 'both'}
     ) ~> <existsTransformationName>
 ```
 
