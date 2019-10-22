@@ -26,7 +26,7 @@ For a full list of sections and properties available for defining datasets, see 
 | Property         | Description                                                  | Required |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | The type property of the dataset must be set to **DelimitedText**. | Yes      |
-| location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`. **See details in connector article -> Dataset properties section**. | Yes      |
+| location         | Location settings of the file(s). Each file-based connector has its own location type and supported properties under `location`.  | Yes      |
 | columnDelimiter  | The character(s) used to separate columns in a file. Currently, multi-char delimiter is only supported for mapping data flow but not Copy activity. <br>The default value is **comma  `,`**, When the column delimiter is defined as empty string which means no delimiter, the whole line is taken as a single column. | No       |
 | rowDelimiter     | The single character or "\r\n" used to separate rows in a file.<br>The default value is any of the following values **on read: ["\r\n", "\r",  "\n"]**, and **"\n" or “\r\n” on write** by mapping data flow and Copy activity respectively. <br>When `rowDelimiter` is set to no delimiter (empty string), the `columnDelimiter` must be set as no delimiter (empty string) as well, which means to treat the entire content as a single value. | No       |
 | quoteChar        | The single character to quote column values if it contains column delimiter. <br>The default value is **double quotes** `"`. <br>For mapping data flow, `quoteChar` cannot be an empty string. <br>For Copy activity, when `quoteChar` is defined as empty string, it means there is no quote char and column value is not quoted, and `escapeChar` is used to escape the column delimiter and itself. | No       |
@@ -76,7 +76,7 @@ The following properties are supported in the copy activity ***\*source\**** sec
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | The type property of the copy activity source must be set to **DelimitedTextSource**. | Yes      |
 | formatSettings | A group of properties. Refer to **Delimited text read settings** table below. | No       |
-| storeSettings  | A group of properties on how to read data from a data store. Each file-based connector has its own supported read settings under `storeSettings`. **See details in connector article -> Copy activity properties section**. | No       |
+| storeSettings  | A group of properties on how to read data from a data store. Each file-based connector has its own supported read settings under `storeSettings`. | No       |
 
 Supported **delimited text read settings** under `formatSettings`:
 
@@ -93,7 +93,7 @@ The following properties are supported in the copy activity ***\*sink\**** secti
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | The type property of the copy activity source must be set to **DelimitedTextSink**. | Yes      |
 | formatSettings | A group of properties. Refer to **Delimited text write settings** table below. |          |
-| storeSettings  | A group of properties on how to write data to a data store. Each file-based connector has its own supported write settings under `storeSettings`. **See details in connector article -> Copy activity properties section**. | No       |
+| storeSettings  | A group of properties on how to write data to a data store. Each file-based connector has its own supported write settings under `storeSettings`.  | No       |
 
 Supported **delimited text write settings** under `formatSettings`:
 
