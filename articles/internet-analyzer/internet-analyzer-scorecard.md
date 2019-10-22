@@ -28,7 +28,7 @@ The number of measurements impacts the confidence of the analysis. The higher th
 
 ## Percentiles
 
-Latency, measured in milliseconds, is a popular metric for measuring speed between a source and destination on the Internet. Latency data is not normally distributed (i.e. does not follow a "Bell Curve") because there is a "long-tail" of large latency values that skew results when using statistics such as the arithmetic mean. As an alternative, percentiles provide a "distribution-free" way to analyze data. As an example, the median, or 50th percentile, summarizes the middle of the distribution -- half the values are above it and half are below it. A 75th percentile value means it is larger than 75% of all values in the distribution. Internet Analyzer refers to percentiles in shorthand as P50, P75, and P95.
+Latency, measured in milliseconds, is a popular metric for measuring speed between a source and destination on the Internet. Latency data is not normally distributed (i.e. does not follow a "Bell Curve") because there is a "long-tail" of large latency values that skew results when using statistics such as the arithmetic mean. As an alternative, percentiles provide a "distribution-free" way to analyze data. As an example, the median, or 50th percentile, summarizes the middle of the distribution - half the values are above it and half are below it. A 75th percentile value means it is larger than 75% of all values in the distribution. Internet Analyzer refers to percentiles in shorthand as P50, P75, and P95.
 
 Internet Analyzer percentiles are _sample metrics_. This is in contrast to the true _population metric_. For example, the daily true population median latency between students at the University of Southern California and Microsoft is the median latency value of all requests during that day. In practice, measuring the value of all requests is impractical, so we assume that a reasonably large sample is representative of the true population.
 
@@ -41,13 +41,13 @@ A delta is the difference in metric values for endpoints A and B. Deltas are com
 
 ## Confidence Interval 
 
-Confidence intervals (CI) are a range of values which have a probability of containing the population metric such as median, P75, or average. We follow the common statistical convention of using the 95% CI.
+Confidence intervals (CI) are a range of values that have a probability of containing the population metric such as median, P75, or average. We follow the common statistical convention of using the 95% CI.
 
-For Internet Analyzer, a narrow confidence interval is good because shows the sample metric is likely very close to the actual population metric. A wide confidence interval means less certainty that our sample metric reflects the true population metric. The best way to improve the CI is to increase measurement counts.
+For Internet Analyzer, a narrow confidence interval is good because it shows the sample metric is likely very close to the actual population metric. A wide confidence interval means less certainty that our sample metric reflects the true population metric. The best way to improve the CI is to increase measurement counts.
 
 ## Time Series 
 
-A time series shows how a metric changes over time. On the Internet, there are many temporal factors which impact performance such as peak traffic periods, weekday-weekend population differences, and holidays.
+A time series shows how a metric changes over time. On the Internet, there are many temporal factors that impact performance such as peak traffic periods, weekday-weekend population differences, and holidays.
 
 
 ## Next Steps

@@ -13,7 +13,7 @@ ms.author: mebeatty
 ---
 # Create an Internet Analyzer test using CLI (Preview)
 
-There are two ways to create an Internet Analyzer resource - using the [Azure preview portal](internet-analyzer-create-test-portal.md) or using CLI. This section helps you create a new Azure Internet Analyzer resource using our CLI experience. 
+There are two ways to create an Internet Analyzer resource - using the [Azure portal](internet-analyzer-create-test-portal.md) or using CLI. This section helps you create a new Azure Internet Analyzer resource using our CLI experience. 
 
 
 > [!IMPORTANT]
@@ -33,7 +33,7 @@ The Internet Analyzer CLI exposes the following types of resources:
 5. **Time Series** - A time series shows how a metric changes over time.
 
 ## Profile and Test Creation
-1. [Request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR65LM6ELn65MggTwxb0d215UMkNIUDVGV1JGS0w5WFBHWklNMTNRTDQ4My4u) to use Internet Analyzer by providing your active Subscription ID. 
+1. [Request access](https://aka.ms/internetAnalyzerContact) to use Internet Analyzer by providing your active Subscription ID. 
 2. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Run the `login` command to start a CLI session:
     ```azurecli-interactive

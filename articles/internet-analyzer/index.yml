@@ -25,10 +25,7 @@ landingContent:
         links:
           - text: What is Azure Internet Analyzer?
             url: internet-analyzer-overview.md
-      - linkListType: concept
-        links:
-          - text: Azure Internet Analyzer FAQ
-            url: internet-analyzer-faq.md
+
   # Card
   - title: Get started
     linkLists:
@@ -46,11 +43,12 @@ landingContent:
             url: internet-analyzer-custom-endpoint.md
           - text: Interpreting your scorecard
             url: internet-analyzer-scorecard.md
+            
   # Card
   - title: Resources
     linkLists:
       - linkListType: reference 
         links:
-          - text: Internet Connectivity Monitoring Overview
-            url: internet-analyzer-network-watcher.md
+          - text: Azure Internet Analyzer FAQ
+            url: internet-analyzer-faq.md
 

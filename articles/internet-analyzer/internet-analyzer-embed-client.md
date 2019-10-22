@@ -28,7 +28,7 @@ Internet Analyzer requires access to Azure and other Microsoft services to funct
 
 The script URL can be found either through the Azure portal or the Azure CLI after a test has been configured. For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md).
 
-Option 1. In the Azure Portal, use [this link](https://aka.ms/InternetAnalyzerPreviewPortal) to open the preview portal page for Azure Internet Analyzer. Navigate to your Internet Analyzer profile to see the script URL.
+Option 1. In the Azure portal, use [this link](https://aka.ms/InternetAnalyzerPreviewPortal) to open the preview portal page for Azure Internet Analyzer. Navigate to your Internet Analyzer profile to see the script URL.
 
 Option 2. Using the Azure CLI, check the `scriptFileUri` Property.
 ```azurecli-interactive
@@ -37,13 +37,13 @@ Option 2. Using the Azure CLI, check the `scriptFileUri` Property.
 
 ## Client details
 
-The script is generated specifically for your profile and experiments. After being loaded, the script will execute on a 2 second delay. First it contacts the Internet Analyzer service to fetch the list of endpoints configured in your experiments. It then runs the measurements and uploads the timed results back to the Internet Analyzer service.
+The script is generated specifically for your profile and tests. After being loaded, the script will execute on a 2-second delay. First it contacts the Internet Analyzer service to fetch the list of endpoints configured in your tests. It then runs the measurements and uploads the timed results back to the Internet Analyzer service.
 
 ## Client examples
 
 These examples show a few basic methods to embed the client JavaScript into your webpage or application. We use `0bfcb32638b44927935b9df86dcfe397` as an example profile Id for the script URL.
 
-### **Run on page load**
+### Run on page load
 The simplest method is to use the script tag inside the meta tag block. This will execute the script once per page load.
 
 ```html

@@ -22,7 +22,7 @@ This article demonstrates how to set up a custom endpoint to measure as part of 
 
 ## Before you begin
 
-Make sure you set up an Internet Analyzer resource want to use the "Custom Endpoint" option. Internet Analyzer assumes your custom endpoint is Internet accessible. For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md).
+Make sure you set up an Internet Analyzer resource and select the "Custom Endpoint" option. Internet Analyzer assumes your custom endpoint is Internet accessible. For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md).
 
 
 ## Create Custom Endpoint

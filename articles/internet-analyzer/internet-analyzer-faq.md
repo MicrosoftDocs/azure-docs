@@ -11,10 +11,10 @@ ms.author: mebeatty
 ---
 # Azure Internet Analyzer FAQ (Preview)
 
-This is the FAQ for Azure Internet Analyzer- if you have additional questions, go to the [feedback forum](https://feedback.azure.com/forums/217313-networking) and post your question. When a question is frequently asked, we add it to this article so it can be found quickly and easily. 
+This is the FAQ for Azure Internet Analyzer- if you have additional questions, go to the [feedback forum](https://aka.ms/internetAnalyzerFeedbackForum) and post your question. When a question is frequently asked, we add it to this article so it can be found quickly and easily. 
 
 ## How do I participate in the preview? 
-The preview is available to select customers. If you are interested in joining the preview, please [request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR65LM6ELn65MggTwxb0d215UMkNIUDVGV1JGS0w5WFBHWklNMTNRTDQ4My4u) by providing us an active Azure subscription ID.  
+The preview is available to select customers. If you are interested in joining the preview, please [request access](https://aka.ms/internetAnalyzerContact) by providing us an active Azure subscription ID.  
 
 ## Do I need to embed the client to run a test? 
 Yes, the Internet Analyzer client must be installed in your application to collect metrics specific to your users. [Learn how to install the client.](internet-analyzer-embed-client.md) 
@@ -25,10 +25,9 @@ No, Azure Internet Analyzer is free to use in preview. There is no service-level
 ## What scenarios is Internet Analyzer designed to address? 
 
 Internet Analyzer is designed to give you networking performance insights based on your user population. To help make the best performance decisions for your users, Internet Analyzer compares the performance of two Internet endpoints using your distinct user population. While Internet Analyzer can answer a multitude of questions, some of the most common are: 
+
 * What is the performance impact of migrating to the cloud? 
     * *Suggested Test: Custom (your current on-premises infrastructure) vs. Azure (any preconfigured endpoint)*
-* What is the best cloud for your end-user population in each region? 
-    *  *Suggested Test: Custom (other cloud service) vs. Azure (any preconfigured endpoint)*
 * What is the value of putting my data at the edge vs. in a data center? 
     *  *Suggested Test: Azure vs. Azure Front Door, Azure vs. Azure CDN from Microsoft*
 * What is the performance benefit of Azure Front Door?
@@ -37,8 +36,8 @@ Internet Analyzer is designed to give you networking performance insights based 
     *  *Suggested Test: Custom/ Azure/ AFD vs. Azure CDN from Microsoft*
 * How does Azure CDN from Microsoft stack up? 
     *  *Suggested Test: Custom (other CDN endpoint) vs. Azure CDN from Microsoft*
-
-Learn more about [Microsoft's Internet Connectivity Monitoring](internet-analyzer-network-watcher.md). 
+* What is the best cloud for your end-user population in each region? 
+    *  *Suggested Test: Custom (other cloud service) vs. Azure (any preconfigured endpoint)*
 
 ## Which tests can I run in preview? 
 

@@ -15,7 +15,7 @@ ms.author: mebeatty
 
 Internet Analyzer is a client-side measurement platform to test how networking infrastructure changes impact your customers’ performance. Whether you’re migrating from on-premises to Azure or evaluating a new Azure service, Internet Analyzer allows you to learn from your users’ data and Microsoft’s rich analytics to better understand and optimize your network architecture with Azure—before you migrate.
 
-Internet Analyzer uses a small JavaScript client embedded in your Web application to measure the latency from your end users to your selected set of network destinations, we call _endpoints_. Internet Analyzer allows you to set up multiple dual-endpoint tests, allowing you to evaluate a variety of scenarios as your infrastructure and customer needs evolves. Internet Analyzer provides custom and preconfigured endpoints, providing you both the convenience and flexibility to make trusted performance decisions for your end users. 
+Internet Analyzer uses a small JavaScript client embedded in your Web application to measure the latency from your end users to your selected set of network destinations, we call _endpoints_. Internet Analyzer allows you to set up multiple comparative tests, allowing you to evaluate a variety of scenarios as your infrastructure and customer needs evolves. Internet Analyzer provides custom and preconfigured endpoints, providing you both the convenience and flexibility to make trusted performance decisions for your end users. 
 
 
 > [!IMPORTANT]
@@ -70,8 +70,6 @@ To help you make the best performance decisions for your customers, Internet Ana
 While Internet Analyzer can answer a multitude of questions, some of the most common are: 
 * What is the performance impact of migrating to the cloud? 
     * *Suggested Test: Custom (your current on-premises infrastructure) vs. Azure (any preconfigured endpoint)*
-* What is the best cloud for your end-user population in each region? 
-    *  *Suggested Test: Custom (other cloud service) vs. Azure (any preconfigured endpoint)*
 * What is the value of putting my data at the edge vs. in a data center? 
     *  *Suggested Test: Azure vs. Azure Front Door, Azure vs. Azure CDN from Microsoft*
 * What is the performance benefit of Azure Front Door?
@@ -80,10 +78,13 @@ While Internet Analyzer can answer a multitude of questions, some of the most co
     *  *Suggested Test: Custom/ Azure/ AFD vs. Azure CDN from Microsoft*
 * How does Azure CDN from Microsoft stack up? 
     *  *Suggested Test: Custom (other CDN endpoint) vs. Azure CDN from Microsoft*
+* What is the best cloud for your end-user population in each region? 
+    *  *Suggested Test: Custom (other cloud service) vs. Azure (any preconfigured endpoint)*
 
 ## How it works
 
 To use Internet Analyzer, set up an Internet Analyzer resource in the Microsoft Azure portal and install the small JavaScript client in your application. The client measures the latency from your end users to your selected endpoints by downloading a one-pixel image over HTTPS. After collecting latency measurements, the client sends the measurement data to Internet Analyzer.
+
 When a user visits the Web application, the JavaScript client selects two endpoints to measure across all configured tests. For each endpoint, the client performs a _cold_ and _warm_ measurement. The _cold_ measurement incurs additional latency beside the pure network latency between the user and endpoint such as DNS resolution, TCP connection handshake, and SSL/TLS negotiation. The _warm_ measurement follows just after the _cold_ measurement completes and takes advantage of modern browsers' persistent TCP connection management to get an accurate measure of end-to-end latency. When supported by the user's browser, the W3C resource timing API is used for accurate measurement timing. Currently, only warm latency measurements are used for analysis.
 
 ![architecture](./media/ia-overview/architecture.png)
@@ -91,7 +92,7 @@ When a user visits the Web application, the JavaScript client selects two endpoi
 
 ## Scorecards 
 
-Once a test starts, telemetry data is visible in your Internet Analyzer resource under the Scorecard tab. This data is always aggregated and anonymized. Use the following filters to change which view of the data you see: 
+Once a test starts, telemetry data is visible in your Internet Analyzer resource under the Scorecard tab. This data is always aggregated. Use the following filters to change which view of the data you see: 
 
 * **Test:** Select the test that you’d like to view results for. Test data appears once there is enough data to complete the analysis – in most cases, within 24 hours. 
 * **Time period & end date:** Internet Analyzer generates three scorecards daily – each scorecard reflects a different aggregation time period – the 24 hours prior (day), the seven days prior (week), and the 30 days prior (month). Use the “End Date” filter to select the time period you want to see. 
