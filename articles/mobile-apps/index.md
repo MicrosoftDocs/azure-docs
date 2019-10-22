@@ -27,8 +27,3 @@ This documentation series explores the **services provided by Microsoft that ena
 ## Intended Audience
 
 This documentation series will be useful for developers who are new or expert in building mobile applications and are looking to learn about the cloud services that will help make them more successful in application development. They will find a concise overview of the all the Microsoft services, tools, and technologies they need to know. There are no code samples or demo added to this documentation. It is intended to give you a high level overview of the application development process and associated services to use. Each topic links to other resources for more in-depth information. Each part of the series can be read independently, so you can pick and choose topics that you're interested in.
-
-## Topics
-
-The series is divided into the following topics:
-[!INCLUDE toc.yml]
