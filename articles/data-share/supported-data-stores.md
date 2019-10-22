@@ -10,7 +10,7 @@ ms.author: joanpo
 ---
 # Supported data stores in Azure Data Share 
 
-Azure Data Share provides open and flexible data sharing, including the ability to share from and to different data stores. Data providers can share data from one type of data store, and their data consumers have flexibility of choice when it comes to the data source that they receive that data in. 
+Azure Data Share provides open and flexible data sharing, including the ability to share from and to different data stores. Data providers can share data from one type of data store, and their data consumers can choose which data store to receive data into. 
 
 The below table details the supported data sources for Azure Data Share. 
 

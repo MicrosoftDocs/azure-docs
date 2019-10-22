@@ -23,13 +23,37 @@ Before you can accept a data share invitation, you must provision a number of Az
 Ensure that all pre-requisites are complete before accepting a data share invitation. 
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
+
+To receive data into a storage account: 
+
+* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * Permission to add role assignment to the storage account, which is present in the *Microsoft.Authorization/role assignments/write* permission. This permission exists in the owner role. 
 * Resource Provider registration for Microsoft.DataShare. See the [Azure Resource Providers](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) documentation for information on how to do this. 
 
 > [!IMPORTANT]
 > To accept and receive an Azure Data Share, you must first register the Microsoft.DataShare resource provider and you must be an owner of the storage account that you accept data into. Follow the instructions documented in [Troubleshoot Azure Data Share](data-share-troubleshoot.md) to register the data share resource provider as well as add yourself as an owner of the storage account. 
+
+To receive data into a SQL-based source:
+
+* Permission for the data share MSI to access the Azure SQL Database or Azure SQL Data Warehouse. This can be done through the following steps: 
+    1. Set yourself as the Azure Active Directory Admin for the server.
+    1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
+    1. Use Query Editor (preview) to execute the following script to add the Data Share MSI as a db_owner. You must connect using Active Directory and not SQL Server authentication. 
+
+```sql
+            create user <share_acct_name> from external provider;
+        
+            exec sp_addrolemember db_owner, <share_acct_name>; 
+```
+   
+Note that the *<share_acc_name>* is the name of your Data Share Account. If you have not created a Data Share account as yet, you can come back to this pre-requisite later.         
+
+* Client IP SQL Server Firewall access: This can be done through the following steps: 
+        1. Navigate to *Firewalls and Virtual Networks*
+        1. Click the **on** toggle to allow access to Azure Services. 
+
+Once these pre-requisites are complete, you are ready to receive data into your SQL Server.
 
 ## Sign in to the Azure portal
 
