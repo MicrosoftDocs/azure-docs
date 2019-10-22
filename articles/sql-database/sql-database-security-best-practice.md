@@ -265,6 +265,8 @@ The following best practices are optional but will result in better manageabilit
   > [!NOTE]
   > It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. The standard rules for [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) don't apply for columns.
 
+- Perform regular checks using [Vulnerability Assessment (VA)](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) to test for too many permissions.
+
 ### Implement Separation of Duties
 
 > [!NOTE]
@@ -299,19 +301,6 @@ Separation of Duties, also called Segregation of Duties decribes the requirement
   - Human intervention in processes. 
   - Audit trails – for more information on Auditing, see, [Audit critical security events](#audit-critical-security-events).
 
-Additional resources: 
-
-- For Azure SQL Database:  
-  - [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md)
-  - [Engine Separation of Duties for the Application Developer](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/cc974525(v=sql.100)) 
-  - [Separation of Duties in SQL Server 2014](https://www.microsoft.com/en-us/download/details.aspx?id=39269)
-  - [Signing Stored Procedures in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
-
-- For Azure Resource Management:
-  - [Built-in roles for Azure](../role-based-access-control/built-in-roles.md) 
-  - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md)
-  - [Using Azure AD Privileged Identity Management for elevated access](https://www.microsoft.com/en-us/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
-
 **Best practices**:
 
 - Make sure that different accounts are used for Development/Test and Production environments. Different accounts helps to comply with separation of Test & Production systems.
@@ -337,29 +326,25 @@ Additional resources:
 > [!NOTE]
 > Achieving Separation of Duties (SoD) is challenging for security-related or troubleshooting tasks. Other areas like development and end-user roles are easier to segregate. Most compliance related controls allow the use of alternate control functions such as Auditing when other solutions aren't practical.
 
-### Avoid over-provisioning of permissions, unused logins, and roles
+For the readers that want to dive deeper into SoD, we recommend the following resources: 
 
-**How to implement**:
+- For Azure SQL Database:  
+  - [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md)
+  - [Engine Separation of Duties for the Application Developer](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/cc974525(v=sql.100)) 
+  - [Separation of Duties in SQL Server 2014](https://www.microsoft.com/en-us/download/details.aspx?id=39269)
+  - [Signing Stored Procedures in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
-- Perform regular checks using Vulnerability Assessment (VA) to test for too many permissions. 
-
-- Perform regular checks using VA to test for empty roles. 
-
-- Audit changes to Permissions and role membership as well as impersonation attempts 
-
-**Best practices**:
-
-- Create baselines to avoid negative results in succeeding scans when the issue in question doesn't apply to your system. 
-
-- Additional resources: 
-  - [SQL Vulnerability Assessment](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment)
-  - [SQL Vulnerability Assessment service helps you identify database vulnerabilities](sql-vulnerability-assessment.md)
-  - [Get started with SQL database auditing](sql-database-auditing.md)
+- For Azure Resource Management:
+  - [Built-in roles for Azure](../role-based-access-control/built-in-roles.md) 
+  - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md)
+  - [Using Azure AD Privileged Identity Management for elevated access](https://www.microsoft.com/en-us/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
 ### Perform regular code reviews
 
 > [!NOTE]
 > Mentioned in: PCI: 6.3.2, SOC: SDL-3 
+
+Separation of Duties is not limited to the data in database, but includes application code. Malicious code can potentially circumvent security controls. Before deploying custom code to production, it is essential to review what's being deployed.
 
 **How to implement**:
 
@@ -375,7 +360,7 @@ Additional resources:
 
 - Vulnerability Assessment contains rules that check for excessive permissions, the use of old encryption algorithms, and other security problems within a database schema. 
 
-- Further checks can be done in a QA environment using Advanced Threat Protection that scans for code that is vulnerable to SQL-injection.
+- Further checks can be done in a QA or test environment using Advanced Threat Protection that scans for code that is vulnerable to SQL-injection.
 
 - Examples of what to look out for: 
   - Creation of a user or changing security settings from within an automated SQL-code-update deployment. 
