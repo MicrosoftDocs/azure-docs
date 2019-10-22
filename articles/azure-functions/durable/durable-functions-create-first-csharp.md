@@ -140,4 +140,4 @@ You must have a function app in your Azure subscription before you can publish y
 You have used Visual Studio to create and publish a C# durable function app.
 
 > [!div class="nextstepaction"]
-> [Learn about common durable function patterns.](durable-functions-concepts.md)
+> [Learn about common durable function patterns](durable-functions-overview.md#application-patterns)

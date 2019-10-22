@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 09/20/2019
 ---
 
 # Use Terraform to create an Azure virtual machine scale set from a Packer custom image
@@ -37,12 +37,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Create three new files in an empty directory with the following names:
 
-- ```variables.tf``` 
-  This file holds the values of the variables used in the template.
-- ```output.tf``` 
-  This file describes the settings that display after deployment.
-- ```vmss.tf``` 
-  This file contains the code of the infrastructure that you're deploying.
+- `variables.tf` : This file holds the values of the variables used in the template.
+- `output.tf` : This file describes the settings that display after deployment.
+- `vmss.tf` : This file contains the code of the infrastructure that you're deploying.
 
 ##  Create the variables 
 
@@ -50,7 +47,7 @@ In this step, you define variables that customize the resources created by Terra
 
 Edit the `variables.tf` file, copy the following code, then save the changes.
 
-```tf 
+```hcl
 variable "location" {
   description = "The location where resources are created"
   default     = "East US"
@@ -68,7 +65,7 @@ variable "resource_group_name" {
 
 Save the file.
 
-When you deploy your Terraform template, you want to get the fully qualified domain name that is used to access the application. Use the ```output``` resource type of Terraform, and get the ```fqdn``` property of the resource. 
+When you deploy your Terraform template, you want to get the fully qualified domain name that is used to access the application. Use the `output` resource type of Terraform, and get the `fqdn` property of the resource. 
 
 Edit the `output.tf` file, and copy the following code to expose the fully qualified domain name for the virtual machines. 
 
@@ -87,9 +84,9 @@ In this step, you create the following network infrastructure in a new Azure res
 
 You also need a resource group where all the resources are created. 
 
-Edit and copy the following code in the ```vmss.tf``` file: 
+Edit and copy the following code in the `vmss.tf` file: 
 
-```tf 
+```hcl
 
 resource "azurerm_resource_group" "vmss" {
   name     = "${var.resource_group_name}"
@@ -143,7 +140,7 @@ Initialize the Terraform environment by running the following command in the dir
 terraform init 
 ```
  
-The provider plugins download  from the Terraform registry into the ```.terraform``` folder in the directory where you ran the command.
+The provider plugins download  from the Terraform registry into the `.terraform` folder in the directory where you ran the command.
 
 Run the following command to deploy the infrastructure in Azure.
 
@@ -183,8 +180,7 @@ In this step, you create the following resources on the network that was previou
 
 Add the following code to the end of the `vmss.tf` file.
 
-```tf
-
+```hcl
 
 resource "azurerm_lb" "vmss" {
   name                = "vmss-lb"
@@ -301,7 +297,7 @@ resource "azurerm_virtual_machine_scale_set" "vmss" {
 
 Customize the deployment by adding the following code to `variables.tf`:
 
-```tf 
+```hcl
 variable "application_port" {
     description = "The port that you want to expose to the external load balancer"
     default     = 80

@@ -1,7 +1,7 @@
 ---
 title: Tune hyperparameters for your model
-titleSuffix: Azure Machine Learning service
-description: Efficiently tune hyperparameters for your deep learning / machine learning model using Azure Machine Learning service. You will learn how to define the parameter search space, specify a primary metric to optimize, and early terminate poorly performing runs. 
+titleSuffix: Azure Machine Learning
+description: Efficiently tune hyperparameters for your deep learning / machine learning model using Azure Machine Learning. You will learn how to define the parameter search space, specify a primary metric to optimize, and early terminate poorly performing runs. 
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley 
@@ -14,9 +14,9 @@ ms.custom: seodec18
 
 ---
 
-# Tune hyperparameters for your model with Azure Machine Learning service
+# Tune hyperparameters for your model with Azure Machine Learning
 
-Efficiently tune hyperparameters for your model using Azure Machine Learning service.  Hyperparameter tuning includes the following steps:
+Efficiently tune hyperparameters for your model using Azure Machine Learning.  Hyperparameter tuning includes the following steps:
 
 * Define the parameter search space
 * Specify a primary metric to optimize  
@@ -91,7 +91,7 @@ This code defines a search space with two parameters - `learning_rate` and `keep
 
 ### Sampling the hyperparameter space
 
-You can also specify the parameter sampling method to use over the hyperparameter space definition. Azure Machine Learning service supports random sampling, grid sampling, and Bayesian sampling.
+You can also specify the parameter sampling method to use over the hyperparameter space definition. Azure Machine Learning supports random sampling, grid sampling, and Bayesian sampling.
 
 #### Random sampling
 
@@ -183,7 +183,7 @@ When using an early termination policy, you can configure the following paramete
 * `evaluation_interval`: the frequency for applying the policy. Each time the training script logs the primary metric counts as one interval. Thus an `evaluation_interval` of 1 will apply the policy every time the training script reports the primary metric. An `evaluation_interval` of 2 will apply the policy every other time the training script reports the primary metric. If not specified, `evaluation_interval` is set to 1 by default.
 * `delay_evaluation`: delays the first policy evaluation for a specified number of intervals. It is an optional parameter that allows all configurations to run for an initial minimum number of intervals, avoiding premature termination of training runs. If specified, the policy applies every multiple of evaluation_interval that is greater than or equal to delay_evaluation.
 
-Azure Machine Learning service supports the following Early Termination Policies.
+Azure Machine Learning supports the following Early Termination Policies.
 
 ### Bandit policy
 
@@ -301,7 +301,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning service work?](concept-azure-machine-learning-architecture.md))
+`experiment_name` is the name you assign to your hyperparameter tuning experiment, and `workspace` is the workspace in which you want to create the experiment (For more information on experiments, see [How does Azure Machine Learning work?](concept-azure-machine-learning-architecture.md))
 
 ## Visualize experiment
 

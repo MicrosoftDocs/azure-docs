@@ -4,6 +4,7 @@ description: How to set up Apache Spark Streaming to process an event once and o
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018

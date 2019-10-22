@@ -1,18 +1,13 @@
 ---
 title: Monitor an Azure Kubernetes Service (AKS) cluster deployed | Microsoft Docs
 description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers already deployed in your subscription.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: 
-ms.assetid: 
-ms.service: azure-monitor
+ms.service:  azure-monitor
+ms.subservice: 
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/19/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 09/12/2019
+
 ---
 
 # Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
@@ -44,17 +39,51 @@ The output will resemble the following:
 provisioningState       : Succeeded
 ```
 
-If you would rather integrate with an existing workspace, use the following command to specify that workspace.
+### Integrate with an existing workspace
 
-```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG --workspace-resource-id <ExistingWorkspaceResourceID> 
-```
+If you would rather integrate with an existing workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `--workspace-resource-id` parameter, and then run the command to enable the monitoring add-on against the specified workspace.  
 
-The output will resemble the following:
+1. List all the subscriptions which you have access using the following command:
 
-```azurecli
-provisioningState       : Succeeded
-```
+    ```azurecli
+    az account list --all -o table
+    ```
+
+    The output will resemble the following:
+
+    ```azurecli
+    Name                                  CloudName    SubscriptionId                        State    IsDefault
+    ------------------------------------  -----------  ------------------------------------  -------  -----------
+    Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
+    ```
+
+    Copy the value for **SubscriptionId**.
+
+2. Switch to the subscription hosting the Log Analytics workspace using the following command:
+
+    ```azurecli
+    az account set -s <subscriptionId of the workspace>
+    ```
+
+3. The following example displays the list of workspaces in your subscriptions in the default JSON format. 
+
+    ```
+    az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
+    ```
+
+    In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **id**.
+ 
+4. Run the following command to enable the monitoring add-on, replacing the value for the `--workspace-resource-id` parameter. The string value must be within the double quotes:
+
+    ```azurecli
+    az aks enable-addons -a monitoring -n ExistingManagedCluster -g ExistingManagedClusterRG --workspace-resource-id  “/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>”
+    ```
+
+    The output will resemble the following:
+
+    ```azurecli
+    provisioningState       : Succeeded
+    ```
 
 ## Enable using Terraform
 

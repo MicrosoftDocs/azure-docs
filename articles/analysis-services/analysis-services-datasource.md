@@ -2,10 +2,9 @@
 title: Data sources supported in Azure Analysis Services | Microsoft Docs
 description: Describes data sources supported for data models in Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -16,7 +15,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 
 ## Azure data sources
 
-|Datasource  |In-memory  |DirectQuery  |
+|Data source  |In-memory  |DirectQuery  |
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Yes      |    Yes      |
 |Azure SQL Data Warehouse     |   Yes      |   Yes       |
@@ -29,7 +28,7 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 ||||
 
 <a name="tab1400a">1</a> - Tabular 1400 and higher models only.   
-<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance is supported. Because a managed instance runs within Azure VNet with a private IP address, an On-premises Data Gateway is required. Azure SQL Database Managed Instance with a public endpoint is currently not supported.   
+<a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance is supported. Because managed instance runs within Azure VNet with a private IP address, public endpoint must be enabled on the instance. If not enabled, an on-premises Data Gateway is required.    
 <a name="databricks">3</a> - Azure Databricks using the Spark connector is currently not supported.   
 <a name="gen2">4</a> - ADLS Gen2 is currently not supported.
 
@@ -37,13 +36,13 @@ Data sources and connectors shown in Get Data or Import Wizard in Visual Studio 
 **Provider**   
 In-memory and DirectQuery models connecting to Azure data sources use .NET Framework Data Provider for SQL Server.
 
-## On-premises data sources
+## Other data sources
 
 Connecting to on-premises data sources from and Azure AS server require an On-premises gateway. When using a gateway, 64-bit providers are required.
 
 ### In-memory and DirectQuery
 
-|Datasource | In-memory provider | DirectQuery provider |
+|Data source | In-memory provider | DirectQuery provider |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
 | SQL Server Data Warehouse |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | .NET Framework Data Provider for SQL Server |
@@ -53,7 +52,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 
 ### In-memory only
 
-|Datasource  |  
+|Data source  |  
 |---------|
 |Access Database     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
@@ -71,7 +70,7 @@ Connecting to on-premises data sources from and Azure AS server require an On-pr
 |OData Feed<sup>[1](#tab1400b)</sup>     |  
 |ODBC query     | 
 |OLE DB     |   
-|Postgre SQL Database<sup>[1](#tab1400b)</sup>    | 
+|PostgreSQL Database<sup>[1](#tab1400b)</sup>    | 
 |Salesforce Objects<sup>[1](#tab1400b)</sup> |  
 |Salesforce Reports<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
@@ -108,6 +107,10 @@ For on-premises data sources:
 For cloud data sources:
 
 * If using SQL authentication, impersonation should be Service Account.
+
+## OAuth credentials
+
+For tabular models at the 1400 and higher compatibility level, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365, and SharePoint List support OAuth credentials. Azure Analysis Services manages token refresh for OAuth data sources to avoid timeouts for long-running refresh operations. To generate valid tokens, set credentials by using SSMS.
 
 ## Next steps
 [On-premises gateway](analysis-services-gateway.md)   

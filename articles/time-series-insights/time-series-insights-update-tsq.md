@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
 ---
 
@@ -20,7 +20,7 @@ Three primary API categories are available in Time Series Insights:
 
 * **Environment APIs**: Enables queries of the Time Series Insights environment itself. Examples of queries are the list of environments the caller has access to and environment metadata.
 
-* **Time Series Model-Query (TSM-Q) APIs**: Enables create, read, update, and delete operations on metadata stored in the environment part of the time series model. Examples are instances, types, and hierarchies.
+* **Time Series Model-Query (TSM-Q) APIs**: Enables create, read, update, and delete (CRUD) operations on metadata stored in the environment part of the time series model. Examples are instances, types, and hierarchies.
 
 * **Time Series Query (TSQ) APIs**: Enables retrieval of events data as it's recorded from the source provider. These APIs can perform operations to transform, combine, and perform computations on time series data.
 

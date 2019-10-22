@@ -3,7 +3,7 @@ title: Glossary of terms - IoT Plug and Play Preview | Microsoft Docs
 description: Concepts - a glossary of common terms relating to IoT Plug and Play Preview.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
@@ -92,6 +92,7 @@ A connection string encapsulates the information required to connect to an endpo
 
 - Device connection strings enable [IoT Plug and Play devices](#iot-plug-and-play-device) to connect to the device-facing endpoints on an IoT hub. Client code on a device uses the connection string to establish a secure connection with an IoT hub.
 - IoT Hub connection strings enable back-end solutions and tools to connect securely to the service-facing endpoints on an IoT hub. These solutions and tools manage the IoT hub and the devices connected to it.
+- Company model repository connection strings enable back-end solutions and tools to connect securely to a [Company model repository](#company-model-repository). These solutions and tools consume or manage the [device capability models](#device-capability-model) and [interfaces](#interface) in the repository.
 
 ## Device capability model
 

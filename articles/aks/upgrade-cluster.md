@@ -43,6 +43,10 @@ Name     ResourceGroup     MasterVersion    NodePoolVersion    Upgrades
 -------  ----------------  ---------------  -----------------  ---------------
 default  myResourceGroup   1.12.8           1.12.8             1.13.9, 1.13.10
 ```
+If no upgrade is available, you will get:
+```console
+ERROR: Table output unavailable. Use the --query option to specify an appropriate query. Use --debug for more info.
+```
 
 ## Upgrade an AKS cluster
 
@@ -54,7 +58,10 @@ The following example upgrades a cluster to version *1.13.10*:
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.10
 ```
 
-It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
+It takes a few minutes to upgrade the cluster, depending on how many nodes you have. 
+
+> [!NOTE]
+> There is a total allowed time for a cluster upgrade to complete. This time is calculated by taking the product of `10 minutes * total number of nodes in the cluster`. For example in a 20 node cluster, upgrade operations must succeed in 200 minutes or AKS will fail the operation to avoid an unrecoverable cluster state. To recover on upgrade failure,  retry the upgrade operation after the timeout has been hit.
 
 To confirm that the upgrade was successful, use the [az aks show][az-aks-show] command:
 

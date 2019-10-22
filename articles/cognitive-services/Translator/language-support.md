@@ -224,6 +224,7 @@ The following languages are available for customization to or from English using
 | Hungarian      | `hu`          |
 | Icelandic | `is` |
 | Indonesian|	`id`	|
+| Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
 |Kiswahili|	`sw`	|

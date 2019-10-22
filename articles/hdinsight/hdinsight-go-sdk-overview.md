@@ -7,8 +7,8 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/8/2019
 ms.author: tyfox
+ms.reviewer: jasonh
 ms.custom: seodec18
-
 ---
 
 # HDInsight SDK for Go (Preview)
