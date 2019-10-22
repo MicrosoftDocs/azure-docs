@@ -17,14 +17,9 @@ ms.custom:
 
 # Version & track datasets in experiments
 
-In this how-to, you learn how to version and track Azure Machine Learning datasets for use across machine learning experiments, as well as the following tasks:
+In this how-to, you learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data, so you can apply a specific version of the dataset for future experiments.
 
-* [Register and retrieve a dataset version](#register).
-* [Best practice to version datasets for reproducibility](#best-practice).
-* [Version pipeline output datasets](#pipeline).
-* [Track dataset usage in machine learning experiments](#track).
-
-Dataset versioning is a way to bookmark the state of your data, so you can apply a specific version of the dataset for future reproduction or experimentation. Typical scenarios to consider for versioning:
+Typical scenarios to consider for versioning:
 
 * When new data is available for retraining.
 * When you are applying different data preparation or feature engineering approaches.
