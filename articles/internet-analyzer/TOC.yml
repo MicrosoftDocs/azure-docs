@@ -6,8 +6,10 @@
     href: internet-analyzer-overview.md
 - name: Tutorial
   items:
-  - name: Create an Internet Analyzer test
+  - name: Create an Internet Analyzer test using Portal
     href: internet-analyzer-create-test-portal.md
+  - name: Creat an Internet Analyzer test using CLI
+    herf: internet-analyzer-cli.md
 - name: How-to guides
   items:
   - name: Embed client
@@ -19,9 +21,7 @@
 - name: Resources
   items:
   - name: Internet Analyzer FAQ
-    href: internet-analyzer-faq.md
-  - name: CLI 
-    href: internet-analyzer-cli.md   
+    href: internet-analyzer-faq.md  
   - name: Internet Connectivity Monitoring Overview
     href: internet-analyzer-network-watcher.md     
   - name: Azure Roadmap

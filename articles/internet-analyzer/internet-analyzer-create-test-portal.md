@@ -20,11 +20,11 @@ There are two ways to create an Internet Analyzer resource- using the Azure prev
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
-## Before you begin
+# Before you begin
 
 The public preview is available to use globally; however, data storage is limited to *US West 2* during preview.
 
-## Basics 
+# Basics 
 
 1. [Request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR65LM6ELn65MggTwxb0d215UMkNIUDVGV1JGS0w5WFBHWklNMTNRTDQ4My4u) to use Internet Analyzer by providing your active Subscription ID. 
 2. From the home page in the [Azure portal - Internet Analyzer preview](https://preview.portal.azure.com), click **+ Create a resource**. Internet Analyzer is currently only available from the *preview* Azure portal. 
@@ -40,12 +40,12 @@ The public preview is available to use globally; however, data storage is limite
 
 7. When you have finished specifying the settings, click **Next: Configuration**. 
 
-## Configuration 
+# Configuration 
 
-### Embed Client
+## Embed Client
 To begin any test, the JavaScript client must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page. Tests can be created before or after the client is embedded; however, no measurements will be collected until this step is complete. 
 
-### Setup Tests
+## Setup Tests
 1. Give your test a name in the **Test Name** box.
 2. Add a description for your test in the **Description** field. 
 3. Click **Configure Endpoint** - a tab will appear from the right-hand side. Select the type of endpoint you'd like to configure- a single Azure region, multiple Azure regions, or a custom endpoint.

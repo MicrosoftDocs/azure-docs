@@ -34,8 +34,10 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Create an Internet Analyzer
+          - text: Create an Internet Analyzer using Portal
             url: internet-analyzer-create-test-portal.md
+          - text: Create an Internet Analyzer using CLI
+            url: internet-analyzer-cli.md
       - linkListType: how-to-guide
         links:
           - text: Embed the Internet Analyzer Client
@@ -49,8 +51,6 @@ landingContent:
     linkLists:
       - linkListType: reference 
         links:
-          - text: CLI
-            url: internet-analyzer-cli.md
           - text: Internet Connectivity Monitoring Overview
             url: internet-analyzer-network-watcher.md
 

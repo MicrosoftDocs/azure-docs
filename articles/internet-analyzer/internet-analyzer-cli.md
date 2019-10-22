@@ -71,7 +71,7 @@ The Internet Analyzer CLI exposes the following types of resources:
 
     The command above assumes that both www.contoso.com and www.microsoft.com are hosting the same object (1k.jpg) under different paths. Note that, if an object path isn't specified explicitly, Internet Analyzer will use `/apc/trans.gif` as the object path by default.  Also note that the schema (https/http) doesn't need to be specified; Internet Analyzer only supports HTTPS endpoints, so HTTPS is assumed.
 
-9. The new test should now be listed under the Network Analyzer profile:
+9. The new test should now be listed under the Internet  Analyzer profile:
     ```azurecli-interactive
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
     ```
