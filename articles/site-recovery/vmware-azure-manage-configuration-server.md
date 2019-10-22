@@ -25,7 +25,7 @@ The license provided with the OVF template is an evaluation license valid for 18
 You can access the configuration server as follows:
 
 * Sign in to the VM on which it's deployed, and Start **Azure Site Recovery Configuration Manager** from the desktop shortcut.
-* Alternatively, you can access the configuration server remotely from https://*ConfigurationServerName*/:44315/ . Sign in with administrator credentials.
+* Alternatively, you can access the configuration server remotely from https://*ConfigurationServerName*/:44315/. Sign in with administrator credentials.
 
 ## Modify VMware server settings
 
@@ -57,7 +57,7 @@ Modify the credentials used to automatically install Mobility Service on the VMw
 
 You can also modify credentials through CSPSConfigtool.exe.
 
-1. Login to the configuration server and launch CSPSConfigtool.exe
+1. Log in to the configuration server and launch CSPSConfigtool.exe
 2. Choose the account you wish to modify and click **Edit**
 3. Enter the new credentials and click **Ok**.
 
@@ -72,7 +72,7 @@ If you missed adding credentials during OVF deployment of configuration server,
 
 You can also add credentials through CSPSConfigtool.exe.
 
-1. Login to the configuration server and launch CSPSConfigtool.exe
+1. Log in to the configuration server and launch CSPSConfigtool.exe
 2. Click **Add**, enter the new credentials and click **Ok**.
 
 ## Modify proxy settings
