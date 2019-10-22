@@ -18,7 +18,7 @@ You set up an on-premises configuration server when you use [Azure Site Recovery
 
 ## Update Windows license
 
-The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license. License update can be done either through a standalone key or KMS standard key. Guidance is available at [DISM Windows command line for running OS](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). To obtain keys, refer to [KMS client set up](https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys).
+The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license. License update can be done either through a standalone key or KMS standard key. Guidance is available at [DISM Windows command line for running OS](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). To obtain keys, refer to [KMS client set up](https://docs.microsoft.com/windows-server/get-started/kmsclientkeys).
 
 ## Access configuration server
 
