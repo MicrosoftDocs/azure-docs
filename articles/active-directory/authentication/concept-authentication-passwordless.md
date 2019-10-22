@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/08/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,15 +15,27 @@ ms.reviewer: librown
 
 ms.collection: M365-identity-device-management
 ---
-# What is passwordless?
+# Passwordless authentication options
 
 Multi-factor authentication (MFA) is a great way to secure your organization, but users get frustrated with the additional layer on top of having to remember their passwords. Passwordless authentication methods are more convenient because the password is removed and replaced with something you have plus something you are or something you know.
 
 |   | Something you have | Something you are or know |
 | --- | --- | --- |
-| Passwordless | Phone or security key | Biometric or PIN |
+| Passwordless | Windows 10 Device, phone, or security key | Biometric or PIN |
 
-Each organization has different needs when it comes to authentication. Microsoft currently offers Windows Hello for our Windows PCs. We are adding the Microsoft Authenticator app and FIDO2 security keys to the passwordless family.
+Each organization has different needs when it comes to authentication. Microsoft offers three passwordless authentication options:
+
+- Windows Hello for Business 
+- Microsoft Authenticator app 
+- FIDO2 security keys
+
+![Authentication: Security versus convenience](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
+
+## Windows Hello for Business 
+
+Windows Hello for Business is ideal for information workers who have their own designated Windows PC. The biometric and PIN  are directly tied to the user's PC, which prevents access from anyone other than the owner. With PKI integration and built-in support for single sign-on (SSO), Windows Hello for Business provides a simple and convenient method for seamlessly accessing corporate resources on-premises and in the cloud.
+
+The Windows Hello for Business [planning guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) can be used to help you make decisions on the type of Windows Hello for Business deployment and the options you'll need to consider.
 
 ## Microsoft Authenticator App
 
@@ -41,7 +53,7 @@ For public preview, employees can use external security keys to sign in to their
 
 ![Sign in to Microsoft Edge with a security key](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
-While there are many keys that are FIDO2 certified by the FIDO Alliance, Microsoft requires some optional extensions of the FIDO2 CTAP specification to be implemented by the vendor to ensure maximum security and the best experience.
+While there are many keys that are FIDO2 certified by the FIDO Alliance, Microsoft requires some optional extensions of the FIDO2 Client-to-Authenticator Protocol (CTAP) specification to be implemented by the vendor to ensure maximum security and the best experience.
 
 A security key **MUST** implement the following features and extensions from the FIDO2 CTAP protocol to be Microsoft-compatible:
 

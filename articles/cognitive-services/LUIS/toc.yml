@@ -37,17 +37,7 @@
     - name: Get intent
       href: luis-get-started-get-intent-from-rest.md
     - name: Change model
-      items:
-      - name: C#
-        href: luis-get-started-cs-add-utterance.md
-      - name: Go
-        href: luis-get-started-go-add-utterance.md
-      - name: Java
-        href: luis-get-started-java-add-utterance.md
-      - name: Node.js
-        href: luis-get-started-node-add-utterance.md
-      - name: Python
-        href: luis-get-started-python-add-utterance.md
+      href: get-started-get-model-rest-apis.md
 - name: Tutorials
   items:
   - name: Build app
@@ -331,9 +321,13 @@
     href: https://go.microsoft.com/fwlink/?linkid=2092157
   - name: REST APIs
     items:
-    - name: Authoring V2 REST APIs
+    - name: V3 Authoring REST APIs (Preview)
+      href: https://aka.ms/luis-apim-v3-authoring
+    - name: V3 Prediction REST APIs
+      href: https://aka.ms/luis-apim-v3-prediction
+    - name: V2 Authoring REST APIs
       href: https://go.microsoft.com/fwlink/?linkid=2092087
-    - name: Endpoint V2 REST API
+    - name: V2 Prediction REST APIs
       href: https://go.microsoft.com/fwlink/?linkid=2092356
     - name: HTTP codes
       displayName: 400, 401, 403, 409, 410, 414, 429
