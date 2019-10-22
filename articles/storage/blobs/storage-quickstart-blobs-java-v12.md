@@ -1,20 +1,20 @@
 ---
-title: "Quickstart: Azure Blob storage client library version 12 for .NET"
-description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+title: "Quickstart: Azure Blob storage client library version 12 for Java"
+description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for Java to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/22/2019
+ms.date: 10/23/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ---
 
-# Quickstart: Azure Blob storage client library version 12 for .NET
+# Quickstart: Azure Blob storage client library version 12 for Java
 
-Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library v12 for Java. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob Storage client library v12 for .NET to:
+Use the Azure Blob Storage client library v12 for Java to:
 
 * Create a container
 * Set permissions on a container
@@ -23,69 +23,95 @@ Use the Azure Blob Storage client library v12 for .NET to:
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](/dotnet/api/overview/azure/storage) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12) | [Samples](/samples/browse/?products=azure&languages=csharp&service=storage&term=blob)
+[API reference documentation](/java/api/overview/azure/storage?view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12) | [Samples](/samples/browse/?products=azure&service=storage&languages=java&term=blob)
 
 ## Prerequisites
 
+* [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) with version 8 or above
+* [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for .NET.
+This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for Java.
 
 ### Create the project
 
-Create a .NET Core application named *BlobQuickstartV12*.
+Create a Java Core application named *blob-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *BlobQuickstartV12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
-
-   ```console
-   dotnet new console -n BlobQuickstartV12
-   ```
-
-2. Switch to the newly created *BlobQuickstartV12* folder and build the app to verify that all is well.
+1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command all on a single line to create a simple "Hello world!" Java project. The command is displayed here on multiple lines for readability.
 
    ```console
-   cd BlobQuickstartV12
+   mvn archetype:generate -DgroupId=blob-quickstart-v12
+                          -DartifactId=blob-quickstart-v12
+                          -DarchetypeArtifactId=maven-archetype-quickstart
+                          -DarchetypeVersion=1.4
+                          -DinteractiveMode=false
    ```
+
+1. The output from generating the project should look something like this:
+
+    ```console
+    [INFO] Scanning for projects...
+    [INFO]
+    [INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+    [INFO] Building Maven Stub Project (No POM) 1
+    [INFO] --------------------------------[ pom ]---------------------------------
+    [INFO]
+    [INFO] >>> maven-archetype-plugin:3.1.2:generate (default-cli) > generate-sources @ standalone-pom >>>
+    [INFO]
+    [INFO] <<< maven-archetype-plugin:3.1.2:generate (default-cli) < generate-sources @ standalone-pom <<<
+    [INFO]
+    [INFO]
+    [INFO] --- maven-archetype-plugin:3.1.2:generate (default-cli) @ standalone-pom ---
+    [INFO] Generating project in Batch mode
+    [INFO] ----------------------------------------------------------------------------
+    [INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
+    [INFO] ----------------------------------------------------------------------------
+    [INFO] Parameter: groupId, Value: blob-quickstart-v12
+    [INFO] Parameter: artifactId, Value: blob-quickstart-v12
+    [INFO] Parameter: version, Value: 1.0-SNAPSHOT
+    [INFO] Parameter: package, Value: blob-quickstart-v12
+    [INFO] Parameter: packageInPathFormat, Value: blob-quickstart-v12
+    [INFO] Parameter: version, Value: 1.0-SNAPSHOT
+    [INFO] Parameter: package, Value: blob-quickstart-v12
+    [INFO] Parameter: groupId, Value: blob-quickstart-v12
+    [INFO] Parameter: artifactId, Value: blob-quickstart-v12
+    [INFO] Project created from Archetype in dir: C:\QuickStarts\blob-quickstart-v12
+    [INFO] ------------------------------------------------------------------------
+    [INFO] BUILD SUCCESS
+    [INFO] ------------------------------------------------------------------------
+    [INFO] Total time:  3.482 s
+    [INFO] Finished at: 2019-10-22T14:51:34-07:00
+    [INFO] ------------------------------------------------------------------------
+    ```
+
+1. Switch to the newly created *blob-quickstart-v12* folder.
 
    ```console
-   dotnet build
-   ```
-
-3. The expected output from the build should look something like this:
-
-   ```output
-   C:\quickstarts\BlobQuickstartV12> dotnet build
-   Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
-   Copyright (C) Microsoft Corporation. All rights reserved.
-   
-    Restore completed in 42.22 ms for C:\Users\mhopkins\Code\BlobQuickstartV12\BlobQuickstartV12.csproj.
-     BlobQuickstartV12 -> C:\Users\mhopkins\Code\BlobQuickstartV12\bin\Debug\netcoreapp3.0\BlobQuickstartV12.dll
-   
-   Build succeeded.
-       0 Warning(s)
-       0 Error(s)
-   
-   Time Elapsed 00:00:05.88
+   cd blob-quickstart-v12
    ```
 
 ### Install the package
 
-While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
+Open the *pom.xml* file in your text editor. Add the following dependency element to the group of dependencies.
 
-```console
-dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.4
+```xml
+<dependency>
+    <groupId>com.azure</groupId>
+    <artifactId>azure-storage-blob</artifactId>
+    <version>12.0.0-preview.4</version>
+</dependency>
 ```
 
 ### Set up the app framework
 
 From the project directory:
 
-1. Open the *Program.cs* file in your editor
-1. Remove the `Console.WriteLine("Hello World!");` statement
+1. Navigate to the */src/main/java/blob-quickstart-v12* directory
+1. Open the *App.java* file in your editor
+1. Remove the `System.out.println( "Hello World!" );` statement
 1. Add `using` directives
 1. Update the `Main` method declaration to support async code
 
@@ -103,8 +129,7 @@ namespace BlobQuickstartV12
 {
     class Program
     {
-        private static readonly string myDocumentsPath = 
-            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + '\\';
+        private static readonly string myDocumentsPath =            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + '\\';
 
         static async Task Main()
         {
@@ -164,7 +189,7 @@ The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-dotnet-v12/blob1.png)
 
-Use the following .NET classes to interact with these resources:
+Use the following Java classes to interact with these resources:
 
 * [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers. The storage account provides the top-level namespace for the Blob service.
 * [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
@@ -173,7 +198,7 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob storage client library for .NET:
+These example code snippets show you how to perform the following with the Azure Blob storage client library for Java:
 
    * [Get the connection string](#get-the-connection-string)
    * [Create a container](#create-a-container)
@@ -190,12 +215,12 @@ The code below retrieves the connection string for the storage account from the 
 Add this code inside the `Main` method:
 
 ```csharp
-Console.WriteLine("Azure Blob Storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Blob Storage v12 - Java quickstart sample\n");
 
-// Retrieve the connection string for use with the application. The storage 
-// connection string is stored in an environment variable on the machine 
-// running the application called CONNECT_STR. If the 
-// environment variable is created after the application is launched in a 
+// Retrieve the connection string for use with the application. The storage
+// connection string is stored in an environment variable on the machine
+// running the application called CONNECT_STR. If the
+// environment variable is created after the application is launched in a
 // console or with Visual Studio, the shell or application needs to be closed
 // and reloaded to take the environment variable into account.
 string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
@@ -342,7 +367,7 @@ dotnet run
 The output of the example application is similar to the following example:
 
 ```output
-Azure Blob Storage v12 - .NET quickstart sample
+Azure Blob Storage v12 - Java quickstart sample
 
 Uploading to Blob storage as blob:
         https://mystorageacct.blob.core.windows.net/quickstartblobs79c3043b-0b0b-4935-9dc3-308fcb89a616/quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
@@ -365,7 +390,7 @@ After you've verified the files, hit any key to finish the demo and delete the t
 
 ## Next steps
 
-In this quickstart, you learned how to upload, download, and list blobs using .NET.
+In this quickstart, you learned how to upload, download, and list blobs using Java.
 
 To learn how to create a web app that uploads an image to Blob storage, continue to:
 
