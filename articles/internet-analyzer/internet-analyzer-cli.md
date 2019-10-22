@@ -13,7 +13,7 @@ ms.author: mebeatty
 ---
 # Create an Internet Analyzer test using CLI (Preview)
 
-There are two ways to create an Internet Analyzer resource- using the [Azure preview portal](internet-analyzer-create-test-portal.md) or using CLI. This section helps you create a new Azure Internet Analyzer resource using our CLI experience. 
+There are two ways to create an Internet Analyzer resource - using the [Azure preview portal](internet-analyzer-create-test-portal.md) or using CLI. This section helps you create a new Azure Internet Analyzer resource using our CLI experience. 
 
 
 > [!IMPORTANT]
@@ -28,7 +28,7 @@ The public preview is available to use globally; however, data storage is limite
 The Internet Analyzer CLI exposes the following types of resources:
 1. **Tests** - A test compares the end-user performance of two internet endpoints (A and B) over time.
 2. **Profiles** - Tests are created under an Internet Analyzer profile. Profiles allow for related tests to be grouped; a single profile may contain one or more tests.
-3. **Preconfigured Endpoints** - We have set up endpoints with a variety of configurations (regions, acceleration technologies, etc). You may use any of these preconfigured endpoints in your tests.
+3. **Preconfigured Endpoints** - We have set up endpoints with a variety of configurations (regions, acceleration technologies, etc.). You may use any of these preconfigured endpoints in your tests.
 4. **Scorecards** - A scorecard provides quick and meaningful summaries of measurement results. Refer to [Interpreting your Scorecard](internet-analyzer-scorecard.md).
 5. **Time Series** - A time series shows how a metric changes over time.
 
@@ -61,19 +61,19 @@ The Internet Analyzer CLI exposes the following types of resources:
     az internet-analyzer profile create --location eastus --resource-group "MyInternetAnalyzerResourceGroup" --name "MyInternetAnalyzerProfile"
     ```
 
-8. List all preconfigured endpoints available to the newly-created profile:
+8. List all preconfigured endpoints available to the newly created profile:
     ```azurecli-interactive
     az internet-analyzer preconfigured-endpoint list --resource-group "MyInternetAnalyzerResourceGroup" --name "MyInternetAnalyzerProfile"
     ```
 
-9. Create a new test under the newly-created InternetAnalyzer profile:
+9. Create a new test under the newly created InternetAnalyzer profile:
     ```azurecli-interactive
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest"
     ```
 
-    The command above assumes that both www.contoso.com and www.microsoft.com are hosting the 1-pixel image ([trans.gif](fpc.msedge.net/apc/trans.gif)) under custom paths. Note that, if an object path isn't specified explicitly, Internet Analyzer will use `/apc/trans.gif` as the object path by default, which is where the preconfigured endpoints are hosting the 1-pixel image. Also note that the schema (https/http) doesn't need to be specified; Internet Analyzer only supports HTTPS endpoints, so HTTPS is assumed.
+    The command above assumes that both www.contoso.com and www.microsoft.com are hosting the 1-pixel image ([trans.gif](fpc.msedge.net/apc/trans.gif)) under custom paths. If an object path isn't specified explicitly, Internet Analyzer will use `/apc/trans.gif` as the object path by default, which is where the preconfigured endpoints are hosting the 1-pixel image. Also note that the schema (https/http) doesn't need to be specified; Internet Analyzer only supports HTTPS endpoints, so HTTPS is assumed.
 
-10. The new test should now be listed under the Internet  Analyzer profile:
+10. The new test should appear under the Internet Analyzer profile:
     ```azurecli-interactive
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
     ```
