@@ -1,7 +1,7 @@
 ---
 title: Offline Conversation Transcription (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Learn how to use offline conversation transcription using the Speech Service. Available for Java only.
+description: Learn how to use offline Conversation Transcription using the Speech Service. Available for Java only.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -12,26 +12,27 @@ ms.date: 11/04/2019
 ms.author: amishu
 ---
 
-# Offline Conversation Transcription service (Preview)
+# Offline Conversation Transcription (Preview)
 
-In this article, offline Conversation Transcription is demonstrated using the **RemoteConversationTranscriptionClient** API. If you have configured the Conversation Transcription service to do offline transcription and have a `conversationId`, you can obtain the transcription associated with that `conversationId` using the **RemoteConversationTranscriptionClient** API.
+In this article, offline Conversation Transcription is demonstrated using the **RemoteConversationTranscriptionClient** API. If you have configured Conversation Transcription to do offline transcription and have a `conversationId`, you can obtain the transcription associated with that `conversationId` using the **RemoteConversationTranscriptionClient** API.
 
 ## Offline transcription vs. real-time plus offline transcription
 
 With offline transcription, you stream the conversation audio, but don't need a transcription returned in real time. Instead, after the audio is sent, use the `conversationId` of `ConversationTranscriber` to query for the status of the offline transcription. When the offline transcription is ready, you'll get a `RemoteConversationTranscriptionResult`.
 
-With real-time plus offline, you get the transcription in real time, but also get the transcription by querying the service with the `conversationId` (similar to offline scenario).
+With real-time plus offline, you get the transcription in real time, but also get the transcription by querying with the `conversationId` (similar to offline scenario).
 
 Two steps are required to accomplish offline transcription. The first step is to upload the audio, choosing either offline only or real-time plus offline. The second step is to get the transcription results.
 
 ## Upload the audio
 
-Before offline transcription can be performed, you need to send the audio to Conversation Transcription service using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe conversations in real time with the Speech SDK](./how-to-use-conversation-transcription-service.md). The **Limitations** section of this topic specifies the supported platforms and languages APIs shown in this sample.
+Before offline transcription can be performed, you need to send the audio to Conversation Transcription using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe conversations in real time with the Speech SDK](./how-to-use-conversation-transcription-service.md). The **Limitations** section of this topic specifies the supported platforms and languages APIs shown in this sample.
 
-In the example code below, the service is set for offline mode. Substitute real information for "YourSubscriptionKey" and "Region".
+This example code shows offline-only mode.
 
 ```java
 // Create the speech config object
+// Substitute real information for "YourSubscriptionKey" and "Region"
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "Region");
 
 // Set the property for offline transcription
@@ -40,7 +41,7 @@ speechConfig.setServiceProperty("transcriptionMode", "Offline", ServicePropertyC
 // Set the property for real-time plus offline transcription
 //speechConfig.setServiceProperty("transcriptionMode", "RealTimeOffline", ServicePropertyChannel.UriQueryParameter);
 
-// Do rest of the things as explained in how to use Conversation Transcription service
+// Do rest of the things as explained in how to use Conversation Transcription
 
 // Keep a note of `conversationId` which is set using ConversationTranscriber.setConversationId(conversationId)
 ConversationTranscriber transcriber = new ConversationTranscriber(speechConfig, AudioConfig.fromDefaultMicrophoneInput());
@@ -98,7 +99,7 @@ You can obtain **remoteconversation-client-sdk** by editing your pom.xml file as
 
 ### Transcribing and getting the results
 
-After you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has finished, get **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the object. In this code we simply print the result contents to system output.
+After you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline transcription. **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has finished, get **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the object. In this code we simply print the result contents to system output.
 
 ```java
 // Create the speech config object

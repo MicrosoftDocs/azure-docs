@@ -25,7 +25,7 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 
 ## Optional sample code resources
 
-The Speech Device SDK provides sample code in Java for real-time audio capture using 8 channels and streams the audio into the Conversation Transcription service.
+The Speech Device SDK provides sample code in Java for real-time audio capture using 8 channels.
 
 - [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
 - [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
@@ -212,4 +212,4 @@ public class MyConversationTranscriber
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Offline Conversation Transcription service](how-to-use-offline-conversation-transcription-service.md)
+> [Offline Conversation Transcription](how-to-use-offline-conversation-transcription-service.md)
