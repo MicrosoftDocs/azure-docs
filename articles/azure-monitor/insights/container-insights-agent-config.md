@@ -87,76 +87,86 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally, and then follow the steps [here](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
     
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
-    
-### Configure scraping of Prometheus metrics
 
-3. To configure collection of Kubernetes services cluster-wide, configure the ConfigMap file using the following example.
-
-    ```
-    prometheus-data-collection-settings: |- ​
-    # Custom Prometheus metrics data collection settings
-    [prometheus_data_collection_settings.cluster] ​
-    interval = "1m"  ## Valid time units are s, m, h.
-    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
-    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-    kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
-    ```
-
-4. To configure scraping of Prometheus metrics from a specific URL across the cluster, configure the ConfigMap file using the following example.
-
-    ```
-    prometheus-data-collection-settings: |- ​
-    # Custom Prometheus metrics data collection settings
-    [prometheus_data_collection_settings.cluster] ​
-    interval = "1m"  ## Valid time units are s, m, h.
-    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
-    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-    urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
-    ```
-
-5. To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following in the ConfigMap:
-    
-    ```
-    prometheus-data-collection-settings: |- ​
-    # Custom Prometheus metrics data collection settings ​
-    [prometheus_data_collection_settings.node] ​
-    interval = "1m"  ## Valid time units are s, m, h. 
-    urls = ["http://$NODE_IP:9103/metrics"] ​
-    fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
-    fielddrop = ["metric_to_drop"] ​
-    ```
-
-    >[!NOTE]
-    >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. It must be all uppercase. 
-
-6. To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
-
-    1. In the ConfigMap, specify the following:
-
-        ```
-         prometheus-data-collection-settings: |- ​
-         # Custom Prometheus metrics data collection settings
-         [prometheus_data_collection_settings.cluster] ​
-         interval = "1m"  ## Valid time units are s, m, h
-         monitor_kubernetes_pods = true 
-        ```
-
-    2. Specify the following configuration for pod annotations:
-
-        ```
-         - prometheus.io/scrape:"true" #Enable scraping for this pod ​
-         - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
-         - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
-         - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
-        ```
-	
-    If you want to restrict monitoring to specific namespaces for pods that have annotations, for example only include pods dedicated for production workloads, set the `monitor_kubernetes_pod` to `true` in ConfigMap, and add the namespace filter `monitor_kubernetes_pods_namespaces` specifying the namespaces to scrape from. For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
-
-7. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
     The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+
+### Configure scraping of Prometheus metrics
+
+1. Edit the ConfigMap yaml file with your customizations to scrape Prometheus metrics.
+
+    - To collect of Kubernetes services cluster-wide, configure the ConfigMap file using the following example.
+
+        ```
+        prometheus-data-collection-settings: |- ​
+        # Custom Prometheus metrics data collection settings
+        [prometheus_data_collection_settings.cluster] ​
+        interval = "1m"  ## Valid time units are s, m, h.
+        fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
+        fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+        kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
+        ```
+
+    - To configure scraping of Prometheus metrics from a specific URL across the cluster, configure the ConfigMap file using the following example.
+
+        ```
+        prometheus-data-collection-settings: |- ​
+        # Custom Prometheus metrics data collection settings
+        [prometheus_data_collection_settings.cluster] ​
+        interval = "1m"  ## Valid time units are s, m, h.
+        fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
+        fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+        urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+        ```
+
+    - To configure scraping of Prometheus metrics from an agent's DaemonSet for every individual node in the cluster, configure the following in the ConfigMap:
+    
+        ```
+        prometheus-data-collection-settings: |- ​
+        # Custom Prometheus metrics data collection settings ​
+        [prometheus_data_collection_settings.node] ​
+        interval = "1m"  ## Valid time units are s, m, h. 
+        urls = ["http://$NODE_IP:9103/metrics"] ​
+        fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
+        fielddrop = ["metric_to_drop"] ​
+        ```
+
+        >[!NOTE]
+        >$NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. It must be all uppercase. 
+
+    - To configure scraping of Prometheus metrics by specifying a pod annotation, perform the following steps:
+
+       1. In the ConfigMap, specify the following:
+
+            ```
+            prometheus-data-collection-settings: |- ​
+            # Custom Prometheus metrics data collection settings
+            [prometheus_data_collection_settings.cluster] ​
+            interval = "1m"  ## Valid time units are s, m, h
+            monitor_kubernetes_pods = true 
+            ```
+
+       2. Specify the following configuration for pod annotations:
+
+           ```
+           - prometheus.io/scrape:"true" #Enable scraping for this pod ​
+           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+           - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
+           - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
+           ```
+	
+          If you want to restrict monitoring to specific namespaces for pods that have annotations, for example only include pods dedicated for production workloads, set the `monitor_kubernetes_pod` to `true` in ConfigMap, and add the namespace filter `monitor_kubernetes_pods_namespaces` specifying the namespaces to scrape from. For example, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+
+2. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
+    
+    Example: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
+    
+    The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" created`.
+
+## Verify configuration 
 
 To verify the configuration was successfully applied, use the following command to review the logs from an agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. If there are configuration errors from the omsagent pods, the output will show errors similar to the following:
 
