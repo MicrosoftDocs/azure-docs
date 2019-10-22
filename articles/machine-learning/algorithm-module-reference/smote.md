@@ -13,7 +13,7 @@ ms.date: 10/16/2019
 ---
 # SMOTE
 
-This article describes how to use the **SMOTE** module in Azure Machine Learning designer to increase the number of underepresented cases in a dataset used for machine learning. SMOTE is a better way of increasing the number of rare cases than simply duplicating existing cases.  
+This article describes how to use the **SMOTE** module in Azure Machine Learning designer (preview) to increase the number of underepresented cases in a dataset used for machine learning. SMOTE is a better way of increasing the number of rare cases than simply duplicating existing cases.  
 
  You connect the SMOTE module to a dataset that is *imbalanced*. There are many reasons why a dataset might be imbalanced: the category you are targeting might be very rare in the population, or the data might simply be difficult to collect. Typically, you use SMOTE when the *class* you want to analyze is under-represented. 
   
@@ -29,7 +29,7 @@ SMOTE takes the entire dataset as an input, but it increases the percentage of o
   
 ## Examples  
 
-We recommend that you try using **SMOTE** with a small dataset to see how it works. The following example uses the Blood Donation dataset available in Azure Machine Learning Studio.
+We recommend that you try using **SMOTE** with a small dataset to see how it works. The following example uses the Blood Donation dataset available in Azure Machine Learning designer.
   
 If you add the dataset to a pipeline, and click **Visualize** on the dataset’s output, you can see that, of the 748 rows or cases in the dataset, there are 570 cases (76%) of Class 0, and 178 cases (24%) of class 1. Although this isn’t terribly imbalanced, Class 1 represents the people who donated blood, and thus these rows contain the *feature space* that you want to model.
  
@@ -43,7 +43,7 @@ To increase the number of cases, you can set the value of **SMOTE percentage**, 
 |**SMOTE percentage** = **300**|570<br /><br /> 44%|712<br /><br /> 56%|1282|  
   
 > [!WARNING]
->  Increasing the number of cases using SMOTE is not guaranteed to produce more accurate models. You should try experimenting with different percentages, different feature sets, and different numbers of nearest neighbors to see how adding cases influences your model.  
+>  Increasing the number of cases using SMOTE is not guaranteed to produce more accurate models. You should try pipelineing with different percentages, different feature sets, and different numbers of nearest neighbors to see how adding cases influences your model.  
   
 ## How to configure SMOTE
   

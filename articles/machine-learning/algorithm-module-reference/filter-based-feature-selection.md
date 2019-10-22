@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Filter Based Feature Selection
 
-This article describes how to use the [Filter Based Feature Selection](filter-based-feature-selection.md) module in Azure Machine Learning designer, to identify the columns in your input dataset that have the greatest predictive power. 
+This article describes how to use the [Filter Based Feature Selection](filter-based-feature-selection.md) module in Azure Machine Learning designer (preview), to identify the columns in your input dataset that have the greatest predictive power. 
 
 In general, *feature selection* refers to the process of applying statistical tests to inputs, given a specified output, to determine which columns are more predictive of the output. The [Filter Based Feature Selection](filter-based-feature-selection.md) module provides multiple feature selection algorithms to choose from, including correlation methods such as Pearson correlation and chi-squared values. 
 
@@ -50,7 +50,7 @@ The **Filter-Based Feature Selection** provides a variety of metrics for assessi
 
 You choose a standard statistical metric, and the module computes the correlation between a pair of columns: the label column and a feature column
 
-1.  Add the **Filter-Based Feature Selection** module to your experiment. You can find it in the **Feature Selection** category in the designer.
+1.  Add the **Filter-Based Feature Selection** module to your pipeline. You can find it in the **Feature Selection** category in the designer.
 
 2. Connect an input dataset that contains at least two columns that are potential features.  
 
@@ -85,7 +85,7 @@ You choose a standard statistical metric, and the module computes the correlatio
 
     - If you specify fewer result columns than there are feature columns, the features are ranked by descending score, and only the top features are returned. 
 
-7.  Run the experiment, or select the [Filter Based Feature Selection](filter-based-feature-selection.md) module and then click **Run selected**.
+7.  Run the pipeline, or select the [Filter Based Feature Selection](filter-based-feature-selection.md) module and then click **Run selected**.
 
 
 ## Results

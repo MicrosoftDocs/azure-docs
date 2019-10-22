@@ -14,7 +14,7 @@ ms.date: 06/01/2019
 
 # Execute R Script
 
-This article describes how to use the **Execute R Script** module to run R code in your Azure Machine Learning designer (preview) experiment.
+This article describes how to use the **Execute R Script** module to run R code in your Azure Machine Learning designer (preview) pipeline.
 
 With R, you can perform tasks that aren't currently supported by existing modules such as: 
 - Create custom data transformations
@@ -71,7 +71,7 @@ The **Execute R Script** module contains sample code that you can use as a start
 
 Datasets stored in the designer are automatically converted to an R data frame when loaded with this module.
 
-1.  Add the **Execute R Script** module to your experiment.
+1.  Add the **Execute R Script** module to your pipeline.
 
   
 
@@ -119,7 +119,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1.  **Random Seed**: Type a value to use inside the R environment as the random seed value. This parameter is equivalent to calling `set.seed(value)` in R code.  
 
-1. Run the experiment.  
+1. Run the pipeline.  
 
 ## Results
 
@@ -129,7 +129,7 @@ Standard messages and errors from R are returned to the module's log.
 
 ## Sample scripts
 
-There are many ways that you can extend your experiment by using custom R script.  This section provides sample code for common tasks.
+There are many ways that you can extend your pipeline by using custom R script.  This section provides sample code for common tasks.
 
 
 ### Add R script as an input
@@ -142,7 +142,7 @@ The **Execute R Script** module supports arbitrary R script files as inputs. To 
 
 1.  Connect the dataset to the **Script Bundle** input port.
 
-1. All files that are contained in the ZIP file are available during experiment run time. 
+1. All files that are contained in the ZIP file are available during pipeline run time. 
 
     If the script bundle file contained a directory structure, the structure is preserved. However, you must alter your code to prepend the directory **./Script Bundle** to the path.
 
@@ -217,7 +217,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 You can pass R objects between instances of the **Execute R Script** module by using the internal serialization mechanism. This example assumes that you want to move the R object named `A` between two **Execute R Script** modules.
 
-1. Add the first **Execute R Script** module to your experiment, and type the following code in the **R Script** text box to create a serialized object `A` as a column in the module’s output Data Table:  
+1. Add the first **Execute R Script** module to your pipeline, and type the following code in the **R Script** text box to create a serialized object `A` as a column in the module’s output Data Table:  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){

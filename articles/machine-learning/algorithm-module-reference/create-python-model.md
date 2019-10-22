@@ -28,7 +28,7 @@ After you create the model, you can use [Train Model](train-model.md) to train t
 Use of this module requires intermediate or expert knowledge of Python. The module supports use of any learner that is included in the Python packages already installed in Azure Machine Learning. See pre-installed Python package list in [Execute Python Script](execute-python-script.md).
   
 
-This article will show how to use the **Create Python Model** with a simple experiment. Below is the graph of the experiment.
+This article will show how to use the **Create Python Model** with a simple pipeline. Below is the graph of the pipeline.
 
 ![create-python-model](./media/module/aml-create-python-model.png)
 

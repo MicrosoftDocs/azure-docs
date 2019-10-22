@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Score SVD Recommender
 
-This article describes how to use the **Score SVD Recommender** module in Azure Machine Learning designer. Use this module to create predictions using a trained recommendation model based on the SVD (Single Value Decomposition) algorithm.
+This article describes how to use the **Score SVD Recommender** module in Azure Machine Learning designer (preview). Use this module to create predictions using a trained recommendation model based on the SVD (Single Value Decomposition) algorithm.
 
 The SVD recommender can generate two different kinds of predictions:
 
@@ -27,7 +27,7 @@ When creating the second type of predictions, you can operate in either *product
 
     You can create scores for new users, not just users seen during training. For more information, see [this section](#technical-notes). 
 
-- **Evaluation mode** operates on a reduced set of users or items that can be evaluated, and is typically used during experimentation.
+- **Evaluation mode** operates on a reduced set of users or items that can be evaluated, and is typically used during pipelineation.
 
 For more information on the SVD recommender algorithm, see the research paper: [Matrix factorization techniques for recommender systems](https://datajobs.com/data-science-repo/Recommender-Systems-[Netflix].pdf).
 
@@ -45,7 +45,7 @@ This module supports different types of recommendations, each with different req
 
 When you predict ratings, the model calculates how a given user will react to a particular item, given the training data. Therefore, the input data for scoring must provide both a user and the item to rate.
 
-1. Add a trained recommendation model to your experiment, and connect it to **Trained SVD recommender**.  You must create the model by using [Train SVD Recommender](train-SVD-recommender.md).
+1. Add a trained recommendation model to your pipeline, and connect it to **Trained SVD recommender**.  You must create the model by using [Train SVD Recommender](train-SVD-recommender.md).
 
 2. **Recommender prediction kind**: Select **Rating Prediction**. No further parameters are required.
 
@@ -55,7 +55,7 @@ When you predict ratings, the model calculates how a given user will react to a 
 
     The dataset can contain an optional third column of ratings for the user-item pair in the first and second columns, but the third column will be ignored during prediction.
 
-4. Run the experiment.
+4. Run the pipeline.
 
 ### Results for rating predictions 
 
@@ -65,13 +65,13 @@ The output dataset contains three columns, containing the user, the item, and th
 
 To recommend items for users, you provide a list of users and items as input. From this data, the model uses its knowledge about existing items and users to generate a list of items with probable appeal to each user. You can customize the number of recommendations returned, and set a threshold for the number of previous recommendations that are required in order to generate a recommendation.
 
-1. Add a trained recommendation model to your experiment, and connect it to **Trained SVD recommender**.  You must create the model by using [Train SVD Recommender](train-svd-recommender.md).
+1. Add a trained recommendation model to your pipeline, and connect it to **Trained SVD recommender**.  You must create the model by using [Train SVD Recommender](train-svd-recommender.md).
 
 2. To recommend items for a given list of users, set **Recommender prediction kind** to **Item Recommendation**.
 
 3. **Recommended item selection**: Indicate whether you are using the scoring module in production or for model evaluation, by choosing one of these values:
 
-    - **From All Items**: Select this option if you are setting up an experiment to use in a Web service or production.  This option enables **production mode**, and the module makes recommendations from all items seen during training.
+    - **From All Items**: Select this option if you are setting up an pipeline to use in a Web service or production.  This option enables **production mode**, and the module makes recommendations from all items seen during training.
 
     - **From Rated Items (for model evaluation)**: Select this option if you are developing or testing a model. This option enables **evaluation mode**, and the module makes recommendations only from those items in the input dataset that have been rated.
     
@@ -101,7 +101,7 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
     To apply this filter, connect the original training dataset to the input port.
 
-8. Run the experiment.
+8. Run the pipeline.
 
 ### Results of item recommendation
 
@@ -120,11 +120,11 @@ This section contains answers to some common questions about using the recommend
 
 ###  Production use of the SVD recommender
 
-If you have experimented with the SVD recommender, and move the model to production, be aware of these key differences when using the recommender in evaluation mode and in production mode:
+If you have pipelineed with the SVD recommender, and move the model to production, be aware of these key differences when using the recommender in evaluation mode and in production mode:
 
 - Evaluation, by definition, requires predictions that can be verified against the *ground truth* in a test set. Therefore, when you evaluate the recommender, it must predict only items that have been rated in the test set. This necessarily restricts the possible values that are predicted.
 
-    However, when you operationalize the model, you typically change the prediction mode to make recommendations based on all possible items, in order to get the best predictions. For many of these predictions, there is no corresponding ground truth, so the accuracy of the recommendation cannot be verified in the same way as during experimentation.
+    However, when you operationalize the model, you typically change the prediction mode to make recommendations based on all possible items, in order to get the best predictions. For many of these predictions, there is no corresponding ground truth, so the accuracy of the recommendation cannot be verified in the same way as during pipelineation.
 
 
 ## Next steps

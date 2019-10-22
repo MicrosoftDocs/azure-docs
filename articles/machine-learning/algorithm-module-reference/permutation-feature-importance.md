@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Permutation Feature Importance
 
-This article describes how to use the [Permutation Feature Importance](permutation-feature-importance.md) module in Azure Machine Learning designer, to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
+This article describes how to use the [Permutation Feature Importance](permutation-feature-importance.md) module in Azure Machine Learning designer (preview), to compute a set of feature importance scores for your dataset. You use these scores to help you determine the best features to use in a model.
 
 In this module, feature values are randomly shuffled, one column at a time, and the performance of the model is measured before and after. You can choose one of the standard metrics provided to measure performance.
 
@@ -25,7 +25,7 @@ This article provides a good general overview of permutation feature importance,
 
 To generate a set of feature scores requires that you have an already trained model, as well as a test dataset.  
 
-1.  Add the **Permutation Feature Importance** module to your experiment. You can find this module in the **Feature Selection** category. 
+1.  Add the **Permutation Feature Importance** module to your pipeline. You can find this module in the **Feature Selection** category. 
 
 2.  Connect a trained model to the left input. The model must be a regression model or classification model.  
 
@@ -33,7 +33,7 @@ To generate a set of feature scores requires that you have an already trained mo
 
 4.  For **Random seed**, type a value to use as seed for randomization. If you specify 0 (the default), a number is generated based on the system clock.
 
-     A seed value is optional, but you should provide a value if you want reproducibility across runs of the same experiment.  
+     A seed value is optional, but you should provide a value if you want reproducibility across runs of the same pipeline.  
 
 5.  For **Metric for measuring performance**, select a single metric to use when computing model quality after permutation.  
 
@@ -49,7 +49,7 @@ To generate a set of feature scores requires that you have an already trained mo
 
      For a more detailed description of these evaluation metrics, and how they are calculated, see [Evaluate Model](evaluate-model.md).  
 
-6.  Run the experiment.  
+6.  Run the pipeline.  
 
 7.  The module outputs a list of feature columns and the scores associated with them, ranked in order of the scores, descending.  
 

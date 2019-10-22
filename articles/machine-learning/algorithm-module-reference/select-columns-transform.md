@@ -13,17 +13,17 @@ ms.date: 10/10/2019
 ---
 # Select Columns Transform
 
-This article describes how to use the **Select Columns Transform** module in Azure Machine Learning Studio. The purpose of the **Select Columns Transform** module is to ensure that a predictable, consistent set of columns is always used in downstream machine learning operations.
+This article describes how to use the **Select Columns Transform** module in Azure Machine Learning designer (preview). The purpose of the **Select Columns Transform** module is to ensure that a predictable, consistent set of columns is always used in downstream machine learning operations.
 
-This module is helpful for tasks such as scoring, which require specific columns. Changes in the available columns might break the experiment or change the results.
+This module is helpful for tasks such as scoring, which require specific columns. Changes in the available columns might break the pipeline or change the results.
 
 You use the **Select Columns Transform** to create and save a set of columns. Then, use the [Apply Transformation](apply-transformation.md) module to apply those selections to new data.
 
 ## How to use Select Columns Transform
 
-This scenario assumes that you intend to use feature selection to generate a dynamic set of columns that will be used for training a model. To ensure that column selections are the same for the scoring process, you use the **Select Columns Transform** module to capture the column selections and apply them elsewhere in the experiment.
+This scenario assumes that you intend to use feature selection to generate a dynamic set of columns that will be used for training a model. To ensure that column selections are the same for the scoring process, you use the **Select Columns Transform** module to capture the column selections and apply them elsewhere in the pipeline.
 
-1. Add an input dataset to your experiment in Studio.
+1. Add an input dataset to your pipeline in the designer.
 
 2. Add an instance of [Filter Based Feature Selection](filter-based-feature-selection.md).
 
@@ -45,7 +45,7 @@ This scenario assumes that you intend to use feature selection to generate a dyn
 
    > [!IMPORTANT]
    > You cannot expect to apply [Filter Based Feature Selection](filter-based-feature-selection.md) to the scoring dataset, and get the same results. Since feature selection is based on values, it might choose a different set of columns, which would cause the scoring operation to fail.
-7. Run the experiment.
+7. Run the pipeline.
 
 This process of saving and then applying a column selection ensures that the same data schema is available for training and scoring.
 

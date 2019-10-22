@@ -13,7 +13,7 @@ ms.date: 10/10/2019
 ---
 # Cross Validate Model
 
-This article describes how to use the **Cross Validate Model** module in Azure Machine Learning designer. *Cross-validation* is an important technique often used in machine learning to assess both the variability of a dataset and the reliability of any model trained using that data.  
+This article describes how to use the **Cross Validate Model** module in Azure Machine Learning designer (preview). *Cross-validation* is an important technique often used in machine learning to assess both the variability of a dataset and the reliability of any model trained using that data.  
 
 The **Cross Validate Model** module takes as input a labeled dataset, together with an untrained classification or regression model. It divides the dataset into some number of subsets (*folds*), builds a model on each fold, and then returns a set of accuracy statistics for each fold. By comparing the accuracy statistics for all the folds, you can interpret the quality of the data set and understand whether the model is susceptible to variations in the data.  
 
@@ -54,7 +54,7 @@ Cross-validation can take a long time to run if your dataset is large.  Therefor
 
 In this scenario, you both train and test the model using **Cross Validate Model**.
 
-1. Add the **Cross Validate Model** module to your experiment. You can find it in Azure Machine Learning designer, in the **Model Scoring & Evaluation** category. 
+1. Add the **Cross Validate Model** module to your pipeline. You can find it in Azure Machine Learning designer, in the **Model Scoring & Evaluation** category. 
 
 2. Connect the output of any **classification** or **regression** model. 
 
@@ -68,7 +68,7 @@ In this scenario, you both train and test the model using **Cross Validate Model
 
 5. Set a value for the **Random seed** parameter if you want to be able to repeat the results of cross-validation across successive runs on the same data.  
 
-6.  Run the experiment.
+6.  Run the pipeline.
 
 7. See the [Results](#results) section for a description of the reports.
 
@@ -82,7 +82,7 @@ After all iterations are complete, **Cross Validate Model** creates scores for t
 
 The first output of the module provides the source data for each row, together with some predicted values and related probabilities. 
 
-To view these results, in the experiment, right-click the **Cross Validate Model** module, select **Scored results**, and click **Visualize**.
+To view these results, in the pipeline, right-click the **Cross Validate Model** module, select **Scored results**, and click **Visualize**.
 
 | New column name      | Description                              |
 | -------------------- | ---------------------------------------- |
@@ -96,7 +96,7 @@ The second report is grouped by folds. Remember that, during execution, **Cross 
 
 In this report, the folds are listed by index value, in ascending order.  To order on any other column, you can save the results as a dataset.
 
-To view these results, in the experiment, right-click the **Cross Validate Model** module, select **Evaluation results by fold**, and click **Visualize**.
+To view these results, in the pipeline, right-click the **Cross Validate Model** module, select **Evaluation results by fold**, and click **Visualize**.
 
 
 |Column name| Description|
