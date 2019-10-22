@@ -43,4 +43,4 @@ You can publish the Sharing Service again and finally deploy the app.
 In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about how to use Azure Spatial Anchors in a new Unity HoloLens app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Starting a new Android app](./tutorial-new-unity-hololens-app.md)
+> [Starting a new Unity HoloLens app](./tutorial-new-unity-hololens-app.md)

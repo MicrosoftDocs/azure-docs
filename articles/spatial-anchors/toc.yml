@@ -33,8 +33,8 @@
   items:
   - name: Sharing across sessions and devices
     href: tutorials/tutorial-share-anchors-across-devices.md
-  - name: Persistent sharing with Azure Cosmos DB
-    href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+    - name: Persistent sharing with Azure Cosmos DB
+      href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
   - name: Starting a new Unity HoloLens app
     href: tutorials/tutorial-new-unity-hololens-app.md
   - name: Starting a new Android app
