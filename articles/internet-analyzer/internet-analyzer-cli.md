@@ -45,33 +45,35 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 4. Sign in with your account credentials in the browser.
 
+5. Select your Subscription ID that has been granted access to the Internet Analyzer public preview.
+
     After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](https://docs.microsoft.com/en-us/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](https://docs.microsoft.com/en-us/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
     There are ways to sign in non-interactively, which are covered in detail in [Sign in with Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
-5. **[Optional]** Create a new Azure Resource Group:
+6. **[Optional]** Create a new Azure Resource Group:
     ```azurecli-interactive
     az group create --location eastus --name "MyInternetAnalyzerResourceGroup"
     ```
 
-6. Create a new Internet Analyzer profile:
+7. Create a new Internet Analyzer profile:
     ```azurecli-interactive
     az internet-analyzer profile create --location eastus --resource-group "MyInternetAnalyzerResourceGroup" --name "MyInternetAnalyzerProfile"
     ```
 
-7. List all preconfigured endpoints available to the newly-created profile:
+8. List all preconfigured endpoints available to the newly-created profile:
     ```azurecli-interactive
     az internet-analyzer preconfigured-endpoint list --resource-group "MyInternetAnalyzerResourceGroup" --name "MyInternetAnalyzerProfile"
     ```
 
-8. Create a new test under the newly-created InternetAnalyzer profile:
+9. Create a new test under the newly-created InternetAnalyzer profile:
     ```azurecli-interactive
-    az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/1k.jpg" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/1k.jpg" --name "MyFirstInternetAnalyzerTest"
+    az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest"
     ```
 
-    The command above assumes that both www.contoso.com and www.microsoft.com are hosting the same object (1k.jpg) under different paths. Note that, if an object path isn't specified explicitly, Internet Analyzer will use `/apc/trans.gif` as the object path by default.  Also note that the schema (https/http) doesn't need to be specified; Internet Analyzer only supports HTTPS endpoints, so HTTPS is assumed.
+    The command above assumes that both www.contoso.com and www.microsoft.com are hosting the 1-pixel image ([trans.gif](fpc.msedge.net/apc/trans.gif)) under custom paths. Note that, if an object path isn't specified explicitly, Internet Analyzer will use `/apc/trans.gif` as the object path by default, which is where the preconfigured endpoints are hosting the 1-pixel image. Also note that the schema (https/http) doesn't need to be specified; Internet Analyzer only supports HTTPS endpoints, so HTTPS is assumed.
 
-9. The new test should now be listed under the Internet  Analyzer profile:
+10. The new test should now be listed under the Internet  Analyzer profile:
     ```azurecli-interactive
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
     ```
@@ -103,7 +105,7 @@ The Internet Analyzer CLI exposes the following types of resources:
     ]
     ````
 
-10. To begin generating measurements, the JavaScript file pointed to by the test's **scriptFileUri** must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.
+11. To begin generating measurements, the JavaScript file pointed to by the test's **scriptFileUri** must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.
 
 ## Next steps
 
