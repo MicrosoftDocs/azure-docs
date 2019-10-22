@@ -24,19 +24,19 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure IoT Central?
-            url: overview-iot-central.md
+            url: overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: IoT Solution options
-            url: overview-iot-options.md
+            url: overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Tour the UI
-            url: overview-iot-central-tour.md
+            url: overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - linkListType: architecture
         links:
           - text: Azure IoT Central architecture
-            url: concepts-architecture.md
+            url: concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - linkListType: quickstart
         links:
           - text: Create a new application
-            url: quick-deploy-iot-central.md
+            url: quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   
   # Card (optional)
   - title: Get connected

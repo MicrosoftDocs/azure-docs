@@ -19,7 +19,7 @@ highlightedContent:
   items: 
     - title: What is IoT Central? 
       itemType: overview # controls the icon image and super-title text 
-      url: ./core/overview-iot-central.md
+      url: ./core/overview-iot-central-pnp.md
     - title: What are Application Templates? 
       itemType: concept 
       url: ./core/howto-use-app-templates.md
@@ -28,13 +28,13 @@ highlightedContent:
       url: ./core/concepts-architecture.md
     - title: Create a new application 
       itemType: quickstart
-      url: ./core/quick-deploy-iot-central.md
+      url: ./core/quick-deploy-iot-central-pnp.md
     - title: Define a device type and add a device 
       itemType: tutorial
-      url: ./core/tutorial-add-device.md
+      url: ./core/howto-set-up-template-pnp.md
     - title: Monitor your devices
       itemType: tutorial 
-      url: ./core/tutorial-monitor-devices.md
+      url: ./core/tutorial-create-telemetry-rules-pnp
 
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -64,7 +64,7 @@ conceptualContent:
           text: Manage your devices 
         - url: ./core/howto-run-a-job.md
           itemType: concept
-          text: how-to-guide 
+          text: How to run a job 
         - url: ./core/howto-create-analytics.md
           itemType: how-to-guide
           text: Analyze your device data
@@ -80,9 +80,9 @@ conceptualContent:
         - url: ./core/howto-create-event-rules-pnp.md
           itemType: how-to-guide
           text: Create an event rule
-        - url: ./core/howto-export-data-blob-storage.md
+        - url: ./core/howto-export-data-pnp.md
           itemType: how-to-guide
-          text: Export to Blob Storage
+          text: Configure continuous data export
       footerLink: 
         url: ./core/index.yml
         text: See more
@@ -95,7 +95,7 @@ productDirectory:
     # Card
     - title: Build for Retail
       # imageSrc should be square in ratio with no whitespace
-      imageSrc: ./retail/media/index/iot-central.svg
+      imageSrc: ./retail/media/index/iot-central-retail.svg
       links:
         - url: ./retail/overview-iot-central-retail.md
           text: Building retail solutions with Azure IoT Central
@@ -106,8 +106,8 @@ productDirectory:
         - url: ./retail/tutorial-condition-monitor-export-data-visualize-insights-pnp.md
           text: 3 - Export data and visualize insights
     # Card
-    - title: Build for health
-      imageSrc: ./healthcare/media/index/iot-central.svg
+    - title: Build for healthcare
+      imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
       links:
         - url: ./healthcare/overview-iot-central-healthcare.md
           text: Build healthcare solutions with IoT Central
@@ -117,7 +117,7 @@ productDirectory:
           text: Build a health data triage dashboard
     # Card
     - title: Build for energy
-      imageSrc: ./energy/media/index/iot-central.svg
+      imageSrc: ./energy/media/index/iot-central-energy.svg
       links:
         - url: ./energy/overview-iot-central-energy.md
           text: Build energy solutions with IoT Central
@@ -127,7 +127,7 @@ productDirectory:
           text: Create a solar PV monitoring app
     # Card
     - title: Build for government
-      imageSrc: ./government/media/index/iot-central.svg
+      imageSrc: ./government/media/index/iot-central-government.svg
       links:
       - url: ./government/overview-iot-central-government.md
         text: Build government solutions with IoT Central
