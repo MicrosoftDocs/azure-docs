@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 10/14/2019
+ms.date: 11/04/2019
 
 ## Customer intent: As a data scientist, I want to create dataset monitors and set alerts to monitor data drift in my datasets.
 ---
@@ -24,9 +24,6 @@ With Azure Machine Learning dataset monitors, you can:
 * **Monitor model data** for differences between training and serving datasets.
 * **Monitor new data** for differences between any baseline and target dataset.
 * **Set up alerts on data drift** for early warnings to potential issues. 
-
-> [!Note]
-> This Azure Machine Learning capability is in preview.
 
 ## Prerequisites
 
