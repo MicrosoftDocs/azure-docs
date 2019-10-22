@@ -145,8 +145,6 @@ You can use one or more public IP address resources or one or more public IP pre
 
 ## Discover the IP address of the VM
 
-First we need to discover the IP address of the VM you've created.
-
 1. On the left side of the portal, select **Resource groups**.
 2. Select **myResourceGroupNAT**.
 3. Select **myVM**.
