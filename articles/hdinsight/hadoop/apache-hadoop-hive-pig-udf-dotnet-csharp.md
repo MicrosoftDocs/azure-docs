@@ -170,7 +170,7 @@ To create a C# project for an Apache Hive UDF:
 
 4. Expand the HDInsight cluster that you wish to deploy this application to. An entry with the text __(Default Storage Account)__ is listed.
 
-    ![Server Explorer showing the storage account for the cluster](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
+    ![Default storage account, HDInsight cluster, Server Explorer](./media/apache-hadoop-hive-pig-udf-dotnet-csharp/hdinsight-storage-account.png)
 
     * If this entry can be expanded, you are using an __Azure Storage Account__ as default storage for the cluster. To view the files on the default storage for the cluster, expand the entry and then double-click the __(Default Container)__.
 
@@ -245,24 +245,24 @@ To create a C# project for an Apache Hive UDF:
         DETAILS = STREAM LOG through streamer as (col1, col2, col3, col4, col5);
         DUMP DETAILS;
 
-    The `DEFINE` statement creates an alias of `streamer` for the pigudf.exe applications, and `CACHE` loads it from default storage for the cluster. Later, `streamer` is used with the `STREAM` operator to process the single lines contained in LOG and return the data as a series of columns.
+    The `DEFINE` statement creates an alias of `streamer` for the *pigudf.exe* applications, and `CACHE` loads it from default storage for the cluster. Later, `streamer` is used with the `STREAM` operator to process the single lines contained in LOG and return the data as a series of columns.
 
     > [!NOTE]
     > The application name that is used for streaming must be surrounded by the \` (backtick) character when aliased, and ' (single quote) when used with `SHIP`.
 
 4. After entering the last line, the job should start. It returns output similar to the following text:
 
-        (2012-02-03 20:11:56 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
-        (2012-02-03 20:11:56 SampleClass5 [DEBUG] detail for id 1976092771)
-        (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1317358561)
-        (2012-02-03 20:11:56 SampleClass5 [TRACE] verbose detail for id 1737534798)
-        (2012-02-03 20:11:56 SampleClass7 [DEBUG] detail for id 1475865947)
+        (2019-07-15 16:43:25 SampleClass5 [WARN] problem finding id 1358451042 - java.lang.Exception)
+        (2019-07-15 16:43:25 SampleClass5 [DEBUG] detail for id 1976092771)
+        (2019-07-15 16:43:25 SampleClass5 [TRACE] verbose detail for id 1317358561)
+        (2019-07-15 16:43:25 SampleClass5 [TRACE] verbose detail for id 1737534798)
+        (2019-07-15 16:43:25 SampleClass7 [DEBUG] detail for id 1475865947)
 
 ## Next steps
 
 In this document, you have learned how to use a .NET Framework application from Hive and Pig on HDInsight. If you would like to learn how to use Python with Hive and Pig, see [Use Python with Apache Hive and Apache Pig in HDInsight](python-udf-hdinsight.md).
 
-For other ways to use Pig and Hive, and to learn about using MapReduce, see the following documents:
+For other ways to use Hive, and to learn about using MapReduce, see the following articles:
 
 * [Use Apache Hive with HDInsight](hdinsight-use-hive.md)
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
