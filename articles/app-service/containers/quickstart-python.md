@@ -242,24 +242,24 @@ The left menu provides different pages for configuring your app.
 
 In the preceding steps, you created Azure resources in a resource group that may incur ongoing costs. The resource group has a name like "appsvc_rg_Linux_CentralUS" depending on your location.
 
-If you don't expect to need these resources in the future, delete the resource group by running the following command, replacing "appsvc_rg_Linux_centralus" with your resource group name. The command may take a minute to complete.
+If you don't expect to need these resources in the future, delete the resource group by running the following command, replacing `<resource-group-name>` with the resource group shown in the output of the `az webapp up` command, such as "appsvc_rg_Linux_centralus". The command may take a minute to complete.
 
 # [Bash](#tab/bash)
 
 ```bash
-az group delete -n appsvc_rg_Linux_centralus
+az group delete -n <resource-group-name>
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az group delete -n appsvc_rg_Linux_centralus
+az group delete -n <resource-group-name>
 ```
 
 # [Cmd](#tab/cmd)
 
 ```cmd
-az group delete -n appsvc_rg_Linux_centralus
+az group delete -n <resource-group-name>
 ```
 
 ---
