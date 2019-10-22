@@ -1,6 +1,6 @@
 ---
 title: Configure Hybrid Kubernetes clusters with Azure Monitor for containers | Microsoft Docs
-description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack.
+description: This article describes how you can configure Azure Monitor for containers to monitor Kubernetes clusters hosted on Azure Stack or other environment.
 ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
@@ -9,7 +9,7 @@ ms.author: magoedte
 ms.date: 10/15/2019
 ---
 
-# Configure agent data collection for Azure Monitor for containers
+# Configure hybrid Kubernetes clusters with Azure Monitor for containers
 
 Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS-Engine clusters hosted in Azure. This article describes the how to enable monitoring of Kuberentes clusters hosted outside of Azure and achieve a similar monitoring experience.
 
