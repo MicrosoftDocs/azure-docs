@@ -1,49 +1,28 @@
 ---
-title: Manage developer account settings and profile info
-description: 
+title: Manage your Office Store account in Partner Center
+description: After you create a Partner Center account, you can manage your account and offers using the Partner Center dashboard.
 localization_priority: Normal
 ---
 
-# How to manage your Commercial Marketplace account in Partner Center 
+# Manage your Office Store account in Partner Center 
 
-Once you've [created a Partner Center account](./create-account.md), you can manage your account and offers using the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
-
-In this article, we'll dive into how to manage your Partner Center account, including how to: 
-
-- [Access your Partner Center account settings](#access-your-account-settings)
-- [Find your Publisher ID, Seller ID, User ID, and Azure AD tenants](#account-details)
-- [Update contact information](#contact-info)
-- [Manage financial details (payout account, tax profile, payout hold status)](#financial-details)
-- [Set up Tracking GUIDs for monitoring customer usage](#tracking-guids)
-- [Manage users](#manage-users)
-- [Manage groups](#manage-groups)
-- [Manage Azure AD applications](#manage-azure-ad-applications)
-- [Define user roles and permissions](#define-user-roles-and-permissions)
-- [Manage Azure AD tenants (work accounts)](#manage-tenants)
-- [Manage Partner Center Agreements](#agreements)
-
+After you [create a Partner Center account](./open-a-developer-account.md), you can manage your account and offers using the [Partner Center dashboard](https://partner.microsoft.com/dashboard/overview). In this article, we'll describe how to manage your Partner Center account. 
 
 ## Access your account settings
 
 If you have not already done so, you (or your organization's administrator) should access the [account settings](https://partner.microsoft.com/dashboard/account/management) for your Partner Center account in order to:
-- check your company's account verification status
-- confirm your Seller ID, MPN ID, Publisher ID, and contact information, including the company approver and seller contact
-- set up your company’s financial details, including tax exemptions if appropriate
-- create user accounts for anyone who will use your business account in Partner Center
+- Check your company's account verification status
+- Confirm your Seller ID and contact information, including the company approver and seller contact
+- Set up your company’s financial details, including tax exemptions if appropriate
+- Create user accounts for anyone who will use your business account in Partner Center
 
-### Open developer settings
+To access your account settings in Partner Center, select the gear icon (near the upper right corner of the dashboard) and then select **Developer settings**. 
 
-Account settings is located at the upper right corner of your [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace) in Partner Center. Select the gear icon (near the upper right corner of the dashboard) and then select **Developer settings**. 
-
-![Account settings menu in Partner Center](./media/dashboard-developer-settings.png)
-
-Inside **Account settings**, you will be able to view your:
-- **Account details**: Account type and Account status
-- **Publisher IDs**: Seller ID, User ID, Publisher ID, Azure AD tenants, etc.
-- **Contact info**: Publisher display name, Seller contact name, email, phone, and address
-- **Financial details**: Payout account, Tax profile, and Payout hold status
-- **Devices**: Any testing devices associated with your account
-- **Tracking GUIDs**: Any tracking GUIDs associate with your account
+On the **Account settings** page, you can view your:
+- Account details, include account type and account status
+- Publisher IDs, including Seller ID, User ID, and Azure AD tenants
+- Contact info, including Publisher display name, Seller contact name, email, phone, and address
+- Financial details, including payout account, tax profile, and payout hold status
 
 ### Account details
 
