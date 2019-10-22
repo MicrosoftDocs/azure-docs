@@ -376,6 +376,8 @@
       href: cognitive-search-skill-shaper.md
     - name: Conditional
       href: cognitive-search-skill-conditional.md
+    - name: Document Extraction
+      href: cognitive-search-skill-document-extraction.md
   - name: Custom skills
     items:
     - name: Custom Web API
