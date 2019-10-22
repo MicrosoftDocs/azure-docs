@@ -14,9 +14,9 @@ ms.service: azure-spatial-anchors
 ---
 # Tutorial: Sharing Azure Spatial Anchors across sessions and devices with an Azure Cosmos DB back end
 
-This tutorial is a continuation of [sharing Azure Spatial Anchors across sessions and devices.](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md) You need to add a few more things to make Azure Cosmos DB serve as the back end during sharing azure spatial anchors across sessions and devices.
+This tutorial is a continuation of [sharing Azure Spatial Anchors across sessions and devices.](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md) It will guide you through the process of adding a few more things to make Azure Cosmos DB serve as the back-end storage while sharing azure spatial anchors across sessions and devices.
 
-Add an Azure Cosmos Database to the resource group you created in earlier. 
+Add an Azure Cosmos Database to the resource group you created earlier. 
 
 ### Create a database account
 
