@@ -27,7 +27,7 @@ The tutorial will learn how to:
 > [!div class="checklist"]
 > * Use the Azure IoT Central **Water quality monitoring** template to create your water quality monitoring application
 > * Explore and customize operator dashboard 
-> * Explore sample water quality monitor device template
+> * Explore water quality monitor device template
 > * Explore simulated devices
 > * Customize pre-configured rules and add actions. 
 > * Configure jobs.
@@ -123,9 +123,73 @@ As a builder, you can customize views in dashboard for operators. You can try:
 
 * You can also click on **+ New** to create new dashboard and configure from scratch. You can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
 
-## Explore sample water quality monitor device template
+## Explore water quality monitor device template
+A device template in Azure IoT Central defines the capability of a device which can be telemetry, properties, and commands. As a builder, you can define device templates in IoT Central that represent the capability of the devices that will be connected. In IoT Central you can also create simulated devices to test your device template and application. 
+ 
 
-## Explore devices
+The **Water quality monitoring** application you have created from the application template comes with a refernce water quality monitor device template.
+
+To view the device template:
+
+* Click on **Device templates** from the left navigation pane of your application in IoT Central. 
+* In the Device templates list you will see **Water Quality Monitor**. Open by clicking on the name.
+
+    ![Device Template](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate.png)
+
+### Customizing the device template
+
+Try to customize following:
+* Navigate to **Customize** from the device template menu
+* Find the `Temperature` telemetry type
+* Update the **Display name** of `Temperature` to `Reported temperature`
+* You can also try update unit of measurement, or set *Min value* and *Max value*
+* **Save** any changes 
+
+#### Add a cloud property 
+* Navigate to **Cloud property** from the device template menu
+* Add a new cloud property by clicking **+ Add Cloud Property**. This could be any property that is relevant to the device but not expected to be sent by a device. As an example this could be alerting thresholds that will be specific to installation area, asset information, maintenance inforamtion etc. 
+* **Save** any changes 
+ 
+#### Views 
+* You will the water quality monitor device template comes with pre-defined views. Explore the views and you can make updates. The views define how operators will see the device data but also inputing cloud properties. 
+
+  ![Device Template Views](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devicetemplate-views.png)
+
+#### Publish 
+
+* If you made any changes make sure to **Publish** the device template. 
+
+
+### Create a new device template 
+You can also add new device template by:
+* Select **+ New** to create a new device template and follow the creation process. 
+You will be able to create a custom device template from scratch or you can choose a device template from the Azure Device Catalog. 
+
+
+## Explore simulated devices
+
+The **Water quality monitoring** application you have created from the application template has two simulated devices mapped to the water quality monitor device template. 
+
+### To view the devices:
+* Navigate to **Device** from IoT Central left navigation pane. 
+
+   ![Devices](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-devices.png)
+
+
+* Select and clik on one simulated device 
+
+    ![Device 1](./media/tutorial-waterqualitymonitoring/waterqualitymonitor-device1.png)
+
+* From the  **Cloud Properties** tab try updating the `pH Threshold` value from `8` to `9`. 
+* Explore the **Device Properties** tab and **Device Dashboard** tab. 
+
+> [!NOTE]
+> Note that all the tabs have been configured from the Device Template Views.
+
+
+### Add new devices
+You can add new devices by clicking on **+ New** on the **Devices** tab. 
+
 
 ## Customize pre-configured rules and add actions. 
 
