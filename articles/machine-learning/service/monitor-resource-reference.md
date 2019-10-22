@@ -184,6 +184,14 @@ Quota information is for Azure Machine Learning compute only.
 | Unusable cores | Count | The number of unusable cores. |
 | Unusable nodes | Count | The number of unusable nodes. |
 
+The following are dimensions that can be used to filter quota metrics:
+
+| Dimension | Description |
+| ---- | ---- |
+| Cluster Name | The name of the Azure Machine Learning compute instance. |
+| Vm Family Name | The name of the VM family used by the cluster. This dimension is only available with the __Quota utilization percentage__ metric. |
+| Vm Priority | |
+
 **Run**
 
 Information on training runs.
@@ -193,6 +201,18 @@ Information on training runs.
 | Completed runs | Count | The number of completed runs. |
 | Failed runs | Count | The number of failed runs. |
 | Started runs | Count | The number of started runs. |
+
+The following are dimensions that can be used to filter run metrics:
+
+| Dimension | Description |
+| ---- | ---- |
+| Region | The Azure region the run occurred in. |
+| ResourceId | |
+| Scenario | |
+| ComputeType | The compute type that the run used. |
+| PipelineStepType | The type of [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) used in the run. |
+| PublishedPipelineId | The ID of the published pipeline used in the run. |
+| RunType | |
 
 ## See Also
 
