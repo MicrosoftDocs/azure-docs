@@ -29,9 +29,15 @@ This quickstart shows you how to use Azure NAT service and create a NAT gateway 
 Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Prerequisites
-For this quickstart, you'll need a virtual network and a virtual machine to associate with the NAT gateway.
-
+For this quickstart, you'll need the following prerequisites:
+  * **Virtual machine**
+  * **Virtual network**
+  * **Public IP address**
+  * **Public IP prefix**
+  * **NAT gateway**
 ### Create a virtual network
+
+Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network that will contain the VM and NAT gateway.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 
@@ -51,6 +57,8 @@ For this quickstart, you'll need a virtual network and a virtual machine to asso
 
 ### Create a VM to use the NAT service
 
+We'll now create a VM to use the NAT service. This VM has a public IP to use as an instance-level Public IP to allow you to access the VM. NAT service is flow direction aware and will replace the default Internet destination in your subnet. The VM's public IP address won't be used for outbound connections.
+
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Ubuntu Server**. 
 
 2. In **Create a virtual machine**, type or select the following values in the **Basics** tab:
@@ -66,7 +74,7 @@ For this quickstart, you'll need a virtual network and a virtual machine to asso
 3. In the **Networking** tab make sure the following are selected:
    - **Virtual network**: **myVnet**
    - **Subnet**: **mySubnet**
-   - **Public IP** > select **Create new**, and in the **Create public IP address** window, **Name**: Type **myPublicIPVM**, **SKU**: Select **Standard**, and then select **OK**.
+   - **Public IP** > 
    - **NIC network security group**: Select **Basic**.
    - **Public inbound ports**: Select **Allow selected ports**.
    - **Select inbound ports**: Confirm **SSH** is selected.
@@ -77,27 +85,59 @@ For this quickstart, you'll need a virtual network and a virtual machine to asso
 
 ## Create the NAT Gateway
 
+You can use one or more public IP address resources or one or more public IP prefixes or both with NAT gateway. We will add a public IP resource, public IP prefix, and a NAT gateway resource to demonstrate.
+
 ### Create a public IP address
+
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP address**. 
+
+2. In **Create public IP address**, enter or select this information:
+
+    | Setting | Value |
+    | ------- | ----- |
+    | IP Version | Select **IPv4**.
+    | SKU | Select **Standard**.
+    | Name | Enter **myPublicIP**. |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **myResourceGroupNAT**. |
+    | Location | Select **East US 2**.|
+
+3. Leave the rest of the defaults and select **Create**.
 
 ### Create a public IP prefix
 
-### Create a NAT gateway resource
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **Public IP prefix**. 
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **NAT gateway**.
+2. In **Create a public IP prefix**, type or select the following values in the **Basics** tab:
+   - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**>
+   - **Instance details** > **Name**: Type **myPublicIPprefix**.
+   - **Instance details** > **Region**: Select **East US 2**.
+   - **Instance details** > **Prefix size**: Select **/31 (2 addresses)**
 
-2. In **Create network address translation (NAT) gateway**, type or select the following values in the **Basics** tab:
-   _ **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
-   - **Instance Details** > **NAT gateway name**: Type **myNATGateway**.
-   - **Instance Details** > **Region**: Select **East US 2**.
-   - **Instance Details** > **Idle timeout (minutes)**: Type **10**.
-   _ Select the **Public IP** tab, or select **Next: Public IP**.
+3. Leave the rest the defaults and select **Review + create**.
 
-3. In the **Public IP** tab, type or select the following values:
+4. Review the settings, and then select **Create**.
    
 
+### Create a NAT gateway resource
+
+1. On the upper-left side of the portal, select **Create a resource** > **Networking** > **NAT gateway**.
+
+2. In **Create network address translation (NAT) gateway**, type or select the following values in the **Basics** tab:
+   - **Subscription** > **Resource Group**: Select **myResourceGroupNAT**.
+   - **Instance details** > **NAT gateway name**: Type **myNATgateway**.
+   - **Instance details** > **Region**: Select **East US 2**.
+   - **Instance details** > **Idle timeout (minutes)**: Type **10**.
+   - Select the **Public IP** tab, or select **Next: Public IP**.
+
+3. In the **Public IP** tab, type or select the following values:
+   - **Public IP addresses**: Select **myPublicIP**.
+   - **Public IP Prefixes**: Select **myPublicIPprefix**.
+   - Select the **Subnet** tab, or select **Next: Subnet**.
+
 4. In the **Subnet** tab, type or select the following values:
-  - **Virtual Network**: Select **myResourceGroupNAT** > **myVnet**.
-  - **Subnet name**: Select the box next to **mySubnet**.
+   - **Virtual Network**: Select **myResourceGroupNAT** > **myVnet**.
+   - **Subnet name**: Select the box next to **mySubnet**.
 
 5. Select **Review + create**.
 
@@ -105,20 +145,17 @@ For this quickstart, you'll need a virtual network and a virtual machine to asso
 
 ## Discover the IP address of the VM
 
-First we need to discover the IP address of the VM you've created. To retrieve the public IP address of the VM, use [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). 
+First we need to discover the IP address of the VM you've created.
 
-```azurecli-interactive
-  az network public-ip show \
-    --resource-group myResourceGroupNAT \
-    --name myPublicIP \
-    --query [ipAddress] \
-    --output tsv
-``` 
+1. On the left side of the portal, select **Resource groups**.
+2. Select **myResourceGroupNAT**.
+3. Select **myVM**.
+4. In **Overview**, copy the **Public IP address** value, and paste into notepad so you can use it to access the VM.
 
 >[!IMPORTANT]
 >Copy the public IP address, and then paste it into a notepad so you can use it to access the VM.
 
-### Sign in to VM
+## Sign in to VM
 
 Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine.
 
@@ -130,12 +167,7 @@ You're now ready to use the NAT service.
 
 ## Clean up resources
 
-When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
-
-```azurecli-interactive 
-  az group delete \
-    --name myResourceGroupNAT
-```
+When no longer needed, delete the resource group, NAT gateway, and all related resources. To do so, select the resource group (**myResourceGroupNAT**) that contains the NAT gateway, and then select **Delete**.
 
 ## Next steps
 
