@@ -14,7 +14,6 @@ ms.date: 11/04/2019
 
 ---
 
-
 # Create, explore and deploy automated machine learning experiments with Azure Machine Learning studio
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
@@ -92,6 +91,10 @@ Otherwise, you'll see your **Automated machine learning** dashboard with an over
             
         Select **Next.**
 
+    1. The **Confirm details** form is a summary of the information previously populated in the **Basic info** and **Settings and preview** forms. You also have the option to profile your dataset using a profiling enabled compute. Learn more abiout [data profiling](#profile).
+
+        Select **Create**.
+
 1. Select the training job type: classification, regression, or forecasting.
 
 1. Select target column; this is the column that you would like to do predictions on.
@@ -158,19 +161,22 @@ When configuring your experiments, you can enable the advanced setting `Preproce
 
 ## Run experiment and view results
 
-Select **Start** to run your experiment. The experiment preparing process takes a couple of minutes.
+Select **Start** to run your experiment. The experiment preparing process can take up to 10 minutes. Training jobs can take an additional 2-3 minutes more for each pipeline to finish running.
 
 ### View experiment details
 
-Once the experiment preparation phase is done, you'll see the Run Detail screen begin to populate. This screen gives you a full list of the models created. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the iteration list and chart. Use the iteration chart to get a quick comparison of the metrics for the models produced so far.
+>[!NOTE]
+> Select **Refresh** periodically to view the status of the run. 
 
-Training jobs can take a while for each pipeline to finish running.
+The **Run Detail** screen opens to the **Details** tab. This screen shows you a summary of the experiment run including the **Run status**. 
+
+The **Models** tab contains a list of the models created ordered by the metric score. By default, the model that scores the highest based on the chosen metric is at the top of the list. As the training job tries out more models, they are added to the list. Use this to get a quick comparison of the metrics for the models produced so far.
 
 [![Run details dashboard](media/how-to-create-portal-experiments/run-details.png)](media/how-to-create-portal-experiments/run-details-expanded.png#lightbox)
 
 ### View training run details
 
-Drill down on any of the output models to see training run details, like performance metrics and distribution charts. [Learn more about charts](how-to-understand-automated-ml.md).
+Drill down on any of the completed models to see training run details, like run metrics on the **Model details** tab or performance charts on the **Visualizations** tab. [Learn more about charts](how-to-understand-automated-ml.md).
 
 [![Iteration details](media/how-to-create-portal-experiments/iteration-details.png)](media/how-to-create-portal-experiments/iteration-details-expanded.png)
 
@@ -184,7 +190,7 @@ Automated ML helps you with deploying the model without writing code:
 
     + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Run Detail page.
 
-    + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its run detail page and select Deploy Model.
+    + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its Run detail page and select Deploy Model.
 
 1. Populate the **Deploy Model** pane.
 
@@ -192,16 +198,12 @@ Automated ML helps you with deploying the model without writing code:
     ----|----
     Deployment name| Enter a unique name for your deployment.
     Deployment description| Enter a description to better identify what this deployment is for.
-    Scoring script| Autogenerate or upload your own scoring file. [Learn more about scoring script](how-to-deploy-and-where.md#script)
+    Scoring script| Autogenerate or upload your own scoring file. [Learn more about scoring script](how-to-deploy-and-where.md#script).
     Environment script| Autogenerate or upload your own environment file.
     >[!Important]
     > File names must be under 32 characters and must begin and end with alphanumerics. May include dashes, underscores, dots, and alphanumerics between. Spaces are not allowed.
 
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
-
-    The following message appears when deployment successfully completes.
-
-    ![Deploy complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
 Now you have an operational web service to generate predictions!
 
