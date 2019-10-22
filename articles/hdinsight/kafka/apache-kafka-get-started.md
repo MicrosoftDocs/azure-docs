@@ -160,6 +160,10 @@ In this section, you get the host information from the Apache Ambari REST API on
     ```bash
     export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
     ```
+
+    > [!Note]  
+    > This command requires Ambari access. If your cluster is behind an NSG, run this command from a machine that can access Ambari. 
+
 1. To verify that the environment variable is set correctly, use the following command:
 
     ```bash
@@ -175,6 +179,9 @@ In this section, you get the host information from the Apache Ambari REST API on
     ```bash
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
+
+    > [!Note]  
+    > This command requires Ambari access. If your cluster is behind an NSG, run this command from a machine that can access Ambari. 
 
 1. To verify that the environment variable is set correctly, use the following command:
 
