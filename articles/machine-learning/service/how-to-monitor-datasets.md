@@ -270,6 +270,7 @@ Limitations and known issues:
 * Compute size must be large enough to handle the data. 
 
 Specific implementation details include:
+
 | Feature type | Data type | Condition | Limitations | 
 | ------------ | --------- | --------- | ----------- |
 | Categorical | string, int, float | 1. Less than 100 unique values and 2. Less than 5% of total number of rows in the dataset | Null is treated as its own category | 
