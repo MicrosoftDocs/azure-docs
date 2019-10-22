@@ -15,7 +15,7 @@ ms.author: mebeatty
 
 Internet Analyzer and Network Watcher can both contribute to your performance management strategy with Azure. This guide is designed to help you choose the right solution for your scenario. 
 
-**Internet Analyzer measures end user experience and informs app and content deliver architectures.** To achieve this, Internet Analyzer measures the performance between your end users' Web application and an endpoint through a series of duel-endpoint tests. Internet Analyzer aggregates and analyzes your data and helps you understand the performance of various cloud solutions before you migrate. Internet Analyzer can be used to understand both your *current and future workloads*. 
+**Internet Analyzer measures end user experience and informs app and content deliver architectures.** To achieve this, Internet Analyzer measures the performance between your end users' Web application and an endpoint through a series of dual-endpoint tests. Internet Analyzer aggregates and analyzes your data and helps you understand the performance of various cloud solutions before you migrate. Internet Analyzer can be used to understand both your *current and future workloads*. 
 
 **Network Watcher monitors, diagnoses, and gives insight into your network performance and health.** Network Watcher automates network monitoring with packet capture, gives insight into your network traffic, and diagnoses VPN connectivity issues. Network Watcher can be used to understand your *current and historical workloads*. 
 
@@ -44,7 +44,7 @@ Some of the questions Network Watcher can answer are:
 * How can I troubleshoot connectivity issues between two points in a network (i.e. VMs)?
 * How can I troubleshoot connectivity issues between a Web application and various locations on the network? 
 * How can I compare my current network topology and performance to my historical topology?
-* How can I trouble shoot my existing cloud topologies (involving VMs, VNETs, VPNs, and VWANs)? 
+* How can I troubleshoot my existing cloud topologies (involving VMs, VNETs, VPNs, and VWANs)? 
 
 
 ## Next steps
