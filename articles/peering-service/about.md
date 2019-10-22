@@ -115,7 +115,7 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 
 To learn about peering Service concepts, see [Peering Service connection](faq.md).
 
-To find a Service Provider partner, see [Peering Service partners and locations](peering-service-location-partners.md).
+To find a Service Provider partner, see [Peering Service partners and locations](location-partners.md).
 
 To onboard the Peering Service connection, see [Peering Service connection](onboarding-model.md).
 
