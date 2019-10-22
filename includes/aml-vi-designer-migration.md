@@ -19,10 +19,9 @@ ms.date: 10/18/2019
     > [!NOTE]
     > You don't need to upgrade to the Enterprise edition in order to convert visual interface web services to real-time endpoints.
     
-1. Go to the designer section of the workspace to see your list of pipeline drafts.
+1. Go to the designer section of the workspace to see your list of pipeline drafts. 
     
-    > [!NOTE]
-    > Converted visual interface web services can be found by navigating to **Endpoints** > **Real-time endpoints**.
+    Converted visual interface web services can be found by navigating to **Endpoints** > **Real-time endpoints**.
 
 1. Select a pipeline draft to open it.
 
