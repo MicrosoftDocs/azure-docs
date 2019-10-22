@@ -10,9 +10,7 @@ ms.date: 10/18/2019
 
 # Monitor and tune Azure Database for PostgreSQL - Hyperscale (Citus)
 
-Monitoring data about your servers helps you troubleshoot and optimize for your
-workload. Azure Database for PostgreSQL provides various monitoring options to
-provide insight into the behavior of nodes in a server group.
+Monitoring data about your servers helps you troubleshoot and optimize for your workload. Hyperscale (Citus) provides various monitoring options to provide insight into the behavior of nodes in a server group.
 
 ## Metrics
 
@@ -21,7 +19,7 @@ metrics give insight into the behavior of supporting resources. Each metric is
 emitted at a one-minute frequency, and has up to 30 days of history.  You can
 configure alerts on the metrics. For step by step guidance, see [How to set up
 alerts](howto-alert-on-metric.md). Other tasks include setting up automated
-actions, performing advanced analytics, and archiving history. For more
+actions, running advanced analytics, and archiving history. For more
 information, see the [Azure Metrics
 Overview](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
@@ -40,7 +38,7 @@ These metrics are available for Hyperscale (Citus) nodes:
 |storage_percent|Storage percentage|Percent|The percentage of storage used out of the server's maximum.|
 |storage_used|Storage used|Bytes|The amount of storage in use. The storage used by the service may include the database files, transaction logs, and the server logs.|
 
-Note that Azure supplies no aggregate metrics for the cluster as a whole.
+Azure supplies no aggregate metrics for the cluster as a whole.
 However metrics for multiple nodes can be plotted together.
 
 ## Next steps

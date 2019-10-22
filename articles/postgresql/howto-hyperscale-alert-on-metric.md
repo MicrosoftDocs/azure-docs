@@ -12,10 +12,10 @@ ms.date: 10/21/2019
 
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 
-The alert triggers when the value of a specified metric crosses a threshold you assign. The alert triggers both when the condition is first met, and then afterwards when that condition is no longer being met. 
+We'll set up an alert to trigger when the value of a specified metric crosses a threshold. The alert triggers when the condition is first met, and continues to trigger afterwards.
 
 You can configure an alert to do the following actions when it triggers:
-* Send email notifications to the service administrator and co-administrators.
+* Send email notifications to the service administrator and coadministrators.
 * Send email to additional emails that you specify.
 * Call a webhook.
 
@@ -43,7 +43,14 @@ You can configure and get information about alert rules using:
    
    ![Select metric](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
 
-7. Configure the alert logic including the **Condition** (ex. "Greater than"), **Threshold** (ex. 85 percent), **Time Aggregation**, **Period** of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes"), and **Frequency**.
+7. Configure the alert logic:
+
+    * **Condition** (ex. "Greater than")
+    * **Threshold** (ex. 85 percent)
+    * **Time Aggregation**
+    * **Period** of time the metric rule must be satisfied before the alert triggers 
+        (ex. "Over the last 30 minutes")
+    * and **Frequency**
    
    Select **Done** when complete.
 
@@ -57,7 +64,7 @@ You can configure and get information about alert rules using:
 
 10. Configure an **Email/SMS/Push/Voice** action type.
     
-    Choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications.
+    Choose "Email Azure Resource Manager Role" to send notifications to subscription owners, contributors, and readers.
    
     Optionally, provide a valid URI in the **Webhook** field if you want it called when the alert fires.
 
@@ -74,7 +81,8 @@ You can configure and get information about alert rules using:
     Within a few minutes, the alert is active and triggers as previously described.
 
 ## Manage your alerts
-Once you have created an alert, you can select it and do the following actions:
+
+Once you've created an alert, you can select it and do the following actions:
 
 * View a graph showing the metric threshold and the actual values from the previous day relevant to this alert.
 * **Edit** or **Delete** the alert rule.
