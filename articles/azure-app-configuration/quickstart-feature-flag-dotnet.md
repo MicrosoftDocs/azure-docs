@@ -108,6 +108,7 @@ The .NET Feature Management libraries extend the framework with comprehensive fe
 
 ## Next steps
 
-In this quickstart, you created a feature flag in App Configuration and used it with a .NET Framework console app. To learn how to dynamically update feature flags without restarting the application, continue to the next tutorial.
+In this quickstart, you created a feature flag in App Configuration and used it with a .NET Framework console app. To learn how to dynamically update feature flags and other configuration values without restarting the application, continue to the next tutorial.
 
-[Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)
+> [!div class="nextstepaction"]
+> [Enable dynamic configuration](./enable-dynamic-configuration-dotnet.md)

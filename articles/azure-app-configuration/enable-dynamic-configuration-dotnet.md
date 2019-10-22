@@ -58,7 +58,7 @@ In this tutorial, you learn how to:
 1. In **Configure your new project**, enter a project name. Under **Framework**, select **.NET Framework 4.7.1** or higher. Click **Create**.
 
 ## Reload data from App Configuration
-1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet package to your project. If you can't find it, select the **Include prerelease** check box.
+1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the *Microsoft.Extensions.Configuration.AzureAppConfiguration* NuGet package to your project. If you can't find it, select the **Include prerelease** check box.
 
 1. Open *Program.cs*, and add a reference to the .NET Core App Configuration provider.
 
