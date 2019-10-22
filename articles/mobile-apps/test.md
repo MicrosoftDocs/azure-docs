@@ -1,21 +1,20 @@
 ---
-title: Test mobile applicatins on thousands of real devices using App Center
+title: Test mobile applications on thousands of real devices using Visual Studio App Center
 description: Learn about App Center as a service to continually test mobile applications on thousands of real devices.
 author: elamalani
 ms.assetid: 12a8a079-9b3c-4faf-0000-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Perform Automated Testing on thousands of mobile devices simultaneously
-
+# Perform automated testing on thousands of mobile devices simultaneously
 Testing can be challenging and increasingly complex due to a variety of reasons such as device fragmentation, application complexity, fast release cycles, short sessions, and high user expectations. You need to continuously make sure that you are delivering applications that are thoroughly tested to provide a great customer experience. Testing is not an easy task and it's not a good use of developer time to manually test each release.
 
 These challenges can be efficiently tackled by testing mobile applications across a wide range of devices, which can be achieved by **automated testing**. You can leverage cloud service to speed up release of mobile apps and overcome testing challenges that add bottlenecks to the development and deployment of applications.
 
-## Importance of Automated Testing
+## Importance of automated testing
 - **Increase your test coverage** by targeting different form factors, connectivity types, and OS versions.
 - **Save time, money, and resources** by testing on different device and OS coverage.
 - **Improve Accuracy** by avoiding repetitive manual tests and have more time to create new automated software tests and deal with complex features.
@@ -23,7 +22,6 @@ These challenges can be efficiently tackled by testing mobile applications acros
 - **Deliver high-quality applications** by ensuring that your customers on a wide range of devices get the best experience.
 
 ## Visual Studio App Center
-
 [App Center Test](/appcenter/test-cloud/) is a cloud-based service that lets you run automated UI tests on thousands of real-world devices in the cloud across Android and iOS for native and hybrid mobile apps. With over 2000 devices, you can easily write test scripts that can be executed automatically to make testing easy.
 
 **Key features**

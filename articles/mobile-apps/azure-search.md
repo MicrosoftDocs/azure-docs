@@ -5,7 +5,7 @@ author: elamalani
 ms.assetid: 34a8a070-0123-8982-8345-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 

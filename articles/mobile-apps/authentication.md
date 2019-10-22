@@ -1,15 +1,15 @@
 ---
-title: Add Authentication to your mobile apps with App Center and Azure services
+title: Add authentication to your mobile apps with Visual Studio App Center and Azure services
 description: Learn about the services such as App Center that help set up user authentication and enable mobile applications to authenticate with social accounts, Azure Active Directory, and custom authentication.
 author: elamalani
 ms.assetid: 34a8a070-2222-4faf-9090-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 08/27/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Add Authentication and manage user identities in your mobile apps
+# Add authentication and manage user identities in your mobile apps
 
 Having a view of the user and their behavior across your application empowers developers to better engage users by creating tailored experiences for them. Whether you are an application developer building a collaboration application for users inside your organization or are creating the next social network platform, you will need a way to authenticate users and manage user identities. Using an identity management service is one of the most important features of a mobile backend service.
 

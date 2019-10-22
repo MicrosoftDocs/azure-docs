@@ -1,15 +1,15 @@
 ---
-title: Host your mobile application source code in the cloud with GitHub and Azure DecOps
+title: Host your mobile application source code in the cloud with GitHub and Azure DevOps
 description: Learn about the services to host your mobile application code in the cloud with Microsoft services.
 author: elamalani
 ms.assetid: 12a8a079-9b3c-4faf-2222-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Cloud Hosted Source Code Management Services
+# Cloud hosted source code management services
 If you have development teams with multiple team members working on the same code base, you need to find a suitable place to host your code. Storing the data in the cloud and having a centralized repository allows everyone to upload, edit and manage the code files, interact with other developers on projects, and provides the ability for the code to be readily accessible no matter where you are, as long as you have an internet connection.
 
 Cloud hosting is much easier than on-premises options as it requires less hardware configuration and allows organizations to complete the implementation process in a more agile manner.

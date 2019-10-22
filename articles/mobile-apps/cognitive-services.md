@@ -1,11 +1,11 @@
 ---
-title: Use Artificial Intelligence to solve business problems with Azure Cognitive Services 
+title: Use artificial intelligence to solve business problems with Azure Cognitive Services 
 description: Learn about the service to build intelligent mobile applications powered by Artificial Intelligence.
 author: elamalani
 ms.assetid: 34a8a070-0123-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 

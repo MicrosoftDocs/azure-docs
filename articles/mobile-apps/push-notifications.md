@@ -1,15 +1,15 @@
 ---
-title: Importance of push notifications in your mobile apps with App Center and Azure Notification Hubs
+title: Importance of push notifications in your mobile apps with Visual Studio App Center and Azure Notification Hubs
 description: Learn about the services such as App Center that lets you engage with your mobile application users.
 author: elamalani
 ms.assetid: 12bbb070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Engage with your application users by sending Push Notifications 
+# Engage with your application users by sending push notifications 
 
 Whether you are building consumer or enterprise applications, you want users to use your application actively. There are often times when you want to share breaking news, game updates, exciting offers, product update, or any relevant information with your users. In order to increase engagement with your users and keep getting them back to your application, you need a way for you to communicate with your users in real time.
 

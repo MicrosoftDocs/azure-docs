@@ -1,15 +1,15 @@
 --- 
-title: Automate the lifecycle of your apps with App Center and Azure services
+title: Automate the lifecycle of your apps with Visual Studio App Center and Azure services
 description: Learn about the services such as App Center that helps set up continuous build and integration for your mobile applications.
 author: elamalani
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Automate the lifecycle of your apps with Continuous Build and Integration
+# Automate the lifecycle of your apps with continuous build and integration
 
 As developers, you write code and check it in into the code repository but the commits checked into the repo might not always be consistent. With multiple developers working on the same project, issues come up with integration and the team would run into situations where things are not working, bugs keep piling up, and project development gets delayed. Developers have to wait till the entire software code is built and tested to check for errors and this makes the process slow and less iterative. 
 

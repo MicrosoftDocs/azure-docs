@@ -1,15 +1,15 @@
 ---
-title: Secure and reliable global content delivery and acceleration with Azure CDN
+title: Secure and reliable global content delivery and acceleration with Azure Content Delivery Network
 description: Learn about the services to create secure and reliable global content delivery for mobile applications.
 author: elamalani
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Content Delivery Network on Azure with Azure CDN service
+# Content delivery network on Azure with Azure CDN service
 [Azure CDN](https://azure.microsoft.com/services/cdn/) offers developers a global solution for rapidly delivering high-bandwidth content like videos, images, or static files to users by caching their content to hundreds of points of presence (PoP) across the world. Azure CDN can also accelerate dynamic content, which cannot be cached and lets you reduce load times, save bandwidth, and increase responsiveness—whether you’re developing or managing websites or mobile applications, or encoding and distributing streaming media, gaming software, firmware updates, or IoT endpoints.
 
 ## Azure CDN features

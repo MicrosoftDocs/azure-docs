@@ -1,16 +1,15 @@
 ---
-title: Building mobile applications with App Center and Azure services
+title: Building mobile applications with Visual Studio App Center and Azure services
 description: Learn how to the services such as App Center that lets you build real-world mobile applications along with other Azure services. 
 author: elamalani
 ms.assetid: 98899889-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
-# Mobile Application Development in Microsoft
-
+# Mobile application development in Microsoft
 Decision makers, development teams, and the IT department need to build a solid mobile application development strategy that addresses many items:
 - Target the types of applications that match their business objective, such as Business to Enterprise (B2E), Business to Business (B2B), or Business to COnsumer (B2C).
 - Decide whether to invest for and build applications for iOS, Android, or Windows with single-platform languages or to take a cross-platform approach.
@@ -32,26 +31,4 @@ This documentation series will be useful for developers who are new or expert in
 ## Topics
 
 The series is divided into the following topics:
-- Stages in mobile application development
-    - [Choose Mobile Development Framework](front-end-development-platform.md)
-    - Plan and design with back-end services
-        - [Authentication](authentication.md)
-        - [Data Storage](data-storage.md)
-        - [Compute](serverless-compute.md)
-        - [Azure Storage](azure-storage.md)
-        - [Real-time apps](real-time.md)
-    - [Code Hosting Services](code-hosting-services.md)
-    - DevOps    
-        - [Continuous Build & Integration](continuous-integration.md)
-        - [Test on real devices](test.md)
-        - [Continuous Delivery](continuous-delivery.md)
-    - [Analyze usage and user behavior](analytics.md)
-    - [Real-time Crash Reporting to monitor health of your application](diagnostics.md)
-    - [Engage with your users by sending Push Notifications](push-notifications.md)
-- Additional services
-    - [Azure Cognitive Services](cognitive-services.md)
-    - [Azure Maps](azure-maps.md)
-    - [Aure CDN for Asset Hosting](azure-cdn.md)
-    - [Azure Search](azure-search.md)
-      
-     
+[!INCLUDE toc.yml]

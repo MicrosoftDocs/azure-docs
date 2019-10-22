@@ -10,11 +10,11 @@
     items:
     - name: Authentication
       href: authentication.md
-    - name: Data Storage
+    - name: Data storage
       href: data-storage.md
-    - name: Serverless Compute
+    - name: Serverless compute
       href: serverless-compute.md
-    - name: Azure Storage
+    - name: Azure storage
       href: azure-storage.md
     - name: Real-time apps
       href: real-time.md

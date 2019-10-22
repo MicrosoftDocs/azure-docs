@@ -5,7 +5,7 @@ author: elamalani
 ms.assetid: 34a8a070-0123-4678-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
@@ -20,5 +20,5 @@ ms.author: emalani
 
 ## References
    - [Azure portal](https://portal.azure.com)
-   - [Documentation](/azure-signalr/signalr-overview)
-   - [Tutorials](/azure-signalr/signalr-tutorial-authenticate-azure-functions)
+   - [Documentation](/azure/azure-signalr/signalr-overview)
+   - [Tutorials](/azure/azure-signalr/signalr-tutorial-authenticate-azure-functions)

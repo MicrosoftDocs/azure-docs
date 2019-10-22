@@ -1,11 +1,11 @@
 ---
-title: Store, manage, and persist application data in the cloud with ApP Center and Azure services
+title: Store, manage, and persist application data in the cloud with Visual Studio App Center and Azure services
 description: Learn about the services such as App Center that lets you store, manage, and persist mobile application data in the cloud.
 author: elamalani
 ms.assetid: 12344321-0123-4678-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
@@ -16,7 +16,7 @@ On top of that, your application users will not always have internet connectivit
 
 Microsoft provides a variety of services that eliminates the need to spin up servers, pick your database, or worry about scale or security to provide as rich experience as possible. These services provide a great developer experience that lets you store application data in the cloud using SQL or NoSQL APIs, sync data on all the devices, and enable the application to work with or without a network connection to help build scalable and robust applications.
 
-Use the following services to manage and store mobile applciation data in the cloud.
+Use the following services to manage and store mobile application data in the cloud.
 
 ## Visual Studio App Center
 [App Center Data](/appcenter/data/) is a data management service that enables applications to manage, persist, and sync application data in the cloud across different devices and platforms in both online and offline scenarios. **Built on top of Cosmos DB** service that scales as your user base and number of applications grows, this service ensures low latency, high availability, and high scalability for all of your data.
@@ -65,5 +65,5 @@ Use the following services to manage and store mobile applciation data in the cl
 
 **References**
 - [Azure portal](https://portal.azure.com) 
-- [Documentation](/sql-database/)
+- [Documentation](/azure/sql-database/)
    

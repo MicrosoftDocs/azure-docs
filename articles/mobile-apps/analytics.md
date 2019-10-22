@@ -1,11 +1,11 @@
 ---
-title: Understand mobile application usage and user behavior with App Center and Azure services
+title: Understand mobile application usage and user behavior with Visual Studio App Center and Azure services
 description: Learn about the services like App Center that help you make smart business decisions by understanding how users use your mobile application.
 author: elamalani
 ms.assetid: 34a8a070-9b3c-4faf-8588-ccff02097224
 ms.service: vs-appcenter
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 10/22/2019
 ms.author: emalani
 ---
 
@@ -39,7 +39,7 @@ Use the following services to enable mobile application analytics.
    - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
    - [Get started with App Center Analytics](/appcenter/analytics/)
 
-## **Azure Monitor**
+## Azure Monitor
 Azure Monitor includes [Application Insights](/azure/azure-monitor/app/app-insights-overview) that provides tools for collecting and analyzing telemetry to maximize performance and monitor your mobile application. You can take advantage of Application Insights by using App Center Analytics and set up export to Application Insights. Application Insights can query, segment, filter, and analyze the custom event telemetry from your applications, beyond the analytics tools App Center provides.
 
 **Key features**
