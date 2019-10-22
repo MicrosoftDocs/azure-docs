@@ -24,7 +24,7 @@ No, Azure Internet Analyzer is free to use in preview. There is no service-level
 
 ## What scenarios is Internet Analyzer designed to address? 
 
-Internet Analyzer is designed to give you networking performance insights based on your user population. To help make the best performance decisions for your users, Internet Analyzer compares the performance of two Internet using your distinct user population. While Internet Analyzer can answer a multitude of questions, some of the most common are: 
+Internet Analyzer is designed to give you networking performance insights based on your user population. To help make the best performance decisions for your users, Internet Analyzer compares the performance of two Internet endpoints using your distinct user population. While Internet Analyzer can answer a multitude of questions, some of the most common are: 
 * What is the impact of migrating to the cloud? 
     * *Suggested Test: Custom (your current on-premises infrastructure) vs. Azure (any preconfigured endpoint)*
 * What is the best cloud for your end-user population in each region? 
