@@ -10,8 +10,6 @@
  ms.custom: include file
 ---
 
-# Internet of Things (IoT) security architecture
-
 When designing a system, it is important to understand the potential threats to that system, and add appropriate defenses accordingly, as the system is designed and architected. It is important to design the product from the start with security in mind because understanding how an attacker might be able to compromise a system helps make sure appropriate mitigations are in place from the beginning.
 
 ## Security starts with a threat model
