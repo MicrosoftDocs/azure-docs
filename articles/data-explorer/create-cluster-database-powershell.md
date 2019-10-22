@@ -66,8 +66,8 @@ The following steps are not required if you're running commands in Azure Cloud S
    | Name | *mykustocluster* | The desired name of your cluster.|
    | Sku | *D13_v2* | The SKU that will be used for your cluster. |
    | ResourceGroupName | *testrg* | The resource group name where the cluster will be created. |
-
-    There are additional optional parameters that you can use, such as the capacity of the cluster.
+  
+    There are additional optional parameters that you can use, such as the capacity (number of engine nodes) of the cluster.
 
 1. Run the following command to check whether your cluster was successfully created:
 
