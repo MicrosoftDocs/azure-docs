@@ -1,6 +1,6 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
 - name: Speech service documentation
-  href: index.yml
+  href: https://aka.ms/speech/hub
 - name: Overview
   expanded: false
   items:
