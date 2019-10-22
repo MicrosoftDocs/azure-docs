@@ -447,7 +447,7 @@ The explainer can be deployed along with the original model and can be used at s
 ## Next steps
 
 
-To learn more about model interpretability, see the [ Machine Learning Interpretability Concept](./concept-machine-learning-interpretability-explainability.md).
+To learn more about model interpretability, see the [ Machine Learning Interpretability Concept](how-to-machine-learning-interpretability.md).
 
 
-To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on your local machine, see the [How to explain models locally on your personal machine?](./how-to-machine-learning-interpretability-explainability-local.md) and [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data).
+To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on your local machine, see the [How to explain models locally on your personal machine?](how-to-machine-learning-interpretability-local.md) and [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data).
