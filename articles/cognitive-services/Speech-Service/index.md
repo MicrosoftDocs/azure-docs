@@ -629,7 +629,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_custom_speech.jpg" alt="" />
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -648,7 +648,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_custom_speech.jpg" alt="" />
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -667,7 +667,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -789,7 +789,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -808,7 +808,7 @@ description: Get started with the Speech service.
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_reference.jpg" alt="" />
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
