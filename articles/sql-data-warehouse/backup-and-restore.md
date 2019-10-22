@@ -7,8 +7,8 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/30/2019
-ms.author: kevin
+ms.date: 10/21/2019
+ms.author: anjangsh
 ms.reviewer: igorstan
 ---
 
