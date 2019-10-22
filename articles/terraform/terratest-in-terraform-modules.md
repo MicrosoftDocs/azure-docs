@@ -222,7 +222,7 @@ func TestUT_StorageAccountName(t *testing.T) {
 		// Terraform init and plan only
 		tfPlanOutput := "terraform.tfplan"
 		terraform.Init(t, tfOptions)
-		terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions.Vars, "plan", "-out="+tfPlanOutput)...)
+		terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions, "plan", "-out="+tfPlanOutput)...)
 
 		// Read and parse the plan output
 		f, err := os.Open(path.Join(tfOptions.TerraformDir, tfPlanOutput))
