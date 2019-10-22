@@ -61,7 +61,7 @@ During preview, the following preconfigured endpoints are available:
     * West US, North Europe, Southeast Asia, UAE North, South Africa North 
 * **Azure + Azure Front Door** - deployed on any single or multiple Azure region combinations listed above
 * **Azure + Azure CDN from Microsoft** - deployed on any single Azure region combination listed above
-* **Azure + Azure Traffic Manager** - deployed on any Multiple Azure region combination listed above
+* **Azure + Azure Traffic Manager** - deployed on any multiple Azure region combination listed above
 
 ## Suggested test scenarios 
 
