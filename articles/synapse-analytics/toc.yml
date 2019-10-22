@@ -324,8 +324,8 @@
           href: sql-analytics/development-tables-statistics.md
         - name: Temporary
           href: sql-analytics/development-tables-temporary.md
-        # - name: External tables
-        #   href: article-template.md
+        - name: External tables
+          href: sql-analytics/development-tables-external-tables.md
         # - name: CETAS
         #   href: article-template.md
       - name: T-SQL language elements
