@@ -36,7 +36,7 @@
       href: log-query/get-started-portal.md
     - name: Log queries
       href: log-query/get-started-queries.md
-    - name: Visualize log data
+    - name: Dashboard with log data
       href: learn/tutorial-logs-dashboards.md
     - name: Alert on log data
       href: learn/tutorial-response.md
@@ -50,7 +50,7 @@
       href: learn/tutorial-alert.md
     - name: Understand application users
       href: learn/tutorial-users.md
-    - name: Create custom dashboards
+    - name: Dashboard with application data
       href: learn/tutorial-app-dashboards.md
   - name: Archive platform metric and log data 
     href: learn/tutorial-archive-data.md
@@ -887,7 +887,11 @@
     - name: Workbooks
       href: app/usage-workbooks.md
     - name: Dashboards
-      href: app/app-insights-dashboards.md
+      items:
+      - name: Dashboard using log data
+        href: learn/tutorial-logs-dashboards.md
+      - name: Dashboard using application data
+        href: learn/tutorial-app-dashboards.md
     - name: Send data to Grafana
       href: platform/grafana-plugin.md
   - name: Alerting
