@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/09/2019
+ms.date: 10/21/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -143,6 +143,9 @@ When designing a service with business continuity in mind, follow these general 
 - **Use one or several failover groups to manage failover of multiple databases**
 
   One or many failover groups can be created between two servers in different regions (primary and secondary servers). Each group can include one or several databases that are recovered as a unit in case all or some primary databases become unavailable due to an outage in the primary region. The failover group creates geo-secondary database with the same service objective as the primary. If you add an existing geo-replication relationship to the failover group, make sure the geo-secondary is configured with the same service tier and compute size as the primary.
+  
+  > [!IMPORTANT]
+  > Creating failover groups between two servers in different subscriptions is not currently supported for single databases and elastic pools.
 
 - **Use read-write listener for OLTP workload**
 
