@@ -88,10 +88,3 @@ Under the ellipsis, there are more chart controls to interact with the data.
 - **Drop a Marker:** 'Drop Marker' control provides a way to anchor certain data points on the chart. It is useful when you are trying to compare data for multiple lines across different time periods.
 
   ![Showing the grid view for your analytics](media/howto-create-analytics-pnp/additionalchartcontrols.png)
-
-## Next steps
-
-Now that you have learned how to analyze device data, here the suggested next step is:
-
-> [!div class="nextstepaction"]
-> [Create rules to monitor your devices](howto-create-telemetry-rules-pnp)
