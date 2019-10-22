@@ -56,6 +56,7 @@ The health evaluation parameters are optional. If the health evaluation criteria
 
 Parameters available in both Powershell and Visual Studio:
 
+[!div class="mx-tdBreakAll"]
 | Parameter | Description |
 | --- | --- |
 | ApplicationParameter | Specifies the overrides for application parameters.<br>PowerShell application parameters are specified as hashtable name/value pairs. For example, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Visual Studio application parameters can be specified in the Publish Service Fabric Application dialog in the **Application Parameters File** field.
