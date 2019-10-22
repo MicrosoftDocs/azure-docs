@@ -4,9 +4,9 @@ description: Learn about how to migrate SQL Server on-premises Windows users and
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.topic: conceptual
-author: VanMSFT
-ms.author: vanto
+ms.topic: tutorial
+author: GitHubMirek
+ms.author: mireks
 ms.reviewer: vanto
 ms.date: 10/22/2019
 ---
