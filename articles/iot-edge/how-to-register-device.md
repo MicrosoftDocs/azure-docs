@@ -48,7 +48,11 @@ In the Azure portal, IoT Edge devices are created and managed separately from de
 
 ### Use Visual Studio Code
 
-1. In Visual Studio Code, open the **Explorer** view **as shown here**:
+1. In Visual Studio Code, open the **Explorer** view.
+
+1. At the bottom of the Explorer, expand the **Azure IoT Hub** section.
+
+   ![Expand Azure IoT Hub Devices section](./media/how-to-register-device-vscode/azure-iot-hub-devices.png)
 
 1. Click on the **...** in the **Azure IoT Hub** section header. If you don't see the ellipsis, click on or hover over the header.
 
@@ -84,7 +88,9 @@ This command includes three parameters:
 
 * **hub-name**: Provide the name of your IoT hub.
 
-* **edge-enabled**: This parameter declares that the device is for use with IoT Edge **as shown here**:
+* **edge-enabled**: This parameter declares that the device is for use with IoT Edge.
+
+   ![az iot hub device-identity create output](./media/how-to-register-device-cli/Create-edge-device.png)
 
 ## View all devices
 
@@ -94,7 +100,9 @@ All the edge-enabled devices that connect to your IoT hub are listed on the **Io
 
 ### In Visual Studio Code
 
-All the devices that connect to your IoT hub are listed in the **Azure IoT Hub** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that the **$edgeAgent** and **$edgeHub** modules are deployed to each IoT Edge device **as shown here**:
+All the devices that connect to your IoT hub are listed in the **Azure IoT Hub** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that the **$edgeAgent** and **$edgeHub** modules are deployed to each IoT Edge device.
+
+   ![View all IoT Edge devices in your IoT hub](./media/how-to-register-device-vscode/view-devices.png)
 
 ### In the Azure CLI
 
