@@ -35,7 +35,7 @@ The Speech Device SDK provides sample code in Java for real-time audio capture u
 ## Prerequisites
 
 - Learn how to use Speech-to-text with the Speech SDK version 1.8.0 or later. For more information, see [What are Speech Services](overview.md).
-- A Speech Services subscription. You can [get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you do not already have one.
+- A Speech Services subscription. You can [get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you don't have one.
 
 ## Creating voice signatures for participants
 
@@ -48,7 +48,7 @@ The first step is to create voice signatures for the conversation participants. 
 
 ### Sample code for creating voice signatures
 
-The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#. Note that you'll need to substitute real information for "YourSubscriptionKey", your wave file name for "speakerVoice.wav", and your desired region for `{region}` and "YourServiceRegion" (_centralus_ or _eastasia_).
+The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#. Note that you'll need to substitute real information for "YourSubscriptionKey", your wave file name for "speakerVoice.wav", and your region for `{region}` and "YourServiceRegion" (_centralus_ or _eastasia_).
 
 ```csharp
 class Program
@@ -102,9 +102,17 @@ class Program
 
 ## Sample code for transcribing conversations in real time
 
-The following sample code demonstrates how to transcribe conversations in real time for three speakers, and assumes you've already created voice signatures for each as shown above. Note that you'll need to substitute real information for "YourSubscriptionKey" and "YourServiceRegion" when creating the SpeechConfig object.
+The following sample code demonstrates how to transcribe conversations in real time for three speakers. It assumes you've already created voice signatures for each speaker as shown above. Substitute real information for "YourSubscriptionKey" and "YourServiceRegion" when creating the SpeechConfig object.
 
-We create a `Conversation` object from the `SpeechConfig` object and a meeting ID generated using `Guid.NewGuid()`. To start transcribing the audio, create a `ConversationTranscriber` object and join the conversation with `JoinConversationAsync()`. We then register the events of interest, add or remove participants to the conversation using the Conversation object, and then stream audio. The transcription and speaker ID come back in the registered events.
+Sample code highlights include:
+
+- Creating a `Conversation` object from the `SpeechConfig` object using a meeting ID generated using `Guid.NewGuid()`
+- Creating a `ConversationTranscriber` object and join the conversation with `JoinConversationAsync()` to start transcription
+- Registering the events of interest
+- Adding or removing participants to the conversation using the Conversation object
+- Streaming the audio
+
+The transcription and speaker ID come back in the registered events.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
