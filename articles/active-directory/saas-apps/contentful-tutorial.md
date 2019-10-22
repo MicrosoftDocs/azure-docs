@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -83,24 +83,24 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, enter the values for the following fields:
 
-    In the **Reply URL** text box, type a URL using the following pattern:
+    In the **Reply URL** text box, copy the ACS (Assertion Consumer Service) URL from the SSO setup page in Contentful. It will look like this:
     `https://be.contentful.com/sso/<organization_id>/consume`
 
 1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
+    In the **Sign-on URL** text box, copy the same ACS (Assertion Consumer Service) URL. It will look like this:
     `https://be.contentful.com/sso/<organization_id>/login`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Reply URL and Sign-On URL. Contact [Contentful Client support team](mailto:support@contentful.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Reply URL and Sign-On URL by copying the ACS (Assertion Consumer Service) URL from the SSO setup page in Contentful.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificateraw.png)
+	![The Certificate download link](common/certificatebase64.png)
 
-1. On the **Set up Contentful** section, copy the appropriate URL(s) based on your requirement.
+1. On the **Set up Contentful** section, copy the Login URL to Configure Contentful SSO.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy configuration URLs](media/contentful-tutorial/copy-configuration-urls.png)
 
 ### Create an Azure AD test user
 
@@ -134,7 +134,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Contentful SSO
 
-To configure single sign-on on **Contentful** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [Contentful support team](mailto:support@contentful.com). They set this setting to have the SAML SSO connection set properly on both sides.
+Follow these steps to configure single sign-on on **Contentful** side.
+
+1. In [Contentful](https://app.contentful.com), navigate to the SSO setup page in Organization Settings
+1. Click on **Set up SSO**
+1. Copy and paste the Login URL from the **Set up Contentful** section in Azure AD 
+1. Copy and paste the Certificate from the Base64 certificate file you downloaded from Azure AD
+1. Set up an SSO name for SP-initiated login
+1. Click on **Enable SSO**
+
+If that doesn't work, reach out to [Contentful support team](mailto:support@contentful.com).
 
 ### Create Contentful test user
 
