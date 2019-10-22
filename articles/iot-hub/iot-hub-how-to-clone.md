@@ -291,9 +291,37 @@ When you export the Resource Manager template for a hub that has routing configu
 
 1. The same applies for the Service Bus Topics and Event Hub connections.
 
+#### Create the new routing resources in the new location
+
+If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration, but it does not include the resources themselves. You choose whether to move the resources used by the routing endpoints to the new location or to leave them in place and continue to use them "as is". 
+
+For example, say you have a hub in West US that is routing messages to a storage account (also in West US), and you want to move the hub to East US. You can move the hub and have it still route messages to the storage account in West US, or you can move the hub and also move the storage account. There may be a small performance hit from routing messages to endpoint resources in a different region.
+
+> [!NOTE]
+> If your hub uses [message enhancements](iot-hub-message-enrichments-overview.md), you will have to set them up manually on the new IoT hub, as they are not exported with the Resource Manager template.
+
+If you want to move the routing resources, you must manually set up the resources in the new location. You can create the routing resources using the Azure portal](https://portal.azure.com), or by exporting the Resource Manager template for each of the resources used by the message routing, editing them, and importing them. After the resources are set up, you can import the hub's template (which includes the routing configuration).
+
+
+1. Create each resource used by the routing. You can do this manually using the [Azure portal](https://portal.azure.com), or create the resources using Resource Manager templates. If you want to use templates, these are the steps to follow:
+
+    1. For each resource used by the routing, export it to a Resource Manager template.
+    
+    1. Update the name and location of the resource. 
+
+    1. Update any cross-references between the resources. For example, if you create a template for a new storage account, you need to update the storage account name in that template and any other template that references it. In most cases, the routing section in the template for the hub is the only other template that references the resource. 
+
+    1. Import each of the templates, which deploys each resource.
+
+    Once the resources used by the routing are set up and running, you can continue.
+
+1. In the template for the IoT hub, and change the name of each of the routing resources to its new name, and update the location if needed. 
+
+Now you have a template that will create a new hub that looks almost exactly like the old hub, depending on how you decided to handle the routing.
+
 ### Create a new hub in the new region by loading the template
 
-Create the new hub in the new location.
+Create the new hub in the new location using the template. If you have routing resources that are going to move, the resources should be set up in the new location and the references in the template updated to match. If you are not moving the routing resources, they should be in the template and the keys updated. 
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
@@ -364,16 +392,16 @@ Your command-line will look like these examples:
 ``` console 
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
 
-    // Add 50 devices, don't copy them to the other hub, or delete them. 
+    // Add 1000 devices, don't copy them to the other hub, or delete them. 
     // The first argument is true, numToAdd is 50, and the other arguments are false.
-    dotnet run true 50 false false false 
+    dotnet run true 1000 false false false 
 
     // Copy the devices you just added to the other hub; don't delete anything.
     // The first argument is false, numToAdd is 0, copy-devices is true, and the delete arguments are both false
     dotnet run false 0 true false false 
 ```
 
-### Connection strings -- using environment variables
+### Using environment variables for the connection strings
 
 1. To run the sample, you need the connection strings to the old and new IoT hubs, and to a storage account you can use for temporary work files. We will store the values for these in environment variables.
 
@@ -407,7 +435,7 @@ Your command-line will look like these examples:
 
 Now you have the environment variables in a file with the SET commands, and you know what your command-line arguments are. Let's run the sample.
 
-### Running the sample application from the command-line
+### Running the sample application and using command-line arguments
 
 1. Open a command prompt window. Select Windows and type in `command prompt` to get the command prompt window.
 
@@ -420,13 +448,13 @@ Now you have the environment variables in a file with the SET commands, and you 
     dotnet run arg1 arg2 arg3 arg4 arg5
     ```
 
-    The dotnet command builds and runs the application. Because you are passing in the options when you run the application, you can change the values of them each time you run the application. For example, you may want to run it once and create new devices, then run it again and copy those devices to a new hub, and so on. You can also perform all the steps in the same run, although we recommend not deleting any devices until you are certain you are finished with the cloning. Here is an example that creates 50 devices and then copies them to the other hub.
+    The dotnet command builds and runs the application. Because you are passing in the options when you run the application, you can change the values of them each time you run the application. For example, you may want to run it once and create new devices, then run it again and copy those devices to a new hub, and so on. You can also perform all the steps in the same run, although we recommend not deleting any devices until you are certain you are finished with the cloning. Here is an example that creates 1000 devices and then copies them to the other hub.
 
     ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
 
-    // Add 50 devices, don't copy them to the other hub, or delete them. 
-    dotnet run true 50 false false false 
+    // Add 1000 devices, don't copy them to the other hub, or delete them. 
+    dotnet run true 1000 false false false 
 
     // Copy those devices to the other hub; don't delete anything.
     dotnet run false 0 true false false 
@@ -476,40 +504,6 @@ After the application finishes running, you can view the results in the [Azure p
 1. To check for errors, go to the Azure storage account in the [Azure portal](https://portal.azure.com) and look in the `devicefiles` container for the `ImportErrors.log`. If this file is empty, there were no errors. If you try to import the same device more than once, it rejects the device the second time and adds an error message to the log file.
 
 At this point, you have copied your hub to the new location and migrated the devices to the new clone. Make the changes needed to make sure the devices work with the cloned hub, and you should be finished.
-
-## Routing 
-
-If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration, but it does not include the resources themselves. You choose whether to move the resources used by the routing endpoints to the new location or to leave them in place and continue to use them "as is". 
-
-For example, say you have a hub in West US that is routing messages to a storage account (also in West US), and you want to move the hub to East US. You can move the hub and have it still route messages to the storage account in West US, or you can move the hub and also move the storage account. There may be a small performance hit from routing messages to endpoint resources in a different region.
-
-> [!NOTE]
-> If your hub uses [message enhancements](iot-hub-message-enrichments-overview.md), you will have to set them up manually on the new IoT hub, as they are not exported with the Resource Manager template.
-> 
-
-### Migrate the routing resources
-
-In these steps, you export the template for the hub, then create resources used by the routing, the use the template for the hub to create the hub. You can create the routing resources using the Azure portal](https://portal.azure.com), or by exporting the Resource Manager template for each of the resources used by the message routing, editing them, and importing them. After the resources are set up, you can import the hub's template (which includes the routing configuration).
-
-1. Export the hub and its routing configuration to a Resource Manager template. 
-
-1. Next, create each resource used by the routing. You can do this manually using the [Azure portal](https://portal.azure.com), or create the resources using Resource Manager templates. If you want to use templates, these are the steps to follow:
-
-    1. For each resource used by the routing, export it to a Resource Manager template.
-    
-    1. Update the name and location of the resource. 
-
-    1. Update any cross-references between the resources. For example, if you create a template for a new storage account, you need to update the storage account name in that template and any other template that references it. In most cases, the routing section in the template for the hub is the only other template that references the resource. 
-
-    1. Import each of the templates, which deploys each resource.
-
-    Once the resources used by the routing are set up and running, you can continue.
-
-1. Edit the template for the IoT hub and change the name of the hub to its new name. Also, if you haven't already done so, update the resource names in the routing section of the template to match the new resource names.
-
-1. Import the hub's template to create the hub and the routing configuration.
-
-1. Copy the devices from the original hub to the clone. This is covered in the section [Managing the devices registered to the IoT hub](#managing-the-devices-registered-to-the-iot-hub).
 
 ## Checking the results 
 
