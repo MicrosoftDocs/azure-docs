@@ -73,4 +73,4 @@ Currently, Conversation Transcription supports "en-US" and "zh-CN" in the follow
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Transcribe conversations in real time](how-to-conversation-transcription.md)
+> [Transcribe conversations in real time](how-to-use-conversation-transcription-service.md)
