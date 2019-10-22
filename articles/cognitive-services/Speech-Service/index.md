@@ -18,25 +18,6 @@ description: Get started with the Speech service.
                         <a href="#speechtotext">Speech-to-text</a>
                         <ul id="speechtotext" class="cardsC">
                             <li>
-                                <a href="https://aka.ms/speech/sr-file">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_recognition_from_file_file.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Recognize speech from an audio file</h3>
-                                                    <p>Use the Speech SDK to recognize speech from a single file and transcribe the output.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="https://aka.ms/speech/sr-microphone">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -55,6 +36,25 @@ description: Get started with the Speech service.
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://aka.ms/speech/sr-file">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_recognition_from_file_file.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Recognize speech from an audio file</h3>
+                                                    <p>Use the Speech SDK to recognize speech from a single file and transcribe the output.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                          
                             <li>
                                 <a href="https://aka.ms/speech/sr-blob">
                                     <div class="cardSize">
@@ -133,28 +133,9 @@ description: Get started with the Speech service.
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="#texttospeech">Text-to-speech</a>
-                        <ul id="texttospeech" class="cardsC">
-                            <li>
-                                <a href="https://aka.ms/speech/tts-file">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_synthesis_to_file.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Synthesize speech to an audio file</h3>
-                                                    <p>Use the Speech SDK to synthesize speech to an audio file.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
+                        <li>
+                            <a href="#texttospeech">Text-to-speech</a>
+                            <ul id="texttospeech" class="cardsC">
                             <li>
                                 <a href="https://aka.ms/speech/tts-speaker">
                                     <div class="cardSize">
@@ -174,6 +155,25 @@ description: Get started with the Speech service.
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://aka.ms/speech/tts-file">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_synthesis_to_file.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Synthesize speech to an audio file</h3>
+                                                    <p>Use the Speech SDK to synthesize speech to an audio file.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                            
                             <li>
                                 <a href="https://aka.ms/speech/tts-ssml">
                                     <div class="cardSize">
