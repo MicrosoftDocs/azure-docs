@@ -48,11 +48,11 @@ Open Visual Studio, and open the project at the `Sharing\SharingServiceSample` f
 
 ## [Visual Studio Code](#tab/VSC)
 
-You will need to create a resource Group and an App Service Plan before you deploy the service in VS Code.
+You will need to create a resource group and an App Service Plan before you deploy the service in VS Code.
 
-### Sign in to Azure
+### Sign-in to Azure
 
-Navigate to the <a href="https://portal.azure.com/" target="_blank">Azure website</a> and sign in to your Azure subscription.
+Navigate to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and sign in to your Azure subscription.
 
 ### Create a resource group
 
@@ -78,7 +78,7 @@ In the **Configure Hosting Plan** dialog box, use these settings:
 
 Select **OK**.
 
-Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSample` folder. Follow <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-3.0" target="_blank">this tutorial</a> to deploy the sharing service through Visual Studio Code.
+Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSample` folder. Follow <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2" target="_blank">this tutorial</a> to deploy the sharing service through Visual Studio Code.
 
 ---
 
