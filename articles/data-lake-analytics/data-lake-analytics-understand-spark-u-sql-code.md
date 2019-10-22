@@ -210,5 +210,7 @@ Spark's cost-based query optimizer has its own capabilities to provide hints and
 
 ## Next steps
 
-- For more information, see [Understand Spark data and data formats](data-lake-analytics-understand-spark-data.md)
-- Learn about [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Understand Spark data and data formats](data-lake-analytics-understand-spark-data.md)
+- [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
+- [What is Apache Spark in Azure HDInsight](../hdinsight/spark/spark\apache-spark-overview.md)

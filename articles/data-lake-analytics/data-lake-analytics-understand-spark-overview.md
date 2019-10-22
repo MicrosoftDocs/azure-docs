@@ -16,7 +16,7 @@ Microsoft supports several Analytics services such as [Azure Databricks](../azur
 
 1. Understand how to migrate your job orchestration pipelines.
 
-   If you use [Azure Data Factory](../data-factory/introduction.md) to orchestrate your Azure Data Lake Analytics scripts, you'll have to adjust them to orchestrate the new Spark platform scripts.
+   If you use [Azure Data Factory](../data-factory/introduction.md) to orchestrate your Azure Data Lake Analytics scripts, you'll have to adjust them to orchestrate the new Spark programs.
 2. Understand differences between how U-SQL and Spark manage data
 
    If you want to move your data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) to [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md), you will have to copy both the file data and the catalog maintained data. See [Understand data format differences](data-lake-analytics-understand-spark-data.md)
@@ -34,5 +34,8 @@ Both [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Az
 
 ## Next steps
 
-- For more information, see [Understand Spark data formats](data-lake-analytics-understand-spark-data.md).
-- Learn about [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Understand Spark data formats](data-lake-analytics-understand-spark-data.md).
+- [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Transform data using Hadoop Hive activity in Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
+- [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
+- [What is Apache Spark in Azure HDInsight](../hdinsight/spark/spark\apache-spark-overview.md)
