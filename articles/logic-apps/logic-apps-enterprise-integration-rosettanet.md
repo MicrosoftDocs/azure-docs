@@ -1,5 +1,5 @@
 ---
-title: RosettaNet messages for B2B enterprise integration - Azure Logic Apps
+title: RosettaNet messages for B2B integration - Azure Logic Apps
 description: Exchange RosettaNet messages in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
@@ -11,7 +11,7 @@ ms.topic: article
 ms.date: 06/22/2019
 ---
 
-# Exchange RosettaNet messages for B2B enterprise integration in Azure Logic Apps 
+# Exchange RosettaNet messages for B2B enterprise integration in Azure Logic Apps
 
 [RosettaNet](https://resources.gs1us.org) is a non-profit consortium that has established standard processes for sharing business information. These standards are commonly used for supply chain processes and are widespread in the semiconductor, electronics, and logistics industries. The RosettaNet consortium creates and maintains Partner Interface Processes (PIPs), which provide common business process definitions for all RosettaNet message exchanges. RosettaNet is based on XML and defines message guidelines, interfaces for business processes, and implementation frameworks for communication between companies.
 

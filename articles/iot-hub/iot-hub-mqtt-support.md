@@ -183,7 +183,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
                        device_id + "/?api-version=2018-06-30", password=sas_token)
 
 client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -210,7 +210,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
 cert_file = "<local path to your certificate file>"
 key_file = "<local path to your device key file>"
 client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 
 # Connect as before
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
