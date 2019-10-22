@@ -22,12 +22,12 @@ This architecture consists of the following components. Some applications may no
 
 ### Smart meter and connectivity 
 
-A smart meter is one of the most important devices among the energy devises. It records and communicates electric energy consumption to electricity utilities for monitoring and many other use cases such as billing and demand response. Depending on the meter type, it can connect to IoT Central either via gateways or via other intermediate devices or systems, such edge devices and head-end systems. You need to build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and to learn more about can find the complete details [here](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) 
+A smart meter is one of the most important devices among the energy devises. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Based on the meter type, it can connect to IoT Central either via gateways or via other intermediate devices or systems, such edge devices and head-end systems. Build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and to learn more about can find the complete details [here](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) 
 
 
 ### IoT Central Platform
 
-IoT Central is a platform to build your IoT solutions in one place and allows partners to extend and customize for their specific needs. After you connect your smart meters to IoT Central platform, it provides device management, including command and control. In the smart meter app, we use the operational data store that comes with Central for warm path scenario such as monitor, analyze, and visualize meter data in near real time.
+IoT Central is a platform to build your IoT solutions and allows partners to extend and customize for their specific needs. After you connect your smart meters to IoT Central platform, it provides device management, including command and control. In the smart meter app, we use the IoT Central storage for warm path scenarios such as monitor, analyze, and visualize meter data in near real time.
 
 ### Extensibility options to build with IoT Central
 The IoT Central platform provides two extensibility options: Continuous Data Export (CDE) and APIs. You can choose between these options based on your requirements. For example, one of the partners configured CDE with Azure Data Lake Storage (ADLS). They're using ADLS for long-term data retention and other cold path storage scenarios, such batch processing, auditing and reporting purposes. 

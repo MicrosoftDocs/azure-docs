@@ -22,12 +22,12 @@ This architecture consists of the following components. Some applications may no
 
 ### Solar panels and connectivity 
 
-Solar panels are one of the significant sources of renewable energy. Depending on the solar panels type and set up, you can connect it either via gateways or via other intermediate external and proprietary systems. You need to build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and to learn more about can find the complete details [here](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) 
+Solar panels are one of the significant sources of renewable energy. Depending on the solar panels type and set up, you can connect it either via gateways or via other intermediate external and proprietary systems. Build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and to learn more about can find the complete details [here](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) 
 
 
 ### IoT Central platform
 
-IoT Central is a platform to build your IoT solutions in one place and allows partners to extend and customize for their specific needs. After you connect your solar panels to IoT Central platform, it provides device management, including command and control. In the solar panel app, we use the operational data store that comes with Central for warm path scenario such as monitor, analyze, and visualize meter data in near real time.
+IoT Central is a platform to build your IoT solutions and allows partners to extend and customize for their specific needs. After you connect your solar panels to IoT Central platform, it provides device management, including command and control. In the solar panel app, we use the operational data store that comes with Central for warm path scenario such as monitor, analyze, and visualize meter data in near real time.
 
 ### Extensibility options to build with IoT Central
 The IoT Central platform provides two extensibility options: Continuous Data Export (CDE) and APIs. You can choose between these options based on your requirements. For example, one of the partners configured CDE with Azure Data Lake Storage (ADLS). They're using ADLS for long-term data retention and other cold path storage scenarios, such batch processing, auditing, and reporting purposes. 
