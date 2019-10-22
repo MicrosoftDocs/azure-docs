@@ -14,7 +14,7 @@ DevOps (a combination of "Development" and "Operations") emphasizes the importan
 
 Microsoft has a comprehensive set of [DevOps solutions](https://azure.microsoft.com/solutions/devops/) through [Azure DevOps](https://azure.microsoft.com/services/devops/) (cloud) and [Visual Studio App Center](https://azure.microsoft.com/services/app-center/). These products create a working environment in which building, testing, and deploying software can occur rapidly, frequently, and reliably. They also let organizations to achieve its goals quicker, allowing for a faster turnaround time in the deployment of new features, security patches, and bug fixes.
 
-### Importance of DevOps
+**Importance of DevOps**
 - Makes the entire software lifecycle faster, from code commit to production deployment.
 - Allows organizations to more rapidly deliver software and security updates internally and to customers.
 - Aims to reduce conflicts that arise when developers are focused on meeting business demands to add functionality and improve the usability of applications but operations teams are traditionally more focused on the stability and security of the computing environments.

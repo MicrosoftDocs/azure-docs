@@ -20,7 +20,7 @@ Beta testing your mobile application is one of the critical steps during the app
 
 Use the following services to enable continuous delivery pipeline in your mobile apps.
 
-## Visual Studio App Center
+### Visual Studio App Center
 [App Center Distribute](/appcenter/distribution/) is a tool for developers to quickly release builds to end-user devices. With a complete install portal experience, Distribute is not only a powerful solution for beta app tester distribution but also a convenient alternative to distribution through the public App Stores. Developers can automate their distribution workflow even further with App Center Build and public application store integrations.
 
 **Key features**
@@ -38,7 +38,7 @@ Use the following services to enable continuous delivery pipeline in your mobile
 - [Sign up with App Center](https://appcenter.ms/signup?utm_source=Mobile%20Development%20Docs&utm_medium=Azure&utm_campaign=New%20azure%20docs)
 - [Get started with App Center Distribute](/appcenter/build/)
 
-## Azure Pipelines
+### Azure Pipelines
 
 [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) is a fully featured continuous integration (CI) and continuous delivery (CD) service that works with your preferred Git provider and can deploy to most major cloud services, including Azure services. You can start with your code on GitHub, GitHub Enterprise Server, GitLab, Bitbucket Cloud, or Azure Repos. Then you can automate the build, testing, and deployment of your code to Microsoft Azure, Google Cloud Platform, or Amazon Web Services.
 
@@ -58,7 +58,7 @@ Use the following services to enable continuous delivery pipeline in your mobile
 ## Distribute your application directly to App Stores
 Once your application is ready for production use and you want it to be used publicly, it needs to be submitted to App Stores where it can be downloaded by customers. There are multiple ways to distribute your application directly to App Stores. 
 
-## Visual Studio App Center
+### Visual Studio App Center
 [App Center Distribute](/appcenter/distribution/stores/) service lets you publish your mobile applications directly to App Stores. Once your application is ready to be downloaded by end users, you can publish your application binaries directly from the App Center portal.  
 
 You can directly distribute to:
@@ -66,14 +66,14 @@ You can directly distribute to:
 - [Google Play Store](/appcenter/distribution/stores/googleplay)
 - [Microsoft Intune](/appcenter/distribution/stores/intune)
     
-## Apple App Store
+### Apple App Store
 The App Store developed and maintained by Apple allows users to browse and download applications developed for iOS, MacOS, WatchOS, and tvOS devices. Developers need to submit their iOS apps to Apple Store for public use.
 
-## Google Play
+### Google Play
 
 Google Play is the official app store for Android OS, allowing users to browse and download applications developed for Android devices and published through Google.
 
-## Intune
+### Intune
 
 [Microsoft Intune](/intune/app-management) is a cloud-based service in the enterprise mobility management (EMM) space that helps enable your workforce to be productive while keeping your corporate data protected. With Intune, you can 
 - Manage the mobile devices and PCs your workforce uses to access company data.
@@ -83,7 +83,7 @@ Google Play is the official app store for Android OS, allowing users to browse a
     
 ## Deploy updates directly to users' devices
 
-## CodePush
+### CodePush
 The [CodePush](/appcenter/distribution/codepush/) service in App Center enables Apache Cordova and React Native developers to deploy mobile application updates directly to their users' devices. It works by acting as a central repository that developers can publish certain updates to (for example, JS, HTML, CSS and image changes). Then applications can query for updates from the repository using the provided client SDKs. This allows you to have a more deterministic and direct engagement model with your end users, while addressing bugs or adding small features without requiring you to re-build a binary or re-distribute it through any public app stores.
 
 **Key features**

@@ -67,6 +67,6 @@ Azure Monitor includes [Application Insights](/azure/azure-monitor/app/app-insig
    - **Segmentation** for players allows you to define automated groupings of players.
     
 **References**
-- [PlayFab portal](https://developer.playfab.com/login)
+- [PlayFab portal](https://developer.playfab.com/en-US/sign-up)
 - [Analytics](/gaming/playfab/#pivot=documentation&panel=analytics)
 - [Quickstarts](/gaming/playfab/#pivot=documentation&panel=quickstarts)    
