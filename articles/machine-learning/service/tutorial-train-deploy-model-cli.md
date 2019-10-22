@@ -1,6 +1,6 @@
 ---
 title: Train and deploy models from the CLI
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to use the machine learning extension for Azure CLI to train, register, and deploy a model from the command line.
 ms.author: larryfr
 author: Blackmist
@@ -93,12 +93,12 @@ az extension update -n azure-cli-ml
 
 ## Create a resource group
 
-A resource group is a basic container of resources on the Azure platform. When working with the Azure Machine Learning service, the resource group will contain your Azure Machine Learning service workspace. It will also contain other Azure services used by the workspace. For example, if you train your model using a cloud-based compute resource, that resource is created in the resource group.
+A resource group is a basic container of resources on the Azure platform. When working with the Azure Machine Learning, the resource group will contain your Azure Machine Learning workspace. It will also contain other Azure services used by the workspace. For example, if you train your model using a cloud-based compute resource, that resource is created in the resource group.
 
 To __create a new resource group__, use the following command. Replace `<resource-group-name>` with the name to use for this resource group. Replace `<location>` with the Azure region to use for this resource group:
 
 > [!TIP]
-> You should select a region where the Azure Machine Learning service is available. For information, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
+> You should select a region where the Azure Machine Learning is available. For information, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service).
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -288,7 +288,7 @@ You may receive the message "Failed to create Docker client". You can ignore thi
 
 This command deploys a new service named `myservice`, using version 1 of the model that you registered previously.
 
-The `inferenceConfig.yml` file provides information on how to perform inference, such as the entry script (`score.py`) and software dependencies. For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning service](how-to-deploy-and-where.md#prepare-to-deploy).
+The `inferenceConfig.yml` file provides information on how to perform inference, such as the entry script (`score.py`) and software dependencies. For more information on the structure of this file, see the [Inference configuration schema](reference-azure-machine-learning-cli.md#inference-configuration-schema). For more information on entry scripts, see [Deploy models with the Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
 The `aciDeploymentConfig.yml` describes the deployment environment used to host the service. The deployment configuration is specific to the compute type that you use for the deployment. In this case, an Azure Container Instance is used. For more information, see the [Deployment configuration schema](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 
@@ -382,4 +382,4 @@ In this Azure Machine Learning tutorial, you used the machine learning CLI for t
 > * Deploy the model as a web service
 > * Score data using the web service
 
-For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning service](reference-azure-machine-learning-cli.md).
+For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).

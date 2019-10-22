@@ -1,8 +1,8 @@
 ---
 title: Globally distributed transactional and analytical storage for Azure Cosmos containers
 description: Learn about transactional and analytical storage and their configuration options for Azure Cosmos containers.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019

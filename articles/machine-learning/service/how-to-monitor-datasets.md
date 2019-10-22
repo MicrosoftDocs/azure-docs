@@ -15,7 +15,7 @@ ms.date: 10/14/2019
 ---
 
 # Detect data drift (preview) on datasets
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In this article, you learn how to create Azure Machine Learning dataset monitors (preview), monitor for data drift in datasets, and setup alerts.
 
@@ -26,7 +26,7 @@ With Azure Machine Learning dataset monitors, you can:
 * **Set up alerts on data drift** for early warnings to potential issues. 
 
 > [!Note]
-> This Azure Machine Learning service capability is in preview.
+> This Azure Machine Learning capability is in preview.
 
 ## Prerequisites
 
@@ -95,6 +95,7 @@ dset = dset.register(ws, 'target')
 For a full example of using the `timeseries` trait of datasets, see the [example notebook](http://aka.ms/azureml-tsd-notebook) or the [datasets SDK documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-).
 
 #### Azure Machine Learning studio
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 If you create your dataset using Azure Machine Learning studio, ensure the path to your data contains timestamp information, include all subfolders with data, and set the partition format. 
 
@@ -150,6 +151,7 @@ These settings are for running a backfill on past data for data drift metrics.
 Create dataset monitors to detect and alert to data drift on a new dataset with Azure Machine Learning studio or the Python SDK. 
 
 ### Azure Machine Learning studio
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 To set up alerts on your dataset monitor, the workspace that contains the dataset you want to create a monitor for must have Enterprise SKU capabilities. 
 
@@ -217,7 +219,7 @@ The **Drift overview** section contains top-level insights into the magnitude of
 
 | Metric | Description | Tips | 
 | ------ | ----------- | ---- | 
-| Data drift magnitude | Given as a percentage between the baseline and target dataset over time. Ranging from 0 to 100 where 0 indicates identical datasets and 100 indicates the Azure Machine Learning service data drift capability can completely tell the two datasets apart. | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
+| Data drift magnitude | Given as a percentage between the baseline and target dataset over time. Ranging from 0 to 100 where 0 indicates identical datasets and 100 indicates the Azure Machine Learning data drift capability can completely tell the two datasets apart. | Noise in the precise percentage measured is expected due to machine learning techniques being used to generate this magnitude. | 
 | Drift contribution by feature | The contribution of each feature in the target dataset to the measured drift magnitude. |  Due to covariate shift, the underlying distribution of a feature does not necessarily need to change to have relatively high feature importance. | 
 
 The following image is an example of charts seen in the **Drift overview**  results in Azure Machine Learning studio, resulting from a backfill of [NOAA Integrated Surface Data](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/). Data was sampled to `stationName contains 'FLORIDA`, with January 2019 being used as the baseline dataset and all 2019 data used as the target 

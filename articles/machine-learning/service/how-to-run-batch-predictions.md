@@ -1,7 +1,7 @@
 ---
 title: Run batch inference on large amounts of data 
 titleSuffix: Azure Machine Learning
-description: Learn how to get inferences asynchronously on large amounts of data by using batch inference in the Azure Machine Learning service. Batch inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
+description: Learn how to get inferences asynchronously on large amounts of data by using batch inference in Azure Machine Learning Batch inference provides parallel processing capabilities out of the box and optimizes for high-throughput, fire-and-forget inference for big-data use cases.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,11 +17,11 @@ ms.custom: Ignite2019
 # Run batch inference on large amounts of data by using Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this tutorial, you learn how to get inferences on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
+In this how-to, you learn how to get inferences on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
 
 With batch inference, it's straightforward to scale fire-and-forget inference to large clusters of machines on terabytes of production data. The result is increased development productivity and lowered development cost.
 
-In this tutorial, you learn the following tasks:
+In this how-to, you learn the following tasks:
 
 > [!div class="checklist"]
 > * Create a remote compute resource.
@@ -31,7 +31,7 @@ In this tutorial, you learn the following tasks:
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning service](https://aka.ms/AMLFree).
+* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning](https://aka.ms/AMLFree).
 
 * For a guided quickstart, complete the [setup tutorial](tutorial-1st-experiment-sdk-setup.md) if you don't already have an Azure Machine Learning workspace or notebook virtual machine. 
 

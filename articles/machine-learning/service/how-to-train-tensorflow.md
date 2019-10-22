@@ -140,9 +140,9 @@ The TensorFlow estimator is implemented through the generic [`estimator`](https:
 
 If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting Docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
 
-```Python
+```python
 script_params = {
-    '--data-folder': ws.get_default_datastore().as_mount(),
+    '--data-folder': dataset.as_named_input('mnist').as_mount(),
     '--batch-size': 50,
     '--first-layer-neurons': 300,
     '--second-layer-neurons': 100,

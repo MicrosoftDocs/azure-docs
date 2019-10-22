@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/12/2019
+ms.date: 10/16/2019
 ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ms.custom: seodec18
@@ -42,10 +42,10 @@ The machine learning model workflow generally follows this sequence:
 Use these tools for Azure Machine Learning:
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://github.com/Azure/azureml-sdk-for-r).
++ Interact with the service in any R environment with the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
-+ Use [Azure Machine Learning designer](ui-concept-visual-interface.md) to perform the workflow steps without writing code.
++ Use [Azure Machine Learning designer (preview)](ui-concept-visual-interface.md) to perform the workflow steps without writing code.
 
 
 > [!NOTE]
@@ -155,7 +155,9 @@ For an example of using an experiment, see [Tutorial: Train your first model](tu
 
 ### GitHub tracking and integration
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
+When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
+
+For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
 
 ### Logging
 

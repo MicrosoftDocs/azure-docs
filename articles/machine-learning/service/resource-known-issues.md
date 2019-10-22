@@ -9,13 +9,19 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
 
 ---
 # Known issues and troubleshooting Azure Machine Learning
 
 This article helps you find and correct errors or failures encountered when using Azure Machine Learning.
+
+## Outage: SR-IOV upgrade to NCv3 machines in AmlCompute
+
+Azure Compute will be updating the NCv3 SKUs starting early November 2019 to support all MPI implementations and versions, and RDMA verbs for InfiniBand-equipped virtual machines. This will require a short downtime - [read more about the SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+
+As a customer of Azure Machine Learning's managed compute offering (AmlCompute), you are not required to make any changes at this time. Based on the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) you would need to plan for a short break in your training. The service will take responsibility to update the VM images on your cluster nodes and automatically scale up your cluster. Once the upgrade completes you may be able to use all other MPI discibutions (like OpenMPI with Pytorch) besides getting higher InfiniBand bandwidth, lower latencies, and better distributed application performance.
 
 ## Azure Machine Learning designer issues
 
@@ -26,7 +32,7 @@ Known issues with the designer.
 Create new compute or evoke leaving compute takes time, may be a few minutes or even longer. The team is working for optimization.
 
 
-### Cannot run an experiment only contains dataset 
+### Cannot run an experiment only contains a dataset 
 
 You might want to run an experiment only contains dataset  to visualize the dataset. However, it's not allowed to run an experiment only contains dataset today. We are actively fixing this issue.
  
@@ -128,7 +134,7 @@ If these steps don't solve the issue, try restarting the cluster.
 
 If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
 
-* Upgrade `azureml-sdk[automl_databricks]` package to the latest version.
+* Upgrade `azureml-sdk[automl]` package to the latest version.
 * Add `azure-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
 

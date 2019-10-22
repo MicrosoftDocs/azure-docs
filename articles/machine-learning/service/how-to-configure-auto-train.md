@@ -61,14 +61,14 @@ Use the `task` parameter in the `AutoMLConfig` constructor to specify your exper
 from azureml.train.automl import AutoMLConfig
 
 # task can be one of classification, regression, forecasting
-automl_config = AutoMLConfig(task="classification")
+automl_config = AutoMLConfig(task = "classification")
 ```
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into:
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a Pandas DataFrame or an Azure Machine Learning dataset. The following code examples demonstrate how to store the data in these formats. [Learn more about datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
 
-* Numpy arrays X (features) and y (target variable, also known as label)
+* TabularDataset
 * Pandas dataframe
 
 >[!Important]
@@ -78,13 +78,14 @@ Automated machine learning supports data that resides on your local desktop or i
 
 Examples:
 
-*	Numpy arrays
+* TabularDataset
+```python
+    from azureml.core.dataset import Dataset
 
-    ```python
-    digits = datasets.load_digits()
-    X_digits = digits.data
-    y_digits = digits.target
-    ```
+    tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
+    train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
+    label = "Label"
+```
 
 *	Pandas dataframe
 
@@ -93,9 +94,8 @@ Examples:
     from sklearn.model_selection import train_test_split
 
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    y_df = df["Label"]
-    x_df = df.drop(["Label"], axis=1)
-    x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.1, random_state=42)
+    train_data, test_data = train_test_split(df, test_size = 0.1, random_state = 42)
+    label = "Label"
     ```
 
 ## Fetch data for running experiment on remote compute
@@ -146,14 +146,14 @@ Some examples include:
 1.	Classification experiment using AUC weighted as the primary metric with a max time of 12,000 seconds per iteration, with the experiment to end after 50 iterations and 2 cross-validation folds.
 
     ```python
-    automl_classifier = AutoMLConfig(
+    automl_classifier=AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
         blacklist_models='XGBoostClassifier',
-        X=X,
-        y=y,
+        training_data=train_data,
+        label_column_name=label,
         n_cross_validations=2)
     ```
 2.	Below is an example of a regression experiment set to end after 100 iterations, with each iteration lasting up to 600 seconds with 5 validation cross folds.
@@ -165,8 +165,8 @@ Some examples include:
         iterations=100,
         whitelist_models='kNN regressor'
         primary_metric='r2_score',
-        X=X,
-        y=y,
+        training_data=train_data,
+        label_column_name=label,
         n_cross_validations=5)
     ```
 
@@ -223,12 +223,12 @@ time_series_settings = {
     'max_horizon': n_test_periods
 }
 
-automl_config = AutoMLConfig(task='forecasting',
+automl_config = AutoMLConfig(task = 'forecasting',
                              debug_log='automl_oj_sales_errors.log',
                              primary_metric='normalized_root_mean_squared_error',
                              iterations=10,
-                             X=X_train,
-                             y=y_train,
+                             training_data=train_data,
+                             label_column_name=label,
                              n_cross_validations=5,
                              path=project_folder,
                              verbosity=logging.INFO,
@@ -264,8 +264,8 @@ automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
         iterations=20,
-        X=X_train,
-        y=y_train,
+        training_data=train_data,
+        label_column_name=label,
         n_cross_validations=5,
         **ensemble_settings
         )
@@ -278,8 +278,8 @@ automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
         iterations=20,
-        X=X_train,
-        y=y_train,
+        training_data=data_train,
+        label_column_name=label,
         n_cross_validations=5,
         enable_voting_ensemble=False,
         enable_stack_ensemble=False
@@ -339,7 +339,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### Automated feature engineering
 
-See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when preprocess=True.
+See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when feauturization =auto.
 
 Consider this example:
 + There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
@@ -408,6 +408,30 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
    |Dropped|Indicates if the input feature was dropped or used.|
    |EngineeringFeatureCount|Number of features generated through automated feature engineering transforms.|
    |Transformations|List of transformations applied to input features to generate engineered features.|
+   
+### Customize feature engineering
+To customize feature engineering, specify `"feauturization":FeaturizationConfig`.
+
+Supported customization includes:
+|Customization|Definition|
+|Column purpose update|Override feature type for the specified column.|
+|Transformer parameter update |Update parameters for the specified transformer. Currently supports Imputer and HashOneHotEncoder.|
+|Drop columns |Columns to drop from being featurized.|
+|Block transformers| Block transformers to be used on featurization process.|
+
+Create the FeaturizationConfig objectg using API calls:
+```python
+featurization_config = FeaturizationConfig()
+featurization_config.blocked_transformers = ['LabelEncoder']
+featurization_config.drop_columns = ['aspiration', 'stroke']
+featurization_config.add_column_purpose('engine-size', 'Numeric')
+featurization_config.add_column_purpose('body-style', 'CategoricalHash')
+#default strategy mean, add transformer param for for 3 columns
+featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
+featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
 
 ### Scaling/Normalization and algorithm with hyperparameter values:
 
@@ -470,7 +494,7 @@ LogisticRegression
 
 ## Explain the model (interpretability)
 
-Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (X_valid) to get feature importance.
+Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (validation_data) to get feature importance.
 
 There are two ways to generate feature importance.
 
@@ -480,7 +504,7 @@ There are two ways to generate feature importance.
     from azureml.train.automl.automlexplainer import explain_model
 
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        explain_model(fitted_model, X_train, X_test)
+        explain_model(fitted_model, train_data, test_data)
 
     #Overall feature importance
     print(overall_imp)
@@ -494,16 +518,15 @@ There are two ways to generate feature importance.
 *	To view feature importance for all iterations, set `model_explainability` flag to `True` in AutoMLConfig.
 
     ```python
-    automl_config = AutoMLConfig(task = 'classification',
-                                 debug_log = 'automl_errors.log',
-                                 primary_metric = 'AUC_weighted',
-                                 max_time_sec = 12000,
-                                 iterations = 10,
-                                 verbosity = logging.INFO,
-                                 X = X_train,
-                                 y = y_train,
-                                 X_valid = X_test,
-                                 y_valid = y_test,
+    automl_config = AutoMLConfig(task='classification',
+                                 debug_log='automl_errors.log',
+                                 primary_metric='AUC_weighted',
+                                 max_time_sec=12000,
+                                 iterations=10,
+                                 verbosity=logging.INFO,
+                                 training_data=train_data,
+                                 label_column_name=y_train,
+                                 validation_data=test_data,
                                  model_explainability=True,
                                  path=project_folder)
     ```
