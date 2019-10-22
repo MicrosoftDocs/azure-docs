@@ -58,6 +58,7 @@ Use the horizontal scrollbar at the bottom of the table to view the full descrip
 
 (PS=PowerShell, VS=Visual Studio)
 
+[!div class="mx-tdBreakAll"]
 | Parameter | Applies To | Description |
 | --- | --- | --- |
 | ApplicationParameter |PS, VS| Specifies the overrides for application parameters.<br>PowerShell application parameters are specified as hashtable name/value pairs. For example, @{ "VotingData_MinReplicaSetSize" = "3"; "VotingData_PartitionCount" = "1" }.<br>Visual Studio application parameters can be specified in the Publish Service Fabric Application dialog in the **Application Parameters File** field.
