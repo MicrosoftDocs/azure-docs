@@ -34,7 +34,7 @@ For this quickstart, you'll need the following prerequisites:
   * **Virtual network**
   * **Public IP address**
   * **Public IP prefix**
-  * **NAT gateway**
+
 ### Create a virtual network
 
 Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network that will contain the VM and NAT gateway.
