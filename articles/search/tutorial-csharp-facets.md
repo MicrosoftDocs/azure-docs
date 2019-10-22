@@ -8,7 +8,7 @@ author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 
 # C# tutorial: Use facets to aid navigation - Azure Cognitive Search

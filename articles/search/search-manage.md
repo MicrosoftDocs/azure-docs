@@ -9,7 +9,7 @@ ms.author: heidist
 tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 # Service administration for Azure Cognitive Search in the Azure portal
 > [!div class="op_single_selector"]

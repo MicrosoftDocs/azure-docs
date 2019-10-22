@@ -9,7 +9,7 @@ ms.author: heidist
 tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 
 # Use the "full" Lucene search syntax (advanced queries in Azure Cognitive Search)

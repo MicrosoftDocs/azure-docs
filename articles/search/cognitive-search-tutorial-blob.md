@@ -8,7 +8,7 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Add structure to "unstructured content" with AI enrichment
