@@ -13,6 +13,8 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying folders and multiple files
 
+Reading this article you will learn how to write a query in SQL Analytics on-demand that will read from multiple files.
+
 Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed. Take a look at following sections for more details.
 
 We will show how to query folders and multiple CSV files in following sections.

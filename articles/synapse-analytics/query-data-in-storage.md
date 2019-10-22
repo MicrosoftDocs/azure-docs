@@ -126,6 +126,21 @@ Demo data contains following data sets:
 | /json/books/                                                 | JSON files with books data                                   |
 
 
+## Validation
+
+Execute the following query and validate that credentials are created correctly.
+
+```sql
+SELECT 
+	COUNT_BIG(*)
+FROM  
+	OPENROWSET(
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+		FORMAT='PARQUET'
+	) AS nyc
+```
+
+Query above should return number: **8945574**.
 
 ## Next steps
 
