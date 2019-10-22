@@ -14,9 +14,10 @@ ms.custom: seodec18
 
 ---
 # Collect data for models in production
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> This SDK is retiring soon and will be replaced with simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
+> This SDK is retiring soon. This SDK is still appropriate for developers monitoring data drift in models but most developers should use the simplified [data monitoring with Application Insights](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights). 
 
 In this article, you can learn how to collect input model data from Azure Machine Learning you've deployed into Azure Kubernetes Cluster (AKS) into an Azure Blob storage. 
 
@@ -188,7 +189,7 @@ To quickly access the data from your blob:
 
 1. In the query editor, click under “Name” column and add your Storage account 1. Model path into the filter. Note: if you want to only look into files from a specific year or month, just expand the filter path. For example, just look into March data: /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
 
-1. Filter the data that is relevant to you based on **Name**. If you stored **predictions** and **inputs** you'll need to do create a query per each.
+1. Filter the data that is relevant to you based on **Name**. If you stored **predictions** and **inputs**, you'll need to create a query for each.
 
 1. Click on the double arrow aside the **Content** column to combine the files. 
 
@@ -200,7 +201,7 @@ To quickly access the data from your blob:
 
 1. You can now click **Close and Apply** .
 
-1.  If you added inputs and predictions your tables will automatically correlate by **RequestId**.
+1.  If you added inputs and predictions, your tables will automatically correlate by **RequestId**.
 
 1. Start building your custom reports on your model data.
 
@@ -211,7 +212,7 @@ To quickly access the data from your blob:
 
 1. Go to your Databricks workspace. 
 
-1. In your databricks workspace select **Upload Data**.
+1. In your databricks workspace, select **Upload Data**.
 
     [![DB upload](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 

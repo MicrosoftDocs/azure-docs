@@ -14,6 +14,7 @@ ms.date: 05/02/2019
 ms.custom: seodec18
 ---
 # Export or delete your Machine Learning service workspace data 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In Azure Machine Learning, you can export or delete your workspace data with the authenticated REST API. This article tells you how.
 

@@ -15,6 +15,7 @@ ms.custom: seodec18
 ---
 
 # What are field-programmable gate arrays (FPGA) and how to deploy
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning to an Azure FPGA. 
 

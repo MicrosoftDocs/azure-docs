@@ -15,6 +15,7 @@ ms.custom: seoapril2019
 ---
 
 # Deploy models with Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Learn how to deploy your machine learning model as a web service in the Azure cloud or to Azure IoT Edge devices.
 
@@ -259,11 +260,18 @@ The following YAML is an example of a Conda dependencies file for inference:
 name: project_environment
 dependencies:
   - python=3.6.2
+  - scikit-learn=0.20.0
   - pip:
     - azureml-defaults
-    - scikit-learn==0.20.0
     - inference-schema[numpy-support]
 ```
+
+> [!IMPORTANT]
+> If your dependency is available through both Conda and pip (from PyPi), Microsoft recommends using the Conda version, as Conda packages typically come with pre-built binaries that make installation more reliable.
+>
+> For more information, see [Understanding Conda and Pip](https://www.anaconda.com/understanding-conda-and-pip/).
+>
+> To check if your dependency is available through Conda, use the `conda search <package-name>` command, or use the package indexes at [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) and [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo).
 
 If you want to use automatic schema generation, your entry script must import the `inference-schema` packages.
 
@@ -542,7 +550,7 @@ test_sample = json.dumps({'data': [
 ]})
 
 profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(true)
+profile.wait_for_profiling(True)
 profiling_results = profile.get_results()
 print(profiling_results)
 ```
@@ -596,9 +604,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) documentation.
 
-### <a id="notebookvm"></a> Notebook VM web service (dev/test)
+### <a id="notebookvm"></a> Compute instance web service (dev/test)
 
-See [Deploy a model to Notebook VMs](how-to-deploy-local-container-notebook-vm.md).
+See [Deploy a model to Azure Machine Learning compute instance](how-to-deploy-local-container-notebook-vm.md).
 
 ### <a id="aci"></a> Azure Container Instances (dev/test)
 

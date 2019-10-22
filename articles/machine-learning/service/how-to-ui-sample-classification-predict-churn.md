@@ -1,7 +1,7 @@
 ---
 title: "Designer example #5: Classification to predict churn + appetency + up-selling"
 titleSuffix: Azure Machine Learning
-description: This designer sample experiment shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
+description: This designer (preview) sample experiment shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,8 +13,9 @@ ms.date: 05/10/2019
 ---
 
 # Sample 5 - Classification: Predict churn, appetency, and up-selling 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a complex machine learning experiment without writing a single line of code using the designer.
+Learn how to build a complex machine learning experiment without writing a single line of code using the designer (preview).
 
 This experiment trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the designer to combine data sets and train a model using the scrambled values.
 

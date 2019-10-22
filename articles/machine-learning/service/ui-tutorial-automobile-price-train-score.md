@@ -12,7 +12,8 @@ ms.topic: tutorial
 ms.date: 08/16/2019
 ---
 
-# Tutorial: Predict automobile price with the designer
+# Tutorial: Predict automobile price with the designer (preview)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 In this two-part tutorial, you learn how to use Azure Machine Learning designer to develop and deploy a predictive analytic solution that predicts the price of any car. 
 
@@ -37,7 +38,7 @@ To find it, from the **Experiments page**, select **Add New**, then select the *
 
 ## Create a new experiment
 
-To create a pipeline in the designer, you first need  an Azure Machine Learning service workspace. In this section you learn how to create both these resources.
+To create a pipeline in the designer, you first need  an Azure Machine Learning workspace. In this section you learn how to create both these resources.
 
 ### Create a new workspace
 

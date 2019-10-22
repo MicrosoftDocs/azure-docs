@@ -1,5 +1,5 @@
 ---
-title: Sample - Ensure HTTPS traffic only for storage account
+title: Sample - Ensure HTTPS traffic for storage accounts
 description: This sample policy definition requires storage accounts to use HTTPS traffic.
 author: DCtheGeek
 ms.service: azure-policy
