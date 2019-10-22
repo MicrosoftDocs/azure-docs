@@ -63,7 +63,7 @@ You may have a compliance requirement where you must provide a complete list of 
 
 1. Click **Export all members** to export all role assignments in a CSV file.
 
-    ![Exported role assignments in CSV fil as display in Excel](media/azure-pim-resource-rbac/export-csv.png)
+    ![Exported role assignments in CSV file as display in Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## View resource audit history
 
