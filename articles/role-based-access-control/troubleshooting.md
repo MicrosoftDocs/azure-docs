@@ -49,7 +49,7 @@ This article answers common questions about role-based access control (RBAC) for
 - If you get the permissions error "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)" when you try to create a resource, check that you are currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Built-in roles for Azure resources](built-in-roles.md).
 - If you get the permissions error "You don't have permission to create a support request" when you try to create or update a support ticket, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
 
-## Role assignments without a security principal
+## Role assignments with Unknown security principal
 
 When you list your role assignments using Azure PowerShell, you might see assignments with an empty `DisplayName` and an `ObjectType` set to Unknown. For example, [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) returns a role assignment that is similar to the following:
 

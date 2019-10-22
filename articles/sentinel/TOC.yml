@@ -90,6 +90,8 @@
         href: connect-extrahop.md
       - name: One Identity Safeguard
         href: connect-one-identity.md
+      - name: Connect Zscaler
+        href: connect-zscaler.md   
     - name: Connect threat intelligence
       href: connect-threat-intelligence.md  
     - name: Connect Azure Stack VMs
