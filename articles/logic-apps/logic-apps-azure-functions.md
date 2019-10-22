@@ -7,7 +7,7 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.topic: article
-ms.date: 06/04/2019
+ms.date: 10/01/2019
 ms.reviewer: klam, LADocs
 ---
 
@@ -235,7 +235,7 @@ To use your logic app's system-assigned identity in your Azure function, you hav
 
    ![Click edit for "function.json" file](./media/logic-apps-azure-functions/edit-function-json-file.png)
 
-1. In the `bindings` object, add the `authLevel` property, and set the property value to `anonymous`:
+1. In the `bindings` object, check whether the `authLevel` property exists. If the property exists, set the property value to `anonymous`. Otherwise, add that property and set the value.
 
    ![Add "authLevel" property and set to "anonymous"](./media/logic-apps-azure-functions/set-authentication-level-function-app.png)
 
