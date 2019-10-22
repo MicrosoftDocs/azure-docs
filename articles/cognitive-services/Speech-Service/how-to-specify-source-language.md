@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-two
 
 # Specify source language for speech to text
 
-In this article, you'll learn how to specify the source language for an audio input passed to the Speech SDK for speech recognition. Additionally, example code is provided to specifying a custom speech model for improved recognition.
+In this article, you'll learn how to specify the source language for an audio input passed to the Speech SDK for speech recognition. Additionally, example code is provided to specify a custom speech model for improved recognition.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -36,7 +36,7 @@ speechConfig.SpeechRecognitionLanguage = "en-US";
 If you're using a custom model for recognition, you can specify the endpoint with `EndpointId`:
 
 ```csharp
-speechConfig.EndpointId = "The Endpoint Id for custom model"
+speechConfig.EndpointId = "The Endpoint Id for custom model";
 ```
 
 ::: zone-end
@@ -96,7 +96,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 ```
 
 >[!Note]
-> `SetSpeechRecognitionLanguage` and `SetEndpointId` are deprecated methods from the `SpeechConfig` class in C++ and Java. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
+> `setSpeechRecognitionLanguage` and `setEndpointId` are deprecated methods from the `SpeechConfig` class in C++ and Java. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
 
 ::: zone-end
 
