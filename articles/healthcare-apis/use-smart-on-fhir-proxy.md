@@ -13,7 +13,7 @@ ms.date: 04/02/2019
 
 # Tutorial: Azure Active Directory SMART on FHIR Proxy
 
-[SMART on FHIR](https://docs.smarthealthit.org/) is a set of open specifications to integrate third-party applications with FHIR servers and electronic medical records systems that have FHIR interfaces. One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for a FHIR server and initiate an authentication sequence. Authentication is based on OAuth2, but since SMART on FHIR uses parameter naming conventions that are not immediately compatible with Azure Active Directory, the Azure API for FHIR has a built-in Azure Active Directory SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences, specifically the [EHR launch](http://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
+[SMART on FHIR](https://docs.smarthealthit.org/) is a set of open specifications to integrate third-party applications with FHIR servers and electronic medical records systems that have FHIR interfaces. One of the main purposes of the specifications is to describe how an application should discover authentication endpoints for a FHIR server and initiate an authentication sequence. Authentication is based on OAuth2, but since SMART on FHIR uses parameter naming conventions that are not immediately compatible with Azure Active Directory, the Azure API for FHIR has a built-in Azure Active Directory SMART on FHIR proxy that enables a subset of the SMART on FHIR launch sequences, specifically the [EHR launch](https://hl7.org/fhir/smart-app-launch/#ehr-launch-sequence).
 
 This tutorial describes how to use the proxy to enable SMART on FHIR applications with the Azure API for FHIR.
 
@@ -51,7 +51,7 @@ Since most SMART on FHIR applications are single page javascript apps, you will 
 
 The SMART on FHIR proxy acts as an intermediary between the SMART on FHIR app and Azure Active Directory. Consequently, the authentication reply (the authentication code) must go to the SMART on FHIR proxy instead of the app itself. The proxy will forward it to the app. Because of this two-step relay of the authentication code, you will need to set the reply URL (callback) for your Azure AD client application to a URL that is a combination of the SMART on FHIR proxy reply URL and the reply URL of the SMART on FHIR app. The combined reply URL takes the form:
 
-```
+```http
 https://MYFHIRAPI.azurehealthcareapis.com/AadSmartOnFhirProxy/callback/aHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMS9zYW1wbGVhcHAvaW5kZXguaHRtbA
 ```
 
