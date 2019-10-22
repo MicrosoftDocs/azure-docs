@@ -1,13 +1,13 @@
 ---
-title: Build government solutions with IoT Central | Microsoft Docs
+title: Build smart city solutions with IoT Central | Microsoft Docs
 description: Learn to build government solution using Azure IoT Central application templates.
-author: philmea
+author: miriambrus
 ms.author: philmea
 ms.date: 09/24/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-manager: eliotgra
+manager: miriamb
 ---
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
@@ -16,7 +16,7 @@ manager: eliotgra
 They are not intended to define benefits or value prop; that would be in marketing content.
 --->
 
-# What is <product/service>? 
+# What is Water quality monitoring application template? 
 <!---Required: 
 For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
 You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
@@ -35,14 +35,15 @@ You can go into more detail later in the article. Many services add artwork or v
 If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
 --->
 
-## <article body>
+# What is Water consumption monitoring application template? 
 <!---
 After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
 Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
 Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
 --->
 
-## <Top task>
+# What is Connected waste management application template? 
+
 <!---Suggested:
 An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
 Create a new H2 for each task you list.
