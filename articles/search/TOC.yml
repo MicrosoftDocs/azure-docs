@@ -91,6 +91,8 @@
     href: knowledge-store-concept-intro.md
   - name: Projections
     href: knowledge-store-projection-overview.md
+  - name: Incremental indexing
+    href: cognitive-search-incremental-indexing-conceptual.md
 - name: How-to guides
   items:
   - name: Planning
@@ -213,6 +215,8 @@
       href: search-howto-schedule-indexers.md
     - name: Map fields
       href: search-indexer-field-mappings.md
+    - name: Incremental indexing
+      href: search-howto-incremental-index.md
     - name: Connect to SQL Managed Instance
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Connect to SQL Server VMs
