@@ -53,6 +53,8 @@ You can configure and get information about alert rules using:
 
 9. Fill out the "Add action group" form with a name, short name, subscription, and resource group.
 
+    ![Action group](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
+
 10. Configure an **Email/SMS/Push/Voice** action type.
     
     Choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications.
