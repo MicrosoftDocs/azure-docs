@@ -15,7 +15,7 @@ ms.date: 10/15/2019
 
 # Define machine learning pipelines in YAML
 
-Learn how to define your machine learning pipelines in [YAML](https://yaml.org/). When using the machine learning extension for the Azure CLI, many of the pipeline related commands expect a YAML file that defines the pipeline.
+Learn how to define your machine learning pipelines in [YAML](https://yaml.org/). When using the machine learning extension for the Azure CLI, many of the pipeline-related commands expect a YAML file that defines the pipeline.
 
 The following table lists what is and is not currently supported when defining a pipeline in YAML:
 
@@ -116,20 +116,57 @@ Steps define a computational environment, along with the files to run on the env
 | `script_name` | The name of the U-SQL script (relative to the `source_directory`). |
 | `compute_target` | The Azure Data Lake compute target to use for this step. |
 | `parameters` | [Parameters](#parameters) to the pipeline. |
-| `inputs` | TBD |
-| `outputs` | TBD |
+| `inputs` | Inputs can be [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py), or [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `outputs` | Outputs can be either [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) or [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `source_directory` | Directory that contains the script, assemblies, etc. |
 | `priority` | The priority value to use for the current job. |
 | `params` | Dictionary of name-value pairs. |
 | `degree_of_parallelism` | The degree of parallelism to use for this job. |
 | `runtime_version` | The runtime version of the Data Lake Analytics engine. |
-| `allow_reuse` | Determines whether the step should reuse previous results when re-run with the same settings. |
+| `allow_reuse` | Determines whether the step should reuse previous results when run again with the same settings. |
+
+The following example contains an ADLA Step definition:
+
+```yaml
+pipeline:
+    name: SamplePipelineFromYaml
+    parameters:
+        PipelineParam1:
+            type: int
+            default: 3
+    data_references:
+        employee_data:
+            datastore: adftestadla
+            path_on_datastore: "adla_sample/sample_input.csv"
+    default_compute: adlacomp
+    steps:
+        Step1:
+            runconfig: "yaml/default_runconfig.yml"
+            parameters:
+                NUM_ITERATIONS_2:
+                    source: PipelineParam1
+                NUM_ITERATIONS_1: 7
+            adla_step:
+                name: "AdlaStep"
+                script_name: "sample_script.usql"
+                source_directory: "helloworld"
+            inputs:
+                employee_data:
+                    source: employee_data
+            outputs:
+                OutputData:
+                    destination: Output4
+                    datastore: adftestadla
+                    bind_mode: mount
+```
 
 ### Azure Batch step
 
 | YAML key | Description |
 | ----- | ----- |
 | `compute_target` | The Azure Batch compute target to use for this step. |
+| `inputs` | Inputs can be [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py), or [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `outputs` | Outputs can be either [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) or [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `source_directory` | Directory that contains the module binaries, executable, assemblies, etc. |
 | `executable` | Name of the command/executable that will be ran as part of this job. |
 | `create_pool` | Boolean flag to indicate whether to create the pool before running the job. |
@@ -137,44 +174,262 @@ Steps define a computational environment, along with the files to run on the env
 | `delete_batch_pool_after_finish` | Boolean flag to indicate whether to delete the pool after the job finishes. |
 | `is_positive_exit_code_failure` | Boolean flag to indicate if the job fails if the task exits with a positive code. |
 | `vm_image_urn` | If `create_pool` is `True`, and VM uses `VirtualMachineConfiguration`. |
-| `pool_id` | The Id of teh pool where the job will run. |
-| `allow_reuse` | Determines whether the step should reuse previous results when re-run with the same settings. |
+| `pool_id` | The ID of the pool where the job will run. |
+| `allow_reuse` | Determines whether the step should reuse previous results when run again  with the same settings. |
+
+The following example contains an Azure Batch step definition:
+
+```yaml
+pipeline:
+    name: SamplePipelineFromYaml
+    parameters:
+        PipelineParam1:
+            type: int
+            default: 3
+    data_references:
+        input:
+            datastore: workspaceblobstore
+            path_on_datastore: "input.txt"
+    default_compute: testbatch
+    steps:
+        Step1:
+            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            parameters:
+                NUM_ITERATIONS_2:
+                    source: PipelineParam1
+                NUM_ITERATIONS_1: 7
+            azurebatch_step:
+                name: "AzureBatchStep"
+                pool_id: "MyPoolName"
+                create_pool: true
+                executable: "azurebatch.cmd"
+                source_directory: "D:\\AzureMlCli\\cli_testing"
+                allow_reuse: false
+            inputs:
+                input:
+                    source: input
+            outputs:
+                output:
+                    destination: output
+                    datastore: workspaceblobstore
+```
 
 ### Databricks step
 
 | YAML key | Description |
 | ----- | ----- |
 | `compute_target` | The Azure Databricks compute target to use for this step. |
+| `inputs` | Inputs can be [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py), or [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `outputs` | Outputs can be either [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) or [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `run_name` | The name in Databricks for this run. |
 | `source_directory` | Directory that contains the script and other files. |
 | `num_workers` | The static number of workers for the Databricks run cluster. |
 | `runconfig` | The path to a `.runconfig` file. This file is a YAML representation of the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) class. For more information on the structure of this file, see [TBD]. |
-| `allow_reuse` | Determines whether the step should reuse previous results when re-run with the same settings. |
+| `allow_reuse` | Determines whether the step should reuse previous results when run again with the same settings. |
+
+The following example contains a Databricks step:
+
+```yaml
+pipeline:
+    name: SamplePipelineFromYaml
+    parameters:
+        PipelineParam1:
+            type: int
+            default: 3
+    data_references:
+        adls_test_data:
+            datastore: adftestadla
+            path_on_datastore: "testdata"
+        blob_test_data:
+            datastore: workspaceblobstore
+            path_on_datastore: "dbtest"
+    default_compute: mydatabricks
+    steps:
+        Step1:
+            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            parameters:
+                NUM_ITERATIONS_2:
+                    source: PipelineParam1
+                NUM_ITERATIONS_1: 7
+            databricks_step:
+                name: "Databrickstep"
+                run_name: "DatabrickRun"
+                python_script_name: "train-db-local.py"
+                source_directory: "D:\\AzureMlCli\\cli_testing\\databricks_train"
+                num_workers: 1
+                allow_reuse: true
+            inputs:
+                blob_test_data:
+                    source: blob_test_data
+            outputs:
+                OutputData:
+                    destination: Output4
+                    datastore: workspaceblobstore
+                    bind_mode: mount
+```
 
 ### Data transfer step
 
 | YAML key | Description |
 | ----- | ----- |
 | `compute_target` | The Azure Data Factory compute target to use for this step. |
-| `source_data_reference` | Input connection that serves as the source of data transfer operations. Supported values are TBD. |
-| `destination_data_reference` | Input connection that serves as the destination of data transfer operations. Supported values are TBD. |
-| `allow_reuse` | Determines whether the step should reuse previous results when re-run with the same settings. |
+| `source_data_reference` | Input connection that serves as the source of data transfer operations. Supported values are [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py), or [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `destination_data_reference` | Input connection that serves as the destination of data transfer operations. Supported values are [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) and [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
+| `allow_reuse` | Determines whether the step should reuse previous results when run again with the same settings. |
+
+The following example contains a data transfer step:
+
+```yaml
+pipeline:
+    name: SamplePipelineFromYaml
+    parameters:
+        PipelineParam1:
+            type: int
+            default: 3
+    data_references:
+        adls_test_data:
+            datastore: adftestadla
+            path_on_datastore: "testdata"
+        blob_test_data:
+            datastore: workspaceblobstore
+            path_on_datastore: "testdata"
+    default_compute: adftest
+    steps:
+        Step1:
+            runconfig: "yaml/default_runconfig.yml"
+            parameters:
+                NUM_ITERATIONS_2:
+                    source: PipelineParam1
+                NUM_ITERATIONS_1: 7
+            data_transfer_step:
+                name: "DataTransferStep"
+                adla_compute_name: adftest
+            source_data_reference:
+                adls_test_data:
+                    source: adls_test_data
+            destination_data_reference:
+                blob_test_data:
+                    source: blob_test_data
+```
 
 ### Python script step
 
 | YAML key | Description |
 | ----- | ----- |
 | `compute_target` | The compute target to use for this step. The compute target can be an Azure Machine Learning Compute, Virtual Machine (such as the Data Science VM), or HDInsight. |
+| `inputs` | Inputs can be [InputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.inputportbinding?view=azure-ml-py), [DataReference](#data-reference), [PortDataReference](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.portdatareference?view=azure-ml-py), [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py), [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py), [DatasetDefinition](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_definition.datasetdefinition?view=azure-ml-py), or [PipelineDataset](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedataset?view=azure-ml-py). |
+| `outputs` | Outputs can be either [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) or [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `script_name` | The name of the Python script (relative to `source_directory`). |
 | `source_directory` | Directory that contains the script, Conda environment, etc. |
 | `runconfig` | The path to a `.runconfig` file. This file is a YAML representation of the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) class. For more information on the structure of this file, see [TBD]. |
-| `allow_reuse` | Determines whether the step should reuse previous results when re-run with the same settings. |
+| `allow_reuse` | Determines whether the step should reuse previous results when run again with the same settings. |
 
-## Inputs
+The following example contains a Python script step:
+
+```yaml
+pipeline:
+    name: SamplePipelineFromYaml
+    parameters:
+        PipelineParam1:
+            type: int
+            default: 3
+    data_references:
+        DataReference1:
+            datastore: workspaceblobstore
+            path_on_datastore: testfolder/sample.txt
+    default_compute: cpu-cluster
+    steps:
+        Step1:
+            runconfig: "yaml/default_runconfig.yml"
+            parameters:
+                NUM_ITERATIONS_2:
+                    source: PipelineParam1
+                NUM_ITERATIONS_1: 7
+            python_script_step:
+                name: "PythonScriptStep"
+                script_name: "train.py"
+                allow_reuse: True
+                source_directory: "helloworld"
+            inputs:
+                InputData:
+                    source: DataReference1
+            outputs:
+                OutputData:
+                    destination: Output4
+                    datastore: workspaceblobstore
+                    bind_mode: mount
+```
+
+## Schedules
+
+When defining the schedule for a pipeline, it can be either datastore-triggered or recurring based on a time interval. The following are the keys used to define a schedule:
 
 | YAML key | Description |
 | ----- | ----- |
-| `type` | The type of input. Valid values are `mount` and `download`. |
-| `path_on_compute` | For `download` mode, the local path the step will read the data from. |
-| `overwrite` | For `download` mode, indicates whether to overwrite existing data. |
-| `source` | The data source. This can refer to [Parameters](#parameters)
+| `description` | A description of the schedule. |
+| `recurrence` | Contains recurrence settings, if the schedule is recurring. |
+| `pipeline_parameters` | Any parameters that are required by the pipeline. |
+| `wait_for_provisioning` | Whether to wait for provisioning of the schedule to complete. |
+| `wait_timeout` | The number of seconds to wait before timing out. |
+| `datastore_name` | The datastore to monitor for modified/added blobs. |
+| `polling_interval` | How long, in minutes, between polling for modified/added blobs. Default value: 5 minutes. Only supported for datastore schedules. |
+| `data_path_parameter_name` | The name of the data path pipeline parameter to set with the changed blob path. Only supported for datastore schedules. |
+| `continue_on_step_failure` | Whether to continue execution of other steps in the submitted PipelineRun if a step fails. If provided, will override the `continue_on_step_failure` setting of the pipeline.
+| `path_on_datastore` | Optional. The path on the datastore to monitor for modified/added blobs. The path is under the container for the datastore, so the actual path the schedule monitors is container/`path_on_datastore`. If none, the datastore container is monitored. Additions/modifications made in a subfolder of the `path_on_datastore` are not monitored. Only supported for datastore schedules. |
+
+The following example contains the definition for a datastore-triggered schedule:
+
+```yaml
+Schedule: 
+      description: "Test create with datastore" 
+      recurrence: ~ 
+      pipeline_parameters: {} 
+      wait_for_provisioning: True 
+      wait_timeout: 3600 
+      datastore_name: "workspaceblobstore" 
+      polling_interval: 5 
+      data_path_parameter_name: "input_data" 
+      continue_on_step_failure: None 
+      path_on_datastore: "file/path" 
+```
+
+When defining a **recurring schedule**, use the following keys under `recurrence`:
+
+| YAML key | Description |
+| ----- | ----- |
+| `frequency` | How often the schedule recurs. Valid values are `"Minute"`, `"Hour"`, `"Day"`, `"Week"`, or `"Month"`. |
+| `inteval` | How often the schedule fires. |
+| `start_time` | The start time for the schedule. |
+| `time_zone` | The time zone for the start time. |
+| `hours` |
+| `minutes` |
+| `time_of_day` |
+| `week_days` |
+
+The following example contains the definition for a recurring schedule:
+
+```yaml
+Schedule: 
+    description: "Test create with recurrence" 
+    recurrence: 
+        frequency: Week # Can be "Minute", "Hour", "Day", "Week", or "Month". 
+        interval: 1 # how often fires 
+        start_time: 2019-06-07T10:50:00 
+        time_zone: UTC 
+        hours: 
+        - 1 
+        minutes: 
+        - 0 
+        time_of_day: null 
+        week_days: 
+        - Friday 
+    pipeline_parameters: 
+        'a': 1 
+    wait_for_provisioning: True 
+    wait_timeout: 3600 
+    datastore_name: ~ 
+    polling_interval: ~ 
+    data_path_parameter_name: ~ 
+    continue_on_step_failure: None 
+    path_on_datastore: ~ 
+```
