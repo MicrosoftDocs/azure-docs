@@ -1,6 +1,6 @@
 ---
-title: Define a new device type in Azure IoT Central | Microsoft Docs
-description: This tutorial shows you, as a builder, how to create a new device type in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
+title: Define a new Azure IoT Edge device as a leaf device type in Azure IoT Central | Microsoft Docs
+description: This tutorial shows you, as a builder, how to create a new Azure IoT Edge device as a leaf device in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/06/2019
@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Tutorial: Define a new device type in your Azure IoT Central application (preview features)
+# Tutorial: Define a new Azure IoT Edge device as a leaf device type in your Azure IoT Central application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
@@ -33,7 +33,7 @@ In this tutorial, you create an **Environment Sensor** device template. An envir
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a new device template.
+> * Create a new edge device as a leaf device template.
 > * Upload a deployment manifest.
 > * Create capabilities including telemetry, properties and commands for each module
 > * Define a visualization for the module telemetry.
@@ -168,7 +168,10 @@ Here's a basic deployment manifest with one module as an example to be used for 
          }
        },
        "SimulatedTemperatureSensor": {
-         "properties.desired": {}
+         "properties.desired": {
+              "SendData": true,
+              "SendInterval": 10
+         }
        }
      }
    }
@@ -298,13 +301,25 @@ As a builder, you can customize the application to display relevant information 
 
 A device dashboard lets an operator visualize a device using charts and metrics. As a builder, you can define what information displays on a device dashboard. You can define multiple dashboards for devices. To create a dashboard to visualize the environmental sensor telemetry, select **Views** and then **Visualizing the Device**:
 
-1. All of the device properties, cloud properties, telemetry, and static options are listed under **Properties**. You can drag and drop any of these items out into the view. Drag the **Brightness Level** property to the view. You can configure the tile using the gear icon.
+  
+![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/visualizingthedevice.png)
 
-1. To add a chart that plots telemetry, select **Humidity** and **Temperature**, and then select **Combine**. To view this chart in a different format, such as a pie chart or bar chart, select the **Change Visualization** button at the top of the tile.
 
-1. Select **Save** to save your view:
+1. Ambient Telemetry and Machine Telemetry are complex objects, to create charts do the following
+
+Drag Ambient Telemetry and select line chart. 
+  
+![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/sensorambientchart.png)
+
+Click on Configure icon and select temperature and humidity to visualize the data and click **Update configuration** button. 
+  
+![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/sensorambienttelemetrychart.png)
+
+2. Select **Save** to save your view:
 
 You can add more tiles that show other properties or telemetry values. You can also add static text, links, and images. To move or resize a tile on the dashboard, move the mouse pointer over the tile and drag the tile to a new location or resize it.
+  
+![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/viewsdashboard.png)
 
 ### Add a device form
 
@@ -313,26 +328,20 @@ A device form lets an operator edit writeable device properties and cloud proper
 To create a form to view and edit environmental sensor properties:
 
 1. Navigate to **Views** in the **Environmental Sensor** template. Select the **Editing Device and Cloud data** tile to add a new view.
+  
+![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/editingdeviceandclouddata.png)
 
 1. Enter the form name **Environmental Sensor properties**.
 
 1. Drag the **Customer name** and **Last service date** cloud properties onto the existing section on the form.
+  
+![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/views-properties.png)
 
-1. Select the **Brightness Level** and **Device State**  device properties. Then select **Add Section**. Edit the title of the section to be **Sensor properties**. Select **Apply**.
-
-1. Select the **Device model**, **Software version**, **Manufacturer**, and **Processor manufacturer** device properties. Then select **Add Section**. Edit the title of the section to be **Device properties**. Select **Apply**.
-
-1. Select **Save** to save your view.
+Select **Save** to save your view.
 
 ### Generate default views
 
-Generating default views is a quick way to get started with visualizing your important device information. You can have up to three default views generated for your device template:
-
-* The **Commands** view lets your operator dispatch commands to your device.
-* The **Overview** view uses charts and metrics to display device telemetry.
-* The **About** view displays device properties.
-
-After you select **Generate default views**, they're automatically added under the **Views** section of your device template.
+Generate default views functionality is not supported for Azure IoT Edge templates 
 
 ## Publish device template
 
@@ -342,26 +351,31 @@ To publish a device template:
 
 1. Go to your device template from the **Device Templates** page.
 
-1. Select **Publish**.
+2. Select **Publish**.
+  
+![Views - Publish](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplatepublish.png)
 
-1. On the **Publish a Device Template** dialog, choose **Publish**:
-
-    ![Published model](media/tutorial-define-device-type-pnp/publishedmodel.png)
+3. On the **Publish a Device Template** dialog, choose **Publish**:
+  
+![Views - Publish](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgepublishtemplate.png)
 
 After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
+  
+![Views - Publish](./media/tutorial-define-edge-as-leaf-device-type-pnp/publishedtemplate.png)
 
 ## Next steps
 
 In this tutorial, you learned how to:
 
-* Create a new device template
-* Import a device capability model.
+* Create a new edge as a leaf device template
+* Generate Modules from an uploaded deployment manifest
+* Add Complex Type Telemetry and properties
 * Create cloud properties.
 * Create customizations.
 * Define a visualization for the device telemetry.
-* Publish your device template.
+* Publish your edge device template.
 
 Now that you've created a device template in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Add device](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Add Edge device](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
