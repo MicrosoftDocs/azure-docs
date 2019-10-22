@@ -4,6 +4,7 @@ description: This article highlights some partners that provide unique IP or con
 services: healthcare-apis
 author: chrupa
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/22/2019
 ms.author: chrupa
