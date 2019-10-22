@@ -26,7 +26,7 @@ The tutorial will learn how to:
 > [!div class="checklist"]
 > * Use the Azure IoT Central **Water consumption monitoring** template to create your water consumption monitoring application
 > * Explore and customize operator dashboard 
-> * Explore water consumption monitor device template
+> * Explore device template
 > * Explore simulated devices
 > * Explore and configure rules
 > * Configure jobs
@@ -118,18 +118,22 @@ As a builder, you can customize views in dashboard for operators. You can try:
 
 * You can also click on **+ New** to create new dashboard and configure from scratch. You can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
 
-## Explore water consumption monitor device template
-A device template in Azure IoT Central defines the capability of a device, which can be telemetry, properties, and commands. As a builder, you can define device templates in IoT Central that represent the capability of the devices that will be connected. In IoT Central, you can also create simulated devices to test your device template and application. 
+## Explore device template
+A device template in Azure IoT Central defines the capability of a device, which can be telemetry, property, or command. As a builder, you can define one or more device templates in IoT Central that represent the capability of the devices that you will connect. 
  
 
-The **Water consumption monitoring** application you have created from the application template comes with a reference water consumption monitor device template.
+The **Water consumption monitoring** application created from the application template comes with two reference device templates representing a *flow meter* and a *smart valve* device. 
 
 To view the device template:
 
 * Click on **Device templates** from the left navigation pane of your application in IoT Central. 
-* In the Device templates list you will see **Water consumption Monitor**. Open by clicking on the name.
+* In the Device templates list you will see two device templates **Flow meterr** and **Smart Valve**
 
-    ![Device Template](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
+   ![Device Template](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
+
+* Click on **Flow meter** device template and familiarize with the device capabilities 
+
+     ![Device Template Flow meter](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate-flowmeter.png)
 
 ### Customizing the device template
 
@@ -159,32 +163,33 @@ Try to customize the following:
 You will be able to create a custom device template from scratch or you can choose a device template from the Azure Device Catalog. 
 
 ## Explore simulated devices
+In IoT Central, you can create simulated devices to test your device template and application. 
 
-The **Water consumption monitoring** application you have created from the application template has two simulated devices mapped to the water consumption monitor device template. 
+The **Water consumption monitoring** created from the application template has two simulated devices mapped to the *Flow meter* and *Smart Valve* device templates. 
 
 ### To view the devices:
 * Navigate to **Device** from IoT Central left navigation pane. 
 
    ![Devices](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devices.png)
 
-* Select and click on one simulated device 
+* Click on one **Smart Valve 1** 
 
     ![Device 1](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitor-device1.png)
 
-* From the  **Cloud Properties** tab try updating the `Acidity (pH) Threshold` value from `8` to `9`. 
+* In the *Device Commands** you can see the three device commands *Open Valve*, *Close Valve*, and *Set Valve position* which are capabilities defined in the *Smart Valve* device template. 
 * Explore the **Device Properties** tab and **Device Dashboard** tab. 
 
 > [!NOTE]
-> Note that all the tabs have been configured from the **Device template Views**.
+> Note that all the tabs have been configured from the Device template **Views**.
 
 ### Add new devices
 You can add new devices by clicking on **+ New** on the **Devices** tab. 
 
 ## Explore and configure rules
 
-In Azure IoT Central you can create rules to automatically monitor on device telemetry, and trigger an action when one or more conditions are met. The actions may include sending email notifications, or triggering a Microsoft Flow action or a webhook action to send data to other services.
+In Azure IoT Central you can create rules to automatically monitor on device telemetry, and trigger actions when one or more conditions are met. The actions may include sending email notifications, or triggering a Microsoft Flow action or a webhook action to send data to other services.
 
-The **Water consumption monitoring** application you have created template has two pre-configured rules.
+The **Water consumption monitoring** application you have created template has three pre-configured rules.
 
 ### To view rules:
 * Navigate to **Rules** from IoT Central left navigation pane. 
@@ -193,9 +198,9 @@ The **Water consumption monitoring** application you have created template has t
 
 * Select and click on **High pH alert** which is one of the pre-configured rules in the application. 
 
-     ![High pH Alert](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highphalert.png)
+     ![High pH Alert](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
-* The `High pH alert` rule is configured to check against the condition `Acidity (pH) is greater than 8`. 
+* The `High flow alert` rule is configured to check against the condition `Acidity (pH)` is `greater than` the `Max flow threshold`. Max flow threshold is a cloud property defined in the device *Smart Valve* device template. The value of `Max flow threshold` is set per device instance. 
 
 Now let's create an email action.
 
