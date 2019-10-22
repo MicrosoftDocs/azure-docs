@@ -906,7 +906,6 @@ Connect the two gateways using the Azure portal.
     1. Choose the secondary network gateway for the **Second virtual network gateawy**, such as `Secondary-Gateway`. 
     1. Select the checkbox next to **Establish bidirectional connectivity**. 
     1. Either leave the default primary connection name, or rename it to a value of your choice. 
-    1. Either leave the default primary connection name, or rename it to a value of your choice. 
     1. Provide a **Shared key (PSK)** for the connection, such as `mi1m2psk`. 
 
    ![Create gateway connection](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
