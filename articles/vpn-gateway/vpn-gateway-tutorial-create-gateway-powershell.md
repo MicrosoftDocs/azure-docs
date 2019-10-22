@@ -125,7 +125,7 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 Key parameter values:
 * GatewayType: Use **Vpn** for site-to-site and VNet-to-VNet connections
 * VpnType: Use **RouteBased** to interact with wider range of VPN devices and more routing features
-* GatewaySku: **VpnGw1** is the default; change it to VpnGw2 or VpnGw3 if you need higher throughputs or more connections. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+* GatewaySku: **VpnGw1** is the default; change it to another VpnGw SKU if you need higher throughputs or more connections. For more information, see [Gateway SKUs](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
 If you are using the TryIt, your session may time out. That's OK. The gateway will still create.
 
