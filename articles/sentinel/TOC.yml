@@ -82,6 +82,16 @@
         href: connect-symantec.md
       - name: Connect Cisco
         href: connect-cisco.md
+      - name: Connect Barracuda CloudGen Firewall
+        href: connect-barracuda-cloudgen-firewall.md
+      - name: Connect Citrix Analytics (Security)
+        href: connect-citrix-analytics.md
+      - name: Connect ExtraHop Reveal(x)
+        href: connect-extrahop.md
+      - name: One Identity Safeguard
+        href: connect-one-identity.md
+      - name: Trend Micro Deep Security
+        href: connect-trend-micro.md
       - name: Connect Zscaler
         href: connect-zscaler.md   
     - name: Connect threat intelligence
