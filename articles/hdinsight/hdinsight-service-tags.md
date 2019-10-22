@@ -1,6 +1,6 @@
 ---
-title: Azure Firewall service tags for Azure HDInsight
-description: Use HDInsight service tags to allow inbound traffic to your cluster from HDInsight health and management services nodes, without explicitly adding IP addresses to your Azure firewall.
+title: Network security group (NSG) service tags for Azure HDInsight
+description: Use HDInsight service tags to allow inbound traffic to your cluster from HDInsight health and management services nodes, without explicitly adding IP addresses to your network security groups.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
@@ -8,35 +8,35 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/19/2019
 ---
-# Firewall service tags for Azure HDInsight
+# Network security group (NSG) service tags for Azure HDInsight
 
-HDInsight service tags for Azure firewall are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../firewall/service-tags.md) provide an alternative method for allowing inbound traffic from specific IP addresses without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your Azure firewall.
+HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../azure/virtual-network/security-overview.md#service-tags) provide an alternative method for allowing inbound traffic from specific IP addresses without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your network security groups.
 
 These service tags are created and managed by the HDInsight service. You can't create your own service tag, or modify an existing tag. Microsoft manages the address prefixes that match to the service tag, and automatically updates the service tag as addresses change.
 
 ## Getting started with service tags
 
-You have two options for using service tags in your Azure firewall:
+You have two options for using service tags in your network security groups:
 
 1. Use a single HDInsight service tag - this option will open your virtual network to all of the IP Addresses that the HDInsight service is using to monitor clusters across all regions. This option is the simplest method, but may not be appropriate if you have restrictive security requirements.
 
-1. Use multiple regional service tags - this option will open your VNet to only the IP Addresses that HDInsight is using in that specific region. However, if you are using multiple regions, then you will need to add multiple service tags to your virtual network.
+1. Use multiple regional service tags - this option will open your virtual network to only the IP Addresses that HDInsight is using in that specific region. However, if you are using multiple regions, then you will need to add multiple service tags to your virtual network.
 
 ## Usa a single global HDInsight service tag
 
-The easiest way to begin using service tags with your HDInsight cluster is to add the tag `HDInsight` to your Azure Firewall. For instructions on how to add service tags to your Azure Firewall, see [Security groups: service tags](../virtual-network/security-overview.md#service-tags).
+The easiest way to begin using service tags with your HDInsight cluster is to add the global tag `HDInsight` to a network security group rule. For instructions on how to add service tags to your network security group, see [Security groups: service tags](../virtual-network/security-overview.md#service-tags).
 
 This tag contains the IP addresses of health and management services for all of the regions where HDInsight is available, and will ensure that your cluster can communicate with the necessary health and management services no matter where it is created.
 
 ## Use regional HDInsight service tags
 
-If option one won't work because you need more restrictive permissions for your firewall, then you can allow only the service tags applicable for your region. The applicable service tags may be one, two, or three service tags, depending on the region where your cluster is created.
+If option one won't work because you need more restrictive permissions, then you can allow only the service tags applicable for your region. The applicable service tags may be one, two, or three service tags, depending on the region where your cluster is created.
 
 To find out which service tags to add for your region, read the following sections of the document.
 
 ### Use a single regional service tag
 
-If you prefer service tag option two, and your cluster is located in one of the regions listed in this table, then you only need to add a single regional service tag to your firewall.
+If you prefer service tag option two, and your cluster is located in one of the regions listed in this table, then you only need to add a single regional service tag to your network security group.
 
 | Country | Region | Service tag |
 | ---- | ---- | ---- |
@@ -71,7 +71,7 @@ The remaining regions are divided into groups based on which regional service ta
 
 If your cluster is created in one of the regions in the table below, allow the service tags `HDInsight.WestUS` and `HDInsight.EastUS` in addition to the regional service tag listed. Regions in this section require three service tags.
 
-For example, if your cluster is created in the `East US 2` region, then you will need to add the following service tags to your firewall:
+For example, if your cluster is created in the `East US 2` region, then you will need to add the following service tags to your network security group:
 
 - `HDInsight.EastUS2`
 - `HDInsight.WestUS`
@@ -106,5 +106,5 @@ Clusters in the regions of **Germany Central** and **Germany Northeast**, need t
 
 ## Next steps
 
-* [Azure Firewall service tags](../firewall/service-tags.md)
+* [Network security groups - service tags](../virtual-network/security-overview.md#security-rules)
 * [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md)
