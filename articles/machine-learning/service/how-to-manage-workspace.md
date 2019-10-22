@@ -69,16 +69,21 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
 You can upgrade your workspace from Basic edition to Enterprise edition to take advantage of the enhanced features such low-code experiences and enhanced security features.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Sign in to [Azure portal](https://portal.azure.com).
 
 1. Select the workspace that you wish to upgrade.
 
-1. Select **Upgrade**.
+1. Select **Upgrade** either at the top or in the upgrade message.
+
+    ![Upgrade a workspace](media/how-to-manage-workspace/upgrade.png)
+
+1. Select **Confirm Update**.
+
 
 > [!IMPORTANT]
-> You cannot downgrade an Enterprise edition workspace to a Basic edition workspace.  
+> You cannot downgrade an Enterprise edition workspace to a Basic edition workspace. 
 
-## <a name="view"></a>View a workspace
+## <a name="view"></a>Find a workspace
 
 1. In top left corner of the portal, select **All services**.
 
@@ -98,6 +103,7 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 Use the Delete button at the top of the workspace you wish to delete.
 
   ![Delete button](media/how-to-manage-workspace/delete-workspace.png)
+
 
 ## Clean up resources
 

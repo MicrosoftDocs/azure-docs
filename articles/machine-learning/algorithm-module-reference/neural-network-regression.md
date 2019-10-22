@@ -47,7 +47,7 @@ Neural networks can be extensively customized. This section describes how to cre
 
 ##  <a name="bkmk_DefaultArchitecture"></a> Create a neural network model using the default architecture
   
-1.  Add the **Neural Network Regression** module to your experiment in the interface. You can find this module under **Machine Learning**, **Initialize**, in the **Regression** category. 
+1.  Add the **Neural Network Regression** module to your pipeline in the interface. You can find this module under **Machine Learning**, **Initialize**, in the **Regression** category. 
   
 2. Indicate how you want the model to be trained, by setting the **Create trainer mode** option.  
   
@@ -71,16 +71,16 @@ Neural networks can be extensively customized. This section describes how to cre
 
 8.  For **The momentum**, type a value to apply during learning as a weight on nodes from previous iterations.
 
-10. Select the option, **Shuffle examples**, to change the order of cases between iterations. If you deselect this option, cases are processed in exactly the same order each time you run the experiment.
+10. Select the option, **Shuffle examples**, to change the order of cases between iterations. If you deselect this option, cases are processed in exactly the same order each time you run the pipeline.
   
-11. For **Random number seed**, you can optionally type a value to use as the seed. Specifying a seed value is useful when you want to ensure repeatability across runs of the same experiment.
+11. For **Random number seed**, you can optionally type a value to use as the seed. Specifying a seed value is useful when you want to ensure repeatability across runs of the same pipeline.
   
 13. Connect a training dataset and one of the [training modules](module-reference.md): 
   
     -   If you set **Create trainer mode** to **Single Parameter**, use [Train Model](./train-model.md).  
   
    
-14. Run the experiment.  
+14. Run the pipeline.  
 
 ## Results
 
@@ -88,7 +88,7 @@ After training is complete:
 
 + To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md), and select **Visualize**.  
 
-+ To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same experiment.
++ To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same pipeline.
 
 
 ## Next steps

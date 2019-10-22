@@ -133,7 +133,8 @@ import logging
 
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
