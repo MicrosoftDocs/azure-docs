@@ -101,7 +101,7 @@ In this step, you need to select hte Linux machine that will act as a proxy betw
     - Protocol = TCP
     - Port = 514
     - Format = CEF
-    - IP address - make sure to send the CEF messages to the IP address of the virutal machine you dedicated for this purpose.
+    - IP address - make sure to send the CEF messages to the IP address of the virtual machine you dedicated for this purpose.
 
    > [!NOTE]
    > This solution supports Syslog RFC 3164 or RFC 5424.
