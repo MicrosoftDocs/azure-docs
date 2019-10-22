@@ -152,6 +152,12 @@ ORDER BY
 	payment_type
 ```
 
+## Next steps
+
+Advance to one of the following articles and learn how to query JSON files.
+> [!div class="nextstepaction"]
+> [Querying JSON files](querying-json-files.md)
+
 <!--- Required:
 Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
 Do not use a "More info section" or a "Resources section" or a "See also section". --->

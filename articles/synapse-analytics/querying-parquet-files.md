@@ -155,11 +155,11 @@ ORDER BY
 
 ## Next steps
 
-You can see more in [Creating and using views](creating-and-using-views.md).
+You can see more in [Querying Parquet nested types](querying-parquet-nested-types.md).
 
-Advance to the next article to learn how to create and use views.
+Advance to the next article to learn how to query parquet nested types.
 > [!div class="nextstepaction"]
-> [Creating and using views](creating-and-using-views.md)
+> [Querying Parquet nested types](querying-parquet-nested-types.md)
 
 
 <!--- Required:

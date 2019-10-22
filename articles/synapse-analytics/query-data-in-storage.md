@@ -1,40 +1,32 @@
 ---
-title: Overview - Query data in storage #Required; update as needed page title displayed in search results. Include the brand.
-description: This section contains sample queries you can use to try out SQL on-demand service. #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/07/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: v-stazar #Required; update with your microsoft alias of author; optional team alias.
+title: Overview - Query data in storage 
+description: This section contains sample queries you can use to try out SQL on-demand service.
+services: sql-data-warehouse
+author: azaricstefan
+ms.service: sql-data-warehouse 
+ms.topic: overview
+ms.subservice: design
+ms.date: 10/07/2019
+ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
 # Overview: Query data in storage
 
 This section contains sample queries you can use to try out SQL on-demand service.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
 
 Currently supported files are: 
 - CSV
 - Parquet 
 - JSON
 
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because quickstarts are intended to help new customers use a subscription to quickly try out a specific product/service, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write quickstarts](contribute-how-to-mvc-quickstart.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
 
 ## Prerequisites
 
 Tool to issue queries:
 
 - SQL client of your choice:
+    - Synapse Studio
     - Azure Data Studio
     - SQL Server Management Studio
 
@@ -58,7 +50,7 @@ There are two steps prior to using samples:
 
 Since you will use demo environment, you should create your own database for demo purposes. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
-> Note that databases are used only for view metadata, not for actual data. Databases will be dropped on daily basis. Please keep all your scripts so you can easily regenerate database if needed.
+> Note that databases are used only for view metadata, not for actual data.
 > 
 > Write down database name you use. you will need it later on.
 
@@ -147,11 +139,11 @@ Now you are ready to start with following quickstart articles:
 
 4. [Querying Parquet files](querying-parquet-files.md)
 
-5. [Creating and using views](creating-and-using-views.md)
+5. [Querying Parquet nested types](querying-parquet-nested-types.md)
 
 6. [Querying JSON files](querying-json-files.md)
 
-7. [Querying Parquet nested types](querying-parquet-nested-types.md)
+7. [Creating and using views](creating-and-using-views.md)
 
 
 Advance to the next article to learn how to query single CSV file.
