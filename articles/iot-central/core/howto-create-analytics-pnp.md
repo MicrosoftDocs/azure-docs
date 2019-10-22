@@ -41,7 +41,7 @@ You'll need to start by choosing a **device group**, and the telemetry that you 
 - **Split by:** 'Split by' control helps to group the data by using the device properties as dimensions. Values of the device and cloud properties are joined along with the telemetry as and when it is sent by the device. If the cloud or device property has been updated, then you will see the telemetry grouped by different values on the chart.
 
     > [!TIP]
-    To view data for each device separately, select Device Id in the 'Split by' control.
+    > To view data for each device separately, select Device Id in the 'Split by' control.
 
 ## Interacting with your data
 
