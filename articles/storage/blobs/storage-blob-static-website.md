@@ -53,7 +53,7 @@ Users can view site content from a browser by using the public URL of the websit
 
 The URL of your site contains a regional code. For example the URL `https://contosoblobaccount.z22.web.core.windows.net/` contains regional code `z22`.
 
-While that code must remain the URL, it is only for internal use, and you won't have to use that code in any other way.
+While that code must remain in the URL, it is only for internal use, and you won't have to use that code in any other way.
 
 The index document that you specify when you enable static website hosting, appears when users open the site and don't specify a specific file (For example: `https://contosoblobaccount.z22.web.core.windows.net`).  
 

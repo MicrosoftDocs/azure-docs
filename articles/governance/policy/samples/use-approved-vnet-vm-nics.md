@@ -1,5 +1,5 @@
 ---
-title: Sample - Use approved vNet for VM network interfaces
+title: Sample - Use listed vNet for VM network interfaces
 description: This sample policy definition requires that network interfaces use an approved virtual network.
 author: DCtheGeek
 ms.service: azure-policy

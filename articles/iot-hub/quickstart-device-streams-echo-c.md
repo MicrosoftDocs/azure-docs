@@ -116,23 +116,23 @@ You must register a device with your IoT hub before it can connect. In this sect
 1. To create the device identity, run the following command in Cloud Shell:
 
    > [!NOTE]
-   > * Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
-   > * Use *MyDevice*, as shown. It's the name given for the registered device. If you choose a different name for your device, use that name throughout this article, and update the device name in the sample applications before you run them.
+   > * Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
+   > * For the name of the device you're registering, it's recommended to use *MyDevice* as shown. If you choose a different name for your device, use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. To get the *device connection string* for the device that you just registered, run the following command in Cloud Shell:
 
    > [!NOTE]
-   > Replace the *YourIoTHubName* placeholder with the name you choose for your IoT hub.
+   > Replace the *YourIoTHubName* placeholder with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Note the device connection string for later use in this quickstart. It looks like the following example:
+    Note the returned device connection string for later use in this quickstart. It looks like the following example:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -144,14 +144,14 @@ In this section, you run both the device-side application and the service-side a
 
 To run the device-side application, follow these steps:
 
-1. Provide your device credentials by editing the *iothub_client_c2d_streaming_sample.c* source file in the *iothub_client/samples/iothub_client_c2d_streaming_sample* folder and then providing your device connection string.
+1. Provide your device credentials by editing the **iothub_client_c2d_streaming_sample.c** source file in the `iothub_client/samples/iothub_client_c2d_streaming_sample` folder and adding your device connection string.
 
    ```C
    /* Paste in your iothub connection string  */
-   static const char* connectionString = "[device connection string]";
+   static const char* connectionString = "{DeviceConnectionString}";
    ```
 
-1. Compile the code as follows:
+1. Compile the code with the following commands:
 
    ```bash
    # In Linux
@@ -181,7 +181,7 @@ To run the device-side application, follow these steps:
 
 ### Run the service-side application
 
-As mentioned previously, the IoT Hub C SDK supports device streams on the device side only. To build and run the service-side application, follow the instructions in one of the following quickstarts:
+As mentioned previously, the IoT Hub C SDK supports device streams on the device side only. To build and run the accompanying service-side application, follow the instructions in one of the following quickstarts:
 
 * [Communicate to a device app in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md)
 
@@ -193,7 +193,7 @@ As mentioned previously, the IoT Hub C SDK supports device streams on the device
 
 ## Next steps
 
-In this quickstart, you've set up an IoT hub, registered a device, established a device stream between a C application on the device and another application on the service side, and used the stream to send data back and forth between the applications.
+In this quickstart, you set up an IoT hub, registered a device, established a device stream between a C application on the device and another application on the service side, and used the stream to send data back and forth between the applications.
 
 To learn more about device streams, see:
 

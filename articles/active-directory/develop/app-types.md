@@ -78,4 +78,4 @@ Each scenario listed in this document includes a subsection that describes its p
 
 ## Next steps
 
-- Learn more about other Azure AD [authentication basics](authentication-scenarios.md)
+- Learn more about other Azure AD [authentication basics](v1-authentication-scenarios.md)

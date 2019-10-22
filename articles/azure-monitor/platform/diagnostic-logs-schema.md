@@ -1,14 +1,15 @@
 ---
 title: Azure Diagnostic Logs supported services and schemas
 description: Understand the supported services and event schema for Azure Diagnostic Logs.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: reference
-ms.date: 10/11/2018
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: logs
+ms.topic: reference
+author: rboucher
+ms.author: robb
+ms.date: 10/11/2018
+
 ---
+
 # Supported services, schemas, and categories for Azure Diagnostic Logs
 
 [Azure Monitor diagnostic logs](../../azure-monitor/platform/resource-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All diagnostic logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
