@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 10/28/2019
 ---
 
 # Understand and adjust Streaming Units
@@ -29,6 +29,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
     ![Azure portal Stream Analytics job configuration][img.stream.analytics.preview.portal.settings.scale]
     
 4. Use the slider to set the SUs for the job. Notice that you are limited to specific SU settings. 
+5. You can change the number of SUs assigned to your job even when it is running. This is possible only if your job is [embarrassingly parallel](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) and is running with at least 6 SUs. You maybe restricted to choosing from a set of SU values when the job is running. 
 
 ## Monitor job performance
 Using the Azure portal, you can track the throughput of a job:
