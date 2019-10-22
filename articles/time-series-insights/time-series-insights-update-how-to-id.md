@@ -55,10 +55,10 @@ Example raw event:
 
 ```JSON
 {
-  “sensorId”: “sensor1”,
-  “flrRm”: “1a”,
-  “location”: “Redmond”,
-  “temperature”: 78
+  "sensorId": "sensor1",
+  "flrRm": "1a",
+  "location": "Redmond",
+  "temperature": 78
 }
 ```
 
