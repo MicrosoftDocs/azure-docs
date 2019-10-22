@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
 ---
 
@@ -82,6 +82,12 @@ The easiest way to ensure that your Timestamp property name is captured and work
 * `#`, which indicates that Time Series Insights reads the data values as an integer.
 
 If the Timestamp property isn’t explicitly specified, an event’s IoT hub or event hub Enqueued Time is used as the default time stamp.
+
+## Problem: I can’t view data from warm store in explorer
+
+- You either provisioned warm store very recently and data is still flowing in.
+
+- You  might have either deleted your warm store, in which case you would have lost data.
 
 ## Problem: I can’t view or edit my Time Series Model
 
