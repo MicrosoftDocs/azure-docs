@@ -4,7 +4,7 @@ description: For CSP partners, Azure delegated resource management helps improve
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/17/2019
+ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
 ---
