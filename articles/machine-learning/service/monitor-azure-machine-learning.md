@@ -32,51 +32,21 @@ The following sections build on this information by describing the specific data
 
 ## Monitoring data from Azure Machine Learning
 
-The following tables list the platform metrics collected for Azure Machine learning. All metrics are stored in the namespace **Azure Machine Learning Service Workspace**:
-
-**Model**
-
-| Model | Unit | Description |
-| ----- | ----- | ----- |
-| Model deploy failed | Count | The number of model deployments that failed. |
-| Model deploy started | Count | The number of model deployments started. |
-| Model deploy succeeded | Count | The number of model deployments that succeeded. |
-| Model register failed | Count | The number of model registrations that failed. |
-| Model register succeeded | Count | The number of model registrations that succeeded. |
-
-**Quota**
-
-Quota information is for Azure Machine Learning compute only.
-
-| Metric | Unit | Description |
-| ----- | ----- | ----- |
-| Active cores | Count | The number of active compute cores. |
-| Active nodes | Count | The number of active nodes. |
-| Idle cores | Count | The number of idle compute cores. |
-| Idle nodes | Count | The number of idle compute nodes. |
-| Leaving cores | Count |
-| Leaving nodes | Count |
-| Preempted cores | Count |
-| Preempted nodes | Count |
-| Quota utilization percentage | Percent |
-| Total cores | Count | The total cores. |
-| Total nodes | Count | The total nodes. |
-| Unusable cores | Count |
-| Unusable nodes | Count |
-
-**Run**
-
-Information on training runs.
-
-| Metric | Unit | Description |
-| ----- | ----- | ----- |
-| Completed runs | Count | The number of completed runs. |
-| Failed runs | Count | The number of failed runs. |
-| Started runs | Count | The number of started runs. |
+Azure Machine Learning collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources). See [Azure Machine Learning monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
 ## Configuration
 
-????
+Metrics for Azure Machine Learning do not need to be configured, they are collected automatically.
+
+You must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell.
+
+When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Machine Learning are listed in the following table:
+
+| Category | Description |
+|:---|:---|
+| AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
+| AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
+| AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 
 ## Analyzing metric data
 
@@ -93,6 +63,19 @@ For metrics that support dimensions, you can filter the metric with the desired 
 ## Analyzing log data
 
 Data in Azure Monitor Logs is stored in tables, with each table having its own set of unique properties. Azure Machine Learning stores data in the following tables:
+
+| Table | Description |
+|:---|:---|
+| AmlComputeClusterEvent | Events from Azure Machine Learning compute clusters. |
+| AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
+| AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
+
+> [!IMPORTANT]
+> When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.l
+
+See [Azure Machine Learning monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
+
+### Sample queries
 
 ## Alerts
 
