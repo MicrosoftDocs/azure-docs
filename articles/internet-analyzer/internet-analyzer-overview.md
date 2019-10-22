@@ -65,10 +65,10 @@ During preview, the following preconfigured endpoints are available:
 
 ## Suggested test scenarios 
 
-To help you make the best performance decisions for your customers, Internet Analyzer allows you to evaluate two endpoints for a given population of end users. 
+To help you make the best performance decisions for your customers, Internet Analyzer allows you to evaluate two endpoints for your specific population of end users. 
 
 While Internet Analyzer can answer a multitude of questions, some of the most common are: 
-* What is the impact of migrating to the cloud? 
+* What is the performance impact of migrating to the cloud? 
     * *Suggested Test: Custom (your current on-premises infrastructure) vs. Azure (any preconfigured endpoint)*
 * What is the best cloud for your end-user population in each region? 
     *  *Suggested Test: Custom (other cloud service) vs. Azure (any preconfigured endpoint)*
@@ -83,7 +83,7 @@ While Internet Analyzer can answer a multitude of questions, some of the most co
 
 ## How it works
 
-To use Internet Analyzer, set up an Internet Analyzer resource in the Microsoft Azure portal and install the small JavaScript client in your application. The client measures the latency from your end users to your selected network destinations (endpoints) by downloading a one-pixel image over HTTPS. After collecting latency measurements, the client sends the measurement data to Internet Analyzer.
+To use Internet Analyzer, set up an Internet Analyzer resource in the Microsoft Azure portal and install the small JavaScript client in your application. The client measures the latency from your end users to your selected endpoints by downloading a one-pixel image over HTTPS. After collecting latency measurements, the client sends the measurement data to Internet Analyzer.
 When a user visits the Web application, the JavaScript client selects two endpoints to measure across all configured tests. For each endpoint, the client performs a _cold_ and _warm_ measurement. The _cold_ measurement incurs additional latency beside the pure network latency between the user and endpoint such as DNS resolution, TCP connection handshake, and SSL/TLS negotiation. The _warm_ measurement follows just after the _cold_ measurement completes and takes advantage of modern browsers' persistent TCP connection management to get an accurate measure of end-to-end latency. When supported by the user's browser, the W3C resource timing API is used for accurate measurement timing. Currently, only warm latency measurements are used for analysis.
 
 ![architecture](./media/ia-overview/architecture.png)
