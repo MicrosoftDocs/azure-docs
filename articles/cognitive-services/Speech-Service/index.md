@@ -256,7 +256,7 @@ description: Get started with the Speech service.
                         <a href="#intentrecognition">Intent recognition</a>
                         <ul id="intentrecognition" class="cardsC">
                             <li>
-                                <a href="https://aka.ms/speech/intent-luis-portal">
+                                <a href="https://aka.ms/speech/intent-microphone">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
