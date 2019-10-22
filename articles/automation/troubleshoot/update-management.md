@@ -328,7 +328,7 @@ You can also download and run the [Windows Update troubleshooter](https://suppor
 > [!NOTE]
 > The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) documentation indicates that it's for use on Windows clients, but it also works on Windows Server.
 
-## Scenario: Update run returns "Failed" status
+## Scenario: Update run returns "Failed" status (Linux)
 
 ### Issue
 
