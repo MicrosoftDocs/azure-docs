@@ -620,7 +620,7 @@ featureFlags:
                                     <ul>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                 <p>Azure Synapse Analytics (formerly SQL DW)</p>
                                             </a>
                                         </li>
@@ -902,7 +902,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                 <p>Azure Synapse Analytics (formerly SQL DW)</p>
                                             </a>
                                         </li>
@@ -2247,7 +2247,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3217,7 +3217,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
