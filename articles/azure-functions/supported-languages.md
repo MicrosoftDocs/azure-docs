@@ -48,4 +48,6 @@ To learn more about how to develop functions in the supported languages, see the
 + [C# script developer reference](functions-reference-csharp.md)
 + [Java developer reference](functions-reference-java.md)
 + [JavaScript developer reference](functions-reference-node.md)
++ [PowerShell developer reference](functions-reference-powershell.md)
 + [Python developer reference](functions-reference-python.md)
++ [TypeScript developer reference](functions-reference-node.md#typescript)
