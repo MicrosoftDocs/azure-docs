@@ -22,9 +22,7 @@ There are two ways to create an Internet Analyzer resource- using the Azure prev
 
 ## Before you begin
 
-The public preview is available to use globally; however, data storage is limited to the following Azure public regions:
-* US East
-* US West 2
+The public preview is available to use globally; however, data storage is limited to *US West 2* during preview. 
 
 
 ## Portal  
@@ -61,8 +59,8 @@ To begin any test, the JavaScript client must be embedded in your Web applicatio
     ***Preconfigured endpoints: single and multiple Azure region combinations***
     * Select a region or set of regions from a [predetermined list of Azure endpoints](internet-analyzer-faq.md).
     * Next, select the type of application or content delivery architecture you'd like to evaluate. 
-        * Single Azure region: Site acceleration ([Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/)), static content caching ([Azure CDN for Microsoft](https://azure.microsoft.com/en-us/services/cdn/)), or none. 
-        * Multiple Azure regions: Site acceleration ([Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/)), DNS routing ([Azure Traffic Manager](https://azure.microsoft.com/en-us/services/traffic-manager/))  
+        * Single Azure region: Site acceleration ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), static content caching ([Azure CDN for Microsoft](https://azure.microsoft.com/services/cdn/)), or none. 
+        * Multiple Azure regions: Site acceleration ([Azure Front Door](https://azure.microsoft.com/services/frontdoor/)), DNS routing ([Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/))  
 
     ***Custom endpoints***
     * Download the one-pixel image provided on the page and host it on the endpoint server you would like to measure. Internet Analyzer assumes your custom endpoint is Internet-facing. 

@@ -24,7 +24,7 @@ Internet Analyzer uses a small JavaScript client embedded in your Web applicatio
 
 ## Quick & customizable tests
 
-Internet Analyzer addresses performance-related questions for cloud migration, deploying to a new or additional Azure regions, or testing new application and content delivery platforms in Azure, such as [Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/) and [Microsoft Azure CDN](https://azure.microsoft.com/en-us/services/cdn/). 
+Internet Analyzer addresses performance-related questions for cloud migration, deploying to a new or additional Azure regions, or testing new application and content delivery platforms in Azure, such as [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) and [Microsoft Azure CDN](https://azure.microsoft.com/services/cdn/). 
 
 Each test you create in Internet Analyzer is composed of two endpoints—Endpoint A and Endpoint B. Endpoint B is measured relative to what you select as Endpoint A. 
 
