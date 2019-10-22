@@ -353,8 +353,8 @@ Try it out:
 + While many sample notebooks are available, **only [these sample notebooks](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) work with Azure Databricks.**
 
 + Import these samples directly from your workspace. See below:
-![Select Import](media/how-to-configure-environment/azure-db-screenshot.PNG)
-![Import Panel](media/how-to-configure-environment/azure-db-import.PNG)
+![Select Import](media/how-to-configure-environment/azure-db-screenshot.png)
+![Import Panel](media/how-to-configure-environment/azure-db-import.png)
 
 + Learn how to [create a pipeline with Databricks as the training compute](how-to-create-your-first-pipeline.md).
 
