@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 10/22/2019
 ---
 
 # Automatically scale Azure HDInsight clusters
@@ -23,10 +23,12 @@ The following table describes the cluster types and versions that are compatible
 
 | Version | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 without ESP | Yes | Yes | No | No | No | No | No |
-| HDInsight 4.0 without ESP | Yes | Yes | No | No | No | No | No |
-| HDInsight 3.6 with ESP | Yes | Yes | No | No | No | No | No |
-| HDInsight 4.0 with ESP | Yes | Yes | No | No | No | No | No |
+| HDInsight 3.6 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 4.0 without ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 3.6 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+| HDInsight 4.0 with ESP | Yes | Yes | Yes | Yes* | No | No | No |
+
+&nbsp; &nbsp; \* HBase clusters can only be configured for schedule-based scaling, not load-based.
 
 ## How it works
 
