@@ -73,7 +73,7 @@ bus_service.create_topic('mytopic', topic_options)
 
 ## Create a subscription
 
-The **ServiceBusService** object also creates subscriptions to topics. Subscriptions have a name, and can have a filter that restricts the message set delivered to the subscription's virtual queue.
+The **ServiceBusService** object also creates subscriptions to topics. A subscription has a name, and can have a filter that restricts the message set delivered to the subscription's virtual queue.
 
 If you don't specify a filter, new subscriptions use the default **MatchAll** filter. All messages published to `mytopic` are placed in the subscription's virtual queue. The following example creates a subscription to `mytopic` named `AllMessages`, which uses the default **MatchAll** filter:
 
@@ -86,13 +86,11 @@ bus_service.create_subscription('mytopic', 'AllMessages')
 
 ### Use filters with subscriptions
 
-You can define filters that specify which messages sent to a topic appear in a specific topic subscription.
+You can use the **ServiceBusService** object's `create_rule` method to define filters that specify which messages appear in a specific topic subscription.
 
-The most flexible type of filter supported by subscriptions is a **SqlFilter**, which uses a subset of SQL92. SQL filters operate on the message properties. For more information about the expressions you can use with a SQL filter, see the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
+The most flexible type of filter supported by subscriptions is a **SqlFilter**, which uses a subset of SQL92. SQL filters are based on the properties of messages published to the topic. For more information about the expressions you can use with a SQL filter, see the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
 
-You can add filters to a subscription by using the `create_rule` method of the **ServiceBusService** object.
-
-Because the default filter applies automatically to all new subscriptions, you must remove it, or **MatchAll** will override any other filters you specify. You can remove the default rule by using the `delete_rule` method of the **ServiceBusService** object.
+Because the **MatchAll** default filter applies automatically to all new subscriptions, you must remove it, or **MatchAll** will override any other filters you specify. You can remove the default rule by using the `delete_rule` method of the **ServiceBusService** object.
 
 The following example creates a subscription named `HighMessages`, with a **SqlFilter** rule named `HighMessageFilter`. The `HighMessageFilter` rule selects only messages with a `messageposition` property greater than 3:
 
@@ -143,7 +141,7 @@ For more information about quotas, see [Service Bus quotas][Service Bus quotas].
 
 ## Receive messages from a subscription
 
-Use the `receive_subscription_message` method on the **ServiceBusService** object to receive messages from a subscription. The following example receives messages from the `LowMessages` subscription to`mytopic`:
+Use the `receive_subscription_message` method on the **ServiceBusService** object to receive messages from a subscription. The following example receives messages from the `LowMessages` subscription to `mytopic`:
 
 ```python
 msg = bus_service.receive_subscription_message(
@@ -155,9 +153,9 @@ print(msg.body)
 
 The `peek_lock` parameter of `receive_subscription_message` determines whether Service Bus deletes messages from the subscription as they are read. To delete messages from the subscription as they are read, set the `peek_lock` parameter to **False**. To read (peek) and lock messages without deleting them from the queue, set `peek_lock` to **True**.
 
-The `peek_lock=False` behavior that reads and deletes messages as part of the receive operation is simplest. This behavior works fine if an application can tolerate missing a message when there's a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it has missed the message that was consumed before the crash.
+Reading and deleting messages as part of the receive operation is the simplest model. This behavior works fine if the application can tolerate missing a message when there's a failure. To understand this behavior, consider a scenario in which the consumer issues the receive request and then crashes before processing it. Because Service Bus has marked the message as being consumed, when the application restarts and begins consuming messages again, it has missed the message that was consumed before the crash.
 
-If your application can't tolerate missed messages, set the `peek_lock` parameter to **True**. Service Bus then finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After the application processes or stores the message, the application completes the second stage of the receive process by calling the `delete` method on the **Message** object. The `delete` method marks the message as being consumed and removes it from the subscription. The following example demonstrates the peek lock behavior:
+If your application can't tolerate missed messages, set the `peek_lock` parameter to **True**. Service Bus then finds the next message to be consumed, locks it to prevent other consumers from receiving it, and returns it to the application. After the application processes or stores the message, the application completes the second stage of the receive process by calling the `delete` method on the **Message** object. The `delete` method marks the message as being consumed and removes it from the subscription. The following example demonstrates a peek lock scenario:
 
 ```python
 msg = bus_service.receive_subscription_message('mytopic', 'LowMessages', peek_lock=True)
@@ -189,7 +187,7 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
 > [!NOTE]
-> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality, and the ability to test topic, queues, subscriptions, relay services, notification hubs, and events hubs. 
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality and the ability to test topic, queues, subscriptions, relay services, notification hubs, and events hubs. 
 
 ## Next steps
 
