@@ -15,7 +15,7 @@ zone_pivot_groups: programming-languages-set-two
 
 # Specify source language for speech to text
 
-If you know the source language of the audio that's being passed to the Speech SDK, you can use either the `FromConfig` or `SourceLanguageConfig` to specify the source language and custom language model used for recognition. In this article, you'll learn how to specify the source language in C++ and Java.
+In this article, you'll learn how to specify the source language for an audio input passed to the Speech SDK for speech recognition. Additionally, example code is provided to specifying a custom speech model for improved recognition.
 
 ::: zone pivot="programming-language-csharp"
 
