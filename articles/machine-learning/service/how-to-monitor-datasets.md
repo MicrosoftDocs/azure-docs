@@ -269,12 +269,12 @@ Limitations and known issues:
 * Limitation of 200 features, unless a feature list is not specified. 
 * Compute size must be large enough to handle the data. 
 
-Specific implementation details include:
+Columns, or features, in the dataset are classified as categorical or numeric based on the conditions in the table below. If the feature does not meet these conditions - for instance, a column of type string with >100 unique values - the feature is dropped from our algorithm. 
 
 | Feature type | Data type | Condition | Limitations | 
 | ------------ | --------- | --------- | ----------- |
-| Categorical | string, int, float | 1. Less than 100 unique values and 2. Less than 5% of total number of rows in the dataset | Null is treated as its own category | 
-| Numerical | int, float | Of correct data type and not categorized as categorical | Feature dropped if >15% of values are null | 
+| Categorical | string, bool, int, float | The number of unique values in the feature is less than 100 and less than 5% of the number of rows. | Null is treated as its own category | 
+| Numerical | int, float | Of a numerical data type and does not meet conditions for a categorical feature. | Feature dropped if >15% of values are null | 
 
 ## Next steps
 
