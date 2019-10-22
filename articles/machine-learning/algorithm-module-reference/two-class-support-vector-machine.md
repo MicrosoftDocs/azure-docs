@@ -34,7 +34,7 @@ For prediction, the SVM algorithm assigns new examples into one category or the 
 
 For this model type, it is recommended that you normalize the dataset before using it to train the classifier.
   
-1.  Add the **Two-Class Support Vector Machine** module to your experiment.  
+1.  Add the **Two-Class Support Vector Machine** module to your pipeline.  
   
 2.  Specify how you want the model to be trained, by setting the **Create trainer mode** option.  
   
@@ -63,7 +63,7 @@ For this model type, it is recommended that you normalize the dataset before usi
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
   
 
-10. Run the experiment.
+10. Run the pipeline.
 
 ## Results
 
