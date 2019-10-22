@@ -104,7 +104,7 @@ The application template comes with a set of device templates and an operator ex
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
 
-Get started with [end to end tutorial](tutorial-checkout.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
+Get started with [end to end tutorial](overview-iot-central-retail-store-analytics-checkout.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
 
 
 ## What is in-store analytics condition monitoring?
@@ -129,10 +129,8 @@ The application template comes with a set of device templates and an operator ex
 
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
-
-Get started with [end to end tutorial](tutorial-conditionmontioring.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
-
+Get started with [end to end tutorial](overview-iot-central-retail-store-analytics-condition.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
 
 ## Next steps
 To get started building a retail solution:
-* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
+* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)  
