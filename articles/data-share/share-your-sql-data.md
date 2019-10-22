@@ -7,7 +7,7 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ---
-# Tutorial: Share data from Azure SQL-based sources
+# Tutorial: Share data from Azure SQL-based sources using Azure Data Share
 
 In this tutorial you will learn how to set up a new Azure Data Share and start sharing SQL-based data with customers and partners outside of your Azure organization.
 

@@ -7,7 +7,7 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ---
-# Tutorial: Share your data using Azure Data Share  
+# Tutorial: Share data from Azure Data Lake Store or Azure Storage using Azure Data Share  
 
 In this tutorial, you will learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
 
