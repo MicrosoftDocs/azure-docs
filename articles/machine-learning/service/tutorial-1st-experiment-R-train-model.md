@@ -1,193 +1,282 @@
 ---
 title: "Tutorial: Train your first ML model with R"
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a scikit-learn model using R and the diabetes data set.
+description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: j-martens
-ms.author: jmartens
-ms.date: 09/20/2019
+ms.reviewer: sgilley
+author: revodavid
+ms.author: davidsmi
+ms.date: 10/21/2019
 ---
 
 # Tutorial: Train your first ML model using R & Azure Machine Learning
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and chose a development environment](tutorial-1st-experiment-sdk-setup.md). In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a simple scikit-learn model based on the diabetes data set. After completing this tutorial, you will have the practical knowledge of the SDK to scale up to developing more-complex experiments and workflows.
+This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and a compute instance](tutorial-1st-experiment-R-set-up.md).  In this tutorial, you learn the foundational design patterns in Azure Machine Learning.  You'll train and deploy a  logistic regression model using `azuremlsdk` and `caret`  to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
 
 In this tutorial, you learn the following tasks:
 
 > [!div class="checklist"]
-> * Connect your workspace and create an experiment
-> * Load data and train scikit-learn models
-> * View training results in the portal
-> * Retrieve the best model
+> * Connect your workspace
+> * Load data and prepare for training
+> * Upload data to the datastore so it is available for remote training
+> * Create a compute resource
+> * Train a caret model to predict probability of fatality
+> * Deploy a prediction endpoint
+> * Test the model from R
+
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 ## Prerequisites
 
-The only prerequisite is to run part one of this tutorial, [Set up environment and workspace](tutorial-1st-experiment-sdk-setup.md).
+The only prerequisite is to run part one of this tutorial, [Tutorial: Get started with Azure Machine Learning and its R SDK](tutorial-1st-experiment-r-set-up.md).
 
-In this part of the tutorial, you run the code in the sample Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` opened at the end of part one. This article walks through the same code that is in the notebook.
+In this part of the tutorial, you run `R-Tutorial.Rmd` in RStudio which you cloned in part one. This article walks through the that code.
 
-## Launch Jupyter web interface
+## Open RStudio
 
-1. On your workspace page in Azure Machine Learning studio, select **Compute** on the left.
+1. Sign in to [https://ml.azure.com/](https://ml.azure.com/).
 
-1. Select **Jupyter** in the **URI** column for the VM you created in part one of this tutorial.
+1. On the left hand side, select **Compute**.
 
-    ![Start the Jupyter notebook server](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
+1. Select **RStudio** in the **URI** column for the compute instance you created in [part one of this tutorial](tutorial-1st-experiment-r-set-up.md#compute-instance)..
 
-   The link starts your notebook server and opens the Jupyter notebook webpage in a new browser tab.  This link will only work for the person who creates the VM. Each user of the workspace must create their own VM.
+   The link starts the RStudio server and opens RStudio in a new browser tab.  
 
-1. On the Jupyter notebook webpage, select the top foldername, which has your username.  
+1. Open the `R-Tutorial.Rmd` file in the **vignettes** folder you cloned in [part one of this tutorial](tutorial-1st-experiment-r-set-up.md#clone).
 
-   This folder exists in the workspace [storage account](concept-workspace.md#resources) rather than on the compute instance itself.  If you delete the compute instance, you'll still keep all your work.  When you create a new compute instance later, it will load this same folder. If you share your workspace with others, they will see your folder and you will see theirs.
 
-1. Open the `samples-*` subdirectory, then open the Jupyter notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **not** the `.yml` file of the same name. 
+## Load the azureml package
 
-## Connect workspace and create experiment
 
 > [!Important]
-> The rest of this article contains the same content as you see in the notebook.  
+> The rest of this article contains the same content as you see in the  `R-Tutorial.Rmd` file in RStudio.  
 >
-> Switch to the Jupyter notebook now if you want to read along as you run the code. 
-> To run a single code cell in a notebook, click the code cell and hit **Shift+Enter**. Or, run the entire notebook by choosing **Cell > Run All** from the top menu.
+> Switch to RStudio now if you want to read along as you run the code.
 
-Import the `Workspace` class, and load your subscription information from the file `config.json` using the function `from_config().` This looks for the JSON file in the current directory by default, but you can also specify a path parameter to point to the file using `from_config(path="your/file/path")`. In a cloud notebook server, the file is automatically in the root directory.
 
-If the following code asks for additional authentication, simply paste the link in a browser and enter the authentication token.
-
-```python
-from azureml.core import Workspace
-ws = Workspace.from_config()
+```R
+library(azuremlsdk)
 ```
 
-Now create an experiment in your workspace. An experiment is another foundational cloud resource that represents a collection of trials (individual model runs). In this tutorial, you use the experiment to create runs and track your model training in Azure Machine Learning studio. Parameters include your workspace reference, and a string name for the experiment.
+You'll use these additional R packages:
 
-
-```python
-from azureml.core import Experiment
-experiment = Experiment(workspace=ws, name="diabetes-experiment")
+```R
+install.packages("DAAG")
+install.packages("caret")
 ```
 
-## Load data and prepare for training
+## Load your workspace
 
-For this tutorial, you use the diabetes data set, which is a pre-normalized data set included in scikit-learn. This data set uses features like age, gender, and BMI to predict diabetes disease progression. Load the data from the `load_diabetes()` static function, and split it into training and test sets using `train_test_split()`. This function segregates the data so the model has unseen data to use for testing following training.
+Now define a workspace object in R by loading your config file.
 
+```R
+ws <- load_workspace_from_config()
+```
 
-```python
-from sklearn.datasets import load_diabetes
-from sklearn.model_selection import train_test_split
+## Load data and prepare for training 
 
-X, y = load_diabetes(return_X_y = True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=66)
+This tutorial uses data from the [DAAG package](https://cran.r-project.org/package=DAAG). This dataset includes data from over 25,000 car crashes in the US, with variables you can use to predict the likelihood of a fatality. First, import the data into R and transform it into a new dataframe `accidents` for analysis, and export it to an `Rdata` file.
+
+```R
+library(DAAG)
+data(nassCDS)
+
+accidents <- na.omit(nassCDS[,c("dead","dvcat","seatbelt","frontal","sex","ageOFocc","yearVeh","airbag","occRole")])
+accidents$frontal <- factor(accidents$frontal, labels=c("notfrontal","frontal"))
+accidents$occRole <- factor(accidents$occRole)
+
+saveRDS(accidents, file="accidents.Rd")
+```
+
+## Upload data to the datastore
+
+Azure Machine Learning workspaces provide a default datastore where you can store data and other files needed for analysis.
+Here, upload the accidents data you created above to the datastore.
+
+```R
+ds <- get_default_datastore(ws)
+target_path <- "accidentdata"
+upload_files_to_datastore(ds,
+                          list("./accidents.Rd"),
+                          target_path = target_path,
+                          overwrite = TRUE)
+```
+
+## Create a compute resource
+
+When you need more power than your local laptop to train a model, create a compute resource. 
+Here you create a virtual machine in Azure (and give it a name of `rcluster`) to use for training your model.
+
+```R
+cluster_name <- "rcluster"
+compute_target <- get_compute(ws, cluster_name = cluster_name)
+if (is.null(compute_target)) {
+  vm_size <- "STANDARD_D2_V2" 
+  compute_target <- create_aml_compute(workspace = ws,
+                                       cluster_name = cluster_name,
+                                       vm_size = vm_size,
+                                       max_nodes = 1)
+}
 ```
 
 ## Train a model
 
-Training a simple scikit-learn model can easily be done locally for small-scale training, but when training many iterations with dozens of different feature permutations and hyperparameter settings, it is easy to lose track of what models you've trained and how you trained them. The following design pattern shows how to leverage the SDK to easily keep track of your training in the cloud.
+Now fit a logistic regression model on your uploaded data using your remote compute target.
 
-Build a script that trains ridge models in a loop through different hyperparameter alpha values.
+> [!NOTE]
+> You may need to wait a few minutes for your compute cluster to be provisioned before moving on to the next step.
 
+The script to fit the model is called `accidents.R`. It will be run as a command-line script with `Rscript`.   `Rscript` takes one argument, `-d` to specify the storage folder where the data file is located. The argument will be provided for you by Azure Machine Learning.
 
-```python
-from sklearn.linear_model import Ridge
-from sklearn.metrics import mean_squared_error
-from sklearn.externals import joblib
-import math
+To run the training script:
 
-alphas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+* Create an `estimator` object to specify the script file name, parameters for the script file, and other options. The code below uses the compute cluster to run the script. The `cran_packages` option defines the packages to be installed on the compute cluster for R to use.
+* Create an `experiment` to start the computation.
+* Submit the experiment and wait until it's finished.
 
-for alpha in alphas:
-    run = experiment.start_logging()
-    run.log("alpha_value", alpha)
+```R
+est <- estimator(source_directory = ".",
+                 entry_script = "accidents.R",
+                 script_params = list("--data_folder" = ds$path(target_path)),
+                 compute_target = compute_target,
+                 cran_packages = c("caret", "optparse", "e1071")
+                 )
 
-    model = Ridge(alpha=alpha)
-    model.fit(X=X_train, y=y_train)
-    y_pred = model.predict(X=X_test)
-    rmse = math.sqrt(mean_squared_error(y_true=y_test, y_pred=y_pred))
-    run.log("rmse", rmse)
+experiment_name <- "accident-logreg"
+exp <- experiment(ws, experiment_name)
 
-    model_name = "model_alpha_" + str(alpha) + ".pkl"
-    filename = "outputs/" + model_name
-
-    joblib.dump(value=model, filename=filename)
-    run.upload_file(name=model_name, path_or_stream=filename)
-    run.complete()
+run <- submit_experiment(exp, est)
+view_run_details(run)
+wait_for_run_completion(run, show_output = TRUE)
 ```
 
-The above code accomplishes the following:
+(You -- and colleagues with access to the workspace -- can submit multiple experiments in parallel, and Azure Machine Learning will take of scheduling the tasks on the compute cluster. You can even configure the cluster to automatically scale up to multiple nodes, and scale back when there are no more compute tasks in the queue. This configuration is a cost-effective way for teams to share compute resources.)
 
-1. For each alpha hyperparameter value in the `alphas` array, a new run is created within the experiment. The alpha value is logged to differentiate between each run.
-1. In each run, a Ridge model is instantiated, trained, and used to run predictions. The root-mean-squared-error is calculated for the actual versus predicted values, and then logged to the run. At this point, the run has metadata attached for both the `alpha` value and the `rmse` accuracy.
-1. Next, the model for each run is serialized and uploaded to the run. This allows you to download the model file from the run in the portal.
-1. At the end of each iteration the run is completed by calling `run.complete()`.
+In the file `accidents.R`, you stored a metric from your model: the accuracy of the predictions in the training data. (You can store any metrics you like.)
 
-After the training has completed, call the `experiment` variable to fetch a link to the experiment in the portal.
+You can see metrics in your workspace in [Azure Machine Learning studio](https://ml.azure.com), or extract them to the local session as an R list as follows:
 
-```python
-experiment
+```R
+metrics <- get_run_metrics(run)
+metrics
+```
+> [!NOTE]
+> If you've run multiple experiments (say, using differing variables, algorithms, or hyperparamers), you can use the metrics from each run to choose the model you'll use in production.
+
+## Retrieve the model
+
+Now that you've fit the logistic regression model in the remote compute resource, you can retrieve the model object and look at the results in your local R session. 
+
+You see some factors that contribute to an increase in the estimated probability of death:
+* higher impact speed 
+* male driver
+* older occupant
+* passenger
+
+You see lower probabilities of death with:
+* presence of airbags
+* presence seatbelts
+* frontal collision 
+
+The vehicle year of manufacture does not have a significant effect.
+
+```R
+download_files_from_run(run, prefix="outputs/")
+accident_model <- readRDS("outputs/model.rds")
+summary(accident_model)
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Link to Azure portal</td><td>Link to Documentation</td></tr></table>
+You can use this model to make new predictions:
 
-## View training results in portal
-
-Following the **Link to Azure portal** takes you to the main experiment page. Here you see all the individual runs in the experiment. Any custom-logged values (`alpha_value` and `rmse`, in this case) become fields for each run, and also become available for the charts and tiles at the top of the experiment page. To add a logged metric to a chart or tile, hover over it, click the edit button, and find your custom-logged metric.
-
-When training models at scale over hundreds and thousands of separate runs, this page makes it easy to see every model you trained, specifically how they were trained, and how your unique metrics have changed over time.
-
-![Main Experiment page in Portal](./media/tutorial-quickstart/experiment-main.png)
-
-Clicking on a run number link in the `RUN NUMBER` column takes you to the page for each individual run. The default **Details** tab shows you more-detailed information on each run. Navigate to the **Outputs** tab, and you see the `.pkl` file for the model that was uploaded to the run during each training iteration. Here you can download the model file, rather than having to retrain it manually.
-
-![Run details page in Portal](./media/tutorial-quickstart/model-download.png)
-
-## Get the best model
-
-In addition to being able to download model files from the experiment in the portal, you can also download them programmatically. The following code iterates through each run in the experiment, and accesses both the logged run metrics and the run details (which contains the run_id). This keeps track of the best run, in this case the run with the lowest root-mean-squared-error.
-
-```python
-minimum_rmse_runid = None
-minimum_rmse = None
-
-for run in experiment.get_runs():
-    run_metrics = run.get_metrics()
-    run_details = run.get_details()
-    # each logged metric becomes a key in this returned dict
-    run_rmse = run_metrics["rmse"]
-    run_id = run_details["runId"]
-
-    if minimum_rmse is None:
-        minimum_rmse = run_rmse
-        minimum_rmse_runid = run_id
-    else:
-        if run_rmse < minimum_rmse:
-            minimum_rmse = run_rmse
-            minimum_rmse_runid = run_id
-
-print("Best run_id: " + minimum_rmse_runid)
-print("Best run_id rmse: " + str(minimum_rmse))
+```R
+newdata <- data.frame( # valid values shown below
+ dvcat="10-24",        # "1-9km/h" "10-24"   "25-39"   "40-54"   "55+"  
+ seatbelt="none",      # "none"   "belted"  
+ frontal="frontal",    # "notfrontal" "frontal"
+ sex="f",              # "f" "m"
+ ageOFocc=16,          # age in years, 16-97
+ yearVeh=2002,         # year of vehicle, 1955-2003
+ airbag="none",        # "none"   "airbag"   
+ occRole="pass"        # "driver" "pass"
+ )
+## predicted probability of death for these variables, as a percentage
+as.numeric(predict(accident_model,newdata, type="response")*100)
 ```
 
-    Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
-    Best run_id rmse: 57.234760283951765
+## Deploy a prediction endpoint
 
-Use the best run ID to fetch the individual run using the `Run` constructor along with the experiment object. Then call `get_file_names()` to see all the files available for download from this run. In this case, you only uploaded one file for each run during training.
+With your model, you can predict the danger death from of other types of collisions. Use Azure Machine Learning to deploy your model as a prediction service, and then call the model from a Shiny app.
 
-```python
-from azureml.core import Run
-best_run = Run(experiment=experiment, run_id=minimum_rmse_runid)
-print(best_run.get_file_names())
+First, register the model you downloaded for deployment:
+
+```R
+model <- register_model(ws, 
+                        model_path = "outputs/model.rds", 
+                        model_name = "accidents_model",
+                        description = "Predict probablity of auto accident")
 ```
 
-    ['model_alpha_0.1.pkl']
+A registered model can be any collection of files, but in this case the R model object is sufficient. Azure Machine Learning will track models each time they are deployed, which is our next step.
 
-Call `download()` on the run object, specifying the model file name to download. By default this function downloads to the current directory.
+To create a web service for your model, you first need to create an **entry script**: an R script that will take as input variable values (in JSON format) and output a prediction from your model. Use the file `accident-predict.R`.
 
-```python
-best_run.download_file(name="model_alpha_0.1.pkl")
+Next, define an **environment** for your deployed model. With an environment, you specify R packages (from CRAN or elsewhere) that are needed for your entry script to run. You also provide the values of environment variables that your script can reference to modify its behavior. If you need software other than R to be available, specify a custom Docker image to use. In this tutorial, there are no special requirements, so create an environment with no special attributes:
+
+```R
+r_env <- r_environment(name = "basic_env")
+```
+
+Now you have everything you need to create an **inference config**:
+
+```R
+inference_config <- inference_config(
+  entry_script = "accident-predict.R",
+  source_directory = ".",
+  environment = r_env)
+```
+
+You'll deploy your service to Azure Container Instances. This code provisions a single container to respond to inbound requests, which is suitable for testing and light loads. (For production scale, you can also deploy to Azure Kubernetes Service.)
+
+```R
+aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
+```
+
+Now you deploy your service.
+
+> [!NOTE]
+> Deployment can take several minutes.
+
+```R
+aci_service <- deploy_model(ws, 
+                        'accident-pred', 
+                        list(model), 
+                        inference_config, 
+                        aci_config)
+wait_for_deployment(aci_service, show_output = TRUE)
+```
+
+## Test the model from R
+
+Now that your model is deployed as a service, you can test the service from R.  Provide a new set of data to predict from, convert it to JSON, and send it to the service.
+
+```R
+newdata <- data.frame( # valid values shown below
+ dvcat="10-24",        # "1-9km/h" "10-24"   "25-39"   "40-54"   "55+"  
+ seatbelt="none",      # "none"   "belted"  
+ frontal="frontal",    # "notfrontal" "frontal"
+ sex="f",              # "f" "m"
+ ageOFocc=22,          # age in years, 16-97
+ yearVeh=2002,         # year of vehicle, 1955-2003
+ airbag="none",        # "none"   "airbag"   
+ occRole="pass"        # "driver" "pass"
+ )
+prob <- invoke_webservice(aci_service, toJSON(newdata))
+prob
 ```
 
 ## Clean up resources
@@ -206,12 +295,4 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-In this tutorial, you did the following tasks:
-
-> [!div class="checklist"]
-> * Connected your workspace and created an experiment
-> * Loaded data and trained scikit-learn models
-> * Viewed training results in the portal and retrieved models
-
-[Deploy your model](tutorial-deploy-models-with-aml.md) with Azure Machine Learning.
-Learn how to develop [automated machine learning](tutorial-auto-train-models.md) experiments.
+Now that you have completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/index.html).
