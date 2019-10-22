@@ -32,9 +32,6 @@ Example workflows that you can create include:
 
 This tool can also be used to modify any of our [published workflows](media-services-workflow-designer.md#existing_workflows). 
 
-> [!NOTE]
-> To get your copy of the Workflow Designer tool, please contact mepd@microsoft.com.
-
 Once a workflow file is created, it can be uploaded as an Asset, and then be used for encoding media files. For information on how to encode with **Media Encoder Premium Workflow** using **.NET**, see [Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 
 ## <a id="existing_workflows"></a>Modify existing workflows
@@ -75,6 +72,9 @@ Day 3 video covers:
 > 
 > 
 
+## Need help?
+
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## Next step
 Review Media Services learning paths.
 
@@ -82,8 +82,6 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-If you need support or have questions about creating custom workflows in the Workflow designer tool, please send email to mepd@microsoft.com. Please use the English language when you write your email.
 
 ## See Also
 [Azure Premium Encoder Workflow Designer Training Videos](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
