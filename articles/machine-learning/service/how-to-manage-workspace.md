@@ -77,7 +77,7 @@ You can upgrade your workspace from Basic edition to Enterprise edition to take 
 
     ![Upgrade a workspace](media/how-to-manage-workspace/upgrade.png)
 
-1. Select **Confirm Update**
+1. Select **Confirm Update**.
 
 
 > [!IMPORTANT]
