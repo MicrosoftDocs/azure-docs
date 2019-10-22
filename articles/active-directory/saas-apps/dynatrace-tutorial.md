@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -65,10 +65,10 @@ Configure and test Azure AD SSO with Dynatrace using a test user called **B.Simo
 To configure and test Azure AD SSO with Dynatrace, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 1. **[Configure Dynatrace SSO](#configure-dynatrace-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Dynatrace test user](#create-dynatrace-test-user)** - to have a counterpart of B.Simon in Dynatrace that is linked to the Azure AD representation of user.
+    * **[Create Dynatrace test user](#create-dynatrace-test-user)** - to have a counterpart of B.Simon in Dynatrace that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
@@ -96,9 +96,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Edit SAML Signing Certificate](common/edit-certificate.png)
 
-	a. Select **Sign SAML response and assertion** from the **Signing Option**.
+	a. The **Signing Option** setting is pre populated. Please review the settings as per your organization.
 
-	b. Click **Save**
+    b. Select **Sign SAML response and assertion** from the **Signing Option**.
+
+	c. Click **Save**
 
 	![Communifire Signing option](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
 
@@ -144,7 +146,7 @@ To configure single sign-on on **Dynatrace** side, you need to send the download
 
 In this section, a user called Britta Simon is created in Dynatrace. Dynatrace supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Dynatrace, a new one is created after authentication.
 
-## Test SSO 
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
