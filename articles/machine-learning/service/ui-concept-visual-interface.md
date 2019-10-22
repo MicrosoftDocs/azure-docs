@@ -90,7 +90,7 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 ## Moving from the visual interface to the designer
 
-The visual interface (preview) has been updated and is now Azure Machine Learning designer (preview). The designer has been re-architected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. Some concepts and terms for the visual interface have been changed or renamed, see the table below for the most important conceptual changes. 
+The visual interface (preview) has been updated and is now Azure Machine Learning designer (preview). The designer has been rearchitected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. Some concepts and terms for the visual interface have been changed or renamed, see the table below for the most important conceptual changes. 
 
 | Concept in the designer | Previously in the visual interface |
 | ---- |:----:|
