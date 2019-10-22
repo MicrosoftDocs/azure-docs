@@ -157,7 +157,7 @@ Windows Update can be modified by several registry keys, any of which can modify
 
 ### Resolution
 
-Review the registry keys listed under [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) to make sure your machines are configured properly.
+Review the registry keys listed under [Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) and [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) to make sure your machines are configured properly.
 
 ## <a name="failed-to-start"></a>Scenario: Machine shows "Failed to start" in an update deployment
 
@@ -328,7 +328,7 @@ You can also download and run the [Windows Update troubleshooter](https://suppor
 > [!NOTE]
 > The [Windows Update troubleshooter](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) documentation indicates that it's for use on Windows clients, but it also works on Windows Server.
 
-## Scenario: Update run returns "Failed" status
+## Scenario: Update run returns "Failed" status (Linux)
 
 ### Issue
 
