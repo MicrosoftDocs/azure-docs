@@ -34,7 +34,7 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 ## Profile and Test Creation
 1. [Request access](https://aka.ms/internetAnalyzerContact) to use Internet Analyzer by providing your active Subscription ID. 
-2. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+2. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Run the `login` command to start a CLI session:
     ```azurecli-interactive
     az login
@@ -47,9 +47,9 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 5. Select your Subscription ID that has been granted access to the Internet Analyzer public preview.
 
-    After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](https://docs.microsoft.com/en-us/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](https://docs.microsoft.com/en-us/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
-    There are ways to sign in non-interactively, which are covered in detail in [Sign in with Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    There are ways to sign in non-interactively, which are covered in detail in [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 6. **[Optional]** Create a new Azure Resource Group:
     ```azurecli-interactive
