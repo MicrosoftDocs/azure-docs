@@ -31,13 +31,13 @@ You can configure and get information about alert rules using:
 
    ![Select Alert Rules](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
 
-3. Select **Add metric alert** (+ icon).
+3. Select **New alert rule** (+ icon).
 
 4. The **Create rule** page opens as shown below. Fill in the required information:
 
    ![Add metric alert form](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
 
-5. Within the **Condition** section, select **Add condition**.
+5. Within the **Condition** section, select **Add**.
 
 6. Select a metric from the list of signals to be alerted on. In this example, select "Storage percent".
    
@@ -45,12 +45,10 @@ You can configure and get information about alert rules using:
 
 7. Configure the alert logic:
 
-    * **Condition** (ex. "Greater than")
-    * **Threshold** (ex. 85 percent)
-    * **Time Aggregation**
-    * **Period** of time the metric rule must be satisfied before the alert triggers 
-        (ex. "Over the last 30 minutes")
-    * and **Frequency**
+    * **Operator** (ex. "Greater than")
+    * **Threshold value** (ex. 85 percent)
+    * **Aggregation granularity** amount of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes")
+    * and **Frequency of evaluation** (ex. "1 minute")
    
    Select **Done** when complete.
 
@@ -66,8 +64,6 @@ You can configure and get information about alert rules using:
     
     Choose "Email Azure Resource Manager Role" to send notifications to subscription owners, contributors, and readers.
    
-    Optionally, provide a valid URI in the **Webhook** field if you want it called when the alert fires.
-
     Select **OK** when completed.
 
     ![Action group](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
