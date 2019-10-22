@@ -33,7 +33,7 @@ To complete this tutorial, you need:
 Before you create your event hub and logic app, you need to create a resource group to manage them. The resource group should be in the same location as your **In-store analytics - checkout** IoT Central application. To create a resource group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the left navigation, select **Resource groups**. Then select **+ Add**.
+1. In the left navigation, select **Resource groups**. Then select **Add**.
 1. For **Subscription**, select the name of the Azure subscription you used to create your IoT Central application.
 1. For the **Resource group** name, enter _retail-store-analysis_*.
 1. For the **Region**, select the same region you chose for the IoT Central application.
@@ -46,7 +46,7 @@ You now have a resource group called **retail-store-analysis** in your subscript
 
 Before you can configure the retail monitoring application to export telemetry, you need to create an event hub to receive the exported data. The following steps show you how to create your event hub:
 
-1. In the Azure portal, click **Create a resource** at the top left of the screen.
+1. In the Azure portal, select **Create a resource** at the top left of the screen.
 1. In **Search the marketplace**, enter _Event Hubs_, and then press **Enter**.
 1. On the **Event Hubs** page, select **Create**.
 1. On the **Create Namespace** page, take the following steps:
@@ -74,7 +74,7 @@ Now you have an event hub, you can configure your **In-store analytics - checkou
 
 1. Sign in to your **In-store analytics - checkout** IoT Central application.
 1. Select **Data export** in the left pane.
-1. Select **+ New > Azure Event Hubs**.
+1. Select **New > Azure Event Hubs**.
 1. Enter _Telemetry export_ as the **Display Name**.
 1. Select your **Event Hubs namespace**.
 1. Select the **store-telemetry** event hub.
@@ -93,7 +93,7 @@ Your Power BI dashboard will display data from your retail monitoring applicatio
 1. Select **Workspaces**, and then select **Create a workspace**.
 1. On the **Create a workspace** page, enter _In-store analytics - checkout_ as the **Workspace name**.
 1. Scroll to the bottom of the **Welcome to the In-store analytics - checkout workspace** page, and select **Skip**.
-1. On the workspace page, select **+ Create > Streaming dataset**.
+1. On the workspace page, select **Create > Streaming dataset**.
 1. On the **New streaming dataset** page, choose **API**, and then select **Next**.
 1. Enter _Zone 1 sensor_ as the **Dataset name**.
 1. Enter the three **Values from stream** in following table:
@@ -116,7 +116,7 @@ This solution uses one streaming dataset for each sensor because it's not possib
 
 You also need a streaming dataset for the occupancy telemetry:
 
-1. On the workspace page, select **+ Create > Streaming dataset**.
+1. On the workspace page, select **Create > Streaming dataset**.
 1. On the **New streaming dataset** page, choose **API**, and then select **Next**.
 1. Enter _Occupancy sensor_ as the **Dataset name**.
 1. Enter the five **Values from stream** in following table:
@@ -150,7 +150,7 @@ Before you create the logic app, you need the device IDs of the two RuuviTag sen
 
 The following steps show you how to create the logic app in the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and click **Create a resource** at the top left of the screen.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource** at the top left of the screen.
 1. In **Search the marketplace**, enter _Logic App_, and then press **Enter**.
 1. On the **Logic App** page, select **Create**.
 1. On the **Logic App** create page:
@@ -425,7 +425,7 @@ Now you have telemetry flowing from your IoT Central application through your ev
 
 1. Sign in to your **Power BI** account.
 1. Select **Workspaces > In-store analytics - checkout**.
-1. Select **+ Create > Dashboard**.
+1. Select **Create > Dashboard**.
 1. Enter **Store analytics** as the dashboard name, and select **Create**.
 
 ### Add line charts
