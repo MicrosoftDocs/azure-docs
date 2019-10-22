@@ -99,9 +99,9 @@ Following the SAP HANA network recommendations, three subnets were created withi
 
 For this example configuration, the subnets are:  
 
-  - `storage` 10.23.0.0/24  
-  - `hana` 10.23.2.0/24  
-  - `client` 10.23.3.0/24  
+  - `storage` 10.23.2.0/24  
+  - `hana` 10.23.3.0/24  
+  - `client` 10.23.0.0/24  
   - `anf` 10.23.1.0/26  
 
 ## Setting up the Azure NetApp Files infrastructure 
