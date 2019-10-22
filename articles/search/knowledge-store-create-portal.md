@@ -17,9 +17,11 @@ ms.date: 11/04/2019
 > Knowledge store is in preview and should not be used in production. Both the Azure portal and the [Search REST API version 2019-05-06-Preview](search-api-preview.md) provide this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. Cognitive skills accept image files and unstructured text files, apply AI processes through Cognitive Services (such as image analysis and natural language processing). One of the outputs created by this pipeline is a [knowledge store](knowledge-store-concept-intro.md) in Azure storage, which you can access through tools like Power BI or Storage Explorer.
+Knowledge store is a feature of Azure Cognitive Search that persists output from a cognitive skills pipeline for subsequent analyses or downstream processing. 
 
-In this quickstart, you'll combine services and data in the Azure cloud to create the knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original plus AI-generated content that you can view in the portal ([Storage explorer](knowledge-store-view-storage-explorer.md)).
+A pipeline can accept images and unstructured text as raw content, apply AI processes through Cognitive Services (such as image analysis and natural language processing), creating enriched content (new structures and information) as output. One of the physical artifacts created by a pipeline is a [knowledge store](knowledge-store-concept-intro.md) in Azure storage, which you can access through tools like Storage Explorer or Power BI.
+
+In this quickstart, you'll combine services and data in the Azure cloud to create a knowledge store. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is original plus AI-generated content that you can view in the portal ([Storage explorer](knowledge-store-view-storage-explorer.md)).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
