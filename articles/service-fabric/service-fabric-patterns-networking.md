@@ -291,7 +291,7 @@ After deployment, you can see that your load balancer is bound to the public sta
 <a id="internallb"></a>
 ## Internal-only load balancer
 
-This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. For implications for the Azure portal and for the Service Fabric resource provider, see the preceding section.
+This scenario replaces the external load balancer in the default Service Fabric template with an internal-only load balancer. See [earlier in the article](#allowing-the-service-fabric-resource-provider-to-query-your-cluster) for implications for the Azure portal and for the Service Fabric resource provider.
 
 1. Remove the `dnsName` parameter. (It's not needed.)
 
