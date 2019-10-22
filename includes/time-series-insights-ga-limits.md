@@ -1,13 +1,14 @@
 ---
- title: include file
- description: include file
- services: digital-twins
- author: kingdomofends
- ms.service: digital-twins
- ms.topic: include
- ms.date: 10/16/2019
- ms.author: v-adgera
- ms.custom: include file
+title: include file
+description: include file
+services: digital-twins
+ms.service: digital-twins
+ms.topic: include
+ms.date: 10/16/2019
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
+ms.custom: include file
 ---
 
 The following summarizes key limits in General Availability.
@@ -44,6 +45,13 @@ GA property limits depend on the SKU environment that's selected. Supplied event
 | --- | --- |
 | S1 | 600 properties (columns) |
 | S2 | 800 properties (columns) |
+
+### Event sources
+
+A maximum of two event sources per instance is supported. 
+
+* Learn how to [Add an event hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+* Configure [an IoT hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
 ### API limits
 
