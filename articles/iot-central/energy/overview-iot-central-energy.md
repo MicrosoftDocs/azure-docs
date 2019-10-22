@@ -30,10 +30,10 @@ App’s key functionalities:
 You can try the [Smart Meter Monitoring App for free](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring) without an Azure Subscription, and any commitments.
 
 
-After you deploy the app, you'll see the simulated meter data on the dashboard, as shown in the figure below. This template is a sample app that you can easily extend and customize for your specific use cases. Refer to [app concept document](concept-iot-central-smart-meter.md) to learn more.
+After you deploy the app, you'll see the simulated meter data on the dashboard, as shown in the figure below. This template is a sample app that you can easily extend and customize for your specific use cases.
 
 [!div class="mx-imgBorder"]
-![Smart Meter App Dashboard](media/overview-iot-central-smart-meter/smart-meter-app-dashboard.png)
+![Smart Meter App Dashboard](media/overview-iot-central-energy/smart-meter-app-dashboard.png)
 
 
 ## What is solar panel monitoring application?
@@ -52,10 +52,10 @@ App’s key functionalities:
 You can try the [Solar Panel Monitoring App for free](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring) without an Azure Subscription and any commitments.
 
 
-After you deploy the app, you'll see the simulated solar panel data on the dashboard, as shown in the figure below. This template is a sample app that you can easily extend and customize for your specific use cases. Refer the [app concepts document](concept-iot-central-solar-panel-app.md) to learn more.
+After you deploy the app, you'll see the simulated solar panel data on the dashboard, as shown in the figure below. This template is a sample app that you can easily extend and customize for your specific use cases. 
 
 [!div class="mx-imgBorder"]
-![Solar Panel App Dashboard](media/overview-iot-central-solar-panel/solar-panel-app-dashboard.png)
+![Solar Panel App Dashboard](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
 
 
 ## Next steps
