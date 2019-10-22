@@ -22,7 +22,7 @@ ms.date: 11/04/2019
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-Use the portal to quickly ramp up on Azure Cognitive Search concepts, and write interesting queries against an index within minutes.
+Use the portal to quickly ramp up on concepts, and write interesting queries against an index within minutes.
 
 > [!div class="checklist"]
 > * Start with a free public sample data set hosted on Azure

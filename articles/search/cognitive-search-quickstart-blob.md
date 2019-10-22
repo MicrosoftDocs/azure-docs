@@ -12,9 +12,9 @@ ms.date: 11/04/2019
 ---
 # Quickstart: Create an Azure Cognitive Search cognitive skillset in the Azure portal
 
-A skillset is an AI feature that extracts information and structure from large undifferentiated text or image files, and makes it indexable and searchable for full text search querying in Azure Cognitive Search. 
+A skillset is an AI feature that extracts information and structure from large undifferentiated text or image files, and makes it indexable and searchable for full text search queries in Azure Cognitive Search. 
 
-In this quickstart, you'll combine services and technology in the Azure cloud to create the skillset. Once the services and data are in place, you will run the **Import data** wizard in the portal to pull it all together. The end result is a searchable index that you can query from another portal tool ([Search explorer](search-explorer.md)).
+In this quickstart, you'll combine services and data in the Azure cloud to create the skillset. Once everything is in place, you'll run the **Import data** wizard in the portal to pull it all together. The end result is a searchable index populated with data created by AI processing that you can query in the portal ([Search explorer](search-explorer.md)).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -28,7 +28,7 @@ Because the workload is so small, Cognitive Services is tapped behind the scenes
 
 1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under your current subscription. 
 
-   Choose the same region as Azure Cognitive Search. Choose the StorageV2 (general purpose V2) account type if you want to try out the knowledge store feature later, in a different walkthrough. 
+   Choose the same region as Azure Cognitive Search. Choose the StorageV2 (general purpose V2) account type if you want to try out the knowledge store feature later, in another walkthrough. Otherwise, choose any type.
 
 1. Open the Blob services pages and create a container.  
 
@@ -58,7 +58,7 @@ In the search service Overview page, click **Import data** on the command bar to
 
 ### Step 2: Add cognitive skills
 
-Next, add cognitive skills to invoke natural language processing. The sample data consists of 14 files, so you can use the free allotment of 20 documents for this quickstart. Only the non-image files will be cracked.
+Next, add cognitive skills to invoke natural language processing. The sample data consists of 14 files, so the free allotment of 20 documents is more than enough for this quickstart. Because we aren't using OCR, only the non-image files will be cracked and used in this process.
 
 1. Expand **Attach Cognitive Services** to view options for resourcing the Cognitive Services APIs. For this quickstart, use the **Free** resource.
 
@@ -109,7 +109,7 @@ The indexer is a high-level resource that drives the indexing process. It specif
 
 ## Monitor status
 
-Cognitive skills takes longer to complete than typical text-based indexing. The wizard should open the Indexer list in the overview page so that you can track progress. For self-navigation, go to the Overview page and click **Indexers**.
+Cognitive skills indexing takes longer to complete than typical text-based indexing. The wizard should open the Indexer list in the overview page so that you can track progress. For self-navigation, go to the Overview page and click **Indexers**.
 
 The warning occurs because JPG and PNG files are image files, and we omitted the OCR skill from this pipeline. You'll also find truncation notifications. Azure Cognitive Search limits extraction to 32,000 characters on the Free tier.
 
@@ -161,3 +161,6 @@ You can create skillsets using the portal, .NET SDK, or REST API. To further you
 
 > [!div class="nextstepaction"]
 > [Tutorial: Add structure to "unstructured content" with AI enrichment](cognitive-search-tutorial-blob.md)
+
+> [!Tip]
+> If you want to repeat this exercise or try a different AI enrichment walkthrough, delete the indexer in the portal. Deleting the indexer resets the free daily transaction counter back to zero for Cognitive Services processing.
