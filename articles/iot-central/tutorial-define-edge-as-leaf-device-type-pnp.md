@@ -1,28 +1,30 @@
 ---
 title: Define a new Azure IoT Edge device as a leaf device type in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to create a new Azure IoT Edge device as a leaf device in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
-author: dominicbetts
-ms.author: dobett
-ms.date: 08/06/2019
+author: rangavadlamudi
+ms.author: rangv
+ms.date: 10/22/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: philmea
+manager: peterpr
 ---
 
 # Tutorial: Define a new Azure IoT Edge device as a leaf device type in your Azure IoT Central application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge device in your Microsoft Azure IoT Central application. 
+This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge device in your Azure IoT Central application. 
+
+To get an overview of Azure IoT Edge [refer this article](overview-iot-central-pnp-edge.md). 
 
 Azure IoT Edge is made up of three components:
-* IoT Edge modules are containers that run Azure services, third-party services, or your own code. Modules are deployed to IoT Edge devices and execute locally on those devices.
-* The IoT Edge runtime runs on each IoT Edge device and manages the modules deployed to each device.
-* A cloud-based interface enables you to remotely monitor and manage IoT Edge devices. IoT Central will be the cloud interface.
+* **IoT Edge modules** are containers that run Azure services, third-party services, or your own code. Modules are deployed to IoT Edge devices and execute locally on those devices.
+* The **IoT Edge runtime** runs on each IoT Edge device and manages the modules deployed to each device.
+* A **cloud-based interface** enables you to remotely monitor and manage IoT Edge devices. IoT Central will be the cloud interface.
 
-A device template defines the capabilities of your device & IoT Edge modules. Capabilities include telemetry the module sends, module properties, and the commands a module responds to.
+A **device template** defines the capabilities of your device & IoT Edge modules. Capabilities include telemetry the module sends, module properties, and the commands a module responds to.
 
 In this tutorial, you create an **Environment Sensor** device template. An environmental sensor device:
 
@@ -43,40 +45,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure IoT Central application. If you completed the [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart, you can reuse the application you created in the quickstart. Otherwise, complete the following steps to create an empty Azure IoT Central application:
-
-1. [Visual Studio Code](https://code.visualstudio.com/).
-2. [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview) for Visual Studio Code.
-  
-3. Navigate to the [Azure IoT Central application manager](https://aka.ms/iotcentral) website.
-
-4. If you have an Azure subscription, sign in with the credentials you use to access it, otherwise sign it using a Microsoft account:
-
-    ![Enter your organization account](./media/tutorial-define-device-type-pnp/sign-in.png)
-
-5. To start creating a new Azure IoT Central application, select **New Application**.
-
-To create a new Azure IoT Central application that uses preview features, including IoT Plug and Play:
-
-1. Choose **Trial**. You don't need an Azure subscription to create a trial application.
-
-    For more information about directories and subscriptions, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-
-1. Choose **Preview application**.
-
-1. Optionally you can choose a friendly application name, such as **Contoso Air Conditioners**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
-
-1. If you're creating a trial application, you need to provide your contact details.
-
-1. Select **Create**.
-
-    ![Azure IoT Central Create Application page](./media/tutorial-define-device-type-pnp/iotcentralcreate.png)
-
-    For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-
-You also need a local copy of the **environment-sensor-deployment-manifest.json**. You can download it from [here](./example-files/environment-sensor-deployment-manifest.json). Right-click on the page and select **Save as**.
-
-After you download the file, open it in a text editor, and replace the two instances of `<YOUR_COMPANY_NAME_HERE>` with your name. Use only the characters a-z, A-Z, 0-9, and underscore.
+To complete this tutorial, you need an Azure IoT Central application. Follow this quick start to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md).
 
 ## Create a template
 
@@ -92,21 +61,17 @@ Click **+ New** to start creating a new device template.
 
 ![Device Templates - New](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatenew.png)
 
-You will land on device template type selection page.
-
-![Device Templates Selection](./media/tutorial-define-edge-as-leaf-device-type-pnp/selecttemplatetype.png)
-
-Select **Azure IoT Edge** Tile and click **Next: Customize** button at the bottom
+You will land on device template type selection page. Select **Azure IoT Edge** Tile and click **Next: Customize** button at the bottom
 
 ![Device Templates Selection - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/selectiotedge.png)
 
 ### Customize Device Template
 
-Azure IoT Edge lets you deploy and manage business logic on the edge in the form of modules. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained read the documentation from here: [IoT Edge Modules](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules).
+Azure IoT Edge lets you deploy and manage business logic on the edge in the form of modules. **Azure IoT Edge modules** are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained read [IoT Edge Modules](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules).
 
 At a high level, a deployment manifest is a list of module twins that are configured with their desired properties. A deployment manifest tells an IoT Edge device (or a group of devices) which modules to install and how to configure them. Deployment manifests include the desired properties for each module twin. IoT Edge devices report back the reported properties for each module.
 
-Use Visual Studio Code to create a deployment manifest. Documentation on how to create a deployment manifest can be found here: [VSCode Documentation](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge)
+Use Visual Studio Code to create a deployment manifest. Follow documentation on how to create a [deployment manifest](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).
 
 Here's a basic deployment manifest with one module as an example to be used for this tutorial. Copy the below JSON and save it as .json file. 
 
@@ -177,7 +142,7 @@ Here's a basic deployment manifest with one module as an example to be used for 
    }
    ```
 
-##### Upload an Azure IoT Edge deployment manifest
+**1 Upload an Azure IoT Edge deployment manifest**
 
 Click  **Browse** button 
 
@@ -217,7 +182,7 @@ Edge Device Plug n Play modeling is done as follows
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgemodelling.png)
 
-##### Add Capabilities to Module Capability Model
+**2 Add Capabilities to Module Capability Model**
 
 Here is a sample output from SimulatedTemperatureSensor module
 ```json
@@ -378,4 +343,4 @@ In this tutorial, you learned how to:
 Now that you've created a device template in your Azure IoT Central application, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Add Edge device](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Add Edge device](tutorial-add-edge-as-leaf-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
