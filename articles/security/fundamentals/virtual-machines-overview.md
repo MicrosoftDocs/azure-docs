@@ -8,7 +8,7 @@ manager: rkarlin
 editor: TomSh
 
 ms.assetid: 467b2c83-0352-4e9d-9788-c77fb400fe54
-ms.service: security2
+ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
@@ -163,3 +163,7 @@ Learn more:
 
 * [Introducing Azure confidential computing](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Azure confidential computing](https://azure.microsoft.com/blog/azure-confidential-computing/)  
+
+## Next steps
+
+Learn about [security best practices](iaas.md) for VMs and operating systems.
