@@ -12,7 +12,7 @@ ms.author: v-stazar #Required; update with your microsoft alias of author; optio
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Querying parquet files 
+# Quickstart: Querying parquet nested types 
 
 In this section, we will show how to query Parquet files.
 
