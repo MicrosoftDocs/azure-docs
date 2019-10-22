@@ -27,7 +27,7 @@ Report-only mode is a new Conditional Access policy state that allows administra
 
 ## Policy results
 
-When a policy in report-only mode is evaluated for a given sign-in, there are four new possible result values:
+When a policy in report-only mode is evaluated for a given sign-in, there are four (REALLY THERE ARE 5 IF YOU COUNT TOTAL) new possible result values:
 
 | Result | Description |
 | --- | --- |

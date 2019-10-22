@@ -31,36 +31,39 @@ To configure a Conditional Access policy in report-only mode:
 
 View report-only result in Azure AD Sign-in logs (DOESNT APPEAR TO WORK AS INTENDED I DONT SEE REPORT ONLY POLICIES)
 
-To view the result of a Report-only policy for a particular sign-in: 
-1. Sign into the Azure portal as a Reports Reader, Security Reader, Security Administrator, or Global Administrator
-1. Browse to Azure Active Directory > Sign-ins
-1. Select a sign-in or Add filters to narrow results
-1. In the Details drawer, select the Conditional Access tab to view the policies evaluated during sign-in
+To view the result of a Report-only policy for a particular sign-in:
 
-## Setup Azure Monitor Integration with Azure AD
+1. Sign into the **Azure portal** as a reports reader, security reader, security administrator, or global administrator.
+1. Browse to **Azure Active Directory** > **Sign-ins**.
+1. Select a sign-in or add filters to narrow results.
+1. In the **Details** drawer, select the **Conditional Access** tab to view the policies evaluated during sign-in.
 
-In order to view the aggregate impact of Conditional Access policies using the new Conditional Access Insights workbook, you must integrate Azure Monitor with Azure AD and export the Sign-in logs. There are two steps to setting this up: 
+## Setup Azure Monitor integration with Azure AD
+
+In order to view the aggregate impact of Conditional Access policies using the new Conditional Access insights workbook, you must integrate Azure Monitor with Azure AD and export the sign-in logs. There are two steps to set this integration up: 
 
 1. [Sign up for an Azure Monitor subscription and create a workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 1. [Export the Sign-in logs from Azure AD to Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
 More information about Azure Monitor pricing can be found on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/).
 
-View Conditional Access Insights Workbook
+## View Conditional Access Insights Workbook
 
-Once you’ve integrated Azure AD logs with Azure Monitor logs, you can now monitor the impact of Conditional Access policies using the new Conditional Access Insights workbook.  
+Once you’ve integrated your Azure AD logs with Azure Monitor, you can monitor the impact of Conditional Access policies using the new Conditional Access insights workbooks.
 
-1. Sign into the Azure portal as a Security Administrator or Global Administrator
-1. Browse to Azure Active Directory -> Workbooks
-1. Click on Conditional Access Insights
-1. Select a policy from the Conditional Access Policy dropdown
-1. Select a time range (if the time range exceeds the available dataset, the report will show all available data). Once you have set the Conditional Access Policy and Time Range parameters, the report will load. 
-1. Optionally, search for individual Users or Apps to narrow the scope of the report
+1. Sign into the **Azure portal** as a security administrator or global administrator.
+1. Browse to **Azure Active Directory** > **Workbooks**.
+1. Select **Conditional Access Insights**. (I SEE SINGLE POLICY INSIGHTS OR MULITPLE POLICIY INSIGHTS)
+1. Select a policy from the **Conditional Access Policy** dropdown. (I ONLY ONLY SEE ENABLED POLCICIES)
+1. Select a time range (if the time range exceeds the available dataset, the report will show all available data). Once you have set the **Conditional Access Policy** and **Time Range** parameters, the report will load. 
+   1. Optionally, search for individual **Users** or **Apps** to narrow the scope of the report.
 1. Select between viewing the data in the time range by the number of users or the number of sign-ins.
-1. Depending on the Data view, the Impact Summary displays the number of users or sign-ins in the scope of the parameters chosen, grouped by Total number, Success, Failure, User action required, and Not applied. Click on a tile to examine sign-ins of a particular result type. 
+1. Depending on the **Data view**, the **Impact Summary** displays the number of users or sign-ins in the scope of the parameters chosen, grouped by Total number, **Success**, **Failure**, **User action required**, and **Not applied**. Select a tile to examine sign-ins of a particular result type. 
 1. Scroll down to view the breakdown of sign-ins for each condition
-1. View the Sign-in details at the bottom of the report to investigate individual sign-in events filtered by selections above. 
-1. Need to drill down on a particular query or export the sign-in details? Select the button to the right of any query to open the query up in Log Analytics. Click Export to export to CSV or Power BI
+1. View the **Sign-in Details** at the bottom of the report to investigate individual sign-in events filtered by selections above. 
+
+> [!TIP] 
+> Need to drill down on a particular query or export the sign-in details? Select the button to the right of any query to open the query up in Log Analytics. Select Export to export to CSV or Power BI.
 
 ## Next steps
 
