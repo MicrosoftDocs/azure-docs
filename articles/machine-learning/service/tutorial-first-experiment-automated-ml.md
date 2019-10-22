@@ -66,7 +66,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Enter this experiment name: `my-1st-automl-experiment`
 
-1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud-based compute. 
+1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud-based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud-based compute. 
 
    Field | Description | Value for tutorial
    ----|---|---
