@@ -158,11 +158,11 @@ Your **Basics** tab should look like this:
 
 In the **Docker** tab, configure your custom Windows container as shown in the following table, and select **Review + create**.
 
-| Setting  | Suggested value | For more information |
-| ----------------- | ------------ | ----|
-|**Image Source**| Azure Container Register |  |
-|**Registry**| Select [the registry you created earlier](#publish-to-azure-container-registry). |  |
-|**Image**| customfontsample | |
+| Setting  | Suggested value |
+| ----------------- | ------------ |
+|**Image Source**| Azure Container Register |
+|**Registry**| Select [the registry you created earlier](#publish-to-azure-container-registry). |
+|**Image**| customfontsample |
 |**Tag**| latest |
 
 ### Complete app creation
