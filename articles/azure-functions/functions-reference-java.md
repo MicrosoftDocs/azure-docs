@@ -37,7 +37,7 @@ mvn archetype:generate \
 	-DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-To get started, see the [Java quickstart](functions-create-first-java-maven). 
+To get started, see the [Java quickstart](functions-create-first-java-maven.md). 
 
 ### Kotlin Archetype (Preview)
 
