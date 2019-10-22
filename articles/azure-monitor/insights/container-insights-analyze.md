@@ -36,6 +36,12 @@ To view the health status of all Kubernetes clusters deployed, select **Monitor*
 
 ![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview.png)
 
+You can scope the results presented in the grid to show clusters that are:
+
+* Hosted in Azure Kubernetes Service
+* Hosted on Azure Stack
+* Hosted on-premises or other cloud provider
+
 To view clusters from a specific environment, select it from the **Environments** pill on the top-left corner of the page.
 
 ![Environment pill selector example](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
