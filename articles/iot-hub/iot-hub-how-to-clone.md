@@ -69,7 +69,7 @@ This is the general method we recommend for moving an IoT Hub from one region to
 
    1. Copy the devices from the original hub to the clone. This is covered in the section [Managing the devices registered to the IoT hub](#managing-the-devices-registered-to-the-iot-hub).
 
-## How to handle message rSouting
+## How to handle message routing
 
 If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration, but it does not include the resources themselves. You must choose whether to move the routing resources to the new location or to leave them in place and continue to use them "as is". 
 
