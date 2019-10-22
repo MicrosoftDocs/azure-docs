@@ -15,7 +15,7 @@ ms.date: 10/22/2019
 
 This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to run Python code. For more information about the architecture and design principles of Python, see [the following article.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+Use this module to run Python code. For more information about the architecture and design principles of Python, see [the following article](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
 With Python, you can perform tasks that aren't currently supported by existing modules such as:
 
@@ -92,7 +92,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
 5. In the **Python script** text box, type or paste valid Python script.
 
-    The **Python script** text box is pre-populated with some instructions in comments, and sample code for data access and output. **You must edit or replace this code.** Be sure to follow Python conventions about indentation and casing.
+    The **Python script** text box is pre-populated with some instructions in comments, and sample code for data access and output. You must edit or replace this code. Be sure to follow Python conventions about indentation and casing.
 
     + The script must contain a function named `azureml_main` as the entry point for this module.
     + The entry point function can contain up to two input arguments: `Param<dataframe1>` and `Param<dataframe2>`

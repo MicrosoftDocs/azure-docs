@@ -9,25 +9,25 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 08/10/2019
+ms.date: 10/10/2019
 ---
 
 # Convert to Dataset
 
-This article describes how to use the [Convert to Dataset](convert-to-dataset.md) module in Azure Machine Learning designer (preview), to convert any data that you might need for a pipeline to the internal format used by the designer.
+This article describes how to use the [Convert to Dataset](convert-to-dataset.md) module in Azure Machine Learning designer (preview) to convert any data for a pipeline to the internal format used by the designer.
   
-Conversion is not required in most cases, because Azure Machine Learning implicitly converts data to its native dataset format when any operation is performed on the data. 
+Conversion is not required in most cases because Azure Machine Learning implicitly converts data to its native dataset format when any operation is performed on the data. 
 
 However, saving data to the dataset format is recommended if you have performed some kind of normalization or cleaning on a set of data, and you want to ensure that the changes are used in further pipelines.  
   
 > [!NOTE]
->  [Convert to Dataset](convert-to-dataset.md) changes only the format of the data, and it does not save a new copy of the data in the workspace. To save the dataset, double-click the output port, select **Save as dataset**, and type a new name.  
+> [Convert to Dataset](convert-to-dataset.md) changes only the format of the data. It does not save a new copy of the data in the workspace. To save the dataset, double-click the output port, select **Save as dataset**, and type a new name.  
   
 ## How to use Convert to Dataset  
 
 We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepare the dataset before using [Convert to Dataset](convert-to-dataset.md).  You can add or change column names, adjust data types, and so forth.
 
-1.  Add the [Convert to Dataset](convert-to-dataset.md) module to your pipeline. You can find this module in the **Data transformation** category in Azure Machine Learning designer. 
+1.  Add the [Convert to Dataset](convert-to-dataset.md) module to your pipeline. You can find this module in the **Data transformation** category in the designer. 
 
 2. Connect it to any module that outputs a dataset.   
 
