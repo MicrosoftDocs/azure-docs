@@ -48,12 +48,12 @@ The following Time Series Model-Query APIs are available. Most of these APIs sup
 * [Types API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Enables CRUD on Time Series types and their associated variables.
 * [Hierarchies API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Enables CRUD on Time Series hierarchies and their associated field paths.
 * [Instances API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Enables CRUD on Time Series instances and their associated instance fields. Additionally, instance API support following operations:
-  * [Search](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/search) - Retrieves partial list of hits on search for time series instances based on instance attributes.
-  * [Suggest](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/suggest) - Searches and Suggests are partial list of hits on search for time series instances based on instance attributes.
+  * [Search](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/search) - Retrieves partial list of hits on search for time series instances based on instance attributes.
+  * [Suggest](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/suggest) - Searches and Suggests are partial list of hits on search for time series instances based on instance attributes.
 
 ## Time Series Query (TSQ) APIs
 
-The following Time Series Query APIs are available. These APIs are available on all supported multilayered storages in Time Series Insights. Query URL parameters are used to specify the [store type](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) the query should execute on.:
+The following Time Series Query APIs are available. These APIs are available on all supported multilayered storages in Time Series Insights. Query URL parameters are used to specify the [store type](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) the query should execute on.:
 
 * [Get Events API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): Enables query and retrieval of Time Series Insights data from events as they're recorded in Time Series Insights from the source provider. This API allows  retrieval of raw events for a given Time Series ID and search span. This API supports pagination to retrieve the complete dataset for the selected input. 
 
@@ -64,7 +64,7 @@ The following Time Series Query APIs are available. These APIs are available on 
 
   The Get Series API returns a Time Series value for each variable for each interval. A Time Series Value is a format that Time Series Insights uses for output JSON from a query. The values that are returned are based on the Time Series ID and the set of variables that were provided.
 
-* [Aggregate Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data. This API supports continuable execution using [Continuation Tokens](https://docs.microsoft.com/en-us/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage).
+* [Aggregate Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data. This API supports continuable execution using [Continuation Tokens](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage).
 
   The Aggregate Series API returns a Time Series value for each variable for each interval. The values are based on the Time Series ID and the set of variables that were provided. The Aggregate Series API achieves reduction by using variables stored in the Time Series Model or provided inline to aggregate or sample data.
 
