@@ -99,3 +99,15 @@ landingContent:
             url: data-lake-analytics-cicd-test.md
           - text: Use U-SQL SDK
             url: data-lake-analytics-u-sql-sdk.md
+
+  #Card (optional)
+  - title: Understand Spark for U-SQL developers
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Understand Spark overview
+            url: data-lake-analytics-understand-spark-overview.md
+          - text: Understand Spark data
+            url: data-lake-analytics-understand-spark-data.md
+          - text: Understand Spark code
+            url: data-lake-analytics-understand-spark-u-sql-code.md

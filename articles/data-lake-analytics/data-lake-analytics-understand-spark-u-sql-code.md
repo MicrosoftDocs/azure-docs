@@ -1,16 +1,16 @@
 ---
-title: Understand how to move code from Azure Data Lake Analytics to Spark
-description: This article describes concepts to help you migration your code from Azure Data Lake Analytics to Spark.
+title: Understanding Apache Spark code for U-SQL developers
+description: This article describes concepts to help you understand Apache Spark code for U-SQL developers
 author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.custom: explore-spark-guide
+ms.custom: Understand-apache-spark-code
 ms.date: 10/15/2019
 ---
 
-# Explore Apache Spark code from Azure Data Lake Analytics U-SQL
+# Understand Apache Spark for U-SQL developers
 
 This section provides high-level guidance on migrating U-SQL Scripts to Apache Spark. It starts with a [comparison of the two language's processing paradigms](#understand-the-u-sql-and-spark-language-and-processing-paradigms) and then provides tips on how to [migrate scripts](#migrate-u-sql-scripts) including U-SQL's [rowset expressions](#migrate-u-sql-rowset-expressions-and-sql-based-scalar-expressions), [.NET code](#migrate-net-code), [data types](#migrate-typed-values), and [catalog objects](#migrate-u-sql-catalog-objects).
 
@@ -203,4 +203,5 @@ Spark's cost-based query optimizer has its own capabilities to provide hints and
 
 ## Next steps
 
-For more information, see [Understand Spark data and data formats](data-lake-analytics-understand-spark-data.md).
+* For more information, see [Understand Spark data and data formats](data-lake-analytics-understand-spark-data.md)
+* Learn about [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
