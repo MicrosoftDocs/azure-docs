@@ -112,30 +112,12 @@ From the project directory:
 1. Navigate to the */src/main/java/blob-quickstart-v12* directory
 1. Open the *App.java* file in your editor
 1. Remove the `System.out.println( "Hello World!" );` statement
-1. Add `using` directives
+1. Add `import` directives
 1. Update the `Main` method declaration to support async code
 
 Here's the code:
 
-```csharp
-using Azure.Storage;
-using Azure.Storage.Blobs;
-using Azure.Storage.Blobs.Models;
-using System;
-using System.IO;
-using System.Threading.Tasks;
-
-namespace BlobQuickstartV12
-{
-    class Program
-    {
-        private static readonly string myDocumentsPath =            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + '\\';
-
-        static async Task Main()
-        {
-        }
-    }
-}
+```java
 ```
 
 ### Copy your credentials from the Azure portal
