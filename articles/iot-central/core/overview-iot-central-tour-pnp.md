@@ -36,14 +36,14 @@ The [IoT Central homepage](https://aka.ms/iotcentral-get-started) page is the pl
 
 ![IoT Central homepage](media/overview-iot-central-tour-pnp/iot-central-homepage-pnp.png)
 
-### Creating a new application
+### Create an application
 
-In the Build section you can browse the list of industry-relevant IoT Central templates to help you get started quickly, or start from scratch using a blank template. 
+In the Build section you can browse the list of industry-relevant IoT Central templates to help you get started quickly, or start from scratch using a Custom app template.  
 ![IoT Central build page](media/overview-iot-central-tour-pnp/iot-central-build-pnp.png)
 
 To learn more, see the [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart.
 
-### Launching your application
+### Launch your application
 
 You can launch your IoT Central application by going to the URL that you or your solution builder choose during app creation. You can also see a list of all the applications you have access to in the [IoT Central app manager](https://aka.ms/iotcentral-apps).
 
