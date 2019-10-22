@@ -219,4 +219,4 @@ For an example of offline conversation transcription, see [Offline multi-partici
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [explore our samples on github](https://aka.ms/csspeech/samples)
+> [Explore our samples on github](https://aka.ms/csspeech/samples)
