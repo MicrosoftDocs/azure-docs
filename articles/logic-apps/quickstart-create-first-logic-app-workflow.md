@@ -29,9 +29,13 @@ Sign in to the [Azure portal](https://portal.azure.com) with your Azure account 
 
 ## Create your logic app
 
-1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
+1. From the Azure home pane, in the search box, find and select **Logic Apps**.
 
-   ![Create logic app - Azure portal](./media/quickstart-create-first-logic-app-workflow/create-new-logic-app.png)
+   ![Find and select "Logic Apps"](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
+
+1. On the **Logic Apps** pane, select **Add**.
+
+   ![Add new logic app](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. Under **Create logic app**, provide details about your logic app as shown here. After you're done, select **Create**.
 
