@@ -13,9 +13,9 @@ ms.author: mebeatty
 ---
 # What is Internet Analyzer? (Preview)
 
-Internet Analyzer is a client-side measurement platform test how networking infrastructure changes impact your customers’ performance. Whether you’re migrating from on-premises to Azure or evaluating a new Azure service, Internet Analyzer allows you to learn from your users’ data and Microsoft’s rich analytics to better understand and optimize your network architecture with Azure—before you migrate.
+Internet Analyzer is a client-side measurement platform to test how networking infrastructure changes impact your customers’ performance. Whether you’re migrating from on-premises to Azure or evaluating a new Azure service, Internet Analyzer allows you to learn from your users’ data and Microsoft’s rich analytics to better understand and optimize your network architecture with Azure—before you migrate.
 
-Internet Analyzer uses a small JavaScript client embedded in your Web application to measure the latency from your end users to your selected set of network destinations. Internet Analyzer allows you to set up multiple dual-endpoint tests, allowing you to evaluate a variety of scenarios as your infrastructure and customer needs evolves. Internet Analyzer provides custom and preconfigured endpoints, providing you both the convenience and flexibility to make trusted performance decisions for your end users. 
+Internet Analyzer uses a small JavaScript client embedded in your Web application to measure the latency from your end users to your selected set of network destinations, we call _endpoints_. Internet Analyzer allows you to set up multiple dual-endpoint tests, allowing you to evaluate a variety of scenarios as your infrastructure and customer needs evolves. Internet Analyzer provides custom and preconfigured endpoints, providing you both the convenience and flexibility to make trusted performance decisions for your end users. 
 
 
 > [!IMPORTANT]
@@ -26,9 +26,9 @@ Internet Analyzer uses a small JavaScript client embedded in your Web applicatio
 
 Internet Analyzer addresses performance-related questions for cloud migration, deploying to a new or additional Azure regions, or testing new application and content delivery platforms in Azure, such as [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) and [Microsoft Azure CDN](https://azure.microsoft.com/services/cdn/). 
 
-Each test you create in Internet Analyzer is composed of two endpoints—Endpoint A and Endpoint B. Endpoint B is measured relative to what you select as Endpoint A. 
+Each test you create in Internet Analyzer is composed of two endpoints—Endpoint A and Endpoint B. Endpoint B's performance is analyzed relative to Endpoint A. 
 
-You can either configure your own custom endpoint or select from a variety of preconfigured Azure endpoints. Custom endpoints should be used to evaluate on-premises workloads, other cloud providers, or your custom Azure configurations. Tests may be composed of two custom endpoints; however, at least one custom endpoint must reference an Azure backend. Preconfigured Azure endpoints are a quick and easy way to evaluate the performance of popular Azure, Azure Front Door, Azure Traffic Manager, and Azure CDN from Microsoft configurations. 
+You can either configure your own custom endpoint or select from a variety of preconfigured Azure endpoints. Custom endpoints should be used to evaluate on-premises workloads, your instances in other cloud providers, or your custom Azure configurations. Tests may be composed of two custom endpoints; however, at least one custom endpoint must be hosted in Azure. Preconfigured Azure endpoints are a quick and easy way to evaluate the performance of popular Azure networking platforms such as Azure Front Door, Azure Traffic Manager, and Azure CDN. 
 
 During preview, the following preconfigured endpoints are available: 
 
