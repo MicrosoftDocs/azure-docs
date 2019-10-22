@@ -1,12 +1,11 @@
 ---
 title: Provision throughput on Azure Cosmos containers and databases
 description: Learn how to set provisioned throughput for your Azure Cosmos containers and databases.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: rimman
-
 ---
 
 # Provision throughput on containers and databases
