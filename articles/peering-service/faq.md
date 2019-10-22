@@ -36,7 +36,7 @@ A. It is a physical location where Microsoft interconnects with other networks. 
 
 **Q. How is Peering Service different from normal Internet access?**
 
-A. Partners who have registered to teh Microsoft Peering service have been working with Microsoft to offer optimized latency and reliability to Microsoft Services.  
+A. Partners who have registered to the Microsoft Peering service have been working with Microsoft to offer optimized latency and reliability to Microsoft Services.  
 
 **Q. How is Peering Service different from ExpressRoute?**
 

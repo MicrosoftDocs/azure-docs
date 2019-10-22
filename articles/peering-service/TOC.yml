@@ -18,7 +18,7 @@
   items:
   - name: Register Peering Service
     items:
-      - name: Azure Portal
+      - name: Azure portal
         href: azure-portal.md
       - name: Azure PowerShell
         href: powershell.md

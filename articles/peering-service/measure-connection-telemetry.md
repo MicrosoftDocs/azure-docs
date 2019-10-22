@@ -25,18 +25,20 @@ To view the latency report for a specific Peering Service connection, do the fol
 
 1. Click on **ALL resources** from the left pane and click on the Peering Service connection. Following that, click on the **Open** below the **Prefixes** as depicted below:  
 
-![Register Peering Service](./media/peering-service-measure/peering-service-measure-menu.png)
+> [!div class="mx-imgBorder"]
+> ![Register Peering Service](./media/peering-service-measure/peering-service-measure-menu.png)
 
 2. A latency report page for all the prefixes associated with that Peering Service connection appears as shown below:  
 
-![Register Peering Service](./media/peering-service-measure/peering-service-latency-report.png)
+> [!div class="mx-imgBorder"]
+> ![Register Peering Service](./media/peering-service-measure/peering-service-latency-report.png)
 
 3. By default, the report is updated for every 1 hour that is displayed in this page. However, to view the report for different timelines choose the appropriate option from the **Show data for last**.  
 
 4. **Prefix Events** - To view events for a specific prefix, click on the prefix name and click on the **Prefix Events** on the left pane. The events that are captured will be displayed as depicted below:
 
 > [!div class="mx-imgBorder"]
->![Register Peering Service](./media/peering-service-measure/peering-service-prefix-event.png)
+> ![Register Peering Service](./media/peering-service-measure/peering-service-prefix-event.png)
 
  Some of the possible events that are captured in the **Prefix Events** are as follows: 
 
