@@ -1,6 +1,6 @@
 ---
 title: Connect a  RuuviTag in Azure IoT Central | Microsoft Docs
-description: Learn how to connect a RuuviTag to your IoT Central application. 
+description: Learn how to connect a RuuviTag environment sensor to your IoT Central application. 
 services: iot-central
 ms.service: iot-central
 ms.topic: conceptual
@@ -10,9 +10,9 @@ author: avneet723
 ms.date: 10/19/2019
 ---
 
-# Connect a RuuviTag to your Azure IoT Central application
+# Connect a RuuviTag sensor to your Azure IoT Central application
 
-This article describes how, as a solution builder, you can connect a RuuviTag to your Microsoft Azure IoT Central application.
+This article describes how, as a solution builder, you can connect a RuuviTag sensor to your Microsoft Azure IoT Central application.
 
 ### What is a Ruuvi tag?
 
@@ -23,27 +23,27 @@ RuuviTag communicates over BLE (Bluetooth Low Energy) and therefore requires a g
 Please follow the [instructions here](.\howto-connect-rigado-cascade-500-pnp.md) if you'd like to setup a Rigado Cascade 500 gateway device.
 
 ## Prerequisites
-To step through this how-to guide, you need the following resources:
+To connect RuuviTag sensors, you need the following:
 
 * A RuuviTag sensor. For more information, please visit [RuuviTag](https://ruuvi.com/). 
 * A Rigado Cascade 500 device or another BLE gateway. For more information, please visit [Rigado](https://www.rigado.com/).
 * An Azure IoT Central application created from one of the preview application templates. For more information, see the [create a new application](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-## Add RuuviTag device template
+## Add a RuuviTag device template
 
-In order to onboard a RuuviTag into your Azure IoT Central application instance, you will need to configure a corresponding device template within your application.
+In order to onboard a RuuviTag sensor into your Azure IoT Central application instance, you will need to configure a corresponding device template within your application.
 
 To add a RuuviTag device template: 
 
 1. Navigate to the ***Device Templates*** tab in the left pane, select **+ New**: 
 ![Create new device template](./media/howto-connect-ruuvi/DeviceTemplate-New.png)
-1. The page gives you an option to ***Create a custom template*** or ***Use a preconfigured device template***
+The page gives you an option to ***Create a custom template*** or ***Use a preconfigured device template***
 1. Select the RuuviTag device template from the list of preconfigured device templates as shown below:
 ![Select RuuviTag device template](./media/howto-connect-ruuvi/DeviceTemplate-Preconfigured.png)
 1. Select ***Next: Customize*** to continue to the next step. 
 1. On the next screen, select ***Create*** to onboard the C500 device template into your IoT Central application.
 
-## Set up your RuuviTag
+## Connect a RuuviTag sensor
 
 As mentioned above, in order to connect the RuuviTag with your IoT Central application, you will need to setup a gateway device. In the steps below, we will assume that you have setup a Rigado Cascade 500 gateway device.  
 
@@ -52,7 +52,7 @@ As mentioned above, in order to connect the RuuviTag with your IoT Central appli
 1. Place the RuuviTag in close proximity to your Rigado Cascade 500 gateway that has previously been configured with your IoT Central application. 
 1. In just a few seconds, your RuuviTag should appear in your list of devices within IoT Central.  
 ![RuuviTag Device List](./media/howto-connect-ruuvi/Ruuvi-DeviceList.png)
-1. You can now use this RuuviTag within your IoT Central application.  
+You can now use this RuuviTag within your IoT Central application.  
 
 ## Next Steps
 
