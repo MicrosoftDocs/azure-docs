@@ -12,7 +12,7 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 08/23/2019
+ms.date: 10/22/2019
 ms.author: cephalin
 ms.custom: seo-python-october2019
 
@@ -21,22 +21,40 @@ experiment_id: 1e304dc9-5add-4b
 ---
 # Quickstart: Create a Python app in Azure App Service on Linux
 
-In this quickstart, you deploy a simple Python app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli)) on a Mac, Linux, or Windows computer.
+In this quickstart, you deploy a simple Python app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer.
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one already, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a>
 - <a href="https://git-scm.com/downloads" target="_blank">Git</a>
 
 ## Download the sample locally
 
-In a terminal window, run the following commands to clone the sample application to your local computer, and go to the folder with the sample code.
+In a terminal window, run the following commands to clone the sample application to your local computer, then go to the folder with the sample code.
+
+# [Bash](#tab/bash)
 
 ```bash
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+git clone https://github.com/Azure-Samples/python-docs-hello-world
+cd python-docs-hello-world
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+git clone https://github.com/Azure-Samples/python-docs-hello-world
+cd python-docs-hello-world
+```
+
+---
 
 The repository contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
 
@@ -44,7 +62,7 @@ The repository contains an *application.py* file, which tells App Service that t
 
 In a terminal window, use the commands below to install the required dependencies and launch the built-in development server. 
 
-# [bash](#tab/bash)
+# [Bash](#tab/bash)
 
 ```bash
 python3 -m venv venv
@@ -81,32 +99,50 @@ Open a web browser, and go to the sample app at `http://localhost:5000/`. The ap
 
 In your terminal window, press **Ctrl**+**C** to exit the web server.
 
-## Create a web app
+## Sign in to Azure using the CLI
 
-In the folder that contains the sample code, run the following `az webapp up` command, replacing  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*).
+To run Azure commands in the Azure CLI, you must first log in using the `az login` command. This command opens a browser to gather your credentials.
 
 # [Bash](#tab/bash)
 
 ```bash
-cd python-docs-hello-world
-
-az webapp up -n <app-name>
+az login
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-cd python-docs-hello-world
-
-az webapp up -n <app-name>
+az login
 ```
 
 # [Cmd](#tab/cmd)
 
 ```cmd
-cd python-docs-hello-world
+az login
+```
 
-az webapp up -n <app-name>
+## Create a web app and deploy the code
+
+The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app on App Service and deploys your code.
+
+In the *python-docs-hello-world* folder that contains the sample code, run the following command, replacing  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*) and replacing `<location-name>` with an Azure region such as **centralus**. (You can retrieve a list of regions you can use by running the [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
+
+# [Bash](#tab/bash)
+
+```bash
+az webapp up -n <app-name> -l <location-name>
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az webapp up -n <app-name> -l <location-name>
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+az webapp up -n <app-name> -l <location-name>
 ```
 
 ---
@@ -115,9 +151,9 @@ This command may take a few minutes complete run. While running, it displays inf
 
 ```output
 The behavior of this command has been altered by the following extension: webapp
-Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+Creating Resource group 'appsvc_rg_Linux_centralus' ...
 Resource group creation complete
-Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+Creating App service plan 'appsvc_asp_Linux_centralus' ...
 App service plan creation complete
 Creating app '<app-name>' ....
 Webapp creation complete
@@ -129,8 +165,8 @@ All done.
   "location": "Central US",
   "name": "<app-name>",
   "os": "Linux",
-  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
-  "serverfarm": "appsvc_asp_Linux_CentralUS",
+  "resourcegroup": "appsvc_rg_Linux_centralus ",
+  "serverfarm": "appsvc_asp_Linux_centralus",
   "sku": "BASIC",
   "src_path": "/home/username/quickstart/python-docs-hello-world ",
   "version_detected": "-",
@@ -144,15 +180,15 @@ All done.
 
 Browse to the deployed application in your web browser at the URL `http://<app-name>.azurewebsites.net`.
 
-The Python sample code is running in App Service on Linux with a built-in container image.
+The Python sample code is running a Linux container in App Service using a built-in image.
 
 ![Run a sample Python app in Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
-**Congratulations!** You've deployed your first Python app to App Service on Linux.
+**Congratulations!** You've deployed your Python app to App Service on Linux.
 
 ## Update locally and redeploy the code
 
-In your favorite code editor, open *application.py* and change the `return` statement to match the following line:
+In your favorite code editor, open *application.py* and change the `return` statement on the last line to match the following code:
 
 ```python
 return "Hello Azure!"
@@ -160,24 +196,24 @@ return "Hello Azure!"
 
 Save your changes and exit the editor. 
 
-Redeploy the app using the following [`az webapp up`](/cli/azure/webapp#az-webapp-up) command, using the name of your app in place of `<app-name>`.
+Redeploy the app using the following `az webapp up` command, using the same command you used to deploy the app the first time, replacing `<app-name>` and `<location-name>` with the same names you used before. 
 
 # [Bash](#tab/bash)
 
 ```bash
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 # [Cmd](#tab/cmd)
 
 ```cmd
-az webapp up -n <app-name>
+az webapp up -n <app-name> -l <location-name>
 ```
 
 ---
@@ -200,7 +236,32 @@ Your app's Overview page appears where you can perform basic management tasks li
 
 The left menu provides different pages for configuring your app. 
 
-[!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
+## Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group that may incur ongoing costs. The resource group has a name like "appsvc_rg_Linux_CentralUS" depending on your location.
+
+If you don't expect to need these resources in the future, delete the resource group by running the following command, replacing "appsvc_rg_Linux_centralus" with your resource group name. The command may take a minute to complete.
+
+# [Bash](#tab/bash)
+
+```bash
+az group delete -n appsvc_rg_Linux_centralus
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az group delete -n appsvc_rg_Linux_centralus
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+az group delete -n appsvc_rg_Linux_centralus
+```
+
+---
+
 
 ## Next steps
 
