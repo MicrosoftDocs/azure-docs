@@ -51,29 +51,25 @@ An Azure storage account contains all of your Azure Storage data objects: blobs,
 
 For more information about storage accounts, see [Azure Storage account overview](../common/storage-account-overview.md).
 
-When naming your storage account, keep these rules in mind:
-
-- Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
-- Your storage account name must be unique within Azure. No two storage accounts can have the same name.
-
 ## Create an account using the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create a storage account
 
-Now you are ready to create your storage account.
-
 Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This article shows how to create a new resource group.
 
-A general-purpose v2 storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. To create a general-purpose v2 storage account in the Azure portal, follow these steps:
+To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 > [!NOTE]
 > The hierarchical namespace is currently available in all public regions.
 
 1. Choose the subscription in which you want to create the storage account.
 2. In the Azure portal, choose the **Create a resource** button, then choose **Storage account**.
-3. Under the **Resource group** field, select **Create new**. Enter a name for your new resource group, as shown in the following image.
+3. Under the **Resource group** field, select **Create new**. Enter a name for your new resource group.
+   
+   A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group.
+
 4. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
 5. Choose a location.
 6. Make sure that **StorageV2 (general purpose v2)** appears as selected in the **Account kind** drop-down list.
