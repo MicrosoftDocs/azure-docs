@@ -238,13 +238,17 @@
       diplayName: import, export, container
     - name: With Traffic Manager
       href: luis-traffic-manager.md
-  - name: Migrate API
+  - name: Use APIs
     items: 
-    - name: Migrate to V2 REST API
-      href: luis-migration-api-v1-to-v2.md
-    - name: Migrate to V3 REST API
+    - name: For Developers
+      href: developer-reference-resource.md
+    - name: Authoring APIs
+      href: luis-migration-api-authoring.md
+    - name: Migrate to V3 API
       href: luis-migration-api-v3.md 
-      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override
+      displayName: json, response, verbose, dynamic, dynamic list object, brackets, array, role, show-all-intents,prebuilt domain, domain, external entities, "$instance",TimezoneOffset, datetimeReference, overridePredictions, override  
+    - name: Migrate to V2 API
+      href: luis-migration-api-v1-to-v2.md
   - name: Use containers
     items:
     - name: Install and run containers
@@ -317,6 +321,8 @@
       href: reference-entity-regular-expression.md      
     - name: Simple entity
       href: reference-entity-simple.md
+  - name: Sentiment 
+    href: luis-reference-prebuilt-sentiment.md
   - name: Developer resources
     href: developer-reference-resource.md
     displayName: SDK, API, quickstart, REST, cli, powershell, azure, rm, resource manager, samples, package, module, tool, dispatch, bot
@@ -333,6 +339,8 @@
     - name: V2 Authoring REST APIs
       href: https://go.microsoft.com/fwlink/?linkid=2092087
     - name: V2 Prediction REST APIs
+      href: https://go.microsoft.com/fwlink/?linkid=2092356
+    - name: Endpoint V3 REST API
       href: https://go.microsoft.com/fwlink/?linkid=2092356
     - name: HTTP codes
       displayName: 400, 401, 403, 409, 410, 414, 429

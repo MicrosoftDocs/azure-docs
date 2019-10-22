@@ -22,7 +22,7 @@ To understand what a LUIS prediction endpoint returns, view a prediction result 
 
 In order to query a public app, you need:
 
-* Your own Language Understanding (LUIS) key. If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/).
+* Your own Language Understanding (LUIS) key. If you do not already have a subscription to create a key, you can register for a [free account](https://azure.microsoft.com/free/). The LUIS authoring key will not work. 
 * The public app's ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
 
 ## Use the browser to see predictions
@@ -46,8 +46,6 @@ In order to query a public app, you need:
     `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
     `
-    
-    * * *
 
 1. Paste the URL into a browser window and press Enter. The browser displays a JSON result that indicates that LUIS detects the `HomeAutomation.TurnOn` intent as the top intent and the `HomeAutomation.Operation` entity with the value `on`.
 
@@ -107,7 +105,7 @@ In order to query a public app, you need:
 
     ```JSON
     {
-        "query": "turn on all lights",
+        "query": "turn off the living room light",
         "prediction": {
             "topIntent": "HomeAutomation.TurnOn",
             "intents": {
@@ -172,7 +170,7 @@ In order to query a public app, you need:
     ```
 
 
-    * * * 
+<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->   
 
 ## Next steps
 
