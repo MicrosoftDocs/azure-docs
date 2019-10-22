@@ -433,3 +433,7 @@ Schedule:
     continue_on_step_failure: None 
     path_on_datastore: ~ 
 ```
+
+## Next steps
+
+Learn how to [use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
