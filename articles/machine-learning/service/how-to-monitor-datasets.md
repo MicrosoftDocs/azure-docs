@@ -23,7 +23,10 @@ With Azure Machine Learning dataset monitors, you can:
 * **Analyze drift in your data** to understand how it changes over time.
 * **Monitor model data** for differences between training and serving datasets.
 * **Monitor new data** for differences between any baseline and target dataset.
+* **Profile features in data** to track how statistical properties change over time.
 * **Set up alerts on data drift** for early warnings to potential issues. 
+
+Metrics and insights are available through the [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) resource associated with the Azure Machine Learning service workspace.
 
 ## Prerequisites
 
@@ -44,7 +47,7 @@ Causes of data drift include:
 - Natural drift in the data, such as mean temperature changing with the seasons.
 - Change in relation between features, or covariate shift. 
 
-With Azure Machine Learning dataset monitors you can set up alerts that assist in data drift detection.
+With Azure Machine Learning dataset monitors you can set up alerts that assist in data drift detection and profile statical properties of datasets over time. 
 
 ### Dataset monitors 
 
@@ -117,9 +120,9 @@ This table contains basic settings used for the dataset monitor.
 | Setting | Description | Tips | Mutable | 
 | ------- | ----------- | ---- | ------- | 
 | Name | Name of the dataset monitor. | | No |
-| Baseline dataset | Tabular dataset that will be used as the baseline for comparison of the target dataset over time. | Set to a model's target dataset. | No |
-| Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift | Set to a model's serving dataset. | No | 
-| Frequency | This is the frequency which will be used to schedule the pipeline job and analyze historical data if running a backfill. | Adjust this setting to include a comparable size of data to the baseline. | No | 
+| Baseline dataset | Tabular dataset that will be used as the baseline for comparison of the target dataset over time. | The baseline dataset must have features in common with the target dataset. Generally, the baseline should be set to a model's training dataset or a slice of the target dataset. | No |
+| Target dataset | Tabular dataset with timestamp column specified which will be analyzed for data drift | The target dataset must have features in common with the baseline dataset, and should be a timeseries dataset which new data is added to. Historical data in the target dataset can be analyzed, or new data can be monitored. | No | 
+| Frequency | This is the frequency which will be used to schedule the pipeline job and analyze historical data if running a backfill. Options include daily, weekly, or monthly. | Adjust this setting to include a comparable size of data to the baseline. | No | 
 | Features | List of features which will be analyzed for data drift over time | Set to a model's output feature(s) to measure concept drift. Do not include features that naturally drift over time (month, year, index, etc.). You can backfill and existing data drift monitor after adjusting the list of features. | Yes | 
 | Compute target | Azure Machine Learning compute target to run the dataset monitor jobs. | | Yes | 
 
@@ -265,6 +268,12 @@ Limitations and known issues:
 * Time range of backfill jobs are limited to 31 intervals of the monitor's frequency setting. 
 * Limitation of 200 features, unless a feature list is not specified. 
 * Compute size must be large enough to handle the data. 
+
+Specific implementation details include:
+| Feature type | Data type | Condition | Limitations | 
+| ------------ | --------- | --------- | ----------- |
+| Categorical | string, int, float | 1. Less than 100 unique values and 2. Less than 5% of total number of rows in the dataset | Null is treated as its own category | 
+| Numerical | int, float | Of correct data type and not categorized as categorical | Feature dropped if >15% of values are null | 
 
 ## Next steps
 
