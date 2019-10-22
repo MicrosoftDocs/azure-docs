@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/04/2019
 ms.author: weixu
 ---
 
@@ -106,13 +106,13 @@ The following sample code demonstrates how to transcribe conversations in real t
 
 Sample code highlights include:
 
-- Creating a `Conversation` object from the `SpeechConfig` object using a meeting ID generated using `Guid.NewGuid()`
+- Creating a `Conversation` object from the `SpeechConfig` object using a meeting identifier generated using `Guid.NewGuid()`
 - Creating a `ConversationTranscriber` object and join the conversation with `JoinConversationAsync()` to start transcription
 - Registering the events of interest
 - Adding or removing participants to the conversation using the Conversation object
 - Streaming the audio
 
-The transcription and speaker ID come back in the registered events.
+The transcription and speaker identifier come back in the registered events.
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -219,4 +219,4 @@ For an example of offline conversation transcription, see [Offline multi-partici
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore our samples on github](https://aka.ms/csspeech/samples)
+> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)

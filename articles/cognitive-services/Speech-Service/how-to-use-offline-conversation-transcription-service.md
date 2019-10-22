@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 11/04/2019
 ms.author: amishu
 ---
 
@@ -22,11 +22,9 @@ With offline transcription, you stream the conversation audio, but don't expect 
 
 With real-time plus offline, you get the transcription in real time, but can also get the transcription by querying the service with the `conversationId` (similar to offline scenario).
 
-## Upload audio and get transcription results
-
 Two steps are required to accomplish offline transcription. The first sample uploads the audio and is in Java. The **Limitations** section of this topic specifies the supported platforms and languages APIs shown in this sample. The second sample does offline transcription and works as a Java-only API.
 
-### Code sample to upload the audio with the Speech SDK
+## Code sample to upload the audio with the Speech SDK
 
 Before offline transcription can be performed, send the audio to Conversation Transcription Service using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe multi-participant conversations in real time with the Speech SDK](how-to-use-conversation-transcription-service.md).
 
@@ -47,7 +45,7 @@ speechConfig.setServiceProperty("transcriptionMode", "Offline", ServicePropertyC
 // Keep a note of `conversationId` which is set using ConversationTranscriber.setConversationId(conversationId)
 ConversationTranscriber transcriber = new ConversationTranscriber(speechConfig, AudioConfig.fromDefaultMicrophoneInput());
 transcriber.setConversationId("MeetingTest");
-// We will use this id to retrieve offline transcription later
+// We will use this identifier to retrieve offline transcription later
 String conversationId = transcriber.getConversationId();
 
 ```
@@ -62,11 +60,11 @@ If you want real-time _plus_ offline, comment and uncomment the appropriate line
 speechConfig.setServiceProperty("transcriptionMode", "RealTimeOffline", ServicePropertyChannel.UriQueryParameter);
 ```
 
-### Get offline transcription results
+## Get offline transcription results
 
 You need **remoteconversation-client-sdk version 1.0.0** to use the code in this section. This client SDK is supported only for Java (1.8 or above) on Windows, Linux, and Android (API level 26 or above).
 
-#### Obtaining the client SDK
+### Obtaining the client SDK
 
 You can obtain **remoteconversation-client-sdk** by editing your pom.xml file as follows.
 
@@ -96,9 +94,9 @@ You can obtain **remoteconversation-client-sdk** by editing your pom.xml file as
 
 - Save the changes
 
-#### Transcribing and getting the results
+### Transcribing and getting the results
 
-After you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has finished, this sample gets the results of **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the object.
+After you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the offline conversation transcription service. **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has finished, get **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the object. In this code we simply print the result contents to system output.
 
 ```java
 // Create the speech config object
@@ -141,4 +139,4 @@ System.out.println("Operation finished");
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [explore our samples on github](https://aka.ms/csspeech/samples)
+> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
