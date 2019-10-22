@@ -29,9 +29,19 @@ Add a SQL Database managed instance to a failover group. In this article, you wi
 
 ## Prerequisites
 
+# [Portal](#tab/azure-portal)
 To complete this tutorial, make sure you have: 
 
-- An Azure subscription, [create a free account](https://azure.microsoft.com/free/) if you don"t already have one. 
+- An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
+
+
+# [PowerShell](#tab/azure-powershell)
+To complete the tutorial, make sure you have the following items:
+
+- An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
+- [Azure PowerShell](/powershell/azureps-cmdlets-docs)
+
+---
 
 
 ## 1 - Create resource group and primary managed instance
@@ -871,6 +881,7 @@ Create the gateway for the virtual network of the secondary managed instance usi
    ```
 
 This portion of the tutorial uses the following PowerShell cmdlets:
+
 | Command | Notes |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | Gets a virtual network in a resource group. |
@@ -1021,7 +1032,8 @@ Test failover using PowerShell.
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $resourceGroupName `
        -Location $drLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
    Write-host "Successfully failed failover group to secondary location"
-    ```
+   ```
+
 
 Revert failover group back to the primary server:
 

@@ -12,7 +12,7 @@ ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
 ---
-# Use PowerShell to add an Azure SQL Database managed instance database to a failover group 
+# Use PowerShell to add an Azure SQL Database managed instance to a failover group 
 
 This PowerShell script example creates two managed instances, adds them to a failover group, and then tests failover from the primary managed instance to the secondary managed instance. 
 

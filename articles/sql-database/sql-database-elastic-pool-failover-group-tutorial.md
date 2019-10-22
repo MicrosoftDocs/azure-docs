@@ -114,8 +114,8 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 | Command | Notes |
 |---|---|
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) Creates an elastic database pool for a an Azure SQL Database.| 
-| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) Sets properties for a database, or moves an existing database into an elastic pool. | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for a an Azure SQL Database.| 
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Sets properties for a database, or moves an existing database into an elastic pool. | 
 
 ---
 
@@ -234,7 +234,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 |---|---|
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) Creates an elastic database pool for a an Azure SQL Database.| 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for a an Azure SQL Database.| 
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Creates a new failover group. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more Azure SQL Databases to a failover group. |
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Gets or lists Azure SQL Database failover groups. |
@@ -396,8 +396,8 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a new Azure SQL Database single database. | 
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) Creates an elastic database pool for a an Azure SQL Database.| 
-| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) Sets properties for a database, or moves an existing database into an elastic pool. | 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for a an Azure SQL Database.| 
+| [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Sets properties for a database, or moves an existing database into an elastic pool. | 
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Creates a new failover group. |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Gets one or more SQL databases. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more Azure SQL Databases to a failover group. |
