@@ -20,7 +20,7 @@ In this article, offline conversation transcription is demonstrated using the **
 
 With offline transcription, you stream the conversation audio, but don't expect that a transcription is returned in real time. Instead, after the audio is sent, use the `conversationId` of `ConversationTranscriber` to query for the status of the offline transcription. When the offline transcription is ready, you'll get a `RemoteConversationTranscriptionResult`.
 
-With real-time plus offline, you get the transcription in real time but can also get the transcription by querying the service with the `conversationId` (similar to offline scenario).
+With real-time plus offline, you get the transcription in real time, but can also get the transcription by querying the service with the `conversationId` (similar to offline scenario).
 
 ## Upload audio and get transcription results
 
