@@ -10,11 +10,39 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
+zone_pivot_groups: programming-languages-set-two
 ---
 
 # Specify source language for speech to text
 
-If you know the source language of the audio that's being passed to the Speech SDK, you can use either the `FromConfig` or `SourceLanguageConfig` to specify the source language and custom language model used for recognition. In this article, you'll learn how to specify the source language in C++ and Java.
+In this article, you'll learn how to specify the source language for an audio input passed to the Speech SDK for speech recognition. Additionally, example code is provided to specify a custom speech model for improved recognition.
+
+::: zone pivot="programming-language-csharp"
+
+## How to specify source language in C#
+
+The first step is to create a `SpeechConfig`:
+
+```csharp
+var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+```
+
+Next, specify the source language of your audio with `SpeechRecognitionLanguage`:
+
+```csharp
+speechConfig.SpeechRecognitionLanguage = "de-DE";
+```
+
+If you're using a custom model for recognition, you can specify the endpoint with `EndpointId`:
+
+```csharp
+speechConfig.EndpointId = "The Endpoint ID for your custom model.";
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
 
 ## How to specify source language in C++
 
@@ -34,11 +62,18 @@ auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfi
 In this example, the source language and custom endpoint are provided using `SourceLanguageConfig`. The `sourceLanguageConfig` is passed as a parameter to `FromConfig` when creating the `recognizer`.
 
 ```C++
-auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE", "The Endpoint Id for custom model of de-DE");
+auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE", "The Endpoint ID for your custom model.");
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-### How to specify source language in Java
+>[!Note]
+> `SetSpeechRecognitionLanguage` and `SetEndpointId` are deprecated methods from the `SpeechConfig` class in C++ and Java. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+## How to specify source language in Java
 
 In this example, the source language is provided explicitly when creating a new `SpeechRecognizer`.
 
@@ -56,12 +91,87 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 In this example, the source language and custom endpoint are provided using `SourceLanguageConfig`. Then, the `sourceLanguageConfig` is passed as a parameter when creating a new `SpeechRecognizer`.
 
 ```Java
-SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE", "The Endpoint Id for custom model of de-DE");
+SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE", "The Endpoint ID for your custom model.");
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
 >[!Note]
-> `SetSpeechRecognitionLanguage` and `SetEndpointId` are deprecated methods from the `SpeechConfig` class in C++ and Java. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
+> `setSpeechRecognitionLanguage` and `setEndpointId` are deprecated methods from the `SpeechConfig` class in C++ and Java. The use of these methods are discouraged, and shouldn't be used when constructing a `SpeechRecognizer`.
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+## How to specify source language in Python
+
+The first step is to create a `speech_config`:
+
+```Python
+speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
+speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
+```
+
+Next, specify the source language of your audio with `speech_recognition_language`:
+
+```Python
+speech_config.speech_recognition_language="de-DE"
+```
+
+If you're using a custom model for recognition, you can specify the endpoint with `endpoint_id`:
+
+```Python
+speech_config.endpoint_id = "The Endpoint ID for your custom model."
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+## How to specify source language in Javascript
+
+The first step is to create a `SpeechConfig`:
+
+```Javascript
+var speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionkey", "YourRegion");
+```
+
+Next, specify the source language of your audio with `speechRecognitionLanguage`:
+
+```Javascript
+speechConfig.speechRecognitionLanguage = "de-DE";
+```
+
+If you're using a custom model for recognition, you can specify the endpoint with `endpointId`:
+
+```Javascript
+speechConfig.endpointId = "The Endpoint ID for your custom model.";
+```
+
+## How to specify source language in Objective-C
+
+The first step is to create a `speechConfig`:
+
+```Objective-C
+SPXSpeechConfiguration *speechConfig = [[SPXSpeechConfiguration alloc] initWithSubscription:@"YourSubscriptionkey" region:@"YourRegion"];
+```
+
+Next, specify the source language of your audio with `speechRecognitionLanguage`:
+
+```Objective-C
+speechConfig.speechRecognitionLanguage = @"de-DE";
+```
+
+If you're using a custom model for recognition, you can specify the endpoint with `endpointId`:
+
+```Objective-C
+speechConfig.endpointId = @"The Endpoint ID for your custom model.";
+```
+
+::: zone-end
+
+## See also
+
+* For a list of supported languages and locales for speech to text, see [Language support](language-support.md).
 
 ## Next steps
 
