@@ -22,19 +22,14 @@ This article demonstrates how to set up a custom endpoint to measure as part of 
 
 ## Before you begin
 
-Make sure you set up an Internet Analyzer resource and selected the "Custom Endpoint" option. Internet Analyzer assumes your custom endpoint is Internet accessible. (Need help with the correct wording of this last part.) For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md). 
+Make sure you set up an Internet Analyzer resource want to use the "Custom Endpoint" option. Internet Analyzer assumes your custom endpoint is Internet accessible. For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md).
 
 
-## Create Custom Endpoint 
+## Create Custom Endpoint
 
-1. xxx 
-2. xxx
-3. xxx
-
-
-
-
-
+1. Download a transparent 1-pixel test image [here](https://a-ring.msedge.net/apc/trans.gif). This is the asset the client JavaScript will fetch to measure performance.
+2. In your custom web application, deploy the test image in a publically accessible path. The path should work over HTTPS. 
+3. Copy the full custom endpoint URL (e.g. https://contoso.com/test/trans.gif) into the custom endpoint field during your test creation.
 
 ## Next steps
 

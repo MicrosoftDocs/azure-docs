@@ -22,19 +22,39 @@ This article shows you how to embed the JavaScript client in your application. I
 
 ## Before you begin
 
-Make sure you set up an Internet Analyzer resource and have copied the unique JavaScript client URL provided to you. Internet Analyzer assumes your application is Internet accessible. For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md). 
+Internet Analyzer requires access to Azure and other Microsoft services to function correctly. Please allow network access to `fpc.msedge.net` and any preconfigured endpoint URLs (visible through [CLI](internet-analyzer-cli.md)) before embedding the client.
 
+## Find the client script URL
 
-## xxx
+The script URL can be found either through the Azure portal or the Azure CLI after a test has been configured. For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md).
 
-1. Use [this link](https://aka.ms/InternetAnalyzerPreviewPortal) to open the preview portal page for Azure Internet Analyzer. Enter your project and instance details and click "Next: Configuration". This page should give you your personalized client. Copy the client to your clipboard. 
-2. xxx 
-3. xxx
-4. xxx
+Option 1. In the Azure Portal, use [this link](https://aka.ms/InternetAnalyzerPreviewPortal) to open the preview portal page for Azure Internet Analyzer. Navigate to your Internet Analyzer profile to see the script URL.
 
+Option 2. Using the Azure CLI, check the `scriptFileUri` Property.
+```azurecli-interactive
+    az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
+```
 
+## Client details
 
- 
+The script is generated specifically for your profile and experiments. After being loaded, the script will execute on a 2 second delay. First it contacts the Internet Analyzer service to fetch the list of endpoints configured in your experiments. It then runs the measurements and uploads the timed results back to the Internet Analyzer service.
+
+## Client examples
+
+These examples show a few basic methods to embed the client JavaScript into your webpage or application. We use `0bfcb32638b44927935b9df86dcfe397` as an example profile Id for the script URL.
+
+### **Run on page load**
+The simplest method is to use the script tag inside the meta tag block. This will execute the script once per page load.
+
+```html
+<html>
+<meta>
+    <script src="//fpc.msedge.net/client/v2/0bfcb32638b44927935b9df86dcfe397/ab.min.js"></script>
+</meta>
+<body></body>
+</html>
+```
+
 ## Next steps
 
 Read the [Internet Analyzer FAQ](internet-analyzer-faq.md)
