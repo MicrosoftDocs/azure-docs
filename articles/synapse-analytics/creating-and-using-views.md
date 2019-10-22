@@ -63,8 +63,7 @@ Following query creates view that reads *population.csv* file.
 USE [mydbname]
 GO
 
-IF EXISTS(select * FROM sys.views where name = 'populationView')
-DROP VIEW populationView
+DROP VIEW IF EXISTS populationView
 GO
 
 CREATE VIEW populationView AS
@@ -108,12 +107,15 @@ ORDER BY
 
 ## Next steps
 
-You can see more in [Querying JSON files](querying-json-files.md).
+Advance to one of the following articles and learn how to query different files.
+> [!div class="nextstepaction"]
+> [Querying single CSV file](querying-single-csv-file.md)
 
-Advance to the next article to learn how to query JSON files.
+> [!div class="nextstepaction"]
+> [Querying Parquet files](querying-parquet-files.md)
+
 > [!div class="nextstepaction"]
 > [Querying JSON files](querying-json-files.md)
-
 
 <!--- Required:
 Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
