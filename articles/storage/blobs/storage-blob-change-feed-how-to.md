@@ -114,7 +114,7 @@ You can resume iterating from the last state by creating the **ChangeFeedReader*
 ```csharp
 public async Task ProcessRecordsFromLastPosition(ChangeFeed changeFeed, string lastReadState)
 {
-    ChangeFeedReader processor = await cf.CreateChangeFeedReaderFromPointerAsync(lastReadState);
+    ChangeFeedReader processor = await changeFeed.CreateChangeFeedReaderFromPointerAsync(lastReadState);
 
     ChangeFeedRecord currentRecord = null;
     do
@@ -134,6 +134,7 @@ public async Task ProcessRecordsFromLastPosition(ChangeFeed changeFeed, string l
 
     } while (currentRecord != null);
 }
+
 ```
 
 ## Stream processing of records
@@ -177,33 +178,39 @@ Change feed is organized into hourly segments based on the change event time. Se
 ### Selecting segments for a time range
 
 ```csharp
-public List<DateTimeOffset> GetChangeFeedSegmentRefsForTimeRange(ChangeFeed cf, DateTimeOffset st, DateTimeOffset en)
+public async Task<List<DateTimeOffset>> GetChangeFeedSegmentRefsForTimeRange
+    (ChangeFeed changeFeed, DateTimeOffset startTime, DateTimeOffset endTime)
 {
     List<DateTimeOffset> result = new List<DateTimeOffset>();
 
-    DateTimeOffset stAdj = st.AddMinutes(-15);
-    DateTimeOffset enAdj = en.AddMinutes(15);
+    DateTimeOffset stAdj = startTime.AddMinutes(-15);
+    DateTimeOffset enAdj = endTime.AddMinutes(15);
 
-    DateTimeOffset lastConsumable = cf.LastConsumable;
+    DateTimeOffset lastConsumable = (DateTimeOffset)changeFeed.LastConsumable;
 
-    List<DateTimeOffset> segments = (await cf.ListAvailableSegmentTimesAsync()).ToList();
-    foreach(segmentStart in segments)
+    List<DateTimeOffset> segments = 
+        (await changeFeed.ListAvailableSegmentTimesAsync()).ToList();
+
+    foreach (var segmentStart in segments)
     {
-        if(lastConsumable.CompareTo(segmentStart) < 0)
+        if (lastConsumable.CompareTo(segmentStart) < 0)
         {
             break;
         }
 
-        if(enAdj.CompareTo(segmentStart) < 0)
+        if (enAdj.CompareTo(segmentStart) < 0)
         {
             break;
         }
 
         DateTimeOffset segmentEnd = segmentStart.AddMinutes(60);
-        bool overlaps = stAdj.CompareTo(segmentEnd) < 0 && segStart.CompareTo(enAdj) < 0;
-        if(overlaps)
+
+        bool overlaps = stAdj.CompareTo(segmentEnd) < 0 && 
+            segmentStart.CompareTo(enAdj) < 0;
+
+        if (overlaps)
         {
-            result.Add(segmentStart)
+            result.Add(segmentStart);
         }
     }
 
@@ -218,10 +225,10 @@ You can read records from individual segments or ranges of segments.
 ```csharp
 public async Task ProcessRecordsInSegment(ChangeFeed changeFeed, DateTimeOffset segmentOffset)
 {
-    ChangeFeedSegment segment = new ChangeFeedSegment(segmentOffset, cf);
+    ChangeFeedSegment segment = new ChangeFeedSegment(segmentOffset, changeFeed);
     await segment.InitializeAsync();
 
-    ChangeFeedSegmentReader processor = await currentWindow.CreateChangeFeedSegmentReaderAsync();
+    ChangeFeedSegmentReader processor = await segment.CreateChangeFeedSegmentReaderAsync();
 
     ChangeFeedRecord currentRecord = null;
     do
@@ -278,14 +285,46 @@ public DateTimeOffset GetChangeFeedSegmentRefAfterTime(ChangeFeed cf, DateTimeOf
 ```
 
 ```csharp
+public async Task<DateTimeOffset> GetChangeFeedSegmentRefAfterTime
+    (ChangeFeed changeFeed, DateTimeOffset timestamp)
+{
+    DateTimeOffset result = new DateTimeOffset();
+
+    DateTimeOffset lastConsumable = (DateTimeOffset)changeFeed.LastConsumable;
+    DateTimeOffset lastConsumableEnd = lastConsumable.AddMinutes(60);
+
+    DateTimeOffset timestampAdj = timestamp.AddMinutes(-15);
+
+    if (lastConsumableEnd.CompareTo(timestampAdj) < 0)
+    {
+        return result;
+    }
+
+    List<DateTimeOffset> segments = (await changeFeed.ListAvailableSegmentTimesAsync()).ToList();
+    foreach (var segmentStart in segments)
+    {
+        DateTimeOffset segmentEnd = segmentStart.AddMinutes(60);
+        if (timestampAdj.CompareTo(segmentEnd) <= 0)
+        {
+            result = segmentStart;
+            break;
+        }
+    }
+
+    return result;
+}
+
 public async Task ProcessRecordsStartingFromSegment(ChangeFeed changeFeed, DateTimeOffset segmentStart)
 {
+    TimeSpan waitTime = new TimeSpan(60 * 1000);
+
     ChangeFeedSegment segment = new ChangeFeedSegment(segmentStart, changeFeed);
+
     await segment.InitializeAsync();
 
     while (true)
     {
-        while (!await IsWindowConsumableAsync(segment, changeFeed))
+        while (!await IsSegmentConsumableAsync(changeFeed, segment))
         {
             await Task.Delay(waitTime);
         }
@@ -302,9 +341,9 @@ public async Task ProcessRecordsStartingFromSegment(ChangeFeed changeFeed, DateT
                 currentItem = await reader.GetNextItemAsync();
                 if (currentItem != null)
                 {
-                    string subject = currentRecord.record["subject"].ToString();
-                    string eventType = ((GenericEnum)currentRecord.record["eventType"]).Value;
-                    string api = ((GenericEnum)((GenericRecord)currentRecord.record["data"])["api"]).Value;
+                    string subject = currentItem.record["subject"].ToString();
+                    string eventType = ((GenericEnum)currentItem.record["eventType"]).Value;
+                    string api = ((GenericEnum)((GenericRecord)currentItem.record["data"])["api"]).Value;
 
                     Console.WriteLine("Subject: " + subject + "\n" +
                         "Event Type: " + eventType + "\n" +
@@ -316,14 +355,14 @@ public async Task ProcessRecordsStartingFromSegment(ChangeFeed changeFeed, DateT
             {
                 await Task.Delay(waitTime);
             }
-        } while (currentWindow.timeWindowStatus != ChangefeedSegmentStatus.Finalized);
+        } while (segment.timeWindowStatus != ChangefeedSegmentStatus.Finalized);
 
-        ChangeFeedSegment nextWindow = await currentWindow.GetNextSegmentAsync(); // TODO: What if next window doesn't yet exist?
-        await currentWindow.InitializeAsync(); // Should update status, shard list.
+        segment = await segment.GetNextSegmentAsync(); // TODO: What if next window doesn't yet exist?
+        await segment.InitializeAsync(); // Should update status, shard list.
     }
 }
 
-private async Task<bool> IsSegmentConsumableAsync(ChangeFeed changefeed, ChangeFeedSegment segment)
+private async Task<bool> IsSegmentConsumableAsync(ChangeFeed changeFeed, ChangeFeedSegment segment)
 {
     if (changeFeed.LastConsumable >= segment.startTime)
     {
