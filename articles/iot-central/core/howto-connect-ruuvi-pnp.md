@@ -14,7 +14,7 @@ ms.date: 10/19/2019
 
 This article describes how, as a solution builder, you can connect a RuuviTag sensor to your Microsoft Azure IoT Central application.
 
-### What is a Ruuvi tag?
+What is a Ruuvi tag?
 
 RuuviTag is an advanced open-source sensor beacon platform designed to fulfill the needs of business customers, developers, makers, students, and can even be used in your home and as part of your personal endeavors. The device is set up to work as soon as you take it out of its box and is ready to be deployed to where you need it. It is a Bluetooth LE beacon with an environment sensor and accelerometer built in. 
 
