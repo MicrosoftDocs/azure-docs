@@ -118,13 +118,13 @@
       href: data-lake-analytics-cicd-test.md
     - name: U-SQL SDK
       href: data-lake-analytics-u-sql-sdk.md
-  - name: Understand Spark for U-SQL developers
+  - name: Understand Apache Spark for U-SQL developers
     items:
-    - name: Overview
+    - name: Understanding Apache Spark for U-SQL developers
       href: data-lake-analytics-understand-spark-overview.md
-    - name: Understand Apache Spark Data
+    - name: Understand Apache Spark data concepts
       href: data-lake-analytics-understand-spark-data.md
-    - name: Understand Apache Spark to U-SQL code
+    - name: Understand Apache Spark to U-SQL code concepts
       href: data-lake-analytics-understand-spark-u-sql-code.md
 - name: Reference
   items:

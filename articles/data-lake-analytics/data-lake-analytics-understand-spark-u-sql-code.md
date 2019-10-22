@@ -10,16 +10,16 @@ ms.custom: Understand-apache-spark-code
 ms.date: 10/15/2019
 ---
 
-# Understand Apache Spark for U-SQL developers
+# Understanding Apache Spark code for U-SQL developers
 
-This section provides high-level guidance on migrating U-SQL Scripts to Apache Spark.
+This section provides high-level guidance on transforming U-SQL Scripts to Apache Spark.
 
-- 1. It starts with a [comparison of the two language's processing paradigms](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
-- 1. Provides tips on how to
-    1. [migrate scripts](#migrate-u-sql-scripts) including U-SQL's [rowset expressions](#migrate-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
-    2. [.NET code](#migrate-net-code)
-    3. [data types](#migrate-typed-values)
-    4. [catalog objects](#migrate-u-sql-catalog-objects).
+- It starts with a [comparison of the two language's processing paradigms](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
+- Provides tips on how to:
+   - [Transform scripts](#transform-u-sql-scripts) including U-SQL's [rowset expressions](#transform-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
+   - [.NET code](#transform-net-code)
+   - [Data types](#transform-typed-values)
+   - [Catalog objects](#transform-u-sql-catalog-objects).
 
 ## Understand the U-SQL and Spark language and processing paradigms
 
@@ -31,9 +31,9 @@ Spark is a scale-out framework offering several language bindings in Scala, Java
 
 Thus when translating a U-SQL script to a Spark program, you will have to decide which language you want to use to at least generate the data frame abstraction (which is currently the most frequently used data abstraction) and whether you want to write the declarative dataflow transformations using the DSL or SparkSQL. In some more complex cases, you may need to split your U-SQL script into a sequence of Spark and other steps implemented with Azure Batch or Azure Functions.
 
-Furthermore, Azure Data Lake Analytics offers U-SQL in a serverless job service environment, while both Azure Databricks and Azure HDInsight offer Spark in form of a cluster service. When migrating your application, you will have to take into account the implications of now creating, sizing, scaling, and decommissioning the clusters.
+Furthermore, Azure Data Lake Analytics offers U-SQL in a serverless job service environment, while both Azure Databricks and Azure HDInsight offer Spark in form of a cluster service. When transforming your application, you will have to take into account the implications of now creating, sizing, scaling, and decommissioning the clusters.
 
-## Migrate U-SQL scripts
+## Transform U-SQL scripts
 
 U-SQL scripts follow the following processing pattern:
 
@@ -45,7 +45,7 @@ The script is evaluated lazily, meaning that each extraction and transformation 
 
 Spark programs are similar in that you would use Spark connectors to read the data and create the dataframes, then apply the transformations on the dataframes using either the LINQ-like DSL or SparkSQL, and then write the result into files, temporary Spark tables, some programming language types, or the console.
 
-## Migrate .NET code
+## Transform .NET code
 
 U-SQL's expression language is C# and it offers a variety of ways to scale out custom .NET code.
 
@@ -59,7 +59,7 @@ In any case, if you have a large amount of .NET logic in your U-SQL scripts, ple
 
 The following details are for the different cases of .NET and C# usages in U-SQL scripts.
 
-### Migrate scalar inline U-SQL C# expressions
+### Transform scalar inline U-SQL C# expressions
 
 U-SQL's expression language is C#. Many of the scalar inline U-SQL expressions are implemented natively for improved performance, while more complex expressions may be executed through calling into the .NET framework.
 
@@ -67,15 +67,15 @@ Spark has its own scalar expression language (either as part of the DSL or in Sp
 
 If you have scalar expressions in U-SQL, you should first find the most appropriate natively understood Spark scalar expression to get the most performance, and then map the other expressions into a user-defined function of the Spark hosting language of your choice.
 
-Be aware that .NET and C# have different type semantics than the Spark hosting languages and Spark's DSL. See [below](#migrate-typed-values) for more details on the type system differences.
+Be aware that .NET and C# have different type semantics than the Spark hosting languages and Spark's DSL. See [below](#transform-typed-values) for more details on the type system differences.
 
-### Migrate user-defined scalar .NET functions and user-defined aggregators
+### Transform user-defined scalar .NET functions and user-defined aggregators
 
 U-SQL provides ways to call arbitrary scalar .NET functions and to call user-defined aggregators written in .NET.
 
 Spark also offers support for user-defined functions and user-defined aggregators written in most of its hosting languages that can be called from Spark's DSL and SparkSQL.
 
-### Migrate user-defined operators (UDOs)
+### Transform user-defined operators (UDOs)
 
 U-SQL provides several categories of user-defined operators (UDOs) such as extractors, outputters, reducers, processors, appliers, and combiners that can be written in .NET (and - to some extent - in Python and R).
 
@@ -85,15 +85,15 @@ The Spark equivalent to extractors and outputters is Spark connectors. For many 
 
 The other types of U-SQL UDOs will need to be rewritten using user-defined functions and aggregators and the semantically appropriate Spark DLS or SparkSQL expression. For example, a processor can be mapped to a SELECT of a variety of UDF invocations, packaged as a function that takes a dataframe as an argument and returns a dataframe.
 
-### Migrate U-SQL's optional libraries
+### Transform U-SQL's optional libraries
 
 U-SQL provides a set of optional and demo libraries that offer [Python](data-lake-analytics-u-sql-python-extensions.md), [R](data-lake-analytics-u-sql-r-extensions.md), [JSON, XML, AVRO support](https://github.com/Azure/usql/tree/master/Examples/DataFormats), and some [cognitive services capabilities](data-lake-analytics-u-sql-cognitive.md).
 
 Spark offers its own Python and R integration, pySpark and SparkR respectively, and provides connectors to read and write JSON, XML, and AVRO.
 
-If you need to migrate a script referencing the cognitive services libraries, we recommend contacting us via your Microsoft Account representative.
+If you need to transform a script referencing the cognitive services libraries, we recommend contacting us via your Microsoft Account representative.
 
-## Migrate typed values
+## Transform typed values
 
 Because U-SQL's type system is based on the .NET type system and Spark has its own type system, that is impacted by the host language binding, you will have to make sure that the types you are operating on are close and for certain types, the type ranges, precision and/or scale may be slightly different. Furthermore, U-SQL and Spark treat `null` values differently.
 
@@ -140,7 +140,7 @@ This behavior is different from U-SQL, which follows C# semantics where `null` i
 
 Thus a SparkSQL `SELECT` statement that uses `WHERE column_name = NULL` returns zero rows even if there are NULL values in `column_name`, while in U-SQL, it would return the rows where `column_name` is set to `null`. Similarly, A Spark `SELECT` statement that uses `WHERE column_name != NULL` returns zero rows even if there are non-null values in `column_name`, while in U-SQL, it would return the rows that have non-null. Thus, if you want the U-SQL null-check semantics, you should use [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull)) and [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) respectively (or their DSL equivalent).
 
-## Migrate U-SQL catalog objects
+## Transform U-SQL catalog objects
 
 One major difference is that U-SQL Scripts can make use of its catalog objects, many of which have no direct Spark equivalent.
 
@@ -150,7 +150,7 @@ The U-SQL code objects such as views, TVFs, stored procedures, and assemblies ca
 
 If the U-SQL catalog has been used to share data and code objects across projects and teams, then equivalent mechanisms for sharing have to be used (for example, Maven for sharing code objects).
 
-## Migrate U-SQL rowset expressions and SQL-based scalar expressions
+## Transform U-SQL rowset expressions and SQL-based scalar expressions
 
 U-SQL's core language is transforming rowsets and is based on SQL. The following is a non-exhaustive list of the most common rowset expressions offered in U-SQL:
 
@@ -172,7 +172,7 @@ Spark offers equivalent expressions in both its DSL and SparkSQL form for most o
 
 Due to the different handling of NULL values, a U-SQL join will always match a row if both of the columns being compared contain a NULL value, while a join in Spark will not match such columns unless explicit null checks are added.
 
-## Migrate other U-SQL concepts
+## Transform other U-SQL concepts
 
 U-SQL also offers a variety of other features and concepts, such as federated queries against SQL Server databases, parameters, scalar, and lambda expression variables, system variables, `OPTION` hints.
 
@@ -191,7 +191,7 @@ var x = 2 * 3;
 println(x)
 ```
 
-U-SQL's system variables (variables starting with `@@`) can be split into two categories: 
+U-SQL's system variables (variables starting with `@@`) can be split into two categories:
 
 - Settable system variables that can be set to specific values to impact the scripts behavior
 - Informational system variables that inquire system and job level information

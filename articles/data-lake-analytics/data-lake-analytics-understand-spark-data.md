@@ -1,5 +1,5 @@
 ---
-title: Understanding Apache Spark data for U-SQL developers
+title: Understanding Apache Spark data formats for U-SQL developers
 description: Understand the differences between U-SQL and Spark data formats
 author: guyhay
 ms.author: guyhay
@@ -10,7 +10,7 @@ ms.custom: understanding-apache-spark-data
 ms.date: 01/31/2019
 ---
 
-# Understand differences between U-SQL and Spark data formats
+# Understanding differences between U-SQL and Spark data formats
 
 If you want to use either [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) or [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md), we recommend that you migrate your data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) to [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
