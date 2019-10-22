@@ -7,15 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-<<<<<<< HEAD
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-=======
-author: likebupt
-ms.author: keli19
-ms.date: 10/14/2019
->>>>>>> 24cbc9989ef... add 9 new modules; change module reference; change studio to designer
 ---
 # Algorithm & module reference overview
 

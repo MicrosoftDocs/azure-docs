@@ -1,12 +1,7 @@
 ---
 title: Troubleshoot module errors
-<<<<<<< HEAD
 titleSuffix: "Azure Machine Learning"
 description: Troubleshoot module exceptions in Azure Machine Learning Studio using error codes
-=======
-titleSuffix: "Azure Machine Learning service"
-description: Troubleshoot module exceptions in Azure Machine Learning designer using error codes
->>>>>>> 24cbc9989ef... add 9 new modules; change module reference; change studio to designer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -18,11 +13,7 @@ ms.date: 10/22/2019
 ---
 # Exceptions and error codes for Algorithm & Module Reference
 
-<<<<<<< HEAD
 Learn about the error messages and exception codes you might encounter using  modules in Azure Machine Learning designer (preview). 
-=======
-Learn about the error messages and exception codes you might encounter using  modules in Azure Machine Learning designer. 
->>>>>>> 24cbc9989ef... add 9 new modules; change module reference; change studio to designer
 
 To resolve the issue, look for the error in this article to read about common causes. There are two ways to get the full text of an error message in the designer:  
  
