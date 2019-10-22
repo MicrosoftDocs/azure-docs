@@ -106,3 +106,5 @@ This problem might occur if your environment doesn’t have a Time Series Model 
 - Read [Work with Time Series Models](./time-series-insights-update-how-to-tsm.md).
 
 - Learn about [supported JSON shapes](./how-to-shape-query-json.md).
+
+- Review [planning and limits](./time-series-insights-update-plan.md) in Time Series Insights Preview.
