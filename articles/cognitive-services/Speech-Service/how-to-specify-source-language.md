@@ -16,6 +16,9 @@ ms.author: qiohu
 
 If you know the source language of the audio that's being passed to the Speech SDK, you can use either the `FromConfig` or `SourceLanguageConfig` to specify the source language and custom language model used for recognition. In this article, you'll learn how to specify the source language in C++ and Java.
 
+> [!IMPORTANT]
+> This feature is only available for the Speech SDK for C++ and the Speech SDK for Java.
+
 ## How to specify source language in C++
 
 In this example, the source language is provided explicitly as a parameter using the `FromConfig` method.
@@ -38,7 +41,7 @@ auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE", "The End
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-### How to specify source language in Java
+## How to specify source language in Java
 
 In this example, the source language is provided explicitly when creating a new `SpeechRecognizer`.
 
