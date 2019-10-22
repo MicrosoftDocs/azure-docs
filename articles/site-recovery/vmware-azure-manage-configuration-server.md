@@ -16,6 +16,10 @@ You set up an on-premises configuration server when you use [Azure Site Recovery
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+## Update Windows license
+
+The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license. License update can be done either through a standalone key or KMS standard key. Guidance is available at [DISM Windows command line for running OS](https://docs.microsoft.com/en-us/windows-hardware/manufacture/desktop/dism-windows-edition-servicing-command-line-options). To obtain keys, refer to [KMS client set up](https://docs.microsoft.com/en-us/windows-server/get-started/kmsclientkeys).
+
 ## Access configuration server
 
 You can access the configuration server as follows:
@@ -287,10 +291,6 @@ For configuration server deployments before May 2016, certificate expiry was set
 2. Click on the configuration server you wish to refresh.
 3. On the blade with details of chosen configuration server, click **More** > **Refresh Server**.
 4. Monitor the progress of the job under **Recovery Services Vault** > **Monitoring** > **Site Recovery jobs**.
-
-## Update Windows license
-
-The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license.
 
 ## Failback requirements
 

@@ -13,7 +13,7 @@ ms.author: ramamill
 
 # Set up the source environment for VMware to Azure replication
 
-This article describes how to set up your source on-premises environment, to replicate VMware VMs to Azure. It includes steps for selecting your replication scenario, setting up an on-premises machine as the Site Recovery configuration server, and automatically discovering on-premises VMs. 
+This article describes how to set up your source on-premises environment, to replicate VMware VMs to Azure. Article includes steps for selecting your replication scenario, setting up an on-premises machine as the Site Recovery configuration server, and automatically discovering on-premises VMs. 
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ Exclude following folders from Antivirus software for smooth replication and to 
   - C:\ProgramData\ASRSetupLogs
   - C:\ProgramData\LogUploadServiceLogs
   - C:\inetpub
-  - ASR server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
+  - Site Recovery server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### If Antivirus Software is active on scale-out Process server/Master Target
 
@@ -77,7 +77,7 @@ Exclude following folders from Antivirus software
 4. C:\ProgramData\ASRSetupLogs
 5. C:\ProgramData\LogUploadServiceLogs
 6. C:\ProgramData\Microsoft Azure Site Recovery
-7. ASR load balanced process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
+7. Azure Site Recovery load balanced process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
 
 
 ## Next steps

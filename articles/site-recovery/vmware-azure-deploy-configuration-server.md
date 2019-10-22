@@ -32,14 +32,14 @@ Minimum hardware requirements for a configuration server are summarized in the f
 You require a user with **one of the following** permissions set in AAD (Azure Active Directory) to register configuration server with Azure Site Recovery services.
 
 1. User should have “Application developer” role to create application.
-   1. To verify, Sign in to Azure portal</br>
-   1. Navigate to Azure Active Directory > Roles and administrators</br>
-   1. Verify if "Application developer" role is assigned to the user. If not, use a user with this permission or reach out to [administrator to enable the permission](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
+    - To verify, Sign in to Azure portal</br>
+    - Navigate to Azure Active Directory > Roles and administrators</br>
+    - Verify if "Application developer" role is assigned to the user. If not, use a user with this permission or reach out to [administrator to enable the permission](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal#assign-roles).
     
-1. If the "Application developer" role cannot be assigned, ensure that "User can register application” flag is set as true for user to create identity. To enable above permissions,
-   1. Sign in to Azure portal
-   1. Navigate to Azure Active Directory > User settings
-   1. Under **App registrations", "Users can register applications" should be chosen as "Yes".
+2. If the "Application developer" role cannot be assigned, ensure that "User can register application” flag is set as true for user to create identity. To enable above permissions,
+    - Sign in to Azure portal
+    - Navigate to Azure Active Directory > User settings
+    - Under **App registrations", "Users can register applications" should be chosen as "Yes".
 
       ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
@@ -129,7 +129,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 
 ## Upgrade the configuration server
 
-To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For detailed instructions on how to upgrade all Site Recovery components, click [here](service-updates-how-to.md).
+To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). For detailed instructions on how to upgrade all Site Recovery components, visit [service update management](service-updates-how-to.md).
 
 ## Manage the configuration server
 
@@ -137,9 +137,9 @@ To avoid interruptions in ongoing replication, ensure that IP address of the con
 
 ## FAQ
 
-1. How long is the Licence provided on configuration server deployed through OVF is valid? What happens if I do not reactivate the License?
+1. How long is the License provided on configuration server deployed through OVF is valid? What happens if I do not reactivate the License?
 
-    The license provided with OVA template is an evaluation license valid for 180 days. Before expiry, you need to activate the license. Else, this can result in frequent shutdown of configuration server and thus cause hinderance to replication activities.
+    The license provided with OVA template is an evaluation license valid for 180 days. Before expiry, you need to activate the license. Else, it can result in frequent shutdown of configuration server and thus cause hindrance to replication activities. For additional details, refer to article on [manage configuration server license](vmware-azure-manage-configuration-server.md#update-windows-license).
 
 2. Can I use the VM, where the configuration server is installed, for different purposes?
 
