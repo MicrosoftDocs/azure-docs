@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL Data Warehouse | Microsoft Docs
-description: Get connected to Azure SQL Data Warehouse.
+title: Connect to Azure SQL Analytics | Microsoft Docs
+description: Get connected to Azure SQL Analytics.
 services: sql-data-warehouse
 author: XiaoyuMSFT 
 manager: craigg
@@ -12,8 +12,8 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Connect to Azure SQL Data Warehouse
-Get connected to Azure SQL Data Warehouse.
+# Connect to Azure SQL Analytics (formerly SQL DW)
+Get connected to and Azure SQL Analytics data warehouse.
 
 ## Find your server name
 The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
@@ -26,7 +26,7 @@ The server name in the following example is samplesvr.database.windows.net. To f
     ![Full server name][1]
 
 ## Supported drivers and connection strings
-Azure SQL Data Warehouse supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
+Azure SQL Analytics supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.
@@ -54,7 +54,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ```
 
 ## Connection settings
-SQL Data Warehouse standardizes some settings during connection and object creation. These settings cannot be overridden and include:
+SQL Analytics standardizes some settings during connection and object creation. These settings cannot be overridden and include:
 
 | Database Setting | Value |
 |:--- |:--- |
@@ -64,11 +64,11 @@ SQL Data Warehouse standardizes some settings during connection and object creat
 | [DATEFIRST][DATEFIRST] |7 |
 
 ## Next steps
-To connect and query with Visual Studio, see [Query with Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse].
+To connect and query with Visual Studio, see [Query with Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL Analytics][Authentication to Azure SQL Analytics].
 
 <!--Articles-->
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[Authentication to Azure SQL Data Warehouse]: ./sql-data-warehouse-authentication.md
+[Authentication to Azure SQL Analytics]: ./sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
