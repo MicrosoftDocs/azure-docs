@@ -44,7 +44,7 @@ The analysis results can go to worldwide reporting databases or applications. Bu
 ## Next steps
 
 - Explore [Azure Synapse Analytics architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
-- Quickly [create a SQL pool][create a SQL Data Warehouse]
+- Quickly [create a SQL pool](create-data-warehouse-portal.md)
 - [Load sample data][load sample data].
 - Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
 

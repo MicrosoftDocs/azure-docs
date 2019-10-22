@@ -75,7 +75,7 @@ landingContent:
             url: performance-tuning-materialized-views.md
       - linkListType: how-to-guide
         links:
-          - text: Analyse your workload
+          - text: Analyze your workload
             url: analyze-your-workload.md
           # - text: linktext2
           #   url: file2.md

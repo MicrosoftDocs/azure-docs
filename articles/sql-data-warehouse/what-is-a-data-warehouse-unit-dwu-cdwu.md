@@ -23,7 +23,7 @@ Azure Synapse Analytics CPU, memory, and IO are bundled into units of compute sc
 
 For higher performance, you can increase the number of data warehouse units. For less performance, reduce data warehouse units. Storage and compute costs are billed separately, so changing data warehouse units does not affect storage costs.
 
-Performance for data warehouse units is based on these SQL Ana lytics workload metrics:
+Performance for data warehouse units is based on these SQL Analytics workload metrics:
 
 - How fast a standard data warehousing query can scan a large number of rows and then perform a complex aggregation. This operation is I/O and CPU intensive.
 - How fast the data warehouse can ingest data from Azure Storage Blobs or Azure Data Lake. This operation is network and CPU intensive.
@@ -39,7 +39,7 @@ Increasing DWUs:
 
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
   > [!NOTE]
-  > SQL pool (data warehouse) Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing sQL pools currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
+  > SQL pool (data warehouse) Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing SQL pools currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your SQL pool.
 
@@ -180,24 +180,25 @@ You cannot check the database state for scale-out operations with the Azure port
 To check the status of DWU changes:
 
 1. Connect to the master database associated with your logical SQL Database server.
-2. Submit the following query to check database state.
 
-```sql
-SELECT    *
-FROM      sys.databases
-;
-```
+1. Submit the following query to check database state.
 
+    ```sql
+    SELECT    *
+    FROM      sys.databases
+    ;
+    ```
+    
 1. Submit the following query to check status of operation
 
-```sql
-SELECT    *
-FROM      sys.dm_operation_status
-WHERE     resource_type_desc = 'Database'
-AND       major_resource_id = 'MySQLDW'
-;
-```
-
+    ```sql
+    SELECT    *
+    FROM      sys.dm_operation_status
+    WHERE     resource_type_desc = 'Database'
+    AND       major_resource_id = 'MySQLDW'
+    ;
+    ```
+    
 This DMV returns information about various management operations on your SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
 
 ## The scaling workflow

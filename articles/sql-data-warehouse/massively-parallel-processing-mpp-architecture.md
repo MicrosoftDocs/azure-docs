@@ -96,7 +96,7 @@ The following diagram shows a replicated table. For SQL pool, the replicated tab
 ![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
 ## Next steps
-Now that you know a bit about Synapse Analytics, learn how to quickly [create a SQL pool][create a data warehouse] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other Synapse Analytics Resources.  
+Now that you know a bit about Synapse Analytics, learn how to quickly [create a SQL pool][create a SQL pool] and [load sample data][load sample data]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other Synapse Analytics Resources.  
 
 * [Customer success stories]
 * [Blogs]

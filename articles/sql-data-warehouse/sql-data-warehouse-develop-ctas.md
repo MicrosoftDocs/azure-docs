@@ -1,5 +1,5 @@
 ---
-title: CREATE TABLE AS SELECT (CTAS) in Azure Synapse Analytics formerly SQL DW) using SQL pool| Microsoft Docs
+title: CREATE TABLE AS SELECT (CTAS) in Azure Synapse Analytics (formerly SQL DW) using SQL pool| Microsoft Docs
 description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in SQL pool for developing solutions.
 services: sql-data-warehouse
 author: XiaoyuMSFT

@@ -1,6 +1,6 @@
 ---
 title: Best practices for SQL Analytics | Microsoft Docs
-description: Recommendations and best practices you should know as you develop solutions for SQL pool (data warehouse). 
+description: Recommendations and best practices you should know as you develop solutions for your SQL pool (data warehouse). 
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Best practices for SQL Analytics
 
-This article is a collection of best practices to help you to achieve optimal performance from SQL pool (data warehouse within SQL Analytics.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  Each section introduces you to a concept and then points you to more detailed articles which cover the concept in more depth. The sequence of topics is in the order of importance. 
+This article is a collection of best practices to help you to achieve optimal performance from your SQL pool (data warehouse) within SQL Analytics.  The purpose of this article is to give you some basic guidance and highlight important areas of focus.  Each section introduces you to a concept and then points you to more detailed articles which cover the concept in more depth. The sequence of topics is in the order of importance. 
 
 ## Reduce cost with pause and scale
 
@@ -23,7 +23,7 @@ For more information about reducing costs through pausing and scaling, see the [
 
 ## Maintain statistics
 
-Unlike SQL Server, which automatically detects and creates or updates statistics on columns, SQL pool requires manual maintenance of statistics.  While we do plan to change this in the future, for now you will want to maintain your statistics to ensure that the warehouse plans are optimized.  The plans created by the optimizer are only as good as the available statistics.  **Creating sampled statistics on every column is an easy way to get started with statistics.**  It's equally important to update statistics as significant changes happen to your data.  A conservative approach may be to update your statistics daily or after each load.  There are always trade-offs between performance and the cost to create and update statistics. If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns, where new values may be added, daily. **You will gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause and columns found in GROUP BY.**
+Unlike SQL Server, which automatically detects and creates or updates statistics on columns, a SQL pool requires manual maintenance of statistics.  While we do plan to change this in the future, for now you will want to maintain your statistics to ensure that the warehouse plans are optimized.  The plans created by the optimizer are only as good as the available statistics.  **Creating sampled statistics on every column is an easy way to get started with statistics.**  It's equally important to update statistics as significant changes happen to your data.  A conservative approach may be to update your statistics daily or after each load.  There are always trade-offs between performance and the cost to create and update statistics. If you find it is taking too long to maintain all of your statistics, you may want to try to be more selective about which columns have statistics or which columns need frequent updating.  For example, you might want to update date columns, where new values may be added, daily. **You will gain the most benefit by having statistics on columns involved in joins, columns used in the WHERE clause and columns found in GROUP BY.**
 
 See also [Manage table statistics][Manage table statistics], [CREATE STATISTICS][CREATE STATISTICS], [UPDATE STATISTICS][UPDATE STATISTICS]
 
