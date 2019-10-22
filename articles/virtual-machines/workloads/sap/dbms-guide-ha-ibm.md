@@ -346,6 +346,10 @@ The following items are prefixed with either:
 
 ### Pacemaker configuration
 
+> [!IMPORTANT]
+> Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+> For existing Pacemaker clusters, we recommend replacing netcat with socat, following the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Note that the change will require brief downtime.  
+
 **[1]** IBM Db2 HADR-specific Pacemaker configuration:
 <pre><code># Put Pacemaker into maintenance mode
 sudo crm configure property maintenance-mode=true
