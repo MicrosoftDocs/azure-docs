@@ -678,6 +678,25 @@ description: Get started with the Speech service.
                                         </div>
                                     </div>
                                 </a>
+                            </li>                            
+                            <li>
+                                <a href="https://aka.ms/speech/custom-sr-languages">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Language support</h3>
+                                                    <p>Learn more about programming and spoken language support for Custom Speech.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
                             </li>
                             <li>
                                 <a href="https://aka.ms/speech/custom-sr-pricing">
@@ -693,25 +712,6 @@ description: Get started with the Speech service.
                                                     <h3>Pricing</h3>
                                                     <p>Learn more about the costs associated with Custom Speech.
                                                     </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://aka.ms/speech/custom-sr-languages">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Language support</h3>
-                                                    <p>Learn more about programming and spoken language support for Custom Speech.</p>
                                                 </div>
                                             </div>
                                         </div>
