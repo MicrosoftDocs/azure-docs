@@ -1,17 +1,20 @@
 ---
 title: Building retail solutions with Azure IoT Central | Microsoft Docs
-description: Learn to build retail solutions with Azure IoT Central using application templates.
-author: nandab
+description: Learn to build connected logistics, digital distribution center, in-store analytics condition monitoring, checkout, and smart inventory management, retail solutions with Azure IoT Central using application templates.
+author: KishorIoT
 ms.author: nandab
 ms.date: 10/22/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
+ms.custom: [iot-p0-scenario]
 ---
 
 # Building retail solutions with Azure IoT Central
+Azure IoT Central is an Internet of Things (IoT) app platform for solution builders that simplifies the challenges of building & managing scalable applications. In this article, we will highlight several retail-specific application templates within IoT Central. Solution builders can leverage published templates to build IoT solutions to optimize supply chain, improve in-store experience for customers, and track inventory more efficiently.
 
-Learn to build retail solutions with Azure IoT Central using application templates.
+
+![Azure IoT Retail Overview](./media/overview-iot-central-retail/retail-app-templates.png)
 
 
 ## What is connected logistics solution?
@@ -26,39 +29,18 @@ Connected logistics solution benefits are,
 * Forecasting & predictability with the departure & arrivals 
 
 ### Out of box experience
-
 Partners can leverage template to develop end to end Connected Logistics solutions & outlined benefits. This published template is focused on device connectivity, configuration & management of devices in IoT Central. 
 
 ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected_logistics_dashboard1.png)
 
 ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected_logistics_dashboard2.png)
-
+Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case.
 
 Get started with [end to end tutorial](tutorial-iot-central-connected-logistics.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
 
 
-## What is smart inventory management solution?
-"Inventory" is the stock of goods held by a retailer. Every retailer needs inventory to take care of supply and logistics lead time. Inventory is arguably the most valuable resource that every retailer needs to trade. In today's omnichannel world, inventory management is a critical requirement to ensure the right product is in the right place at the right time. Storing too much or too little inventory could hurt the retailer's business. Every year retailers are losing 8-10% of the revenue due to lack of inventory management capabilities.
-
-IoT data enabled by Radio-frequency identification(RFID), Beacons & Camera is the opportunity to tackle this massive challenge in scale. The connectivity and real-time analytics inherent in IoT signals have become 
-the game-changer for the retailer's inventory woes.  Data gathered from sensors, devices, weather, & events can be integrated with cloud-based Business Intelligence systems.  
-Smart Inventory management benefits are, 
-* Safeguards the organization against stock-outs and ensures the desired customer service level. 
-* In-depth analysis & insights into inventory accuracy in near real time
-* Decide on the right amount of inventory that suffices the customer orders
-
-### Out of box experience
-
-Partners can leverage template to develop end to end Smart inventory management solutions & outlined benefits. This published template is focused on device connectivity, configuration & management of RFID & Bluetooth low energy (BLE) readers in IoT Central. 
-
-
-![Smart Inventory Management Dashboard](./media/overview-iot-central-retail/smart_inventory_management_dashboard.png)
-
-
-Get started with [end to end tutorial](iot-central-smart-inventory-management.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
 
 ## What is digital distribution center solution?
-
 As more manufacturers and retailers establish worldwide presences, their supply chains have branched out to become more complex than ever before. Distribution centers are becoming a primary challenge. Distribution Center/Warehouses are feeling the brunt of the pressure from e-commerce. Consumers now expect vast selections of products to be available, and for those goods to arrive within one to two days of purchase. Distribution centers must adapt to these trends while overcoming existing inefficiencies. 
 
 Today, an overreliance on manual labor means picking and packing accounts for 55-65% of distribution center costs. While it is bad that manual labor slows down distribution center, rapidly fluctuating staffing needs (holiday staffing go up by 10X) make it even harder to meet shipping volumes. This seasonal fluctuation results in high turnover and the likelihood of errors and the need for costly rework increases as well.
@@ -71,44 +53,16 @@ Benefits are,
 * Reduce cost, improved productivity & Maximize utilization
 
 ### Out of box experience
-
 Partners can leverage this application template to build Digital Distribution Center to gain actionable insights & above outlined benefits. The published template is focused on device connectivity configuration & management of camera and edge devices in IoT Central. 
 
 ![Digital Distribution Center Dashboard](./media/overview-iot-central-retail/digital_distribution_center_dashboard.png)
-
+Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case.
 
 Get started with [end to end tutorial](tutorial-iot-central-digital-distribution-center.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
 
 
-## What is in-store analytics checkout?
-
-In the increasingly competitive landscape, modern retailers constantly face growing pressure to deliver an in-store experience that exceeds customer expectations and keeps them coming back. While several retailers have started deploying technology to meet this need, an area that goes largely unnoticed is the checkout experience.
-
-The In-Store Analytics Checkout application template within IoT Central enables solution builders to build experiences that empower retail staff with meaningful insights around the checkout zone of their store. It leverages a set of simulated devices to determine the occupancy status for each of the checkout lanes within a retail store. The sensors allow you to capture the people count as well as the average wait time for each of the checkout lanes.
-
-The template helps the solution builder accelerate their go-to-market plans by providing a baseline IoT solution that enables them to: 
-
-- Seamlessly connect a variety of IoT sensors to an IoT Central application instance.
-- Monitor and manage the health of the sensor network as well as gateway devices in the environment.
-- Create custom rules around the checkout condition within a store to trigger appropriate alerts.
-- Transform the checkout conditions within your store into insights that can be leveraged by the retail store team.
-- Export the aggregated insights into existing or new business applications empowering the retail staff members.
-
-
-### Out of box experience
-
-The application template comes with a set of device templates and an operator experience out of the box. It leverages a set of simulated devices to populate the dashboard elements. Once you deploy an IoT Central application using the [In-Store Analytics Checkout](https://aka.ms/checkout) app template, you will land on the default application dashboard as shown below. 
-
-![In-Store Analytics Checkout](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
-
-Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
-
-
-Get started with [end to end tutorial](overview-iot-central-retail-store-analytics-checkout.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
-
 
 ## What is in-store analytics condition monitoring?
-
 In today's competitive landscape, retailers are looking for new ways to offer customers something unique or special in order to drive traffic through their physical stores. Many retailers acknowledge the importance of environmental conditions within their store as a tool to differentiate with their competitors. Retailers want to ensure that they maintain pleasant conditions within their stores at all times to deliver a comfortable experience to their customers.  
 
 The In-Store Analytics Condition Monitoring application template within IoT Central provides the solution builder with a canvas that can be utilized to build an end to end solution. The application template allows them to digitally connect and monitor a retail store environment using a variety of sensor devices. These sensor devices capture meaningful signals that can be converted into business insights allowing retailers to reduce their operating costs and create experiences that their customers love.
@@ -122,15 +76,61 @@ The application template allows you to:
 1. Export the aggregated insights into existing or new business applications empowering the retail staff members.
 
 ### Out of box experience
-
 The application template comes with a set of device templates and an operator experience out of the box. It leverages a set of simulated devices to populate the dashboard elements. Once you deploy an IoT Central application using the [In-Store Analytics Condition Monitoring](https://aka.ms/conditiontemplate) app template, you will land on the default application dashboard as shown below. 
 
 ![In-Store Analytics Condition Monitoring](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
-
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
 Get started with [end to end tutorial](overview-iot-central-retail-store-analytics-condition.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
 
+
+
+## What is in-store analytics checkout?
+In the increasingly competitive landscape, modern retailers constantly face growing pressure to deliver an in-store experience that exceeds customer expectations and keeps them coming back. While several retailers have started deploying technology to meet this need, an area that goes largely unnoticed is the checkout experience.
+
+The In-Store Analytics Checkout application template within IoT Central enables solution builders to build experiences that empower retail staff with meaningful insights around the checkout zone of their store. It leverages a set of simulated devices to determine the occupancy status for each of the checkout lanes within a retail store. The sensors allow you to capture the people count as well as the average wait time for each of the checkout lanes.
+
+The template helps the solution builder accelerate their go-to-market plans by providing a baseline IoT solution that enables them to: 
+
+- Seamlessly connect a variety of IoT sensors to an IoT Central application instance.
+- Monitor and manage the health of the sensor network as well as gateway devices in the environment.
+- Create custom rules around the checkout condition within a store to trigger appropriate alerts.
+- Transform the checkout conditions within your store into insights that can be leveraged by the retail store team.
+- Export the aggregated insights into existing or new business applications empowering the retail staff members.
+
+### Out of box experience
+The application template comes with a set of device templates and an operator experience out of the box. It leverages a set of simulated devices to populate the dashboard elements. Once you deploy an IoT Central application using the [In-Store Analytics Checkout](https://aka.ms/checkout) app template, you will land on the default application dashboard as shown below. 
+
+![In-Store Analytics Checkout](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
+Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
+
+
+Get started with [end to end tutorial](overview-iot-central-retail-store-analytics-checkout.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
+
+
+## What is smart inventory management solution?
+"Inventory" is the stock of goods held by a retailer. Every retailer needs inventory to take care of supply and logistics lead time. Inventory is arguably the most valuable resource that every retailer needs to trade. In today's omnichannel world, inventory management is a critical requirement to ensure the right product is in the right place at the right time. Storing too much or too little inventory could hurt the retailer's business. Every year retailers are losing 8-10% of the revenue due to lack of inventory management capabilities.
+
+IoT data enabled by Radio-frequency identification(RFID), Beacons & Camera is the opportunity to tackle this massive challenge in scale. The connectivity and real-time analytics inherent in IoT signals have become 
+the game-changer for the retailer's inventory woes.  Data gathered from sensors, devices, weather, & events can be integrated with cloud-based Business Intelligence systems.  
+Smart Inventory management benefits are, 
+* Safeguards the organization against stock-outs and ensures the desired customer service level. 
+* In-depth analysis & insights into inventory accuracy in near real time
+* Decide on the right amount of inventory that suffices the customer orders
+
+### Out of box experience
+Partners can leverage template to develop end to end Smart inventory management solutions & outlined benefits. This published template is focused on device connectivity, configuration & management of RFID & Bluetooth low energy (BLE) readers in IoT Central. 
+
+![Smart Inventory Management Dashboard](./media/overview-iot-central-retail/smart_inventory_management_dashboard.png)
+Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
+
+Get started with [end to end tutorial](iot-central-smart-inventory-management.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
+
+
 ## Next steps
 To get started building a retail solution:
-* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)  
+* Get started with the [end to end tutorial](./tutorial-condition-monitor-create-app-pnp.md) that walks you through how to build a solution leveraging one of the In-Store Analytics application templates.
+* Learn how to deploy [connected logistics solution template](./tutorial-iot-central-connected-logistics.md)
+* Learn how to deploy [digital distribution center template](./tutorial-iot-central-digital-distribution-center.md)
+* Learn how to deploy [smart inventory management template](./iot-central-smart-inventory-management.md)
+* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
