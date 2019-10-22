@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Understand the deployment sequence in Azure Blueprints
 

@@ -1,10 +1,10 @@
 ﻿---
 title: 'Time Series Model in Azure Time Series Insights Preview | Microsoft Docs'
 description: Understanding Azure Time Series Insights Time Series Model.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Time Series Model
 
-This document describes Time Series Model, its capabilities, and how to start building and updating your own.
+This document describes Time Series Models, their capabilities, and how to start building and updating your own.
 
 > [!TIP]
 >  * Navigate to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
@@ -22,7 +22,7 @@ This document describes Time Series Model, its capabilities, and how to start bu
 
 ## Summary
 
-Traditionally, the data that's collected from IoT devices lack contextual information, which makes it difficult to find and analyze sensors quickly. The main motivation for Time Series Model is to simplify finding and analyzing IoT data. It achieves this objective by enabling the curation, maintenance, and enrichment of time series data to help prepare consumer-ready datasets.
+Traditionally, the data that's collected from IoT devices lack contextual information, which makes it difficult to find and analyze sensors quickly. The main motivation for Time Series Models is to simplify finding and analyzing IoT data. It achieves this objective by enabling the curation, maintenance, and enrichment of time series data to help prepare consumer-ready datasets.
 
 ## Scenario: Contoso's new smart oven
 
@@ -41,29 +41,29 @@ These limitations revealed the importance of smart data aggregation and visualiz
 * Data visualization proves useful when you're able to associate and combine data into a convenient view. For example, showing voltage sensors along with temperature sensors.
 * Managing multi-dimensional data for several entities along with comparison, zooming, and time range functionalities can be difficult to accomplish.
 
-**Time Series Model provide a convenient solution** for many of the scenarios encountered in the fictitious example above:
+**Time Series Models provide a convenient solution** for many of the scenarios encountered in the fictitious example above:
 
 [![Time Series Model charting](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
 
-* Time Series Model play a vital role in queries and navigation because they contextualize data by allowing comparisons to be drawn across time ranges and between sensor and device kinds.
-* Data is further contextualized because data persisted in a Time Series Model preserves time-series query computations and use the formulas that are stored in them.
-* Time Series Model organize and aggregate data for improved visualization and management capabilities.
+* Time Series Models play a vital role in queries and navigation because it contextualizes data by allowing comparisons to be drawn across time ranges and between sensor and device kinds.
+* Data is further contextualized because data persisted in a Time Series Model preserves time-series query computations as variables, and uses these at query time.
+* Time Series Models organize and aggregate data for improved visualization and management capabilities.
 
 ### Key capabilities
 
-With the goal to make it simple and effortless to manage time series contextualization, Time Series Model enables the following capabilities in Time Series Insights Preview. It helps you:
+With the goal to make it simple and effortless to manage time series contextualization, Time Series Models enable the following capabilities in Azure Time Series Insights Preview. They help you:
 
 * Author and manage computations or formulas, transform data leveraging scalar functions, aggregate operations, and so on.
-* Define parent-child relationships to enable navigation and reference and provide context to time series telemetry.
-* Define properties that are associated with the instances part of *instance fields* and use them to create hierarchies.
+* Define parent-child relationships to enable navigation, search, and reference.
+* Define properties that are associated with the instances, defined as *instance fields* and use them to create hierarchies.
 
 ### Components
 
 Time Series Models have three core components:
 
-* <a href="#time-series-model-instances">Time Series Model instances</a>
-* <a href="#time-series-model-hierarchies">Time Series Model hierarchies</a>
-* <a href="#time-series-model-types">Time Series Model types</a>
+* [Time Series Model instances](#time-series-model-instances)
+* [Time Series Model hierarchies](#time-series-model-hierarchies)
+* [Time Series Model types](#time-series-model-types)
 
 These components are combined to specify a Time Series Model and to organize your Azure Time Series Insights data.
 
@@ -73,11 +73,13 @@ Time Series Models can be created and managed through the [Time Series Insights 
 
 ## Time Series Model instances
 
-Time Series Model *instances* are the time series themselves.
+Time Series Model *instances* are virtual representations of the time series themselves.
 
-In most cases, instances are uniquely identified by the **deviceId** or **assetId**.
+In most cases, instances are uniquely identified by the **deviceId** or **assetId**, these are saved as time series ID's.
 
-Instances have descriptive information associated with them called *instance properties*. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
+Instances have descriptive information associated with them called *instance properties* such as a time series ID, type, name, description, hierarchies, and instance fields. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
+
+Instance fields are collections of descriptive information that can include values for hierarchy levels, as well as manufacturer, operator, etc.
 
 The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) provides several live instance examples.
 

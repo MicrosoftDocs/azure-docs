@@ -82,7 +82,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
     * [Ubuntu Server (with GPU and RDMA drivers) for Azure Batch container pools](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
-* Create a [custom Windows or Linux VM image](batch-custom-images.md) on which you have installed drivers, software, or other settings required for the VM size. 
+* Create a [custom Windows or Linux VM image](batch-sig-images.md) on which you have installed drivers, software, or other settings required for the VM size. 
 
 * Create a Batch [application package](batch-application-packages.md) from a zipped driver or application installer, and configure Batch to deploy the package to pool nodes and install once when each node is created. For example, if the application package is an installer, create a [start task](batch-api-basics.md#start-task) command line to silently install the app on all pool nodes. Consider using an application package and a pool start task if your workload depends on a particular driver version.
 
@@ -119,9 +119,9 @@ To run CUDA applications on a pool of Linux NC nodes, you need to install necess
 1. Deploy an Azure NC-series VM running Ubuntu 16.04 LTS. For example, create the VM in the US South Central region. 
 2. Add the [NVIDIA GPU Drivers extension](../virtual-machines/extensions/hpccompute-gpu-linux.md
 ) to the VM by using the Azure portal, a client computer that connects to the Azure subscription, or Azure Cloud Shell. Alternatively, follow the steps to connect to the VM and [install CUDA drivers](../virtual-machines/linux/n-series-driver-setup.md) manually.
-3. Follow the steps to create a [snapshot and custom Linux VM image](batch-custom-images.md) for Batch.
+3. Follow the steps to create a [Shared Image Gallery image](batch-sig-images.md) for Batch.
 4. Create a Batch account in a region that supports NC VMs.
-5. Using the Batch APIs or Azure portal, create a pool [using the custom image](batch-custom-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
+5. Using the Batch APIs or Azure portal, create a pool [using the custom image](batch-sig-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
 
 | Setting | Value |
 | ---- | ---- |
@@ -139,8 +139,8 @@ To run Windows MPI applications on a pool of Azure H16r VM nodes, you need to co
 ) from a client computer that connects to your Azure subscription, or using Azure Cloud Shell. 
 1. Make a Remote Desktop connection to the VM.
 1. Download the [setup package](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) for the latest version of Microsoft MPI, and install Microsoft MPI.
-1. Follow the steps to create a [snapshot and custom Windows VM image](batch-custom-images.md) for Batch.
-1. Using the Batch APIs or Azure portal, create a pool [using the custom image](batch-custom-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
+1. Follow the steps to create a [Shared Image Gallery image](batch-sig-images.md) for Batch.
+1. Using the Batch APIs or Azure portal, create a pool [using the Shared Image Gallery](batch-sig-images.md) and with the desired number of nodes and scale. The following table shows sample pool settings for the image:
 
 | Setting | Value |
 | ---- | ---- |

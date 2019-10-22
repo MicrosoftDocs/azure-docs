@@ -93,7 +93,8 @@ This section covers the following aspects of planning:
 
 The scenario outlined in this tutorial assumes that you already have the following items:
 
-* A valid Azure AD Premium P1 or higher subscription with global administrator access
+* A valid Azure AD Premium P1 or higher subscription license for every user that will be sourced from Workday and provisioned into either on-premises Active Directory or Azure Active Directory.
+* Azure AD global administrator access to configure the provisioning agent
 * A Workday implementation tenant for testing and integration purposes
 * Administrator permissions in Workday to create a system integration user, and make changes to test employee data for testing purposes
 * For user provisioning to Active Directory, a server running Windows Server 2012 or greater with .NET 4.7.1+ runtime is required to host the [on-premises provisioning agent](https://go.microsoft.com/fwlink/?linkid=847801)

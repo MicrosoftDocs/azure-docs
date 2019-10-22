@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage and monitor Azure VM backups by using the Azure Backup service
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.reviewer: sogup
@@ -43,7 +43,7 @@ To view VMs on the vault dashboard:
 
     ![Open the Backup Items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. On the **Backup Items** blade, you can view the list of protected VMs. In this example, the vault protects one virtual machine: demobackup.  
+6. On the **Backup Items** blade, you can view the list of protected VMs. In this example, the vault protects one virtual machine: demobackup.  
 
     ![View the Backup Items blade](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -60,7 +60,7 @@ To manage a backup policy:
 
     ![Open the Backup Items tile](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3. On the **Backup Items** blade, you can view the list of protected VMs and last backup status with latest restore points time.
+3. On the **Backup Items** blade, you can view the list of protected VMs and last backup status with latest restore points time.
 
     ![View the Backup Items blade](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -158,6 +158,13 @@ There are two ways to delete a VM's backup data:
 
   > [!NOTE]
   > When you delete backup data you delete all associated recovery points. You can't choose specific recovery points to delete.
+
+### Backup item where primary data source no longer exists
+
+- If Azure VMs configured for Azure backup are either deleted or moved without stopping protection, then both scheduled backup jobs and on demand (ad-hoc) backup jobs will fail with the error UserErrorVmNotFoundV2. The backup pre-check will appear as critical only for failed ad-hoc backup jobs (failed scheduled jobs are not displayed). 
+- These backup items remain active in the system adhering to the backup and retention policy set by the user. The backed-up data for these Azure VMs will be retained according to the retention policy. The expired recovery points (except the last recovery point) are cleaned according to the retention range set in the backup policy.
+- Users are recommended to delete the backup items where the primary data source no longer exists to avoid any additional cost, if the backup item/data for the delete resources is no longer required as the last recovery point is retained forever and the user is charged as per the backup pricing applicable.
+
 
 ## Next steps
 - Learn how to [back up Azure VMs from the VM's settings](backup-azure-vms-first-look-arm.md).

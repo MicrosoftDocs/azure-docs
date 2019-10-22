@@ -8,7 +8,7 @@ author: VaijanathB
 manager: jeconnoc
 ms.author: vaangadi
 ms.topic: tutorial
-ms.date: 03/01/2019
+ms.date: 09/20/2019
 ---
 
 # Tutorial: Create a spoke virtual network with Terraform in Azure
@@ -61,7 +61,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     locals {
       spoke1-location       = "CentralUS"
       spoke1-resource-group = "spoke1-vnet-rg"
@@ -183,7 +183,7 @@ Two spoke scripts are created in this section. Each script defines a spoke virtu
     
 1. Paste the following code into the editor:
     
-    ```JSON
+    ```hcl
     locals {
       spoke2-location       = "CentralUS"
       spoke2-resource-group = "spoke2-vnet-rg"

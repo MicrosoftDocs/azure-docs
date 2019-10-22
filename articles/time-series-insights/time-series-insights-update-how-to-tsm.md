@@ -1,10 +1,10 @@
 ---
 title: 'Data modeling in Azure Time Series Insights Preview | Microsoft Docs'
 description: Understand data modeling in Azure Time Series Insights Preview.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
@@ -131,4 +131,4 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 - To learn more about the preview, read [Visualize data in the Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
-- To learn about supported JSON shapes, read [Supported JSON Shapes](./time-series-insights-send-events.md#json).
+- To learn about supported JSON shapes, read [Supported JSON Shapes](./time-series-insights-send-events.md#supported-json-shapes).

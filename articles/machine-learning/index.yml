@@ -82,11 +82,11 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Predict credit risk
-            url: service/ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
+            url: service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md                 
           - text: Predict delays
-            url: service/ui-sample-classification-predict-flight-delay.md
+            url: service/how-to-ui-sample-classification-predict-flight-delay.md
           - text: Predict churn
-            url: service/ui-sample-classification-predict-churn.md     
+            url: service/how-to-ui-sample-classification-predict-churn.md     
 
   # MLOps
   - title: Deploy & manage models

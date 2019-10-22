@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services Live Event and a cloud DVR | Microsoft Docs
+title: Using Azure Media Services time-shifting and live-to-VOD (video on demand) | Microsoft Docs
 description: This article explains what Live Output is and how to use a cloud DVR.  
 services: media-services
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.author: juliako
 
 ---
 
-# Using a cloud Digital Video Recorder (DVR)
+# Using time-shifting and live-to-VOD (video on demand)
 
 In Azure Media Services, a [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) object is like a digital video recorder that will catch and record your live stream into an asset in your Media Services account. The recorded content is persisted into the container defined by the [Asset](https://docs.microsoft.com/rest/api/media/assets) resource (the container is in the Azure Storage account attached to your account). The live output also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR), and whether or not viewers can start watching the live stream. The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the **archiveWindowLength** property of the Live Output. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. The archiveWindowLength value represents an ISO-8601 timespan duration (for example, PTHH:MM:SS), which specifies the capacity of the DVR, and can be set from a minimum of 3 minutes to a maximum of 25 hours.
 

@@ -260,7 +260,7 @@ root_run.complete()
 >[!Note]
  You can also export a particular run to TensorBoard by specifying the name of the run  `export_to_tensorboard(run_name, logdir)`
 
-Start and stop TensorBoard
+### Start and stop TensorBoard
 Once our run history for this experiment is exported, we can launch TensorBoard with the [start()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py#start-start-browser-false-) method. 
 
 ```Python
