@@ -67,7 +67,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Asynchronous recognition from blob</h3>
-                                                    <p>Use the Speech service to asynchronously recognize speech from files stored in Azure Blob Storage.</p>
+                                                    <p>Use our REST service to asynchronously recognize speech from files stored in Azure Blob Storage.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -105,7 +105,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Pricing</h3>
-                                                    <p>Learn how much it costs to use speech-to-text.</p>
+                                                    <p>Learn more about the costs associated with speech-to-text.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -148,7 +148,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Synthesize speech to an audio file</h3>
-                                                    <p>Learn how to convert text-to-speech and save it to file.</p>
+                                                    <p>Use the Speech SDK to synthesize speech to an audio file.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -167,7 +167,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Synthesize speech to a speaker</h3>
-                                                    <p>Learn how to convert text-to-speech and play the audio on an output device.</p>
+                                                    <p>Use the Speech SDK to synthesize speech to an audio output, like a speaker.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -224,7 +224,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Pricing</h3>
-                                                    <p>Something about pricing.</p>
+                                                    <p>Learn more about the costs associated with text-to-speech.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -286,7 +286,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>LUIS documentation</h3>
-                                                    <p>Learn more about LUIS.</p>
+                                                    <p>Learn more about the Language Understanding Service (LUIS) and Natural Language Processing (NLP).</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -405,7 +405,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Pricing</h3>
-                                                    <p>Learn how much it costs to use speech translation.</p>
+                                                    <p>Learn more about the costs associated with speech translation.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -467,7 +467,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Transcribe a real-time conversation</h3>
-                                                    <p>Learn how to transcribe a conversation in real-time.</p>
+                                                    <p>Learn how to transcribe a conversation in real time.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -486,7 +486,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Asynchronously transcribe conversations</h3>
-                                                    <p>Learn how to asynchronously transcribe conversations.</p>
+                                                    <p>Learn how to asynchronously transcribe conversations, poll for status, and download the outputs.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -524,7 +524,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Pricing</h3>
-                                                    <p>Learn how much it costs to use conversation transcription.</p>
+                                                    <p>Learn more about the costs associated with Conversation Transcription.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -567,7 +567,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Build an assistant, no code required</h3>
-                                                    <p>Use this tutorial to stand up a voice-enabled assistant without writing a line of code.</p>
+                                                    <p>Create a voice-enabled assistant without writing a line of code.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -691,7 +691,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Pricing</h3>
-                                                    <p>Learn more about the costs of Custom Speech.
+                                                    <p>Learn more about the costs associated with Custom Speech.
                                                     </p>
                                                 </div>
                                             </div>
@@ -832,7 +832,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Pricing</h3>
-                                                    <p>Learn more about the costs of Custom Voice.
+                                                    <p>Learn more about the costs associated with Custom Voice.
                                                     </p>
                                                 </div>
                                             </div>
