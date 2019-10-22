@@ -137,7 +137,7 @@ Create your resource group and single database using PowerShell.
    $database
    ```
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This portion of the article uses the following PowerShell cmdlets:
 
 | Command | Notes |
 |---|---|

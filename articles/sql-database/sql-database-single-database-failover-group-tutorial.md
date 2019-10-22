@@ -149,7 +149,7 @@ Create your failover group and add your single database to it using PowerShell.
    Write-host "Successfully added the database to the failover group..." 
    ```
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This portion of the tutorial uses the following PowerShell cmdlets:
 
 | Command | Notes |
 |---|---|
@@ -209,7 +209,7 @@ Create your failover group and add your single database to it using AZ CLI.
       --failover-policy Automatic
    ```
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This portion of the tutorial uses the following Az CLI cmdlets:
 
 | Command | Notes |
 |---|---|
@@ -298,7 +298,7 @@ Revert failover group back to the primary server:
    Write-host "Failed failover group successfully back to" $serverName
    ```
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This portion of the tutorial uses the following PowerShell cmdlets:
 
 | Command | Notes |
 |---|---|
@@ -357,7 +357,8 @@ Revert failover group back to the primary server:
       --server $serverName
    echo "Successfully failed failover group back to" $serverName
    ```
-This script uses the following commands. Each command in the table links to command specific documentation.
+
+This portion of the tutorial uses the following Az CLI cmdlets:
 
 | Command | Notes |
 |---|---|
@@ -377,6 +378,7 @@ Delete the resource group using the Azure portal.
 1. Type the name of the resource group, `myResourceGroup`, in the textbox, and then select **Delete** to delete the resource group.  
 
 # [PowerShell](#tab/azure-powershell)
+
 Delete the resource group using PowerShell. 
 
 
@@ -390,13 +392,14 @@ Delete the resource group using PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This portion of the tutorial uses the following PowerShell cmdlets:
 
 | Command | Notes |
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group | 
 
 # [Azure CLI](#tab/azure-cli)
+
 Delete the resource group by using AZ CLI. 
 
 
@@ -411,7 +414,7 @@ Delete the resource group by using AZ CLI.
    echo "Successfully removed resource group" $resourceGroupName
    ```
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This portion of the tutorial uses the following Az CLI cmdlets:
 
 | Command | Notes |
 |---|---|

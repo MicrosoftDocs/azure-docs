@@ -110,7 +110,7 @@ Create your elastic pools and secondary server using PowerShell.
    $addDatabase
    ```
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This portion of the tutorial uses the following PowerShell cmdlets:
 
 | Command | Notes |
 |---|---|
@@ -228,7 +228,7 @@ Create your failover group using PowerShell.
    $failoverGroup
    ```
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This portion of the tutorial uses the following PowerShell cmdlets:
 
 | Command | Notes |
 |---|---|
@@ -336,7 +336,7 @@ Fail your failover group over to the secondary server, and then fail back using 
    Write-host "Failover group failed over to" $serverName 
    ```
 
-This script uses the following commands. Each command in the table links to command specific documentation.
+This portion of the tutorial uses the following PowerShell cmdlets:
 
 | Command | Notes |
 |---|---|
@@ -373,6 +373,8 @@ Clean up your resources using PowerShell.
    Write-host "Resource group removed =" $resourceGroupName
    ```
 ---
+
+This portion of the tutorial uses the following PowerShell cmdlet:
 
 | Command | Notes |
 |---|---|
