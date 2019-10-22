@@ -71,6 +71,7 @@ The following data connection methods are supported by Azure Sentinel:
         - [Barracuda CloudGen Firewall](connect-barracuda-cloudgen-firewall.md)
         - [ExtraHop Reveal(x)](connect-extrahop.md)
         - [One Identity Safeguard](connect-one-identity.md)
+        - [Trend Micro Deep Security](connect-trend-micro.md)
     - DLP solutions
     - [Threat intelligence providers](connect-threat-intelligence.md)
     - [DNS machines](connect-dns.md) - agent installed directly on the DNS machine
