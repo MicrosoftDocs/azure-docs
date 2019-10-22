@@ -1,13 +1,10 @@
 ---
 title: Supported languages in Azure Functions
 description: Learn which languages are supported (GA) and which are experimental or in preview.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
-ms.devlang: dotnet
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: glenga
 
@@ -45,19 +42,10 @@ Starting with version 2.x, the runtime is designed to offer [language extensibil
 
 ## Next steps
 
-To learn more about how to use one of the GA or preview languages in Azure Functions, see the following resources:
+To learn more about how to develop functions in the supported languages, see the following resources:
 
-> [!div class="nextstepaction"]
-> [C#](functions-reference-csharp.md)
-
-> [!div class="nextstepaction"]
-> [F#](functions-reference-fsharp.md)
-
-> [!div class="nextstepaction"]
-> [JavaScript](functions-reference-node.md)
-
-> [!div class="nextstepaction"]
-> [Java](functions-reference-java.md)
-
-> [!div class="nextstepaction"]
-> [Python](functions-reference-python.md)
++ [C# class library developer reference](functions-dotnet-class-library.md)
++ [C# script developer reference](functions-reference-csharp.md)
++ [Java developer reference](functions-reference-java.md)
++ [JavaScript developer reference](functions-reference-node.md)
++ [Python developer reference](functions-reference-python.md)
