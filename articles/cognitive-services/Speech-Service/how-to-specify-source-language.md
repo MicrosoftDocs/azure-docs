@@ -30,13 +30,13 @@ var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourSer
 Next, specify the source language of your audio with `SpeechRecognitionLanguage`:
 
 ```csharp
-speechConfig.SpeechRecognitionLanguage = "en-US";
+speechConfig.SpeechRecognitionLanguage = "de-DE";
 ```
 
 If you're using a custom model for recognition, you can specify the endpoint with `EndpointId`:
 
 ```csharp
-speechConfig.EndpointId = "The Endpoint Id for custom model";
+speechConfig.EndpointId = "The Endpoint ID for your custom model.";
 ```
 
 ::: zone-end
@@ -62,7 +62,7 @@ auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfi
 In this example, the source language and custom endpoint are provided using `SourceLanguageConfig`. The `sourceLanguageConfig` is passed as a parameter to `FromConfig` when creating the `recognizer`.
 
 ```C++
-auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE", "The Endpoint Id for custom model of de-DE");
+auto sourceLanguageConfig = SourceLanguageConfig::FromLanguage("de-DE", "The Endpoint ID for your custom model.");
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
@@ -91,7 +91,7 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 In this example, the source language and custom endpoint are provided using `SourceLanguageConfig`. Then, the `sourceLanguageConfig` is passed as a parameter when creating a new `SpeechRecognizer`.
 
 ```Java
-SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE", "The Endpoint Id for custom model of de-DE");
+SourceLanguageConfig sourceLanguageConfig = SourceLanguageConfig.fromLanguage("de-DE", "The Endpoint ID for your custom model.");
 SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
@@ -112,13 +112,13 @@ speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_r
 Next, specify the source language of your audio with `speech_recognition_language`:
 
 ```Python
-speech_config.speech_recognition_language="zh-CN"
+speech_config.speech_recognition_language="de-DE"
 ```
 
 If you're using a custom model for recognition, you can specify the endpoint with `endpoint_id`:
 
 ```Python
-speech_config.endpoint_id = "The Endpoint Id for custom model"
+speech_config.endpoint_id = "The Endpoint ID for your custom model."
 ```
 
 ::: zone-end
@@ -136,13 +136,13 @@ var speechConfig = sdk.SpeechConfig.fromSubscription("YourSubscriptionkey", "You
 Next, specify the source language of your audio with `speechRecognitionLanguage`:
 
 ```Javascript
-speechConfig.speechRecognitionLanguage = "en-us";
+speechConfig.speechRecognitionLanguage = "de-DE";
 ```
 
 If you're using a custom model for recognition, you can specify the endpoint with `endpointId`:
 
 ```Javascript
-speechConfig.endpointId = "The Endpoint Id for custom model";
+speechConfig.endpointId = "The Endpoint ID for your custom model.";
 ```
 
 ## How to specify source language in Objective-C
@@ -162,11 +162,14 @@ speechConfig.speechRecognitionLanguage = @"de-DE";
 If you're using a custom model for recognition, you can specify the endpoint with `endpointId`:
 
 ```Objective-C
-speechConfig.endpointId = @"The Endpoint Id for custom model";
+speechConfig.endpointId = @"The Endpoint ID for your custom model.";
 ```
 
 ::: zone-end
 
+## See also
+
+* For a list of supported languages and locales for speech to text, see [Language support](language-support.md).
 
 ## Next steps
 
