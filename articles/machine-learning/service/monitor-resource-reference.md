@@ -150,8 +150,8 @@ The following table lists the properties for Azure Azure Machine Learning resour
 | CreationApiVersion | |
 | InternalOperationName | |
 
-
 ### Metrics
+
 The following tables list the platform metrics collected for Azure Machine Learning All metrics are stored in the namespace **Azure Machine Learning Service Workspace**.
 
 **Model**
