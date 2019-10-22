@@ -1,5 +1,5 @@
 ---
-title: Column Patterns in Azure Data Factory mapping data flows
+title: Column patterns in Azure Data Factory mapping data flow
 description: Create generalized data transformation patterns using column patterns in Azure Data Factory mapping data flows
 author: kromerm
 ms.author: makromer
@@ -11,12 +11,12 @@ ms.date: 10/21/2019
 
 # Using column patterns in mapping data flow
 
-Several mapping data flow transformations allow you to reference template columns based on patterns instead of hard-coded column names. This matching is known as *column patterns*. You can define patterns to match columns based on name, data type, stream or position instead of requiring exact, specific field names. There are two scenarios where column patterns are particularly useful:
+Several mapping data flow transformations allow you to reference template columns based on patterns instead of hard-coded column names. This matching is known as *column patterns*. You can define patterns to match columns based on name, data type, stream, or position instead of requiring exact field names. There are two scenarios where column patterns are useful:
 
 * If incoming source fields change often such as the case of changing columns in text files or NoSQL databases. This scenario is known as [schema drift](concepts-data-flow-schema-drift.md).
 * If you wish to do a common operation on a large group of columns. For example, wanting to cast every column that has 'total' in its column name into a double.
 
-Column patterns are currently available in the derived column, aggregate, select and sink transformations.
+Column patterns are currently available in the derived column, aggregate, select, and sink transformations.
 
 ## Column patterns in derived column and aggregate
 
@@ -32,17 +32,17 @@ The two expression boxes below the match condition specify the new names and val
 
 The above column pattern matches every column of type double and creates one aggregate column per match. The name of the new column is the matched column's name concatenated with '_total'. The value of the new column is the rounded, aggregated sum of the existing double value.
 
-To verify your matching condition is correct, you can validate the output schema of defined columnsin the **Inspect** tab or get a snapshot of the data in the **Data preview** tab. 
+To verify your matching condition is correct, you can validate the output schema of defined columns in the **Inspect** tab or get a snapshot of the data in the **Data preview** tab. 
 
 ![column patterns](media/data-flow/columnpattern3.png "Column Patterns")
 
 ## Rule-based mapping in select and sink
 
-When mapping columns in source and select transformations, you can add either fixed mapping or rule-based mappings. If you know the schema of your data and expect specific columns from the source dataset to always match specific static names, use fixed mapping. If you are working with flexible schemas, use rule-based mapping to build a pattern match based on the `name`, `type`, `stream`, and `position` of columns. You can have any combination of fixed and rule-based mappings. 
+When mapping columns in source and select transformations, you can add either fixed mapping or rule-based mappings. If you know the schema of your data and expect specific columns from the source dataset to always match specific static names, use fixed mapping. If you're working with flexible schemas, use rule-based mapping to build a pattern match based on the `name`, `type`, `stream`, and `position` of columns. You can have any combination of fixed and rule-based mappings. 
 
 To add a rule-based mapping, click **Add mapping** and select **Rule-based mapping**.
 
-![rule based mapping](media/data-flow/rule2.png "Rule based mapping")
+![rule-based mapping](media/data-flow/rule2.png "Rule-based mapping")
 
 In the left expression box, enter your boolean match condition. In the right expression box, specify what the matched column will be mapped to. Use `$$` to reference the existing name of the matched field.
 
@@ -50,7 +50,7 @@ If you click the downward chevron icon, you can specify a regex mapping conditio
 
 Click the eyeglasses icon next to a rule-based mapping to view which defined columns are matched and what they're mapped to.
 
-![rule based mapping](media/data-flow/rule1.png "Rule based mapping")
+![rule-based mapping](media/data-flow/rule1.png "Rule-based mapping")
 
 In the above example, two rule-based mappings are created. The first takes all columns not named 'movie' and maps them to their existing values. The second rule uses regex to match all columns that start with 'movie' and maps them to column 'movieId'.
 
@@ -61,7 +61,7 @@ If your rule results in multiple identical mappings, enable **Skip duplicate inp
 * `$$` translates to the name or value of each match at run time
 * `name` represents the name of each incoming column
 * `type` represents the data type of each incoming column
-* `stream` represents the name associated with each stream or transformation in your flow
+* `stream` represents the name associated with each stream, or transformation in your flow
 * `position` is the ordinal position of columns in your data flow
 
 ## Next steps
