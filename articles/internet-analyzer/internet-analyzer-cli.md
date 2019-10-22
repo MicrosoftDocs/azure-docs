@@ -64,14 +64,14 @@ The Internet Analyzer CLI exposes the following types of resources:
     az internet-analyzer preconfigured-endpoint list --resource-group "MyInternetAnalyzerResourceGroup" --name "MyInternetAnalyzerProfile"
     ```
 
-7. Create a new test under the newly-created InternetAnalyzer profile:
+8. Create a new test under the newly-created InternetAnalyzer profile:
     ```azurecli-interactive
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/1k.jpg" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/1k.jpg" --name "MyFirstInternetAnalyzerTest"
     ```
 
     The command above assumes that both www.contoso.com and www.microsoft.com are hosting the same object (1k.jpg) under different paths. Note that, if an object path isn't specified explicitly, Internet Analyzer will use `/apc/trans.gif` as the object path by default.  Also note that the schema (https/http) doesn't need to be specified; Internet Analyzer only supports HTTPS endpoints, so HTTPS is assumed.
 
-8. The new test should now be listed under the Network Analyzer profile:
+9. The new test should now be listed under the Network Analyzer profile:
     ```azurecli-interactive
     az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
     ```
@@ -103,7 +103,7 @@ The Internet Analyzer CLI exposes the following types of resources:
     ]
     ````
 
-9. To begin generating measurements, the JavaScript file pointed to by the test's **scriptFileUri** must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.
+10. To begin generating measurements, the JavaScript file pointed to by the test's **scriptFileUri** must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.
 
 ## Next steps
 
