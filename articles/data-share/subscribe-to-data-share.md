@@ -1,19 +1,19 @@
 ---
-title: 'Tutorial: Accept & receive data - Azure Data Share Preview'
-description: Tutorial - Accept and receive data using Azure Data Share Preview
+title: 'Tutorial: Accept & receive data - Azure Data Share'
+description: Tutorial - Accept and receive data using Azure Data Share 
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ---
-# Tutorial: Accept and receive data using Azure Data Share Preview
+# Tutorial: Accept and receive data using Azure Data Share  
 
-In this tutorial, you will learn how to accept a data share invitation using Azure Data Share Preview. You will learn how to receive data being shared with you, as well as how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
+In this tutorial, you will learn how to accept a data share invitation using Azure Data Share. You will learn how to receive data being shared with you, as well as how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
 
 > [!div class="checklist"]
-> * How to accept an Azure Data Share Preview invitation
-> * Create an Azure Data Share Preview account
+> * How to accept an Azure Data Share invitation
+> * Create an Azure Data Share account
 > * Specify a destination for your data
 > * Create a subscription to your data share for scheduled refresh
 
@@ -29,7 +29,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 * Resource Provider registration for Microsoft.DataShare. See the [Azure Resource Providers](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) documentation for information on how to do this. 
 
 > [!IMPORTANT]
-> To accept and receive an Azure Data Share, you must first register the Microsoft.DataShare resource provider and you must be an owner of the storage account that you accept data into. Follow the instructions documented in [Troubleshoot Azure Data Share Preview](data-share-troubleshoot.md) to register the data share resource provider as well as add yourself as an owner of the storage account. 
+> To accept and receive an Azure Data Share, you must first register the Microsoft.DataShare resource provider and you must be an owner of the storage account that you accept data into. Follow the instructions documented in [Troubleshoot Azure Data Share](data-share-troubleshoot.md) to register the data share resource provider as well as add yourself as an owner of the storage account. 
 
 ## Sign in to the Azure portal
 

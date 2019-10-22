@@ -1,30 +1,44 @@
 ---
-title: 'Tutorial: Share outside your org - Azure Data Share'
-description: Tutorial - Share data with customers and partners using Azure Data Share  
+title: 'Tutorial: Share data from Azure SQL Database or Azure SQL Data Warehouse'
+description: Tutorial - Share data from Azure SQL Database or Azure SQL Data Warehouse
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ---
-# Tutorial: Share your data using Azure Data Share  
+# Tutorial: Share data from Azure SQL-based sources
 
-In this tutorial, you will learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
+In this tutorial you will learn how to set up a new Azure Data Share and start sharing SQL-based data with customers and partners outside of your Azure organization.
 
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
 > * Create a Data Share.
-> * Add datasets to your Data Share.
-> * Enable a synchronization schedule for your Data Share. 
+> * Add tables and views to your Data Share.
 > * Add recipients to your Data Share. 
 
 ## Prerequisites
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Permission to add role assignment to the storage account, which is present in the *Microsoft.Authorization/role assignments/write* permission. This permission exists in the owner role. 
-* Your recipients Azure login e-mail address (using their e-mail alias won't work).
+* An Azure SQL Database or Azure SQL Data Warehouse with tables and views that you want to share.
+* Your data consumer's Azure login e-mail address (using their e-mail alias will not work).
+* Permission for the data share to access the data warehouse. This can be done through the following steps: 
+    1. Set yourself as the Azure Active Directory Admin for the server.
+    1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
+    1. Use Query Editor ( ) to execute the following script to add the Data Share MSI as a db_owner. You must connect using Active Directory and not SQL Server authentication. 
+    
+            create user <share_acct_name> from external provider;
+        
+            exec sp_addrolemember db_owner, <share_acct_name>;
+    
+            Note that the *<share_acc_name>* is the name of your Data Share Account. If you have not created a Data Share account as yet, you can come back to this pre-requisite later.         
+
+* Client IP SQL Server Firewall access: This can be done through the following steps: 
+        1. Navigate to *Firewalls and Virtual Networks*
+        1. Click the **on** toggle to allow access to Azure Services. 
+
+Once these pre-requisites are complete, you are ready for sharing data from SQL-based sources. 
 
 ## Sign in to the Azure portal
 

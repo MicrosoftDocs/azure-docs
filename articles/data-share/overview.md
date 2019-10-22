@@ -1,20 +1,20 @@
 ---
-title: What is Azure Data Share Preview
-description: Learn about simply and securely share data with multiple customers and partners using Azure Data Share Preview.
+title: What is Azure Data Share 
+description: An overview of Azure Data Share 
 author: joannapea
-ms.author: joanpo
+
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
+ms.author: joanpo
 ---
-
-# What is Azure Data Share Preview?
+# What is Azure Data Share ?
 
 In today's world, data is viewed as a key strategic asset that many organizations need to simply and securely share with their customers and partners. There are many ways that customers do this today, including through FTP, e-mail, APIs to name a few. Organizations can easily lose track of who they've shared their data with. Sharing data through FTP or through standing up their own API infrastructure is often expensive to provision and administer. There's management overhead associated with using these methods of sharing on a large scale. 
 
 Many organizations need to be accountable for the data that they have shared. In addition to accountability, many organizations would like to be able to control, manage, and monitor all of their data sharing in a simple way. In today world, where data is expected to continue to grow at an exponential pace, organizations need a simple way to share big data. Customers demand the most up-to-date data to ensure that they are able to derive timely insights.
 
-Azure Data Share Preview enables organizations to simply and securely share data with multiple customers and partners. In just a few clicks, you can provision a new data share account, add datasets, and invite your customers and partners to your data share. Data providers are always in control of the data that they have shared. Azure Data Share makes it simple to manage and monitor what data was shared, when and by whom. 
+Azure Data Share enables organizations to simply and securely share data with multiple customers and partners. In just a few clicks, you can provision a new data share account, add datasets, and invite your customers and partners to your data share. Data providers are always in control of the data that they have shared. Azure Data Share makes it simple to manage and monitor what data was shared, when and by whom. 
 
 A data provider can stay in control of how their data is handled by specifying terms of use for their data share. The data consumer must accept these terms before being able to receive the data. Data providers can specify the frequency at which their data consumers receive updates. Access to new updates can be revoked at any time by the data provider. 
 
@@ -32,7 +32,7 @@ Another use case for Azure Data Share is establishing a data consortium. For exa
 
 ## How it works
 
-Azure Data Share uses a snapshot-based sharing approach, where data moves from the data provider's Azure subscription and lands in the data consumer's Azure subscription. As a data provider, you provision a data share and invite recipients to the data share. Data consumers receive an invitation to your data share via e-mail. Once a data consumer accepts the invitation, they can trigger a full snapshot of the data shared you shared them. This data is received into the data consumers storage account. Data consumers can receive regular, incremental updates to the data shared with them so that they always have the latest version of the data. 
+Azure Data Share uses a snapshot-based sharing approach, where data moves from the data provider's Azure subscription and lands in the data consumer's Azure subscription. As a data provider, you provision a data share and invite recipients to the data share. Data consumers receive an invitation to your data share via e-mail. Once a data consumer accepts the invitation, they can trigger a full snapshot of the data shared with them. This data is received into the data consumers storage account. Data consumers can receive regular, incremental updates to the data shared with them so that they always have the latest version of the data. 
 
 Data providers can offer their data consumers incremental updates to the data shared with them through a snapshot schedule. Snapshot schedules are offered on an hourly or a daily basis. When a data consumer accepts and configures their data share, they can subscribe to a snapshot schedule. This is beneficial in scenarios where the shared data is updated on a regular basis, and the data consumer needs the most up-to-date data. 
 
@@ -44,7 +44,7 @@ When a data consumer accepts a data share, they are able to receive the data in 
 
 Azure Data Share enables data providers to:
 
-* Share data from Azure Storage and Azure Data Lake Store with customers and partners outside of your organization
+* Share data from the list of [supported data stores](supported-data-stores.md) with customers and partners outside of your organization
 
 * Keep track of who you have shared your data with
 
@@ -64,7 +64,7 @@ Azure Data Share enables data consumers to:
 
 * Subscribe to a Data Share to receive the latest copy of the data through incremental snapshot copy
 
-* Accept data shared with you into an Azure Blob Storage or Azure Data Lake Gen2 account
+* Accept data shared with you into a [supported data store](supported-data-stores.md).
 
 All key capabilities listed above are supported through the Azure or via REST APIs. For more details on using Azure Data Share through REST APIs, check out our reference documentation. 
 

@@ -1,8 +1,8 @@
-- name: Azure Data Share Preview Documentation
+- name: Azure Data Share Documentation
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Data Share Preview?
+  - name: What is Azure Data Share?
     href: overview.md
 - name: Tutorials
   expanded: true

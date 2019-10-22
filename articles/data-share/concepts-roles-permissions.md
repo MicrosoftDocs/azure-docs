@@ -1,16 +1,17 @@
 ---
-title: Roles and requirements for Azure Data Share Preview  
-description: Learn about the access control roles and requirements for data providers and data consumers to share data in Azure Data Share Preview.
+title: Roles and requirements for Azure Data Share   
+description: Roles and requirements for Azure Data Share   
 author: joannapea
-ms.author: joanpo
+
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
+ms.author: joanpo
 ---
 
-# Roles and requirements for Azure Data Share Preview
+# Roles and requirements for Azure Data Share 
 
-This article describes the roles required to share data using Azure Data Share Preview, as well as to accept and receive data using Azure Data Share Preview. 
+This article describes the roles required to share data using Azure Data Share, as well as to accept and receive data using Azure Data Share. 
 
 ## Roles and requirements
 
