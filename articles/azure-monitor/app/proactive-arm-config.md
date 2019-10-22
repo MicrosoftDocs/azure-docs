@@ -1,18 +1,14 @@
 ---
 title: Configure Azure Application Insights smart detection rule settings with Azure Resource Manager templates | Microsoft Docs
 description: Automate management and configuration of Azure Application Insights smart detection rules with Azure Resource Manager Templates
-services: application-insights
-documentationcenter: ''
-author: harelbr
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.reviewer: mbullwin
+author: harelbr
 ms.author: harelbr
+ms.date: 06/26/2019
+
+ms.reviewer: mbullwin
 ---
 
 # Manage Application Insights smart detection rules using Azure Resource Manager templates

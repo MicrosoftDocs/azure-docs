@@ -1,18 +1,14 @@
 ---
-title: 'Application Insights: languages, platforms, and integrations | Microsoft Docs'
+title: 'Application Insights
 description: Languages, platforms, and integrations available for Application Insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 974db106-54ff-4318-9f8b-f7b3a869e536
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/18/2019
-ms.reviewer: olegan
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 07/18/2019
+
+ms.reviewer: olegan
 ---
 
 # Supported languages
