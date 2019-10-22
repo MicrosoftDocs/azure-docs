@@ -330,8 +330,8 @@ For the readers that want to dive deeper into SoD, we recommend the following re
 
 - For Azure SQL Database:  
   - [Controlling and granting database access to SQL Database and SQL Data Warehouse](sql-database-manage-logins.md)
-  - [Engine Separation of Duties for the Application Developer](https://docs.microsoft.com/en-us/previous-versions/sql/sql-server-2008/cc974525(v=sql.100)) 
-  - [Separation of Duties in SQL Server 2014](https://www.microsoft.com/en-us/download/details.aspx?id=39269)
+  - [Engine Separation of Duties for the Application Developer](https://docs.microsoft.com/previous-versions/sql/sql-server-2008/cc974525(v=sql.100)) 
+  - [Separation of Duties in SQL Server 2014](https://www.microsoft.com/download/details.aspx?id=39269)
   - [Signing Stored Procedures in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - For Azure Resource Management:
