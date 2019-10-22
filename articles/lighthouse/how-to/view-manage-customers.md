@@ -56,7 +56,7 @@ If you then access a service which supports [cross-tenant management experiences
 
 You can also access functionality related to delegated subscriptions or resource groups from within services that support cross-tenant management experiences by selecting the subscription or resource group from within that service.
 
-> [!NOTE]
+> [!TIP]
 > If you are enrolled in the [Cloud Solution Provider (CSP) program](https://partner.microsoft.com/membership/cloud-solution-provider), the **Cloud Solution Provider (Preview)** section of **My customers** will display billing info and resources for your CSP customers who have [signed the Microsoft Customer Agreement (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) and are under the Azure plan. For more info, see [Get started with your Microsoft Partner Agreement billing account](https://docs.microsoft.com/azure/billing/mpa-overview).
 >
 > CSP customers may appear in this section whether or not they have been onboarded for Azure delegated resource management. If they have, then they'll also appear in the **Customers** section, as described above.
