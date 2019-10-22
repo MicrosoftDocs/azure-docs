@@ -1,4 +1,4 @@
-﻿---
+---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Developing with v3 APIs - Azure | Microsoft Docs
 description: This article discusses rules that apply to entities and APIs when developing with Media Services v3. 
@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -106,6 +106,8 @@ Media Services has the following long-running operations:
 * [Scale StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/scale)
 
 On successful submission of a long operation you receive a '202 Accepted' and must poll for operation completion using the returned operation ID.
+
+The [track asynchronous Azure operations](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) article explains in depth how to track the status of asynchronous Azure operations through values returned in the response.
 
 Only one long-running operation is supported for a given Live Event or any of its associated Live Outputs. Once started, a long running operation must complete before starting a subsequent long-running operation on the same LiveEvent or any associated Live Outputs. For Live Events with multiple Live Outputs, you must await the completion of a long running operation on one Live Output before triggering a long running operation on another Live Output. 
 
