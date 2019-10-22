@@ -44,9 +44,9 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Set up a device template
-            url: index.yml
-          - text: Connect a device
-            url: index.yml
+            url: howto-set-up-template-pnp.md
+          - text: Connect an IoT Plug and Play device
+            url: tutorial-add-device-pnp.md
           - text: Connect an Edge device
             url: index.yml
       - linkListType: how-to-guide
@@ -61,23 +61,15 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Use device groups
-            url: index.yml
-          - text: Manage your devices
-            url: index.yml
-          - text: Run a job
-            url: index.yml
-          - text: Analyze your device data
-            url: index.yml
+            url: howto-use-device-groups-pnp.md
       - linkListType: how-to-guide
         links:
-          - text: Monitor device connectivity using command line
-            url: howto-use-iotc-explorer.md
-          - text: Version device template
-            url: howto-version-device-template.md
-          - text: Configure application dashboard
-            url: howto-configure-homepage.md
-          - text: Create personal dashboards
-            url: howto-personalize-dashboard.md
+          - text: Manage your devices
+            url: howto-manage-devices-pnp.md
+          - text: Run a job
+            url: howto-run-a-job.md
+          - text: Analyze your device data
+            url: howto-create-analytics.md
   # Card (optional)
   - title: Transform
     linkLists:
@@ -85,6 +77,11 @@ landingContent:
         links:
           - text: Create a rule
             url: tutorial-configure-rules.md
+          - text: Create an email action
+            url: howto-create-event-rules-pnp.md	
+          - text: Create an email action
+            url: howto-create-telemetry-rules-pnp.md
+
           - text: Create an email action
             url: index.yml
           - text: Export to Blob Storage
