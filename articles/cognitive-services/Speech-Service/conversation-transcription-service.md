@@ -45,8 +45,6 @@ This is a high-level overview of how Conversation Transcription works.
 
 ![The Import Conversation Transcription Diagram](media/scenarios/conversation-transcription-service.png)
 
-Conversation Transcription can be directly accessed through the Speech SDK. For step by step instructions, see [Transcribe multi-participant conversations with the Speech SDK](how-to-use-conversation-transcription-service.md).
-
 ## Expected inputs
 
 - **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](https://aka.ms/cts/microphone). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
@@ -75,4 +73,4 @@ Currently, Conversation Transcription supports "en-US" and "zh-CN" in the follow
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
+> [Transcribe conversations in real time](how-to-use-conversation-transcription-service.md)

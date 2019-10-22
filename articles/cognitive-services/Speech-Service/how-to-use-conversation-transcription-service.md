@@ -1,5 +1,5 @@
 ---
-title: Transcribe multi-participant conversations in real time with the Speech SDK - Speech Service (Preview)
+title: Transcribe conversations in real time with the Speech SDK (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use real-time Conversation Transcription with the Speech SDK. Available for C++, C#, and Java.
 services: cognitive-services
@@ -12,34 +12,31 @@ ms.date: 11/04/2019
 ms.author: weixu
 ---
 
-# Transcribe multi-participant conversations in real time with the Speech SDK (Preview)
+# Transcribe conversations in real time with the Speech SDK (Preview)
 
-The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetings and other conversations with the ability to add, remove, and identify participants by streaming audio to Speech Services using `PullStream` or `PushStream`.
+The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetings and other conversations with the ability to add, remove, and identify multiple participants by streaming audio to Speech Services using `PullStream` or `PushStream`. This topic requires you to know how to use Speech-to-text with the Speech SDK (version 1.8.0 or later). For more information, see [What are Speech Services](overview.md).
 
 ## Limitations
 
 - The ConversationTranscriber API is supported for C++, C#, and Java on Windows, Linux, and Android.
-- Conversation Transcription is currently available in "en-US" and "zh-CN" languages in the following regions: _centralus_ and _eastasia_.
-- The ROOBO DevKit is the supported hardware environment for creating conversation transcriptions. This kit provides a circular multi-microphone array that can be utilized efficiently for speaker identification. For more information, see [Speech Devices SDK](speech-devices-sdk.md).
-- Speech SDK support for conversation transcription is limited to audio pull and push streams with 8 channels of 16-bit 16 kHz PCM audio. The following kits support 8 channel audio capture:
-  - [ROOBO Smart Audio Circular 7-Mic Dev Kit](https://ddk.roobo.com/)
-  - [Azure Kinect Dev Kit](https://azure.microsoft.com/services/kinect-dk/)
+- Currently available in "en-US" and "zh-CN" languages in the following regions: _centralus_ and _eastasia_.
+- Requires a 7-mic circular multi-microphone array with a playback reference stream. The microphone array should meet [our specification](https://aka.ms/sdsdk-microphone).
+- The [Speech Devices SDK](speech-devices-sdk.md) provides suitable devices and a sample app demonstrating Conversation Transcription.
 
 ## Optional sample code resources
 
-The Speech Device SDK provides sample code in Java for real-time audio capture using 8 channels. The sample then streams the audio into the conversation transcription service.
+The Speech Device SDK provides sample code in Java for real-time audio capture using 8 channels and streams the audio into the Conversation Transcription service.
 
 - [ROOBO device sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
 - [Azure Kinect Dev Kit sample code](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
 ## Prerequisites
 
-- Learn how to use Speech-to-text with the Speech SDK version 1.8.0 or later. For more information, see [What are Speech Services](overview.md).
-- A Speech Services subscription. You can [get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you don't have one.
+A Speech Services subscription. You can [get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you don't have one.
 
 ## Create voice signatures for participants
 
-The first step is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification.
+The first step is to create voice signatures for the conversation participants for efficient speaker identification.
 
 ### Audio input requirements
 
@@ -100,7 +97,7 @@ class Program
 }
 ```
 
-## Sample code for transcribing conversations in real time
+## Transcribe conversations in real time
 
 The following sample code demonstrates how to transcribe conversations in real time for three speakers. It assumes you've already created voice signatures for each speaker as shown above. Substitute real information for "YourSubscriptionKey" and "YourServiceRegion" when creating the SpeechConfig object.
 
@@ -137,7 +134,7 @@ public class MyConversationTranscriber
             using (var conversation = new Conversation(config, meetingId))
             {
                 // Create a conversation transcriber using audio stream input
-                using (var conversationTranscriber = new ConversationTranscriber(audioInput))
+                using (var conversationTranscriber = new ConversationTranscriber    (audioInput))
                 {
                     await conversationTranscriber.JoinConversationAsync(conversation);
 
@@ -212,11 +209,7 @@ public class MyConversationTranscriber
 }
 ```
 
-## See also
-
-For an example of offline conversation transcription, see [Offline multi-participant conversation transcription](how-to-use-offline-conversation-transcription-service.md).
-
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
+> [Offline Conversation Transcription service](how-to-use-offline-conversation-transcription-service.md)
