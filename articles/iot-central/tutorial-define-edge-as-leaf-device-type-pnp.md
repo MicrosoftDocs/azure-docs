@@ -142,7 +142,7 @@ Here's a basic deployment manifest with one module as an example to be used for 
    }
    ```
 
-**1 Upload an Azure IoT Edge deployment manifest**
+**Upload an Azure IoT Edge deployment manifest**
 
 Click  **Browse** button 
 
@@ -182,7 +182,7 @@ Edge Device Plug n Play modeling is done as follows
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgemodelling.png)
 
-**2 Add Capabilities to Module Capability Model**
+**Add Capabilities to Module Capability Model**
 
 Here is a sample output from SimulatedTemperatureSensor module
 ```json
@@ -255,7 +255,7 @@ You can't customize the capability name or capability type. Click **Save**
 ![Customizations - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplatecustomize.png)
 
 
-## Create views
+### Create views
 
 As a builder, you can customize the application to display relevant information about the environmental sensor device to an operator. Your customizations enable the operator to manage the environmental sensor devices connected to the application. You can create two types of views for an operator to use to interact with devices:
 
