@@ -1,6 +1,6 @@
 ---
 title: Permissions to repositories in Azure Container Registry
-description: Create Azure Container Registry access tokens to permit scoped access to specific repositories
+description: Create an Azure Container Registry access token with scoped permissions to specific repositories to pull or push images
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -13,14 +13,15 @@ ms.author: danlep
 
 # Repository-scoped permissions in Azure Container Registry 
 
-As an alternative to using admin or service principal credentials with [role-based access]() to an entire container registry, you can create an access token with permissions to perform actions only on specific repositories. This feature allows you to configure scoped, time-limited access to repositories in a registry without relying on an Azure Active Directory identity. 
+ACR supports several [authentication options](container-registry-authentication.md) with identities that have [role-based access](container-registry-roles.md) to an entire registry. However, for certain scenarios, you might need to limit access to specific repositories in a registry. 
 
-Set up an access token with registry-scoped permissions in scenarios like the following:
+This article shows how to create a registry access token with permissions only on specific repositories in a registry. With an access token, you can provide users or services with scoped, time-limited access to repositories without requiring an Azure Active Directory identity. 
+
+Scenarios for using an access token with registry-scoped permissions include:
 
 * Provide IoT devices with individual tokens to pull an image from a repository
-* Provide scoped registry access to an external organization that needs permissions only to a specific repository 
-* Limit repository access in a registry in your organization to specific user groups. For example, provide write access to developers building images targeting specific repositories, and only read access to teams deploying from those repositories to production.
-
+* Provide an external organization with permissions to a specific repository 
+* Limit repository access to specific user groups in your organization. For example, provide write access to developers building images targeting specific repositories, and read access to teams or services deploying from those repositories to production.
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
@@ -41,7 +42,7 @@ Set up an access token with registry-scoped permissions in scenarios like the fo
 
 ## About repository-scoped permissions
 
-To configure repository-scoped permissions, you need to be a registry administrator or individual with at least the Contributor role. To configure the permissions, you create repository access tokens using commands in the Azure CLI.
+To configure repository-scoped permissions, you need to be a registry administrator or individual with at least the Contributor role. To configure the permissions, you create access tokens using commands in the Azure CLI.
 
 An **access token** is a credential used with a password to authenticate with the registry, with permitted *actions* scoped to one or more repositories. You set an expiration time for each token. Actions on each specified repository include one or more of the following.
 
@@ -52,7 +53,7 @@ An **access token** is a credential used with a password to authenticate with th
 |`content/write`     |  Write data to the repository. Use with `content/read` to push an artifact.    |
 |`metadata/write`     |  Write metadata to the repository       |
 
-A **scope map** is a related setting that helps you apply scoped repository permissions to a token, or reapply them to other tokens. If you don't apply a scope map when creating a token, a scope map is automatically created for you, to save the repository permission settings. A scope map helps you configure multiple users with identical access to a set of repositories. Azure Container Registry also provides system-defined scope maps that you can apply when creating access tokens.
+A **scope map** is a related setting that helps you apply scoped repository permissions to a token, or reapply them to other tokens. If you don't apply a scope map when creating a token, a scope map is automatically created for you, to save the permission settings. A scope map helps you configure multiple users with identical access to a set of repositories. Azure Container Registry also provides system-defined scope maps that you can apply when creating access tokens.
 
 ## Create an access token
 
@@ -89,30 +90,42 @@ The output shows details about the token, including generated passwords and scop
     ],
     "username": "MyToken"
   },
-  "id": "/subscriptions/xxxxxxxx-adbd-4cb4-c864-xxxxxxxxxxxx/resourceGroups/myregistry/providers/Microsoft.ContainerRegistry/registries/myregistry/tokens/MyToken",
+  "id": "/subscriptions/xxxxxxxx-adbd-4cb4-c864-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry/tokens/MyToken",
   "name": "MyToken",
   "objectId": null,
   "provisioningState": "Succeeded",
   "resourceGroup": "danlepow",
-  "scopeMapId": "/subscriptions/xxxxxxxx-adbd-4cb4-c864-xxxxxxxxxxxx/resourceGroups/myregistry/providers/Microsoft.ContainerRegistry/registries/myregistry/scopeMaps/MyToken-scope-map",
+  "scopeMapId": "/subscriptions/xxxxxxxx-adbd-4cb4-c864-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry/scopeMaps/MyToken-scope-map",
   "status": "enabled",
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
-### Create access token and specify a scope map
+### Create a scope map and associated token
 
 First create a scope map using the [az acr scope-map create][az-acr-scope-map-create] command.
 
 The following example adds a scope map with the same permissions used in the previous example. It allows `content/write` and `content/read` actions on the `samples/hello-world` repository, and `content/read` actions on the `samples/nginx` repository:
 
 ```azurecli
-az acr scope-map create --name MyScopeMap --registry myregistry --add samples/hello-world content/write --add samples/nginx content/read --description "Sample scope map."
+az acr scope-map create --name MyScopeMap --registry myregistry --repository samples/hello-world content/write --repository samples/nginx content/read --description "Sample scope map."
 ```
 
 Output is similar to the following:
 
 ```console
-# ADD SAMPLE OUTPUT HERE
+{
+  "actions": [
+    "repositories/samples/hello-world/content/write",
+    "repositories/samples/nginx/content/read"
+  ],
+  "creationDate": "2019-10-22T05:07:35.194413+00:00",
+  "description": "Sample scope map.",
+  "id": "/subscriptions/fxxxxxxxx-adbd-4cb4-c864-xxxxxxxxxxxx/resourceGroups/myresourcegroup/providers/Microsoft.ContainerRegistry/registries/myregistry/scopeMaps/MyScopeMap",
+  "name": "MyScopeMap",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myresourcegroup",
+  "scopeMapType": "UserDefined",
+  "type": "Microsoft.ContainerRegistry/registries/scopeMaps"
 ```
 
 Now create a token associated with the *MyScopeMap* scope map. By default, the command generates two passwords. This sample enables the token (the default setting), but you can disable the token at any time.
@@ -121,16 +134,14 @@ Now create a token associated with the *MyScopeMap* scope map. By default, the c
 az acr token create --name MyToken --registry myregistry --scope-map MyScopeMap --status enabled
 ```
 
+The output shows details about the token, including generated passwords and scope map. It's recommended to save the passwords in a safe place to use later with `docker login`.
+
+
 ## Get password for the token
 
-If passwords were created when you created the token, you can obtain one using the [az acr token show][az-acr-token-show] command. The following example stores the first password in the environment variable TOKEN_PWD. This example is formatted for the bash shell.
+If passwords were created when you created the token, proceed to [Authenticate with registry](#authenticate-with-registry).
 
-```azurecli
-# VERIFY THIS EXAMPLE
-TOKEN_PWD=$(az acr token show --name MyToken --registry myregistry --query 'passwords[0].value' --output tsv)
-```
-
-At any time, you can generate or replace a password for the token using [az acr token credential generate][az-acr-token-credential-generate] command.
+If you don't have a token password, or you want to generate new passwords, run the [az acr token credential generate][az-acr-token-credential-generate] command.
 
 The following example generates two password for the token you created, with an expiration period of one month. It stores the first password in the environment variable TOKEN_PWD. This example is formatted for the bash shell.
 
@@ -138,15 +149,17 @@ The following example generates two password for the token you created, with an 
 TOKEN_PWD=$(az acr token credential generate --name MyToken --registry myregistry --months 1 --query 'passwords[0].value' --output tsv)
 ```
 
-## Authenticate with registry
+## Authenticate using token
 
-Use the name of the token and the password to authenticate with the registry, using `docker login`. In this example, pass the password using the environment variable you created:
+Use the name of the token and one of its passwords to authenticate with the registry, using `docker login`. The following example is formatted for the bash shell, and passes the password with an environment variable.
 
-```console
+```bash
+TOKEN_PWD=<token password>
+
 echo $TOKEN_PWD | docker login --username MyToken --password-stdin myregistry.azurecr.io
 ```
 
-If the token is configured properly, you should see the following output:
+Output should show successful authentication:
 
 ```console
 Login Succeeded
@@ -161,7 +174,7 @@ docker pull myregistry.azurecr.io/samples/hello-world:v1
 docker pull myregistry.azurecr.io/samples/nginx:v1
 ```
 
-However, because the token only allows the `content/write` action  on the `samples/hello-world` repository, `docker push` only succeeds to that repository:
+Because the example token allows the `content/write` action only on the `samples/hello-world` repository, `docker push` only succeeds to that repository:
 
 ```console
 # docker push succeeds
@@ -170,7 +183,6 @@ docker pull myregistry.azurecr.io/samples/hello-world:v1
 # docker push fails
 docker pull myregistry.azurecr.io/samples/nginx:v1
 ```
-
 
 ## Next steps
 
