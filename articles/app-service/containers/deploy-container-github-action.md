@@ -81,7 +81,7 @@ The below example uses user-level credentials i.e. Azure Service Principal for d
 
 5. You will see the secrets as shown below once defined.
 
-    ![container secrets](../_img/app-service-secrets-container.png)
+    ![container secrets](../media/app-service-github-actions/app-service-secrets-container.png)
 
 ## Build the Container image
 

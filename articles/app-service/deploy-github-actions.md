@@ -63,7 +63,7 @@ You could also use app-level credentials i.e. publish profile for deployment. Fo
 
 2. In [GitHub](https://github.com/), browse your repository, select **Settings > Secrets > Add a new secret**
 
-    ![secrets](../_img/secrets.png)
+    ![secrets](media/app-service-github-actions/secrets.png)
 
 3. Paste the contents for the downloaded publish profile file into the secret's value field.
 
@@ -77,7 +77,7 @@ You could also use app-level credentials i.e. publish profile for deployment. Fo
 
 5. You will see the secret as shown below once defined.
 
-    ![secrets](../_img/app-service-secrets.png)
+    ![secrets](media/app-service-github-actions/app-service-secrets.png)
 
 ## Setup the environment
 
