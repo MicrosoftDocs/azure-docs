@@ -12,7 +12,7 @@ ms.date: 10/15/2019
 
 # Understanding Spark for U-SQL developers
 
-Microsoft supports several Analytics services such as [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Azure HDInsight](../hdinsight/hdinsight-overview.md) as well as Azure Data Lake Analytics.  We hear from developers that they have a clear preference for open-source-solutions as they build analytics pipelines.  To help U-SQL developers understand Apache Spark and how you might migrate some of your U-SQL scripts to Apache Spark, we have created this guidance.  It includes a number of steps you can take, and several alternatives.
+Microsoft supports several Analytics services such as [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Azure HDInsight](../hdinsight/hdinsight-overview.md) as well as Azure Data Lake Analytics.  We hear from developers that they have a clear preference for open-source-solutions as they build analytics pipelines.  To help U-SQL developers understand Apache Spark, and how you might migrate your U-SQL scripts to Apache Spark, we've created this guidance.  It includes a number of steps you can take, and several alternatives.
 
 1. Understand how to migrate your job orchestration pipelines.
 
@@ -34,5 +34,5 @@ Both [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Az
 
 ## Next steps
 
-* For more information, see [Understand Spark data formats](data-lake-analytics-understand-spark-data.md).
-* Learn about [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- For more information, see [Understand Spark data formats](data-lake-analytics-understand-spark-data.md).
+- Learn about [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)

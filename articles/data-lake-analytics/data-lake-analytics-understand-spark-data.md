@@ -16,7 +16,7 @@ If you want to use either [Azure Databricks](../azure-databricks/what-is-azure-d
 
 We recommend that you review the article [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
 
-In addition to moving your files, you also want to make your data stored in U-SQL tables accessible to Spark.
+In addition to moving your files, you'll also want to make your data, stored in U-SQL tables, accessible to Spark.
 
 ## Move data stored in files
 
@@ -45,5 +45,5 @@ After this transformation, you copy the data as outlined in the chapter [Move "u
 
 ## Next steps
 
-* For more information, see [Understand Spark for U-SQL developers](data-lake-analytics-understand-spark-u-sql-code.md)
-* Learn about [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- For more information, see [Understand Spark for U-SQL developers](data-lake-analytics-understand-spark-u-sql-code.md)
+- Learn about [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)

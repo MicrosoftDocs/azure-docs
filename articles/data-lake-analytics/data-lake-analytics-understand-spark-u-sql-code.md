@@ -12,11 +12,18 @@ ms.date: 10/15/2019
 
 # Understand Apache Spark for U-SQL developers
 
-This section provides high-level guidance on migrating U-SQL Scripts to Apache Spark. It starts with a [comparison of the two language's processing paradigms](#understand-the-u-sql-and-spark-language-and-processing-paradigms) and then provides tips on how to [migrate scripts](#migrate-u-sql-scripts) including U-SQL's [rowset expressions](#migrate-u-sql-rowset-expressions-and-sql-based-scalar-expressions), [.NET code](#migrate-net-code), [data types](#migrate-typed-values), and [catalog objects](#migrate-u-sql-catalog-objects).
+This section provides high-level guidance on migrating U-SQL Scripts to Apache Spark.
+
+- 1. It starts with a [comparison of the two language's processing paradigms](#understand-the-u-sql-and-spark-language-and-processing-paradigms)
+- 1. Provides tips on how to
+    1. [migrate scripts](#migrate-u-sql-scripts) including U-SQL's [rowset expressions](#migrate-u-sql-rowset-expressions-and-sql-based-scalar-expressions)
+    2. [.NET code](#migrate-net-code)
+    3. [data types](#migrate-typed-values)
+    4. [catalog objects](#migrate-u-sql-catalog-objects).
 
 ## Understand the U-SQL and Spark language and processing paradigms
 
-When migrating Azure Data Lake Analytics' U-SQL Scripts to Spark, it is useful to have an understanding of the general language and processing philosophies of the two systems.
+Before you start migrating Azure Data Lake Analytics' U-SQL scripts to Spark, it is useful to have an understanding of the general language and processing philosophies of the two systems.
 
 U-SQL is a SQL-like declarative query language that uses a data-flow paradigm and allows you to easily embed and scale out user-code written in .NET (for example C#), Python, and R. The user-extensions can implement simple expressions or user-defined functions, but can also provide the user the ability to implement so called user-defined operators that implement custom operators to perform rowset level transformations, extractions and writing output.
 
@@ -28,7 +35,7 @@ Furthermore, Azure Data Lake Analytics offers U-SQL in a serverless job service 
 
 ## Migrate U-SQL scripts
 
-U-SQL Scripts follow the following processing pattern:
+U-SQL scripts follow the following processing pattern:
 
 1. Data gets read from either unstructured files, using the `EXTRACT` statement, a location or file set specification, and the built-in or user-defined extractor and desired schema, or from U-SQL tables (managed or external tables). It is represented as a rowset.
 2. The rowsets get transformed in multiple U-SQL statements that apply U-SQL expressions to the rowsets and produce new rowsets.
@@ -203,5 +210,5 @@ Spark's cost-based query optimizer has its own capabilities to provide hints and
 
 ## Next steps
 
-* For more information, see [Understand Spark data and data formats](data-lake-analytics-understand-spark-data.md)
-* Learn about [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- For more information, see [Understand Spark data and data formats](data-lake-analytics-understand-spark-data.md)
+- Learn about [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
