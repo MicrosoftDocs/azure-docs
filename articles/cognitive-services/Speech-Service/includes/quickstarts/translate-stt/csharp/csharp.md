@@ -15,12 +15,9 @@ ms.author: erhopf
 **Select your target environment**
 
 #### [.Net](#tab/dotnet)
-[!INCLUDE [Header](../header.md)]
 [!INCLUDE [dotnet](./dotnet.md)]
 #### [.Net Core](#tab/dotnetcore)
-[!INCLUDE [Header](../header.md)]
 [!INCLUDE [dotnetcore](./dotnetcore.md)]
 #### [UWP](#tab/uwp)
-[!INCLUDE [Header](../header.md)]
 [!INCLUDE [uwp](./uwp.md)]
 * * *

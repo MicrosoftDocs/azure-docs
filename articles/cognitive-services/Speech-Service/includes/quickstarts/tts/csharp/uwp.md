@@ -17,14 +17,12 @@ ms.author: yinhew
 
 ## Prerequisites
 
-This quickstart requires:
+Before you get started, make sure to:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
-
-## Create a Visual Studio project
-
-[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=uwp)
 
 ## Add sample code
 

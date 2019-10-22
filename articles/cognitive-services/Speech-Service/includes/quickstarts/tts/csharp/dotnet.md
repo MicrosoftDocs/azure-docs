@@ -14,15 +14,12 @@ ms.author: yinhew
 
 ## Prerequisites
 
-To complete this project, you'll need:
+Before you get started, make sure to:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* A subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
-* A speaker (or headset) available.
-
-## Create a Visual Studio project
-
-[!INCLUDE [Create project](~/includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## Add sample code
 

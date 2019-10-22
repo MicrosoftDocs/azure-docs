@@ -17,16 +17,12 @@ ms.author: yinhew
 
 ## Prerequisites
 
-This quickstart requires:
+Before you get started, make sure to:
 
-* [.NET Core SDK](https://dotnet.microsoft.com/download)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) or later
-* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
-
-## Create a Visual Studio project
-
-[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-dotnetcore-create-proj.md)]
-
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnetcore)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnetcore)
 ## Add sample code
 
 1. Open `Program.cs`, and replace all the code in it with the following.
