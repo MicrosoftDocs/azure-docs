@@ -1,4 +1,4 @@
----
+﻿---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - storage
 description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
 author: hrasheed-msft
@@ -173,7 +173,7 @@ HDInsight by default has full access to data in the Azure Storage accounts assoc
 
 7. Click the **Add** button to save this key and value, then click the **Save** button to save the configuration changes. When prompted, add a description of the change ("adding SAS storage access" for example) and then click **Save**.
 
-8. In the Ambari web UI, select HDFS from the list on the left, and then select **Restart All Affected** from the Service Actions drop down list on the right. When prompted, select **Confirm Restart All**.
+8. In the Ambari web UI, select HDFS from the list on the left, and then select **Restart All Affected** from the Service Actions drop down list on the right. When prompted, select **Confirm Restart All**.
 
 9. Repeat this process for MapReduce2 and YARN.
 

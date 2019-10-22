@@ -1,10 +1,10 @@
 ---
-title: Cross-tenant management experiences with Azure Lighthouse
+title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/18/2019
 ms.topic: overview
 manager: carmonm
 ---
@@ -53,6 +53,7 @@ Currently, the cross-tenant management experience supports the following scenari
 - View alerts for delegated subscriptions in the Azure portal or programmatically through REST API calls, with the ability to view alerts across all subscriptions
 - View activity log details for delegated subscriptions
 - Log analytics: Query data from remote customer workspaces in multiple tenants
+- Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the service provider tenant through webhooks
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -60,7 +61,7 @@ Currently, the cross-tenant management experience supports the following scenari
 - Create and edit policy definitions within a delegated subscription
 - Assign customer-defined policy definitions within the delegated subscription
 - Customers see policies authored by the service provider alongside any policies they've authored themselves
-- Can remediate deployIfNotExists assignments within the customer tenants if the customer has configured the managed identity and *roleDefinitionIds* for that policy assignment
+- Can [remediate deployIfNotExists or modify assignments within the customer tenant](../how-to/deploy-policy-remediation.md)
 
 [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
 
@@ -117,6 +118,7 @@ With all scenarios, please be aware of the following current limitations:
 - Requests handled by Azure Resource Manager can be performed using Azure delegated resource management. The operation URIs for these requests start with `https://management.azure.com`. However, requests that are handled by an instance of a resource type (such as KeyVault secrets access or storage data access) aren’t supported with Azure delegated resource management. The operation URIs for these requests typically start with an address that is unique to your instance, such as `https://myaccount.blob.core.windows.net` or `https://mykeyvault.vault.azure.net/`. The latter also are typically data operations rather than management operations. 
 - Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). All built-in roles are currently supported with Azure delegated resource management except for Owner, User Access Administrator, or any built-in roles with [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) permission. Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) are also not supported.
 - Currently, you can’t onboard a subscription (or resource group within a subscription) for Azure delegated resource management if the subscription uses Azure Databricks. Similarly, if a subscription has been registered for onboarding with the **Microsoft.ManagedServices** resource provider, you won’t be able to create a Databricks workspace for that subscription at this time.
+- While you can onboard subscriptions and resource groups for Azure delegated resource management which have resource locks, those locks will not prevent actions from being performed by users in the managing tenant. [Deny assignments](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) that protect system-managed resources, such as those created by Azure managed applications or Azure Blueprints (system-assigned deny assignments), do prevent users in the managing tenant from acting on those resources; however, at this time users in the customer tenant can’t create their own deny assignments (user-assigned deny assignments).
 
 ## Using APIs and management tools with cross-tenant management
 
