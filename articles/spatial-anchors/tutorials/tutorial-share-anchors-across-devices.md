@@ -84,37 +84,14 @@ Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSamp
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
-## (Optional) Adding Azure Cosmos DB to your Web App
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
+
+## Next steps
 
 In this tutorial, you've deployed an ASP.NET Core Web App in Azure, and then configured and deployed a Unity App. You created Spatial Anchors with the app, and shared them with other devices by using your ASP.NET Core Web App.
 
 You can improve your ASP.NET Core Web App so that it uses Azure Cosmos DB to store your shared Spatial Anchor identifiers. Azure Cosmos DB will give persistence to your ASP.NET Core Web App. Doing so will allow your app to create an anchor today, and come back days later to be able to locate it again, by using the anchor identifier stored in your web app.
 
-Add an Azure Cosmos Database to the resource group you created in earlier. 
-
-### Create a database account
-
-[!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
-
-Copy the `Connection String` because you'll need it.
-
-### Make minor changes to the SharingService files
-
-In **Solution Explorer**, open `SharingService\Startup.cs`.
-
-Locate `#define INMEMORY_DEMO` at the top of the file and comment that line out. Save the file.
-
-In **Solution Explorer**, open `SharingService\appsettings.json`.
-
-Locate the `StorageConnectionString` property, and set the value to be the same as the `Connection String` value that you copied in the [create a database account step](#create-a-database-account). Save the file.
-
-You can publish the Sharing Service again and finally deploy the app.
-
-[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
-
-## Next steps
-
-In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about how to use Azure Spatial Anchors in a new Unity HoloLens app, continue to the next tutorial.
-
 > [!div class="nextstepaction"]
-> [Starting a new Android app](./tutorial-new-unity-hololens-app.md)
+> [Use Azure Cosmo DB to Store Anchors](./tutorial-use-cosmos-db-to-store-anchors.md)
+
