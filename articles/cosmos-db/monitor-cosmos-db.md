@@ -123,13 +123,6 @@ Following are queries that you can use to help you monitor your Azure Cosmos dat
     ```
 
 
-## Alerts
-The following table lists common and recommended alert rules for Azure Cosmos DB.
-
-| Alert type | Condition | Description |
-|:---|:---|:---|
-| | | |
-| | | |
 
 
 ## Next steps
