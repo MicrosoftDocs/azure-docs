@@ -64,7 +64,7 @@ The following sample *host.json* files have all possible options specified.
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 5
+              "maxTelemetryItemsPerSecond" : 20
             }
         }
     },
@@ -99,7 +99,7 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
     "applicationInsights": {
         "samplingSettings": {
           "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
+          "maxTelemetryItemsPerSecond" : 20
         }
     }
 }
@@ -111,7 +111,7 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
 |Property  |Default | Description |
 |---------|---------|---------| 
 |isEnabled|true|Enables or disables sampling.| 
-|maxTelemetryItemsPerSecond|5|The threshold at which sampling begins.| 
+|maxTelemetryItemsPerSecond|20|The threshold at which sampling begins.| 
 |EnableLiveMetrics |true|Enables live metrics collection.|
 |EnableDependencyTracking|true|Enables dependency tracking.|
 |EnablePerformanceCountersCollection|true|Enables Kudu performance counters collection.|
