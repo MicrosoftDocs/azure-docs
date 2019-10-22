@@ -31,7 +31,7 @@ We recommend that you use the [Edit Metadata](edit-metadata.md) module to prepar
 
 2. Connect it to any module that outputs a dataset.   
 
-    As long as the data is [tabular](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), you can convert it to a dataset. This includes data loaded using [Import Data](import-data.md), data created by using [Enter Data Manually](enter-data-manually.md), or datasets transformed by using [Apply Transformation](apply-transformation.md).
+    As long as the data is [tabular](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), you can convert it to a dataset. This includes data loaded using [Import Data](import-data.md), data created by using [Enter Data Manually](enter-data-manually.md), or datasets transformed by using [Apply Transformation](apply-transformation.md).
 
 3.  In the **Action** dropdown list, indicate if you want to do any cleanup on the data before saving the dataset:  
   
