@@ -55,6 +55,8 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<object-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<blob-name>'` |
 | **Example** | `azcopy copy 'https://s3.amazonaws.com/mybucket/myobject' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myblob'` |
 
+In a Windows Command Shell (cmd.exe), enclose paths in double quotes ("") instead of single quotes ('').
+
 > [!NOTE]
 > Examples in this article use path-style URLs for AWS S3 buckets (For example: `http://s3.amazonaws.com/<bucket-name>`). 
 >
@@ -69,6 +71,8 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Example** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
+In a Windows Command Shell (cmd.exe), enclose paths in double quotes ("") instead of single quotes ('').
+
 ### Copy a bucket
 
 |    |     |
@@ -76,12 +80,16 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>' --recursive=true` |
 | **Example** | `azcopy copy 'https://s3.amazonaws.com/mybucket' 'https://mystorageaccount.blob.core.windows.net/mycontainer' --recursive=true` |
 
+In a Windows Command Shell (cmd.exe), enclose paths in double quotes ("") instead of single quotes ('').
+
 ### Copy all buckets in all regions
 
 |    |     |
 |--------|-----------|
 | **Syntax** | `azcopy copy 'https://s3.amazonaws.com/' 'https://<storage-account-name>.blob.core.windows.net' --recursive=true` |
 | **Example** | `azcopy copy 'https://s3.amazonaws.com' 'https://mystorageaccount.blob.core.windows.net' --recursive=true` |
+
+In a Windows Command Shell (cmd.exe), enclose paths in double quotes ("") instead of single quotes ('').
 
 ### Copy all buckets in a specific S3 region
 
