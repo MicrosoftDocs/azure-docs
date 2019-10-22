@@ -74,9 +74,6 @@ export COSMOS_DB_ACCOUNT=<value>
 export STORAGE_ACCOUNT=<value>
 export FUNCTION_APP=<value>
 export LOCATION=<value>
-export DATABASE_NAME=TelemetryDb
-export COLLECTION_NAME=TelemetryInfo
-export PARTITION_KEY_PATH='/temperatureStatus'
 ```
 
 ### Create a resource group
@@ -121,14 +118,14 @@ az cosmosdb create \
     --name $COSMOS_DB_ACCOUNT \
     --resource-group $RESOURCE_GROUP
 az cosmosdb database create \
-    --db-name $DATABASE_NAME \
+    --db-name TelemetryDb \
     --name $COSMOS_DB_ACCOUNT \
     --resource-group-name $RESOURCE_GROUP
- az cosmosdb collection create \
-    --collection-name $COLLECTION_NAME \
-    --db-name $DATABASE_NAME \
+az cosmosdb collection create \
+    --collection-name TelemetryInfo \
+    --db-name TelemetryDb \
     --name $COSMOS_DB_ACCOUNT \
-    --partition-key-path $PARTITION_KEY_PATH \
+    --partition-key-path '/temperatureStatus' \
     --resource-group-name $RESOURCE_GROUP
 ```
 
@@ -206,27 +203,32 @@ Next, you will create a project on your local machine, add Java code, and test i
 
 ### Create a local functions project
 
-Use the following Maven command to create a functions project and add the required dependencies. This command will prompt you to supply a `groupId` value, such as `com.example`, an `artifactId`, such as `example-functions`. You can accept the default values for `version` and `package`. For `appName`, `appRegion`, and `resourceGroup`, use the values that you specified earlier in this topic.
+Use the following Maven command to create a functions project and add the required dependencies.
 
 <!-- TODO update to use batch mode instead of interactive mode -->
 
 ```bash
-mvn archetype:generate \
+mvn archetype:generate --batch-mode \
     -DarchetypeGroupId=com.microsoft.azure \
-    -DarchetypeArtifactId=azure-functions-archetype
+    -DarchetypeArtifactId=azure-functions-archetype \
+    -DappName=$FUNCTION_APP \
+    -DresourceGroup=$RESOURCE_GROUP \
+    -DgroupId=com.example \
+    -DartifactId=telemetry-functions
 ```
 
-This command generates several files inside a folder named after your `artifactId` value:
+This command generates several files inside a `telemetry-functions` folder:
 
 * A `pom.xml` file for use with Maven.
 * A `local.settings.json` file to hold app settings for local testing.
-* A `host.json` file that enables the Azure Functions Extension Bundle, required for Cosmos DB output binding in your data analysis function.
+* A `host.json` file that enables the [Azure Functions Extension Bundle](/azure/azure-functions/functions-bindings-register#extension-bundles), required for Cosmos DB output binding in your data analysis function.
 * A `Function.java` file that includes a default function implementation.
 * A few test files that this topic doesn't need.
 
-To avoid compilation errors, you will need to delete the test files. First, navigate to the newly created project folder, then run the following command:
+To avoid compilation errors, you will need to delete the test files. Run the following commands to navigate to the new project folder and delete the test folder:
 
 ```bash
+cd telemetry-functions
 rm -r src/test
 ```
 
@@ -240,16 +242,14 @@ func azure functionapp fetch-app-settings $FUNCTION_APP
 
 ### Add Java code
 
-Open the `Function.java` file and replace the contents with the following code. Replace `<event hub name>` with the name of the Event Hub you created inside your Event Hub namespace.
-
-<!-- TODO replace namespace, too, or direct user to use weatherdetector -->
+Next, open the `Function.java` file and replace the contents with the following code. Replace `<event hub name>` with the name of the Event Hub you created inside your Event Hub namespace.
 
 ```java
 package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 import com.microsoft.azure.functions.*;
-import com.kweather.TelemetryItem.status;
+import com.example.TelemetryItem.status;
 import java.time.*;
 
 public class Function {
@@ -276,7 +276,7 @@ public class Function {
     public void processSensorData(
         @EventHubTrigger(
             name = "msg",
-            eventHubName = "karlertesthub",
+            eventHubName = "<event hub name>",
             cardinality = Cardinality.ONE,
             connection = "EventHubConnectionString")
             TelemetryItem item,
@@ -311,7 +311,7 @@ public class Function {
 
 As you can see, this file contains two functions, `generateSensorData` and `processSensorData`. The `generateSensorData` function simulates a sensor that sends temperature and pressure readings to the event hub. A timer trigger runs the function every 10 seconds, and an event hub output binding sends the return value to the event hub. When the event hub receives the message, it generates an event. The `processSensorData` function runs when it receives the event. It then processes the event data and uses a Cosmos DB output binding to send the results to Cosmos DB.
 
-The data used by these functions is stored in an object called `TelemetryItem`, so you'll need an implementation of that. Create a new file called `TelemetryItem.java` in the same location as `Function.java` and add the following code:
+The data used by these functions is stored using a class called `TelemetryItem`, so you'll need an implementation of that. Create a new file called `TelemetryItem.java` in the same location as `Function.java` and add the following code:
 
 ```java
 package com.example;
