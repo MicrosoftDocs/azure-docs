@@ -75,7 +75,9 @@ This template includes sample water quality device template, simulated device, o
 
 6. You now have created a water quality monitoring app using the Azure IoT Central **Water quality monitoring template**. IoT Central deploys the application and you will land on the **Dashboard**, which will look like the picture below.
 
+<!-->
    ![Water Quality Monitoring application dashboard](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.png)
+-->
 
 Your newly created application comes with pre-configured:
 * Sample operator dashboards
@@ -89,6 +91,9 @@ It is your application and you can modify it anytime. Let’s now explore the ap
 
 ## Explore and customize operator dashboard 
 After creating the application you land in the **Wide Water water quality monitoring dashboard**.
+
+
+   ![Water Quality Monitoring dashboard](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.png)
 
 As a builder, you can create and customize views on the dashboard for operators. Before you try to customize, let's explore the dashboard. 
 
