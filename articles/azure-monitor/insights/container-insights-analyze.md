@@ -39,9 +39,10 @@ To view the health status of all Kubernetes clusters deployed, select **Monitor*
 
 You can scope the results presented in the grid to show clusters that are:
 
-* Hosted in Azure Kubernetes Service
-* Hosted on Azure Stack
-* Hosted on-premises or other cloud provider
+* **Azure** - AKS and AKS-Engine clusters hosted in Azure Kubernetes Service
+* **Azure Stack (Preview)** - AKS-Engine clusters hosted on Azure Stack
+* **Non-Azure (Preview)** - Kubernetes clusters hosted on-premises
+* **All** - View all the Kubernetes clusters hosted in Azure, Azure Stack, and on-premises environments that are onboarded to Azure Monitor for containers
 
 To view clusters from a specific environment, select it from the **Environments** pill on the top-left corner of the page.
 
