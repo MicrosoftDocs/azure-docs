@@ -51,7 +51,7 @@ To create a new Azure IoT Central water consumption monitoring application:
 
 2. Click on **Build** from the left navigation menu and select the **Government** tab. The government page displays several government application templates.
 
-    ![Build Government App templates](./media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview.png)
+   ![Build Government App templates](./media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview.png)
 
 1. Select the **Water Consumption Monitoring** application template. 
 This template includes sample water consumption device template, simulated device, operator dashboard, and pre-configured monitoring rules.    
@@ -69,11 +69,7 @@ This template includes sample water consumption device template, simulated devic
 
 6. You now have created a water consumption monitoring app using the Azure IoT Central **Water consumption monitoring template**. IoT Central deploys the application and you will land on the **Dashboard**, which will look like the picture below.
 
-<!-->
-   ![Water consumption Monitoring application dashboard](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboard.png)
--->
-
-Your newly created application comes with pre-configured:
+Congratulations! You just created your water consumption monitoring application, which comes with pre-configured:
 * Sample operator dashboards
 * Sample pre-defined water consumption monitor device templates
 * Simulated water consumption monitor devices
@@ -83,39 +79,43 @@ Your newly created application comes with pre-configured:
 It is your application and you can modify it anytime. Let’s now explore the application and make some customizations.  
 
 ## Explore and customize operator dashboard 
-After creating the application you land in the **Wide Water water consumption monitoring dashboard**.
+After creating the application you land in the sample operator dashboard called **Wide World water consumption monitoring dashboard**.
 
-   ![Water consumption Monitoring dashboard](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboard.png)
+   ![Water consumption Monitoring dashboard](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboardfull.png)
 
 As a builder, you can create and customize views on the dashboard for operators. Before you try to customize, let's explore the dashboard. 
 
-All the data displayed in the dashboard is based on simulated device data, which will be explored in the next section. 
-
-### Viewing **Wide World water consumption monitoring dashboard**
+> [!NOTE]
+> All the data displayed in the dashboard is based on simulated device data, which we will be explored in the next section. 
+  
+### **Wide World water consumption monitoring dashboard**
 The dashboard consists of different kinds of tiles:
 
-* **Wide World Water utility image tile**: the first tile in the dashboard is an image tile of a fictitious Water utility "Wide World Water". You can customize the tile and put your own image or remove it. 
+* **Valve operational info tWide World Water utility image tile**: the first tile in the dashboard is an image tile of a fictitious Water utility "Wide World Water". You can customize the tile and put your own image or remove it. 
 
-* **Average pH KPI tile**: you can see that there are KPI tiles at the top like **Average pH in the last 30 minutes**. You can customize KPI tiles and set to a different type and time range.
+* **Average water flow KPI tile**: the KPI tile is configured to display as an example *the average in the last 30 minutes*. You can customize KPI tiles and set to a different type and time range.
 
-*  **Water monitoring area map**: IoT Central uses Azure Maps, which you can directly set in your application and display device location. You can also map location information to your device from the application and can use Azure Maps to display it on a map. Try to hover over the map and try the controls over the map. 
+* Then it has right in the dashboard *Device Command* tiles to **Close valve**, **Open valve**, or **Set valve position**. Clicking on the commands will take you to the simulated device device command page. In IoT Central a *Command* is a *device capability* type which we will explore later in the [device template section of this tutorial.](tba)
 
-* **Average pH distribution Heatmap chart**: you can choose different visualization charts to display device telemetry data in the way that is most appropriate to your application. Heatmap 
+*  **Water distribution area map**: the map is using Azure Maps, which you can configure directly in Azure IoT Central. The map tile is displaying device location Try to hover over the map and try the controls over the map, like *zoom-in*, *zoom-out* or *expand*. 
 
-* **Critical consumption indicators line chart**: you can visualize one or multiple device telemetries plotted as a line chart over a desired time range.  
+    ![Water consumption Monitoring dashboard map](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-dashboard-map.png)
 
-* **Concentration of chemical agents bar chart**: you can visualize one or multiple device telemetry data in a bar chart as in the sample. 
+* **Average water flow line chart** and **Environment conditions line chart**: you can visualize one or multiple device telemetries plotted as a line chart over a desired time range.  
 
-* **Action button**: the dashboard includes an example of an action tile that an operator can initiate directly from the monitoring dashboard, like initiating an action to reset device properties. 
+* **Average valve pressure heatmap chart**: you can choose heatmap visualization type of device telemetry data you are interested to look at the distribution over a time range with a color index.
 
-* **Properties list tiles**: the dashboard has multiple properties tiles representing threshold information, device health information, and maintenance information. 
+* **Reset alert threshold content tile**: you can include call to action content tiles embedding the link to an action page. In this case reset alert threshold will take you to the application **Jobs** where you can run updates to devices properties, which we will explore later in the [configure jobs section of this tutorial.](tba)
+
+* **Property tiles**: the dashboard displays **Valve operational info**, **Flow alert thresholds**, and **Maintenance info** which are device properties.  
+
 
 ### Customize dashboard 
 
 As a builder, you can customize views in dashboard for operators. You can try:
 * Click on **Edit** to customize the **Wide World water consumption monitoring dashboard**. You can customize the dashboard by clicking on the **Edit** menu. Once the dashboard is in **edit** mode, you can add new tiles, or you can configure 
 
-    ![Edit Dashboard](./media/tutorial-waterconsumptionmonitoring/edit-dashboard.png)
+     ![Edit Dashboard](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-edit-dashboard.png)
 
 * You can also click on **+ New** to create new dashboard and configure from scratch. You can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
 
