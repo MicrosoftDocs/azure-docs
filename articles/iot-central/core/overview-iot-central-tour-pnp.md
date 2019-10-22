@@ -139,7 +139,7 @@ Device group are a collection of related devices. A *solution builder* defines a
 > [!div class="mx-imgBorder"]
 > ![Rules page](media/overview-iot-central-tour-pnp/rules-pnp.png)
 
-The rules page lets you define rules based on devices' telemetry, state, or events. When a rule fires, it can trigger one or more actions - such as sending an email, notify an external system via webhook alerts, etc. To learn, see the [Configuring rules](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
+The rules page lets you define rules based on devices' telemetry, state, or events. When a rule fires, it can trigger one or more actions - such as sending an email, notify an external system via webhook alerts, etc. To learn, see the [Configuring rules](tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
 
 ### Analytics
 
@@ -169,7 +169,7 @@ The device templates page is where a builder creates and manages the device temp
 
 The *solution builder* can also create forms and dashboards for operators to use to manage devices.
 
-To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
+To learn more, see the [Define a new device type in your Azure IoT Central application](howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
 
 ### Data export
 > [!div class="mx-imgBorder"]
