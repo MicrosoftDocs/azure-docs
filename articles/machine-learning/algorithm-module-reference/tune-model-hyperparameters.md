@@ -17,13 +17,13 @@ This article describes how to use the [Tune Model Hyperparameters](tune-model-hy
 
 The terms *parameter* and *hyperparameter* can be confusing. The model's *parameters* are what you set in the properties pane. Basically, this module performs a *parameter sweep* over the specified parameter settings, and learns an optimal set of _hyperparameters_, which might be different for each specific decision tree, dataset, or regression method. The process of finding the optimal configuration is sometimes called *tuning*. 
 
-The module support the following method for finding the optimum settings for a model 
+The module supports the following method for finding the optimum settings for a model 
 
 **Integrated train and tune**: You configure a set of parameters to use, and then let the  module iterate over multiple combinations, measuring accuracy until it finds a "best" model. With most learner modules, you can choose which parameters should be changed during the training process, and which should remain fixed.
 
     Depending on how long you want the tuning process to run, you might decide to exhaustively test all combinations, or you could shorten the process by establishing a grid of parameter combinations and testing a randomized subset of the parameter grid.
 
- This method generate a trained model that you can save for re-use.  
+ This method generates a trained model that you can save for reuse.  
 
 ### Related tasks
 
@@ -108,13 +108,13 @@ Iterating over many combinations of settings can be time-consuming, so the modul
 
 + Limit the number of iterations used to test a model
 + Limit the parameter space
-+ Limit both the numer of iterations and the parameter space
++ Limit both the number of iterations and the parameter space
 
 We recommend that you pipeline with the settings to determine the most efficient method of training on a particular dataset and model.
 
 ### Choosing an evaluation metric
 
-A report containing the accuracy for each model is presented at the end so that you can review the metric results. A uniform set of metrics is used for all binary classification models, accuracy is used for all multi-class classification models and a different set of metrics is used for regression models. However, during training, you must choose a **single** metric to use in ranking the models that are generated during the tuning process. You might find that the best metric varies, depending on your business problem, and the cost of false positives and false negatives.
+A report containing the accuracy for each model is presented at the end so that you can review the metric results. A uniform set of metrics is used for all binary classification models, accuracy is used for all multi-class classification models, and a different set of metrics is used for regression models. However, during training, you must choose a **single** metric to use in ranking the models that are generated during the tuning process. You might find that the best metric varies, depending on your business problem, and the cost of false positives and false negatives.
 
 #### Metrics used for binary classification
 
@@ -132,15 +132,15 @@ A report containing the accuracy for each model is presented at the end so that 
 
 #### Metrics used for regression
 
--   **Mean absolute error** Averages all the error in the model, where error means the distance of the predicted value from the true value. Often abbreviated as **MAE**.  
+-   **Mean absolute error** averages all the error in the model, where error means the distance of the predicted value from the true value. Often abbreviated as **MAE**.  
 
--   **Root of mean squared error** Measures the average of the squares of the errors, and then takes the root of that value. Often abbreviated as **RMSE**  
+-   **Root of mean squared error** measures the average of the squares of the errors, and then takes the root of that value. Often abbreviated as **RMSE**  
 
--   **Relative absolute error** Represents the error as a percentage of the true value.  
+-   **Relative absolute error** represents the error as a percentage of the true value.  
 
--   **Relative squared error** Normalizes the total squared error it by dividing by the total squared error of the predicted values.  
+-   **Relative squared error** normalizes the total squared error it by dividing by the total squared error of the predicted values.  
 
--   **Coefficient of determination** A single number that indicates how well data fits a model. A value of 1 means that the model exactly matches the data; a value of 0 means that the data is random or otherwise cannot be fit to the model. Often referred to as **r<sup>2</sup>**, **R<sup>2</sup>**, or **r-squared**.  
+-   **Coefficient of determination** A single number that indicates how well data fits a model. A value of one means that the model exactly matches the data; a value of zero means that the data is random or otherwise cannot be fit to the model. Often referred to as **r<sup>2</sup>**, **R<sup>2</sup>**, or **r-squared**.  
 
 ### Modules that do not support a parameter sweep
 

@@ -13,9 +13,9 @@ ms.date: 10/16/2019
 ---
 # SMOTE
 
-This article describes how to use the **SMOTE** module in Azure Machine Learning designer (preview) to increase the number of underepresented cases in a dataset used for machine learning. SMOTE is a better way of increasing the number of rare cases than simply duplicating existing cases.  
+This article describes how to use the **SMOTE** module in Azure Machine Learning designer (preview) to increase the number of underrepresented cases in a dataset used for machine learning. SMOTE is a better way of increasing the number of rare cases than simply duplicating existing cases.  
 
- You connect the SMOTE module to a dataset that is *imbalanced*. There are many reasons why a dataset might be imbalanced: the category you are targeting might be very rare in the population, or the data might simply be difficult to collect. Typically, you use SMOTE when the *class* you want to analyze is under-represented. 
+ You connect the SMOTE module to a dataset that is *imbalanced*. There are many reasons why a dataset might be imbalanced: the category you are targeting might be rare in the population, or the data might be difficult to collect. Typically, you use SMOTE when the *class* you want to analyze is under-represented. 
   
  The module returns a dataset that contains the original samples, plus an additional number of synthetic minority samples, depending on the percentage you specify.  
   
@@ -63,12 +63,12 @@ To increase the number of cases, you can set the value of **SMOTE percentage**, 
   
     -   You type **100** (%). The SMOTE module generates new minority cases, adding the same number of minority cases that were in the original dataset. Because SMOTE does not increase the number of majority cases, the proportion of cases of each class has  now changed.  
   
-    -   You type **200** (%). The module doubles the percentage of minority cases compared to the original dataset. This **does not** result in having twice as many minority cases as before.  Rather, the size of the dataset is increased in such a way that the number of majority cases stays the same, and the number of minority cases is increased till it matches the desired percentage value.  
+    -   You type **200** (%). The module doubles the percentage of minority cases compared to the original dataset. This **does not** result in having twice as many minority cases as before.  Rather, the size of the dataset is increased in such a way that the number of majority cases stays the same, and the number of minority cases is increased until it matches the desired percentage value.  
   
     > [!NOTE]
     > Use only multiples of 100 for the SMOTE percentage.
 
-6.  Use the **Number of nearest neighbors** option to determine the size of the feature space that the SMOTE algorithm uses when in building new cases. A *nearest neighbor* is a row of data (a case) that is very similar to some target case. The distance between any two cases is measured by combining the weighted vectors of all features.  
+6.  Use the **Number of nearest neighbors** option to determine the size of the feature space that the SMOTE algorithm uses when in building new cases. A *nearest neighbor* is a row of data (a case) that is similar to some target case. The distance between any two cases is measured by combining the weighted vectors of all features.  
   
      + By increasing the number of nearest neighbors, you get features from more cases.
      + By keeping the number of nearest neighbors low, you use features that are more like those in the original sample.  

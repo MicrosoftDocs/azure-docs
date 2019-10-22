@@ -71,7 +71,7 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
 3. **Recommended item selection**: Indicate whether you are using the scoring module in production or for model evaluation, by choosing one of these values:
 
-    - **From All Items**: Select this option if you are setting up an pipeline to use in a Web service or production.  This option enables **production mode**, and the module makes recommendations from all items seen during training.
+    - **From All Items**: Select this option if you are setting up a pipeline to use in a Web service or production.  This option enables **production mode**, and the module makes recommendations from all items seen during training.
 
     - **From Rated Items (for model evaluation)**: Select this option if you are developing or testing a model. This option enables **evaluation mode**, and the module makes recommendations only from those items in the input dataset that have been rated.
     
@@ -79,15 +79,15 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
 4. Add the dataset for which you want to make predictions, and connect it to **Dataset to score**.
 
-    - If you choose the option, **From All Items**, the input dataset should consist of one column, containing the identifiers of users for which to make recommendations.
+    - For **From All Items**, the input dataset should consist of one column, containing the identifiers of users for which to make recommendations.
 
         The dataset can include extra two columns of item identifiers and ratings, but these two columns are ignored. 
 
-    - If you choose the option, **From Rated Items (for model evaluation)**, the input dataset should consist of **user-item pairs**. The first column should contain the **user** identifier. The second column should contain the corresponding **item** identifiers.
+    - For **From Rated Items (for model evaluation)**, the input dataset should consist of **user-item pairs**. The first column should contain the **user** identifier. The second column should contain the corresponding **item** identifiers.
 
         The dataset can include a third column of user-item ratings, but this column is ignored.
 
-    - If you choose the option, **From Unrated Items (to suggest new items to users)**, the input dataset should consist of **user-item pairs**. The first column should contain the **user** identifier. The second column should contain the corresponding **item** identifiers.
+    - For **From Unrated Items (to suggest new items to users)**, the input dataset should consist of **user-item pairs**. The first column should contain the **user** identifier. The second column should contain the corresponding **item** identifiers.
 
         The dataset can include a third column of user-item ratings, but this column is ignored.
 
@@ -97,7 +97,7 @@ To recommend items for users, you provide a list of users and items as input. Fr
 
     This option should be used only if you are scoring in evaluation mode. The option is not available if you select **From All Items** or **From Unrated Items (to suggest new items to users)**.
 
-7.  If you choose **From Unrated Items (to suggest new items to users)**, use the third input port, named **Training Data**, to remove items that have already been rated from the prediction results.
+7.  For **From Unrated Items (to suggest new items to users)**, use the third input port, named **Training Data**, to remove items that have already been rated from the prediction results.
 
     To apply this filter, connect the original training dataset to the input port.
 
@@ -120,7 +120,7 @@ This section contains answers to some common questions about using the recommend
 
 ###  Production use of the SVD recommender
 
-If you have pipelineed with the SVD recommender, and move the model to production, be aware of these key differences when using the recommender in evaluation mode and in production mode:
+If you have a pipeline with the SVD recommender, and move the model to production, be aware of these key differences when using the recommender in evaluation mode and in production mode:
 
 - Evaluation, by definition, requires predictions that can be verified against the *ground truth* in a test set. Therefore, when you evaluate the recommender, it must predict only items that have been rated in the test set. This necessarily restricts the possible values that are predicted.
 
