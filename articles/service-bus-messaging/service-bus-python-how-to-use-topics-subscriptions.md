@@ -59,9 +59,9 @@ The following code creates a Service Bus topic called `mytopic`:
 bus_service.create_topic('mytopic')
 ```
 
-### Set maximum topic size and time to live
+### Set topic options
 
-The `create_topic` method has options that let you override default topic settings, such as message time to live (TTL) or maximum topic size. The following example sets the maximum topic size to 5 GB, and a TTL value of one minute:
+The `create_topic` method has options that let you override default topic settings, such as message time to live (TTL) or maximum topic size. The following example creates a `mytopic` topic that sets the maximum topic size to 5 GB, and default message TTL to one minute:
 
 ```python
 topic_options = Topic()
@@ -73,26 +73,23 @@ bus_service.create_topic('mytopic', topic_options)
 
 ## Create a subscription
 
-The **ServiceBusService** object also creates subscriptions to topics. A subscription has a name, and can have a filter that restricts the message set delivered to the subscription's virtual queue.
+The **ServiceBusService** object also creates subscriptions to topics. A subscription has a name, and can have a filter to restrict the message set delivered to its virtual queue.
 
-If you don't specify a filter, new subscriptions use the default **MatchAll** filter. All messages published to `mytopic` are placed in the subscription's virtual queue. The following example creates a subscription to `mytopic` named `AllMessages`, which uses the default **MatchAll** filter:
+If you don't specify a filter, new subscriptions use the default **MatchAll** filter, and deliver all messages published to the topic to the subscription's virtual queue. The following example creates a subscription to `mytopic` named `AllMessages`, which uses the default **MatchAll** filter:
 
 ```python
 bus_service.create_subscription('mytopic', 'AllMessages')
 ```
 
-> [!NOTE]
-> By default, subscriptions are persistent, and exist until you delete them or delete the topics they subscribe to. To automatically delete subscriptions after a certain time period, set the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) property.
-
 ### Use filters with subscriptions
 
-You can use the **ServiceBusService** object's `create_rule` method to define filters that specify which messages appear in a specific topic subscription.
+To define filters that specify which messages appear in a subscription, use the `create_rule` method of the **ServiceBusService** object.
 
-The most flexible type of filter supported by subscriptions is a **SqlFilter**, which uses a subset of SQL92. SQL filters are based on the properties of messages published to the topic. For more information about the expressions you can use with a SQL filter, see the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
+The most flexible type of filter is a **SqlFilter**, which uses a subset of SQL-92. SQL filters operate based on the properties of messages published to the topic. For more information about the expressions you can use with a SQL filter, see the [SqlFilter.SqlExpression][SqlFilter.SqlExpression] syntax.
 
 Because the **MatchAll** default filter applies automatically to all new subscriptions, you must remove it, or **MatchAll** will override any other filters you specify. You can remove the default rule by using the `delete_rule` method of the **ServiceBusService** object.
 
-The following example creates a subscription named `HighMessages`, with a **SqlFilter** rule named `HighMessageFilter`. The `HighMessageFilter` rule selects only messages with a `messageposition` property greater than 3:
+The following example creates a subscription to `mytopic` named `HighMessages`, with a **SqlFilter** rule named `HighMessageFilter`. The `HighMessageFilter` rule selects only messages with a custom `messageposition` property greater than 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'HighMessages')
@@ -105,7 +102,7 @@ bus_service.create_rule('mytopic', 'HighMessages', 'HighMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'HighMessages', DEFAULT_RULE_NAME)
 ```
 
-The following example creates a subscription named `LowMessages`, with a **SqlFilter** rule named `LowMessageFilter`. The `LowMessageFilter` rule selects only messages with a `messageposition` property less than or equal to 3:
+The following example creates a subscription to `mytopic` named `LowMessages`, with a **SqlFilter** rule named `LowMessageFilter`. The `LowMessageFilter` rule selects only messages with a `messageposition` property less than or equal to 3:
 
 ```python
 bus_service.create_subscription('mytopic', 'LowMessages')
@@ -118,7 +115,7 @@ bus_service.create_rule('mytopic', 'LowMessages', 'LowMessageFilter', rule)
 bus_service.delete_rule('mytopic', 'LowMessages', DEFAULT_RULE_NAME)
 ```
 
-A message sent to `mytopic` is always delivered to receivers subscribed to the **AllMessages** topic subscription. The message is also selectively delivered to the **HighMessages** or **LowMessages** subscription, depending on the message's `messageposition` property value. 
+A message sent to `mytopic` is always delivered to receivers of the **AllMessages** subscription. The message is also selectively delivered to the **HighMessages** or **LowMessages** subscription, depending on the message's `messageposition` property value. 
 
 ## Send messages to a topic
 
@@ -188,6 +185,9 @@ bus_service.delete_subscription('mytopic', 'HighMessages')
 
 > [!NOTE]
 > You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer lets you connect to a Service Bus namespace and easily administer messaging entities. The tool provides advanced features like import/export functionality and the ability to test topic, queues, subscriptions, relay services, notification hubs, and events hubs. 
+
+> [!NOTE]
+> By default, subscriptions are persistent, and exist until you delete them or delete the topics they subscribe to. To automatically delete subscriptions after a certain time period elapses, set the [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) property.
 
 ## Next steps
 
