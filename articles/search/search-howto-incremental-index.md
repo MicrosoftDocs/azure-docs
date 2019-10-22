@@ -103,5 +103,5 @@ Instanced when you want the indexing pipeline to recognize a change to an extern
 
 ## Next steps
 
-Learn more about incremental indexing behavior in [What is incremental indexing in Azure Search?](cognitive-search-incremental-indexing-concept.md). 
+Learn more about incremental indexing behavior in [What is incremental indexing in Azure Search?](cognitive-search-incremental-indexing-conceptual.md). 
 
