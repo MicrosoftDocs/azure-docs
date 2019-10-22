@@ -100,7 +100,7 @@ An [External tables](development-tables-external-tables.md) points to data locat
 
 In SQL Analytics pool, when used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Analytics pool. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](../../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md).
 
-In SQL Analytics on-demand, you can use [CETAS](development-tables-cetas.md) to save the result of query to set of files on Azure Storage and create external table metadata in single statement.
+In SQL Analytics on-demand, you can use [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage.
 
 ## Data types
 SQL Analytics pool supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. 
