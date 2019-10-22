@@ -756,6 +756,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-prebuilt-entities.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/howto-add-prebuilt-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-prebuilt-intent.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/howto-add-prebuilt-models",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-prebuilt-domains.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/howto-add-prebuilt-models",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-get-started-go-add-utterance.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-get-started-get-model-from-rest",
       "redirect_document_id": false
