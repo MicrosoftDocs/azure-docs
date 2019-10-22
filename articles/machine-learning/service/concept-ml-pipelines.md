@@ -8,7 +8,11 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
+<<<<<<< HEAD
 ms.date: 10/16/2019
+=======
+ms.date: 10/10/2019
+>>>>>>> 18de8eee70c562300b6c3400d7c0c73d79082dc6
 ---
 
 # What are Azure Machine Learning pipelines?
