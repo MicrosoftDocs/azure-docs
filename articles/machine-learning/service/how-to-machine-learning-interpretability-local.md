@@ -16,7 +16,7 @@ ms.date: 06/21/2019
 # Model interpretability: Local Run
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to explain why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK. This tutorial focuses on using the SDK on a local machine for a local run (which does not contact any Azure services). To learn more about model interpretability, see the [Machine Learning Interpretability Concept](./concept-machine-learning-interpretability-explainability.md).
+In this article, you learn how to explain why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK. This tutorial focuses on using the SDK on a local machine for a local run (which does not contact any Azure services). To learn more about model interpretability, see the [Machine Learning Interpretability Concept](how-to-machine-learning-interpretability.md).
 
 
 ## Interpretability in training

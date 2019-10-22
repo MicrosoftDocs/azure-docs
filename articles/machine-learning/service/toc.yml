@@ -80,7 +80,7 @@
     href: concept-train-machine-learning-model.md
   - name: Designer
     displayName: studio
-    href: ui-concept-visual-interface.md
+    href: ui-concept-visual-interface.md 
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
@@ -90,8 +90,8 @@
   - name: ML pipelines
     href: concept-ml-pipelines.md
   - name: Model interpretability
-    displayName: explainability
-    href: machine-learning-interpretability-explainability.md
+    displayName: interpretability
+    href: how-to-machine-learning-interpretability.md
   - name: ONNX
     href: concept-onnx.md
   - name: Security
@@ -202,6 +202,14 @@
       href: how-to-train-pytorch.md
     - name: Chainer
       href: how-to-train-chainer.md
+  - name: Interpret models
+    items:
+    - name: Interpret models on a local machine
+      displayName: Local Interpretability
+      href:  how-to-machine-learning-interpretability-local.md
+    - name: Interpret models on Azure Machine Learning
+      displayName: Azure Machine Learning Interpretability
+      href: how-to-machine-learning-interpretability-aml.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:

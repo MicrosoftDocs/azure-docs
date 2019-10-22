@@ -30,7 +30,7 @@ Part 2:
 
 
 
-To learn more about model interpretability, see the [ Machine Learning Interpretability Concept](./concept-machine-learning-interpretability-explainability.md).
+To learn more about model interpretability, see the [ Machine Learning Interpretability Concept](./how-to-machine-learning-interpretability.md).
 
 
 
