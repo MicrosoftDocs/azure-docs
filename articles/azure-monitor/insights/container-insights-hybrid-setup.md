@@ -264,3 +264,7 @@ After you have successfully deployed the chart, you can review the data for your
 
 >[!NOTE]
 >Ingestion latency is around five to ten minutes from agent to commit in the Azure Log Analytics workspace. Status of the cluster show the value **No data** or **Unknown** until all the required monitoring data is available in Azure Monitor. 
+
+## Next steps
+
+With monitoring enabled to collect health and resource utilization of your hybrid Kubernetes cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.

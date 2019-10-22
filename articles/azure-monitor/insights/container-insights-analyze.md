@@ -10,13 +10,13 @@ ms.date: 10/15/2019
 ---
 
 # Understand AKS cluster performance with Azure Monitor for containers
-With Azure Monitor for containers, you can use the performance charts and health status to monitor the workload of your Azure Kubernetes Service (AKS) clusters from two perspectives. You can monitor directly from an AKS cluster, or you can monitor all AKS clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when you monitor a specific AKS cluster.
+With Azure Monitor for containers, you can use the performance charts and health status to monitor the workload of Kuberntes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or other environment from two perspectives. You can monitor directly from the cluster, or you can view all clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when monitoring a specific AKS cluster.
 
 This article helps you understand the two perspectives, and how Azure Monitor helps you quickly assess, investigate, and resolve detected issues.
 
 For information about how to enable Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
-Azure Monitor provides a multi-cluster view that shows the health status of all monitored AKS clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows AKS clusters discovered that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time. 
+Azure Monitor provides a multi-cluster view that shows the health status of all monitored Kubernetes clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions. It shows clusters discovered across all environments that aren't monitored by the solution. You can immediately understand cluster health, and from here, you can drill down to the node and controller performance page or navigate to see performance charts for the cluster. For AKS clusters that were discovered and identified as unmonitored, you can enable monitoring for them at any time. 
 
 The main differences in monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are the following:
 
@@ -32,9 +32,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Multi-cluster view from Azure Monitor
 
-To view the health status of all AKS clusters deployed, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. 
+To view the health status of all Kubernetes clusters deployed, select **Monitor** from the left pane in the Azure portal. Under the **Insights** section, select **Containers**. 
 
 ![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview.png)
+
+To view clusters from a specific environment, select it from the **Environments** pill on the top-left corner of the page.
+
+![Environment pill selector example](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
 
 On the **Monitored clusters** tab, you learn the following:
 
@@ -77,18 +81,21 @@ The following table provides a breakdown of the calculation that controls the he
 | |Critical |<60% |
 | |Unknown |If not reported in last 30 minutes |
 
-From the list of clusters, you can drill down to the **Cluster** page by selecting the name of the cluster. Then go to the **Nodes** performance page by selecting the rollup of nodes in the **Nodes** column for that specific cluster. Or, you can drill down to the **Controllers** performance page by selecting the rollup of the **User pods** or **System pods** column.  ​
+From the list of clusters, you can drill down to the **Cluster** page by selecting the name of the cluster. Then go to the **Nodes** performance page by selecting the rollup of nodes in the **Nodes** column for that specific cluster. Or, you can drill down to the **Controllers** performance page by selecting the rollup of the **User pods** or **System pods** column.
 
-## View performance directly from an AKS cluster
+## View performance directly from a cluster
 
-Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights** from the left pane. Information about your AKS cluster is organized into four perspectives:
+Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights** > **Cluster** from the left pane, or when you selected a cluster from the multi-cluster view. Information about your cluster is organized into four perspectives:
 
 - Cluster
 - Nodes 
 - Controllers 
 - Containers
 
-The default page opens when you select **Insights** > **Cluster**. Four line performance charts display key performance metrics of your cluster. 
+>[!NOTE]
+>The experience described in the remainder of this article are also applicable for viewing performance and health status of your Kubernetes clusters hosted on Azure Stack or other environment when selected from the multi-cluster view. 
+
+The default page opens and displays four line performance charts that show key performance metrics of your cluster. 
 
 ![Example performance charts on the Cluster tab](./media/container-insights-analyze/containers-cluster-perfview.png)
 
@@ -298,4 +305,5 @@ You access these workbooks by selecting each one from the **View Workbooks** dro
 ## Next steps
 
 - Review [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures.
+
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
