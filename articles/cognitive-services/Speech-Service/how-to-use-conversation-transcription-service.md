@@ -212,4 +212,4 @@ public class MyConversationTranscriber
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Offline Conversation Transcription](how-to-use-offline-conversation-transcription-service.md)
+> [Asynchronous Conversation Transcription](how-to-use-offline-conversation-transcription-service.md)

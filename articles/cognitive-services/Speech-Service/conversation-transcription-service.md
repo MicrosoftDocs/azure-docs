@@ -1,7 +1,7 @@
 ---
 title: What is Conversation Transcription (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Conversation Transcription is a speech-to-text solution that combines speech recognition, speaker identification, and sentence attribution to each speaker (also known as diarization) to provide real-time and/or offline transcription of any conversation. Conversation Transcription makes conversations inclusive for everyone, such as participants who are deaf and hard of hearing.
+description: Conversation Transcription is a speech-to-text solution that combines speech recognition, speaker identification, and sentence attribution to each speaker (also known as diarization) to provide real-time and/or asynchronous transcription of any conversation. Conversation Transcription makes conversations inclusive for everyone, such as participants who are deaf and hard of hearing.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # What is Conversation Transcription (Preview)?
 
-Conversation Transcription is a [speech-to-text](speech-to-text.md) solution that combines speech recognition, speaker identification, and sentence attribution to each speaker (also known as _diarization_) to provide real-time and/or offline transcription of any conversation. Conversation Transcription distinguishes speakers in a conversation to determine who said what and when, and makes it easy for developers to add speech-to-text to their applications that perform multi-speaker diarization.
+Conversation Transcription is a [speech-to-text](speech-to-text.md) solution that combines speech recognition, speaker identification, and sentence attribution to each speaker (also known as _diarization_) to provide real-time and/or asynchronous transcription of any conversation. Conversation Transcription distinguishes speakers in a conversation to determine who said what and when, and makes it easy for developers to add speech-to-text to their applications that perform multi-speaker diarization.
 
 ## Key features
 
@@ -24,7 +24,7 @@ Conversation Transcription is a [speech-to-text](speech-to-text.md) solution tha
 - **Speaker identification** - speakers are identified using user profiles and a _speaker identifier_ is assigned to each.
 - **Multi-speaker diarization** - determine who said what by synthesizing the audio stream with each speaker identifier.
 - **Real-time transcription** – provide live transcripts of who is saying what and when while the conversation is happening.
-- **Offline transcription** – provide transcripts with higher accuracy by using a multichannel audio stream.
+- **asynchronous transcription** – provide transcripts with higher accuracy by using a multichannel audio stream.
 
 > [!NOTE]
 > Although Conversation Transcription does not put a limit on the number of speakers in the room, it is optimized for 2-10 speakers per session.
@@ -50,7 +50,7 @@ This is a high-level overview of how Conversation Transcription works.
 - **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](https://aka.ms/cts/microphone). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
 - **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
-## Real-time vs. offline transcription modes
+## Real-time vs. asynchronous transcription modes
 
 Conversation Transcription offers three transcription modes:
 
@@ -58,13 +58,13 @@ Conversation Transcription offers three transcription modes:
 
 Audio data is processed live to return speaker identifier + transcript. Select this mode if your transcription solution requirement is to provide conversation participants a live transcript view of their ongoing conversation. For example, building an application to make meetings more accessible the deaf and hard of hearing participants is an ideal use case for real-time transcription.
 
-### Offline
+### Asynchronous
 
-Audio data is batch processed to return speaker identifier and transcript. Select this mode if your transcription solution requirement is to provide higher accuracy without live transcript view. For example, if you want to build an application to allow meeting participants to easily catch up on missed meetings, then use the offline transcription mode to get high-accuracy transcription results.
+Audio data is batch processed to return speaker identifier and transcript. Select this mode if your transcription solution requirement is to provide higher accuracy without live transcript view. For example, if you want to build an application to allow meeting participants to easily catch up on missed meetings, then use the asynchronous transcription mode to get high-accuracy transcription results.
 
-### Real-time plus Offline
+### Real-time plus asynchronous
 
-Audio data is processed live to return speaker identifier + transcript, and, in addition, a request is created to also get a high-accuracy transcript through offline processing. Select this mode if your application has a need for real-time transcription but also requires a higher accuracy transcript for use after the conversation or meeting occurred.
+Audio data is processed live to return speaker identifier + transcript, and, in addition, a request is created to also get a high-accuracy transcript through asynchronous processing. Select this mode if your application has a need for real-time transcription but also requires a higher accuracy transcript for use after the conversation or meeting occurred.
 
 ## Language support
 
