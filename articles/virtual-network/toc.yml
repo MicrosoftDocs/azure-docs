@@ -97,6 +97,8 @@
     items:
     - name: NAT gateway
       items:
+        - name: Create a NAT gateway - Azure portal
+          href: quickstart-create-nat-gateway-portal.md
         - name: Create a NAT gateway - Azure CLI
           href: quickstart-create-nat-gateway-cli.md
         - name: Create a NAT gateway - Azure PowerShell
