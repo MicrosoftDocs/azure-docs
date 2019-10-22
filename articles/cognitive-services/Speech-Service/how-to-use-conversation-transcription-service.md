@@ -37,7 +37,7 @@ The Speech Device SDK provides sample code in Java for real-time audio capture u
 - Learn how to use Speech-to-text with the Speech SDK version 1.8.0 or later. For more information, see [What are Speech Services](overview.md).
 - A Speech Services subscription. You can [get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you don't have one.
 
-## Creating voice signatures for participants
+## Create voice signatures for participants
 
 The first step is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification.
 
