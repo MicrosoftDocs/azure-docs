@@ -28,7 +28,7 @@ Internet Analyzer addresses performance-related questions for cloud migration, d
 
 Each test you create in Internet Analyzer is composed of two endpoints—Endpoint A and Endpoint B. Endpoint B is measured relative to what you select as Endpoint A. 
 
-You can either configure your own custom endpoint or select from a variety of preconfigured Azure endpoints. Custom endpoints should be used to evaluate on-premises workloads, other cloud providers, or your custom Azure configurations. Experiments may be composed of two custom endpoints; however, at least one custom endpoint must reference an Azure backend. Preconfigured Azure endpoints are a quick and easy way to evaluate the performance of popular Azure, Azure Front Door, Azure Traffic Manager, and Azure CDN from Microsoft configurations. 
+You can either configure your own custom endpoint or select from a variety of preconfigured Azure endpoints. Custom endpoints should be used to evaluate on-premises workloads, other cloud providers, or your custom Azure configurations. Tests may be composed of two custom endpoints; however, at least one custom endpoint must reference an Azure backend. Preconfigured Azure endpoints are a quick and easy way to evaluate the performance of popular Azure, Azure Front Door, Azure Traffic Manager, and Azure CDN from Microsoft configurations. 
 
 During preview, the following preconfigured endpoints are available: 
 

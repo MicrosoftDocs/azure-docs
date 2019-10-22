@@ -1,5 +1,5 @@
 ---
-title: 'Create an Internet Analyzer test | Microsoft Docs'
+title: 'Create an Internet Analyzer test using CLI | Microsoft Docs'
 description: In this article, learn how to create your first Internet Analyzer test. 
 services: internet-analyzer
 author: megan-beatty; mattcalder; diego-perez-botero
@@ -11,7 +11,7 @@ ms.author: mebeatty
 # Customer intent: As someone interested in migrating to Azure/ AFD/ CDN, I want to set up an Internet Analyzer test to understand the expected performance impact to my end users. 
 
 ---
-# Create an Internet Analyzer test (Preview)
+# Create an Internet Analyzer test using CLI (Preview)
 
 There are two ways to create an Internet Analyzer resource- using the [Azure preview portal](internet-analyzer-create-test-portal.md) or using CLI. This section helps you create a new Azure Internet Analyzer resource using our CLI experience. 
 
@@ -20,10 +20,90 @@ There are two ways to create an Internet Analyzer resource- using the [Azure pre
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
 >
 
-## CLI
+## Before you begin
 
+The public preview is available to use globally; however, data storage is limited to *US West 2* during preview.
 
+## Object model
+The Internet Analyzer CLI exposes the following types of resources:
+1. **Tests** - A test compares the end-user performance of two internet endpoints (A and B) over time.
+2. **Profiles** - Tests are created under an Internet Analyzer profile. Profiles allow for related tests to be grouped; a single profile may contain one or more tests.
+3. **Preconfigured Endpoints** - We have set up endpoints with a variety of configurations (regions, acceleration technologies, etc). You may use any of these preconfigured endpoints in your tests.
+4. **Scorecards** - A scorecard provides quick and meaningful summaries of measurement results. Refer to [Interpreting your Scorecard](internet-analyzer-scorecard.md).
+5. **Time Series** - A time series shows how a metric changes over time.
 
+## Profile and Test Creation
+1. [Request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR65LM6ELn65MggTwxb0d215UMkNIUDVGV1JGS0w5WFBHWklNMTNRTDQ4My4u) to use Internet Analyzer by providing your active Subscription ID. 
+2. [Install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+3. Run the `login` command to start a CLI session:
+    ```azurecli-interactive
+    az login
+    ```
+
+    If the CLI can open your default browser, it will do so and load an Azure sign-in page.
+    Otherwise, open a browser page at https://aka.ms/devicelogin and enter the authorization code displayed in your terminal.
+
+4. Sign in with your account credentials in the browser.
+
+    After logging in, you see a list of subscriptions associated with your Azure account. The subscription information with `isDefault: true` is the currently activated subscription after logging in. To select another subscription, use the [az account set](https://docs.microsoft.com/en-us/cli/azure/account#az-account-set) command with the subscription ID to switch to. For more information about subscription selection, see [Use multiple Azure subscriptions](https://docs.microsoft.com/en-us/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+
+    There are ways to sign in non-interactively, which are covered in detail in [Sign in with Azure CLI](https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+
+5. **[Optional]** Create a new Azure Resource Group:
+    ```azurecli-interactive
+    az group create --location eastus --name "MyInternetAnalyzerResourceGroup"
+    ```
+
+6. Create a new Internet Analyzer profile:
+    ```azurecli-interactive
+    az internet-analyzer profile create --location eastus --resource-group "MyInternetAnalyzerResourceGroup" --name "MyInternetAnalyzerProfile"
+    ```
+
+7. List all preconfigured endpoints available to the newly-created profile:
+    ```azurecli-interactive
+    az internet-analyzer preconfigured-endpoint list --resource-group "MyInternetAnalyzerResourceGroup" --name "MyInternetAnalyzerProfile"
+    ```
+
+7. Create a new test under the newly-created InternetAnalyzer profile:
+    ```azurecli-interactive
+    az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/1k.jpg" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/1k.jpg" --name "MyFirstInternetAnalyzerTest"
+    ```
+
+    The command above assumes that both www.contoso.com and www.microsoft.com are hosting the same object (1k.jpg) under different paths. Note that, if an object path isn't specified explicitly, Internet Analyzer will use `/apc/trans.gif` as the object path by default.  Also note that the schema (https/http) doesn't need to be specified; Internet Analyzer only supports HTTPS endpoints, so HTTPS is assumed.
+
+8. The new test should now be listed under the Network Analyzer profile:
+    ```azurecli-interactive
+    az internet-analyzer test list --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile"
+    ```
+
+    Example output:
+    ````
+    [
+        {
+            "description": null,
+            "enabledState": "Enabled",
+            "endpointA": {
+            "endpoint": "www.contoso.com/some/path/to/1k.jpg",
+            "name": "contoso"
+            },
+            "endpointB": {
+            "endpoint": "www.microsoft.com/another/path/to/1k.jpg",
+            "name": "microsoft"
+            },
+            "id": "/subscriptions/faa9ddd0-9137-4659-99b7-cdc55a953342/resourcegroups/MyInternetAnalyzerResourceGroup/providers/Microsoft.Network/networkexperimentprofiles/MyInternetAnalyzerProfile/experiments/MyFirstInternetAnalyzerTest",
+            "location": null,
+            "name": "MyFirstInternetAnalyzerTest",
+            "resourceGroup": "MyInternetAnalyzerResourceGroup",
+            "resourceState": "Enabled",
+            "scriptFileUri": "https://fpc.msedge.net/client/v2/d8c6fc64238d464c882cee4a310898b2/ab.min.js",
+            "status": null,
+            "tags": null,
+            "type": "Microsoft.Network/networkexperimentprofiles/experiments"
+        }
+    ]
+    ````
+
+9. To begin generating measurements, the JavaScript file pointed to by the test's **scriptFileUri** must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.
 
 ## Next steps
 

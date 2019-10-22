@@ -1,5 +1,5 @@
 ---
-title: 'Create an Internet Analyzer test | Microsoft Docs'
+title: 'Create an Internet Analyzer test using Portal | Microsoft Docs'
 description: In this article, learn how to create your first Internet Analyzer test. 
 services: internet-analyzer
 author: megan-beatty; mattcalder; diego-perez-botero
@@ -11,7 +11,7 @@ ms.author: mebeatty
 # Customer intent: As someone interested in migrating to Azure/ AFD/ CDN, I want to set up an Internet Analyzer test to understand the expected performance impact to my end users. 
 
 ---
-# Create an Internet Analyzer test (Preview)
+# Create an Internet Analyzer test using Portal (Preview)
 
 There are two ways to create an Internet Analyzer resource- using the Azure preview portal or using [CLI](internet-analyzer-cli.md). This section helps you create a new Azure Internet Analyzer resource using our portal experience. 
 
@@ -22,14 +22,9 @@ There are two ways to create an Internet Analyzer resource- using the Azure prev
 
 ## Before you begin
 
-The public preview is available to use globally; however, data storage is limited to *US West 2* during preview. 
+The public preview is available to use globally; however, data storage is limited to *US West 2* during preview.
 
-
-## Portal  
-
-This section helps you create a new Azure Internet Analyzer resource from the Azure portal.
-
-### Basics 
+## Basics 
 
 1. [Request access](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR65LM6ELn65MggTwxb0d215UMkNIUDVGV1JGS0w5WFBHWklNMTNRTDQ4My4u) to use Internet Analyzer by providing your active Subscription ID. 
 2. From the home page in the [Azure portal - Internet Analyzer preview](https://preview.portal.azure.com), click **+ Create a resource**. Internet Analyzer is currently only available from the *preview* Azure portal. 
@@ -45,12 +40,12 @@ This section helps you create a new Azure Internet Analyzer resource from the Az
 
 7. When you have finished specifying the settings, click **Next: Configuration**. 
 
-### Configuration 
+## Configuration 
 
-**Embed Client**
+### Embed Client
 To begin any test, the JavaScript client must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page. Tests can be created before or after the client is embedded; however, no measurements will be collected until this step is complete. 
 
-**Setup Tests**
+### Setup Tests
 1. Give your test a name in the **Test Name** box.
 2. Add a description for your test in the **Description** field. 
 3. Click **Configure Endpoint** - a tab will appear from the right-hand side. Select the type of endpoint you'd like to configure- a single Azure region, multiple Azure regions, or a custom endpoint.
@@ -69,7 +64,7 @@ To begin any test, the JavaScript client must be embedded in your Web applicatio
     >
 
 4. Click **Add** to add the endpoint to your test. 
-5. Repeat steps 1-5 to configure your second endpoint. Endpoint A is always measured relative to Endpoint B - when configuring endpoints, consider which endpoint should be your experiment control. 
+5. Repeat steps 1-5 to configure your second endpoint. Endpoint A is always measured relative to Endpoint B - when configuring endpoints, consider which endpoint should be your test control. 
 6. By default, tests will be set to **Enabled.** If the JavaScript client is already installed, this means your test will begin once you click **Review + create**. If **Enabled** is not selected, you will need to start your test from the *Configuration* tab.
 
 

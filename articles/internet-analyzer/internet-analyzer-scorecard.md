@@ -24,7 +24,7 @@ The scorecard tab can be found in the Internet Analyzer resource menu.
 
 ## Measurement Count
 
-The number of measurements impacts the confidence of the analysis. The higher the count, the more accurate the result. At minimum, experimenters should aim for a minimum of 100 measurements per endpoint per day. If measurement counts are too low, please configure the JavaScript client to execute more frequently in your application. The measurement counts for endpoints A and B should be very similar although small differences are expected and okay. In the case of large differences, the results should not be trusted.
+The number of measurements impacts the confidence of the analysis. The higher the count, the more accurate the result. At minimum, tests should aim for a minimum of 100 measurements per endpoint per day. If measurement counts are too low, please configure the JavaScript client to execute more frequently in your application. The measurement counts for endpoints A and B should be very similar although small differences are expected and okay. In the case of large differences, the results should not be trusted.
 
 ## Percentiles
 
