@@ -55,7 +55,7 @@ To create a new Azure IoT Central water quality monitoring application:
 
 2. Click on **Build** from the left navigation menu and select the **Government** tab. The government page displays several government application templates.
 
-    ![Build Govenment App templates](media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview.png)
+    ![Build Govenment App templates](./media/tutorial-waterqualitymonitoring/iotcentral-government-tab-overview.png)
 
 
 1. Select the **Water Quality Monitoring** application template. 
@@ -70,12 +70,12 @@ This template includes sample water quality device template, simulated device, o
 
 5. Click **Create** button at the bottom of the page. 
 
-    ![Azure IoT Central Create Application page](media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring.png)
+    ![Azure IoT Central Create Application page](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring.png)
 
 
 6. You now have created a water quality monitoring app using the Azure IoT Central **Water quality monitoring template**. IoT Central deploys the application and you will land on the **Dashboard**, which will look like the picture below.
 
-   ![Water Quality Monitoring application dasboard](media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.png)
+   ![Water Quality Monitoring application dasboard](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.png)
 
 Your newly created application comes with pre-configured:
 * Sample operator dashboards
@@ -119,7 +119,7 @@ The dashboard consists of differnet knds of tiles:
 As a builder, you can customize views in dashboard for operators. You can try:
 * Click on **Edit** to customize the **Wil World water quality monitoring dashboard**. You can customize the dashboard by clicking on the **Edit** menu. Once the dashboard is in **edit** mode, you can add new tiles, or you can configure 
 
-    ![Edit Dashboard](media/tutorial-waterqualitymonitoring/edit-dashboard.png)
+    ![Edit Dashboard](./media/tutorial-waterqualitymonitoring/edit-dashboard.png)
 
 * You can also click on **+ New** to create new dashboard and configure from scratch. You can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
 
@@ -166,7 +166,7 @@ If you're not going to continue to use this application, delete your application
 1. Open the Administration tab from the left navigation menu of your IoT Central application. 
 2. Select Application settings and click Delete button at the bottom of the page. 
 
-    ![Delete application](media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app.PNG)        
+    ![Delete application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app.PNG)        
 
 <!---Required:
 To avoid any costs associated with following the tutorial procedure, a Clean up resources (H2) should come just before Next steps (H2)
