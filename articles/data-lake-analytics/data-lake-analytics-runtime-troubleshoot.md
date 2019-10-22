@@ -42,9 +42,6 @@ The following are the available runtime versions.
 > [!CAUTION]
 > Choosing a runtime that is different from the default has the potential to break your U-SQL jobs.  Use these other versions for testing only.
 
-> [!NOTE]
-> Choosing a runtime that is different from the default has the potential to break your U-SQL jobs.  Use these other versions for testing only.
-
 ## See also
 
 - [Azure Data Lake Analytics overview](data-lake-analytics-overview.md)
