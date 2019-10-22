@@ -51,7 +51,7 @@ There are several things to consider when cloning an IoT hub.
 
 ## Methodology
 
-This is the general method we recommend for moving an IoT Hub from one region to another. For message routing, this assumes the resources are not being moved to the new region. For more information, see the [section on Message Routing](#message-routing).
+This is the general method we recommend for moving an IoT Hub from one region to another. For message routing, this assumes the resources are not being moved to the new region. For more information, see the [section on Message Routing](#how-to-handle-message-routing).
 
    1. Export the hub and its settings to a Resource Manager template. 
    
@@ -69,7 +69,7 @@ This is the general method we recommend for moving an IoT Hub from one region to
 
    1. Copy the devices from the original hub to the clone. This is covered in the section [Managing the devices registered to the IoT hub](#managing-the-devices-registered-to-the-iot-hub).
 
-## How to handle Message Routing
+## How to handle message rSouting
 
 If your hub uses [custom routing](iot-hub-devguide-messages-read-custom.md), exporting the template for the hub includes the routing configuration, but it does not include the resources themselves. You must choose whether to move the routing resources to the new location or to leave them in place and continue to use them "as is". 
 
@@ -307,7 +307,7 @@ When you export the Resource Manager template for a hub that has routing configu
 
 1. After you retrieve the account key for the storage account, put it in the template in the clause `AccountKey=****` in the place of the asterisks. 
 
-1. For service bus queues, you get the Shared Access Key matching the SharedAccessKeyName. Here is the key in the json:
+1. For service bus queues, get the Shared Access Key matching the SharedAccessKeyName. Here is the key and the `SharedAccessKeyName` in the json:
 
    ```json
    "connectionString": "Endpoint=sb://fabrikamsbnamespace1234.servicebus.windows.net:5671/;
@@ -320,9 +320,9 @@ When you export the Resource Manager template for a hub that has routing configu
 
 #### Create the new routing resources in the new location
 
-This section only applies if you are moving the resources used bu the hub for the routing endpoints.
+This section only applies if you are moving the resources used by the hub for the routing endpoints.
 
-If you want to move the routing resources, you must manually set up the resources in the new location. You can create the routing resources using the Azure portal](https://portal.azure.com), or by exporting the Resource Manager template for each of the resources used by the message routing, editing them, and importing them. After the resources are set up, you can import the hub's template (which includes the routing configuration).
+If you want to move the routing resources, you must manually set up the resources in the new location. You can create the routing resources using the [Azure portal](https://portal.azure.com), or by exporting the Resource Manager template for each of the resources used by the message routing, editing them, and importing them. After the resources are set up, you can import the hub's template (which includes the routing configuration).
 
 1. Create each resource used by the routing. You can do this manually using the [Azure portal](https://portal.azure.com), or create the resources using Resource Manager templates. If you want to use templates, these are the steps to follow:
 
@@ -342,7 +342,7 @@ Now you have a template that will create a new hub that looks almost exactly lik
 
 ### Create a new hub in the new region by loading the template
 
-Create the new hub in the new location using the template. If you have routing resources that are going to move, the resources should be set up in the new location and the references in the template updated to match. If you are not moving the routing resources, they should be in the template and the keys updated. 
+Create the new hub in the new location using the template. If you have routing resources that are going to move, the resources should be set up in the new location and the references in the template updated to match. If you are not moving the routing resources, they should be in the template with the updated keys.
 
 1. Sign into the [Azure portal](https://portal.azure.com).
 
@@ -460,7 +460,7 @@ Now you have the environment variables in a file with the SET commands, and you 
 
 1. Open a command prompt window. Select Windows and type in `command prompt` to get the command prompt window.
 
-1. Copy the commands that set the environment variables, one at a time, and paste them into the Command Prompt window and select Enter. When you're finished, you can type `SET` in the Command Prompt window and it shows your connection strings. Once you've copied these into the Command Prompt window, you don't have to copy them again, unless you open a new Command Prompt window.
+1. Copy the commands that set the environment variables, one at a time, and paste them into the command prompt window and select Enter. When you're finished, type `SET` in the command prompt window to see your connection strings. Once you've copied these into the command prompt window, you don't have to copy them again, unless you open a new command prompt window.
 
 1. In the command prompt window, change directories until you are in ./ImportExportDevicesSample (where the ImportExportDevicesSample.csproj file exists). Then type the following, and include your command-line arguments.
 
@@ -474,10 +474,10 @@ Now you have the environment variables in a file with the SET commands, and you 
     ``` console
     // Format: dotnet run add-devices num-to-add copy-devices delete-source-devices delete-destination-devices
 
-    // Add 1000 devices, don't copy them to the other hub, or delete them. 
+    // Add 1000 devices, don't copy them to the other hub or delete them. 
     dotnet run true 1000 false false false 
 
-    // Copy those devices to the other hub; don't delete anything.
+    // Do not add any devices. Copy the ones you just created to the other hub; don't delete anything.
     dotnet run false 0 true false false 
     ```
 
@@ -530,7 +530,7 @@ At this point, you have copied your hub to the new location and migrated the dev
 
 To check the results, change your IoT solution to point to your new hub in its new location and run it. In other words, perform the same actions with the new hub that you performed with the previous hub and make sure they work correctly. 
 
-If you have implemented routing, test that and make sure your messages are routed to the resources correctly.
+If you have implemented routing, test and make sure your messages are routed to the resources correctly.
 
 ## Next steps
 
