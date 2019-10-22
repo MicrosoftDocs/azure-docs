@@ -213,11 +213,11 @@ SQL database authentication refers to the authentication of a user when connecti
 > [!NOTE]
 > Mentioned in: FedRamp controls AC-06, NIST: AC-6, OSA Practice #3
 
-The principle of least privilege states that users shouldn't have more privileges than needed to complete their tasks.
+The principle of least privilege states that users shouldn't have more privileges than needed to complete their tasks. See the article, [Just enough administration](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) for more information.
 
 **How to implement**:
 
-Assign only the necessary permissions to complete the required tasks:
+Assign only the necessary [permissions]((https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)) to complete the required tasks:
 
 - In SQL Data Plane: 
     - Use granular permissions and user-defined database roles (or server-roles in MI): 
@@ -234,14 +234,9 @@ Assign only the necessary permissions to complete the required tasks:
     - Make sure to not assign users to unnecessary roles.
 
 - In Azure Resource Manager:
-  - Use builtin-roles if the permissions just fit or custom RBAC roles to assign just the necessary permissions 
+  - Use builtin-roles if available or custom RBAC roles and assign the necessary permissions.
     - [Built-in roles for Azure](../role-based-access-control/built-in-roles.md) 
-    - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md) 
-- Further resources: 
-  - [Permissions (Database Engine)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)
-  - [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-  - [Just Enough Administration](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview) 
-  - [Privileged Account Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+    - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md)
 
 **Best practices**:
 
@@ -251,9 +246,9 @@ The following best practices are optional but will result in better manageabilit
 
 - Refrain from assigning permissions to individual users. Use roles (database or server roles) consistently instead. Roles helps greatly with reporting and troubleshooting permissions. (Azure RBAC only supports permission assignment via roles.) 
 
-- Use built-in roles when the permissions match exactly the needed permissions – if the union of all permissions from multiple built-in roles leads to a 100% match, you can assign multiple roles concurrently as well. 
+- Use built-in roles when the permissions of the roles match exactly the needed permissions for the user. You can assign users to multiple roles. 
 
-- Create and use custom roles when built-in roles grant too many permissions or insufficient permissions. Typical Roles that are used in practice: 
+- Create and use custom roles when built-in roles grant too many or insufficient permissions. Typical roles that are used in practice: 
   - Security deployment 
   - Administrator 
   - Developer 
@@ -265,25 +260,19 @@ The following best practices are optional but will result in better manageabilit
 - Remember that permissions in SQL Server can be applied on the following scopes. The smaller the scope, the smaller the impact of the granted permissions: 
   - Logical server (special roles in master database) 
   - Database 
-  - Schema (Schema-design for SQL Server: recommendations for Schema design with security in mind). 
+  - Schema (Schema-design for SQL Server: recommendations for Schema design with security in mind)
   - Object (table, view, procedure, etc.) 
-
-It isn't recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. The standard rules for [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) don't apply for columns.
+  > [!NOTE]
+  > It is not recommended to apply permissions on the object level because this level adds unnecessary complexity to the overall implementation. If you decide to use object-level permissions, those should be clearly documented. The same applies to column-level-permissions, which are even less recommendable for the same reasons. The standard rules for [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) don't apply for columns.
 
 ### Implement Separation of Duties
 
 > [!NOTE]
 > Mentioned in: FedRamp: AC-04, NIST: AC-5, ISO: A.6.1.2, PCI 6.4.2, SOC: CM-3, SDL-3
 
-Achieving Separation of Duties (SoD) is challenging for security-related or troubleshooting tasks with the current SQL permission model and may be impractical. Other areas like development and end-user roles are easier to segregate. 
+Separation of Duties, also called Segregation of Duties decribes the requirement to split sensitive tasks into multiple tasks that are assigned to different users, usually to prevent data breaches.
 
-The main issue is the necessity to grant db_owner or higher permissions for many tasks. Everything demonstrated must be carefully examined under the context of the customer requirements and compliance. 
-
-Most compliance rulesets allow the use of alternate control functions such as Auditing when other solutions aren't practical. 
-
-If meeting a specific requirement is the goal, it's up to the auditors to advise on the specific compromises to be made in favor of keeping a system manageable, especially if the reasons are well explained, and you're pushing the boundary of what is doable with current technologies. _This is not an official statement, therefore do not quote this._
-
-**How to implement SoD through permissions**:
+**How to implement**:
 
 - Identify the required level of Separation of Duties. Examples: 
   - Between Development/Test and Production environments 
@@ -299,6 +288,12 @@ If meeting a specific requirement is the goal, it's up to the auditors to advise
 
 - For certain sensitive tasks consider creating special stored procedures signed by a certificate to execute the tasks on behalf of the users. 
   - Example: [Tutorial: Signing Stored Procedures with a Certificate](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
+
+- Implement Transparent Data Encryption (TDE) with customer-managed keys in Azure Key Vault (AKV) to enable Separation of Duties between data owner and security owner. 
+  - See the article, [Configure customer-managed keys for Azure Storage encryption from the Azure portal](../storage/common/storage-encryption-keys-portal.md). 
+
+- To ensure that a DBA can't see data that is considered highly sensitive and can still do DBA tasks, you can use Always Encrypted with role separation. 
+  - See the articles, [Overview of Key Management for Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted), [Key Provisioning with Role Separation](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRole), and [Column Master Key Rotation with Role Separation](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation). 
 
 - In cases when it isn't feasible at least not without major costs and efforts that may render the system near unusable, compromises can be made and mitigated through the use of compensating controls such as: 
   - Human intervention in processes. 
@@ -317,7 +312,7 @@ Additional resources:
   - [Custom roles for Azure resources](../role-based-access-control/custom-roles.md)
   - [Using Azure AD Privileged Identity Management for elevated access](https://www.microsoft.com/en-us/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 
-**Best practices on achieving SoD through permissions**:
+**Best practices**:
 
 - Make sure that different accounts are used for Development/Test and Production environments. Different accounts helps to comply with separation of Test & Production systems.
 
@@ -335,19 +330,12 @@ Additional resources:
 
 - You can retrieve the definition of the built-in RBAC roles to see the permissions used and create a custom role based on excerpts and cumulations of these via Powershell 
 
-- Since any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. On the other hand, many tasks, like changing any database setting such as changing DB options require db_owner privileges. Auditing plays a key role in any solution. 
+- Since any member of the db_owner database role can change security settings like Transparent Data Encryption (TDE), or change the SLO, this membership should be granted with care. On the other hand, many tasks, like changing any database setting such as changing DB options require db_owner privileges. Auditing plays a key role in any solution.
 
-**How to implement SoD through encryption**:
+- It is not possible to keep a db_owner from viewing user data with permissions only. If there's highly sensitive data in a database, Always Encrypted can be used to safely prevent db_owners or any other DBA from viewing it.
 
-- Implement Transparent Data Encryption (TDE) with customer-managed keys in Azure Key Vault (AKV) to enable Separation of Duties between data owner and security owner. 
-  - See the article, [Configure customer-managed keys for Azure Storage encryption from the Azure portal](../storage/common/storage-encryption-keys-portal.md). 
-
-- To ensure that a DBA can't see data that is considered highly sensitive and can still do DBA tasks, you can use Always Encrypted with role separation. 
-  - See the articles, [Overview of Key Management for Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted), [Key Provisioning with Role Separation](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-always-encrypted-keys-using-powershell#KeyProvisionWithRole), and [Column Master Key Rotation with Role Separation](https://docs.microsoft.com/sql/relational-databases/security/encryption/rotate-always-encrypted-keys-using-powershell#column-master-key-rotation-with-role-separation). 
-
-**Best practices on achieving SoD through encryption**:
-
-It isn't possible to keep a db_owner from viewing user data with permissions only. If there's highly sensitive data in a database, Always Encrypted can be used to safely prevent db_owners or any other DBA from viewing it.
+> [!NOTE]
+> Achieving Separation of Duties (SoD) is challenging for security-related or troubleshooting tasks. Other areas like development and end-user roles are easier to segregate. Most compliance related controls allow the use of alternate control functions such as Auditing when other solutions aren't practical.
 
 ### Avoid over-provisioning of permissions, unused logins, and roles
 
