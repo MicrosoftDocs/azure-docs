@@ -362,12 +362,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 ### Installing SAP NetWeaver ASCS/ERS
 
-   > [!IMPORTANT]
-   > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. As a result, the netcat resource stops listening to the Azure Load balancer requests. That leads to the floating IP not being available. For details see [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128).  
-   > For existing Pacemaker clusters on SLES, we recommend to follow the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128) and replace netcat with socat.  
-   > Note that the change will require brief downtime.  
-
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
+
+   > [!IMPORTANT]
+   > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+   > For existing Pacemaker clusters, we recommend replacing netcat with socat, following the instructions in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128). Note that the change will require brief downtime.  
 
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
