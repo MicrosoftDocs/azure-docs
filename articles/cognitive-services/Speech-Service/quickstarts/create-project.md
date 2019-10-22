@@ -18,7 +18,7 @@ zone_pivot_groups: programming-languages-set-two
 This guide shows how to create an empty project for use in other quickstarts.
 
 ::: zone pivot="programming-language-csharp"
-**Select your target environment**
+**Choose your target environment**
 #### [Visual Studio](#tab/vs)
 [!INCLUDE [vs](~/includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 #### [Unity](#tab/unity)
@@ -30,7 +30,7 @@ This guide shows how to create an empty project for use in other quickstarts.
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-**Select your target environment**
+**Choose your target environment**
 #### [Linux](#tab/linux)
 For this sample, we'll be compiling with g++, so all you need for an empty project is to create a helloworld.cpp with your favorite text editor.
 #### [MacOS](#tab/macos)
@@ -40,7 +40,7 @@ For this sample, we'll be compiling with g++, so all you need for an empty proje
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-**Select your target environment**
+**Choose your target environment**
 #### [Java Runtime](#tab/jre)
 [!INCLUDE [jre](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 #### [Android](#tab/android)

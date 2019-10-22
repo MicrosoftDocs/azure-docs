@@ -12,7 +12,7 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-**Select your target environment**
+**Choose your target environment**
 #### [Java Runtime](#tab/jre)
 [!INCLUDE [jre](./jre.md)]
 #### [Android](#tab/android)
