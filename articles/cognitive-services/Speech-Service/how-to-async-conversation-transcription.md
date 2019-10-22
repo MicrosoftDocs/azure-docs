@@ -26,7 +26,7 @@ Two steps are required to accomplish asynchronous transcription. The first step 
 
 ## Upload the audio
 
-Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe conversations in real time with the Speech SDK](./how-to-use-conversation-transcription-service.md). The **Limitations** section of this topic specifies the supported platforms and languages APIs shown in this sample.
+Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe conversations in real time with the Speech SDK](./how-to-conversation-transcription.md). The **Limitations** section of this topic specifies the supported platforms and languages APIs shown in this sample.
 
 This example code shows asynchronous-only mode.
 
@@ -63,7 +63,7 @@ speechConfig.setServiceProperty("transcriptionMode", "RealTimeOffline", ServiceP
 
 ## Get transcription results
 
-This step gets the asynchronous transcription results but assumes any real-time processing you might have required is done elsewhere. For more information, see [Transcribe conversations in real time with the Speech SDK](./how-to-use-conversation-transcription-service.md).
+This step gets the asynchronous transcription results but assumes any real-time processing you might have required is done elsewhere. For more information, see [Transcribe conversations in real time with the Speech SDK](./how-to-conversation-transcription.md).
 
 For the code shown here, you need **remoteconversation-client-sdk version 1.0.0**, supported only for Java (1.8 or above) on Windows, Linux, and Android (API level 26 or above).
 
