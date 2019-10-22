@@ -118,12 +118,12 @@ The dashboard consists of a variety of tiles
 
 ### Customize dashboard 
 
-As a builder, you can customize views in dashboard for operators. Try:
+As a builder, you can customize views in dashboard for operators. You can try:
 * Click on **Edit** to customize the **Wil World water quality monitoring dashboard**. You can customize the dashboard by clicking on the **Edit** menu. Once the dashboard is in **edit** mode, you can add new tiles, or you can configure 
-* Click on **+ New** to create new dashboard and configure from scratch. Note that you can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
 
     ![Edit Dashboard](media/tutorial-waterqualitymonitoring/edit-dashboard.png)
 
+* You can also click on **+ New** to create new dashboard and configure from scratch. Note that you can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
 
 ## Explore sample water quality monitor device template
 
