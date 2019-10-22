@@ -7,7 +7,7 @@ ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
 ---
-# Tutorial: Share data from Azure Data Lake Store or Azure Storage using Azure Data Share  
+# Tutorial: Share data using Azure Data Share  
 
 In this tutorial, you will learn how to set up a new Azure Data Share and start sharing your data with customers and partners outside of your Azure organization. 
 
@@ -22,9 +22,30 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Your recipients Azure login e-mail address (using their e-mail alias won't work).
+
+To share data from a storage account:
+
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * Permission to add role assignment to the storage account, which is present in the *Microsoft.Authorization/role assignments/write* permission. This permission exists in the owner role. 
-* Your recipients Azure login e-mail address (using their e-mail alias won't work).
+
+To share data from a SQL-based source:
+
+* An Azure SQL Database or Azure SQL Data Warehouse with tables and views that you want to share.
+* Permission for the data share to access the data warehouse. This can be done through the following steps: 
+    1. Set yourself as the Azure Active Directory Admin for the server.
+    1. Connect to the Azure SQL Database/Data Warehouse using Azure Active Directory.
+    1. Use Query Editor (preview) to execute the following script to add the Data Share MSI as a db_owner. You must connect using Active Directory and not SQL Server authentication. 
+    
+            create user <share_acct_name> from external provider;
+        
+            exec sp_addrolemember db_owner, <share_acct_name>;
+    
+            Note that the *<share_acc_name>* is the name of your Data Share Account. If you have not created a Data Share account as yet, you can come back to this pre-requisite later.         
+
+* Client IP SQL Server Firewall access: This can be done through the following steps: 
+        1. Navigate to *Firewalls and Virtual Networks*
+        1. Click the **on** toggle to allow access to Azure Services. 
 
 ## Sign in to the Azure portal
 
