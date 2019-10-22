@@ -88,7 +88,7 @@ az peering service create : Create peering service\
   --tags
 ```
 
-### 3. Register the Prefix
+### 4. Register the Prefix
 
 Register the Prefix that is provided by the connectivity provider by executing the following commands via Azure CLI. This example registers the Prefix named myPrefix.
 
