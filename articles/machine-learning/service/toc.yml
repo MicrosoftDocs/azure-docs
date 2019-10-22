@@ -389,10 +389,12 @@
         href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
-      - name: Tune Model Hyperparameters
-        href: ../algorithm-module-reference/tune-model-hyperparameters.md
       - name: Train Clustering Model
         href: ../algorithm-module-reference/train-clustering-model.md
+      - name: Train SVD Recommender
+        href: ../algorithm-module-reference/train-svd-recommender.md
+      - name: Tune Model Hyperparameters
+        href: ../algorithm-module-reference/tune-model-hyperparameters.md
       - name: Cross Validate Model
         href: ../algorithm-module-reference/cross-validate-model.md
       - name: Evaluate Model
@@ -421,6 +423,8 @@
         href: ../algorithm-module-reference/multiclass-decision-forest.md
       - name: Multiclass Boosted Decision Tree
         href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
+      - name: One vs. All Multiclass
+        href: ../algorithm-module-reference/one-vs-all-multiclass.md
       - name: Two-Class Averaged Perceptron
         href: ../algorithm-module-reference/two-class-averaged-perceptron.md
       - name: Two-Class Decision Forest
