@@ -26,10 +26,8 @@ landingContent:
         links:
           - text: Authentication basics
             url: authentication-scenarios.md
-          - linkListType: deploy
-            links:
-              - text: Best practices
-                url: identity-platform-integration-checklist.md
+          - text: Best practices
+            url: identity-platform-integration-checklist.md
       - linkListType: learn
         links:
           - text: One Dev Minute - Microsoft identity platform
