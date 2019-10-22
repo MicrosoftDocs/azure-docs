@@ -28,7 +28,7 @@ You can use the following methods to share a self-hosted integration runtime wit
 
 - **Creating a linked self-hosted IR via PowerShell**
 
-  To share a self-hosted integration runtime by using PowerShell, see [Create a shared self-hosted integration runtime in Azure Data Factory with PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
+  To share a self-hosted integration runtime by using PowerShell, see [Create a shared self-hosted integration runtime in Azure Data Factory with PowerShell](../articles/data-factory/create-shared-self-hosted-integration-runtime-powershell.md).
 
 - **Creating a linked self-hosted IR via Azure Data Factory UI**
 
