@@ -19,9 +19,9 @@ ms.author: v-miegge
 
 # Generic performance troubleshooting for Azure Virtual Machine running Linux or Windows
 
-This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur. Besides monitoring, you can also use Perfinsights which can provide a report with best practices recommendations and key bottlenecks around IO/CPU/Memory. Perfinsights is available for both Windows and Linux VM’s in Azure.
+This article describes virtual machine (VM) generic performance troubleshooting through monitoring and observing bottlenecks and provides possible remediation for issues that may occur. Besides monitoring, you can also use Perfinsights which can provide a report with best practices recommendations and key bottlenecks around IO/CPU/Memory. Perfinsights is available for both [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) and [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) VM’s in Azure.
 
-This article will walkthrough using monitoring to diagnose Performance bottlenecks.
+This article will walk through using monitoring to diagnose Performance bottlenecks.
 
 ## Enabling monitoring
 
@@ -117,6 +117,8 @@ If your application or process isn't running at the correct performance level, a
 
 If you have increased the VM, and the CPU is still running 95%, determine whether this setting is offering better performance or higher application throughput to an acceptable level. If not, troubleshoot that individual application\process.
 
+You can use Perfinsights for [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) or [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) to analyze which process is driving the CPU consumption. 
+
 ## Check for memory bottleneck
 
 To view the metrics:
@@ -146,9 +148,13 @@ To resolve high memory utilization, perform any of the following tasks:
 
 If after upgrading to a larger VM, you discover that you still have a constant steady increase until 100%, identify the application/process and troubleshoot.
 
+You can use Perfinsights for [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) or [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) to analyze which process is driving the Memory consumption. 
+
 ## Check for disk bottleneck
 
 To check the storage subsystem for the VM, check the diagnostics at the Azure VM level by using the counters in VM Diagnostics and also the Storage Account Diagnostics.
+
+For within VM specific troubleshooting, you can use Perfinsights for [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) or [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), which could help to analyze which process is driving the IO’s. 
 
 Note that we don't have counters for Zone Redundant and Premium Storage Accounts. For issues related to these counters, raise a support case.
 
@@ -169,11 +175,11 @@ To identify issues with storage, look at the performance metrics from the Storag
 
 For each check below, look for key trends when the issues occur within the time range of the issue.
 
-#### Check azure storage availability – Add the storage account metric: availability
+#### Check Azure storage availability – Add the storage account metric: availability
 
 If you see a drop in availability, there could be an issue with the platform, check the [Azure Status](https://azure.microsoft.com/status/). If no issue is shown there, raise a new support request.
 
-#### Check for azure storage timeout - Add the storage account metrics:
+#### Check for Azure storage timeout - Add the storage account metrics:
 
 * ClientTimeOutError
 * ServerTimeOutError
@@ -197,6 +203,10 @@ With this metric, you can't tell which blob is causing the throttling and which 
 
 To identify if you're hitting the IOPS limit, go into the Storage Account diagnostics and check the TotalRequests, looking to see if you're approaching 20 thousand TotalRequests. Identify either a change in the pattern, whether you're seeing the limit for the first time, or whether this limit happens at a certain time.
 
+With new disk offerings under Standard storage, the IOPS and Throughput limits could differ, but the cumulative limit of Standard Storage account is 20000 IOPS(Premium storage has different limits at account or Disk level). Read more about different standard storage disk offerings and per disk limits:
+
+* [Scalability and performance targets for VM disks on Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+
 #### References
 
 * [Scalability targets for virtual machine disks](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
@@ -209,7 +219,9 @@ Check the TotalIngress and TotalEgress against the Ingress and Egress limits for
 
 Check Throughput Limits of the VHDs attached to the VM. Add the VM Metrics Disk Read and Write.
 
-Each VHD can support up to 60 MB/s (IOPS are not exposed per VHD). Look at the data to see if you're the hitting the limits of combined throughput MB of the VHD(s) at VM level using Disk Read and Write, then optimize your VM storage configuration to scale past single VHD limits.
+New disk offerings under Standard storage have different IOPS and throughput limits (IOPS are not exposed per VHD). Look at the data to see if you're the hitting the limits of combined throughput MB of the VHD(s) at VM level using Disk Read and Write, then optimize your VM storage configuration to scale past single VHD limits. Read more about different standard storage disk offerings and per disk limits:
+
+* [Scalability and performance targets for VM disks on Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
 
 ### High disk utilization/latency remediation
 
