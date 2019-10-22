@@ -8,7 +8,7 @@ author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 
 # View a knowledge store with Storage Explorer

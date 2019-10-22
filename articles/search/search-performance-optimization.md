@@ -9,7 +9,7 @@ ms.author: liamca
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 
 # Deployment strategies and best practices for optimizing performance on Azure Cognitive Search

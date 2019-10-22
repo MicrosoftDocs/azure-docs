@@ -8,7 +8,7 @@ manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 
 # Connect a knowledge store with Power BI

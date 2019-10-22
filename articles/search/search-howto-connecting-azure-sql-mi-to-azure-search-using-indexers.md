@@ -8,7 +8,7 @@ author: vl8163264128
 ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 
 # Configure a connection from an Azure Cognitive Search indexer to SQL Managed Instance

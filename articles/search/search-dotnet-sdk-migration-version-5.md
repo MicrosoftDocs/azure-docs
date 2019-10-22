@@ -9,7 +9,7 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 # Upgrade to Azure Search .NET SDK version 5
 
