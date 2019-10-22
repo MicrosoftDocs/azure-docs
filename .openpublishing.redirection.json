@@ -251,6 +251,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/open-datasets/tutorial-opendatasets-automl.md",
+      "redirect_url": "/azure/machine-learning/service/tutorial-auto-train-models",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/virtual-machines/windows/high-performance-computing.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/",
       "redirect_document_id": false
