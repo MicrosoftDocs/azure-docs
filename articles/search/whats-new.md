@@ -28,7 +28,7 @@ November 4, 2019 - Ignite Conference
 
 + [Power BI templates](knowledge-store-connect-power-bi.md) can jumpstart your visualizations and analysis of enriched content in a knowledge store in Power BI desktop.
 
-+ Incremental indexing, now in preview, allows you to process or re-process only the steps that are absolutely necessary when making modifications to an enrichment pipeline. This is especially useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
++ [Incremental indexing](cognitive-search-incremental-indexing-conceptual.md), now in preview, allows you to process or re-process only the steps that are absolutely necessary when making modifications to an enrichment pipeline. This is especially useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms.
 

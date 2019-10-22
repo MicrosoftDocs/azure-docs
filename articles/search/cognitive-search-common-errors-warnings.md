@@ -8,7 +8,7 @@ author: amotley
 ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 
 # Common errors and warnings of the AI enrichment pipeline in Azure Cognitive Search

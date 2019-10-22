@@ -8,7 +8,7 @@ author: LuisCabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ---
 # How to reference annotations in an Azure Cognitive Search skillset
 
