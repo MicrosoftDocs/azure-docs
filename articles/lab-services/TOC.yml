@@ -1,4 +1,4 @@
-- name: DevTest Labs Documentation
+- name: DevTest Labs documentation
   href: index.yml
 - name: Switch to Lab Services documentation
   href: classroom-labs/classroom-labs-overview.md

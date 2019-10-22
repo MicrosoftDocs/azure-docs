@@ -60,7 +60,7 @@ landingContent:
             url: devtest-lab-configure-use-public-environments.md
           - text: Create an environment
             url: devtest-lab-create-environment-from-arm.md
-          - text: Use Platform-as-a-Service services
+          - text: Use platform-as-a-service services
             url: use-paas-services.md 
           - text: Connect to lab's virtual network
             url: connect-environment-lab-virtual-network.md  
