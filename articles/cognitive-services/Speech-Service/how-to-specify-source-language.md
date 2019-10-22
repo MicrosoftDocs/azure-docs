@@ -102,6 +102,8 @@ SpeechRecognizer recognizer = new SpeechRecognizer(speechConfig, sourceLanguageC
 
 ::: zone pivot="programming-language-python"
 
+## How to specify source language in Python
+
 The first step is to create a `speech_config`:
 
 ```Python
