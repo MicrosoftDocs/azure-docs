@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2019
+ms.date: 10/22/2019
 ms.author: cabailey
 ---
 
@@ -44,9 +44,9 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
     
     This action opens the query results in the **Logs** pane.
 
-4. From the log query results list, expand the row that contains the information you find interesting.
+4. From the log query results list, select one or more rows that contain the information you find interesting.
 
-5. Select the ellipsis (...) on the left, and then select **Add hunting bookmark**:
+5. Select **Add bookmark**:
     
     > [!div class="mx-imgBorder"]
     > ![Add hunting bookmark to query](./media/bookmarks/add-hunting-bookmark.png)
