@@ -13,11 +13,10 @@ ms.reviewer: jrasnick
 
 # Connect to SQL on-demand with SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
-> * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
-> * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
-> * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
-> * [SSMS](sql-data-warehouse-query-ssms.md)
+> * [Power BI](tutorial-bi-professional.md)
+> * [Visual Studio](sql-analytics-query-visual-studio.md)
+> * [sqlcmd](sql-analytics-get-started-connect-sqlcmd.md)
+> * [SSMS](sql-analytics-query-ssms.md)
 > 
 > 
 
