@@ -41,7 +41,7 @@ The Speech Device SDK provides sample code in Java for real-time audio capture u
 
 The first step is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification.
 
-### Requirements for the input wave file
+### Audio input requirements
 
 - The input audio wave file for creating voice signatures should be in 16-bit samples, 16 kHz sample rate, and a single channel (mono) format.
 - The recommended length for each audio sample is between thirty seconds and two minutes.
