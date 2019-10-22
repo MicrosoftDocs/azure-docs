@@ -1,6 +1,6 @@
 ---
-title: Using IDENTITY to create surrogate keys - Azure SQL Analytics| Microsoft Docs
-description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure SQL Analytics.
+title: Using IDENTITY to create surrogate keys - Azure Synapse Analytics| Microsoft Docs
+description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure Synapse Analytics.
 services: sql-data-warehouse
 author:  XiaoyuMSFT
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Using IDENTITY to create surrogate keys in Azure SQL Analytics (formerly SQL DW)
+# Using IDENTITY to create surrogate keys in Azure Synapse Analytics (formerly SQL DW)
 
-Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure SQL Analytics.
+Recommendations and examples for using the IDENTITY property to create surrogate keys on tables.
 
 ## What is a surrogate key
 
@@ -44,7 +44,7 @@ This remainder of this section highlights the nuances of the implementation to h
 
 ### Allocation of values
 
-The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in Azure SQL Analytics, the absence of a guarantee is more pronounced.
+The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in SQL Analytics, the absence of a guarantee is more pronounced.
 
 The following example is an illustration:
 
@@ -155,7 +155,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 >
 
-For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for Azure SQL Analytics](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
+For more information on loading data, see [Designing Extract, Load, and Transform (ELT)](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
 
 ## System views
 

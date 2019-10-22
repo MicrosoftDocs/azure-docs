@@ -1,6 +1,6 @@
 ---
-title: Resources for developing a data warehouse in Azure | Microsoft Docs
-description: Development concepts, design decisions, recommendations and coding techniques for SQL Analytics.
+title: Resources for developing a data warehouse in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Development concepts, design decisions, recommendations and coding techniques for Azure Synapse Analytics (formerly SQL DW).
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Design decisions and coding techniques for SQL Analytics (formerly SQL DW)
-Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for a data warehouse in SQL Analytics.
+# Design decisions and coding techniques for Azure Synapse Analytics (formerly SQL DW)
+Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for a data warehouse.
 
 ## Key design decisions
-The following articles highlight concepts and design decisions for developing a distributed data warehouse using SQL Analytics:
+The following articles highlight concepts and design decisions for developing a distributed data warehouse:
 
 * [connections][connections]
 * [concurrency][concurrency]

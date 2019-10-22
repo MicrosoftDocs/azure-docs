@@ -1,6 +1,6 @@
 ---
-title: T-SQL statements - Azure SQL Analytics | Microsoft Docs
-description: Links to the documentation for T-SQL statements supported in Azure SQL Analytics.
+title: T-SQL statements - Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Links to the documentation for T-SQL statements supported in Azure Synapse Analytics (formerly SQL DW).
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -12,8 +12,8 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# T-SQL statements supported in Azure SQL Analytics (formerly SQL DW)
-Links to the documentation for T-SQL statements supported in Azure SQL Analytics.
+# T-SQL statements supported in Azure Synapse Analytics (formerly SQL DW)
+Links to the documentation for T-SQL statements supported in Azure Synapse Analytics.
 
 ## Data Definition Language (DDL) statements
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
@@ -114,4 +114,4 @@ Links to the documentation for T-SQL statements supported in Azure SQL Analytics
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## Next steps
-For more reference information, see [T-SQL language elements in Azure SQL Analytics](sql-data-warehouse-reference-tsql-language-elements.md), and [System views in Azure SQL Analytics](sql-data-warehouse-reference-tsql-system-views.md).
+For more reference information, see [T-SQL language elements in Azure Synapse Analytics](sql-data-warehouse-reference-tsql-language-elements.md), and [System views in Azure Synapse Analytics](sql-data-warehouse-reference-tsql-system-views.md).
