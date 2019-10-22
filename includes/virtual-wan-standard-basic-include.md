@@ -16,5 +16,5 @@
 | Standard | Standard | ExpressRoute<br>User VPN (P2S)<br>VPN (site-to-site)<br> Inter-hub and VNet-to-VNet transiting through the virtual hub |
 
 >[!NOTE]
->You can upgrade from Basic to Standard, but cannot revert Standard back to Basic.
+>You can upgrade from Basic to Standard, but cannot revert from Standard back to Basic.
 >
