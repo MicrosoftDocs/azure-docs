@@ -74,10 +74,6 @@ Sample JSON for view definition:
                 "createUIDefinition": { },
                 "commands": [
                     {
-                        "displayName": "Custom Test Action",
-                        "path": "testAction"
-                    },
-                    {
                         "displayName": "Custom Context Action",
                         "path": "testCustomResource/testContextAction",
                         "icon": "Stop",
