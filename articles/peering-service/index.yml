@@ -28,7 +28,7 @@ landingContent:
             url: about.md
       - linkListType: concept
         links:
-          - text: Location and Partners
+          - text: Location and partners
             url: location-partners.md
           - text: Connections
             url: connection.md
@@ -38,11 +38,11 @@ landingContent:
             url: onboarding-model.md
 
   # Card
-  - title: Get-started
+  - title: Get started
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Register Peering Service - Azure Portal
+          - text: Register Peering Service - Azure portal
             url: azure-portal.md
 
   # Card
