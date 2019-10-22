@@ -3,7 +3,7 @@ title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
 description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete.
 services: log-analytics
 documentationcenter: ''
-author: mgoedtel
+author: bwren
 manager: carmonm
 editor: ''
 ms.assetid: d0e5162d-584b-428c-8e8b-4dcaa746e783
@@ -11,8 +11,8 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.author: magoedte
+ms.date: 10/22/2019
+ms.author: bwren
 ---
 
 # Manage access to log data and workspaces in Azure Monitor
@@ -254,20 +254,24 @@ For example, to create a role with access to the _Heartbeat_ and _AzureActivity_
 
 ```
 "Actions":  [
-              "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
-              "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Heartbeat/read",
+    "Microsoft.OperationalInsights/workspaces/query/AzureActivity/read"
   ],
 ```
 
 To create a role with access to only _SecurityBaseline_ and no other tables, create a custom role using the following actions:
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
-    ],
-    "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+],
+"NotActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
 ```
 
 ### Custom logs
@@ -277,9 +281,11 @@ To create a role with access to only _SecurityBaseline_ and no other tables, cre
  You can't currently grant or deny access to individual custom logs, but you can grant or deny access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
 
 ```
-    "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
-    ],
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
+],
 ```
 
 ### Considerations
