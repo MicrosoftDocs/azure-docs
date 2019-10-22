@@ -1,5 +1,5 @@
 ﻿---
-title: 'Time Series Model in Azure Time Series Insights Preview | Microsoft Docs'
+title: 'Time Series Models in Azure Time Series Insights Preview | Microsoft Docs'
 description: Understanding Azure Time Series Insights Time Series Model.
 author: deepakpalled
 ms.author: dpalled
@@ -103,7 +103,7 @@ Instances are defined by **typeId**, **timeSeriesId**, **name**, **description**
 
 Instances have the following JSON representation:
 
-```json
+```JSON
 {
     "timeSeriesId": ["PU2"],
     "typeId": "545314a5-7166-4b90-abb9-fd93966fa39b",
@@ -127,7 +127,7 @@ Instances have the following JSON representation:
 
 Time Series Model *hierarchies* organize instances by specifying property names and their relationships.
 
-You might have a single hierarchy or multiple hierarchies. They don't need to be a current part of your data, but each instance should map to a hierarchy. A Time Series Model instance can map to a single hierarchy or multiple hierarchies (many-to-many relationship).
+You can configure multiple hierarchies within a single Time Series Insights environment. A Time Series Model instance can map to a single hierarchy or multiple hierarchies (many-to-many relationship).
 
 The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) client interface displays a standard instance and type hierarchy.
 
@@ -145,7 +145,7 @@ Hierarchies are defined by hierarchy **id**, **name**, and **source**.
 
 Hierarchies are represented in JSON as:
 
-```json
+```JSON
 {
   "hierarchies": [
     {
@@ -184,7 +184,7 @@ Above:
 
 Consider an example where hierarchy **H1** has *building*, *floor*, and *room* as part of its **instanceFieldNames** definition:
 
-```json
+```JSON
 {
   "id": "aaaaaa-bbbbb-ccccc-ddddd-111111",
   "name": "H1",
@@ -206,7 +206,7 @@ Given the **instance fields** used in the above definition and several time seri
 | ID2 | “building” = “1000”, “room” = “55” |
 | ID3 | “floor” = “10” |
 | ID4 | “building” = “1000”, “floor” = “10”  |
-| ID5 | None of “building”, “floor” or “room” is set |
+| ID5 | None of “building”, “floor”, or “room” is set |
 
 Time Series **ID1** and **ID4** will be displayed as part of hierarchy **H1** in the [Azure Time Series Insights explorer](time-series-insights-update-explorer.md) since they have fully defined and correctly ordered *building*, *floor*, and *room* parameters.
 
@@ -238,7 +238,7 @@ Time Series Model types are defined by an **id**, **name**, **description**, and
 
 Types will conform to the following JSON example:
 
-```json
+```JSON
 {
   "types": [
     {
@@ -253,9 +253,25 @@ Types will conform to the following JSON example:
           "aggregation": {
             "tsx": "count()"
           }
+        },
+        "Interpolated Speed": {
+          "kind": "numeric",
+          "value": {
+              "tsx": "$event.[speed].Double"
+          },
+          "filter": null,
+          "interpolation": {
+              "kind": "step",
+              "boundary": {
+                  "span": "P1D"
+              }
+          },
+          "aggregation": {
+              "tsx": "left($value)"
+          }
         }
       }
-    }
+    },
   ]
 }
 ```
@@ -270,13 +286,13 @@ Each variable can be one of three *kinds*: *numeric*, *categorical*, and *aggreg
 * *Categorical* kinds are continuous and include the `Double`, `String`, `Bool`, and `DateTime` data types.
 * *Aggregate* values combine multiple variables of single kind (either all *numeric* or all *categorical*).
 
-Variable definitions also include *filter*, *value*, *interpolation*, *aggregation*, and *data type* definitions that are described using the table below:
+Variable definitions also include *filter*, *value*, *interpolation*, *aggregation* definitions that are described in the table below:
 
 | Definition | Description |
 | --- | ---|
 | Variable kind |  *Numeric*, *Categorical*, or *Aggregate* |
 | Variable filter | Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions. |
-| Variable value | Variable values are and should be used in computation. The relevant field to refer to for the data point in question. |
+| Variable value | Telemetry values used for computation, this comes from the device/sensors, the relevant field to refer to for the data point in question. |
 | Variable interpolation | Specifies how to reconstruct signals using existing data. |
 | Variable aggregation | Support computation through *Avg*, *Min*, *Max*, *Sum*, *Count*, and time-weighted (*Avg*, *Min*, *Max*, *Sum*) operators. |
 
@@ -298,7 +314,7 @@ Variables conform to the following JSON example:
     "interpolation": {​
         "kind": "step",​
         "boundary": {​
-             “span": "P1D"​
+             "span": "P1D"​
         }​
     },​
     "aggregation": {​
