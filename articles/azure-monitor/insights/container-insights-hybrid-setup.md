@@ -67,7 +67,7 @@ This method includes two JSON templates. One template specifies the configuratio
 - **workspaceResourceId** - the full resource ID of your Log Analytics workspace.
 - **workspaceRegion** - the region the workspace is created in, which is also referred to as **Location** in the workspace properties when viewing from the Azure portal.
 
-To first identify the full resource ID of your Log Analytics workspace required for the `workspaceResourceId` parameter value, in the **containerSolutionParams.json** file, perform the following steps and then run the PowerShell cmdlet or Azure CLI command to add the solution.
+To first identify the full resource ID of your Log Analytics workspace required for the `workspaceResourceId` parameter value in the **containerSolutionParams.json** file, perform the following steps and then run the PowerShell cmdlet or Azure CLI command to add the solution.
 
 1. List all the subscriptions which you have access using the following command:
 
@@ -177,7 +177,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
     }
     ```
 
-7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and **workspaceRegion** copying the value after running the Azure CLI command [az monitor log-analytics workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and for **workspaceRegion** copy the **Revgion** value after running the Azure CLI command [az monitor log-analytics workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
 
 8. Save this file as containerSolutionParams.json to a local folder.
 
