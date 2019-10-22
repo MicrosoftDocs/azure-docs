@@ -193,7 +193,7 @@ The following commands demonstrate how to create, register, and list Azure Machi
 
     For more information, see [az ml environment download](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download).
 
-## Machine learning pipelines
+## ML pipeline management
 
 The following commands demonstrate how to work with machine learning pipelines:
 
