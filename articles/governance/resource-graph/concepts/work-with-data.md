@@ -106,7 +106,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > The query must **project** the **id** field in order for pagination to work. If it's missing from
 > the query, the response won't include the **$skipToken**.
 
-For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next-page-query)
+For an example, see [Next page query](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query)
 in the REST API docs.
 
 ## Formatting results
