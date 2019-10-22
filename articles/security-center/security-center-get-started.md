@@ -67,8 +67,8 @@ When automatic provisioning is enabled, Security Center installs the Microsoft M
 
 To enable automatic provisioning of the Microsoft Monitoring Agent:
 
-1. Under the Security Center main menu, select **Security Policy**.
-2. On the row of the subscription, select **Edit settings>**.
+1. Under the Security Center main menu, select **Pricing & settings**.
+2. On the row of the subscription, click on the subscription on which you'd like to change the settings.
 3. In the **Data Collection** tab, set **Auto provisioning** to **On**.
 4. Select **Save**.
 ---
@@ -81,15 +81,15 @@ With this new insight into your Azure VMs, Security Center can provide additiona
 ## Clean up resources
 Other quickstarts and tutorials in this collection build upon this quickstart. If you plan to continue on to work with subsequent quickstarts and tutorials, continue running the Standard tier and keep automatic provisioning enabled. If you do not plan to continue or wish to return to the Free tier:
 
-1. Return to the Security Center main menu and select **Security Policy**.
-2. On the row of the subscription that you want to return to free, select **Edit settings>**.
+1. Return to the Security Center main menu and select **Pricing & settings**.
+2. Click on the subscription that you want to change to the free tier.
 3. Select **Pricing tier** and select **Free** to change subscription from Standard tier to Free tier.
 5. Select **Save**.
 
 If you wish to disable automatic provisioning:
 
-1. Return to the Security Center main menu and select **Security policy**.
-2. On the row of the subscription you want to disable automatic provisioning, select **Edit settings>**.
+1. Return to the Security Center main menu and select **Pricing & settings**.
+2. Clean on the subscription that you want to disable automatic provisioning on.
 3. In the **Data Collection** tab, set **Auto provisioning** to **Off**.
 4. Select **Save**.
 

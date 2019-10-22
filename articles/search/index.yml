@@ -7,7 +7,6 @@ metadata:
   description: Cloud search over private heterogenous content, with options for AI enrichment if your content is unstructured or unsearchable in raw form. 
   services: search
   ms.service: service #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: cognitive-search
   ms.topic: landing-page # Required
   ms.collection: collection
   author: HeidiSteen #Required; your GitHub user alias, with correct capitalization.
@@ -50,6 +49,22 @@ landingContent:
         links:
           - text: Introduction to Azure Search
             url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
+
+  # Card
+  - title: Use with Blob storage
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Use AI to understand blob data
+            url: search-blob-ai-integration.md
+          - text: Search your blob content
+            url: search-blob-storage-integration.md
+          - text: Store AI enrichments
+            url: knowledge-store-concept-intro.md
+      - linkListType: tutorial
+        links:
+          - text: Index semi-structured blob data
+            url: search-semi-structured-data.md
 
   # Card
   - title: Index your data

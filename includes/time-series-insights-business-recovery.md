@@ -3,7 +3,7 @@ ms.topic: include
 ms.service: time-series-insights
 author: kingdomofends
 ms.author: adgera
-ms.date: 04/29/2019
+ms.date: 10/09/2019
 ---
 
 ## Business disaster recovery
@@ -19,6 +19,7 @@ Additional high-availability features provided through Azure (and also available
 - **Failover**: Azure provides [geo-replication and load balancing](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region).
 - **Data restoration** and **storage recovery**: Azure provides [several options to preserve and recover data](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption).
 - **Site recovery**: Azure provides site recovery features through [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/).
+- **Azure Backup**: [Azure Backup](https://docs.microsoft.com/azure/backup/backup-architecture) supports both on-premises and in-cloud backup of Azure VM's.
 
 Make sure you enable the relevant Azure features to provide global, cross-region high availability for your devices and users.
 

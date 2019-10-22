@@ -116,4 +116,4 @@ landingContent:
           - text: REST (Initiatives)
             url: /rest/api/resources/policysetdefinitions
           - text: Resource Manager templates
-            url: /azure/templates/microsoft.authorization
+            url: /azure/templates/microsoft.authorization/allversions

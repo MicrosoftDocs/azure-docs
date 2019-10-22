@@ -471,7 +471,7 @@ You can find other Azure SQL Database scripts here: [Azure PowerShell](sql-datab
 
 ## Next steps
 
-In this tutorial, you added an Azure SQL Database single database to a failover group, and tested failover. You learned how to:
+In this tutorial, you added an Azure SQL Database single database to a failover group, and tested failover. You learned how to: 
 
 > [!div class="checklist"]
 > - Create an Azure SQL Database single database. 

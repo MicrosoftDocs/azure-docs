@@ -23,8 +23,7 @@ When you tag images for a Custom Vision model, the service uses the latest train
 
 Keep the following limitations in mind:
 
-* Only request suggested tags for images whose content has already been trained once. Don't get suggestions for a new tag that you're just beginning to train.
-* You can only use suggested tags on images that are untagged; you can't get suggestions for additional tags on an already-tagged image.
+* You should only request suggested tags for images whose content has already been trained once. Don't get suggestions for a new tag that you're just beginning to train.
 
 > [!IMPORTANT]
 > The suggested tags feature uses the same [pricing model](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) as regular predictions. The first time you trigger suggested tags for a set of images, you'll be charged the same as for prediction calls. After that, the service stores the results for the selected images in a database for 30 days, and you can access them anytime for free within that period. After 30 days, you'll be charged if you request their suggested tags again.

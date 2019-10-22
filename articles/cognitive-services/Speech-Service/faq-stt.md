@@ -1,4 +1,4 @@
----
+﻿---
 title: Frequently asked questions about the Speech to Text service in Azure
 titleSuffix: Azure Cognitive Services
 description: Get answers to the most popular questions about the Speech to Text service.
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 10/17/2019
 ms.author: panosper
 ---
 
@@ -67,6 +67,28 @@ If you have adapted and deployed a model with baseline V1.0, that deployment wil
 
 Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) if you require a higher scale.
 
+To increase concurrency for a custom model, we need the following information:
+
+- The region where the model is deployed.
+- The endpoint ID of the deployed model.
+
+To increase concurrency for a base models, we need the following information:
+
+- The region of your service,
+
+and either
+
+- an access token for you subrscription (see [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#how-to-get-an-access-token)),
+
+or
+
+- the Resource ID for you subscription:
+  - Go to https://portal.azure.com,
+  - select `Cognitive Services` in the search box,
+  - from the displayed services pick the speech service you want the concurrency increased for,
+  - display the properties for this service,
+  - copy the complete `Resource ID`.
+
 **Q: Can I download my model and run it locally?**
 
 **A**: Models can't be downloaded and executed locally.
@@ -90,9 +112,9 @@ Contact [Speech support](mailto:speechsupport@microsoft.com?subject=Request%20fo
 
 **Q: What is the limit on the size of a dataset, and why is it the limit?**
 
-**A**: The current limit for a dataset is 2 GB. The limit is due to the restriction on the size of a file for HTTP upload. 
+**A**: The current limit for a dataset is 2 GB. The limit is due to the restriction on the size of a file for HTTP upload.
 
-**Q: Can I zip my text files so I can upload a larger text file?** 
+**Q: Can I zip my text files so I can upload a larger text file?** 
 
 **A**: No. Currently, only uncompressed text files are allowed.
 
@@ -137,7 +159,7 @@ which includes insertions, deletions, and substitutions, divided by the total nu
 
 **A**: The results show a comparison between the baseline model and the model you customized. You should aim to beat the baseline model to make customization worthwhile.
 
-**Q: How do I determine the WER of a base model so I can see if there was an improvement?** 
+**Q: How do I determine the WER of a base model so I can see if there was an improvement?** 
 
 **A**: The offline test results show the baseline accuracy of the custom model and the improvement over baseline.
 

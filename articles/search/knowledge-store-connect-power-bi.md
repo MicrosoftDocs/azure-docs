@@ -5,7 +5,6 @@ description: Connect an Azure Search knowledge store with Power BI for analysis 
 author: lisaleib
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: v-lilei
