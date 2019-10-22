@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Assign a user or group to an enterprise app in Azure Active Directory
 
-To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory. For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
+To assign a user or group to an enterprise app, you should have assigned any of these admin roles: global administrator, application administrator, cloud application administrator or be assigned as the owner of the enterprise app.  For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
 
 > [!NOTE]
 > For licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
