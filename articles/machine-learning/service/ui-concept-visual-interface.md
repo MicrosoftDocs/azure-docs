@@ -90,17 +90,17 @@ To learn how to deploy your model, see [Tutorial: Deploy a machine learning mode
 
 ## Moving from the visual interface to the designer
 
-The visual interface (preview) has been redesigned as Azure Machine Learning designer (preview). The designer has a new, pipeline-based, architecture that fully integrates with the rest of the Azure Machine Learning experience. Following the update, some concepts and terminology for the visual interface have changed.
+The visual interface (preview) has been updated and is now Azure Machine Learning designer (preview). The designer has been re-architected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. Some concepts and terms for the visual interface have been changed or renamed, see the table below for the most important conceptual changes. 
 
 | Concept in the designer | Previously in the visual interface |
 | ---- |:----:|
 | Pipeline draft | Experiment |
-|  Real-time endpoint | Web service |
+| Real-time endpoint | Web service |
 | Datasets | Datasets |
 
 ### Migrating to the designer
 
-Visual interface assets can be automatically converted to comparable assets in the designer. Use the following steps to migrate existing experiments and web services:
+You can convert existing visual interface experiments and web services to pipelines and real-time endpoints in the designer. Use the following steps to migrate existing experiments and web services:
 
 [!INCLUDE [migrate from the visual interface](../../../includes/aml-vi-designer-migration.md)]
 

@@ -14,11 +14,15 @@ ms.date: 10/18/2019
 
 1. Upgrade your workspace to Enterprise edition.
 
-    After upgrading, all of your visual interface experiments and web services convert to pipeline drafts and real-time endpoints in the designer.
+    After upgrading, all of your visual interface experiments will convert to pipeline drafts in the designer.
+    
+    > [!NOTE]
+    > You do not need to upgrade to convert visual interface web services to real-time endpoits in the designer. 
     
 1. Go to the designer section of the workspace to see your list of pipeline drafts.
     
-    Visual interface web services can be found by navigating to **Endpoints** > **Real-time endpoints**.
+    > [!NOTE]
+    > Converted visual interface web services can be found by navigating to **Endpoints** > **Real-time endpoints**.
 
 1. Select a pipeline draft to open it.
 
