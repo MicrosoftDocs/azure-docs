@@ -34,8 +34,6 @@
     items:
     - name: Prepare physical servers for assessment
       href: tutorial-assess-physical.md
-    - name: Assess physical servers for migration
-      href: tutorial-prepare-physical.md
     - name: Migrate physical servers and VMs
       href: tutorial-migrate-physical-virtual-machines.md
   - name: Assess imported servers for migration
