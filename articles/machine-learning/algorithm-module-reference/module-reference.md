@@ -37,8 +37,10 @@ Modules are organized by functionality:
 | Clustering | Group data together.| [K-Means Clustering](k-means-clustering.md)
 | Regression | Predict a value. | [Linear Regression](linear-regression.md)  <br/> [Neural Network Regression](neural-network-regression.md)  <br/> [Decision Forest Regression](decision-forest-regression.md)  <br/> [Boosted&nbsp;Decision&nbsp;Tree&nbsp;Regression](boosted-decision-tree-regression.md)
 |  | **Build and evaluate models**: | |
-| Model Training | Run data through the algorithm. | [Train Model](train-model.md)  <br/> [Train Clustering Model](train-clustering-model.md) |
-| Model Scoring & Evaluation | Get predictions and Measure the accuracy of the trained model. |  [Apply Transformation](apply-transformation.md) <br/> [Assign Data to Clusters](assign-data-to-clusters.md) <br/> [Cross Validate Model](cross-validate-model.md) <br/> [Evaluate Model](evaluate-model.md) <br/> [Score Model](score-model.md)|
+| Train   | Run data through the algorithm. | [Train Model](train-model.md)  <br/> [Train Clustering Model](train-clustering-model.md)    |
+| Evaluate Model | Measure the accuracy of the trained model. |  [Evaluate Model](evaluate-model.md)
+| Score | Get predictions from the model you've just trained. | [Apply Transformation](apply-transformation.md)<br/>[Assign&nbsp;Data&nbsp;to&nbsp;Clusters](assign-data-to-clusters.md) <br/>[Score Model](score-model.md)
+| Statistical Functions | Provide a wide variety of numerical methods related to data science. | [Apply Math Operation](apply-math-operation.md) <br/> [Summarize Data](summarize-data.md)|
 
 ## Error messages
 

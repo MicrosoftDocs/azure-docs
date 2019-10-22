@@ -46,9 +46,9 @@ This module supports multiple methods for dividing your data into partitions or 
 
 ### Get TOP N rows from a dataset
 
-Use this mode to get only the first *n* rows. This option is useful if you want to test an pipeline on a small number of rows, and don't need the data to be balanced or sampled in any way.
+Use this mode to get only the first *n* rows. This option is useful if you want to test a pipeline on a small number of rows, and don't need the data to be balanced or sampled in any way.
 
-1. Add the **Partition and Sample** module to your pipeline in the designer, and connect the dataset.  
+1. Add the **Partition and Sample** module to your pipeline in the interface, and connect the dataset.  
 
 2. **Partition or sample mode**: Set this option to **Head**.
 

@@ -1,7 +1,7 @@
 ---
 title:  "Linear Regression: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Linear Regression module in Azure Machine Learning to create a linear regression model for use in an pipeline.
+description: Learn how to use the Linear Regression module in Azure Machine Learning to create a linear regression model for use in a pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,7 @@ ms.date: 10/22/2019
 # Linear Regression module
 This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to create a linear regression model for use in an pipeline.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
+Use this module to create a linear regression model for use in a pipeline.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
 
 You use this module to define a linear regression method, and then train a model using a labeled dataset. The trained model can then be used to make predictions.
 

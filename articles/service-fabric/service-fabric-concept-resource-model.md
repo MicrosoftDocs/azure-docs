@@ -6,7 +6,7 @@ author: athinanthny
 
 ms.service: service-fabric
 ms.topic: conceptual 
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: atsenthi 
 ---
 
@@ -37,8 +37,14 @@ Deploying an application from a Resource Manager template requires a storage acc
 ![Create a storage account][CreateStorageAccount]
 
 ### Configure Storage account 
-Once the storage account has been created, you need to create a blob container where the applications can be staged. In the Azure portal, navigate to the storage account that you would like to store your applications. Select the **Blobs** blade, and click the **Add Container** button. Add a new container with Blob Public access level.
-   
+Once the storage account has been created, you need to create a blob container where the applications can be staged. In the Azure portal, navigate to the storage account that you would like to store your applications. Select the **Blobs** blade, and click the **Add Container** button. Resources in your cluster can be secured by setting the public access level to private. Access can be granted in a number of ways:
+* [Authorize access to blobs and queues with Azure Active Directory](../storage/common/storage-auth-aad-app.md)
+* [Grant access to Azure blob and queue data with RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md)
+* [Delegate access with a shared access signature (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
+)
+
+ For this example we will proceed using anonymous read access for blobs.
+
 ![Create blob][CreateBlob]
 
 ### Stage application in a Storage account

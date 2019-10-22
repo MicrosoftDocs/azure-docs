@@ -40,6 +40,7 @@ This module is particularly useful when you need to separate data into training 
     - **Relative Expression Split**:  Use this option whenever you want to apply a condition to a number column. The number could be a date/time field, a column containing age or dollar amounts, or even a percentage. For example, you might want to divide your data set depending on the cost of the items, group people by age ranges, or separate data by a calendar date.
 
 ### Split Rows
+
 1.  Add the [Split Data](./split-data.md) module to your pipeline in the designer, and connect the dataset you want to split.
   
 2.  For **Splitting mode**, choose **Split rows**. 

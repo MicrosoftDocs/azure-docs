@@ -1,7 +1,7 @@
 ---
 title:  "Import from Azure Blob Storage: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn This topic describes how to use the Import from Azure Blob Storage module in Azure Machine Learning to read data from Azure blob storage, so that you can use the data in a machine learning pipeline.
+description: This topic describes how to use the Import from Azure Blob Storage module in Azure Machine Learning designer to read data from Azure blob storage, so that you can use the data in a machine learning pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

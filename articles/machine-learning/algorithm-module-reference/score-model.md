@@ -43,8 +43,7 @@ The score, or predicted value, can be in many different formats, depending on th
 
 ## Publish scores as a web service
 
-A common use of scoring is to return the output as part of a predictive web service. For more information, see this tutorial on how to create a web service based on an pipeline in Azure Machine Learning:
-
+A common use of scoring is to return the output as part of a predictive web service. For more information, see this tutorial on how to create a web service based on a pipeline in Azure Machine Learning:
 
 ## Next steps
 

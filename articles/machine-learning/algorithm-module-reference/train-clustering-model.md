@@ -23,7 +23,7 @@ The module takes an untrained clustering model that you have already configured 
 > A clustering model cannnot be trained using the [Train Model](train-model.md) module, which is the generic module for training machine learning models. That is because [Train Model](train-model.md) works only with supervised learning algorithms. K-means and other clustering algorithms allow unsupervised learning, meaning that the algorithm can learn from unlabeled data.  
   
 ## How to use Train Clustering Model  
-  
+
 1.  Add the **Train Clustering Model** module to your pipeline in the designer. You can find the module under **Machine Learning Modules**, in the **Train** category.  
   
 2. Add the [K-Means Clustering](k-means-clustering.md) module, or another custom module that creates a compatible clustering model, and set the parameters of the clustering model.  
@@ -38,7 +38,7 @@ The module takes an untrained clustering model that you have already configured 
 
     If you deselect this option, only the cluster assignments are output. 
 
-7. Run the pipelineor click the **Train Clustering Model** module and select **Run Selected**.  
+7. Run the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
   
 ### Results
 

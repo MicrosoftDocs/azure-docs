@@ -32,7 +32,7 @@ This article will show how to use the **Create Python Model** with a simple pipe
 
 ![create-python-model](./media/module/aml-create-python-model.png)
 
-1.  Click **Create Python Model**, edit the script to implement your modelling or data management process. You can base the model on any learner that is included in a Python package in the Azure Machine Learning environment.
+1.  Click **Create Python Model**, edit the script to implement your modeling or data management process. You can base the model on any learner that is included in a Python package in the Azure Machine Learning environment.
 
 
     Below is a sample code of two-class Naive Bayes classifier by using the popular *sklearn* package.

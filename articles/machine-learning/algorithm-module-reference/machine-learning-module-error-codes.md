@@ -1008,7 +1008,7 @@ Another reason you might get this error if you try to use a column containing fl
 ## Error 0057  
  Exception occurs when attempting to create a file or blob that already exists.  
   
- This exception occurs when you are using the [Export Data](export-data.md) module or other module to save  results of an pipeline in Azure Machine Learning to Azure blob storage, but you attempt to create a file or blob that already exists.   
+ This exception occurs when you are using the [Export Data](export-data.md) module or other module to save  results of a pipeline in Azure Machine Learning to Azure blob storage, but you attempt to create a file or blob that already exists.   
   
 **Resolution:**
  

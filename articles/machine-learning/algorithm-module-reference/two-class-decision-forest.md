@@ -94,8 +94,7 @@ After training is complete:
 
 + To save a snapshot of the model, right-click the **Trained Model** output, and select **Save Model**. The saved model is not updated on successive runs of the pipeline.
 
-+ To use the model for scoring, add the **Score Model** module to an pipeline.
-
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 ## Next steps
 
