@@ -6,6 +6,8 @@ ms.date: 09/26/2019
 ms.author: glenga
 ---
 
+### Query the Storage queue
+
 You can use the [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) command to view the Storage queues in your account, as in the following example:
 
 ```azurecli-interactive
