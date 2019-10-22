@@ -35,7 +35,7 @@ To compute the output of the network for a particular input, a value is calculat
 
 ## Configure Multiclass Neural Network
 
-1. Add the **MultiClass Neural Network** module to your experiment in the interface. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.
+1. Add the **MultiClass Neural Network** module to your pipeline in the interface. You can find this module under **Machine Learning**, **Initialize**, in the **Classification** category.
 
 2. **Create trainer mode**: Use this option to specify how you want the model to be trained:
 
@@ -68,9 +68,9 @@ To compute the output of the network for a particular input, a value is calculat
   
 11. **Shuffle examples**: Select this option to shuffle cases between iterations.
 
-    If you deselect this option, cases are processed in exactly the same order each time you run the experiment.
+    If you deselect this option, cases are processed in exactly the same order each time you run the pipeline.
 
-12. **Random number seed**: Type a value to use as the seed, if you want to ensure repeatability across runs of the same experiment.
+12. **Random number seed**: Type a value to use as the seed, if you want to ensure repeatability across runs of the same pipeline.
 
 14. Connect a training dataset and one of the [training modules](module-reference.md): 
 
@@ -83,7 +83,7 @@ After training is complete:
 
 - To see a summary of the model's parameters, together with the feature weights learned from training, and other parameters of the neural network, right-click the output of [Train Model](./train-model.md)  and select **Visualize**.  
 
-- To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same experiment.
+- To save a snapshot of the trained model, right-click the **Trained model** output and select **Save As Trained Model**. This model is not updated on successive runs of the same pipeline.
 
 
 ## Next steps
