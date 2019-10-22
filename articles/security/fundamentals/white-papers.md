@@ -3,8 +3,8 @@ title: Azure Security white papers | Microsoft Docs
 description: The article provides a curated list of Azure security white papers for different Azure resources.
 services: azure-security
 documentationcenter: na
-author: TomShinder
-manager: barbkess
+author: TerryLanfear
+manager: rkarlin
 editor:
 
 ms.assetid:
@@ -15,7 +15,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2018
-ms.author: tomsh
+ms.author: terrylan
 
 ---
 # Azure Security white papers
