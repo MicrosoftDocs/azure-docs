@@ -19,9 +19,9 @@ The below table details the supported data sources for Azure Data Share.
 | Azure Blob storage |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |✓ | |
-| Azure SQL Data Warehouse |✓ | |
-| Azure Data Explorer | |✓ |
+| Azure SQL Database |Public Preview | |
+| Azure SQL Data Warehouse |Public Preview | |
+| Azure Data Explorer | |[Limited preview](https://aka.ms/azuredatasharepreviewsignup) |
 
 Azure Data Share offers data consumers flexibility when deciding on a data store to accept data in to. For example, data being shared from Azure SQL Database can be received into Azure Data Lake Store Gen2, Azure SQL Database or Azure SQL Data Warehouse. Customers can choose which format to receive data in when configuring a received data share. 
 
