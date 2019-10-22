@@ -55,7 +55,7 @@ When multiple hubs are enabled in a single virtual WAN, the hubs are automatical
 
 Additionally, hubs that are all part of the same virtual WAN, can be associated with different regional access and security policies. For more information, see [Security and policy control](#security) later in this article.
 
-## <a name="anytoany"></a>Any-to-any global transit connectivity
+## <a name="anytoany"></a>Any-to-any connectivity
 
 Global transit network architecture enables any-to-any connectivity via virtual WAN hubs. This architecture eliminates or reduces the need for full mesh or partial mesh connectivity between spokes, that are more complex to build and maintain. In addition, routing control in hub-and-spoke vs. mesh networks is easier to configure and maintain.
 
