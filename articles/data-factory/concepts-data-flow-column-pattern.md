@@ -65,5 +65,5 @@ If your rule results in multiple identical mappings, enable **Skip duplicate inp
 * `position` is the ordinal position of columns in your data flow
 
 ## Next steps
-* Learn more about the mapping data flow [expression language](concepts-data-flow-expression-language.md) for data transformations
+* Learn more about the mapping data flow [expression language](concepts-data-flow-expression-functions.md) for data transformations
 * Use column patterns in the [sink transformation](data-flow-sink.md) and [select transformation](data-flow-select.md) with rule-based mapping
