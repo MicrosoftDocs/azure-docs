@@ -34,12 +34,14 @@ As an _operator_, you use the Azure IoT Central UI to manage your Azure IoT Cent
 
 The [IoT Central homepage](https://aka.ms/iotcentral-get-started) page is the place where you can learn more about the latest news and features available on IoT Central, create new applications, and see and launch your existing application.
 
-![IoT Central homepage](media/overview-iot-central-tour-pnp/iot-central-homepage-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![IoT Central homepage](media/overview-iot-central-tour-pnp/iot-central-homepage-pnp.png)
 
 ### Create an application
 
 In the Build section you can browse the list of industry-relevant IoT Central templates to help you get started quickly, or start from scratch using a Custom app template.  
-![IoT Central build page](media/overview-iot-central-tour-pnp/iot-central-build-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![IoT Central build page](media/overview-iot-central-tour-pnp/iot-central-build-pnp.png)
 
 To learn more, see the [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart.
 
@@ -47,7 +49,8 @@ To learn more, see the [Create an Azure IoT Central application](quick-deploy-io
 
 You can launch your IoT Central application by going to the URL that you or your solution builder choose during app creation. You can also see a list of all the applications you have access to in the [IoT Central app manager](https://aka.ms/iotcentral-apps).
 
-![IoT Central app manager](media/overview-iot-central-tour-pnp/app-manager-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![IoT Central app manager](media/overview-iot-central-tour-pnp/app-manager-pnp.png)
 
 ## Navigate your application
 
@@ -58,7 +61,8 @@ Once you're inside your IoT application, use the left navigation menu to access 
 
 :::row:::
   :::column span="":::
-      ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar-pnp.png)
+      > [!div class="mx-imgBorder"]
+      > ![Left navigation menu](media/overview-iot-central-tour-pnp/navigationbar-pnp.png)
   :::column-end:::
   :::column span="2":::
      **Dashboard** displays your application dashboard. As a *solution builder*, you can customize the global dashboard for your operators. Depending on their user role, operators can also create their own personal dashboards.
@@ -88,7 +92,8 @@ Once you're inside your IoT application, use the left navigation menu to access 
 
 The top menu appears on every page:
 
-![Toolbar](media/overview-iot-central-tour-pnp/toolbar-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Toolbar](media/overview-iot-central-tour-pnp/toolbar-pnp.png)
 
 * To search for device templates and devices, enter a **Search** value.
 * To change the UI language or theme, choose the **Settings** icon. Learn more about [managing your application preferences](howto-manage-preferences.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
@@ -100,11 +105,12 @@ You can choose between a light theme or a dark theme for the UI:
 > [!NOTE]
 > The option to choose between light and dark themes isn't available if your administrator has configured a custom theme for the application.
 
-![Choose a theme for the UI](media/overview-iot-central-tour-pnp/themes-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Choose a theme for the UI](media/overview-iot-central-tour-pnp/themes-pnp.png)
 
 ### Dashboard
-
-![Dashboard](media/overview-iot-central-tour-pnp/dashboard-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Dashboard](media/overview-iot-central-tour-pnp/dashboard-pnp.png)
 
 * The dashboard is the first page you see when you sign in to your Azure IoT Central application. As a *solution builder*, you can create and customize multiple global application dashboards for other users. Learn more about [adding tiles to your dashboard](howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
@@ -112,7 +118,8 @@ You can choose between a light theme or a dark theme for the UI:
 
 ### Devices
 
-![Devices page](media/overview-iot-central-tour-pnp/devices-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Devices page](media/overview-iot-central-tour-pnp/devices-pnp.png)
 
 The explorer page shows the _devices_ in your Azure IoT Central application grouped by _device template_. 
 
@@ -123,31 +130,35 @@ To learn more, see the [Monitor your devices](tutorial-monitor-devices-pnp?toc=/
 
 ### Device groups
 
-![Device groups page](media/overview-iot-central-tour-pnp/device-groups-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Device groups page](media/overview-iot-central-tour-pnp/device-groups-pnp.png)
 
 Device group are a collection of related devices. A *solution builder* defines a query to identify the devices that are included in a device group. You use device groups to perform bulk operations in your application. To learn more, see the [Use device groups in your Azure IoT Central application](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ### Rules
-
-![Rules page](media/overview-iot-central-tour-pnp/rules-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Rules page](media/overview-iot-central-tour-pnp/rules-pnp.png)
 
 The rules page lets you define rules based on devices' telemetry, state, or events. When a rule fires, it can trigger one or more actions - such as sending an email, notify an external system via webhook alerts, etc. To learn, see the [Configuring rules](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
 
 ### Analytics
 
-![Analytics page](media/overview-iot-central-tour-pnp/analytics-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Analytics page](media/overview-iot-central-tour-pnp/analytics-pnp.png)
 
 The analytics lets you create custom views on top of device data to derive insights from your application. To learn more, see the [Create custom analytics for your Azure IoT Central application](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ### Jobs
 
-![Jobs page](media/overview-iot-central-tour-pnp/jobs-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Jobs page](media/overview-iot-central-tour-pnp/jobs-pnp.png)
 
 The jobs page lets you run bulk device management operations on your devices. You can update device properties, settings, and execute commands against device groups. To learn more, see the [Run a job](howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ### Device templates
 
-![Device templates page](media/overview-iot-central-tour-pnp/templates-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Device templates page](media/overview-iot-central-tour-pnp/templates-pnp.png)
 
 The device templates page is where a builder creates and manages the device templates in the application. A device template specifies devices characteristics such as:
 
@@ -161,14 +172,14 @@ The *solution builder* can also create forms and dashboards for operators to use
 To learn more, see the [Define a new device type in your Azure IoT Central application](tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
 
 ### Data export
-
-![Data export page](media/overview-iot-central-tour-pnp/export-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Data export page](media/overview-iot-central-tour-pnp/export-pnp.png)
 
 Data export enables you to set up streams of data, such as telemetry, from the application to external systems. To learn more, see the [Export your data in Azure IoT Central](howto-export-data-blob-storage.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 
 ### Administration
-
-![Administration page](media/overview-iot-central-tour-pnp/administration-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Administration page](media/overview-iot-central-tour-pnp/administration-pnp.png)
 
 The administration page allows you to configure and customize your IoT Central application. Here you can change your application name, URL, theming, manage users and roles, create API tokens, and export your application. To learn more, see the [Administer your Azure IoT Central application](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) article.
 

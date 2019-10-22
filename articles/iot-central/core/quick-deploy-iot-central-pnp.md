@@ -26,7 +26,8 @@ Navigate to the [Azure IoT Central Build](https://aka.ms/iotcentral) site. Then 
 
 You start creating a new application from the list of industry-relevant IoT Central templates to help you get started quickly, or start from scratch using a Custom app template. 
 
-![Azure IoT Central Create an application page](media/quick-deploy-iot-central-pnp/iotcentralcreate-templates-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Azure IoT Central Create an application page](media/quick-deploy-iot-central-pnp/iotcentralcreate-templates-pnp.png)
 
 To create a new Azure IoT Central application:
 
@@ -34,7 +35,8 @@ To create a new Azure IoT Central application:
 2. Azure IoT Central automatically suggests an **application name** based on the application template you've selected. You can use this name or enter your own friendly application name. 
 3. Azure IoT Central will also generate a unique **application URL** prefix for you, based on the application name. You'll use this URL to access your application. You're free to change this URL prefix to something more memorable if you'd like.
 
-![Azure IoT Central Create an application page](media/quick-deploy-iot-central-pnp/iotcentralcreate-industry-pnp.png)
+> [!div class="mx-imgBorder"]
+> ![Azure IoT Central Create an application page](media/quick-deploy-iot-central-pnp/iotcentralcreate-industry-pnp.png)
 
 > [!NOTE]
 > If you're using the Custom app template, you'll see an **Application template** dropdown field. From here you can switch between preview and generally available templates. You might also see other templates that have been made available for your organization.
