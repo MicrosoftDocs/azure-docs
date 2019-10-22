@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 > * Download and apply the VPN client configuration
 > * View your virtual WAN
 > * View resource health
-> * Monitor a connection
+
 
 ## Before you begin
 
