@@ -1,60 +1,66 @@
 ---
 title: Build energy solutions with IoT Central | Microsoft Docs
 description: Learn to build energy solution using Azure IoT Central application templates.
-author: philmea
-ms.author: philmea
-ms.date: 09/24/2019
+author: op-ravi
+ms.author: omravi
+ms.date: 10/22/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-manager: eliotgra
+manager: abjork
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# Build energy solutions with IoT Central 
 
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
+Learn about energy application templates and their capabilities. No new coding and no additional cost are required to deploy and use these applications. Partners can leverage these app templates to build energy solutions with IoT Central for their specific needs.
 
-# What is <product/service>? 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
 
-Introductory paragraph.
-<!---Required:
-The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
---->
+## What is smart meter monitoring application?
+Smart meters are playing an important role in energy industry transformations. The smart meters not only enable automated billing, but also advanced metering use cases such as real-time readings and bi-directional communication. The smart meter app template enables utilities and partners to monitor smart meters status and data, define alarms and notifications. It provides sample commands, such as disconnect meter and update software. The meter data can be set up to egress to other business applications and to develop custom solutions. 
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+App’s key functionalities: 
 
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
---->
+* Meter sample device model 
+* Meter info and live status 
+* Energy, Power, voltages trends in real time
+* Command and control samples  
+* Built-in visualization and dashboards
+* Extensibility option for custom solution development
 
-## <article body>
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
+You can try the [Smart Meter Monitoring App for free](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring) without an Azure Subscription, and any commitments.
 
-## <Top task>
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
---->
+
+After you deploy the app, you'll see the simulated meter data on the dashboard, as shown in the figure below. This template is a sample app that you can easily extend and customize for your specific use cases. Refer to [app concept document](concept-iot-central-smart-meter.md) to learn more.
+
+[!div class="mx-imgBorder"]
+![Smart Meter App Dashboard](media/overview-iot-central-smart-meter/smart-meter-app-dashboard.png)
+
+
+## What is solar panel monitoring application?
+The Solar Panel Monitoring App enables utilities and partners to monitor solar panels, such as their energy generation and connection status in near real time. It can send notifications based on defined threshold criteria. It provides  sample commands, such as update firmware and other properties. The solar panel data can be set up to egress to other business applications and to develop custom solutions. 
+
+App’s key functionalities: 
+
+* Solar panel sample device model 
+* Panel info and live status
+* Renewable energy generation trends in real time
+* Command and control samples
+* Built-in visualization and dashboards
+* Rules management and easy integration with other azure services
+* Extensibility option for custom solution development
+
+You can try the [Solar Panel Monitoring App for free](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring) without an Azure Subscription and any commitments.
+
+
+After you deploy the app, you'll see the simulated solar panel data on the dashboard, as shown in the figure below. This template is a sample app that you can easily extend and customize for your specific use cases. Refer the [app concepts document](concept-iot-central-solar-panel-app.md) to learn more.
+
+[!div class="mx-imgBorder"]
+![Solar Panel App Dashboard](media/overview-iot-central-solar-panel/solar-panel-app-dashboard.png)
+
 
 ## Next steps
+To get started building an energy solution:
+* Deploy the application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), 
+[solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
+* Learn more about IoT Central: [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
 
-<!---Some context for the following links goes here--->
-
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->
