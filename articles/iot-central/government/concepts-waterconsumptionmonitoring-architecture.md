@@ -24,7 +24,7 @@ Make the first word following "Tutorial:" a verb.
 
 A water consumption monitoring solution can be built using the **IoT Central Water consumption monitoring app template** as a kickstarter application. Note that the reference architecture is a high level guidance to help you understand architecture concepts and how to build a solution with IoT Central. 
 
-![Water consumption monitoring architecture](./media/concepts-waterconsumptionmonitoring-architecture/concepts-waterconsumptionmonitoring-architecture.PNG)
+![Water consumption monitoring architecture](./media/concepts-waterconsumptionmonitoring-architecture/concepts-waterconsumptionmonitoring-architecture.png)
 
 <!---Required:
 Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
