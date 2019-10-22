@@ -66,7 +66,7 @@ For information on SAP HANA-supported operating systems, see [SAP Note 2235581 -
 For additional SAP documentation about SAP HANA and different Linux operating systems, see:
 
 * [SAP Note 171356: SAP Software on Linux: General information](https://launchpad.support.sap.com/#/notes/1984787).
-* [SAP Note 1944799: SAP HANA guidelines for SLES operating system installation](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html).
+* [SAP Note 1944799: SAP HANA guidelines for SLES operating system installation](http://service.sap.com/sap/support/notes/1944799).
 * [SAP Note 2205917: SAP HANA DB recommended OS settings for SLES 12 for SAP applications](https://launchpad.support.sap.com/#/notes/2205917/E).
 * [SAP Note 1391070: Linux UUID solutions](https://launchpad.support.sap.com/#/notes/1391070).
 * [SAP Note 2009879: SAP HANA guidelines for Red Hat Enterprise Linux (RHEL) operating system](https://launchpad.support.sap.com/#/notes/2009879).
