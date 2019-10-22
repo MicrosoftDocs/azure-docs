@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
 ---
+# Secure your Internet of Things (IoT) deployment
 
 [!INCLUDE [iot-secure-your-deployment](../../includes/iot-secure-your-deployment.md)]
 
