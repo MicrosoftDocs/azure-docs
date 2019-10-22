@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/19/2019
+ms.date: 10/23/2019
 ms.author: victorh
 ---
 
@@ -54,6 +54,7 @@ Azure Firewall Manager Preview has the following known issues:
 |Manually created central VNets not supported|Currently, Azure Firewall Manager supports networks created with Virtual Hubs. Using your own manually created hub VNet is not yet supported.|For now, use Azure Firewall Manager with hub and spoke networks created with Virtual Hubs<br>Currently investigating.
 |Third-party NSaaS filtering limitations|V2I traffic filtering with third-party NSaaS providers is not supported with Azure Firewall B2V and V2V.|It is possible to have two secured virtual hubs side by side, where one hub is for V2I with a third-party NSaaS providers and the other is with Azure Firewall for B2V and V2V.<br> Currently investigating.|
 |Traffic splitting not currently supported|Office 365 and Azure Public PaaS traffic splitting is not currently supported. As such, selecting a third-party NSaaS provider for V2I or B2I also sends all Azure Public PaaS and Office 365 traffic via the partner service.|Currently investigating traffic splitting at the hub.
+|One hub per region|You cannot have more than one hub per region|Create multiple Virtual WANs in a region.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/19/2019
+ms.date: 10/23/2019
 ms.author: victorh
 ---
 
@@ -32,6 +32,11 @@ There's more than one way to deploy Azure Firewall Manager Preview, but the foll
 4. Configure route settings to route traffic to your secured hub
 
    - Easily route traffic to your secured hub for filtering and logging without User Defined Routes (UDR) on spoke Virtual Networks using the Secured Virtual Hub Route Setting page.
+
+> [!NOTE]
+> - You can't have more than one hub per region.
+> - You can't have overlapping IP spaces for hubs in a vWAN.
+> - Your hub VNet connections must be in the same region as the hub.
 
 ## Next steps
 
