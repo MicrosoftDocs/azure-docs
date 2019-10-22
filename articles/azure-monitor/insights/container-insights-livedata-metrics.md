@@ -86,3 +86,5 @@ This performance chart maps to an equivalent of invoking `kubectl get pods –al
 >Names of status as interpreted by `kubectl` may not exactly match in the chart. 
 
 ## Next steps
+
+View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
