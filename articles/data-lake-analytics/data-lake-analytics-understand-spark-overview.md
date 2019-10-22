@@ -42,4 +42,4 @@ Both [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Az
 - [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Transform data using Hadoop Hive activity in Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
-- [What is Apache Spark in Azure HDInsight](../hdinsight/spark/spark/apache-spark-overview.md)
+- [What is Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)
