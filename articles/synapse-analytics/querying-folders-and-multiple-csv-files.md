@@ -1,31 +1,21 @@
 ---
-title: Querying folders and multiple csv files #Required; update as needed page title displayed in search results. Include the brand.
-description: Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed. #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/08/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: v-stazar #Required; update with your microsoft alias of author; optional team alias.
+title: Querying folders and multiple csv files 
+description: Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed.
+services: sql-data-warehouse 
+author: azaricstefan 
+ms.service: sql-data-warehouse 
+ms.topic: overview
+ms.subservice: design
+ms.date: 10/08/2019
+ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Quickstart: Querying folders and multiple files sss
+# Quickstart: Querying folders and multiple files
 
 Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed. Take a look at following sections for more details.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
 
 We will show how to query folders and multiple CSV files in following sections.
-
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because quickstarts are intended to help new customers use a subscription to quickly try out a specific product/service, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write quickstarts](contribute-how-to-mvc-quickstart.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
 
 ## Prerequisites
 
@@ -304,7 +294,3 @@ You can see more in [Querying specific files](querying-specific-files.md).
 Advance to the next article to learn how to query specific files.
 > [!div class="nextstepaction"]
 > [Querying specific files](querying-specific-files.md)
-
-<!--- Required:
-Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
