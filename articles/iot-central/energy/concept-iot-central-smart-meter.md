@@ -16,6 +16,7 @@ manager: abjork
 
 This article provides an overview of the Smart Meter Monitoring App template architecture. This diagram shows a commonly used architecture for smart meter app on Azure using IoT Central platform.
 
+[!div class="mx-imgBorder"]
 ![smart meter architecture](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
 
 This architecture consists of the following components. Some applications may not require every component listed here.
