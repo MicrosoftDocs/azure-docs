@@ -398,12 +398,12 @@ When defining a **recurring schedule**, use the following keys under `recurrence
 | YAML key | Description |
 | ----- | ----- |
 | `frequency` | How often the schedule recurs. Valid values are `"Minute"`, `"Hour"`, `"Day"`, `"Week"`, or `"Month"`. |
-| `inteval` | How often the schedule fires. |
-| `start_time` | The start time for the schedule. |
-| `time_zone` | The time zone for the start time. |
-| `hours` |
-| `minutes` |
-| `time_of_day` |
+| `interval` | How often the schedule fires. The integer value is the number of time units to wait until the schedule fires again. |
+| `start_time` | The start time for the schedule. The string format of the value is `YYYY-MM-DDThh:mm:ss`. If no start time is provided, the first workload is run instantly and future workloads are run based on the schedule. If the start time is in the past, the first workload is run at the next calculated run time. |
+| `time_zone` | The time zone for the start time. If no time zone is provided, UTC is used. |
+| `hours` | If `frequency` is `"Day"` or `"Week"`, specify one or more integers from 0 to 23, separated by commas, as the hours of the day when the pipeline should run. Only `time_of_day` or `hours` and `minutes` can be used. |
+| `minutes` | If `frequency` is `"Day"` or `"Week"`, specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when the pipeline should run. Only `time_of_day` or `hours` and `minutes` can be used. |
+| `time_of_day` | If `frequency` is `"Week"`, specify one or more days, separated by commas, when the schedule should run. Valid values are `"Monday"`, `"Tuesday"`, `"Wednesday"`, `"Thursday"`, `"Friday"`, `"Saturday"`, and `"Sunday"`.
 | `week_days` |
 
 The following example contains the definition for a recurring schedule:
