@@ -255,36 +255,6 @@ public async Task ProcessRecordsInSegment(ChangeFeed changeFeed, DateTimeOffset 
 You can choose to read the records of the change feed from a starting segment till the end. Similar to reading records within a time range, you can list the segments and choose a segment to start iterating from.
 
 ```csharp
-public DateTimeOffset GetChangeFeedSegmentRefAfterTime(ChangeFeed cf, DateTimeOffset timestamp)
-{
-    DateTimeOffset result;
-
-    DateTimeOffset lastConsumable = cf.LastConsumable;
-    DateTimeOffset lastConsumableEnd = lastConumable.AddMinutes(60);
-
-    DateTimeOffset timestampAdj = timestamp.AddMinutes(-15);
-
-    if(lastConsumableEnd.CompareTo(timestampAdj) < 0)
-    {
-        return result;
-    }
-
-    List<DateTimeOffset> segments = (await cf.ListAvailableSegmentTimesAsync()).ToList();
-    foreach(segmentStart in segments)
-    {
-        DateTimeOffset segmentEnd = segmentStart.AddMinutes(60);
-        if(timestampAdj.CompareTo(segmentEnd) <= 0)
-        {
-            result = segmentStart;
-            break;
-        }
-    }
-
-    return result;
-}
-```
-
-```csharp
 public async Task<DateTimeOffset> GetChangeFeedSegmentRefAfterTime
     (ChangeFeed changeFeed, DateTimeOffset timestamp)
 {
@@ -313,7 +283,9 @@ public async Task<DateTimeOffset> GetChangeFeedSegmentRefAfterTime
 
     return result;
 }
+```
 
+```csharp
 public async Task ProcessRecordsStartingFromSegment(ChangeFeed changeFeed, DateTimeOffset segmentStart)
 {
     TimeSpan waitTime = new TimeSpan(60 * 1000);
