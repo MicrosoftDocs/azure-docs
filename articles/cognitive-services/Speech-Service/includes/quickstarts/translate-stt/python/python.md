@@ -12,47 +12,14 @@ ms.date: 07/05/2019
 ms.author: chlandsi
 ---
 
-# Quickstart: Recognize speech with the Speech SDK for Python
-
-Quickstarts are also available for [speech-synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-
-This article shows how to use the Speech Services through the Speech SDK for Python. It illustrates how to recognize speech from microphone input.
-
 ## Prerequisites
 
-* An Azure subscription key for the Speech Services. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
-* [Python 3.5 or later](https://www.python.org/downloads/).
-* The Python Speech SDK package is available for these operating systems:
-    * Windows: x64 and x86.
-    * Mac: macOS X version 10.12 or later.
-    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 on x64.
-* On Linux, run these commands to install the required packages:
+Before you get started, make sure to:
 
-  * On Ubuntu:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.0 libasound2
-    ```
-
-  * On Debian 9:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
-
-* On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform.
-
-## Install the Speech SDK
-
-[!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
-
-This command installs the Python package from [PyPI](https://pypi.org/) for the Speech SDK:
-
-```sh
-pip install azure-cognitiveservices-speech
-```
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md)
 
 ## Support and updates
 

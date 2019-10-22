@@ -12,45 +12,14 @@ ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Translate speech with the Speech SDK for Java
-
-Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java), [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) and [voice-first virtual assistant](~/articles/cognitive-services/Speech-Service/quickstart-virtual-assistant-csharp-uwp.md).
-
-In this quickstart, you'll create a simple Java application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows or 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It is built with the Speech SDK Maven package and the Eclipse Java IDE.
-
-For a complete list of languages available for speech translation, see [language support](~/articles/cognitive-services/Speech-Service/language-support.md).
-
 ## Prerequisites
 
-This quickstart requires:
+Before you get started, make sure to:
 
-* Operating System: 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or macOS 10.13 or later
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
-* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
-
-If you're running Linux, make sure these dependencies are installed before starting Eclipse.
-
- * On Ubuntu:
-
-   ```sh
-   sudo apt-get update
-   sudo apt-get install libssl1.0.0 libasound2
-   ```
-
- * On Debian 9:
-
-   ```sh
-   sudo apt-get update
-   sudo apt-get install libssl1.0.2 libasound2
-   ```
-
-> [!NOTE]
-> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](~/articles/cognitive-services/Speech-Service/speech-devices-sdk.md).
-
-## Create and configure project
-
-[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
 
 ## Add sample code
 

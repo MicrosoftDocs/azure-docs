@@ -17,30 +17,12 @@ ms.author: yinhew
 
 ## Prerequisites
 
-To complete this project, you'll need:
+Before you get started, make sure to:
 
-* [Unity 2018.3 or later](https://store.unity.com/) with [Unity 2019.1 adding support for UWP ARM64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal).
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Version 15.9 or higher of Visual Studio 2017 is also acceptable.
-* For Windows ARM64 support, install the [optional build tools for ARM64 and the Windows 10 SDK for ARM64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/).
-* A subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
-
-## Create a Unity project
-
-* Start Unity, and under the **Projects** tab, select **New**.
-* Specify **Project name** as **csharp-unity** and **Template** as **3D**, and pick a location.
-  Then select **Create project**.
-* After a bit of time, the Unity Editor window should pop up.
-
-## Install the Speech SDK
-
-[!INCLUDE [License notice](../../../../../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-* The Speech SDK for Unity (Beta) is packaged as a Unity asset package (.unitypackage). Download it from [this website](https://aka.ms/csspeech/unitypackage).
-* Import the Speech SDK by selecting **Assets** > **Import Package** > **Custom Package**. For more information, see the [Unity documentation](https://docs.unity3d.com/Manual/AssetPackages.html).
-* In the file picker, select the Speech SDK .unitypackage file that you downloaded.
-* Ensure that all files are selected, and select **Import**.
-
-  ![Screenshot of the Unity Editor when importing the Speech SDK Unity asset package](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-01-import.png)
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=unity)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=unity)
 
 ## Add a UI
 
@@ -98,7 +80,7 @@ When you're finished, the UI should look similar to this screenshot:
 * Select the **Play** button in the Unity Editor toolbar that's underneath the menu bar.
 * After the app launches, enter some text in the input field and select the button. Your text is transmitted to Speech Service and synthesized to speech, which plays on your speaker.
 
-  [![Screenshot of the running quickstart in the Unity Game window](media/sdk/qs-tts-csharp-unity-output-inline.png)](media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
+  [![Screenshot of the running quickstart in the Unity Game window](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-inline.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 
 * Check the [Console window](https://docs.unity3d.com/Manual/Console.html) for debug messages.
 

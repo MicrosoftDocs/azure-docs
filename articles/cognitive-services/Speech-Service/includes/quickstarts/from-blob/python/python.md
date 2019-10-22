@@ -25,7 +25,7 @@ Before you get started, make sure to:
 
 ## Download and install the API client library
 
-To execute the sample you need to generate the Python library for the REST API which is generated through [Swagger](swagger.io).
+To execute the sample you need to generate the Python library for the REST API which is generated through [Swagger](https://swagger.io).
 
 Follow these steps for the installation:
 

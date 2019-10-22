@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-set-two
 # Quickstart: Setup development environment.
 
 ::: zone pivot="programming-language-csharp"
-**Select your target environment**
+**Choose your target environment**
 #### [.Net](#tab/dotnet)
 [!INCLUDE [vs](../quickstart-platform-csharp-dotnet-windows.md)]
 #### [.Net Core](#tab/dotnetcore)
@@ -31,7 +31,7 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
-**Select your target environment**
+**Choose your target environment**
 #### [Linux](#tab/linux)
 [!INCLUDE [vs](../quickstart-platform-cpp-linux.md)]
 #### [MacOS](#tab/macos)
@@ -42,7 +42,7 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-**Select your target environment**
+**Choose your target environment**
 #### [Java Runtime](#tab/jre)
 [!INCLUDE [jre](../quickstart-platform-java-jre.md)]
 #### [Android](#tab/android)

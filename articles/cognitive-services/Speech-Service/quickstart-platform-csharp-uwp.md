@@ -14,27 +14,4 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for C# Universal Windows Platform (UWP) platform setup
 
-This guide shows how to install the [Speech SDK](speech-sdk.md) for C# Universal Windows Platform (UWP).
-
-> [!NOTE]
-> The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
-
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-## Prerequisites
-
-This quickstart requires:
-
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition)
-
-## Create a Visual Studio project and install the Speech SDK
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
-
-You can now move on to [Next steps](#next-steps) below.
-
-## Next steps
-
-* [Quickstart: Recognize speech from a microphone]()
-* [Quickstart: Synthesize speech from a file]()
-* [Quickstart: Translate speech-to-text]()
+[!INCLUDE [](includes/quickstarts/platform/csharp-uwp.md)]

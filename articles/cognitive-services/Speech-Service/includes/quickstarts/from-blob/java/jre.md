@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage, C# - Speech Service"
+title: "Quickstart: Recognize speech stored in blob storage, Java - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -23,15 +23,15 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
 
-## Open your project in Exclipse
+## Open your project in Eclipse
 
-The first step is to make sure that you have your project open in Exlipse.
+The first step is to make sure that you have your project open in Eclipse.
 
 1. Launch Eclipse
 2. Load your project and open `Main.java`.
 
 ## Add a reference to Gson
-We'll be using an external JSON serializer / deserializer in this quick start. For Java we've chosed [Gson](https://github.com/google/gson).
+We'll be using an external JSON serializer / deserializer in this quick start. For Java we've chosen [Gson](https://github.com/google/gson).
 
 Open your pom.xml and add the following reference:
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
@@ -52,7 +52,7 @@ Go ahead and put their declarations before `Main`.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=15-93)]
 
 ## Create and configure an Http Client
-The first thing we'll need is an Http Client that has a correct base URL and authtentication set.
+The first thing we'll need is an Http Client that has a correct base URL and authentication set.
 Insert this code in `Main`
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=106-113)]
 
@@ -61,13 +61,13 @@ Next, we'll generate the transcription request. Add this code to `Main`
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=115-116)]
 
 ## Send the request and check its status
-Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has recived the requet. The service will return a Url in the response headers that's the location where it will store the transscription status.
+Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has received the request. The service will return a Url in the response headers that's the location where it will store the transcription status.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=118-129)]
 
 ## Wait for the transcription to complete
-Since the service processes the transcription asyncronously, we need to poll for its status every so often. We'll check every 5 seconds.
+Since the service processes the transcription asynchronously, we need to poll for its status every so often. We'll check every 5 seconds.
 
-We can check the status by retrieveing the content at the Url we got when the posted the request. When we get the content back, we deserialize it into one of our helper class to make it easier to interact with.
+We can check the status by retrieving the content at the Url we got when the posted the request. When we get the content back, we deserialize it into one of our helper class to make it easier to interact with.
 
 Here's the polling code with status display for everything except a successful completion, we'll do that next.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=131-159,192-204)]
@@ -75,7 +75,7 @@ Here's the polling code with status display for everything except a successful c
 ## Display the transcription results
 Once the service has successfully completed the transcription the results will be stored in another Url that we can get from the status response.
 
-We'll downlaod the contents of that URL, deserialize the JSON, and loop through the results printing out the display text as we go.
+We'll download the contents of that URL, deserialize the JSON, and loop through the results printing out the display text as we go.
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/src/quickstart/Main.java?range=6-160-190)]
 
 ## Check your code

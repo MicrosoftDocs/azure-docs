@@ -14,35 +14,12 @@ ms.author: yulili
 
 ## Prerequisites
 
-This quickstart requires:
+Before you get started, make sure to:
 
-* Operating System: 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or macOS 10.13 or later
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
-* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
-
-If you're running Linux, make sure these dependencies are installed before starting Eclipse.
-
-* On Ubuntu:
-
-  ```sh
-  sudo apt-get update
-  sudo apt-get install libssl1.0.0 libasound2
-  ```
-
-* On Debian 9:
-
-  ```sh
-  sudo apt-get update
-  sudo apt-get install libssl1.0.2 libasound2
-  ```
-
-If you're running Windows (64-bit), ensure you have installed Microsoft Visual C++ Redistributable for your platform.
-* [Download Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-
-## Create and configure project
-
-[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
 
 ## Add sample code
 

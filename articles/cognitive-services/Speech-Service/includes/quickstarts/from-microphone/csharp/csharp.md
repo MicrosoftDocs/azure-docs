@@ -12,7 +12,7 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-**Select your target environment**
+**Choose your target environment**
 #### [.Net](#tab/dotnet)
 [!INCLUDE [dotnet](./dotnet.md)]
 #### [Unity](#tab/unity)

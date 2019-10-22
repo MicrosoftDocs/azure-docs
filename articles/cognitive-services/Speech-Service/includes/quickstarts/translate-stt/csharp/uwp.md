@@ -13,27 +13,14 @@ ms.author: erhopf
 ms.topic: quickstart
 ---
 
-# Quickstart: Translate speech with the Speech SDK for C# (UWP)
-
-Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp), [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp) and [voice-first virtual assistant](~/articles/cognitive-services/Speech-Service/quickstart-virtual-assistant-csharp-uwp.md).
-
-In this quickstart, you'll create a Universal Windows Platform (UWP) application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and it's built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019.
-
-For a complete list of languages available for speech translation, see [language support](~/articles/cognitive-services/Speech-Service/language-support.md).
-
-> [!NOTE]
-> UWP lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
-
 ## Prerequisites
 
-This quickstart requires:
+Before you get started, make sure to:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* An Azure subscription key for the Speech Service. [Get one for free](~/articles/cognitive-services/Speech-Service/get-started.md).
-
-## Create a Visual Studio project
-
-[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-uwp-create-proj.md)]
+> [!div class="checklist"]
+> * [Create an Azure Speech Resource](../../../../get-started.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=uwp)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=uwp)
 
 ## Add sample code
 

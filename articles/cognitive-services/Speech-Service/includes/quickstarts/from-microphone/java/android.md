@@ -20,10 +20,6 @@ Before you get started, make sure to:
 > * [Create an Azure Speech Resource](../../../../get-started.md)
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android)
 
-## Create and configure a project
-
-[!INCLUDE [](~/includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
-
 ## Create a user interface
 
 Now we'll create a basic user interface for the application. Edit the layout for your main activity, `activity_main.xml`. Initially, the layout includes a title bar with your application's name, and a TextView that contains the text "Hello World!".
