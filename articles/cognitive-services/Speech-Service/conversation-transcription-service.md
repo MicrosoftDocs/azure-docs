@@ -33,7 +33,7 @@ Conversation Transcription is a [speech-to-text](speech-to-text.md) solution tha
 
 ### Inclusive meetings
 
-To make meetings inclusive for everyone, such as participants who are deaf and hard of hearing, it is imperative to have transcription in real time. Conversation Transcription in real-time mode takes meeting audio and determines who is saying what, allowing all meeting participants to follow the transcript and participate in the meeting without a delay.
+To make meetings inclusive for everyone, such as participants who are deaf and hard of hearing, it is important to have transcription in real time. Conversation Transcription in real-time mode takes meeting audio and determines who is saying what, allowing all meeting participants to follow the transcript and participate in the meeting without a delay.
 
 ### Improved efficiency
 
