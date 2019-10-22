@@ -25,7 +25,7 @@ There are three levels of support:
 * **Preview** - Not yet supported but is expected to reach GA status in the future.
 * **Experimental** - Not supported and might be abandoned in the future; no guarantee of eventual preview or GA status.
 
-## Languages in runtime 1.x and 2.x
+## Languages by runtime version 
 
 [Two versions of the Azure Functions runtime](functions-versions.md) are available. The following table shows which languages are supported in each runtime version.
 
@@ -41,7 +41,7 @@ The version 2.x runtime doesn't support experimental languages. Support for new 
 
 ### Language extensibility
 
-The 2.x runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). The JavaScript and Java languages in the 2.x runtime are built with this extensibility.
+Starting with version 2.x, the runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). The JavaScript and Java languages in the 2.x runtime are built with this extensibility.
 
 ## Next steps
 
