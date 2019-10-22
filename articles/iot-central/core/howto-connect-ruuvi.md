@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 ms.topic: conceptual
 ms.custom: [iot-storeAnalytics-conditionMonitor, iot-p0-scenario]
-ms.author: avneet723
+ms.author: avneets
 author: avneet723
 ms.date: 10/19/2019
 ---
