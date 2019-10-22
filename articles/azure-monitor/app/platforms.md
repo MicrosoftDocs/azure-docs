@@ -1,5 +1,5 @@
 ---
-title: 'Application Insights
+title: Application Insights: languages, platforms, and integrations | Microsoft Docs
 description: Languages, platforms, and integrations available for Application Insights
 ms.service:  azure-monitor
 ms.subservice: application-insights
