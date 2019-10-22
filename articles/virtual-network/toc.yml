@@ -97,16 +97,16 @@
     items:
     - name: NAT gateway
       items:
-        - name: Create a NAT gateway - Azure portal
+        - name: Create a NAT gateway - Portal
           href: quickstart-create-nat-gateway-portal.md
+        - name: Create a NAT gateway - PowerShell
+          href: quickstart-create-nat-gateway-powershell.md
         - name: Create a NAT gateway - Azure CLI
           href: quickstart-create-nat-gateway-cli.md
-        - name: Create a NAT gateway - Azure PowerShell
-          href: quickstart-create-nat-gateway-powershell.md
+        - name: Create and validate NAT gateway - PowerShell
+          href: tutorial-create-validate-nat-gateway-powershell.md
         - name: Create and validate NAT gateway - Azure CLI
           href: tutorial-create-validate-nat-gateway-cli.md
-        - name: Create and validate NAT gateway - Azure PowerShell
-          href: tutorial-create-validate-nat-gateway-powershell.md
     - name: IPv6 for VNet
       items:
       - name: Basic Public Load Balancer
