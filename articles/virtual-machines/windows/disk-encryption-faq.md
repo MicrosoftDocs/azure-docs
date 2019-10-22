@@ -95,9 +95,9 @@ The "Bek volume" is a local data volume that securely stores the encryption keys
 
 Azure Disk Encryption uses the strongest encryption method available in BitLocker for each version of Windows as follows:
 
-- For OS Windows server 2012 version >= 1511 and later major versions of Windows, XTS-AES 256-bit is the encryption method.
-- For OS Windows server 2012 version < 1511, AES 256-bit is the encryption method.  
-- For OS Windows server 2008R2, AES 256-bit with Diffuser is the encryption method. AES 256-bit with Diffuser isn't supported in Windows 2012 and later.
+- For OS Windows server 2012 version >= 1511 and later major versions of Windows, XTS-AES 256 bit is the encryption method.
+- For OS Windows server 2012 version < 1511, AES 256 bit is the encryption method.  
+- For OS Windows server 2008R2, AES 256 bit with Diffuser is the encryption method. AES 256 bit with Diffuser isn't supported in Windows 2012 and later.
 
 ## If I use EncryptFormatAll and specify all volume types, will it erase the data on the data drives that we already encrypted?
 No, data won't be erased from data drives that are already encrypted using Azure Disk Encryption. Similar to how EncryptFormatAll didn't re-encrypt the OS drive, it won't re-encrypt the already encrypted data drive. 
