@@ -1,6 +1,6 @@
 ---
-title: Reference for trigger and action types in Workflow Definition Language - Azure Logic Apps
-description: Reference guide for trigger and action types in Workflow Definition Language for Azure Logic Apps
+title: Schema reference for trigger and action types - Azure Logic Apps
+description: Schema reference guide for Workflow Definition Language trigger and action types in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 06/19/2019
 ---
 
-# Reference for trigger and action types in Workflow Definition Language for Azure Logic Apps
+# Schema reference guide for trigger and action types in Azure Logic Apps
 
 This reference describes the general types used for identifying triggers and actions 
 in your logic app's underlying workflow definition, which is described and validated by the 
