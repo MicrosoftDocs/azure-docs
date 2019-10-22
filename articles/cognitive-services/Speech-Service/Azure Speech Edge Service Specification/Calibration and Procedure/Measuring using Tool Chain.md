@@ -13,13 +13,24 @@ The scoring utility is provided with the Speech Platform Toolchain, and must be 
 ### Installation Steps:
 1. Copy latest version from [AudioScorer 7.0.0.1]() to local drive
 1. Run ScoringUtility.exe
-1. After Successful installation, Run SPRLHelper.exe as **admin**
+1. After Successful installation, Run SPRLHelperSetUp.exe
+
+
+### First Time Execution
+1. Run Command Prompt as ***Administrator***
+2. Change directory path where the Score needs to be captured
+    > cd C:\Users\Desktop\Score
+
+3. Type Score <(parent)>, where “parent” is a folder with individual session sub-folders to be scored
+
+    > Score "C:\Users\Desktop\Sample"
 
 
 ### Default Usage:
 1.	Create a folder where the scoring results output shall be saved
 2.	From that folder, open a command prompt
-3.	Type score.cmd (parent), where “parent” is a folder with individual session sub-folders to be scored
+3.	Type score (parent), where “parent” is a folder with individual session sub-folders to be scored
+
 
 #### Input Parameters
 -model : by default Scorer will be executed by using Richland model as per 7.0.0.1 changes,however if you want to capture Score using old SPSIM lite model, pass this parameter as below
@@ -43,11 +54,11 @@ The scoring utility is provided with the Speech Platform Toolchain, and must be 
 
 **Example Command Line with Result:**
 
-![Audio Scorer Command](./media/ScoreCmd.png)
+![Audio Scorer Command](./media/outputconsole.png)
 
 **Example Output Folder**
 
-![Audio Score Output](./media/ouput.png)
+![Audio Score Output](./media/Output.png)
 
 ## OEM Verification Tool
 
