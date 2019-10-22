@@ -66,7 +66,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Enter this experiment name: `my-1st-automl-experiment`
 
-1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud based compute. 
+1. Select **Create a new compute** and configure your compute target. A compute target is a local or cloud based resource environment used to run your training script or host your service deployment. For this experiment we use a cloud-based compute. 
 
    Field | Description | Value for tutorial
    ----|---|---
@@ -113,7 +113,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
     1. Create a profile for this dataset using **aml-compute** from the dropdown. This creates a profile of your dataset using the compute resource you created for this experiment. 
 
-    1. Select **Create**.
+    1. Select **Create** to complete the creation of your dataset.
 
 1. Select **Classification** as the prediction task.
 
@@ -127,23 +127,24 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
    Advanced&nbsp;settings|Description|Value&nbsp;for&nbsp;tutorial
    ------|---------|---
    Primary metric| Evaluation metric that the machine learning algorithm will be measured by.|AUC_weighted
-   Exit criteria| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time: 5 <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58;10
+   Exit criteria| If a criteria is met, the training job is stopped. |Training&nbsp;job&nbsp;time: 5 <br> <br> Max&nbsp;#&nbsp;of&nbsp;iterations&#58; 10
    Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.| Enable
    Validation type | Choose a cross-validation type.|K-fold cross-validation
    Number of validations | Number of tests. | 2 cross-validations 
    Concurrency| The number of max concurrent iterations.|5
    
-1. Select **Start** to run the experiment. The **Run detail**  screen opens with the run status  on the right as the experiment preparation begins.
+1. Select **Start** to run the experiment. The **Run details**  screen opens with the **Run status** as the experiment preparation begins.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
 > Once running, it takes **2-3 minutes more for each iteration**.  
+> Select **Refresh** periodically to see the status of the run as the experiment progresses.
 >
 > In production, you'd likely walk away for a bit. But for this tutorial, we suggest you start exploring the tested algorithms on the Models tab as they complete while the others are still running. 
 
 ##  Explore models
 
-Select **Refresh** periodically to see the status of the run as the experiment progresses. Navigate to the **Models** tab to see the algorithms (models) tested. By default, the tested models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
+Navigate to the **Models** tab to see the algorithms (models) tested. By default, the models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
 While you wait for all of the experiment models to finish, select the **Name** of a completed model to explore its performance details. 
 
