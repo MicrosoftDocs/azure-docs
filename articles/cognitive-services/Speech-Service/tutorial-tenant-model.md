@@ -76,7 +76,7 @@ After your admin has enabled Tenant Language Model for your organization, you ca
    > * [Customer Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [Customer Key](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
 
-4. Next, select **Train**. You'll receive an email with instructions when your Tenant Language Model is ready.
+4. Next, select **Opt in**. You'll receive an email with instructions when your Tenant Language Model is ready.
 
 ## Deploy your model
 
@@ -88,7 +88,7 @@ When your Tenant Language Model is ready, follow these steps to deploy your mode
    ![Settings menu](media/tenant-language-model/tenant-language-settings.png)
 
 3. Click **Deploy**.
-4. When your model is ready, the status will change to **Succeeded**.
+4. When your model is deployed, the status will change to **Deployed**.
 
 ## Use your model with the Speech SDK
 

@@ -194,7 +194,7 @@
     - name: 'Tenant Language Models'
       items:
       - name: Create, publish, and use a model
-        href: tutorial-tenant-language-model.md
+        href: tutorial-tenant-model.md
   - name: Text-to-speech
     items:
     - name: Responsible deployment
