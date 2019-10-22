@@ -1,6 +1,6 @@
 ---
-title: Create automated workflows with Visual Studio - Azure Logic Apps
-description: Automate tasks, business processes, and workflows for enterprise integration by using Azure Logic Apps and Visual Studio
+title: Automate workflows with Visual Studio - Azure Logic Apps
+description: Create, schedule, and run recurring workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,13 +8,12 @@ ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/25/2019
 ---
 
-# Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio
+# Quickstart: Automate tasks, processes, and workflows by using Azure Logic Apps and Visual Studio
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio, 
 you can create workflows for automating tasks and processes that integrate apps, 
@@ -69,6 +68,8 @@ looks like this high-level workflow:
     directly from the Visual Studio Marketplace, or learn 
     [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Make sure that you restart Visual Studio after you finish installing.
+
+* To work with different Azure environments, such as Azure Government, you can install and use the [Azure Environment Selector](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector) extension, which helps you switch more easily between environments. For more information, see [Introducing the Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/).
 
 * Access to the web while using the embedded Logic App Designer
 

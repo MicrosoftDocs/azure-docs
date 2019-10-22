@@ -80,7 +80,7 @@
       items:
       - name: Copy Data tool
         href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-  - name: Transform data using Mapping Data Flow
+  - name: Transform data using mapping data flow
     href: tutorial-data-flow.md
   - name: Transform data in cloud
     items:
@@ -143,7 +143,7 @@
     href: concepts-pipeline-execution-triggers.md
   - name: Integration runtime
     href: concepts-integration-runtime.md
-  - name: Mapping Data Flows
+  - name: Mapping data flows
     items:
     - name: Mapping data flow overview
       href: concepts-data-flow-overview.md
@@ -410,10 +410,12 @@
       href: transform-data-using-spark.md
     - name: HDInsight Streaming Activity
       href: transform-data-using-hadoop-streaming.md
-    - name: ML Batch Execution Activity
+    - name: Machine Learning Batch Execution Activity
       href: transform-data-using-machine-learning.md
-    - name: ML Update Resource Activity
+    - name: Machine Learning Update Resource Activity
       href: update-machine-learning-models.md
+    - name: Machine Learning Execute Pipeline Activity
+      href: transform-data-machine-learning-service.md
     - name: Stored Procedure Activity
       href: transform-data-using-stored-procedure.md
     - name: Compute linked services
@@ -432,6 +434,8 @@
       href: control-flow-get-metadata-activity.md
     - name: If Condition Activity
       href: control-flow-if-condition-activity.md
+    - name: Switch Activity
+      href: control-flow-switch-activity.md
     - name: Lookup Activity
       href: control-flow-lookup-activity.md
     - name: Set Variable Activity
@@ -598,6 +602,8 @@
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Troubleshooting Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
+    - name: Troubleshooting Data Flows
+      href: data-flow-troubleshoot-guide.md
 - name: Scenarios
   items:
   - name: Data migration for data lake & EDW
@@ -610,7 +616,7 @@
       href: data-migration-guidance-hdfs-azure-storage.md
     - name: Migrate data from on-premises Netezza server to Azure
       href: data-migration-guidance-netezza-azure-sqldw.md
-  - name: Transformation using Mapping Data Flow
+  - name: Transformation using mapping data flow
     items:
     - name: Process fixed-width text files
       href: how-to-fixed-width.md
