@@ -136,12 +136,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 Follow these steps to configure single sign-on on **Contentful** side.
 
-1. In [Contentful](https://app.contentful.com), navigate to the SSO setup page in Organization Settings
-1. Click on **Set up SSO**
-1. Copy and paste the Login URL from the **Set up Contentful** section in Azure AD 
-1. Copy and paste the Certificate from the Base64 certificate file you downloaded from Azure AD
-1. Set up an SSO name for SP-initiated login
-1. Click on **Enable SSO**
+1. In [Contentful](https://app.contentful.com), navigate to the SSO setup page in Organization Settings.
+1. Click on **Set up SSO**.
+1. Copy and paste the Login URL from the **Set up Contentful** section in Azure AD.
+1. Copy and paste the Certificate from the Base64 certificate file you downloaded from Azure AD.
+1. Set up an SSO name for SP-initiated login.
+1. Click on **Enable SSO**.
 
 If that doesn't work, reach out to [Contentful support team](mailto:support@contentful.com).
 
