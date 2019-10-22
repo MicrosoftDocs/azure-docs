@@ -298,7 +298,7 @@ Variable definitions also include *filter*, *value*, *interpolation*, *aggregati
 
 The table below displays which operators are available to which variable kinds.
 
-[![Time Series Model types](media/v2-update-tsm/variable_table.png)](media/v2-update-tsm/variable_table.png#lightbox)
+[![Time Series Model types](media/v2-update-tsm/variable_table.png)](media/v2-update-tsm/variable-table.png#lightbox)
 
 Variables are stored in the type definition of a Time Series Model and can be provided inline via [Query APIs](time-series-insights-update-tsq.md) to override the stored definition.
 
