@@ -12,8 +12,8 @@ ms.date: 10/20/2019
 
 Partners & customer can leverage the app template & following guidance to develop end to end **smart inventory management** solutions.
 
-[!div class="mx-imgBorder"]
-![smart inventory management](./media/concept-smart-inventory-mgmt-architecture/smart_inventory_management_architecture.png)
+> [!div class="mx-imgBorder"]
+> ![smart inventory management](./media/concept-smart-inventory-mgmt-architecture/smart_inventory_management_architecture.png)
 
 1. Set of IoT sensors sending telemetry data to a gateway device
 2. Gateway devices sending telemetry and aggregated insights to IoT Central

@@ -12,8 +12,8 @@ ms.date: 10/20/2019
 
 Partners & customer can leverage the app template & following guidance to develop end to end **connected logistics solutions**.
 
-[!div class="mx-imgBorder"]
-![connected logistics dashboard](./media/concept-connected-logistics-architecture/connected_logistics_architecture.png)
+> [!div class="mx-imgBorder"]
+> ![connected logistics dashboard](./media/concept-connected-logistics-architecture/connected_logistics_architecture.png)
 
 1. Set of IoT tags sending telemetry data to a gateway device
 2. Gateway devices sending telemetry and aggregated insights to IoT Central

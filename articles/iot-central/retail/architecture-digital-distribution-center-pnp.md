@@ -12,8 +12,8 @@ ms.date: 10/20/2019
 
 Partners & customer can leverage the app template & following guidance to develop end to end **digital distribution center** solutions.
 
-[!div class="mx-imgBorder"]
-![digital distribution center](./media/concept-ddc-architecture/digital_distribution_center_architecture.png)
+> [!div class="mx-imgBorder"]
+> ![digital distribution center](./media/concept-ddc-architecture/digital_distribution_center_architecture.png)
 
 1. Set of IoT sensors sending telemetry data to a gateway device
 2. Gateway devices sending telemetry and aggregated insights to IoT Central
