@@ -96,7 +96,7 @@ $DBsInServer | %{
     }
 
     $errorActionPreference = "Continue"
-    }
+}
 ```
 
 ## Create a T-SQL Script for execution across databases
@@ -132,7 +132,7 @@ $job = New-AzureSqlJob -JobName $jobName -CredentialName $credentialName -Conten
 Write-Output $job
 ```
 
-## Execute the job
+Then execute the job:
 
 ```powershell
 $jobName = "<jobName>"
@@ -152,7 +152,7 @@ $jobExecutions = Get-AzureSqlJobExecution -JobExecutionId $jobExecutionId -Inclu
 Write-Output $jobExecutions
 ```
 
-## View the state across multiple job executions
+You can also view the state across multiple job executions.
 
 The **Get-AzureSqlJobExecution** cmdlet has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters. The following demonstrates some of the possible ways to use Get-AzureSqlJobExecution:
 

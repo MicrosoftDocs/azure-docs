@@ -34,29 +34,22 @@ For more information about the ShardMapManager, see [Shard map management](sql-d
 
 The shard map manager is a special database that contains the data to manage scaled-out databases. You can use an existing database, or create a new database. A database acting as shard map manager should not be the same database as a shard. The PowerShell script does not create the database for you.
 
-## Step 1: create a shard map manager
+## Create a shard map manager
 
 ```powershell
-New-ShardMapManager -UserName '<user_name>' `
-    -Password '<password>' `
-    -SqlServerName '<server_name>' `
-    -SqlDatabaseName '<smm_db_name>'
-    # <server_name> and <smm_db_name> are the server name and database name
-    # for new or existing database to store tenant-database mapping information.
+New-ShardMapManager -UserName '<userName>' -Password '<password>' `
+    -SqlServerName '<serverName>' -SqlDatabaseName '<smmDBName>'
+    # <serverName> and <smmDBName> are the server name and database name for new or existing database to store tenant-database mapping information
 ```
-
-### To retrieve the shard map manager
 
 After creation, you can retrieve the shard map manager with this cmdlet. This step is needed every time you need to use the ShardMapManager object.
 
 ```powershell
-$ShardMapManager = Get-ShardMapManager -UserName '<user_name>' `
-    -Password '<password>' `
-    -SqlServerName '<server_name>' `
-    -SqlDatabaseName '<smm_db_name>'
+$shardMapManager = Get-ShardMapManager -UserName '<userName>' -Password '<password>' `
+    -SqlServerName '<serverName>' -SqlDatabaseName '<smmDBName>'
 ```
 
-## Step 2: create the shard map
+## Create the shard map
 
 Select the type of shard map to create. The choice depends on the database architecture:
 
@@ -77,48 +70,38 @@ Or you can implement a multi-tenant database model using a *list mapping* to ass
 
 ![Multiple tenants on single DB][3]
 
-**Based on your choice, choose one of these options:**
+Based on your choice, choose one of these options:
 
-### Option 1: create a shard map for a list mapping
+- Create a shard map for a list mapping:
 
-Create a shard map using the ShardMapManager object.
+   Create a shard map using the ShardMapManager object.
 
-```powershell
-$ShardMap = New-ListShardMap -KeyType $([int]) `
-    -ListShardMapName 'ListShardMap' `
-    -ShardMapManager $ShardMapManager
-```
+   ```powershell
+   $shardMap = New-ListShardMap -KeyType $([int]) -ListShardMapName 'ListShardMap' -ShardMapManager $shardMapManager
+   ```
 
-### Option 2: create a shard map for a range mapping
+- Create a shard map for a range mapping:
 
-To utilize this mapping pattern, tenant ID values needs to be continuous ranges, and it is acceptable to have gap in the ranges by skipping the range when creating the databases.
+   To utilize this mapping pattern, tenant ID values needs to be continuous ranges, and it is acceptable to have gap in the ranges by skipping the range when creating the databases.
 
-```powershell
-# $ShardMapManager is the shard map manager object
-# 'RangeShardMap' is the unique identifier for the range shard map.  
-$ShardMap = New-RangeShardMap `
-    -KeyType $([int]) `
-    -RangeShardMapName 'RangeShardMap' `
-    -ShardMapManager $ShardMapManager
-```
+   ```powershell
+   # $shardMapManager is the shard map manager object and 'RangeShardMap' is the unique identifier for the range shard map  
+   $shardMap = New-RangeShardMap -KeyType $([int]) -RangeShardMapName 'RangeShardMap' -ShardMapManager $shardMapManager
+   ```
 
-### Option 3: List mappings on an individual database
+- List mappings on an individual database:
 
-Setting up this pattern also requires creation of a list map as shown in step 2, option 1.
+   Setting up this pattern also requires creation of a list map as shown in step 2, option 1.
 
-## Step 3: Prepare individual shards
+## Prepare individual shards
 
 Add each shard (database) to the shard map manager. This prepares the individual databases for storing mapping information. Execute this method on each shard.
 
 ```powershell
-Add-Shard `
-    -ShardMap $ShardMap `
-    -SqlServerName '<shard_server_name>' `
-    -SqlDatabaseName '<shard_database_name>'
-    # The $ShardMap is the shard map created in step 2.
+Add-Shard -ShardMap $shardMap -SqlServerName '<shard_server_name>' -SqlDatabaseName '<shard_database_name>' # $shardMap is the shard map created in step 2
 ```
 
-## Step 4: Add mappings
+## Add mappings
 
 The addition of mappings depends on the kind of shard map you created. If you created a list map, you add list mappings. If you created a range map, you add range mappings.
 
@@ -127,13 +110,9 @@ The addition of mappings depends on the kind of shard map you created. If you cr
 Map the data by adding a list mapping for each tenant.  
 
 ```powershell
-# Create the mappings and associate it with the new shards 
-Add-ListMapping `
-    -KeyType $([int]) `
-    -ListPoint '<tenant_id>' `
-    -ListShardMap $ShardMap `
-    -SqlServerName '<shard_server_name>' `
-    -SqlDatabaseName '<shard_database_name>'
+# create the mappings and associate it with the new shards
+Add-ListMapping -KeyType $([int]) -ListPoint '<tenantId>' -ListShardMap $ShardMap `
+    -SqlServerName '<shardServerName>' -SqlDatabaseName '<shardDatabaseName>'
 ```
 
 ### Option 2: map the data for a range mapping
@@ -141,14 +120,9 @@ Add-ListMapping `
 Add the range mappings for all the tenant ID range - database associations:
 
 ```powershell
-# Create the mappings and associate it with the new shards 
-Add-RangeMapping `
-    -KeyType $([int]) `
-    -RangeHigh '5' `
-    -RangeLow '1' `
-    -RangeShardMap $ShardMap `
-    -SqlServerName '<shard_server_name>' `
-    -SqlDatabaseName '<shard_database_name>'
+# create the mappings and associate it with the new shards
+Add-RangeMapping -KeyType $([int]) -RangeHigh '5' -RangeLow '1' -RangeShardMap $ShardMap `
+    -SqlServerName '<shardServerName>' -SqlDatabaseName '<shardDatabaseName>'
 ```
 
 ### Step 4 option 3: map the data for multiple tenants on an individual database
@@ -160,9 +134,9 @@ For each tenant, run the Add-ListMapping (option 1).
 Information about the existing shards and the mappings associated with them can be queried using following commands:  
 
 ```powershell
-# List the shards and mappings
-Get-Shards -ShardMap $ShardMap
-Get-Mappings -ShardMap $ShardMap
+# list the shards and mappings
+Get-Shards -ShardMap $shardMap
+Get-Mappings -ShardMap $shardMap
 ```
 
 ## Summary

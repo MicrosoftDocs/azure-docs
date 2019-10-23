@@ -115,13 +115,13 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
 1. Start with preparation steps in PowerShell:
 
    ```powershell
-   # Import the module into the PowerShell session
+   # import the module into the PowerShell session
    Import-Module Az
-   # Connect to Azure with an interactive dialog for sign-in
+   # connect to Azure with an interactive dialog for sign-in
    Connect-AzAccount
-   # List subscriptions available and copy id of the subscription target Managed Instance belongs to
+   # list subscriptions available and copy id of the subscription target Managed Instance belongs to
    Get-AzSubscription
-   # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
+   # set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
    Select-AzSubscription Guid_Subscription_Id
    ```
 

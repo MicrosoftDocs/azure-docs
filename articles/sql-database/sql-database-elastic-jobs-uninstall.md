@@ -41,18 +41,18 @@ ms.date: 12/04/2018
 Or simply, execute the following script, assuming default values where used on installation of the components:
 
 ```powershell
-$ResourceGroupName = "__ElasticDatabaseJob"
+$resourceGroupName = "__ElasticDatabaseJob"
 Switch-AzureMode AzureResourceManager
 
-$resourceGroup = Get-AzureResourceGroup -Name $ResourceGroupName
+$resourceGroup = Get-AzureResourceGroup -Name $resourceGroupName
 if(!$resourceGroup) {
-     Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted.  Elastic database job components are uninstalled."
+     Write-Host "The Azure Resource Group: $ResourceGroupName has already been deleted. Elastic database job components are uninstalled."
      return
 }
 
-Write-Host "Removing the Azure Resource Group: $ResourceGroupName.  This may take a few minutes.”
-Remove-AzureResourceGroup -Name $ResourceGroupName -Force
-Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName.  Elastic database job components are now uninstalled."
+Write-Host "Removing the Azure Resource Group: $ResourceGroupName. This may take a few minutes."
+Remove-AzureResourceGroup -Name $resourceGroupName -Force
+Write-Host "Completed removing the Azure Resource Group: $ResourceGroupName. Elastic database job components are now uninstalled."
 ```
 
 ## Next steps

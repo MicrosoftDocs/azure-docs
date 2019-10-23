@@ -14,7 +14,7 @@ ms.date: 09/04/2019
 ---
 # Copy a transactionally consistent copy of an Azure SQL database
 
-Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database ([single database](sql-database-single-database.md)) on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL. 
+Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database ([single database](sql-database-single-database.md)) on either the same server or a different server. You can copy a SQL database by using the Azure portal, PowerShell, or T-SQL.
 
 ## Overview
 
@@ -27,7 +27,7 @@ A database copy is a snapshot of the source database as of the time of the copy 
 
 When you copy a database to the same SQL Database server, the same logins can be used on both databases. The security principal you use to copy the database becomes the database owner on the new database. All database users, their permissions, and their security identifiers (SIDs) are copied to the database copy.  
 
-When you copy a database to a different SQL Database server, the security principal on the new server becomes the database owner on the new database. If you use [contained database users](sql-database-manage-logins.md) for data access, ensure that both the primary and secondary databases always have the same user credentials, so that after the copy is complete you can immediately access it with the same credentials. 
+When you copy a database to a different SQL Database server, the security principal on the new server becomes the database owner on the new database. If you use [contained database users](sql-database-manage-logins.md) for data access, ensure that both the primary and secondary databases always have the same user credentials, so that after the copy is complete you can immediately access it with the same credentials.
 
 If you use [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), you can completely eliminate the need for managing credentials in the copy. However, when you copy the database to a new server, the login-based access might not work, because the logins do not exist on the new server. To learn about managing logins when you copy a database to a different SQL Database server, see [How to manage Azure SQL database security after disaster recovery](sql-database-geo-replication-security-config.md).
 
@@ -46,7 +46,7 @@ To copy a database by using the Azure portal, open the page for your database, a
 To copy a database by using PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet.
 
 ```powershell
-New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" -ServerName $sourceserver -DatabaseName "MySampleDatabase" `
+New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
     -CopyResourceGroupName "myResourceGroup" -CopyServerName $targetserver -CopyDatabaseName "CopyOfMySampleDatabase"
 ```
 
@@ -62,8 +62,8 @@ To create a database copy, you will need to be in the following roles
 - SQL Server Contributor role or
 - Custom role on the source and target databases with following permission:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
+   Microsoft.Sql/servers/databases/read
+   Microsoft.Sql/servers/databases/write
 
 To cancel a database copy, you will need to be in the following roles
 
@@ -71,23 +71,21 @@ To cancel a database copy, you will need to be in the following roles
 - SQL Server Contributor role or
 - Custom role on the source and target databases with following permission:
 
-   Microsoft.Sql/servers/databases/read   
-   Microsoft.Sql/servers/databases/write   
-   
+   Microsoft.Sql/servers/databases/read
+   Microsoft.Sql/servers/databases/write
+
 To manage database copy using Azure portal, you will also need the following permissions:
 
-&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resources/read   
-&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resources/write   
-&nbsp; &nbsp; &nbsp; Microsoft.Resources/deployments/read   
-&nbsp; &nbsp; &nbsp; Microsoft.Resources/deployments/write   
-&nbsp; &nbsp; &nbsp; Microsoft.Resources/deployments/operationstatuses/read    
+   Microsoft.Resources/subscriptions/resources/read
+   Microsoft.Resources/subscriptions/resources/write
+   Microsoft.Resources/deployments/read
+   Microsoft.Resources/deployments/write
+   Microsoft.Resources/deployments/operationstatuses/read
 
-If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional RBAC roles: 
+If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional RBAC roles:
 
-&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read   
-&nbsp; &nbsp; &nbsp; Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
-
-
+   Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read
+   Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 
 ## Copy a database by using Transact-SQL
 
@@ -102,8 +100,7 @@ Log in to the master database with the server-level principal login or the login
 This command copies Database1 to a new database named Database2 on the same server. Depending on the size of your database, the copying operation might take some time to complete.
 
    ```sql
-   -- Execute on the master database.
-   -- Start copying.
+   -- execute on the master database to start copying
    CREATE DATABASE Database2 AS COPY OF Database1;
    ```
 
@@ -114,9 +111,8 @@ Log in to the master database of the destination server, the SQL Database server
 This command copies Database1 on server1 to a new database named Database2 on server2. Depending on the size of your database, the copying operation might take some time to complete.
 
 ```sql
-    -- Execute on the master database of the target server (server2)
-    -- Start copying from Server1 to Server2
-    CREATE DATABASE Database2 AS COPY OF server1.Database1;
+-- Execute on the master database of the target server (server2) to start copying from Server1 to Server2
+CREATE DATABASE Database2 AS COPY OF server1.Database1;
 ```
 
 > [!IMPORTANT]
@@ -141,7 +137,6 @@ Monitor the copying process by querying the sys.databases and sys.dm_database_co
 
 > [!IMPORTANT]
 > If you need to create a copy with a substantially smaller SLO than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL database using database backups](sql-database-recovery-using-backups.md#geo-restore) for more informaion.
-
 
 ## Resolve logins
 

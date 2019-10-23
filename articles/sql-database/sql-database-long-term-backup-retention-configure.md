@@ -89,14 +89,13 @@ For **Get-AzSqlDatabaseLongTermRetentionBackup** and **Restore-AzSqlDatabase**, 
    Microsoft.Sql/locations/longTermRetentionBackups/read
    Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read
    Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
- 
+
 For **Remove-AzSqlDatabaseLongTermRetentionBackup**, you will need to have one of the following roles:
 
 - Subscription Owner role or
 - Custom role with the following permission:
 
    Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
-
 
 > [!NOTE]
 > The SQL Server Contributor role does not have permission to delete LTR backups.
@@ -156,9 +155,8 @@ Set-AzSqlDatabaseBackupLongTermRetentionPolicy -ServerName $serverName -Database
 This example shows how to list the LTR backups within a server.
 
 ```powershell
-# Get the list of all LTR backups in a specific Azure region
-# The backups are grouped by the logical database id.
-# Within each group they are ordered by the timestamp, the earliest backup first.  
+# get the list of all LTR backups in a specific Azure region
+# backups are grouped by the logical database id, within each group they are ordered by the timestamp, the earliest backup first
 $ltrBackups = Get-AzSqlDatabaseLongTermRetentionBackup -Location $server.Location
 
 # get the list of LTR backups from the Azure region under the named server
@@ -186,20 +184,19 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 
 > [!IMPORTANT]
 > Deleting LTR backup is non-reversible. To delete an LTR backup after the server has been deleted you must have Subscription scope permission. You can set up notifications about each delete in Azure Monitor by filtering for operation ‘Deletes a long term retention backup’. The activity log contains information on who and when made the request. See [Create activity log alerts](../azure-monitor/platform/alerts-activity-log.md) for detailed instructions.
->
 
 ### Restore from LTR backups
 
 This example shows how to restore from an LTR backup. Note, this interface did not change but the resource id parameter now requires the LTR backup resource id.
 
 ```powershell
-# Restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup 
-Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup -TargetDatabaseName $dbName -ServiceObjectiveName P1
+# restore a specific LTR backup as an P1 database on the server $serverName of the resource group $resourceGroup
+Restore-AzSqlDatabase -FromLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId -ServerName $serverName -ResourceGroupName $resourceGroup `
+    -TargetDatabaseName $dbName -ServiceObjectiveName P1
 ```
 
 > [!IMPORTANT]
-> To restore from an LTR backup after the server has been deleted, you must have permissions scoped to the server's subscription and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.  
->
+> To restore from an LTR backup after the server has been deleted, you must have permissions scoped to the server's subscription and that subscription must be active. You must also omit the optional -ResourceGroupName parameter.
 
 > [!NOTE]
 > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name. See [point in time restore](sql-database-recovery-using-backups.md#point-in-time-restore).

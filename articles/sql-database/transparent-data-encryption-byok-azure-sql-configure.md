@@ -38,7 +38,7 @@ This article walks through how to use a key from Azure Key Vault for Transparent
    - Not disabled
    - Able to perform *get*, *wrap key*, *unwrap key* operations
 
-## Step 1. Assign an Azure AD identity to your server 
+## Assign an Azure AD identity to your server
 
 If you have an existing server, use the following to add an Azure AD identity to your server:
 
@@ -50,11 +50,10 @@ If you are creating a server, use the [New-AzSqlServer](/powershell/module/az.sq
 
    ```powershell
    $server = New-AzSqlServer -ResourceGroupName <SQLDatabaseResourceGroupName> -Location <RegionName> `
-       -ServerName <LogicalServerName> -ServerVersion "12.0" `
-       -SqlAdministratorCredentials <PSCredential> -AssignIdentity
+       -ServerName <LogicalServerName> -ServerVersion "12.0" -SqlAdministratorCredentials <PSCredential> -AssignIdentity
    ```
 
-## Step 2. Grant Key Vault permissions to your server
+## Grant Key Vault permissions to your server
 
 Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet to grant your server access to the key vault before using a key from it for TDE.
 
@@ -63,8 +62,7 @@ Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvau
        -ObjectId $server.Identity.PrincipalId -PermissionsToKeys get, wrapKey, unwrapKey
    ```
 
-## Step 3. Add the Key Vault key to the server and set the TDE Protector
-
+## Add the Key Vault key to the server and set the TDE Protector
 
 - Use the [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey?view=azps-2.4.0) cmdlet to retrieve the key ID from key vault
 - Use the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) cmdlet to add the key from the Key Vault to the server.
@@ -78,18 +76,18 @@ Use the [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvau
 > An example KeyId from Key Vault: https://contosokeyvault.vault.azure.net/keys/Key1/1a1a2b2b3c3c4d4d5e5e6f6f7g7g8h8h
 
 ```powershell
-# Add the key from Key Vault to the server
+# add the key from Key Vault to the server
 Add-AzSqlServerKeyVaultKey -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> -KeyId <KeyVaultKeyId>
 
-# Set the key as the TDE protector for all resources under the server
+# set the key as the TDE protector for all resources under the server
 Set-AzSqlServerTransparentDataEncryptionProtector -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName> `
    -Type AzureKeyVault -KeyId <KeyVaultKeyId>
 
-# To confirm that the TDE protector was configured as intended:
+# confirm the TDE protector was configured as intended
 Get-AzSqlServerTransparentDataEncryptionProtector -ResourceGroupName <SQLDatabaseResourceGroupName> -ServerName <LogicalServerName>
 ```
 
-## Step 4. Turn on TDE
+## Turn on TDE
 
 Use the [Set-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/set-azsqldatabasetransparentdataencryption) cmdlet to turn on TDE.
 
@@ -100,16 +98,16 @@ Set-AzSqlDatabaseTransparentDataEncryption -ResourceGroupName <SQLDatabaseResour
 
 Now the database or data warehouse has TDE enabled with an encryption key in Key Vault.
 
-## Step 5. Check the encryption state and encryption activity
+## Check the encryption state and encryption activity
 
 Use the [Get-AzSqlDatabaseTransparentDataEncryption](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryption) to get the encryption state and the [Get-AzSqlDatabaseTransparentDataEncryptionActivity](/powershell/module/az.sql/get-azsqldatabasetransparentdataencryptionactivity) to check the encryption progress for a database or data warehouse.
 
 ```powershell
-# Get the encryption state
+# get the encryption state
 Get-AzSqlDatabaseTransparentDataEncryption -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName> `
 
-# Check the encryption progress for a database or data warehouse
+# check the encryption progress for a database or data warehouse
 Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDatabaseResourceGroupName> `
    -ServerName <LogicalServerName> -DatabaseName <DatabaseName>  
 ```
@@ -133,7 +131,7 @@ Set-AzSqlDatabaseTransparentDataEncryption -ServerName <LogicalServerName> -Reso
 - Use the [Remove-AzSqlServerKeyVaultKey](/powershell/module/az.sql/remove-azsqlserverkeyvaultkey) to remove a Key Vault key from the server.
 
    ```powershell
-   # The key set as the TDE Protector cannot be removed
+   # the key set as the TDE Protector cannot be removed
    Remove-AzSqlServerKeyVaultKey -KeyId <KeyVaultKeyId> -ServerName <LogicalServerName> -ResourceGroupName <SQLDatabaseResourceGroupName>
    ```
 
@@ -154,7 +152,7 @@ Check the following if an issue occurs:
 ## Next steps
 
 - Learn how to rotate the TDE Protector of a server to comply with security requirements: [Rotate the Transparent Data Encryption protector Using PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
-- In case of a security risk, learn how to remove a potentially compromised TDE Protector: [Remove a potentially compromised key](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
+- In case of a security risk, learn how to remove a potentially compromised TDE Protector: [Remove a potentially compromised key](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md).
 
 ## Prerequisites for CLI
 

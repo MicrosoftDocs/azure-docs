@@ -57,13 +57,12 @@ Now that your client app is configured and you have your application ID, it's ti
 You can quickly create a key vault by running the following script. For a detailed explanation of these cmdlets and more information about creating and configuring a key vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md).
 
 ```powershell
-$subscriptionName = '<your Azure subscription name>'
+$subscriptionName = '<subscriptionName>'
 $userPrincipalName = '<username@domain.com>'
-$applicationId = '<application ID from your AAD application>'
-$resourceGroupName = '<resource group name>'
-# Use the same resource group name when creating your SQL Database below
-$location = '<datacenter location>'
-$vaultName = 'AeKeyVault'
+$applicationId = '<applicationId from AAD application>'
+$resourceGroupName = '<resourceGroupName>' # use the same resource group name when creating your SQL Database below
+$location = '<datacenterLocation>'
+$vaultName = '<vaultName>'
 
 Connect-AzAccount
 $subscriptionId = (Get-AzSubscription -SubscriptionName $subscriptionName).Id
@@ -96,6 +95,7 @@ You will need the connection string later in the tutorial, so after you create t
 Open SSMS and connect to the server with the Clinic database.
 
 1. Open SSMS. (Go to **Connect** > **Database Engine** to open the **Connect to Server** window if it isn't open.)
+
 2. Enter your server name and credentials. The server name can be found on the SQL database blade and in the connection string you copied earlier. Type the complete server name, including *database.windows.net*.
 
     ![Copy the connection string](./media/sql-database-always-encrypted-azure-key-vault/ssms-connect.png)
@@ -123,7 +123,7 @@ CREATE TABLE [dbo].[Patients](
          [State] [char](2) NULL,
          [BirthDate] [date] NOT NULL
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
-         GO
+GO
 ```
 
 ## Encrypt columns (configure Always Encrypted)
@@ -190,7 +190,7 @@ Now that Always Encrypted is set up, you can build an application that performs 
 2. Name the project **AlwaysEncryptedConsoleAKVApp** and click **OK**.
 3. Install the following NuGet packages by going to **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
-Run these two lines of code in the Package Manager Console.
+Run these two lines of code in the Package Manager Console:
 
    ```powershell
    Install-Package Microsoft.SqlServer.Management.AlwaysEncrypted.AzureKeyVaultProvider

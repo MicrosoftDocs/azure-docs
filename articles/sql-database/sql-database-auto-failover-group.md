@@ -68,7 +68,7 @@ To achieve real business continuity, adding database redundancy between datacent
   
 - **DNS zone**
 
-  A unique ID that is automatically generated when a new instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone. 
+  A unique ID that is automatically generated when a new instance is created. A multi-domain (SAN) certificate for this instance is provisioned to authenticate the client connections to any instance in the same DNS zone. The two managed instances in the same failover group must share the DNS zone.
   
   > [!NOTE]
   > A DNS zone ID is not required for failover groups created for SQL Database servers.
@@ -117,16 +117,20 @@ To achieve real business continuity, adding database redundancy between datacent
   > Managed Instance does not support multiple failover groups.
   
 ## Permissions
+
 Permissions for a failover group are managed via [role-based access control (RBAC)](../role-based-access-control/overview.md). The [SQL Server Contributor](../role-based-access-control/built-in-roles.md#sql-server-contributor) role has all the necessary permissions to manage failover groups.
 
 ### Create failover group
+
 To create a failover group, you need RBAC write access to both the primary and secondary servers, and to all databases in the failover group. For a managed instance, you need RBAC write access to both the primary and secondary managed instance, but permissions on individual databases are not relevant since individual managed instance databases cannot be added to or removed from a failover group. 
 
 ### Update a failover group
+
 To update a failover group, you need RBAC write access to the failover group, and all databases on the current primary server or managed instance.  
 
 ### Failover a failover group
-To fail over a failover group, you need RBAC write access to the failover group on the new primary server or managed instance. 
+
+To fail over a failover group, you need RBAC write access to the failover group on the new primary server or managed instance.
 
 ## Best practices of using failover groups with single databases and elastic pools
 
@@ -135,8 +139,7 @@ The auto-failover group must be configured on the primary SQL Database server an
 ![auto failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
 
 > [!NOTE]
-> See [Add single database to a failover group](sql-database-single-database-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a single database to a failover group. 
-
+> See [Add single database to a failover group](sql-database-single-database-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a single database to a failover group.
 
 When designing a service with business continuity in mind, follow these general guidelines:
 
@@ -153,7 +156,7 @@ When designing a service with business continuity in mind, follow these general 
 
 - **Use read-only listener for read-only workload**
 
-  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using `ApplicationIntent=ReadOnly`. If you want to ensure that the read-only workload can reconnect after failover or in case the secondary server goes offline, make sure to configure the `AllowReadOnlyFailoverToPrimary` property of the failover policy. 
+  If you have a logically isolated read-only workload that is tolerant to certain staleness of data, you can use the secondary database in the application. For read-only sessions, use `<fog-name>.secondary.database.windows.net` as the server URL and the connection is automatically directed to the secondary. It is also recommended that you indicate in connection string read intent by using `ApplicationIntent=ReadOnly`. If you want to ensure that the read-only workload can reconnect after failover or in case the secondary server goes offline, make sure to configure the `AllowReadOnlyFailoverToPrimary` property of the failover policy.
 
 - **Be prepared for perf degradation**
 
@@ -171,23 +174,23 @@ When designing a service with business continuity in mind, follow these general 
 
 ## Best practices of using failover groups with managed instances
 
-The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance. 
+The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance.
 
 The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
 
 ![auto failover](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
 > [!NOTE]
-> See [Add managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a managed instance to use failover group. 
+> See [Add managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a managed instance to use failover group.
 
 If your application uses managed instance as the data tier, follow these general guidelines when designing for business continuity:
 
 - **Create the secondary instance in the same DNS zone as the primary instance**
 
-  To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. You can do it by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API. 
+  To ensure non-interrupted connectivity to the primary instance after failover both the primary and secondary instances must be in the same DNS zone. It will guarantee that the same multi-domain (SAN) certificate can be used to authenticate the client connections to either of the two instances in the failover group. When your application is ready for production deployment, create a secondary instance in a different region and make sure it shares the DNS zone with the primary instance. You can do it by specifying a `DNS Zone Partner` optional parameter using the Azure portal, PowerShell, or the REST API.
 
 > [!IMPORTANT]
-> First instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.   
+> First instance created in the subnet determines DNS zone for all subsequent instances in the same subnet. This means that two instances from the same subnet cannot belong to different DNS zones.
 
   For more information about creating the secondary instance in the same DNS zone as the primary instance, see [Create a secondary managed instance](sql-database-managed-instance-failover-group-tutorial.md#3---create-a-secondary-managed-instance).
 
@@ -197,12 +200,11 @@ If your application uses managed instance as the data tier, follow these general
 
 - **Create a failover group between managed instances in different subscriptions**
 
-  You can create a failover group between managed instances in two different subscriptions. When using PowerShell API you can do it by  specifying the `PartnerSubscriptionId` parameter for the secondary instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID. 
+  You can create a failover group between managed instances in two different subscriptions. When using PowerShell API you can do it by  specifying the `PartnerSubscriptionId` parameter for the secondary instance. When using REST API, each instance ID included in the `properties.managedInstancePairs` parameter can have its own subscriptionID.
   
   > [!IMPORTANT]
   > Azure Portal does not support failover groups across different subscriptions.
 
-  
 - **Configure a failover group to manage failover of entire instance**
 
   The failover group will manage the failover of all the databases in the instance. When a group is created, each database in the instance will be automatically geo-replicated to the secondary instance. You cannot use failover groups to initiate a partial failover of a subset of the databases.
@@ -258,7 +260,7 @@ If you are using [Virtual Network service endpoints and rules](sql-database-vnet
 
 ### Using failover groups and SQL database firewall rules
 
-If your business continuity plan requires failover using groups with automatic failover, you can restrict access to your SQL database using the traditional firewall rules.  To support automatic failover, follow these steps:
+If your business continuity plan requires failover using groups with automatic failover, you can restrict access to your SQL database using the traditional firewall rules. To support automatic failover, follow these steps:
 
 1. [Create a public IP](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
 2. [Create a public load balancer](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) and assign the public IP to it.
@@ -279,7 +281,7 @@ The above configuration will ensure that the automatic failover will not block c
 When you set up a failover group between primary and secondary managed instances in two different regions, each instance is isolated using an independent virtual network. To allow replication traffic between these VNets ensure these prerequisites are met:
 
 1. The two managed instances need to be in different Azure regions.
-1. The two managed instances need to be the same service tier, and have the same storage size. 
+1. The two managed instances need to be the same service tier, and have the same storage size.
 1. Your secondary managed instance must be empty (no user databases).
 1. The virtual networks used by the managed instances need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
 1. The two managed instance VNets cannot have overlapping IP addresses.
@@ -288,7 +290,7 @@ When you set up a failover group between primary and secondary managed instances
    > [!IMPORTANT]
    > Misconfigured NSG security rules leads to stuck database copy operations.
 
-7. The secondary instance is configured with the correct DNS zone ID. DNS zone is a property of a managed instance and its ID is included in the host name address. The zone ID is generated as a random string when the first managed instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. Managed instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance. 
+1. The secondary instance is configured with the correct DNS zone ID. DNS zone is a property of a managed instance and its ID is included in the host name address. The zone ID is generated as a random string when the first managed instance is created in each VNet and the same ID is assigned to all other instances in the same subnet. Once assigned, the DNS zone cannot be modified. Managed instances included in the same failover group must share the DNS zone. You accomplish this by passing the primary instance's zone ID as the value of DnsZonePartner parameter when creating the secondary instance.
 
    > [!NOTE]
    > For a detailed tutorial on configuring failover groups with managed instance, see [add a managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md).
@@ -330,7 +332,6 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 > [!IMPORTANT]
 > For a sample script, see [Configure and failover a failover group for a single database](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
->
 
 ### PowerShell: Managing SQL database failover groups with managed instances 
 

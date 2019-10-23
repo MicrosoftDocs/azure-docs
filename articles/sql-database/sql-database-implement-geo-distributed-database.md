@@ -68,21 +68,18 @@ $mydrlocation = "<your disaster recovery location>"
 $mydrservername = "<your disaster recovery server name>"
 $myfailovergroupname = "<your globally unique failover group name>"
 
-# Create a backup server in the failover region
+# create a backup server in the failover region
 New-AzSqlServer -ResourceGroupName $myresourcegroupname -ServerName $mydrservername `
     -Location $mydrlocation -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
     -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
-# Create a failover group between the servers
+# create a failover group between the servers
 New-AzSqlDatabaseFailoverGroup –ResourceGroupName $myresourcegroupname -ServerName $myservername `
-    -PartnerServerName $mydrservername –FailoverGroupName $myfailovergroupname –FailoverPolicy Automatic `
-    -GracePeriodWithDataLossHours 2
+    -PartnerServerName $mydrservername –FailoverGroupName $myfailovergroupname –FailoverPolicy Automatic -GracePeriodWithDataLossHours 2
 
-# Add the database to the failover group
-Get-AzSqlDatabase `
--ResourceGroupName $myresourcegroupname -ServerName $myservername -DatabaseName $mydatabasename | `
-    Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $myresourcegroupname -ServerName $myservername `
-        -FailoverGroupName $myfailovergroupname
+# add the database to the failover group
+Get-AzSqlDatabase -ResourceGroupName $myresourcegroupname -ServerName $myservername -DatabaseName $mydatabasename | `
+    Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $myresourcegroupname -ServerName $myservername -FailoverGroupName $myfailovergroupname
 ```
 
 Geo-replication settings can also be changed in the Azure portal, by selecting your database, then **Settings** > **Geo-Replication**.

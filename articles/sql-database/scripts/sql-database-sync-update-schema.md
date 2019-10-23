@@ -25,26 +25,26 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](../sql-database-sync-data.md).
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+> Azure SQL Data Sync does not support Azure SQL database managed instance at this time.
 
-## Sample script
+## Examples
 
-### Example 1 - Add all tables to the sync schema
+### Add all tables to the sync schema
 
 The following example refreshes the database schema and adds all valid tables in the hub database to the sync schema.
 
 ```powershell-interactive
-UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -SyncGroupName <syncGroupName> -RefreshDatabaseSchema $true -AddAllTables $true
+UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> `
+    -SyncGroupName <syncGroupName> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
-### Example 2 - Add and remove tables and columns
+### Add and remove tables and columns
 
 The following example adds `[dbo].[Table1]` and `[dbo].[Table2].[Column1]` to the sync schema and removes `[dbo].[Table3]`.
 
 ```powershell-interactive
-UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resourceGroupName> -ServerName <serverName> `
-    -DatabaseName <databaseName> -SyncGroupName <syncGroupName> `
-    -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
+UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> `
+    -SyncGroupName <syncGroupName> -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
 ```
 
 ## Script parameters
@@ -53,17 +53,17 @@ The **UpdateSyncSchema** script has the following parameters:
 
 | Parameter | Notes |
 |---|---|
-| $SubscriptionId | The subscription where the sync group is created. |
-| $ResourceGroupName | The resource group where the sync group is created.|
-| $ServerName | The server name of the hub database.|
-| $DatabaseName | The hub database name. |
-| $SyncGroupName | The sync group name. |
-| $MemberName | Specify the member name if you want to load the database schema from the sync member instead of from the hub database. If you want to load the database schema from the hub, leave this parameter empty. |
-| $TimeoutInSeconds | Timeout when the script refreshes database schema. Default is 900 seconds. |
-| $RefreshDatabaseSchema | Specify whether the script needs to refresh the database schema. If your database schema changed from the previous configuration - for example, if you added a new table or anew column), you need to refresh the schema before you reconfigure it. Default is false. |
-| $AddAllTables | If this value is true, all valid tables and columns are added to the sync schema. The values of $TablesAndColumnsToAdd and $TablesAndColumnsToRemove are ignored. |
-| $TablesAndColumnsToAdd | Specify tables or columns to be added to the sync schema. Each table or column name needs to be fully delimited with the schema name. For example: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Multiple table or column names can be specified and separated by commas (,). |
-| $TablesAndColumnsToRemove | Specify tables or columns to be removed from the sync schema. Each table or column name needs to be fully delimited with schema name. For example: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Multiple table or column names can be specified and separated by commas (,). |
+| $subscriptionId | The subscription where the sync group is created. |
+| $resourceGroupName | The resource group where the sync group is created.|
+| $serverName | The server name of the hub database.|
+| $databaseName | The hub database name. |
+| $syncGroupName | The sync group name. |
+| $memberName | Specify the member name if you want to load the database schema from the sync member instead of from the hub database. If you want to load the database schema from the hub, leave this parameter empty. |
+| $timeoutInSeconds | Timeout when the script refreshes database schema. Default is 900 seconds. |
+| $refreshDatabaseSchema | Specify whether the script needs to refresh the database schema. If your database schema changed from the previous configuration - for example, if you added a new table or anew column), you need to refresh the schema before you reconfigure it. Default is false. |
+| $addAllTables | If this value is true, all valid tables and columns are added to the sync schema. The values of $TablesAndColumnsToAdd and $TablesAndColumnsToRemove are ignored. |
+| $tablesAndColumnsToAdd | Specify tables or columns to be added to the sync schema. Each table or column name needs to be fully delimited with the schema name. For example: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Multiple table or column names can be specified and separated by commas (,). |
+| $tablesAndColumnsToRemove | Specify tables or columns to be removed from the sync schema. Each table or column name needs to be fully delimited with schema name. For example: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. Multiple table or column names can be specified and separated by commas (,). |
 
 ## Script explanation
 
@@ -81,7 +81,7 @@ The **UpdateSyncSchema** script uses the following commands. Each command in the
 
 For more information about Azure PowerShell, see [Azure PowerShell documentation](/powershell/azure/overview).
 
-Additional SQL Database PowerShell script samples can be found in [Azure SQL Database PowerShell scripts](../sql-database-powershell-samples.md).
+Additional SQL database PowerShell script samples can be found in [Azure SQL database PowerShell scripts](../sql-database-powershell-samples.md).
 
 For more info about SQL Data Sync, see:
 

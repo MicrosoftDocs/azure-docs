@@ -17,7 +17,7 @@ ms.date: 08/20/2019
 SQL Data Sync is a service built on Azure SQL Database that lets you synchronize the data you select bi-directionally across multiple SQL databases and SQL Server instances.
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does **not** support Azure SQL Database Managed Instance at this time.
+> Azure SQL Data Sync does not support Azure SQL Database Managed Instance at this time.
 
 ## When to use Data Sync
 
@@ -73,7 +73,6 @@ A Sync Group has the following properties:
 |---|---|---|
 | Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration |
 | Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can’t publish from Azure SQL Database single database or pooled database<br/>-	High maintenance cost |
-| | | |
 
 ## Get started with SQL Data Sync
 
@@ -97,25 +96,25 @@ A Sync Group has the following properties:
 
 ## Consistency and performance
 
-#### Eventual consistency
+### Eventual consistency
 
 Since Data Sync is trigger-based, transactional consistency is not guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync does not cause data loss.
 
-#### Performance impact
+### Performance impact
 
 Data Sync uses insert, update, and delete triggers to track changes. It creates side tables in the user database for change tracking. These change tracking activities have an impact on your database workload. Assess your service tier and upgrade if needed.
 
-Provisioning and deprovisioning during sync group creation, update, and deletion may also impact the database performance. 
+Provisioning and deprovisioning during sync group creation, update, and deletion may also impact the database performance.
 
 ## <a name="sync-req-lim"></a> Requirements and limitations
 
 ### General requirements
 
-- Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value. 
+- Each table must have a primary key. Don't change the value of the primary key in any row. If you have to change a primary key value, delete the row and recreate it with the new primary key value.
 
 > [!IMPORTANT]
-> Changing the value of an existing primary key will result in the following faulty behavior:   
->	- Data between hub and member can be lost even though sync does not report any issue.
+> Changing the value of an existing primary key will result in the following faulty behavior:
+> - Data between hub and member can be lost even though sync does not report any issue.
 > - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
 
 - Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
@@ -123,7 +122,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 ### General limitations
 
 - A table cannot have an identity column that is not the primary key.
-- A primary key cannot have the following data types: sql_variant, binary, varbinary, image, xml. 
+- A primary key cannot have the following data types: sql_variant, binary, varbinary, image, xml.
 - Be cautious when you use the following data types as a primary key, because the supported precision is only to the second: time, datetime, datetime2, datetimeoffset.
 - The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 - Azure Active Directory authentication is not supported.
@@ -146,7 +145,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 
 #### Limitations on service and database dimensions
 
-| **Dimensions**                                                      | **Limit**              | **Workaround**              |
+| **Dimensions**                                                  | **Limit**              | **Workaround**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Maximum number of sync groups any database can belong to.       | 5                      |                             |
 | Maximum number of endpoints in a single sync group              | 30                     |                             |
@@ -156,7 +155,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 | Columns in a table in a sync group                              | 1000                   |                             |
 | Data row size on a table                                        | 24 Mb                  |                             |
 | Minimum sync interval                                           | 5 Minutes              |                             |
-|||
+
 > [!NOTE]
 > There may be up to 30 endpoints in a single sync group if there is only one sync group. If there is more than one sync group, the total number of endpoints across all sync groups cannot exceed 30. If a database belongs to multiple sync groups, it is counted as multiple endpoints, not one.
 
@@ -164,7 +163,7 @@ Data Sync can't sync read-only or system-generated columns. For example:
 
 ### How much does the SQL Data Sync service cost
 
-There is no charge for the SQL Data Sync service itself.  However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+There is no charge for the SQL Data Sync service itself. However, you still accrue data transfer charges for data movement in and out of your SQL Database instance. For more info, see [SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ### What regions support Data Sync
 

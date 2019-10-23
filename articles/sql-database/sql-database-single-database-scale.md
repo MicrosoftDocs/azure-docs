@@ -80,7 +80,7 @@ From a PowerShell command prompt, set the `$resourceGroupName`, `$serverName`, a
 
 ```powershell
 $operationName = (az sql db op list --resource-group $resourceGroupName --server $serverName --database $databaseName --query "[?state=='InProgress'].name" --out tsv)
-if(-not [string]::IsNullOrEmpty($operationName)) {
+if (-not [string]::IsNullOrEmpty($operationName)) {
     (az sql db op cancel --resource-group $resourceGroupName --server $serverName --database $databaseName --name $operationName)
         "Operation " + $operationName + " has been canceled"
 }

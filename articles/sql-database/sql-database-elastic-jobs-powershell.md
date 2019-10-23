@@ -256,6 +256,7 @@ Write-Output $jobExecutions
 ```
 
 ## To view the state across multiple job executions
+
 The [**Get-AzureSqlJobExecution cmdlet**](/powershell/module/elasticdatabasejobs/new-azuresqljob) has multiple optional parameters that can be used to display multiple job executions, filtered through the provided parameters. The following demonstrates some of the possible ways to use Get-AzureSqlJobExecution:
 
 Retrieve all active top level job executions:
