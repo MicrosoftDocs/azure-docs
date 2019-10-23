@@ -19,7 +19,18 @@ Using Azure Firewall Manager Preview, you can create secured hubs to secure your
 
 ## Prerequisites
 
-To enable the public preview access for your subscription, email FirewallManager@microsoft.com with your subscription ID.
+> [!IMPORTANT]
+> Azure Firewall Manager Preview must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
+
+From a PowerShell command prompt, run the following commands:
+
+```azure-powershell
+connect-azaccount
+Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
+```
+It takes up to 30 minutes for the feature registration to complete. Run the following command to check your registration status:
+
+`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
 
 ## Create a hub and spoke architecture
 
@@ -89,9 +100,9 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 6. On the **Add a rule collection** page, type **RC-01** for the **Name**.
 7. For **Rule type**, select **Application**.
 8. For **Priority**, type **100**.
-9. Ensure **Rule action** is **Allow**.
-10. For **Condition name** type **Allow-msft**.
-11. For **Source address**, type **\***.
+9. Ensure **Rule Action** is **Allow**.
+10. For **Name** type **Allow-msft**.
+11. For **Source IP address**, type **\***.
 12. For **Protocol**, type **http,https**.
 13. Ensure **Destination type is **FQDN**.
 14. For **Destination**, type **\*.microsoft.com**.

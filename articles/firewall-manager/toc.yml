@@ -18,6 +18,8 @@
     href: deployment-overview.md
   - name: Trusted security partners
     href: trusted-security-partners.md
+  - name: Rule processing logic
+    href: rule-processing.md
 - name: How-to guides
 - name: Reference
   items:
