@@ -22,7 +22,7 @@ Learn what's new in the service. These items include release notes, videos, blog
 ### November 4, 2019 - Ignite
 
 * Improved developer productivity
-    * General availability of our [prediction endpoint V3](luis/luis-migration-api-v3.md). 
+    * General availability of our [prediction endpoint V3](luis-migration-api-v3.md). 
     * Ability to import and export apps with .lu ([LUDown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) format. This paves the way for an effective CI/CD process. 
 * Language expansion
     * [Arabic and Hindi](luis-language-support.md) in public preview.

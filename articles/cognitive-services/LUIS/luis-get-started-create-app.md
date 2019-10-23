@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
@@ -29,7 +29,7 @@ You can create and manage your applications on **My Apps**.
 
 1. Select **+ Create**.
 
-    [![Screenshot of app list](./media/luis-quickstart-new-app/app-list.png "Screenshot of app list")](./media/luis-quickstart-new-app/app-list.png)
+    [![Screenshot of app list](./media/empty-apps-list.png "Screenshot of app list")](./media/empty-apps-list.png)
 
 1. In the dialog box, name your application "Home Automation".
 
