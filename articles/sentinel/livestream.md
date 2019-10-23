@@ -50,10 +50,10 @@ You can create a Livestream session from an existing hunting query, or create yo
 2. To create a Livestream session from a hunting query:
     
     1. From the **Queries** tab, locate the hunting query to use.
-    2. Right-click the query and select **Add to Livestream**:
+    2. Right-click the query and select **Add to Livestream**. For example:
     
     > [!div class="mx-imgBorder"]
-    > ![create Livestream session from Azure Sentinel hunting query](./media/live-stream/live-stream-from-query.png)
+    > ![create Livestream session from Azure Sentinel hunting query](./media/livestream/livestream-from-query.png)
 
 3. To create a Livestream session from scratch: 
     
@@ -70,7 +70,7 @@ You can create a Livestream session from an existing hunting query, or create yo
     The status bar under the command bar indicates whether your Livestream is running or paused. In the following example, the session is running:
     
     > [!div class="mx-imgBorder"]
-    > ![create Livestream session from Azure Sentinel hunting](./media/live-stream/live-stream-session.png)
+    > ![create Livestream session from Azure Sentinel hunting](./media/livestream/livestream-session.png)
 
 6. Select **Save** from the command bar.
     
@@ -85,7 +85,7 @@ if you want to leave the Livestream session running when you close the blade, it
 2. Select the Livestream session you want to view or edit. For example:
     
     > [!div class="mx-imgBorder"]
-    > ![create Livestream session from Azure Sentinel hunting query](./media/live-stream/live-stream-tab.png)
+    > ![create Livestream session from Azure Sentinel hunting query](./media/livestream/livestream-tab.png)
     
     Your selected Livestream session opens for you to play, pause, edit, and so on.
 
@@ -93,7 +93,7 @@ if you want to leave the Livestream session running when you close the blade, it
 
 Because Livestream notifications for new events use Azure portal notifications, you see these notifications whenever you use the Azure portal. For example:
 
-![Azure portal notification for Livestream](./media/live-stream/notification.png)
+![Azure portal notification for Livestream](./media/livestream/notification.png)
 
 Select the notification to open the **Livestream** blade.
  
@@ -102,7 +102,7 @@ Select the notification to open the **Livestream** blade.
 You can promote a Livestream session to a new alert by selecting **Elevate to alert** from the command bar on the relevant Livestream session:
 
 > [!div class="mx-imgBorder"]
-> ![Elevate Livestream session to an alert](./media/live-stream/elevate-to-alert.png)
+> ![Elevate Livestream session to an alert](./media/livestream/elevate-to-alert.png)
 
 This action opens the rule creation wizard, which is prepopulated with the query that is associated with the Livestream session.
 
