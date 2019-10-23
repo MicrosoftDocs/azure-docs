@@ -14,9 +14,9 @@ ms.custom: mvc
 
 # Tutorial: Use a device capability model to create an IoT Plug and Play device and connect it to your IoT Central application
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-A _device capability model_ (DCM) describes the capabilities of an [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) device. IoT Central can use a DCM to create a device template and visualizations for a device when the device connects for the first time.
+A _device capability model_ (DCM) describes the capabilities of an [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) device. IoT Central can use a DCM to create a device template and visualizations for a device when the device connects for the first time.
 
 In this tutorial, you learn how to:
 
@@ -81,7 +81,7 @@ To connect a device to an IoT Central application, you need a device key. To gen
 
 1. Make a note of the **Scope ID** and **Primary Key**. You use these values later in this tutorial.
 
-    ![Device connection](./media/quick-create-pnp-device-pnp/device-connection.png)
+    ![Device connection](./media/tutorial-connect-pnp-device-pnp/device-connection.png)
 
 1. Open a command prompt and run the following command to generate a device key:
 
@@ -101,7 +101,7 @@ In this tutorial, you use the public DCM for an MxChip IoT DevKit device. You do
 
 1. Select the **MXChip IoT DevKit** DCM with ID `urn:mxchip:mxchip_iot_devkit:1`. Then select **Download**. You now have a copy of the DCM in the `central_app` folder.
 
-![Model repository and DCM](./media/quick-create-pnp-device-pnp/public-repository.png)
+![Model repository and DCM](./media/tutorial-connect-pnp-device-pnp/public-repository.png)
 
 > [!NOTE]
 > To work with IoT Central, the device capability model must have all the interfaces defined inline in the same file.
@@ -127,7 +127,7 @@ Now you have the **MXChip IoT DevKit** DCM and its associated interfaces, you ca
 
 1. VS Code opens a new window with generated device code stub files in the `devkit_device` folder.
 
-![Generated device code](./media/quick-create-pnp-device-pnp/generated-code.png)
+![Generated device code](./media/tutorial-connect-pnp-device-pnp/generated-code.png)
 
 To add the connection information to the generated device code:
 
@@ -181,7 +181,7 @@ After your device code connects to your IoT Central, you can view the properties
 
 1. In your IoT Central application, go to the **Devices** page and select the **mxchip-01** device. This device was automatically added when the device code connected:
 
-    ![Overview page](./media/quick-create-pnp-device-pnp/overview-page.png)
+    ![Overview page](./media/tutorial-connect-pnp-device-pnp/overview-page.png)
 
     After a couple of minutes, this page shows charts of the telemetry the device is sending.
 
@@ -191,7 +191,7 @@ After your device code connects to your IoT Central, you can view the properties
 
 1. Go to the **Device templates** page to see the template that IoT Central created from the DCM in the public repository:
 
-    ![Device templates page](./media/quick-create-pnp-device-pnp/device-template.png)
+    ![Device templates page](./media/tutorial-connect-pnp-device-pnp/device-template.png)
 
 ## Next steps
 
