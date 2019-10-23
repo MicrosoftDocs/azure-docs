@@ -31,7 +31,7 @@ When you let App Service manage your SSL certificates, you can maintain the cert
 To follow this how-to guide:
 
 - [Create an App Service app](/azure/app-service/)
-- [Add a certificate to your app](configure-ssl-cert.md)
+- [Add a certificate to your app](configure-ssl-certificate.md)
 
 ## Find the thumbprint
 
@@ -41,7 +41,7 @@ From the left navigation of your app, select **TLS/SSL settings**, then select *
 
 Find the certificate you want to use and copy the thumbprint.
 
-![Copy the certificate thumbprint](./media/configure-ssl-cert/create-free-cert-finished.png)
+![Copy the certificate thumbprint](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
 ## Load the certificate
 
@@ -110,3 +110,10 @@ string certPath = Server.MapPath("~/certs/mycert.pfx");
 X509Certificate2 cert = GetCertificate(certPath, signatureBlob.Thumbprint);
 ...
 ```
+
+## More resources
+
+* [Secure a custom DNS name with an SSL binding](configure-ssl-bindings.md)
+* [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
+* [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
+* [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
