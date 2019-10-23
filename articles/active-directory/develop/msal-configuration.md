@@ -1,5 +1,6 @@
 ---
-title: Understand  the Android Microsoft Authentication Library (MSAL) configuration file | Azure
+title: Understand  the Android Microsoft Authentication Library (MSAL) configuration file 
+titleSuffix: Microsoft identity platform
 description: An overview of the Android Microsoft Authentication Library (MSAL) configuration file, which represents an application's configuration in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
