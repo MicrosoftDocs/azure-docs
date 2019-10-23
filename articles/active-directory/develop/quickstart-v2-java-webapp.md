@@ -117,26 +117,26 @@ For the code sample for this quickstart to work, you need to:
 
 To run the project, you can either:
 
-- Run it directly from your IDE by using the embedded spring boot server or
-- Package it to a WAR file using [maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html) and deploy it to a J2EE container solution such as [Apache Tomcat](http://tomcat.apache.org/).
+Run it directly from your IDE by using the embedded spring boot server or package it to a WAR file using [maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html) and deploy it to a J2EE container solution such as [Apache Tomcat](http://tomcat.apache.org/).
 
 ##### Running from IDE
 
 If you are running the web application from an IDE, click on run, then navigate to the home page of the project. For this sample, the standard home page URL is <http://localhost:8080>
 
-1. The front page contains a **sign-in** button. Click on the **sign-in** button to redirect to Azure Active Directory. The user will be prompted for their credentials.  
-1. After successfully authenticating on Azure Active Directory, they will be redirected to *http://localhost:8080/msal4jsamples/secure/aad*. They are officially signed in to the application, and the page should show information for the signed in account. It will also contain buttons for:
+1. On the front page, select the **Login** button to redirect to Azure Active Directory and prompt the user for their credentials.
+
+1. After the user is authenticated, they are redirected to *http://localhost:8080/msal4jsamples/secure/aad*. They are now signed in, and the page will show information about the signed-in account. The sample UI has the following buttons:
     - *Sign Out*: Signs the current user out of the application and redirects them to the home page.
     - *Show User Info*: Acquires a token for Microsoft Graph and calls Microsoft Graph with a request containing the token, which returns basic information about the signed-in user.
 
 >[!IMPORTANT]
-This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files. For security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see these [instructions](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
+This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [Certificate credentials for application authentication](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## More information
 
 ### Getting MSAL
 
-MSAL4J is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
+MSAL4J is the Java library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
 
 Add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the application's pom.xml (Maven) or build.gradle (Gradle) file.
 
@@ -154,7 +154,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 
 ### MSAL initialization
 
-You can add the reference to MSAL4J by adding the following code to the top of the file where you will be using MSAL4J:
+Add a reference to MSAL4J by adding the following code to the top of the file where you will be using MSAL4J:
 
 ```Java
 import com.microsoft.aad.msal4j.*;
