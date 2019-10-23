@@ -93,7 +93,7 @@ The SQL Database service creates an IP firewall at the server-level. This firewa
 
 1. After the deployment completes, select **SQL databases** from the Azure portal menu or search for and select *SQL databases* from the **Home** page.  
 
-1. Select *yourDatabase* on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified **Server name** (such as `contosodatabaseserver01.database.windows.net') and provides options for further configuration.
+1. Select *yourDatabase* on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified **Server name** (such as `contosodatabaseserver01.database.windows.net`) and provides options for further configuration.
 
    ![server name](./media/sql-database-design-first-database/server-name.png)
 
