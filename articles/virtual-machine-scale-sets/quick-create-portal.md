@@ -71,9 +71,9 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. Select **Next** to move the the other pages. 
 1. Leave the defaults for the **Instance** and **Disks** pages.
 1. On the **Networking** page, under **Load balancing**, select **Yes** to put the scale set instances behind a load balancer. 
-1. In **Load balanicing options**, select **Azure load balancer**.
+1. In **Load balancing options**, select **Azure load balancer**.
 1. In **Select a load balancer**, select *myLoadBalancer* that you created earlier.
-1. For **Select a backend poool**, select **Create new**, type *myBackendPool*, then select **Create**.
+1. For **Select a backend pool**, select **Create new**, type *myBackendPool*, then select **Create**.
 1. When you are done, select **Review + create**. 
 1. After it passes validation, select **Create** to deploy the scale set.
 
