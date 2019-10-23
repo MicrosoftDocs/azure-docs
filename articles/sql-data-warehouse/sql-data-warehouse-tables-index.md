@@ -15,7 +15,7 @@ ms.custom: seoapril2019
 
 # Indexing tables in Azure Synapse Analytics (formerly SQL DW)
 
-Recommendations and examples for indexing tables in Azure Synapse Analytics (formerly SQL DW).
+Recommendations and examples for indexing tables in Azure Synapse Analytics.
 
 ## Index types
 
@@ -250,7 +250,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), and [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+Rebuilding an index is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), and [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### Step 3: Verify clustered columnstore segment quality has improved
 
