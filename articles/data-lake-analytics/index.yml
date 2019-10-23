@@ -105,9 +105,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Understand Spark overview
-            url: data-lake-analytics-understand-spark-overview.md
-          - text: Understand Spark data
-            url: data-lake-analytics-understand-spark-data.md
-          - text: Understand Spark code
-            url: data-lake-analytics-understand-spark-u-sql-code.md
+          - text: Understand Apache Spark for U-SQL Developers
+            url: data-lake-analytics-understand-spark-for-usql-developers.md
+          - text: Understand Spark data formats for U-SQL developers
+            url: data-lake-analytics-understand-spark-data-formats.md.md
+          - text: Understand Apache Spark code concepts for U-SQL developers
+            url: data-lake-analytics-understand-spark-code-concepts.md

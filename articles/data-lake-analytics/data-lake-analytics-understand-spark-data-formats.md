@@ -1,16 +1,16 @@
 ---
-title: Understanding Apache Spark data formats for U-SQL developers
+title: Understand Apache Spark data formats for U-SQL developers
 description: Understand the differences between U-SQL and Spark data formats
 author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.custom: understanding-apache-spark-data
+ms.custom: understand-apache-spark-data
 ms.date: 01/31/2019
 ---
 
-# Understanding differences between U-SQL and Spark data formats
+# Understand differences between U-SQL and Spark data formats
 
 If you want to use either [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) or [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md), we recommend that you migrate your data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) to [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
@@ -31,7 +31,7 @@ U-SQL tables are not understood by Spark. If you have data stored in U-SQL table
 
 The output can be achieved in U-SQL with the built-in Parquet outputter and using the dynamic output partitioning with file sets to create the partition folders. [Process more files than ever and use Parquet](https://blogs.msdn.microsoft.com/azuredatalake/2018/06/11/process-more-files-than-ever-and-use-parquet-with-azure-data-lake-analytics) provides an example of how to create such Spark consumable data.
 
-After this transformation, you copy the data as outlined in the chapter [Move "unstructured" data stored in files](#move-data-stored-in-files).
+After this transformation, you copy the data as outlined in the chapter [Move "unstructured" data stored in files](#Move-data-stored-in-Azure-Data-Lake-Storage-Gen1-files).
 
 ## Caveats
 
@@ -45,7 +45,7 @@ After this transformation, you copy the data as outlined in the chapter [Move "u
 
 ## Next steps
 
-- [Understand Spark for U-SQL developers](data-lake-analytics-understand-spark-u-sql-code.md)
+- [Understand Spark for U-SQL developers](data-lake-analytics-understand-spark-code-concepts.md)
 - [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
 - [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
