@@ -119,7 +119,7 @@ Now that the probe has been created, it is time to add it to the gateway. Probe 
 
    ![https settings window][2]
 
-2. On the **appGatewayBackEndHttpSettings** settings blade, check the **Use custom probe** checkbox and choose the probe created in the [Create the probe](#createprobe) section on the **Custom probe** drop-down..
+2. On the **appGatewayBackEndHttpSettings** settings page, check the **Use custom probe** checkbox and choose the probe created in the [Create the probe](#createprobe) section on the **Custom probe** drop-down.
    When complete, click **Save** and the settings are applied.
 
 ## Next steps
