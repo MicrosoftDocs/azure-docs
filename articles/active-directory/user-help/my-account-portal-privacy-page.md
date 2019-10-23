@@ -36,3 +36,5 @@ You can view how your organization uses your data from the **Privacy** page of t
 ## Next steps
 
 - After viewing how your organization uses your data, you can select to view or manage your [security info](user-help-security-info-overview.md), your connected [devices](my-account-portal-devices-page.md), or your [organizations](my-account-portal-organizations-page.md).
+
+- You can also view your Microsoft Office contact preferences and privacy information from the [Office portal, Security & privacy page](https://portal.office.com/account/#security).
