@@ -1,5 +1,5 @@
 ---
-title: Build smart city solutions with IoT Central | Microsoft Docs
+title: Build smart city solutions with Azure IoT Central | Microsoft Docs
 description: Learn to build government solution using Azure IoT Central application templates.
 author: miriambrus
 ms.author: philmea
