@@ -85,8 +85,16 @@
       href: custom-waf-rules-overview.md
   - name: Ingress Controller 
     items:
-      - name: Ingress controller overview
-        href: application-gateway-ingress-controller-overview.md
+    - name: Ingress controller overview
+      href: application-gateway-ingress-controller-overview.md
+    - name: Enable cookie affinity 
+      href: application-gateway-ingress-controller-cookie-affinity.md
+    - name: Multiple namespace support 
+      href: application-gateway-ingress-controller-multiple-namespace-support.md
+    - name: Using private IP for internal routing
+      href: application-gateway-ingress-controller-using-private-ip.md
+    - name: Adding health probes to AKS pods
+      href: application-gateway-ingress-controller-adding-health-probes.md
   - name: Health monitoring
     items:
     - name: Health probe
