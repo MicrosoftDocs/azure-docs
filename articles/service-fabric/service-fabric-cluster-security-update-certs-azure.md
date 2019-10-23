@@ -284,6 +284,10 @@ you can specify any number of client certificates. Each addition/deletion result
 
 To remove a secondary certificate from being used for cluster security, Navigate to the Security section and select the 'Delete' option from the context menu on the specific certificate.
 
+## Adding application certificates to a VMSS
+
+To deploy a certificate you use for your applications to your cluster, see [this sample Powershell script](\scripts\service-fabric-powershell-add-application-certificate.md).
+
 ## Next steps
 Read these articles for more information on cluster management:
 

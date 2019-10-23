@@ -28,7 +28,7 @@ The following table includes links to PowerShell scripts samples that create and
 | **Create cluster** ||
 | [Create a cluster (Azure)](./scripts/service-fabric-powershell-create-secure-cluster-cert.md)| Creates an Azure Service Fabric cluster. |
 | **Manage cluster, nodes, and infrastructure** ||
-| [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Adds an application X.509 certificate to all nodes in a cluster. |
+| [Add an application certificate](./scripts/service-fabric-powershell-add-application-certificate.md)| Creates an X509 certificate to Key Vault and deploys it to a VMSS in your cluster. |
 | [Update the RDP port range on cluster VMs](./scripts/service-fabric-powershell-change-rdp-port-range.md)|Changes the RDP port range on cluster node VMs in a deployed cluster.|
 | [Update the admin user and password for cluster node VMs](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md) | Updates the admin username and password for cluster node VMs. |
 | [Open a port in the load balancer](./scripts/service-fabric-powershell-open-port-in-load-balancer.md) | Open an application port in the Azure load balancer to allow inbound traffic on a specific port. |
