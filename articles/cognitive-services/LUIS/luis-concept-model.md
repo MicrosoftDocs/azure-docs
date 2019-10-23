@@ -1,7 +1,7 @@
 ---
 title: Design with models - LUIS
 titleSuffix: Azure Cognitive Services
-description: 
+description: Language understanding provides several types of models. Some models can be used in more than one way. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/23/2019
 ms.author: diberry
 ---
 
@@ -33,8 +33,6 @@ Model decomposition has the following parts:
     * [subcomponents](#entity-subcomponents-help-extract-data) (also machine-learned entities)
         * [descriptors](#descriptors-are-features) provided by features 
         * [constraints](#constraints-are-text-rules) provided by non-machine-learned entities such as (regular expressions and lists)
-
-[add conceptual image]
 
 ## V2 Authoring models
 

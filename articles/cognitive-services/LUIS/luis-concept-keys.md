@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/23/2019
 ms.author: diberry
 ---
 
@@ -127,12 +127,6 @@ The owner and all contributors have access to author the app.
 ### Prediction endpoint runtime access
 
 Access to query the prediction endpoint is controlled by a setting on the **Application Information** page in the **Manage** section. 
-
-<!--
-
-!!!Ignite - screen shot
-
--->
 
 |[Private endpoint](#runtime-security-for-private-apps)|[Public endpoint](#runtime-security-for-public-apps)|
 |:--|:--|
