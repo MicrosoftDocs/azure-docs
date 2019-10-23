@@ -12,7 +12,9 @@ ms.reviewer: jrasnick
 ---
 
 # Using external tables in SQL Analytics 
-An external table points to data located in Azure Storage blob or Azure Data Lake Store. External tables are used to read data from files, or write data to files in Azure Storage.
+An external table points to data located in Hadoop, Azure Storage blob or Azure Data Lake Store. External tables are used to read data from files, or write data to files in Azure Storage.
+
+
 
 ## External tables in SQL Analytics pool
 
@@ -29,7 +31,7 @@ When used in conjunction with the CREATE TABLE AS SELECT statement, selecting fr
 Use an external table to:
 
 - Query data in Azure blob storage or Azure Data Lake Store with Transact-SQL statements
-- Store results of SQL Analytics on-demand query to files in Azure Blob Storage or Azure Data Lake Store.
+- Store results of SQL Analytics on-demand query to files in Azure Blob Storage or Azure Data Lake Store using [CETAS](development-tables-cetas.md).
 
 You can create external table with following steps:
 
