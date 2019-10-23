@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 Privileged Identity Management (PIM) access reviews can help secure access to privileged roles in Azure Active Directory (Azure AD). This article the steps to complete a review your privileged role assignments in an Azure AD access review.
 
-If you are assigned to an administrative role, you might be required to complete an access review by your organization's privileged role administrator to confirm that you still need that role for your job. The confirmation request can come an email that includes a link, or you can confirm in the [Azure portal](https://portal.azure.com).
+If you are assigned to an administrative role, you might be required to complete an access review by your administrator to confirm your need for a role. The confirmation request can come an email that includes a link, or you can confirm in the [Azure portal](https://portal.azure.com).
 
 If you're a privileged role administrator interested in access reviews, get more details at [How to start an access review](pim-resource-roles-start-access-review.md).
 
