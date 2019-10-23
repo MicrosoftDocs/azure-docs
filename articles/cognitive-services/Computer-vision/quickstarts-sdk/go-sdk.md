@@ -49,9 +49,9 @@ $ cd my-app
 
 Your workspace will contain three folders:
 
-* **src** - This directory will contain source code and packages. Any packages installed with the `go get` command will go here.
+* **src** - This directory will contain source code and packages. Any packages installed with the `go get` command will go in this directory.
 * **pkg** - This directory will contain the compiled Go package objects. These files all have an `.a` extension.
-* **bin** - This directory will contains the binary executable files that are created when you run `go install`.
+* **bin** - This directory will contain the binary executable files that are created when you run `go install`.
 
 > [!TIP]
 > To learn more about the structure of a Go workspace, see the [Go language documentation](https://golang.org/doc/code.html#Workspaces). This guide includes information for setting `$GOPATH` and `$GOROOT`.
@@ -136,31 +136,31 @@ The following function calls extract different visual features from the sample i
 
 ### Get image description
 
-The following function gets the list of generated captions for the image. See [Describe images](../concept-describing-images.md) for more details.
+The following function gets the list of generated captions for the image. For more information about image description, see [Describe images](../concept-describing-images.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_describe)]
 
 ### Get image category
 
-The following function gets the detected category of the image. See [Categorize images](../concept-categorizing-images.md) for more details.
+The following function gets the detected category of the image. For more information, see [Categorize images](../concept-categorizing-images.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_categorize)]
 
 ### Get image tags
 
-The following function gets the set of detected tags in the image. See [Content tags](../concept-tagging-images.md) for more details.
+The following function gets the set of detected tags in the image. For more information, see [Content tags](../concept-tagging-images.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_tags)]
 
 ### Detect objects
 
-The following function detects common objects in the image and prints them to the console. See [Object detection](../concept-object-detection.md) for more details.
+The following function detects common objects in the image and prints them to the console. For more information, see [Object detection](../concept-object-detection.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_objects)]
 
 ### Detect brands
 
-The following code detects corporate brands and logos in the image and prints them to the console. See [Brand detection](../concept-brand-detection.md) for more details.
+The following code detects corporate brands and logos in the image and prints them to the console. For more information, [Brand detection](../concept-brand-detection.md).
 
 First, declare a reference to a new image within your `main` function.
 
@@ -172,25 +172,25 @@ The following code defines the brand detection function.
 
 ### Detect faces
 
-The following function returns the detected faces in the image with their rectangle coordinates and select face attributes. See [Face detection](../concept-detecting-faces.md) for more details.
+The following function returns the detected faces in the image with their rectangle coordinates and certain face attributes. For more information, see [Face detection](../concept-detecting-faces.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_faces)]
 
 ### Detect adult, racy, or gory content
 
-The following function prints the detected presence of adult content in the image. See [Adult, racy, gory content](../concept-detecting-adult-content.md) for more details.
+The following function prints the detected presence of adult content in the image. For more information, see [Adult, racy, gory content](../concept-detecting-adult-content.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_adult)]
 
 ### Get image color scheme
 
-The following function prints the detected color attributes in the image, like the dominant colors and accent color. See [Color schemes](../concept-detecting-color-schemes.md) for more details.
+The following function prints the detected color attributes in the image, like the dominant colors and accent color. For more information, see [Color schemes](../concept-detecting-color-schemes.md).
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_color)]
 
 ### Get domain-specific content
 
-Computer Vision can use specialized models to do further analysis on images. See [Domain-specific content](../concept-detecting-domain-content.md) for more details. 
+Computer Vision can use specialized models to do further analysis on images. For more information, see [Domain-specific content](../concept-detecting-domain-content.md). 
 
 The following code parses data about detected celebrities in the image.
 
@@ -202,7 +202,7 @@ The following code parses data about detected landmarks in the image.
 
 ### Get the image type
 
-The following function prints information about the type of image&mdash;whether it is clip art or a line drawing.
+The following function prints information about the type of image&mdash;whether it's clip art or a line drawing.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
@@ -219,7 +219,7 @@ Add the sample image reference and function call in your `main` function.
 
 ### Call the Read API
 
-Define the new function for reading text, `RecognizeTextReadAPIRemoteImage`. Add the code below, which calls the **BatchReadFile** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
+Define the new function for reading text, `RecognizeTextReadAPIRemoteImage`. Add the code below, which calls the **BatchReadFile** method for the given image. This method returns an operation ID and starts an asynchronous process to read the content of the image.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_call)]
 
