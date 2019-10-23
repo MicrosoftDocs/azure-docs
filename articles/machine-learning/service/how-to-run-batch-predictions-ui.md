@@ -29,9 +29,13 @@ In this how-to, you learn the following tasks:
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning service](https://aka.ms/AMLFree).
+1. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of the Azure Machine Learning service](https://aka.ms/AMLFree).
 
-* This how-to assumes basic knowledge of building a simple pipeline in the designer. For a guided introduction to the visual interface, complete the [tutorial](ui-tutorial-automobile-price-train-score.md). 
+1. Create a [workspace](tutorial-1st-experiment-sdk-setup.md).
+
+1. Sign in to [Azure Machine Learning studio](https://ml.azure.com/).
+
+This how-to assumes basic knowledge of building a simple pipeline in the designer. For a guided introduction to the visual interface, complete the [tutorial](ui-tutorial-automobile-price-train-score.md). 
 
 ## Create a pipeline
 
