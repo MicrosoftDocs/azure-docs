@@ -19,7 +19,7 @@ The outcome of a successful training is a model. When training a model, three
 mutually exclusive data sets are required: training dataset, tuning dataset, and
 testing dataset. Dictionary data can also be provided.
 
-If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing datasets. It will exclude 5,000 sentences from your training data and use 2,500 each to assemble a tuning and testing sets.
+If only training data is provided when queuing a training, Custom Translator will automatically assemble tuning and testing datasets. It will exclude an appropriate percentage from Training to use for validation and testing.
 
 ## Training dataset for Custom Translator
 
