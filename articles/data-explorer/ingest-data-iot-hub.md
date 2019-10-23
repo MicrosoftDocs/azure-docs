@@ -13,6 +13,11 @@ ms.date: 08/27/2019
 
 # Ingest data from IoT Hub into Azure Data Explorer (Preview)
 
+> [!div class="op_single_selector"]
+> * [Portal](ingest-data-iot-hub.md)
+> * [C#](data-connection-iot-hub-csharp.md)
+> * [Python](data-connection-iot-hub-python.md)
+
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from IoT Hub, a big data streaming platform and IoT ingestion service.
 
 ## Prerequisites

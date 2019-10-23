@@ -139,7 +139,7 @@ Learn about Azure security.
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-disk-encryption">
+        <a href="/azure/security/fundamentals/azure-disk-encryption-vms-vmss">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -423,7 +423,7 @@ Learn about Azure security.
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="/azure/security/azure-security-disk-encryption">
+        <a href="/azure/security/fundamentals/azure-disk-encryption-vms-vmss">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">

@@ -3,8 +3,8 @@ title: Quickstart for Azure App Configuration with .NET Framework | Microsoft Do
 description: A quickstart for using Azure App Configuration with .NET Framework apps
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 
 ms.assetid: 
@@ -13,8 +13,8 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 02/24/2019
-ms.author: yegu
+ms.date: 10/09/2019
+ms.author: lcozzens
 
 #Customer intent: As a .NET Framework developer, I want to manage all my app settings in one place.
 ---
@@ -26,7 +26,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
 ## Create an app configuration store
 
@@ -44,7 +44,9 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
 
-2. In **New Project**, select **Installed** > **Visual C#** > **Windows Desktop**. Select **Console App (.NET Framework)**, and enter a name for your project. Select **.NET Framework 4.7.1** or up, and select **OK**.
+1. In **Create a new project**, filter on the **Console** project type and click on **Console App (.NET Framework)**. Click **Next**.
+
+1. In **Configure your new project**, enter a project name. Under **Framework**, select **.NET Framework 4.7.1** or higher. Click **Create**.
 
 ## Connect to an app configuration store
 
@@ -53,9 +55,10 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
-2. Update the *App.config* file of your project as follows:
+1. Update the *App.config* file of your project as follows:
 
     ```xml
     <configSections>
@@ -77,12 +80,12 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
    The connection string of your app configuration store is read from the environment variable `ConnectionString`. Add the `Environment` configuration builder before the `MyConfigStore` in the `configBuilders` property of the `appSettings` section.
 
-3. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
+1. Open *Program.cs*, and update the `Main` method to use App Configuration by calling `ConfigurationManager`.
 
     ```csharp
     static void Main(string[] args)
     {
-        string message = ConfigurationManager.AppSettings["TestApp:Settings:Message"];
+        string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
     }
@@ -98,7 +101,7 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Framewor
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. Restart Visual Studio to allow the change to take effect. Press Ctrl + F5 to build and run the console app.
+1. Restart Visual Studio to allow the change to take effect. Press Ctrl + F5 to build and run the console app.
 
 ## Clean up resources
 

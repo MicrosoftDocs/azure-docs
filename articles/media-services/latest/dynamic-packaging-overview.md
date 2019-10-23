@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/10/2019 
+ms.date: 10/17/2019 
 ms.author: juliako
 #Customer intent: As a developer or content provider, I want to encode and stream on-demand or live content so my customers can view the content on a wide variety of clients (these clients understand different formats).
 ---
@@ -95,7 +95,7 @@ For information about live streaming in Media Services v3, see [Live streaming o
 Dynamic Packaging supports MP4 files which contain video that's encoded with [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC or AVC1) or [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1, or hvc1).
 
 > [!NOTE]
-> Resolutions of up to 4K, and frame rates of up to 60 frames/second have been tested with Dynamic Packaging. The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to H.265, via the legacy v2 APIs. Please contact amshelp@microsoft.com if you have questions on this topic. 
+> Resolutions of up to 4K, and frame rates of up to 60 frames/second have been tested with Dynamic Packaging. The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to H.265, via the legacy v2 APIs.
 
 ## <a id="audio-codecs"/>Audio codecs supported by Dynamic Packaging
 
@@ -121,7 +121,7 @@ Dynamic Packaging supports multiple audio tracks with DASH or HLS (version 4 or 
 Dynamic Packaging doesn't support files that contain [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) audio (it's a legacy codec).
 
 > [!NOTE]
-> The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus, via the legacy v2 APIs. Please contact amshelp@microsoft.com if you have questions on this topic. 
+> The [Premium Encoder](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) supports encoding to Dolby Digital Plus, via the legacy v2 APIs. 
 
 ## Manifests 
  
@@ -233,11 +233,30 @@ The player can use the `Label` element to display on its UI.
 
 ### Signaling audio description tracks
 
-A customer could annotate an audio track as audio description in the manifest. To do that, they would add “accessibility” and “role” parameters to the .ism file. Media Services will recognize audio description if an audio track has param “accessibility” with value “description”, and param “role” with value “alternate”. If Media Services detects the audio description in the .ism file, the audio description information is passed to the client manifest as `Accessibility="description"` and `Role="alternate"` attributes into the `StreamIndex` element .
+You can add a  narration track to your video to help visually impaired clients to follow the video recording by listening to the narration. You need to annotate an audio track as audio description in the manifest. To do that, add “accessibility” and “role” parameters to the .ism file. It is your responsibility to set these parameters correctly to signal an audio track as audio description. For example, add `<param name="accessibility" value="description" />` and `<param name="role" value="alternate"` to the .ism file for a specific audio track. 
 
-If the combination of “accessibility” = “description” and “role” = “alternate” is set in .ism file,  the DASH manifest and Smooth manifest carry values as set in “accessibility” and “role” parameters. It is the customer’s responsibility to set these two values right and to mark an audio track as audio description. Per DASH spec, “accessibility” = “description” and “role” = “alternate” together means an audio track is audio description.
+For more information, see the [How to signal a descriptive audio track](signal-descriptive-audio-howto.md) example.
 
-For HLS v7 and above (`format=m3u8-cmaf`), its playlist carries `CHARACTERISTICS="public.accessibility.describes-video"` only when the combination of “accessibility” = “description” and “role” = “alternate” is set in .ism file. 
+#### Smooth Streaming manifest
+
+If you are playing a Smooth Streaming stream, the manifest would carry values in `Accessibility` and `Role` attributes for that audio track. For example, `Role="alternate" Accessibility="description"` would be added in the `StreamIndex` element to indicate it is an audio description.
+
+#### DASH manifest
+
+For DASH manifest, the following two elements would be added to signal the audio description:
+
+```xml
+<Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="description"/>
+<Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate"/>
+```
+
+#### HLS playlist
+
+For HLS v7 and above `(format=m3u8-cmaf)`, its playlist would carry `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` when the audio description track is signaled.
+
+#### Example
+
+For more information, see [How to signal audio description tracks](signal-descriptive-audio-howto.md).
 
 ## Dynamic manifest
 
@@ -250,6 +269,10 @@ You can use *dynamic encryption* to dynamically encrypt your live or on-demand c
 ## More information
 
 Check out [Azure Media Services community](media-services-community.md) to see different ways you can ask questions, give feedback, and get updates about Media Services.
+
+## Need help?
+
+You can open a support ticket by navigating to [New support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
 ## Next steps
 

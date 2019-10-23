@@ -59,7 +59,7 @@ func main() {
         log.Fatal("\n\nSet the COMPUTER_VISION_ENDPOINT environment variable.\n" +
             "**Restart your shell or IDE for changes to take effect.**")
     }
-    const uriBase = endpoint + "vision/v2.0/ocr"
+    const uriBase = endpoint + "vision/v2.1/ocr"
     const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" +
         "Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png"
 

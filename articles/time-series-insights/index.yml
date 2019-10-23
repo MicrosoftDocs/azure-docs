@@ -122,9 +122,9 @@ landingContent:
         links:
           - text: Azure Time Series Insights
             url: /rest/api/time-series-insights/
-          - text: Azure Time Series Insights Preview
+          - text: Data Access Concepts Preview
             url: /rest/api/time-series-insights/preview
-          - text: Azure Time Series Insights GA
+          - text: Data Access GA
             url: /rest/api/time-series-insights/ga
           - text: JavaScript Client SDK
             url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md

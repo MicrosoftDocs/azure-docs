@@ -211,7 +211,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
     }
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
- ```
+```
 
 ## Configuration
 
@@ -262,7 +262,7 @@ Each field can have one of the following types of values:
 |---------|---------|---------|
 |A specific value |<nobr>"0 5 * * * *"</nobr>|at hh:05:00 where hh is every hour (once an hour)|
 |All values (`*`)|<nobr>"0 * 5 * * *"</nobr>|at 5:mm:00 every day, where mm is every minute of the hour (60 times a day)|
-|A range (`-` operator)|<nobr>"5-7 * * * * *"</nobr>|at hh:mm:05,hh:mm:06, and hh:mm:07 where hh:mm is every minute of every hour (3 times a minute)|  
+|A range (`-` operator)|<nobr>"5-7 * * * * *"</nobr>|at hh:mm:05,hh:mm:06, and hh:mm:07 where hh:mm is every minute of every hour (3 times a minute)|
 |A set of values (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|at hh:mm:05,hh:mm:08, and hh:mm:10 where hh:mm is every minute of every hour (3 times a minute)|
 |An interval value (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|at hh:05:00, hh:10:00, hh:15:00, and so on through hh:55:00 where hh is every hour (12 times an hour)|
 
@@ -315,7 +315,7 @@ Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less tha
 |---------|---------|
 |"01:00:00" | every hour        |
 |"00:01:00"|every minute         |
-|"24:00:00" | every 24 days        |
+|"24:00:00" | every 24 hours        |
 |"1.00:00:00" | every day        |
 
 ## Scale-out
@@ -324,7 +324,16 @@ If a function app scales out to multiple instances, only a single instance of a 
 
 ## Function apps sharing Storage
 
-If you share a Storage account across multiple function apps, make sure that each function app has a different `id` in *host.json*. You can omit the `id` property or manually set each function app's `id` to a different value. The timer trigger uses a storage lock to ensure that there will be only one timer instance when a function app scales out to multiple instances. If two function apps share the same `id` and each uses a timer trigger, only one timer will run.
+If you are sharing storage accounts across function apps that are not deployed to app service, you might need to explicitly assign host ID to each app.
+
+| Functions version | Setting                                              |
+| ----------------- | ---------------------------------------------------- |
+| 2.x               | `AzureFunctionsWebHost__hostid` environment variable |
+| 1.x               | `id` in *host.json*                                  |
+
+You can omit the identifying value or manually set each function app's identifying configuration to a different value.
+
+The timer trigger uses a storage lock to ensure that there is only one timer instance when a function app scales out to multiple instances. If two function apps share the same identifying configuration and each uses a timer trigger, only one timer runs.
 
 ## Retry behavior
 
