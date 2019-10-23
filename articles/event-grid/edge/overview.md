@@ -69,7 +69,7 @@ There are five concepts in Azure Event Grid that let you get started:
 
 ## Cost
 
-Event Grid on Iot Edge is free during public preview.
+Event Grid on IoT Edge is free during public preview.
 
 ## Issues
 Report any issues with using Event Grid on IoT Edge at [https://github.com/Azure/event-grid-iot-edge/issues](https://github.com/Azure/event-grid-iot-edge/issues).
