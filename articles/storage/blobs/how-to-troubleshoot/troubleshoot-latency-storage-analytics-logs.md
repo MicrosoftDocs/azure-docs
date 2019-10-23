@@ -90,14 +90,14 @@ The following steps demonstrate how to identify & troubleshoot Latency Issues us
 
    |   |RequestStatus=<br>Success|RequestStatus=<br>(SAS)NetworkError|Recommendation|
    |---|---|---|---|
-   |GetBlob|Yes|No|Follow Step 6|
-   |GetBlob|No|Yes|Follow Step 7|
-   |PutBlob|Yes|No|Follow Step 8|
-   |PutBlob|No|Yes|Follow Step 9|
+   |GetBlob|Yes|No|[GetBlob Operation: RequestStatus = Success](#GetBlob=Success)|
+   |GetBlob|No|Yes|[GetBlob Operation: RequestStatus = (SAS)NetworkError](#GetBlob=(SAS)NetworkError)|
+   |PutBlob|Yes|No|[Put Operation: RequestStatus = Success](#PutOperation=Success)|
+   |PutBlob|No|Yes|[Put Operation: RequestStatus = (SAS)NetworkError](#PutOperation=(SAS)NetworkError)|
 
-## Status Results
+## Status results
 
-### GetBlob Operation: RequestStatus = Success
+### GetBlob=Success
 
 In a **GetBlob Operation** with **RequestStatus = Success**, check the following values as mentioned in Step 5:
 
@@ -112,7 +112,7 @@ If **Max Time** is spent in **Client-Latency**, this indicates that Azure Storag
 * Investigate the code in your client.
 * Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-### GetBlob Operation: RequestStatus = (SAS)NetworkError
+## GetBlob=(SAS)NetworkError
 
 In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, check the following values as mentioned in Step 5:
 
@@ -127,7 +127,7 @@ If **Max Time** is spent in **Client-Latency**, the most common issue is that th
 * Investigate the code in your client to understand why and when the client disconnects from the storage service.
 * se Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-### Put Operation: RequestStatus = Success
+## Put Operation=Success
 
 In a **Put Operation** with **RequestStatus = Success**, check the following values as mentioned in Step 5:
 
@@ -142,7 +142,7 @@ If **Max Time** is spent in **Client-Latency**, this indicates that the Client i
 * Investigate the code in your client.
 * Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-### Put Operation: RequestStatus = (SAS)NetworkError
+## PutOperation=(SAS)NetworkError
 
 In a PutBlob Operation with RequestStatus = (SAS)NetworkError, check the following values as mentioned in Step 5:
 
