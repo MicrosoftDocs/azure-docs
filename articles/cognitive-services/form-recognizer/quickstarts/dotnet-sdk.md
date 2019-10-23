@@ -38,7 +38,7 @@ Use the Form Recognizer client library for .NET to:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `FORM_RECOGNIZER_KEY`.
+After you get a key from your trial subscription or resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key and endpoint, named `FORM_RECOGNIZER_KEY` and `FORM_RECOGNIZER_ENDPOINT`, respectively.
 
 ### Create a new C# application
 
@@ -115,7 +115,6 @@ These code snippets show you how to do the following tasks with the Form Recogni
 
 Before you define any methods, add the following variable definitions to the top of your **Program** class. You'll need to fill in some of the variables yourself. 
 
-* You can find your service's Endpoint value in the **Overview** section in the Azure portal. 
 * To retrieve the SAS URL for your training data, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * If you need a sample form to analyze, you can use one of the files under the **Test** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). This guide only uses PDF forms.
 
