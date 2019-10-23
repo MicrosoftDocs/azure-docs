@@ -39,8 +39,6 @@
     href: resource-manager-template-samples.md
 - name: Concepts
   items:
-  - name: Ingress Controller 
-    href: application-gateway-ingress-controller-overview.md
   - name: Basics
     items:
     - name: How Application Gateway works
@@ -79,6 +77,8 @@
       href: application-gateway-waf-configuration.md
     - name: Custom rules
       href: custom-waf-rules-overview.md
+  - name: Ingress Controller 
+    href: application-gateway-ingress-controller-overview.md
   - name: Health monitoring
     items:
     - name: Health probe
