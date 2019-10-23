@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 10/23/2019
 ms.custom: seodec18
 ---
 
@@ -58,7 +58,15 @@ The Time Series Insights Preview partitions and indexes data for optimum query p
 
 ### Scale
 
-By default, the Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. Up to 16 MB/s throughput is available if required, please contact us if this is needed. Enhanced scaling support is ongoing. This documentation will be updated to reflect those improvements.
+By default, the Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. Up to 16 MB/s throughput is available if required. 
+
+> [!IMPORTANT]
+> Enhanced scaling support is available. Please contact us if 16 MB/s throughput is needed.
+
+Additional event source ingress and scaling capabilities are obtained below:
+
+* [IoT Hub](../iot-hub/iot-hub-scaling.md)
+* [Event Hub](../event-hubs/event-hubs-scalability.md)
 
 ## Azure Storage
 
@@ -102,11 +110,11 @@ For more about the Parquet file type, consult the [Parquet documentation](https:
 
 The Time Series Insights Preview stores copies of your data as follows:
 
-1. The first, initial copy is partitioned by ingestion time and stores data roughly in order of arrival. The data resides in the `PT=Time` folder:
+* The first, initial copy is partitioned by ingestion time and stores data roughly in order of arrival. The data resides in the `PT=Time` folder:
 
     * `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-2. The second, repartitioned copy is partitioned by a grouping of Time Series IDs and resides in the `PT=TsId` folder:
+* The second, repartitioned copy is partitioned by a grouping of Time Series IDs and resides in the `PT=TsId` folder:
 
     * `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
