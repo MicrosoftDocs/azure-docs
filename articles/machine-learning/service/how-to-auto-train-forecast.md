@@ -182,7 +182,7 @@ See the [energy demand notebook](https://github.com/Azure/MachineLearningNoteboo
 > [!NOTE]
 > DNN support for forecasting in Automated Machine Learning is in Preview.
 
-In order to leverage DNNs for forecasting, you will need to set the enable_dnn parameter in the AutoMLConfig to true. 
+In order to leverage DNNs for forecasting, you will need to set the `enable_dnn` parameter in the AutoMLConfig to true. 
 
 In order to use DNNs, we recommend using an AML Compute cluster with GPU SKUs and at least 2 nodes as the compute target. 
 See the [AML Compute documentation](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) for more information. 
