@@ -32,16 +32,20 @@ RFID tags transmit data about an item through radio waves. RFID tags typically d
 ## BLE tags
 Energy beacon broadcasts packets of data at regular intervals. Beacon data is detected by BLE readers or installed services on smartphones and then transmitting that to the cloud.
 
-## RFID & BLE Readers
+## RFID & BLE readers
 RFID reader converts the radio waves to a more usable form of data. Information collected from the tags is then stored in local edge server or sent to cloud via JSON-RPC 2.0 over MQTT.
 BLE reader aka Access Points (AP) are very similar to RFID reader. These are used to detect nearby Bluetooth signals and relay its message to local Edge or cloud via JSON-RPC 2.0 over MQTT.
 Many readers are capable for reading RFID & Beacon signals as well as providing additional sensor capability related to temperate, humidity, Accelerometer & Gyro.
 
-## Edge Gateway
+## Edge gateway
 Edge server provides a place to preprocess that data locally before sending it on to the cloud. We can also deploy cloud workloads artificial intelligence, Azure and third-party services, business logic via standard containers.
 
-## Device Management with IoT Central 
+## Device management with IoT Central 
 Azure IoT Central is a solution development platform that simplifies IoT device connectivity, configuration, and management. The platform significantly reduces the burden and costs of IoT device management, operations, and related developments. Customers & partners can build an end to end enterprise solutions to achieve a digital feedback loop in inventory management.
 
-## Business Insights & actions via data egress 
+## Business insights & actions via data egress 
 IoT Central platform provides rich extensibility options via Continuous Data Export (CDE) and APIs. Business insights based on telemetry data processing or raw telemetry is typically exported to a preferred line of business application. This can be achieved via webhook, service bus, event hub, or blob storage to build, train, and deploy machine learning models & further enrich insights.
+
+## Next steps
+* Learn how to deploy [smart inventory management template](./iot-central-smart-inventory-management.md)
+* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
