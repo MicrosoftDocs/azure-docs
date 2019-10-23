@@ -1,6 +1,6 @@
 ---
-title: Configure Private Links to use with Azure Cosmos accounts
-description: Learn how to set up a Private Links to access an Azure Cosmos account using a private IP address in a virtual network. 
+title: Configure Azure Private Link to use with Azure Cosmos accounts
+description: Learn how to set up Azure Private Link to access an Azure Cosmos account using a private IP address in a virtual network. 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
@@ -8,15 +8,15 @@ ms.date: 11/04/2019
 ms.author: thweiss
 ---
 
-# Configure Private Links to use with Azure Cosmos accounts (Preview)
+# Configure Azure Private Link to use with Azure Cosmos accounts (Preview)
 
-A Private Link lets you expose Azure Cosmos accounts behind the private IP addresses in a virtual network. The key advantage of this feature is that network administrators can restrict access to Azure Cosmos account from the configured private IP addresses only within the scope of a virtual network. With this feature,  the risks of data exfiltration are reduced.
+A Private Link lets you expose Azure Cosmos accounts behind the private IP addresses in a virtual network. Using Private Link, network administrators can restrict access to a given Azure Cosmos account from the configured private IP addresses within the scope of a virtual network. With this feature,  the risks of data exfiltration are reduced.
 
-Additionally, Private Links allow Azure Cosmos accounts to be accessible from within the virtual network or any peered virtual network. Private Link-mapped resources are also accessible from on premises over private peering through VPN or ExpressRoute.
+Additionally, Private Link allows Azure Cosmos accounts to be accessible from within the virtual network or any peered virtual network. Resources mapped to Private Link are also accessible from on premises over private peering through VPN or ExpressRoute.
 
-## Create a private link using Resource Manager template
+## Create a Private Link using a Resource Manager template
 
-You can set up Private Links by creating a private endpoint in a virtual network subnet. This is achieved by using an Azure Resource Manager template. Create a Resource Manager template named "PrivateEndpoint_template.json" with the following code. This template creates a private endpoint for an existing Azure Cosmos SQL API account in an existing virtual network:
+You can set up Private Link by creating a private endpoint in a virtual network subnet. This is achieved by using an Azure Resource Manager template. Create a Resource Manager template named "PrivateEndpoint_template.json" with the following code. This template creates a private endpoint for an existing Azure Cosmos SQL API account in an existing virtual network:
 
 ```json
 {
@@ -232,9 +232,9 @@ Multiple IP addresses are created per private endpoint:
 
 ## Configure private DNS
 
-During the preview of Private Links, you should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP address is mapped to a DNS entry ("fqdns" property in the response shown above).
+During the preview of Private Link, you should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP address is mapped to a DNS entry ("fqdns" property in the response shown above).
 
-## Firewall configuration with Private Links
+## Firewall configuration with Private Link
 
 * If no firewall rule is configured, an Azure Cosmos account is by default accessible to all the traffic.
 
@@ -267,11 +267,11 @@ Adding or removing regions to an Azure Cosmos account requires you to add or rem
 
 ## Current limitations
 
-* MongoDB accounts that are using endpoints in the format "xxx.documents.azure.com" don't work with Private Links. You should migrate the database account to use "xxx.mongo.cosmos.azure.com" endpoints.
+* MongoDB accounts that are using endpoints in the format "xxx.documents.azure.com" don't work with Private Link. You should migrate the database account to use "xxx.mongo.cosmos.azure.com" endpoints.
 
-* MongoDB accounts using "xxx.mongo.cosmos.azure.com" endpoints can have Private Links support only if the `appName=<account name>` parameter is specified. For example: `replicaSet=globaldb&appName=mydbaccountname`.
+* MongoDB accounts using "xxx.mongo.cosmos.azure.com" endpoints can have Private Link support only if the `appName=<account name>` parameter is specified. For example: `replicaSet=globaldb&appName=mydbaccountname`.
 
-* A virtual network can't be moved or deleted if it contains Private Links.
+* A virtual network can't be moved or deleted if it contains Private Link.
 
 * An Azure Cosmos account can't be deleted if it is attached to a private endpoint.
 
