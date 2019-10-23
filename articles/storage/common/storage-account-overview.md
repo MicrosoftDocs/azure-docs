@@ -56,7 +56,7 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 * You use a version of the [Storage Services REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) that is earlier than 2014-02-14 or a client library with a version lower than 4.x, and cannot upgrade your application.
 
-### BlockBlobStorage storage accounts
+### BlockBlobStorage accounts
 
 A BlockBlobstorage account is a specialized storage account used to store unstructured object data as block blobs and create premium block blobs. This storage account kind supports block blobs and append blobs, but not page blobs, tables, or queues.
 
@@ -64,7 +64,7 @@ Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage acco
 
 BlockBlobStorage accounts do not currently support tiering to hot, cool, or archive access tiers.
 
-### FileStorage storage accounts
+### FileStorage accounts
 
 A FileStorage account is a specialized storage account used to store and create premium file shares. This storage account kind supports files but not block blobs, append blobs, page blobs, tables, or queues. 
 
