@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: msmimart
 manager: CelesteDG
-
 ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2018
+ms.date: 10/23/2018
 ms.author: mimart
 
 ms.collection: M365-identity-device-management
