@@ -1,5 +1,5 @@
 ---
-title: Batch synthesis for long-form audio, Python - Speech Service
+title: "Quickstart: Asynchronous synthesis for long-form audio - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: Use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to convert text files greater than 10,000 characters or 50 paragraphs into synthesized speech.
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 10/26/2019
 ms.author: erhopf
 ---
 
-# Quickstart: Batch synthesis for long-form audio in Python
+# Quickstart: Asynchronous synthesis for long-form audio in Python
 
 In this quickstart, you'll use the Long Audio API to asynchronously convert text to speech, and retrieve the audio output from a URI provided by the service. This REST API is ideal for content providers that need to convert text files greater than 10,000 characters or 50 paragraphs into synthesized speech. For more information, see [Long Audio API](../../long-audio-api.md).
 
@@ -162,8 +162,8 @@ Let's try making a request to synthesize text using your input file as a source.
 * Replace `<your_key>` with your Speech service subscription key. This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<region>` with the region where your Speech resource was created (for example: `eastus` or `westus`). This information is available in the **Overview** tab for your resource in the [Azure portal](https://aka.ms/azureportal).
 * Replace `<input>` with the path to the text file you're looking to convert from text-to-speech.
-* Replace `<locale>` with the desired output locale. For more information, see [language support](language-support.md#neural-voices).
-* Replace `<voice_guid>` with the desired voice for the audio output. Use one of the voices returned by [Get a list of supported voices](#get-a-list-of-supported-voices) or use the list of neural voices provided in [language support](language-support.md#neural-voices).
+* Replace `<locale>` with the desired output locale. For more information, see [language support](../../language-support.md#neural-voices).
+* Replace `<voice_guid>` with the desired voice for the audio output. Use one of the voices returned by [Get a list of supported voices](#get-a-list-of-supported-voices) or use the list of neural voices provided in [language support](../../language-support.md#neural-voices).
 
 Convert text to speech with this command:
 

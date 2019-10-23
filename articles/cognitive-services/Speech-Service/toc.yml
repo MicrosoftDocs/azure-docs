@@ -81,7 +81,7 @@
     - name: Synthesize speech to an audio output device
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Batch synthesis for long-form audio, Python
-      href: quickstarts/text-to-speech/batch-synthesis-long-form-audio-python.md
+      href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
   - name: How-to guides
     items:
     - name: Configure speech output with SSML
