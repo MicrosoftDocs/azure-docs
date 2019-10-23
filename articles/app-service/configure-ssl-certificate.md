@@ -122,7 +122,7 @@ Once the certificate purchase process is complete, there are few more steps you 
 
 Select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Certificate Configuration** > **Step 1: Store**.
 
-![Configure Key Vault storage of App Service certificate](./media/configure-sslificate-cert/configure-key-vault.png)
+![Configure Key Vault storage of App Service certificate](./media/configure-ssl-certificate/configure-key-vault.png)
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. It's the storage of choice for App Service certificates.
 
@@ -161,13 +161,13 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from
 
 From the left navigation of your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import App Service Certificate**.
 
-![Import App Service certificate in App Service](./media/configure-sslificate-cert/import-app-service-cert.png)
+![Import App Service certificate in App Service](./media/configure-ssl-certificate/import-app-service-cert.png)
 
 Select the certificate that you just purchased and select **OK**.
 
 When the operation completes, you see the certificate in the **Private Key Certificates** list.
 
-![Import App Service certificate finished](./media/configure-sslificate-cert/import-app-service-cert-finished.png)
+![Import App Service certificate finished](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
@@ -193,7 +193,7 @@ Use the following table to help you select the certificate.
 
 When the operation completes, you see the certificate in the **Private Key Certificates** list. If the import fails with an error, the certificate doesn't meet the [requirements for App Service](#private-certificate-requirements).
 
-![Import Key Vault certificate finished](./media/configure-sslificate-cert/import-app-service-cert-finished.png)
+![Import Key Vault certificate finished](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
@@ -309,7 +309,7 @@ To turn on automatic renewal of your certificate at any time, select the certifi
 
 Select **On** and click **Save**. Certificates can start automatically renewing 60 days before expiration if you have automatic renewal turned on.
 
-![Renew App Service certificate automatically](./media/configure-sslificate-cert/auto-renew-app-service-cert.png)
+![Renew App Service certificate automatically](./media/configure-ssl-certificate/auto-renew-app-service-cert.png)
 
 To manually renew the certificate instead, click **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
 
