@@ -3,7 +3,7 @@ title: Architectural concepts in Azure IoT Central - Energy | Microsoft Docs
 description: This article introduces key concepts relating the architecture of Azure IoT Central
 author: op-ravi
 ms.author: omravi
-ms.date: 10/22/2019
+ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
@@ -14,7 +14,7 @@ manager: abjork
 
 ## Architecture
 
-This article provides an overview of the Solar Panel Monitoring App template architecture. This diagram shows a commonly used architecture for solar panel app on Azure using IoT Central platform.
+This article provides an overview of the Solar Panel Monitoring App template architecture. The diagram below shows a commonly used architecture for solar panel app on Azure using IoT Central platform.
 
 [!div class="mx-imgBorder"]
 ![smart meter architecture](media/concept-iot-central-solar-panel/solar-panel-app-architecture.png)
@@ -36,4 +36,4 @@ The IoT Central platform provides two extensibility options: Continuous Data Exp
 
 ## Next steps
 
-* Now that you've learned about the architecture, [create solar panel app for free](https://apps.azureiotcentral.com/build/new/smart-panel-monitoring)
+* Now that you've learned about the architecture, [create solar panel app for free](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)

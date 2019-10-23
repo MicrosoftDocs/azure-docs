@@ -14,14 +14,14 @@ manager: abjork
 
 ## Architecture
 
-This article provides an overview of the Smart Meter Monitoring App template architecture. This diagram shows a commonly used architecture for smart meter app on Azure using IoT Central platform.
+This article provides an overview of the Smart Meter Monitoring App template architecture. The diagram below shows a commonly used architecture for smart meter app on Azure using IoT Central platform.
 
 [!div class="mx-imgBorder"]
 ![smart meter architecture](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
 
 This architecture consists of the following components. Some applications may not require every component listed here.
 
-### Smart meter and connectivity 
+### Smart meters and connectivity 
 
 A smart meter is one of the most important devices among all the energy assets. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Based on the meter type, it can connect to IoT Central either via gateways or via other intermediate devices or systems, such edge devices and head-end systems. Build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](https://docs.microsoft.com/azure/iot-central/howto-build-iotc-device-bridge) 
 
