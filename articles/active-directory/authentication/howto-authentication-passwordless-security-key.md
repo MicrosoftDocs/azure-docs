@@ -29,7 +29,7 @@ Users can authenticate to their Windows PC or authenticate in their web browser 
 | --- | --- | --- |
 | Azure Multi-Factor Authentication | X | X |
 | Combined security information registration preview | X | X |
-| Compatible FIDO2 security keys | X | X |
+| Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher | X | X |
 | Azure AD joined devices require Windows 10 version 1809 or higher | X |   |
 | Hybrid Azure AD joined devices require Windows 10 Insider Build 18945 or higher |   | X |
@@ -37,16 +37,9 @@ Users can authenticate to their Windows PC or authenticate in their web browser 
 | Provisioning package (Optional) | X |   |
 | Group Policy (Optional) |   | X |
 
-### Obtain FIDO2 security keys
-
-See the section FIDO2 Security Keys, in the article [What is passwordless?](concept-authentication-passwordless.md) for more information about supported keys and manufacturers.
-
-> [!NOTE]
-> If you purchase and plan to use NFC based security keys you will need a supported NFC reader.
-
 ### Known limitations
 
-- Windows Server Active Directory Domain Services (AD DS) domain joined (on-premises only devices) deployment **not supported**.
+- Windows Server Active Directory Domain Services (AD DS) domain-joined (on-premises only devices) deployment **not supported**.
 - RDP, VDI, and Citrix scenarios are **not supported** using security key.
 - S/MIME is **not supported** using security key.
 - “Run as“ is **not supported** using security key.
