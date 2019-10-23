@@ -22,7 +22,8 @@ Azure provides built-in diagnostics to assist with debugging an [App Service app
 This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 > [!NOTE]
-> In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find this capability in [Diagnostic Settings (Preview)](https://azure.github.io/AppService/). This logging capability supports both Windows and Linux platforms. Log types include: web server, console, application, file & audit. You have the options to send your logs to Blob Storage, Event Hubs, and Log Analytics.
+> In addition to the logging instructions in this article, there's new, integrated logging capability with Azure Monitoring. You'll find this capability in [the Logs page and Diagnostic Settings (Preview) page](https://azure.github.io/AppService/). 
+>
 >
 
 |Type|Platform|Location|Description|
