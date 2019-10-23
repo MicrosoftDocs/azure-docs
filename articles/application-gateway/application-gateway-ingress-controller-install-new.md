@@ -9,7 +9,7 @@ ms.date: 10/22/2019
 ms.author: caya
 ---
 
-# Greenfield Deployment
+# How to Install an Application Gateway Ingress Controller (AGIC) Using a New Application Gateway
 
 The instructions below assume Application Gateway Ingress Controller (AGIC) will be
 installed in an environment with no pre-existing components.
@@ -22,7 +22,7 @@ We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all co
 
 Alternatively, launch Cloud Shell from Azure portal using the following icon:
 
-![Portal launch](./media/portal-launch-icon.png)
+![Portal launch](./media/application-gateway-ingress-controller-install-new/portal-launch-icon.png)
 
 Your [Azure Cloud Shell](https://shell.azure.com/) already has all necessary tools. Should you
 choose to use another environment, please ensure the following command line tools are installed:
@@ -104,7 +104,7 @@ This step will add the following components to your subscription:
 ## Set up Application Gateway Ingress Controller
 
 With the instructions in the previous section we created and configured a new AKS cluster and
-an App Gateway. We are now ready to deploy a sample app and an ingress controller to our new
+an Application Gateway. We are now ready to deploy a sample app and an ingress controller to our new
 Kubernetes infrastructure.
 
 ### Setup Kubernetes Credentials
@@ -199,10 +199,10 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
 
    Values:
      - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
-     - `appgw.subscriptionId`: The Azure Subscription ID in which App Gateway resides. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
-     - `appgw.resourceGroup`: Name of the Azure Resource Group in which App Gateway was created. Example: `app-gw-resource-group`
+     - `appgw.subscriptionId`: The Azure Subscription ID in which Application Gateway resides. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
+     - `appgw.resourceGroup`: Name of the Azure Resource Group in which Application Gateway was created. Example: `app-gw-resource-group`
      - `appgw.name`: Name of the Application Gateway. Example: `applicationgatewayd0f0`
-     - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared App Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
+     - `appgw.shared`: This boolean flag should be defaulted to `false`. Set to `true` should you need a [Shared Application Gateway](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/072626cb4e37f7b7a1b0c4578c38d1eadc3e8701/docs/setup/install-existing.md#multi-cluster--shared-app-gateway).
      - `kubernetes.watchNamespace`: Specify the name space, which AGIC should watch. This could be a single string value, or a comma-separated list of namespaces.
     - `armAuth.type`: could be `aadPodIdentity` or `servicePrincipal`
     - `armAuth.identityResourceID`: Resource ID of the Azure Managed Identity
@@ -216,7 +216,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
    ```bash
    az identity show -g <resource-group> -n <identity-name>
    ```
-   `<resource-group>` in the command above is the resource group of your App Gateway. `<identity-name>` is the name of the created identity. All identities for a given subscription can be listed using: `az identity list`
+   `<resource-group>` in the command above is the resource group of your Application Gateway. `<identity-name>` is the name of the created identity. All identities for a given subscription can be listed using: `az identity list`
 
 
 1. Install the Application Gateway ingress controller package:
@@ -226,7 +226,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
     ```
 
 ### Install a Sample App
-Now that we have App Gateway, AKS, and AGIC installed we can install a sample app
+Now that we have Application Gateway, AKS, and AGIC installed we can install a sample app
 via [Azure Cloud Shell](https://shell.azure.com/):
 
 ```yaml
@@ -293,4 +293,4 @@ kubectl apply -f apsnetapp.yaml
 
 ## Other Examples
 This [how-to guide](application-gateway-ingress-controller-expose-service-over-http-https.md) contains more examples on how to expose an AKS
-service via HTTP or HTTPS, to the Internet with App Gateway.
+service via HTTP or HTTPS, to the Internet with Application Gateway.
