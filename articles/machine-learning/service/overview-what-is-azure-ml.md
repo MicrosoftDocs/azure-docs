@@ -57,7 +57,7 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 ### UI-based, low-code experience
 
-For code-free training, try:
+For code-free training and deployment, try:
 
 + **Azure Machine Learning designer (preview)**
 

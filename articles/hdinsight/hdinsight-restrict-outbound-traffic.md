@@ -133,7 +133,7 @@ Routes must be created for the application traffic to avoid asymmetric routing i
 
 If your applications have other dependencies, they need to be added to your Azure Firewall. Create Application rules to allow HTTP/HTTPS traffic and Network rules for everything else.
 
-## Logging
+## Logging and scale
 
 Azure Firewall can send logs to a few different storage systems. For instructions on configuring logging for your firewall, follow the steps in [Tutorial: Monitor Azure Firewall logs and metrics](../firewall/tutorial-diagnostics.md).
 
@@ -145,8 +145,12 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
+To learn about the scale limits of Azure Firewall and request increases, see [this](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) document or refer to the [FAQs](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq). 
+
 ## Access to the cluster
-After having the firewall setup successfully, you can use the internal endpoint (`https://<clustername>-int.azurehdinsight.net`) to access the Ambari from within the VNET. To use the public endpoint (`https://<clustername>.azurehdinsight.net`) or ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules setup to avoid the assymetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb).
+After having the firewall setup successfully, you can use the internal endpoint (`https://<clustername>-int.azurehdinsight.net`) to access the Ambari from inside the VNET. 
+
+To use the public endpoint (`https://<clustername>.azurehdinsight.net`) or ssh endpoint (`<clustername>-ssh.azurehdinsight.net`), make sure you have the right routes in the route table and NSG rules to avoid the assymetric routing issue explained [here](https://docs.microsoft.com/azure/firewall/integrate-lb). Specifically in this case, you need to allow the client IP address in the Inbound NSG rules and also add it to the user defined route table with the next hop set as `internet`. If this is not setup correctly you will see a timeout error.
 
 ## Configure another network virtual appliance
 

@@ -31,6 +31,27 @@ You can [configure](#config) how far into the future the forecast should extend 
 
 Features extracted from the training data play a critical role. And, automated ML performs standard pre-processing steps and generates additional time-series features to capture seasonal effects and maximize predictive accuracy.
 
+## Time-series and Deep Learning models
+
+
+Automated ML provides users with both native time-series and deep learning models as part of the recommendation system. These learners include:
++ Prophet
++ Auto-ARIMA
++ ForecastTCN
+
+Automated ML's deep learning allows for forecasting univariate and multivariate time series data.
+
+Deep learning models have three intrinsic capbailities:
+1. They can learn from arbitrary mappings from inputs to outputs
+1. They support multiple inputs and outputs
+1. They can automatically extract patterns in input data that spans over long sequences
+
+Given larger data, deep learning models, such as Microsofts' ForecastTCN, can improve the scores of the resulting model. 
+
+Native time series learners are also provided as part of automated ML. Prophet works best with time series that have strong seasonal effects and several seasons of historical data. Prophet is accurate & fast, robust to outliers, missing data, and dramatic changes in your time series. 
+
+AutoRegressive Integrated Moving Average(ARIMA) is a popular statistical method for time series forecasting. This technique of forecasting is commonly used in short term forecasting scenarios where data shows evidence of trends such as cycles, which can be unpredictable and difficult to model or forecast. Auto-ARIMA transforms your data into stationary data to receive consistent, reliable results.
+
 ## Prerequisites
 
 * An Azure Machine Learning workspace. To create the workspace, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
@@ -99,6 +120,7 @@ The `AutoMLConfig` object defines the settings and data necessary for an automat
 |`max_horizon`|Defines the maximum desired forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, e.g. monthly, weekly that the forecaster should predict out.|✓|
 |`target_lags`|Number of rows to lag the target values based on the frequency of the data. This is represented as a list or single integer. Lag should be used when the relationship between the independent variables and dependant variable do not match up or correlate by default. For example, when trying to forecast demand for a product, the demand in any month may depend on the price of specific commodities 3 months prior. In this example, you may want to lag the target (demand) negatively by 3 months so that the model is training on the correct relationship.||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size. Specify this parameter when you only want to consider a certain amount of history when training the model.||
+|`enable_dnn`|Enable Forecasting DNNs.||
 
 See the [reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) for more information.
 
@@ -133,7 +155,8 @@ import logging
 
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -153,6 +176,19 @@ See the [energy demand notebook](https://github.com/Azure/MachineLearningNoteboo
 * rolling-origin cross validation
 * configurable lags
 * rolling window aggregate features
+
+### Configure a DNN enable Forecasting experiment
+
+> [!NOTE]
+> DNN support for forecasting in Automated Machine Learning is in Preview.
+
+In order to leverage DNNs for forecasting, you will need to set the `enable_dnn` parameter in the AutoMLConfig to true. 
+
+In order to use DNNs, we recommend using an AML Compute cluster with GPU SKUs and at least 2 nodes as the compute target. 
+See the [AML Compute documentation](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) for more information. 
+See [GPU optimized virtual machine sizes](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) for more information on the VM sizes that include GPUs.
+
+To allow sufficient time for the DNN training to complete, we recommend setting the experiment timeout to at least a couple of hours.
 
 ### View feature engineering summary
 

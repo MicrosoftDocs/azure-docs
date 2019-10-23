@@ -98,9 +98,15 @@ Find our more abut T-SQL options to configure Automatic tuning, see [ALTER DATAB
 
 Automatic tuning is monitoring all the actions it takes on the database and in some cases it can determine that automatic tuning can't properly work on the database. In this situation, tuning option will be disabled by the system. In most cases this happens because Query Store is not enabled or it's in read-only state on a specific database.
 
+## Permissions
+
+As automatic tuning is Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from Azure portal.
+
+To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL DB contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, Contributor and Owner.
+
 ## Configure automatic tuning e-mail notifications
 
-See [Automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md) guide.
+See [automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md) guide.
 
 ## Next steps
 
