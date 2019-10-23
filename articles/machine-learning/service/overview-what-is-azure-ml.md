@@ -111,7 +111,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 - Create your first experiment with your preferred method:
   + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
+  + [Use R Markdown to train & deploy ML models]( tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
   + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
