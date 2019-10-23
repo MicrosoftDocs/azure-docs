@@ -17,7 +17,7 @@ The BlockBlobStorage account kind lets you create block blobs with premium perfo
 
 For more information about block blob storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 
-## [Azure Portal](#tab/azure-portal)
+## [Portal](#tab/azure-portal)
 To create a block blob storage account in the Azure portal, follow these steps:
 
 1. In the Azure portal, select **All services** > the **Storage** category > **Storage accounts**.
