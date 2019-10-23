@@ -10,11 +10,6 @@ services: iot-central
 manager: abjork
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
-
-<!---Tutorials are scenario-based procedures for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md).
-You only use tutorials to show the single best procedure for completing an approved top 10 customer task.
---->
 
 # Tutorial: Create a water quality monitoring application in IoT Central
 
@@ -51,7 +46,7 @@ To create a new Azure IoT Central water quality monitoring application:
 
 * If you have an Azure subscription, sign in with the credentials you use to access it, otherwise sign in using a Microsoft account:
 
-    ![Enter your organization account](media/tutorial-waterqualitymonitoring/sign-in.png)
+    ![Enter your organization account](./media/tutorial-waterqualitymonitoring/sign-in.png)
 
 2. Click on **Build** from the left navigation menu and select the **Government** tab. The government page displays several government application templates.
 
@@ -75,9 +70,6 @@ This template includes sample water quality device template, simulated device, o
 
 6. You now have created a water quality monitoring app using the Azure IoT Central **Water quality monitoring template**. IoT Central deploys the application and you will land on the **Dashboard**, which will look like the picture below.
 
-<!-->
-   ![Water Quality Monitoring application dashboard](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-dashboard.png)
--->
 
 Your newly created application comes with pre-configured:
 * Sample operator dashboards
@@ -232,7 +224,12 @@ Within a few minutes, you should receive email when the configured **condition**
 To create a new rule: 
 * Select **+New** on the **Rules** from the left navigation pane.
 
-## Configure jobs
+## Configure Jobs
+
+In IoT Central, jobs allow you to trigger device or cloud propertie updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. IoT Central will automate the workflow for you. 
+
+* Go to **Jobs** from the left navigtion pane. 
+* Click **+New** and configure one or more jobs. 
 
 
 ## Customize your application 
@@ -267,17 +264,10 @@ If you're not going to continue to use this application, delete your application
 1. Open the Administration tab from the left navigation menu of your IoT Central application. 
 2. Select Application settings and click Delete button at the bottom of the page. 
 
-    ![Delete application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app.PNG)        
+    ![Delete application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-application-settings-delete-app.png)        
 
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a Clean up resources (H2) should come just before Next steps (H2)
---->
+
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next logical tutorial in a series, or, if there are no other tutorials, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
+* Learn about more about [Water quality monitoring concepts](./concepts-waterqualitymonitoring-architecture)
