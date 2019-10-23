@@ -2,14 +2,16 @@
 title: Configure Baidu Cloud Push in Azure Notification Hubs | Microsoft Docs
 description: Learn how to configure Baidu settings for an Azure notification hub. 
 services: notification-hubs
-author: jwargo
-manager: patniko
+author: sethmanheim
+manager: femila
 
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
 ms.date: 03/25/2019
-ms.author: jowargo
+ms.author: sethm
+ms.reviewer: jowargo
+ms.lastreviewed: 03/25/2019
 ---
 
 # Deprecated: Configure Baidu Cloud Push settings for a notification hub in the Azure portal

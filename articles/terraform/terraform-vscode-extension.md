@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/31/2018
+ms.date: 09/20/2019
 ---
 
 # Install and use the Azure Terraform Visual Studio Code extension

@@ -77,20 +77,22 @@
   - name: Create an assessment
     href: how-to-create-assessment.md
   - name: Assess a SQL Server database
-    href: https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json&view=sql-server-2017
+    href: https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb
   - name: Customize an assessment
     href: how-to-modify-assessment.md
   - name: Add migration tools
     href: how-to-migrate.md
-  - name: Scale assessment and migration
-    items:
-    - name: Assess large numbers of VMware VMs
-      href: scale-vmware-assessment.md
-    - name: Assess large numbers of Hyper-V VMs
-      href: scale-hyper-v-assessment.md
-    - name: Automate migration of large number of VMs
-      href: how-to-migrate-at-scale.md
-  - name: Migration examples-Contoso series
+  - name: Prepare machines for migration
+    href: prepare-for-migration.md
+- name: Scale assessment and migration
+  items:
+  - name: Assess large numbers of VMware VMs
+    href: scale-vmware-assessment.md
+  - name: Assess large numbers of Hyper-V VMs
+    href: scale-hyper-v-assessment.md
+  - name: Automate migration of large number of VMs
+    href: how-to-migrate-at-scale.md
+  - name: Migration examples (Contoso series)
     href: contoso-migration-overview.md
 - name: Troubleshoot
   items:

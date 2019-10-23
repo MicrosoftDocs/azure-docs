@@ -46,7 +46,8 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
   
    ``` PowerShell
    Install-Module AzureADPreview
-
+   ```
+   
 ## Create settings at the directory level
 These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
@@ -119,7 +120,7 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Type: Boolean<li>Default: False | Boolean indicating whether or not a guest user can be an owner of groups. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Type: Boolean<li>Default: True | Boolean indicating whether or not a guest user can have access to Office 365 groups content.  This setting does not require an Azure Active Directory Premium P1 license.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Type: String<li>Default: “” | The url of a link to the guest usage guidelines. |
-|  <ul><li>AllowToAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory.|
+|  <ul><li>AllowAddGuests<li>Type: Boolean<li>Default: True | A boolean indicating whether or not is allowed to add guests to this directory.|
 |  <ul><li>ClassificationList<li>Type: String<li>Default: “” |A comma-delimited list of valid classification values that can be applied to Office 365 Groups. |
 
 ## Example: Configure Guest policy for groups at the directory level
@@ -136,9 +137,9 @@ Here are the settings defined in the Group.Unified SettingsTemplate. Unless othe
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Then update AllowToAddGuests setting
+4. Then update AllowAddGuests setting
    ```powershell
-   $Setting["AllowToAddGuests"] = $False
+   $Setting["AllowAddGuests"] = $False
    ```  
 5. Then apply the setting:
   
@@ -192,7 +193,7 @@ These steps read settings at directory level, which apply to all Office groups i
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowToAddGuests              True
+   AllowAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -229,7 +230,7 @@ This step removes settings at directory level, which apply to all Office groups 
 
 4. Set the setting to the required value:
    ```powershell
-   $SettingCopy["AllowToAddGuests"]=$False
+   $SettingCopy["AllowAddGuests"]=$False
    ```
 5. Get the ID of the group you want to apply this setting to:
    ```powershell
@@ -255,7 +256,7 @@ This step removes settings at directory level, which apply to all Office groups 
    ```
 3. Update the setting of the group as you need, e.g.
    ```powershell
-   $Setting["AllowToAddGuests"] = $True
+   $Setting["AllowAddGuests"] = $True
    ```
 4. Then get the ID of the setting for this specific group:
    ```powershell

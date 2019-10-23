@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 4/05/2018
+ms.date: 09/20/2019
 ---
 
 # Use Terraform to provision infrastructure with Azure deployment slots
@@ -69,7 +69,7 @@ This article illustrates an example use of deployment slots by walking you throu
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 
@@ -261,7 +261,7 @@ To test swapping the two deployment slots, perform the following steps:
 
 1. Paste the following code into the editor:
 
-    ```JSON
+    ```hcl
     # Configure the Azure provider
     provider "azurerm" { }
 

@@ -1,12 +1,11 @@
 ---
-title: Understand how to audit the contents of a machine
+title: Learn to audit the contents of virtual machines
 description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure machine. 
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/04/2019
+ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
 ---
 # Understand Azure Policy's Guest Configuration
 
@@ -135,8 +134,7 @@ outbound access to the IPs in the regions where your VMs are deployed.
 
 Each audit run by Guest Configuration requires two policy definitions, a **DeployIfNotExists**
 definition and an **AuditIfNotExists** definition. The **DeployIfNotExists** definition is used to
-prepare the machine with the Guest Configuration agent and other components to support the
-[validation tools](#validation-tools).
+prepare the machine with the Guest Configuration agent and other components to support the [validation tools](#validation-tools).
 
 The **DeployIfNotExists** policy definition validates and corrects the following items:
 
@@ -179,7 +177,7 @@ machine, even if the Policy assignment uses different parameters.
 
 When installing the Guest Configuration extension, the 'GuestConfiguration' PowerShell module is
 included with the latest version of DSC resource modules. This module can be downloaded from the
-PowerShell Gallery by using the 'Manual Download' link from the module page [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/).
+PowerShell Gallery by using the 'Manual Download' link from the module page [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/).
 The '.nupkg' file format can be renamed to '.zip' to uncompress and review.
 
 ## Client log files
@@ -230,7 +228,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 Samples for Policy Guest Configuration are available in the following locations:
 
 - [Samples index - Guest Configuration](../samples/index.md#guest-configuration)
-- [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration).
+- [Azure Policy samples GitHub repo](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
 
 ## Next steps
 
@@ -240,4 +238,4 @@ Samples for Policy Guest Configuration are available in the following locations:
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/getting-compliance-data.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
-- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/index.md).
+- Review what a management group is with [Organize your resources with Azure management groups](../../management-groups/overview.md).
