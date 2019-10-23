@@ -20,9 +20,9 @@ In this quickstart, you'll use the Long Audio API to asynchronously convert text
 
 This quickstart requires:
 
-* Python 2.7.x or 3.x
-* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
-* An Azure subscription and a Speech service subscription key - [Click here to create an account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)
+* Python 2.7.x or 3.x.
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor.
+* An Azure subscription and a Speech service subscription key. [Create an account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
 
 ## Create a project and import required modules
 
