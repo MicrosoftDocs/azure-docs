@@ -14,7 +14,7 @@ manager: aabjork
 
 # Water consumption monitoring reference architecture 
 
-Water consumption monitoring solutions can be built with the **Azure IoT Central water consumption monitoring app template** as a kickstarter IoT application. This tutorial provides a high level reference architecture guidance on building an end to end solution. 
+Water consumption monitoring solutions can be built with the **Azure IoT Central app template** as a kick starter IoT application. This tutorial provides a high-level reference architecture guidance on building an end to end solution. 
 
 [!div class="mx-imgBorder"] 
 ![Water consumption monitoring architecture](./media/concepts-waterconsumptionmonitoring-architecture/concepts-waterconsumptionmonitoring-architecture1.png)
@@ -28,23 +28,24 @@ Concepts:
 
 Let's take a look at key components that generally play a part in a water consumption monitoring solution.
 
+In this page, we will refer to devices used for smart water solutions, such as water quality monitoring or water consumption monitoring, generally as smart water devices. Smart water devices can be flow meters, water quality monitors, smart valves, leak detectors etc.
+
 ## Devices and connectivity 
-Devices used in smart water solutions will generally be connected through low power wide area networks (LPWAN), and throuhg a network operator third-party cloud. For these type of devices you can leverage the Azure IoT Central Device Bridge to send your device data to your IoT application in Azure IoT Central. 
+Devices used in smart water solutions will generally be connected through low power wide area networks (LPWAN), and through a network operator third-party cloud. For these types of devices, you can leverage the [Azure IoT Central Device Bridge](tba) to send your device data to your IoT application in Azure IoT Central. 
 
 
 ## IoT Central 
-Azure IoT Central is a hosted IoT App Platform that dramatically reduces your time-to-value, without having to compromise (you can brand, customize, and integrate with 3rd party services). 
-After you connect your smart water devices to IoT Central,it provides out of the box device management, command and control of your devices, monitoring and alerting, and configurable dashboards. 
+Azure IoT Central is an IoT App platform which can reduces your time-to-value. You can brand, customize, and integrate your solution with third-party services.
+After you connect your smart water devices to IoT Central, you get out of the box device command and control, monitoring and alerting, user interface with built in RBAC, configurable insights dashboards, and extensibility options. 
 
 ## Extensibility and integrations 
 You can extend your IoT application in IoT Central and optionally:
-* transform and integrate your IoT data for advanced analytics, for example training machine learning models, throuhg continous data export from IoT Central application
-* automate workflows in other sytems by triggering actions via Microsoft Flow or webhooks from IoT Central application
+* transform and integrate your IoT data for advanced analytics, for example training machine learning models, through continuous data export from IoT Central application
+* automate workflows in other systems by triggering actions via Microsoft Flow or webhooks from IoT Central application
 * programatically access your IoT application in IoT Central through IoT Central APIs
 
 ## Business Applications 
-
-The IoT data can be used to power a variety of business applications deployed within a water utility, to visualize business insights and take meaningful actions. To learn how to build a connected Field Services dashboard follow the tutorial on [how to integrate with Dynamics 365 Field Services](tba) 
+The IoT data can be used to power a variety of business applications within a water utility, to visualize business insights and take meaningful actions. To learn how to connect your IoT Central water consumption monitoring application with connected field services, follow the tutorial on [how to integrate with Dynamics 365 Field Services](tba) 
 
 
 ## Next steps
