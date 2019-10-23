@@ -250,7 +250,8 @@ $keys = Invoke-AzResourceAction -Action listKeys `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
     -ResourceGroupName $resourceGroupName -Name $accountName
 
-Select-Object $keys
+Write-Host "PrimaryKey =" $keys.primaryMasterKey
+Write-Host "SecondaryKey =" $keys.secondaryMasterKey
 ```
 
 ### <a id="list-connection-strings"></a> List Connection Strings
