@@ -153,7 +153,7 @@ Create dataset monitors to detect and alert to data drift on a new dataset with 
 ### Azure Machine Learning studio
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-To set up alerts on your dataset monitor, the workspace that contains the dataset you want to create a monitor for must have Enterprise SKU capabilities. 
+To set up alerts on your dataset monitor, the workspace that contains the dataset you want to create a monitor for must have Enterprise edition capabilities. 
 
 After the workspace functionality is confirmed, navigate to the studio's homepage and select the Datasets tab on the left. Select Dataset monitors.
 
