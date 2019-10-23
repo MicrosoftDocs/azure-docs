@@ -42,7 +42,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 First, enable Update Management on your VM for this tutorial:
 
 1. On the Azure portal menu or from the **Home** page, select **Virtual Machines**.
-1. Select the VM that you want to enable Update Management for.
+1. Select the VM for which you want to enable Update Management.
 2. On the VM page, under **OPERATIONS**, select **Update management**. The **Enable Update Management** pane opens.
 
 Validation is performed to determine whether Update Management is enabled for this VM. This validation includes checks for an Azure Log Analytics workspace and linked Automation account, and whether the Update Management solution is in the workspace.
