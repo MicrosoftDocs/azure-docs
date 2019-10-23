@@ -63,7 +63,7 @@ From the left navigation of your app, start the **TLS/SSL Binding** dialog by:
 
 ![Add binding to domain](./media/configure-ssl-bindings/secure-domain-launch.png)
 
-In **Custom Domain**, select the custom domain you want to add a binding for. 
+In **Custom Domain**, select the custom domain you want to add a binding for.
 
 If your app already has a certificate for the selected custom domain, go to [Create binding](#create-binding) directly. Otherwise, keep going.
 
