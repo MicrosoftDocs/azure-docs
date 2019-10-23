@@ -9,52 +9,53 @@ manager: gwallace
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.author: vashan
 ---
 
 
 # Preview: Orchestration modes
 
-Virtual machines scale sets provide a logical grouping of VMs for scale, easy management, and to keep your infrastructure secure by OS upgrades. 
+Virtual machines scale sets provide a logical grouping of platform-managed virtual machines. With scale sets, you create a virtual machine configuration model, automatically add or remove additional instances based on CPU or memory load, and automatically upgrade to the latest OS version. Traditionally, scale sets allow you to create virtual machines using a VM configuration model provided at time of scale set creation, and the scale set can only manage virtual machines that are implicitly created based on the configuration model.
 
-VMSS currently offers you to create virtual machines using a VM configuration provided at scale set create time. You can use this to scale-out and in using AutoScale. When a scale-out operation occurs, it adds new VMs using the VM configuration. 
+With the scale set orchestration mode (preview), you can now choose whether the scale set should orchestrate virtual machines which are created explicitly outside of a scale set configuration model, or virtual machine instances created implicitly based on the configuration model. Scale set orchestration mode also helps you design your VM infrastructure for high availability by deploying these VMs in fault domains and Availability Zones.
 
-Scale sets is adding new functionality (in preview) so you can orchestrate VMs which are created outside of a scale set i.e. not by VMSS VM configuration. As part of this feature you will be able to get high availability by deploying these VMs in fault domains and/or Availability Zones. 
 
 Virtual machine scale sets will support 2 distinct orchestration modes:
 
-1. ScaleSetVMs – In this mode the VMs are create only using a scale set VM configuration. The VMs are tied to scale sets and the lifecycle is dependent on a scale set. 
-2. VMs (Virtual machines) – In this mode the VMs are added to the scale set when you create the VM. 
+1. ScaleSetVM – Virtual machine instances added to the scale set are based on the scale set configuration model. The virtual machine instance lifecycle - creation, update, deletion - is managed by the scale set.
+1. VM (virtual machines) – Virtual machines created outside of the scale set can be explicitly added to the scaleset. 
+ 
 
 > [!IMPORTANT]
-> The orchestration modes are defined when you create the scale set and cannot be changed or updated later. 
+> The orchestration mode is defined when you create the scale set and cannot be changed or updated later. 
 > 
 > This feature of virtual machine scale sets is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-**VMSS Orchestration Mode**
+**Orchestration Modes**
 
-|   | “orchestrationMode”: “VM” (VirtualMachine) | “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
-|----|----|----|
-| Create | VMs are added to a scale set at create time.  Conversely a scale set can be created with this mode at the time of VM creation (using portal). | VMs are created only using VM configuration defined in the scale set. |
-| Delete | VMs have to be deleted individually, the scale set will not be deleted if it has any VMs in it. | VMs can be deleted individually, deleting the scale set will delete all of the VM instances. |
-| Attach/Detach VMs | Not supported | Not supported |
-| Fault domains  | Can define fault domains. 2 or 3 based on regional support and 5 for Availability zone. | Can define fault domains going from 1 through 5 |
-| Update domains | N/A. Update domains are automatically mapped to fault domains | N/A. Update domains are automatically mapped to fault domains |
-| Availability Zones  | Only one availability zone can be defined in this mode.  | 1 through 3 Availability Zone can be defined in this mode. |
-| AutoScale  | Not supported | Supported |
-| OS upgrade  | Not supported | Supported |
-| Model updates | Not supported | Supported |
-| Instance control | Full VM Control, VMs have fully qualified URI that provides management of VM   | VMs are dependent resources of VMSS. Instaces can be accessed for management only through the scale set. |
-| Instance Model | Microsoft.Compute/VirtualMachines model definition. | Microsoft.Compute/VirtualMachineScaleSets/VirtualMachines model definition. |
-| Instance Lifecycle (Creation through Deletion) | VMs and their artifacts (Disks, NICs etc.) can be managed independently. | Instances and their artifacts (Disks, NICs etc.) are sticky to the scale set instances that create them. |
-| Capacity  | An empty scale set can be created  | Scale sets will have VMs at the time of creation |
-| VM profile  | N/A | Required |
-| Move  | Supported  | Supported |
-|Single placement group == false  | Not supported | Supported |
+|                             | “orchestrationMode”: “VM” (VirtualMachine) | “orchestrationMode”: “ScaleSetVM” (VirtualMachineScaleSetVM) |
+|-----------------------------|--------------------------------------------|--------------------------------------------------------------|
+| VM configuration model      | None                                       | Required |
+| Adding new VM to Scale Set  | VMs are explicitly added to the scale set when the VM is created. | VMs are implicitly created and added to the scale set based on the VM configuration model, instance count, and AutoScaling rules | |
+| Delete VM                   | VMs have to be deleted individually, the scale set will not be deleted if it has any VMs in it. | VMs can be deleted individually, deleting the scale set will delete all of the VM instances.  |
+| Attach/Detach VMs           | Not supported                              | Not supported |
+| Instance Lifecycle (Creation through Deletion) | VMs and their artifacts (Disks, NICs etc.) can be managed independently. | Instances and their artifacts (Disks, NICs etc.) are implicit to the scale set instances that create them. They cannot be detached or managed separately outside the scale set |
+| Fault domains               | Can define fault domains. 2 or 3 based on regional support and 5 for Availability zone. | Can define fault domains going from 1 through 5 |
+| Update domains              | Update domains are automatically mapped to fault domains | Update domains are automatically mapped to fault domains |
+| Availability Zones          | Supports regional deployment or VMs in one Availability Zone | Supports regional deployment or multiple Availability Zones; Can define the zone balancing strategy |
+| AutoScale                   | Not supported                              | Supported |
+| OS upgrade                  | Not supported                              | Supported |
+| Model updates               | Not supported                              | Supported |
+| Instance control            | Full VM Control. VMs have fully qualified URI that support the full range of Azure VM management capabilities (Azure Policy, Azure Backup, Azure Site Recovery, etc) | VMs are dependent resources of the scale set. Instances can be accessed for management only through the scale set. |
+| Instance Model              | Microsoft.Compute/VirtualMachines model definition. | Microsoft.Compute/VirtualMachineScaleSets/VirtualMachines model definition. |
+| Capacity                    | An empty scale set can be created; up to 200 VMs can be added to the scale set | Scale sets can be defined with an instance count 0 - 1000 |
+| Move                        | Supported                                  | Supported |
+| Single placement group == false | Not supported                          | Supported |
+
 
 ** Next steps **
 
