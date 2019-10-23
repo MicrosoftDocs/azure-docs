@@ -103,6 +103,9 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
 
 4. Update the `Configure` method to add a middleware to allow the configuration settings registered for refresh to be updated while the ASP.NET Core web app continues to receive requests.
 
+    > [!NOTE]
+    > You'll need to add `Microsoft.Extensions.Configuration.AzureAppConfiguration` package from nuget in order to use `UseAzureAppConfiguration` extension method. 
+
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
