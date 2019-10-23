@@ -23,9 +23,18 @@ For enterprises that use passwords today and have a shared PC environment, secur
 
 ## SSO to on-premises resources using FIDO2 keys
 
-Azure Active Directory can issue Kerberos Ticket Granting Tickets (TGTs) for one or more of your Active Directory domains. This functionality allows users to sign into Windows with modern credentials like FIDO2 security keys and access traditional Active Directory based resources. Kerberos Service Tickets and authorization will continue to be controlled by your on-premises Active Directory Domain Controllers.
+Azure Active Directory (AD) can issue Kerberos Ticket Granting Tickets (TGTs) for one or more of your Active Directory domains. This functionality allows users to sign into Windows with modern credentials like FIDO2 security keys and access traditional Active Directory based resources. Kerberos Service Tickets and authorization will continue to be controlled by your on-premises Active Directory domain controllers.
 
 An Azure AD Kerberos Server object will be created in your on-premises Active Directory and then be securely published to Azure Active Directory. The object is not associated with any physical servers. It is simply a resource that can be used by Azure Active Directory to generate Kerberos Ticket Granting Tickets (TGTs) for your Active Directory Domain.
+
+![Getting a TGT and PRT from Azure AD and AD DS](./media/howto-authentication-passwordless-on-premises/fido2-tgt-exchange-process.png)
+
+1. User signs in to Windows with a FIDO2 security key and authenticates to Azure AD.
+1. Azure AD checks the directory for a Kerberos server key matching the user's on-premises AD domain.
+   1. Azure AD generates a Kerberos TGT for the user's on-premises AD domain. The TGT only includes the user's SID. No authorization data is included in the TGT.
+1. The TGT is returned to the client along with their Azure AD Primary Refresh Token (PRT).
+1. The client machine contacts an on-premises AD domain controller and trades the partial TGT for a fully formed TGT. 
+1. The client machine now has an Azure AD PRT and a full Active Directory TGT and can access both cloud and on-premises resources.
 
 ## Requirements
 
