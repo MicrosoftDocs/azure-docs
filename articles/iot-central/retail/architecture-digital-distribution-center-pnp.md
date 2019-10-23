@@ -39,4 +39,5 @@ IoT Central platform provides rich extensibility options via Continuous Data Exp
 
 ## Next steps
 * Learn how to deploy [digital distribution center template](./tutorial-iot-central-digital-distribution-center.md)
+* Learn more about [IoT Central retail templates](./overview-iot-central-retail-pnp)
 * Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
