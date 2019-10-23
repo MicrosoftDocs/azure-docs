@@ -443,6 +443,8 @@ The run configuration file is YAML formatted, with following sections
  * Data reference and data store details.
  * Configuration details specific for Machine Learning Compute for creating a new cluster.
 
+See the example [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) for a full runconfig schema.
+
 ### Create an experiment
 
 First, create an experiment for your runs
