@@ -6,7 +6,7 @@ localization_priority: Normal
 
 # Open a developer account in Partner Center
 
-To publish your Office solutions to [AppSource](https://appsource.microsoft.com), you first need to set up a developer account. You sign up for a developer account using your Azure Active Directory (Azure AD) work or school account.
+To publish your Office solutions to [AppSource](https://appsource.microsoft.com), you first need to set up a developer account. You sign up for a developer account using your Azure Active Directory (Azure AD) work account.
 
 > [!NOTE]
 > If you have an existing Microsoft account that you used to sign in to Seller Dashboard, that account will continue to work in Partner Center.
@@ -51,7 +51,7 @@ If you're new to Partner Center, follow the instructions in this section to crea
 > [!IMPORTANT]
 > You must be authorized to act on your company's behalf in order to accept these terms.
 
-If your tenant already has an existing enrollment in Partner Center, you will see a list of accounts in the dropdown to choose from. Elect an account, and your Office enrollmnent will be associated with the same accounts.
+If your tenant already has an existing enrollment in Partner Center, you will see a list of accounts in the dropdown to choose from. Select an account, and your Office enrollmnent will be associated with the same accounts.
 
 ### Create an account using an existing Partner Center enrollment
 If you already have an enrollment in Partner Center, to create your account:
@@ -69,11 +69,11 @@ If you're already enrolled in a Partner Center developer program, create your ac
 > To sign up for the Office Store under the same account you're signed in as, you need to have registered on Partner Center using a company account. If you signed up with an individual account, your Office Store enrollment will appear under a new account.
 > Individual accounts are for single developers working on their own. Company accounts are for organizations and businesses. Company accounts give you access to submit apps with additional functionality. We require greater verification for company accounts after you register to confirm that you're authorized to set up the account for your company. This verification can take from a few days to a couple of weeks, and often includes a phone call to your company. Both types of accounts allow you to submit apps, add-ins, and services. For more info, see Account types, locations, and fees.
 
-Sign in to Partner Center with your Microsoft Partner Center account to enroll into the Office Store program under the same account. By signing up for Office Store using the same account, you can see both your existing program enrollments and Office Store in the left navigation menu of Partner Center.
+Sign in to Partner Center with your Partner Center account to enroll into the Office Store program under the same account. By signing up for Office Store using the same account, you can see both your existing program enrollments and Office Store in the left navigation menu of Partner Center.
 
 After you sign in, use the following steps to finish setting up your account:
 
-- From Partner Center, select **Settings** > **Developer Settings** > **Programs** > **Get Started**, and enter your work e-mail address.
+- From Partner Center, select **Settings** > **Developer Settings** > **Programs** > **Get Started**, and enter your work email address.
 - Complete the details on the publisher profile page.
 - Read the terms and conditions in the Microsoft Office Store Agreement, and then select **Accept and continue** to complete your enrollment.
 
@@ -84,5 +84,7 @@ After you're enrolled, you're directed to the Office Store Overview page. Office
 
 ## Next steps
 Now you're ready to [submit your solutions to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
+
+You can also [Manage your account settings and profile](manage-account-settings-and-profile.md).
 
 
