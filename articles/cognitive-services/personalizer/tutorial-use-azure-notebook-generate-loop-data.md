@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent:  As a python developer, I want use Personalizer in an Azure Notebook so that I can understand the end to end lifecycle of a Personalizer loop.
 ---
@@ -574,7 +574,7 @@ The ideal target that by the end of the test, the loop is averaging a success ra
 
 `100-20=80`
 
-This exploration setting is found in the Azure portal, for the Personalizer resource, on the **Settings** page. 
+This exploration setting is found in the Azure portal, for the Personalizer resource, on the **Configuration** page. 
 
 In order to find a better learning policy, based on your data to the Rank API, run an [offline evaluation](how-to-offline-evaluation.md) in the portal for your Personalizer loop.
 
@@ -594,7 +594,7 @@ In order to find a better learning policy, based on your data to the Rank API, r
 
 ## Change update model frequency to 5 minutes
 
-1. In the Azure portal, still on the Personalizer resource, select the **Settings** page. 
+1. In the Azure portal, still on the Personalizer resource, select the **Configuration** page. 
 1. Change the **model update frequency** and **reward wait time** to 5 minutes and select **Save**.
 
 Learn more about the [reward wait time](concept-rewards.md#reward-wait-time) and [model update frequency](how-to-settings.md#model-update-frequency).

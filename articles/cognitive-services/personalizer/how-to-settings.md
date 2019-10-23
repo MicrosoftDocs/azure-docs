@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent: 
 ---
@@ -94,7 +94,7 @@ You can get learning policy files from previous exports, or downloading the opti
     |Setting|Purpose|
     |--|--|
     |Logged personalization and reward data.|This logging data is used in offline evaluations. Clear the data if you are resetting your resource.|
-    |Reset the Personalizer model.|This model changes on every retraining. This frequency of training is specified in **upload model frequency** on the **Settings** page. |
+    |Reset the Personalizer model.|This model changes on every retraining. This frequency of training is specified in **upload model frequency** on the **Configuration** page. |
     |Set the learning policy to default.|If you have changed the learning policy as part of an offline evaluation, this resets to the original learning policy.|
 
 1. Select **Clear selected data** to begin the clearing process. Status is reported in Azure notifications, in the top-right navigation. 
