@@ -51,7 +51,7 @@ There are several common reasons why you might not see your data in the [Azure T
 
 - Your consumer group provided isn't exclusive to Time Series Insights.
 
-    During registration of an IoT hub or event hub, you specify the consumer group that's used to read the data. Don't share that consumer group. If the consumer group is shared, the underlying event hub automatically disconnects one of the readers at random. Provide a unique consumer group for Time Series Insights to read from.
+    During registration of an IoT hub or event hub, you specify the consumer group that's used to read the data. This consumer group has to be unique per environment. If the consumer group is shared, the underlying event hub automatically disconnects one of the readers at random. Provide a unique consumer group for Time Series Insights to read from.
 
 - Your Time Series ID property specified at the time of provisioning is incorrect, missing, or null.
 
