@@ -12,9 +12,8 @@ ms.author: robb
 ---
 # Supported services, schemas, and categories for Azure Resource Logs
 
-
-
->[!NOTE] Resource logs were previously known as diagnostic logs.
+> [!NOTE]
+> Resource logs were previously known as diagnostic logs.
 
 [Azure Monitor resource logs](../../azure-monitor/platform/resource-logs-overview.md) are logs emitted by Azure services that describe the operation of those services or resources. All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events.
 
