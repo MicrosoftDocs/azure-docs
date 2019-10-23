@@ -47,7 +47,7 @@ For more information about the benefits of using the SQL VM resource provider, s
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
-- An [Azure subscription](https://azure.microsoft.com/free/).
+- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](#register-subscription-with-rp).
 - A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
 - The latest version of [Azure CLI](/cli/azure/install-azure-cli) or [PowerShell](/powershell/azure/new-azureps-module-az). 
 
@@ -241,9 +241,9 @@ Run the following PowerShell code snippet:
   ```
 ---
 
-## Register RP with a subscription 
+## Register subscription with RP
 
-To register your SQL Server VM with the SQL VM resource provider, you must register the resource provider with your subscription. You can do so by using the Azure portal, the Azure CLI, or PowerShell.
+To register your SQL Server VM with the SQL VM resource provider, you must first register the subscription with the resource provider. You can do so by using the Azure portal, the Azure CLI, or PowerShell.
 
 ### Azure portal
 
