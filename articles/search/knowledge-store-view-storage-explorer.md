@@ -1,20 +1,19 @@
 ---
-title: View a knowledge store with Storage Explorer
-titleSuffix: Azure Cognitive Search
-description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer.  
+title: 'View a knowledge store with Storage Explorer - Azure Search'
+description: View and analyze an Azure Search knowledge store with the Azure portal's Storage Explorer.  
 
-manager: nitinme
 author: lisaleib
-ms.author: v-lilei
-ms.service: cognitive-search
+services: search
+ms.service: search
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 09/03/2019
+ms.author: v-lilei
+ 
 ---
-
 # View a knowledge store with Storage Explorer
 
 > [!Note]
-> Knowledge store is in preview and should not be used in production. The [Azure Cognitive Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
+> Knowledge store is in preview and should not be used in production. The [Azure Search REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 In this article, you'll learn how to connect and explore a knowledge store using Storage Explorer in the Azure portal. To create the knowledge store sample used in this walkthrough, see [Create a knowledge store in Azure portal](knowledge-store-create-portal.md).
 
