@@ -8,7 +8,7 @@ ms.topic: Tutorial
 ms.date: 10/20/2019
 ---
 
-# Tutorial: Deploy and walkthrough a smart inventory management application template
+# Tutorial: Deploy and walk through a smart inventory management application template
 
 This tutorial shows you how to get started by deploying an IoT Central **smart inventory management** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
@@ -23,21 +23,21 @@ In this tutorial, you learn how to,
 ## Create smart inventory management application template
 
 You can create application using following steps
-1. * Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
+1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
 [!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/IoTC_Retail_Homepage.png)
 
-2. * Select **Retail** tab and select **Create app** under ** smart inventory management **
-
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+2. Select **Retail** tab and select **Create app** under ** smart inventory management **
 
 3. **Create app** will open New application form and fill up the requested details as show below.
    **Application name**: you can use default suggested name or enter your friendly application name.
    **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, default setting is recommended if you already have an Azure Subscription or else you can start with seven-day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
    **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
    **Create**: Select create at the bottom of the page to deploy your application.
+
+[!div class="mx-imgBorder"]
+![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
 ## Walk through the application 
 
@@ -103,3 +103,7 @@ If you're not going to continue to use this application, delete the application 
 
 [!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
+
+## Next steps
+* Learn more about smart inventory management [smart inventory management concept](./architecture-smart-inventory-management-pnp.md)
+* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
