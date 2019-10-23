@@ -123,4 +123,4 @@ You can test your real-time endpoint by navigating to the **Endpoints** page in 
 In this tutorial, you learned the key steps in creating, deploying, and consuming a machine learning model in the designer. To learn more about how you can use the designer to solve other types of problems, see out our other sample pipelines.
 
 > [!div class="nextstepaction"]
-> [Credit risk classification sample](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+> [Credit risk classification sample](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)

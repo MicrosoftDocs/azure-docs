@@ -90,9 +90,9 @@ landingContent:
           - text: Scheduling pipelines (Python SDK)
             url: service/how-to-schedule-pipelines.md                 
           - text: Predict delays (designer)
-            url: service/how-to-ui-sample-classification-predict-flight-delay.md
+            url: service/how-to-designer-sample-classification-flight-delay.md
           - text: Predict churn (designer)
-            url: service/how-to-ui-sample-classification-predict-churn.md     
+            url: service/how-to-designer-sample-classification-churn.md     
 
   # MLOps
   - title: Deploy & manage models
