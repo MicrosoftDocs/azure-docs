@@ -644,7 +644,7 @@
       items:
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
-      - name: Create service principal
+      - name: Create a service principal
         items:
         - name: Using Azure PowerShell
           href: howto-authenticate-service-principal-powershell.md
