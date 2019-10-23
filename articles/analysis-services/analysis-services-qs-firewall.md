@@ -2,7 +2,6 @@
 title: Quickstart - Configure a firewall for an Analysis Services server in Azure | Microsoft Docs
 description: Learn how to configure a firewall for an Analysis Services server instance in Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 07/02/2019

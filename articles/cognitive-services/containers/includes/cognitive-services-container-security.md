@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/13/2019
+ms.date: 09/24/2019
 ms.author: dapine
 ---
 
@@ -18,7 +18,7 @@ Security should be a primary focus whenever you're developing applications. The 
 > [!IMPORTANT]
 > By default there is *no security* on the Cognitive Services container API. The reason for this is that most often the container will run as part of a pod which is protected from the outside by a network bridge. However, it is possible to enable authentication which works identically to the authentication used when accessing the [cloud-based Cognitive Services][request-authentication].
 
-The diagram below illustrates the default and **insecure** approach:
+The diagram below illustrates the default and **non-secure** approach:
 
 ![Container security](../media/container-security.svg)
 

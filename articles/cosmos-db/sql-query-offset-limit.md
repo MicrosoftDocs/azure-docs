@@ -8,7 +8,7 @@ ms.date: 06/10/2019
 ms.author: mjbrown
 
 ---
-# OFFSET LIMIT clause
+# OFFSET LIMIT clause in Azure Cosmos DB
 
 The OFFSET LIMIT clause is an optional clause to skip then take some number of values from the query. The OFFSET count and the LIMIT count are required in the OFFSET LIMIT clause.
 

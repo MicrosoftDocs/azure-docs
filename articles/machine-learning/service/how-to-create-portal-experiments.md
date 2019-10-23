@@ -29,12 +29,11 @@ ms.date: 09/09/2019
 
 ## Get started
 
-
 1. Sign in to [the workspace landing page](https://ml.azure.com/workspaceportal/). 
 
 1. Select your subscription and workspace. 
 
-1. Navigate to the left pane. Select **Automated ML** under the **Authoring** section.
+1. Navigate to the left pane. Select **Automated ML** under the **Author** section.
 
 [![Azure portal navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
@@ -56,7 +55,7 @@ Otherwise, you'll see your **Automated machine learning** dashboard with an over
     ---|---
     Compute name| Enter a unique name that identifies your compute context.
     Virtual machine size| Select the virtual machine size for your compute.
-    Additional settings| *Min node*: Enter the minimum number of nodes for your compute. The minimum number of nodes for AML compute is 0. To enable data profiling, you must have 1 or more nodes. <br> *Max node*: Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
+    Min / Max nodes (in Advanced Settings)| To profile data, you must specify 1 or more nodes. Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
     
     Select **Create**. Creation of a new compute can take a few minutes.
 
@@ -106,7 +105,7 @@ Otherwise, you'll see your **Automated machine learning** dashboard with an over
     Advanced settings|Description
     ------|------
     Primary metric| Main metric used for scoring your model. [Learn more about model metrics](how-to-configure-auto-train.md#explore-model-metrics).
-    Exit criteria| When any of these criteria are met, the training job ends before full completion. <br> *Training job time (minutes)*: How long to allow the training job to run.  <br> *Max number of iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
+    Exit criteria| When any of these criteria are met, the training job is stopped. <br> *Training job time (minutes)*: How long to allow the training job to run.  <br> *Max number of iterations*: Maximum number of pipelines (iterations) to test in the training job. The job will not run more than the specified number of iterations. <br> *Metric score threshold*:  Minimum metric score for all pipelines. This ensures that if you have a defined target metric you want to reach, you do not spend more time on the training job than necessary.
     Preprocessing| Select to enable or disable the preprocessing done by automated machine learning. Preprocessing includes automatic data cleansing, preparing, and transformation to generate synthetic features. [Learn more about preprocessing](#preprocess).
     Validation| Select one of the cross validation options to use in the training job. [Learn more about cross validation](how-to-configure-auto-train.md).
     Concurrency| Select the multi-core limits you would like to use when using multi-core compute.

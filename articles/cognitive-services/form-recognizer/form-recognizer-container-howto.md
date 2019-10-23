@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: dapine
 ---
 # Install and run Form Recognizer containers
@@ -297,7 +297,9 @@ The container provides REST endpoint APIs, which you can find on the [Form Recog
 
 ## Troubleshooting
 
-When you run the container, the container uses **stdout** and **stderr** to output information that's helpful for troubleshooting issues that arise when you start or run the container.
+If you run the container with an output [mount](form-recognizer-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## Billing
 

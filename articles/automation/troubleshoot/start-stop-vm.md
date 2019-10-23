@@ -38,6 +38,14 @@ The subscription is not registered to use namespace 'Microsoft.Insights'.
 The scope '/subscriptions/000000000000-0000-0000-0000-00000000/resourcegroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView' cannot perform write operation because following scope(s) are locked: '/subscriptions/000000000000-0000-0000-0000-00000000/resourceGroups/<ResourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<WorkspaceName>/views/StartStopVMView'. Please remove the lock and try again
 ```
 
+```error
+A parameter cannot be found that matches parameter name 'TagName'
+```
+
+```error
+Start-AzureRmVm : Run Login-AzureRmAccount to login
+```
+
 ### Cause
 
 Deployments may fail because of one of the following reasons:
@@ -46,6 +54,7 @@ Deployments may fail because of one of the following reasons:
 2. A policy is in place that disallows the deployment of the Start/Stop VMs solution.
 3. The `Microsoft.OperationsManagement`, `Microsoft.Insights`, or `Microsoft.Automation` resource types are not registered.
 4. Your Log Analytics workspace has a lock on it.
+5. You have an outdated version of AzureRM modules or the Start/Stop solution.
 
 ### Resolution
 
@@ -60,6 +69,7 @@ Review the following list for potential solutions to your problem or places to l
 
    See, [Resolve errors for resource provider registration](../../azure-resource-manager/resource-manager-register-provider-errors.md) to learn more about errors when registering providers.
 4. If you have a lock on your Log Analytics workspace, go to your workspace in the Azure portal and remove any locks on the resource.
+5. If the resolutions above do not solve your issue, follow the instructions under [Update the Solution](../automation-solution-vm-management.md#update-the-solution) to re-deploy the Start/Stop solution.
 
 ## <a name="all-vms-fail-to-startstop"></a>Scenario: All VMs fail to start/stop
 

@@ -12,7 +12,7 @@ ms.topic: sample
 
 # Azure Storage samples using Python
 
-The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
+The following tables provide an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in GitHub.
 
 ## Blob samples
 
@@ -95,4 +95,5 @@ For information on samples for other languages:
 
 * .NET: [Azure Storage samples using .NET](storage-samples-dotnet.md)
 * Java: [Azure Storage samples using Java](storage-samples-java.md)
+* JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 * All other languages: [Azure Storage samples](storage-samples.md)

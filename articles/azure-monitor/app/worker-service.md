@@ -3,7 +3,7 @@ title: Application Insights for Worker Service apps (non-HTTP apps) | Microsoft 
 description: Monitoring .NET Core/.NET Framework non-HTTP apps with Application Insights.
 services: application-insights
 documentationcenter: .net
-author: cithomas
+author: cijothomas
 manager: carmonm
 ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
 ms.service: application-insights
@@ -20,9 +20,6 @@ Application Insights is releasing a new SDK, called `Microsoft.ApplicationInsigh
 
 The new SDK does not do any telemetry collection by itself. Instead, it brings in other well known Application Insights auto collectors like [DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/), [PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/), [ApplicationInsightsLoggingProvider](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights) etc. This SDK exposes extension methods on `IServiceCollection` to enable and configure telemetry collection.
 
-> [!NOTE]
-> This article is about a new package from Application Insights SDK for Worker Services. This package is available as a beta package today. This document will be updated when a stable package is available.
-
 ## Supported scenarios
 
 The [Application Insights SDK for Worker Service](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) is best suited for non-HTTP applications no matter where or how they run. If your application is running and has network connectivity to Azure, telemetry can be collected. Application Insights monitoring is supported everywhere .NET Core is supported. This package can be used in the newly introduced [.NET Core 3.0 Worker Service](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [background tasks in Asp.Net Core 2.1/2.2](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), Console apps (.NET Core/ .NET Framework), etc.
@@ -38,7 +35,7 @@ A valid Application Insights instrumentation key. This key is required to send a
 
 ```xml
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0-beta3" />
+        <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.8.0" />
     </ItemGroup>
 ```
 
@@ -96,9 +93,9 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
                 {
                     _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
                     _logger.LogInformation("Calling bing.com");
-                    var res = await httpClient.GetAsync("https://bing.com");
+                    var res = await _httpClient.GetAsync("https://bing.com");
                     _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
-                    telemetryClient.TrackEvent("Bing call event completed");
+                    _telemetryClient.TrackEvent("Bing call event completed");
                 }
 
                 await Task.Delay(1000, stoppingToken);
@@ -238,47 +235,58 @@ Full example is shared [here](https://github.com/microsoft/ApplicationInsights-H
 ```csharp
     using Microsoft.ApplicationInsights;
     using Microsoft.ApplicationInsights.DataContracts;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Logging;
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
 
-    class Program
+    namespace WorkerSDKOnConsole
     {
-        static async Task Main(string[] args)
+        class Program
         {
-            // Create the DI container.
-            IServiceCollection services = new ServiceCollection();
-
-            // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
-            // Hence instrumentation key must be specified here.
-            services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
-
-            // Build ServiceProvider.
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
-
-            // Obtain logger instance from DI.
-            ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
-
-            // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
-            var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
-
-            while (true) // This app runs indefinitely. replace with actual application termination logic.
+            static async Task Main(string[] args)
             {
-                _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+                // Create the DI container.
+                IServiceCollection services = new ServiceCollection();
 
-                using (telemetryClient.StartOperation<RequestTelemetry>("operation"))
+                // Being a regular console app, there is no appsettings.json or configuration providers enabled by default.
+                // Hence instrumentation key must be specified here.
+                services.AddApplicationInsightsTelemetryWorkerService("instrumentationkeyhere");
+
+                // Build ServiceProvider.
+                IServiceProvider serviceProvider = services.BuildServiceProvider();
+
+                // Obtain logger instance from DI.
+                ILogger<Program> logger = serviceProvider.GetRequiredService<ILogger<Program>>();
+
+                // Obtain TelemetryClient instance from DI, for additional manual tracking or to flush.
+                var telemetryClient = serviceProvider.GetRequiredService<TelemetryClient>();
+
+                var httpClient = new HttpClient();
+
+                while (true) // This app runs indefinitely. replace with actual application termination logic.
                 {
-                    _logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
-                    _logger.LogInformation("Calling bing.com");
-                    var res = await httpClient.GetAsync("https://bing.com");
-                    _logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
-                    telemetryClient.TrackEvent("Bing call event completed");
+                    logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
+
+                    // Replace with a name which makes sense for this operation.
+                    using (telemetryClient.StartOperation<RequestTelemetry>("operation"))
+                    {
+                        logger.LogWarning("A sample warning message. By default, logs with severity Warning or higher is captured by Application Insights");
+                        logger.LogInformation("Calling bing.com");                    
+                        var res = await httpClient.GetAsync("https://bing.com");
+                        logger.LogInformation("Calling bing completed with status:" + res.StatusCode);
+                        telemetryClient.TrackEvent("Bing call event completed");
+                    }
+
+                    await Task.Delay(1000);
                 }
 
-                await Task.Delay(1000, stoppingToken);
+                // Explicitly call Flush() followed by sleep is required in Console Apps.
+                // This is to ensure that even if application terminates, telemetry is sent to the back-end.
+                telemetryClient.Flush();
+                Task.Delay(5000).Wait();
             }
-
-            // Explicitly call Flush() followed by sleep is required in Console Apps.
-            // This is to ensure that even if application terminates, telemetry is sent to the back-end.
-            telemetryClient.Flush();
-            Task.Delay(5000).Wait();
         }
     }
 ```
@@ -295,7 +303,7 @@ The following lists the full telemetry automatically collected by Application In
 
 ### Live Metrics
 
-[Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) can be used to quickly verify if Application Insights is setup correctly. While it might take a few minutes before telemetry starts appearing in the portal and analytics, Live Metrics would show CPU usage of the running process in near real-time. It can also show other telemetry like Requests, Dependencies, Traces etc.
+[Live Metrics](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream) can be used to quickly verify if Application Insights monitoring is configured correctly. While it might take a few minutes before telemetry starts appearing in the portal and analytics, Live Metrics would show CPU usage of the running process in near real-time. It can also show other telemetry like Requests, Dependencies, Traces etc.
 
 ### ILogger logs
 
@@ -307,31 +315,7 @@ Dependency collection is enabled by default. [This](asp-net-dependencies.md#auto
 
 ### EventCounter
 
-[EventCounter](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.Tracing/documentation/EventCounterTutorial.md), is a cross-platform method to publish and consume counters in .NET/.NET Core. Though this feature existed before, there was no built-in providers who published these counters. Starting with .NET Core 3.0, several counters are published out of the box like CLR Counters, CPU etc.
-
-By default, the SDK collects the following counters (available only in .NET Core 3.0 or above), and these counters can be queried either in Metrics Explorer or by using an Analytics query targeting the PerformanceCounter table. The name of the counters will be of the form "Category|Counter".
-
-|Category | Counter|
-|---------------|-------|
-|`System.Runtime` | `cpu-usage` |
-|`System.Runtime` | `working-set` |
-|`System.Runtime` | `gc-heap-size` |
-|`System.Runtime` | `gen-0-gc-count` |
-|`System.Runtime` | `gen-1-gc-count` |
-|`System.Runtime` | `gen-2-gc-count` |
-|`System.Runtime` | `time-in-gc` |
-|`System.Runtime` | `gen-0-size` |
-|`System.Runtime` | `gen-1-size` |
-|`System.Runtime` | `gen-2-size` |
-|`System.Runtime` | `loh-size` |
-|`System.Runtime` | `alloc-rate` |
-|`System.Runtime` | `assembly-count` |
-|`System.Runtime` | `exception-count` |
-|`System.Runtime` | `threadpool-thread-count` |
-|`System.Runtime` | `monitor-lock-contention-count` |
-|`System.Runtime` | `threadpool-queue-length` |
-|`System.Runtime` | `threadpool-completed-items-count` |
-|`System.Runtime` | `active-timer-count` |
+`EventCounterCollectionModule` is enabled by default, and it will collect a default set of counters from .NET Core 3.0 apps. The [EventCounter](eventcounters.md) tutorial lists the default set of counters collected. It also has instructions on customizing the list.
 
 ### Manually tracking additional telemetry
 

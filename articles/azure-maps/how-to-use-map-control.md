@@ -36,9 +36,15 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     Then add references to the Azure Maps stylesheet and script source references to the `<head>` element of the file:
 
     ```HTML
-    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css">
-    <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/atlas.min.css" type="text/css"> 
+    <script src="node_modules/azure-maps-control/dist/atlas.min.js"></script>
     ```
+
+    >[!Note]
+    > Typescript definitions can be imported into your application by adding:
+    > ```Javascript
+    > import * as atlas from 'azure-maps-control';
+    > ```
 
 3. To render the map so that it fills the full body of the page, add the following `<style>` element to the `<head>` element.
 
@@ -97,6 +103,8 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </script>
     ```
 
+    A list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps can be found [here](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples). 
+    
     For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) document.
 
 6. Optionally, you may find adding the following meta tag elements to the head of your page helpful:
@@ -217,3 +225,8 @@ To add more data to your map:
 
 > [!div class="nextstepaction"]
 > [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+
+For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
+
+> [!div class="nextstepaction"]
+> [AAD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

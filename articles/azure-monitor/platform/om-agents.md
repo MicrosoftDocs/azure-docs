@@ -28,7 +28,7 @@ Integrating with System Center Operations Manager adds value to your service ope
 
 The agents reporting to the Operations Manager management group collect data from your servers based on the [Log Analytics data sources](agent-data-sources.md) and solutions you have enabled in your workspace. Depending on the solutions enabled, their data are either sent directly from an Operations Manager management server to the service, or because of the volume of data collected on the agent-managed system, are sent directly from the agent to a Log Analytics workspace. The management server forwards the data directly to the service; it is never written to the operational or data warehouse database. When a management server loses connectivity with Azure Monitor, it caches the data locally until communication is re-established. If the management server is offline due to planned maintenance or unplanned outage, another management server in the management group resumes connectivity with Azure Monitor.  
 
-The following diagram shows the connection between the management servers and agents in a System Center Operations Manager management group and Azure Monitor, including the direction and ports.   
+The following diagram shows the connection between the management servers and agents in a System Center Operations Manager management group and Azure Monitor, including the direction and ports.
 
 ![oms-operations-manager-integration-diagram](./media/om-agents/oms-operations-manager-connection.png)
 
@@ -59,7 +59,7 @@ Before starting, review the following requirements.
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Azure Monitor for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
 >A new management pack has been released for the following versions of Operations Manager:
-> - For System Center Operations Manager 2019, management pack is provided with the Operations Manager build.
+> - For System Center Operations Manager 2019, this management pack is included with the source media and installed during setup of a new management group or during an upgrade.
 >- Operations Manager 1801 management pack is also applicable for Operations Manager 1807.
 >- For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173).
 >- For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172).  
@@ -68,7 +68,7 @@ Before starting, review the following requirements.
 
 ### Network
 
-The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with Azure Monitor. Traffic from each component is outbound from your network to Azure Monitor.   
+The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with Azure Monitor. Traffic from each component is outbound from your network to Azure Monitor.
 
 |Resource | Port number| Bypass HTTP Inspection|  
 |---------|------|-----------------------|  

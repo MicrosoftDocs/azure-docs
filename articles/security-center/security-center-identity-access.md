@@ -18,9 +18,6 @@ ms.author: memildin
 This article helps you use Azure Security Center to monitor users' identity and access activity.
 
 > [!NOTE]
-> The "View *classic* Identity & Access" link will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_classicidentity) to learn on alternative services.
-
-> [!NOTE]
 > Monitoring identity and access is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 >
 
@@ -61,7 +58,7 @@ Under **Identity & Access**, there are two tabs:
 ### Overview section
 Under **Overview**, there is a list of recommendations. The first column lists the recommendation. The second column shows the total number of subscriptions that are affected by that recommendation. The third column shows the severity of the issue.
 
-1. Select a recommendation. The recommendation’s window opens and displays:
+1. Select a recommendation. The recommendations window opens and displays:
 
    - Description of the recommendation
    - List of unhealthy and healthy subscriptions
@@ -74,7 +71,7 @@ Under **Overview**, there is a list of recommendations. The first column lists t
 ### Subscriptions section
 Under **Subscriptions**, there is a list of subscriptions. The first column lists the subscriptions. The second column shows the total number of recommendations for each subscription. The third column shows the severities of the issues.
 
-![Subscription's tab][4]
+![Subscriptions tab][4]
 
 1. Select a subscription. A summary view opens with three tabs:
 
@@ -119,13 +116,13 @@ Use the table below as a reference to help you understand the available Identity
 > If you created a Conditional Access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
 
 ## Next steps
-To learn more about recommendations that apply to other Azure resource types, see the following:
+To learn more about recommendations that apply to other Azure resource types, see the following articles:
 
 - [Protecting your machines and applications in Azure Security Center](security-center-virtual-machine-protection.md)
 - [Protecting your network in Azure Security Center](security-center-network-recommendations.md)
 - [Protecting your Azure SQL service and data in Azure Security Center](security-center-sql-service-recommendations.md)
 
-To learn more about Security Center, see the following:
+To learn more about Security Center, see the following articles:
 * [Manage and respond to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts). Learn how to manage alerts and respond to security incidents in Security Center.
 * [Understand security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). Learn about the different types of security alerts.
 * [Azure Security Center FAQ](security-center-faq.md). Find answers to frequently asked questions about using Security Center.
