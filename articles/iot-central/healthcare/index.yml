@@ -68,10 +68,8 @@ landingContent:
             url: ../core/howto-use-iotc-explorer.md
           - text: Version device template
             url: ../core/howto-version-device-template.md
-          - text: Configure application dashboard
-            url: ../core/howto-configure-homepage.md
           - text: Create personal dashboards
-            url: ../core/howto-personalize-dashboard.md
+            url: ../core/howto-create-personal-dashboards.md
   # Card (optional)
   - title: Transform
     linkLists:
@@ -111,8 +109,6 @@ landingContent:
             url: ../core/howto-customize-ui.md  
           - text: Prepare and upload image
             url: ../core/howto-prepare-images.md
-          - text: Configure application dashboard
-            url: ../core/howto-configure-homepage.md
           - text: Use dashboard tiles
             url: ../core/howto-use-tiles.md
           - text: Use application templates

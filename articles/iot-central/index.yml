@@ -43,12 +43,9 @@ conceptualContent:
         - url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
           text: Set up a device template 
-        - url: ./core/tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/tutorial-add-device.md
           itemType: tutorial
-          text: Connect an IoT Plug and Play device 
-        - url: ./core/tutorial-define-edge-as-leaf-device-type-pnp.md
-          itemType: concept
-          text: Connect an Edge device
+          text: Connect an IoT Plug and Play device
       footerLink: 
         url: ./core/index.yml
         text: See more
