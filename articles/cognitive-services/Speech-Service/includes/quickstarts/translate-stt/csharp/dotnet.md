@@ -21,29 +21,100 @@ Before you get started, make sure to:
 > * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=dotnet)
 
-If you've already done this, great. Let's keep going.
-
 ## Add sample code
 
 1. Open **Program.cs**, and replace all the code in it with the following.
 
-   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/translate-speech-to-text/helloworld/Program.cs#code)]
+````C#
+using System;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Translation;
 
-1. Find the string `YourSubscriptionKey`, and replace it with your subscription key.
+namespace helloworld
+{
+    class Program
+    {
+        public static async Task TranslateSpeechToText()
+        {
+            // Creates an instance of a speech translation config with specified subscription key and service region.
+            // Replace with your own subscription key and service region (e.g., "westus").
+            var config = SpeechTranslationConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
 
-1. Find the string `YourServiceRegion`, and replace it with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, if you're using the free trial subscription, the region is `westus`.
+            // Sets source and target languages.
+            // Replace with the languages of your choice, from list found here: https://aka.ms/speech/sttt-languages
+            string fromLanguage = "en-US";
+            string toLanguage = "de";
+            config.SpeechRecognitionLanguage = fromLanguage;
+            config.AddTargetLanguage(toLanguage);
+
+            // Creates a translation recognizer using the default microphone audio input device.
+            using (var recognizer = new TranslationRecognizer(config))
+            {
+                // Starts translation, and returns after a single utterance is recognized. The end of a
+                // single utterance is determined by listening for silence at the end or until a maximum of 15
+                // seconds of audio is processed. The task returns the recognized text as well as the translation.
+                // Note: Since RecognizeOnceAsync() returns only a single utterance, it is suitable only for single
+                // shot recognition like command or query.
+                // For long-running multi-utterance recognition, use StartContinuousRecognitionAsync() instead.
+                Console.WriteLine("Say something...");
+                await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+
+                // Checks result.
+                if (result.Reason == ResultReason.TranslatedSpeech)
+                {
+                    Console.WriteLine($"RECOGNIZED '{fromLanguage}': {result.Text}");
+                    Console.WriteLine($"TRANSLATED into '{toLanguage}': {result->Translations[toLanguage]}");
+                }
+                else if (result.Reason == ResultReason.RecognizedSpeech)
+                {
+                    Console.WriteLine($"RECOGNIZED '{fromLanguage}': {result.Text} (text could not be translated)");
+                }
+                else if (result.Reason == ResultReason.NoMatch)
+                {
+                    Console.WriteLine($"NOMATCH: Speech could not be recognized.");
+                }
+                else if (result.Reason == ResultReason.Canceled)
+                {
+                    var cancellation = CancellationDetails.FromResult(result);
+                    Console.WriteLine($"CANCELED: Reason={cancellation.Reason}");
+
+                    if (cancellation.Reason == CancellationReason.Error)
+                    {
+                        Console.WriteLine($"CANCELED: ErrorCode={cancellation.ErrorCode}");
+                        Console.WriteLine($"CANCELED: ErrorDetails={cancellation.ErrorDetails}");
+                        Console.WriteLine($"CANCELED: Did you update the subscription info?");
+                    }
+                }
+            }
+        }
+
+        static void Main(string[] args)
+        {
+            TranslateSpeechToText().Wait();
+        }
+    }
+}
+````
+
+1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
+
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
 1. From the menu bar, choose **File** > **Save All**.
 
 ## Build and run the application
 
-1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors now.
+1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
-1. Choose **Debug** > **Start Debugging** (or select **F5**) to start the **helloworld** application.
+1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Speak an English phrase or sentence into your device's microphone. The application transmits your speech to the Speech service, which translates the speech into text in another language (in this case, German). The Speech service sends the translated text back to the application, which displays the translation in the window.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
 
-   ![Speech translation user interface](~/articles/cognitive-services/Speech-Service/media/sdk/qs-translate-csharp-dotnetcore-windows-output.png)
+````
+RECOGNIZED 'en-US': What's the weather in Seattle?
+TRANSLATED into 'de': Wie ist das Wetter in Seattle?
+````
 
 ## Next steps
 

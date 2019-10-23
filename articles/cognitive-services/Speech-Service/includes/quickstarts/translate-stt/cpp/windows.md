@@ -51,6 +51,7 @@ void TranslateSpeechToText()
 
     // Creates a translation recognizer using the default microphone audio input device.
     auto recognizer = TranslationRecognizer::FromConfig(config);
+
     cout << "Say something...\n";
 
     // Starts translation, and returns after a single utterance is recognized. The end of a
@@ -65,7 +66,7 @@ void TranslateSpeechToText()
     if (result->Reason == ResultReason::TranslatedSpeech)
     {
         cout << "RECOGNIZED '" << fromLanguage << "': " << result->Text << std::endl
-        cout << "  TRANSLATED into '" << toLanguage << "': " << result->Translations[toLanguage] << std::endl;
+        cout << "TRANSLATED into '" << toLanguage << "': " << result->Translations[toLanguage] << std::endl;
     }
     else if (result->Reason == ResultReason::RecognizedSpeech)
     {
@@ -109,7 +110,7 @@ int wmain()
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
 
 ````
 RECOGNIZED 'en-US': What's the weather in Seattle?
