@@ -47,17 +47,14 @@ In this part of the tutorial, you run `R-Tutorial.Rmd` in RStudio which you clon
 
    The link starts the RStudio server and opens RStudio in a new browser tab.  
 
-1. Open the `R-Tutorial.Rmd` file in the **vignettes** folder you cloned in [part one of this tutorial](tutorial-1st-experiment-r-set-up.md#clone).
-
-
-## Load the azureml package
-
+1. Open the `R-Tutorial.Rmd` file in the **vignettes** folder you cloned in [part one of this tutorial](tutorial-1st-experiment-r-set-up.md#clone).  The tutorial uses the other files also located in the folder.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the  `R-Tutorial.Rmd` file in RStudio.  
 >
 > Switch to RStudio now if you want to read along as you run the code.
 
+## Load the azureml package
 
 ```R
 library(azuremlsdk)
