@@ -32,17 +32,19 @@ In this article, we will extend this application with parameters so that it can 
    | Setting            | Suggested value | Description                                                                                      |
    | ------------------ | --------------- | ------------------------------------------------------------------------------------------------ |
    | Name               | OnOff           | A descriptive name for your parameter                                                            |
+   | Is Global          | unchecked       | Checkbox indicating whether a value for this parameter is globally applied to the Command        |
    | Required           | checked         | Checkbox indicating whether a value for this parameter is required before completing the Command |
    | Response template  | On or off?      | A prompt to ask for the value of this parameter when it isn't known                              |
    | Type               | String          | The type of parameter, such as Number, String, or Date Time                                      |
    | Configuration      | String List     | For Strings, a String List limits inputs to a set of possible values                             |
    | String list values | on, off         | For a String List parameter, the set of possible values and their synonyms                       |
 
-   - Next add a second parameter to represent the name of the devices. For this example, a tv and a fan
+   - Next, select the `+` icon again to add a second parameter to represent the name of the devices. For this example, a tv and a fan
 
    | Setting            | Suggested value   | Description                                                                                      |
    | ------------------ | ----------------- | ------------------------------------------------------------------------------------------------ |
    | Name               | SubjectDevice     | A descriptive name for your parameter                                                            |
+   | Is Global          | unchecked         | Checkbox indicating whether a value for this parameter is globally applied to the Command        |
    | Required           | checked           | Checkbox indicating whether a value for this parameter is required before completing the Command |
    | Response template  | Which device?     | A prompt to ask for the value of this parameter when it isn't known                              |
    | Type               | String            | The type of parameter, such as Number, String, or Date Time                                      |
@@ -52,15 +54,15 @@ In this article, we will extend this application with parameters so that it can 
 
 ## Add Sample Sentences
 
-With parameters, it's helpful to add sample sentences with:
+With parameters, it's helpful to add sample sentences that cover all possible combinations. For example:
 
 - Full parameter information - `"turn {OnOff} the {SubjectDevice}"`
 - Partial parameter information - `"turn it {OnOff}"`
 - No parameter information - `"turn something"`
 
-Examples with different amounts of information allow the Custom Commands application to resolve both one-shot resolutions and multi-turn resolutions with partial information.
+Sample sentences with different amounts of information allow the Custom Commands application to resolve both one-shot resolutions and multi-turn resolutions with partial information.
 
-Next, edit the Sample Sentences to use the parameters.
+With that in mind, edit the Sample Sentences to use the parameters as suggested below.
 
 > [!TIP]
 > In the Sample Sentences editor use curly braces to refer to your parameters. - `turn {OnOff} the {SubjectDevice}`
@@ -79,7 +81,7 @@ turn something
 
 ## Add parameters to Completion rule
 
-Modify the Completion rule that you created in [the previous quickstart](./quickstart-custom-speech-commands-create-new.md)
+Modify the Completion rule that you created in [the previous quickstart](./quickstart-custom-speech-commands-create-new.md):
 
 1. Add a new Condition and select Required parameter. Select both `OnOff` and `SubjectDevice`
 1. Edit the Speech Response action to use `OnOff` and `SubjectDevice`:
@@ -92,16 +94,16 @@ Modify the Completion rule that you created in [the previous quickstart](./quick
 
 Open the Test chat panel and try a few interactions.
 
-- A: turn off the tv
-- B: Ok, turning off the tv
+- Input: turn off the tv
+- Output: Ok, turning off the tv
 
-- A: turn off the television
-- B: Ok, turning off the tv
+- Input: turn off the television
+- Output: Ok, turning off the tv
 
-- A: turn it off
-- B: Which device?
-- A: the tv
-- B: Ok, turning off the tv
+- Input: turn it off
+- Output: Which device?
+- Input: the tv
+- Output: Ok, turning off the tv
 
 ## Next steps
 > [!div class="nextstepaction"]
