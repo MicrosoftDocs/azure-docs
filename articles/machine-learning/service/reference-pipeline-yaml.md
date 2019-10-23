@@ -51,6 +51,7 @@ The following YAML is an example pipeline definition:
 The `parameters` section uses the following keys, which correspond to the [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py) class:
 
 | YAML key | Description |
+| ---- | ---- |
 | `type` | The value type of the parameter. Valid types are `string`, `int`, `float`, `bool`, or `datapath`. |
 | `default` | The default value. |
 
