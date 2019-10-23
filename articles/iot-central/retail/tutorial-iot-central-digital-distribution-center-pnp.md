@@ -106,10 +106,11 @@ Select the rules tab to see two different rules that exist in this application t
 ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_rules.png)
 
 ## Jobs
-Select the jobs tab to see three different jobs that exist as part of this application template:
-You can leverage jobs feature to perform solution-wide operations such as modifying the telemetry interval using twin capability.
- 
-The next set of jobs enables you to perform system-wide operations such as updating the camera firmware or modifying the telemetry interval on the gateways.
+Select the jobs tab to see five different jobs that exist as part of this application template:
+You can leverage jobs feature to perform solution-wide operations. Here digital distribution center jobs are using the device commands & twin capability to perform tasks such as,
+   * calibrating camera before initiating the package detection 
+   * periodically updating camera firmware
+   * modifying the telemetry interval to manage data upload
 
 [!div class="mx-imgBorder"]
 ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_jobs.png)
@@ -122,4 +123,5 @@ If you're not going to continue to use this application, delete the application 
 
 ## Next steps
 * Learn more about digital distribution center solution architecture [digital distribution center concept](./architecture-digital-distribution-center-pnp.md)
+* Learn more about other [IoT Central retail templates](./overview-iot-central-retail-pnp)
 * Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
