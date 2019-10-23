@@ -27,7 +27,7 @@ For more information about the resource provider, see [SQL VM resource provider]
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
-- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](#register-rp-with-a-subscription) and contains unregistered SQL Server virtual machines. Subscriptions used for the script should be in the same tenant as the PowerShell session. Run `Get-AzSubscription` to verify that the subscription is in the output of the cmdlet.
+- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](#register-rp-with-a-subscription) and contains unregistered SQL Server virtual machines. 
 - The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 
