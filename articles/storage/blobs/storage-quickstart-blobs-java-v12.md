@@ -111,7 +111,7 @@ From the project directory:
 
 1. Navigate to the */src/main/java/com/blobs/quickstart* directory
 1. Open the *App.java* file in your editor
-1. Update the `System.out.println();` statement
+1. Delete the `System.out.println("Hello world!");` statement
 1. Add `import` directives
 
 Here's the code:
@@ -132,7 +132,6 @@ public class App
 {
     public static void main( String[] args ) throws IOException
     {
-        System.out.println("Azure blob storage v12 SDK quickstart");
     }
 }
 ```
@@ -190,11 +189,11 @@ The following diagram shows the relationship between these resources.
 
 Use the following Java classes to interact with these resources:
 
-* [BlobServiceClient](https://azure.github.io/azure-sdk-for-java/track2reports/com/azure/storage/blob/BlobServiceClient.html): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers. The storage account provides the top-level namespace for the Blob service.
-* [BlobServiceClientBuilder](https://azure.github.io/azure-sdk-for-java/track2reports/com/azure/storage/blob/BlobServiceClientBuilder.html): The `BlobServiceClientBuilder` class provides a fluent builder API to help aid the configuration and instantiation of `BlobServiceClient` and `BlobServiceAsyncClient` objects.
-* [ContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
-* [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
-* [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): The `BlobDownloadInfo` class represents the properties and content returned from downloading a blob.
+* [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers. The storage account provides the top-level namespace for the Blob service.
+* [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder): The `BlobServiceClientBuilder` class provides a fluent builder API to help aid the configuration and instantiation of `BlobServiceClient` and `BlobServiceAsyncClient` objects.
+* [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+* [BlobClient](/java/api/com.azure.storage.blob.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
+* [BlobItem](/java/api/com.azure.storage.blob.blobitem): The `BlobItem` class represents individual blobs returned from a call to `listBlobsFlat`.
 
 ## Code examples
 
@@ -202,7 +201,6 @@ These example code snippets show you how to perform the following with the Azure
 
    * [Get the connection string](#get-the-connection-string)
    * [Create a container](#create-a-container)
-   * [Set permissions on a container](#set-permissions-on-a-container)
    * [Upload blobs to a container](#upload-blobs-to-a-container)
    * [List the blobs in a container](#list-the-blobs-in-a-container)
    * [Download blobs](#download-blobs)
@@ -214,16 +212,16 @@ The code below retrieves the connection string for the storage account from the 
 
 Add this code inside the `Main` method:
 
-```csharp
-Console.WriteLine("Azure Blob Storage v12 - Java quickstart sample\n");
+```java
+System.out.println("Azure Blob Storage v12 - Java quickstart sample\n");
 
-// Retrieve the connection string for use with the application. The storage
-// connection string is stored in an environment variable on the machine
-// running the application called CONNECT_STR. If the
-// environment variable is created after the application is launched in a
+// Retrieve the connection string for use with the application. The storage 
+// connection string is stored in an environment variable on the machine 
+// running the application called CONNECT_STR. If the 
+// environment variable is created after the application is launched in a 
 // console or with Visual Studio, the shell or application needs to be closed
 // and reloaded to take the environment variable into account.
-string connectionString = Environment.GetEnvironmentVariable("CONNECT_STR");
+String connectStr = System.getenv("CONNECT_STR");
 ```
 
 ### Create a container
@@ -237,24 +235,18 @@ Next, create an instance of the [BlobContainerClient](/dotnet/api/azure.storage.
 
 Add this code to the end of the `Main` method:
 
-```csharp
+```java
+// Create a BlobServiceClient object which will be used to create a container client.
+BlobServiceClient blobServiceClient = new BlobServiceClientBuilder().connectionString(connectStr).buildClient();
+
 //Create a unique name for the container
-string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
+String containerName = "quickstartblobs" + java.util.UUID.randomUUID();
 
 // Create an object that represents the container
-BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
+BlobContainerClient containerClient = blobServiceClient.getBlobContainerClient(containerName);
 
 // Create the actual container
-await container.CreateAsync();
-```
-
-### Set permissions on a container
-
-Set permissions on the container so that any blobs in the container are public. If a blob is public, it can be accessed anonymously by any client.
-
-```csharp
-// Set permissions so blobs in the container are public
-await container.SetAccessPolicyAsync(PublicAccessType.BlobContainer);
+containerClient.create();
 ```
 
 ### Upload blobs to a container
@@ -268,26 +260,23 @@ The following code snippet:
 
 Add this code to the end of the `Main` method:
 
-```csharp
-// Path to the local documents folder
-string myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-
-// Create a file in your local myDocumentsPath folder to upload to a blob
-string localFileName = "quickstart" + Guid.NewGuid().ToString() + ".txt";
-string localFilePath = Path.Combine(myDocumentsPath, localFileName);
+```java
+// Create a local file to upload to a blob
+String fileName = "quickstart" + java.util.UUID.randomUUID() + ".txt";
+File localFile = new File(fileName);
 
 // Write text to the file
-await File.WriteAllTextAsync(localFilePath, "Hello, World!");
+FileWriter writer = new FileWriter(fileName, true);
+writer.write("Hello, World!");
+writer.close();
 
 // Get a reference to a blob
-BlobClient blob = container.GetBlobClient(localFileName);
+BlobClient blobClient = containerClient.getBlobClient(fileName);
 
-Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blob.Uri);
+System.out.println("\nUploading to Blob storage as blob:\n\t" + blobClient.getBlobUrl());
 
-// Open the file and upload its data
-using FileStream uploadFileStream = File.OpenRead(localFilePath);
-await blob.UploadAsync(uploadFileStream);
-uploadFileStream.Close();
+// Create the blob with string (plain text) content.
+blobClient.uploadFromFile(fileName);
 ```
 
 ### List the blobs in a container
@@ -296,13 +285,12 @@ List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure
 
 Add this code to the end of the `Main` method:
 
-```csharp
-Console.WriteLine("Listing blobs...");
+```java
+System.out.println("\nListing blobs...");
 
-// List all blobs in the container
-await foreach (BlobItem blobItem in container.GetBlobsAsync())
-{
-    Console.WriteLine("\t" + blobItem.Name);
+// List the blob(s) in our container.
+for (BlobItem blobItem : containerClient.listBlobsFlat()) {
+    System.out.println("\t" + blobItem.getName());
 }
 ```
 
@@ -312,19 +300,15 @@ Download the blob created previously by calling the [​Download​Async](/dotne
 
 Add this code to the end of the `Main` method:
 
-```csharp
-// Download the blob to a local file, using the reference created earlier.
-// Append the string "DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
-string downloadFilePath = localFilePath.Replace(".txt", "DOWNLOADED.txt");
+```java
+// Download the blob to local file.
+// Append the string "DOWNLOADED" before the .txt extension so that you can see both files.
+String downloadFileName = fileName.replace(".txt", "DOWNLOAD.txt");
+File downloadedFile = new File(downloadFileName);
 
-Console.WriteLine("\nDownloading blob to\n\t {0}\n", downloadFilePath);
+System.out.println("\nDownloading blob to\n\t " + downloadFileName);
 
-// Download the blob's contents and save it to a file
-BlobDownloadInfo download = await blob.DownloadAsync();
-
-using FileStream downloadFileStream = File.OpenWrite(downloadFilePath);
-await download.Content.CopyToAsync(downloadFileStream);
-downloadFileStream.Close();
+blobClient.downloadToFile(downloadFileName);
 ```
 
 ### Delete a container
@@ -335,19 +319,19 @@ The app pauses for user input by calling `Console.ReadLine` before it deletes th
 
 Add this code to the end of the `Main` method:
 
-```csharp
+```java
 // Clean up
-Console.Write("Press any key to begin clean up");
-Console.ReadLine();
+System.out.println("\nPress any key to begin clean up");
+System.console().readLine();
 
-Console.WriteLine("Deleting blob container...");
-await container.DeleteAsync();
+System.out.println("Deleting blob container...");
+containerClient.delete();
 
-Console.WriteLine("Deleting the local source and downloaded files...");
-File.Delete(localFilePath);
-File.Delete(downloadFilePath);
+System.out.println("Deleting the local source and downloaded files...");
+localFile.delete();
+downloadedFile.delete();
 
-Console.WriteLine("Done");
+System.out.println("Done");
 ```
 
 ## Run the code
