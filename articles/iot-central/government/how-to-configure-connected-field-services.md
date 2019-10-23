@@ -13,7 +13,9 @@ manager: miriamb
 
 # How to connect your application with Dyanmics 365 Field Services 
 
-As a builder, you can enable integration of your Azure IoT Central application to Dyanmics 365 Field Service. In IoT Central you can configure rules and actions which can create alerts in Field Service. Also, based on service activities in Connected Field Service, information can be sent back to Azure IoT Central. This is accomplished by using Microsoft Flow, which you can configure directly in IoT Central for automating workflows across applications and services.
+As a builder, you can enable integration of your Azure IoT Central application to other business systems. 
+
+For example, in a connected waste management solution you can optimize the dispatch of the collections trucks based on the data from IoT sensors from connected waste bins. In your [IoT Central connected waste management application](tba) you can configure rules and actions, and set it to trigger creating alerts in Dynamics Field Service. This scenario is accomplished by using Microsoft Flow, which you can configure directly in IoT Central for automating workflows across applications and services. Also, based on service activities in Field Service, information can be sent back to Azure IoT Central. 
 
 The below end-to-end integration processes can be easily implemented based on a pure configuration experience:
 * Azure IoT Central can send information about device anomalies to Connected Field Service (as an IoT Alert) for diagnosis.
