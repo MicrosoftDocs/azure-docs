@@ -163,8 +163,14 @@
       href: create-custom-waf-rules.md
     - name: Configure WAF with custom rules
       href: configure-waf-custom-rules.md
-  - name: Deploy ingress controller over HTTP/HTTPS
+  - name: Using Application Gateway to expose AKS service over HTTP/HTTPS 
     href: application-gateway-ingress-controller-expose-service-over-http-https.md
+  - name: Upgrade ingress controller using Helm 
+    href: application-gateway-ingress-controller-update-ingress-controller-using-helm.md
+  - name: Using LetsEncrypt.org certificates with Application Gateway
+    href: application-gateway-ingress-controller-using-letsencrypt-certificate-with-application-gateway.md
+  - name: Expose a WebSocket server to Application Gateway 
+    href: application-gateway-ingress-controller-expose-websocket-server.md
   - name: Route by URL
     items:
     - name: Azure PowerShell
