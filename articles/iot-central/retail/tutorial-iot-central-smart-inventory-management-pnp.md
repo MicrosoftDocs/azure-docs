@@ -1,16 +1,16 @@
 ---
 title: Tutorial of IoT Smart inventory management | Microsoft Docs
 description: An tutorial of smart inventory management application template for IoT Central
-author: nandab
+author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
-ms.topic: overview
+ms.topic: Tutorial
 ms.date: 10/20/2019
 ---
 
 # Tutorial: Deploy and walkthrough a smart inventory management application template
 
-This tutorial shows you how to get started by deploying an IoT Central smart inventory management application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
+This tutorial shows you how to get started by deploying an IoT Central **smart inventory management** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
 In this tutorial, you learn how to, 
 * create smart inventory management application 
@@ -25,10 +25,12 @@ In this tutorial, you learn how to,
 You can create application using following steps
 1. * Navigate to the Azure IoT Central application manager website. Select Build from the left-hand navigation bar and then click the **Retail** tab.
 
+[!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/IoTC_Retail_Homepage.png)
 
 2. * Select **Retail** tab and select **Create app** under ** smart inventory management **
 
+[!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
 3. **Create app** will open New application form and fill up the requested details as show below.
@@ -41,21 +43,21 @@ You can create application using following steps
 
 ### Dashboard 
 
-After successfully deploying the app template, your default dashboard is a smart inventory management operator focused portal. Northwind Trader is a fictitious smart inventory provider managing warehouse with BLE and retail store with RFID. In this dashboard, you will see two different gateways providing telemetry about inventory along with associated commands, jobs, and actions that you can perform. 
+After successfully deploying the app template, your default dashboard is a smart inventory management operator focused portal. Northwind Trader is a fictitious smart inventory provider managing warehouse with Bluetooth low energy (BLE) and retail store with Radio-frequency identification (RFID). In this dashboard, you will see two different gateways providing telemetry about inventory along with associated commands, jobs, and actions that you can perform. 
 This dashboard is pre-configured to showcase the critical smart inventory management device operations activity.
-
-If you can see the tiles with data, then it means you successfully deployed the template and simulated devices are generating the data.  If you don’t see any data after 3-5 mins or any other error, then contact <Link>
 The dashboard is logically divided between two different gateway device management operations, 
 * The warehouse is deployed with a fixed BLE gateway & BLE tags on pallets to track & trace inventory at a larger facility
 * Retail store is implemented with a fixed RFID gateway & RFID tags at individual an item level to track and trace the stock in a store outlet
 * View the gateway location, status & related details 
 
+[!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
 
 * You can easily track the total number of gateways, active, and unknown tags.
 * You can perform device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals & update device service contracts
 * Gateway devices can perform on-demand inventory management with a complete or incremental scan.
 
+[!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
 
 ## Device Template
@@ -64,11 +66,13 @@ Click on the Device templates tab, and you will see the gateway capability model
 
 **Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location, device info as well as device twin property capability such as gateway thresholds & update intervals.
 
+[!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
 
 
 **Gateway Commands** - This interface organizes all the gateway command capabilities
 
+[!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
 
 ## Rules
@@ -79,20 +83,19 @@ Select the rules tab to see two different rules that exist in this application t
 
 **Unknown tags**: It is critical to track every RFID & BLE tags associated with an asset. If the gateway is detecting too many unknown tags, this is an indication of synchronization challenges with tag sourcing applications.
 
+[!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
 
 ## Jobs
 
 Select the jobs tab to see five different jobs that exist as part of this application template:
 
+[!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
 
 ## Cleanup resources
 
 If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
 
+[!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
-
-## Next Steps
-Advance to the next article to learn how to create a provider dashboard that connects to your IoT Central application template.
-<Link>
