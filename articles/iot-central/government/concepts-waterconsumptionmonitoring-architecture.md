@@ -10,57 +10,44 @@ services: iot-central
 manager: aabjork
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
-<!---Tutorials are scenario-based procedures for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md).
-You only use tutorials to show the single best procedure for completing an approved top 10 customer task.
---->
 
 # Water consumption monitoring reference architecture 
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
 
-A water consumption monitoring solution can be built using the **IoT Central Water consumption monitoring app template** as a kickstarter application. Note that the reference architecture is a high level guidance to help you understand architecture concepts and how to build a solution with IoT Central. 
+Water consumption monitoring solutions can be built with the **Azure IoT Central water consumption monitoring app template** as a kickstarter IoT application. This tutorial provides a high level reference architecture guidance on building an end to end solution. 
 
-![Water consumption monitoring architecture](./media/concepts-waterconsumptionmonitoring-architecture/concepts-waterconsumptionmonitoring-architecture.png)
-
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
+[!div class="mx-imgBorder"] 
+![Water consumption monitoring architecture](./media/concepts-waterconsumptionmonitoring-architecture/concepts-waterconsumptionmonitoring-architecture1.png)
 
 Concepts:
 
-1. Devices 
-2. Device connectivity 
-3. Connectivity via third party cloud and cloud gateway 
-4. IoT Central 
-5. Continuos data export from IoT Central
-6. Data transformation services for cold path analytics
-7. Line of Busines (LOB) applications 
+1. Devices and connectivity  
+1. IoT Central 
+2. Extensibility and integrations
+3. Business applications
 
+Let's take a look at key components that generally play a part in a water consumption monitoring solution.
 
-## Devices
-### Water flow meter 
+## Devices and connectivity 
+Devices used in smart water solutions will generally be connected through low power wide area networks (LPWAN), and throuhg a network operator third-party cloud. For these type of devices you can leverage the Azure IoT Central Device Bridge to send your device data to your IoT application in Azure IoT Central. 
 
-### Smart Valve 
- 
-
-### Connectivity via third party cloud and cloud gateway 
-
-### Connectivity via device gateway 
 
 ## IoT Central 
+Azure IoT Central is a hosted IoT App Platform that dramatically reduces your time-to-value, without having to compromise (you can brand, customize, and integrate with 3rd party services). 
+After you connect your smart water devices to IoT Central,it provides out of the box device management, command and control of your devices, monitoring and alerting, and configurable dashboards. 
 
-## Continous data export 
+## Extensibility and integrations 
+You can extend your IoT application in IoT Central and optionally:
+* transform and integrate your IoT data for advanced analytics, for example training machine learning models, throuhg continous data export from IoT Central application
+* automate workflows in other sytems by triggering actions via Microsoft Flow or webhooks from IoT Central application
+* programatically access your IoT application in IoT Central through IoT Central APIs
 
-## Data transformation services for cold path analytics
+## Business Applications 
 
-## Line of Busines (LOB) applications 
+The IoT data can be used to power a variety of business applications deployed within a water utility, to visualize business insights and take meaningful actions. To learn how to build a connected Field Services dashboard follow the tutorial on [how to integrate with Dynamics 365 Field Services](tba) 
 
 
 ## Next steps
-
-* [Create a water consumption monitoring application in IoT Central](tba)
+* Learn how to [create a water consumption](tba) IoT Central application
+* Learn more about [IoT Central government templates](tba)
 * To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
