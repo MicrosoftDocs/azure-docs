@@ -1,6 +1,6 @@
 ---
 
-title: 'Troubleshooting Azure Active Directory Activity logs content pack errors | Microsoft Docs'
+title: 'Troubleshooting Activity logs content pack errors | Microsoft Docs'
 description: Provides you with a list of error messages of the Azure Active Directory Activity content pack and steps to fix them.
 services: active-directory
 documentationcenter: ''
