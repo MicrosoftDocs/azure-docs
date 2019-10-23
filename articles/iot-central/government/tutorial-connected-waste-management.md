@@ -196,15 +196,17 @@ The **Connected waste management** application has four sample rules.
 
 
 ### To view rules:
-* Navigate to **Rules** from IoT Central left navigation pane. 
+* Navigate to **Rules** from IoT Central left navigation pane
 
    ![Rules](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
-* Select and click on **High pH alert** which is one of the pre-configured rules in the application. 
+* Select the **Bin full alert**
 
-     ![High pH Alert](./media/tutorial-connectedwastemanagement/connectedwastemanagement-highphalert.png)
+     ![Bin full alert](./media/tutorial-connectedwastemanagement/connectedwastemanagement-binfullalert.png)
 
-* The `High pH alert` rule is configured to check against the condition `Acidity (pH) is greater than 8`. 
+* The `Bin full alert` checks when **Condition** `Fill level is greater than or equal to Bin full alert threshold`. 
+
+    The `Bin full alert threshold` is a *cloud property* defined in the `Connected waste bin` device template. 
 
 Now let's create an email action.
 
