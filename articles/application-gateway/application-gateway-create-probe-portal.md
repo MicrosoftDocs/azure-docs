@@ -67,7 +67,7 @@ Probes are configured in a two-step process through the portal. The first step i
 
 After entering the probe properties, you can test the health of the back-end resources to verify that the probe configuration is correct and that the back-end resources are working as expected.
 
-1. Click **Test** button and note the result of the probe. The Application gateway will test the health of all the backend resources in the backend pools associated with the HTTP Setting(s) used for this probe. 
+1. Select **Test** and note the result of the probe. The Application gateway tests the health of all the backend resources in the backend pools associated with the HTTP Setting(s) used for this probe. 
 
    ![Test backend health][5]
 
