@@ -47,18 +47,18 @@ The application will recognize an utterance like "turn on the tv" and respond wi
      > If you don't see the select subscription page, you can navigate there by choosing "Speech resources" from the settings menu on the top bar.
 
 1. Select your Speech subscription, then select **Go to Studio**
-1. Select **Custom Commands (Preview)**.
+1. Select **Custom Commands (Preview)**
 
 The default view is a list of the Custom Commands applications you created.
 
 ## Create a Custom Commands project
 
-1. Select New project to create a new project
+1. Select **New project** to create a new project
 
    > [!div class="mx-imgBorder"]
    > ![Create new project](media/custom-speech-commands/create-new-project.png)
 
-1. Enter the project name and Language and select **Next** to continue
+1. Enter the project name and language, then select **Next** to continue
 1. Enter your LUIS authoring key
 1. Once created, select your project
 
@@ -66,7 +66,7 @@ Your view should now be an overview of your Custom Commands application.
 
 ## Create a new Command
 
-Now you can create a Command. Let's use an example that will take a single utterance `turn on the tv` and respond with the message `Ok, turning on the TV`.
+Now you can create a Command. Let's use an example that will take a single utterance, `turn on the tv`, and respond with the message `Ok, turning on the TV`.
 
 1. Create a new Command by selecting the `+` icon next to commands and give it the name `TurnOn`
 1. Select **Save**
@@ -102,11 +102,9 @@ Now add a Completion Rule to respond to the user indicating that an action is be
 
 | Setting    | Suggested value                        | Description                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
-| Rule Name  | Confirmation Message                   | A name describing the purpose of the rule          |
+| Rule Name  | "ConfirmationResponse"                 | A name describing the purpose of the rule          |
 | Conditions | None                                   | Conditions that determine when the rule can run    |
 | Actions    | SpeechResponse "Ok, turning on the TV" | The action to take when the rule condition is true |
-
-That's what's needed to handle this interaction.
 
 ## Try it out
 
@@ -115,8 +113,8 @@ Test the behavior using the Test chat panel.
 > [!div class="mx-imgBorder"]
 > ![Test with webchat](media/custom-speech-commands/create-basic-test-chat.png)
 
-- A: "turn on the tv"
-- B: "Ok, turning on the tv"
+- You type: "turn on the tv"
+- Expected response: "Ok, turning on the tv"
 
 ## Next steps
 > [!div class="nextstepaction"]
