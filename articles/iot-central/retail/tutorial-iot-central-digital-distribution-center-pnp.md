@@ -4,6 +4,6 @@ description: An tutorial of digital distribution center application template for
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
-ms.topic: Tutorial
+ms.topic: tutorial
 ms.date: 10/20/2019
 ---
