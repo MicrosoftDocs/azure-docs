@@ -38,7 +38,7 @@ Partners can leverage template to develop end to end Connected Logistics solutio
 ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected_logistics_dashboard2.png)
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case.
 
-Get started with [end to end tutorial](tutorial-iot-central-connected-logistics.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
+Get started with [end to end tutorial](./tutorial-iot-central-connected-logistics.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
 
 
 
@@ -61,7 +61,7 @@ Partners can leverage this application template to build Digital Distribution Ce
 ![Digital Distribution Center Dashboard](./media/overview-iot-central-retail/digital_distribution_center_dashboard.png)
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case.
 
-Get started with [end to end tutorial](tutorial-iot-central-digital-distribution-center.md) that walks you through how to build a solution leveraging one of the digital distribution center templates.
+Get started with [end to end tutorial](./tutorial-iot-central-digital-distribution-center.md) that walks you through how to build a solution leveraging one of the digital distribution center templates.
 
 
 
@@ -85,7 +85,7 @@ The application template comes with a set of device templates and an operator ex
 ![In-Store Analytics Condition Monitoring](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
-Get started with [end to end tutorial](overview-iot-central-retail-store-analytics-condition.md) that walks you through how to build a solution leveraging one of the in-store analytics condition monitoring templates.
+Get started with [end to end tutorial](./tutorial-in-store-analytics-create-app-pnp.md) that walks you through how to build a solution leveraging one of the in-store analytics condition monitoring templates.
 
 
 
@@ -110,7 +110,7 @@ The application template comes with a set of device templates and an operator ex
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
 
-Get started with [end to end tutorial](overview-iot-central-retail-store-analytics-checkout.md) that walks you through how to build a solution leveraging one of the in-store analytics checkout templates.
+Get started with [end to end tutorial](./tutorial-in-store-analytics-create-app-pnp.md) that walks you through how to build a solution leveraging one of the in-store analytics checkout templates.
 
 
 ## What is smart inventory management solution?
@@ -130,12 +130,12 @@ Partners can leverage template to develop end to end Smart inventory management 
 ![Smart Inventory Management Dashboard](./media/overview-iot-central-retail/smart_inventory_management_dashboard.png)
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
-Get started with [end to end tutorial](iot-central-smart-inventory-management.md) that walks you through how to build a solution leveraging one of the smart inventory management templates.
+Get started with [end to end tutorial](./iot-central-smart-inventory-management.md) that walks you through how to build a solution leveraging one of the smart inventory management templates.
 
 
 ## Next steps
 To get started building a retail solution:
-* Get started with the [end to end tutorial](./tutorial-condition-monitor-create-app-pnp.md) that walks you through how to build a solution leveraging one of the In-Store Analytics application templates.
+* Get started with the [end to end tutorial](./tutorial-in-store-analytics-create-app-pnp.md) that walks you through how to build a solution leveraging one of the In-Store Analytics application templates.
 * Learn how to deploy [connected logistics solution template](./tutorial-iot-central-connected-logistics.md)
 * Learn how to deploy [digital distribution center template](./tutorial-iot-central-digital-distribution-center.md)
 * Learn how to deploy [smart inventory management template](./iot-central-smart-inventory-management.md)
