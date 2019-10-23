@@ -16,7 +16,7 @@ ms.author: donkim
 
 In this article, you'll:
 
-- Publish a Custom Commands application and get an application ID
+- Publish a Custom Commands application and get an application identifier (app id)
 - Create a client app using the Speech SDK to allow you to talk to your Custom Commands application
 
 ## Prerequisites
