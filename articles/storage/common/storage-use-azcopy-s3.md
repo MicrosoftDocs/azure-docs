@@ -48,6 +48,9 @@ AzCopy uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storage
 > [!IMPORTANT]
 > This feature is currently in preview. If you decide to remove data from your S3 buckets after a copy operation, make sure to verify that the data was properly copied to your storage account before you remove the data.
 
+> [!TIP]
+> The examples in this section enclose path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
+
 ### Copy an object
 
 |    |     |

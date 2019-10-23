@@ -1,16 +1,17 @@
 ---
-title: Text split cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Break text into chunks or pages of text based on length in an AI enrichment pipeline in Azure Cognitive Search. 
-
+title: Text split cognitive search skill - Azure Search
+description: Break text into chunks or pages of text based on length in an Azure Search enrichment pipeline. 
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/02/2019
+ms.author: luisca
 ---
-# Text split cognitive skill
+#	Text split cognitive skill
 
 The **Text Split** skill breaks text into chunks of text. You can specify whether you want to break the text into sentences or into pages of a particular length. This skill is especially useful if there are maximum text length requirements in other skills downstream. 
 
@@ -127,5 +128,5 @@ If a language is not supported, a warning is generated and the text is split at 
 
 ## See also
 
-+ [Built-in skills](cognitive-search-predefined-skills.md)
++ [Predefined skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
