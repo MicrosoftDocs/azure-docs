@@ -35,6 +35,13 @@ landingContent:
           - text: What is a secured virtual hub?
             url: secured-virtual-hub.md
   # Card
+  - title: Trusted security partners
+    linkLists:
+    - linkListType: concept
+      links:
+        - text: What are trusted security partners?
+          url: trusted-security-partners.md
+  # Card
   - title: Secure you Azure cloud network
     linkLists:
       - linkListType: tutorial
