@@ -1,24 +1,25 @@
 ---
-title: Entity Recognition cognitive skill
-titleSuffix: Azure Cognitive Search
-description: Extract different types of entities from text in an enrichment pipeline in Azure Cognitive Search.
-
+title: Entity Recognition cognitive search skill - Azure Search
+description: Extract different types of entities from text in an Azure Search cognitive search pipeline.
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/02/2019
+ms.author: luisca
 ---
 
-#	Entity Recognition cognitive skill
+#	 Entity Recognition cognitive skill
 
 The **Entity Recognition** skill extracts entities of different types from text. This skill uses the machine learning models provided by [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Cognitive Services.
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Cognitive Search. There are no charges for text extraction from documents.
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Cognitive Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## @odata.type  
@@ -189,5 +190,5 @@ If the language code for the document is unsupported, an error is returned and n
 
 ## See also
 
-+ [Built-in skills](cognitive-search-predefined-skills.md)
++ [Predefined skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
