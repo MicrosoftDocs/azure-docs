@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Set up and manage a device template (preview features)
+# Tutorial: Define a new IoT device type in your Azure IoT Central application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
@@ -247,34 +247,18 @@ To publish a device template, go to you your device template and select **Publis
 
 After you publish a device template, an operator can go to the **Devices** page and add either real or simulated devices that use your device template. You can continue to modify and save your device template as you are making changes, however, when you want to push these changes out to the operator to view under the **Devices** page you must select **Publish** each time.
 
-# Tutorial: Define a new IoT device type in your Azure IoT Central application (preview features)
+## Define a new IoT gateway device type in your Azure IoT Central application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT device in your Azure IoT Central application. 
+This tutorial shows you, as a builder, how to use a gateway device template to define a new type of Azure IoT device in your Azure IoT Central application. 
 
-A **device template** defines the capabilities of your IoT device. Capabilities include telemetry the device sends, properties, and the commands the device responds to.
-
-In this tutorial, you create an **Smart Building** device template. A Smart Building gateway device:
+In this section, you create an **Smart Building** device template. A Smart Building gateway device:
 
 * Sends telemetry such as temperature and occupancy.
 * Responds to writeable properties when updated in the cloud such as telemetry send interval.
 * Responds to commands such as resetting temperature.
 * Allows relationships to other device capability models
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Create a IoT device templates 
-> * Create a new IoT device as a gateway device template. The above created templates will act as downstream devices
-> * Add relationships between downstream devices and IoT gateway device
-> * Create capabilities including telemetry, properties and commands for each module
-> * Define a visualization for the module telemetry.
-> * Publish your device template.
-
-## Prerequisites
-
-To complete this tutorial, you need an Azure IoT Central application. Follow this quick start to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ### Create IoT Device Templates
 
