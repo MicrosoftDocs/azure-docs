@@ -145,72 +145,6 @@ public class Person {
 }
 ```
 
-# [F#](#tab/fsharp)
-
-The following example shows a trigger binding in a *function.json* file and an [F# function](functions-reference-fsharp.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
-
-Here's the *function.json* file:
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "function",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "res",
-      "type": "http",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-The [configuration](#trigger---configuration) section explains these properties.
-
-Here's the F# code:
-
-```fsharp
-open System.Net
-open System.Net.Http
-open FSharp.Interop.Dynamic
-
-let Run(req: HttpRequestMessage) =
-    async {
-        let q =
-            req.GetQueryNameValuePairs()
-                |> Seq.tryFind (fun kv -> kv.Key = "name")
-        match q with
-        | Some kv ->
-            return req.CreateResponse(HttpStatusCode.OK, "Hello " + kv.Value)
-        | None ->
-            let! data = Async.AwaitTask(req.Content.ReadAsAsync<obj>())
-            try
-                return req.CreateResponse(HttpStatusCode.OK, "Hello " + data?name)
-            with e ->
-                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-    } |> Async.StartAsTask
-```
-
-You need a `project.json` file that uses NuGet to reference the `FSharp.Interop.Dynamic` and `Dynamitey` assemblies, as shown in the following example:
-
-```json
-{
-  "frameworks": {
-    "net46": {
-      "dependencies": {
-        "Dynamitey": "1.0.2",
-        "FSharp.Interop.Dynamic": "3.0.0"
-      }
-    }
-  }
-}
-```
-
 # [JavaScript](#tab/javascript)
 
 The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the HTTP request.
@@ -550,10 +484,6 @@ For a complete example, see the [trigger example](#trigger---example).
 
 Attributes are not supported by C# Script.
 
-# [F#](#tab/fsharp)
-
-Attributes are not supported by F#.
-
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
@@ -635,10 +565,6 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
     return (ActionResult)new OkObjectResult(message);
 }
 ```
-
-# [F#](#tab/fsharp)
-
-[!INCLUDE [functions-bindings-http-input-usage](../../includes/functions-bindings-http-input-usage.md)]
 
 # [JavaScript](#tab/javascript)
 
@@ -819,10 +745,6 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
     return;
 }
 ```
-
-# [F#](#tab/fsharp)
-
-**TODO**
 
 # [JavaScript](#tab/javascript)
 
