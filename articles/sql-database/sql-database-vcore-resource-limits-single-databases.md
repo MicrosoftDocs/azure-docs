@@ -126,8 +126,8 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Memory (GB)|7|14|21|28|35|42|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (GB)|1024|1024|1024|1536|1536|1536|
-|Max log size (GB)|307|307|307|461|461|461|
+|Max data size (GB)|1024|1024|1536|1536|1536|3072|
+|Max log size (GB)|307|307|461|461|461|922|
 |TempDB max data size (GB)|32|64|96|128|160|192|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
@@ -149,8 +149,8 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Memory (GB)|49|56|63|70|112|168|
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (GB)|1536|3072|3072|3072|4096|4096|
-|Max log size (GB)|461|922|922|922|1229|1229|
+|Max data size (GB)|3072|3072|3072|3072|4096|4096|
+|Max log size (GB)|922|922|922|922|1229|1229|
 |TempDB max data size (GB)|224|256|288|320|384|384|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)
@@ -175,7 +175,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Max data size (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Max log size (GB)|307|307|307|461|461|461|461|
+|Max log size (GB)|307|307|461|461|461|922|922|
 |TempDB max data size (GB)|64|128|192|256|320|384|384|
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
@@ -253,8 +253,8 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1|2|3|4|5|6|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (GB)|650|650|650|650|650|650|
-|Max log size (GB)|195|195|195|195|195|195|
+|Max data size (GB)|1024|1024|1024|1024|1024|1024|
+|Max log size (GB)|307|307|307|307|307|307|
 |TempDB max data size (GB)|32|64|96|128|160|192|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS (64 KB)|5000|10000|15000|20000|25000|30000|
@@ -277,8 +277,8 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|7|8|9.5|11|20|36|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
-|Max data size (GB)|650|650|650|650|1024|1024|
-|Max log size (GB)|195|195|195|195|307|307|
+|Max data size (GB)|1024|1024|1024|1024|1024|1024|
+|Max log size (GB)|307|307|307|307|307|307|
 |TempDB max data size (GB)|224|256|288|320|384|384|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
 |Max data IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
@@ -303,7 +303,7 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 |Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
 |In-memory OLTP storage (GB)|1.571|3.142|4.713|6.284|8.655|11.026|13.397|
 |Max data size (GB)|1024|1024|1536|1536|1536|3072|3072|
-|Max log size (GB)|307|307|307|461|461|922|922|
+|Max log size (GB)|307|307|461|461|461|922|922|
 |TempDB max data size (GB)|64|128|192|256|320|384|384|
 |Storage type|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|Local SSD|
 |IO latency (approximate)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|1-2 ms (write)<br>1-2 ms (read)|
