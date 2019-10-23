@@ -153,12 +153,17 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+     > [!Note]  
+    > If you're running this command from outside the cluster, get the cluster name from the Azure portal. Enter clusterName in lowercase and run the command `export clusterName='clustername'` to store the variable.  
 
 1. To get the Kafka broker hosts, use the following command:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
+
+    > [!Note]  
+    > This command requires Ambari access. If your cluster is behind an NSG, run this command from a machine that can access Ambari.
 
 1. Create Kafka topic, `myTest`, by entering the following command:
 
