@@ -11,13 +11,15 @@ ms.custom: mvc
 manager: rangv
 ---
 
-# What is Azure IoT Central Edge (preview features)?
+# What is Azure IoT Central with Azure IoT Edge (preview features)?
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 Azure IoT Central is a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds. IoT Central is expanding its portfolio by supporting Azure IoT Edge devices. 
 
-Businesses can now run cloud intelligence directly on IoT devices managed by Azure IoT Central. This new feature helps businesses connect and manage Azure IoT Edge devices running Azure IoT Edge runtime, deploy software modules, publish insights, and take actions at-scale – all from within IoT Central. [Go here](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge) for Azure IoT Edge Overview
+Businesses can now run cloud intelligence directly on IoT devices managed by Azure IoT Central. This new feature helps businesses connect and manage Azure IoT Edge devices running Azure IoT Edge runtime, deploy software modules, publish insights, and take actions at-scale – all from within IoT Central. 
+
+[Azure IoT Edge Overview](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge)
 
 This article provides an overview of the Azure IoT Edge and gateway features of Azure IoT Central:
 
@@ -48,7 +50,7 @@ Azure IoT Edge runtime performs following functions:
 - Report module health to the cloud for remote monitoring.
 - Manage communication between downstream leaf devices and an IoT Edge device, between modules on an IoT Edge device, and between an IoT Edge device and the cloud.
 
-![IoT Central Edge Overview](./media/overview-iot-central-pnp-edge/iotedge.png)
+![IoT Central with Azure IoT Edge Overview](./media/overview-iot-central-pnp-edge/iotedge.png)
 
 Azure IoT Central performs the following functions: 
 
@@ -62,7 +64,7 @@ Azure IoT Central performs the following functions:
   7. Cloud properties that are not stored on the Azure IoT Edge device
   8. Customizations, dashboards, and forms that are part of your IoT Central application
 
-  [Go here](./tutorial-define-edge-as-leaf-device-type-pnp.md) to Create Azure IoT Edge Device template
+  [Create Azure IoT Edge Device template](./tutorial-define-edge-as-leaf-device-type-pnp.md)
    
 - Provisioning Azure IoT Edge devices at scale using Azure IoT device provisioning service
 - Trigger rules and take actions on Azure IoT Edge devices
@@ -96,4 +98,4 @@ Azure IoT Central classifies Azure IoT Edge device types as follows:
 
 Now that you have an overview of Azure IoT Central, here are suggested next steps:
 
--  [Go here](./tutorial-define-edge-as-leaf-device-type-pnp.md) to Create Azure IoT Edge Device template
+-  [Create Azure IoT Edge Device template](./tutorial-define-edge-as-leaf-device-type-pnp.md)

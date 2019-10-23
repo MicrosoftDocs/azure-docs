@@ -17,7 +17,7 @@ manager: peterpr
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge device in your Azure IoT Central application. 
 
-To get an overview of Azure IoT Edge [refer this article](overview-iot-central-pnp-edge.md). 
+To get an overview of Azure IoT Edge, [refer this article](overview-iot-central-pnp-edge.md). 
 
 Azure IoT Edge is made up of three components:
 * **IoT Edge modules** are containers that run Azure services, third-party services, or your own code. Modules are deployed to IoT Edge devices and execute locally on those devices.
@@ -152,11 +152,11 @@ You will be presented with a file selection dialog. Select the deployment manife
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/deploymentmanifestupload.png)
 
-Deployment Manifest file will be validated against a schema. After successful validation click on **Review** button.
+Deployment Manifest file will be validated against a schema. After successful validation click on **Review** button
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/deploymentmanifestvalidate.png)
 
-Review page is displayed with details of the deployment manifest. List of modules from the deployment manifest will be displayed on the review page. In this tutorial you will see SimulatedTemperatureSensor module listed. Click **Create** button.
+Review page is displayed with details of the deployment manifest. List of modules from the deployment manifest will be displayed on the review page. In this tutorial, you will see SimulatedTemperatureSensor module listed. Click **Create** button.
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatereview.png)
 
@@ -164,7 +164,7 @@ Creating a new device template spinner will be displayed which the device templa
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatecreatingtemplate.png)
 
-Device template is created with module capability models. In this tutorial you will see SimulatedTemperatureSensor module capability model create. 
+Device template is created with module capability models. In this tutorial, you will see SimulatedTemperatureSensor module capability model create. 
 
 Change title of the device template to Environment Sensor Device Template.
 
@@ -207,7 +207,7 @@ Add capabilities to SimulatedTemperatureSensor module which will reflect the abo
 
     ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplateaddcapability.png)
   
-* Add machine as an Object type since its a complex type
+* Add machine as an Object type since it's a complex type
   
     ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplatemachineobject.png)
 
@@ -215,7 +215,7 @@ Add capabilities to SimulatedTemperatureSensor module which will reflect the abo
   
     ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplatemachineattributes.png)
   
-* Add ambient as an Object type since its a complex type
+* Add ambient as an Object type since it's a complex type
 
     Click **Define**. In the popup modal change object name to ambient and create properties temperature, humidity and click **Apply**
   
