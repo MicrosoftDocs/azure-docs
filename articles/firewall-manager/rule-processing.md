@@ -4,7 +4,7 @@ description: Learn about Azure Firewall rule processing logic
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: victorh
 ---
@@ -19,7 +19,7 @@ Network rules are applied first, then application rules. The rules are terminati
 
 ## NAT rules
 
-Inbound connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Tutorial: Filter inbound traffic with Azure Firewall DNAT using the Azure portal](tutorial-firewall-dnat.md). DNAT rules are applied first. If a match is found, an implicit corresponding network rule to allow the translated traffic is added. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. No application rules are applied for these connections.
+Inbound connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Tutorial: Filter inbound traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). DNAT rules are applied first. If a match is found, an implicit corresponding network rule to allow the translated traffic is added. You can override this behavior by explicitly adding a network rule collection with deny rules that match the translated traffic. No application rules are applied for these connections.
 
 ## Inherited rules
 
