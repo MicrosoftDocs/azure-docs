@@ -33,7 +33,6 @@ Organizations must complete the steps in the article [Enable passwordless securi
 
 Organizations must meet the following software requirements.
 
-- Have at least one Domain Controller running the Windows Server Insider skip ahead build **or** have fully patched Windows Server 2016/2019 Domain Controllers.
 - Azure AD joined devices must be running Windows 10 version 1809 or higher
 - Hybrid Azure AD joined devices must be running Windows 10 Insider Build 18945 or newer
 - Upgrade to the latest version of [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect)

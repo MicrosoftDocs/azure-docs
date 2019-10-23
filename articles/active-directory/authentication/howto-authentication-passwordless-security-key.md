@@ -27,14 +27,15 @@ Users can authenticate to their Windows PC or authenticate in their web browser 
 
 | Device Type | Azure AD joined | Hybrid Azure AD joined |
 | --- | --- | --- |
-| Azure Multi-Factor Authentication | X | X |
-| Combined security information registration preview | X | X |
+| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
+| [Combined security information registration preview](concept-registration-mfa-sspr-combined.md) | X | X |
 | Compatible [FIDO2 security keys](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher | X | X |
-| Azure AD joined devices require Windows 10 version 1809 or higher | X |   |
-| Hybrid Azure AD joined devices require Windows 10 Insider Build 18945 or higher |   | X |
-| Microsoft Intune (Optional) | X | X |
-| Provisioning package (Optional) | X |   |
+| [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1809 or higher | X |   |
+| [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 Insider Build 18945 or higher |   | X |
+| Hybrid deployments require at least one Domain Controller running the Windows Server Insider skip ahead build. <br> **Or** have fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
+| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Optional) | X | X |
+| Provisioning package (Optional) | X | X |
 | Group Policy (Optional) |   | X |
 
 ### Known limitations
@@ -53,9 +54,14 @@ Hybrid Azure AD joined devices that you will be piloting with must be running Wi
 
 ## Enable security keys for Windows sign-in
 
-Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign-in.
+Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign-in based on their organization's requirements.
 
-### Enable credential provider with Intune
+- [Enable with Intune](#enable-credential-provider-with-intune)
+   - [Targeted Intune deployment](#enable-targeted-intune-deployment)
+- [Enable with a provisioning package](#enable-credential-provider-with-a-provisioning-package)
+- [Enable with Group Policy (Hybrid Azure AD joined devices only)](#enable-credential-provider-with-group-policy)
+
+### Enable with Intune
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**.
@@ -63,7 +69,7 @@ Organizations may choose to use one or more of the following methods to enable t
 
 Configuration of security keys for sign-in, is not dependent on configuring Windows Hello for Business.
 
-#### Enable targeted Intune deployment
+#### Targeted Intune deployment
 
 To target specific device groups to enable the credential provider, use the following custom settings via Intune.
 
@@ -83,7 +89,7 @@ To target specific device groups to enable the credential provider, use the foll
 
 ![Intune custom device configuration policy creation](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
-### Enable credential provider with a provisioning package
+### Enable with a provisioning package
 
 For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22).
 
@@ -104,7 +110,7 @@ For devices not managed by Intune, a provisioning package can be installed to en
 1. Save the two files created (ppkg and cat) to a location where you can apply them to machines later.
 1. Follow the guidance in the article [Apply a provisioning package](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package), to apply the provisioning package you created.
 
-### Enable credential provider with Group Policy
+### Enable with Group Policy
 
 You can configure the following Group Policy settings to enable FIDO security key sign-in **only for hybrid Azure AD joined devices** in your enterprise.
 
@@ -194,7 +200,7 @@ We are working on supporting a feature that allows UPN change on hybrid AADJ and
 
 ## Next steps
 
-[Enable access to on-premises resources for Azure AD and hybrid Azure AD devices]()
+[Enable access to on-premises resources for Azure AD and hybrid Azure AD devices](howto-authentication-passwordless-on-premises.md)
 
 [Learn more about device registration](../devices/overview.md)
 
