@@ -14,35 +14,44 @@ ms.subservice: common
 
 # Azure Storage security guide
 
-Azure Storage provides a comprehensive set of security capabilities that together enable developers to build secure applications:
+Azure Storage provides a comprehensive set of security capabilities that together enable organizations to build and deploy secure applications:
 
 - All data (including metadata) written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for Azure Storage for both resource management operations and data operations, as follows:   
     - You can assign RBAC roles scoped to the storage account to security principals and use Azure AD to authorize resource management operations such as key management.
     - Azure AD integration is supported for blob and queue data operations. You can assign RBAC roles scoped to a subscription, resource group, storage account, or an individual container or queue to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).   
 - Data can be secured in transit between an application and Azure by using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
-- OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
-- Delegated access to the data objects in Azure Storage can be granted using a shared access signature. For more information, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md).
+- OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
+- Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
 
 This article provides an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
 
-Here are the topics to be covered in this article:
+Here are the topics covered in this article:
 
-* [Management Plane Security](#management-plane-security) – Securing your Storage Account
+* [Management Plane Security](#management-plane-security) – Securing resource-level access to your Storage Account
 
-  The management plane consists of the resources used to manage your storage account. This section covers the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. It also addresses managing your storage account keys and how to regenerate them.
-* [Data Plane Security](#data-plane-security) – Securing Access to Your Data
+  The management plane consists of the operations used to manage your storage account. This section covers the Azure Resource Manager deployment model and how to use Role-Based Access Control (RBAC) to control access to your storage accounts. It also addresses managing your storage account keys and how to regenerate them.
+
+* [Network Security](#network-security) - Securing network-level access to your Storage Account
+
+  This section covers how you can secure the network-level access to the storage services endpoints. It describes how you can use the storage firewall to allow access to your data from specific virtual networks or IP address ranges. It also covers the use of service endpoints and private endpoints with storage accounts.
+
+* [Authorizaton](#authorization) – Authorizing access to your data
 
   In this section, we'll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We'll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
+
 * [Encryption in Transit](#encryption-in-transit)
 
   This section discusses how to secure data when you transfer it into or out of Azure Storage. We'll talk about the recommended use of HTTPS and the encryption used by SMB 3.0 for Azure file shares. We will also take a look at Client-side Encryption, which enables you to encrypt the data before it is transferred into Storage in a client application, and to decrypt the data after it is transferred out of Storage.
+
 * [Encryption at Rest](#encryption-at-rest)
 
   We will talk about Storage Service Encryption (SSE), which is now automatically enabled for new and existing storage accounts. We will also look at how you can use Azure Disk Encryption and explore the basic differences and cases of Disk Encryption versus SSE versus Client-Side Encryption. We will briefly look at FIPS compliance for U.S. Government computers.
+
 * Using [Storage Analytics](#storage-analytics) to audit access of Azure Storage
 
   This section discusses how to find information in the storage analytics logs for a request. We'll take a look at real storage analytics log data and see how to discern whether a request is made with the Storage account key, with a Shared Access signature, or anonymously, and whether it succeeded or failed.
+
 * [Enabling Browser-Based Clients using CORS](#cross-origin-resource-sharing-cors)
 
   This section talks about how to allow cross-origin resource sharing (CORS). We'll talk about cross-domain access, and how to handle it with the CORS capabilities built into Azure Storage.
@@ -147,7 +156,35 @@ Another advantage of using Azure Key Vault is you can also control access to you
 * [Manage storage account settings in the Azure portal](storage-account-manage.md)
 * [Azure Storage Resource Provider REST API Reference](https://msdn.microsoft.com/library/mt163683.aspx)
 
-## Data Plane Security
+## Network Security
+Network Security enables you to restrict access to the data in an Azure Storage Account from specific networks. The Azure Storage firewall enables you to restrict access to clients from specific public IP address ranges, specific virtual networks (VNets) on Azure, or for specific instances of select Azure resource types.
+
+You can configure these network rules through the [Firewalls and Virtual Networks](storage-network-security.md) tab for the storage account in the Azure portal, to limit access to the storage account through its public endpoint. Using the storage firewall, you can deny access to the storage account for public internet traffic, and grant access only to select clients based on the the configured network rules.
+
+In addition, Azure Storage also provides the option of using [Private Endpoints](../../private-link/private-endpoint-overview.md) to privately and securely connect to a storage account from a VNet using [Private Links](../../private-link/private-link-overview.md).
+
+Storage firewall rules only apply to the public endpoint for the storage account. Subnets that host a private endpoint for a storage account have implicit access to the account by virtue of the approval granted when creating the private endpoint. 
+
+> [!NOTE]
+> The storage firewall rules are not applicable to storage management operations conducted through the Azure portal and the Azure Storage Management API.
+
+### Access rules for public IP address ranges
+The Azure storage firewall can be used to restrict access to a storage account from specific public IP address ranges. This ability can be used to restrict access to specific internet-based services communicating on a fixed public IP endpoint, or to select on-premises networks.
+
+### Access rules for Azure virtual networks
+Storage accounts, by default, accept connections from clients on any network. You can restrict the client access to the data in a storage account to selected networks using the storage firewall. [Service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md) enable routing of traffic from an Azure virtual network to the storage account. 
+
+### Granting access to specific trusted resource instances
+A [subset of Azure trusted services](storage-network-security.md#trusted-microsoft-services) can access storage accounts through the firewall with strong authentication based on their resource type, or the resource instance.
+
+For select services that support resource instance-based access, only the designated instance can access the data in the storage account through the firewall. The resource instance authentication in this case requires system-assigned [managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
+
+### Using private endpoints for securing connections
+Azure Storage supports private endpoints, which enables secure access of storage account from an Azure virtual network. Private endpoints assigns a private IP address from your VNet to the storage service. The traffic destined for the storage account is redirected to the private IP address, and then routed to the storage account over a private link. This allows you to block exfiltration of data from your VNet.
+
+On-premises networks connected over VPN or [ExpressRoutes](../../expressoute/expressroute-locations.md) private peering and other peered virtual networks can also access the storage account over the private endpoint. Private endpoints in VNets can be created for storage accounts in any region, enabling a secure global reach. You can also create private endpoints for storage accounts in other [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenants.
+
+## Authorization
 Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about controlling access to the objects?
 
 You have three options for authorizing access to data objects in Azure Storage, including:
@@ -157,8 +194,6 @@ You have three options for authorizing access to data objects in Azure Storage, 
 - Using Shared Access Signatures to grant controlled permissions to specific data objects for a specific amount of time.
 
 In addition, for Blob Storage, you can allow public access to your blobs by setting the access level for the container that holds the blobs accordingly. If you set access for a container to Blob or Container, it will allow public read access for the blobs in that container. This means anyone with a URL pointing to a blob in that container can open it in a browser without using a Shared Access Signature or having the storage account keys.
-
-In addition to limiting access through authorization, you can also use [Firewalls and Virtual Networks](storage-network-security.md) to limit access to the storage account based on network rules.  This approach enables you deny access to public internet traffic, and to grant access only to specific Azure Virtual Networks or public internet IP address ranges.
 
 ### Storage Account Keys
 Storage account keys are 512-bit strings created by Azure that, along with the storage account name, can be used to access the data objects stored in the storage account.
@@ -234,6 +269,11 @@ For more detailed information on using Shared Access Signatures and Stored Acces
     This article provides examples of using a service-level SAS with blobs, queue messages, table ranges, and files.
   * [Constructing a service SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Constructing an account SAS](https://msdn.microsoft.com/library/mt584140.aspx)
+
+* This is a tutorial for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
+  * [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
+
+    This article includes an explanation of the SAS model, examples of Shared Access Signatures, and recommendations for the best practice use of SAS. Also discussed is the revocation of the permission granted.
 
 * Authentication
 
