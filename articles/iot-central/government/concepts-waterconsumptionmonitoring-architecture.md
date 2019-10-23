@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 title: Create a water quality monitoring app with IoT Central | Microsoft Docs
+=======
+title: Water consumption monitoring architecture - Azure IoT Central | Microsoft Docs
+>>>>>>> 3213adc4a1d8e4b21c68e9728aed69830157a4de
 description: Learn to build Create a water quality monitoring application using Azure IoT Central application templates.
 author: miriambrus
 ms.author: miriamb
@@ -8,6 +12,7 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: aabjork
+<<<<<<< HEAD
 ---
 
 # Water consumption monitoring reference architecture 
@@ -50,3 +55,6 @@ The IoT data can be used to power a variety of business applications within a wa
 * Learn how to [create a water consumption](tba) IoT Central application
 * Learn more about [IoT Central government templates](tba)
 * To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
+=======
+---
+>>>>>>> 3213adc4a1d8e4b21c68e9728aed69830157a4de
