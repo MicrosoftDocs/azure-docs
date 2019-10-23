@@ -18,11 +18,6 @@ Tips for using T-SQL views in Azure SQL on-demand for developing solutions.
 Views can be used in a number of different ways to improve the quality of your solution.  This article highlights a few examples of how to enrich your solution with views, as well as the limitations that need to be considered.
 
 
-> [!IMPORTANT]
-> See the new materialized view syntax at [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  For more information, see the [release notes](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
->
-
-
 > [!NOTE]
 > Syntax for CREATE VIEW is not discussed in this article. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentation.
 > 
