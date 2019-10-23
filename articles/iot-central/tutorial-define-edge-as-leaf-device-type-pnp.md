@@ -154,6 +154,10 @@ Deployment Manifest file will be validated against a schema. After successful va
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/deploymentmanifestvalidate.png)
 
+Below is the flow of a Deployment Manifest life cycle in IoT Central.
+
+![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/dmflow.png)
+
 Review page is displayed with details of the deployment manifest. List of modules from the deployment manifest will be displayed on the review page. In this tutorial, you will see SimulatedTemperatureSensor module listed. Click **Create** button.
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatereview.png)
