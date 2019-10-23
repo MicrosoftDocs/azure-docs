@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 10/23/2019
 ms.author: danlep
 ---
 
@@ -181,7 +181,7 @@ az acr run -f build-hello-world.yaml https://github.com/AzureCR/acr-tasks-sample
 ```yml
 version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile ./subDirectory
+  - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
 
 ## push
@@ -196,7 +196,7 @@ The `push` step type supports a collection of images. YAML collection syntax sup
 version: v1.1.0
 steps:
   # Inline YAML collection syntax
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 For increased readability, use nested syntax when pushing multiple images:
@@ -206,8 +206,8 @@ version: v1.1.0
 steps:
   # Nested YAML collection syntax
   - push:
-    - {{.Run.Registry}}/hello-world:{{.Run.ID}}
-    - {{.Run.Registry}}/hello-world:latest
+    - $Registry/hello-world:$ID
+    - $Registry/hello-world:latest
 ```
 
 ### Properties: push
@@ -333,26 +333,24 @@ steps:
 
 By using the standard `docker run` image reference convention, `cmd` can run images from any private registry or the public Docker Hub. If you're referencing images in the same registry in which ACR Task is executing, you don't need to specify any registry credentials.
 
-* Run an image that's from an Azure container registry
-
-    Replace `[myregistry]` with the name of your registry:
+* Run an image that's from an Azure container registry. The following example assumes you have a registry named `myregistry`, and a custom image `myimage:mytag`.
 
     ```yml
     version: v1.1.0
     steps:
-        - cmd: [myregistry].azurecr.io/bash:3.0 echo hello world
+        - cmd: myregistry.azurecr.io/myimage:mytag
     ```
 
-* Generalize the registry reference with a Run variable
+* Generalize the registry reference with a Run variable or alias
 
-    Instead of hard-coding your registry name in an `acr-task.yaml` file, you can make it more portable by using a [Run variable](#run-variables). The `Run.Registry` variable expands at runtime to the name of the registry in which the task is executing.
+    Instead of hard-coding your registry name in an `acr-task.yaml` file, you can make it more portable by using a [Run variable](#run-variables) or [alias](#aliases). The `Run.Registry` variable or `$Registry` alias expands at runtime to the name of the registry in which the task is executing.
 
-    To generalize the preceding task so that it works in any Azure container registry, reference the [Run.Registry](#runregistry) variable in the image name:
+    For example, to generalize the preceding task so that it works in any Azure container registry, reference the $Registry variable in the image name:
 
     ```yml
     version: v1.1.0
     steps:
-      - cmd: {{.Run.Registry}}/bash:3.0 echo hello world
+      - cmd: $Registry/myimage:mytag
     ```
 
 ## Task step properties
@@ -455,19 +453,20 @@ ACR Tasks includes a default set of variables that are available to task steps w
 * `Run.Architecture`
 * `Run.Commit`
 * `Run.Branch`
+* `Run.TaskName`
 
-The variable names are generally self-explanatory. Details follows for commonly used variables.
+The variable names are generally self-explanatory. Details follows for commonly used variables. As of YAML version `v1.1.0`, you can use an abbreviated, predefined [task alias](#aliases) in place of most run variables. For example, in place of `{{.Run.Registry}}`, use the `$Registry` alias.
 
 ### Run.ID
 
-Each Run, through `az acr run`, or trigger based execution of tasks created through `az acr task create` have a unique ID. The ID represents the Run currently being executed.
+Each Run, through `az acr run`, or trigger based execution of tasks created through `az acr task create`, has a unique ID. The ID represents the Run currently being executed.
 
 Typically used for a uniquely tagging an image:
 
 ```yml
 version: v1.1.0
 steps:
-    - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    - build: -t $Registry/hello-world:$ID .
 ```
 
 ### Run.Registry
@@ -477,7 +476,7 @@ The fully qualified server name of the registry. Typically used to generically r
 ```yml
 version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+  - build: -t $Registry/hello-world:$ID .
 ```
 
 ### Run.RegistryName
@@ -488,8 +487,8 @@ The name of the container registry. Typically used in task steps that don't requ
 version 1.1.0
 steps:
 # List repositories in registry
-- cmd: "mcr.microsoft.com/azure-cli az login --identity"
-- cmd: "mcr.microsoft.com/azure-cli az acr repository list --name {{.Run.RegistryName}}"
+- cmd: az login --identity
+- cmd: az acr repository list --name $RegistryName
 ```
 
 ### Run.Date
@@ -514,7 +513,7 @@ ACR Tasks supports several predefined aliases and also custom aliases you create
 
 ### Predefined aliases
 
-The following task aliases are available to use in place of run variables:
+The following task aliases are available to use in place of [run variables](#run-variables):
 
 | Alias | Run variable |
 | ----- | ------------ |
@@ -543,7 +542,6 @@ Each of the following aliases points to a stable image in Microsoft Container Re
 | Alias | Image |
 | ----- | ----- |
 | `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
-| `purge` | `mcr.microsoft.com/acr/acr-cli:0.1 purge` |
 | `az` | `mcr.microsoft.com/acr/azure-cli:d0725bc` |
 | `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
 | `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
@@ -554,7 +552,7 @@ The following example task uses several aliases to [purge](container-registry-au
 version: v1.1.0
 steps:
   - cmd: acr tag list --registry $RegistryName --repository samples/hello-world
-  - cmd: purge --registry $RegistryName --filter samples/hello-world:.* --ago 7d
+  - cmd: acr purge --registry $RegistryName --filter samples/hello-world:.* --ago 7d
 ```
 
 ### Custom alias
