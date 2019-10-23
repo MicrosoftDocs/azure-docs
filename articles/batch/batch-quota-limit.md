@@ -11,9 +11,8 @@ ms.assetid: 28998df4-8693-431d-b6ad-974c2f8db5fb
 ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ms.custom: seodec18
 
@@ -50,7 +49,7 @@ Pool size limits are set by the Batch service. Unlike [resource quotas](#resourc
 | **Compute nodes in [inter-node communication enabled pool](batch-mpi.md)**  ||
 | Batch service pool allocation mode | 100 |
 | Batch subscription pool allocation mode | 80 |
-| **Compute nodes in [pool created with custom VM image](batch-custom-images.md)**<sup>1</sup> ||
+| **Compute nodes in [pool created with a managed image resource](batch-custom-images.md)**<sup>1</sup> ||
 | Dedicated nodes | 2000 |
 | Low-priority nodes | 1000 |
 
@@ -67,6 +66,7 @@ Additional limits set by the Batch service. Unlike [resource quotas](#resource-q
 | Application packages per application | 40 |
 | Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |
+| [Mounts](virtual-file-mount.md) per compute node | 10 |
 
 <sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for seven days; data for tasks not completed within the maximum lifetime is not accessible.
 

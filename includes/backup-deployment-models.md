@@ -1,9 +1,9 @@
 ---
-author: rayne-wiselman
+author: dcurwin
 ms.service: backup
 ms.topic: include
 ms.date: 11/09/2018	
-ms.author: raynew
+ms.author: dacurwin
 ---
 The Azure Backup service had two types of vaults - the Backup vault and the Recovery Services vault. The Backup vault came first. Then the Recovery Services vault came along to support the expanded Resource Manager deployments. Microsoft recommends using Resource Manager deployments unless you specifically require a Classic deployment. By the end of 2017, all Backup vaults were converted to Recovery Services vaults.
 

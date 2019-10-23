@@ -4,7 +4,7 @@ description: Learn how to Troubleshoot the connectivity problems between Azure V
 services: virtual-network
 documentationcenter: na
 author: chadmath
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 

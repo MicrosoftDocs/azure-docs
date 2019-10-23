@@ -22,7 +22,7 @@ At a high level, implementing RBAC requires three components:
 
 ![RBAC-Overview](media/rbac-overview.png)
 
-* **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals, or a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
+* **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals](https://docs.microsoft.com/en-us/azure/active-directory/develop/app-objects-and-service-principals), or a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
 
 * **Role Definitions**: A Role Definition, also referred to as a Role, is a collection of permissions. These permissions define the operations that can be performed by the Security Principals assigned to the Role Definition. This functionality is provided by Azure Resource Roles and Azure Active Directory Administrator Roles. Azure comes with a set of built-in roles (link) which can be augmented with custom roles.
 

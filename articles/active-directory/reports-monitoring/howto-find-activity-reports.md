@@ -110,13 +110,13 @@ You can use the sign-ins report to view details about application usage, by filt
 
 ### Anomalous activity reports
 
-Anomalous activity reports provide information on security-related risk events that Azure AD can detect and report on.
+Anomalous activity reports provide information on security-related risk detections that Azure AD can detect and report on.
 
-The following table lists the Azure AD anomalous activity security reports, and corresponding risk event types in the Azure portal. For more information, see
-[Azure Active Directory risk events](concept-risk-events.md).  
+The following table lists the Azure AD anomalous activity security reports, and corresponding risk detection types in the Azure portal. For more information, see
+[Azure Active Directory risk detections](concept-risk-events.md).  
 
 
-| Azure AD anomalous activity report |  Identity protection risk event type|
+| Azure AD anomalous activity report |  Identity protection risk detection type|
 | :--- | :--- |
 | Users with leaked credentials | Leaked credentials |
 | Irregular sign-in activity | Impossible travel to atypical locations |
@@ -125,15 +125,15 @@ The following table lists the Azure AD anomalous activity security reports, and 
 | Sign-ins from IP addresses with suspicious activity | Sign-ins from IP addresses with suspicious activity |
 | - | Sign-ins from unfamiliar locations |
 
-The following Azure AD anomalous activity security reports are not included as risk events in the Azure portal:
+The following Azure AD anomalous activity security reports are not included as risk detections in the Azure portal:
 
 * Sign-ins after multiple failures
 * Sign-ins from multiple geographies
 
 
-### Detected risk events
+### Detected risk detections
 
-You can access reports about detected risk events in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk events are tracked in the following reports:   
+You can access reports about detected risk detections in the **Security** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). Detected risk detections are tracked in the following reports:   
 
 - [Users at risk](concept-user-at-risk.md)
 - [Risky sign-ins](concept-risky-sign-ins.md)

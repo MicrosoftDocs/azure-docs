@@ -17,7 +17,7 @@ ms.author: jingwang
 
 # Store credential in Azure Key Vault
 
-You can store credentials for data stores and computes in an [Azure Key Vault](../key-vault/key-vault-whatis.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store/compute.
+You can store credentials for data stores and computes in an [Azure Key Vault](../key-vault/key-vault-overview.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store/compute.
 
 Currently, all activity types except custom activity support this feature. For connector configuration specifically, check the "linked service properties" section in [each connector topic](copy-activity-overview.md#supported-data-stores-and-formats) for details.
 
@@ -74,8 +74,8 @@ The following properties are supported when you configure a field in linked serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the field must be set to: **AzureKeyVaultSecret**. | Yes |
-| secretName | The name of secret in azure key vault. | Yes |
-| secretVersion | The version of secret in azure key vault.<br/>If not specified, it always uses the latest version of the secret.<br/>If specified, then it sticks to the given version.| No |
+| secretName | The name of secret in Azure Key Vault. | Yes |
+| secretVersion | The version of secret in Azure Key Vault.<br/>If not specified, it always uses the latest version of the secret.<br/>If specified, then it sticks to the given version.| No |
 | store | Refers to an Azure Key Vault linked service that you use to store the credential. | Yes |
 
 **Using authoring UI:**

@@ -1,11 +1,11 @@
 ---
 title: Learn how to secure access to data in Azure Cosmos DB
 description: Learn about access control concepts in Azure Cosmos DB, including master keys, read-only keys, users, and permissions.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
 
 ---
 # Secure access to data in Azure Cosmos DB
@@ -100,7 +100,7 @@ For an example of a middle tier service used to generate or broker resource toke
 <a id="users"></a>
 
 ## Users
-Cosmos DB users are associated with a Cosmos DB database.  Each database can contain zero or more Cosmos DB users.  The following code sample shows how to create a Cosmos DB user resource.
+Cosmos DB users are associated with a Cosmos database.  Each database can contain zero or more Cosmos DB users.  The following code sample shows how to create a Cosmos DB user resource.
 
 ```csharp
 //Create a user.
@@ -189,5 +189,5 @@ Each multi-model API (SQL, MongoDB, Gremlin, Cassandra, Table) provides differen
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## Next steps
-* To learn more about Cosmos DB database security, see [Cosmos DB: Database security](database-security.md).
+* To learn more about Cosmos database security, see [Cosmos DB: Database security](database-security.md).
 * To learn how to construct Azure Cosmos DB authorization tokens, see [Access Control on Azure Cosmos DB Resources](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

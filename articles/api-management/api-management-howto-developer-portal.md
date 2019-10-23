@@ -10,7 +10,6 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
@@ -83,6 +82,14 @@ Great! You can provide us feedback, submit a feature request, or file a bug repo
 You can do so in both portal versions - managed and self-hosted. The new developer portal supports extracting content through the management API of your API Management service. The APIs are documented [in the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki/). We have also written [a script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), which might help you get started.
 
 We're still working on aligning this process with the API Management DevOps resource kit.
+
+### What do I need to configure for the new portal to work in my API Management service in VNET?
+
+While the new developer portal is in preview, you need to allow connectivity to Azure storage services in the West US region in order to make the managed portal work in an API Management service in VNET. More information is provided in the [storage documentation](../storage/common/storage-network-security.md#available-virtual-network-regions).
+
+The above setup will no longer be necessary after the new portal becomes generally available.
+
+The self-hosted version of the portal may require additional connectivity configuration, depending on your setup.
 
 ### How can I select a *layout* when creating a new *page*?
 

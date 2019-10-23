@@ -40,6 +40,8 @@ The frequency of Traffic view data update depends on multiple internal service v
 
 When you navigate to the **Traffic View** section in your Traffic Manager page, you are presented with a geographical map with an overlay of Traffic View insights. The map provides information about the user base and endpoints for your Traffic Manager profile.
 
+![Traffic Manager Traffic View Geographic view][1]
+
 ### User base information
 
 For those local DNS resolvers for which location information is available, they are shown in the map. The color of the DNS resolver denotes the average latency experienced by end users who used that DNS resolver for their Traffic Manager queries.
@@ -89,3 +91,5 @@ When you use Traffic View, you are billed based on the number of data points use
 - Learn more about the [traffic-routing methods](traffic-manager-routing-methods.md) supported by Traffic Manager
 - Learn how to [create a Traffic Manager profile](traffic-manager-create-profile.md)
 
+<!--Image references-->
+[1]: ./media/traffic-manager-traffic-view-overview/trafficview.png

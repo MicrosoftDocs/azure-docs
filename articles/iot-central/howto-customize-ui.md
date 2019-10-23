@@ -3,7 +3,7 @@ title: Customize the Azure IoT Central UI | Microsoft Docs
 description: How to customize the theme and help links for your Azure IoT central application
 author: dominicbetts
 ms.author: dobett
-ms.date: 04/25/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -13,10 +13,11 @@ manager: philmea
 
 ---
 
-# Customize the Azure IoT Central UI 
+# Customize the Azure IoT Central UI
 
-This article describes how, as an administrator, you can 
-customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources. 
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+
+This article describes how, as an administrator, you can customize the UI of your application by applying custom themes and modifying the help links to point to your own custom help resources.
 
 The following screenshot shows a page using the standard theme:
 

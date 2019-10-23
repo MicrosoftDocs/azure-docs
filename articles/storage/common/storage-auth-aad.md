@@ -5,7 +5,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
@@ -30,7 +30,7 @@ The authorization step requires that one or more RBAC roles be assigned to the s
 
 Native applications and web applications that make requests to the Azure Blob or Queue service can also authorize access with Azure AD. To learn how to request an access token and use it to authorize requests for blob or queue data, see [Authorize access to Azure Storage with Azure AD from an Azure Storage application](storage-auth-aad-app.md).
 
-## Assigning RBAC roles for access rights
+## Assign RBAC roles for access rights
 
 Azure Active Directory (Azure AD) authorizes access rights to secured resources through [role-based access control (RBAC)](../../role-based-access-control/overview.md). Azure Storage defines a set of built-in RBAC roles that encompass common sets of permissions used to access blob and queue data. You can also define custom roles for access to blob and queue data.
 
@@ -50,7 +50,7 @@ For more information about how built-in roles are defined for Azure Storage, see
 
 ### Access permissions for data operations
 
-For details on the permissions required to call specific Blob or Queue service operations, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
+For details on the permissions required to call specific Blob or Queue service operations, see [Permissions for calling blob and queue data operations](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations).
 
 ## Resource scope
 
@@ -81,5 +81,5 @@ Azure Files supports authorization with Azure AD over SMB for domain-joined VMs 
 ## Next steps
 
 - [Authorize access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)
-- [Authenticate with Azure Active Directory from an application for access to blobs and queues](storage-auth-aad-app.md)
+- [Authorize with Azure Active Directory from an application for access to blobs and queues](storage-auth-aad-app.md)
 - [Azure Storage support for Azure Active Directory based access control generally available](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)

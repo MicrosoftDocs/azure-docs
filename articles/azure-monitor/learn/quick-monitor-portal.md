@@ -46,7 +46,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 4. Select your subscription and click **Register**.
 
-5. Run your application by either selecting **Start Debugging** from the **Debug** menu or by pressing the
+5. Select **Project** > **Manage NuGet Packages** > **Package source: nuget.org** > **Update** the Application Insights SDK packages to the latest stable release.
+
+6. Run your application by either selecting **Start Debugging** from the **Debug** menu or by pressing the
   F5 key.
 
 ## Confirm app configuration

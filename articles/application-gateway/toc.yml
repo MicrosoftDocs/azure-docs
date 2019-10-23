@@ -81,8 +81,10 @@
     items:
     - name: Health probe
       href: application-gateway-probe-overview.md
-    - name: Diagnostics
+    - name: Diagnostic logs and backend health
       href: application-gateway-diagnostics.md
+    - name: Metrics
+      href: application-gateway-metrics.md
   - name: App service webapp and multi-tenant support
     href: application-gateway-web-app-overview.md
   - name: WebSocket support
@@ -225,6 +227,8 @@
         href: resource-health-overview.md
       - name: Use Log Analytics
         href: log-analytics.md
+      - name: Backend health issues
+        href: application-gateway-backend-health-troubleshooting.md
   - name: Migrate from v1 to v2
     href: migrate-v1-v2.md
 - name: Reference

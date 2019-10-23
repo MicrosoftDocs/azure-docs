@@ -13,8 +13,13 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
+<<<<<<< HEAD
 ms.topic: article
 ms.date: 07/12/2019
+=======
+ms.topic: conceptual
+ms.date: 10/01/2019
+>>>>>>> 41f897b7eae22cfc877aa7962c23fa6675677071
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -61,9 +66,8 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 | **Persistent** | Azure AD will use Persistent as the NameID format. |
 | **EmailAddress** | Azure AD will use EmailAddress as the NameID format. |
 | **Unspecified** | Azure AD will use Unspecified as the NameID format. |
-| **Transient** | Azure AD will use Transient as the NameID format. |
 
-To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
+Transient NameID is also supported, but is not available in the dropdown and cannot be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
 ### Attributes
 
@@ -80,6 +84,31 @@ Select the desired source for the `NameIdentifier` (or NameID) claim. You can se
 | Extension Attributes 1-15 | On-premises extension attributes used to extend the Azure AD schema |
 
 For more info, see [Table 3: Valid ID values per source](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
+
+You can also assign any constant (static) value to any claims which you define in Azure AD. Please follow the below steps to assign a constant value:
+
+1. In the [Azure portal](https://portal.azure.com/), on the **User Attributes & Claims** section, click on the **Edit** icon to edit the claims.
+
+1. Click on the required claim which you want to modify.
+
+1. Enter the constant value without quotes in the **Source attribute** as per your organization and click **Save**.
+
+    ![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/organization-attribute.png)
+
+1. The constant value will be displayed as below.
+
+    ![Open the User Attributes & Claims section in the Azure portal](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+
+### Special claims - Transformations
+
+You can also use the claims transformations functions.
+
+| Function | Description |
+|----------|-------------|
+| **ExtractMailPrefix()** | Removes the domain suffix from either the email address or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
+| **Join()** | Joins an attribute with a verified domain. If the selected user identifier value has a domain, it will extract the username to append the selected verified domain. For example, if you select the email (joe_smith@contoso.com) as the user identifier value and select contoso.onmicrosoft.com as the verified domain, this will result in joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Converts the characters of the selected attribute into lowercase characters. |
+| **ToUpper()** | Converts the characters of the selected attribute into uppercase characters. |
 
 ## Adding application-specific claims
 

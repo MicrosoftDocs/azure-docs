@@ -40,14 +40,7 @@ Phrase lists are not linked to a specific intent or entity but are added as a si
 
 Once you've entered a few words or phrases, use the **Recommend** feature to find related values. Review the related values before adding to your phrase list values.
 
-|List type|Purpose|
-|--|--|
-|Interchangeable|Synonyms or words that, when changed to another word in the list, have the same intent, and entity extraction.|
-|Non-interchangeable|App vocabulary, specific to your app, more so than generally other words in that language.|
-
-### Interchangeable lists
-
-An *interchangeable* phrase list is for values that are synonyms. For example, if you want all bodies of water found and you have example utterances such as: 
+An phrase list is for values that are synonyms. For example, if you want all bodies of water found and you have example utterances such as: 
 
 * What cities are close to the Great Lakes? 
 * What road runs along Lake Havasu?
@@ -59,17 +52,7 @@ Each utterance should be determined for both intent and entities regardless of b
 * What road runs along [bodyOfWater]?
 * Where does the [bodyOfWater] start and end? 
 
-Because the words or phrases for the body of water are synonymous and can be used interchangeably in the utterances, use the **Interchangeable** setting on the phrase list. 
-
-### Non-interchangeable lists
-
-A non-interchangeable phrase list is a signal that boosts detection to LUIS. The phrase list indicates words or phrases that are more significant that other words. This helps with both determining intent and entity detection. For example, say you have a subject domain like travel that is global (meaning across cultures but still in a single language). There are words and phrases that are important to the app but are not synonymous. 
-
-For another example, use a non-interchangeable phrase list for rare, proprietary, and foreign words. LUIS may be unable to recognize rare and proprietary words, as well as foreign words (outside of the culture of the app). The non-interchangeable setting indicates that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.
-
-Do not add every possible word or phrase to a phrase list, add a few words or phrases at a time, then retrain and publish. 
-
-As the phrase list grows over time, you may find some terms have many forms (synonyms). Break these out into another phrase list that is interchangeable. 
+Because the words or phrases for the body of water are synonymous and can be used interchangeably in the utterances. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

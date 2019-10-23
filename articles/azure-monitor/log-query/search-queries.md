@@ -46,7 +46,7 @@ search in (Event, SecurityEvent) "error"
 ```
 
 ### Table and column scoping
-By default, **search** will evaluate all columns in the data set. To search only a specific column, use this syntax:
+By default, **search** will evaluate all columns in the data set. To search only a specific column (named *Source* in the below example), use this syntax:
 
 ```Kusto
 search in (Event) Source:"error"

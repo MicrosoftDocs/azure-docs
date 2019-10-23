@@ -5,8 +5,9 @@ services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 4/29/2019
+ms.date: 08/21/2019
 ---
 # Azure HDInsight Accelerated Writes for Apache HBase
 
@@ -47,6 +48,12 @@ flush 'mytable'
 ```
 disable 'mytable'
 ```
+
+Follow similar steps when scaling down your cluster: flush your tables and disable your tables to stop incoming data. You can't scale down your cluster to less than three nodes.
+
+Following these steps will ensure a successful scale-down and avoid the possibility of a namenode going into safe mode due to under-replicated or temporary files.
+
+If your namenode does go into safemode after a scale down, use hdfs commands to re-replicate the under-replicated blocks and get hdfs out of safe mode. This re-replication will allow you to restart HBase successfully.
 
 ## Next steps
 

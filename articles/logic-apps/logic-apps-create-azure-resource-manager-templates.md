@@ -78,10 +78,10 @@ When you run the `Get-LogicAppTemplate` command with this tool, the command firs
 
 ### Generate template with PowerShell
 
-To generate your template after installing the LogicAppTemplate module, run this PowerShell command:
+To generate your template after installing the LogicAppTemplate module and [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), run this PowerShell command:
 
 ```text
-PS> Get-LogicAppTemplate
+PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
 To follow the recommendation for piping in a token from the [Azure Resource Manager client tool](https://github.com/projectkudu/ARMClient), run this command instead where `$SubscriptionId` is your Azure subscription ID:

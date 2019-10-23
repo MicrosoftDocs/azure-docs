@@ -4,7 +4,7 @@ description: Learn about access control lists in Azure
 services: virtual-network
 documentationcenter: na
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: azure-service-management
 

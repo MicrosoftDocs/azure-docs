@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 09/05/2019
 ms.author: spelluru
 
 ---
@@ -28,6 +28,9 @@ DevTest Labs now supports the [Shared Image Gallery](../virtual-machines/windows
 For more information, see [Shared Image Gallery documentation](../virtual-machines/windows/shared-image-galleries.md). 
  
 If you have a large number of managed images that you need to maintain and would like to make them available throughout your company, you can use a shared image gallery as a repository that makes it easy to update and share your images. As a lab owner, you can attach an existing shared image gallery to your lab. Once this gallery is attached, lab users can create machines from these latest images. A key benefit of this feature is that DevTest Labs can now take the advantage of sharing images across labs, across subscriptions, and across regions. 
+
+> [!NOTE]
+> To learn about costs associated with the Shared Image Gallery service, see [Billing for Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md#billing).
 
 ## Considerations
 - You can only attach one shared image gallery to a lab at a time. If you would like to attach another gallery, you'll need to detach the existing one and attach another. 

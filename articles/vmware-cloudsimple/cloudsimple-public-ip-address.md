@@ -1,9 +1,9 @@
 ---
-title: VMware Solution by CloudSimple - Azure Public IP address  
-description: Learn about public IP addresses and their benefits on VMware Solution by CloudSimple 
+title: Azure VMware Solution by CloudSimple - Public IP address  
+description: Learn about public IP addresses and their benefits on Azure VMware Solution by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 
-ms.date: 04/10/2019 
+ms.date: 08/20/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # CloudSimple public IP address overview
 
-A public IP address allows internet resources to communicate inbound, to private cloud resources at a private IP address. The private IP address is either a virtual machine or a software load balancer. The private IP address is on your private cloud vCenter. The public IP address allows you to expose services running on your private cloud to the internet.
+A public IP address allows internet resources to communicate inbound to Private Cloud resources at a private IP address. The private IP address is a virtual machine or a software load balancer on your Private Cloud vCenter. The public IP address allows you to expose services running on your Private Cloud to the internet.
 
 The public IP address is dedicated to the private IP address until you unassign it. A public IP address can only be assigned to one private IP address.
 
@@ -27,4 +27,4 @@ Using a public IP address to communicate inbound provides:
 
 ## Next steps
 
-* Learn how to [Allocate a public IP address](https://docs.azure.cloudsimple.com/public-ips/)
+* Learn how to [allocate a public IP address](public-ips.md)

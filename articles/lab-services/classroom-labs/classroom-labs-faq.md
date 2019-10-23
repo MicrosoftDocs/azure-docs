@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2019
+ms.date: 08/20/2019
 ms.author: spelluru
 
 ---
@@ -41,13 +41,13 @@ For example, if you have a block of /19 - 10.0.0.0/19, this address range accomm
 Subscribe to the [Azure Lab Services blog](https://azure.microsoft.com/blog/tag/azure-lab-services/).
 
 ## Update notifications
-Subscribe to [Lab Services updates](https://azure.microsoft.com/updates/?product=lab-services) to stay informed about new features in DevTest Labs.
+Subscribe to [Lab Services updates](https://azure.microsoft.com/updates/?product=lab-services) to stay informed about new features in Lab Services.
 
 ## General
 ### What if my question isn't answered here?
 If your question isn't listed here, let us know, so we can help you find an answer.
 
 - Post a question at the end of this FAQ. 
-- To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). 
-- For feature requests, submit your requests and ideas to [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
+- To reach a wider audience, post a question on the [Azure Lab Services - Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-lab-services). 
+- For feature requests, submit your requests and ideas to [Azure Lab Services - User Voice](https://feedback.azure.com/forums/320373-lab-services?category_id=352774).
 

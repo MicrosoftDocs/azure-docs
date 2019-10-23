@@ -4,7 +4,7 @@ description: Describes integrate Azure gateway RADIUS authentication with NPS se
 services: vpn-gateway
 documentationcenter: na
 author: ahmadnyasin  
-manager: willchen
+manager: dcscontentpm
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 09/16/2019
 ms.author: genli
 
 ---

@@ -94,8 +94,11 @@ Heartbeat
 | summarize percentiles(E2EIngestionLatency,50,95), percentiles(AgentLatency,50,95) by Computer 
 | top 20 by percentile_E2EIngestionLatency_95 desc
 ```
- 
-If you want to drill down on the ingestion time for a specific computer over a period of time, use the following query which also visualizes the data from the past day in a graph: 
+
+The preceding percentile checks are good for finding general trends in latency. To identify a short-term spike in latency, using the maximum (`max()`) might be more effective.
+
+If you want to drill down on the ingestion time for a specific computer over a period of time, use the following query, which also visualizes the data from the past day in a graph: 
+
 
 ``` Kusto
 Heartbeat 

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Graph for Azure Active Directory Identity Protection | Microsoft Docs
-description: Learn how to query Microsoft Graph for a list of risk events and associated information from Azure Active Directory.
+description: Learn how to query Microsoft Graph for a list of risk detections and associated information from Azure Active Directory.
 
 services: active-directory
 ms.service: active-directory
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Get started with Azure Active Directory Identity Protection and Microsoft Graph
 
-Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are four APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. The fourth API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk events](../reports-monitoring/concept-risk-events.md) and associated information. This article gets you started with connecting to the Microsoft Graph and querying these APIs. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
+Microsoft Graph is the Microsoft unified API endpoint and the home of [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) APIs. There are four APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. The second API, **riskyUsers**, allows you to query Microsoft Graph for information about users Identity Protection detected as risk. The third API, **signIn**, allows you to query Microsoft Graph for information on Azure AD sign-ins with specific properties related to risk state, detail, and level. The fourth API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk detections](../reports-monitoring/concept-risk-events.md) and associated information. This article gets you started with connecting to the Microsoft Graph and querying these APIs. For an in-depth introduction, full documentation, and access to the Graph Explorer, see the [Microsoft Graph site](https://graph.microsoft.io/) or the specific reference documentation for these APIs:
 
 * [riskDetection API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
@@ -65,7 +65,7 @@ Before you get started, you’ll need:
 
    ![Creating an application](./media/graph-get-started/44.png)
 
-   1. In the **Name** textbox, type a name for your application (for example: AADIP Risk Event API Application).
+   1. In the **Name** textbox, type a name for your application (for example: AADIP Risk Detection API Application).
 
    1. As **Type**, select **Web Application And / Or Web API**.
 
@@ -119,7 +119,7 @@ Before you get started, you’ll need:
 
    ![Creating an application](./media/graph-get-started/24.png)
 
-   1. In the **Key description** textbox, type a description (for example, *AADIP Risk Event*).
+   1. In the **Key description** textbox, type a description (for example, *AADIP Risk Detection*).
    1. As **Duration**, select **In 1 year**.
    1. Click **Save**.
    1. Copy the key value, and then paste it into a safe location.   
@@ -128,7 +128,7 @@ Before you get started, you’ll need:
    > If you lose this key, you will have to return to this section and create a new key. Keep this key a secret: anyone who has it can access your data.
    > 
 
-## Authenticate to Microsoft Graph and query the Identity Risk Events API
+## Authenticate to Microsoft Graph and query the Identity Risk Detections API
 
 At this point, you should have:
 
@@ -154,7 +154,7 @@ When authenticating, you can find the token type and access token in the returne
 
 Send this header as a request to the following API URL: `https://graph.microsoft.com/beta/identityRiskEvents`
 
-The response, if successful, is a collection of identity risk events and associated data in the OData JSON format, which can be parsed and handled as you see fit.
+The response, if successful, is a collection of identity risk detections and associated data in the OData JSON format, which can be parsed and handled as you see fit.
 
 Here’s sample code for authenticating and calling the API using PowerShell.  
 Just add your client ID, the secret key, and the tenant domain.
@@ -201,9 +201,9 @@ With Identity Protection sign-in risk policies you can apply conditions when ris
 GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
-### Get the high-risk and medium-risk events (identityRiskEvents API)
+### Get the high-risk and medium-risk detections (identityRiskEvents API)
 
-Medium and high-risk events represent those that may have the capability to trigger Identity Protection sign-in or user-risk policies. Since they have a medium or high likelihood that the user attempting to sign-in is not the legitimate identity owner, remediating these events should be a priority. 
+Medium and high-risk detections represent those that may have the capability to trigger Identity Protection sign-in or user-risk policies. Since they have a medium or high likelihood that the user attempting to sign-in is not the legitimate identity owner, remediating these events should be a priority. 
 
 ```
 GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
@@ -227,14 +227,14 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 ## Next steps
 
 Congratulations, you just made your first call to Microsoft Graph!  
-Now you can query identity risk events and use the data however you see fit.
+Now you can query identity risk detections and use the data however you see fit.
 
 To learn more about Microsoft Graph and how to build applications using the Graph API, check out the [documentation](https://docs.microsoft.com/graph/overview) and much more on the [Microsoft Graph site](https://developer.microsoft.com/graph). 
 
 For related information, see:
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-- [Types of risk events detected by Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
+- [Types of risk detections detected by Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Overview of Microsoft Graph](https://developer.microsoft.com/graph/docs)
 - [Azure AD Identity Protection Service Root](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)

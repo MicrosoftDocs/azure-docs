@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/07/2019
 ms.author: magoedte
 ---
 
@@ -33,6 +33,7 @@ When using the Log Analytics agents to collect data, you need to understand the 
 
 * To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
 * The Linux agent does not support multi-homing and can only report to a single workspace.
+* The Windows agent supports the [FIPS 140 standard](https://docs.microsoft.com/windows/security/threat-protection/fips-140-validation), while the Linux agent does not support it.  
 
 If you are using System Center Operations Manager 2012 R2 or later:
 
@@ -47,7 +48,7 @@ The agent for Linux and Windows isn't only for connecting to Azure Monitor, it a
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
 * Windows Server 2019
-* Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
+* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
 * Windows 7 SP1, Windows 8 Enterprise and Pro, and Windows 10 Enterprise and Pro
 
 >[!NOTE]
@@ -144,7 +145,7 @@ Connecting machines in your Azure subscription or hybrid environment directly wi
 
 |Source | Method | Description|
 |-------|-------------|-------------|
-|Azure VM| - Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md) using Azure CLI or with an Azure Resource Manager template<br>- [Manually from the Azure portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | The extension installs the Log Analytics agent on Azure virtual machines and enrolls them into an existing Azure Monitor workspace.|
+|Azure VM| - Log Analytics VM extension for [Windows](../../virtual-machines/extensions/oms-windows.md) or [Linux](../../virtual-machines/extensions/oms-linux.md) using Azure CLI or with an Azure Resource Manager template<br>- [Manually from the Azure portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json)<br>- [Azure Security Center Automatic provisioning](../../security-center/security-center-enable-data-collection.md)| - The extension installs the Log Analytics agent on Azure virtual machines and enrolls them into an existing Azure Monitor workspace.<br>- Azure Security Center can provision the Log Analytics agent on all supported Azure VMs and any new ones that are created if you enable it to monitor for security vulnerabilities and threats. If enabled, any new or existing VM without an installed agent will be provisioned.|
 | Hybrid Windows computer|- [Manual install](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager template with Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Install the Microsoft Monitoring agent from the command line or using an automated method such as Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter.| 
 | Hybrid Linux computer| [Manual install](../../azure-monitor/learn/quick-collect-linux-computer.md)|Install the agent for Linux calling a wrapper-script hosted on GitHub. | 
 | System Center Operations Manager|[Integrate Operations Manager with Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure integration between Operations Manager and Azure Monitor logs to forward collected data from Windows computers reporting to a management group.|  
