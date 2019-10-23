@@ -1,6 +1,6 @@
 ---
 title: Using SQL on-demand
-description: In this quickstart, we will show capabilities of SQL on-demand and go through examples.
+description: In this quickstart, you will see and learn how easy is to query various types of files using SQL on-demand.
 services: sql-data-warehouse
 author: azaricstefan
 ms.service: sql-data-warehouse
@@ -13,14 +13,12 @@ ms.reviewer: jrasnick
 
 # Quickstart: Using SQL on-demand 
 
-In this quickstart you will see and learn how easy is to query various types of files using SQL on-demand.
+In this quickstart, you will see and learn how easy is to query various types of files using SQL on-demand.
 
 Currently following file types are supported: 
 - JSON
 - CSV
 - Parquet
-
-CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats: with and without header row, comma and tab-delimited values, Windows and Unix style line endings, non-quoted and quoted values, and escaping characters.
 
 ## Prerequisites
 
@@ -40,7 +38,7 @@ Parameters:
 | Username and password for endpoint access | Will be used to access endpoint                               |
 | Database you will use to create views     | This database will be used as starting point in samples       |
 
-## First time setup
+## First-time setup
 
 There are two steps prior to using samples:
 
@@ -63,7 +61,7 @@ CREATE DATABASE mydbname
 
 ### Create credentials
 
-We need to create credentials before you can run queries. This credentials will be used by SQL on-demand service to access files in storage.
+We need to create credentials before you can run queries. These credentials will be used by SQL on-demand service to access files in storage.
 
 > Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
@@ -121,7 +119,7 @@ Demo data contains following data sets:
 | /csv/population/<br />/csv/population-unix/<br />/csv/population-unix-hdr/<br />/csv/population-unix-hdr-escape<br />/csv/population-unix-hdr-quoted | Folders with Population data files in different CSV formats. |
 | /csv/taxi/                                                   | Folder with NYC public data files in CSV format              |
 | /parquet/                                                    | Parent folder for data in Parquet format                     |
-| /parquet/taxi                                                | NYC public data files in Parquet format, partitioned by year and month using Hive/Hadoop partitioning scheme. |
+| /parquet/taxi                                                | NYC public data files in Parquet format, partitioned by year, and month using Hive/Hadoop partitioning scheme. |
 | /parquet/nested/                                             | Sample Parquet files with nested columns                     |
 | /json/                                                       | Parent folder for data in JSON format                        |
 | /json/books/                                                 | JSON files with books data                                   |
@@ -129,7 +127,7 @@ Demo data contains following data sets:
 
 ## Querying
 
-Bellow you can see three examples of querying **CSV**, **Parquet** and **JSON** files.
+Bellow you can see three examples of querying **CSV**, **Parquet, and **JSON** files.
 
 ### Querying CSV file - no header row, Windows style new line
 
@@ -161,7 +159,7 @@ WHERE
 
 ### Querying Parquet files without specifying schema
 
-You do not have to use OPENROWSET WITH clause when reading Parquet files because **columns names and data types will be automatically read from Parquet files**. 
+Column names and data types will be automatically read from Parquet metadata if you don't specify OPENROWSET WITH clause.
 
 This sample shows automatic schema inference capabilities for Parquet files. It returns number of rows in September 2017. without specifying schema. 
 
