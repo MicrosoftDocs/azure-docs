@@ -31,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.49 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
 
 ## Prerequisites
-To use the IPv6 for Azure virtual network feature, you must configure your subscription using Azure PowerShell as follows:
+To use the IPv6 for Azure virtual network feature, you must configure your subscription using Azure CLI as follows:
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
