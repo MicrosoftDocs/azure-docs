@@ -14,39 +14,39 @@ manager: aabjork
 # Connected waste monitoring reference architecture 
 
 
-A connected waste management solution can be built using the **IoT Central Connected waste management app template** as a kickstarted and using the below reference architecture. Note that the reference architecture is a high level guidance to help you understand architecture concepts and how to build a solution with IoT Central. 
+A connected waste management solution can be built using tthe **Azure IoT Central app template** as a kick starter IoT application. This tutorial provides a high-level reference architecture guidance on building an end to end solution. 
 
-![Connected waste management architecture](./media/concepts-connectedwastemanagement-architecture/concepts-connectedwastemanagement-architecture.PNG)
+[!div class="mx-imgBorder"] 
+![Connected waste management architecture](./media/concepts-connectedwastemanagement-architecture/concepts-connectedwastemanagement-architecture1.png)
 
 
 Concepts:
 
-1. Devices
-2. Device connectivity 
-4. IoT Central 
-5. Continuos data export from IoT Central
-6. Dynamics 365 Field Services
+1. Devices and connectivity  
+1. IoT Central 
+2. Extensibility and integrations
+3. Business applications
 
+Let's take a look at key components that generally play a part in a water consumption monitoring solution.
 
-## Devices
-### Connected waste bins
-
-## Device Connectivity  
- 
-
-### Connectivity via third party cloud  
-#### Cloud gateway 
-
-### Connectivity via device gateway 
+## Devices and connectivity 
+Devices used in open environments, like municipal waste bins, may generally be connected through low power wide area networks (LPWAN), via a third-party network operator. For these types of devices, you can leverage the [Azure IoT Central Device Bridge](tba) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
 
 ## IoT Central 
+Azure IoT Central is an IoT App platform which gets you started up and running on your IoT solution quickly. You can brand, customize, and integrate your solution with third-party services.
+After you connect your smart water devices to IoT Central, you get out of the box device command and control, monitoring and alerting, user interface with built in RBAC, configurable insights dashboards, and extensibility options. 
 
-## Continous data export 
+## Extensibility and integrations 
+You can extend your IoT application in IoT Central and optionally:
+* transform and integrate your IoT data for advanced analytics, for example training machine learning models, through continuous data export from IoT Central application. 
+* automate workflows in other systems by triggering actions via Microsoft Flow or webhooks from IoT Central application
+* programatically access your IoT application in IoT Central through IoT Central APIs
 
-## Dyanamics 365 for Field Services 
-
+## Business Applications 
+The IoT data can be used to power a variety of business applications within a waste utility, to visualize business insights and take meaningful actions. To learn how to connect your IoT Central connected waste management application with field services, follow the tutorial on [how to integrate with Dynamics 365 Field Services](tba) 
 
 ## Next steps
-
-* [Create a connected waste management application in IoT Central](tba)
+* Learn how to [create a connected waste management](tba) IoT Central application
+* Learn more about [IoT Central government templates](tba)
 * To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
+
