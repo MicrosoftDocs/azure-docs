@@ -191,194 +191,192 @@ To test the logic app, use the sample receipts in the **/Test** folder of the sa
 
 1. Compare the JSON output with the sample receipt that you sent as an attachment in the email. Notice how the JSON corresponds to the data in the table within the receipt.
 
-```json
-[
-  {
-    "id": "table_0",
-    "columns": [
+    ```json
+    [
       {
-        "header": [
+        "id": "table_0",
+        "columns": [
           {
-            "text": "Invoice Number",
-            "boundingBox": [
-              38.5,
-              585.2,
-              113.4,
-              585.2,
-              113.4,
-              575.8,
-              38.5,
-              575.8
+            "header": [
+              {
+                "text": "Invoice Number",
+                "boundingBox": [
+                  38.5,
+                  585.2,
+                  113.4,
+                  585.2,
+                  113.4,
+                  575.8,
+                  38.5,
+                  575.8
+                ]
+              }
+            ],
+            "entries": [
+              [
+                {
+                  "text": "7689302",
+                  "boundingBox": [
+                    38.5,
+                    549.8,
+                    77.3,
+                    549.8,
+                    77.3,
+                    536.2,
+                    38.5,
+                    536.2
+                  ],
+                  "confidence": 1
+                }
+              ]
+            ]
+          },
+          {
+            "header": [
+              {
+                "text": "Invoice Date",
+                "boundingBox": [
+                  139.7,
+                  585.2,
+                  198.5,
+                  585.2,
+                  198.5,
+                  575.8,
+                  139.7,
+                  575.8
+                ]
+              }
+            ],
+            "entries": [
+              [
+                {
+                  "text": "3/09/2015",
+                  "boundingBox": [
+                    139.7,
+                    548.1,
+                    184,
+                    548.1,
+                    184,
+                    536.2,
+                    139.7,
+                    536.2
+                  ],
+                  "confidence": 1
+                }
+              ]
+            ]
+          },
+          {
+            "header": [
+              {
+                "text": "Invoice Due Date",
+                "boundingBox": [
+                  240.5,
+                  585.2,
+                  321,
+                  585.2,
+                  321,
+                  575.8,
+                  240.5,
+                  575.8
+                ]
+              }
+            ],
+            "entries": [
+              [
+                {
+                  "text": "6/29/2016",
+                  "boundingBox": [
+                    240.5,
+                    549,
+                    284.8,
+                    549,
+                    284.8,
+                    536.2,
+                    240.5,
+                    536.2
+                  ],
+                  "confidence": 1
+                }
+              ]
+            ]
+          },
+          {
+            "header": [
+              {
+                "text": "Charges",
+                "boundingBox": [
+                  341.3,
+                  585.2,
+                  381.2,
+                  585.2,
+                  381.2,
+                  575.8,
+                  341.3,
+                  575.8
+                ]
+              }
+            ],
+            "entries": [
+              [
+                {
+                  "text": "$22,123.24",
+                  "boundingBox": [
+                    380.6,
+                    548.5,
+                    430.5,
+                    548.5,
+                    430.5,
+                    536.2,
+                    380.6,
+                    536.2
+                  ],
+                  "confidence": 1
+                }
+              ]
+            ]
+          },
+          {
+            "header": [
+              {
+                "text": "VAT ID",
+                "boundingBox": [
+                  442.1,
+                  590,
+                  474.8,
+                  590,
+                  474.8,
+                  575.8,
+                  442.1,
+                  575.8
+                ]
+              }
+            ],
+            "entries": [
+              [
+                {
+                  "text": "QR",
+                  "boundingBox": [
+                    447.7,
+                    549.8,
+                    462.6,
+                    549.8,
+                    462.6,
+                    536.2,
+                    447.7,
+                    536.2
+                  ],
+                  "confidence": 1
+                }
+              ]
             ]
           }
-        ],
-        "entries": [
-          [
-            {
-              "text": "7689302",
-              "boundingBox": [
-                38.5,
-                549.8,
-                77.3,
-                549.8,
-                77.3,
-                536.2,
-                38.5,
-                536.2
-              ],
-              "confidence": 1
-            }
-          ]
-        ]
-      },
-      {
-        "header": [
-          {
-            "text": "Invoice Date",
-            "boundingBox": [
-              139.7,
-              585.2,
-              198.5,
-              585.2,
-              198.5,
-              575.8,
-              139.7,
-              575.8
-            ]
-          }
-        ],
-        "entries": [
-          [
-            {
-              "text": "3/09/2015",
-              "boundingBox": [
-                139.7,
-                548.1,
-                184,
-                548.1,
-                184,
-                536.2,
-                139.7,
-                536.2
-              ],
-              "confidence": 1
-            }
-          ]
-        ]
-      },
-      {
-        "header": [
-          {
-            "text": "Invoice Due Date",
-            "boundingBox": [
-              240.5,
-              585.2,
-              321,
-              585.2,
-              321,
-              575.8,
-              240.5,
-              575.8
-            ]
-          }
-        ],
-        "entries": [
-          [
-            {
-              "text": "6/29/2016",
-              "boundingBox": [
-                240.5,
-                549,
-                284.8,
-                549,
-                284.8,
-                536.2,
-                240.5,
-                536.2
-              ],
-              "confidence": 1
-            }
-          ]
-        ]
-      },
-      {
-        "header": [
-          {
-            "text": "Charges",
-            "boundingBox": [
-              341.3,
-              585.2,
-              381.2,
-              585.2,
-              381.2,
-              575.8,
-              341.3,
-              575.8
-            ]
-          }
-        ],
-        "entries": [
-          [
-            {
-              "text": "$22,123.24",
-              "boundingBox": [
-                380.6,
-                548.5,
-                430.5,
-                548.5,
-                430.5,
-                536.2,
-                380.6,
-                536.2
-              ],
-              "confidence": 1
-            }
-          ]
-        ]
-      },
-      {
-        "header": [
-          {
-            "text": "VAT ID",
-            "boundingBox": [
-              442.1,
-              590,
-              474.8,
-              590,
-              474.8,
-              575.8,
-              442.1,
-              575.8
-            ]
-          }
-        ],
-        "entries": [
-          [
-            {
-              "text": "QR",
-              "boundingBox": [
-                447.7,
-                549.8,
-                462.6,
-                549.8,
-                462.6,
-                536.2,
-                447.7,
-                536.2
-              ],
-              "confidence": 1
-            }
-          ]
         ]
       }
     ]
-  }
-]
-```
+    ```
 You have successfully completed this tutorial!
 
 ## Next steps
 
-* TBD
-* TBD
-* TBD
+* [Build a training data set](build-training-data-set.md)
