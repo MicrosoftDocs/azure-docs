@@ -16,7 +16,8 @@ ms.date: 10/15/2019
 ![Container monitoring architecture for Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
 >[!NOTE]
->The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later, and the agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For additional information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.
+>The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later, and the agent version supported for writing configuration and agent errors in the `KubeMonAgentEvents` table is ciprod10112019. For additional information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). 
+>To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.
 
 ### Prometheus scraping settings
 
@@ -177,7 +178,7 @@ InsightsMetrics
 ```
 The output will show results similar to the following:
 
-![Log query results of data ingestion volume](./media/container-insights-log-search/log-query-example-usage-03.png)
+![Log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-03.png)
 
 To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
 
@@ -192,7 +193,7 @@ InsightsMetrics
 
 The output will show results similar to the following:
 
-![Log query results of data ingestion volume](./media/container-insights-log-search/log-query-example-usage-02.png)
+![Log query results of data ingestion volume](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
 Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md).
 
