@@ -45,6 +45,9 @@ Private offers are only discoverable via the [Azure portal](https://azure.micros
 
 Private offers will also appear in search results. Just look out for the “Private” badge.
 
+>[!Note]
+>Private offers are not supported with subscriptions established through a reseller of the Cloud Solution Provider program (CSP).
+
 ## Next steps
 
 To start using private offers, follow the steps in the [Private SKUs and Plans](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) guide.

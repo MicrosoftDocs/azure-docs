@@ -25,9 +25,16 @@ This article tells you how to manage the lifecycle of Office 365 groups by setti
 
 Once you set a group to expire:
 
-- Owners of the group are notified to renew the group as the expiration nears
+- Groups with user activities are automatically renewed as the expiration nears
+- Owners of the group are notified to renew the group, if the group is not auto-renewed
 - Any group that is not renewed is deleted
 - Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
+
+The folloing actions will lead to automatic renewal of a group:
+
+- SharePoint - View, Edit, Download, Move, Share, and Upload files
+- Outlook - Join group, Read/write group message, and Like a message
+- Teams - Visit a Teams channel
 
 Currently only one expiration policy can be configured for Office 365 groups on a tenant.
 
@@ -66,7 +73,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
   - Save your settings when you're done by selecting **Save**.
 
 > [!NOTE]
-> When you first set up expiration, any groups that are older than the expiration interval are set to 30 days until expiration unless the owner renews it. The first renewal notification email is sent out within a day.
+> When you first set up expiration, any groups that are older than the expiration interval are set to 35 days until expiration unless the group is auto-renewed or the owner renews it. 
 >
 > When a dynamic group is deleted and restored, it's seen as a new group and re-populated according to the rule. This process can take up to 24 hours.
 >
@@ -74,7 +81,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
 
 ## Email notifications
 
-Email notifications such as this one are sent to the Office 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group. The language of the email is determined by groups owner's preferred language or Azure AD language setting. If the group owner has defined a preferred language, or multiple owners have the same preferred language, then that language is used. For all other cases, Azure AD language setting is used.
+If groups are not automatically renewed, email notifications such as this one are sent to the Office 365 group owners 30 days, 15 days, and 1 day prior to expiration of the group. The language of the email is determined by groups owner's preferred language or Azure AD language setting. If the group owner has defined a preferred language, or multiple owners have the same preferred language, then that language is used. For all other cases, Azure AD language setting is used.
 
 ![Expiration email notifications](./media/groups-lifecycle/expiration-notification.png)
 
