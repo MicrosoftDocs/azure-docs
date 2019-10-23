@@ -87,9 +87,6 @@ For more information on resource limits, see [Resource limits for single databas
 
 ### Hardware availability
  
-All hardware generations are available without requesting access, except M-series. For M-series, access must be requested by filing a new support request. 
-
-
 #### Fsv2-series availability
 
 Fsv2-series is available in the following regions:
@@ -98,7 +95,7 @@ Australia Central 1, Australia Central 2, Australia East 1, Australia Southeast 
 
 #### M-series availability
 
-M-series is currently available in the following regions:
+M-series is available in the following regions:
 East US, North Europe, West Europe, West US 2.
 
 To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
@@ -118,7 +115,7 @@ On the Basics page, provide the following:
 5. In the **PROBLEM DETAILS** section select the **Provide details** link. 
 6. For **SQL Database quota type** select **M-series**.
 7. For **Region**, select the region to enable M-series.
-    M-series is currently available in the following regions: East US, North Europe, West Europe, West US 2.
+    M-series is available in the following regions: East US, North Europe, West Europe, West US 2.
 
 Approved support requests are typically fulfilled within 5 business days.
 
