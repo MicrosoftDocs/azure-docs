@@ -32,10 +32,10 @@ Connected logistics solution benefits are,
 Partners can leverage template to develop end to end Connected Logistics solutions & outlined benefits. This published template is focused on device connectivity, configuration & management of devices in IoT Central. 
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected_logistics_dashboard1.png)
+> ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected-logistics-dashboard1.png)
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected_logistics_dashboard2.png)
+> ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected-logistics-dashboard2.png)
 
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case.
 
@@ -59,7 +59,7 @@ Benefits are,
 Partners can leverage this application template to build Digital Distribution Center to gain actionable insights & above outlined benefits. The published template is focused on device connectivity configuration & management of camera and edge devices in IoT Central. 
 
 > [!div class="mx-imgBorder"]
-> ![Digital Distribution Center Dashboard](./media/overview-iot-central-retail/digital_distribution_center_dashboard.png)
+> ![Digital Distribution Center Dashboard](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png)
 
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case.
 
@@ -131,7 +131,7 @@ Smart Inventory management benefits are,
 Partners can leverage template to develop end to end Smart inventory management solutions & outlined benefits. This published template is focused on device connectivity, configuration & management of RFID & Bluetooth low energy (BLE) readers in IoT Central. 
 
 > [!div class="mx-imgBorder"]
-> ![Smart Inventory Management Dashboard](./media/overview-iot-central-retail/smart_inventory_management_dashboard.png)
+> ![Smart Inventory Management Dashboard](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
 
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
