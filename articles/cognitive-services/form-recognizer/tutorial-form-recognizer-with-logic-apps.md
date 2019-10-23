@@ -375,7 +375,7 @@ To test the logic app, use the sample receipts in the **/Test** folder of the sa
       }
     ]
     ```
-You have successfully completed this tutorial!
+    You have successfully completed this tutorial!
 
 ## Next steps
 
