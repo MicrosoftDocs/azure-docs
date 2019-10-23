@@ -8,7 +8,7 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 10/21/2019
 ---
 
 # Authenticate access to Azure resources by using managed identities in Azure Logic Apps
@@ -213,7 +213,7 @@ These steps show how to use the managed identity with a trigger or action throug
    For more information about authorizing access with Azure AD for Azure Storage, see these topics:
 
    * [Authorize access to Azure blobs and queues by using Azure Active Directory](../storage/common/storage-auth-aad.md)
-   * [Authorize with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   * [Authorize access to Azure Storage with Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 <a name="remove-identity"></a>
 
