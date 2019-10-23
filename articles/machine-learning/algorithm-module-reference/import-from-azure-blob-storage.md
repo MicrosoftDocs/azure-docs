@@ -1,7 +1,7 @@
 ---
 title:  "Import from Azure Blob Storage: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn This topic describes how to use the Import from Azure Blob Storage module in Azure Machine Learning designer to read data from Azure blob storage, so that you can use the data in a machine learning pipeline.
+description: This topic describes how to use the Import from Azure Blob Storage module in Azure Machine Learning designer to read data from Azure blob storage, so that you can use the data in a machine learning pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -33,7 +33,7 @@ We strongly recommend that you profile your data before importing, to make sure 
 
 The following steps describe how to manually configure the import source.
 
-1. Add the **Import Data** module to your pipeline. You can find this module in the interface, in the **Data Input and Output**
+1. Add the **Import Data** module to your pipeline. You can find this module in the designer, in the **Data Input and Output**
 
 2. For **Data source**, select **Azure Blob Storage**.
 

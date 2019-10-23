@@ -25,7 +25,7 @@ This module is particularly useful when you need to separate data into training 
 > Before choosing the splitting mode, read all options to determine the type of split you need.
 > If you change the splitting mode, all other options could be reset.
 
-1. Add the **Split Data** module to your pipeline in the interface. You can find this module under **Data Transformation**, in the **Sample and Split** category.
+1. Add the **Split Data** module to your pipeline in the designer. You can find this module under **Data Transformation**, in the **Sample and Split** category.
 
 2. **Splitting mode**: Choose one of the following modes, depending on the type of data you have, and how you want to divide it. Each splitting mode has different options. Click the following topics for detailed instructions and examples. 
 
@@ -40,7 +40,8 @@ This module is particularly useful when you need to separate data into training 
     - **Relative Expression Split**:  Use this option whenever you want to apply a condition to a number column. The number could be a date/time field, a column containing age or dollar amounts, or even a percentage. For example, you might want to divide your data set depending on the cost of the items, group people by age ranges, or separate data by a calendar date.
 
 ### Split Rows
-1.  Add the [Split Data](./split-data.md) module to your pipeline in the interface, and connect the dataset you want to split.
+
+1.  Add the [Split Data](./split-data.md) module to your pipeline in the designer, and connect the dataset you want to split.
   
 2.  For **Splitting mode**, choose **Split rows**. 
 

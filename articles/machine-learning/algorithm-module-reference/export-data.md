@@ -25,7 +25,7 @@ This module supports exporting or saving your data to the following cloud data s
   
 ## How to configure Export Data
 
-1. Add the **Export Data** module to your pipeline in the interface. You can find this module in the **Input and Output** category.
+1. Add the **Export Data** module to your pipeline in the designer. You can find this module in the **Input and Output** category.
 
 2. Connect **Export Data** to the module that contains the data you want to export.
 

@@ -129,8 +129,8 @@ If you need to repeat cleaning operations often, we recommend that you save your
   
 2.  Add the dataset you want to clean, and connect the dataset to the right-hand input port.  
   
-3.  Expand the **Transforms** group in the left-hand pane of the interface. Locate the saved transformation and drag it into the pipeline.  
-  
+3.  Expand the **Transforms** group in the left-hand pane of the designer. Locate the saved transformation and drag it into the pipeline.  
+
 4.  Connect the saved transformation to the left input port of [Apply Transformation](./apply-transformation.md). 
 
     When you apply a saved transformation, you cannot select the columns to which the transformation are applied. That is because the transformation has been already defined and applies automatically to the columns specified in the original operation.
