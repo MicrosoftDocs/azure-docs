@@ -18,6 +18,8 @@ ms.author: diberry
 
 In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 ## Prerequisites
 
 For this article, you need a free LUIS account, created on the LUIS portal at [https://www.luis.ai](https://www.luis.ai). 
@@ -33,16 +35,14 @@ You can create and manage your applications on **My Apps**.
 
 1. In the dialog box, name your application "Home Automation".
 
-    [![Screenshot of Create new app pop-up dialog](media/luis-quickstart-new-app/create-new-app-dialog.png "Screenshot of Create new app pop-up dialog")](media/luis-quickstart-new-app/create-new-app-dialog.png)
-
-1. Choose your application culture. For this Home Automation app, choose English. Then select **Done**. LUIS creates the Home Automation app. 
+1. Choose your application culture. For this Home Automation app, choose English. Then select **Done**. LUIS creates the app. 
 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
 ## Add prebuilt domain
 
-Select **Prebuilt domains** in the left-side navigation pane. Then search for "Home". Select **Add domain**.
+Select **Prebuilt domains** then search for "HomeAutomation". Select **Add domain**.
 
 [![Screenshot of Home Automation domain called out in prebuilt domain menu](media/luis-quickstart-new-app/home-automation.png "Screenshot of Home Automation domain called out in prebuilt domain menu")](media/luis-quickstart-new-app/home-automation.png)
 
@@ -52,7 +52,7 @@ When the domain is successfully added, the prebuilt domain box displays a **Remo
 
 ## Intents and entities
 
-Select **Intents** in the left-side navigation pane to review the HomeAutomation domain intents. Each intent has sample utterances.
+Select **Intents** to review the HomeAutomation domain intents. The prebuilt domain intents have sample utterances.
 
 ![Screenshot of HomeAutomation intents list](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of HomeAutomation intents list")]
 
@@ -68,7 +68,7 @@ Select the **HomeAutomation.TurnOff** intent. You can see that the intent contai
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## Test your app
-Once you've trained your app, you can test it. Select **Test** in the top navigation. Type a test utterance like "Turn off the lights" into the Interactive Testing pane, and press Enter. 
+Once you've trained your app, you can test it. Select **Test**. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter. 
 
 ```
 Turn off the lights
@@ -91,7 +91,7 @@ Select **Test** again to collapse the test pane.
 
 ## Publish the app to get the endpoint URL
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 
