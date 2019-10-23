@@ -19,7 +19,7 @@ Before you delete a project:
 
 - When you delete a project, the project, and discovered machine metadata are deleted.
 - If you've attached a Log Analytics workspace to the Server Assessment tool for dependency analysis, decide whether you want to delete the workspace. 
-    - The workspace isn't automatically deleted. You must delete it manually.
+    - The workspace isn't automatically deleted. Delete it manually.
     - Verify what a workspace is used for before you delete it. The same Log Analytics workspace can be used for multiple scenarios.
     - Before you delete the project, you can find a link to the workspace in **Azure Migrate - Servers** > **Azure Migrate - Server Assessment**, under **OMS Workspace**.
     - To delete a workspace after deleting a project, find the workspace in the relevant resource group, and follow [these instructions](../azure-monitor/platform/delete-workspace.md).
@@ -32,7 +32,7 @@ Before you delete a project:
 2. In the resource group page, select **Show hidden types**.
 3. Select the project and the associated resources that you want to delete.
     - The resource type for Azure Migrate projects is **Microsoft.Migrate/migrateprojects**.
-    - Refer to the next section for information about resources created for discovery, assessment, and migration in an Azure Migrate project.
+    - In the next section, review the resources created for discovery, assessment, and migration in an Azure Migrate project.
     - If the resource group only contains the Azure Migrate project, you can delete the entire resource group.
     - If you want to delete a project from the previous version of Azure Migrate, the steps are the same. The resource type for these projects is **Migration project**.
 
