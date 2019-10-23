@@ -318,6 +318,11 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo zypper update
    </code></pre>
 
+1. **[A]** Install component, needed for cluster resources
+
+   <pre><code>sudo zypper in socat
+   </code></pre>
+
 1. **[A]** Configure the operating system
 
    In some cases, Pacemaker creates many processes and thereby exhausts the allowed number  of processes. In such a case, a heartbeat between the cluster nodes might fail and lead to failover of your resources. We recommend increasing the maximum allowed processes by setting the following parameter.
