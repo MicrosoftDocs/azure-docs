@@ -57,7 +57,7 @@ You can launch your IoT Central application by going to the URL that you or your
 Once you're inside your IoT application, use the left navigation menu to access the different areas. You can expand or collapse the navigation bar by selecting the three-lined icon on top of the navigation bar:
 
 > [!NOTE]
-> The items you see on the navigation bar will depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json). 
+> The items you see on the navigation bar will depend on your user role. Learn more about [managing users and roles](howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json). 
 
 :::row:::
   :::column span="":::
@@ -126,7 +126,7 @@ The explorer page shows the _devices_ in your Azure IoT Central application grou
 * A device template defines a type of device that can connect to your application.
 * A device represents either a real or simulated device in your application.
 
-To learn more, see the [Monitor your devices](tutorial-monitor-devices-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
+To learn more, see the [Monitor your devices](tutorial-monitor-devices.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
 
 ### Device groups
 
