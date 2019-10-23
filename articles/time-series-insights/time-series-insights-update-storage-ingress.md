@@ -42,7 +42,7 @@ When you create a Time Series Insights Preview pay-as-you-go SKU environment, yo
 
 Data in your warm store is available only via [Time Series Query](./time-series-insights-update-tsq.md) and the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md). 
 
-The Time Series Insights Preview saves your cold store data to Azure Blob storage in the [Parquet file format](#parquet-file-format). Time Series Insights Preview manages this cold store data exclusively, but it is available for you to read directly as standard Parquet files.
+The Time Series Insights Preview saves your cold store data to Azure Blob storage in the [Parquet file format](#parquet-file-format-and-folder-structure). Time Series Insights Preview manages this cold store data exclusively, but it is available for you to read directly as standard Parquet files.
 
 > [!WARNING]
 > As the owner of the Azure Blob storage account where cold store data resides, you have full access to all data in the account including write and delete permissions. It is important you don't edit or delete the data written by Time Series Insights Preview as this can cause data loss.
