@@ -27,7 +27,7 @@ Below is a summary of the roles assigned to Data Share resource-Managed Identity
 
 | |  |  |
 |---|---|---|
-|**Storage Type**|**Data Provider Source Storage Account**|**Data Consumer Target Storage Account**|
+|**Storage Type**|**Data Provider Store**|**Data Consumer Target Store**|
 |Azure Blob Storage| Storage Blob Data Reader | Storage Blob Data Contributor
 |Azure Data Lake Gen1 | Owner | Not Supported
 |Azure Data Lake Gen2 | Storage Blob Data Reader | Storage Blob Data Contributor

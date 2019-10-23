@@ -24,12 +24,12 @@ In this tutorial, you'll learn how to:
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * Your recipients Azure login e-mail address (using their e-mail alias won't work).
 
-To share data from a storage account:
+### Share from a storage account:
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 * Permission to add role assignment to the storage account, which is present in the *Microsoft.Authorization/role assignments/write* permission. This permission exists in the owner role. 
 
-To share data from a SQL-based source:
+### Share from a SQL-based source:
 
 * An Azure SQL Database or Azure SQL Data Warehouse with tables and views that you want to share.
 * Permission for the data share to access the data warehouse. This can be done through the following steps: 

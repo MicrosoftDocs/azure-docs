@@ -25,7 +25,7 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
 
-To receive data into a storage account: 
+### Receive data into a storage account: 
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
 * Permission to add role assignment to the storage account, which is present in the *Microsoft.Authorization/role assignments/write* permission. This permission exists in the owner role. 
@@ -34,7 +34,7 @@ To receive data into a storage account:
 > [!IMPORTANT]
 > To accept and receive an Azure Data Share, you must first register the Microsoft.DataShare resource provider and you must be an owner of the storage account that you accept data into. Follow the instructions documented in [Troubleshoot Azure Data Share](data-share-troubleshoot.md) to register the data share resource provider as well as add yourself as an owner of the storage account. 
 
-To receive data into a SQL-based source:
+### Receive data into a SQL-based source:
 
 * Permission for the data share MSI to access the Azure SQL Database or Azure SQL Data Warehouse. This can be done through the following steps: 
     1. Set yourself as the Azure Active Directory Admin for the server.
@@ -100,6 +100,9 @@ To receive regular refreshes of your data, make sure you enable the snapshot set
 ![Snapshot settings](./media/snapshot-settings.png "Snapshot settings") 
 
 Select *Save*. 
+
+> [!IMPORTANT]
+> If you are receiving SQL-based data and would like to receive that data into a SQL-based source, visit our [configure a dataset mapping](how-to-configure-mapping.md) how-to guide to learn how to configure a SQL Server as the destination for your dataset. 
 
 ## Trigger a snapshot
 

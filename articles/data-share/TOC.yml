@@ -21,6 +21,8 @@
     href: concepts-roles-permissions.md
 - name: Samples
   items:
+  - name: Code samples
+    href: https://docs.microsoft.com/samples/browse/?service=data-share/
   - name: Azure Powershell
     href: samples-powershell.md
 - name: How-to guides
