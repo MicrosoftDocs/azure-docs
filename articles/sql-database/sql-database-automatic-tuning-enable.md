@@ -102,7 +102,7 @@ Automatic tuning is monitoring all the actions it takes on the database and in s
 
 As Automatic tuning is Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from Azure portal.
 
-To use Automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL DB contributor](../role-based-access-control/built-in-roles#sql-db-contributor.md) role. You can also consider using higher privilege roles such are SQL Server Contributor, Contributor and Owner.
+To use Automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL DB contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, Contributor and Owner.
 
 ## Configure automatic tuning e-mail notifications
 
