@@ -66,7 +66,7 @@ The volume of data sent to Azure Migrate varies depending on several parameters.
 
 Yes, both.
 - Metadata is securely sent to the Azure Migrate service over the internet, via HTTPS.
-- The metadata is stored in an [Azure Cosmos database ](../cosmos-db/database-encryption-at-rest) database and in [Azure Blob storage](../storage/common/storage-service-encryption) in a Microsoft subscription. The metadata is encrypted at-rest.
+- The metadata is stored in an [Azure Cosmos database ](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at-rest.
 - The data for dependency analysis is also encrypted in-transit (secure HTTPS). It's stored in a Log Analytics workspace in your subscription. It's also encrypted at-rest.
 
 ### How does the appliance communicate with vCenter Server and Azure Migrate?
