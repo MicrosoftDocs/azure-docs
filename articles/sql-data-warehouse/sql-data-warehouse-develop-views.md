@@ -50,9 +50,9 @@ RENAME OBJECT DimDate_New TO DimDate;
 However, this approach can result in tables appearing and disappearing from a user's view as well as "table does not exist" error messages. Views can be used to provide users with a consistent presentation layer whilst the underlying objects are renamed. By providing access to data through views, users do not need visibility to the underlying tables. This layer provides a consistent user experience while ensuring that the data warehouse designers can evolve the data model. Being able to evolve the underlying tables means designers can use CTAS to maximize performance during the data loading process.   
 
 ## Materialized view
-A materialized view pre-computes, stores, and maintains its data in Azure SQL Data Warehouse just like a table. There's no recomputation needed each time when a materialized view is used.  Most of the requirements on a standard view still apply to a materialized view. For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  
+A materialized view pre-computes, stores, and maintains its data in Azure SQL Data Warehouse just like a table. There's no recomputation needed each time when a materialized view is used.  Most of the requirements on a standard view still apply to a materialized view. For details on the materialized view syntax and other requirements, refer to [CREATE MATERIALIZED VIEW AS SELECT](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  
 
-To use materialized views to improve query performance, check [Performance tuning guidance](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/performance-tuning-materialized-views). 
+To use materialized views to improve query performance, check [Performance tuning guidance](https://docs.microsoft.com/azure/sql-data-warehouse/performance-tuning-materialized-views). 
 
 ## Next steps
 For more development tips, see [SQL Data Warehouse development overview](sql-data-warehouse-overview-develop.md).
