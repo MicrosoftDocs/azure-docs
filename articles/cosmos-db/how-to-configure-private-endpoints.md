@@ -107,7 +107,7 @@ Next create a PowerShell script with the following code:
 ```powershell
 ### This script creates a private endpoint for an existing Cosmos DB account in an existing VNet
 
-## Step 1: fill these details
+## Step 1: Fill in these details
 $SubscriptionId = "<your Azure subscription ID>"
 # Resource group where the Cosmos DB and VNet resources live
 $ResourceGroupName = "cdbrg"
@@ -128,16 +128,16 @@ $SubnetResourceId = "$($VNetResourceId)/subnets/$($SubnetName)"
 $PrivateEndpointTemplateFilePath = "PrivateEndpoint_template.json"
 $PrivateEndpointParametersFilePath = "PrivateEndpoint_parameters.json"
 
-## Step 2: Login your Azure account and select the target subscription
+## Step 2: Sign in to your Azure account and select the target subscription.
 Login-AzAccount
 Select-AzSubscription -SubscriptionId $subscriptionId
 
-## Step 3: Make sure private endpoint network policies are disabled in the subnet
+## Step 3: Make sure private endpoint network policies are disabled in the subnet.
 $VirtualNetwork= Get-AzVirtualNetwork -Name "$VNetName" -ResourceGroupName "$ResourceGroupName"
 ($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq "$SubnetName"} ).PrivateEndpointNetworkPolicies = "Disabled"
 $virtualNetwork | Set-AzVirtualNetwork
 
-## Step 4: Create the private endpoint
+## Step 4: Create the private endpoint.
 Write-Output "Deploying private endpoint on $($resourceGroupName)"
 $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpointDeployment" `
 	-ResourceGroupName $resourceGroupName `
@@ -158,7 +158,7 @@ In the PowerShell script, the "GroupId" variable can only contain one value, whi
 
 For such accounts, you must create one private endpoint for each API type, with the corresponding API type specified in the "GroupId" array.
 
-After the template is deployed successfully, you can see output like the following. The provisioningState value is "Succeeded" if the private endpoints are set up correctly.
+After the template is deployed successfully, you can see an output similar to what is shown in the following image. The provisioningState value is "Succeeded" if the private endpoints are set up correctly.
 
 ![Resource Manager template deployment output](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
 
@@ -166,7 +166,7 @@ After the template is deployed, the private IP addresses are reserved within the
 
 ## Fetch the private IP addresses
 
-After the private endpoint is provisioned, it is possible to query the IP addresses. The result returns information regarding the newly created private endpoint, notably the "ID" of "networkInterfaces".
+After the private endpoint is provisioned, it is possible to query the IP addresses. The result returns information about the newly created private endpoint, including the "ID" of "networkInterfaces".
 
 **Request**	
 
@@ -232,7 +232,7 @@ Multiple IP addresses are created per private endpoint:
 
 ## Configure private DNS
 
-During the preview of Private Links, you should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP address is mapped to a DNS entry ("fqdns" property in the response shown above).
+During the preview of Private Links, you should use a private DNS within the subnet where the private endpoint has been created. And configure the endpoints so that each of the private IP addresses is mapped to a DNS entry (see the "fqdns" property in the response shown above).
 
 ## Firewall configuration with Private Links
 
@@ -266,7 +266,7 @@ Adding or removing regions to an Azure Cosmos account requires you to add or rem
 1. After this operation, the subnet's private DNS also has to be updated to reflect the added or removed DNS entries and their corresponding private IP addresses.
 
 ## Current limitations
-
+The following limitations apply to the use of Private Links:
 * MongoDB accounts that are using endpoints in the format "xxx.documents.azure.com" don't work with Private Links. You should migrate the database account to use "xxx.mongo.cosmos.azure.com" endpoints.
 
 * MongoDB accounts using "xxx.mongo.cosmos.azure.com" endpoints can have Private Links support only if the `appName=<account name>` parameter is specified. For example: `replicaSet=globaldb&appName=mydbaccountname`.
