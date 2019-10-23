@@ -191,10 +191,12 @@
     items:
     - name: What is conversation transcription?
       href: conversation-transcription-service.md
-  - name: Quickstarts
+  - name: How-to guides
     items:
-    - name: Transcribe a conversation
-      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Real time Conversation Transcription
+      href: how-to-use-conversation-transcription-service.md
+    - name: Asynchronous Conversation Transcription
+      href: how-to-async-conversation-transcription.md
   - name: Reference
     items:
     - name: Speech SDK
