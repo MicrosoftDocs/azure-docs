@@ -64,7 +64,7 @@ You must have an Azure Notebooks account to launch notebooks directly from withi
 2. Select the notebook you want to launch, and select **Launch Notebook**. For example: 
     
     > [!div class="mx-imgBorder"]
-    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch2.png)
+    > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
 ## Clone a notebook
 
