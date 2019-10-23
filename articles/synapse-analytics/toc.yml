@@ -337,11 +337,11 @@
         - name: Transactions Best Practices
           href: ../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: User-defined schemas
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-user-defined-schemas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ../synapse-analytics/sql-analytics-develop-user-defined-schemas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Variable assignment
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-variable-assignment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ../synapse-analytics/sql-analytics-develop-variable-assignment.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Views
-          href: ../sql-data-warehouse/sql-data-warehouse-develop-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+          href: ../synapse-analytics/sql-analytics-develop-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Querying
       items:
       - name: Dynamic SQL
