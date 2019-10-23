@@ -1,28 +1,24 @@
 ---
 title: Quickstart - Create a virtual machine scale set in the Azure portal | Microsoft Docs
 description: Learn how to quickly create a virtual machine scale in the Azure portal
-keywords: virtual machine scale sets
 services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: tysonn
+manager: gwallace
 tags: azure-resource-manager
 
-ms.assetid: 9c1583f0-bcc7-4b51-9d64-84da76de1fda
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/2018
+ms.date: 10/23/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
 
 ---
 
 # Quickstart: Create a virtual machine scale set in the Azure portal
+
 A virtual machine scale set allows you to deploy and manage a set of identical, auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set in the Azure portal.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -80,25 +76,6 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. For **Select a backend poool**, select **Create new**, type *myBackendPool*, then select **Create**.
 1. When you are done, select **Review + create**. 
 1. After it passes validation, select **Create** to deploy the scale set.
-
-
-## Connect to a VM in the scale set
-When you create a scale set in the portal, a load balancer is created. Network Address Translation (NAT) rules are used to distribute traffic to the scale set instances for remote connectivity such as RDP or SSH.
-
-To view these NAT rules and connection information for your scale set instances:
-
-1. Select the resource group you created in the previous step, such as *myVMSSResourceGroup*.
-2. From the list of resources, select your **Load balancer**, such as *myLoadBalancer*.
-3. Choose **Inbound NAT rules** from the menu on the left-hand side of the window.
-
-    ![Inbound NAT rules allow you to connect to virtual machine scale set instances](./media/virtual-machine-scale-sets-create-portal/inbound-nat-rules.png)
-
-You can connect to each VM in the scale set using these NAT rules. Each VM instance lists a destination IP address and TCP port value. For example, if the destination IP address is *104.42.1.19* and the TCP port is *50001*, you connect to the VM instance as follows:
-
-- For a Windows scale set, connect to the VM instance with RDP on `104.42.1.19:50001`
-- For a Linux scale set, connect to the VM instance with SSH on `ssh azureuser@104.42.1.19 -p 50001`
-
-When prompted, enter the credentials you specified from the previous step when you created the scale set. The scale set instances are regular VMs that you can interact with as normal. For more information on how to deploy and run applications on your scale set instances, see [Deploy your application on virtual machine scale sets](virtual-machine-scale-sets-deploy-app.md)
 
 
 ## Clean up resources
