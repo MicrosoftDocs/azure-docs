@@ -60,7 +60,7 @@ You can use the script below, or open the script in the /resources folder of the
 
 There are several resource names that must be globally unique, such as the IoT Hub name and the storage account name. To make running the script easier, those resource names are appended with a random alphanumeric value called *randomValue*. The randomValue is generated once at the top of the script and appended to the resource names as needed throughout the script. If you don't want it to be random, you can set it to an empty string or to a specific value.
 
-If you haven't already done so, open a [Cloud Shell window for Bash.](https://shell.azure.com). Open the script in the unzipped repository, use Ctrl-A to select all of it, then Ctrl-C to copy it. Alternately, you can copy the following CLI script or open it directly in Cloud Shell. Paste the script in the Azure Cloud Shell window by right-clicking on the command line and selecting **Paste**. The script is run one statement at a time. After the script stops running, select **Enter** to make sure it runs the last command. The following code block shows the script that is used, with comments explaining what it's doing.
+If you haven't already done so, open a [Cloud Shell window](https://shell.azure.com) and ensure it is set to Bash. Open the script in the unzipped repository, use Ctrl-A to select all of it, then Ctrl-C to copy it. Alternately, you can copy the following CLI script or open it directly in Cloud Shell. Paste the script in the Cloud Shell window by right-clicking on the command line and selecting **Paste**. The script is run one statement at a time. After the script stops running, select **Enter** to make sure it runs the last command. The following code block shows the script that is used, with comments explaining what it's doing.
 
 Here are the resources created by the script. **Enriched** means that resource is for messages with enrichments. **Original** means that resource is for messages that are not enriched.
 
@@ -273,16 +273,16 @@ Now that the message enrichments are configured for the endpoint, run the Simula
 
 The Simulated Device application is one of the applications in the unzipped download. The application sends messages for each of the different message routing methods in the [Routing Tutorial](tutorial-routing.md); this includes Azure Storage.
 
-Double-click on the solution file (IoT_SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute `{your hub name}` with the IoT hub name. The format of the IoT hub host name is **{your hub name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHubMsgEn.azure-devices.net**. Next, substitute `{your device key}` with the device key you saved earlier when running the script to create the resources.
+Double-click on the solution file (IoT_SimulatedDevice.sln) to open the code in Visual Studio, then open Program.cs. Substitute the IoT hub name for the marker `{your hub name}`. The format of the IoT hub host name is **{your hub name}.azure-devices.net**. For this tutorial, the hub host name is **ContosoTestHubMsgEn.azure-devices.net**. Next, substitute the device key you saved earlier when running the script to create the resources for the marker `{your device key}`.
 
 If you don't have the device key, you can retrieve it from the portal. After logging in, go to **Resource groups**, select your resource group, then select your IoT Hub. Look under **IoT Devices** for your test device and select your device. Select the copy icon next to **Primary key** to copy it to the clipboard.
 
    ```csharp
-        static string s_myDeviceId = "Contoso-Test-Device";
-        static string s_iotHubUri = "ContosoTestHubMsgEn.azure-devices.net";
+        private readonly static string s_myDeviceId = "Contoso-Test-Device";
+        private readonly static string s_iotHubUri = "ContosoTestHubMsgEn.azure-devices.net";
         // This is the primary key for the device. This is in the portal.
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key.
-        static string s_deviceKey = "{your device key}";
+        private readonly static string s_deviceKey = "{your device key}";
    ```
 
 ## Run and test
@@ -311,7 +311,7 @@ When you look at messages that have been enriched, you should see the "my IoT Hu
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-Here is an unenriched message. "my IoT Hub", "devicelocation", and "customerID" do not show up here, because this endpoint has no enrichments.
+Here is an unenriched message. "my IoT Hub", "devicelocation", and "customerID" do not show up here, because these are the fields that would be added by the enrichments, and this endpoint has no enrichments.
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
