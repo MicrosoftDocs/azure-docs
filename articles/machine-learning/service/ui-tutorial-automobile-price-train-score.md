@@ -41,7 +41,7 @@ Azure Machine Learning pipelines organize multiple, dependent data processing st
 
 ### Create a new workspace
 
-If you have an Azure Machine Learning workspace with an **Enterprise SKU**, [skip to the next section](#create-the-pipeline).
+If you have an Azure Machine Learning workspace with an **Enterprise edition**, [skip to the next section](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal-enterprise.md)]
 
