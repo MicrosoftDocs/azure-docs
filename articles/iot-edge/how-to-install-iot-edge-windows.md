@@ -163,6 +163,12 @@ Examine service logs from the last 5 minutes. If you just finished installing th
 . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
+Run an automated check for the most common configuration and networking errors.
+
+```powershell
+iotedge check
+```
+
 List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md) for the first time, the other system module, **edgeHub**, will start on the device too. 
 
 ```powershell
