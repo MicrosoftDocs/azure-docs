@@ -27,15 +27,6 @@ If you are assigned to an administrative role, you might be required to complete
 
 If you're a privileged role administrator interested in access reviews, get more details at [How to start an access review](pim-resource-roles-start-access-review.md).
 
-## Pin a PIM tile to the dashboard
-
-You can use Privileged Identity Management in the Azure portal to perform your review. If you don't have the application pinned to the dashboard in your portal, follow these steps to get started.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select your user name in the upper right-hand corner of the Azure portal, and select the Azure AD organization where you want to operate.
-1. Select **All services**, and use the **Filter** box to search for *Azure AD Privileged Identity Management*.
-1. Select **Pin to dashboard**, and then select **Create**. Privileged Identity Management opens.
-
 ## Approve or deny access
 
 You can approve or deny access based on whether you still use this role or not. Choose **Approve** if you want to stay in the role, or **Deny** if you don't need the access anymore. Your status changes only after the reviewer applies the results.
@@ -43,7 +34,7 @@ You can approve or deny access based on whether you still use this role or not. 
 Follow these steps to find and complete the access review:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select the PIM tile on your Azure dashboard or select Azure Active Directory and open Privileged Identity Management.
+1. Select **Azure Active Directory** and open **Privileged Identity Management**.
 1. Select **Review access**.
 
    ![Screenshot of Privileged Identity Management application, with Review access blade selected](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
