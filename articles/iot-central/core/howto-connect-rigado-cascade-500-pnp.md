@@ -34,10 +34,10 @@ In order to onboard a Cascade 500 gateway device into your Azure IoT Central app
 To add a Cascade 500 device template: 
 
 1. Navigate to the ***Device Templates*** tab in the left pane, select **+ New**: 
-![Create new device template](./media/howto-connect-rigado-cascade500-pnp/DeviceTemplate-New.png)
+![Create new device template](./media/howto-connect-rigado-cascade500-pnp/device-template-new.png)
 1. The page gives you an option to ***Create a custom template*** or ***Use a preconfigured device template***
 1. Select the C500 device template from the list of preconfigured device templates as shown below:
-![Select C500 device template](./media/howto-connect-rigado-cascade500-pnp/DeviceTemplate-Preconfiguredpng.png)
+![Select C500 device template](./media/howto-connect-rigado-cascade500-pnp/device-template-preconfigured.png)
 1. Select ***Next: Customize*** to continue to the next step. 
 1. On the next screen, select ***Create*** to onboard the C500 device template into your IoT Central application.
 
@@ -47,9 +47,9 @@ You will now need to retrieve the **Scope ID** and **Primary key** for your Azur
 
 1. Navigate to **Administration**  in the left pane and click on **Device connection**. 
 2. Make a note of the **Scope ID** for your IoT Central application.
-![App Scope ID](./media/howto-connect-rigado-cascade500-pnp/AppScopeID.png)
+![App Scope ID](./media/howto-connect-rigado-cascade500-pnp/app-scope-id.png)
 3. Now click on **View Keys** and make a note of the **Primary key**
-![Primary Key](./media/howto-connect-rigado-cascade500-pnp/PrimaryKey-SAS.png)  
+![Primary Key](./media/howto-connect-rigado-cascade500-pnp/primary-key-sas.png)  
 
 ## Contact Rigado to connect the gateway 
 
@@ -59,7 +59,7 @@ Once the device is connected to the internet, Rigado will be able to push down a
 
 This update will apply the IoT Central connection details on the Cascade 500 device and it will appear in your devices list. 
 
-![Primary Key](./media/howto-connect-rigado-cascade500-pnp/DevicesList-C500.png)  
+![Primary Key](./media/howto-connect-rigado-cascade500-pnp/devices-list-c500.png)  
 
 You are now ready to use your C500 device in your IoT Central application!
 
