@@ -56,10 +56,10 @@ Hybrid Azure AD joined devices that you will be piloting with must be running Wi
 
 Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign-in based on their organization's requirements.
 
-- [Enable with Intune](#enable-credential-provider-with-intune)
-   - [Targeted Intune deployment](#enable-targeted-intune-deployment)
-- [Enable with a provisioning package](#enable-credential-provider-with-a-provisioning-package)
-- [Enable with Group Policy (Hybrid Azure AD joined devices only)](#enable-credential-provider-with-group-policy)
+- [Enable with Intune](#enable-with-intune)
+   - [Targeted Intune deployment](#targeted-intune-deployment)
+- [Enable with a provisioning package](#enable-with-a-provisioning-package)
+- [Enable with Group Policy (Hybrid Azure AD joined devices only)](#enable-with-group-policy)
 
 ### Enable with Intune
 
