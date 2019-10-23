@@ -25,11 +25,11 @@ The following table lists the properties for Azure Azure Machine Learning resour
 
 | Property | Description |
 |:--- |:---|
-| TimeGenerated | Time the event was generated. |
-| OperationName | Name of the operation |
+| TimeGenerated | |
+| OperationName | |
 | Category | |
 | ProvisioningState | |
-| ClusterName | The name of the Azure Machine Learning Compute that  |
+| ClusterName | |
 | ClusterType | |
 | CreatedBy | |
 | CoreCount | |

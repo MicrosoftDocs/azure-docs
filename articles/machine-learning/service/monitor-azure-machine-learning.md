@@ -58,9 +58,7 @@ All metrics for Azure Machine Learning are in the namespace **Machine Learning S
 
 ![Metrics Explorer with Machine Learning Service Workspace selected](media/monitor-azure-machine-learning/metrics.png)
 
-For metrics that support dimensions, you can filter the metric with the desired dimension value. The following screenshot demonstrates using a filter to show **Active Cores** for the **Cluster Name** of `cpu-cluster`:
-
-![Filtering results to a cluster name of cpu-cluster](tbd)
+For metrics that support dimensions, you can filter the metric with the desired dimension value. For example, filtering **Active Cores** for a **Cluster Name** of `cpu-cluster`.
 
 ## Analyzing log data
 
@@ -73,11 +71,45 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 
 > [!IMPORTANT]
-> When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.l
+> When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.
 
 See [Azure Machine Learning monitoring data reference](monitor-resource-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
 ### Sample queries
+
+Following are queries that you can use to help you monitor your Azure Machine Learning resources: 
+
++ Get failed jobs in the last 5 days:
+
+    ```Kusto
+    AmlComputeJobEvent
+    | where TimeGenerated > ago(5d) and EventType == "JobFailed"
+    | project  TimeGenerated , ClusterId , EventType , ExecutionState , ToolType
+    ```
+
++ Get records for a specific job name:
+
+    ```Kusto
+    AmlComputeJobEvent
+    | where JobName == "automl_a9940991-dedb-4262-9763-2fd08b79d8fb_setup"
+    | project  TimeGenerated , ClusterId , EventType , ExecutionState , ToolType
+    ```
+
++ Get cluster events in the last five days for clusters where the VM size is Standard_D1_V2:
+
+    ```Kusto
+    AmlComputeClusterEvent
+    | where TimeGenerated > ago(4d) and VmSize == "STANDARD_D1_V2"
+    | project  ClusterName , InitialNodeCount , MaximumNodeCount , QuotaAllocated , QuotaUtilized
+    ```
+
++ Get nodes allocated in the last 8 days:
+
+    ```Kusto
+    AmlComputeClusterNodeEvent
+    | where TimeGenerated > ago(8d) and NodeAllocationTime  > ago(8d)
+    | distinct NodeId
+    ```
 
 ## Alerts
 
@@ -85,8 +117,9 @@ The following table lists common and recommended alert rules for Azure Machine L
 
 | Alert type | Condition | Description |
 |:---|:---|:---|
-| | | |
-| | | |
+| Model Deploy Failed | Aggregation type: Total, Operator: Greater than, Threshold value: 0 | When one or more model deployments have failed. |
+| Quota Utilization Percentage | Aggregation type: Average, Operator: Greater than, Threshold value: 90| When the quota utilization percentage is greater than 90%. |
+| Unusable Nodes | Aggregation type: Total, Operator: Greater than, Threshold value: 0 | When there are one or more unusable nodes. |
 
 ## Next steps
 
