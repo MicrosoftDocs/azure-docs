@@ -317,6 +317,17 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
    > [!NOTE]
    > If you know that your app will never need any file upload above a given size, you can restrict that by setting a limit.
 
+## Firewall Metrics (WAF_v1 only)
+
+For v1 Web Application Firewalls, the following metrics are now available in the portal: 
+
+1. Web Application Firewall Blocked Request Count
+  - The number of requests that were blocked
+2. Web Application Firewall Blocked Rule Count
+  - All rules that were matched **and** the request was blocked
+3. Web Application Firewall Total Rule Distribution
+  - All rules that were matched during evaluation
+
 ## Next steps
 
 See [How to configure web application firewall on Application Gateway](tutorial-restrict-web-traffic-powershell.md).
