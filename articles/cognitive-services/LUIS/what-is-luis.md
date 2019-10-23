@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 10/14/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent: As a developer incorporating LUIS into my client application, I want to understand what natural language processing (LUIS) is, so that I can determine if it will meet my Cognitive Language needs.
 ---
@@ -110,6 +110,7 @@ Tools to quickly and easily use LUIS with a bot:
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) LUISGen is a tool for generating strongly typed C# and typescript source code from an exported LUIS model.
 * [Dispatch](https://aka.ms/dispatch-tool) allows several LUIS and QnA Maker apps to be used from a parent app using dispatcher model.
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) LUDown is a command line tool that helps manage language models for your bot.
+* [Bot framework - Composer](https://github.com/microsoft/BotFramework-Composer)
 
 Other Cognitive Services used with LUIS:
 * [QnA Maker][qnamaker] allows several types of text to combine into a question and answer knowledge base.
@@ -119,11 +120,13 @@ Other Cognitive Services used with LUIS:
 Samples using LUIS:
 * [Conversational AI](https://github.com/Microsoft/AI) GitHub repository.
 * [Bot framework - Bot samples](https://github.com/microsoft/BotBuilder-Samples)
-* [Bot framework - Composer samples](https://github.com/microsoft/BotFramework-Composer)
 
 ## Next steps
 
-Author a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain. [Query the prediction endpoint](luis-get-started-get-intent-from-browser.md) of a public IoT app. Learn about [developer resources](developer-reference-resource.md) for LUIS. 
+* [What's new](whats-new.md)
+* Author a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [custom](luis-quickstart-intents-only.md) domain.
+* [Query the prediction endpoint](luis-get-started-get-intent-from-browser.md) of a public IoT app. 
+* [Developer resources](developer-reference-resource.md) for LUIS. 
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
