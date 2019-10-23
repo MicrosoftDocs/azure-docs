@@ -28,7 +28,7 @@ This article provides general guidance on how to detect and remove these depende
 
 ## Check if your application is already compliant
 
-The easiest way to figure out if your application will work with TLS 1.2 is to set the Minimum TLS version on a test or staging cache it uses to TLS 1.2. You can find the Minimum TLS version setting in the [Advanced settings](cache-configure.md#advanced-settings) of your cache instance in the Azure management portal. If the application continues to function as expected after this change, it is most likely to be compliant. Some Redis client libraries used by our application may need to be specifically configured to enable TLS 1.2 in order to connect to Azure Cache for Redis over that security protocol.
+The easiest way to figure out if your application will work with TLS 1.2 is to set the Minimum TLS version on a test or staging cache it uses to TLS 1.2. You can find the Minimum TLS version setting in the [Advanced settings](cache-configure.md#advanced-settings) of your cache instance in the Azure portal. If the application continues to function as expected after this change, it is most likely to be compliant. Some Redis client libraries used by our application may need to be specifically configured to enable TLS 1.2 in order to connect to Azure Cache for Redis over that security protocol.
 
 ## Configure your application to use TLS 1.2
 
