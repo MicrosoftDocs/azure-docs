@@ -17,9 +17,6 @@ This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to load data into a machine learning pipeline from existing cloud data services. 
 
-<<<<<<< HEAD
-First, choose the source you are reading from, and finish the additional settings. Import data module support read data from following sources.  For all cloud storage, you need to register a datastore in you Azure Machine Learning service workspace first. Check [get data from datastore](../service/how-to-access-data.md) to learn how. 
-=======
 > [!Note]
 > All functionality provided by this module can be done by **datastore** and **datasets** in the worksapce landing page. We recommend you use **datastore** and **dataset** which includes additional features like data monitoring. To learn more, see [How to Access Data](../service/how-to-access-data.md) and [How to Register Datasets](../service/how-to-create-register-datasets.md) article.
 >  After you register a dataset, you can find it in the **Datasets** -> **My Datasets** category in designer interface. This module is reserved for Studio(classic) users to for a familiar experience. 
@@ -27,7 +24,6 @@ First, choose the source you are reading from, and finish the additional setting
 
 First, choose the source you are reading from, and finish the additional settings. The **Import Data** module support read data from following sources:
 
->>>>>>> cca4514dc9f... Edit pass
 - URL via HTTP
 - Azure cloud storages through [**Datastores**](../service/how-to-access-data.md))
     - Azure Blob Container
