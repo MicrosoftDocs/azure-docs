@@ -31,16 +31,6 @@ App Service supports many languages including: Node.js, Java (JRE 8 & JRE 11), P
 
 Run [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) to view the latest languages supported versions.
 
-| Language | Supported Versions |
-|---|---|
-| Node.js | 4.4, 4.5, 4.8, 6-lts, 6.2, 6.6, 6.9, 6.10, 6.11, 8-lts, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10-lts, 10.1, 10.10, 10.14, 10.16, 12-lts, 12.9 |
-| Java (JRE 8) | Tomcat 8.5, 9.0, Java SE, WildFly 14 |
-| Java (JRE 11) | Tomcat 8.5, 9.0, Java SE |
-| PHP | 5.6, 7.0, 7.2, 7.3 |
-| Python | 2.7, 3.6, 3.7, 3.8 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2, 3.0 |
-| Ruby | 2.3, 2.4, 2.5, 2.6 |
-
 ## Deployments
 
 * FTP
