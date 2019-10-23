@@ -225,7 +225,7 @@ pipeline:
 | `run_name` | The name in Databricks for this run. |
 | `source_directory` | Directory that contains the script and other files. |
 | `num_workers` | The static number of workers for the Databricks run cluster. |
-| `runconfig` | The path to a `.runconfig` file. This file is a YAML representation of the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) class. For more information on the structure of this file, see [TBD]. |
+| `runconfig` | The path to a `.runconfig` file. This file is a YAML representation of the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) class. For more information on the structure of this file, see [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determines whether the step should reuse previous results when run again with the same settings. |
 
 The following example contains a Databricks step:
@@ -322,7 +322,7 @@ pipeline:
 | `outputs` | Outputs can be either [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) or [OutputPortBinding](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.outputportbinding?view=azure-ml-py). |
 | `script_name` | The name of the Python script (relative to `source_directory`). |
 | `source_directory` | Directory that contains the script, Conda environment, etc. |
-| `runconfig` | The path to a `.runconfig` file. This file is a YAML representation of the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) class. For more information on the structure of this file, see [TBD]. |
+| `runconfig` | The path to a `.runconfig` file. This file is a YAML representation of the [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) class. For more information on the structure of this file, see [runconfig.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). |
 | `allow_reuse` | Determines whether the step should reuse previous results when run again with the same settings. |
 
 The following example contains a Python script step:
@@ -402,10 +402,10 @@ When defining a **recurring schedule**, use the following keys under `recurrence
 | `interval` | How often the schedule fires. The integer value is the number of time units to wait until the schedule fires again. |
 | `start_time` | The start time for the schedule. The string format of the value is `YYYY-MM-DDThh:mm:ss`. If no start time is provided, the first workload is run instantly and future workloads are run based on the schedule. If the start time is in the past, the first workload is run at the next calculated run time. |
 | `time_zone` | The time zone for the start time. If no time zone is provided, UTC is used. |
-| `hours` | If `frequency` is `"Day"` or `"Week"`, specify one or more integers from 0 to 23, separated by commas, as the hours of the day when the pipeline should run. Only `time_of_day` or `hours` and `minutes` can be used. |
-| `minutes` | If `frequency` is `"Day"` or `"Week"`, specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when the pipeline should run. Only `time_of_day` or `hours` and `minutes` can be used. |
-| `time_of_day` | If `frequency` is `"Week"`, specify one or more days, separated by commas, when the schedule should run. Valid values are `"Monday"`, `"Tuesday"`, `"Wednesday"`, `"Thursday"`, `"Friday"`, `"Saturday"`, and `"Sunday"`.
-| `week_days` |
+| `hours` | If `frequency` is `"Day"` or `"Week"`, you can specify one or more integers from 0 to 23, separated by commas, as the hours of the day when the pipeline should run. Only `time_of_day` or `hours` and `minutes` can be used. |
+| `minutes` | If `frequency` is `"Day"` or `"Week"`, you can specify one or more integers from 0 to 59, separated by commas, as the minutes of the hour when the pipeline should run. Only `time_of_day` or `hours` and `minutes` can be used. |
+| `time_of_day` | If `frequency` is `"Day"` or `"Week"`, you can specify a time of day for the schedule to run. The string format of the value is `hh:mm`. Only `time_of_day` or `hours` and `minutes` can be used. |zzs
+| `week_days` | If `frequency` is `"Week"`, you can specify one or more days, separated by commas, when the schedule should run. Valid values are `"Monday"`, `"Tuesday"`, `"Wednesday"`, `"Thursday"`, `"Friday"`, `"Saturday"`, and `"Sunday"`. |
 
 The following example contains the definition for a recurring schedule:
 
