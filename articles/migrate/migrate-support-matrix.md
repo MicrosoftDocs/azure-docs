@@ -19,7 +19,7 @@ You can use the [Azure Migrate service](migrate-overview.md) to assess and migra
 
 There are two versions of the Azure Migrate service:
 
-- **Current version**: Using this version you can create new Azure Migrate projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md#azure-migrate-new-version).
+- **Current version**: Using this version you can create new Azure Migrate projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md#release-version-july-2019).
 - **Previous version**: For customer using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new Azure Migrate projects or perform new discoveries.
 
 ## Supported assessment/migration scenarios
