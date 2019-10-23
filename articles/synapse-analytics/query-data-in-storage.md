@@ -1,5 +1,5 @@
 ---
-title: Overview - Query data in storage 
+title: Overview - Query data in storage
 description: This section contains sample queries you can use to try out SQL on-demand service.
 services: sql-data-warehouse
 author: azaricstefan
@@ -48,7 +48,7 @@ There are two steps prior to using samples:
 
 ### Create database
 
-Since you will use demo environment, you should create your own database for demo purposes. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
+You should create your own database. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
 > Note that databases are used only for view metadata, not for actual data.
 > 
