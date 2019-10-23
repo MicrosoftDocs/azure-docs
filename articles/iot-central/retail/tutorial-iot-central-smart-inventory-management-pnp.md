@@ -25,8 +25,8 @@ In this tutorial, you learn how to,
 You can create application using following steps
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/iotc_retail_homepage.png)
 
 2. Select **Retail** tab and select **Create app** under ** smart inventory management **
 
@@ -36,8 +36,8 @@ You can create application using following steps
    **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
    **Create**: Select create at the bottom of the page to deploy your application.
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
 ## Walk through the application 
 
@@ -49,29 +49,29 @@ The dashboard is logically divided between two different gateway device manageme
    * Retail store is implemented with a fixed RFID gateway & RFID tags at individual an item level to track and trace the stock in a store outlet
    * View the gateway location, status & related details 
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
 
    * You can easily track the total number of gateways, active, and unknown tags.
    * You can perform device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals & update device service contracts
    * Gateway devices can perform on-demand inventory management with a complete or incremental scan.
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
 
 ## Device Template
 Click on the Device templates tab, and you will see the gateway capability model. A capability model is structured around two different interfaces **Gateway Telemetry & Property** and **Gateway Commands**
 
 **Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location, device info as well as device twin property capability such as gateway thresholds & update intervals.
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate1.png)
 
 
 **Gateway Commands** - This interface organizes all the gateway command capabilities
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_devicetemplate2.png)
 
 ## Rules
 Select the rules tab to see two different rules that exist in this application template. These rules are configured to email notifications to the operators for further investigations.
@@ -80,8 +80,8 @@ Select the rules tab to see two different rules that exist in this application t
 
 **Unknown tags**: It is critical to track every RFID & BLE tags associated with an asset. If the gateway is detecting too many unknown tags, this is an indication of synchronization challenges with tag sourcing applications.
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_rules.png)
 
 ## Jobs
 Select the jobs tab to see five different jobs that exist as part of this application template:
@@ -90,15 +90,15 @@ You can leverage jobs feature to perform solution-wide operations. Here inventor
    * modifying the telemetry threshold between 
    * perform on-demand inventory scanning across the entire solution.
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## Next steps
 * Learn more about smart inventory management [smart inventory management concept](./architecture-smart-inventory-management-pnp.md)
