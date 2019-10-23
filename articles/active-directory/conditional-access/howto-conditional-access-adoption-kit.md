@@ -66,7 +66,6 @@ Follow the links below to get an overview of how Azure AD Conditional Access fun
 
 Additionally, refer to the following links for guidance to protect access to all services that are integrated with Azure Active Directory.
 
-* [What is baseline protection (preview)?](baseline-protection.md) Baseline protection ensures that you have at least the baseline level of security enabled in your Azure Active Directory environment.
 * [Identity and device access configurations](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations). Describes how to configure secure access to cloud services through Enterprise Mobility + Security products by implementing a recommended environment and configuration, including a prescribed set of Conditional Access policies and related capabilities.
 * [Azure Active Directory Conditional Access settings reference](technical-reference.md). Learn:
    * What apps use conditional access?

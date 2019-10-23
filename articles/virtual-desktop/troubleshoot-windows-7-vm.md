@@ -40,5 +40,5 @@ To fix this error, add the user to the Remote Desktop User group:
 4. Run the following command with `<username>` replaced by the name of the user you want to add:
    
    ```cmd
-   localgroup "Remote Desktop Users" <username> /add
+   net localgroup "Remote Desktop Users" <username> /add
    ```
