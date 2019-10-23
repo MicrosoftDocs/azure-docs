@@ -1,5 +1,5 @@
 ---
-title: Install Visual Studio 2019 for SQL Analytics | Microsoft Docs
+title: Install Visual Studio 2019 for Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
 description: Install Visual Studio and SQL Server Development Tools (SSDT) for Azure SQL Analytics
 services: sql-data-warehouse
 ms.custom: vs-azure
@@ -14,10 +14,10 @@ ms.author: kevin
 ms.reviewer: igorstan
 ---
 
-# Getting started with Visual Studio 2019 for SQL Analytics (formerly SQL DW)
+# Getting started with Visual Studio 2019 for Azure Synapse Analytics (formerly SQL DW)
 Visual Studio **2019** SQL Server Data Tools (SSDT) is a single tool allowing you to do the following:
 
-- Connect, query, and develop applications for SQL Analytics 
+- Connect, query, and develop applications 
 - Leverage an object explorer to visually explore all objects in your data model including tables, views, stored procedures, and etc.
 - Generate T-SQL data definition language (DDL) scripts for your objects
 - Develop your data warehouse using a state-based approach with SSDT Database Projects
@@ -31,10 +31,10 @@ Visual Studio **2019** SQL Server Data Tools (SSDT) is a single tool allowing yo
 See [Download Visual Studio 2019][] to download and install Visual Studio **16.3 and above**. During install, select the data storage and processing workload. Standalone SSDT installation is no longer required in Visual Studio 2019.
 
 ## Reporting issues with SSDT Visual Studio 2019 (preview)
-To report issues when using SSDT with SQL Analytics, email the following email distribution list: <sqldwssdtpreview@service.microsoft.com>
+To report issues when using SSDT with Azure Synapse Analytics, email the following email distribution list: <sqldwssdtpreview@service.microsoft.com>
 
 ## Next steps
-Now that you have the latest version of SSDT, you're ready to [connect][connect] to your SQL Analytics.
+Now that you have the latest version of SSDT, you're ready to [connect][connect] to your SQL end point.
 
 <!--Anchors-->
 
