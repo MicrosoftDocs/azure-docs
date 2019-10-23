@@ -79,7 +79,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
     | **Tier** |  Select **PAYG** (*pay-as-you-go*). This is the SKU for the Azure Time Series Insights Preview product. |
     | **Property ID** | Enter a value that uniquely identifies your time series instance. The value you enter in the **Property ID** box is immutable and can't be changed later. For this tutorial, enter **iothub-connection-device-id**. To learn more about Time Series ID, see [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md). |
     | **Storage account name** | Enter a globally unique name for a new storage account for cold store.|
-    |**Storage account replication**|Pick the replication strategy that works for your business. To learn more about various replication strategies, see [Azure storage redundancy](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy). |
+    |**Storage account replication**|Pick the replication strategy that works for your business. To learn more about various replication strategies, see [Azure storage redundancy](../storage/common/storage-redundancy.md). |
     |**Enable warm store**|Create an optional warm store. It can be deleted at any time.Warm store allows you faster, unlimited queries over your most recent data (up to the past 31 days)  |
     |**Data retention (in days)**|Choose the data retention in warm store. Default value is 7 days and can be extended upto 31 days |
    
