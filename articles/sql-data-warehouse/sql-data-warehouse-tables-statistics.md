@@ -1,6 +1,6 @@
 ---
-title: Creating, updating statistics - Azure SQL Data Warehouse | Microsoft Docs
-description: Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
+title: Creating, updating statistics - Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Recommendations and examples for creating and updating query-optimization statistics on tables in Azure Synapse Analytics (formerly SQL DW).
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -13,17 +13,17 @@ ms.reviewer: igorstan
 ms.custom: seoapril2019
 ---
 
-# Table statistics in Azure SQL Data Warehouse
+# Table statistics in Azure Synapse Analytics (formerly SQL DW)
 
-Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
+Recommendations and examples for creating and updating query-optimization statistics on tables in Azure Synapse Analytics.
 
 ## Why use statistics
 
-The more Azure SQL Data Warehouse knows about your data, the faster it can execute queries against it. After loading data into SQL Data Warehouse, collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Data Warehouse query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+The more the database engine knows about your data, the faster it can execute queries against it. After loading data into SQL Analytics tables, collecting statistics on your data is one of the most important things you can do to optimize your queries. The query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ## Automatic creation of statistic
 
-When the database AUTO_CREATE_STATISTICS option is on, SQL Data Warehouse analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan. Automatic creation of statistics is currently turned on by default.
+When the database AUTO_CREATE_STATISTICS option is on, the query optimizer analyzes incoming user queries for missing statistics. If statistics are missing, the query optimizer creates statistics on individual columns in the query predicate or join condition to improve cardinality estimates for the query plan. Automatic creation of statistics is currently turned on by default.
 
 You can check if your data warehouse has AUTO_CREATE_STATISTICS configured by running the following command:
 
@@ -137,7 +137,7 @@ These examples show how to use various options for creating statistics. The opti
 
 To create statistics on a column, simply provide a name for the statistics object and the name of the column.
 
-This syntax uses all of the default options. By default, SQL Data Warehouse samples **20 percent** of the table when it creates statistics.
+This syntax uses all of the default options. By default, **20 percent** of a table is sampled to creates statistics.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -237,7 +237,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### Use a stored procedure to create statistics on all columns in a database
 
-SQL Data Warehouse does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+SQL pool does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 
 The following example will help you get started with your database design. Feel free to adapt it to your needs:
 
@@ -387,7 +387,7 @@ UPDATE STATISTICS dbo.table1;
 The UPDATE STATISTICS statement is easy to use. Just remember that it updates *all* statistics on the table, and therefore might perform more work than is necessary. If performance is not an issue, this is the easiest and most complete way to guarantee that statistics are up to date.
 
 > [!NOTE]
-> When updating all statistics on a table, SQL Data Warehouse does a scan to sample the table for each statistics object. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
+> When updating all statistics on a table, a scan to sample the table for each statistics object is conducted. If the table is large and has many columns and many statistics, it might be more efficient to update individual statistics based on need.
 
 For an implementation of an `UPDATE STATISTICS` procedure, see [Temporary Tables](sql-data-warehouse-tables-temporary.md). The implementation method is slightly different from the preceding `CREATE STATISTICS` procedure, but the result is the same.
 
@@ -468,7 +468,7 @@ DBCC SHOW_STATISTICS() shows the data held within a statistics object. This data
 - Density vector
 - Histogram
 
-The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. SQL Data Warehouse computes cardinality estimates with any of the data in the statistics object.
+The header metadata about the statistics. The histogram displays the distribution of values in the first key column of the statistics object. The density vector measures cross-column correlation. Cardinality estimates are computed using the data in the statistics object.
 
 ### Show header, density, and histogram
 
@@ -500,7 +500,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1) WITH histogram, density_vector
 
 ## DBCC SHOW_STATISTICS() differences
 
-DBCC SHOW_STATISTICS() is more strictly implemented in SQL Data Warehouse compared to SQL Server:
+DBCC SHOW_STATISTICS() is more strictly implemented in SQL Analytics compared to SQL Server:
 
 - Undocumented features are not supported.
 - Cannot use Stats_stream.
