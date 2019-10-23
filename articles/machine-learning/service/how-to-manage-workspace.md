@@ -46,7 +46,7 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
    Location | Select the location closest to your users and the data resources to create your workspace.
    Workspace edition | Select **Basic** or **Enterprise**.  This workspace edition determines the features to which you’ll have access and pricing. Learn more about [Basic and Enterprise edition offerings](overview-what-is-azure-ml.md#sku). 
 
-![Configure your workspace](media/how-to-manage-workspace/select-edition.png)
+    ![Configure your workspace](media/how-to-manage-workspace/select-edition.png)
 
 1. After you are finished configuring the workspace, select **Create**. 
 
