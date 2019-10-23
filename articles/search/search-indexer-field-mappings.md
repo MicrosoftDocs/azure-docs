@@ -1,31 +1,30 @@
 ---
-title: Field mappings for automated indexing using indexers - Azure Search
-description: Configure Azure Search indexer field mappings to account for differences in field names and data representations.
+title: Field mappings for automated indexing using indexers
+titleSuffix: Azure Cognitive Search
+description: Configure field mappings in an indexer to account for differences in field names and data representations.
 
-ms.date: 05/02/2019
-author: mgottein 
 manager: nitinme
+author: mgottein 
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 11/04/2019
 ---
 
-# Field mappings and transformations using Azure Search indexers
+# Field mappings and transformations using Azure Cognitive Search indexers
 
-When using Azure Search indexers, you sometimes find that the input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to reshape your data during the indexing process.
+When using Azure Cognitive Search indexers, you sometimes find that the input data doesn't quite match the schema of your target index. In those cases, you can use **field mappings** to reshape your data during the indexing process.
 
 Some situations where field mappings are useful:
 
-* Your data source has a field named `_id`, but Azure Search doesn't allow field names that start with an underscore. A field mapping lets you effectively rename a field.
+* Your data source has a field named `_id`, but Azure Cognitive Search doesn't allow field names that start with an underscore. A field mapping lets you effectively rename a field.
 * You want to populate several fields in the index from the same data source data. For example, you might want to apply different analyzers to those fields.
 * You want to populate an index field with data from more than one data source, and the data sources each use different field names.
 * You need to Base64 encode or decode your data. Field mappings support several **mapping functions**, including functions for Base64 encoding and decoding.
 
 > [!NOTE]
-> The field mapping feature of Azure Search indexers provides a simple way to map data fields to index fields, with a few options for data conversion. More complex data might require pre-processing to reshape it into a form that's easy to index.
+> The field mapping feature of Azure Cognitive Search indexers provides a simple way to map data fields to index fields, with a few options for data conversion. More complex data might require pre-processing to reshape it into a form that's easy to index.
 >
 > Microsoft Azure Data Factory is a powerful cloud-based solution for importing and transforming data. You can also write code to transform source data before indexing. For code examples, see [Model relational data](search-example-adventureworks-modeling.md) and [Model multilevel facets](search-example-adventureworks-multilevel-faceting.md).
 >
@@ -69,7 +68,7 @@ A source field can be referenced in multiple field mappings. The following examp
 ```
 
 > [!NOTE]
-> Azure Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index cannot have fields that differ only by case.  
+> Azure Cognitive Search uses case-insensitive comparison to resolve the field and function names in field mappings. This is convenient (you don't have to get all the casing right), but it means that your data source or index cannot have fields that differ only by case.  
 >
 >
 
@@ -120,7 +119,7 @@ Performs *URL-safe* Base64 encoding of the input string. Assumes that the input 
 
 #### Example - document key lookup
 
-Only URL-safe characters can appear in an Azure Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). If the source field for your key contains URL-unsafe characters, you can use the `base64Encode` function to convert it at indexing time.
+Only URL-safe characters can appear in an Azure Cognitive Search document key (because customers must be able to address the document using the [Lookup API](https://docs.microsoft.com/rest/api/searchservice/lookup-document) ). If the source field for your key contains URL-unsafe characters, you can use the `base64Encode` function to convert it at indexing time.
 
 When you retrieve the encoded key at search time, you can then use the `base64Decode` function to get the original key value, and use that to retrieve the source document.
 
@@ -139,7 +138,7 @@ When you retrieve the encoded key at search time, you can then use the `base64De
 
 If you don't include a parameters property for your mapping function, it defaults to the value `{"useHttpServerUtilityUrlTokenEncode" : true}`.
 
-Azure Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more information, see [base64 encoding options](#base64details) to decide which parameters to use.
+Azure Cognitive Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more information, see [base64 encoding options](#base64details) to decide which parameters to use.
 
 <a name="base64DecodeFunction"></a>
 
@@ -166,17 +165,17 @@ Your source data might contain Base64-encoded strings, such as blob metadata str
 
 If you don't include a parameters property, it defaults to the value `{"useHttpServerUtilityUrlTokenEncode" : true}`.
 
-Azure Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more details, see [base64 encoding options](#base64details) to decide which parameters to use.
+Azure Cognitive Search supports two different Base64 encodings. You should use the same parameters when encoding and decoding the same field. For more details, see [base64 encoding options](#base64details) to decide which parameters to use.
 
 <a name="base64details"></a>
 
 #### base64 encoding options
 
-Azure Search supports two different Base64 encodings: **HttpServerUtility URL token**, and **URL-safe Base64 encoding without padding**. A string that is base64-encoded during indexing should later be decoded with the same encoding options, or else the result won't match the original.
+Azure Cognitive Search supports two different Base64 encodings: **HttpServerUtility URL token**, and **URL-safe Base64 encoding without padding**. A string that is base64-encoded during indexing should later be decoded with the same encoding options, or else the result won't match the original.
 
 If the `useHttpServerUtilityUrlTokenEncode` or `useHttpServerUtilityUrlTokenDecode` parameters for encoding and decoding respectively are set to `true`, then `base64Encode` behaves like [HttpServerUtility.UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) and `base64Decode` behaves like [HttpServerUtility.UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
 
-If you are not using the full .NET Framework (that is, you are using .NET Core or another framework) to produce the key values to emulate Azure Search behavior, then you should set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `false`. Depending on the library you use, the base64 encoding and decoding functions might differ from the ones used by Azure Search.
+If you are not using the full .NET Framework (that is, you are using .NET Core or another framework) to produce the key values to emulate Azure Cognitive Search behavior, then you should set `useHttpServerUtilityUrlTokenEncode` and `useHttpServerUtilityUrlTokenDecode` to `false`. Depending on the library you use, the base64 encoding and decoding functions might differ from the ones used by Azure Cognitive Search.
 
 The following table compares different base64 encodings of the string `00>00?00`. To determine the required additional processing (if any) for your base64 functions, apply your library encode function on the string `00>00?00` and compare the output with the expected output `MDA-MDA_MDA`.
 
@@ -229,7 +228,7 @@ For example, if the input string is `["red", "white", "blue"]`, then the target 
 
 #### Example - populate collection from relational data
 
-Azure SQL Database doesn't have a built-in data type that naturally maps to `Collection(Edm.String)` fields in Azure Search. To populate string collection fields, you can pre-process your source data as a JSON string array and then use the `jsonArrayToStringCollection` mapping function.
+Azure SQL Database doesn't have a built-in data type that naturally maps to `Collection(Edm.String)` fields in Azure Cognitive Search. To populate string collection fields, you can pre-process your source data as a JSON string array and then use the `jsonArrayToStringCollection` mapping function.
 
 ```JSON
 

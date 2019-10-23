@@ -145,7 +145,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 
-To learn about the scale limits of Azure Firewall and request increases, see [this](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) document.
+To learn about the scale limits of Azure Firewall and request increases, see [this](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#azure-firewall-limits) document or refer to the [FAQs](https://docs.microsoft.com/en-us/azure/firewall/firewall-faq). 
 
 ## Access to the cluster
 After having the firewall setup successfully, you can use the internal endpoint (`https://<clustername>-int.azurehdinsight.net`) to access the Ambari from inside the VNET. 
