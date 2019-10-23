@@ -13,10 +13,15 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying single CSV file
 
-Reading this article you will learn how to write a query in SQL Analytics on-demand that will read single CSV file.
-CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats: with and without header row, comma and tab-delimited values, Windows and Unix style line endings, non-quoted and quoted values, and escaping characters.
+In this article you will learn how to query single CSV file with SQL On-demand. 
+CSV files may have different formats: 
 
-In this quickstart, you will query a single CSV file using SQL on-demand.
+- With and without header row
+- Comma and tab-delimited values
+- Windows and Unix style line endings
+- Non-quoted and quoted values, and escaping characters
+
+In this article we will cover all these variations.
 
 
 ## Prerequisites
