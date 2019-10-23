@@ -5,7 +5,7 @@ author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 07/15/2019
+ms.date: 10/23/2019
 ms.reviewer: sngun
 ---
 # Optimize throughput when bulk importing data to Azure Cosmos DB SQL API account
