@@ -14,11 +14,11 @@ ms.custom: seodec18
 
 # Data storage and ingress in Azure Time Series Insights Preview
 
-This article describes changes to data storage and ingress for the Azure Time Series Insights Preview. It covers the underlying storage structure, file format, and Time Series ID property. The article also discusses the underlying ingress process, throughput, and limitations.
+This article describes updates to data storage and ingress for the Azure Time Series Insights Preview. It covers the underlying storage structure, file format, and Time Series ID property. The article also discusses the underlying ingress process, throughput, and limitations.
 
 ## Data ingress
 
-Azure Time Series Insights data ingress policies determine where data can be sourced from and in what format.
+Azure Time Series Insights Preview data ingress policies determine where data can be sourced from and in what format.
 
 [![Time Series Model overview](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
 
@@ -35,14 +35,14 @@ Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azur
 
 ### Data storage
 
-When you create a Time Series Insights Preview pay-as-you-go SKU environment, you create two resources:
+When you create a Time Series Insights Preview pay-as-you-go SKU environment, you create two Azure resources:
 
 * A Time Series Insights Preview environment that can optionally include warm store capabilities.
 * An Azure Storage general-purpose V1 Blob account for cold data storage.
 
 Data in your warm store is available only via [Time Series Query](./time-series-insights-update-tsq.md) and the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md). 
 
-The Time Series Insights Preview saves your cold store data to Azure Blob storage in the [Parquet file format(#parquet-file-format). Time Series Insights Preview manages this cold store data exclusively, but it is available for you to read directly as standard Parquet files.
+The Time Series Insights Preview saves your cold store data to Azure Blob storage in the [Parquet file format](#parquet-file-format). Time Series Insights Preview manages this cold store data exclusively, but it is available for you to read directly as standard Parquet files.
 
 > [!WARNING]
 > As the owner of the Azure Blob storage account where cold store data resides, you have full access to all data in the account including write and delete permissions. It is important you don't edit or delete the data written by Time Series Insights Preview as this can cause data loss.
@@ -96,7 +96,7 @@ Don't delete your Time Series Insights Preview files. Management of related data
 
 ## Parquet file format and folder structure
 
-Parquet is an open source columnar file format that was designed for efficient storage and performance.  Time Series Insights Preview uses Parquet for these reasons and additionally partitions data by Time Series ID for query performance at scale.  
+Parquet is an open source columnar file format that was designed for efficient storage and performance. Time Series Insights Preview uses Parquet for these reasons and additionally partitions data by Time Series ID for query performance at scale.  
 
 For more about the Parquet file type, consult the [Parquet documentation](https://parquet.apache.org/documentation/latest/).
 

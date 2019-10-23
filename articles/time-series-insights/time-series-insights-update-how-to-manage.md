@@ -81,7 +81,7 @@ You can manage your Azure Time Series Insights Preview environment by using the 
   * The displayed URL directs you to the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
   * Your Azure storage account name is listed.
 
-* The Azure portal's **Configure** blade has been removed in Azure Time Series Insights Preview because PAYG environments are not configurable.
+* The Azure portal's **Configure** blade has been removed in Azure Time Series Insights Preview because PAYG environments are not configurable. However, **Storage Configuration** has been introduced to configure newly introduced warm store.
 
 * The Azure portal's **Reference data** blade has been removed in Azure Time Series Insights Preview because reference data is not a component of PAYG environments.
 
