@@ -19,16 +19,20 @@ Azure Database for MySQL uses the world's most popular community edition of MySQ
 | .NET | Async MySQL Connector for .NET | https://github.com/mysql-net/MySqlConnector <br> [Installation package from Nuget](https://www.nuget.org/packages/MySqlConnector/) | 0.27 and after | 0.26.5 and before | |
 | .NET | MySQL Connector/NET |https://github.com/mysql/mysql-connector-net | 8.0, 7.0, 6.10 |  | An encoding bug may cause connections to fail on some non-UTF8 Windows systems. |
 | Node.js | mysqljs | https://github.com/mysqljs/mysql/ <br> Installation package from NPM:<br> Run `npm install mysql` from NPM | 2.15 | 2.14.1 and before | |
+| Node.js | node-mysql2 | https://github.com/sidorares/node-mysql2 | 1.3.4+ | | |
 | Go | Go MySQL Driver | https://github.com/go-sql-driver/mysql/releases | 1.3, 1.4 | 1.2 and before | Use `allowNativePasswords=true` in the connection string for version 1.3. Version 1.4 contains a fix and `allowNativePasswords=true` is no longer required. |
-| Python | MySQL Connector/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2 | 1.2.2 and before | |
+| Python | MySQL Connector/Python | https://pypi.python.org/pypi/mysql-connector-python | 1.2.3, 2.0, 2.1, 2.2, use 8.0.16+ with MySQL 8.0  | 1.2.2 and before | |
 | Python | PyMySQL | https://pypi.org/project/PyMySQL/ | 0.7.11, 0.8.0, 0.8.1, 0.9.3+ | 0.9.0 - 0.9.2 (regression in web2py) | |
 | Java | MariaDB Connector/J | https://downloads.mariadb.org/connector-java/ | 2.1, 2.0, 1.6 | 1.5.5 and before | | 
-| Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.20+ | 5.1.9 and below | |
-| C | MySQL Connector/C | https://dev.mysql.com/doc/refman/5.7/en/connector-c-info.html  | 6.0.2+ | | |
-| C | MySQL Connector/ODBC | https://github.com/mysql/mysql-connector-odbc | 3.51.29+ | | |
-| C++ | MySQL Connector/C++ | https://github.com/mysql/mysql-connector-cpp  | 1.1.4+ | 1.1.3 and below | | 
-| Ruby | mysql2 | https://github.com/brianmario/mysql2 | | | |
-| R | RMySQL | https://github.com/rstats-db/RMySQL | | | |
+| Java | MySQL Connector/J | https://github.com/mysql/mysql-connector-j | 5.1.20+, use 8.0.17+ with MySQL 8.0 | 5.1.9 and below | |
+| C | MySQL Connector/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/connector-c-info.html  | 6.0.2+ | | |
+| C | MySQL Connector/ODBC (myodbc) | https://github.com/mysql/mysql-connector-odbc | 3.51.29+ | | |
+| C++ | MySQL Connector/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9+ | 1.1.3 and below | | 
+| C++ | MySQL++| https://tangentsoft.net/mysql++ | 3.2.3+ | | |
+| Ruby | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10+ | | |
+| R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16+ | | |
+| Swift | mysql-swift | https://github.com/novi/mysql-swift | 0.7.2+ | | |
+| Swift | vapor/mysql | https://github.com/vapor/mysql-kit | 2.0.1+ | | |
 
 ## Management Tools
 The compatibility advantage extends to database management tools as well. Your existing tools should continue to work with Azure Database for MySQL, as long as the database manipulation operates within the confines of user permissions. Three common database management tools that have been tested and found to be compatible with Azure Database for MySQL 5.6 and 5.7 are listed in the following table:
