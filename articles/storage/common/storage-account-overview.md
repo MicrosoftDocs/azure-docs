@@ -21,7 +21,7 @@ To learn how to create an Azure storage account, see [Create a storage account](
 
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-### General-purpose v2 accounts (StorageV2)
+### General-purpose v2 accounts
 
 General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-purpose v2 storage accounts support these Azure Storage services:
 
@@ -38,9 +38,9 @@ General-purpose v2 storage accounts support the latest Azure Storage features an
 
 General-purpose v2 storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
 
-### General-purpose v1 accounts (Storage)
+### General-purpose v1 accounts
 
-General-purpose v1 accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. General-purpose v1 storage accounts support these Azure Storage services:
+General-purpose v1 storage accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. General-purpose v1 storage accounts support these Azure Storage services:
 
 - Blobs (all types)
 - Files
