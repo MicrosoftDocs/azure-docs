@@ -1,7 +1,7 @@
 ---
-title: "How to use the Feedback Loop REST API with Python - Form Recognizer"
+title: "Train with labels using the REST API and Python - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: Learn how to use the Form Recognizer Feedback Loop feature with the REST API and Python to train a custom model.
+description: Learn how to use the Form Recognizer labeled data feature with the REST API and Python to train a custom model.
 author: PatrickFarley
 manager: nitinme
 
@@ -13,9 +13,9 @@ ms.author: pafarley
 
 ---
 
-# Train a Form Recognizer model using the Feedback Loop REST API with Python
+# Train a Form Recognizer model with labels using REST API and Python
 
-In this quickstart, you'll use the Form Recognizer Feedback Loop REST API with Python to train a custom model with manual input. See the [Feedback Loop conceptual guide](./feedback-loop.md) for an overview of this feature.
+In this quickstart, you'll use the Form Recognizer REST API with Python to train a custom model with manually labeled data. See the [Labeled data conceptual guide](./feedback-loop.md) for an overview of this feature.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -28,11 +28,11 @@ To complete this quickstart, you must have:
 
 ## Set up training data
 
-First you'll need to set up the required input data. The Feedback Loop feature has special input requirements beyond those needed to train a custom model. 
+First you'll need to set up the required input data. The labeled data feature has special input requirements beyond those needed to train a custom model. 
 
 First, make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
 
-In order to train a model using the Feedback Loop, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
+In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
 
 1.	**Source forms** – the forms to extract data from. Supported types are JPEG, PNG, BMP, PDF, or TIFF.
 1.	**OCR files** - JSON files that describe all of the readable text in each source form. in the Form Recognizer read Layout OCR format output format 
@@ -52,7 +52,7 @@ All of these files should occupy the same sub-folder and be in the following for
 
 ### Create the OCR output files
 
-OCR result files are needed for the service to consider the corresponding input files in Feedback Loop training. To obtain OCR results for a given source form, follow the steps below:
+You need OCR result files in order for the service to consider the corresponding input files for labeled training. To obtain OCR results for a given source form, follow the steps below:
 
 * Call the **/formrecognizer/v2.0-preview/readLayout/asyncAnalyze** API on the read Layout container with the input file as part of the request body. Save the ID found in the response's **Location** header.
 * Call the **/formrecognizer/v2.0-preview/readLayout/asyncAnalyzeOperations/{id}** API, using operation ID from the previous step.
@@ -93,7 +93,7 @@ OCR result files are needed for the service to consider the corresponding input 
 
 ### Create the label files
 
-Label files contain key-value associations that a user has entered manually. They are needed for Feedback Loop training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend 10 or more labeled files for reliable Feedback Loop training.
+Label files contain key-value associations that a user has entered manually. They are needed for labeled data training, but not every source file needs to have a corresponding label file. Source files without labels will be treated as ordinary training documents. We recommend 10 or more labeled files for reliable training.
 
 When you create a label file, you can optionally specify regions&mdash;exact positions of values on the document. This will give the training even higher accuracy. Regions are formatted as a set of eight values corresponding to four X,Y coordinates: top-left, top-right, bottom-right, and bottom-left. Coordinate values are between zero and one, scaled to the dimensions of the page.
 
@@ -141,16 +141,16 @@ For each source form, the corresponding label file should have the original file
         },
 ```
 
-## Train a model using Feedback Loop
+## Train a model using labeled data
 
-To train a model with Feedback Loop, call the **Train Custom Model** API by running the following python code. Before you run the code, make these changes:
+To train a model with labeled data, call the **Train Custom Model** API by running the following python code. Before you run the code, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint URL for your Form Recognizer resource.
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Replace `<prefix>` with the folder name in your blob container where the input data is located
 
 ```python
-########### Python Form Recognizer Feedback Loop Async Train #############
+########### Python Form Recognizer Labeled Async Train #############
 from requests import post as http_post
 
 # Endpoint URL
@@ -279,4 +279,4 @@ From here, you can copy the `"modelId"` value and use it in additional API calls
 
 ## Next steps
 
-In this guide, you learned how to use the Form Recognizer Feedback Loop REST API with Python to train a model with user-entered data. Next, see the [API reference documentation](https://aka.ms/form-recognizer/api) to explore the Form Recognizer API in more depth.
+In this guide, you learned how to use the Form Recognizer REST API with Python to train a model with manually labeled data. Next, see the [API reference documentation](https://aka.ms/form-recognizer/api) to explore the Form Recognizer API in more depth.

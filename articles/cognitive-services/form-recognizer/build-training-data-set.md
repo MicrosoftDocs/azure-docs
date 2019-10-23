@@ -17,7 +17,7 @@ ms.author: pafarley
 
 When you use the Form Recognizer custom model, you provide your own training data so the model can train to your industry-specific forms. You can train a model with five filled-in forms or an empty form (you must include the word "empty" in the file name) plus two filled-in forms. Even if you have enough filled-in forms to train with, adding an empty form to your training data set can improve the accuracy of the model.
 
-If you want to use the Feedback Loop feature to manually label your training data, you should start with at least 10 forms of the same type. You can still use unlabelled forms and an empty form in the same data set.
+If you want to use manually labeled training data, you should start with at least 10 forms of the same type. You can still use unlabeled forms and an empty form in the same data set.
 
 ## Training data tips
 
@@ -69,5 +69,4 @@ Now that you've learned how to build a training data set, follow a quickstart to
 
 * [Quickstart: Train a model and extract form data by using cURL](./quickstarts/curl-train-extract.md)
 * [Quickstart: Train a model and extract form data using the REST API with Python](./quickstarts/python-train-extract.md)
-* [How to use the Feedback Loop REST API with Python](./python-feedback-loop.md)
-
+* [Train with labels using the REST API and Python](./python-feedback-loop.md)

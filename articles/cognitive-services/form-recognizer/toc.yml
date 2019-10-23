@@ -25,13 +25,13 @@
     href: quickstarts/dotnet-sdk.md
 - name: Concepts
   items:
-  - name: Feedback Loop
+  - name: Labeled data
     href: feedback-loop.md
 - name: How-to guides
   items:
   - name: Build a training data set
     href: build-training-data-set.md
-  - name: Use Feedback Loop API with Python
+  - name: Train with labels using the REST API and Python
     href: python-feedback-loop.md
   - name: Use containers
     items:

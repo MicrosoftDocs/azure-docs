@@ -60,15 +60,15 @@ landingContent:
           - text: Using the .NET SDK
             url: quickstarts/dotnet-sdk.md
 
-  - title: Use the Feedback Loop feature
+  - title: Train using labels
     linkLists:
       - linkListType: concept
         links:
-            - text: Feedback Loop
+            - text: Labeled data
               url: feedback-loop.md
       - linkListType: how-to-guide
         links:
-            - text: Use Feedback Loop REST API with Python
+            - text: Train with labels using the REST API and Python
               url: python-feedback-loop.md
 
 
