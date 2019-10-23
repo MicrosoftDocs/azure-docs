@@ -27,6 +27,10 @@ ms.custom: seodec18
 
 App Service on Linux supports a number of Built-in images in order to increase developer productivity. If the runtime your application requires is not supported in the built-in images, there are instructions on how to [build your own Docker image](tutorial-custom-docker-image.md) to deploy to Web App for Containers.
 
+App Service supports many languages including: Node.js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core and Ruby.
+
+Run [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) to view the latest languages supported versions.
+
 | Language | Supported Versions |
 |---|---|
 | Node.js | 4.4, 4.5, 4.8, 6-lts, 6.2, 6.6, 6.9, 6.10, 6.11, 8-lts, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10-lts, 10.1, 10.10, 10.14, 10.16, 12-lts, 12.9 |
