@@ -102,6 +102,8 @@
     href: supported-kubernetes-versions.md
   - name: Security Hardening in host OS
     href: security-hardened-vm-host-image.md
+  - name: Azure Kubernetes Service Diagnostics overview
+    href: concepts-diagnostics.md
 - name: How-to guides
   items:
   - name: Cluster operations
