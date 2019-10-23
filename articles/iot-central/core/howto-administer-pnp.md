@@ -1,6 +1,6 @@
 ---
-title: Manage your Azure IoT Central application | Microsoft Docs
-description: As an administrator, how to manage your Azure IoT Central application by changing application name, URL, upload image, copy, and delete an application
+title: Change Azure IoT Central application settings | Microsoft Docs
+description: As an administrator, how to manage your Azure IoT Central application by changing application name, URL, upload image, and delete an application
 author: viv-liu
 ms.author: viviali
 ms.date: 10/10/2019
@@ -10,11 +10,11 @@ services: iot-central
 manager: peterpr
 ---
 
-# Manage your IoT Central application
+# Change IoT Central application settings
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This article describes how, as an administrator, you can manage application by changing application name and URL, uploading image, also you can learn how to copy, and delete an application in your Azure IoT Central application.
+This article describes how, as an administrator, you can manage application by changing application name and URL, uploading image, and delete an application in your Azure IoT Central application.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
@@ -29,23 +29,6 @@ If your administrator creates a custom theme for your application, this page inc
 > [!Note]
 > If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
 
-## Copy an application
-
-You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application by copying an application.
-
-Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart.
-
-![Application settings page](media/howto-administer-pnp/appcopy2.png)
-
-After the app copy operation succeeds, you can navigate to the new application using the link.
-
-![Application settings page](media/howto-administer-pnp/appcopy3a.png)
-
-Copying an application also copies the definition of rules and email action. Some actions like Flow, Logic Apps etc. are tied to specific rules via the Rule ID. When a rule is copied to a different application, it gets its own Rule ID. In this case, users will have to create a new action and then associate the new rule with it. In general, it is a good idea to check the rules and actions to make sure they are up-to-date in the new app.
-
-> [!WARNING]
-> If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
-
 ## Delete an application
 
 Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
@@ -53,7 +36,7 @@ Use the **Delete** button to permanently delete your IoT Central application. Th
 > [!Note]
 > To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-## Manage programatically
+## Manage programmatically
 
 IoT Central Azure Resource Manager SDK packages are available for Node, Python, C#, Ruby, Java, and Go. You can use these packages to create, list, update, or delete IoT Central applications. The packages include helpers to manage authentication and error handling.
 

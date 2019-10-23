@@ -1,34 +1,34 @@
 ---
-title: Index content from Azure Table storage for full text search - Azure Search
-description: Learn how to index data stored in Azure Table storage with an Azure Search indexer.
+title: Index content from Azure Table storage for full text search
+titleSuffix: Azure Cognitive Search
+description: Learn how to index data stored in Azure Table storage with an Azure Cognitive Search indexer.
 
-ms.date: 05/02/2019
-author: mgottein 
 manager: nitinme
+author: mgottein 
 ms.author: magottei
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
+ms.date: 11/04/2019
 ---
 
-# Index Azure Table storage with Azure Search
-This article shows how to use Azure Search to index data stored in Azure Table storage.
+# How to index tables from Azure Table storage with Azure Cognitive Search
+
+This article shows how to use Azure Cognitive Search to index data stored in Azure Table storage.
 
 ## Set up Azure Table storage indexing
 
 You can set up an Azure Table storage indexer by using these resources:
 
 * [Azure portal](https://ms.portal.azure.com)
-* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
-* Azure Search [.NET SDK](https://aka.ms/search-sdk)
+* Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* Azure Cognitive Search [.NET SDK](https://aka.ms/search-sdk)
 
 Here we demonstrate the flow by using the REST API. 
 
 ### Step 1: Create a datasource
 
-A datasource specifies which data to index, the credentials needed to access the data, and the policies that enable Azure Search to efficiently identify changes in the data.
+A datasource specifies which data to index, the credentials needed to access the data, and the policies that enable Azure Cognitive Search to efficiently identify changes in the data.
 
 For table indexing, the datasource must have the following properties:
 
@@ -111,15 +111,15 @@ This indexer runs every two hours. (The schedule interval is set to "PT2H".) To 
 
 For more information on the Create Indexer API, see [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
-For more information about defining indexer schedules see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
+For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
 ## Deal with different field names
-Sometimes, the field names in your existing index are different from the property names in your table. You can use field mappings to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search indexer field mappings bridge the differences between datasources and search indexes](search-indexer-field-mappings.md).
+Sometimes, the field names in your existing index are different from the property names in your table. You can use field mappings to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Cognitive Search indexer field mappings bridge the differences between datasources and search indexes](search-indexer-field-mappings.md).
 
 ## Handle document keys
-In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type `Edm.String`. The key field is required for each document that is being added to the index. (In fact, it's the only required field.)
+In Azure Cognitive Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type `Edm.String`. The key field is required for each document that is being added to the index. (In fact, it's the only required field.)
 
-Because table rows have a compound key, Azure Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`.
+Because table rows have a compound key, Azure Cognitive Search generates a synthetic field called `Key` that is a concatenation of partition key and row key values. For example, if a row’s PartitionKey is `PK1` and RowKey is `RK1`, then the `Key` field's value is `PK1RK1`.
 
 > [!NOTE]
 > The `Key` value may contain characters that are invalid in document keys, such as dashes. You can deal with invalid characters by using the `base64Encode` [field mapping function](search-indexer-field-mappings.md#base64EncodeFunction). If you do this, remember to also use URL-safe Base64 encoding when passing document keys in API calls such as Lookup.
@@ -146,7 +146,7 @@ To indicate that certain documents must be removed from the index, you can use a
 <a name="Performance"></a>
 ## Performance considerations
 
-By default, Azure Search uses the following query filter: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
+By default, Azure Cognitive Search uses the following query filter: `Timestamp >= HighWaterMarkValue`. Because Azure tables don’t have a secondary index on the `Timestamp` field, this type of query requires a full table scan and is therefore slow for large tables.
 
 
 Here are two possible approaches for improving table indexing performance. Both of these approaches rely on using table partitions: 
@@ -162,5 +162,5 @@ Here are two possible approaches for improving table indexing performance. Both 
 	- With this approach, if you need to trigger a complete reindexing, you need to reset the datasource query in addition to resetting the indexer. 
 
 
-## Help us make Azure Search better
+## Help us make Azure Cognitive Search better
 If you have feature requests or ideas for improvements, submit them on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
