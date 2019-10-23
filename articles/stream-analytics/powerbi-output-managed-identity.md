@@ -22,7 +22,7 @@ The following are required for using this feature:
 
 2. An upgraded workspace within your Power BI account. See [Power BI's announcement](https://powerbi.microsoft.com/en-us/blog/announcing-new-workspace-experience-general-availability-ga/) of this feature for more details.
 
-## Create the Stream Analytics job using the Azure portal
+## Create a Stream Analytics job using the Azure portal
 
 1. Create a new Stream Analytics job or open an existing job in the Azure portal. From the menu bar located on the left side of the screen, select **Managed Identity** located under **Configure**. Ensure that "Use System-assigned Managed Identity" is selected and then click the **Save** button on the bottom of the screen.
 
