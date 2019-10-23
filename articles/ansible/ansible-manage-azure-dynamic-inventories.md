@@ -173,7 +173,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
     export AZURE_TAGS=nginx
     ```
     
-- run the following command:
+- Run the following command:
 
     ```bash
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping
@@ -201,7 +201,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
           |  |--ansible-inventory-test-vm2_7ba9
     ```
 
-- you can also run the following command to test connection to the Nginx VM:
+- You can also run the following command to test connection to the Nginx VM:
   
     ```bash
     ansible -i ./myazure_rm.yml -m ping tag_Ansible_nginx
