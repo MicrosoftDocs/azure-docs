@@ -8,7 +8,7 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-# Customer intent: As someone interested in migrating to Azure/ AFD/ CDN, I want to set up an Internet Analyzer test to understand the expected performance impact to my end users. 
+## Customer intent: As someone interested in migrating to Azure/ AFD/ CDN, I want to set up an Internet Analyzer test to understand the expected performance impact to my end users. 
 
 ---
 # Create an Internet Analyzer test using Portal (Preview)
@@ -27,7 +27,7 @@ The public preview is available to use globally; however, data storage is limite
 ## Basics 
 
 1. [Request access](https://aka.ms/internetAnalyzerContact) to use Internet Analyzer by providing your active Subscription ID. 
-2. From the home page in the [Azure portal](https://preview.portal.azure.com), click **+ Create a resource**. Internet Analyzer is currently only available from the Azure Preview portal. 
+2. From the home page in the [Azure portal](https://preview.portal.azure.com), click **+ Create a resource**. Internet Analyzer is currently only available from the preview version of the Azure portal. 
 3. On the **New** page, search for "Internet Analyzer" in the *Search the Marketplace* field. 
 4. Click **Internet Analyzer (preview)**. Make sure the publisher is *Microsoft* and the category is *Networking*.
 5. On the **Internet Analyzer (preview)** page, click **Create** to open the **Create an Internet Analyzer** page.
@@ -64,11 +64,7 @@ The public preview is available to use globally; however, data storage is limite
 7. Once you have created a test, click **Review + create.** You may add more tests at any point, but one test must be created for the unique JavaScript client to be generated. 
 
 ## Embed Client
-<<<<<<< HEAD
 To begin any test, the JavaScript client must be embedded in your Web application. After configuring at least one test, click **Review + create**, go to **Settings > Configuration**, and copy the JavaScript client. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.  
-=======
-To begin any test, the JavaScript client must be embedded in your Web application. After clicking **Review + create**, go to **Settings > Configuration** to copy the newly created profile's JavaScript client. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.  
->>>>>>> 373b8b14cd94fd7179e574853f081b786c0e4079
 
 
 ## Next steps

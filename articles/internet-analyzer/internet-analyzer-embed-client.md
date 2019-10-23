@@ -44,7 +44,7 @@ The script is generated specifically for your profile and tests. After being loa
 These examples show a few basic methods to embed the client JavaScript into your webpage or application. We use `0bfcb32638b44927935b9df86dcfe397` as an example profile ID for the script URL.
 
 ### Run on page load
-The simplest method is to use the script tag inside the meta tag block. This will execute the script once per page load.
+The simplest method is to use the script tag inside the meta tag block. This tag will execute the script once per page load.
 
 ```html
 <html>

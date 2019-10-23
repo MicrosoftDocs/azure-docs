@@ -104,4 +104,4 @@ More information about scorecards can be found on the [Interpreting your scoreca
 ## Next steps
 
 * Learn how to [create your first Internet Analyzer resource](internet-analyzer-create-test-portal.md).
-* Checkout the [Internet Analyzer FAQ](internet-analyzer-faq.md). 
+* Read the [Internet Analyzer FAQ](internet-analyzer-faq.md). 
