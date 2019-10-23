@@ -165,10 +165,11 @@ If geo-replication is enabled on a **publisher** or **distributor** instance in 
    EXEC sp_dropdistributor 1,1
    ```
 
-If geo-replication is enabled on a **subscriber** instance in a failover group, then the subsequent action by the managed instance administrator depends on the type of failover that occurred: 
+If geo-replication is enabled on a **subscriber** instance in a failover group, the publication should be configured to connect to the failover group listener endpoint for the subscriber managed instance. In the event of a failover, subsequent action by the managed instance administrator depends on the type of failover that occurred: 
+
 - For a failover with no dat loss, replication will just work after failover. 
 - For a failover with data loss, replication will work as well. It will replicate the lost changes again. 
-- For a failover with data loss, but the data loss is outside of distribution DB retention period, the managed instance adminstrator will need to reinitialize the subscription database. 
+- For a failover with data loss, but the data loss is outside of the distribution database retention period, the managed instance administrator will need to reinitialize the subscription database. 
 
 
 ## Next steps

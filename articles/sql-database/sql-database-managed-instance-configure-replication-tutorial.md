@@ -54,7 +54,7 @@ Create two managed instances within this new resource group using the [Azure por
 For more information about creating a managed instance, see [Create a managed instance in the portal](sql-database-managed-instance-get-started.md)
 
   > [!NOTE]
-  > For the sake of simplicity, and because it is the most common configuration, this tutorial configures the distributor managed instance within the same virtual network as the publisher. However, it's possible to create the distributor 
+  > For the sake of simplicity, and because it is the most common configuration, this tutorial suggests placing the distributor managed instance within the same virtual network as the publisher. However, it's possible to create the distributor in a separate virtual network. To do so, you will need to configure VPN peering between the virtual networks of the publisher and distributor, and then configure VPN peering between the virtual networks of the distributor and subscriber. 
 
 ## 3 - Create a SQL Server VM
 Create a SQL Server virtual machine using the [Azure portal](https://portal.azure.com). The SQL Server virtual machine should have the following characteristics:
