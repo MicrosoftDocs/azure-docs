@@ -46,7 +46,7 @@ The Water Consumption Monitoring app template consist of pre-configured:
 * Pre-configured rules and jobs
 * Branding using white labeling 
 
- Get started with the [Water Consumption Monitoring application tutorial](tba) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+ Get started with the [Water Consumption Monitoring application tutorial](./tutorial-water-consumption-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
 
 # What is Connected waste management application template? 
 
