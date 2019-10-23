@@ -119,24 +119,31 @@ As a builder, you can customize views in dashboard for operators. You can try:
 * You can also click on **+ New** to create new dashboard and configure from scratch. You can have multiple dashboards and you can navigate between your dashboards from the dashboard menu. 
 
 ## Explore connected waste bin device template
-A device template in Azure IoT Central defines the capability of a device, which can be telemetry, properties, and commands. As a builder, you can define device templates in IoT Central that represent the capability of the devices that will be connected. In IoT Central, you can also create simulated devices to test your device template and application. 
+A device template in Azure IoT Central defines the capability of a device, which can be telemetry, properties, or command. As a builder, you can define device templates that represent the capability of the devices you will connect. 
  
 
-The **Connected waste management** application you have created from the application template comes with a reference connected waste bin device template.
+The **Connected waste management** application you have created from the template comes with a sample connected waste bin device template.
 
 To view the device template:
 
 * Click on **Device templates** from the left navigation pane of your application in IoT Central. 
-* In the Device templates list you will see **Connected Waste Bin**. Open by clicking on the name.
 
     ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
+
+* In the Device templates list you will see **Connected Waste Bin**. Open by clicking on the name.
+
+* Familirize with the device template capabilites. You can see it defines sensors like *Fill level*, *Odor meter*, *weight*, *location* etc.
+
+   ![Device Template](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate-connectedbin.png)
+
+   
 
 ### Customizing the device template
 
 Try to customize the following:
 * Navigate to **Customize** from the device template menu
-* Find the `Temperature` telemetry type
-* Update the **Display name** of `Temperature` to `Reported temperature`
+* Find the `Odor meter` telemetry type
+* Update the **Display name** of `Odor meter` to `Odor level`
 * You can also try update unit of measurement, or set *Min value* and *Max value*
 * **Save** any changes 
 
@@ -159,19 +166,20 @@ Try to customize the following:
 You will be able to create a custom device template from scratch or you can choose a device template from the Azure Device Catalog. 
 
 ## Explore simulated devices
+In IoT Central, you can create simulated devices to test your device template and application. 
 
-The **Connected waste management** application you have created from the application template has two simulated devices mapped to the connected waste bin device template. 
+The **Connected waste management** application created from the IoT Central template has two simulated devices mapped to the connected waste bin device template. 
 
 ### To view the devices:
 * Navigate to **Device** from IoT Central left navigation pane. 
 
    ![Devices](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
-* Select and click on one simulated device 
+* Select and click on Connected Waste Bin device.  
 
-    ![Device 1](./media/tutorial-connectedwastemanagement/waterqualitymonitor-device1.png)
+     ![Device 1](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices-bin1.png)
 
-* From the  **Cloud Properties** tab try updating the `Acidity (pH) Threshold` value from `8` to `9`. 
+* Navigate to the **Cloud Properties** tab try updating the `Bin full alert threshold` value from `95` to `100`. 
 * Explore the **Device Properties** tab and **Device Dashboard** tab. 
 
 > [!NOTE]
@@ -182,9 +190,10 @@ You can add new devices by clicking on **+ New** on the **Devices** tab.
 
 ## Explore and configure rules
 
-In Azure IoT Central you can create rules to automatically monitor on device telemetry, and trigger an action when one or more conditions are met. The actions may include sending email notifications, or triggering a Microsoft Flow action or a webhook action to send data to other services.
+In Azure IoT Central you can create rules to automatically monitor on device telemetry, and trigger actions when one or more conditions are met. The actions may include sending email notifications, triggering a Microsoft Flow action, or a webhook action to send data to other services.
 
-The **Connected waste management** application you have created template has two pre-configured rules.
+The **Connected waste management** application  has two pre-configured rules.
+
 
 ### To view rules:
 * Navigate to **Rules** from IoT Central left navigation pane. 
