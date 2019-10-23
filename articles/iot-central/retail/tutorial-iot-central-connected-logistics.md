@@ -1,6 +1,6 @@
 ---
 title: Tutorial of IoT Connected logistics | Microsoft Docs
-description: A tutorial of digital distribution center application template for IoT Central
+description: A tutorial of Connected logistics application template for IoT Central
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
@@ -22,21 +22,21 @@ In this tutorial, you learn how to,
 
 ## Create connected logistics application template
 You can create application using following steps
-1. Navigate to the Azure IoT Central application manager website. Select Build from the left-hand navigation bar and then click the Retail tab.
+1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
 [!div class="mx-imgBorder"]
-![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/IoTC_Retail_Homepage.png)
+   ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/IoTC_Retail_Homepage.png)
 
-2. Select **Retail** tab and select **Create app** under **Connected Logistics Application **
+2. Select **Create app** under **Connected Logistics Application**
+
+3. **Create app** will open New application form and fill up the requested details as show below.
+   * **Application name**: you can use default suggested name or enter your friendly application name.
+   * **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, default setting is recommended if you already have an Azure Subscription.Else you can start with seven day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
+   * **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
+   * **Create** : Select create at the bottom of the page to deploy your application.
 
 [!div class="mx-imgBorder"]
 ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_app_create.png)
-
-3. **Create app** will open New application form and fill up the requested details as show below.
-* **Application name**: you can use default suggested name or enter your friendly application name.
-* **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, default setting is recommended if you already have an Azure Subscription.Else you can start with seven day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
-* **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
-Create: Select create at the bottom of the page to deploy your application.
 
 ## Walk through the application 
 
@@ -45,15 +45,15 @@ Create: Select create at the bottom of the page to deploy your application.
 After successfully deploying the app template, your default dashboard is a connected logistics operator focused portal. Northwind Trader is a fictitious logistics provider managing fleet of cargo in the ocean and on the land. In this dashboard, you will see two different gateways providing telemetry about shipments along with associated commands, jobs, and actions that you can perform. 
 This dashboard is pre-configured to showcase the critical logistics device operations activity.
 The dashboard is logically divided between two different gateway device management operations, 
-* Logistics route for truck shipment and location details of the ocean shipment is an essential element for all the multi-modal transportation
-* View the gateway status & relevant information 
+   * Logistics route for truck shipment and location details of the ocean shipment is an essential element for all the multi-modal transportation
+   * View the gateway status & relevant information 
 
 [!div class="mx-imgBorder"]
 ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_dashboard1.png)
 
-* You can easily track the total number of gateways, active, and unknown tags.
-* You can perform device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals, & update device service contracts.
-* View device battery consumption
+   * You can easily track the total number of gateways, active, and unknown tags.
+   * You can perform device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals, & update device service contracts.
+   * View device battery consumption
 
 [!div class="mx-imgBorder"]
 ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_dashboard2.png)
@@ -62,7 +62,7 @@ The dashboard is logically divided between two different gateway device manageme
 
 Click on the Device templates tab, and you will see the gateway capability model. A capability model is structured around two different interfaces **Gateway Telemetry & Property** and **Gateway Commands**
 
-**Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location, device info as well as device twin property capability such as sensor thresholds & update intervals.
+**Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location and device info as well as device twin property capability such as sensor thresholds & update intervals.
 
 [!div class="mx-imgBorder"]
 ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_devicetemplate1.png)
@@ -88,13 +88,12 @@ Select the jobs tab to see five different jobs that exist as part of this applic
 [!div class="mx-imgBorder"]
 ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_jobs.png)
 
-You can leverage jobs feature to perform solution-wide operations. Here jobs using the device commands & twin capability to perform tasks such as disabling specific sensors across all the gateway or modifying the sensor threshold depending on the shipment mode and route. 
+You can leverage jobs feature to perform solution-wide operations. Here jobs are using the device commands & twin capability to perform tasks such as disabling specific sensors across all the gateway or modifying the sensor threshold depending on the shipment mode and route. 
+   * It is a standard operation to disable shock sensors during ocean shipment to conserve battery or decrease temperature threshold during cold chain transportation. 
  
-It is a standard operation to disable shock sensors during ocean shipment to conserve battery or decrease temperature threshold during cold chain transportation. 
- 
-Next set of jobs enables you to perform system-wide operations such as updating firmware on the gateways or updating service contract to stay current on maintenance activities.
+   * Jobs enables you to perform system-wide operations such as updating firmware on the gateways or updating service contract to stay current on maintenance activities.
 
-## Cleanup resources
+## Clean up resources
 If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
 
 [!div class="mx-imgBorder"]
