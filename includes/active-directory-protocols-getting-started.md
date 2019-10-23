@@ -21,7 +21,7 @@ First, register your application with your Azure Active Directory (Azure AD) ten
 1. Sign in to the [Azure portal](https://portal.azure.com).
    
 1. Choose your Azure AD tenant by selecting your account in the top right corner of the page, followed by selecting the **Switch Directory** navigation and then selecting the appropriate tenant. 
-   - Skip this step if you only have Azure AD tenant under your account, or if you've already selected the appropriate Azure AD tenant.
+   - Skip this step if you only have one Azure AD tenant under your account, or if you've already selected the appropriate Azure AD tenant.
    
 1. In the Azure portal, search for and select **Azure Active Directory**.
    
