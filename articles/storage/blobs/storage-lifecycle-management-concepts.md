@@ -52,7 +52,7 @@ This article shows how to manage policy by using the portal and PowerShell metho
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 There are two ways to add a policy through the Azure portal. 
 
@@ -122,7 +122,7 @@ There are two ways to add a policy through the Azure portal.
 
 6. For more information about this JSON example, see the [Policy](#policy) and [Rules](#rules) sections.
 
-### [Powershell](#tab/azure-powershell)
+# [Powershell](#tab/azure-powershell)
 
 The following PowerShell script can be used to add a policy to your storage account. The `$rgname` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name.
 
@@ -152,7 +152,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-### [Template](#tab/template)
+# [Template](#tab/template)
 
 You can define lifecycle management by using Azure Resource Manager templates. Here is a sample template to deploy a RA-GRS GPv2 storage account with a lifecycle management policy.
 
@@ -193,7 +193,6 @@ You can define lifecycle management by using Azure Resource Manager templates. H
   "outputs": {}
 }
 ```
-
 
 ## Policy
 
