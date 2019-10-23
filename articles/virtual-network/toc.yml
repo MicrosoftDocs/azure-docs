@@ -103,6 +103,8 @@
           href: quickstart-create-nat-gateway-powershell.md
         - name: Create a NAT gateway - Azure CLI
           href: quickstart-create-nat-gateway-cli.md
+        - name: Create and validate a NAT gateway - Portal
+          href: tutorial-create-validate-nat-gateway-portal.md
         - name: Create and validate a NAT gateway - PowerShell
           href: tutorial-create-validate-nat-gateway-powershell.md
         - name: Create and validate a NAT gateway - Azure CLI
