@@ -93,7 +93,7 @@ operationData
 
 The output will show results similar to the following:
 
-![Log query results of data ingestion volume](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
+![Log query results of operational errors](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
 
 To view Prometheus metrics scraped by Azure Monitor filtered by Namespace, specify "prometheus". Here is a sample query to view Prometheus metrics from the `default` kubernetes namespace.
 
@@ -111,37 +111,6 @@ InsightsMetrics
 | where Namespace == "prometheus"
 | where Name contains "some_prometheus_metric"
 ```
-
-To identify the ingestion volume of each metrics size in GB per day to understand if it is high, the following query is provided.
-
-```
-InsightsMetrics 
-| where Namespace == "prometheus"
-| where TimeGenerated > ago(24h)
-| summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
-| order by VolumeInGB desc
-| render barchart
-```
-The output will show results similar to the following:
-
-![Log query results of data ingestion volume](./media/container-insights-log-search/log-query-example-usage-03.png)
-
-To estimate what each metrics size in GB is for a month to understand if the volume of data ingested received in the workspace is high, the following query is provided.
-
-```
-InsightsMetrics 
-| where Namespace contains "prometheus"
-| where TimeGenerated > ago(24h)
-| summarize EstimatedGBPer30dayMonth = (sum(_BilledSize) / (1024 * 1024 * 1024)) * 30 by Name
-| order by EstimatedGBPer30dayMonth desc
-| render barchart
-```
-
-The output will show results similar to the following:
-
-![Log query results of data ingestion volume](./media/container-insights-log-search/log-query-example-usage-02.png)
-
-Further information on how to monitor data usage and analyze cost is available in [Manage usage and costs with Azure Monitor Logs](../platform/manage-cost-storage.md).
 
 ### Query config or scraping errors
 
