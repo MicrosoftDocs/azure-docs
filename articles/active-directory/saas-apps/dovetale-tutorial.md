@@ -46,6 +46,9 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Dovetale supports **SP and IDP** initiated SSO
 * Dovetale supports **Just In Time** user provisioning
 
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
+
 
 ## Adding Dovetale from the gallery
 
