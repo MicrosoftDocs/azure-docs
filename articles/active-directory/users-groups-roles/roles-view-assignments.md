@@ -1,4 +1,4 @@
----
+﻿---
 title: View administrator role permissions in the admin center - Azure Active Directory | Microsoft Docs
 description: You can now see and manage members of an Azure AD administrator role in the Azure AD admin center.
 services: active-directory
@@ -28,7 +28,7 @@ This article describes how to view custom roles you have assigned in Azure Activ
 This procedure describes viewing assignments of a role with organization-wide scope.
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in the Azure AD organization.
-1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to open it and view its properties.
+1. Select **Azure Active Directory**, select **Roles and administrators**, and then select a role to open it and view its properties.
 1. Select **Assignments** to view the assignments for the role.
 
     ![View role assignments and permissions when you open a role from the list](./media/roles-view-assignments/role-assignments.png)
@@ -105,7 +105,7 @@ This section describes viewing assignments of a role with single-application sco
 
     ![Create or edit app registrations from the App registrations page](./media/roles-create-custom/appreg-all-apps.png)
 
-1. In the app registration, select **Roles and administrators**, and then select a role to view its properties.
+1. In the app registration, select **Roles and administrators**, and then select a role to view its properties.
 
     ![View app registration role assignments from the App registrations page](./media/roles-view-assignments/appreg-assignments.png)
 

@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 08/29/2019
+ms.date: 10/01/2019
 ---
 # Choose among the vCore service tiers and migrate from the DTU service tiers
 
@@ -36,7 +36,7 @@ The following table explains the differences between the three tiers:
 
 ||**General purpose**|**Business critical**|**Hyperscale**|
 |---|---|---|---|
-|Best for|Most business workloads. Offers budget-oriented, balanced, and scalable compute and storage options.|Business applications with high I/O requirements. Offers highest resilience to failures by using several isolated replicas.|Most business workloads with highly scalable storage and read-scale requirements.|
+|Best for|Offers budget oriented balanced compute and storage options.|OLTP applications with high transaction rate and low IO latency. Offers highest resilience to failures and fast failovers using multiple synchronously updated replicas.|Most business workloads. Auto-scaling storage size up to 100 TB, fluid vertical and horizontal compute scaling, fast database restore.|
 |Compute|**Provisioned compute**:<br/>Gen4: 1 to 24 vCores<br/>Gen5: 2 to 80 vCores<br/>**Serverless compute**:<br/>Gen5: 0.5 - 16 vCores|**Provisioned compute**:<br/>Gen4: 1 to 24 vCores<br/>Gen5: 2 to 80 vCores|**Provisioned compute**:<br/>Gen4: 1 to 24 vCores<br/>Gen5: 2 to 80 vCores|
 |Memory|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore<br/>**Serverless compute**:<br/>Gen5: Up to 24 GB per vCore|**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore |**Provisioned compute**:<br/>Gen4: 7 GB per vCore<br/>Gen5: 5.1 GB per vCore|
 |Storage|Uses remote storage.<br/>**Single database and elastic pool provisioned compute**:<br/>5 GB – 4 TB<br/>**Serverless compute**:<br/>5 GB - 3 TB<br/>**Managed instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single database and elastic pool provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed instance**:<br/>32 GB - 4 TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |

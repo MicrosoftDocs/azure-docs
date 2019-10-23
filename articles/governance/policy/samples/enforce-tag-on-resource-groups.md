@@ -1,5 +1,5 @@
 ---
-title: Sample - Enforce tag and its value on resource groups
+title: Sample - Enforce tag and value on resource groups
 description: This sample policy definition requires a tag and a value on a resource group.
 author: DCtheGeek
 ms.service: azure-policy

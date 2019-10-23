@@ -1,6 +1,6 @@
 ---
 title: Sample - SWIFT CSP-CSCF v2020 blueprint - Control mapping
-description: Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample to Azure Policy.
+description: Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample. Each control is mapped to one or more Azure Policies that assist with assessment.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/24/2019

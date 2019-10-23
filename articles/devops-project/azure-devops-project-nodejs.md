@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: 'vsts'
 ---
 
@@ -33,7 +33,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  n
 
 1. In the left pane, select **Create a resource**, and then search for **DevOps Projects**. 
 
-   	![Starting Continuous Delivery configuration](_img/azure-devops-project-nodejs/fullbrowser.png)
+   	![Create continuous delivery configuration resource](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
 ## Select a sample application and Azure service
 
@@ -56,7 +56,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  n
 	 
 3. Select **Browse** to view your running application.
 
-   	![Dashboard view](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
+   	![Dashboard view of CI/CD pipeline](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 	
 DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a  Node.js app with a CI/CD process that automatically deploys your latest work to your web site.
 

@@ -1,17 +1,16 @@
 ---
-title: Reference inputs and outputs in cognitive search pipelines - Azure Search
-description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in a cognitive search pipeline in Azure Search.
-services: search
-manager: nitinme
-author: luiscabrer
+title: Reference inputs and outputs in an AI enrichment pipeline
+titleSuffix: Azure Cognitive Search
+description: Explains the annotation syntax and how to reference an annotation in the inputs and outputs of a skillset in an AI enrichment pipeline in Azure Cognitive Search.
 
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
+manager: nitinme
+author: LuisCabrer
 ms.author: luisca
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# How to reference annotations in a cognitive search skillset
+# How to reference annotations in an Azure Cognitive Search skillset
 
 In this article, you learn how to reference annotations in skill definitions, using examples to illustrate various scenarios. As the content of a document flows through a set of skills, it gets enriched with annotations. Annotations can be  used as inputs for further downstream enrichment, or mapped to an output field in an index. 
  

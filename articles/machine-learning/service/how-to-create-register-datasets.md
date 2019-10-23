@@ -10,7 +10,7 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 
 ---
 
@@ -51,11 +51,13 @@ To find out more about upcoming API changes, see [here](https://aka.ms/tabular-d
 
 ## Create datasets
 
-By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in its existing location, so no extra storage cost is incurred.
+By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in its existing location, so no extra storage cost is incurred. Both TabularDatasets and FileDatasets can be created using the Python SDK or workspace landing page (preview). 
 
 For the data to be accessible by Azure Machine Learning, datasets must be created from paths in [Azure datastores](how-to-access-data.md) or public web urls.
 
-To create Datasets from an [Azure datastore](how-to-access-data.md):
+### Using the SDK
+
+To create Datasets from an [Azure datastore](how-to-access-data.md) using the Python SDK:
 
 * Verify you have `contributor` or `owner` access to the registered Azure datastore.
 
@@ -74,12 +76,7 @@ workspace = Workspace.from_config()
 # retrieve an existing datastore in the workspace by name
 datastore = Datastore.get(workspace, datastore_name)
 ```
-
-### Create TabularDatasets
-
-TabularDatasets can be created via the SDK or by using the workspace landing page (preview). A timestamp can be specified from a column in the data or the path pattern data is stored in to enable a timeseries trait, which allows for easy and efficient filtering by time.
-
-#### Using the SDK
+#### Create TabularDatasets
 
 Use the [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) method on `TabularDatasetFactory` class to read files in csv or tsv format, and create an unregistered TabularDataset. If you are reading from multiple files, results will be aggregated into one tabular representation.
 
@@ -116,10 +113,13 @@ from azureml.core import Dataset, Datastore
 sql_datastore = Datastore.get(workspace, 'mssql')
 sql_ds = Dataset.Tabular.from_sql_query((sql_datastore, 'SELECT * FROM my_table'))
 ```
-Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on `TabularDataset` class to enable easy and efficient filtering by time. More examples and details can be found [here](https://aka.ms/azureml-tsd-notebook).
+
+In TabularDatasets a timestamp can be specified from a column in the data or the path pattern data is stored in to enable a time series trait, which allows for easy and efficient filtering by time.
+
+Use the [`with_timestamp_columns()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#with-timestamp-columns-fine-grain-timestamp--coarse-grain-timestamp-none--validate-false-) method on `TabularDataset` class to specify your time stamp column and enable filtering by time. More examples and details can be found [here](https://aka.ms/azureml-tsd-notebook).
 
 ```Python
-# create a TabularDataset with timeseries trait
+# create a TabularDataset with time series trait
 datastore_paths = [(datastore, 'weather/*/*/*/data.parquet')]
 
 # get a coarse timestamp column from the path pattern
@@ -128,24 +128,14 @@ dataset = Dataset.Tabular.from_parquet_files(path=datastore_path, partition_form
 # set coarse timestamp to the virtual column created, and fine grain timestamp from a column in the data
 dataset = dataset.with_timestamp_columns(fine_grain_timestamp='datetime', coarse_grain_timestamp='coarse_time')
 
-# filter with timeseries trait specific methods
+# filter with time-series-trait-specific methods
 data_slice = dataset.time_before(datetime(2019, 1, 1))
 data_slice = dataset.time_after(datetime(2019, 1, 1))
 data_slice = dataset.time_between(datetime(2019, 1, 1), datetime(2019, 2, 1))
 data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 ```
 
-#### Using the workspace landing page
-
-Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset via the web experience. Currently, the workspace landing page only supports the creation of TabularDatasets.
-
-The following animation shows how to create a dataset in the workspace landing page.
-
-First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
-
-![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
-
-### Create FileDatasets
+#### Create FileDatasets
 
 Use the [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) method on `FileDatasetFactory` class to load files in any format, and create an unregistered FileDataset.
 
@@ -165,6 +155,16 @@ web_paths = [
            ]
 mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
+
+### Using the workspace landing page
+
+Sign in to the [workspace landing page](https://ml.azure.com) to create a dataset via the web experience. The workspace landing page supports the creation of both TabularDatasets and FileDatasets.
+
+The following animation shows how to create a dataset in the workspace landing page.
+
+First, select **Datasets** in the **Assets** section of the left pane. Then,  select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls. Select the **Dataset Type**: *Tabular or File. The **Settings and preview** and the **Schema** forms are intelligently populated based on file type. Select **Next** to review them or to further configure your dataset prior to creation. Select **Done** to complete your dataset creation.
+
+![Create a dataset with the UI](media/how-to-create-register-datasets/create-dataset-ui.gif)
 
 ## Register datasets
 
