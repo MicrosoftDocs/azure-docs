@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/23/2019
 ms.author: diberry
 ms.custom: seodec18 
 ---
@@ -29,7 +29,7 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 | External entities | no limits |
 | [Intents][intents]|500 per application: 499 custom intents, and the required _None_ intent.<br>[Dispatch-based](https://aka.ms/dispatch-tool) application has corresponding 500 dispatch sources.|
 | [List entities](./luis-concept-entity-types.md) | Parent: 50, child: 20,000 items. Canonical name is *default character max. Synonym values have no length restriction. |
-| [Machine-learned entities + roles](./luis-concept-entity-types.md):<br> composite,<br>simple,<br>entity role|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first. A role counts as an entity for the purpose of this boundary. An example is a composite with a simple entity which has 2 roles is: 1 composite + 1 simple + 2 roles = 4 of the 330 entities.|
+| [Machine-learned entities + roles](./luis-concept-entity-types.md):<br> composite,<br>simple,<br>entity role|A limit of either 100 parent entities or 330 entities, whichever limit the user hits first. A role counts as an entity for the purpose of this boundary. An example is a composite with a simple entity, which has 2 roles is: 1 composite + 1 simple + 2 roles = 4 of the 330 entities.|
 | [Preview - Dynamic list entities](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 lists of ~1k per query prediction endpoint request|
 | [Patterns](luis-concept-patterns.md)|500 patterns per application.<br>Maximum length of pattern is 400 characters.<br>3 Pattern.any entities per pattern<br>Maximum of 2 nested optional texts in pattern|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per application, 3 pattern.any entities per pattern |
@@ -45,6 +45,21 @@ If your app exceeds the LUIS model limits and boundaries, consider using a [LUIS
 *Default character max is 50 characters. 
 
 <a name="intent-and-entity-naming"></a>
+
+## Name uniqueness
+
+Use the following naming uniqueness rules.
+
+The following must be unique within a LUIS app:
+
+* version name
+* intent
+* entity
+
+The following must be unique within the scope applied:
+
+* phrase list 
+* roles
 
 ## Object naming
 
