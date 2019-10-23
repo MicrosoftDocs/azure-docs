@@ -19,7 +19,7 @@ Peering Service is a networking service that aims at enhancing customer connecti
 By selecting “*Peering Service*”, an end user is selecting a partner Service Provider [SP] in a given region, which is well connected to Microsoft through highly reliable interconnections. These connections are optimized for high reliability and minimal latency from  cloud services to the end user location.
 
 <figure>
-<img src="./media/peering-service-about/peering-service-what.png" alt="Distributed connectivity to Microsoft Cloud"text-align: center>
+<img src="./media/peering-service-about/peering-service-what.png" alt="Distributed connectivity to Microsoft Cloud">
 <figcaption><i>Figure 1 - Distributed connectivity to Microsoft Cloud</i></figcaption>
 </figure>
 
@@ -57,7 +57,7 @@ Office 365, Dynamics 365, and any other Microsoft SaaS services are hosted in mu
 Microsoft and partner SPs ensure that traffic for the prefixes registered with Peering Service connection enters and exits the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*. Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*.
 
 <figure>
-<img src="./media/peering-service-about/peering-service-background-final.png" alt="Microsoft network and public connectivity"text-align: center>
+<img src="./media/peering-service-about/peering-service-background-final.png" alt="Microsoft network and public connectivity">
 <figcaption><i>Figure 2 - Microsoft Network and Public connectivity</i></figcaption>
 </figure>
 
@@ -90,7 +90,7 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
    Ensures to use the shortest routing path by always choosing the nearest Microsoft Edge POP to the end user and ensures the customer is one network hop(AS hops) away from Microsoft​.  
 
 <figure>
-<img src="./media/peering-service-about/peering-service-geo-shortest.png" alt="Geo Redundancy"text-align: center>
+<img src="./media/peering-service-about/peering-service-geo-shortest.png" alt="Geo Redundancy">
 <figcaption><i>Figure 3 - Geo Redundancy</i></figcaption>
 </figure>
 
@@ -126,7 +126,7 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
    Captures failover events and notifies the customer.
 
 <figure>
-<img src="media/peering-service-about/peering-service-latency-report.png" alt="Monitoring platform for Peering Service"text-align: center>
+<img src="media/peering-service-about/peering-service-latency-report.png" alt="Monitoring platform for Peering Service">
 <figcaption><i>Figure 4 - Monitoring platform for Peering Service</i></figcaption>
 </figure>
  
