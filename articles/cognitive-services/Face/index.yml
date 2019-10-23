@@ -80,7 +80,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=Relevance">Code Samples</a>
+    - html: <a href="https://docs.microsoft.com/samples/browse/?products=azure&term=face">Code Samples</a>
 - title: Reference
   items:
   - type: list
