@@ -44,7 +44,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
     
     This action opens the query results in the **Logs** pane.
 
-4. From the log query results list, select one or more rows that contain the information you find interesting.
+4. From the log query results list, use the checkboxes to select one or more rows that contain the information you find interesting.
 
 5. Select **Add bookmark**:
     
