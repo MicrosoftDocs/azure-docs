@@ -35,7 +35,7 @@ In this tutorial, you create an **Environment Sensor** device template. An envir
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a new edge device as a leaf device template.
+> * Create a new Azure IoT Edge device as a leaf device template.
 > * Upload a deployment manifest.
 > * Create capabilities including telemetry, properties and commands for each module
 > * Define a visualization for the module telemetry.
@@ -65,7 +65,7 @@ You will land on device template type selection page. Select **Azure IoT Edge** 
 
 ### Customize Device Template
 
-Azure IoT Edge lets you deploy and manage business logic on the edge in the form of modules. **Azure IoT Edge modules** are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained read [IoT Edge Modules](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules).
+Azure IoT Edge lets you deploy and manage business logic in the form of modules. **Azure IoT Edge modules** are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained read [IoT Edge Modules](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-modules).
 
 At a high level, a deployment manifest is a list of module twins that are configured with their desired properties. A deployment manifest tells an IoT Edge device (or a group of devices) which modules to install and how to configure them. Deployment manifests include the desired properties for each module twin. IoT Edge devices report back the reported properties for each module.
 
@@ -168,8 +168,8 @@ Change title of the device template to Environment Sensor Device Template.
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatelanding.png)
 
-Edge Device Plug n Play modeling is done as follows
-* Every edge device template will have a **Device Capability Model**
+Azure IoT Edge Device Plug n Play modeling is done as follows
+* Every Azure IoT Edge device template will have a **Device Capability Model**
 * For every custom module listed in the deployment manifest a **Module Capability Model** will be generated
 * A **relationship** will be established between each Module Capability Model and a Device Capability Model
 * Module capability model implements **module interfaces**

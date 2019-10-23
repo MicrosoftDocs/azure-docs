@@ -11,11 +11,11 @@ ms.custom: mvc
 manager: peterpr
 ---
 
-# Tutorial: Define a new Azure IoT Edge device as a leaf device type in your Azure IoT Central application (preview features)
+# Tutorial: Define a new Azure IoT Edge device as a gateway device type in your Azure IoT Central application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge device in your Azure IoT Central application. 
+This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT Edge gateway device in your Azure IoT Central application. 
 
 To get an overview of Azure IoT Edge, [refer this article](overview-iot-central-pnp-edge.md). 
 
@@ -40,6 +40,7 @@ In this tutorial, you learn how to:
 > * Upload a deployment manifest.
 > * Create capabilities including telemetry, properties and commands for each module
 > * Define a visualization for the module telemetry.
+> * Add relationships to downstream device templates
 > * Publish your device template.
 
 ## Downstream Device Relationships with Gateway & Modules
@@ -338,13 +339,13 @@ After a device template is published, it's visible on the **Devices** page and t
 
 In this tutorial, you learned how to:
 
-* Create a new edge as a leaf device template
+* Create a new Azure IoT Edge as a leaf device template
 * Generate Modules from an uploaded deployment manifest
 * Add Complex Type Telemetry and properties
 * Create cloud properties.
 * Create customizations.
 * Define a visualization for the device telemetry.
-* Publish your edge device template.
+* Publish your Azure IoT Edge device template.
 
 Now that you've created a device template in your Azure IoT Central application, here is the suggested next step:
 
