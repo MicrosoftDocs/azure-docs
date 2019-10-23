@@ -35,5 +35,5 @@ You use the following APIs to train and extract structured data from forms.
 
 ## Next steps
 
-* Follow a [how-to guide](./python-feedback-loop.md) to use labeled data with the REST API and Python.
+* Follow a [how-to guide](./python-labeled-data.md) to use labeled data with the REST API and Python.
 * See the [API reference documentation](https://aka.ms/form-recognizer/api) to explore the Form Recognizer API in more depth.
