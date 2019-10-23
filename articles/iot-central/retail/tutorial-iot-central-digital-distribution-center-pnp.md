@@ -8,40 +8,39 @@ ms.topic: Tutorial
 ms.date: 10/20/2019
 ---
 
-# Tutorial: Deploy and walkthrough a digital distribution center application template
+# Tutorial: Deploy and walk through a digital distribution center application template
 
 This tutorial shows you how to get started by deploying an IoT Central **digital distribution center** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
 ## Details
 
 In this tutorial, you learn how to, 
-• create digital distribution center application 
-• walk through the application 
+* Create digital distribution center application 
+* Walk through the application 
 
 ## Prerequisites
-
-• No specific pre-requisites required to deploy this app
-• Recommended to have Azure subscription, but you can even try without it
+* No specific pre-requisites required to deploy this app
+* Recommended to have Azure subscription, but you can even try without it
 
 ## Create digital distribution center application template
 
 You can create application using following steps
 
-1. Navigate to the Azure IoT Central application manager website. Select Build from the left-hand navigation bar and then click the **Retail** tab.
+1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
 [!div class="mx-imgBorder"]
 ![Digital Distribution Center](./media/tutorial-iot-central-ddc/iotc_retail_homepage.png)
 
 2. Select **Retail** tab and select **Create app** under **digital distribution center application **
 
+3. **Create app** will open New application form and fill up the requested details as show below.
+   **Application name**: you can use default suggested name or enter your friendly application name.
+   **URL**: you can use the suggested default URL or enter your friendly unique, memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. Else you can start with seven day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
+   **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
+   **Create**: Select create at the bottom of the page to deploy your application.
+
 [!div class="mx-imgBorder"]
 ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_create.png)
-
-3. **Create app** will open New application form and fill up the requested details as show below.
-**Application name**: you can use default suggested name or enter your friendly application name.
-**URL**: you can use the suggested default URL or enter your friendly unique, memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. Else you can start with seven day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
-**Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
-**Create**: Select create at the bottom of the page to deploy your application.
 
 ## Walk through the application 
 
@@ -52,8 +51,8 @@ After successfully deploying the app template, your default dashboard is a distr
 In this dashboard, you will see one edge gateway and one camera acting as an IoT device. Gateway is providing telemetry about packages such as valid, invalid, unidentified, and size along with associated device twin properties. All downstream commands are executed at IoT devices, such as a camera. This dashboard is pre-configured to showcase the critical distribution center device operations activity.
 
 The dashboard is logically organized to show the device management capabilities of the Azure IoT Edge gateway and IoT device.  
-* You can perform edge gateway command & control tasks
-* Manage all cameras that are part of the solution. 
+   * You can perform edge gateway command & control tasks
+   * Manage all cameras that are part of the solution. 
 
 [!div class="mx-imgBorder"]
 ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_dashboard.png)
@@ -63,10 +62,10 @@ The dashboard is logically organized to show the device management capabilities 
 Click on the **Device templates** tab, and you will see the distinct device templates for Azure IoT Edge & camera. 
 
 Azure IoT Edge gateway device template represents a blueprint that defines the characteristics and behavior of an edge gateway device. Some of the components of an edge device are,
-* Deployment manifest
-* Relationship with downstream devices
-* Software modules
-* Modules properties & commands 
+   * Deployment manifest
+   * Relationship with downstream devices
+   * Software modules
+   * Modules properties & commands 
 
 Deployment manifest has the list of software modules that will run on the Azure IoT Edge device & module twins configured with their desired properties. Using deployment manifest that is part of the device template, Azure IoT Edge run time knows which modules to install and how to configure them to work together.
 
@@ -99,9 +98,9 @@ This interface organizes all the gateway command capabilities
 
 ## Rules
 Select the rules tab to see two different rules that exist in this application template. These rules are configured to email notifications to the operators for further investigations.
- ** Too many invalid packages alert **: This rule is triggered when the camera detects a high number of invalid packages flowing through the conveyor system.
+ **Too many invalid packages alert** - This rule is triggered when the camera detects a high number of invalid packages flowing through the conveyor system.
  
-** Very large package **: This rule will trigger if the camera detects huge package that cannot be inspected for the quality. 
+**Very large package** - This rule will trigger if the camera detects huge package that cannot be inspected for the quality. 
 
 [!div class="mx-imgBorder"]
 ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_rules.png)
@@ -115,8 +114,12 @@ The next set of jobs enables you to perform system-wide operations such as updat
 [!div class="mx-imgBorder"]
 ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_jobs.png)
 
-## Cleanup resources
-If you're not going to continue to use this application, delete the application template by visiting Administration > Application settings and click Delete.
+## Clean up resources
+If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
 
 [!div class="mx-imgBorder"]
 ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_cleanup.png)
+
+## Next steps
+* Learn more about digital distribution center solution architecture [digital distribution center concept](./architecture-digital-distribution-center-pnp.md)
+* Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
