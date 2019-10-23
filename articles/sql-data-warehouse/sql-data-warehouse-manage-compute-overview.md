@@ -80,7 +80,7 @@ When you pause a data warehouse:
 -  Compute and memory resources are returned to the pool of available resources in the data center
 -  Data warehouse unit costs are zero for the duration of the pause.
 -  Data storage is not affected and your data stays intact. 
--  All running or queued operations are cancelled.
+-  All running or queued operations are canceled.
 
 When you resume a data warehouse:
 

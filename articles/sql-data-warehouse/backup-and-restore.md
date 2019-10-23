@@ -26,7 +26,7 @@ A *data warehouse restore* is a new data warehouse that is created from a restor
 
 Snapshots are a built-in feature of the service that creates restore points. You do not have to enable this capability. Automatic restore points currently cannot be deleted by users where the service uses these restore points to maintain SLAs for recovery.
 
-Snapshots are taken of your data warehouse throughout the day creating restore points that are available for seven days. This retention period cannot be changed. The series of snapshopts and the retention period support an eight-hour recovery point objective (RPO) . You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days.
+Snapshots are taken of your data warehouse throughout the day creating restore points that are available for seven days. This retention period cannot be changed. The series of snapshots and the retention period support an eight-hour recovery point objective (RPO) . You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days.
 
 To see when the last snapshot started, run this query on your online from your data warehouse.
 

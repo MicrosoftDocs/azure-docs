@@ -1,6 +1,6 @@
 ---
-title: Defining data types - Azure Synapse Aanlytics (formerly SQL DW) | Microsoft Docs
-description: Recommendations for defining table data types in Azure Synapse Aanlytics (formerly SQL DW). 
+title: Defining data types - Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Recommendations for defining table data types in Azure Synapse Analytics (formerly SQL DW). 
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -12,8 +12,8 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Table data types in Azure Synapse Aanlytics (formerly SQL DW)
-Recommendations for defining table data types in Azure Synapse Aanlytics. 
+# Table data types in Azure Synapse Analytics (formerly SQL DW)
+Recommendations for defining table data types in Azure Synapse Analytics. 
 
 ## Data types supported
 
