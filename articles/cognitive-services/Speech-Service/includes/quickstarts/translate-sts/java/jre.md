@@ -138,7 +138,7 @@ public class Main {
 
 Press F11, or select **Run** > **Debug**.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the synthesized audio and the text back to the application for display.
 
 ````
 Say something...

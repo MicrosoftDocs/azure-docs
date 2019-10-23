@@ -100,6 +100,8 @@ Run the sample from the console or in your IDE:
 
     ````
     Say something...
+    AUDIO SYNTHESIZED: 76784 byte(s)
+    AUDIO SYNTHESIZED: 0 byte(s) (COMPLETE)
     RECOGNIZED 'en-US': What's the weather in Seattle?
     TRANSLATED into 'de': Wie ist das Wetter in Seattle?
     ````

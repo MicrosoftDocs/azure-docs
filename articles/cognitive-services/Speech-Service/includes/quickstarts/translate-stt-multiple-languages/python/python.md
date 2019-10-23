@@ -18,63 +18,82 @@ Before you get started, make sure to:
 
 > [!div class="checklist"]
 > * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=python)
+> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=python)
 
-## Support and updates
+## Add sample code
 
-Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/Speech-Service/releasenotes.md).
-If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
-Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
+1. Open `quickstart.py`, and replace all the code in it with the following.
 
-If you have a problem, or you're missing a feature, see [Support and help options](~/articles/cognitive-services/Speech-Service/support.md).
+    ````python
+    import azure.cognitiveservices.speech as speechsdk
 
-## Create a Python application that uses the Speech SDK
+    speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 
-### Run the sample
+    def translate_speech_to_text():
 
-You can copy the [sample code](#sample-code) from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console:
+        # Creates an instance of a speech translation config with specified subscription key and service region.
+        # Replace with your own subscription key and service region (e.g., "westus").
+        translation_config = speechsdk.translation.SpeechTranslationConfig(subscription=speech_key, region=service_region)
 
-```sh
-python quickstart.py
-```
+        # Sets source and target languages.
+        # Replace with the languages of your choice, from list found here: https://aka.ms/speech/sttt-languages
+        fromLanguage = 'en-US'
+        translation_config.speech_recognition_language = fromLanguage
+        translation_config.add_target_language('de')
+        translation_config.add_target_language('fr')
 
-Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org) notebook from the [Speech SDK sample repository](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) and run it as a notebook.
+        # Creates a translation recognizer using and audio file as input.
+        recognizer = speechsdk.translation.TranslationRecognizer(translation_config=translation_config)
 
-### Sample code
+        # Starts translation, and returns after a single utterance is recognized. The end of a
+        # single utterance is determined by listening for silence at the end or until a maximum of 15
+        # seconds of audio is processed. It returns the recognized text as well as the translation.
+        # Note: Since recognize_once() returns only a single utterance, it is suitable only for single
+        # shot recognition like command or query.
+        # For long-running multi-utterance recognition, use start_continuous_recognition() instead.
+        print("Say something...")
+        result = recognizer.recognize_once()
 
-[!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/from-microphone/quickstart.py#code)]
+        # Check the result
+        if result.reason == speechsdk.ResultReason.TranslatedSpeech:
+            print("RECOGNIZED '{}': {}".format(fromLanguage, result.text))
+            print("TRANSLATED into {}: {}".format('de', result.translations['de']))
+            print("TRANSLATED into {}: {}".format('fr', result.translations['fr']))
+        elif result.reason == speechsdk.ResultReason.RecognizedSpeech:
+            print("RECOGNIZED: {} (text could not be translated)".format(result.text))
+        elif result.reason == speechsdk.ResultReason.NoMatch:
+            print("NOMATCH: Speech could not be recognized: {}".format(result.no_match_details))
+        elif result.reason == speechsdk.ResultReason.Canceled:
+            print("CANCELED: Reason={}".format(result.cancellation_details.reason))
+            if result.cancellation_details.reason == speechsdk.CancellationReason.Error:
+                print("CANCELED: ErrorDetails={}".format(result.cancellation_details.error_details))
 
-### Install and use the Speech SDK with Visual Studio Code
+    translate_speech_to_text()
+    ````
 
-1. Download and install a 64-bit version of [Python](https://www.python.org/downloads/), 3.5 or later, on your computer.
-1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**.
+1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-   ![Install the Python extension](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-extension.png)
+1. Replace the string `YourServiceRegion` with the [region](../../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
-1. Create a folder to store the project in. An example is by using Windows Explorer.
-1. In Visual Studio Code, select the **File** icon. Then open the folder you created.
+1. Save the changes you've made to `quickstart.py`.
 
-   ![Open a folder](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-open-folder.png)
+## Build and run your app
 
-1. Create a new Python source file, `speechsdk.py`, by selecting the new file icon.
+Run the sample from the console or in your IDE:
 
-   ![Create a file](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-newfile.png)
+    ````
+    python quickstart.py
+    ````
 
-1. Copy, paste, and save the [Python code](#sample-code) to the newly created file.
-1. Insert your Speech Services subscription information.
-1. If selected, a Python interpreter displays on the left side of the status bar at the bottom of the window.
-   Otherwise, bring up a list of available Python interpreters. Open the command palette (Ctrl+Shift+P) and enter **Python: Select Interpreter**. Choose an appropriate one.
-1. You can install the Speech SDK Python package from within Visual Studio Code. Do that if it's not installed yet for the Python interpreter you selected.
-   To install the Speech SDK package, open a terminal. Bring up the command palette again (Ctrl+Shift+P) and enter **Terminal: Create New Integrated Terminal**.
-   In the terminal that opens, enter the command `python -m pip install azure-cognitiveservices-speech` or the appropriate command for your system.
-1. To run the sample code, right-click somewhere inside the editor. Select **Run Python File in Terminal**.
-   Speak a few words when you're prompted. The transcribed text displays shortly afterward.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
 
-   ![Run a sample](~/articles/cognitive-services/Speech-Service/media/sdk/qs-python-vscode-python-run.png)
-
-If you have issues following these instructions, refer to the more extensive [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
+    ````
+    Say something...
+    RECOGNIZED 'en-US': What's the weather in Seattle?
+    TRANSLATED into 'de': Wie ist das Wetter in Seattle?
+    TRANSLATED into 'fr': Quel temps fait-il à Seattle ?
+    ````
 
 ## Next steps
 

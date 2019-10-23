@@ -122,7 +122,7 @@ namespace helloworld
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the synthesized audio and the text back to the application for display.
 
 ````
 Say something...
