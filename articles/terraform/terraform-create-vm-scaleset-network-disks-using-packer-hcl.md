@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/23/2019
 ---
 
 # Use Terraform to create an Azure virtual machine scale set from a Packer custom image

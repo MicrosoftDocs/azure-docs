@@ -7,7 +7,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/09/2019
+ms.date: 10/23/2019
 ---
 
 # Deploy to Azure Kubernetes Service (AKS) by using Jenkins and the blue/green deployment pattern

@@ -6,9 +6,8 @@ ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/31/2019
+ms.date: 10/23/2019
 ---
-<!-- GMinchAQ, 06/18/19 -->
 
 # Tutorial: Using the Azure Dev Spaces Plug-in for Jenkins with Azure Kubenetes Service 
 

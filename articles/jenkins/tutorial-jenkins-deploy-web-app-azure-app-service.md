@@ -7,7 +7,7 @@ author: tomarchermsft
 ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 10/23/2019
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
 ---
 

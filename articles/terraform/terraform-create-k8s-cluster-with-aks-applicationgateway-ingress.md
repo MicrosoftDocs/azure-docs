@@ -8,7 +8,7 @@ author: tomarcher
 manager: gwallace
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/09/2019
+ms.date: 10/23/2019
 ---
 
 # Create an Application Gateway ingress controller in Azure Kubernetes Service

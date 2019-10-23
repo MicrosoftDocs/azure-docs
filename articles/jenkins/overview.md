@@ -7,7 +7,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
-ms.date: 07/25/2018
+ms.date: 10/23/2019
 ---
 
 # Azure and Jenkins

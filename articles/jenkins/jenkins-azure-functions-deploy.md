@@ -7,7 +7,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 02/23/2019
+ms.date: 10/23/2019
 ---
 
 # Deploy to Azure Functions using the Jenkins Azure Functions plug-in

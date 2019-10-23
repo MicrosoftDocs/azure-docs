@@ -7,7 +7,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 6/7/2017
+ms.date: 10/23/2019
 ---
 
 # Deploy to Azure App Service with Jenkins and the Azure CLI

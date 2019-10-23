@@ -7,7 +7,7 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
+ms.date: 10/23/2019
 ---
 
 # Tutorial: Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
