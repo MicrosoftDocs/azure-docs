@@ -27,7 +27,7 @@ For more information about the resource provider, see [SQL VM resource provider]
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
-- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
+- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp) and contains unregistered SQL Server virtual machines. 
 - The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 
@@ -201,39 +201,6 @@ The report is generated as a `.txt` file named `RegisterSqlVMScriptReport<Timest
 
 Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.log` where timestamp is the time when the script started. If the error is at the subscription level, the log contains the comma-separated SubscriptionID and the error message. If the error is with the virtual machine registration, the log contains the Subscription ID, Resource group name, virtual machine name, error code and message separated by commas. 
 
-
-
-## Register subscription with RP 
-
-To register your SQL Server VM with the SQL VM resource provider, you must register the subscription with the resource provider. You can do so by using the Azure portal, the Azure CLI, or PowerShell.
-
-# [Portal](#tab/azure-portal)
-
-1. Open the Azure portal and go to **All Services**. 
-1. Go to **Subscriptions** and select the subscription of interest.  
-1. On the **Subscriptions** page, go to **Resource providers**. 
-1. Enter **sql** in the filter to bring up the SQL-related resource providers. 
-1. Select **Register**, **Re-register**, or **Unregister** for the  **Microsoft.SqlVirtualMachine** provider, depending on your desired action. 
-
-![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
-
-
-# [AZ CLI](#tab/bash)
-The following code snippet will register the SQL VM resource provider to your Azure subscription. 
-
-```azurecli-interactive
-# Register the new SQL VM resource provider to your subscription 
-az provider register --namespace Microsoft.SqlVirtualMachine 
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell-interactive
-# Register the new SQL VM resource provider to your subscription
-Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
-```
-
----
 
 ## Full script
 

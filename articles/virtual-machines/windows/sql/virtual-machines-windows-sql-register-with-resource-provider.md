@@ -18,7 +18,7 @@ ms.reviewer: jroth
 ---
 # Register a SQL Server virtual machine in Azure with the SQL VM resource provider
 
-This article describes how to register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider. It is also possible to [bulk register](virtual-machines-windows-sql-bulk-register-with-resource-provider.md) SQL Server virtual machines. 
+This article describes how to register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider. 
 
 Deploying a SQL Server VM Azure Marketplace image through the Azure portal automatically registers the SQL Server VM with the resource provider. If you choose to self-install SQL Server on an Azure virtual machine instead of choosing an image from Azure Marketplace, or if you provision an Azure VM from a custom VHD with SQL Server, you should register your SQL Server VM with the resource provider for:
 
@@ -47,7 +47,7 @@ For more information about the benefits of using the SQL VM resource provider, s
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
-- An [Azure subscription](https://azure.microsoft.com/free/) that has been [registered with the resource provider](#register-subscription-with-rp).
+- An [Azure subscription](https://azure.microsoft.com/free/).
 - A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
 - The latest version of [Azure CLI](/cli/azure/install-azure-cli) or [PowerShell](/powershell/azure/new-azureps-module-az). 
 
@@ -243,7 +243,7 @@ Run the following PowerShell code snippet:
 
 ## Register subscription with RP
 
-To register your SQL Server VM with the SQL VM resource provider, you must first register the subscription with the resource provider. You can do so by using the Azure portal, the Azure CLI, or PowerShell.
+To register your SQL Server VM with the SQL VM resource provider, you must first register your subscription with the resource provider.  You can do so by using the Azure portal, the Azure CLI, or PowerShell.
 
 ### Azure portal
 
@@ -326,10 +326,6 @@ To unregister your SQL Server virtual machine from the resource provider with Az
  
 
 ## Frequently asked questions 
-
-**Is it possible to bulk register SQL Server VMs?** 
-
-Yes. See [bulk registration](virtual-machines-windows-sql-bulk-register-with-resource-provider.md) for more information. 
 
 **Should I register my SQL Server VM provisioned from a SQL Server image in Azure Marketplace?**
 
