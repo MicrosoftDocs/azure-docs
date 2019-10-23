@@ -1,5 +1,5 @@
 ---
-title: Deprecate use of TLS 1.0 and 1.1 | Microsoft Docs
+title: Remove use of TLS 1.0 and 1.1 with Azure Cache for Redis | Microsoft Docs
 description: Learn how to remove TLS 1.0 and 1.1 from your application when communicating with Azure Cache for Redis
 services: cache
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: yegu
 
 ---
 
-# Deprecate use of TLS 1.0 and 1.1
+# Remove use of TLS 1.0 and 1.1 with Azure Cache for Redis
 
 There is an industry-wide push towards using TLS 1.2 or higher exclusively. TLS Versions 1.0 and 1.1 are known to be susceptible to attacks such as BEAST and POODLE and have other Common Vulnerabilities and Exposures (CVE) weaknesses. They also do not support the modern encryption methods and cipher suites recommended by PCI compliance standards. This [TLS security blog](https://www.acunetix.com/blog/articles/tls-vulnerabilities-attacks-final-part/) explains some of these vulnerabilities in more details.
 
