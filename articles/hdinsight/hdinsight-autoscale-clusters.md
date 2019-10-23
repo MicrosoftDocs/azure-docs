@@ -13,7 +13,7 @@ ms.date: 10/22/2019
 # Automatically scale Azure HDInsight clusters
 
 > [!Important]
-> The Autoscale feature only works for Spark, Hive and MapReduce clusters created after May 8th 2019.
+> The Autoscale feature only works for Spark, Hive and MapReduce clusters created after May 8th 2019. 
 
 Azure HDInsight’s cluster Autoscale feature automatically scales the number of worker nodes in a cluster up and down. Other types of nodes in the cluster can't be scaled currently.  During the creation of a new HDInsight cluster, a minimum and maximum number of worker nodes can be set. Autoscale then monitors the resource requirements of the analytics load and scales the number of worker nodes up or down. There's no additional charge for this feature.
 
@@ -71,9 +71,11 @@ Based on the number of AM containers per node and the current CPU and memory req
 
 ### Create a cluster with load-based Autoscaling
 
+To use Autoscale on a cluster, the **Enable autoscale** option must be enabled when the cluster is created. 
+
 To enable the Autoscale feature with load-based scaling, complete the following steps as part of the normal cluster creation process:
 
-1. On the **Configuration + pricing** tab, check the **Enable  autoscale** checkbox.
+1. On the **Configuration + pricing** tab, check the **Enable autoscale** checkbox.
 1. Select **Load-based** under **Autoscale type**.
 1. Enter the desired values for the following properties:  
 
@@ -83,7 +85,9 @@ To enable the Autoscale feature with load-based scaling, complete the following 
 
     ![Enable worker node load-based autoscale](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
 
-The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it's created. The minimum number of worker nodes must be greater than zero.
+The initial number of worker nodes must fall between the minimum and maximum, inclusive. This value defines the initial size of the cluster when it's created. The minimum number of worker nodes should be set to three or more. . Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication. See [Getting stuck in safe mode]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) for more information.
+
+
 
 ### Create a cluster with schedule-based Autoscaling
 
@@ -100,7 +104,7 @@ To enable the Autoscale feature with schedule-based scaling, complete the follow
 
     ![Enable worker node schedule-based creation](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-schedule-creation.png)
 
-The number of nodes must be between 1 and the number of worker nodes that you entered before adding conditions.
+The number of nodes must be between 3 and the maximum number of worker nodes that you entered before adding conditions.
 
 ### Final creation steps
 
@@ -127,7 +131,7 @@ You can create an HDInsight cluster with load-based Autoscaling an Azure Resourc
   "targetInstanceCount": 4,
   "autoscale": {
       "capacity": {
-          "minInstanceCount": 2,
+          "minInstanceCount": 3,
           "maxInstanceCount": 10
       }
   },
@@ -198,7 +202,7 @@ https://management.azure.com/subscriptions/{subscription Id}/resourceGroups/{res
 Use the appropriate parameters in the request payload. The json payload below could be used to enable Autoscale. Use the payload `{autoscale: null}` to disable Autoscale.
 
 ```json
-{ autoscale: { capacity: { minInstanceCount: 1, maxInstanceCount: 2 } } }
+{ autoscale: { capacity: { minInstanceCount: 3, maxInstanceCount: 2 } } }
 ```
 
 See the previous section on [enabling load-based autoscale](#load-based-autoscaling) for a full description of all payload parameters.
@@ -223,6 +227,10 @@ It can take 10 to 20 minutes for a scaling operation to complete. When setting u
 During cluster scaling down process, Autoscale will decommission the nodes to meet the target size. If there are running tasks on those nodes, Autoscale will wait until the tasks are completed. Since each worker node also serves a role in HDFS, the temp data will be shifted to the remaining nodes. So you should make sure there's enough space on the remaining nodes to host all the temp data.
 
 The running jobs will continue to run and finish. The pending jobs will wait to be scheduled as normal with fewer available worker nodes.
+
+### Minimum cluster size
+
+Do not scale your cluster down to fewer than three nodes. Scaling your cluster to fewer than three nodes can result in it getting stuck in safe mode because of insufficient file replication. See [Getting stuck in safe mode]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) for more information.
 
 ## Monitoring
 
