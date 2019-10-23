@@ -1,5 +1,5 @@
 ﻿---
-title: Concepts - Azure Kubernetes Service (AKS) Diagnostics Overview
+title: Azure Kubernetes Service (AKS) Diagnostics Overview
 description: Learn about self-diagnosing clusters in Azure Kubernetes Service.
 services: container-service
 author: yunjchoi
@@ -10,31 +10,36 @@ ms.date: 11/04/2019
 ms.author: yunjchoi
 ---
 
-# AKS Diagnostics overview
+# Azure Kubernetes Service (AKS) Diagnostics overview
 
-Sometimes good clusters can go through bad times. Cluster issues can be dreadful especially When running mission critical workloads. AKS Diagnostics is an intelligent self-diagnostic experience to help you identify and resolve problems in your cluster. This cloud-native offering will help you find the issue of your cluster and guide you to the right information to easily and quickly troubleshoot the issue with no extra configuration and billing cost.
+Sometimes good clusters can go through bad times. Troubleshooting Azure Kubernetes Service (AKS) cluster issues is an important part of maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics is an intelligent, self-diagnostic experience that helps you identify and resolve problems in your cluster. AKS Diagnostics is cloud-native, and you can use it with no extra configuration or billing cost.
 
 ## Open AKS Diagnostics
 
-To access AKS Diagnostics, navigate to your Kubernetes cluster in the [Azure portal](https://portal.azure.com). In the left navigation, click on **Diagnose and solve problems**.
+To access AKS Diagnostics:
 
-In the AKS Diagnostics homepage, you can choose a category that best describes the issue of your cluster by using the keywords in the homepage tile.
+- Navigate to your Kubernetes cluster in the [Azure portal](https://portal.azure.com).
+- Click on **Diagnose and solve problems** in the left navigation, which opens AKS Diagnostics.
+- Choose a category that best describes the issue of your cluster by using the keywords in the homepage tile
+OR type a keyword that best describes your issue in the search bar, for example _Cluster Node Issues_.
 
 ![Homepage](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 
-## Diagnostic report
+## View a diagnostic report
 
-After you choose to investigate the issue by clicking on a category, you can view cluster-specific diagnostic metrics related to the topic often supplemented with textual description of the issue, recommended actions with links to helpful docs, and logging data. Diagnostic reports are generated intelligently based on the current state of your cluster after running variety of checks and can be a powerful tool for pinpointing the problem of your cluster and finding the next steps to resolve the issue.
+After you click on a category, you can view a diagnostic report specific to your cluster. Diagnostic report intelligently calls out if there is any issue in your cluster with status icons. You can drill down on each topic by clicking on **More Info** to see detailed description of the issue, recommended actions, links to helpful docs, related-metrics, and logging data. Diagnostic reports are intelligently generated based on the current state of your cluster after running variety of checks. Diagnostic reports can be a useful tool for pinpointing the problem of your cluster and finding the next steps to resolve the issue.
 
 ![Diagnostic Report](./media/concepts-diagnostics/diagnostic-report.png)
 
-![Expanded Diagnostic Report](./media/concepts-diagnostics/expanded-diagnostic-report.png)
+![Expanded Diagnostic Report](./media/concepts-diagnostics/node-issues.png)
 
-Below are the types of checks available in **Cluster Insights**.
+## Cluster Insights
+
+The following diagnostic checks are available in **Cluster Insights**.
 
 ### Cluster Node Issues
 
-**Cluster Node Issues** checks for node-related issues that may cause your cluster to behave unexpectedly.
+Cluster Node Issues checks for node-related issues that may cause your cluster to behave unexpectedly.
 
 - Node readiness issues
 - Node failures
@@ -48,7 +53,7 @@ Below are the types of checks available in **Cluster Insights**.
 
 ### Create, Read, Update & Delete Operations
 
-**CRUD Operations** checks for any CRUD operations that may cause issues in your cluster.
+CRUD Operations checks for any CRUD operations that may cause issues in your cluster.
 
 - In-use subnet delete operation error
 - Network security group delete operation error
@@ -64,12 +69,14 @@ Below are the types of checks available in **Cluster Insights**.
 
 ### Identity and Security Management
 
-**Identity and security Management** detects authentication and authorization errors that may prevent communication to your cluster.
+Identity and security Management detects authentication and authorization errors that may prevent communication to your cluster.
 
 - Node authorization failures
 - 401 errors
 - 403 errors
 
-## Next steps 
+## Next steps
+
+Collect logs to help you further troubleshoot your cluster issues by using [AKS Periscope](https://aka.ms/aksperiscope).
 
 Post your questions or feedback at [UserVoice](​​​​​​​​​​​​​​https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) by adding "[Diag]" in the title.
