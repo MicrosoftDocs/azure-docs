@@ -149,7 +149,7 @@
       href: conversation-transcription-service.md
   - name: How-to guides
     items:
-    - name: Transcribe conversations in real time
+    - name: Real time Conversation Transcription
       href: how-to-use-conversation-transcription-service.md
     - name: Asynchronous Conversation Transcription
       href: how-to-async-conversation-transcription.md
