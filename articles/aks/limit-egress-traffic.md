@@ -104,10 +104,6 @@ The following FQDN / application rules are required:
 | packages.microsoft.com     | HTTPS:443 | This address is the Microsoft packages repository used for cached *apt-get* operations.  Example packages include Moby, PowerShell, and Azure CLI. |
 | acs-mirror.azureedge.net 	 | HTTPS:443 | This address is for the repository required to install required binaries like kubenet and Azure CNI. |
 
-
-
-
-
 ## Optional recommended addresses and ports for AKS clusters
 
 The following outbound ports / network rules are optional for an AKS cluster:
