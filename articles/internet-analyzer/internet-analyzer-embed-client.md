@@ -14,7 +14,7 @@ ms.author: mebeatty
 
 # Embed the Internet Analyzer client
 
-This article shows you how to embed the JavaScript client in your application. Installation of this client is necessary to run tests and receive scorecard analytics. **The JavaScript client is provided after your first test has been configured.** From there, you may continue to add tests to your profile without embedding a new client. For more information on Internet Analyzer, see the [overview](internet-analyzer-overview.md). 
+This article shows you how to embed the JavaScript client in your application. Installation of this client is necessary to run tests and receive scorecard analytics. **The profile-specific JavaScript client is provided after the first test has been configured.** From there, you may continue to add or remove tests to that profile without having to embed a new script. For more information on Internet Analyzer, see the [overview](internet-analyzer-overview.md). 
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
