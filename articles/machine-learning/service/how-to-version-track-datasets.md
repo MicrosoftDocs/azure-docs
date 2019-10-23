@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 10/225/2019
+ms.date: 10/25/2019
 ms.custom: 
 
 # Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple ML experiments.
@@ -75,7 +75,10 @@ titanic_ds = Dataset.get_by_name(workspace = workspace,
 
 ## Versioning best practice
 
-When creating a dataset version, you are **not** creating an extra copy of data with the workspace. Datasets are references to the data in your storage service, so you only have one single source of truth managed by your storage service. So, if the data referenced by your dataset is overwritten or deleted, calling a specific version of the dataset cannot revert the change. 
+When creating a dataset version, you are **not** creating an extra copy of data with the workspace. Datasets are references to the data in your storage service, so you only have one single source of truth managed by your storage service. 
+
+>[!IMPORTANT]
+> If the data referenced by your dataset is overwritten or deleted, calling a specific version of the dataset cannot revert the change. 
 
 When loading data from a dataset, it will always load the current data content referenced by the dataset. If you want to ensure the reproducibility of each dataset version, we recommend you not modify data content referenced by the dataset version. When new data comes in, save new data files into a separate data folder, and create a new dataset version to include data from that new data folder.
 
@@ -90,7 +93,7 @@ from azureml.core import Dataset
 datastore = workspace.get_default_datastore()
 
 # create & register weather_ds version 1 pointing to all files in the folder of week 27
-datastore_path1 = [(datastore, 'Weather/week27')]
+datastore_path1 = [(datastore, 'Weather/week 27')]
 dataset1 = Dataset.File.from_files(path=datastore_path1)
 dataset1.register(workspace = workspace,
                   name = 'weather_ds',
@@ -98,7 +101,7 @@ dataset1.register(workspace = workspace,
                   create_new_version = True)
 
 # create & register weather_ds version 2 pointing to all files in the folder of week 27 and 28
-datastore_path2 = [(datastore, 'Weather/week27'), (datastore, 'Weather/week28')]
+datastore_path2 = [(datastore, 'Weather/week 27'), (datastore, 'Weather/week 28')]
 dataset2 = Dataset.File.from_files(path = datastore_path2)
 dataset2.register(workspace = workspace,
                   name = 'weather_ds',
@@ -106,7 +109,6 @@ dataset2.register(workspace = workspace,
                   create_new_version = True)
 
 ```
-
 
 <a name="pipeline"></a>
 
@@ -150,7 +152,9 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-After registration, you will be able to see the list of models registered with the dataset using Python or the [workspace landing page](https://ml.azure.com/).
+After registration, you're be able to see the list of models registered with the dataset using Python or the [workspace landing page](https://ml.azure.com/).
+
+The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with that experiment run.
 
 ```Python
 # get input datasets
@@ -161,10 +165,12 @@ train_dataset = inputs[0]['dataset']
 train_dataset.to_path()
 ```
 
-You can also find the `input_datasets` from experiments using [workspace landing page (preview)](https://ml.azure.com/).
+You can also find the `input_datasets` from experiments using the [workspace landing page (preview)](https://ml.azure.com/). 
+
+The following image shows where to find the input dataset of an experiment on the workspace landing page. For this example, 
+we navigated to our **Experiments** pane, and opened the **Properties** tab for a specific run of our experiment, `keras-mnist`. 
 
 ![input_datasets](media/how-to-version-datasets/input_datasets.png)
-
 
 ## Next steps
 
