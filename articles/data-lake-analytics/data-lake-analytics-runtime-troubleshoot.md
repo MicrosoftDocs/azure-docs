@@ -31,12 +31,9 @@ You can also see the history of which runtime version your past jobs have used i
 
 The following are the available runtime versions.
 
-- release_20190318_adl_3394512_2
 - release_20190318_adl_3394512
-- release_20190318_adl_5832669
+- release_20190318_adl_5832669 the current default
 - default
-- release_20190318_adl_72f06cc5_p_private
-- release_20190318_adl_3394512_private
 - release_20190703_adl_4713356
 
 > [!CAUTION]
