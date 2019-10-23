@@ -426,9 +426,8 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
 **I created a new policy, why do the actions not run immediately?**  
 The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.  
 
-**I manually rehydrate an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**  
-When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Copy the blob to another location if it needs to stay in hot tier permanently. Re-enable the rule when the blob can be safely moved back to archive tier. 
-
+**I manually rehydrated an archived blob, how do I prevent it from being moved back to the Archive tier temporarily?**  
+When a blob is moved from one access tier to another, its last modification time doesn't change. If you manually rehydrate an archived blob to hot tier, it would be moved back to archive tier by the lifecycle management engine. Disable the rule that affects this blob temporarily to prevent it from being archived again. Re-enable the rule when the blob can be safely moved back to archive tier. You may also copy the blob to another location if it needs to stay in hot or cool tier permanently.
 
 ## Next steps
 
