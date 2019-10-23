@@ -136,9 +136,7 @@ When publishing completes, Visual Studio launches a browser to the URL of the we
 
 ## Manage the Azure app
 
-Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the web app. 
-
-1. From your Azure dashboard or **Home** page, select or search for and select **App Services**.
+To manage the web app, go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> and select or search for and select **App Services**.
 
    ![Select App Services](./media/app-service-web-get-started-dotnet/app-services.png)
 
