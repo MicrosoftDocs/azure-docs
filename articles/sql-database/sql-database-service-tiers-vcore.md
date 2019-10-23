@@ -93,21 +93,20 @@ In the Azure portal, you can select the hardware generation for a SQL database a
 
 On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section:
 
-    :::image type="content" source="media/sql-database-service-tiers-vcore/create-sql-database.png" alt-text="create database":::
+  :::image type="content" source="media/sql-database-service-tiers-vcore/create-sql-database.png" alt-text="create database":::
 
 Select the **Change configuration** link:
 
-    :::image type="content" source="media/sql-database-service-tiers-vcore/configure-sql-database.png" alt-text="configure database":::
+  :::image type="content" source="media/sql-database-service-tiers-vcore/configure-sql-database.png" alt-text="configure database":::
 
 Select the desired hardware generation:
-
-    :::image type="content" source="media/sql-database-service-tiers-vcore/select-hardware.png" alt-text="select hardware":::
+  :::image type="content" source="media/sql-database-service-tiers-vcore/select-hardware.png" alt-text="select hardware":::
 
 **To change the hardware generation of an existing SQL database**
 
 On the database's Overview page, select the **Pricing tier** link:
 
-    :::image type="content" source="media/sql-database-service-tiers-vcore/change-hardware.png" alt-text="change hardware":::
+  :::image type="content" source="media/sql-database-service-tiers-vcore/change-hardware.png" alt-text="change hardware":::
 
 Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
 
