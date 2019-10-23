@@ -15,7 +15,7 @@ ms.date: 10/19/2019
 
 This article describes how, as a solution builder, you can connect a Rigado Cascade 500 gateway device to your Microsoft Azure IoT Central application. 
 
-### What is Cascade 500?
+## What is Cascade 500?
 
 Cascade 500 IoT gateway is a hardware offering from Rigado that is included as part of their Cascade Edge-as-a-Service solution. It provides commercial IoT project and product teams with flexible edge computing power, a robust containerized application environment, and a wide variety of wireless device connectivity options, including Bluetooth 5, LTE, & Wi-Fi.
 
@@ -63,6 +63,6 @@ This update will apply the IoT Central connection details on the Cascade 500 dev
 
 You are now ready to use your C500 device in your IoT Central application!
 
-## Next Steps
+## Next steps
 
 Now that you've learned how to connect a Rigado Cascade 500 to your Azure IoT Central application, the suggested next step is to learn how to [create an in-store analytics application](../retail/tutorial-in-store-analytics-create-app-pnp.md) to build an end to end solution. 
