@@ -1,5 +1,5 @@
 ---
-title: Create an Azure scale set that uses spot VMs (Preview) | Microsoft Docs
+title: Create an Azure scale set that uses spot VMs (Preview) 
 description: Learn how to create Azure virtual machine scale sets that use spot VMs to save on costs.
 services: virtual-machine-scale-sets
 author: cynthn
@@ -11,9 +11,7 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: cynthn
-
 ---
-
 
 # Preview: Spot VMs on scale sets 
 
