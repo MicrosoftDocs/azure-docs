@@ -62,7 +62,7 @@ There is a flat monthly rate for an ASE that pays for the infrastructure and doe
 
 ## Virtual network support ##
 
-The ASE feature is a deployment of the Azure App Service directly into a customer's Azure resource manager virtual network. To learn more about Azure virtual networks, see the [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
+The ASE feature is a deployment of the Azure App Service directly into a customer's Azure Resource Manager virtual network. To learn more about Azure virtual networks, see the [Azure virtual networks FAQ](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps.
 
 An ASE can be either internet-facing with a public IP address or internal-facing with only an Azure internal load balancer (ILB) address.
 
