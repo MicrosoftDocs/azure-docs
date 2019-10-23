@@ -112,21 +112,21 @@ For MQTT connect and disconnect packets, IoT Hub issues an event on the **Operat
 The device app can specify a **Will** message in the **CONNECT** packet. The device app should use `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as the **Will** topic name to define **Will** messages to be forwarded as a telemetry message. In this case, if the network connection is closed, but a **DISCONNECT** packet was not previously received from the device, then IoT Hub sends the **Will** message supplied in the **CONNECT** packet to the telemetry channel. The telemetry channel can be either the default **Events** endpoint or a custom endpoint defined by IoT Hub routing. The message has the **iothub-MessageType** property with a value of **Will** assigned to it.
 
 ### An example of C code using MQTT without Azure IoT C SDK
-You’ll find in this [repository](https://github.com/Azure-Samples/IoTMQTTSample) couple of C/C++ demo project showing how to send telemetry messages, receive events, use Plug and Play device with an IoT HUB without using the Azure IoT C SDK. 
+In this [repository](https://github.com/Azure-Samples/IoTMQTTSample), you'll find a couple of C/C++ demo projects showing how to send telemetry messages, receive events with an IoT hub without using the Azure IoT C SDK. 
 
-These samples use the Eclipse Mosquitto library to send message to the MQTT Broker implemented in the IoT Hub.
+These samples use the Eclipse Mosquitto library to send message to the MQTT Broker implemented in the IoT hub.
 
 This repository contains:
 
 **For Windows:**
 
-•	TelemetryMQTTWin32: contains code to send a telemetry message to an Azure IoT Hub to build and run on a Windows machine.
+•	TelemetryMQTTWin32: contains code to send a telemetry message to an Azure IoT hub, built and run on a Windows machine.
 
-•	SubscribeMQTTWin32: contains code to subscribe to events of a given IoT Hub on a Windows machine.
+•	SubscribeMQTTWin32: contains code to subscribe to events of a given IoT hub on a Windows machine.
 
-•	DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT Hub on a Windows machine.
+•	DeviceTwinMQTTWin32: contains code to query and subscribe to the device twin events of a device in the Azure IoT hub on a Windows machine.
 
-•	PnPMQTTWin32: contains code to send a telemetry message with PnP Device capabilities to an Azure IoT Hub to build and run on a Windows machine.
+•	PnPMQTTWin32: contains code to send a telemetry message with IoT Plug & Play preview Device capabilities to an Azure IoT hub, built and run on a Windows machine. More on IoT Plug & Play [here](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play)
 
 **For Linux:**
 
@@ -138,9 +138,9 @@ This repository contains:
 
 •	This folder contains two samples commands used with mosquitto_pub utility tool provided by Mosquitto.org.
 
-Mosquitto_sendmessage: to send a simple text message to an Azure IoT Hub acting as a device.
+Mosquitto_sendmessage: to send a simple text message to an Azure IoT hub acting as a device.
 
-Mosquitto_subscribe: to see events occurring in an Azure IoT Hub.
+Mosquitto_subscribe: to see events occurring in an Azure IoT hub.
 
 
 ## Using the MQTT protocol directly (as a module)
