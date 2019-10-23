@@ -34,7 +34,7 @@ You can secure your storage account to only accept connections from your  VNet, 
 
 ### Private Endpoints for Storage Service
 
-When creating the private endpoint, you must specify the storage account and the storage service to which it connects. You require a private endpoint for each storage service in a storage account to which access is needed, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or Static Websites[../blob/storage-blob-static-website.md].
+When creating the private endpoint, you must specify the storage account and the storage service to which it connects. You require a private endpoint for each storage service in a storage account to which access is needed, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blob/storage-blob-static-website.md).
 
 To ensure read availability for a [read-access geo redundant storage account](storage-redundancy-grs.md#read-access-geo-redundant-storage), you need separate private endpoints for both the primary and secondary instances of the service.
 
@@ -90,4 +90,4 @@ This constraint is a result of the DNS changes made when account A2 creates a pr
 
 ### NSG rules on subnets with private endpoints
 
-[Network Security Group](../../virtual-network/security-overview.md) (NSG) rules cannot be configured for subnets with private endpoints, at this time. A limited workaround for this issue is to implement your access rules for the private endpoints on the source subnets, though this approach may require a higher management overhead.
+[Network Security Group](../../virtual-network/security-overview.md) (NSG) rules cannot be configured for subnets with private endpoints, at this time. A limited workaround for this issue is to implement your access rules for the private endpoints on the source subnets, though this approach may require a higher managementgit  overhead.
