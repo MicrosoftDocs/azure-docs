@@ -56,6 +56,30 @@ Hyper-V VMs	| Assess up to 35,000 Hyper-V VMs in a single project.
 
 A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
 
+## Supported geographies
+
+You can create an Azure Migrate project in a number of geographies. Although you can only create projects in these geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
+
+**Geography** | **Metadata storage location**
+--- | ---
+Azure Government | US Gov Virginia
+Asia Pacific | East Asia or Southeast Asia
+Australia | Australia East or Australia Southeast
+Brazil | Brazil South
+Canada | Canada Central or Canada East
+Europe | North Europe or West Europe
+France | France Central
+India | Central India or South India
+Japan |  Japan East or Japan West
+Korea | Korea Central or Korea South
+United Kingdom | UK South or UK West
+United States | Central US or West US 2
+
+
+ > [!NOTE]
+ > Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
+
+
 
 ## VMware assessment and migration
 
