@@ -26,11 +26,11 @@ On the **Account settings** page, you can view your:
 
 ### Account details
 
-In the Account details section, you can see basic info, like your **Account type** (Company or Individual) and the **Verification status** of your account. During your account verification process, these settings will display each step required, including email verification, employment verification, and business verification. You can also update your email here and resend the verification if needed. 
+In the Account details section, you can see basic info, like your **Account type** (Company or Individual) and the **Account status** of your account. During the account verification process, these settings will display each step required, including email verification, employment verification, and business verification. You can also update your email here and resend the verification if needed. 
 
 ### Publisher IDs
 
-In the Publisher IDs section, you can see your **Seller ID**, **MPN ID**, and **Publisher ID**. These values are assigned by Microsoft to uniquely identify your developer account and can't be edited.
+In the Publisher IDs section, you can see your **Seller ID** and **User ID**. These values are assigned by Microsoft to uniquely identify your developer account and can't be edited.
 
 ### Contact info
 
@@ -38,7 +38,7 @@ In the Contact info section, you can see your **Publisher display name**, **Sell
 
 ### Financial details
 
-In the Financial details section, you can provide or update your financial information if you publish paid apps, add-ins, or services. 
+In the Financial details section, you can provide or update your financial information if you publish paid apps or services. 
 
 If you only plan to list free offers, you don't need to set up a payout account or fill out any tax forms. If you change your mind later, and decide you do want to sell through Microsoft, you can set up your payout account and fill out tax forms at that time. 
 
@@ -46,14 +46,14 @@ If you only plan to list free offers, you don't need to set up a payout account 
 
 A payout account is the bank account to which proceeds are sent from your sales. This bank account must be in the same country where you registered your Partner Center account.
 
-To setup your payout account, you need to **associate your Microsoft Account**:
-1. In **Account settings**, under the **Financial details** section, select **Associate your Microsoft Account**. 
-2. When prompted, sign in with your Microsoft Account (MSA). This account cannot already be associated with another Partner Center account. 
-3. To complete the setup of your payout account, log completely out of Partner Center, then log back in with your Microsoft Account (rather than your work account). 
+To setup your payout account, you need to **associate your Microsoft account**:
+1. In **Account settings**, under the **Financial details** section, select **Associate your Microsoft account**. 
+2. When prompted, sign in with your Microsoft account. This account cannot already be associated with another Partner Center account. 
+3. To complete the setup of your payout account, sign out of Partner Center, then sign back in with your Microsoft account (instead of your work account). 
 
-Now that your Microsoft Account is associated, to add a payout account, you will need to:
-- **Choose a payment method**: Bank account or PayPal
-- **Add payment information**: This may include choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. *For more information about using PayPal as your account payment method and to find out whether it is supported in your market region, see [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
+Now that your Microsoft account is associated, to add a payout account, you will need to:
+- **Choose a payment method** - Bank account or PayPal
+- **Add payment information** - This includes choosing an account type (checking or savings), entering the account holder name, account number, and routing number, billing address, phone number, or PayPal email address. For more information about using PayPal as your account payment method and to find out whether it is supported in your market region, see [PayPal info](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info).
 
 > [!IMPORTANT]
 > Changing your payout account can delay your payments by up to one payment cycle. This delay occurs because we need to verify the account change, just as we do when first setting up the payout account. You'll still get paid for the full amount after your account has been verified; any payments due for the current payment cycle will be added to the next one.  
@@ -78,79 +78,45 @@ The info you submit in your tax forms determines the appropriate tax withholding
 ##### Tax treaty benefits
 If you are outside the United States, you may be able to take advantage of tax treaty benefits. These benefits vary from country to country, and may allow you to reduce the amount of taxes that Microsoft withholds. You can claim tax treaty benefits by completing Part II of the W-8BEN form. We recommend that you communicate with the appropriate resources in your country or region to determine whether these benefits apply to you.
 
-[Learn more about tax details for Windows app/game developers and Azure Marketplace publishers](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
-
 #### Payout hold status
 
 By default, Microsoft sends payments on a monthly basis. However, you have the option to put your payouts on hold, which will prevent sending payments to your account. If you choose to put your payouts on hold, we’ll continue to record any revenue that you earn and provide the details in your **Payout summary**. However, we won’t send any payments to your account until you remove the hold. 
 
 To place your payments on hold, go to **Account settings**. Under **Financial details**, in the **Payout hold status** section, toggle the slider to **On**. You can change your payout hold status at any time, but be aware that your decision will impact the next monthly payout. For example, if you want to hold April’s payout, make sure to set your payout hold status to **On** before the end of March.
 
-Once you have set your payout hold status to **On**, all payouts will be on hold until you toggle the slider back to **Off**. When you do so, you’ll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you’ve had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
+After you set your payout hold status to **On**, all payouts will be on hold until you toggle the slider back to **Off**. When you do so, you’ll be included during the next monthly payout cycle (provided any applicable payment thresholds have been met). For example, if you’ve had your payouts on hold, but would like to have a payout generated in June, then make sure to toggle the payout hold status to **Off** before the end of May.
 
 > [!NOTE]
-> Your **Payout hold status** selection applies to **all** revenue sources that are paid through Microsoft Partner Center, including Azure Marketplace, AppSource, Microsoft Store, advertising, etc.). You cannot select different hold statuses for each revenue source.
-
-### Devices
-
-The device management settings apply only to UWP publishing. [Learn more](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
-
-### Tracking GUIDs
-
-Globally Unique Identifiers (GUIDs) are unique reference numbers (with 32 hexadecimal digits) that can be used for tracking your Azure usage. 
-
-To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems.
-
-We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
-
-If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register 2 distinct GUIDS:
-
-*	Product A in Azure Marketplace
-*	Product A on GitHub
-
-Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. You can also track GUIDs at a more granular level aligning to each plan within your offer.
-
-For more information, see the [Tracking Azure customer usage with GUIDs FAQ](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq).
-
-
+> Your **Payout hold status** selection applies to **all** revenue sources that are paid through Partner Center. You cannot select different hold statuses for each revenue source.
 
 ## Multi-user account management
 
-Partner Center leverages [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process. 
+Partner Center uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process. 
 
 ## Manage users
 
-The **Users** section of Partner Center (under **Account Settings**) let's you use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. In order to manage users, you must be signed in with your [work account](./company-work-accounts.md) (the associated Azure AD tenant). To manage users within a different work account / tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account / tenant. 
-
-Once you are signed in with your work account (Azure AD tenant), you can:
-- [Add or remove users](#add-or-remove-users)
-- [Change a user password](#change-a-user-password)
-- [Add or remove groups](#add-or-remove-users)
-- [Add or remove Azure AD applications](#add-new-azure-ad-applications)
-- [Manage keys for an Azure AD application](#manage-keys-for-an-azure-ad-application)
-- [Define user roles and permissions](#define-user-roles-and-permissions)
-
+In the **Users** section of Partner Center (under **Account Settings**) you can use Azure AD to manage the users, groups, and Azure AD applications that have access to your Partner Center account. In order to manage users, you must be signed in with your work account (the associated Azure AD tenant). To manage users within a different work account/tenant, you will need to sign out and then sign back in as a user with **Manager** permissions on that work account/tenant. 
 
 Keep in mind that all Partner Center users (including groups and Azure AD applications) must have an active work account in an [Azure AD tenant](#manage-tenants) that is associated with your Partner Center account. 
 
 ### Add or remove users
 
-Your account must have [**Manager-level**](#define-user-roles-and-permissions) permissions for the [work account (Azure AD tenant)](./company-work-accounts.md) in which you want to add or edit users.
+Your account must have [Manager-level](#define-user-roles-and-permissions) permissions for the work account (Azure AD tenant) in which you want to add or edit users.
 
 #### Add existing users
 
-To add users to your Partner Center account that already exist in your company's [work account (Azure AD tenant)](./company-work-accounts.md):
+To add users to your Partner Center account that already exist in your company's work account (Azure AD tenant):
 
 1. Go to **Users** (under **Account settings**) and select **Add users**.
 2. Select one or more users from the list that appears. You can use the search box to search for specific users.
 *If you select more than one user to add to your Partner Center account, you must assign them the same role or set of custom permissions. To add multiple users with different roles/permissions, repeat these steps for each role or set of custom permissions.
-3.	When you are finished choosing users, click **Add selected**.
+3.	When you're finished choosing users, click **Add selected**.
 5.	In the **Roles** section, specify the role(s) or customized permissions for the selected user(s).
 6.	Select **Save**.
 
 #### Create new users
 
-To create brand new user accounts, you must have an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. 
+To create new user accounts, you must have an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. 
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Create new users**.
 1. Enter a first name, last name, and username for each new user. 
@@ -164,7 +130,7 @@ Creating a new user in Partner Center will also create an account for that user 
 
 #### Invite new users by email
 
-To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. 
+To invite users that are not currently a part of your company work account (Azure AD tenant) via email, you must have an account with [Global administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. 
 
 1. Go to **Users** (under **Account settings**), select **Add users**, then choose **Invite users by email**.
 2. Enter one or more email addresses (up to ten), separated by commas or semicolons.
@@ -174,7 +140,6 @@ To invite users that are not currently a part of your company work account (Azur
 The users you invited will get an email invitation to join your Partner Center account. A new guest-user account will be created in your work account (Azure AD tenant). Each user will need to accept their invitation before they can access your account.
 
 If you need to resend an invitation, visit the **Users** page, find the invitation in the list of users, select their email address (or the text that says *Invitation pending*). Then, at the bottom of the page, select **Resend invitation**.
- 
 
 > [!NOTE]
 > If your organization uses [directory integration](https://go.microsoft.com/fwlink/p/?LinkID=724033) to sync the on-premises directory service with your Azure AD, you won't be able to create new users, groups, or Azure AD applications in Partner Center. You (or another admin in your on-premises directory) will need to create them directly in the on-premises directory before you'll be able to see and add them in Partner Center.
@@ -185,7 +150,7 @@ To remove a user from your work account (Azure AD tenant), go to **Users** (unde
 
 #### Change a user password
 
-If one of your users needs to change their password, they can do so themselves if you provided a **Password recovery email** when creating the user account. You can also update a user's password by following the steps below. To change a user's password in your company work account (Azure AD tenant), you must be signed in on an account with [**Global administrator**](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. Note that this will change the user's password in your Azure AD tenant, along with the password they use to access Partner Center.
+If one of your users needs to change their password, they can do so themselves if you provided a **Password recovery email** when creating the user account. You can also update a user's password by using the following the steps. To change a user's password in your company work account (Azure AD tenant), you must be signed in on an account with [Global administrator](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) permissions. Note that this will change the user's password in your Azure AD tenant, along with the password they use to access Partner Center.
 
 1.	From the **Users** page (under **Account settings**), select the name of the user account that you want to edit.
 2.	Select the **Reset password** button at the bottom of the page.
@@ -196,7 +161,7 @@ If one of your users needs to change their password, they can do so themselves i
 
 Groups allow you to control multiple user roles and permissions all together.
 
-#### Add an existing group
+### Add an existing group
 
 To add a group that already exists in your organization's work account (Azure AD tenant) to your Partner Center account: 
 
@@ -209,9 +174,9 @@ If you select more than one group to add to your Partner Center account, you mus
 
 When you add an existing group, every user who is a member of that group will be able to access your Partner Center account, with the permissions associated with the group's assigned role.
 
-#### Add a new group
+### Add a new group
 
-To add a brand-new group to your Partner Center account: 
+To add a new group to your Partner Center account: 
 
 1.	From the **Users** page (under **Account settings**), select **Add groups**.
 2.	On the next page, select **New group**.
@@ -223,7 +188,7 @@ To add a brand-new group to your Partner Center account:
 
 Note that this new group will be created in your organization's work account (Azure AD tenant) as well, not just in your Partner Center account.
 
-#### Remove a group
+### Remove a group
 
 To remove a group from your work account (Azure AD tenant), go to **Users** (under **Account settings**), select the group that you would like to remove using the checkbox in the far right column, then choose **Remove** from the available actions. A pop-up window will appear for you to confirm that you want to remove the selected group(s).
 
@@ -231,7 +196,7 @@ To remove a group from your work account (Azure AD tenant), go to **Users** (und
 
 You can allow applications or services that are part of your company's Azure AD to access your Partner Center account. 
 
-#### Add existing Azure AD applications 
+### Add existing Azure AD applications 
 
 To add applications that already exist in your company's Azure Active Directory: 
 
@@ -241,9 +206,9 @@ To add applications that already exist in your company's Azure Active Directory:
 5.	In the **Roles** section, specify the role(s) or customized permissions for the selected Azure AD application(s).
 6.	Select **Save**.
 
-#### Add new Azure AD applications 
+### Add new Azure AD applications 
 
-If you want to grant Partner Center access to a brand-new Azure AD application account, you can create one in the **Users** section. Note that this will create a new account in your company work account (Azure AD tenant), not just in your Partner Center account. If you are primarily using this Azure AD application for Partner Center authentication, and don't need users to access it directly, you can enter any valid address for the **Reply URL** and **App ID URI**, as long as those values are not used by any other Azure AD application in your directory.
+If you want to grant Partner Center access to a new Azure AD application account, you can create one in the **Users** section. Note that this will create a new account in your company work account (Azure AD tenant), not just in your Partner Center account. If you are primarily using this Azure AD application for Partner Center authentication, and don't need users to access it directly, you can enter any valid address for the **Reply URL** and **App ID URI**, as long as those values are not used by any other Azure AD application in your directory.
 
 1.	From the **Users** page (under **Account settings**), select **Add Azure AD applications**.
 2.	On the next page, select **New Azure AD application**.
@@ -254,11 +219,11 @@ If you want to grant Partner Center access to a brand-new Azure AD application a
 
 After you add or create an Azure AD application, you can return to the **Users** section and select the application name to review settings for the application, including the Tenant ID, Client ID, Reply URL, and App ID URI.
 
-#### Remove an application
+### Remove an application
 
 To remove an application from your work account (Azure AD tenant), go to **Users** (under **Account settings**), select the application that you would like to remove using the checkbox in the far right column, then choose **Remove** from the available actions. A pop-up window will appear for you to confirm that you want to remove the selected application(s).
 
-#### Manage keys for an Azure AD application
+### Manage keys for an Azure AD application
 
 If your Azure AD application reads and writes data in Microsoft Azure AD, it will need a key. You can create keys for an Azure AD application by editing its information in Partner Center. You can also remove keys that are no longer needed.
 
@@ -280,15 +245,9 @@ Your company's users can be assigned the following roles and permissions for the
   - Can manage and publish offers
   - Can view some publisher reports
 
-> [!NOTE]
-> For the Commercial Marketplace program, the Global admin, Business Contributor, Financial Contributor, and Marketer roles are not used. Assigning these roles to users has no effect. Only the Manager and Developer roles grant permissions to users.
-
-For more information about managing roles and permissions in other areas of Partner Center, such as Azure Active Directory (AD), Cloud Solution Provider (CSP), Control Panel Vendor (CPV), Guest users, or Microsoft Partner Network (MPN), see [Assign users roles and permissions in Partner Center](https://docs.microsoft.com/partner-center/permissions-overview).
-
-
 ## Manage tenants
 
-An Azure Active Directory (AD) tenant, also referred to as your "work account" throughout this documentation, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Office 365, an Azure AD tenant was established for you. 
+An Azure Active Directory (AD) tenant, also referred to as your work account, is a representation of your organization set up in the Azure portal and helps you to manage a specific instance of Microsoft cloud services for your internal and external users. If your organization subscribed to a Microsoft cloud service, such as Azure, Microsoft Intune, or Office 365, an Azure AD tenant was established for you. 
 
 You can set up multiple tenants to use with Partner Center. Any user with the **Manager** role in the Partner Center account will have the option to add and remove Azure AD tenants from the account.  
 
@@ -323,16 +282,11 @@ To remove a tenant from your Partner Center account, find its name on the **Tena
 When you remove a tenant, all users that were added to the Partner Center account from that tenant will no longer be able to sign in to the account.
 
 > [!TIP]
-> You can’t remove a tenant if you are currently signed into Partner Center using an account in the same tenant. To remove a tenant, you must sign in to Partner Center as an **Manager** for another tenant that is associated with the account. If there is only one tenant associated with the account, that tenant can only be removed after signing in with the Microsoft account that opened the account.
+> You can’t remove a tenant if you're currently signed into Partner Center using an account in the same tenant. To remove a tenant, you must sign in to Partner Center as an **Manager** for another tenant that is associated with the account. If there is only one tenant associated with the account, that tenant can only be removed after signing in with the Microsoft account that opened the account.
 
 
 ## Agreements
 
-The **Agreements** section of Partner Center (under **Account Settings**) let's you view a list of the publishing agreements that you've authorized. These agreements are listed according to name and version number, including the date it was accepted and the name of the user that accepted the agreement. 
+On the **Agreements** section of Partner Center (under **Account Settings**), you can view a list of the publishing agreements that you've authorized. These agreements are listed according to name and version number, including the date it was accepted and the name of the user that accepted the agreement. 
 
-**Actions needed** may appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**. 
-
-
-## Next steps
-
-- [Create a new SaaS offer](./create-new-saas-offer.md)
+**Actions needed** might appear at the top of this page if there are agreement updates that need your attention. To accept an updated agreement, first read the linked Agreement Version, then select **Accept agreement**. 
