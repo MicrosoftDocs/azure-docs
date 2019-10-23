@@ -62,7 +62,7 @@ If you receive this error when adding a dataset from a SQL-based source, it may 
 
 Note that the [datashareaccountname] must be the same name as your Data Share resource. 
 
-Ensure that you have followed all prerequisites listed in [Share your SQL data](share-your-sql-data.md) tutorial.
+Ensure that you have followed all prerequisites listed in [Share your SQL data](share-your-data.md) tutorial.
 
 ## Next steps
 
