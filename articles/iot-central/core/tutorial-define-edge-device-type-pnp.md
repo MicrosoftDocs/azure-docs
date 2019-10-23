@@ -179,7 +179,7 @@ Click  **Browse** button
 
 If you plan to create an Azure IoT Edge Gateway device template make sure to select **Gateway device with downstream devices** checkbox
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-upload.png)
+![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/gateway-upload.png)
 
 You will be presented with a file selection dialog. Select the deployment manifest file and click **Open** button.
 
@@ -273,20 +273,20 @@ Add capabilities to SimulatedTemperatureSensor module which will reflect the abo
 
 If you selected Azure IoT Edge device to be a gateway device you can add downstream relationships to device capability models for devices you will connect to gateway device.
   
-  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-add-relationship.png)
+  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/gateway-add-relationship.png)
 
 Relationship can be added at a device or at a module.
   
-  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-relationship-types.png)
+  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/gateway-relationship-types.png)
 
 
 You can select a downstream device capability model or select asterix. 
   
-  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-downstream-rel.png)
+  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/gateway-downstream-rel.png)
 
   For this tutorial we will select asterix which means any downstream relationship will be allowed. Click **Save**
 
-  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-add-relationship-asterix.png)
+  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/gateway-add-relationship-asterix.png)
 
 
 ### Add cloud properties
