@@ -29,13 +29,15 @@ In the current public preview, the sharing is designed to support the so-called 
 
 ## Supporting the Modern Data Warehouse Pattern with Shared Meta Data
 
-The shared meta data model supports the modern data warehouse pattern as showin in Figure 1 below:
+The shared meta data model supports the modern data warehouse pattern as shown in Figure 1 below:
 
-1. data from the data lake is being prepared and structured efficiently with Spark by storing the prepared data in (possibly partitioned) tables contained in a database.
+1. Data from the data lake is being prepared and structured efficiently with Spark by storing the prepared data in (possibly partitioned) tables contained in a database.
 
-2. The Spark created databases and their tables will become visible in the SQL Analytics On-Demand engine. Databases [ADD LINK] are being created automatically in the SQL Analytics On-Demand meta data, and both the external and managed tables [ADD LINK] created by a Spark job will be made accessible as external tables in the SQL Analytics On-Demand meta data in the `dbo` schema of the corresponding database. For more details, see [ADD LINK].
+2. The Spark created databases and their tables will become visible in any of the Synapse workspace's Spark Pool instances and can be used from any of the Spark jobs, subject to the [permissions](#Security-model-at-a-glance). 
 
-3. If there are SQL Analytics Pools in the workspace that have their meta data synchronization enabled [ADD LINK] or if a new SQL Pool is being created with the meta data synchronization enabled, the Spark created databases and their tables will be mapped automatically into the SQL Pool's database as follows: The databases generated in Spark are mapped to special schemas inside the SQL Pool's database. Each such schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark generated database are exposed as external tables in the corresponding special schema. For more details, see [ADD LINK].
+3. The Spark created databases and their tables will also become visible in the SQL Analytics On-Demand engine. Databases [ADD LINK] are being created automatically in the SQL Analytics On-Demand meta data, and both the external and managed tables [ADD LINK] created by a Spark job will be made accessible as external tables in the SQL Analytics On-Demand meta data in the `dbo` schema of the corresponding database. For more details, see [ADD LINK].
+
+4. If there are SQL Analytics Pools in the workspace that have their meta data synchronization enabled [ADD LINK] or if a new SQL Pool is being created with the meta data synchronization enabled, the Spark created databases and their tables will be mapped automatically into the SQL Pool's database as follows: The databases generated in Spark are mapped to special schemas inside the SQL Pool's database. Each such schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark generated database are exposed as external tables in the corresponding special schema. For more details, see [ADD LINK].
 
 [INSERT PICTURE]
 
