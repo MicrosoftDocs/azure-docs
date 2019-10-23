@@ -47,7 +47,18 @@ The following JSON file is the template that is used in this article. The templa
 1. Select **Copy** to copy the PowerShell script into clipboard.
 1. Right-click the shell pane, and then select **Paste**.
 
+<<<<<<< HEAD
     It takes a few moments to create the database server and the database.
+=======
+    - **Subscription**: select an Azure subscription.
+    - **Resource group**: select **Create new**, enter a unique name for the resource group, and then click **OK**.
+    - **Location**: select a location.  For example, **Central US**.
+    - **Admin User**: specify a SQL database server administrator username.
+    - **Admin Password**: specify an administrator password.
+    - **I agree to the terms and conditions state above**: Select.
+
+3. Select **Purchase**.
+>>>>>>> powershell-update-pr1
 
 ## Query the database
 
@@ -57,15 +68,17 @@ To query the database, see [Query the database](./sql-database-single-database-g
 
 Keep this resource group, database server, and single database if you want to go to the [Next steps](#next-steps). The next steps show you how to connect and query your database using different methods.
 
-To delete the resource group by Azure Powershell:
+To delete the resource group by using Azure CLI or Azure Powershell:
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name"
-$resourceGroupName = "${projectName}rg"
-
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
 Remove-AzResourceGroup -Name $resourceGroupName
-
-Read-Host -Prompt "Press [ENTER] to continue ..."
 ```
 
 ## Next steps
