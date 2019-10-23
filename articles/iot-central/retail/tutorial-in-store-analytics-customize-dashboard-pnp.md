@@ -22,7 +22,8 @@ In this tutorial, you learn how to:
 > * Customize image tiles on the dashboard
 > * Arrange tiles to modify the layout
 > * Add telemetry tiles to display conditions
-> * Add property tiles to visualize device health
+> * Add property tiles to display device details
+> * Add command tiles to run commands
 
 ## Prerequisites
 
@@ -84,7 +85,7 @@ To customize the image tile that displays a map of the sensor zones in the store
 
     ![Azure IoT Central save store map](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-map-save.png)
 
-    The example Contoso store map shows three zones: a central zone for checkout lines, a zone for apparel and personal care, and a zone for groceries and deli. Each zone has an associated sensor to provide telemetry. 
+    The example Contoso store map shows four zones: two checkout zones, a zone for apparel and personal care, and a zone for groceries and deli. In this tutorial, you will associate sensors with these zones to provide telemetry.
 
     ![Azure IoT Central store zones](./media/tutorial-in-store-analytics-customize-dashboard-pnp/store-zones.png)
 
@@ -95,31 +96,25 @@ A key step in customizing a dashboard is to rearrange the tiles to create a usef
 
 In this section, you rearrange the dashboard in the **In-store analytics - checkout** application template to create a custom layout.
 
-To remove tiles that you don't plan to use:
+To remove tiles that you don't plan to use in your application:
 
 1. Select **Edit** on the dashboard toolbar. 
 
-1. Select **X Delete** on each tile in the right-hand column of the dashboard. The Contoso store dashboard does not use these tiles. 
+1. Select **X Delete** to remove the following tiles: **Back to all zones**, **Visit store dashboard**, **Wait time**, and all three tiles associated with **Checkout 3**. The Contoso store dashboard does not use these tiles. 
 
     ![Azure IoT Central delete tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-tiles.png)
 
+1. Scroll to bring the remaining dashboard tiles into view.
+
+1. Select **X Delete** to remove the following tiles: **Warm-up checkout zone**, **Cool-down checkout zone**, **Occupancy sensor settings**, **Thermostat sensor settings**, and **Environment conditions**. 
+
+   ![Azure IoT Central delete remaining tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-tiles-2.png)
+
 1. Select **Save**. Removing unused tiles frees up space in the edit page, and simplifies the dashboard view for operators.
 
-To delete the remaining unused tiles:
+1. View your changes to the dashboard.
 
-1. Select **Edit** on the dashboard toolbar. 
-
-1. Delete the tile titled **Thermostat settings**. This tutorial uses the RuuviTag environmental sensors, and you add a tile for those in a later step.
-
-1. Delete the two tiles titled **Warm-up checkout zone** and **Cool-down checkout zone**. 
-
-1. Delete the three tiles grouped with **Checkout 3**. This tutorial uses the occupancy sensor and monitors only two checkout areas.
-
-    ![Azure IoT Central delete checkout 3 tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/delete-checkout-3.png)
-
-1. Select **Save**.
-
-    ![Azure IoT Central delete remaining tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/after-delete-tiles.png)
+   ![Azure IoT Central after deleting tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/after-delete-tiles.png)
 
 After you remove unused tiles, rearrange the remaining tiles to create an organized layout. The new layout includes space for tiles you add in a later step.
 
@@ -127,34 +122,18 @@ To rearrange the remaining tiles:
 
 1. Select **Edit**.
 
-1. Move the **Wait time** tile to the right of the **People traffic** tile.
+1. Select the **Occupancy firmware** tile and drag it to the right of the **Occupancy** battery tile.
 
-    ![Azure IoT Central move wait time tile](./media/tutorial-in-store-analytics-customize-dashboard-pnp/move-wait-time.png)
+1. Select the **Thermostat firmware** tile and drag it to the right of the **Thermostat** battery tile.
 
-To create a placeholder label tile: 
+1. Select **Save**.
 
-1. Select **Custom Tiles > Label**, and drag and drop it in the dashboard layout. A new tile typically appears at an open space in the layout.
+1. View your layout changes. 
 
-    ![Azure IoT Central new label tile](./media/tutorial-in-store-analytics-customize-dashboard-pnp/new-label-tile.png)
-
-1. Select **Configure** on the label tile. 
-
-1. Replace the value in **Text** with a single white space. You can use the blank label tile as a placeholder to preserve the layout in your dashboard. 
-
-1. Select **Update configuration**. 
-
-1. Drag and drop the blank label tile below the **People traffic** tile. 
-
-    ![Azure IoT Central blank label tile](./media/tutorial-in-store-analytics-customize-dashboard-pnp/blank-label-tile.png)
-
-1. Use the sizing handle on the label tile to widen the tile. Widen it to the full width of the combined **People traffic** and **Wait time** tiles.
-
-    ![Azure IoT Central widen label tile](./media/tutorial-in-store-analytics-customize-dashboard-pnp/widen-label-tile.png)
-
-1. Select **Save** to save your customized layout. 
+    ![Azure IoT Central firmware battery tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/firmware-battery-tiles.png)
 
 ## Add telemetry tiles to display conditions
-After you customize the dashboard layout, you are ready to add tiles to show telemetry. To create a telemetry tile, select a device template and device instance, then select device-specific telemetry to display in the tile. The **In-store analytics - checkout** application template includes several telemetry tiles in the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** and **Wait time** tiles show combined views of the checkout zone telemetry. 
+After you customize the dashboard layout, you are ready to add tiles to show telemetry. To create a telemetry tile, select a device template and device instance, then select device-specific telemetry to display in the tile. The **In-store analytics - checkout** application template includes several telemetry tiles in the dashboard. The four tiles in the two checkout zones display telemetry from the simulated occupancy sensor. The **People traffic** tile shows counts in the two checkout zones. 
 
 In this section, you add two more telemetry tiles to show environmental telemetry from the RuuviTag sensors you added in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. 
 
@@ -162,64 +141,99 @@ To add tiles to display environmental data from the RuuviTag sensors:
 
 1. Select **Edit**.
 
-1. Delete the tile titled **Environment conditions**. This tile displays telemetry from the thermostat sensor. In this tutorial, you use the RuuviTag sensors to monitor environment conditions. 
-
 1. Select `RuuviTag` in the **Device template** list. 
 
-1. Select an instance of one of the two RuuviTag sensors. In the example Contoso store, one RuuviTag sensor monitors **Zone 1**, and the other monitors **Zone 2**. 
+1. Select a **Device instance** of one of the two RuuviTag sensors. In the example Contoso store, select `Zone 1 Ruuvi` to create a telemetry tile for Zone 1. 
 
 1. Select `Relative humidity` and `temperature` in the **Telemetry** list. These are the telemetry items that display for each zone on the tile.
 
 1. Select **Combine**. 
 
-    ![Azure IoT Central add RuuviTag tile 1](./media/tutorial-in-store-analytics-customize-dashboard-pnp/add-ruuvitag1-tile.png)
+    ![Azure IoT Central add RuuviTag tile 1](./media/tutorial-in-store-analytics-customize-dashboard-pnp/add-zone1-ruuvi.png)
 
     A new tile appears to display combined humidity and temperature telemetry for the selected sensor. 
 
 1. Select **Configure** on the new tile for the RuuviTag sensor. 
 
-1. Change the **Title** to *Zone 1 humidity, temperature*. 
+1. Change the **Title** to *Zone 1 environment*. 
 
 1. Select **Update configuration**.
 
-1. Repeat the previous steps to create a tile for the second RuuviTag sensor instance. Set the **Title** to *Zone 2, humidity, temperature* and then select **Update configuration.**
+1. Repeat the previous steps to create a tile for the second sensor instance. Set the **Title** to *Zone 2 environment* and then select **Update configuration.**
 
-1. Drag and drop the tile titled **Zone 2 humidity, temperature** alongside the title titled **Zone 1 humidity, temperature**.
+1. Drag the tile titled **Zone 2 environment** below the **Thermostat firmware** tile. 
+
+1. Drag the tile titled **Zone 1 environment** below the **People traffic** tile. 
 
 1. Select **Save**. The dashboard displays zone telemetry in the two new tiles.
 
     ![Azure IoT Central all RuuviTag tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/all-ruuvitag-tiles.png)
 
-1. Optionally, remove both the **People traffic** and **Wait list** tiles, and add them back to the dashboard. These tiles are based on the simulated **Occupancy Sensor v2**. Reuse all existing settings on each tile, except show data for only two checkout zones rather than three. 
+To edit the **People traffic** tile to show telemetry for only two checkout zones:
 
-    ![Azure IoT Central occupancy tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/occupancy-tiles.png)
+1. Select **Edit**. 
 
-## Add property tiles to visualize device health
-Application operators use the dashboard to manage devices and monitor device status. Add a tile for the simulated occupancy sensor to display its status and connectivity.
+1. Select **Configure** on the **People traffic** tile.
 
-To add a tile for the Occupancy Sensor v2:
+1. In **Telemetry** select **count 1**, **count 2**, and **count 3**. 
 
-1. Select **Edit**.
+1. Select **Update configuration**. This clears the existing configuration on the tile. 
 
-1. Select `Occupancy Sensor v2` in the **Device template** list. 
+1. Select **Configure** again on the **People traffic** tile.
 
-1. Select `Occupancy` in **Device instance**.
-
-1. Select **Properties > Connectivity** and **Properties > Device status**. 
-
-1. Select **Combine**. 
-
-1. Select **Configure** on the new tile titled **Connectivity, Device status**. 
-
-1. Change the **Title** to *Occupancy connectivity, status*. 
+1. In **Telemetry** select **count 1**, and **count 2**. 
 
 1. Select **Update configuration**. 
 
-1. Delete the existing title titled **Occupancy sensor settings**. The tile is based on a sensor that this tutorial does not use.
+1. Select **Save**.  The updated dashboard displays counts for only your two checkout zones, which are based on the simulated occupancy sensor.
 
-1. Drag and drop the new **Occupancy connectivity, status** tile directly beneath the store map tile. 
+    ![Azure IoT Central people traffic two lanes](./media/tutorial-in-store-analytics-customize-dashboard-pnp/people-traffic-two-lanes.png)
+
+## Add property tiles to display device details
+Application operators use the dashboard to manage devices, and monitor status. Add a tile for each RuuviTag to enable operators to view the software version. 
+
+To add a property tile for each RuuviTag:
+
+1. Select **Edit**.
+
+1. Select `RuuviTag` in the **Device template** list. 
+
+1. Select a **Device instance** of one of the two RuuviTag sensors. In the example Contoso store, select `Zone 1 Ruuvi` to create a telemetry tile for Zone 1. 
+
+1. Select **Properties > Software version**.
+
+1. Select **Combine**. 
+
+1. Select **Configure** on the newly created tile titled **Software version**. 
+
+1. Change the **Title** to *Ruuvi 1 software version*.
+
+1. Select **Update configuration**. 
+
+1. Drag the tile titled **Ruuv 1 software version** below the **Zone 1 environment** tile.
+
+1. Repeat the previous steps to create a software version property tile for the second RuuviTag. 
 
 1. Select **Save**.  
+
+    ![Azure IoT Central RuuviTag property tiles](./media/tutorial-in-store-analytics-customize-dashboard-pnp/add-ruuvi-property-tiles.png)
+
+## Add command tiles to run commands
+Application operators also use the dashboard to manage devices by running commands. You can add command tiles to the dashboard that will execute predefined commands on a device. In this section, you add a command tile to enable operators to reboot the Rigado gateway. 
+
+To add a command tile to reboot the gateway:
+
+1. Select **Edit**. 
+
+1. Select `C500` in the **Device template** list. This is the template for the Rigado C500 gateway. 
+
+1. Select the gateway instance in **Device instance**.
+
+1. Select **Command > Reboot** and drag it into the dashboard beside the store map. 
+
+1. Select **Save**. 
+
+1. View your completed Contoso dashboard. 
 
     ![Azure IoT Central complete dashboard customization](./media/tutorial-in-store-analytics-customize-dashboard-pnp/completed-dashboard.png)
 
@@ -230,7 +244,8 @@ In this tutorial, you learned how to:
 * Customize image tiles on the dashboard
 * Arrange tiles to modify the layout
 * Add telemetry tiles to display conditions
-* Add property tiles to visualize device health
+* Add property tiles to display device details
+* Add command tiles to run commands
 
 Now that you've customized the dashboard in your Azure IoT Central in-store analytics application, here is the suggested next step:
 
