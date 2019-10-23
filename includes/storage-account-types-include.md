@@ -16,7 +16,7 @@ Azure Storage offers several types of storage accounts. Each type supports diffe
 - **General-purpose v1 accounts**: Legacy account type for blobs, files, queues, and tables. Use general-purpose v2 accounts instead when possible.
 - **BlockBlobStorage accounts**: Blob-only storage accounts with premium performance characteristics. Recommended for scenarios with high transactions rates, using smaller objects, or requiring consistently low storage latency.
 - **FileStorage accounts**: Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.
-- **BlobStorage accounts**: Blob-only storage accounts. Use general-purpose v2 accounts instead when possible.
+- **BlobStorage accounts**: Legacy Blob-only storage accounts. Use general-purpose v2 accounts instead when possible.
 
 The following table describes the types of storage accounts and their capabilities:
 
