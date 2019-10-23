@@ -11,36 +11,21 @@ ms.author: rgarcia
 The Java android sample supports sharing across devices.
 Open the file `SharedActivity.java` from the samples folder in Android Studio. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl` in the `SharedActivity.java` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
-Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
-
-**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
-to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
-instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## [iOS](#tab/iOS)
 
 The Objective-C iOS sample supports sharing across devices.
 Open the file `SharedDemoViewController.m` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `SharingAnchorsServiceUrl` in the `SharedActivity.java` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
-Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
-
-**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
-to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
-instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## [Xamarin](#tab/Xamarin)
 
 Both Xamarin Android and iOS samples support sharing across devices.
 Open the file `AccountDetails.cs` in the samples folder. Enter the url you obtained in the previous step (from your ASP.NET web app Azure deployment) as the value for `AnchorSharingServiceUrl` in the `SharedActivity.java` file. Replace the `index.html` in the url with `api/anchors`. It should look like this: `https://<app_name>.azurewebsites.net/api/anchors`.
 
-Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
-
-**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
-to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
-instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ## [Unity](#tab/Unity)
 
@@ -76,12 +61,7 @@ Under **Scenes In Build**, ensure all the scenes have a check mark next to them.
 
 Make sure **Export Project** doesn't have a check mark. Select **Build And Run**. You'll be prompted to save your `.apk` file. You can pick any name for it.
 
-Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
-
-**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
-to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
-instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ### Deploy to an iOS device
 
@@ -91,11 +71,6 @@ Under **Scenes In Build**, ensure all the scenes have a check mark next to them.
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
-
-**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
-to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
-instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 In Xcode, stop the app by selecting **Stop**.
