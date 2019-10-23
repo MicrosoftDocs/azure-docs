@@ -13,7 +13,7 @@
 - name: Concepts
   items:
     - name: Continuous patient monitoring architecture
-      href: concept-cpm-architecture.md 
+      href: concept-continuous-patient-monitoring-architecture.md 
 
     - name: Connectivity
       href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
