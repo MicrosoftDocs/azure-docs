@@ -21,7 +21,7 @@ To learn how to create an Azure storage account, see [Create a storage account](
 
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
-### General-purpose v2 accounts
+### General-purpose v2 accounts (StorageV2)
 
 General-purpose v2 storage accounts support the latest Azure Storage features and incorporate all of the functionality of general-purpose v1 and Blob storage accounts. General-purpose v2 accounts deliver the lowest per-gigabyte capacity prices for Azure Storage, as well as industry-competitive transaction prices. General-purpose v2 storage accounts support these Azure Storage services:
 
@@ -38,7 +38,7 @@ General-purpose v2 storage accounts support the latest Azure Storage features an
 
 General-purpose v2 storage accounts offer multiple access tiers for storing data based on your usage patterns. For more information, see [Access tiers for block blob data](#access-tiers-for-block-blob-data).
 
-### General-purpose v1 accounts
+### General-purpose v1 accounts (Storage)
 
 General-purpose v1 accounts provide access to all Azure Storage services, but may not have the latest features or the lowest per gigabyte pricing. General-purpose v1 storage accounts support these Azure Storage services:
 
@@ -58,7 +58,7 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 ### BlockBlobStorage storage accounts
 
-A BlockBlobstorage storage account is a specialized storage account for storing unstructured object data as block blobs. This storage account kind supports block blobs and append blobs, but not page blobs, tables, or queues.
+A BlockBlobstorage account is a specialized storage account used to store unstructured object data as block blobs and create premium block blobs. This storage account kind supports block blobs and append blobs, but not page blobs, tables, or queues.
 
 Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage accounts provide low and consistent latency, and higher transaction rates.
 
@@ -66,9 +66,9 @@ BlockBlobStorage accounts do not currently support tiering to hot, cool, or arch
 
 ### FileStorage storage accounts
 
-A FileStorage storage account is a specialized storage account used to store and create premium file shares. This storage account kind supports files but not block blobs, append blobs, page blobs, tables, or queues. 
+A FileStorage account is a specialized storage account used to store and create premium file shares. This storage account kind supports files but not block blobs, append blobs, page blobs, tables, or queues. 
 
-FileStorage storage accounts offer unique performance dedicated characteristics such as IOPS bursting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
+FileStorage accounts offer unique performance dedicated characteristics such as IOPS bursting. For more information on these characteristics, see the [File share performance tiers](../files/storage-files-planning.md#file-share-performance-tiers) section of the Files planning guide.
 
 ## Naming storage accounts
 
