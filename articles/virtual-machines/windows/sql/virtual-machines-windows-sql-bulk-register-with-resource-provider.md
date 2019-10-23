@@ -35,7 +35,7 @@ To register your SQL Server VM with the resource provider, you'll need the follo
 
 ## Getting started
 
-Before proceeding, you must first create a local copy of the script and import it as a PowerShell module. 
+Before proceeding, you must first create a local copy of the script, import it as a PowerShell module, and connect to Azure. 
 
 ### Create script
 
@@ -50,6 +50,15 @@ Open an administrative PowerShell terminal and navigate to where you saved the `
 ```powershell-interactive
 Import-Module .\RegisterSqlVMs.psm1
 ```
+
+### Connect to Azure
+
+Use the following PowerShell cmdlet to connect to Azure:
+
+```powershell-interactive
+Connect-AzAccount
+```
+
 
 ## All VMs in list of subscriptions 
 
@@ -207,7 +216,7 @@ Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.l
 
 When registering SQL Server VMs with the resource provider using the provided script, consider the following:
 
-- This script will skip any end-of-service SQL Server virtual machines running SQL Server 2008 or 2008 R2 on Windows 2008 or Windows 2008 R2. This is because end-of-service virtual machines only support the _NoAgent_ management mode, and the script will register the virtual machines in _lightweight_ management mode.
+- Registration with the resource provider requires a guest agent running on the SQL Server VM. Windows Server 2008 images do not have a guest agent, so these virtual machines will fail and must be registered manually using the [NoAgent management mode](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms).
 - There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. 
 
 ## Full script
