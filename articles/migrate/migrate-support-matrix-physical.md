@@ -20,8 +20,8 @@ The table summarizes supported scenarios for physical servers.
 
 **Deployment** | **Details***
 --- | ---
-**Assess on-premises physical servers** | [Set up](tutorial-prepare-physical.md) your first assessment.<br/><br/> [Run](scale-physical-assessment.md) a large-scale assessment.
-**Migrate physical servers to Azure** | [Try out](tutorial-migrate-physical.md) migration to Azure.
+**Assess on-premises physical servers** | [Set up](tutorial-prepare-physical.md) your first assessment.
+**Migrate physical servers to Azure** | [Try out](tutorial-migrate-physical-virtual-machines.md) migration to Azure.
 
 
 ## Azure Migrate projects
