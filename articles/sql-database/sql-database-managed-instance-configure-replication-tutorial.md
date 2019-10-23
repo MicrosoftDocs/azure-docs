@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Configure transactional replication between Managed Instances and SQL Server | Microsoft Docs"
-description: A tutorial that configures replication between a Publisher Managed Instance, a Distributor Managed Instance, and a SQL Server subscriber on an Azure VM. 
+title: "Tutorial: Configure transactional replication between two managed instances and SQL Server | Microsoft Docs"
+description: A tutorial that configures replication between a Publisher managed instance, a Distributor managed instance, and a SQL Server subscriber on an Azure VM. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -23,7 +23,6 @@ In this tutorial, you learn how to:
 
 This tutorial is intended for an experienced audience and assumes that the user is familiar with deploying and connecting to both managed instances, and SQL Server VMs within Azure. As such, certain steps in this tutorial are glossed over. 
 
-
 To learn more, see the [Azure SQL Database managed instance overview](sql-database-managed-instance-index.yml), [capabilities](sql-database-managed-instance.md), and [SQL Transactional Replication](sql-database-managed-instance-transactional-replication.md) articles.
 
 ## Prerequisites
@@ -40,7 +39,7 @@ Use the following PowerShell code snippet to create a new resource group:
 ```powershell
 # set variables
 $ResourceGroupName = "SQLMI-Repl"
-$Location = "West US 2"
+$Location = "East US 2"
 
 # Create a new resource group
 New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
@@ -53,6 +52,9 @@ Create two managed instances within this new resource group using the [Azure por
 - The name of the second managed instance should be: `sql-mi-distributor` (along with a few characters for randomization) and it should be _in the same virtual network as the first managed instance_. 
 
 For more information about creating a managed instance, see [Create a managed instance in the portal](sql-database-managed-instance-get-started.md)
+
+  > [!NOTE]
+  > For the sake of simplicity, and because it is the most common configuration, this tutorial configures the distributor managed instance within the same virtual network as the publisher. However, it's possible to create the distributor 
 
 ## 3 - Create a SQL Server VM
 Create a SQL Server virtual machine using the [Azure portal](https://portal.azure.com). The SQL Server virtual machine should have the following characteristics:
@@ -70,36 +72,43 @@ To enable communication, configure VPN peering between the virtual network of th
 
 ```powershell
 # Set variables
+$SubscriptionId = '<SubscriptionID>'
+$resourceGroup = 'SQLMI-Repl'
+$pubvNet = 'vnet-sql-mi-publisher'
+$subvNet = 'sql-vm-sub-vnet'
+$pubsubName = 'Pub-to-Sub-Peering'
+$subpubName = 'Sub-to-Pub-Peering'
+
 $virtualNetwork1 = Get-AzVirtualNetwork `
-  -ResourceGroupName SQLMI-Repl `
-  -Name vnet-sql-mi-publisher 
+  -ResourceGroupName $resourceGroup `
+  -Name $pubvNet 
 
  $virtualNetwork2 = Get-AzVirtualNetwork `
-  -ResourceGroupName SQLMI-Repl `
-  -Name sql-vm-sub-vnet 
+  -ResourceGroupName $resourceGroup `
+  -Name $subvNet  
 
 # Configure VPN peering from publisher to subscriber
 Add-AzVirtualNetworkPeering `
-  -Name Pub-to-Sub-Peering `
+  -Name $pubsubName `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 
 # Configure VPN peering from subscriber to publisher
 Add-AzVirtualNetworkPeering `
-  -Name Sub-to-Pub-Peering `
+  -Name $subpubName `
   -VirtualNetwork $virtualNetwork2 `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 
 # Check status of peering on the publisher vNet; should say connected
 Get-AzVirtualNetworkPeering `
- -ResourceGroupName SQLMI-Repl `
- -VirtualNetworkName vnet-sql-mi-publisher `
+ -ResourceGroupName $resourceGroup `
+ -VirtualNetworkName $pubvNet `
  | Select PeeringState
 
 # Check status of peering on the subscriber vNet; should say connected
 Get-AzVirtualNetworkPeering `
- -ResourceGroupName SQLMI-Repl `
- -VirtualNetworkName sql-vm-sub-vnet `
+ -ResourceGroupName $resourceGroup `
+ -VirtualNetworkName $subvNet `
  | Select PeeringState
 
 ```
