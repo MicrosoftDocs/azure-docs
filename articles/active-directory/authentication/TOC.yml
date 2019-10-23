@@ -135,6 +135,8 @@
         href: howto-authentication-passwordless-deployment.md
       - name: Passwordless security keys
         href: howto-authentication-passwordless-security-key.md
+      - name: Security key on-premises integration
+        href: howto-authentication-passwordless-on-premises.md
       - name: Passwordless phone sign-in
         href: howto-authentication-passwordless-phone.md
       - name: Windows Hello for Business
