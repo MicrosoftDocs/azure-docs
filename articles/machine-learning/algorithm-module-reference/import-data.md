@@ -70,9 +70,9 @@ If your source data changes, you can refresh the dataset and add new data by rer
 
     When Import Data loads the data into the designer, it infers the data type of each column based on the values it contains, either numerical or categorical.
 
-    - If a header is present, the header is used to name the columns of the output dataset.
+    If a header is present, the header is used to name the columns of the output dataset.
 
-    - If there are no existing column headers in the data, new column names are generated using the format col1, col2,… , coln*.
+    If there are no existing column headers in the data, new column names are generated using the format col1, col2,… , coln*.
 
 ## Results
 
