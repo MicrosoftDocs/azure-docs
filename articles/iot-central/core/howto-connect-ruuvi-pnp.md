@@ -20,7 +20,7 @@ RuuviTag is an advanced open-source sensor beacon platform designed to fulfill t
 
 RuuviTag communicates over BLE (Bluetooth Low Energy) and therefore requires a gateway device to talk to Azure IoT Central. Please make sure you have a gateway device, like Rigado Cascade 500, setup to be able to connect a RuuviTag to IoT Central. 
 
-Please follow the [instructions here](.\howto-connect-rigado-cascade-500-pnp.md) if you'd like to set up a Rigado Cascade 500 gateway device.
+Please follow the [instructions here](./howto-connect-rigado-cascade-500-pnp.md) if you'd like to set up a Rigado Cascade 500 gateway device.
 
 ## Prerequisites
 To connect RuuviTag sensors, you need the following resources:
@@ -53,6 +53,17 @@ As mentioned above, in order to connect the RuuviTag with your IoT Central appli
 1. In just a few seconds, your RuuviTag should appear in your list of devices within IoT Central.  
 ![RuuviTag Device List](./media/howto-connect-ruuvi/Ruuvi-DeviceList.png)
 You can now use this RuuviTag within your IoT Central application.  
+
+## Create a simulated RuuviTag
+In case you don't have a physical RuuviTag handy, you can create a simulated RuuviTag sensor to use for testing within your Azure IoT Central application.
+
+To create a simulated RuuviTag:
+
+1. Select **Devices > RuuviTag**. 
+1. Select **+ New**. 
+1. Specify a unique **Device ID** and a friendly **Device name**.  
+1. Enable the **Simulated** setting.
+1. Select **Create**.  
 
 ## Next Steps
 
