@@ -1,5 +1,6 @@
 ---
-title: Errors and exceptions (MSAL) - Microsoft identity platform
+title: Errors and exceptions (MSAL) 
+titleSuffix: Microsoft identity platform
 description: Learn how to handle errors and exceptions, conditional access, and claims challenges in MSAL applications.
 services: active-directory
 documentationcenter: dev-center-name

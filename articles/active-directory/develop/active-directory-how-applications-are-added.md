@@ -1,5 +1,6 @@
 ---
-title: How and why applications are added to Azure Active Directory - Microsoft identity platform
+title: How and why applications are added to Azure Active Directory 
+titleSuffix: Microsoft identity platform
 description: What does it mean for an application to be added to Azure AD and how do they get there?
 services: active-directory
 documentationcenter: ''

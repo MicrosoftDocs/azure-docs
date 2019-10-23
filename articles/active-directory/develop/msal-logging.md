@@ -1,5 +1,6 @@
 ---
-title: Logging in Microsoft Authentication Library (MSAL) applications - Microsoft identity platform
+title: Logging in Microsoft Authentication Library (MSAL) applications 
+titleSuffix: Microsoft identity platform
 description: Learn about logging in Microsoft Authentication Library (MSAL) applications.
 services: active-directory
 documentationcenter: dev-center-name

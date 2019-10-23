@@ -1,5 +1,6 @@
 ---
-title: Protected web API - app code configuration - Microsoft identity platform Active Directory
+title: Protected web API - app code configuration  Active Directory
+titleSuffix: Microsoft identity platform
 description: Learn how to build a protected web API and configure your application's code.
 services: active-directory
 documentationcenter: dev-center-name

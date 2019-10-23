@@ -1,5 +1,6 @@
 ---
-title: Customize SAML token claims for enterprise apps in Azure AD - Microsoft identity platform
+title: Customize SAML token claims for enterprise apps in Azure AD 
+titleSuffix: Microsoft identity platform
 description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure AD.
 services: active-directory
 documentationcenter: ''

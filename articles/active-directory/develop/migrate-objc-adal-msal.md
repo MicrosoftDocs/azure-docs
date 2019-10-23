@@ -1,7 +1,8 @@
 ---
 
 let application: MSALPublicClientApplication!
-title: Migrate apps to MSAL.ObjectiveC - Microsoft identity platform
+title: Migrate apps to MSAL.ObjectiveC 
+titleSuffix: Microsoft identity platform
 description: Learn about the differences between Microsoft Authentication Library for ObjectiveC (MSAL for iOS and macOS) and Azure AD Authentication Library for ObjectiveC (ADAL.ObjC) and how to migrate to MSAL for iOS and macOS.
 services: active-directory
 documentationcenter: dev-center-name
