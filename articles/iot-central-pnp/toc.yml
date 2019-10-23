@@ -29,6 +29,8 @@
       items:
         - name: Create a rule
           href: ../iot-central/core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Use the REST API
+          href: https://go.microsoft.com/fwlink/?linkid=2108888
 - name: Concepts
   items:
     - name: Architecture
