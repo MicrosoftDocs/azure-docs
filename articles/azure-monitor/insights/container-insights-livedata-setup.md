@@ -50,11 +50,11 @@ The Azure portal prompts you to validate your login credentials for an Azure Act
 >[!IMPORTANT]
 >Users of this features requires [Azure Kubernetes Cluster User Role](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) to the cluster in order to download the `kubeconfig` and use this feature. Users do **not** require contributor access to the cluster to utilize this feature. 
 
-## Kubernetes cluster without RBAC enabled (existing cluster)
+## Kubernetes cluster without RBAC enabled
 
 If you have a Kubernetes cluster that is not configured with Kubernetes RBAC authorization or integrated with Azure AD single-sign on, you do not need to follow these steps. This is because you have administrative permissions by default in an non-RBAC configuration.
 
-## Kubernetes RBAC authentication (existing cluster)
+## Configure Kubernetes RBAC authentication
 
 When you enable Kubernetes RBAC authorization, two users are utilized: **clusterUser** and **clusterAdmin** to access the Kubernetes API. This is similar to running `az aks get-credentials -n {cluster_name} -g {rg_name}` without the administrative option. This means the **clusterUser** has to be granted access to the end points in Kubernetes API.
 
@@ -97,7 +97,7 @@ The following example steps demonstrate how to configure cluster role binding fr
 >[!NOTE] 
 > If you have applied a previous version of the `LogReaderRBAC.yaml` file to your cluster, update it by copying and pasting the new code shown in step 1 above, and then run the command shown in step 2 to apply it to your cluster.
 
-## Kubernetes AD integrated authentication (existing cluster)
+## Configure AD integrated authentication 
 
 An AKS cluster configured to use Azure Active Directory (AD) for user authentication utilizes the login credentials of the person accessing this feature. In this configuration, you can sign in to an AKS cluster by using your Azure AD authentication token.
 
@@ -127,7 +127,7 @@ For more information on advanced security setup in Kubernetes, review the [Kuber
 >[!IMPORTANT]
 >If you reconfigured Azure AD for user authentication using the updated URI, clear your browser's cache to ensure the updated authentication token is downloaded and applied.
 
-## Granting permissions
+## Grant permission
 
 Each Azure AD account must be granted permission to the appropriate APIs in Kubernetes in order to access the Live Metrics and Data (preview) feature. The steps to grant the Azure Active Directory account are similar to the steps described in the [Kubernetes RBAC authentication](#kubernetes-rbac-authentication-(existing-cluster))) section. Before applying the yaml configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user. 
 
