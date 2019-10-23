@@ -103,15 +103,18 @@ Below are the currently supported regions for the public preview for each OS.
 
 |Region| Windows | Linux |
 |--| -- | -- |
+|Australia Central| ✔* | |
+|Australia Central 2| ✔* | |
 |Australia East| ✔ | |
 |Australia Southeast | ✔ | ✔ |
+|Brazil South| ✔** |  |
 |Canada Central| ✔ |  |
 |Central US| ✔ |  |
 |East Asia| ✔ |  |
-|East US | | ✔ |
+|East US | ✔ | ✔ |
 |East US 2| ✔ |  |
 |France Central| ✔ |  |
-|Japan East|  | ✔ |
+|Japan East| ✔ | ✔ |
 |Japan West| ✔ | |
 |Korea Central| ✔ |  |
 |North Central US| ✔ |  |
@@ -119,10 +122,15 @@ Below are the currently supported regions for the public preview for each OS.
 |South Central US| ✔ |  |
 |South India | ✔ | |
 |Southeast Asia| ✔ | ✔ |
+|UK South| ✔ | |
 |UK West| ✔ |  |
 |West Europe| ✔ | ✔ |
 |West India| ✔ |  |
 |West US| ✔ | ✔ |
+
+\* Maximum scale out limited to 20 instances
+
+\** Maximum scale out limited to 60 instances
 
 ## Known Issues
 
