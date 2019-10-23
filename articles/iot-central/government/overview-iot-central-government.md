@@ -1,18 +1,17 @@
 ---
-title: Build smart city solutions with Azure IoT Central | Microsoft Docs
+title: Building government solutions with Azure IoT Central
 description: Learn to build government solution using Azure IoT Central application templates.
 author: miriambrus
-ms.author: philmea
-ms.date: 09/24/2019
+ms.author: miramb
+ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-manager: miriamb
 ---
 
-Learn to build smart city solutions with Azure IoT Central using application templates. 
+# Building government solutions with Azure IoT Central
 
-# What is Water quality monitoring application template? 
+## What is Water quality monitoring application template? 
 
 Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to digitally monitor water quality. 
 
@@ -31,7 +30,7 @@ The App template consists of:
 Get started with the [Water Quality Monitoring application tutorial](./tutorial-water-quality-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
 
 
-# What is Water consumption monitoring application template? 
+## What is Water consumption monitoring application template? 
 
 
 Water Consumption Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption. 
@@ -48,7 +47,7 @@ The Water Consumption Monitoring app template consist of pre-configured:
 
  Get started with the [Water Consumption Monitoring application tutorial](./tutorial-water-consumption-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
 
-# What is Connected waste management application template? 
+## What is Connected waste management application template? 
 
 Connected Waste Management app is an IoT Central app template to help you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection. 
 
