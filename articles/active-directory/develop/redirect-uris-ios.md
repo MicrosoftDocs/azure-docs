@@ -1,5 +1,6 @@
 ---
-title: Using redirect URIs with the Microsoft authentication library | Microsoft identity platform
+title: Using redirect URIs with the Microsoft authentication library 
+titleSuffix: Microsoft identity platform
 description: Learn about the differences between Microsoft Authentication Library for ObjectiveC (MSAL for iOS and macOS) and Azure AD Authentication Library for ObjectiveC (ADAL.ObjC) and how to migrate between them.
 services: active-directory
 documentationcenter: dev-center-name
