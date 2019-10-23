@@ -58,13 +58,13 @@ namespace helloworld
                 // shot recognition like command or query.
                 // For long-running multi-utterance recognition, use StartContinuousRecognitionAsync() instead.
                 Console.WriteLine("Say something...");
-                await recognizer.StartContinuousRecognitionAsync().ConfigureAwait(false);
+                var result = await recognizer.RecognizeOnceAsync();
 
                 // Checks result.
                 if (result.Reason == ResultReason.TranslatedSpeech)
                 {
                     Console.WriteLine($"RECOGNIZED '{fromLanguage}': {result.Text}");
-                    Console.WriteLine($"TRANSLATED into '{toLanguage}': {result->Translations[toLanguage]}");
+                    Console.WriteLine($"TRANSLATED into '{toLanguage}': {result.Translations[toLanguage]}");
                 }
                 else if (result.Reason == ResultReason.RecognizedSpeech)
                 {
