@@ -101,7 +101,7 @@ As a result of these updates, some concepts and terms for the visual interface h
 
 ### Migrating to the designer
 
-You can convert existing visual interface experiments and web services to pipelines and real-time endpoints in the designer. Use the following steps to migrate visual interface assets:
+You can convert existing visual interface experiments and web services to pipelines and real-time endpoints in the designer. Use the following steps to migrate your visual interface assets:
 
 [!INCLUDE [migrate from the visual interface](../../../includes/aml-vi-designer-migration.md)]
 
