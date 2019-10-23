@@ -153,8 +153,8 @@ The [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
-     > [!Note]  
-    > If you're running this command from outside the cluster, get the cluster name from the Azure portal. Enter clusterName in lowercase and run the command `export clusterName='clustername'` to store the variable.  
+    > [!Note]  
+    > If you're doing this process from outside the cluster, there is a different procedure for storing the cluster name. Get the cluster name in lower case from the Azure portal. Then, substitute the cluster name for `<clustername>` in the following command and execute it: `export clusterName='<clustername>'`.  
 
 1. To get the Kafka broker hosts, use the following command:
 
