@@ -1,5 +1,6 @@
 ---
-title: Initialize client applications (Microsoft Authentication Library for .NET) | Azure
+title: Initialize client applications (Microsoft Authentication Library for .NET) 
+titleSuffix: Microsoft identity platform
 description: Learn about initializing public client and confidential client applications using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
