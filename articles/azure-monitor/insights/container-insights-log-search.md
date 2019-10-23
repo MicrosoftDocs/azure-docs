@@ -42,7 +42,7 @@ Examples of records that are collected by Azure Monitor for containers and the d
 
 Azure Monitor Logs can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally. Pre-defined log searches are provided for you to immediately start using or to customize to return the information the way you want.
 
-You can perform interactive analysis of data in the workspace by selecting the **View Kubernetes event logs** or **View container logs** option in the preview pane. The **Log Search** page appears to the right of the Azure portal page that you were on.
+You can perform interactive analysis of data in the workspace by selecting the **View Kubernetes event logs** or **View container logs** option in the preview pane from the **View in analytics** drop-down list. The **Log Search** page appears to the right of the Azure portal page that you were on.
 
 ![Analyze data in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
 
