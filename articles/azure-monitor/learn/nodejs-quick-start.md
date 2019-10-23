@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart
+title: 'Quickstart: Monitor with Azure Application Insights'
 description: Provides instructions to quickly setup a Node.js Web App for monitoring with Application Insights
 ms.service:  azure-monitor
 ms.subservice: application-insights
