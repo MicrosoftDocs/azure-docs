@@ -174,13 +174,7 @@
       href: luis-how-to-add-entities.md
       displayName: roles, import
     - name: Use prebuilt models
-      items:
-      - name: Use domains
-        href: luis-prebuilt-domains.md
-      - name: Use intents
-        href: luis-prebuilt-intent.md
-      - name: Use entities
-        href: luis-prebuilt-entities.md
+      href: howto-add-prebuilt-models.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
