@@ -5,21 +5,14 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
-
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-<<<<<<< HEAD
 ms.topic: article
-ms.date: 07/12/2019
-=======
-ms.topic: conceptual
-ms.date: 10/01/2019
->>>>>>> 41f897b7eae22cfc877aa7962c23fa6675677071
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
