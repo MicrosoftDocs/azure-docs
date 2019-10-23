@@ -34,7 +34,7 @@ The Speech Device SDK provides sample code in Java for real-time audio capture u
 
 A Speech Services subscription. You can [get a Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/) if you don't have one.
 
-## Create voice signatures for participants
+## Create voice signatures
 
 The first step is to create voice signatures for the conversation participants for efficient speaker identification.
 
@@ -43,7 +43,7 @@ The first step is to create voice signatures for the conversation participants f
 - The input audio wave file for creating voice signatures should be in 16-bit samples, 16 kHz sample rate, and a single channel (mono) format.
 - The recommended length for each audio sample is between thirty seconds and two minutes.
 
-### Sample code for creating voice signatures
+### Sample code
 
 The following example shows two different ways to create voice signature by [using the REST API](https://aka.ms/cts/signaturegenservice) in C#. Note that you'll need to substitute real information for "YourSubscriptionKey", your wave file name for "speakerVoice.wav", and your region for `{region}` and "YourServiceRegion" (_centralus_ or _eastasia_).
 
@@ -97,7 +97,7 @@ class Program
 }
 ```
 
-## Transcribe conversations in real time
+## Transcribe conversations
 
 The following sample code demonstrates how to transcribe conversations in real time for three speakers. It assumes you've already created voice signatures for each speaker as shown above. Substitute real information for "YourSubscriptionKey" and "YourServiceRegion" when creating the SpeechConfig object.
 

@@ -50,7 +50,7 @@ This is a high-level overview of how Conversation Transcription works.
 - **Multi-channel audio stream** – For specification and design details, see [Microsoft Speech Device SDK Microphone](https://aka.ms/cts/microphone). To learn more or purchase a development kit, see [Get Microsoft Speech Device SDK](https://aka.ms/cts/getsdk).
 - **User voice samples** – Conversation Transcription needs user profiles in advance of the conversation. You will need to collect audio recordings from each user, then send the recordings to the [Signature Generation Service](https://aka.ms/cts/signaturegenservice) to validate the audio and generate user profiles.
 
-## Real-time vs. asynchronous transcription modes
+## Real-time vs. asynchronous
 
 Conversation Transcription offers three transcription modes:
 

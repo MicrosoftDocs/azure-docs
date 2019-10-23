@@ -16,7 +16,7 @@ ms.author: amishu
 
 In this article, asynchronous Conversation Transcription is demonstrated using the **RemoteConversationTranscriptionClient** API. If you have configured Conversation Transcription to do asynchronous transcription and have a `conversationId`, you can obtain the transcription associated with that `conversationId` using the **RemoteConversationTranscriptionClient** API.
 
-## Asynchronous transcription vs. real-time plus asynchronous transcription
+## Asynchronous vs. real-time + asynchronous
 
 With asynchronous transcription, you stream the conversation audio, but don't need a transcription returned in real time. Instead, after the audio is sent, use the `conversationId` of `ConversationTranscriber` to query for the status of the asynchronous transcription. When the asynchronous transcription is ready, you'll get a `RemoteConversationTranscriptionResult`.
 
@@ -103,7 +103,7 @@ You can obtain **remoteconversation-client-sdk** by editing your pom.xml file as
 
 - Save the changes
 
-### Transcribing and getting the results
+### Sample transcription code
 
 After you have the `conversationId`, create a remote operation object **RemoteConversationTranscriptionOperation** at the client to query the status of the asynchronous transcription. **RemoteConversationTranscriptionOperation** is extended from [Poller](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/core/azure-core/src/main/java/com/azure/core/util/polling/Poller.java). Once the poller has finished, get **RemoteConversationTranscriptionResult** by subscribing to the poller and querying the object. In this code we simply print the result contents to system output.
 
