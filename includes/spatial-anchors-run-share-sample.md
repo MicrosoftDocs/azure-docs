@@ -13,11 +13,10 @@ Open the file `SharedActivity.java` from the samples folder in Android Studio. E
 
 Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
 
-The first scenario lets you create an anchor that can be located later on the same device or on a different one.
-The second scenario, if you've already run the app, either on the same device or on a different one, allows you
-to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
+to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
 instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
 
 ## [iOS](#tab/iOS)
 
@@ -26,11 +25,10 @@ Open the file `SharedDemoViewController.m` in the samples folder. Enter the url 
 
 Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
 
-The first scenario lets you create an anchor that can be located later on the same device or on a different one.
-The second scenario, if you've already run the app, either on the same device or on a different one, allows you
-to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
+to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
 instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
 
 ## [Xamarin](#tab/Xamarin)
 
@@ -39,11 +37,10 @@ Open the file `AccountDetails.cs` in the samples folder. Enter the url you obtai
 
 Deploy the app to your device. Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
 
-The first scenario lets you create an anchor that can be located later on the same device or on a different one.
-The second scenario, if you've already run the app, either on the same device or on a different one, allows you
-to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
+to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
 instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
 
 ## [Unity](#tab/Unity)
 
@@ -81,11 +78,10 @@ Make sure **Export Project** doesn't have a check mark. Select **Build And Run**
 
 Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
 
-The first scenario lets you create an anchor that can be located later on the same device or on a different one.
-The second scenario, if you've already run the app, either on the same device or on a different one, allows you
-to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
+to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
 instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
 
 ### Deploy to an iOS device
 
@@ -97,10 +93,9 @@ Under **Scenes In Build**, ensure all the scenes have a check mark next to them.
 
 Once the app starts, in the **Choose A Demo** dialog, use the left or right arrows to select the **LocalShare** option, and tap **Go!**. Follow the instructions in the app. You can select **Create & Share Anchor** or **Locate Shared Anchor**.
 
-The first scenario lets you create an anchor that can be located later on the same device or on a different one.
-The second scenario, if you've already run the app, either on the same device or on a different one, allows you
-to locate previously shared anchors. After you pick your scenario, the app will guide you with further
+**Create & Share Anchor** lets you create an anchor and save it to your sharing service. In return, you will get back an identifier for it that you can use to retrieve it from the sharing service. After this, you can then run the second scenario, **Locate Shared Anchor**, from either your device or a different one. Locate Shared Anchor allows you
+to locate previously shared anchors by entering the identifier mentioned earlier. After you pick your scenario, the app will guide you with further
 instructions around what to do. For example, you'll be asked to move your device around to collect environment
-information. Later on, you'll place an anchor in the world, wait for it to save, and so on.
+information. Later on, you'll place an anchor in the world, wait for it to save, start a new session, and then locate it.
 
 In Xcode, stop the app by selecting **Stop**.

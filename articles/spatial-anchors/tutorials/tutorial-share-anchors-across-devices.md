@@ -78,7 +78,7 @@ In the **Configure Hosting Plan** dialog box, use these settings:
 
 Select **OK**.
 
-Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSample` folder. Follow <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2" target="_blank">this tutorial</a> to deploy the sharing service through Visual Studio Code.
+Open Visual Studio Code, and open the project at the `Sharing\SharingServiceSample` folder. Follow <a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/publish-to-azure-webapp-using-vscode?view=aspnetcore-2.2#open-it-with-visual-studio-code" target="_blank">this tutorial</a> to deploy the sharing service through Visual Studio Code. You can follow the steps starting from the 'Open it with Visual Studio Code' section. Do not create another mvc project as explained in the step above as you already have the project that needs to be deployed and published- the SharingServiceSample.
 
 ---
 
