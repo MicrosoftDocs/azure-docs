@@ -10,62 +10,43 @@ services: iot-central
 manager: aabjork
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
-
-<!---Tutorials are scenario-based procedures for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md).
-You only use tutorials to show the single best procedure for completing an approved top 10 customer task.
---->
 
 # Water quality monitoring reference architecture 
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
 
-A water quality monitoring solution can be built using the **IoT Central Water quality monitoring app template** as a kickstarted and using the below reference architecture. Note that the reference architecture is a high level guidance to help you understand architecture concepts and how to build a solution with IoT Central. 
+A water quality monitoring solution can be built with the **IoT Central Water quality monitoring app template** aas a kickstarter IoT application. This tutorial provides a high level reference architecture guidance on building an end to end solution. 
 
-![Water quality monitoring architecture](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring-architecture.PNG)
 
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
+[!div class="mx-imgBorder"] 
+![Water quality monitoring architecture](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring-architecture1.png)
 
 Concepts:
 
-1. Devices
-2. Device connectivity 
-4. IoT Central 
-5. Continuos data export from IoT Central
-6. Machine Learning and data transformation services for augmenting your data
-7. Line of Business (LoB) applications
+1. Devices and connectivity  
+1. IoT Central 
+2. Extensibility and integrations
+3. Business applications
 
+Let's take a look at key components that generally play a part in a water quality monitoring solution.
 
-Devices
-### Water quality monitor devices
-
-
-## Device Connectivity  
- 
-
-### Connectivity via third party cloud  
-
-#### Cloud gateway 
-
-### Connectivity via device gateway 
-
+## Devices and connectivity 
+Devices used in smart water solutions will generally be connected through low power wide area networks (LPWAN), and throuhg a network operator third-party cloud. For these type of devices you can leverage the Azure IoT Central Device Bridge to send your device data to your IoT application in Azure IoT Central. 
 
 ## IoT Central 
+Azure IoT Central is a hosted IoT App Platform that dramatically reduces your time-to-value, without having to compromise (you can brand, customize, and integrate with 3rd party services). 
+After you connect your smart water devices to IoT Central,it provides out of the box device management, command and control of your devices, monitoring and alerting, and configurable dashboards. 
 
-## Continous data export 
+## Extensibility and integrations 
+You can extend your IoT application in IoT Central and optionally:
+* transform and integrate your IoT data for advanced analytics, for example training machine learning models, throuhg continous data export from IoT Central application
+* automate workflows in other sytems by triggering actions via Microsoft Flow or webhooks from IoT Central application
+* programatically access your IoT application in IoT Central through IoT Central APIs
 
-## Machine Learning and data transformation services for augmenting your data
+## Business Applications 
 
-## Line of Busines (LOB) applications 
-
-
+The IoT data can be used to power a variety of business applications deployed within a water utility, to visualize business insights and take meaningful actions. To learn how to connecte your IoT Central water quality monitoring application with Dynamics 365 Field Services follow the tutorial on [how to integrate with Dynamics 365 Field Services](tba) 
 
 ## Next steps
-
-* [Create a water quality monitoring application in IoT Central](tba)
+* Learn how to [create a water quality monitoring](tba) IoT Central application
+* Learn more about [IoT Central government templates](tba)
 * To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
 
