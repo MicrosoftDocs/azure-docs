@@ -22,7 +22,7 @@ The scorecard tab can be found in the Internet Analyzer resource menu.
 * ***Time period & end date:*** Three scorecards are generated daily – each scorecard reflects a different aggregation period – the 24 hours prior (day), the seven days prior (week), and the 30 days prior (month). Use the “End Date” filter to select the last day of the time period you want to see. 
 * ***Country:*** For each country that you have end users, a scorecard is generated. The global filter contains all end users.
 
-## Measurement Count
+## Measurement count
 
 The number of measurements impacts the confidence of the analysis. The higher the count, the more accurate the result. At minimum, tests should aim for a minimum of 100 measurements per endpoint per day. If measurement counts are too low, please configure the JavaScript client to execute more frequently in your application. The measurement counts for endpoints A and B should be very similar although small differences are expected and okay. In the case of large differences, the results should not be trusted.
 
@@ -39,17 +39,17 @@ For analysis purposes, P50 (median), is useful as an expected value for a latenc
 
 A delta is the difference in metric values for endpoints A and B. Deltas are computed to show the benefit of B over A. Positive values indicate B performed better than A, whereas negative values indicate B's performance is worse. Deltas can be absolute (e.g. 10 milliseconds) or relative (5%).
 
-## Confidence Interval 
+## Confidence interval 
 
 Confidence intervals (CI) are a range of values that have a probability of containing the population metric such as median, P75, or average. We follow the common statistical convention of using the 95% CI.
 
 For Internet Analyzer, a narrow confidence interval is good because it shows the sample metric is likely very close to the actual population metric. A wide confidence interval means less certainty that our sample metric reflects the true population metric. The best way to improve the CI is to increase measurement counts.
 
-## Time Series 
+## Time series 
 
 A time series shows how a metric changes over time. On the Internet, there are many temporal factors that impact performance such as peak traffic periods, weekday-weekend population differences, and holidays.
 
 
-## Next Steps
+## Next steps
 
 To learn more, see our [Internet Analyzer Overview](internet-analyzer-overview.md).

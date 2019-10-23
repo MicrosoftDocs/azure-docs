@@ -26,11 +26,11 @@ The public preview is available to use globally; however, data storage is limite
 
 ## Object model
 The Internet Analyzer CLI exposes the following types of resources:
-1. **Tests** - A test compares the end-user performance of two internet endpoints (A and B) over time.
-2. **Profiles** - Tests are created under an Internet Analyzer profile. Profiles allow for related tests to be grouped; a single profile may contain one or more tests.
-3. **Preconfigured Endpoints** - We have set up endpoints with a variety of configurations (regions, acceleration technologies, etc.). You may use any of these preconfigured endpoints in your tests.
-4. **Scorecards** - A scorecard provides quick and meaningful summaries of measurement results. Refer to [Interpreting your Scorecard](internet-analyzer-scorecard.md).
-5. **Time Series** - A time series shows how a metric changes over time.
+* **Tests** - A test compares the end-user performance of two internet endpoints (A and B) over time.
+* **Profiles** - Tests are created under an Internet Analyzer profile. Profiles allow for related tests to be grouped; a single profile may contain one or more tests.
+* **Preconfigured Endpoints** - We have set up endpoints with a variety of configurations (regions, acceleration technologies, etc.). You may use any of these preconfigured endpoints in your tests.
+* **Scorecards** - A scorecard provides quick and meaningful summaries of measurement results. Refer to [Interpreting your Scorecard](internet-analyzer-scorecard.md).
+* **Time Series** - A time series shows how a metric changes over time.
 
 ## Profile and Test Creation
 1. [Request access](https://aka.ms/internetAnalyzerContact) to use Internet Analyzer by providing your active Subscription ID. 

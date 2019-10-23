@@ -27,7 +27,7 @@ The public preview is available to use globally; however, data storage is limite
 ## Basics 
 
 1. [Request access](https://aka.ms/internetAnalyzerContact) to use Internet Analyzer by providing your active Subscription ID. 
-2. From the home page in the [Azure portal](https://preview.portal.azure.com), click **+ Create a resource**. Internet Analyzer is currently only available from the *preview* Azure portal. 
+2. From the home page in the [Azure portal](https://preview.portal.azure.com), click **+ Create a resource**. Internet Analyzer is currently only available from the Azure Preview portal. 
 3. On the **New** page, search for "Internet Analyzer" in the *Search the Marketplace* field. 
 4. Click **Internet Analyzer (preview)**. Make sure the publisher is *Microsoft* and the category is *Networking*.
 5. On the **Internet Analyzer (preview)** page, click **Create** to open the **Create an Internet Analyzer** page.
@@ -61,10 +61,10 @@ The public preview is available to use globally; however, data storage is limite
 4. Click **Add** to add the endpoint to your test. 
 5. Repeat steps 1-5 to configure your second endpoint. Endpoint B is always measured relative to Endpoint A - when configuring endpoints, consider which endpoint should be your test control. 
 6. By default, tests will be set to **Enabled.** By leaving the Enabled field selected, your tests will start automatically once you embed the client. If you deselect **Enabled**, you will need to start your test from the *Configuration* tab.
-7. Once you have created a test, you may click **Review + create.** You may add more tests at any point, but one test must be created for the unique JavaScript client to be generated. 
+7. Once you have created a test, click **Review + create.** You may add more tests at any point, but one test must be created for the unique JavaScript client to be generated. 
 
 ## Embed Client
-To begin any test, the JavaScript client must be embedded in your Web application. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.  
+To begin any test, the JavaScript client must be embedded in your Web application. After clicking **Review + create**, go to **Settings > Configuration** to copy the JavaScript client. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.  
 
 
 ## Next steps

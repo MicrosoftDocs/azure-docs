@@ -14,7 +14,7 @@ ms.author: mebeatty
 
 # Embed the Internet Analyzer client
 
-This article shows you how to embed the JavaScript client in your application. Installation of this client is necessary to run tests and receive scorecard analytics. You may embed the JavaScript client before or after test configuration but no tests will begin until the client step is complete. For more information on Internet Analyzer, see the [overview](internet-analyzer-overview.md). 
+This article shows you how to embed the JavaScript client in your application. Installation of this client is necessary to run tests and receive scorecard analytics. **The JavaScript client is provided after your first test has been configured.** From there, you may continue to add tests to your profile without embedding a new client. For more information on Internet Analyzer, see the [overview](internet-analyzer-overview.md). 
 
 > [!IMPORTANT]
 > This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -28,7 +28,7 @@ Internet Analyzer requires access to Azure and other Microsoft services to funct
 
 The script URL can be found either through the Azure portal or the Azure CLI after a test has been configured. For more information, see [Create an Internet Analyzer Resource](internet-analyzer-create-test-portal.md).
 
-Option 1. In the Azure portal, use [this link](https://aka.ms/InternetAnalyzerPreviewPortal) to open the preview portal page for Azure Internet Analyzer. Navigate to your Internet Analyzer profile to see the script URL.
+Option 1. In the Azure portal, use [this link](https://aka.ms/InternetAnalyzerPreviewPortal) to open the preview portal page for Azure Internet Analyzer. Navigate to your Internet Analyzer profile to see the script URL by going to **Settings > Configuration**.
 
 Option 2. Using the Azure CLI, check the `scriptFileUri` Property.
 ```azurecli-interactive
@@ -41,7 +41,7 @@ The script is generated specifically for your profile and tests. After being loa
 
 ## Client examples
 
-These examples show a few basic methods to embed the client JavaScript into your webpage or application. We use `0bfcb32638b44927935b9df86dcfe397` as an example profile Id for the script URL.
+These examples show a few basic methods to embed the client JavaScript into your webpage or application. We use `0bfcb32638b44927935b9df86dcfe397` as an example profile ID for the script URL.
 
 ### Run on page load
 The simplest method is to use the script tag inside the meta tag block. This will execute the script once per page load.
