@@ -39,7 +39,7 @@ In this article, you:
 
 ## Check what's supported
 
-- For VMware VMs, Azure Migrate Server Migration supports [agentless or agent-based migration](/server-migrate-overview.md). Verify VMware VM requirements/support for [agentless](migrate-support-matrix-vmware.md#migration---limitations) and [agent-based](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) migrations.
+- For VMware VMs, Azure Migrate Server Migration supports [agentless or agent-based migration](server-migrate-overview.md). Verify VMware VM requirements/support for [agentless](migrate-support-matrix-vmware.md#migration---limitations) and [agent-based](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) migrations.
 - Verify [migration requirements and support](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) for Hyper-V VMs.
 - Verify [migration requirements and support](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) for on-premises physical machines, or other virtualized servers. These requirements are similar to VMware VM requirements.
 

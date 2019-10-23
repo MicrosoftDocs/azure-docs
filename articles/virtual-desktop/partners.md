@@ -28,9 +28,9 @@ Citrix extends the value of Windows Virtual Desktop with robust enterprise tools
 
 ![VMware Logo](./media/partners/vmware.png)
 
-VMware Horizon Cloud on Microsoft Azure gives organizations the ability to connect their own instance of Microsoft Azure to the simple, intuitive Horizon Cloud control plane, creating a secure, comprehensive, cloud-hosted solution for delivering virtualized Windows applications and desktops. With the release of Windows Virtual Desktop, VMware has partnered with Microsoft to extend the functionality of Windows Virtual Desktop to customers using Horizon Cloud on Microsoft Azure.
-
-As an approved provider, VMware Horizon Cloud on Microsoft Azure customers get all the benefits of Windows Virtual Desktop, such as Windows 10 Enterprise for multi-session, Windows 7 with free Extended Security Updates for up to three years, and FSLogix capabilities, in addition to all the modern, enterprise-class features of Horizon Cloud, such as broad endpoint support; global, cloud-optimized brokering, flexible desktop options and configurations, user environment management, and support for hybrid environments. 
+VMware Horizon Cloud on Microsoft Azure gives organizations the ability to connect their own instance of Microsoft Azure to the simple, intuitive Horizon Cloud control plane, creating a secure, comprehensive, cloud-hosted solution for delivering virtualized Windows applications and desktops. With the release of Windows Virtual Desktop, VMware has partnered with Microsoft to extend the functionality of Windows Virtual Desktop to customers using Horizon Cloud on Microsoft Azure. This functionality will be available in Tech Preview by the end of 2019.
+ 
+As an approved provider, the benefits of Windows Virtual Desktop will be extended to VMware Horizon Cloud on Microsoft Azure customers, including Windows 10 Enterprise for multi-session, Windows 7 with free Extended Security Updates for up to three years, and FSLogix. Additionally, customers will receive the enterprise-class features of Horizon Cloud, such as broad endpoint support; global, cloud-optimized brokering; flexible desktop options and configurations; user environment management; and support for hybrid environments.
 
 - [Register for the Tech Preview of Horizon Cloud on Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Go to the partner website](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
@@ -57,6 +57,16 @@ When used with Windows Virtual Desktop, ControlUp provides additional capabiliti
 - [See the join solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Go to the partner website](https://www.controlup.com/solutions/ms_wvd/).
 
+## deviceTRUST
+
+![deviceTRUST Logo](./media/partners/devicetrust.png)
+
+deviceTRUST is a Windows Virtual Desktop value-added services provider that contextualizes the corporate enterprise, allowing users the freedom to access their Windows Virtual Desktop from any location, on any device, over any network, while giving IT departments the information and control they need to meet their governance requirements. 
+
+deviceTRUST extends the value of Windows Virtual Desktop with their contextual security technology. deviceTRUST enables conditional access for a secure Windows Virtual Desktop access, conditional application access within Windows Virtual Desktop and to apply conditional Windows Virtual Desktop policies without any additional infrastructure. Using deviceTRUST enables a mobile, flexible workspace that meets all security, compliance, and regulatory requirements. 
+
+- [Go to the partner website](https://devicetrust.com/wvd).
+
 ## Lakeside Software
 
 ![Lakeside Software Logo](./media/partners/lakeside.png)
@@ -79,6 +89,14 @@ Liquidware Essentials extends the value of Windows Virtual Desktop by efficientl
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Go to the partner website](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## Login VSI
+
+![Login VSI Logo](./media/partners/loginvsi.png)
+
+Login VSI is a Windows Virtual Desktop value-added services provider and Microsoft partner delivering software for application performance testing in Windows Virtual Desktop environments. Customers moving their on-premises business services to Windows Virtual Desktop use Login VSI Enterprise Edition to evaluate and maintain optimal performance, scalability, and availability of Windows 10  Enterprise multi-session, Windows 10 Enterprise, and Windows 7 enabled with their business critical applications.
+
+- [Go to the partner website](https://www.loginvsi.com).
+
 ## Nerdio
 
 ![Nerdio Logo](./media/partners/nerdio.png)
@@ -88,7 +106,27 @@ Nerdio is an Azure IT automation platform that makes it easy to deploy and manag
 Nerdio extends the value of Windows Virtual Desktop by making it easy to provision Azure resources and streamline deployment. With Nerdio for Azure, IT can automatically deploy and manage a complete Azure environment, including Windows Virtual Desktop, in under two hours.
 
 - [See the joint solution brief](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
-- [Go to the partner website](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/).
+- [Go to the partner website](https://getnerdio.com/windows-virtual-desktop/).
+
+## PolicyPak
+
+![PolicyPak Logo](./media/partners/policypak.png)
+
+PolicyPak Software is a Windows Virtual Desktop partner that performs total settings management for applications, desktop, browsers, Java, and security settings. PolicyPak keeps your desktop, system, and security settings in compliance. PolicyPak enhances the value of Windows Virtual Desktop by adding a suite of components to enhance Windows’ built-in administration. Use your existing Active Directory Group Policy and/or Windows Intune to deliver PolicyPak’s settings and increase administrators’ ability to manage their Windows 10 machines. 
+
+The top use cases for PolicyPak are to remove local admin rights and overcome UAC prompts, block Ransomware, manage multiple browsers, manage Internet Explorer’s Enterprise and Compatibility modes, reduce the number of GPOs, manage Windows 10 File Associations, manage Windows 10 Start Menu and Taskbar, and manage Windows 10 Features and Optional features.  
+
+- [Go to partner website](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
+
+## PrinterLogic
+
+![PrinterLogic Logo](./media/partners/printerlogic.png)
+
+PrinterLogic is a Windows Virtual Desktop value-added service provider platform which empowers IT professionals to eliminate all print servers and deliver a highly available serverless printing infrastructure. PrinterLogic extends the value of Windows Virtual Desktop and Azure by making it easy to centrally manage and deploy printer objects to any printer or endpoint OS.   
+
+Available as SaaS or as a web stack in your own private cloud, the PrinterLogic platform ensures users always have the right printers they need in their virtual sessions based on user ID, device name or location. This functionality is complemented by a full suite of enterprise print management features such as print tracking and reporting, mobile printing, and secure badge release printing. 
+
+- [Go to partner website](https://www.printerlogic.com).
 
 ## ThinPrint
 

@@ -129,7 +129,9 @@ Grant Azure CDN permission to access the certificates (secrets) in your Azure Ke
 
 3. Select **Certificate permissions**, and then select the check boxes for **Get** and **List** to allow CDN to perform these permissions to get and list the certificates.
 
-4. Select **OK**. 
+4. Select **Secret permissions**, and then select the check boxes for **Get** and **List** to allow CDN to perform these permissions to get and list the Secrets.
+
+5. Select **OK**. 
 
     Azure CDN can now access this key vault and the certificates (secrets) that are stored in this key vault.
  
@@ -187,7 +189,7 @@ Automatic validation typically takes a few hours. If you don’t see your domain
 ### Custom domain is not mapped to your CDN endpoint
 
 >[!NOTE]
->If you are using **Azure CDN from Akamai**, the following CNAME should be set up to enable automated domain validation. "_acme-challenge.<custom domain hostname> -> CNAME -> <custom domain hostname>.ak-acme-challenge.azureedge.net"
+>If you are using **Azure CDN from Akamai**, the following CNAME should be set up to enable automated domain validation. "_acme-challenge.&lt;custom domain hostname&gt; -> CNAME -> &lt;custom domain hostname&gt;.ak-acme-challenge.azureedge.net"
 
 If the CNAME record entry contains the cdnverify subdomain, follow the rest of the instructions in this step.
 

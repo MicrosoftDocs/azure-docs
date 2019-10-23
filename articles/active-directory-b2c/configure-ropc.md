@@ -21,7 +21,7 @@ The resource owner password credentials (ROPC) flow is an OAuth standard authent
 
 In Azure Active Directory B2C (Azure AD B2C), the following options are supported:
 
-- **Native Client**: User interaction during authentication happens when code runs on a user-side device. The device can be a mobile application that's running in a native operating system, such as Android, or running in a browser, such as JavaScript.
+- **Native Client**: User interaction during authentication happens when code runs on a user-side device. The device can be a mobile application that's running in a native operating system, such as Android and iOS.
 - **Public client flow**: Only user credentials, gathered by an application, are sent in the API call. The credentials of the application are not sent.
 - **Add new claims**: The ID token contents can be changed to add new claims.
 

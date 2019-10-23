@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/04/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -213,6 +213,10 @@ See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do
 ### I need to handle more endpoint queries. How do I do that? 
 
 See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) and [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) to learn more.
+
+### I created an authoring key but it isn't showing in the LUIS portal. What happened?
+
+Authoring keys are available in the LUIS portal after [migrating to the authoring key experience](luis-migration-authoring.md).  
 
 ## App management
 

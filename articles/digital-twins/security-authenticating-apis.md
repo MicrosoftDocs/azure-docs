@@ -1,13 +1,13 @@
 ---
 title: 'Understand API authentication using Azure Digital Twins | Microsoft Docs'
 description: Learn how to connect to and authenticate with APIs using Azure Digital Twins.
-author: lyrana
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: lyhughes
 ---
 
 # Connect to and authenticate with APIs
@@ -44,7 +44,7 @@ When developers architect Digital Twins solutions, they typically create a middl
 
 1. The acquired token is then used to authenticate with or call APIs that are further downstream using the On-Behalf-Of flow
 
-For instructions about how to orchestrate the on-behalf-of flow, see [OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You also can view code samples in [Calling a downstream web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+For instructions about how to orchestrate the on-behalf-of flow, see [OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You also can view code samples in [Calling a downstream web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## Next steps
 
