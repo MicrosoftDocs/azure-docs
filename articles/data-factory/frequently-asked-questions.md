@@ -185,7 +185,7 @@ Use the Copy activity to stage data from any of the other connectors, and then e
 
 ### Is the self-hosted integration runtime available for data flows?
 
-Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to aquire or move data to and from on-prem or VM-based data sources and sinks. Stage the data first with a Copy, then Data Flow for transformation, and then a subsequent copy if you need to move that transformed data back to the on-prem store.
+Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. Stage the data first with a Copy, then Data Flow for transformation, and then a subsequent copy if you need to move that transformed data back to the on-prem store.
 
 ## Next steps
 For step-by-step instructions to create a data factory, see the following tutorials:
