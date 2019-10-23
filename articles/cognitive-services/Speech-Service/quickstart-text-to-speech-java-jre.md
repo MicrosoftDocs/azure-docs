@@ -74,7 +74,7 @@ If you're running Windows (64-bit), ensure you have installed Microsoft Visual C
 ## Build and run the app
 
 Press F11, or select **Run** > **Debug**.
-Input a text when promoted, and you will here the synthesized audio played from default speaker.
+Input a text when prompted, and you will hear the synthesized audio played from default speaker.
 
 ## Next steps
 

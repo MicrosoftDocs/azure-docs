@@ -4,7 +4,7 @@ description: This article explains the common tasks that an administrator accomp
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
@@ -57,7 +57,7 @@ Keep the following points in mind when you transfer an enterprise account to a n
 
 The effective transfer date can be a date on or after the start date of the enrollment that you want transfer to. The enrollment that you're transferring to is the _target enrollment_. After the account transfer, all usage information in the account before the effective transfer date stays in the enrollment you're transferring from. The enrollment that you're transferring from is the _source enrollment_.  The source enrollment usage is charged against monetary commitment or as overage. Usage that occurs after the effective transfer date is transferred to the new enrollment and charged accordingly.
 
-You can backdate an account transfer as far back as the start date of the target enrollment. Or, as far as the source enrollment effective start date.
+You can backdate an enrollment transfer as far back as the start date of the target enrollment. Or, as far as the effective start date of the source enrollment.
 
 ### Monetary commitment
 
@@ -82,10 +82,11 @@ Other points to keep in mind before an account transfer:
 - Approval from an EA Administrator is required for the target and source enrollment
   - In some cases, Microsoft might request additional approval from an EA administrator of the source enrollment
 - If an account transfer doesn't meet your requirements, consider an enrollment transfer.
-- The account transfer transfers all services, subscriptions, accounts, departments, and the entire enrollment structure, including all EA department administrators.
-- The account transfer sets the source enrollment status to _Transferred_. The transferred account is available for historic usage reporting purposes only.
-- You can't add roles or subscriptions to an enrollment with transferred status. The status prevents additional usage against the enrollment.
-- Any remaining monetary commitment balance in the source agreement is lost, including future terms.
+- The account transfer transfers all services and subscriptions related to the specific accounts.
+- After the transfer is complete, the transferred account appears inactive under the source enrollment.
+- An account transfer can be backdated to any date within the target enrollment start date.
+- The account shows the end date corresponding to the effective transfer date on the source enrollment and as a start date on the target enrollment.
+- Any usage occurred for the account prior to the effective transfer date remains under the source enrollment.
 
 
 ## Transfer enterprise enrollment to a new one
@@ -151,7 +152,7 @@ If the subscription is transferred to an account in a different Azure AD tenant,
 - Access keys for services like Storage. For more information, see [Azure storage account overview](../storage/common/storage-account-overview.md).
 - Remote Access credentials for services like Azure Virtual Machines.
 
-If the recipient needs to restrict access to their Azure resources, they should consider updating any secrets associated with the service. Most resources are be updated by using the following steps:
+If the recipient needs to restrict access to their Azure resources, they should consider updating any secrets associated with the service. Most resources can be updated by using the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, select **All resources**.
@@ -206,12 +207,11 @@ If a notification isn't received by a user, verify that the user's notification 
 ![Example showing Add Contact box ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## Azure Sponsorship offer
+
 The Azure Sponsorship offer is a limited sponsored Microsoft Azure account. It is available by e-mail invitation only to limited customers selected by Microsoft. If you're entitled to the Microsoft Azure Sponsorship offer, you'll receive an e-mail invitation to your account ID.
+
 For more information, see:
 
-- Sponsorship offer overview - https://azure.microsoft.com/en-us/offers/ms-azr-0143p/
-- Sponsorship balance portal - https://www.microsoftazuresponsorships.com/balance  
-- Sponsorship external FAQ - https://azuresponsorships-staging.azurewebsites.net/faq
 - Support request for Sponsorship Activation -  http://aka.ms/azrsponsorship
 
 ## Next steps
