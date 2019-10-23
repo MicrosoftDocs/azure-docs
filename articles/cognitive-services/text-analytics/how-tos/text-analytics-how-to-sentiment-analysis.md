@@ -134,7 +134,7 @@ The [next version of Sentiment Analysis](https://westcentralus.dev.cognitive.mic
 > [!NOTE]
 > * The Sentiment Analysis v3 request format and [data limits](../overview.md#data-limits) are the same as the previous version.
 > * At this time, Sentiment Analysis v3:
->    * Currently supports English, French, Italian, Japanese, Simplified-Chinese, Traditional-Chinese, German, Dutch, Portuguese (Portugal), and Spanish languages.
+>    * Currently supports the English (`en`), Japanese (`ja`), Chinese Simplified (zh-Hans),  Chinese Traditional (zh-Hant), French (`fr`), Italian (`it`), Spanish (`es`), Dutch (`nl`), Portuguese (`pt`), and German (`de`) languages.
 >    * Is available in the following regions: `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`, `North Europe`, `Southeast Asia`, `South Central US`, `UK South`, `West Europe`, and `West US 2`.
 
 |Feature |Description  |
