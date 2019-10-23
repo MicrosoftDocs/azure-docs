@@ -60,16 +60,16 @@ To start, you need three additional items:
 To create a new Time Series Insights environment, select a Time Series ID. Doing so acts as a logical partition for your data. As noted, make sure to have your Time Series IDs ready.
 
 > [!IMPORTANT]
-> Time Series IDs *cannot be changed later*. Verify each one before final selection and first use.
+> Time Series IDs *can't be changed later*. Verify each one before final selection and first use.
 
 You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Storage and ingress](./time-series-insights-update-storage-ingress.md).
 
-The Timestamp property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
+The **Timestamp** property is also important. You can designate this property when you add event sources. Each event source has an optional **Timestamp** property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
 
 > [!TIP]
 > Verify the formatting and parsing requirements for your event sources.
 
-When left blank, the Event Enqueue Time of an event source is used as the event Timestamp. If you send historical data or batched events, customizing the Timestamp property is more helpful than the default Event Enqueue Time. For more information, read about how to [add event sources in Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+When left blank, the Event Enqueue Time of an event source is used as the event Timestamp. If you send historical data or batched events, customizing the **Timestamp** property is more helpful than the default Event Enqueue Time. For more information, read about how to [add event sources in Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
 
 ## Understand the Time Series Model
 
@@ -86,7 +86,7 @@ You can verify the way that you send events to Time Series Insights. Ideally, yo
 A good rule of thumb:
 
 * Store metadata in your Time Series Model.
-* Ensure that Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp.
+* Ensure that Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or **Timestamp** property.
 
 For more information, see [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
 
