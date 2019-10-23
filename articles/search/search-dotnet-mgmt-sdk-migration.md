@@ -1,18 +1,18 @@
 ---
-title: Upgrade to the Azure Search .NET Management SDK version 2
-titleSuffix: Azure Cognitive Search
+title: Upgrading to the Azure Search .NET Management SDK version 2 - Azure Search
 description: Upgrade to the Azure Search .NET Management SDK version 2 from previous versions. Learn what's new and what code changes are required.
-
-manager: nitinme
 author: brjohnstmsft
+manager: nitinme
 ms.author: brjohnst
-ms.service: cognitive-search
+services: search
+ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/02/2019
+
 ---
 
-# Upgrading versions of the Azure Search .NET Management SDK
+# Upgrading to the Azure Search .NET Management SDK version 
 
 > [!Important]
 > This content is still under construction. Version 3.0 of the Azure Search Management .NET SDK is available on NuGet. We are working on updating this migration guide to explain how to upgrade to the new version. 
