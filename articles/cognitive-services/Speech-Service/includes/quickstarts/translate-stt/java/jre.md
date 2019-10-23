@@ -49,7 +49,7 @@ public class Main {
         // and service region (e.g., "westus").
 
         int exitCode = 1;
-        SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription("def785e72196496cb099bf027c8646b9", "westus");
+        SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription(("YourSubscriptionKey", "YourServiceRegion");
         assert(config != null);
 
         // Sets source and target languages.

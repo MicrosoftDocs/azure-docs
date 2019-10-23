@@ -35,7 +35,7 @@ namespace helloworld
 {
     class Program
     {
-        public static async Task TranslateSpeechToText()
+        public static async Task TranslateSpeechToSpeech()
         {
             // Creates an instance of a speech translation config with specified subscription key and service region.
             // Replace with your own subscription key and service region (e.g., "westus").
@@ -104,7 +104,7 @@ namespace helloworld
 
         static void Main(string[] args)
         {
-            TranslateSpeechToText().Wait();
+            TranslateSpeechToSpeech().Wait();
         }
     }
 }

@@ -117,7 +117,7 @@ int wmain()
 Say something...
 RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
-TRANSLATED into 'fr': BLAH BLAH BLAH PLACEHOLDER
+TRANSLATED into 'fr': Quel temps fait-il à Seattle ?
 ````
 
 ## Next steps

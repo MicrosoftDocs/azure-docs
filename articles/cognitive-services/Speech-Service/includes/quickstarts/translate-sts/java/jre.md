@@ -42,14 +42,14 @@ import com.microsoft.cognitiveservices.speech.translation.*;
 
 public class Main {
 
-    public static void translationWithMicrophoneAsync() throws InterruptedException, ExecutionException, IOException
+    public static void translateSpeechToSpeech() throws InterruptedException, ExecutionException, IOException
     {
         // Creates an instance of a speech translation config with specified
         // subscription key and service region. Replace with your own subscription key
         // and service region (e.g., "westus").
 
         int exitCode = 1;
-        SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription("def785e72196496cb099bf027c8646b9", "westus");
+        SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
         assert(config != null);
 
         // Sets source and target languages.
@@ -118,7 +118,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            translationWithMicrophoneAsync();
+            translateSpeechToSpeech();
         } catch (Exception ex) {
             System.out.println("Unexpected exception: " + ex.getMessage());
             assert(false);

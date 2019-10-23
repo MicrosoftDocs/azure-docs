@@ -36,6 +36,7 @@ package quickstart;
 
 import java.io.IOException;
 import java.util.concurrent.Future;
+import java.util.Map;
 import java.util.concurrent.ExecutionException;
 import com.microsoft.cognitiveservices.speech.*;
 import com.microsoft.cognitiveservices.speech.translation.*;
@@ -81,7 +82,7 @@ public class Main {
 
             Map<String, String> map = result.getTranslations();
             for(String toLanguage: map.keySet()) {
-                System.out.println("    TRANSLATED into '" + element + "': " + map.get(toLanguage));
+                System.out.println("TRANSLATED into '" + toLanguage + "': " + map.get(toLanguage));
             }
             exitCode = 0;
         }
@@ -136,7 +137,7 @@ Press F11, or select **Run** > **Debug**.
 Say something...
 RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
-TRANSLATED into 'fr': BLAH BLAH BLAH PLACEHOLDER
+TRANSLATED into 'fr': Quel temps fait-il à Seattle ?
 ````
 
 ## Next steps
