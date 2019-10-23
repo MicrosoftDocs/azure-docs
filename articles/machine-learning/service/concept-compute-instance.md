@@ -32,7 +32,7 @@ A compute instance is a single managed VM, optimized to be your development envi
 
 ## <a name="contents"></a>Tools and environments
 
-Azure Machine Learning compute instance enables you to author, train, and deploy models in a [fully integrated notebook experience]( tutorial-1st-experiment-sdk-setup) in your workspace.
+Azure Machine Learning compute instance enables you to author, train, and deploy models in a [fully integrated notebook experience]( tutorial-1st-experiment-sdk-setup.md) in your workspace.
 
 These tools and environments are installed on the compute instance:
 
