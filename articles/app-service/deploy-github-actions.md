@@ -33,10 +33,8 @@ For an Azure Web App workflow, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
-|**Authentication** | 1. Define a service principal |
-|                   | 2. Create a GitHub secret     |
-|**Build** | 1. Set up the environment |
-|          | 2. Build the web app |
+|**Authentication** | 1. Define a service principal <br /> 2. Create a GitHub secret |
+|**Build** | 1. Set up the environment <br /> 2. Build the web app |
 |**Deploy** | 1. Deploy the web app |
 
 ## Create a service principal
@@ -276,7 +274,7 @@ jobs:
         az logout
 ```
 
-## Next
+## Next steps
 
 You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
