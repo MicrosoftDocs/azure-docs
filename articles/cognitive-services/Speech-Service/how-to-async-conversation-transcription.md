@@ -26,14 +26,15 @@ Two steps are required to accomplish asynchronous transcription. The first step 
 
 ## Upload the audio
 
-Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription using Microsoft Cognitive Speech client SDK (version 1.8.0 or above), presented in [Transcribe conversations in real time with the Speech SDK](how-to-use-conversation-transcription-service.md). The **Limitations** section of this topic specifies the supported platforms and languages APIs shown in this sample.
+Before asynchronous transcription can be performed, you need to send the audio to Conversation Transcription using Microsoft Cognitive Speech client SDK (version 1.8.0 or above).
 
-This example code shows asynchronous-only mode.
+This example code shows how to create conversation transcriber for asynchronous-only mode. In order to stream audio to the transcriber, you will need to add audio streaming code derived from [Transcribe conversations in real time with the Speech SDK](how-to-use-conversation-transcription-service.md). Refer to the **Limitations** section of that topic to see the supported platforms and languages APIs.
 
 ```java
 // Create the speech config object
 // Substitute real information for "YourSubscriptionKey" and "Region"
 SpeechConfig speechConfig = SpeechConfig.fromSubscription("YourSubscriptionKey", "Region");
+speech_config.setProperty("ConversationTranscriptionInRoomAndOnline", "true");
 
 // Set the property for asynchronous transcription
 speechConfig.setServiceProperty("transcriptionMode", "Offline", ServicePropertyChannel.UriQueryParameter);
@@ -43,12 +44,17 @@ speechConfig.setServiceProperty("transcriptionMode", "Offline", ServicePropertyC
 
 // Do rest of the things as explained in how to use Conversation Transcription
 
-// Keep a note of `conversationId` which is set using ConversationTranscriber.setConversationId(conversationId)
-ConversationTranscriber transcriber = new ConversationTranscriber(speechConfig, AudioConfig.fromDefaultMicrophoneInput());
-transcriber.setConversationId("MeetingTest");
-// We will use this identifier to retrieve asynchronous transcription later
-String conversationId = transcriber.getConversationId();
+// pick a conversation Id that is a GUID.
+Conversation conversation = new Conversation(speechConfig, conversationId);
 
+// Create a conversation transcriber
+ConversationTranscriber transcriber = new ConversationTranscriber(AudioConfig.fromDefaultMicrophoneInput());
+
+// join a conversation
+transcriber.joinConversationAsync(conversation).get();
+
+// stream audio as shown in “Transcribe conversations in real time”
+...
 ```
 
 If you want real-time _plus_ asynchronous, comment and uncomment the appropriate lines of code as follows:
