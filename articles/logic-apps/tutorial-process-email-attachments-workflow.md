@@ -125,7 +125,7 @@ Now, connect Storage Explorer to your storage account so you can confirm that yo
 
 1. Confirm your connection information, and then select **Connect**.
 
-   Storage Explorer creates the connection, and shows your storage account in the Explorer window under **(Local and Attached)** > **Storage Accounts**.
+   Storage Explorer creates the connection, and shows your storage account in the Explorer window under **Local & Attached** > **Storage Accounts**.
 
 1. To find your blob storage container, under **Storage Accounts**, expand your storage account, which is **attachmentstorageacct** here, and expand **Blob Containers** where you find the **attachments** container, for example:
 
@@ -477,15 +477,13 @@ Now test whether your logic app handles emails the way that you specified:
 
    * Your email has at least one attachment. For now, just create one empty text file, and attach that file to your email.
 
-   * Your email has some test content in the body, for example:
-
-     `Testing my logic app`
+   * Your email has some test content in the body, for example: `Testing my logic app`
 
    If your logic app didn't trigger or run despite a successful trigger, see [Troubleshoot your logic app](../logic-apps/logic-apps-diagnosing-failures.md).
 
 1. Check that your logic app saved the email to the correct storage container.
 
-   1. In Storage Explorer, expand **(Local and Attached)** > **Storage Accounts** > **attachmentstorageacct (External)** > **Blob Containers** > **attachments**.
+   1. In Storage Explorer, expand **Local & Attached** > **Storage Accounts** > **attachmentstorageacct (Key)** > **Blob Containers** > **attachments**.
 
    1. Check the **attachments** container for the email.
 
@@ -568,7 +566,7 @@ Next, test whether your logic app handles the attachments the way that you speci
 
 1. Check that your logic app saved the email and attachments to the correct storage container.
 
-   1. In Storage Explorer, expand **(Local and Attached)** > **Storage Accounts** > **attachmentstorageacct (External)** > **Blob Containers** > **attachments**.
+   1. In Storage Explorer, expand **Local & Attached** > **Storage Accounts** > **attachmentstorageacct (Key)** > **Blob Containers** > **attachments**.
 
    1. Check the **attachments** container for both the email and the attachments.
 
