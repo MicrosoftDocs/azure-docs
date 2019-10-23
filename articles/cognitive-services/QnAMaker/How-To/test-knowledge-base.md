@@ -70,14 +70,14 @@ You can test the published version of knowledge base in the test pane. Once you 
 
 ![Test against a published KB](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
-## Batch test with BT.exe tool
+## Batch test with tool
 
 Use the batch testing tool when you want to:
 
 * determine top answer and score for a set of questions
 * validate expected answer for set of questions
 
-Batch testing is provided with the batch testing tool, **bt.exe**. This tool is available as an [zipped executable](https://qnamakerstore.blob.core.windows.net/qnamakerdata/batchtesting/bt.zip) for download or as [C# source code](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
+Batch testing is provided with the batch testing tool. This tool is available as an [zipped executable](https://qnamakerstore.blob.core.windows.net/qnamakerdata/batchtesting/bt.zip) for download or as [C# source code](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting). 
 
 [Reference documentation about the tool](../reference-tsv-format-batch-testing.md) includes:
 
