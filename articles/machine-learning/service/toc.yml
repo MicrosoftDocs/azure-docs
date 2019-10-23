@@ -72,29 +72,29 @@
   items:
   - name: Workspace
     href: concept-workspace.md
+  - name: Model training
+    displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
+    href: concept-train-machine-learning-model.md
+  - name: Model management (MLOps)
+    displayName: deploy, deployment, publish, production, operationalize, operationalization
+    href: concept-model-management-and-deployment.md
+  - name: Interpretability
+    displayName: explainability
+    href: machine-learning-interpretability-explainability.md
+  - name: 'Designer: no-code ML'
+    displayName: studio
+    href: ui-concept-visual-interface.md
+  - name: Automated ML
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
   - name: Compute instance
     displayName: resource, dsvm, Data Science Virtual Machine
     href: concept-compute-instance.md
   - name: Compute target
     displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
     href: concept-compute-target.md
-  - name: Model training
-    displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
-    href: concept-train-machine-learning-model.md
-  - name: Designer
-    displayName: studio
-    href: ui-concept-visual-interface.md
-  - name: Automated machine learning
-    displayName: automl, auto ml
-    href: concept-automated-ml.md
-  - name: Model management (MLOps)
-    displayName: deploy, deployment, publish, production, operationalize, operationalization
-    href: concept-model-management-and-deployment.md
   - name: ML pipelines
     href: concept-ml-pipelines.md
-  - name: Model interpretability
-    displayName: explainability
-    href: machine-learning-interpretability-explainability.md
   - name: ONNX
     href: concept-onnx.md
   - name: Security
