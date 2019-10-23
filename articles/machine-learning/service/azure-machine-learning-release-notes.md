@@ -18,6 +18,26 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+## 2019-10-21
+
+### Visual interface (preview)
+
++ The Azure Machine Learning visual interface (preview) has been overhauled to run on [Azure Machine Learning pipelines](concept-ml-pipelines.md). Pipelines (previously known as experiments) authored in the visual interface are now fully integrated with the core Azure Machine Learning experience.
+  + Unified management experience with SDK assets
+  + Versioning and tracking for visual interface models, pipelines, and endpoints 
+  + Redesigned UI
+  + Added batch inferencing deployment
+  + Added Azure Kubernetes Service (AKS) support for inferencing compute targets
+  + New Python-step pipeline authoring workflow
+  + New [landing page](https://ml.azure.com) for visual authoring tools
+
++ **New modules**
+  + Apply math operation
+  + Apply SQL transformation
+  + Clip values
+  + Summarize data
+  + Import from SQL database  
+
 ## 2019-10-14
 
 ### Azure Machine Learning SDK for Python v1.0.69
@@ -62,6 +82,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl**
     + The parent run will no longer be failed when setup iteration failed, as the orchestration already takes care of it.
     + Added local-docker and local-conda support for AutoML experiments
+
 
 ## 2019-10-08
 
@@ -881,7 +902,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 
  + **Changes**
    + The azureml-tensorboard package replaces azureml-contrib-tensorboard.
-   + With this release, you can set up a user account on your managed compute cluster (amlcompute), while creating it. This can be done by passing these properties in the provisioning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remotelogin-port-public-access--notspecified--).
+   + With this release, you can set up a user account on your managed compute cluster (amlcompute), while creating it. This can be done by passing these properties in the provisioning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--).
 
 ### Azure Machine Learning Data Prep SDK v1.0.17
 
