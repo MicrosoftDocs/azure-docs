@@ -1,18 +1,21 @@
-# <!-- Service --> monitoring data reference
-See [Monitoring <!-- Service -->](monitor-service.md) for details on collecting and analyzing monitoring data for <!-- Service -->.
+---
+title: Monitoring data reference | Microsoft Docs
+titleSuffix: Azure Machine Learning
+description: Learn about the data and resources collected for Azure Machine Learning, and available in Azure Monitor. Azure Monitor collects and surfaces data about your Azure Machine Learning workspace, and allows you to view metrics, set alerts, and analyze logged data.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
 
-<!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
+ms.reviewer: larryfr
+ms.author: aashishb
+author: aashishb
+ms.date: 10/21/2019
+---
 
-## Activity log
+# Azure machine learning monitoring data reference
 
-The following table lists the operations related to Azure Azure Machine Learning that may be create in the Activity log.
-
-| Operation | Description |
-|:---|:---|
-| | |
-| | |
-
-<!-- Fill in the table with the operations that can be created in the Activity log for the service. Create a separate section for each table. -->
+Learn about the data and resources collected by Azure Monitor from your Azure Machine Learning workspace. See [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md) for details on collecting and analyzing monitoring data.
 
 ## Resource logs
 
@@ -22,11 +25,11 @@ The following table lists the properties for Azure Azure Machine Learning resour
 
 | Property | Description |
 |:--- |:---|
-| TimeGenerated | |
-| OperationName | |
+| TimeGenerated | Time the event was generated. |
+| OperationName | Name of the operation |
 | Category | |
 | ProvisioningState | |
-| ClusterName | |
+| ClusterName | The name of the Azure Machine Learning Compute that  |
 | ClusterType | |
 | CreatedBy | |
 | CoreCount | |

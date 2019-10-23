@@ -32,7 +32,7 @@ The following sections build on this information by describing the specific data
 
 ## Monitoring data from Azure Machine Learning
 
-Azure Machine Learning collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources). See [Azure Machine Learning monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
+Azure Machine Learning collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). See [Azure Machine Learning monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
 ## Configuration
 
@@ -73,7 +73,7 @@ Data in Azure Monitor Logs is stored in tables, with each table having its own s
 > [!IMPORTANT]
 > When you select **Logs** from the Azure Machine Learning menu, Log Analytics is opened with the query scope set to the current workspace. This means that log queries will only include data from that resource. If you want to run a query that includes data from other databases or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) for details.l
 
-See [Azure Machine Learning monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
+See [Azure Machine Learning monitoring data reference](monitor-resource-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
 ### Sample queries
 
@@ -88,5 +88,5 @@ The following table lists common and recommended alert rules for Azure Machine L
 
 ## Next steps
 
-- See [<!-- Service --> monitoring data reference](monitor-service-reference.md) for a reference of the logs and metrics created by Azure Machine Learning.
+- See [Azure Machine Learning monitoring data reference](monitor-resource-reference.md) for a reference of the logs and metrics created by Azure Machine Learning.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.
