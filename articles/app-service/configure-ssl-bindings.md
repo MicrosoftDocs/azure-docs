@@ -23,7 +23,7 @@ This article shows you how to secure the [custom domain](app-service-web-tutoria
 
 Securing a [custom domain](app-service-web-tutorial-custom-domain.md) with a certificate involves two steps:
 
-- [Add a private certificate to App Service](configure-ssl-cert.md) that satisfies all the [requirements for SSL bindings](configure-ssl-cert.md#private-certificate-requirements).
+- [Add a private certificate to App Service](configure-ssl-certificate.md) that satisfies all the [requirements for SSL bindings](configure-ssl-certificate.md#private-certificate-requirements).
 -  Create an SSL binding to the corresponding custom domain. This second step is covered by this article.
 
 In this tutorial, you learn how to:
@@ -41,10 +41,10 @@ To follow this how-to guide:
 
 - [Create an App Service app](/azure/app-service/)
 - [Map a domain name to your app](app-service-web-tutorial-custom-domain.md) or [buy and configure it in Azure](manage-custom-dns-buy-domain.md)
-- [Add a private certificate to your app](configure-ssl-cert.md)
+- [Add a private certificate to your app](configure-ssl-certificate.md)
 
 > [!NOTE]
-> The easiest way to add a private certificate is to [create a free App Service Managed Certificate](configure-ssl-cert.md#create-a-free-certificate-preview) (Preview).
+> The easiest way to add a private certificate is to [create a free App Service Managed Certificate](configure-ssl-certificate.md#create-a-free-certificate-preview) (Preview).
 
 [!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
@@ -71,11 +71,11 @@ If your app already has a certificate for the selected custom domain, go to [Cre
 
 If your app has no certificate for the selected custom domain, then you have two options:
 
-- **Upload PFX Certificate** - Follow the workflow at [Upload a private certificate](configure-ssl-cert.md#upload-a-private-certificate), then select this option here.
-- **Import App Service Certificate** - Follow the workflow at [Import an App Service certificate](configure-ssl-cert.md#import-an-app-service-certificate), then select this option here.
+- **Upload PFX Certificate** - Follow the workflow at [Upload a private certificate](configure-ssl-certificate.md#upload-a-private-certificate), then select this option here.
+- **Import App Service Certificate** - Follow the workflow at [Import an App Service certificate](configure-ssl-certificate.md#import-an-app-service-certificate), then select this option here.
 
 > [!NOTE]
-> You can also [Create a free certificate](configure-ssl-cert.md#create-a-free-certificate-preview) (Preview) or [Import a Key Vault certificate](configure-ssl-cert.md#import-a-certificate-from-key-vault), but you must do it separately and then return to the **TLS/SSL Binding** dialog.
+> You can also [Create a free certificate](configure-ssl-certificate.md#create-a-free-certificate-preview) (Preview) or [Import a Key Vault certificate](configure-ssl-certificate.md#import-a-certificate-from-key-vault), but you must do it separately and then return to the **TLS/SSL Binding** dialog.
 
 ### Create binding
 
@@ -144,7 +144,7 @@ Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 b
 
 In your app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
 
-![Enforce TLS 1.1 or 1.2](./media/configure-ssl-bindings/enforce-tls1.2.png)
+![Enforce TLS 1.1 or 1.2](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
 When the operation is complete, your app rejects all connections with lower TLS versions.
 
@@ -160,5 +160,5 @@ When the operation is complete, your app rejects all connections with lower TLS 
 
 ## More resources
 
-* [Use an SSL certificate in your application code](configure-ssl-use-cert-in-code.md)
+* [Use an SSL certificate in your application code](configure-ssl-certificate-in-code.md)
 * [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

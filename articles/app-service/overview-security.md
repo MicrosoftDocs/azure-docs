@@ -43,7 +43,7 @@ App Service lets you secure your apps with [HTTPS](https://wikipedia.org/wiki/HT
 - Third-party certificate
 - Certificate imported from Azure Key Vault
 
-For more information, see [Add an SSL certificate in Azure App Service](configure-ssl-cert.md).
+For more information, see [Add an SSL certificate in Azure App Service](configure-ssl-certificate.md).
 
 ## Insecure protocols (HTTP, TLS 1.0, FTP)
 

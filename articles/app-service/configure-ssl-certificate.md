@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This article shows you how create, upload, or import a private certificate or a public certificate into App Service. 
 
-Once the certificate is added to your App Service app or [function app](https://docs.microsoft.com/azure/azure-functions/), you can [secure a custom DNS name with it](configure-ssl-bindings.md) or [use it in your application code](configure-ssl-use-cert-in-code.md).
+Once the certificate is added to your App Service app or [function app](https://docs.microsoft.com/azure/azure-functions/), you can [secure a custom DNS name with it](configure-ssl-bindings.md) or [use it in your application code](configure-ssl-certificate-in-code.md).
 
 The following table lists the options you have for adding certificates in App Service:
 
@@ -70,13 +70,13 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from
 
 From the left navigation of your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Create App Service Managed Certificate**.
 
-![Create free certificate in App Service](./media/configure-ssl-cert/create-free-cert.png)
+![Create free certificate in App Service](./media/configure-ssl-certificate/create-free-cert.png)
 
 Any `www.<root-domain>` custom domain that's properly mapped to your app with a CNAME record is listed in the dialog. Select the custom domain to create a free certificate for and select **Create**. You can create only one certificate for each supported custom domain.
 
 When the operation completes, you see the certificate in the **Private Key Certificates** list.
 
-![Create free certificate finished](./media/configure-ssl-cert/create-free-cert-finished.png)
+![Create free certificate finished](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
@@ -103,7 +103,7 @@ If you already have a working App Service certificate, you can:
 
 Start an App Service certificate order in the <a href="https://portal.azure.com/#create/Microsoft.SSL" target="_blank">App Service Certificate create page</a>.
 
-![Start App Service certificate purchase](./media/configure-ssl-cert/purchase-app-service-cert.png)
+![Start App Service certificate purchase](./media/configure-ssl-certificate/purchase-app-service-cert.png)
 
 Use the following table to help you configure the certificate. When finished, click **Create**.
 
@@ -122,7 +122,7 @@ Once the certificate purchase process is complete, there are few more steps you 
 
 Select the certificate in the [App Service Certificates](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) page, then click **Certificate Configuration** > **Step 1: Store**.
 
-![Configure Key Vault storage of App Service certificate](./media/configure-ssl-cert/configure-key-vault.png)
+![Configure Key Vault storage of App Service certificate](./media/configure-sslificate-cert/configure-key-vault.png)
 
 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. It's the storage of choice for App Service certificates.
 
@@ -143,7 +143,7 @@ Once you've selected the vault, close the **Key Vault Repository** page. The **S
 
 From the same **Certificate Configuration** page you used in the last step, click **Step 2: Verify**.
 
-![Verify domain for App Service certificate](./media/configure-ssl-cert/verify-domain.png)
+![Verify domain for App Service certificate](./media/configure-ssl-certificate/verify-domain.png)
 
 Select **App Service Verification**. Since you already mapped the domain to your web app (see [Prerequisites](#prerequisites)), it's already verified. Just click **Verify** to finish this step. Click the **Refresh** button until the message **Certificate is Domain Verified** appears.
 
@@ -161,13 +161,13 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from
 
 From the left navigation of your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import App Service Certificate**.
 
-![Import App Service certificate in App Service](./media/configure-ssl-cert/import-app-service-cert.png)
+![Import App Service certificate in App Service](./media/configure-sslificate-cert/import-app-service-cert.png)
 
 Select the certificate that you just purchased and select **OK**.
 
 When the operation completes, you see the certificate in the **Private Key Certificates** list.
 
-![Import App Service certificate finished](./media/configure-ssl-cert/import-app-service-cert-finished.png)
+![Import App Service certificate finished](./media/configure-sslificate-cert/import-app-service-cert-finished.png)
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
@@ -181,7 +181,7 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from
 
 From the left navigation of your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import Key Vault Certificate**.
 
-![Import Key Vault certificate in App Service](./media/configure-ssl-cert/import-key-vault-cert.png))
+![Import Key Vault certificate in App Service](./media/configure-ssl-certificate/import-key-vault-cert.png))
 
 Use the following table to help you select the certificate.
 
@@ -193,7 +193,7 @@ Use the following table to help you select the certificate.
 
 When the operation completes, you see the certificate in the **Private Key Certificates** list. If the import fails with an error, the certificate doesn't meet the [requirements for App Service](#private-certificate-requirements).
 
-![Import Key Vault certificate finished](./media/configure-ssl-cert/import-app-service-cert-finished.png)
+![Import Key Vault certificate finished](./media/configure-sslificate-cert/import-app-service-cert-finished.png)
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
@@ -251,13 +251,13 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from
 
 From the left navigation of your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Upload Certificate**.
 
-![Upload private certificate in App Service](./media/configure-ssl-cert/upload-private-cert.png)
+![Upload private certificate in App Service](./media/configure-ssl-certificate/upload-private-cert.png)
 
 In **PFX Certificate File**, select your PFX file. In **Certificate password**, type the password that you created when you exported the PFX file. When finished, click **Upload**. 
 
 When the operation completes, you see the certificate in the **Private Key Certificates** list.
 
-![Upload certificate finished](./media/configure-ssl-cert/create-free-cert-finished.png)
+![Upload certificate finished](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).
@@ -275,9 +275,9 @@ In **Name**, type a name for the certificate. In **CER Certificate file**, selec
 
 Click **Upload**.
 
-![Upload public certificate in App Service](./media/configure-ssl-cert/upload-public-cert.png)
+![Upload public certificate in App Service](./media/configure-ssl-certificate/upload-public-cert.png)
 
-Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-use-cert-in-code.md#load-the-certificate).
+Once the certificate is uploaded, copy the certificate thumbprint and see [Make the certificate accessible](configure-ssl-certificate-in-code.md#load-the-certificate).
 
 ## Manage App Service certificates
 
@@ -294,7 +294,7 @@ If you think your certificate's private key is compromised, you can rekey your c
 
 Click **Rekey** to start the process. This process can take 1-10 minutes to complete.
 
-![Rekey an App Service certificate](./media/configure-ssl-cert/rekey-app-service-cert.png)
+![Rekey an App Service certificate](./media/configure-ssl-certificate/rekey-app-service-cert.png)
 
 Rekeying your certificate rolls the certificate with a new certificate issued from the certificate authority.
 
@@ -309,7 +309,7 @@ To turn on automatic renewal of your certificate at any time, select the certifi
 
 Select **On** and click **Save**. Certificates can start automatically renewing 60 days before expiration if you have automatic renewal turned on.
 
-![Renew App Service certificate automatically](./media/configure-ssl-cert/auto-renew-app-service-cert.png)
+![Renew App Service certificate automatically](./media/configure-sslificate-cert/auto-renew-app-service-cert.png)
 
 To manually renew the certificate instead, click **Manual Renew**. You can request to manually renew your certificate 60 days before expiration.
 
@@ -349,7 +349,7 @@ Select the certificate in the [App Service Certificates](https://portal.azure.co
 
 Find the lock on your certificate with the lock type **Delete**. To the right of it, select **Delete**.
 
-![Delete lock for App Service certificate](./media/configure-ssl-cert/delete-lock-app-service-cert.png)
+![Delete lock for App Service certificate](./media/configure-ssl-certificate/delete-lock-app-service-cert.png)
 
 Now you can delete the App Service certificate. From the left navigation, select **Overview** > **Delete**. In the confirmation dialog, type the certificate name and select **OK**.
 
@@ -365,7 +365,8 @@ Now you can delete the App Service certificate. From the left navigation, select
 
 ## More resources
 
+* [Secure a custom DNS name with an SSL binding](configure-ssl-bindings.md)
 * [Enforce HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Enforce TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Use an SSL certificate in your application code](configure-ssl-use-cert-in-code.md)
+* [Use an SSL certificate in your application code](configure-ssl-certificate-in-code.md)
 * [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
