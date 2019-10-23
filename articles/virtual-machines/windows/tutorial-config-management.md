@@ -74,8 +74,8 @@ For pricing information, see [Automation pricing for Update management](https://
 
 To enable Update Management for your VM:
 
-1. On the left side of the window, select **Virtual machines**.
-1. From the list, choose a VM.
+1. On the leftmost side of the window, select **Virtual machines**.
+1. Chose a VM from the list.
 1. In the **Operations** pane of the VM window, select **Update management**.
 1. The **Enable Update Management** window opens.
 
@@ -160,7 +160,7 @@ You can collect and view an inventory of the software, files, Linux daemons, Win
 
 To enable change and inventory management for your VM:
 
-1. On the left side of the screen, select **Virtual machines**.
+1. On the leftmost side of the window, select **Virtual machines**.
 1. Choose a VM from the list.
 1. Under **Operations** in the VM window, select either **Inventory** or **Change tracking**.
 1. The **Enable Change Tracking and Inventory** pane opens.
