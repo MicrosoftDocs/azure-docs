@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Train your first ML model with R"
+title: "Tutorial: Your first ML experiment with R"
 titleSuffix: Azure Machine Learning
-description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident.
+description: In this tutorial series, you complete the end-to-end steps to get started with the Azure Machine Learning R SDK.  Part one covers creating a cloud notebook server environment as well as creating a workspace to manage your experiments and machine learning models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,19 +9,18 @@ ms.topic: tutorial
 ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
-ms.date: 10/21/2019
+ms.date: 10/23/2019
 ---
 
-# Tutorial: Train your first ML model using R & Azure Machine Learning
-
+# Tutorial: Train and deploy your first model in R with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-This tutorial is **part two of a two-part tutorial series**. In the previous tutorial, you [created a workspace and a compute instance](tutorial-1st-experiment-R-set-up.md).  In this tutorial, you learn the foundational design patterns in Azure Machine Learning.  You'll train and deploy a  logistic regression model using `azuremlsdk` and `caret`  to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
+ In this tutorial, you learn the foundational design patterns in Azure Machine Learning.  You'll train and deploy a  logistic regression model using `azuremlsdk` and `caret`  to predict the likelihood of a fatality in an automobile accident. After completing this tutorial, you'll have the practical knowledge of the R SDK to scale up to developing more-complex experiments and workflows.
 
 In this tutorial, you learn the following tasks:
 
 > [!div class="checklist"]
-> * Connect your workspace
+> * Connect your Azure Machine Learning workspace
 > * Load data and prepare for training
 > * Upload data to the datastore so it is available for remote training
 > * Create a compute resource
@@ -33,28 +32,31 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-The only prerequisite is to run part one of this tutorial, [Tutorial: Get started with Azure Machine Learning and its R SDK](tutorial-1st-experiment-r-set-up.md).
+1. To use the Azure Machine Learning SDK for R, you also need Conda installed along with Python 3.5. Follow the [installation instructions](https://azure.github.io/azureml-sdk-for-r/articles/installation.html).
 
-In this part of the tutorial, you use RStudio to run **R-Tutorial.Rmd**. This article walks through the that code.
+1. Get the three tutorial files from the [Train and Deploy with caret](https://github.com/Azure/azureml-sdk-for-r/tree/master/vignettes/train-and-deploy-with-caret).  Save them into a **tutorials** directory.
 
-## Open RStudio
+2. Create an Azure Machine Learning workspace using the steps below.
 
-1. Sign in to [https://ml.azure.com/](https://ml.azure.com/).
 
-1. On the left hand side, select **Compute**.
+### Create a workspace
 
-1. Select **RStudio** in the **URI** column for the compute instance you created in [part one of this tutorial](tutorial-1st-experiment-r-set-up.md#compute-instance)..
+An Azure Machine Learning workspace is a foundational resource in the cloud that you use to experiment, train, and deploy machine learning models. It ties your Azure subscription and resource group to an easily consumed object in the SDK. If you already have an Azure Machine Learning workspace, [skip to the next section](#clone). Otherwise, create one now.
 
-   The link starts the RStudio server and opens RStudio in a new browser tab.  
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-1. Open the **R-Tutorial.Rmd** file from the **vignettes** folder you cloned in [part one of this tutorial](tutorial-1st-experiment-r-set-up.md#clone).  The tutorial will use the other files also located in the folder.
+### Download config.json file
 
-> [!Important]
-> The rest of this article contains the same content as you see in the  **R-Tutorial.Rmd** file in RStudio.  
->
-> Switch to RStudio now if you want to read along as you run the code.
+On the top of the workspace page, select **Download config.json**.  Add this file to your **tutorials** directory.
+
 
 ## Load the azureml package
+
+We recommend using RStudio to run these examples.
+
+> [!Important]
+> The rest of this article contains the same content as you see in the  **train-and-deploy-with-caret.Rmd** file.  
+> If you are experienced with RMarkdown, feel free to use the code from that file.  Or you can copy/paste the code snippets from there, or from this article into an R script or the command line.
 
 ```R
 library(azuremlsdk)
@@ -72,7 +74,7 @@ install.packages("caret")
 Now define a workspace object in R by loading your config file.
 
 ```R
-ws <- load_workspace_from_config()
+ws <- load_workspace_from_config(".")
 ```
 
 ## Load data and prepare for training 
@@ -280,10 +282,6 @@ prob
 
 Do not complete this section if you plan on running other Azure Machine Learning tutorials.
 
-### Stop the compute instance
-
-[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
-
 ### Delete everything
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
@@ -293,3 +291,4 @@ You can also keep the resource group but delete a single workspace. Display the 
 ## Next steps
 
 Now that you have completed your first Azure Machine Learning experiment in R, learn more about the [Azure Machine Learning SDK for R](https://azure.github.io/azureml-sdk-for-r/index.html).
+
