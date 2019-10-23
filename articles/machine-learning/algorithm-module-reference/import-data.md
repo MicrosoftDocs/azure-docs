@@ -17,7 +17,8 @@ This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to load data into a machine learning pipeline from existing cloud data services.  
 
-The module now features a wizard to help you choose a storage option and select from among existing subscriptions and accounts to quickly configure all options. Need to edit an existing data connection? No problem; the wizard loads all previous configuration details so that you don't have to start again from scratch.   
+The module now features a wizard to help you choose a storage option and select from among existing subscriptions and accounts to quickly configure all options. Need to edit an existing data connection? No problem; the wizard loads all previous configuration details so that you don't have to start again from scratch.
+
 After you define the data you want and connect to the source, [Import Data](./import-data.md) infers the data type of each column based on the values it contains, and loads the data into your Azure Machine Learning workspace. The output of [Import Data](./import-data.md) is a dataset that can be used with any pipeline.
 
 
