@@ -47,7 +47,7 @@ In this part of the tutorial, you use RStudio to run **R-Tutorial.Rmd**. This ar
 
    The link starts the RStudio server and opens RStudio in a new browser tab.  
 
-1. Open the **R-Tutorial.Rmd** file from the **vignettes** folder you cloned in [part one of this tutorial](tutorial-1st-experiment-r-set-up.md#clone).  The tutorial uses the other files also located in the folder.
+1. Open the **R-Tutorial.Rmd** file from the **vignettes** folder you cloned in [part one of this tutorial](tutorial-1st-experiment-r-set-up.md#clone).  The tutorial will use the other files also located in the folder.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the  **R-Tutorial.Rmd** file in RStudio.  
