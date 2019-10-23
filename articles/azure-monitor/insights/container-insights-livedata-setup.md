@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # How to setup the Live Metrics and Data (preview) feature
 
-To view Live Metrics and Data (preview) with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real time access to your data through the Kubernetes API directly in the Azure portal.  
+To view Live Metrics and Data (preview) with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real time access to your data through the Kubernetes API directly in the Azure portal.
 
 This feature supports three different methods to control access to the logs, events, and metrics:
 
