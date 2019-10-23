@@ -31,7 +31,7 @@ To register your SQL Server VM with the resource provider, you'll need the follo
 - The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 
-## First steps
+## Before you begin
 
 Before proceeding, you must first create a local copy of the script and import it as a PowerShell module. 
 
