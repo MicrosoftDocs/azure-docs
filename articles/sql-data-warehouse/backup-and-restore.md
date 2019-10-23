@@ -56,11 +56,7 @@ The following lists details for restore point retention periods:
 
 ### Snapshot retention when a data warehouse is dropped
 
-<<<<<<< HEAD
-When you drop a data warehouse, a final snapshot is created and saved for seven days. You can restore the data warehouse to the final restore point created at deletion.
-=======
-When you drop a data warehouse, SQL Data Warehouse creates a final snapshot and saves it for seven days. You can restore the data warehouse to the final restore point created at deletion. If the data warehouse is dropped in Paused state, no snapshot is taken. In that scenario, make sure to create a user-defined restore point before dropping the data warehouse.
->>>>>>> 33ab352f122ac0ead94c37358ba941aade35f88d
+When you drop a data warehouse, a final snapshot is created and saved for seven days. You can restore the data warehouse to the final restore point created at deletion. If the data warehouse is dropped while in a paused state, no snapshot is taken. In that scenario, make sure to create a user-defined restore point before dropping the data warehouse.
 
 > [!IMPORTANT]
 > If you delete a logical SQL server instance, all databases that belong to the instance are also deleted and cannot be recovered. You cannot restore a deleted server.
@@ -80,11 +76,7 @@ The total cost for your primary data warehouse and seven days of snapshot change
 
 If you are using geo-redundant storage, you receive a separate storage charge. The geo-redundant storage is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate.
 
-<<<<<<< HEAD
-See [Azure Synapse Analytics][SQL Data Warehouse Pricing] pricing for more information. You are not charged for data egress when restoring across regions.
-=======
-For more information about SQL Data Warehouse pricing, see [SQL Data Warehouse Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). You are not charged for data egress when restoring across regions.
->>>>>>> 33ab352f122ac0ead94c37358ba941aade35f88d
+For more information about SQL Data Warehouse pricing, see [Azure Synapse Analptics Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). You are not charged for data egress when restoring across regions.
 
 ## Restoring from restore points
 
