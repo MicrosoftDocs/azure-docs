@@ -62,5 +62,5 @@ After you deploy the app, you'll see the simulated solar panel data on the dashb
 To get started building an energy solution:
 * Deploy the application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring), 
 [solar panel app](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
-* Learn more about IoT Central: [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
+* Learn more about IoT Central: [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
 
