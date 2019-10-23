@@ -1,17 +1,16 @@
 ---
-title: Set RBAC roles for Azure administrative access in the portal
-titleSuffix: Azure Cognitive Search
-description: Role-based administrative control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Cognitive Search management.
-
-manager: nitinme
+title: Set RBAC roles for Azure administrative access in the portal - Azure Search
+description: Role-based administrative control (RBAC) in the Azure portal for controlling and delegating administrative tasks for Azure Search management.
 author: HeidiSteen
-ms.author: heidist
-ms.service: cognitive-search
+manager: nitinme
+services: search
+ms.service: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 04/05/2019
+ms.author: heidist
+ms.custom: seodec2018
 ---
-
-# Set RBAC roles for administrative access to Azure Cognitive Search
+# Set RBAC roles for administrative access
 
 Azure provides a [global role-based authorization model](../role-based-access-control/role-assignments-portal.md) for all services managed through the portal or Resource Manager APIs. Owner, Contributor, and Reader roles determine the level of *service administration* for Active Directory users, groups, and security principals assigned to each role. 
 
@@ -20,7 +19,7 @@ Azure provides a [global role-based authorization model](../role-based-access-co
 
 ## Management tasks by role
 
-For Azure Cognitive Search, roles are associated with permission levels that support the following management tasks:
+For Azure Search, roles are associated with permission levels that support the following management tasks:
 
 | Role | Task |
 | --- | --- |
@@ -34,5 +33,5 @@ Roles do not grant access rights to the service endpoint. Search service operati
 ## See also
 
 + [Manage using PowerShell](search-manage-powershell.md) 
-+ [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md)
++ [Performance and optimization in Azure Search](search-performance-optimization.md)
 + [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
