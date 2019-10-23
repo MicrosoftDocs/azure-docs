@@ -3,7 +3,7 @@ title: Create an Azure IoT Central application | Microsoft Docs
 description: Create a new Azure IoT Central application. Create a Trial or Pay-As-You-Go application using an application template.
 author: viv-liu
 ms.author: viviali
-ms.date: 06/07/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -52,4 +52,4 @@ To create a new Azure IoT Central application that includes preview features suc
 In this quickstart, you created an IoT Central application that uses the preview features. Here's the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Define a new device type in your Azure IoT Central application](./tutorial-define-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Add a simulated device to your IoT Central application](./quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

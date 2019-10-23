@@ -86,7 +86,7 @@ The migration process is available if you are the owner of any LUIS apps.
 
     You don't need to know the authoring resource's key to continue editing your apps in the LUIS portal. If you plan to edit your apps programmatically, you need the authoring key values. These values are displayed on the **Manage -> Azure resources** page in the LUIS portal and are also available in the Azure portal on the resource's **Keys** page.  
 
-1. Before accessing your apps, select the subscription and LUIS authoring resource to see the apps your can author.
+1. Before accessing your apps, select the subscription and LUIS authoring resource to see the apps you can author.
 
     ![Select subscription and LUIS authoring resource to see the apps your can author.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
 

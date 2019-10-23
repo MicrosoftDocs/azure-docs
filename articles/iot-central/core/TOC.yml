@@ -108,8 +108,8 @@
         href: howto-customize-ui.md  
       - name: Prepare and upload image
         href: howto-prepare-images.md
-      - name: Configure application dashboard
-        href: howto-configure-homepage.md
+      - name: Add tiles to your dashboard
+        href: howto-add-tiles-to-your-dashboard.md
       - name: Use dashboard tiles
         href: howto-use-tiles.md
       - name: Use application templates
@@ -124,8 +124,8 @@
         href: howto-create-and-manage-applications-csp.md
   - name : Personalization
     items:
-      - name: Create personal dashboards
-        href: howto-personalize-dashboard.md
+      - name: Create Azure IoT Central personal dashboards
+        href: howto-create-personal-dashboards.md
       - name: Manage your preferences
         href: howto-manage-preferences.md
       - name: Toggle live chat
