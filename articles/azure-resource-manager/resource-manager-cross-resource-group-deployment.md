@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure resources to multiple subscription and resource groups | Microsoft Docs
+title: Deploy Azure resources cross subscription & resource group
 description: Shows how to target more than one Azure subscription and resource group during deployment.
 author: tfitzmac
 ms.service: azure-resource-manager

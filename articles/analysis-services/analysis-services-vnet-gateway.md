@@ -2,7 +2,6 @@
 title: Use On-premises data gateway for Azure Virtual Network data sources | Microsoft Docs
 description: Learn how to configure a server to use a gateway for data sources on VNet.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019

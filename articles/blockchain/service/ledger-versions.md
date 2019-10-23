@@ -1,11 +1,11 @@
 ---
-title: Azure Blockchain Service supported ledger versions, patching, and upgrade
+title: Azure Blockchain Service ledger versions, patching, and upgrade
 description: Overview of the supported ledgers versions in Azure Blockchain Service, including policies regarding systems patching and system-managed and user-managed upgrades.
 services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/10/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
