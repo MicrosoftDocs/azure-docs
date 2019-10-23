@@ -175,7 +175,7 @@ When you enable Application Insights for an application by installing an instrum
 
 
 ### Azure Monitor for containers
-[Azure Monitor for Containers](../insights/container-insights-overview.md) provides a customized monitoring experience for [Azure Kubernetes Service (AKS)](/azure/aks/). It collects additional data about these resources described in the following table.
+[Azure Monitor for containers](../insights/container-insights-overview.md) provides a customized monitoring experience for [Azure Kubernetes Service (AKS)](/azure/aks/). It collects additional data about these resources described in the following table.
 
 | Destination | Description | Reference |
 |:---|:---|:---|
