@@ -51,17 +51,16 @@ void TranslateSpeechToSpeech()
 
     // Sets the synthesis output voice name.
     // Replace with the languages of your choice, from list found here: https://aka.ms/speech/tts-languages
-    config->SetVoiceName("de-DE-Hedda")
+    config->SetVoiceName("de-DE-Hedda");
 
     // Creates a translation recognizer using the default microphone audio input device.
     auto recognizer = TranslationRecognizer::FromConfig(config);
-    cout << "Say something...\n";
 
-    // Inspect the synthesized audio results
+    // Prepare to handle the synthesized audio data.
     recognizer->Synthesizing.Connect([](const TranslationSynthesisEventArgs& e)
     {
         auto size = e.Result->Audio.size();
-        cout << "AUDIO SYNTHESIZED: " << size << " byte(s)" << (size == 0 ? "(COMPLETE)" : "");
+        cout << "AUDIO SYNTHESIZED: " << size << " byte(s)" << (size == 0 ? "(COMPLETE)" : "") << std::endl;
     });
 
     // Starts translation, and returns after a single utterance is recognized. The end of a
@@ -70,13 +69,14 @@ void TranslateSpeechToSpeech()
     // Note: Since RecognizeOnceAsync() returns only a single utterance, it is suitable only for single
     // shot recognition like command or query.
     // For long-running multi-utterance recognition, use StartContinuousRecognitionAsync() instead.
+    cout << "Say something...\n";
     auto result = recognizer->RecognizeOnceAsync().get();
 
     // Checks result.
     if (result->Reason == ResultReason::TranslatedSpeech)
     {
-        cout << "RECOGNIZED '" << fromLanguage << "': " << result->Text << std::endl
-        cout << "  TRANSLATED into '" << toLanguage << "': " << result->Translations[toLanguage] << std::endl;
+        cout << "RECOGNIZED '" << fromLanguage << "': " << result->Text << std::endl;
+        cout << "TRANSLATED into '" << toLanguage << "': " << result->Translations.at(toLanguage) << std::endl;
     }
     else if (result->Reason == ResultReason::RecognizedSpeech)
     {
@@ -105,7 +105,6 @@ int wmain()
     TranslateSpeechToSpeech();
     return 0;
 }
-
 ````
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
@@ -120,13 +119,14 @@ int wmain()
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the **helloworld** application.
 
-1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to French and German). The Speech Services then sends the text back to the application for display.
+1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
 
 ````
+Say something...
+AUDIO SYNTHESIZED: 76784 byte(s)
+AUDIO SYNTHESIZED: 0 byte(s)(COMPLETE)
 RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
-SYNTHESIZED 79878 byte(s)
-SYNTHESIZED 0 byte(s) (COMPLETE)
 ````
 
 ## Next steps

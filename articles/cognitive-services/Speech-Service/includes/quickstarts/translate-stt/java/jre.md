@@ -98,7 +98,7 @@ public class Main {
             }
         }
 
-        reco.close();
+        recognizer.close();
 
         System.exit(exitCode);
     }

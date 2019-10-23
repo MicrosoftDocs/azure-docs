@@ -52,21 +52,20 @@ void TranslateSpeechToText()
     // Creates a translation recognizer using the default microphone audio input device.
     auto recognizer = TranslationRecognizer::FromConfig(config);
 
-    cout << "Say something...\n";
-
     // Starts translation, and returns after a single utterance is recognized. The end of a
     // single utterance is determined by listening for silence at the end or until a maximum of 15
     // seconds of audio is processed. The task returns the recognized text as well as the translation.
     // Note: Since RecognizeOnceAsync() returns only a single utterance, it is suitable only for single
     // shot recognition like command or query.
     // For long-running multi-utterance recognition, use StartContinuousRecognitionAsync() instead.
+    cout << "Say something...\n";
     auto result = recognizer->RecognizeOnceAsync().get();
 
     // Checks result.
     if (result->Reason == ResultReason::TranslatedSpeech)
     {
-        cout << "RECOGNIZED '" << fromLanguage << "': " << result->Text << std::endl
-        cout << "TRANSLATED into '" << toLanguage << "': " << result->Translations[toLanguage] << std::endl;
+        cout << "RECOGNIZED '" << fromLanguage << "': " << result->Text << std::endl;
+        cout << "TRANSLATED into '" << toLanguage << "': " << result->Translations.at(toLanguage) << std::endl;
     }
     else if (result->Reason == ResultReason::RecognizedSpeech)
     {
@@ -95,7 +94,6 @@ int wmain()
     TranslateSpeechToText();
     return 0;
 }
-
 ````
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
@@ -113,6 +111,7 @@ int wmain()
 1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
 
 ````
+Say something...
 RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
 ````
