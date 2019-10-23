@@ -34,4 +34,4 @@ The following table summarizes the usage of tiles in Azure IoT Central:
 | Device Set Grid | Application and device set dashboards | Device set grid displays information about the device set. Use a Device Set grid tile to show information such as name, location, and model of all the devices in the device set.|
 
 
-To learn more about how to configure dashboard in your Azure IoT Central application, see [Configure application dashboard](howto-configure-homepage.md).
+To learn more about how to configure dashboard in your Azure IoT Central application, see [Add tiles to your dashboard](./howto-add-tiles-to-your-dashboard.md).
