@@ -9,7 +9,7 @@ ms.date: 10/23/2019
 ms.author: caya
 ---
 
-## Enable Cookie based Affinity
+# Enable Cookie based affinity with an Application Gateway
 As outlined in the [Azure Application Gateway Documentation](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#http-settings), Application Gateway supports cookie based affinity enabling which it can direct subsequent traffic from a user session to the same server for processing.
 
 ### Example
