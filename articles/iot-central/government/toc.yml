@@ -22,16 +22,12 @@
       href: concepts-waterconsumptionmonitoring-architecture.md 
     - name: Water quality monitoring reference architecture
       href: concepts-waterqualitymonitoring-architecture.md  
-    - name: Store analytics architecture
-      href: store-analytics-architecture.md 
     - name: Connectivity
       href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       
 - name: How-to guides
   items:
-    - name: Connect your app with Dynamics 365 Field Services 
-      href: .how-to-configure-connected-field-services.md
-  
+
     - name: Connect devices
       items:
         - name: Prepare and connect an MXChip IoT DevKit
