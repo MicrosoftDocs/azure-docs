@@ -94,7 +94,7 @@ Probes are configured in a two-step process through the portal. The first step i
 
    ![Add Probe blade with information filled out][1]
 
-4. On the **Add health probe** blade, fill out the required information for the probe, and when complete click **OK**.
+4. On the **Add health probe** blade, fill out the required information for the probe, and when complete select **OK**.
 
    |**Setting** | **Value** | **Details**|
    |---|---|---|
