@@ -123,7 +123,7 @@ Add the method call in your `Main` method.
 
 ### Set up test image
 
-In your **Program** class, save a reference the URL of the image you want to analyze.
+In your **Program** class, save a reference to the URL of the image you want to analyze.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_analyze_url)]
 
