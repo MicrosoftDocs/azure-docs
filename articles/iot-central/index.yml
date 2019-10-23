@@ -93,14 +93,19 @@ productDirectory:
       # imageSrc should be square in ratio with no whitespace
       imageSrc: ./retail/media/index/iot-central-retail.svg
       links:
-        - url: ./retail/overview-iot-central-retail.md
-          text: Building retail solutions with Azure IoT Central
-        - url: ./retail/tutorial-condition-monitor-create-app-pnp.md
-          text: 1- Create a retail application
-        - url: ./retail/tutorial-condition-monitor-customize-dashboard-pnp.md
-          text: 2 - Customize the operator dashboard
-        - url: ./retail/tutorial-condition-monitor-export-data-visualize-insights-pnp.md
-          text: 3 - Export data and visualize insights
+          - text: 1- Create a retail application
+            url: tutorial-in-store-analytics-create-app-pnp.md
+          - text: 2 - Customize the operator dashboard
+            url: tutorial-in-store-analytics-customize-dashboard-pnp.md
+          - text: 3 - Export data and visualize insights
+            url: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+          - text: Create a smart inventory management application
+            url: tutorial-iot-central-smart-inventory-management-pnp.md
+          - text: Create a connected logistics application
+            url: tutorial-iot-central-connected-logistics-pnp.md
+          - text: Create a digital distribution center application
+            url: tutorial-iot-central-digital-distribution-center-pnp.md 
+
     # Card
     - title: Build for healthcare
       imageSrc: ./healthcare/media/index/iot-central-healthcare.svg

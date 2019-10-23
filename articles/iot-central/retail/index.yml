@@ -24,7 +24,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Retail solutions for Azure IoT Central
-            url: overview-iot-central-retail.md
+            url: overview-iot-central-retail-pnp.md
       - linkListType: tutorial
         links:
           - text: 1- Create a retail application

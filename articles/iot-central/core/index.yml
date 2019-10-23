@@ -38,9 +38,7 @@ landingContent:
           - text: Set up a device template
             url: howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Connect an IoT Plug and Play device
-            url: tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-          - text: Connect an Edge device
-            url: tutorial-define-edge-as-leaf-device-type-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+            url: tutorial-add-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: Prepare and connect an MX Chip IoT DevKit
