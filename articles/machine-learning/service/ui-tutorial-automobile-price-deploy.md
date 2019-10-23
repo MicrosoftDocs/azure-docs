@@ -50,7 +50,7 @@ In order to deploy your pipeline, you must:
 
     Your pipeline should now look like this:  
 
-   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/predictive-graph.png)
+   ![Screenshot showing the expected configuration of the pipeline after preparing it for deployment](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
 
 1. Select **Run** and use the same compute target and experiment you used in part 1.
 
@@ -104,7 +104,7 @@ You can test your real-time endpoint by navigating to the **Endpoints** page in 
 
 1. On the **Endpoints** page, select the endpoint you deployed.
 
-    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/ui-tutorial-automobile-price-deploy/web-services.png)
+    ![Screenshot showing the real-time endpoints tab with the recently created endpoint highlighted](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
 
 1. Select **Test**.
 

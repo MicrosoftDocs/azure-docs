@@ -37,7 +37,7 @@ In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you learn
 
 ## Create a new pipeline
 
-Azure Machine Learning pipelines organize multiple, dependent data processing steps into a single resource. Pipelines help you organize, manage, and reuse complex machine learning workflows across projects and users. To create an Azure Machine Learning pipeline, you need an Azure Machine Learning workspace. In this section, you learn how to create both these resources.
+Azure Machine Learning pipelines organize multiple, dependent machine learning and data processing steps into a single resource. Pipelines help you organize, manage, and reuse complex machine learning workflows across projects and users. To create an Azure Machine Learning pipeline, you need an Azure Machine Learning workspace. In this section, you learn how to create both these resources.
 
 ### Create a new workspace
 
@@ -128,7 +128,7 @@ When you train a model, you have to do something about the data that's missing. 
 Your dataset still has missing values after removing the **normalized-losses** column. You can remove the remaining missing data using the **Clean Missing Data** module.
 
 > [!TIP]
-> Cleaning the missing values from input data is a prerequisite for using most of the modules in the visual interface.
+> Cleaning the missing values from input data is a prerequisite for using most of the modules in the designer.
 
 1. Type **Clean** in the Search box to find the **Clean Missing Data** module.
 
