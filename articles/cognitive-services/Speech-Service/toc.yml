@@ -47,15 +47,15 @@
       items:
       - name: C++
         href: https://aka.ms/csspeech/cppref
-      - name: C#/
+      - name: C#
         href: https://aka.ms/csspeech/csharpref
-      - name: Java/
+      - name: Java
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript/
+      - name: JavaScript
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C/
+      - name: Objective-C
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python/
+      - name: Python
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
@@ -90,17 +90,17 @@
     items:
     - name: Speech SDK
       items:
-      - name: C++/
+      - name: C++
         href: https://aka.ms/csspeech/cppref
-      - name: C#/
+      - name: C#
         href: https://aka.ms/csspeech/csharpref
-      - name: Java/
+      - name: Java
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript/
+      - name: JavaScript
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C/
+      - name: Objective-C
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python/
+      - name: Python
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
@@ -125,17 +125,17 @@
     items:
     - name: Speech SDK
       items:
-      - name: C++/
+      - name: C++
         href: https://aka.ms/csspeech/cppref
-      - name: C#/
+      - name: C#
         href: https://aka.ms/csspeech/csharpref
-      - name: Java/
+      - name: Java
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript/
+      - name: JavaScript
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C/
+      - name: Objective-C
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python/
+      - name: Python
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
@@ -166,17 +166,17 @@
     items:
     - name: Speech SDK
       items:
-      - name: C++/
+      - name: C++
         href: https://aka.ms/csspeech/cppref
-      - name: C#/
+      - name: C#
         href: https://aka.ms/csspeech/csharpref
-      - name: Java/
+      - name: Java
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript/
+      - name: JavaScript
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C/
+      - name: Objective-C
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python/
+      - name: Python
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
@@ -195,17 +195,17 @@
     items:
     - name: Speech SDK
       items:
-      - name: C++/
+      - name: C++
         href: https://aka.ms/csspeech/cppref
-      - name: C#/
+      - name: C#
         href: https://aka.ms/csspeech/csharpref
-      - name: Java/
+      - name: Java
         href: https://aka.ms/csspeech/javaref
-      - name: JavaScript/
+      - name: JavaScript
         href: https://aka.ms/csspeech/javascriptref
-      - name: Objective-C/
+      - name: Objective-C
         href: https://aka.ms/csspeech/objectivecref
-      - name: Python/
+      - name: Python
         href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
