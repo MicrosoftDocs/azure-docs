@@ -36,7 +36,7 @@ Here's what this tutorial covers:
 The sample data set that we use to train the model and test the model is available as a .zip file from [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract the .zip file and open a receipt PDF file under the **/Train** folder. Notice how it has a table with the invoice number, invoice date, etc. 
 
 > [!div class="mx-imgBorder"]
-> ![Create blob container](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
+> ![Sample receipt](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
 
 In this tutorial, we learn how to extract the information from such tables into a JSON format using a workflow created using Azure Logic Apps and Form Recognizer.
 
@@ -123,14 +123,14 @@ Before you can use the Form Recognizer service to analyze receipts, you need to 
 1. In the Form Recognizer dialog box, provide a name for the connection, and enter the endpoint URL and the key that you retrieved for the Form Recognizer resource.
 
     > [!div class="mx-imgBorder"]
-    > ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-create-connection.png)
+    > ![Connection name for Form Recognizer](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-create-connection.png)
 
     Click **Create**.
 
 1. In the **Train Model** dialog box, for **Source**, enter the URL for the container where you uploaded the sample data.
 
     > [!div class="mx-imgBorder"]
-    > ![Configure storage container](media/tutorial-form-recognizer-with-logic-apps/source-for-train-model.png)
+    > ![Storage container for sample receipts](media/tutorial-form-recognizer-with-logic-apps/source-for-train-model.png)
 
 1. Click **Save** from the toolbar at the top.
 
@@ -141,19 +141,19 @@ In this section, you add the **Analyze Form** operation to the workflow. This op
 1. Select **New step**, and under **Choose an action**, search for **Form Recognizer**. From the results that show up, select **Form Recognizer**, and then under the actions that are available for Form Recognizer, select **Analyze Form**.
 
     > [!div class="mx-imgBorder"]
-    > ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-analyze-model.png)
+    > ![Analyze a Form Recognizer Model](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-analyze-model.png)
 
 1. In the **Analyze Form** dialog box, do the following:
 
     1. Click the **Model ID** text box, and in the dialog box that opens up, under **Dynamic Content** tab, select **modelId**. By doing this you provide the flow application with the model ID of the model you trained in the last section.
 
         > [!div class="mx-imgBorder"]
-        > ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png)
+        > ![Use the ModelID for Form Recognizer](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png)
 
     2. Click the **Document** text box, and in the dialog box that opens up, under **Dynamic Content** tab, select **Attachments Content**. By doing this you configure the flow to use the sample receipt file that is attached in the email that is sent to trigger the workflow.
 
         > [!div class="mx-imgBorder"]
-        > ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-logic-apps/analyze-form-input-data.png)
+        > ![Use email attachment to analyze receipts](media/tutorial-form-recognizer-with-logic-apps/analyze-form-input-data.png)
 
 1. Click **Save** from the toolbar at the top.
 
@@ -162,12 +162,12 @@ In this section, you add the **Analyze Form** operation to the workflow. This op
 In this section, we configure the logic app to extract the information from the table within the receipts.
 
 1. Select **Add an action**, and under **Choose an action**, search for **Compose** and under the actions that are available, select **Compose** again.
-    ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-logic-apps/extract-table.png)
+    ![Extract table information from the receipt](media/tutorial-form-recognizer-with-logic-apps/extract-table.png)
 
 1. In the **Compose** dialog box, click the **Inputs** text box, and from the dialog box that pops up, select **tables**.
 
     > [!div class="mx-imgBorder"]
-    > ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-logic-apps/select-tables.png)
+    > ![Extract table information from the receipt](media/tutorial-form-recognizer-with-logic-apps/select-tables.png)
 
 1. Click **Save**.
 
@@ -180,12 +180,12 @@ To test the logic app, use the sample receipts in the **/Test** folder of the sa
 1. As soon as the e-mail is delivered to the folder, the Logic Apps Designer shows a screen with the progress of each stage. In the screenshot below, you see that an e-mail with attachment is received and the workflow is in progress.
 
     > [!div class="mx-imgBorder"]
-    > ![Enter Flow name](media/tutorial-form-recognizer-with-logic-apps/logic-apps-email-arrived-progress.png)
+    > ![Start the workflow by sending an email](media/tutorial-form-recognizer-with-logic-apps/logic-apps-email-arrived-progress.png)
 
 1. After all the stages of the workflow have finished running, the Logic Apps Designer shows a green checkbox against every stage. In the designer window, select **For each 2**, and then select **Compose**.
 
     > [!div class="mx-imgBorder"]
-    > ![Enter Flow name](media/tutorial-form-recognizer-with-logic-apps/logic-apps-verify-output.png)
+    > ![Workflow completed](media/tutorial-form-recognizer-with-logic-apps/logic-apps-verify-output.png)
 
     From the **OUTPUTS** box, copy the output and paste it to any text editor.
 
