@@ -49,6 +49,13 @@ Web applications are increasingly targets of malicious attacks that exploit comm
 
 For more information, see [Web application firewall (WAF) in Application Gateway](https://docs.microsoft.com/azure/application-gateway/waf-overview).
 
+## Ingress Controller
+Application Gateway Ingress Controller (AGIC) allows you to use Application Gateway as the ingress for an [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/en-us/services/kubernetes-service/) cluster. 
+
+The ingress controller runs as a pod within the AKS cluster and consumes [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/) and converts them to an Application Gateway configuration which allows the gateway to load-balance traffic to the Kuberenetes pods. 
+
+For more information, see [Application Gateway Ingress Controller (AGIC)](https://docs.microsoft.com/azure/application-gateway/application-gateway-ingress-controller-overview).
+
 ## URL-based routing
 
 URL Path Based Routing allows you to route traffic to back-end server pools based on URL Paths of the request. 

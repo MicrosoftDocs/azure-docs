@@ -26,7 +26,7 @@ AGIC is configured via the Kubernetes [Ingress resource](http://kubernetes.io/do
 
 ## Next Steps
 
-- [**Greenfield Deployment**](docs/setup/install-new.md): Instructions on installing AGIC, AKS and App Gateway on
+- [**Greenfield Deployment**](https://docs.microsoft.com/azure/application-gateway/application-gateway-ingress-controller-install-new): Instructions on installing AGIC, AKS and App Gateway on
 blank-slate infrastructure.
-- [**Brownfield Deployment**](docs/setup/install-existing.md): Install AGIC on an existing AKS and Application Gateway.
+- [**Brownfield Deployment**](https://docs.microsoft.com/azure/application-gateway/application-gateway-ingress-controller-install-existing): Install AGIC on an existing AKS and Application Gateway.
 

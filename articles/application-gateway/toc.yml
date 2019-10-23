@@ -19,6 +19,12 @@
   items:
   - name: Enable web application firewall
     href: application-gateway-web-application-firewall-portal.md
+  - name: Creating an ingress controller
+    items:
+    - name: Using an existing Application Gateway
+      href: application-gateway-ingress-controller-install-existing.md
+    - name: Using a new Application Gateway 
+      href: application-gateway-ingress-controller-install-new.md
   - name: Secure with SSL
     href: create-ssl-portal.md
   - name: Host multiple sites
@@ -78,7 +84,9 @@
     - name: Custom rules
       href: custom-waf-rules-overview.md
   - name: Ingress Controller 
-    href: application-gateway-ingress-controller-overview.md
+    items:
+      - name: Ingress controller overview
+        href: application-gateway-ingress-controller-overview.md
   - name: Health monitoring
     items:
     - name: Health probe
