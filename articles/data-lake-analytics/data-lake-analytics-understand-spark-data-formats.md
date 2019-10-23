@@ -6,7 +6,7 @@ ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.custom: understand-apache-spark-data
+ms.custom: understand-apache-spark-data-formats
 ms.date: 01/31/2019
 ---
 

@@ -6,7 +6,7 @@ ms.author: guyhay
 ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: conceptual
-ms.custom: Understand-apache-spark-code
+ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
 ---
 
