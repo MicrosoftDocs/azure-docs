@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 10/23/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create an Azure Active Directory Domain Services instance so that I can synchronize identity information with my Azure Active Directory tenant and provide Domain Services connectivity to virtual machines and applications in Azure.
@@ -96,7 +96,7 @@ Complete the fields in the *Basics* window of the Azure portal to create an Azur
 To quickly create an Azure AD DS managed domain, you can select **Review + create** to accept additional default configuration options. The following defaults are configured when you choose this create option:
 
 * Creates a virtual network named *aadds-vnet* that uses the IP address range of *10.0.1.0/24*.
-* Creates subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
+* Creates a subnet named *aadds-subnet* using the IP address range of *10.0.1.0/24*.
 * Synchronizes *All* users from Azure AD into the Azure AD DS managed domain.
 
 1. Select **Review + create** to accept these default configuration options.
@@ -110,6 +110,7 @@ On the **Summary** page of the wizard, review the configuration settings for the
 
     ![Notification in the Azure portal of the deployment in progress](./media/tutorial-create-instance/deployment-in-progress.png)
 
+1. The page will load with updates on the deployment process, including the creation of new resources in your directory.
 1. Select your resource group, such as *myResourceGroup*, then choose your Azure AD DS instance from the list of Azure resources, such as *contoso.com*. The **Overview** tab shows that the managed domain is currently *Deploying*. You can't configure the managed domain until it's fully provisioned.
 
     ![Domain Services status during the provisioning state](./media/tutorial-create-instance/provisioning-in-progress.png)
@@ -118,7 +119,7 @@ On the **Summary** page of the wizard, review the configuration settings for the
 
     ![Domain Services status once successfully provisioned](./media/tutorial-create-instance/successfully-provisioned.png)
 
-During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in your directory. These Enterprise Applications are needed to service your managed domain. It's imperative that these applications are not deleted at any time.
+We provision Azure AD Domain Services on the Azure Active Directory tenant and the Azure AD Domain Services resource for the service is created within the associated Azure subscription. During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in your Azure Active directory instance where you have enabled the Azure AD domain services. These Enterprise Applications are needed to service your managed domain.  It's imperative that these applications are not deleted at any time.
 
 ## Update DNS settings for the Azure virtual network
 

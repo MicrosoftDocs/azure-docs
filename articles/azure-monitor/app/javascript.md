@@ -1,18 +1,15 @@
 ---
 title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b710d09-6ab4-4004-b26a-4fa840039500
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/20/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 09/20/2019
+
 ---
+
 # Application Insights for web pages
 
 Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
