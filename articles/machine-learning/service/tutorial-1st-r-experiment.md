@@ -37,7 +37,7 @@ If you don’t have an Azure subscription, create a free account before you begi
     + Install `azuremlsdk`
     + Install the Azure Machine Learning SDK for Python
 
-1. Get the three tutorial files from [Train and Deploy with caret](https://github.com/Azure/azureml-sdk-for-r/tree/master/vignettes/train-and-deploy-with-caret).  Save them into a **tutorials** directory.
+1. Get the three tutorial files from [GitHub](https://github.com/Azure/azureml-sdk-for-r/tree/master/vignettes/train-and-deploy-with-caret).  Save them into a **tutorials** directory.
 
 2. Create an Azure Machine Learning workspace using the steps below.
 
@@ -60,7 +60,7 @@ You are now ready to run the tutorial.
 
 ## <a name="load"></a> Load the azureml package
 
-We recommend using RStudio to run these examples.
+We recommend using RStudio to run these examples. In RStudio, choose File > New Project > Existing Directory and select the **tutorials** directory you created above.
 
 > [!Important]
 > The rest of this article contains the same content as you see in the  **train-and-deploy-with-caret.Rmd** file.  
