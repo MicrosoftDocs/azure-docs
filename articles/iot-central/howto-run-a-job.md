@@ -14,6 +14,8 @@ manager: peterpr
 
 You can use Microsoft Azure IoT Central to manage your connected devices at scale using jobs. Jobs let you do bulk updates to device properties, settings, and commands. This article walks you through how to get started using jobs in your own application.
 
+> Note: Jobs for Azure IoT Edge devices is not supported. Support for Azure IoT Edge devices is coming soon.
+
 ## Create and run a job
 
 This section shows you how to create and run a job. It shows you how to increase the fan speed for multiple refrigerated vending machines.
