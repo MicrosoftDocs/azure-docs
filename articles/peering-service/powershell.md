@@ -1,9 +1,9 @@
 ---
 title: Register Azure Peering Service (Preview) - Azure PowerShell
 description: Learn about on how to register Azure Peering Service using Azure PowerShell
-services: Peering-Service
+services: peering-service
 author: ypitsch
-ms.service: Peering-Service
+ms.service: peering-service
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

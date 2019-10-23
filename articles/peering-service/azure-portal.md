@@ -1,11 +1,11 @@
 ---
 title: Register Azure Peering Service (Preview) - Azure portal
 description: Learn on how to register Azure Peering Service using Azure portal
-services: Peering-Service
+services: peering-service
 author: ypitsch
-ms.service: Peering-Service
+ms.service: peering-service
 ms.devlang: na
-ms.topic: Article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
@@ -60,9 +60,9 @@ az feature register --namespace Microsoft.Peering--name AllowPeeringService
 
 From a browser, navigate to the Azure portal and sign in with your Azure account.
 
-## Register the Peering Service connection
+## Register Peering Service connection
 
-1. To register the *Peering Service* connection, click **Create a resource > Peering Service** as depicted below:
+1. To register *Peering Service* connection, click **Create a resource > Peering Service** as depicted below:
 
 > [!div class="mx-imgBorder"]
 > ![Register Peering Service](./media/peering-service-portal/peering-servicecreate.png)
@@ -72,7 +72,7 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 3.	Choose the **Subscription** and the **Resource group** associated with the subscription as shown in the screen below:
 
 > [!div class="mx-imgBorder"]
-> ![Register Peering Service](./media/peering-service-portal/peering-servicebasics.png)
+> ![Register Peering Service basic tab](./media/peering-service-portal/peering-servicebasics.png)
 
 4.	Next, provide a **Name** to which the *Peering Service* instance should be registered.
  
@@ -87,12 +87,12 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 3.	Clicking on the **Create new prefix** at the bottom of the **Prefixes** section, text boxes appear. Now, provide **NAME** of the prefix resource and the **PREFIXES** associated with the Service Provider.
 
 > [!div class="mx-imgBorder"]
-> ![Register Peering Service](./media/peering-service-portal/peering-serviceconfiguration.png)
+> ![Register Peering Service configuration tab](./media/peering-service-portal/peering-serviceconfiguration.png)
 
 5.	Now, click on the **Review + create** button at the bottom right of the page. You're taken to the Review + create page and Azure validates your configuration.
 
 > [!div class="mx-imgBorder"]
-> ![Register Peering Service](./media/peering-service-portal/peering-service-validate.png).
+> ![Register Peering Service validation](./media/peering-service-portal/peering-service-validate.png).
 
 6. When you see the Validation passed message, select **Create**.
 

@@ -1,11 +1,11 @@
 ---
 title: Azure Peering Service (Preview) Overview
 description: Learn about Azure Peering Service Overview
-services: Peering-Service
+services: peering-service
 author: ypitsch
-ms.service: Peering-Service
+ms.service: peering-service
 ms.devlang: na
-ms.topic: Article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
@@ -18,7 +18,10 @@ Peering Service is a networking service that aims at enhancing customer connecti
 
 By selecting “*Peering Service*”, an end user is selecting a partner Service Provider [SP] in a given region, which is well connected to Microsoft through highly reliable interconnections. These connections are optimized for high reliability and minimal latency from  cloud services to the end user location.
 
-![first mile ](./media/peering-service-about/peering-service-what.png).
+<figure>
+<img src="./media/peering-service-about/peering-service-what.png" alt="Distributed connectivity to Microsoft Cloud"text-align: center>
+<figcaption><i>Figure 1 - Distributed connectivity to Microsoft Cloud</i></figcaption>
+</figure>
 
 Customers can also opt for *Peering Service telemetry* such as user latency measures to Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering the Peering Service in the Azure portal.  
 
@@ -53,18 +56,10 @@ Office 365, Dynamics 365, and any other Microsoft SaaS services are hosted in mu
 
 Microsoft and partner SPs ensure that traffic for the prefixes registered with Peering Service connection enters and exits the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*. Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*.
 
-![first mile ](./media/peering-service-about/peering-service-background-final.png).
-
-    <li>Distributed connectivity to Microsoft Cloud</li>
-
-<div class=figure>
-<p><img src="/media/peering-service-about/peering-service-background-final.png"
-   width="136" height="200"
-   alt="Distributed connectivity to Microsoft Cloud">
-<p>Scale model of the
-    Eiffel tower in
-    Parc Mini-France
-</div>
+<figure>
+<img src="./media/peering-service-about/peering-service-background-final.png" alt="Microsoft network and public connectivity"text-align: center>
+<figcaption><i>Figure 2 - Microsoft Network and Public connectivity</i></figcaption>
+</figure>
 
 > [!Note]
 > For more information about the Microsoft Global Network, refer [here](https://docs.microsoft.com/azure/networking/microsoft-global-network).
@@ -83,25 +78,34 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 ### Robust, Reliable Peering
 
 - **Local Redundancy**
-   - Microsoft and SP interconnect across multiple Microsoft Edge PoP locations to deliver *Peering Service*. In each location, interconnection must support failover across two routers.
-   - Each peering location is provisioned with redundant and diverse peering links.
+
+   Microsoft and SP interconnect across multiple Microsoft Edge PoP locations to deliver *Peering Service*. In each location, interconnection must support failover across two routers.
+
+   Each peering location is provisioned with redundant and diverse peering links.
 
 - **Geo Redundancy**
-   - Microsoft interconnects with Service Provider at multiple metro locations so that if one of the edge nodes has degraded performance, the traffic routes to/from Microsoft via alternate sites. Microsoft routes traffic in its global network using SDN-based routing policies for optimal performance.
 
-   - Ensures to use the shortest routing path by always choosing the nearest Microsoft Edge POP to the end user and ensures the customer is one network hop(AS hops) away from Microsoft​.  
- 
-![first mile ](./media/peering-service-about/peering-service-geo-shortest.png)
+   Microsoft interconnects with Service Provider at multiple metro locations so that if one of the edge nodes has degraded performance, the traffic routes to/from Microsoft via alternate sites. Microsoft routes traffic in its global network using SDN-based routing policies for optimal performance.
+
+   Ensures to use the shortest routing path by always choosing the nearest Microsoft Edge POP to the end user and ensures the customer is one network hop(AS hops) away from Microsoft​.  
+
+<figure>
+<img src="./media/peering-service-about/peering-service-geo-shortest.png" alt="Geo Redundancy"text-align: center>
+<figcaption><i>Figure 3 - Geo Redundancy</i></figcaption>
+</figure>
 
 ### Optimal Routing
 
 -  **Cold-potato**
 
-   -	Software defined cold-potato routing technique offers control over the networking traffic by ensuring the traffic stays on the Microsoft network as much as possible during the packet journey.
+   Software defined cold-potato routing technique offers control over the networking traffic by ensuring the traffic stays on the Microsoft network as much as possible during the packet journey.
 
-   -	When traffic egresses, the chances of exiting the Microsoft network close to the service (*Hot-potato*) are possible. Cold-potato technique prevents the packets from the immediate  exit  and ensures the best routing path is chosen to reach the destination.
- 
-![first mile ](./media/peering-service-about/peering-service-cold-potato.png)
+   When traffic egresses, the chances of exiting the Microsoft network close to the service (*Hot-potato*) are possible. Cold-potato technique prevents the packets from the immediate  exit  and ensures the best routing path is chosen to reach the destination.
+
+<figure>
+<img src="./media/peering-service-about/peering-service-cold-potato.png" alt="Cold-potato routing">
+<figcaption><i>Figure 4 - Cold-potato routing</i></figcaption>
+</figure>
 
 ### Monitoring platform
 
@@ -109,27 +113,30 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 
 -  **Internet route anomalies detection**
           
-     - A service to detect and alert for any route anomaly events including route hijacks to the customer prefixes.
+   A service to detect and alert for any route anomaly events including route hijacks to the customer prefixes.
 
 -  **End user latency**
 
-      - Monitors the routing path for those prefixes registered with Peering Service and captures as event log for any failover events.
+   Monitors the routing path for those prefixes registered with Peering Service and captures as event log for any failover events.
 
-      - Measures the networking performance by validating the round-trip time taken from the client to reach the Microsoft Edge PoP. Customer can view latency reports for different geographic locations.
+   Measures the networking performance by validating the round-trip time taken from the client to reach the Microsoft Edge PoP. Customer can view latency reports for different geographic locations.
 
-      - View latency reports for different geographic locations.
+   View latency reports for different geographic locations.
 
-      - Captures failover events and notifies the customer.
+   Captures failover events and notifies the customer.
 
-![latency reporting](./media/peering-service-about/peering-service-latency-report.png)
+<figure>
+<img src="media/peering-service-about/peering-service-latency-report.png" alt="Monitoring platform for Peering Service"text-align: center>
+<figcaption><i>Figure 4 - Monitoring platform for Peering Service</i></figcaption>
+</figure>
  
 ### Traffic protection
 
-- Ensures routing happens only via a preferred path that is defined when registering the customer with peering Service.
+Ensures routing happens only via a preferred path that is defined when registering the customer with peering Service.
 
-- Microsoft guarantees to route the traffic via preferred path even if there is any malicious activity detected.
+Microsoft guarantees to route the traffic via preferred path even if there is any malicious activity detected.
 
-- Route anomalies are reported in the Azure portal, if any.
+Route anomalies are reported in the Azure portal, if any.
 
 ## Next steps
 

@@ -1,11 +1,11 @@
 ---
 title: Azure Peering Service (Preview) connection 
 description: Learn about Microsoft Azure Peering Service connection
-services: Peering-Service
+services: peering-service
 author: ypitsch
-ms.service: Peering-Service
+ms.service: peering-service
 ms.devlang: na
-ms.topic: Article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
@@ -35,7 +35,10 @@ Customer can establish a single connection or multiple connections as per the re
 
 ## How to register the connection?
 
-![first mile ](./media/peering-service-about/peering-service-geo-shortest.png)
+<figure>
+<img src="./media/peering-service-about/peering-service-geo-shortest.png" alt="Geo Redundancy"text-align: center>
+<figcaption><i>Figure 1 - Geo Redundant connections</i></figcaption>
+</figure>
 
 **Scenario** - Let’s say the enterprise X is spread across different geographic locations as shown in the screen above. Here, customer is required to provide a logical name, Service Provider(SP) name, customer’s physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection. This process must be repeated to register *Peering Service* for separate geo-redundant connections.
 

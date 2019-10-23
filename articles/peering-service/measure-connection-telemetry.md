@@ -1,11 +1,11 @@
 ---
 title: Measure Azure Peering Service (Preview) connection telemetry
 description: Learn about on how to measure Azure Peering Service connection telemetry
-services: Peering-Service
+services: peering-service
 author: ypitsch
-ms.service: Peering-Service
+ms.service: peering-service
 ms.devlang: na
-ms.topic: Article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
 ms.date: 11/04/2019
