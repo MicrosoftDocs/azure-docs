@@ -151,7 +151,7 @@ The following table summarizes the file fields to fill in.
 
 ### Add operating systems
 
-Assessment recognizes specific operating system names. Any operating system name you specify must match one of the options in the [supported names](supported-operating-system-names) list.
+Assessment recognizes specific operating system names. Any operating system name you specify must match one of the options in the [supported names](#supported-operating-system-names) list.
 
 
 ### Add multiple disks
