@@ -28,7 +28,7 @@ The App template consists of:
 * Pre-configured rules and jobs
 * Branding using white labeling 
 
-Get started with the [Water Quality Monitoring application tutorial](tba) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+Get started with the [Water Quality Monitoring application tutorial](./tutorial-water-quality-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
 
 
 # What is Water consumption monitoring application template? 
@@ -62,13 +62,13 @@ The Connected Waste Management app template consist of pre-configured:
 * Pre-configured rules and jobs
 * Branding using white labeling 
 
-Get started with the [Connected Waste Management application tutorial](tba) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+Get started with the [Connected Waste Management application tutorial](./tutorial-connected-waste-management.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
 
 
 ## Next steps
 
-* Try any of the Government application templates in IoT Central for free [create app](tba)
-* Learn about Water Quality Monitoring concepts  [concepts section](tba).
-* Learn about Water Consumption Monitoring [concepts](tba).  
-* Learn about Connected Waste Management [concepts](tba).  
+* Try any of the Government application templates in IoT Central for free [create app](https://apps.azureiotcentral.com/)
+* Learn about Water Quality Monitoring concepts  [concepts section](./concepts-waterqualitymonitoring-architecture.md)
+* Learn about Water Consumption Monitoring [concepts](./concepts-waterconsumptionmonitoring-architecture.md).  
+* Learn about Connected Waste Management [concepts](./concepts-connectedwastemanagement-architecture.md).  
 * Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
