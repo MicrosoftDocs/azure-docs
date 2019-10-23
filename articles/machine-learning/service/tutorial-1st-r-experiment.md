@@ -32,9 +32,12 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-1. To use the Azure Machine Learning SDK for R, you also need Conda installed along with Python 3.5. Follow the [installation instructions](https://azure.github.io/azureml-sdk-for-r/articles/installation.html).
+1. Follow the [installation instructions](https://azure.github.io/azureml-sdk-for-r/articles/installation.html) to:
+    + Install Anaconda
+    + Install `azuremlsdk`
+    + Install the Azure Machine Learning SDK for Python
 
-1. Get the three tutorial files from the [Train and Deploy with caret](https://github.com/Azure/azureml-sdk-for-r/tree/master/vignettes/train-and-deploy-with-caret).  Save them into a **tutorials** directory.
+1. Get the three tutorial files from [Train and Deploy with caret](https://github.com/Azure/azureml-sdk-for-r/tree/master/vignettes/train-and-deploy-with-caret).  Save them into a **tutorials** directory.
 
 2. Create an Azure Machine Learning workspace using the steps below.
 
