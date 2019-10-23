@@ -21,7 +21,7 @@ The following is a list of examples created and maintained by Microsoft for use 
 | [Develop Java-based topologies for Apache Storm on HDInsight][5797064f] |Maven |Java |
 | [Develop C# topologies for Apache Storm on HDInsight using Visual Studio][16fce2d1] |HDInsight Tools for Visual Studio |C#, Java |
 | [Process events from Azure Event Hubs with Apache Storm on HDInsight (C#)][844d1d81] |Event Hubs |C# and Java |
-| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/) |Event Hubs |Java |
+| [Process events from Azure Event Hubs with Storm on HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub) |Event Hubs |Java |
 | [Process vehicle sensor data from Event Hubs using Apache Storm on HDInsight][246ee964] |Event Hubs, Cosmos DB, Azure Storage Blob (WASB) |C#, Java |
 | [Extract, Transform, and Load (ETL) from Azure Event Hubs to Apache HBase, using Apache Storm on HDInsight][b4b68194] |Event Hubs, HBase |C# |
 | [Template C# Storm topology project for working with Azure services from Apache Storm on HDInsight][ce0c02a2] |Event Hubs, Cosmos DB, SQL Database, HBase, SignalR |C#, Java |

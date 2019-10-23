@@ -414,7 +414,7 @@ The following template sample illustrates how to:
           "type": "dataSources",
           "name": "[concat(parameters('workspaceName'), parameters('customLogName'))]",
           "dependsOn": [
-            "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'))]"
+            "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
           ],
           "kind": "CustomLog",
           "properties": {
