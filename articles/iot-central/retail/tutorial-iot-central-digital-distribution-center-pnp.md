@@ -10,7 +10,7 @@ ms.date: 10/20/2019
 
 # Tutorial: Deploy and walkthrough a digital distribution center application template
 
-This tutorial shows you how to get started by deploying an IoT Central digital distribution center application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
+This tutorial shows you how to get started by deploying an IoT Central **digital distribution center** application template. You will learn how to deploy the template, what is included out of the box, and what you might want to do next.
 
 ## Details
 
@@ -43,7 +43,9 @@ You can create application using following steps
 **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
 **Create**: Select create at the bottom of the page to deploy your application.
 
-## Walk through the application dashboard 
+## Walk through the application 
+
+## Dashboard 
 
 After successfully deploying the app template, your default dashboard is a distribution center operator focused portal. Northwind Trader is a fictitious distribution center solution provider managing conveyor systems. 
 
