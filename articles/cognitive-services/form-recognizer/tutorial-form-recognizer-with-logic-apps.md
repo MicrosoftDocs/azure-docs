@@ -33,12 +33,12 @@ Here's what this tutorial covers:
 
 ## Understand the receipts to be analyzed
 
-The sample data set that we used to train the model and test the model is available as a .zip file from [Github](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract the .zip file and open a receipt PDF file under the **/Train** folder. Notice how it has a table with the invoice number, invoice date, etc. 
+The sample data set that we use to train the model and test the model is available as a .zip file from [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract the .zip file and open a receipt PDF file under the **/Train** folder. Notice how it has a table with the invoice number, invoice date, etc. 
 
 > [!div class="mx-imgBorder"]
 > ![Create blob container](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
 
-In this tutorial, we learn how to extract the information from such tables into a JSON format.
+In this tutorial, we learn how to extract the information from such tables into a JSON format using a workflow created using Azure Logic Apps and Form Recognizer.
 
 ## Request access for Form Recognizer
 
@@ -56,7 +56,7 @@ You use this container to upload sample data that is required to train the model
 
 ## Upload sample data to the Azure blob container
 
-Download the sample data available at [Github](https://go.microsoft.com/fwlink/?linkid=2090451). Extract the data to a local folder and upload the contents of the **/Train** folder to the **formrecocontainer** that you created earlier. Follow the instructions at [Upload a block blob](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) on how to upload data to a container.
+Download the sample data available at [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Extract the data to a local folder and upload the contents of the **/Train** folder to the **formrecocontainer** that you created earlier. Follow the instructions at [Upload a block blob](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) on how to upload data to a container.
 
 Copy the URL to the container. You will need this later in this tutorial. If you created the storage account and the container with the same names as listed in this tutorial, the URL will be *https://formrecostorage.blob.core.windows.net/formrecocontainer/*.
 
@@ -66,8 +66,8 @@ Copy the URL to the container. You will need this later in this tutorial. If you
 
 ## Create your logic app
 
-You can use Azure Logic Apps to automate and orchestrate tasks and workflows. In this tutorial, you create a logic app that is triggered by receiving a receipt in an e-mail that you want to analyze. In this flow, you perform the following tasks:
-* Configure the logic app to trigger automatically when you receive an e-mail with an attached receipt.
+You can use Azure Logic Apps to automate and orchestrate tasks and workflows. In this tutorial, you create a logic app that is triggered by receiving a receipt that you want to analyze as an e-mail attachment. In this workflow, you perform the following tasks:
+* Configure the logic app to trigger automatically when you receive an e-mail with a receipt attached.
 * Configure the logic app to use a Form Recognizer **Train Model** operation to train a model using the sample data that you uploaded to the Azure blob storage.
 * Configure the logic app to use a Form Recognizer **Analyze Form** operation to use the model that you already trained. This component will analyze the receipt that you provide to this flow based on the model that it trained earlier.
 
@@ -79,7 +79,7 @@ You can use Azure Logic Apps to automate and orchestrate tasks and workflows. In
    |----------|-------|-------------|
    | **Name** | <*logic-app-name*> | Your logic app name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`(`, `)`), and periods (`.`). This example uses "My-First-Logic-App". |
    | **Subscription** | <*Azure-subscription-name*> | Your Azure subscription name |
-   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](../azure-resource-manager/resource-group-overview.md) used to organize related resources. This example uses "My-First-LA-RG". |
+   | **Resource group** | <*Azure-resource-group-name*> | The name for the [Azure resource group](./../../azure-resource-manager/resource-group-overview.md) used to organize related resources. This example uses "My-First-LA-RG". |
    | **Location** | <*Azure-region*> | The region where to store your logic app information. This example uses "West US". |
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. |
    ||||
@@ -101,7 +101,7 @@ In this tutorial, you trigger the workflow when an e-mail is received with an at
 
 1. In the **Office 365 Outlook** box, click **Sign in**, and enter the details to log into an Office 365 account.
 
-1. In the next dialog box, do the following:
+1. In the next dialog box, perform the following steps.
     1. Select the folder that should be monitored for any new e-mail.
     1. For **Has attachments** select **Yes**. This ensures that only the e-mails with attachments trigger the workflow.
     1. For **Include attachments** select **Yes**. This ensures that the contents of the attachment are used in downstream processing.
@@ -136,7 +136,7 @@ Before you can use the Form Recognizer service to analyze receipts, you need to 
 
 ### Configure the flow to use the Form Recognizer Analyze Form operation
 
-In this section, you add the **Analyze Form** operation to the workflow. This operation uses the already trained model to anlayze a new receipt that is provided to flow.
+In this section, you add the **Analyze Form** operation to the workflow. This operation uses the already trained model to analyze a new receipt that is provided to flow.
 
 1. Select **New step**, and under **Choose an action**, search for **Form Recognizer**. From the results that show up, select **Form Recognizer**, and then under the actions that are available for Form Recognizer, select **Analyze Form**.
 
@@ -173,7 +173,7 @@ In this section, we configure the flow to extract the information from the table
 
 ## Test your Flow
 
-To test the flow, use the sample receipts in the **/Test** folder of the sample data set that you downloaded from [Github](https://go.microsoft.com/fwlink/?linkid=2090451). Perform the following steps:
+To test the flow, use the sample receipts in the **/Test** folder of the sample data set that you downloaded from [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Perform the following steps:
 
 1. From the Azure Logic Apps designer for your app, select **Run** from the toolbar at the top. The workflow is now active and waits to receive an e-mail with the receipt attached.
 1. Send an e-mail with a sample receipt attached to the e-mail addressed that you provided while creating the logic app. Make sure the e-mail is delivered to the folder that you provided while configuring the logic app.
