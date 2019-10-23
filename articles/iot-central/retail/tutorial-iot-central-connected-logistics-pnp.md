@@ -25,7 +25,7 @@ You can create application using following steps
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/iotc_retail_homepage.png)
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/iotc-retail-homepage.png)
 
 2. Select **Create app** under **Connected Logistics Application**
 
@@ -36,7 +36,7 @@ You can create application using following steps
    * **Create** : Select create at the bottom of the page to deploy your application.
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_app_create.png)
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-app-create.png)
 
 ## Walk through the application 
 
@@ -49,14 +49,14 @@ The dashboard is logically divided between two different gateway device manageme
    * View the gateway status & relevant information 
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_dashboard1.png)
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard1.png)
 
    * You can easily track the total number of gateways, active, and unknown tags.
    * You can perform device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals, & update device service contracts.
    * View device battery consumption
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_dashboard2.png)
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-dashboard2.png)
 
 ## Device Template
 
@@ -65,12 +65,12 @@ Click on the Device templates tab, and you will see the gateway capability model
 **Gateway Telemetry & Property** - This interface represents all the telemetry related to sensors, location and device info as well as device twin property capability such as sensor thresholds & update intervals.
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_devicetemplate1.png)
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate1.png)
 
 **Gateway Commands** - This interface organizes all the gateway command capabilities
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_devicetemplate2.png)
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-devicetemplate2.png)
 
 ## Rules
 Select the rules tab to see two different rules that exist in this application template. These rules are configured to email notifications to the operators for further investigations.
@@ -80,13 +80,13 @@ Select the rules tab to see two different rules that exist in this application t
 **Unresponsive Gateway**: This rule will trigger if the gateway does not report to the cloud for a prolonged period. Gateway could be unresponsive due to low battery mode, loss of connectivity, device health.
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_rules.png)
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-rules.png)
 
 ## Jobs
 Select the jobs tab to see five different jobs that exist as part of this application template:
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_jobs.png)
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-jobs.png)
 
 You can leverage jobs feature to perform solution-wide operations. Here jobs are using the device commands & twin capability to perform tasks such as disabling specific sensors across all the gateway or modifying the sensor threshold depending on the shipment mode and route. 
    * It is a standard operation to disable shock sensors during ocean shipment to conserve battery or decrease temperature threshold during cold chain transportation. 
@@ -97,7 +97,7 @@ You can leverage jobs feature to perform solution-wide operations. Here jobs are
 If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
 
 > [!div class="mx-imgBorder"]
-> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected_logistics_cleanup.png)
+> ![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/connected-logistics-cleanup.png)
 
 ## Next steps
 * Learn more about [connected logistics concept](./architecture-connected-logistics-pnp.md)
