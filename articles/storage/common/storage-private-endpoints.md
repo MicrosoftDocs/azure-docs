@@ -14,12 +14,12 @@ ms.subservice: common
 
 # Using Private Endpoints for Azure Storage (Preview)
 
-Azure Storage supports the use of [Azure Private Links](../../private-link/private-link-overview.md) to enable clients on virtual networks to securely access data in a storage account over a [Private Endpoint](../../private-link/private-endpoint-overview.md). The private endpoint assigns a private IP address from the virtual network for your storage account service, and is connected using a private link to the storage service. This restricts the traffic between the clients and the storage account to the virtual network and the Azure backbone network, eliminating exposure from the public internet.
+Azure Storage supports the use of [Azure Private Links](../../private-link/private-link-overview.md) to enable clients on virtual networks to securely access data in a storage account over a [Private Endpoint](../../private-link/private-endpoint-overview.md). The private endpoint assigns a private IP address from the virtual network (VNet) address space to your storage account service, and is connected using a private link to the storage service. Network traffic between the clients on the VNet and the storage account traverses over the virtual network and the Microsoft backbone network, eliminating exposure from the public internet.
 
 Using private endpoints for your storage account enables you to:
 - Secure your storage account by configuring the storage firewall to block all connections on the public endpoint for the storage service.
 - Increases security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
-- Securely connect to storage accounts from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressoute/expressroute-locations.md) with private-peering.
+- Securely connect to storage accounts from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
 
 ## Conceptual Overview
 ![Private Endpoints for Azure Storage Overview](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
@@ -34,7 +34,7 @@ If you want to secure your storage account to only accept connections from the p
 
 ### Private Endpoints for Storage Service
 
-When you create a private endpoint for a storage account, you must specify the storage account and the specific storage service to which it connects. You must create a separate private endpoint for each storage service in a storage account that you need to access from the VNet, viz. [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md) or Static Websites[../blob/storage-blob-static-website.md].
+When you create a private endpoint for a storage account, you must specify the storage account and the specific storage service to which it connects. You must create a separate private endpoint for each storage service in a storage account that you need to access from the VNet, viz. [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or Static Websites[../blob/storage-blob-static-website.md].
 
 To ensure read availability for a [read-access geo redundant storage account](storage-redundancy-grs.md#read-access-geo-redundant-storage), you must create separate private endpoints for both the primary and secondary instances of the service.
 
@@ -51,7 +51,7 @@ For more detailed information on creating a private endpoint for your storage ac
 
 When a private endpoint is created for a storage service, the DNS CNAME resource record for that storage service endpoint is updated as an alias to an endpoint in a subdomain with the prefix '*privatelink*'. When resolved from outside the VNet in which the private endpoint is created, the '*privatelink*' URL still resolves to the same public endpoint for the storage service. However, when resolved in the VNet in which the private endpoint is created, this URL resolves to the private IP address assigned to the private endpoint.
 
-By default, creating a private endpoint also creates a [private DNS zone](../..dns/private-dns-overview.md) attached to the VNet. This private DNS zone corresponds to the subdomain with the prefix '*privatelink*', and contains the DNS A resource records for the private endpoints.
+By default, creating a private endpoint also creates a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet. This private DNS zone corresponds to the subdomain with the prefix '*privatelink*', and contains the DNS A resource records for the private endpoints.
 
 For the illustrated example above, the DNS resource records for the storage account 'StorageAccountA', when resolved from outside the VNet hosting the private endpoint, will be:
 
@@ -61,7 +61,7 @@ For the illustrated example above, the DNS resource records for the storage acco
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<public endpoint\>                                   |
 | \<public endpoint\>                                   | A     | \<storage service public IP address\>                 |
 
-Of course, as previously mentioned, you can deny all access through the public endpoint using the storage firewall.
+As previously mentioned, you can deny all access through the public endpoint using the storage firewall.
 
 The DNS resource records for StorageAccountA, when resolved by a client in the VNet hosting the private endpoint, will be:
 
@@ -70,7 +70,7 @@ The DNS resource records for StorageAccountA, when resolved by a client in the V
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
-This ensures access to the storage account from the VNet hosting the private endpoints, as well as clients outside the VNet. You can use the storage firewall to deny access to all clients outside the VNet.
+This approach enables access to the storage account using the same connection string from the VNet hosting the private endpoints, as well as clients outside the VNet. You can use the storage firewall to deny access to all clients outside the VNet.
 
 ## Pricing
 
@@ -90,4 +90,4 @@ This constraint is a result of the DNS changes made when account A2 creates a pr
 
 ### NSG rules on subnets with private endpoints
 
-[Network Security Group](../../virtual-network/security-overview.md) (NSG) rules cannot be configured for subnets with private endpoints, at this time. A limited workaround for this is to implment your access rules for the private endpoints on the source subnets, though this may entail a higher management overhead.
+[Network Security Group](../../virtual-network/security-overview.md) (NSG) rules cannot be configured for subnets with private endpoints, at this time. A limited workaround for this is to implement your access rules for the private endpoints on the source subnets, though this may entail a higher management overhead.

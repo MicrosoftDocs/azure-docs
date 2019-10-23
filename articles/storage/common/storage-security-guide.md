@@ -16,7 +16,7 @@ ms.subservice: common
 
 Azure Storage provides a comprehensive set of security capabilities that together enable organizations to build and deploy secure applications:
 
-- All data (including metadata) written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- All data (including metadata) written to Azure Storage is automatically encrypted using [Storage Service Encryption (SSE)](storage-service-encryption.md). For more information, see [Announcing Default Encryption for Azure Blobs, Files, Tables, and Queues Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) and Role-Based Access Control (RBAC) are supported for Azure Storage for both resource management operations and data operations, as follows:   
     - You can assign RBAC roles scoped to the storage account to security principals and use Azure AD to authorize resource management operations such as key management.
     - Azure AD integration is supported for blob and queue data operations. You can assign RBAC roles scoped to a subscription, resource group, storage account, or an individual container or queue to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).   
@@ -36,7 +36,7 @@ Here are the topics covered in this article:
 
   This section covers how you can secure the network-level access to the storage services endpoints. It describes how you can use the storage firewall to allow access to your data from specific virtual networks or IP address ranges. It also covers the use of service endpoints and private endpoints with storage accounts.
 
-* [Authorizaton](#authorization) – Authorizing access to your data
+* [Authorization](#authorization) – Authorizing access to your data
 
   In this section, we'll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We'll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
 
@@ -157,7 +157,7 @@ Another advantage of using Azure Key Vault is you can also control access to you
 ## Network Security
 Network Security enables you to restrict access to the data in an Azure Storage Account from specific networks. The Azure Storage firewall enables you to restrict access to clients from specific public IP address ranges, specific virtual networks (VNets) on Azure, or for specific instances of select Azure resource types.
 
-You can configure these network rules through the [Firewalls and Virtual Networks](storage-network-security.md) tab for the storage account in the Azure portal, to limit access to the storage account through its public endpoint. Using the storage firewall, you can deny access to the storage account for public internet traffic, and grant access only to select clients based on the the configured network rules.
+You can configure these network rules through the [Firewalls and Virtual Networks](storage-network-security.md) tab for the storage account in the Azure portal, to limit access to the storage account through its public endpoint. Using the storage firewall, you can deny access to the storage account for public internet traffic, and grant access only to select clients based on the configured network rules.
 
 In addition, Azure Storage also provides the option of using [Private Endpoints](../../private-link/private-endpoint-overview.md) to privately and securely connect to a storage account from a VNet using [Private Links](../../private-link/private-link-overview.md).
 
@@ -178,9 +178,9 @@ A [subset of Azure trusted services](storage-network-security.md#trusted-microso
 For select services that support resource instance-based access, only the designated instance can access the data in the storage account through the firewall. The resource instance authentication in this case requires system-assigned [managed identities](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### Using private endpoints for securing connections
-Azure Storage supports private endpoints, which enables secure access of storage account from an Azure virtual network. Private endpoints assigns a private IP address from your VNet to the storage service. The traffic destined for the storage account is redirected to the private IP address, and then routed to the storage account over a private link. This allows you to block exfiltration of data from your VNet.
+Azure Storage supports private endpoints, which enable secure access of storage account from an Azure virtual network. Private endpoints assign a private IP address from your VNet to the storage service. The traffic destined for the storage account is redirected to the private IP address, and then routed to the storage account over a private link. This allows you to block exfiltration of data from your VNet.
 
-On-premises networks connected over VPN or [ExpressRoutes](../../expressoute/expressroute-locations.md) private peering and other peered virtual networks can also access the storage account over the private endpoint. Private endpoints in VNets can be created for storage accounts in any region, enabling a secure global reach. You can also create private endpoints for storage accounts in other [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenants.
+On-premises networks connected over VPN or [ExpressRoutes](../../expressroute/expressroute-locations.md) private peering and other peered virtual networks can also access the storage account over the private endpoint. Private endpoints in VNets can be created for storage accounts in any region, enabling a secure global reach. You can also create private endpoints for storage accounts in other [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenants.
 
 ## Authorization
 Data Plane Security refers to the methods used to secure the data objects stored in Azure Storage – the blobs, queues, tables, and files. We've seen methods to encrypt the data and security during transit of the data, but how do you go about controlling access to the objects?
