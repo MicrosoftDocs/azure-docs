@@ -71,7 +71,7 @@ For a detailed look at the issue, review the following [GitHub link](https://git
 
 ## How do I resolve Azure AD errors when I enable live logs? 
 
-You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container data in real time with Azure Monitor for containers](container-insights-livedata-setup.md#configure-ad-integrated-authentication). 
 
 ## Why can't I upgrade cluster after onboarding?
 
