@@ -284,7 +284,7 @@ The use of Network Watcher is recommended by the ACSC to assist in understanding
 
 ## Log retention
 
-For Australian Government organisations, the logs captured within Azure must be retained in accordance with the National Archives of Australia [Administrative Functions Disposal Authority (AFDA)](http://www.naa.gov.au/information-management/records-authorities/types-of-records-authorities/AFDA/index.aspx), which specifies retaining logs up to seven years.
+For Australian Government organisations, the logs captured within Azure must be retained in accordance with the National Archives of Australia [Administrative Functions Disposal Authority (AFDA)](https://www.naa.gov.au/information-management/records-authorities/types-records-authorities/afda-express-version-2-functions), which specifies retaining logs up to seven years.
 
 |Log Location|Retention Period|
 |---|---|
