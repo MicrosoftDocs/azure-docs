@@ -36,7 +36,7 @@ If you can't find answers to your questions in this document, check out [other s
 
 ## Debugging
 
-**Q: I receive a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
+**Q: I get a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
 
 **A:** When managing your subscription on the Azure Portal, please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Also, please check [Speech service region support for voice-first Voice Assistants](regions.md#voice-assistants).
 
