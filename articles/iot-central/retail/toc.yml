@@ -2,16 +2,41 @@
 - name: Overview
   items:
     - name: Building retail solutions with Azure IoT Central
-      href: overview-iot-central-retail.md
+      href: overview-iot-central-retail-pnp.md
 - name: Tutorials
   items:
+  - name : In-store analytics checkout
+    items:
     - name: 1- Create a retail application
       href: tutorial-in-store-analytics-create-app-pnp.md
     - name: 2 - Customize the operator dashboard
       href: tutorial-in-store-analytics-customize-dashboard-pnp.md
     - name: 3 - Export data and visualize insights
       href: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+  - name : Smart inventory management
+    items:
+    - name: Create a smart inventory management application
+      href: tutorial-iot-central-smart-inventory-management-pnp.md
+  - name : Connected logistics
+    items:    
+    - name: Create a connected logistics application
+      href: tutorial-iot-central-connected-logistics-pnp.md
+  - name : Digital distribution center
+    items:    
+    - name: Create a digital distribution center application
+      href: tutorial-iot-central-digital-distribution-center-pnp.md 
+        
 - name: Concepts
+  items:
+    - name: Connected logistics app template architecture
+      href: architecture-connected-logistics-pnp.md
+    - name: Digital distribution center app template architecture
+      href: architecture-digital-distribution-center-pnp.md 
+    - name: Smart inventory management app template architecture
+      href: architecture-smart-inventory-management-pnp.md 
+    - name: Store analytics architecture
+      href: store-analytics-architecture.md 
+
 - name: How-to guides
   items:
     - name: Connect devices
