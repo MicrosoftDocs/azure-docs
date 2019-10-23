@@ -14,12 +14,12 @@ manager: abjork
 
 ## Architecture
 
-This article provides an overview of the Smart Meter Monitoring App template architecture. The diagram below shows a commonly used architecture for smart meter app on Azure using IoT Central platform.
+This article provides an overview of the smart meter monitoring app template architecture. The diagram below shows a commonly used architecture for smart meter app on Azure using IoT Central platform.
 
-[!div class="mx-imgBorder"]
-![smart meter architecture](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
+> [!div class="mx-imgBorder"]
+> ![smart meter architecture](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
 
-This architecture consists of the following components. Some applications may not require every component listed here.
+This architecture consists of the following components. Some solutions may not require every component listed here.
 
 ### Smart meters and connectivity 
 
@@ -28,10 +28,11 @@ A smart meter is one of the most important devices among all the energy assets. 
 
 ### IoT Central Platform
 
-IoT Central is a platform to build your IoT solutions and allows partners to extend and customize for their specific needs. After you connect your smart meters to IoT Central platform, it provides device management, including command and control. In the smart meter app, we use the IoT Central storage for warm path scenarios such as monitor, analyze, and visualize meter data in near real time.
+Azure IoT Central is a platform that simplifies building your IoT solution and helps reduce the burden and costs of IoT management, operations, and development. With IoT Central you can easily connect, monitor, and manage your Internet of Things (IoT) assets at scale. After you connect your smart meters to IoT Central, the app template uses built-in features such as device models, commands, and dashboards. The app template also uses the IoT Central storage for warm path scenarios such as near real-time meter data monitoring, analytics, rules, and visualization.
+
 
 ### Extensibility options to build with IoT Central
-The IoT Central platform provides two extensibility options: Continuous Data Export (CDE) and APIs. You can choose between these options based on your requirements. For example, one of the partners configured CDE with Azure Data Lake Storage (ADLS). They're using ADLS for long-term data retention and other cold path storage scenarios, such batch processing, auditing and reporting purposes. 
+The IoT Central platform provides two extensibility options: Continuous Data Export (CDE) and APIs. The customers and partners can choose between these options based to customize their solutions for specific needs. For example, one of our partners configured CDE with Azure Data Lake Storage (ADLS). They're using ADLS for long-term data retention and other cold path storage scenarios, such batch processing, auditing and reporting purposes. 
 
 ## Next steps
 
