@@ -100,7 +100,7 @@ To create a custom theme:
 
 1. Use the **Change** button to choose a **Browser icon** image that will appear on browser tabs.
 
-1. Optionally, replace the default **Browser colors** by adding HTML hexadecimal color codes.
+1. Optionally, replace the default **Browser colors** by adding HTML hexadecimal color codes. For the **Header**, add *#008575*.  For the **Accent**, add *#A1F3EA*. 
 
 1. Select **Save**. 
 
