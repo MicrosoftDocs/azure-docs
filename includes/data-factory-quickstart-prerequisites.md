@@ -37,7 +37,7 @@ You use a general-purpose Azure storage account (specifically Blob storage) as b
 You will need the name of your Azure storage account for this quickstart. The following procedure provides steps to get the name of your storage account: 
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com) and sign in using your Azure username and password.
-2. Select **All services** > **Storage** > **Storage accounts**.
+2. From the Azure portal menu, select **All services**, then select **Storage** > **Storage accounts**. You can also search for and select *Storage accounts* on the **Home** page.
 3. In the **Storage accounts** page, filter for your storage account (if needed), and then select your storage account. 
 
 #### Create a blob container
