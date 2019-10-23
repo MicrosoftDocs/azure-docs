@@ -26,6 +26,11 @@ If you haven't created a Custom Commands application yet, you can do so in these
 - [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
 - [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
 
+You'll also need:
+
+- [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+- An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+
 ## Optional: Get started fast
 
 This quickstart will describe, step by step, how to make a client application to connect to your Custom Commands app. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
