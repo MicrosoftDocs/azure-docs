@@ -116,38 +116,30 @@ The following code uses the client object to analyze a remote image and print th
 
 ### Set up test image
 
-In your **Program** class, save a reference the URL of the image you want to analyze.
+First save a reference to the URL of the image you want to analyze.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_url)]
 
 > [!NOTE]
-> You can also analyze a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-go-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs) for scenarios involving local images.
+> You can also analyze a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) for scenarios involving local images.
 
 ### Specify visual features
 
-Define your new method for image analysis. Add the code below, which specifies visual features you'd like to extract in your analysis. See the [VisualFeatureTypes](https://docs.microsoft.com/go/api/microsoft.azure.cognitiveservices.vision.computervision.models.visualfeaturetypes?view=azure-go) enum for a complete list.
+The following function calls extract different visual features from the sample image. You'll define these functions in the following sections.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze)]
-
-### Analyze
-
-The **AnalyzeImageAsync** method returns an **ImageAnalysis** object that contains all of extracted information.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze)]
-
-The following sections show how to define the image analysis functions.
 
 ### Get image description
 
 The following code gets the list of generated captions for the image. See [Describe images](../concept-describing-images.md) for more details.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_describe)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_describe)]
 
 ### Get image category
 
 The following code gets the detected category of the image. See [Categorize images](../concept-categorizing-images.md) for more details.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_categorize)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_categorize)]
 
 ### Get image tags
 
@@ -164,6 +156,12 @@ The following code detects common objects in the image and prints them to the co
 ### Detect brands
 
 The following code detects corporate brands and logos in the image and prints them to the console. See [Brand detection](../concept-brand-detection.md) for more details.
+
+First, declare a reference to a new image within your `main` function.
+
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brand_url)]
+
+The following code defines the brand detection function.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_brands)]
 
@@ -205,45 +203,39 @@ The following code prints information about the type of image&mdash;whether it i
 
 ## Read printed and handwritten text
 
-Computer Vision can read visible text in an image and convert it to a character stream. The code in this section defines a method, `ExtractTextUrl`, which uses the client object to detect and extract printed or handwritten text in the image.
+Computer Vision can read visible text in an image and convert it to a character stream. The code in this section defines a function, `RecognizeTextReadAPIRemoteImage`, which uses the client object to detect and extract printed or handwritten text in the image.
 
-Add the method call in your `Main` method.
+Add the sample image reference and function call in your `main` function.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_extracttextinmain)]
-
-### Set up test image
-
-In your **Program** class, save a reference the URL of the image you want to extract text from.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_extracttext_url)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_readinmain)]
 
 > [!NOTE]
-> You can also extract text from a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-go-sdk-samples/blob/master/documentation-samples/quickstarts/ComputerVision/Program.cs) for scenarios involving local images.
+> You can also extract text from a local image. See the sample code on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go) for scenarios involving local images.
 
 ### Call the Read API
 
-Define the new method for reading text. Add the code below, which calls the **BatchReadFileAsync** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
+Define the new function for reading text, `RecognizeTextReadAPIRemoteImage`. Add the code below, which calls the **BatchReadFile** method for the given image. This returns an operation ID and starts an asynchronous process to read the content of the image.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_extract_call)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_call)]
 
 ### Get Read results
 
-Next, get the operation ID returned from the **BatchReadFileAsync** call, and use it to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
+Next, get the operation ID returned from the **BatchReadFile** call, and use it with the **GetReadOperationResult** method to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_extract_response)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_results)]
 
 ### Display Read results
 
-Add the following code to parse and display the retrieved text data, and finish the method definition.
+Add the following code to parse and display the retrieved text data, and finish the function definition.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_extract_display)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
 ## Run the application
 
 Run the application from your application directory with the `go run` command.
 
-```go
-go run
+```bash
+go run sample-app.go
 ```
 
 ## Clean up resources
@@ -256,7 +248,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 ## Next steps
 
 > [!div class="nextstepaction"]
->[Computer Vision API reference (Go)](tbd)
+> [Computer Vision API reference (Go)](tbd)
 
 * [What is the Computer Vision API?](../Home.md)
-* The source code for this sample can be found on [GitHub](tbd).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).
