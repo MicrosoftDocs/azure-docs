@@ -26,9 +26,9 @@ Azure Synapse Analytics  is a limitless cloud data warehouse that gives you the 
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
-## SQL pool (data warehouse) MPP architecture components
+## SQL Analytics MPP architecture components
 
-SQL pool leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). SQL Analytics separates compute from storage which enables you to scale compute independently of the data in your system.
+SQL Analytics leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). SQL Analytics separates compute from storage which enables you to scale compute independently of the data in your system.
 
 ![Azure SQL Analytics Architecture](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

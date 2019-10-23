@@ -1,6 +1,6 @@
 ---
-title: Using IDENTITY to create surrogate keys - Azure Synapse Analytics| Microsoft Docs
-description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure Synapse Analytics.
+title: Using IDENTITY to create surrogate keys - Azure Synapse Analytics (formerly SQL DW)| Microsoft Docs
+description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure Synapse Analytics (formerly SQL DW).
 services: sql-data-warehouse
 author:  XiaoyuMSFT
 manager: craigg
