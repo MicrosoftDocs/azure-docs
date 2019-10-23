@@ -24,6 +24,10 @@ Both the Microsoft speech recognition SDK and the REST API support the following
   Locale | Language | Supported | Customizable
  ------|----------|---------------------|---------------------
  ar-EG | Arabic (Egypt), modern standard | Yes | Yes
+ ar-SA | Arabic (Saudi Arabia) | Yes | Yes
+ ar-AE | Arabic (UAE) | Yes | Yes
+ ar-KW | Arabic (Kuwait) | Yes | Yes
+ ar-QA | Arabic (Qatar) | Yes | Yes
  ca-ES | Catalan | Yes | No
  da-DK | Danish (Denmark) | Yes | No
  de-DE | German (Germany) | Yes | Yes
@@ -38,10 +42,12 @@ Both the Microsoft speech recognition SDK and the REST API support the following
  fi-FI | Finnish (Finland) | Yes | No
  fr-CA | French (Canada) | Yes | Yes
  fr-FR | French (France) | Yes | Yes
+ gu-IN | Gujarati (Indian) | Yes | Yes
  hi-IN | Hindi (India) | Yes | Yes
  it-IT | Italian (Italy) | Yes | Yes
  ja-JP | Japanese (Japan) | Yes | Yes
  ko-KR | Korean (Korea) | Yes | Yes
+ mr-IN | Marathi (India) | Yes | Yes
  nb-NO | Norwegian (Bokmål) (Norway) | Yes | No
  nl-NL | Dutch (Netherlands) | Yes | Yes
  pl-PL | Polish (Poland) | Yes | No
@@ -49,10 +55,13 @@ Both the Microsoft speech recognition SDK and the REST API support the following
  pt-PT | Portuguese (Portugal) | Yes | Yes
  ru-RU | Russian (Russia) | Yes | Yes
  sv-SE | Swedish (Sweden) | Yes | No
+ ta-IN | Tamil (India) | Yes | Yes
+ te-IN | Telugu (India) | Yes | Yes
  zh-CN | Chinese (Mandarin, simplified) | Yes | Yes
  zh-HK | Chinese (Cantonese, Traditional) | Yes | Yes
  zh-TW | Chinese (Taiwanese Mandarin) | Yes | Yes
- th-TH | Thai (Thailand) | Yes | No 
+ th-TH | Thai (Thailand) | Yes | No
+ tr-TR | Turkey | Yes | Yes |
 
 
 ## Text-to-speech

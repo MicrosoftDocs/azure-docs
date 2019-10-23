@@ -80,10 +80,14 @@
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Synthesize speech to an audio output device
       href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Async synthesis for long-form audio
+      href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
   - name: How-to guides
     items:
     - name: Configure speech output with SSML
       href: speech-synthesis-markup.md
+    - name: Synthesize speech with Long Audio API
+      href: long-audio-api.md
   - name: Tutorials
     items:
     - name: Build a Flask app to translate and synthesize text, REST
@@ -197,10 +201,10 @@
         href: how-to-custom-speech-deploy-model.md
       - name: "Guide Create human-labeled transcriptions"
         href: how-to-custom-speech-human-labeled-transcriptions.md
-    - name: 'Tenant Language Models'
+    - name: 'Tenant Models'
       items:
       - name: Create, publish, and use a model
-        href: tutorial-tenant-language-model.md
+        href: tutorial-tenant-model.md
   - name: Text-to-speech
     items:
     - name: Responsible deployment
