@@ -20,7 +20,7 @@ Use the Computer Vision client library for Go to:
 * Analyze an image for tags, text description, faces, adult content, and more.
 * Recognize printed and handwritten text with the Batch Read API.
 
-[Reference documentation](https://docs.microsoft.com/go/api/overview/azure/cognitiveservices/client/computervision?view=azure-go) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.ComputerVision) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision/) | [Samples](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision) | [Package](https://github.com/Azure/azure-sdk-for-go)
 
 ## Prerequisites
 
@@ -61,13 +61,13 @@ Your workspace will contain three folders:
 Next, install the client library for Go:
 
 ```bash
-$ go get -u <library-location-or-url>
+$ go get -u https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
 ```
 
 or if you use dep, within your repo run:
 
 ```bash
-$ dep ensure -add <library-location-or-url>
+$ dep ensure -add https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.1/computervision
 ```
 
 ### Create a Go application
