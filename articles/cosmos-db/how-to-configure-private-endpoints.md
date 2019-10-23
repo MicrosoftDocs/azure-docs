@@ -113,7 +113,7 @@ $SubscriptionId = "<your Azure subscription ID>"
 $ResourceGroupName = "cdbrg"
 # Name of the Cosmos DB account
 $CosmosDbAccountName = "sqlcdb2"
-# API type of the Cosmos DB account. One of the following: "Sql", "MongoDB", "Cassandra", "Gremlin", "Table", or "Etcd"
+# API type of the Cosmos DB account. It can be one of the following: "Sql", "MongoDB", "Cassandra", "Gremlin", "Table", or "Etcd"
 $CosmosDbApiType = "Sql"
 # Name of the existing VNet
 $VNetName = "cdbVnet2"
@@ -162,7 +162,7 @@ After the template is deployed successfully, you can see an output similar to wh
 
 ![Resource Manager template deployment output](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
 
-After the template is deployed, the private IP addresses are reserved within the subnet. The firewall of the Azure Cosmos DB is configured to accept connections from the private endpoint only.
+After the template is deployed, the private IP addresses are reserved within the subnet. The firewall rule of the Azure Cosmos account is configured to accept connections from the private endpoint only.
 
 ## Fetch the private IP addresses
 
@@ -236,18 +236,15 @@ During the preview of Private Link, you should use a private DNS within the subn
 
 ## Firewall configuration with Private Link
 
-There are multiple situations that can be created by the use of firewall rules and private endpoints together. 
+The following are different situations and outcomes when you use Private Link in combination with firewall rules:
 
-1. If no firewall rule is configured, then by default, an Azure Cosmos account is accessible to all traffic.
-1. If public traffic or service endpoint firewalls are configured and private endpoints are created, then different types of incoming traffic are authorized by the corresponding type of firewall rule.
-1. If no public traffic or service endpoint firewall is configured and private endpoints are created, then the Azure Cosmos account is only accessible through the private endpoints.  Even after all the private endpoints are deleted, the account is not accessible to any traffic unless the private endpoint evaluation is disabled.
+1. If there are no firewall rules configured, then by default, an Azure Cosmos account is accessible to all traffic.
 
-To disable the private endpoint evaluation, update the Azure Cosmos account's Resource Manager template and set the `accountPrivateEndpointConnectionEnabled` property to `false`.
-* If no firewall rule is configured, an Azure Cosmos account is by default accessible to all the traffic.
+1. If public traffic or service endpoint is configured and private endpoints are created, then different types of incoming traffic are authorized by the corresponding type of firewall rule.
 
-* If public traffic or service endpoint firewall rules are configured, and private endpoints are created, different types of incoming traffic are authorized by the corresponding type of firewall rule.
+1. If no public traffic or service endpoint is configured and private endpoints are created, then the Azure Cosmos account is only accessible through the private endpoints. Even after all the private endpoints are deleted, the account is not accessible to any traffic unless the private endpoint evaluation is disabled.
 
-* If no public traffic or service endpoint firewall rule is configured, and private endpoints are created, the Azure Cosmos account is accessible only through the private endpoints. Even after all the private endpoints are deleted, the account is not accessible to any traffic unless the private endpoint evaluation is disabled. You can disable it by updating the Azure Cosmos account's Resource Manager template and setting the `accountPrivateEndpointConnectionEnabled` property to `false`:
+To disable the private endpoint evaluation, update the Azure Cosmos account's Resource Manager template and set the `accountPrivateEndpointConnectionEnabled` property to `false` as shown in the following PUT request:
 
 **Request**
 
