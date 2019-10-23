@@ -1,5 +1,5 @@
 ---
-title: Register Azure Peering Service - Azure PowerShell
+title: Register Azure Peering Service (Preview) - Azure PowerShell
 description: Learn about on how to register Azure Peering Service using Azure PowerShell
 services: peering-service
 author: ypitsch
@@ -25,6 +25,11 @@ If you decide to install and use PowerShell locally instead, this quickstart req
 Finally, if you're running PowerShell locally, you'll also need to run `Connect-AzAccount`. That command creates a connection with Azure.
 
 Use the **Azure PowerShell** module to register and manage *Peering Service*. Register or manage *Peering Service* can be done from the PowerShell command line or in scripts.
+
+> [!IMPORTANT]
+> "Peering Service” is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Register the Peering Service
 

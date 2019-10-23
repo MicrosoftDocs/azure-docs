@@ -1,5 +1,5 @@
 ---
-title: Register Azure Peering Service - Azure portal
+title: Register Azure Peering Service (Preview) - Azure portal
 description: Learn on how to register Azure Peering Service using Azure portal
 services: peering-service
 author: ypitsch
@@ -12,13 +12,18 @@ ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
-# Register Peering Service using the Azure portal
+# Register Peering Service (Preview) using the Azure portal
 
 *Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet
 
 In this article, you will learn how to create a *Peering Service* connection using Azure portal.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
+
+> [!IMPORTANT]
+> "Peering Service” is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites  
 
@@ -105,18 +110,18 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 
    - Prefix received with private AS in path, please contact Peering Service provider.
 
-**To add or remove a Prefix**
+**Add or remove a Prefix**
 
-Click on **Add prefixes** in the **Prefixes** page to add prefixes.
+- Click on **Add prefixes** in the **Prefixes** page to add prefixes.
 
-Click on the ellipses next to the listed Prefix and click on the **Delete** option.
+- Click on the ellipsis (...) next to the listed prefix and click on the **Delete** option.
 
 **Delete a Peering Service**
 
 In the **All Resources** page, click the checkbox on the Peering Service and click on the **Delete** option on the top of the page.
 
 > [!Note]
-> You cannot modify an existing Prefix. 
+> You cannot modify an existing prefix. 
 >
 
 ## Next steps

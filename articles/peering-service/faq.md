@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Peering Service FAQ
+title: Azure Peering Service (Preview) FAQ
 description: Learn about Microsoft Azure Peering Service FAQ
 services: peering-service
 author: ypitsch
@@ -12,9 +12,14 @@ ms.date: 11/04/2019
 ms.author: ypitsch
 ---
 
-# Peering Service FAQ
+# Peering Service (Preview) FAQ
 
 This article elucidates on the most frequently asked questions about Peering Service connection.
+
+> [!IMPORTANT]
+> "Peering Service” is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 **Q. Who are the target customers?**  
 

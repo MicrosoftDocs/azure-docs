@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure Peering Service Onboarding model
+title: Azure Peering Service (Preview) Onboarding model
 description: Learn about on how to onboard Microsoft Azure Peering Service
 services: networking
 documentationcenter: na
@@ -27,6 +27,11 @@ Action plans for the above listed models are described as below:
 |-----------|---------|---------|---------|
 |1|Customer to provision the connectivity from a connectivity partner (no interaction with Microsoft).​ |An Internet provider who is well connected to Microsoft and meets the technical requirements for performant and reliable connectivity to Microsoft. ​ |
 |2 (Optional)|Customer registers locations into the Azure portal.​ A location is defined by: ISP/IXP Name​, Physical location of the customer site (state level), IP Prefix given to the location by the Service Provider or the enterprise​.  ​|Telemetry​: Internet Routes monitoring​, traffic prioritization from Microsoft to the user’s closest edge location​. |
+
+> [!IMPORTANT]
+> "Peering Service” is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Onboarding Peering Service connection
 

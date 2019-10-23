@@ -1,5 +1,5 @@
 ---
-title: Azure Peering Service Overview
+title: Azure Peering Service (Preview) Overview
 description: Learn about Azure Peering Service Overview
 services: peering-service
 author: ypitsch
@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
-# What is Peering Service?
+# What is Peering Service (Preview)?
 
 Peering Service is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. Microsoft has partnered with Internet Service Providers [ISP], Internet Exchange Providers [IXP] and, Software Defined Cloud Interconnect (SDCI) providers, worldwide to provide highly reliable and performant public connectivity with the optimal routing to/from for the customers.
 
@@ -25,6 +25,11 @@ Customers can also opt for *Peering Service telemetry* such as user latency meas
 To use the Peering Service, customer isn't required to register with Microsoft. The only requirement is to reach out to a [Peering Service partner](location-partners.md) to procure the service. However, to opt for Peering Service telemetry, the customer must register for the same in the Azure portal.  
 
 For instructions on how to register a Peering Service, refer [here](azure-portal.md).  
+
+> [!IMPORTANT]
+> "Peering Service” is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## What Peering Service isn't about?
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Peering Service connection 
+title: Azure Peering Service (Preview) connection 
 description: Learn about Microsoft Azure Peering Service connection
 services: peering-service
 author: ypitsch
@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ms.author: v-meravi
 ---
 
-# Peering Service connection
+# Peering Service (Preview) connection
 
 Connection is typically referred to a logical information set, identifying a *Peering Service*. It is defined by specifying the following attributes:
 
@@ -27,7 +27,12 @@ Customer can establish a single connection or multiple connections as per the re
 > When you sign up for *Peering Service*, we analyze your Windows and Office 365 telemetry in order to provide you with latency measurements for your selected prefixes. This telemetry data is always aggregated and anonymized.
 >For more information about connection telemetry, refer [Peering Service connection telemetry](connection-telemetry.md).
 >
-  
+
+> [!IMPORTANT]
+> "Peering Service” is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 ## How to register the connection?
 
 ![first mile ](./media/peering-service-about/peering-service-geo-shortest.png)
