@@ -13,7 +13,7 @@ manager: peterpr
 
 # Tutorial: Define a new IoT device as a gateway device type in your Azure IoT Central application (preview features)
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of Azure IoT gateway device in your Azure IoT Central application. 
 
@@ -44,7 +44,7 @@ Downstream devices can connect to Azure IoT gateway device
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure IoT Central application. Follow this quick start to [Create an Azure IoT Central application](../core/quick-deploy-iot-central-pnp.md).
+To complete this tutorial, you need an Azure IoT Central application. Follow this quick start to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ### Create Downstream Device Templates
 

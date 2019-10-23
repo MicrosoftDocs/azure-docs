@@ -13,13 +13,13 @@ manager: rangv
 
 # What is Azure IoT Central with Azure IoT Edge (preview features)?
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 Azure IoT Central is a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds. IoT Central is expanding its portfolio by supporting Azure IoT Edge devices. 
 
 Businesses can now run cloud intelligence directly on IoT devices managed by Azure IoT Central. This new feature helps businesses connect and manage Azure IoT Edge devices running Azure IoT Edge runtime, deploy software modules, publish insights, and take actions at-scale – all from within IoT Central. 
 
-[Azure IoT Edge Overview](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge)
+[Azure IoT Edge Overview](../../iot-edge/about-iot-edge.md)
 
 This article provides an overview of the Azure IoT Edge and gateway features of Azure IoT Central:
 
