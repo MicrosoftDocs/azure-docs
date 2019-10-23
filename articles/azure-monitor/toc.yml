@@ -514,6 +514,8 @@
           href: insights/container-insights-alerts.md
         - name: Agent management
           href: insights/container-insights-manage-agent.md
+        - name: Configure Prometheus metric scraping
+          href: insights/container-insights-prometheus-integration.md
         - name: Configure agent collection settings
           href: insights/container-insights-agent-config.md
         - name: Update to enable metrics
