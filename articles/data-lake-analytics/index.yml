@@ -107,7 +107,7 @@ landingContent:
         links:
           - text: Understand Apache Spark for U-SQL Developers
             url: data-lake-analytics-understand-spark-for-usql-developers.md
-          - text: Understand Spark data formats for U-SQL developers
+          - text: Understand Spark data formats
             url: data-lake-analytics-understand-spark-data-formats.md
-          - text: Understand Apache Spark code concepts for U-SQL developers
+          - text: Understand Apache Spark code concepts
             url: data-lake-analytics-understand-spark-code-concepts.md
