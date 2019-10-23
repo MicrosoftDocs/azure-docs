@@ -149,9 +149,9 @@
       href: conversation-transcription-service.md
   - name: How-to guides
     items:
-    - name: Transcribe conversations in real time with the Speech SDK (Preview)
+    - name: Transcribe conversations in real time
       href: how-to-use-conversation-transcription-service.md
-    - name: Asynchronous Conversation Transcription (Preview)
+    - name: Asynchronous Conversation Transcription
       href: how-to-async-conversation-transcription.md
   - name: Reference
     items:
