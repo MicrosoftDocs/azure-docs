@@ -42,6 +42,9 @@ Before you start, make sure that you have the following:
 
 * The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory datay - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`. 
 
+>[!IMPORTANT]
+>The minimum agent version supported for monitoring hybrid Kubernetes clusters is ciprod10182019 or later. 
+
 ## Enable monitoring
 
 Enabling Azure Monitor for containers for the hybrid Kubernetes cluster consists of performing the following steps in order.
@@ -177,7 +180,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
     }
     ```
 
-7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and for **workspaceRegion** copy the **Revgion** value after running the Azure CLI command [az monitor log-analytics workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
+7. Edit the values for **workspaceResourceId** using the value you copied in step 3, and for **workspaceRegion** copy the **Region** value after running the Azure CLI command [az monitor log-analytics workspace show](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace?view=azure-cli-latest#az-monitor-log-analytics-workspace-list).
 
 8. Save this file as containerSolutionParams.json to a local folder.
 

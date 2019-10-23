@@ -22,7 +22,7 @@ A template ConfigMap file is provided that allows you to easily edit it with you
 >[!IMPORTANT]
 >The minimum agent version supported to collect stdout, stderr, and environmental variables from container workloads is ciprod06142019 or later. The minimum agent version supported for scraping Prometheus metrics is ciprod07092019 or later, and version ciprod10112019 supports writing configuration and agent errors in the `KubeMonAgentEvents` table. To verify your agent version, from the **Node** tab select a node, and in the properties pane note value of the **Agent Image Tag** property.
 
-For additional information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/OMS-docker/blob/master/ReleaseNote.md).
+For additional information about the agent versions and what's included in each release, see [agent release notes](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod).
 
 ### Data collection settings
 
