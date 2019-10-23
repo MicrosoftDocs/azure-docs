@@ -210,15 +210,13 @@ Now, use the code snippet provided by these steps to create an Azure function th
 
 1. In the **Test** pane, under **Request body**, enter this line, and select **Run**.
 
-   ``` json
-   {"name": "<p><p>Testing my function</br></p></p>"}
-   ```
+   `{"name": "<p><p>Testing my function</br></p></p>"}`
 
    ![Test your function](./media/tutorial-process-email-attachments-workflow/function-run-test.png)
 
    The **Output** window shows the function's result:
 
-   ``` json
+   ```json
    {"updatedBody":"{\"name\": \"Testing my function\"}"}
    ```
 
@@ -247,7 +245,11 @@ After checking that your function works, create your logic app. Although this tu
    | **Log Analytics** | Off | For this tutorial, select the **Off** setting. |
    ||||
 
-1. After Azure deploys your app, the Logic Apps Designer opens and shows a page with an introduction video and templates for common logic app patterns. Under **Templates**, select **Blank Logic App**.
+1. After Azure deploys your app, on the Azure toolbar, select the notifications icon, and select **Go to resource**.
+
+   ![From Azure notifications list, select "Go to resource"](./media/tutorial-process-email-attachments-workflow/go-to-new-logic-app-resource.png)
+
+1. After the Logic Apps Designer opens and shows a page with an introduction video and templates for common logic app patterns. Under **Templates**, select **Blank Logic App**.
 
    ![Select blank logic app template](./media/tutorial-process-email-attachments-workflow/choose-logic-app-template.png)
 
@@ -269,7 +271,7 @@ Next, add a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) t
 
 1. Now provide the criteria the trigger uses to filter new email.
 
-   1. Specify these settings for checking emails.
+   1. Specify the settings described below for checking emails.
 
       ![Specify folder, interval, and frequency for checking mails](./media/tutorial-process-email-attachments-workflow/set-up-email-trigger.png)
 
