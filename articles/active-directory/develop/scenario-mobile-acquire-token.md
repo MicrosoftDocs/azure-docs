@@ -1,5 +1,6 @@
 ---
-title: Mobile app that calls web APIs - getting a token for the app | Microsoft identity platform
+title: Mobile app that calls web APIs - getting a token for the app 
+titleSuffix: Microsoft identity platform
 description: Learn how to build a mobile app that calls web APIs (getting a token for the app)
 services: active-directory
 documentationcenter: dev-center-name

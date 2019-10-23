@@ -1,19 +1,20 @@
 ---
-title: Common Errors and Warnings
-titleSuffix: Azure Cognitive Search
-description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
-
-manager: nitinme
+title: Common Errors and Warnings - Azure Search
+description: This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Search.
+services: search
+manager: heidist
 author: amotley
-ms.author: abmotley
-ms.service: cognitive-search
+
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/18/2019
+ms.author: abmotley
 ---
 
-# Common errors and warnings of the AI enrichment pipeline in Azure Cognitive Search
+# Common errors and warnings of the AI enrichment pipeline in Azure Search
 
-This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Cognitive Search.
+This article provides information and solutions to common errors and warnings you might encounter during AI enrichment in Azure Search.
 
 ## Errors
 Indexing stops when the error count exceeds ['maxFailedItems'](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -205,3 +206,14 @@ If you want to ensure that all text is analyzed, consider using the [Split skill
 
 ### Web API skill response contains warnings
 Indexer was able to run a skill in the skillset, but the response from the Web API request indicated there were warnings during execution. Review the warnings to understand how your data is impacted and whether or not action is required.
+
+### The current indexer configuration does not support incremental progress
+This warning only occurs for Cosmos DB data sources.
+
+Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to re-index the entire collection from scratch. This is especially important when indexing large collections.
+
+The ability to resume an unfinished indexing job is predicated on having documents ordered by the `_ts` column. The indexer uses the timestamp to determine which document to pick up next. If the `_ts` column is missing or if the indexer can't determine if a custom query is ordered by it, the indexer starts at beginning and you'll see this warning.
+
+It is possible to override this behavior, enabling incremental progress and suppressing this warning by using the `assumeOrderByHighWatermarkColumn` configuration property.
+
+[More information about Cosmos DB incremental progress and custom queries.](https://go.microsoft.com/fwlink/?linkid=2099593)
