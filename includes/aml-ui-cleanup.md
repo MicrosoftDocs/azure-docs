@@ -49,6 +49,6 @@ In the visual interface where you created your experiment, delete individual ass
 
 Datasets can be unregistered from your workspace by selecting each dataset and selecting **Unregister**.
 
-![Unregister datset](./media/aml-ui-cleanup/unregister-dataset.png)
+![Unregister dataset](./media/aml-ui-cleanup/unregister-dataset.png)
 
 
