@@ -151,6 +151,12 @@
     items:
     - name: What is conversation transcription?
       href: conversation-transcription-service.md
+  - name: How-to guides
+    items:
+    - name: Real time Conversation Transcription
+      href: how-to-use-conversation-transcription-service.md
+    - name: Asynchronous Conversation Transcription
+      href: how-to-async-conversation-transcription.md
   - name: Reference
     items:
     - name: Conversation transcription (REST)
