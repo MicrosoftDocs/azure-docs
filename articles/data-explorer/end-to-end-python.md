@@ -1,22 +1,22 @@
 ---
-title: 'Create an End to End example for Azure Data Explorer by using Python'
-description: In this article, you learn how to use Azure Data Explorer with an End to End example using Python.
+title: 'End-to-end Blob ingestion into Azure Data Explorer using Python'
+description: In this article, you learn how to use ingest blobs into Azure Data Explorer with an End to End example using Python.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/23/2019
 ---
 
-# An End-to-End example for ingesting blobs into Azure Data Explorer using Python
+# End-to-end Blob ingestion into Azure Data Explorer using Python
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. In this article, it gives you an End-to-End example about how to ingest data from a blob storage into Azure Data Explorer. You will learn how to programmatically create a resource group, azure resources (a storage account, an event hub, an Azure Data Explorer cluster), and how to configure Azure Data Explorer to ingest data from a storage account.
+Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. This article gives you an end-to-end example about how to ingest data from Blob Storage into Azure Data Explorer. You will learn how to programmatically create a resource group, a storage account and container, an Event Hub, and an Azure Data Explorer cluster and database. You will also learn how to programmatically configure Azure Data Explorer to ingest data from the new storage account.
 
 ## Prerequisites
 
@@ -37,8 +37,9 @@ pip install azure-storage-blob
 
 [!INCLUDE [data-explorer-e2e-event-grid-resource-template](../../includes/data-explorer-e2e-event-grid-resource-template.md)]
 
-## Code Example 
-The following code example shows how to create azure resources, and configurations for ingesting blobs into Azure Data Explorer step by step. 
+## Code example 
+
+The following code example gives you a step-by-step process resulting in data ingestion into Azure Data Explorer. You first create a resource group, and Azure resources such as a storage account and container, an Event Hub, and an Azure Data Explorer cluster and database. You then create an Event Grid subscription and table and column mapping in the Azure Data Explorer database. Finally, you create the data connection to configure Azure Data Explorer to ingest data from the new storage account.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -84,7 +85,7 @@ credentials = ServicePrincipalCredentials(
 )
 resource_client = ResourceManagementClient(credentials, subscription_id)
 
-print('Step 1: create a new resource group in your Azure subscription to manage all the resources for using Azure Data Explorer.')
+print('Step 1: Create a new resource group in your Azure subscription to manage all the resources for using Azure Data Explorer.')
 resource_client.resource_groups.create_or_update(
     resource_group_name,
     {
@@ -92,7 +93,7 @@ resource_client.resource_groups.create_or_update(
     }
 )
 
-print('Step 2: create a blob storage, a container in the storage account, an event hub, an azure data explorer cluster, and database by using an Azure Resource Manager template.')
+print('Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, and database by using an Azure Resource Manager template.')
 #Read the Azure Resource Manager template
 with open(azure_resource_template_path, 'r') as template_file_fd:
     template = json.load(template_file_fd)
@@ -120,7 +121,7 @@ poller = resource_client.deployments.create_or_update(
 )
 poller.wait()
 
-print('Step 3: create an event grid subscription to publish events of blobs created in a specific container to an event hub.')
+print('Step 3: Create an Event Grid subscription to publish blob events created in a specific container to an Event Hub.')
 event_client = EventGridManagementClient(credentials, subscription_id)
 storage_resource_id = '/subscriptions/{}/resourceGroups/{}/providers/Microsoft.Storage/storageAccounts/{}'.format(subscription_id, resource_group_name, storage_account_name)
 event_hub_resource_id = '/subscriptions/{}/resourceGroups/{}/providers/Microsoft.EventHub/namespaces/{}/eventhubs/{}'.format(subscription_id, resource_group_name, event_hub_namespace_name, event_hub_name)
@@ -139,7 +140,7 @@ event_client.event_subscriptions.create_or_update(storage_resource_id, event_gri
 })
 
 
-print('Step 4: create a table (with three columns, EventTime, EventId, and EventSummary) and column mapping in Azure Data Explorer database.')
+print('Step 4: Create a table (with three columns: EventTime, EventId, and EventSummary) and column mapping in your Azure Data Explorer database.')
 kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
 database_name = kusto_database_name
 kusto_connection_string_builder = KustoConnectionStringBuilder.with_aad_application_key_authentication(connection_string=kusto_uri, aad_app_id=client_id, app_key=client_secret, authority_id=tenant_id)
@@ -152,7 +153,7 @@ create_column_mapping_command = ".create table " + kusto_table_name + " ingestio
 kusto_client.execute_mgmt(database_name, create_column_mapping_command)
 
 
-print('Step 5: add a event grid data connection. Azure Data Explorer will automatically ingest the data when new blobs are created.')
+print('Step 5: Add an Event Grid data connection. Azure Data Explorer will automatically ingest the data when new blobs are created.')
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 data_connections = kusto_management_client.data_connections
 #Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
@@ -161,14 +162,15 @@ poller = data_connections.create_or_update(resource_group_name=resource_group_na
                                                                               event_hub_resource_id=event_hub_resource_id, consumer_group="$Default", location=location, table_name=kusto_table_name, mapping_rule_name=kusto_column_mapping_name, data_format="csv"))
 poller.wait()
 ```
-|**Setting** | **Suggested value** | **Field description**|
+|**Setting** | **Field description**|
 |---|---|---|
-| tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
-| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
-| client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The client ID of the application that can access resources in your tenant.|
-| client_secret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
+| tenant_id | Your tenant ID. Also known as directory ID.|
+| subscription_id | The subscription ID that you use for resource creation.|
+| client_id | The client ID of the application that can access resources in your tenant.|
+| client_secret | The client secret of the application that can access resources in your tenant. |
 
-## How to test the example
+## Test the code example
+
 1. Upload a file into the storage account
 
 ```python
@@ -179,11 +181,12 @@ blob_content = """2007-01-01 00:00:00.0000000,2592,Several trees down
 2007-01-01 00:00:00.0000000,4171,Winter Storm"""
 block_blob_service.create_blob_from_text(container_name=storage_container_name, blob_name=blob_name, text=blob_content)
 ```
-|**Setting** | **Suggested value** | **Field description**|
+|**Setting** | **Field description**|
 |---|---|---|
-| account_key | *xxxxxxxxxxxxxx* | The access key of the programmatically created storage account.|
+| account_key | The access key of the programmatically created storage account.|
 
 2. Run a test query in Azure Data Explorer
+
 ```python
 kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
 kusto_connection_string_builder = KustoConnectionStringBuilder.with_aad_application_key_authentication(connection_string=kusto_uri, aad_app_id=client_id, app_key=client_secret, authority_id=tenant_id)
@@ -194,6 +197,7 @@ print(response.primary_results[0].rows_count)
 ```
 
 ## Clean up resources
+
 To delete the resource group and clean up resources, use the following command:
 
 ```python

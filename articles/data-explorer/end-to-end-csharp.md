@@ -1,22 +1,22 @@
 ---
-title: 'Create an End to End example for Azure Data Explorer by using Python'
-description: In this article, you learn how to use Azure Data Explorer with an End to End example using Python.
+title: 'End-to-end Blob ingestion into Azure Data Explorer using C#'
+description: In this article, you learn how to ingest blobs into Azure Data Explorer with an End to End example using C#.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/23/2019
 ---
 
-# An End-to-End example for ingesting blobs into Azure Data Explorer using Python
+# End-to-end Blob ingestion into Azure Data Explorer using C#
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. In this article, it gives you an End-to-End example about how to ingest data from a blob storage into Azure Data Explorer. You will learn how to programmatically create a resource group, azure resources (a storage account, an event hub, an Azure Data Explorer cluster), and how to configure Azure Data Explorer to ingest data from a storage account.
+Azure Data Explorer is a fast and scalable data exploration service for log and telemetry data. This article gives you an end-to-end example about how to ingest data from Blob Storage into Azure Data Explorer. You will learn how to programmatically create a resource group, a storage account and container, an Event Hub, and an Azure Data Explorer cluster and database. You will also learn how to programmatically configure Azure Data Explorer to ingest data from the new storage account.
 
 ## Prerequisites
 
@@ -34,8 +34,9 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 [!INCLUDE [data-explorer-e2e-event-grid-resource-template](../../includes/data-explorer-e2e-event-grid-resource-template.md)]
 
-## Code Example 
-The following code example shows how to create azure resources, and configurations for ingesting blobs into Azure Data Explorer step by step. 
+## Code example 
+
+The following code example gives you a step-by-step process resulting in data ingestion into Azure Data Explorer. You first create a resource group, and Azure resources such as a storage account and container, an Event Hub, and an Azure Data Explorer cluster and database. You then create an Event Grid subscription and table and column mapping in the Azure Data Explorer database. Finally, you create the data connection to configure Azure Data Explorer to ingest data from the new storage account. 
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -61,13 +62,13 @@ string kustoDataConnectionName = deploymentName + "kustoeventgridconnection";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
 var resourceManagementClient = new ResourceManagementClient(serviceCreds);
-Console.WriteLine("Step 1: create a new resource group in your Azure subscription to manage all the resources for using Azure Data Explorer.");
+Console.WriteLine("Step 1: Create a new resource group in your Azure subscription to manage all the resources for using Azure Data Explorer.");
 resourceManagementClient.SubscriptionId = subscriptionId;
 await resourceManagementClient.ResourceGroups.CreateOrUpdateAsync(resourceGroupName,
     new ResourceGroup() { Location = locationSmallCase });
 
 Console.WriteLine(
-    "Step 2: create a blob storage, a container in the storage account, an event hub, an azure data explorer cluster, and database by using an Azure Resource Manager template.");
+    "Step 2: Create a Blob Storage, a container in the Storage account, an Event Hub, an Azure Data Explorer cluster, and database by using an Azure Resource Manager template.");
 var parameters = $"{{\"eventHubNamespaceName\":{{\"value\":\"{eventHubNamespaceName}\"}},\"eventHubName\":{{\"value\":\"{eventHubName}\"}},\"storageAccountName\":{{\"value\":\"{storageAccountName}\"}},\"containerName\":{{\"value\":\"{storageContainerName}\"}},\"kustoClusterName\":{{\"value\":\"{kustoClusterName}\"}},\"kustoDatabaseName\":{{\"value\":\"{kustoDatabaseName}\"}}}}";
 string template = File.ReadAllText(azureResourceTemplatePath, Encoding.UTF8);
 await resourceManagementClient.Deployments.CreateOrUpdateAsync(resourceGroupName, deploymentName,
@@ -75,7 +76,7 @@ await resourceManagementClient.Deployments.CreateOrUpdateAsync(resourceGroupName
         parameters: parameters)));
 
 Console.WriteLine(
-    "Step 3: create an event grid subscription to publish events of blobs created in a specific container to an event hub.");
+    "Step 3: Create an Event Grid subscription to publish blob events created in a specific container to an Event Hub.");
 var eventGridClient = new EventGridManagementClient(serviceCreds)
 {
     SubscriptionId = subscriptionId
@@ -93,7 +94,7 @@ await eventGridClient.EventSubscriptions.CreateOrUpdateAsync(storageResourceId, 
         }
     });
 
-Console.WriteLine("Step 4: create a table (with three columns, EventTime, EventId, and EventSummary) and column mapping in Azure Data Explorer database.");
+Console.WriteLine("Step 4: Create a table (with three columns: EventTime, EventId, and EventSummary) and column mapping in your Azure Data Explorer database.");
 var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
 var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(kustoUri)
 {
@@ -130,7 +131,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
     kustoClient.ExecuteControlCommand(command);
 }
 
-Console.WriteLine("Step 5: add a event grid data connection. Azure Data Explorer will automatically ingest the data when new blobs are created.");
+Console.WriteLine("Step 5: Add an Event Grid data connection. Azure Data Explorer will automatically ingest the data when new blobs are created.");
 var kustoManagementClient = new KustoManagementClient(serviceCreds)
 {
     SubscriptionId = subscriptionId
@@ -139,14 +140,15 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
                 kustoDatabaseName, dataConnectionName: kustoDataConnectionName, new EventGridDataConnection(storageResourceId, eventHubResourceId, consumerGroup: "$Default", location: location, tableName:kustoTableName, mappingRuleName: kustoColumnMappingName, dataFormat: "csv"));
 
 ```
-|**Setting** | **Suggested value** | **Field description**|
+| **Setting** | **Field description** |
 |---|---|---|
-| tenantId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
-| clientId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The client ID of the application that can access resources in your tenant.|
-| clientSecret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
+| tenantId | Your tenant ID. Also known as directory ID.|
+| subscriptionId | The subscription ID that you use for resource creation.|
+| clientId | The client ID of the application that can access resources in your tenant.|
+| clientSecret | The client secret of the application that can access resources in your tenant. |
 
-## How to test the example
+## Test the code example
+
 1. Upload a file into the storage account
 
 ```csharp
@@ -159,11 +161,12 @@ var blobContent = @"2007-01-01 00:00:00.0000000,2592,Several trees down
 2007-01-01 00:00:00.0000000,4171,Winter Storm";
 await blockBlob.UploadTextAsync(blobContent);
 ```
-|**Setting** | **Suggested value** | **Field description**|
+|**Setting** | **Field description**|
 |---|---|---|
-| storageConnectionString | *xxxxxxxxxxxxxx* | The connection string of the programmatically created storage account.|
+| storageConnectionString | The connection string of the programmatically created storage account.|
 
 2. Run a test query in Azure Data Explorer
+
 ```csharp
 var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
 var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(kustoUri)
@@ -188,6 +191,7 @@ using (var kustoClient = KustoClientFactory.CreateCslQueryProvider(kustoConnecti
 ```
 
 ## Clean up resources
+
 To delete the resource group and clean up resources, use the following command:
 
 ```csharp

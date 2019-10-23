@@ -2,12 +2,14 @@
 author: lugoldbemicrosoft
 ms.service: data-explorer
 ms.topic: include
-ms.date: 10/10/2019
+ms.date: 10/23/2019
 ms.author: lugoldbe
 ---
 
 ## Azure Resource Manager template
+
 In this article, an Azure Resource Manager template is used to create all the azure resources, a storage account, a container, an event hub, an azure data explorer cluster, and a database. Save the following content into a file with name `template.json`, which will be used to run the code example.
+
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
