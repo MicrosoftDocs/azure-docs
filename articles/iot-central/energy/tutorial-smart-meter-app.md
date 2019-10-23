@@ -56,8 +56,6 @@ The newly created smart meter app is your app and you can modify it anytime. Let
 
 To verify the app creation and data simulation, go to the **Dashboard**. If you can see the tiles with some data, then your app deployment was successful. The data simulation may take a few minutes to generate the data, so give it 1-2 minutes. 
 
-If you don’t see any data after 3-5 mins or any error, then contact <> 
-
 ## Application walk-through
 After you successfully deploy the app template, it comes with sample smart meter device, device model, and a dashboard. 
 
@@ -101,4 +99,5 @@ If you decide to not continue using this application, delete your application wi
 
 
 ## Next steps
-To learn about smart meter app architecture refer to the concept article. 
+* To learn about smart meter app architecture refer to the concept article. 
+* Create smart meter application templates for free: [smart meter app](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring)
