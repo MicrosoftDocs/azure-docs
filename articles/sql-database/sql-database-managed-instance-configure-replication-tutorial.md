@@ -49,8 +49,8 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ## 2 - Create two managed instances
 Create two managed instances within this new resource group using the [Azure portal](https://portal.azure.com). 
 
-- The name of the first managed instance should be: `sql-mi-pub` and the name of the virtual network should be `vnet-sql-mi-pub`.
-- The name of the second managed instance should be: `sql-mi-dist` and it should be _in the same virtual network as the first managed instance_. 
+- The name of the first managed instance should be: `sql-mi-publisher` (along with a few characters for randomization) and the name of the virtual network should be `vnet-sql-mi-publisher`.
+- The name of the second managed instance should be: `sql-mi-distributor` (along with a few characters for randomization) and it should be _in the same virtual network as the first managed instance_. 
 
 For more information about creating a managed instance, see [Create a managed instance in the portal](sql-database-managed-instance-get-started.md)
 
@@ -63,7 +63,7 @@ Create a SQL Server virtual machine using the [Azure portal](https://portal.azur
 - Location: the same as the managed instance
 - Virtual network: `sql-vm-sub-vnet` 
 
-For more information about deploying a SQL Server VM to azure, see [Quickstart: Create SQL Server VM](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
+For more information about deploying a SQL Server VM to Azure, see [Quickstart: Create SQL Server VM](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
 
 ## 4 - Configure VPN peering
 To enable communication, configure VPN peering between the virtual network of the two managed instances, and the virtual network of the SQL Server VM. To do so, use the following PowerShell code snippet:
@@ -72,7 +72,7 @@ To enable communication, configure VPN peering between the virtual network of th
 # Set variables
 $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName SQLMI-Repl `
-  -Name vnet-sql-mi-pub 
+  -Name vnet-sql-mi-publisher 
 
  $virtualNetwork2 = Get-AzVirtualNetwork `
   -ResourceGroupName SQLMI-Repl `
@@ -93,7 +93,7 @@ Add-AzVirtualNetworkPeering `
 # Check status of peering on the publisher vNet; should say connected
 Get-AzVirtualNetworkPeering `
  -ResourceGroupName SQLMI-Repl `
- -VirtualNetworkName vnet-sql-mi-pub `
+ -VirtualNetworkName vnet-sql-mi-publisher `
  | Select PeeringState
 
 # Check status of peering on the subscriber vNet; should say connected
@@ -127,7 +127,7 @@ Create a shared folder on the subscriber for the snapshot location.  To do so, d
 Create a new database on the publisher MI. To do so, do the following:
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server VM. 
-1. Connect to the `sql-mi-pub` managed instance. 
+1. Connect to the `sql-mi-publisher` managed instance. 
 1. Open a **New Query** window and execute the following T-SQL query to create the database:
 
 ```sql
@@ -172,19 +172,19 @@ GO
 ```
 
 ## 6 - Configure distribution 
-Once connectivity is established and you have a sample database, you can configure distribution on your `sql-mi-dist` managed instance. To do so, do the following:
+Once connectivity is established and you have a sample database, you can configure distribution on your `sql-mi-distributor` managed instance. To do so, do the following:
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server VM. 
-1. Connect to the `sql-mi-dist` managed instance. 
+1. Connect to the `sql-mi-distributor` managed instance. 
 1. Right-click the **Replication** node within **Object Explorer** and select **Configure Distribution**. 
 1. Select **Next** to move past the welcome page. 
-1. Select the option where the `sql-mi-dist` instance acts as its own distributor, and select **Next**. 
+1. Select the option where the `sql-mi-distributor` instance acts as its own distributor, and select **Next**. 
 1. On the **Snapshot Folder** page, type in the value of the **Network path** of your folder. It should be `\\sql-vm-sub\Repl`. Select **Next**.  
 
    ![Snapshot folder](media/sql-database-managed-instance-configure-replication-tutorial/snapshot-folder.png)
 
 1. On the **Distribution Database** page, leave all the values as default. 
-1. On the **Publishers** page, select **Add** and then select **Add SQL Server Publisher** from the drop down. This will open the **Connect to Server** dialog box. Connect to the publisher instance `sql-mi-pub`. Select **Next**. 
+1. On the **Publishers** page, select **Add** and then select **Add SQL Server Publisher** from the drop down. This will open the **Connect to Server** dialog box. Connect to the publisher instance `sql-mi-publisher`. Select **Next**. 
 
   ![Add SQL MI Publisher](media/sql-database-managed-instance-configure-replication-tutorial/add-mi-as-publisher.png)
 
@@ -198,10 +198,10 @@ Once connectivity is established and you have a sample database, you can configu
 Once distribution  has been configured, you can now create the publisher. To do so, do the following:
 
 1. Launch SQL Server Management Studio (SSMS) on your SQL Server VM. 
-1. Connect to the `sql-mi-pub` managed instance. 
+1. Connect to the `sql-mi-publisher` managed instance. 
 1. In **Object Explorer**, expand the **Replication** node and right-click the **Local Publication** folder. Select **New Publication...**. 
 1. Select **Next** to move past the welcome page. 
-1. On the **Distributor** page, select the option to **Use the following server as the Distributor**. Select **Add...**. Connect to your distributor instance, `sql-mi-dist`. Select **Next**. 
+1. On the **Distributor** page, select the option to **Use the following server as the Distributor**. Select **Add...**. Connect to your distributor instance, `sql-mi-distributor`. Select **Next**. 
 1. On the **Administrative Password** page, supply the password that you manually configured when you configured distribution (on the **Distributor password** page). Select **Next**. 
 1. 
 
