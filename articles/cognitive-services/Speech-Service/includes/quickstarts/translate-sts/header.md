@@ -17,6 +17,6 @@ In this quickstart you will use the [Speech SDK](https://aka.ms/ignite2019/speec
 > * Create a ````SpeechTranslationConfig```` object from your subscription key and region.
 > * Update the ````SpeechTranslationConfig```` object to specify the source and target languages.
 > * Update the ````SpeechTranslationConfig```` object to specify the speech output voice name.
-> * Create a ````TranslationRecognizer```` object using the ````SpeechConfig```` object from above.
+> * Create a ````TranslationRecognizer```` object using the ````SpeechTranslationConfig```` object from above.
 > * Using the ````TranslationRecognizer```` object, start the recognition process for a single utterance.
 > * Inspect the ````TranslationRecognitionResult```` returned.
