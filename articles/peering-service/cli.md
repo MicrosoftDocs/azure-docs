@@ -1,13 +1,13 @@
 ---
 title: Register a Peering Service (Preview) connection using CLI 
 description: Learn how to register a Peering Service connection using Azure CLI
-services: peering-service
+services: Peering-Service
 author: ypitsch
-ms.service: peering-service
+ms.service: Peering-Service
 ms.devlang: na
-ms.topic: article
+ms.topic: Article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.workload: Infrastructure-services
 ms.date: 11/04/2019
 ms.author: v-meravi
 ---

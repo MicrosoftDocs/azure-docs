@@ -1,13 +1,13 @@
 ---
 title: Azure Peering Service (Preview) Overview
 description: Learn about Azure Peering Service Overview
-services: peering-service
+services: Peering-Service
 author: ypitsch
-ms.service: peering-service
+ms.service: Peering-Service
 ms.devlang: na
-ms.topic: article
+ms.topic: Article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.workload: Infrastructure-services
 ms.date: 11/04/2019
 ms.author: v-meravi
 ---
@@ -18,7 +18,7 @@ Peering Service is a networking service that aims at enhancing customer connecti
 
 By selecting “*Peering Service*”, an end user is selecting a partner Service Provider [SP] in a given region, which is well connected to Microsoft through highly reliable interconnections. These connections are optimized for high reliability and minimal latency from  cloud services to the end user location.
 
-![optimal internet](./media/peering-service-about/peering-service-what.png)
+![first mile ](./media/peering-service-about/peering-service-what.png).
 
 Customers can also opt for *Peering Service telemetry* such as user latency measures to Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering the Peering Service in the Azure portal.  
 
@@ -30,6 +30,10 @@ For instructions on how to register a Peering Service, refer [here](azure-portal
 > "Peering Service” is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+> [!Note]
+> This article is intended for network architects of enterprises.
+>
 
 ## What Peering Service isn't about?
 
@@ -49,7 +53,18 @@ Office 365, Dynamics 365, and any other Microsoft SaaS services are hosted in mu
 
 Microsoft and partner SPs ensure that traffic for the prefixes registered with Peering Service connection enters and exits the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*. Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*.
 
-  ![first mile ](./media/peering-service-about/peering-service-background-final.png)
+![first mile ](./media/peering-service-about/peering-service-background-final.png).
+
+    <li>Distributed connectivity to Microsoft Cloud</li>
+
+<div class=figure>
+<p><img src="/media/peering-service-about/peering-service-background-final.png"
+   width="136" height="200"
+   alt="Distributed connectivity to Microsoft Cloud">
+<p>Scale model of the
+    Eiffel tower in
+    Parc Mini-France
+</div>
 
 > [!Note]
 > For more information about the Microsoft Global Network, refer [here](https://docs.microsoft.com/azure/networking/microsoft-global-network).

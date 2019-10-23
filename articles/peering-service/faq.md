@@ -1,13 +1,13 @@
 ---
 title: Azure Peering Service (Preview) FAQ
 description: Learn about Microsoft Azure Peering Service FAQ
-services: peering-service
+services: Peering-Service
 author: ypitsch
-ms.service: peering-service
+ms.service: Peering-Service
 ms.devlang: na
-ms.topic: article
+ms.topic: Article
 ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.workload: Infrastructure-services
 ms.date: 11/04/2019
 ms.author: ypitsch
 ---
