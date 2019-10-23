@@ -14,16 +14,16 @@ ms.date: 01/31/2019
 
 If you want to use either [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) or [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md), we recommend that you migrate your data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) to [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
-We recommend that you review the article [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
-
 In addition to moving your files, you'll also want to make your data, stored in U-SQL tables, accessible to Spark.
 
-## Move data stored in files
+## Move data stored in Azure Data Lake Storage Gen1 files
 
 Data stored in files can be moved in various ways:
 
 - Write an [Azure Data Factory](../data-factory/introduction.md) pipeline to copy the data from [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) account to the [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) account.
 - Write a Spark job that reads the data from the [Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-overview.md) account and writes it to the [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) account. Based on your use case, you may want to write it in a different format such as Parquet if you do not need to preserve the original file format.
+
+We recommend that you review the article [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
 
 ## Move data stored in U-SQL tables
 
@@ -33,7 +33,7 @@ The output can be achieved in U-SQL with the built-in Parquet outputter and usin
 
 After this transformation, you copy the data as outlined in the chapter [Move "unstructured" data stored in files](#move-data-stored-in-files).
 
-## Some caveats
+## Caveats
 
 - Data semantics
     When copying files, the copy will occur at the byte level.  So the same data should be appearing in the [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) account.  Note however, Spark may interpret some characters differently.  For example, it may use a different default for a row-delimiter in a CSV file.
@@ -46,6 +46,7 @@ After this transformation, you copy the data as outlined in the chapter [Move "u
 ## Next steps
 
 - [Understand Spark for U-SQL developers](data-lake-analytics-understand-spark-u-sql-code.md)
+- [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
 - [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
 - [What is Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

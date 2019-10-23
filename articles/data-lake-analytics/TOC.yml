@@ -120,11 +120,11 @@
       href: data-lake-analytics-u-sql-sdk.md
   - name: Understand Apache Spark for U-SQL developers
     items:
-    - name: Understanding Apache Spark for U-SQL developers
+    - name: Understand Apache Spark for U-SQL developers
       href: data-lake-analytics-understand-spark-overview.md
-    - name: Understand Apache Spark data concepts
+    - name: Understand Apache Spark data formats for U-SQL developers
       href: data-lake-analytics-understand-spark-data.md
-    - name: Understand Apache Spark to U-SQL code concepts
+    - name: Understand Apache Spark code concepts for U-SQL developers
       href: data-lake-analytics-understand-spark-u-sql-code.md
 - name: Reference
   items:

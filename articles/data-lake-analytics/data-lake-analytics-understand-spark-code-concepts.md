@@ -1,5 +1,5 @@
 ---
-title: Understanding Apache Spark code for U-SQL developers
+title: Understanding Apache Spark code concepts for U-SQL developers
 description: This article describes concepts to help you understand Apache Spark code for U-SQL developers
 author: guyhay
 ms.author: guyhay
@@ -210,7 +210,9 @@ Spark's cost-based query optimizer has its own capabilities to provide hints and
 
 ## Next steps
 
-- [Understand Spark data and data formats](data-lake-analytics-understand-spark-data.md)
+- [Understand Spark data formats for U-SQL developers](data-lake-analytics-understand-spark-data.md)
 - [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
+- [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
 - [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
+- [Transform data using Hadoop Hive activity in Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [What is Apache Spark in Azure HDInsight](../hdinsight/spark/apache-spark-overview.md)

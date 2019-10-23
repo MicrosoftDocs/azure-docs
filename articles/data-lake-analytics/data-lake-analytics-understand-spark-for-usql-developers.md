@@ -34,11 +34,14 @@ It includes a number of steps you can take, and several alternatives.
       - Apache Spark Engines such as [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md) or [Azure Databricks](../azure-databricks/what-is-azure-databricks.md)
       This means you are going to translate your U-SQL scripts to Spark. For more information, see [Understand Spark data formats](data-lake-analytics-understand-spark-data.md)
 
-Both [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md) are cluster services and not serverless jobs like Azure Data Lake Analytics. Therefore, you will have to consider how to provision the clusters to get the appropriate cost/performance ratio and how to manage their lifetime to minimize your costs.  Also, these services are not supporting to scale user code written in .NET, so you will have to either write wrappers or rewrite your code in a supported language. For more information, see [Understand Spark data formats](data-lake-analytics-understand-spark-data.md)
+> [!CAUTION]
+> Both [Azure Databricks](../azure-databricks/what-is-azure-databricks.md) and [Azure HDInsight Spark](../hdinsight/spark/apache-spark-overview.md) are cluster services and not serverless jobs like Azure Data Lake Analytics. You will have to consider how to provision the clusters to get the appropriate cost/performance ratio and how to manage their lifetime to minimize your costs.  These services are have different performance characteristics with user code written in .NET, so you will have to either write wrappers or rewrite your code in a supported language. For more information, see [Understand Spark data formats](data-lake-analytics-understand-spark-data.md), [Understand Spark code for U-SQL developers](data-lake-analytics-understand-spark-u-sql-code.md), [.Net for Apache Spark](https://dotnet.microsoft.com/apps/data/spark)
 
 ## Next steps
 
-- [Understand Spark data formats](data-lake-analytics-understand-spark-data.md).
+- [Understand Spark data formats for U-SQL developers](data-lake-analytics-understand-spark-data.md)
+- [Understand Spark code for U-SQL developers](data-lake-analytics-understand-spark-u-sql-code.md)
+- [Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-upgrade.md)
 - [.NET for Apache Spark](https://docs.microsoft.com/dotnet/spark/what-is-apache-spark-dotnet)
 - [Transform data using Hadoop Hive activity in Azure Data Factory](../data-factory/transform-data-using-hadoop-hive.md)
 - [Transform data using Spark activity in Azure Data Factory](../data-factory/transform-data-using-spark.md)
