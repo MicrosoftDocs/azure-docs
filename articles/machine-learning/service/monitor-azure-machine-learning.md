@@ -32,7 +32,7 @@ The following sections build on this information by describing the specific data
 
 ## Monitoring data from Azure Machine Learning
 
-Azure Machine Learning collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). See [Azure Machine Learning monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
+Azure Machine Learning collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources). See [Azure Machine Learning monitoring data reference](monitor-resource-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
 ## Configuration
 
@@ -48,13 +48,15 @@ When you create a diagnostic setting, you specify which categories of logs to co
 | AmlComputeClusterNodeEvent | Events from nodes within an Azure Machine Learning compute cluster. |
 | AmlComputeJobEvent | Events from jobs running on Azure Machine Learning compute. |
 
+![Diagnostics settings entry](./media/monitor-azure-machine-learning/diagnostics-settings.png)
+
 ## Analyzing metric data
 
 You can analyze metrics for Azure Machine Learning by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
 
 All metrics for Azure Machine Learning are in the namespace **Machine Learning Service Workspace**.
 
-![Metrics Explorer with Machine Learning Service Workspace selected](tbd)
+![Metrics Explorer with Machine Learning Service Workspace selected](media/monitor-azure-machine-learning/metrics.png)
 
 For metrics that support dimensions, you can filter the metric with the desired dimension value. The following screenshot demonstrates using a filter to show **Active Cores** for the **Cluster Name** of `cpu-cluster`:
 
