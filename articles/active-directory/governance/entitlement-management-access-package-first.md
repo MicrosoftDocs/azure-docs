@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 10/21/2019
+ms.date: 10/22/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -131,9 +131,9 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. In the Select users and groups pane, select the **Requestor1** user you created earlier.
 
-1. Click **Select**.
-
     ![New access package - Requests tab - Select users and groups](./media/entitlement-management-access-package-first/requests-select-users-groups.png)
+
+1. Click **Select**.
 
 1. Scroll down to the **Approval** and **Enable requests** sections.
 
@@ -186,6 +186,8 @@ In this step, you perform the steps as the **internal requestor** and request ac
 1. Click the checkmark to select the package.
 
 1. Click **Request access** to open the Request access pane.
+
+    ![My Access portal - Request access button](./media/entitlement-management-access-package-first/my-access-request-access-button.png)
 
 1. In the **Business justification** box, type the justification **I am working on the new marketing campaign**.
 
