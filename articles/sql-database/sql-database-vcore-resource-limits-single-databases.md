@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 10/20/2019
+ms.date: 10/23/2019
 ---
 # Resource limits for single databases using the vCore purchasing model
 
@@ -18,13 +18,99 @@ This article provides the detailed resource limits for Azure SQL Database single
 
 For DTU purchasing model limits for single databases on a SQL Database server, see [Overview of resource limits on a SQL Database server](sql-database-resource-limits-database-server.md).
 
-> [!IMPORTANT]
-> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 You can set the service tier, compute size, and storage amount for a single database using the [Azure portal](sql-database-single-databases-manage.md#manage-an-existing-sql-database-server), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-sql-database-servers-and-single-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases), the [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-sql-database-servers-and-single-databases), or the [REST API](sql-database-single-databases-manage.md#rest-api-manage-sql-database-servers-and-single-databases).
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](sql-database-single-database-scale.md).
+
+
+## General purpose - serverless compute - Gen5
+
+The [serverless compute tier](sql-database-serverless.md) is currently available on Gen5 hardware only.
+
+### Gen5 compute generation (part 1)
+
+|Compute size|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
+|:--- | --: |--: |--: |--: |--: |
+|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|
+|Min-max vCores|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
+|Min-max memory (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
+|Min auto-pause delay (minutes)|60|60|60|60|60|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
+|Max data size (GB)|512|1024|1024|1024|1536|
+|Max log size (GB)|154|307|307|307|461|
+|TempDB max data size (GB)|32|64|128|192|256|
+|Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max data IOPS (64 KB)|500|1000|2000|3000|4000|
+|Max log rate (MBps)|2.5|5.6|10|15|20|
+|Max concurrent workers (requests)|75|150|300|450|600|
+|Max concurrent sessions|30000|30000|30000|30000|30000|
+|Number of replicas|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+### Gen5 compute generation (part 2)
+
+|Compute size|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
+|:--- | --: |--: |--: |--: |
+|Compute generation|Gen5|Gen5|Gen5|Gen5|
+|Min-max vCores|1.25-10|1.50-12|1.75-14|2.00-16|
+|Min-max memory (GB)|3.75-30|4.50-36|5.25-42|6.00-48|
+|Min auto-pause delay (minutes)|60|60|60|60|
+|Columnstore support|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
+|Max data size (GB)|1536|1536|1536|3072|
+|Max log size (GB)|461|461|461|922|
+|TempDB max data size (GB)|320|384|448|512|
+|Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Max data IOPS (64 KB)|5000|6000|7000|8000|
+|Max log rate (MBps)|20|20|20|20|
+|Max concurrent workers (requests)|750|900|1050|1200|
+|Max concurrent sessions|30000|30000|30000|30000|
+|Number of replicas|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
+
+
+## Hyperscale - provisioned compute - Gen5
+
+### Gen5 compute generation
+
+|Performance level|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
+|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
+|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
+|vCores|2|4|8|16|24|32|40|80|
+|Memory (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
+|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
+|Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
+|TempDB max data size (GB)|64|128|256|384|384|384|384|384|
+|Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) | [Note 1](#notes) |
+|Max data IOPS (64 KB)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
+|IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
+|Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
+|Max concurrent sessions|30000|30000|30000|30000|30000|30000|30000|30000|
+|Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
+|||
+
+#### Notes
+
+**Note 1**: Hyperscale is a multi-tiered architecture with separate compute and storage components: [Hyperscale Service Tier Architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
+
+**Note 2**: Hyperscale multi-tiered architecture has caching at multiple levels. Effective IOPS will depend on the workload.
+
+**Note 3**: Latency is 1-2 ms for data in the RBPEX SSD-based cache on compute replicas, which caches most used data pages. Higher latency for data retrieved from page servers.
 
 ## General purpose - provisioned compute - Gen4
 
@@ -151,58 +237,6 @@ You can set the service tier, compute size, and storage amount for a single data
 |Included backup storage|1X DB size|
 
 
-
-## General purpose - serverless compute - Gen5
-
-The [serverless compute tier](sql-database-serverless.md) is currently available on Gen5 hardware only.
-
-### Gen5 compute generation (part 1)
-
-|Compute size|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|GP_S_Gen5_6|GP_S_Gen5_8|
-|:--- | --: |--: |--: |--: |--: |
-|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|
-|Min-max vCores|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
-|Min-max memory (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
-|Min auto-pause delay (minutes)|60|60|60|60|60|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
-|Max data size (GB)|512|1024|1024|1024|1536|
-|Max log size (GB)|154|307|307|307|461|
-|TempDB max data size (GB)|32|64|128|192|256|
-|Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
-|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS (64 KB)|500|1000|2000|3000|4000|
-|Max log rate (MBps)|2.5|5.6|10|15|20|
-|Max concurrent workers (requests)|75|150|300|450|600|
-|Max concurrent sessions|30000|30000|30000|30000|30000|
-|Number of replicas|1|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|N/A|N/A|N/A|N/A|N/A|
-|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
-
-### Gen5 compute generation (part 2)
-
-|Compute size|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
-|:--- | --: |--: |--: |--: |
-|Compute generation|Gen5|Gen5|Gen5|Gen5|
-|Min-max vCores|1.25-10|1.50-12|1.75-14|2.00-16|
-|Min-max memory (GB)|3.75-30|4.50-36|5.25-42|6.00-48|
-|Min auto-pause delay (minutes)|60|60|60|60|
-|Columnstore support|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
-|Max data size (GB)|1536|1536|1536|3072|
-|Max log size (GB)|461|461|461|922|
-|TempDB max data size (GB)|320|384|448|512|
-|Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
-|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Max data IOPS (64 KB)|5000|6000|7000|8000|
-|Max log rate (MBps)|20|20|20|20|
-|Max concurrent workers (requests)|750|900|1050|1200|
-|Max concurrent sessions|30000|30000|30000|30000|
-|Number of replicas|1|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|N/A|
-|Read Scale-out|N/A|N/A|N/A|N/A|
-|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
 ## Business critical - provisioned compute - Gen4
 
@@ -335,39 +369,9 @@ The [serverless compute tier](sql-database-serverless.md) is currently available
 
 
 
-## Hyperscale - provisioned compute - Gen5
 
-### Gen5 compute generation
-
-|Performance level|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
-|:--- | --: |--: |--: |--: |---: | --: |--: |--: |
-|Compute generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|2|4|8|16|24|32|40|80|
-|Memory (GB)|10.2|20.4|40.8|81.6|122.4|163.2|204|408|
-|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Size|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|3X Memory|
-|Columnstore support|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Max data size (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
-|Max log size (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
-|TempDB max data size (GB)|64|128|256|384|384|384|384|384|
-|Storage type| [Note 1](#notes) |[Note 1](#notes)|[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) |[Note 1](#notes) | [Note 1](#notes) |
-|Max data IOPS (64 KB)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|[Note 2](#notes)|
-|IO latency (approximate)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|[Note 3](#notes)|
-|Max concurrent workers (requests)|200|400|800|1600|2400|3200|4000|8000|
-|Max concurrent sessions|30000|30000|30000|30000|30000|30000|30000|30000|
-|Secondary replicas|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
-|Multi-AZ|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
-|Read Scale-out|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
-|Backup storage retention|7 days|7 days|7 days|7 days|7 days|7 days|7 days|7 days|
-|||
-
-#### Notes
-
-**Note 1**: Hyperscale is a multi-tiered architecture with separate compute and storage components: [Hyperscale Service Tier Architecture](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
-
-**Note 2**: Hyperscale multi-tiered architecture has caching at multiple levels. Effective IOPS will depend on the workload.
-
-**Note 3**: Latency is 1-2 ms for data in the RBPEX SSD-based cache on compute replicas, which caches most used data pages. Higher latency for data retrieved from page servers.
+> [!IMPORTANT]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 ## Next steps
 

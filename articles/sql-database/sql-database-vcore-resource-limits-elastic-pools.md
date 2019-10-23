@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 10/20/2019
+ms.date: 10/23/2019
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 
@@ -25,8 +25,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale an elastic pool](sql-database-elastic-pool-scale.md)
-> [!NOTE]
-> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same compute size. For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
+
 
 ## General purpose - provisioned compute - Gen4
 
@@ -333,6 +332,9 @@ If all vCores of an elastic pool are busy, then each database in the pool receiv
 ## Database properties for pooled databases
 
 The following table describes the properties for pooled databases.
+
+> [!NOTE]
+> The resource limits of individual databases in elastic pools are generally the same as for single databases outside of pools that has the same compute size. For example, the max concurrent workers for an GP_Gen4_1 database is 200 workers. So, the max concurrent workers for a database in a GP_Gen4_1 pool is also 200 workers. Note, the total number of concurrent workers in GP_Gen4_1 pool is 210.
 
 | Property | Description |
 |:--- |:--- |
