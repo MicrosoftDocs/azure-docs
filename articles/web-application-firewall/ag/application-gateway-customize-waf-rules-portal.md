@@ -22,16 +22,9 @@ The Azure Application Gateway Web Application Firewall (WAF) provides protection
 
 **To view rule groups and rules**
    1. Browse to the application gateway, and then select **Web application firewall**.  
-   2. Select **Advanced rule configuration**.  
+   2. Select your **WAF Policy**
+   2. Select **Managed Rules**
    This view shows a table on the page of all the rule groups provided with the chosen rule set. All of the rule's check boxes are selected.
-
-![Configure disabled rules][1]
-
-## Search for rules to disable
-
-The **Web application firewall settings** page provides the capability to filter the rules through a text search. The result displays only the rule groups and rules that contain the text you searched for.
-
-![Search for rules][2]
 
 ## Disable rule groups and rules
 
@@ -43,7 +36,8 @@ When you're disabling rules, you can disable an entire rule group or specific ru
 **To disable rule groups or specific rules**
 
    1. Search for the rules or rule groups that you want to disable.
-   2. Clear the check boxes for the rules that you want to disable. 
+   2. Select the check boxes for the rules that you want to disable. 
+   3. Select the action at the top of the page (enable/disable) for the selected rules.
    2. Select **Save**. 
 
 ![Save changes][3]
