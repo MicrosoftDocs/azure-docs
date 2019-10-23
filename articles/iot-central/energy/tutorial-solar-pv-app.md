@@ -37,6 +37,7 @@ You can create this application in three simple steps:
 
 2. Select **Energy** tab and click **Create app** under **Solar Panel Monitoring Application**
 
+[!div class="mx-imgBorder"]
 ![Build App](media/tutorial-iot-central-solar-panel/solar-panel-build.png)
 
 
@@ -47,6 +48,7 @@ You can create this application in three simple steps:
 * **Billing Info**: The application itself is free. The Directory, Azure subscription, and Region details are required to provision the resources for your app.
 * Click **Create** button at the bottom of the page and your app will be created in a minute or so.
 
+[!div class="mx-imgBorder"]
 ![New application form](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
 
 
@@ -68,22 +70,26 @@ Adatum is a fictitious energy company, who monitors and manages solar panels. On
 * Track the total energy generation for planning and billing purposes
 * Command and control operations such as activate panel and update firmware version. In the template, the command buttons show the possible functionalities and don't send real commands.
 
+[!div class="mx-imgBorder"]
 ![Solar Panel Monitoring Dashboard](media/tutorial-iot-central-solar-panel/solar-panel-dashboard.png)
 
 ### Devices
 The app comes with a sample solar panel device. You can see the device details by clicking on the **Devices** tab.
 
+[!div class="mx-imgBorder"]
 ![Solar Panel Devices](media/tutorial-iot-central-solar-panel/solar-panel-device.png)
 
 
 Click on the sample device **SP0123456789** link to see the device details. On the **Update Properties** page, you can update the writable properties of the device and visualize the updated values on the dashboard. 
 
+[!div class="mx-imgBorder"]
 ![Solar Panel Properties](media/tutorial-iot-central-solar-panel/solar-panel-device-properties.png)
 
 
 ### Device Template
 Click on the **Device templates** tab to see the solar panel device model. The model has pre-define interface for Data, Property, Commands, and Views.
 
+[!div class="mx-imgBorder"]
 ![Solar Panel Devices Template](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
@@ -93,10 +99,11 @@ If you decide to not continue using this application, delete your application wi
 1. From the left-hand menu, open Administration tab
 2. Select Application settings and click Delete button at the bottom of the page. 
 
+[!div class="mx-imgBorder"]
 ![Delete application](media/tutorial-iot-central-solar-panel/solar-panel-delete-app.png)
 
 
 ## Next steps
 
-To learn about smart meter app architecture, [refer concept article]()
+To learn about smart meter app architecture, [refer concept article](concept-iot-central-smart-meter.md)
 
