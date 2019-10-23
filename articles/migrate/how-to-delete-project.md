@@ -10,19 +10,19 @@ ms.author: raynew
 
 # Delete an Azure Migrate project
 
-This article describes how delete an [Azure Migrate](migrate-overview.md) project.
+This article describes how to delete an [Azure Migrate](migrate-overview.md) project.
 
 
 ## Before you start
 
-Note the following before you delete a project:
+Before you delete a project, note that:
 
 - When you delete a project, the project, and discovered machine metadata are deleted.
-- If you've attached a Log Analytics workspace to the Server Assessment tool for the purposes of dependency analysis, you need to decide whether you want to delete the workspace. Note that:
-    - The workspace isn't automatically deleted. If you want to delete the Log Analytics workspace, you must do that manually.
-    - Before deleting a workspace verify what it's used for. The same Log Analytics workspace might be used for multiple scenarios.
-    - Before you delete the project, you can find a link to the workspace (if applicable) in **Auzre Migrate - Servers** > **Azure Migrate - Server Assessment**, under **OMS Workspace**.
-    - If you want to delete a workspace after you've deleted a project, located the workspace in the relevant resource group, and follow [these instructions](../azure-monitor/platform/delete-workspace.md).
+- If you've attached a Log Analytics workspace to the Server Assessment tool for dependency analysis, decide whether you want to delete the workspace. 
+    - The workspace isn't automatically deleted. You must delete it manually.
+    - Verify what a workspace is used for before you delete it. The same Log Analytics workspace can be used for multiple scenarios.
+    - Before you delete the project, you can find a link to the workspace in **Azure Migrate - Servers** > **Azure Migrate - Server Assessment**, under **OMS Workspace**.
+    - To delete a workspace after deleting a project, find the workspace in the relevant resource group, and follow [these instructions](../azure-monitor/platform/delete-workspace.md).
 
 
 ## Delete a project
@@ -34,7 +34,7 @@ Note the following before you delete a project:
     - The resource type for Azure Migrate projects is **Microsoft.Migrate/migrateprojects**.
     - The next section in this article provides information about the resources that might be created for discovery, assessment, and migration in an Azure Migrate project.
     - Alternatively, if the resource group only contains the Azure Migrate project, you can delete the entire resource group.
-    - If you want to delete a project from the previous version of Azure Migrate, the steps are the same, but the resource type for these projects is **Migration project**.
+    - If you want to delete a project from the previous version of Azure Migrate, the steps are the same. The resource type for these projects is **Migration project**.
 
 
 ## Created resources
