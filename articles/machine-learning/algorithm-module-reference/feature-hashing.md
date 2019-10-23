@@ -68,7 +68,7 @@ Numeric outputs also make it possible to use common machine learning methods, in
 
 ## Configure the Feature Hashing module
 
-1.  Add the Feature Hashing module to your experiment in the designer.
+1.  Add the Feature Hashing module to your pipeline in the designer.
 
 1. Connect the dataset that contains the text you want to analyze.
 
@@ -89,7 +89,7 @@ Numeric outputs also make it possible to use common machine learning methods, in
 
     For example, if you enter 3, unigrams, bigrams, and trigrams will be created.
 
-1. Run the experiment.
+1. Run the pipeline.
 
 ## Results
 
@@ -122,7 +122,7 @@ The following best practices can help you get the most out of the Feature Hashin
     * Removal of punctuation and special characters
     * Stemming  
 
-The optimal set of preprocessing methods to apply in any solution depends on domain, vocabulary, and business need. Experiment with your data to see which text processing methods are most effective.
+The optimal set of preprocessing methods to apply in any solution depends on domain, vocabulary, and business need. pipeline with your data to see which text processing methods are most effective.
 
 ## Next steps
 			

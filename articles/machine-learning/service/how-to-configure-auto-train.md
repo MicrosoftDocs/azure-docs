@@ -52,8 +52,9 @@ Classification | Regression | Time Series Forecasting
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [DNN Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [DNN Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [DNN Linear Classifier](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Linear Regressor](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)||[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)||[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+|||ForecastTCN
 
 Use the `task` parameter in the `AutoMLConfig` constructor to specify your experiment type.
 
@@ -66,28 +67,24 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a Pandas DataFrame or an Azure Machine Learning dataset. The following code examples demonstrate how to store the data in these formats. [Learn more about datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**.  [Learn more about datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+
+Requirements for training data:
+- Data must be in tabular form.
+- The value to predict, target column, must be in the data.
+
+The following code examples demonstrate how to store the data in these formats.
 
 * TabularDataset
+  ```python
+  from azureml.core.dataset import Dataset
+  
+  tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
+  train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
+  label = "Label"
+  ```
+
 * Pandas dataframe
-
->[!Important]
-> Requirements for training data:
->* Data must be in tabular form.
->* The value you want to predict (target column) must be present in the data.
-
-Examples:
-
-* TabularDataset
-```python
-    from azureml.core.dataset import Dataset
-
-    tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
-    train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
-    label = "Label"
-```
-
-*	Pandas dataframe
 
     ```python
     import pandas as pd
@@ -339,7 +336,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### Automated feature engineering
 
-See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when preprocess=True.
+See the list of preprocessing and [automated feature engineering](concept-automated-ml.md#preprocess) that happens when feauturization =auto.
 
 Consider this example:
 + There are 4 input features: A (Numeric), B (Numeric), C (Numeric), D (DateTime)
@@ -408,6 +405,30 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
    |Dropped|Indicates if the input feature was dropped or used.|
    |EngineeringFeatureCount|Number of features generated through automated feature engineering transforms.|
    |Transformations|List of transformations applied to input features to generate engineered features.|
+   
+### Customize feature engineering
+To customize feature engineering, specify `"feauturization":FeaturizationConfig`.
+
+Supported customization includes:
+|Customization|Definition|
+|Column purpose update|Override feature type for the specified column.|
+|Transformer parameter update |Update parameters for the specified transformer. Currently supports Imputer and HashOneHotEncoder.|
+|Drop columns |Columns to drop from being featurized.|
+|Block transformers| Block transformers to be used on featurization process.|
+
+Create the FeaturizationConfig objectg using API calls:
+```python
+featurization_config = FeaturizationConfig()
+featurization_config.blocked_transformers = ['LabelEncoder']
+featurization_config.drop_columns = ['aspiration', 'stroke']
+featurization_config.add_column_purpose('engine-size', 'Numeric')
+featurization_config.add_column_purpose('body-style', 'CategoricalHash')
+#default strategy mean, add transformer param for for 3 columns
+featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
+featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
 
 ### Scaling/Normalization and algorithm with hyperparameter values:
 
