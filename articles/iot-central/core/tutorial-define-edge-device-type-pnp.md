@@ -183,8 +183,6 @@ If you plan to create an Azure IoT Edge Gateway device template make sure to sel
 
 You will be presented with a file selection dialog. Select the deployment manifest file and click **Open** button.
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/deploymentmanifestupload.png)
-
 Deployment Manifest file will be validated against a schema. After successful validation click on **Review** button
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/deploymentmanifestvalidate.png)
@@ -203,8 +201,6 @@ If you would have selected gateway device you will see this review page
 
 
 Creating a new device template spinner will be displayed which the device template is being created in IoT Central.
-
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/edgedevicetemplatecreatingtemplate.png)
 
 Device template is created with module capability models. In this tutorial, you will see SimulatedTemperatureSensor module capability model create. 
 
