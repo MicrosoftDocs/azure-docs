@@ -21,13 +21,16 @@ experiment_id: 1e304dc9-5add-4b
 ---
 # Quickstart: Create a Python app in Azure App Service on Linux
 
-In this quickstart, you deploy a simple Python app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer.
+In this quickstart, you deploy a simple Python web app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer.
+
+If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a>
+- <a href="https://www.python.org/downloads/" target="_blank">Python 3.7</a> (Python 3.6 is also supported)
 - <a href="https://git-scm.com/downloads" target="_blank">Git</a>
+- <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>
 
 ## Download the sample locally
 
@@ -68,7 +71,8 @@ In a terminal window, use the commands below to install the required dependencie
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-FLASK_APP=application.py flask run
+FLASK_APP=application.py
+flask run
 ```
 
 # [PowerShell](#tab/powershell)
@@ -101,6 +105,8 @@ In your terminal window, press **Ctrl**+**C** to exit the web server.
 
 ## Sign in to Azure using the CLI
 
+The Azure CLI provides you with many convenient commands that you use from a local terminal to provision and manage Azure resources from the command line, rather than accomplishing these tasks through the Azure portal in a browser. You can also use CLI commands in scripts to automate management processes.
+
 To run Azure commands in the Azure CLI, you must first log in using the `az login` command. This command opens a browser to gather your credentials.
 
 # [Bash](#tab/bash)
@@ -127,24 +133,24 @@ az login
 
 The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app on App Service and deploys your code.
 
-In the *python-docs-hello-world* folder that contains the sample code, run the following command, replacing  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*) and replacing `<location-name>` with an Azure region such as **centralus**. (You can retrieve a list of regions you can use by running the [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
+In the *python-docs-hello-world* folder that contains the sample code, run the following command, replacing  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*) and replacing `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
 
 # [Bash](#tab/bash)
 
 ```bash
-az webapp up -n <app-name> -l <location-name>
+az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az webapp up -n <app-name> -l <location-name>
+az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
 # [Cmd](#tab/cmd)
 
 ```cmd
-az webapp up -n <app-name> -l <location-name>
+az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
 ---
@@ -190,9 +196,10 @@ The Python sample code is running a Linux container in App Service using a built
 
 ## Update locally and redeploy the code
 
-In your favorite code editor, open *application.py* and change the `return` statement on the last line to match the following code:
+In your favorite code editor, open *application.py* and change the `return` statement on the last line to match the following code. The `print` statement is included here to generate logging output that you work with in the next section. 
 
 ```python
+print("Handling request to home page.")
 return "Hello Azure!"
 ```
 
@@ -203,19 +210,19 @@ Redeploy the app using the following `az webapp up` command, using the same comm
 # [Bash](#tab/bash)
 
 ```bash
-az webapp up -n <app-name> -l <location-name>
+az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az webapp up -n <app-name> -l <location-name>
+az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
 # [Cmd](#tab/cmd)
 
 ```cmd
-az webapp up -n <app-name> -l <location-name>
+az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
 ---
@@ -223,6 +230,63 @@ az webapp up -n <app-name> -l <location-name>
 Once deployment has completed, switch back to the browser window open to `http://<app-name>.azurewebsites.net` and refresh the page, which should display the modified message:
 
 ![Run an updated sample Python app in Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
+
+> [!TIP]
+> Visual Studio Code provides powerful extensions for Python and Azure App Service, which simplify the process of deploying Python web apps to App Service. For more information, see [Deploy Python apps to App Service from Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
+
+## Stream diagnostic logs
+
+You can access the console logs generated from inside the app and the container in which it runs. Logs includes any output generated using `print` statements.
+
+First, turn on container logging by running the following command in a terminal, replacing `<app-name>` with the name of your app and `<resource-group-name>` with the name of the resource group shown in the output of the `az webapp up` command you used (such as "appsvc_rg_Linux_centralus"):
+
+# [Bash](#tab/bash)
+
+```bash
+az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
+```
+
+---
+
+Once container logging is turned on, run the following command to show the log stream:
+
+# [Bash](#tab/bash)
+
+```bash
+az webapp log tail --name <app-name> --resource-group <resource-group-name>
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az webapp log tail --name <app-name> --resource-group <resource-group-name>
+```
+
+# [Cmd](#tab/cmd)
+
+```cmd
+az webapp log tail --name <app-name> --resource-group <resource-group-name>
+```
+
+---
+
+Refresh the app to generate console logs. If you don't see output immediately, try again in 30 seconds.
+
+You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
+
+To stop log streaming at any time, type `Ctrl`+`C`.
 
 ## Manage your new Azure app
 
@@ -240,7 +304,7 @@ The left menu provides different pages for configuring your app.
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a resource group that may incur ongoing costs. The resource group has a name like "appsvc_rg_Linux_CentralUS" depending on your location.
+In the preceding steps, you created Azure resources in a resource group. The resource group has a name like "appsvc_rg_Linux_CentralUS" depending on your location. If you use an App Service SKU other than the free F1 tier, these resources will incur ongoing costs.
 
 If you don't expect to need these resources in the future, delete the resource group by running the following command, replacing `<resource-group-name>` with the resource group shown in the output of the `az webapp up` command, such as "appsvc_rg_Linux_centralus". The command may take a minute to complete.
 
@@ -263,7 +327,6 @@ az group delete -n <resource-group-name>
 ```
 
 ---
-
 
 ## Next steps
 
