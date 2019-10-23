@@ -25,7 +25,7 @@ You can create application using following steps
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
 [!div class="mx-imgBorder"]
-![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/IoTC_Retail_Homepage.png)
+![Connected Logistics Dashboard](./media/tutorial-iot-central-connected-logistics/iotc_retail_homepage.png)
 
 2. Select **Create app** under **Connected Logistics Application**
 
