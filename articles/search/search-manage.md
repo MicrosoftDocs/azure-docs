@@ -1,17 +1,17 @@
 ---
-title: Service administration for Azure Search in the portal - Azure Search
-description: Manage an Azure Search service, a hosted cloud search service on Microsoft Azure, using the Azure portal.
-author: HeidiSteen
+title: Service administration for Azure Cognitive Search in the portal
+titleSuffix: Azure Cognitive Search
+description: Manage an Azure Cognitive Search service, a hosted cloud search service on Microsoft Azure, using the Azure portal.
+
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 03/08/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 ---
-# Service administration for Azure Search in the Azure portal
+# Service administration for Azure Cognitive Search in the Azure portal
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
@@ -19,14 +19,14 @@ ms.custom: seodec2018
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the service administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. Service administration is lightweight by design, limited to the following tasks:
+Azure Cognitive Search is a fully managed, cloud-based search service used for building a rich search experience into custom apps. This article covers the service administration tasks that you can perform in the [Azure portal](https://portal.azure.com) for a search service that you've already provisioned. Service administration is lightweight by design, limited to the following tasks:
 
 > [!div class="checklist"]
 > * Manage access to the *api-keys* used for read or write access to your service.
 > * Adjust service capacity by changing the allocation of partitions and replicas.
 > * Monitor resource usage, relative to maximum limits of your service tier.
 
-Notice that *upgrade* is not listed as an administrative task. Because resources are allocated when the service is provisioned, moving to a different tier requires a new service. For details, see [Create an Azure Search service](search-create-service-portal.md).
+Notice that *upgrade* is not listed as an administrative task. Because resources are allocated when the service is provisioned, moving to a different tier requires a new service. For details, see [Create an Azure Cognitive Search service](search-create-service-portal.md).
 
 You can monitor query volume and other metrics, and use those insights to adjust your service for faster response times. For more information, see [Monitor usage and query metrics](search-monitor-usage.md) and [Performance and optimization](search-performance-optimization.md).
 
@@ -37,12 +37,12 @@ Provisioning or decommissioning the service itself can be done by an Azure subsc
 
 Within a service, anyone with access to the service URL and an admin api-key has read-write access to the service. Read-write access provides the ability to add, delete, or modify server objects, including api-keys, indexes, indexers, data sources, schedules, and role assignments as implemented through [RBAC-defined roles](search-security-rbac.md).
 
-All user interaction with Azure Search falls within one of these modes: read-write access to the service (administrator rights), or read-only access to the service (query rights). For more information, see [Manage the api-keys](search-security-api-keys.md).
+All user interaction with Azure Cognitive Search falls within one of these modes: read-write access to the service (administrator rights), or read-only access to the service (query rights). For more information, see [Manage the api-keys](search-security-api-keys.md).
 
 <a id="sys-info"></a>
 
 ## Logging and system information
-Azure Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams review the log files available to them and address the issue.
+Azure Cognitive Search does not expose log files for an individual service either through the portal or programmatic interfaces. At the Basic tier and above, Microsoft monitors all Azure Cognitive Search services for 99.9% availability per service level agreements (SLA). If the service is slow or request throughput falls below SLA thresholds, support teams review the log files available to them and address the issue.
 
 In terms of general information about your service, you can obtain information in the following ways:
 
@@ -53,26 +53,26 @@ In terms of general information about your service, you can obtain information i
 <a id="sub-5"></a>
 
 ## Monitor resource usage
-In the dashboard, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service. On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application. You can provision external resources, such as Azure monitoring, if you want to capture and persist logged events. For more information, see [Monitoring Azure Search](search-monitor-usage.md).
+In the dashboard, resource monitoring is limited to the information shown in the service dashboard and a few metrics that you can obtain by querying the service. On the service dashboard, in the Usage section, you can quickly determine whether partition resource levels are adequate for your application. You can provision external resources, such as Azure monitoring, if you want to capture and persist logged events. For more information, see [Monitoring Azure Cognitive Search](search-monitor-usage.md).
 
-Using the Search Service REST API, you can get a count on documents and indexes programmatically: 
+Using the search service REST API, you can get a count on documents and indexes programmatically: 
 
 * [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Count Documents](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## Disaster recovery and service outages
 
-Although we can salvage your data, Azure Search does not provide instant failover of the service if there is an outage at the cluster or data center level. If a cluster fails in the data center, the operations team will detect and work to restore service. You will experience downtime during service restoration, but you can request service credits to compensate for service unavailability per the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Although we can salvage your data, Azure Cognitive Search does not provide instant failover of the service if there is an outage at the cluster or data center level. If a cluster fails in the data center, the operations team will detect and work to restore service. You will experience downtime during service restoration, but you can request service credits to compensate for service unavailability per the [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
 If continuous service is required in the event of catastrophic failures outside of Microsoft’s control, you could [provision an additional service](search-create-service-portal.md) in a different region and implement a geo-replication strategy to ensure indexes are fully redundant across all services.
 
-Customers who use [indexers](search-indexer-overview.md) to populate and refresh indexes can handle disaster recovery through geo-specific indexers leveraging the same data source. Two services in different regions, each running an indexer, could index the same data source to achieve geo-redundancy. If you are indexing from data sources that are also geo-redundant, be aware that Azure Search indexers can only perform incremental indexing from primary replicas. In a failover event, be sure to re-point the indexer to the new primary replica. 
+Customers who use [indexers](search-indexer-overview.md) to populate and refresh indexes can handle disaster recovery through geo-specific indexers leveraging the same data source. Two services in different regions, each running an indexer, could index the same data source to achieve geo-redundancy. If you are indexing from data sources that are also geo-redundant, be aware that Azure Cognitive Search indexers can only perform incremental indexing from primary replicas. In a failover event, be sure to re-point the indexer to the new primary replica. 
 
-If you do not use indexers, you would use your application code to push objects and data to different search services in parallel. For more information, see [Performance and optimization in Azure Search](search-performance-optimization.md).
+If you do not use indexers, you would use your application code to push objects and data to different search services in parallel. For more information, see [Performance and optimization in Azure Cognitive Search](search-performance-optimization.md).
 
 ## Backup and restore
 
-Because Azure Search is not a primary data storage solution, we do not provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to backup your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
+Because Azure Cognitive Search is not a primary data storage solution, we do not provide a formal mechanism for self-service backup and restore. However, you can use the **index-backup-restore** sample code in this [Azure Cognitive Search .NET sample repo](https://github.com/Azure-Samples/azure-search-dotnet-samples) to backup your index definition and snapshot to a series of JSON files, and then use these files to restore the index, if needed. This tool can also move indexes between service tiers.
 
 Otherwise, your application code used for creating and populating an index is the de facto restore option if you delete an index by mistake. To rebuild an index, you would delete it (assuming it exists), recreate the index in the service, and reload by retrieving data from your primary data store.
 
@@ -107,23 +107,12 @@ There is no detection method that tells you which index shards are stored on spe
 
 To help with future planning, you might want to check storage (using [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) to see how much you actually used. 
 
-<a id="advanced-deployment"></a>
-
-## Best practices on scale and deployment
-This 30-minute video reviews best practices for advanced deployment scenarios, including geo-distributed workloads. You can also see [Performance and optimization in Azure Search](search-performance-optimization.md) for help pages that cover the same points.
-
-> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON319/player]
-> 
-> 
-
 <a id="next-steps"></a>
 
 ## Next steps
 Once you understand the concepts behind service administration, consider using [PowerShell](search-manage-powershell.md) to automate tasks.
 
 We also recommend reviewing the [performance and optimization article](search-performance-optimization.md).
-
-Another recommendation is to watch the video noted in the previous section. It provides deeper coverage of the techniques mentioned in this section.
 
 <!--Image references-->
 [10]: ./media/search-manage/Azure-Search-Manage-3-ScaleUp.png
