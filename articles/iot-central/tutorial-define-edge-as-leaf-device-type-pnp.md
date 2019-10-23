@@ -1,7 +1,7 @@
 ---
 title: Define a new Azure IoT Edge device as a leaf device type in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to create a new Azure IoT Edge device as a leaf device in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
-author: rangavadlamudi
+author: rangv
 ms.author: rangv
 ms.date: 10/22/2019
 ms.topic: tutorial
@@ -45,7 +45,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure IoT Central application. Follow this quick start to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md).
+To complete this tutorial, you need an Azure IoT Central application. Follow this quick start to [Create an Azure IoT Central application](../core/quick-deploy-iot-central-pnp.md).
 
 ## Create a template
 

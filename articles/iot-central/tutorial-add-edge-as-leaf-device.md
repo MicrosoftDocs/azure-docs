@@ -1,7 +1,7 @@
 ---
 title: Add a edge device to an Azure IoT Central | Microsoft Docs
 description: As an operator, add a real edge device to your Azure IoT Central
-author: rangavadlamudi
+author: rangv
 ms.author: rangv
 ms.date: 10/22/2019
 ms.topic: tutorial
@@ -33,6 +33,10 @@ In this tutorial, you learn how to:
 
 ##Enable Edge Enrollment Group
 Enable SAS keys for Azure IoT Edge enrollment group from the Administration page.
+
+
+![Device Template - Azure IoT Edge](./media/tutorial-add-edge-as-leaf-device/groupenrollment.png)
+
 
 ## Next steps
 
