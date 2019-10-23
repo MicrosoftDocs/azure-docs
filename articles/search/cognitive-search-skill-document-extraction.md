@@ -57,9 +57,12 @@ The "file_data" input must be an object defined as follows:
 ```
 
 This file reference object can be generated one of 3 ways:
-1. Setting the `allowSkillsetToReadFileData` parameter on your indexer definition to "true".  This will create a path `/document/file_data` that is a object representing the original file data downloaded from your blob data source. This parameter only applies to data in Blob storage.
-2. Setting the `imageAction` parameter on your indexer definition to a value other than `none`.  This creates an array of images `/document/normalized_images` that follow the required convention for input to this skill if passed individually (i.e. `/document/normalized_images/*`).
-3. Having a custom skill return a json object defined EXACTLY as above.  The `$type` parameter must be set to exactly `file` and the `data` parameter must be the base 64 encoded byte array data of the file content.
+
+ - Setting the `allowSkillsetToReadFileData` parameter on your indexer definition to "true".  This will create a path `/document/file_data` that is a object representing the original file data downloaded from your blob data source. This parameter only applies to data in Blob storage.
+ 
+ - Setting the `imageAction` parameter on your indexer definition to a value other than `none`.  This creates an array of images `/document/normalized_images` that follow the required convention for input to this skill if passed individually (i.e. `/document/normalized_images/*`).
+ 
+ - Having a custom skill return a json object defined EXACTLY as above.  The `$type` parameter must be set to exactly `file` and the `data` parameter must be the base 64 encoded byte array data of the file content.
 
 ## Skill outputs
 
