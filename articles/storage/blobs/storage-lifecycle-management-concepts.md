@@ -194,6 +194,7 @@ You can define lifecycle management by using Azure Resource Manager templates. H
 }
 ```
 
+
 ## Policy
 
 A lifecycle management policy is a collection of rules in a JSON document:
