@@ -42587,6 +42587,21 @@
       "source_path": "articles/security/fundamentals/service-fabric-checklist.md",
       "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/white-papers.md",
+      "redirect_url": "https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/overviews.md",
+      "redirect_url": "/azure/security/fundamentals/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/mvp.md",
+      "redirect_url": "https://mvp.microsoft.com/",
+      "redirect_document_id": false
     }
   ]
 }
