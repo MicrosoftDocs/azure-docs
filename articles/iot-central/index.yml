@@ -94,17 +94,17 @@ productDirectory:
       imageSrc: ./retail/media/index/iot-central-retail.svg
       links:
           - text: 1- Create a retail application
-            url: tutorial-in-store-analytics-create-app-pnp.md
+            url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
           - text: 2 - Customize the operator dashboard
-            url: tutorial-in-store-analytics-customize-dashboard-pnp.md
+            url: ./retail/tutorial-in-store-analytics-customize-dashboard-pnp.md
           - text: 3 - Export data and visualize insights
-            url: tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
+            url: ./retail/tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
           - text: Create a smart inventory management application
-            url: tutorial-iot-central-smart-inventory-management-pnp.md
+            url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md
           - text: Create a connected logistics application
-            url: tutorial-iot-central-connected-logistics-pnp.md
+            url: ./retail/tutorial-iot-central-connected-logistics-pnp.md
           - text: Create a digital distribution center application
-            url: tutorial-iot-central-digital-distribution-center-pnp.md 
+            url: ./retail/tutorial-iot-central-digital-distribution-center-pnp.md 
 
     # Card
     - title: Build for healthcare
