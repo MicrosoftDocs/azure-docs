@@ -1,5 +1,5 @@
 ---
-title: "Azure Application Insights Agent API reference
+title: Azure Application Insights Agent API reference
 description: Application Insights Agent API reference. Get-ApplicationInsightsMonitoringStatus. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 ms.service:  azure-monitor
 ms.subservice: application-insights
