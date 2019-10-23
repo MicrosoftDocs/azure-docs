@@ -21,7 +21,8 @@ ms.reviewer: milanga; johndeu
 
 ## Retirement plans
 
-The following legacy media processors are going to be retired in 2020. 
+> [!IMPORTANT]
+> The following legacy media processors are going to be retired in 2020, see details in the following table. 
 
 |Media processor name|Retirement date|Additional notes|
 |---|---|
