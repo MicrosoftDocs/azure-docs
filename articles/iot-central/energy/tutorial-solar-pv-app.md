@@ -105,5 +105,5 @@ If you decide to not continue using this application, delete your application wi
 
 ## Next steps
 
-To learn about smart meter app architecture, [refer concept article](concept-iot-central-smart-meter.md)
+To learn about solar panel app architecture refer to the concept article. 
 
