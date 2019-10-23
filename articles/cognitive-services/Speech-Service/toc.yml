@@ -80,7 +80,7 @@
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Synthesize speech to an audio output device
       href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Batch synthesis for long-form audio, Python
+    - name: Async synthesis for long-form audio
       href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
   - name: How-to guides
     items:
