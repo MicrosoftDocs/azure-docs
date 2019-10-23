@@ -69,7 +69,7 @@ Copy the URL to the container. You will need this later in this tutorial. If you
 You can use Azure Logic Apps to automate and orchestrate tasks and workflows. In this tutorial, you create a logic app that is triggered by receiving a receipt that you want to analyze as an e-mail attachment. In this workflow, you perform the following tasks:
 * Configure the logic app to trigger automatically when you receive an e-mail with a receipt attached.
 * Configure the logic app to use a Form Recognizer **Train Model** operation to train a model using the sample data that you uploaded to the Azure blob storage.
-* Configure the logic app to use a Form Recognizer **Analyze Form** operation to use the model that you already trained. This component will analyze the receipt that you provide to this flow based on the model that it trained earlier.
+* Configure the logic app to use a Form Recognizer **Analyze Form** operation to use the model that you already trained. This component will analyze the receipt that you provide to this logic app based on the model that it trained earlier.
 
 1. From the main Azure menu, select **Create a resource** > **Integration** > **Logic App**.
 
@@ -130,13 +130,13 @@ Before you can use the Form Recognizer service to analyze receipts, you need to 
 1. In the **Train Model** dialog box, for **Source**, enter the URL for the container where you uploaded the sample data.
 
     > [!div class="mx-imgBorder"]
-    > ![Enter Flow name](media/tutorial-form-recognizer-with-logic-apps/source-for-train-model.png)
+    > ![Configure storage container](media/tutorial-form-recognizer-with-logic-apps/source-for-train-model.png)
 
 1. Click **Save** from the toolbar at the top.
 
-### Configure the flow to use the Form Recognizer Analyze Form operation
+### Configure the logic app to use the Form Recognizer Analyze Form operation
 
-In this section, you add the **Analyze Form** operation to the workflow. This operation uses the already trained model to analyze a new receipt that is provided to flow.
+In this section, you add the **Analyze Form** operation to the workflow. This operation uses the already trained model to analyze a new receipt that is provided to logic app.
 
 1. Select **New step**, and under **Choose an action**, search for **Form Recognizer**. From the results that show up, select **Form Recognizer**, and then under the actions that are available for Form Recognizer, select **Analyze Form**.
 
@@ -159,7 +159,7 @@ In this section, you add the **Analyze Form** operation to the workflow. This op
 
 ### Extract the table information from the receipt
 
-In this section, we configure the flow to extract the information from the table within the receipts.
+In this section, we configure the logic app to extract the information from the table within the receipts.
 
 1. Select **Add an action**, and under **Choose an action**, search for **Compose** and under the actions that are available, select **Compose** again.
     ![Train a Form Recognizer Model](media/tutorial-form-recognizer-with-logic-apps/extract-table.png)
@@ -171,9 +171,9 @@ In this section, we configure the flow to extract the information from the table
 
 1. Click **Save**.
 
-## Test your Flow
+## Test your logic app
 
-To test the flow, use the sample receipts in the **/Test** folder of the sample data set that you downloaded from [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Perform the following steps:
+To test the logic app, use the sample receipts in the **/Test** folder of the sample data set that you downloaded from [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Perform the following steps:
 
 1. From the Azure Logic Apps designer for your app, select **Run** from the toolbar at the top. The workflow is now active and waits to receive an e-mail with the receipt attached.
 1. Send an e-mail with a sample receipt attached to the e-mail addressed that you provided while creating the logic app. Make sure the e-mail is delivered to the folder that you provided while configuring the logic app.
@@ -182,7 +182,7 @@ To test the flow, use the sample receipts in the **/Test** folder of the sample 
     > [!div class="mx-imgBorder"]
     > ![Enter Flow name](media/tutorial-form-recognizer-with-logic-apps/logic-apps-email-arrived-progress.png)
 
-1. After all the stages of the workflow have finished running, the Logic Apps Designer shows a green checkbox against every stage. In the designer window, select **For each 2**, and then select **Compose**. 
+1. After all the stages of the workflow have finished running, the Logic Apps Designer shows a green checkbox against every stage. In the designer window, select **For each 2**, and then select **Compose**.
 
     > [!div class="mx-imgBorder"]
     > ![Enter Flow name](media/tutorial-form-recognizer-with-logic-apps/logic-apps-verify-output.png)
