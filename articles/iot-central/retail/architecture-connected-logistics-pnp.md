@@ -38,6 +38,6 @@ Azure IoT Central is a solution development platform that simplifies IoT device 
 IoT Central platform provides rich extensibility options via Continuous Data Export (CDE) and APIs. Business insights based on telemetry data processing or raw telemetry is typically exported to a preferred line of business application. This can be achieved via webhook, service bus, event hub, or blob storage to build, train, and deploy machine learning models & further enrich insights.
 
 ## Next steps
-* Learn how to deploy [connected logistics solution template](./tutorial-iot-central-connected-logistics.md)
-* Learn more about [IoT Central retail templates](./overview-iot-central-retail-pnp)
+* Learn how to deploy [connected logistics solution template](./tutorial-iot-central-connected-logistics-pnp.md)
+* Learn more about [IoT Central retail templates](./overview-iot-central-retail-pnp.md)
 * Learn more about IoT Central refer to [IoT Central overview](../core/overview-iot-central-pnp.md)
