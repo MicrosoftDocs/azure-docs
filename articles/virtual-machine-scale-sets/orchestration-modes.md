@@ -9,7 +9,7 @@ manager: gwallace
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 10/23/2019
 ms.author: vashan
 ---
 
@@ -43,14 +43,14 @@ Virtual machine scale sets will support 2 distinct orchestration modes:
 | Adding new VM to Scale Set  | VMs are explicitly added to the scale set when the VM is created. | VMs are implicitly created and added to the scale set based on the VM configuration model, instance count, and AutoScaling rules | |
 | Delete VM                   | VMs have to be deleted individually, the scale set will not be deleted if it has any VMs in it. | VMs can be deleted individually, deleting the scale set will delete all of the VM instances.  |
 | Attach/Detach VMs           | Not supported                              | Not supported |
-| Instance Lifecycle (Creation through Deletion) | VMs and their artifacts (Disks, NICs etc.) can be managed independently. | Instances and their artifacts (Disks, NICs etc.) are implicit to the scale set instances that create them. They cannot be detached or managed separately outside the scale set |
+| Instance Lifecycle (Creation through Deletion) | VMs and their artifacts (like disks and NICs) can be managed independently. | Instances and their artifacts (like disks and NICs) are implicit to the scale set instances that create them. They cannot be detached or managed separately outside the scale set |
 | Fault domains               | Can define fault domains. 2 or 3 based on regional support and 5 for Availability zone. | Can define fault domains going from 1 through 5 |
 | Update domains              | Update domains are automatically mapped to fault domains | Update domains are automatically mapped to fault domains |
 | Availability Zones          | Supports regional deployment or VMs in one Availability Zone | Supports regional deployment or multiple Availability Zones; Can define the zone balancing strategy |
 | AutoScale                   | Not supported                              | Supported |
 | OS upgrade                  | Not supported                              | Supported |
 | Model updates               | Not supported                              | Supported |
-| Instance control            | Full VM Control. VMs have fully qualified URI that support the full range of Azure VM management capabilities (Azure Policy, Azure Backup, Azure Site Recovery, etc) | VMs are dependent resources of the scale set. Instances can be accessed for management only through the scale set. |
+| Instance control            | Full VM Control. VMs have fully qualified URI that support the full range of Azure VM management capabilities (like Azure Policy, Azure Backup, and Azure Site Recovery) | VMs are dependent resources of the scale set. Instances can be accessed for management only through the scale set. |
 | Instance Model              | Microsoft.Compute/VirtualMachines model definition. | Microsoft.Compute/VirtualMachineScaleSets/VirtualMachines model definition. |
 | Capacity                    | An empty scale set can be created; up to 200 VMs can be added to the scale set | Scale sets can be defined with an instance count 0 - 1000 |
 | Move                        | Supported                                  | Supported |
