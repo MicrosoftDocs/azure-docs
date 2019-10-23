@@ -4,7 +4,7 @@ description: In this tutorial, you create an Azure Machine Learning model, then 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/07/2019
+ms.date: 10/16/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge

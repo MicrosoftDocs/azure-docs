@@ -32,7 +32,7 @@ You can view the following info from this page:
 
 - To see all of the subscriptions, offers, and delegations associated with a customer, select the customer's name.
 - To see more details about an offer and its delegations, select the offer name.
-- To view more details about acrolecess assignments for delegated subscriptions or resource groups, select the entry in the **Delegations** column.
+- To view more details about role assignments for delegated subscriptions or resource groups, select the entry in the **Delegations** column.
 
 ## View delegations
 

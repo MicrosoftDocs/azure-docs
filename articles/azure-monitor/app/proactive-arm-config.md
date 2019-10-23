@@ -148,7 +148,7 @@ This Azure Resource Manager template demonstrates configuring a Failure Anomalie
             "name": "Failure Anomalies - my-app",
             "location": "global", 
             "properties": {
-                  "description": "Detects a spike in the failure rate of requests or dependencies",
+                  "description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls.",
                   "state": "Enabled",
                   "severity": "2",
                   "frequency": "PT1M",

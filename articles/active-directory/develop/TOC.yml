@@ -59,6 +59,8 @@
       items:
       - name: .NET Core console (daemon)
         href: quickstart-v2-netcore-daemon.md
+      - name: Python console daemon
+        href: quickstart-v2-python-daemon.md
       - name: ASP.NET daemon web app
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
@@ -345,6 +347,8 @@
         href: active-directory-how-applications-are-added.md
       - name: Redirect URI/reply URL restrictions and limitations
         href: reply-url.md
+      - name: Validation differences by supported account types
+        href: supported-accounts-validation.md
       - name: Single tenant and multi-tenant apps
         href: single-and-multi-tenant-apps.md
     - name: Permissions and consent
@@ -553,7 +557,7 @@
     - name: Authentication
       items:
       - name: Authentication basics
-        href: authentication-scenarios.md
+        href: v1-authentication-scenarios.md
       - name: OAuth 2.0 and OpenID Connect protocols
         items:
         - name: OpenID Connect
@@ -642,7 +646,7 @@
       items:
       - name: Convert a single-tenant app to a multi-tenant app
         href: howto-convert-app-to-be-multi-tenant.md
-      - name: Create service principal
+      - name: Create a service principal
         items:
         - name: Using Azure PowerShell
           href: howto-authenticate-service-principal-powershell.md
