@@ -43,7 +43,7 @@ provisioningState       : Succeeded
 
 If you would rather integrate with an existing workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `--workspace-resource-id` parameter, and then run the command to enable the monitoring add-on against the specified workspace.  
 
-1. List all the subscriptions which you have access using the following command:
+1. List all the subscriptions that you have access to using the following command:
 
     ```azurecli
     az account list --all -o table
