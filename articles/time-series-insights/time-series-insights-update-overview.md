@@ -8,7 +8,7 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 09/23/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
 ---
 
