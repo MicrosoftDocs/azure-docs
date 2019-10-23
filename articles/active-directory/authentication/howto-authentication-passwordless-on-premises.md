@@ -1,6 +1,6 @@
 ---
 title: Passwordless security key sign in to on-premises resources (preview) - Azure Active Directory
-description: Enable passwordless security key sign in to to on-premises resources (preview)
+description: Enable passwordless security key sign in to on-premises resources (preview)
 
 services: active-directory
 ms.service: active-directory
@@ -17,13 +17,13 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign in to on-premises resources (preview)
 
-This document focusses on enabling passwordless authentication to on-premises resources for environments with both **Azure AD joined** and **hybrid Azure AD joined** Windows 10 devices. This functionality provides seamless single sign-on to on-premises resources using Microsoft-compatible security keys.
+This document focuses on enabling passwordless authentication to on-premises resources for environments with both **Azure AD joined** and **hybrid Azure AD joined** Windows 10 devices. This functionality provides seamless single sign-on to on-premises resources using Microsoft-compatible security keys.
 
 For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password.
 
 ## SSO to on-premises resources using FIDO2 keys
 
-Azure Active Directory can issue Kerberos Ticket Granting Tickets (TGTs) for one or more of your Active Directory domains. This allows users to sign into Windows with modern credentials like FIDO2 security keys and access traditional Active Directory based resources. Kerberos Service Tickets and authorization will continue to be controlled by your on-premises Active Directory Domain Controllers.
+Azure Active Directory can issue Kerberos Ticket Granting Tickets (TGTs) for one or more of your Active Directory domains. This functionality allows users to sign into Windows with modern credentials like FIDO2 security keys and access traditional Active Directory based resources. Kerberos Service Tickets and authorization will continue to be controlled by your on-premises Active Directory Domain Controllers.
 
 An Azure AD Kerberos Server object will be created in your on-premises Active Directory and then be securely published to Azure Active Directory. The object is not associated with any physical servers. It is simply a resource that can be used by Azure Active Directory to generate Kerberos Ticket Granting Tickets (TGTs) for your Active Directory Domain.
 
@@ -42,7 +42,7 @@ Organizations must meet the following software requirements.
 
 - The scenario supports single sign-on (SSO) to both:
    - Cloud resources like Office 365 and other SAML enabled applications.
-   - On-premises resources, and Windows Integrated authentication to web sites, including web sites and SharePoint sites that require IIS Authentication, and/or resources that use NTLM authentication.
+   - On-premises resources, and Windows-Integrated authentication to web sites, including web sites and SharePoint sites that require IIS Authentication, and/or resources that use NTLM authentication.
 
 The following scenarios are not supported:
 
@@ -50,14 +50,14 @@ The following scenarios are not supported:
 - RDP, VDI, and Citrix scenarios are **not supported** using security key.
 - S/MIME is **not supported** using security key.
 - “Run as“ is **not supported** using security key.
-- Login to a sever using security key is **not supported**.
+- Log in to a server using security key is **not supported**.
 
 ## Create Kerberos server object
 
 Administrators will use PowerShell tools from their Azure AD Connect server to create an Azure AD Kerberos Server object in their on-premises directory.
 
 1. Upgrade to the latest version of Azure AD Connect. The instructions assume you have already configured Azure AD Connect to support your hybrid environment.
-1.	On the Azure AD Connect Server, open an elevated PowerShell prompt and navigate to C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\
+1.	On the Azure AD Connect Server, open an elevated PowerShell prompt, and navigate to C:\Program Files\Microsoft Azure Active Directory Connect\AzureADKerberos\
 1. Run the following PowerShell commands to create a new Azure AD Kerberos server object in both your on-premises Active Directory domain and Azure Active Directory tenant.
 
 > [!NOTE]
@@ -93,14 +93,14 @@ This command will output the properties of the Azure AD Kerberos Server. You can
 
 | Property | Description |
 | --- | --- |
-| ID | The unique Id of the AD Domain Controller object. This is sometimes referred to as it’s “slot” or it’s “branch Id”. |
+| ID | The unique ID of the AD Domain Controller object. This ID is sometimes referred to as it’s “slot” or it’s “branch ID”. |
 | DomainDnsName | The DNS domain name of the Active Directory Domain. |
 | ComputerAccount | The computer account object of the Azure AD Kerberos Server object (The DC). |
 | UserAccount | The disabled user account object that holds the Azure AD Kerberos Server TGT encryption key. The DN of this account will be: <br> CN=krbtgt_AzureAD,CN=Users,<Domain-DN> |
 | KeyVersion | The key version of the Azure AD Kerberos Server TGT encryption key. The version is assigned when the key is created. The version is then incremented every time the key is rotated. The increments are based on replication meta-data and will likely be greater than one. For example, the initial KeyVersion could be 192272. The first time the key is rotated, the version could advance to 212621. The important thing to verify is that the KeyVersion for the on-premises object and the CloudKeyVersion for the cloud object are the same. |
 | KeyUpdatedOn | The date and time that the Azure AD Kerberos Server TGT encryption key was updated/created. |
 | KeyUpdatedFrom | The Domain Controller where the Azure AD Kerberos Server TGT encryption key was last updated. |
-| CloudId | The Id from the Azure AD Object. Must match the Id above. |
+| CloudId | The ID from the Azure AD Object. Must match the ID above. |
 | CloudDomainDnsName | The DomainDnsName from the Azure AD Object. Must match the DomainDnsName above. |
 | CloudKeyVersion | The KeyVersion from the Azure AD Object. Must match the KeyVersion above. |
 | CloudKeyUpdatedOn | The KeyUpdatedOn from the Azure AD Object. Must match the KeyUpdatedOn above. |
@@ -134,7 +134,7 @@ You will need to run the steps in [Create Kerberos server object](#create-kerber
 
 ## Known issues
 
-Logon with FIDO will be blocked if your password has expired. expectation for user to reset password over lock screen before being able to login using FIDO
+Logon with FIDO will be blocked if your password has expired. expectation for user to reset password over lock screen before being able to log in using FIDO
 
 ## Frequently asked questions
 
@@ -142,7 +142,7 @@ Logon with FIDO will be blocked if your password has expired. expectation for us
 
 This feature does NOT work for a pure on-premises environment.
 
-### My organization requires two factor authentication to access resources, what can I do to support this?
+### My organization requires two factor authentication to access resources, what can I do to support this requirement?
 
 Security keys come in a variety of form factors. Please contact the device manufacturer of interest to discuss how their devices can be enabled with a PIN or biometric as a second factor.
 
@@ -179,11 +179,11 @@ Windows Hello Face is the intended best experience for a device where a user has
 If clean installing a hybrid Azure AD joined machine, post domain join and restart you must sign in with a password and wait for policy to sync before being able to use FIDO to sign in
 
 - Check your current status by typing dsregcmd /status into a command window and check that both AzureAdJoined and DomainJoined are showing YES.
-- This is a known limitation for domain joined devices and not FIDO specific.
+- This delay is a known limitation for domain joined devices and not FIDO specific.
 
 ### I’m unable to get SSO to my NTLM network resource after signing in with FIDO and get a credential prompt
 
-There are known limitations based on how many servers have the new build and which will respond in time to service your resource request. To check if you can see a server that is running the feature, check the output of nltest /dsgetdc:redmond /keylist /kdc
+There are known limitations based on how many servers have the new build and which will respond in time to service your resource request. To check if you can see a server that is running the feature, check the output of `nltest /dsgetdc:contoso /keylist /kdc`
 
 ## Next steps
 
