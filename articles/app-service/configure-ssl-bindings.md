@@ -144,7 +144,7 @@ Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 b
 
 In your app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
 
-![Enforce TLS 1.1 or 1.2](./media/configure-ssl-bindings/enforce-tls1.2.png)
+![Enforce TLS 1.1 or 1.2](./media/configure-ssl-bindings/enforce-tls1-2.png)
 
 When the operation is complete, your app rejects all connections with lower TLS versions.
 
