@@ -242,15 +242,15 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
    - Ansible < 2.8:
 
-    ```bash
-    ansible-playbook -i azure_rm.py nginx.yml
-    ```
+     ```bash
+     ansible-playbook -i azure_rm.py nginx.yml
+     ```
 
    - Ansible >= 2.8:
 
-    ```bash
-    ansible-playbook  -i ./myazure_rm.yml  nginx.yml --limit=tag_Ansible_nginx
-    ```
+     ```bash
+     ansible-playbook  -i ./myazure_rm.yml  nginx.yml --limit=tag_Ansible_nginx
+     ```
 
 1. After running the playbook, you see output similar to the following results:
 
