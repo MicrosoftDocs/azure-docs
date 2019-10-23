@@ -141,9 +141,9 @@ This view shows all your bookmarks with associated metadata. You can use [Keywor
  
 1.	In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Bookmarks** tab, and select the bookmark or bookmarks you want to delete. 
 
-2. Select the ellipsis (...) at the end of the row and select **Delete bookmark**.
+2. Right-click your selections, and select the option to delete the bookmark or bookmarks. For example, **Delete bookmark** if you selected just one bookmark, and **Delete 2 bookmarsk** if you selected two bookmarks.
 	
-Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab. The **Bookmark** table in the Log Analytics workspace will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks. Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
+Deleting the bookmark removes the bookmark from the list in the **Bookmark** tab. The **HuntingBookmark** table for your Log Analytics workspace will continue to contain previous bookmark entries, but the latest entry will change the **SoftDelete** value to true, making it easy to filter out old bookmarks. Deleting a bookmark does not remove any entities from the investigation experience that are associated with other bookmarks or alerts. 
 
 
 ## Next steps
