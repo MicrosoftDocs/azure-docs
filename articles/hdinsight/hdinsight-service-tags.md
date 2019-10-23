@@ -10,7 +10,7 @@ ms.date: 10/19/2019
 ---
 # Network security group (NSG) service tags for Azure HDInsight
 
-HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../azure/virtual-network/security-overview.md#service-tags) provide an alternative method for allowing inbound traffic from specific IP addresses without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your network security groups.
+HDInsight service tags for network security groups (NSGs) are groups of IP addresses for health and management services. These groups help minimize complexity for security rule creation. [Service tags](../virtual-network/security-overview.md#service-tags) provide an alternative method for allowing inbound traffic from specific IP addresses without entering each of the [management IP addresses](hdinsight-management-ip-addresses.md) in your network security groups.
 
 These service tags are created and managed by the HDInsight service. You can't create your own service tag, or modify an existing tag. Microsoft manages the address prefixes that match to the service tag, and automatically updates the service tag as addresses change.
 
