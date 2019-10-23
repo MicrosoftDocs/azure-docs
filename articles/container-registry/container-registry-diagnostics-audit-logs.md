@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: 
-ms.date: 10/18/2019
+ms.date: 10/23/2019
 ms.author: danlep
 
 ---
@@ -23,27 +23,27 @@ This article explains how to collect log data for an Azure container registry us
 
 * Audit registry authentication events to ensure security and compliance 
 
-* Provide a complete activity trail on registry artifacts such as pull, push, and delete events so you can diagnose operational issues with your registry 
+* Provide a complete activity trail on registry artifacts such as pull and pull events so you can diagnose operational issues with your registry 
 
-Resource logs are different from the [Azure activity log](/azure-monitor/platform/activity-logs-overview.md), a single subscription-level record of management events such as the creation of an Azure resource.
+Collecting resource log data using Azure Monitor incurs additional costs. See [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/). 
+
 
 > [!IMPORTANT]
 > This feature is currently in preview, and some [limitations](#preview-limitations) apply. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
-You may incur additional costs to store or process resource log data.
-
 ## Preview limitations
 
-* Portal features to enable registry diagnostic settings are available only in a [preview portal](https://aka.ms/acr/portal/preview).
-* Logging of repository-level events is limited to artifact push and pull.
+Logging of repository-level events doesn't currently include delete or untag events. Only the following repository events are logged:
+* **Push events** for images and other artifacts
+* **Pull events** for images and other artifacts
 
 ## Registry resource logs
 
 Resource logs contain information emitted by Azure resources that describe their internal operation. For an Azure container registry, the logs contain authentication and repository-level events stored in the following tables. 
 
 * **ContainerRegistryLoginEvents**  - Registry authentication events and status, including the incoming identity and IP address
-* **ContainerRegistryRepositoryEvents** - Push, pull, and related operations for images and other artifacts in registry repositories
-* **AzureMetrics** - [Container registry metrics](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries), such as aggregated push and pull counts.
+* **ContainerRegistryRepositoryEvents** - Operations such as push and pull for images and other artifacts in registry repositories
+* **AzureMetrics** - [Container registry metrics](../azure-monitor/platform/metrics-supported.md#microsoftcontainerregistryregistries) such as aggregated push and pull counts.
 
 For operations, log data includes:
   * Success or failure status
@@ -51,23 +51,26 @@ For operations, log data includes:
 
 ## Enable collection of resource logs
 
-Collection of resource logs for a container registry isn't enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. For options and steps to enable diagnostic settings, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md).
+Collection of resource logs for a container registry isn't enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. For options to enable diagnostic settings, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/platform/diagnostic-settings.md).
 
-As an example, to view logs and metrics for a container registry in near real-time in Azure Monitor, enable *streaming* of resource logs to a Log Analytics workspace. To enable this diagnostic setting using the Azure portal:
+For example, to view logs and metrics for a container registry in near real-time in Azure Monitor, collect the resource logs in a Log Analytics workspace. To enable this diagnostic setting using the Azure portal:
 
-1. If you don't already have a workspace, create a workspace using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md). 
+1. If you don't already have a workspace, create a workspace using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md). To minimize latency in data collection, ensure that the workspace is in the **same region** as your container registry.
 1. In the portal, select the registry, and select **Monitoring > Diagnostic settings > Add diagnostic setting**.
 1. Enter a name for the setting, and select **Send to Log Analytics**.
 1. Select the workspace for the registry diagnostic logs.
-1. Select the log data you want to stream, and click **Save**.
+1. Select the log data you want to collect, and click **Save**.
 
 The following image shows creation of a diagnostic setting for a registry using the portal.
 
 :::image type="content" source="media/container-registry-diagnostics-audit-logs/diagnostic-settings.png" alt-text="Enable diagnostic settings":::
 
+> [!TIP]
+> Collect only the data that you need, balancing cost and your monitoring needs. For example, if you only need to audit authentication events, select only the **ContainerRegistryLoginEvents** log. 
+
 ## View data in Azure Monitor
 
-After you enable streaming of diagnostic logs to Log Analytics, it can take a few minutes for data to appear in Azure Monitor. To view the data in the portal, select the registry, and select **Monitoring > Logs**. Select one of the tables that contains data for the registry. 
+After you enable collection of diagnostic logs in Log Analytics, it can take a few minutes for data to appear in Azure Monitor. To view the data in the portal, select the registry, and select **Monitoring > Logs**. Select one of the tables that contains data for the registry. 
 
 Run queries to view the data. Several sample queries are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the **ContainerRegistryRepositoryEvents** table:
 
@@ -80,7 +83,9 @@ The following image shows sample output:
 
 :::image type="content" source="media/container-registry-diagnostics-audit-logs/azure-monitor-query.png" alt-text="Query log data":::
 
-For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md). For more details on log queries in Azure Monitor, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md), or try the Log Analytics [Demo environment](https://portal.loganalytics.io/demo). 
+
+For more information on log queries, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
 ### Additional query examples
 
@@ -95,13 +100,13 @@ ContainerRegistryRepositoryEvents
 
 ## Additional log destinations
 
-In addition to streaming the logs to Log Analytics, or as an alternative, a common scenario is to select an Azure Storage account as a log destination. To archive logs in Azure Storage, create the account before enabling archiving through the diagnostic settings.
+In addition to sending the logs to Log Analytics, or as an alternative, a common scenario is to select an Azure Storage account as a log destination. To archive logs in Azure Storage, create a storage account before enabling archiving through the diagnostic settings.
 
 You can also stream diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
 
 ## Next steps
 
-* Learn more about using [Log Analytics](../azure-monitor/log-query/get-started-portal.md) and creating [log queries](../azure-monitor/log-query/get-started-queries.md)
+* Learn more about using [Log Analytics](../azure-monitor/log-query/get-started-portal.md) and creating [log queries](../azure-monitor/log-query/get-started-queries.md).
 * See [Overview of Azure platform logs](../azure-monitor/platform/platform-logs-overview.md) to learn about platform logs that are available at different layers of Azure.
 
 <!-- LINKS - External -->
