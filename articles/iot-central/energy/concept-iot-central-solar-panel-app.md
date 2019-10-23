@@ -23,7 +23,8 @@ This architecture consists of the following components. Some applications may no
 
 ### Solar panels and connectivity 
 
-Solar panels are one of the significant sources of renewable energy. Depending on the solar panels type and set up, you can connect it either via gateways or via other intermediate external and proprietary systems. Build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and to learn more about can find the complete details [here](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) 
+Solar panels are one of the significant sources of renewable energy. Depending on the solar panel type and set up, you can connect it either via gateways or via other intermediate devices and proprietary systems. You might need to build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) 
+
 
 
 ### IoT Central platform
@@ -36,4 +37,3 @@ The IoT Central platform provides two extensibility options: Continuous Data Exp
 ## Next steps
 
 * Now that you've learned about the architecture, [create solar panel app for free](https://apps.azureiotcentral.com/build/new/smart-panel-monitoring)
-

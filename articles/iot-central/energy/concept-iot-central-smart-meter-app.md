@@ -1,6 +1,6 @@
 ---
-title: Architectural concepts in Azure IoT Central -Energy | Microsoft Docs
-description: This article introduces key concepts relating the architecture of Azure IoT Central
+title: Architectural concepts in Azure IoT Central - Energy | Microsoft Docs
+description: This article introduces key concepts relating the architecture of Azure IoT Central energy app template
 author: op-ravi
 ms.author: omravi
 ms.date: 10/22/2019
@@ -23,7 +23,7 @@ This architecture consists of the following components. Some applications may no
 
 ### Smart meter and connectivity 
 
-A smart meter is one of the most important devices among the energy devises. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Based on the meter type, it can connect to IoT Central either via gateways or via other intermediate devices or systems, such edge devices and head-end systems. Build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and to learn more about can find the complete details [here](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) 
+A smart meter is one of the most important devices among all the energy assets. It records and communicates energy consumption data to utilities for monitoring and other use cases, such as billing and demand response. Based on the meter type, it can connect to IoT Central either via gateways or via other intermediate devices or systems, such edge devices and head-end systems. Build IoT Central device bridge to connect devices, which can’t be connected directly. The IoT Central device bridge is an open-source solution and you can find the complete details [here](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) 
 
 
 ### IoT Central Platform
