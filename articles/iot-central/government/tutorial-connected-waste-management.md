@@ -1,5 +1,5 @@
 ---
-title: Create a connected waste management app with IoT Central | Microsoft Docs
+title: Create a connected waste management app with Azure IoT Central | Microsoft Docs
 description: Learn to build Create a connected waste management application using Azure IoT Central application templates.
 author: miriambrus
 ms.author: miriamb
@@ -9,6 +9,7 @@ ms.service: iot-central
 services: iot-central
 manager: abjork
 ---
+
 
 <!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
 
