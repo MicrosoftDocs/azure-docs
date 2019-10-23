@@ -9,7 +9,7 @@ ms.date: 10/23/2019
 ms.author: raynew
 ---
 
-# Assess server using imported data
+# Assess servers using imported data
 
 This article explains how to assess on-premises servers with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), by importing server metadata in a .CSV file. With this method of assessment, you don't need to set up the Azure Migrate appliance to create an assessment. This is useful if: 
 
@@ -21,7 +21,7 @@ This article explains how to assess on-premises servers with [Azure Migrate: Ser
 
 ## Before you start
 
-Note these point before you start:
+Note that:
 
 - You can add up to a maximum of 10000 servers in a single CSV file.
 - You can add up to 20000 servers in an Azure Migrate project using CSV files.
