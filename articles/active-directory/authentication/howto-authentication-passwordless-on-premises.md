@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable passwordless security key sign in to on-premises resources (preview)
 
-This document focuses on enabling passwordless authentication to on-premises resources for environments with both **Azure AD joined** and **hybrid Azure AD joined** Windows 10 devices. This functionality provides seamless single sign-on to on-premises resources using Microsoft-compatible security keys.
+This document focuses on enabling passwordless authentication to on-premises resources for environments with both **Azure AD joined** and **hybrid Azure AD joined** Windows 10 devices. This functionality provides seamless single sign-on (SSO) to on-premises resources using Microsoft-compatible security keys.
 
 For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password.
 
@@ -29,7 +29,7 @@ An Azure AD Kerberos Server object will be created in your on-premises Active Di
 
 ![Getting a TGT and PRT from Azure AD and AD DS](./media/howto-authentication-passwordless-on-premises/fido2-tgt-exchange-process.png)
 
-1. User signs in to Windows with a FIDO2 security key and authenticates to Azure AD.
+1. User signs in to their Windows 10 device with a FIDO2 security key and authenticates to Azure AD.
 1. Azure AD checks the directory for a Kerberos server key matching the user's on-premises AD domain.
    1. Azure AD generates a Kerberos TGT for the user's on-premises AD domain. The TGT only includes the user's SID. No authorization data is included in the TGT.
 1. The TGT is returned to the client along with their Azure AD Primary Refresh Token (PRT).
