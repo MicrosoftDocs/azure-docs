@@ -1,13 +1,13 @@
 ---
 title: Manage smart groups
 description: Managing Smart Groups created over your alert instances
-author: anantr
-services: monitoring
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: anantr
+ms.service:  azure-monitor
 ms.subservice: alerts
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 09/24/2018
+
 ---
 
 # Manage smart groups

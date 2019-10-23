@@ -12,10 +12,6 @@ ms.workload: identity
 ---
 # Choose the right authentication method for your Azure Active Directory hybrid identity solution 
 
-This article begins a series of articles that help organizations implement a complete Azure Active Directory (Azure AD) hybrid identity solution. This solution was outlined as the [Hybrid Identity Digital Transformation Framework](https://aka.ms/aadframework). It covers the business outcomes and goals organizations can focus on to implement a robust and secure hybrid identity solution. 
-
-The first business outcome of the framework spells out the requirements for organizations to secure the authentication process when users access cloud apps. The first business goal in the authentication secured business outcome is users' ability to sign in to cloud apps by using their on-premises usernames and passwords. This sign-in and authentication process makes everything in the cloud possible.
-
 Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud. Don't take this decision lightly, for the following reasons:
 
 1. It's the first decision for an organization that wants to move to the cloud. 
@@ -60,9 +56,6 @@ The authentication system can provide additional advanced authentication require
 The following section helps you decide which authentication method is right for you by using a decision tree. It helps you determine whether to deploy cloud or federated authentication for your Azure AD hybrid identity solution.
 
 ## Decision tree
-
-> [!NOTE]
-> PTA only works with Alternate ID when UserPrincipalName is chosen as the Alternate ID. Only then will the on-premises UserPrincipalName be synchronized from AD to AAD. For more information, see [Does Pass-through Authentication support "Alternate ID" as the username, instead of "userPrincipalName"?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta-faq#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
 
 ![Azure AD authentication decision tree](./media/choose-ad-authn/azure-ad-authn-image1.png)
 

@@ -60,9 +60,9 @@ To do this tutorial, install the [.NET Core SDK](https://dotnet.microsoft.com/do
                            {
                                refresh.Register("TestApp:Settings:BackgroundColor")
                                       .Register("TestApp:Settings:FontColor")
-                                      .Register("TestApp:Settings:Message")
+                                      .Register("TestApp:Settings:Message");
                            });
-                }
+                });
             })
             .UseStartup<Startup>();
     ```

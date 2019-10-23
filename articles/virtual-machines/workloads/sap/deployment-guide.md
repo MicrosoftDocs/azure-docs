@@ -15,7 +15,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 09/16/2019
 ms.author: sedusch
 ---
 # Azure Virtual Machines deployment for SAP NetWeaver
@@ -117,12 +117,12 @@ ms.author: sedusch
 [deployment-guide-4.4]:deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Download, install, and enable the Azure VM Agent)
 [deployment-guide-4.5.1]:deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
 [deployment-guide-4.5.2]:deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI)
-[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configure the Azure Enhanced Monitoring Extension for SAP)
-[deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Readiness check for Azure Enhanced Monitoring for SAP)
-[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for the Azure monitoring infrastructure)
-[deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Troubleshooting Azure monitoring for SAP)
+[deployment-guide-4.5]:deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configure the Azure Extension for SAP)
+[deployment-guide-5.1]:deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Readiness check for Azure Extension for SAP)
+[deployment-guide-5.2]:deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for the Azure Extension for SAP configuration)
+[deployment-guide-5.3]:deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Troubleshooting Azure Extension for SAP)
 
-[deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure monitoring)
+[deployment-guide-configure-monitoring-scenario-1]:deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure VM Extension)
 [deployment-guide-configure-proxy]:deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Configure the proxy)
 [deployment-guide-figure-100]:media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
@@ -146,7 +146,7 @@ ms.author: sedusch
 [deployment-guide-figure-azure-cli-installed]:deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]:deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]:deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and troubleshooting for setting up end-to-end monitoring)
+[deployment-guide-troubleshooting-chapter]:deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and troubleshooting for end-to-end data collection for SAP Host Agent)
 
 [deploy-template-cli]:../../../resource-group-template-deploy-cli.md
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
@@ -323,7 +323,7 @@ To manage Windows or Linux VMs, you can use a PowerShell script and the Azure po
 
 ### Internet connection
 
-To download and run the tools and scripts that are required for SAP software deployment, you must be connected to the Internet. The Azure VM that is running the Azure Enhanced Monitoring Extension for SAP also needs access to the Internet. If the Azure VM is part of an Azure virtual network or on-premises domain, make sure that the relevant proxy settings are set, as described in [Configure the proxy][deployment-guide-configure-proxy].
+To download and run the tools and scripts that are required for SAP software deployment, you must be connected to the Internet. The Azure VM that is running the Azure Extension for SAP also needs access to the Internet. If the Azure VM is part of an Azure virtual network or on-premises domain, make sure that the relevant proxy settings are set, as described in [Configure the proxy][deployment-guide-configure-proxy].
 
 ### Microsoft Azure subscription
 
@@ -436,7 +436,7 @@ The wizard guides you through setting the required parameters to create the virt
      * **Virtual network** and **Subnet**: To integrate the virtual machine with your intranet, select the virtual network that is connected to your on-premises network.
      * **Public IP address**: Select the public IP address that you want to use, or enter parameters to create a new public IP address. You can use a public IP address to access your virtual machine over the Internet. Make sure that you also create a network security group to help secure access to your virtual machine.
      * **Network security group**: For more information, see [Control network traffic flow with network security groups][virtual-networks-nsg].
-   * **Extensions**: You can install virtual machine extensions by adding them to the deployment. You do not need to add extensions in this step. The extensions required for SAP support are installed later. See chapter [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5] in this guide.
+   * **Extensions**: You can install virtual machine extensions by adding them to the deployment. You do not need to add extensions in this step. The extensions required for SAP support are installed later. See chapter [Configure the Azure Extension for SAP][deployment-guide-4.5] in this guide.
    * **High Availability**: Select an availability set, or enter the parameters to create a new availability set. For more information, see [Azure availability sets][planning-guide-3.2.3].
    * **Monitoring**
      * **Boot diagnostics**: You can select **Disable** for boot diagnostics.
@@ -505,19 +505,19 @@ The Azure VM Agent is deployed by default when you use an image from the Azure M
 
 #### Configure proxy settings
 
-Depending on how your on-premises network is configured, you might need to set up the proxy on your VM. If your VM is connected to your on-premises network via VPN or ExpressRoute, the VM might not be able to access the Internet, and won't be able to download the required extensions or collect monitoring data. For more information, see [Configure the proxy][deployment-guide-configure-proxy].
+Depending on how your on-premises network is configured, you might need to set up the proxy on your VM. If your VM is connected to your on-premises network via VPN or ExpressRoute, the VM might not be able to access the Internet, and won't be able to download the required VM extensions or collect Azure infrastructure information for the SAP Host agent via the SAP extension for Azure. For more information, see [Configure the proxy][deployment-guide-configure-proxy].
 
 #### Join a domain (Windows only)
 
 If your Azure deployment is connected to an on-premises Active Directory or DNS instance via an Azure site-to-site VPN connection or ExpressRoute (this is called *cross-premises* in [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide]), it is expected that the VM is joining an on-premises domain. For more information about considerations for this task, see [Join a VM to an on-premises domain (Windows only)][deployment-guide-4.3].
 
-#### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configure monitoring
+#### <a name="ec323ac3-1de9-4c3a-b770-4ff701def65b"></a>Configure VM Extension
 
-To be sure SAP supports your environment, set up the Azure Monitoring Extension for SAP as described in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. Check the prerequisites for SAP monitoring, and required minimum versions of SAP Kernel and SAP Host Agent, in the resources listed in [SAP resources][deployment-guide-2.2].
+To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. Check the prerequisites for SAP, and required minimum versions of SAP Kernel and SAP Host Agent, in the resources listed in [SAP resources][deployment-guide-2.2].
 
-#### Monitoring check
+#### VM extension for SAP check
 
-Check whether monitoring is working, as described in [Checks and troubleshooting for setting up end-to-end monitoring][deployment-guide-troubleshooting-chapter].
+Check whether the VM Extension for SAP is working, as described in [Checks and troubleshooting for end-to-end data collection for SAP Host Agent][deployment-guide-troubleshooting-chapter].
 
 #### Post-deployment steps
 
@@ -576,7 +576,7 @@ The wizard guides you through setting the required parameters to create the virt
      * **Virtual network** and **Subnet**: To integrate the virtual machine with your intranet, select the virtual network that is connected to your on-premises network.
      * **Public IP address**: Select the public IP address that you want to use, or enter parameters to create a new public IP address. You can use a public IP address to access your virtual machine over the Internet. Make sure that you also create a network security group to help secure access to your virtual machine.
      * **Network security group**: For more information, see [Control network traffic flow with network security groups][virtual-networks-nsg].
-   * **Extensions**: You can install virtual machine extensions by adding them to the deployment. You do not need to add extension in this step. The extensions required for SAP support are installed later. See chapter [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5] in this guide.
+   * **Extensions**: You can install virtual machine extensions by adding them to the deployment. You do not need to add extension in this step. The extensions required for SAP support are installed later. See chapter [Configure the Azure Extension for SAP][deployment-guide-4.5] in this guide.
    * **High Availability**: Select an availability set, or enter the parameters to create a new availability set. For more information, see [Azure availability sets][planning-guide-3.2.3].
    * **Monitoring**
      * **Boot diagnostics**: You can select **Disable** for boot diagnostics.
@@ -652,22 +652,22 @@ If your Azure deployment is connected to an on-premises Active Directory or DNS 
 
 #### Configure proxy settings
 
-Depending on how your on-premises network is configured, you might need to set up the proxy on your VM. If your VM is connected to your on-premises network via VPN or ExpressRoute, the VM might not be able to access the Internet, and won't be able to download the required extensions or collect monitoring data. For more information, see [Configure the proxy][deployment-guide-configure-proxy].
+Depending on how your on-premises network is configured, you might need to set up the proxy on your VM. If your VM is connected to your on-premises network via VPN or ExpressRoute, the VM might not be able to access the Internet, and won't be able to download the required VM extensions or collect Azure infrastructure information for the SAP Host agent via the SAP extension for Azure, see [Configure the proxy][deployment-guide-configure-proxy].
 
-#### Configure monitoring
+#### Configure Azure VM Extension for SAP
 
-To be sure SAP supports your environment, set up the Azure Monitoring Extension for SAP as described in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. Check the prerequisites for SAP monitoring, and required minimum versions of SAP Kernel and SAP Host Agent, in the resources listed in [SAP resources][deployment-guide-2.2].
+To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. Check the prerequisites for SAP, and required minimum versions of SAP Kernel and SAP Host Agent, in the resources listed in [SAP resources][deployment-guide-2.2].
 
-#### Monitoring check
+#### SAP VM Extension check
 
-Check whether monitoring is working, as described in [Checks and troubleshooting for setting up end-to-end monitoring][deployment-guide-troubleshooting-chapter].
+Check whether the VM Extension for SAP is working, as described in [Checks and troubleshooting for end-to-end data collection for SAP Host Agent][deployment-guide-troubleshooting-chapter].
 
 
 ### <a name="a9a60133-a763-4de8-8986-ac0fa33aa8c1"></a>Scenario 3: Moving an on-premises VM by using a non-generalized Azure VHD with SAP
 
 In this scenario, you plan to move a specific SAP system from an on-premises environment to Azure. You can do this by uploading the VHD that has the OS, the SAP binaries, and eventually the DBMS binaries, plus the VHDs with the data and log files of the DBMS, to Azure. Unlike the scenario described in [Scenario 2: Deploying a VM with a custom image for SAP][deployment-guide-3.3], in this case, you keep the hostname, SAP SID, and SAP user accounts in the Azure VM, because they were configured in the on-premises environment. You do not need to generalize the OS. This scenario applies most often to cross-premises scenarios where part of the SAP landscape runs on-premises and part of it runs on Azure.
 
-In this scenario, the VM Agent is **not** automatically installed during deployment. Because the VM Agent and the Azure Enhanced Monitoring Extension for SAP are required to run SAP NetWeaver on Azure, you need to download, install, and enable both components manually after you create the virtual machine.
+In this scenario, the VM Agent is **not** automatically installed during deployment. Because the VM Agent and the Azure Extension for SAP are required to run SAP NetWeaver on Azure, you need to download, install, and enable both components manually after you create the virtual machine.
 
 For more information about the Azure VM Agent, see the following resources.
 
@@ -743,26 +743,26 @@ If your Azure deployment is connected to an on-premises Active Directory or DNS 
 
 #### Configure proxy settings
 
-Depending on how your on-premises network is configured, you might need to set up the proxy on your VM. If your VM is connected to your on-premises network via VPN or ExpressRoute, the VM might not be able to access the Internet, and won't be able to download the required extensions or collect monitoring data. For more information, see [Configure the proxy][deployment-guide-configure-proxy].
+Depending on how your on-premises network is configured, you might need to set up the proxy on your VM. If your VM is connected to your on-premises network via VPN or ExpressRoute, the VM might not be able to access the Internet, and won't be able to download the required VM extensions or collect Azure infrastructure information for the SAP Host agent via the SAP extension for Azure, see [Configure the proxy][deployment-guide-configure-proxy].
 
-#### Configure monitoring
+#### Configure Azure VM Extension for SAP
 
-To be sure SAP supports your environment, set up the Azure Monitoring Extension for SAP as described in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. Check the prerequisites for SAP monitoring, and required minimum versions of SAP Kernel and SAP Host Agent, in the resources listed in [SAP resources][deployment-guide-2.2].
+To be sure SAP supports your environment, set up the Azure Extension for SAP as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. Check the prerequisites for SAP, and required minimum versions of SAP Kernel and SAP Host Agent, in the resources listed in [SAP resources][deployment-guide-2.2].
 
-#### Monitoring check
+#### SAP VM check
 
-Check whether monitoring is working, as described in [Checks and troubleshooting for setting up end-to-end monitoring][deployment-guide-troubleshooting-chapter].
+Check whether the VM extension for SAP is working, as described in [Checks and troubleshooting for end-to-end data collection for SAP Host Agent][deployment-guide-troubleshooting-chapter].
 
-## Update the monitoring configuration for SAP
+## Update the configuration of Azure Extension for SAP
 
-Update the SAP monitoring configuration in any of the following scenarios:
-* The joint Microsoft/SAP team extends the monitoring capabilities and requests more or fewer counters.
-* Microsoft introduces a new version of the underlying Azure infrastructure that delivers the monitoring data, and the Azure Enhanced Monitoring Extension for SAP needs to be adapted to those changes.
-* You mount additional data disks to your Azure VM or you remove a data disk. In this scenario, update the collection of storage-related data. Changing your configuration by adding or deleting endpoints or by assigning IP addresses to a VM does not affect the monitoring configuration.
+Update the configuration of Azure Extension for SAP in any of the following scenarios:
+* The joint Microsoft/SAP team extends the capabilities of the VM extension and requests more or fewer counters.
+* Microsoft introduces a new version of the underlying Azure infrastructure that delivers the  data, and the Azure Extension for SAP needs to be adapted to those changes.
+* You mount additional data disks to your Azure VM or you remove a data disk. In this scenario, update the collection of storage-related data. Changing your configuration by adding or deleting endpoints or by assigning IP addresses to a VM does not affect the extension configuration.
 * You change the size of your Azure VM, for example, from size A5 to any other VM size.
 * You add new network interfaces to your Azure VM.
 
-To update monitoring settings, update the monitoring infrastructure by following the steps in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5].
+To update settings, update configuration of Azure Extension for SAP by following the steps in [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
 ## Detailed tasks for SAP software deployment
 
@@ -924,15 +924,15 @@ The proxy settings in \\etc\\waagent.conf also apply to the required VM extensio
 
 For more information about user-defined routes, see [User-defined routes and IP forwarding][virtual-networks-udr-overview].
 
-### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configure the Azure Enhanced Monitoring Extension for SAP
+### <a name="d98edcd3-f2a1-49f7-b26a-07448ceb60ca"></a>Configure the Azure Extension for SAP
 
-When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Enhanced Monitoring Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters. For more information, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-9.1].
+When you've prepared the VM as described in [Deployment scenarios of VMs for SAP on Azure][deployment-guide-3], the Azure VM Agent is installed on the virtual machine. The next step is to deploy the Azure Extension for SAP, which is available in the Azure Extension Repository in the global Azure datacenters. For more information, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-9.1].
 
-You can use PowerShell or Azure CLI to install and configure the Azure Enhanced Monitoring Extension for SAP. To install the extension on a Windows or Linux VM by using a Windows machine, see [Azure PowerShell][deployment-guide-4.5.1]. To install the extension on a Linux VM by using a Linux desktop, see [Azure CLI][deployment-guide-4.5.2].
+You can use PowerShell or Azure CLI to install and configure the Azure Extension for SAP. To install the extension on a Windows or Linux VM by using a Windows machine, see [Azure PowerShell][deployment-guide-4.5.1]. To install the extension on a Linux VM by using a Linux desktop, see [Azure CLI][deployment-guide-4.5.2].
 
 #### <a name="987cf279-d713-4b4c-8143-6b11589bb9d4"></a>Azure PowerShell for Linux and Windows VMs
 
-To install the Azure Enhanced Monitoring Extension for SAP by using PowerShell:
+To install the Azure Extension for SAP by using PowerShell:
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet. For more information, see [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].  
 1. Run the following PowerShell cmdlet.
@@ -951,21 +951,21 @@ For more information about `Set-AzVMAEMExtension`, see [Set-AzVMAEMExtension][ms
 
 ![Successful execution of SAP-specific Azure cmdlet Set-AzVMAEMExtension][deployment-guide-figure-900]
 
-The `Set-AzVMAEMExtension` configuration does all the steps to configure host monitoring for SAP.
+The `Set-AzVMAEMExtension` configuration does all the steps to configure host data collection for SAP.
 
 The script output includes the following information:
 
-* Confirmation that monitoring for the OS disk and all additional data disks has been configured.
+* Confirmation that data collection for the OS disk and all additional data disks has been configured.
 * The next two messages confirm the configuration of Storage Metrics for a specific storage account.
-* One line of output gives the status of the actual update of the monitoring configuration.
+* One line of output gives the status of the actual update of the VM Extension for SAP configuration.
 * Another line of output confirms that the configuration has been deployed or updated.
-* The last line of output is informational. It shows your options for testing the monitoring configuration.
-* To check that all steps of Azure Enhanced Monitoring have been executed successfully, and that the Azure Infrastructure provides the necessary data, proceed with the readiness check for the Azure Enhanced Monitoring Extension for SAP, as described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1].
+* The last line of output is informational. It shows your options for testing the VM Extension for SAP configuration.
+* To check that all steps of Azure VM Extension for SAP configuration have been executed successfully, and that the Azure Infrastructure provides the necessary data, proceed with the readiness check for the Azure Extension for SAP, as described in [Readiness check for Azure Extension for SAP][deployment-guide-5.1].
 * Wait 15-30 minutes for Azure Diagnostics to collect the relevant data.
 
 #### <a name="408f3779-f422-4413-82f8-c57a23b4fc2f"></a>Azure CLI for Linux VMs
 
-To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
+To install the Azure Extension for SAP by using Azure CLI:
 
    1. Install Azure classic CLI, as described in [Install the Azure classic CLI][azure-cli].
    1. Sign in with your Azure account:
@@ -980,7 +980,7 @@ To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
       azure config mode arm
       ```
 
-   1. Enable Azure Enhanced Monitoring:
+   1. Enable Azure Extension for SAP:
 
       ```
       azure vm enable-aem <resource-group-name> <vm-name>
@@ -1007,7 +1007,7 @@ To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
       az vm aem set -g <resource-group-name> -n <vm name>
       ```
 
-1. Verify that the Azure Enhanced Monitoring Extension is active on the Azure Linux VM. Check whether the file \\var\\lib\\AzureEnhancedMonitor\\PerfCounters exists. If it exists, at a command prompt, run this command to display information collected by the Azure Enhanced Monitor:
+1. Verify that the Azure Extension for SAP is active on the Azure Linux VM. Check whether the file \\var\\lib\\AzureEnhancedMonitor\\PerfCounters exists. If it exists, at a command prompt, run this command to display information collected by the Azure Extension for SAP:
 
    ```
    cat /var/lib/AzureEnhancedMonitor/PerfCounters
@@ -1021,26 +1021,26 @@ To install the Azure Enhanced Monitoring Extension for SAP by using Azure CLI:
    ...
    ```
 
-## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and troubleshooting for end-to-end monitoring
+## <a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Checks and troubleshooting for end-to-end data collection for SAP Host Agent
 
-After you have deployed your Azure VM and set up the relevant Azure monitoring infrastructure, check whether all the components of the Azure Enhanced Monitoring Extension are working as expected.
+After you have deployed your Azure VM and set up the relevant Azure Extension for SAP, check whether all the components of the extension are working as expected.
 
-Run the readiness check for the Azure Enhanced Monitoring Extension for SAP as described in [Readiness check for the Azure Enhanced Monitoring Extension for SAP][deployment-guide-5.1]. If all readiness check results are positive and all relevant performance counters appear OK, Azure monitoring has been set up successfully. You can proceed with the installation of SAP Host Agent as described in the SAP Notes in [SAP resources][deployment-guide-2.2]. If the readiness check indicates that counters are missing, run the health check for the Azure monitoring infrastructure, as described in [Health check for Azure monitoring infrastructure configuration][deployment-guide-5.2]. For more troubleshooting options, see [Troubleshooting Azure monitoring for SAP][deployment-guide-5.3].
+Run the readiness check for the Azure Extension for SAP as described in [Readiness check for the Azure Extension for SAP][deployment-guide-5.1]. If all readiness check results are positive and all relevant performance counters appear OK, Azure Extension for SAP has been set up successfully. You can proceed with the installation of SAP Host Agent as described in the SAP Notes in [SAP resources][deployment-guide-2.2]. If the readiness check indicates that counters are missing, run the health check for the Azure Extension for SAP, as described in [Health check for Azure Extension for SAP configuration][deployment-guide-5.2]. For more troubleshooting options, see [Troubleshooting Azure Extension for SAP][deployment-guide-5.3].
 
-### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Readiness check for the Azure Enhanced Monitoring Extension for SAP
+### <a name="bb61ce92-8c5c-461f-8c53-39f5e5ed91f2"></a>Readiness check for the Azure Extension for SAP
 
-This check makes sure that all performance metrics that appear inside your SAP application are provided by the underlying Azure monitoring infrastructure.
+This check makes sure that all performance metrics that appear inside your SAP application are provided by the underlying Azure Extension for SAP.
 
 #### Run the readiness check on a Windows VM
 
 1. Sign in to the Azure virtual machine (using an admin account is not necessary).
 1. Open a Command Prompt window.
-1. At the command prompt, change the directory to the installation folder of the Azure Enhanced Monitoring Extension for SAP:
+1. At the command prompt, change the directory to the installation folder of the Azure Extension for SAP:
    C:\\Packages\\Plugins\\Microsoft.AzureCAT.AzureEnhancedMonitoring.AzureCATExtensionHandler\\&lt;version>\\drop
 
-   The *version* in the path to the monitoring extension might vary. If you see folders for multiple versions of the monitoring extension in the installation folder, check the configuration of the AzureEnhancedMonitoring Windows service, and then switch to the folder indicated as *Path to executable*.
+   The *version* in the path to the extension might vary. If you see folders for multiple versions of the extension in the installation folder, check the configuration of the AzureEnhancedMonitoring Windows service, and then switch to the folder indicated as *Path to executable*.
 
-   ![Properties of service running the Azure Enhanced Monitoring Extension for SAP][deployment-guide-figure-1000]
+   ![Properties of service running the Azure Extension for SAP][deployment-guide-figure-1000]
 
 1. At the command prompt, run **azperflib.exe** without any parameters.
 
@@ -1049,15 +1049,15 @@ This check makes sure that all performance metrics that appear inside your SAP a
    >
    >
 
-If the Azure Enhanced Monitoring Extension is not installed, or the AzureEnhancedMonitoring service is not running, the extension has not been configured correctly. For detailed information about how to deploy the extension, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
+If the Azure Extension for SAP is not installed, or the AzureEnhancedMonitoring service is not running, the extension has not been configured correctly. For detailed information about how to deploy the extension, see [Troubleshooting the Azure Extension for SAP][deployment-guide-5.3].
 
 > [!NOTE]
-> The Azperflib.exe is a component that can't be used for own purposes. It is a component which delivers Azure monitoring data related to the VM for the SAP Host Agent.
+> The Azperflib.exe is a component that can't be used for own purposes. It is a component which delivers Azure infrastructure data related to the VM for the SAP Host Agent exclusively.
 > 
 
 ##### Check the output of azperflib.exe
 
-Azperflib.exe output shows all populated Azure performance counters for SAP. At the bottom of the list of collected counters, a summary and health indicator show the status of Azure monitoring.
+Azperflib.exe output shows all populated Azure performance counters for SAP. At the bottom of the list of collected counters, a summary and health indicator show the status of Azure Extension for SAP.
 
 ![Output of health check by executing azperflib.exe, which indicates that no problems exist][deployment-guide-figure-1100]
 <a name="figure-11"></a>
@@ -1066,20 +1066,20 @@ Check the result returned for the **Counters total** output, which is reported a
 
 Interpret the resulting values as follows:
 
-| Azperflib.exe result values | Azure monitoring health status |
+| Azperflib.exe result values | Azure Extension for SAP health status |
 | --- | --- |
 | **API Calls - not available** | Counters that are not available might be either not applicable to the virtual machine configuration, or are errors. See **Health status**. |
 | **Counters total - empty** |The following two Azure storage counters can be empty: <ul><li>Storage Read Op Latency Server msec</li><li>Storage Read Op Latency E2E msec</li></ul>All other counters must have values. |
 | **Health status** |Only OK if return status shows **OK**. |
 | **Diagnostics** |Detailed information about health status. |
 
-If the **Health status** value is not **OK**, follow the instructions in [Health check for Azure monitoring infrastructure configuration][deployment-guide-5.2].
+If the **Health status** value is not **OK**, follow the instructions in [Health check for Azure Extension for SAP configuration][deployment-guide-5.2].
 
 #### Run the readiness check on a Linux VM
 
 1. Connect to the Azure Virtual Machine by using SSH.
 
-1. Check the output of the Azure Enhanced Monitoring Extension.
+1. Check the output of the Azure Extension for SAP.
 
    a.  Run `more /var/lib/AzureEnhancedMonitor/PerfCounters`
 
@@ -1105,11 +1105,11 @@ If the preceding check was not successful, run these additional checks:
 
    **Expected result**: Displays one entry similar to: `python /usr/sbin/waagent -daemon`
 
-1. Make sure that the Azure Enhanced Monitoring Extension is installed and running.
+1. Make sure that the Azure Extension for SAP is installed and running.
 
    a.  Run `sudo sh -c 'ls -al /var/lib/waagent/Microsoft.OSTCExtensions.AzureEnhancedMonitorForLinux-*/'`
 
-   **Expected result**: Lists the content of the Azure Enhanced Monitoring Extension directory.
+   **Expected result**: Lists the content of the Azure Extension for SAP directory.
 
    b. Run `ps -ax | grep AzureEnhanced`
 
@@ -1125,11 +1125,11 @@ If the preceding check was not successful, run these additional checks:
 
 If you already have an SAP NetWeaver ABAP application server installed, open transaction ST06 and check whether enhanced monitoring is enabled.
 
-If any of these checks fail, and for detailed information about how to redeploy the extension, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
+If any of these checks fail, and for detailed information about how to redeploy the extension, see [Troubleshooting the Azure Extension for SAP][deployment-guide-5.3].
 
-### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Health check for the Azure monitoring infrastructure configuration
+### <a name="e2d592ff-b4ea-4a53-a91a-e5521edb6cd1"></a>Health check for the Azure Extension for SAP configuration
 
-If some of the monitoring data is not delivered correctly as indicated by the test described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1], run the `Test-AzVMAEMExtension` cmdlet to check whether the Azure monitoring infrastructure and the monitoring extension for SAP are configured correctly.
+If some of the infrastructure data is not delivered correctly as indicated by the test described in [Readiness check for Azure Extension for SAP][deployment-guide-5.1], run the `Test-AzVMAEMExtension` cmdlet to check whether the Azure infrastructure and the Azure Extension for SAP are configured correctly.
 
 1. Make sure that you have installed the latest version of the Azure PowerShell cmdlet, as described in [Deploying Azure PowerShell cmdlets][deployment-guide-4.1].
 1. Run the following PowerShell cmdlet. For a list of available environments, run the cmdlet `Get-AzEnvironment`. To use global Azure, select the **AzureCloud** environment. For Azure in China, select **AzureChinaCloud**.
@@ -1146,21 +1146,21 @@ If some of the monitoring data is not delivered correctly as indicated by the te
 
 1. The script tests the configuration of the virtual machine you select.
 
-   ![Output of successful test of the Azure monitoring infrastructure for SAP][deployment-guide-figure-1300]
+   ![Output of successful test of the Azure Extension for SAP][deployment-guide-figure-1300]
 
-Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. Wait 15 minutes, and repeat the checks described in [Readiness check for Azure Enhanced Monitoring for SAP][deployment-guide-5.1] and [Health check for Azure Monitoring Infrastructure Configuration][deployment-guide-5.2]. If the checks still indicate a problem with some or all counters, see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3].
+Make sure that every health check result is **OK**. If some checks do not display **OK**, run the update cmdlet as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. Wait 15 minutes, and repeat the checks described in [Readiness check for Azure Extension for SAP][deployment-guide-5.1] and [Health check for Azure Extension for SAP configuration][deployment-guide-5.2]. If the checks still indicate a problem with some or all counters, see [Troubleshooting the Azure Extension for SAP][deployment-guide-5.3].
 
 > [!Note]
-> You can experience some warnings in cases where you use Managed Standard Azure Disks. Warnings will be displayed instead of the tests returning "OK". This is normal and intended in case of that disk type. See also see [Troubleshooting the Azure monitoring infrastructure for SAP][deployment-guide-5.3]
+> You can experience some warnings in cases where you use Managed Standard Azure Disks. Warnings will be displayed instead of the tests returning "OK". This is normal and intended in case of that disk type. See also see [Troubleshooting the Azure Extension for SAP][deployment-guide-5.3]
 > 
 
-### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Troubleshooting the Azure monitoring infrastructure for SAP
+### <a name="fe25a7da-4e4e-4388-8907-8abc2d33cfd8"></a>Troubleshooting Azure Extension for SAP
 
 #### ![Windows][Logo_Windows] Azure performance counters do not show up at all
 
 The AzureEnhancedMonitoring Windows service collects performance metrics in Azure. If the service has not been installed correctly or if it is not running in your VM, no performance metrics can be collected.
 
-##### The installation directory of the Azure Enhanced Monitoring Extension is empty
+##### The installation directory of the Azure Extension for SAP is empty
 
 ###### Issue
 
@@ -1172,7 +1172,7 @@ is empty.
 
 The extension is not installed. Determine whether this is a proxy issue (as described earlier). You might need to restart the machine or rerun the `Set-AzVMAEMExtension` configuration script.
 
-##### Service for Azure Enhanced Monitoring does not exist
+##### Service for Azure Extension for SAP does not exist
 
 ###### Issue
 
@@ -1180,16 +1180,16 @@ The AzureEnhancedMonitoring Windows service does not exist.
 
 Azperflib.exe output throws an error:
 
-![Execution of azperflib.exe indicates that the service of the Azure Enhanced Monitoring Extension for SAP is not running][deployment-guide-figure-1400]
+![Execution of azperflib.exe indicates that the service of the Azure Extension for SAP is not running][deployment-guide-figure-1400]
 <a name="figure-14"></a>
 
 ###### Solution
 
-If the service does not exist, the Azure Enhanced Monitoring Extension for SAP has not been installed correctly. Redeploy the extension by using the steps described for your deployment scenario in [Deployment scenarios of VMs for SAP in Azure][deployment-guide-3].
+If the service does not exist, the Azure Extension for SAP has not been installed correctly. Redeploy the extension by using the steps described for your deployment scenario in [Deployment scenarios of VMs for SAP in Azure][deployment-guide-3].
 
 After you deploy the extension, after one hour, check again whether the Azure performance counters are provided in the Azure VM.
 
-##### Service for Azure Enhanced Monitoring exists, but fails to start
+##### Service for Azure Extension for SAP exists, but fails to start
 
 ###### Issue
 
@@ -1197,7 +1197,7 @@ The AzureEnhancedMonitoring Windows service exists and is enabled, but fails to 
 
 ###### Solution
 
-The configuration is incorrect. Restart the monitoring extension for the VM, as described in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5].
+The configuration is incorrect. Restart the Azure Extension for SAP in the VM, as described in [Configure the Azure Extension for SAP][deployment-guide-4.5].
 
 #### ![Windows][Logo_Windows] Some Azure performance counters are missing
 
@@ -1209,11 +1209,11 @@ If troubleshooting by using SAP Note [1999351] doesn't resolve the issue, rerun 
 
 Performance metrics in Azure are collected by a daemon. If the daemon is not running, no performance metrics can be collected.
 
-##### The installation directory of the Azure Enhanced Monitoring extension is empty
+##### The installation directory of the Azure Extension for SAP is empty
 
 ###### Issue
 
-The directory \\var\\lib\\waagent\\ does not have a subdirectory for the Azure Enhanced Monitoring extension.
+The directory \\var\\lib\\waagent\\ does not have a subdirectory for the Azure Extension for SAP.
 
 ###### Solution
 
@@ -1235,13 +1235,13 @@ Executing azperfli.exe as described earlier you can get a result that is indicat
 
 ###### Solution
 
-The messages are caused by the fact that Standard Managed Disks are not delivering the APIs used by the monitoring extension to check on statistics of the Standard Azure Storage Accounts. This is not a matter of concern. Reason for introducing the monitoring for Standard Disk Storage accounts was throttling of I/Os that occurred frequently. Managed disks will avoid such throttling by limiting the number of disks in a storage account. Therefore, not having that type of monitoring data is not critical.
+The messages are caused by the fact that Standard Managed Disks are not delivering the APIs used by the SAP Extension for SAP to check on statistics of the Standard Azure Storage Accounts. This is not a matter of concern. Reason for introducing the collecting data for Standard Disk Storage accounts was throttling of I/Os that occurred frequently. Managed disks will avoid such throttling by limiting the number of disks in a storage account. Therefore, not having that type of that data is not critical.
 
 
 #### ![Linux][Logo_Linux] Some Azure performance counters are missing
 
 Performance metrics in Azure are collected by a daemon, which gets data from several sources. Some configuration data is collected locally, and some performance metrics are read from Azure Diagnostics. Storage counters come from the logs in your storage subscription.
 
-For a complete and up-to-date list of known issues, see SAP Note [1999351], which has additional troubleshooting information for Enhanced Azure Monitoring for SAP.
+For a complete and up-to-date list of known issues, see SAP Note [1999351], which has additional troubleshooting information for Azure Extension for SAP.
 
-If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun the `Set-AzVMAEMExtension` configuration script as described in [Configure the Azure Enhanced Monitoring Extension for SAP][deployment-guide-4.5]. You might have to wait for an hour because storage analytics or diagnostics counters might not be created immediately after they are enabled. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.
+If troubleshooting by using SAP Note [1999351] does not resolve the issue, rerun the `Set-AzVMAEMExtension` configuration script as described in [Configure the Azure Extension for SAP][deployment-guide-4.5]. You might have to wait for an hour because storage analytics or diagnostics counters might not be created immediately after they are enabled. If the problem persists, open an SAP customer support message on the component BC-OP-NT-AZR for Windows or BC-OP-LNX-AZR for a Linux virtual machine.

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
@@ -18,13 +18,13 @@ Email extraction includes the entire email address from an utterance. Because th
 
 ## Resolution for prebuilt email
 
-### API version 2.x
+#### [V2 prediction endpoint response](#tab/V2)
 
 The following example shows the resolution of the **builtin.email** entity.
 
 ```json
 {
-  "query": "please send the information to patti.owens@microsoft.com",
+  "query": "please send the information to patti@contoso.com",
   "topScoringIntent": {
     "intent": "None",
     "score": 0.811592042
@@ -37,27 +37,27 @@ The following example shows the resolution of the **builtin.email** entity.
   ],
   "entities": [
     {
-      "entity": "patti.owens@microsoft.com",
+      "entity": "patti@contoso.com",
       "type": "builtin.email",
       "startIndex": 31,
       "endIndex": 55,
       "resolution": {
-        "value": "patti.owens@microsoft.com"
+        "value": "patti@contoso.com"
       }
     }
   ]
 }
 ```
 
-### Preview API version 3.x
+#### [V3 prediction endpoint response](#tab/V3)
 
 The following JSON is with the `verbose` parameter set to `false`:
 
 ```json
 {
-    "query": "please send the information to patti.owens@microsoft.com",
+    "query": "please send the information to patti@contoso.com",
     "prediction": {
-        "normalizedQuery": "please send the information to patti.owens@microsoft.com",
+        "normalizedQuery": "please send the information to patti@contoso.com",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -66,7 +66,7 @@ The following JSON is with the `verbose` parameter set to `false`:
         },
         "entities": {
             "email": [
-                "patti.owens@microsoft.com"
+                "patti@contoso.com"
             ]
         }
     }
@@ -78,9 +78,9 @@ The following JSON is with the `verbose` parameter set to `true`:
 
 ```json
 {
-    "query": "please send the information to patti.owens@microsoft.com",
+    "query": "please send the information to patti@contoso.com",
     "prediction": {
-        "normalizedQuery": "please send the information to patti.owens@microsoft.com",
+        "normalizedQuery": "please send the information to patti@contoso.com",
         "topIntent": "None",
         "intents": {
             "None": {
@@ -89,13 +89,13 @@ The following JSON is with the `verbose` parameter set to `true`:
         },
         "entities": {
             "email": [
-                "patti.owens@microsoft.com"
+                "patti@contoso.com"
             ],
             "$instance": {
                 "email": [
                     {
                         "type": "builtin.email",
-                        "text": "patti.owens@microsoft.com",
+                        "text": "patti@contoso.com",
                         "startIndex": 31,
                         "length": 25,
                         "modelTypeId": 2,
@@ -108,6 +108,10 @@ The following JSON is with the `verbose` parameter set to `true`:
 }
 ```
 
+* * * 
+
 ## Next steps
+
+Learn more about the [V3 prediction endpoint](luis-migration-api-v3.md).
 
 Learn about the [number](luis-reference-prebuilt-number.md), [ordinal](luis-reference-prebuilt-ordinal.md), and [percentage](luis-reference-prebuilt-percentage.md). 

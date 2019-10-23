@@ -4,7 +4,7 @@ description: Troubleshoot domain and SSL certificate problems in Azure App Servi
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 

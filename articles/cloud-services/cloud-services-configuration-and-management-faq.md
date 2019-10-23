@@ -4,7 +4,7 @@ description: This article lists the frequently asked questions about configurati
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -201,7 +201,7 @@ These steps could be automated via a startup task, so that whenever a new PaaS i
 Once this has been done, you can verify whether the HTTP/2 has been enabled or not by using one of the following methods:
 
 - Enable Protocol version in IIS logs and look into the IIS logs. It will show HTTP/2 in the logs. 
-- Enable F12 Developer Tool in Internet Explorer/Microsoft Edge and switch to the Network tab to verify the protocol. 
+- Enable F12 Developer Tool in Internet Explorer or Microsoft Edge and switch to the Network tab to verify the protocol. 
 
 For more information, see [HTTP/2 on IIS](https://blogs.iis.net/davidso/http2).
 

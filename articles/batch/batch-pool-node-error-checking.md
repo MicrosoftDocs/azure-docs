@@ -37,7 +37,7 @@ Common causes for resize errors include:
 - Insufficient resources when a [pool is in a virtual network](https://docs.microsoft.com/azure/batch/batch-virtual-network)
   - You might create resources such as load-balancers, public IPs, and network security groups in the same subscription as the Batch account. Check that the subscription quotas are sufficient for these resources.
 - Large pools with custom VM images
-  - Large pools that use custom VM images can take longer to allocate and resize timeouts can occur.  See [Use a custom image to create a pool of virtual machines](https://docs.microsoft.com/azure/batch/batch-custom-images) for recommendations on limits and configuration.
+  - Large pools that use custom VM images can take longer to allocate and resize timeouts can occur.  See [Create a pool with the Shared Image Gallery](batch-sig-images.md) for recommendations on limits and configuration.
 
 ### Automatic scaling failures
 

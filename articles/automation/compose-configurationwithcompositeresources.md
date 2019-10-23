@@ -15,7 +15,7 @@ manager: carmonm
 
 When a resource needs to be managed with more than a single desired state configuration (DSC)
 configuration, the best path is to use [composite
-resources](/powershell/dsc/authoringresourcecomposite). A composite resource is a nested and
+resources](/powershell/scripting/dsc/resources/authoringresourcecomposite). A composite resource is a nested and
 parameterized configuration being used as a DSC resource within another configuration. This allows
 the creation of complex configurations while allowing the underlying composite resources
 (parameterized configurations) to be individually managed and built.

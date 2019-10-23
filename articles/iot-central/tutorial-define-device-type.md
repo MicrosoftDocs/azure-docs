@@ -360,7 +360,7 @@ You use _commands_ to enable an operator to run commands directly on the device.
     | Display Name         | Echo Command    |
     | Field Name           | echo            |
     | Default Timeout      | 30              |
-    | Display Type         | text            |
+    | Data Type         | text            |
     | Description          | Device Command  |  
 
     You can add additional inputs to the command by selecting **+** for **Input Fields**.

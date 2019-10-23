@@ -8,8 +8,9 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.custom: seodec18
+# Customer intent: As a data analyst or developer, I want to learn how to create a Time Series Insights Preview environment so that I can use Time Series Insights queries to understand device behavior.
 ---
 
 # Tutorial: Set up an Azure Time Series Insights Preview environment

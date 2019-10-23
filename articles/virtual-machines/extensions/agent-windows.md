@@ -3,7 +3,7 @@ title: Azure Virtual Machine Agent Overview | Microsoft Docs
 description: Azure Virtual Machine Agent Overview
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: roiyz-msft
+author: axayjo
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
-ms.author: roiyz
+ms.author: akjosh
 ---
 
 # Azure Virtual Machine Agent overview
@@ -64,7 +64,7 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 ```
 
 ### Prerequisites
-The Windows VM Agent needs at least Windows Server 2008 R2 (64-bits) to run, with the .Net Framework 4.0.
+The Windows VM Agent needs at least Windows Server 2008 R2 (64-bits) to run, with the .Net Framework 4.0. See [Minimum version support for virtual machine agents in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 ## Detect the VM Agent
 
@@ -106,6 +106,10 @@ When logged in to a Windows VM, Task Manager can be used to examine running proc
 ## Upgrade the VM Agent
 The Azure VM Agent for Windows is automatically upgraded. As new VMs are deployed to Azure, they receive the latest VM agent at VM provision time. Custom VM images should be manually updated to include the new VM agent at image creation time.
 
+## Windows Guest Agent Automatic Logs Collection
+Windows Guest Agent has a feature to automatically collect some logs. This feature is controller by the CollectGuestLogs.exe process. 
+It exists for both PaaS Cloud Services and IaaS Virtual Machines and its goal is to quickly & automatically collect some diagnostics logs from a VM - so they can be used for offline analysis. 
+The collected logs are Event Logs, OS Logs, Azure Logs and some registry keys. It produces a ZIP file that is transferred to the VM’s Host. This ZIP file can then be looked at by Engineering Teams and Support professionals to investigate issues on request of the customer owning the VM.
 
 ## Next steps
 For more information about VM extensions, see [Azure virtual machine extensions and features overview](overview.md).

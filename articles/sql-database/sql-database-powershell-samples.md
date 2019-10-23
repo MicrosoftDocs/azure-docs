@@ -22,7 +22,7 @@ Azure SQL Database enables you to configure your databases, instances, and pools
 
 If you choose to install and use the PowerShell locally, this tutorial requires AZ PowerShell 1.4.0 or later. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). If you are running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-## Single Database and Elastic pools
+## [Single Database and Elastic pools](#tab/single-database)
 
 The following table includes links to sample Azure PowerShell scripts for Azure SQL Database.
 
@@ -53,7 +53,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 
 Learn more about the [Single Database Azure PowerShell API](sql-database-single-databases-manage.md#powershell-manage-sql-database-servers-and-single-databases).
 
-## Managed Instance
+## [Managed Instance](#tab/managed-instance)
 
 The following table includes links to sample Azure PowerShell scripts for Azure SQL Database - Managed Instance.
 
@@ -68,6 +68,8 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |||
 
 Learn more about the [Managed Instance Azure PowerShell API](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).
+
+---
 
 ## Additional resources
 

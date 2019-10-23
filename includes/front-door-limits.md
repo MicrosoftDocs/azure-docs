@@ -19,7 +19,7 @@
 | Back ends per back-end pool | 100 |
 | Path patterns to match for a routing rule | 25 |
 | Custom web application firewall rules per policy | 10 |
-| Web application firewall policy per resource | 100 |
+| Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
 | Web application firewall IP address ranges per match condition | 600 |
 | Web application firewall string match values per match condition | 10 |
@@ -48,4 +48,5 @@
 | **Upload** |	There's no limit as long as each CTE upload is less than 2 GB. | The size can't be larger than 2 GB. |
 
 ### Other limits
-- Maximum URL size - 8,192 bytes - Specifies maximum length of the raw URL (scheme + hostname + port + path + query string of the URL)- Maximum Query String size - 4,096 bytes - Specifies the maximum length of the query string, in bytes.
+- Maximum URL size - 8,192 bytes - Specifies maximum length of the raw URL (scheme + hostname + port + path + query string of the URL)
+- Maximum Query String size - 4,096 bytes - Specifies the maximum length of the query string, in bytes.

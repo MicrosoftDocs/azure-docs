@@ -34,10 +34,13 @@ Other parameters you can adjust include:
 - **log_queries_not_using_indexes**: determines whether queries that do not use indexes are logged to the slow_query_log
 - **log_throttle_queries_not_using_indexes**: This parameter limits the number of non-index queries that can be written to the slow query log. This parameter takes effect when log_queries_not_using_indexes is set to ON.
 
+> [!Note]
+> For `sql_text`, log will be truncated if it exceeds 2048 characters.
+
 See the MySQL [slow query log documentation](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) for full descriptions of the slow query log parameters.
 
 ## Diagnostic logs
-Azure Database for MySQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MySQL server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/diagnostic-logs-overview.md).
+Azure Database for MySQL is integrated with Azure Monitor Diagnostic Logs. Once you have enabled slow query logs on your MySQL server, you can choose to have them emitted to Azure Monitor logs, Event Hubs, or Azure Storage. To learn more about how to enable diagnostic logs, see the how to section of the [diagnostic logs documentation](../azure-monitor/platform/resource-logs-overview.md).
 
 > [!IMPORTANT]
 > This diagnostic feature for server logs is only available in the General Purpose and Memory Optimized [pricing tiers](concepts-pricing-tiers.md).
@@ -60,8 +63,8 @@ The following table describes what's in each log. Depending on the output method
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Name of the server |
 | `start_time_t` [UTC] | Time the query began |
-| `query_time_s` | Total time the query took to execute |
-| `lock_time_s` | Total time the query was locked |
+| `query_time_s` | Total time in seconds the query took to execute |
+| `lock_time_s` | Total time in seconds the query was locked |
 | `user_host_s` | Username |
 | `rows_sent_s` | Number of rows sent |
 | `rows_examined_s` | Number of rows examined |
