@@ -28,8 +28,8 @@ You can create application using following steps
 
 1. Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/iotc_retail_homepage.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/iotc_retail_homepage.png)
 
 2. Select **Retail** tab and select **Create app** under **digital distribution center application **
 
@@ -39,8 +39,8 @@ You can create application using following steps
    **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
    **Create**: Select create at the bottom of the page to deploy your application.
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_create.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_create.png)
 
 ## Walk through the application 
 
@@ -54,8 +54,8 @@ The dashboard is logically organized to show the device management capabilities 
    * You can perform edge gateway command & control tasks
    * Manage all cameras that are part of the solution. 
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_dashboard.png)
 
 ## Device Template
 
@@ -69,32 +69,32 @@ Azure IoT Edge gateway device template represents a blueprint that defines the c
 
 Deployment manifest has the list of software modules that will run on the Azure IoT Edge device & module twins configured with their desired properties. Using deployment manifest that is part of the device template, Azure IoT Edge run time knows which modules to install and how to configure them to work together.
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_devicetemplate1.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_devicetemplate1.png)
 
 In this device template here, you can see module device capability models are generated from deployment manifest. 
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_devicetemplate2.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_devicetemplate2.png)
 
 Here you can add downstream device relations, cloud property, create views along customize module and device capabilities.
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_moduletemplate.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_moduletemplate.png)
 
 Click on the **Device** tab and choose the **ddcgateway** device that is associated with Digital Distribution Center Azure IoT Edge. Here you will see the custom edge modules & downstream camera that is part device relationship. IoT Edge modules are the smallest computation unit, and it can contain Azure services (such as Azure Stream Analytics, AI modules) or your solution-specific code.
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_modules.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_modules.png)
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_downstream.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_downstream.png)
 
 ## Gateway Commands
 This interface organizes all the gateway command capabilities
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_camera.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_camera.png)
 
 ## Rules
 Select the rules tab to see two different rules that exist in this application template. These rules are configured to email notifications to the operators for further investigations.
@@ -102,8 +102,8 @@ Select the rules tab to see two different rules that exist in this application t
  
 **Very large package** - This rule will trigger if the camera detects huge package that cannot be inspected for the quality. 
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_rules.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_rules.png)
 
 ## Jobs
 Select the jobs tab to see five different jobs that exist as part of this application template:
@@ -112,14 +112,14 @@ You can leverage jobs feature to perform solution-wide operations. Here digital 
    * periodically updating camera firmware
    * modifying the telemetry interval to manage data upload
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_jobs.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_jobs.png)
 
 ## Clean up resources
 If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_cleanup.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc_cleanup.png)
 
 ## Next steps
 * Learn more about digital distribution center solution architecture [digital distribution center concept](./architecture-digital-distribution-center-pnp.md)
