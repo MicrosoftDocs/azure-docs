@@ -123,9 +123,9 @@ Ansible provides a Python script named [azure_rm.py](https://github.com/ansible/
 
 ### Ansible version >= 2.8
 
-Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). The following steps walk you through using the plugin:
+Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). The following steps walk you through using the plug-in:
 
-1. The inventory plugin requires a configuration file. The configuration file must end in `azure_rm` and have an extension of either `yml` or `yaml`. For this tutorial example, save the following playbook as `myazure_rm.yml`:
+1. The inventory plug-in requires a configuration file. The configuration file must end in `azure_rm` and have an extension of either `yml` or `yaml`. For this tutorial example, save the following playbook as `myazure_rm.yml`:
 
     ```yml
         plugin: azure_rm

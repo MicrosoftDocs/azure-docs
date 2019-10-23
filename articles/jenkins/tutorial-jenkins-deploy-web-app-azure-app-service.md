@@ -75,7 +75,7 @@ or [Azure Cloud Shell](/azure/cloud-shell/overview)
 
    - [Azure App Service](https://plugins.jenkins.io/azure-app-service)
    - [GitHub Branch Source](https://plugins.jenkins.io/github-branch-source)
-   - Jenkins [Environment Injector Plugin](https://plugins.jenkins.io/envinject)
+   - Jenkins [Environment Injector Plug-in](https://plugins.jenkins.io/envinject)
    - [Azure Credentials](https://plugins.jenkins.io/azure-credentials)
 
    If these plug-ins don't appear, make sure they're not 

@@ -213,7 +213,7 @@ In this section, you see how to prepare the Jenkins server to run a build, which
     1. Select **Manage Jenkins > Manage Plugins > Available**.
     1. Search for and install the Azure Container Service plug-in.
 
-1. Add credentials to manage resources in Azure. If you don’t already have the plug-in, install the **Azure Credential** plugin.
+1. Add credentials to manage resources in Azure. If you don’t already have the plug-in, install the **Azure Credential** plug-in.
 
 1. Add your Azure Service Principal credential as the type **Microsoft Azure Service Principal**.
 
