@@ -23,17 +23,31 @@ The 'Register-SqlVMs' cmdlet can be used to register all virtual machines in a g
 
 For more information about the resource provider, see [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
-For the full script on GitHub, see [Bulk register SQL VMs with Az PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/4a29e653d93a109c36fa9161625eefcf14f0837d/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
-
 ## Prerequisites
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
 - An [Azure subscription](https://azure.microsoft.com/free/) with unregistered SQL Server virtual machines. Subscriptions used for the script should be in the same tenant as the PowerShell session. Run `Get-AzSubscription` to verify that the subscription is in the output of the cmdlet. 
 - The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
-- One or more [SQL Server virtual machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 
+## First steps
+
+Before proceeding, you must first create a local copy of the script and import it as a PowerShell module. 
+
+### Create script
+
+To create the script, copy the [full script](#full-script) from the end of this article and save it locally as `RegisterSqLVMs.psm1`. 
+
+### Import script
+
+Once the script is created, you can import it as a module in the Powershell terminal. 
+
+Open the PowerShell terminal and navigate to where you saved the `RegisterSqLVMs.psm1` file. Then, run the following PowerShell cmdlet to import the script as a module: 
+
+```powershell-interactive
+Import-Module .\RegisterSqLVMs.psm1
+```
 
 ## All VMs in list of subscriptions 
 
@@ -223,8 +237,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ## Full script
 
-(this is expected to fail for now)
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
+[!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
+
+For the full script on GitHub, see [Bulk register SQL VMs with Az PowerShell](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1). 
 
 (this will be removed, it's just to showcase how the script will look embedded)
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add single database to a failover group")]
