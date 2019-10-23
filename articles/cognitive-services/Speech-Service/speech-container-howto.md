@@ -56,13 +56,13 @@ Fill out and submit the [Cognitive Services Speech Containers Request form](http
 
 ### Advanced Vector Extension support
 
-The **host** is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for VSX2 support on Linux hosts with the following command:
+The **host** is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
 > [!WARNING]
-> The host computer is *required* to support VSX2. The container *will not* function correctly without VSX2 support.
+> The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
 ### Container requirements and recommendations
 
