@@ -95,20 +95,28 @@
     href: machine-learning-interpretability-explainability.md
   - name: ONNX
     href: concept-onnx.md
-  - name: Security
+  - name: Enterprise readiness & security
     items:
-    - name: Enterprise security overview
-      displayName: authorization authentication encryption aad azure active directory
-      href: concept-enterprise-security.md
-    - name: Manage users and roles
-      href: how-to-assign-roles.md
-    - name: Use virtual networks
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: Secure web services with SSL
-      href: how-to-secure-web-service.md
-    - name: Regenerate storage access keys
-      href: how-to-change-storage-access-key.md
+      - name: Enterprise security
+        items:
+        - name: Enterprise security overview
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
+        - name: Manage users and roles
+          href: how-to-assign-roles.md
+        - name: Use virtual networks
+          displayName: vnet
+          href: how-to-enable-virtual-network.md
+        - name: Secure web services with SSL
+          href: how-to-secure-web-service.md
+        - name: Regenerate storage access keys
+          href: how-to-change-storage-access-key.md
+      - name: Monitoring
+        items:
+        - name: Monitor Azure Machine Learning
+          href: monitor-azure-machine-learning.md
+        - name: Monitor data reference
+          href: monitor-resource-reference.md
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
