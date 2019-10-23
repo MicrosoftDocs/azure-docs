@@ -186,7 +186,7 @@ baseline = target.time_before(datetime(2019, 2, 1))
 features = ['latitude', 'longitude', 'elevation', 'windAngle', 'windSpeed', 'temperature', 'snowDepth', 'stationName', 'countryOrRegion']
 # setup data drift detector
 monitor = DataDriftDetector.create_from_datasets(ws, 'drift-monitor', baseline, target, 
-                                                      compute_target_name='cpu-cluster', 
+                                                      compute_target='cpu-cluster', 
                                                       frequency='Week', 
                                                       feature_list=None, 
                                                       drift_threshold=.6, 
