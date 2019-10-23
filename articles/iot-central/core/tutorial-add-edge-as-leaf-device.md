@@ -163,8 +163,6 @@ Dashboard tile
 
 ![Device Connect](./media/tutorial-add-edge-as-leaf-device/dashboard.png)
 
-## Next steps
-
 In this tutorial, you learned how to:
 
 * Add a new Azure IoT Edge device
@@ -172,3 +170,8 @@ In this tutorial, you learned how to:
 * View Dashboards, Module Health in IoT Central
 * Send commands to a module running on the Azure IoT Edge device
 * Set properties on a module running on the Azure IoT Edge device
+
+To Configure a transparent gateway follow this tutorial
+
+> [!div class="nextstepaction"]
+> [Configure Transparent Gateway](../../iot-edge/how-to-create-transparent-gateway.md)
