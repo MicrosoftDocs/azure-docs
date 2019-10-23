@@ -1,5 +1,5 @@
 ---
-title: How to install and use the log analytics views for Azure Active Directory  | Microsoft Docs
+title: How to install and use the log analytics views | Microsoft Docs
 description: Learn how to install and use the log analytics views for Azure Active Directory
 services: active-directory
 documentationcenter: ''
