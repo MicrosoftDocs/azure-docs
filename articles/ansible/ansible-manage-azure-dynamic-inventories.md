@@ -191,7 +191,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plug-in]
 
 ### If you're using Ansible >=  2.8
 
-- run the this command `ansible-inventory -i myazure_rm.yml --graph` to get the following:
+- Run the command `ansible-inventory -i myazure_rm.yml --graph` to get the following output:
 
     ```Output
         @all:
