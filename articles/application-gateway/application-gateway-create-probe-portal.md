@@ -90,7 +90,7 @@ Probes are configured in a two-step process through the portal. The first step i
 
 2. In the Azure portal Favorites pane, select **All resources**. Select the application gateway in the **All resources** page. If the subscription you selected already has several resources in it, you can enter partners.contoso.net in the Filter by name… box to easily access the application gateway.
 
-3. Click **Probes** and click the **Add** button to add a probe.
+3. Select **Probes** and then select **Add** to add a probe.
 
    ![Add Probe blade with information filled out][1]
 
