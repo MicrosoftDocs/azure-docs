@@ -52,7 +52,7 @@ This article shows how to manage policy by using the portal and PowerShell metho
 > [!NOTE]
 > If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the Exceptions section in [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-### Azure portal
+### [Portal](#tab/azure-portal)
 
 There are two ways to add a policy through the Azure portal. 
 
@@ -122,7 +122,7 @@ There are two ways to add a policy through the Azure portal.
 
 6. For more information about this JSON example, see the [Policy](#policy) and [Rules](#rules) sections.
 
-### PowerShell
+### [Powershell](#tab/azure-powershell)
 
 The following PowerShell script can be used to add a policy to your storage account. The `$rgname` variable must be initialized with your resource group name. The `$accountName` variable must be initialized with your storage account name.
 
@@ -152,7 +152,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-## Azure Resource Manager template with lifecycle management policy
+### [Template](#tab/template)
 
 You can define lifecycle management by using Azure Resource Manager templates. Here is a sample template to deploy a RA-GRS GPv2 storage account with a lifecycle management policy.
 
@@ -340,6 +340,9 @@ This example shows how to transition block blobs prefixed with `container1/foo` 
 ### Archive data at ingest
 
 Some data stays idle in the cloud and is rarely, if ever, accessed once stored. The following lifecycle policy is configured to archive data once it's ingested. This example transitions block blobs in the storage account within container `archivecontainer` into an archive tier. The transition is accomplished by acting on blobs 0 days after last modified time:
+
+> [!NOTE] 
+> It is recommended to upload your blobs directly the archive tier to be more efficient. You can use the x-ms-acess-tier header for [PutBlob](https://docs.microsoft.com/rest/api/storageservices/put-blob) or [PutBlockList](https://docs.microsoft.com/rest/api/storageservices/put-block-list) with REST version 2018-11-09 and newer or our latest blob storage client libraries. 
 
 ```json
 {
