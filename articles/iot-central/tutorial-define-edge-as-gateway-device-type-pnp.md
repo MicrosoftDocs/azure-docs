@@ -1,6 +1,6 @@
 ---
-title: Define a new Azure IoT Edge device as a leaf device type in Azure IoT Central | Microsoft Docs
-description: This tutorial shows you, as a builder, how to create a new Azure IoT Edge device as a leaf device in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
+title: Define a new Azure IoT Edge device as a gateway device type in Azure IoT Central | Microsoft Docs
+description: This tutorial shows you, as a builder, how to create a new Azure IoT Edge device as a gateway device in your Azure IoT Central application. You define the telemetry, state, properties, and commands for your type.
 author: rangv
 ms.author: rangv
 ms.date: 10/22/2019
@@ -26,20 +26,40 @@ Azure IoT Edge is made up of three components:
 
 A **device template** defines the capabilities of your device & IoT Edge modules. Capabilities include telemetry the module sends, module properties, and the commands a module responds to.
 
-In this tutorial, you create an **Environment Sensor** device template. An environmental sensor device:
+In this tutorial, you create an **Environment Gateway** device template. An environmental gateway device:
 
 * Sends telemetry such as temperature.
 * Responds to writeable properties when updated in the cloud such as telemetry send interval.
 * Responds to commands such as resetting temperature.
+* Allows relationships to other device capability models
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a new edge device as a leaf device template.
+> * Create a new edge device as a gateway device template.
 > * Upload a deployment manifest.
 > * Create capabilities including telemetry, properties and commands for each module
 > * Define a visualization for the module telemetry.
 > * Publish your device template.
+
+## Downstream Device Relationships with Gateway & Modules
+
+Downstream devices can connect to Azure IoT Edge gateway device through the $edgeHub module. This Azure IoT Edge device becomes a transparent gateway in this scenario
+
+![Central Application page](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-transparent.png)
+
+Downstream devices can connect to Azure IoT Edge gateway device through a custom module. In the scenario below downstream devices are connecting through a Modbus custom module and Downstream devices can connect to Azure IoT Edge gateway device through the $edgeHub module.
+
+![Central Application page](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-module.png)
+
+Downstream devices can connect to Azure IoT Edge gateway device through a custom module. In the scenario below downstream devices are connecting through a Modbus custom module. 
+
+![Central Application page](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-module-transparent.png)
+
+Downstream devices can connect to Azure IoT Edge gateway device through multipe custom modules. In the scenario below downstream devices are connecting through a Modbus custom module, BLE custom moduele and Downstream devices can connect to Azure IoT Edge gateway device through the $edgeHub module. 
+
+![Central Application page](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-module2-transparent.png)
+
 
 ## Prerequisites
 
@@ -53,15 +73,15 @@ As a builder, you can create and edit Azure IoT Edge device templates in your ap
 
 To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left navigation menu.
 
-![Central Application page](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplate.png)
+![Central Application page](./media/tutorial-define-edge-as-gateway-device-type-pnp/edgedevicetemplate.png)
 
 Click **+ New** to start creating a new device template.
 
-![Device Templates - New](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatenew.png)
+![Device Templates - New](./media/tutorial-define-edge-as-gateway-device-type-pnp/edgedevicetemplatenew.png)
 
 You will land on device template type selection page. Select **Azure IoT Edge** Tile and click **Next: Customize** button at the bottom
 
-![Device Templates Selection - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/selectiotedge.png)
+![Device Templates Selection - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/selectiotedge.png)
 
 ### Customize Device Template
 
@@ -144,29 +164,28 @@ Here's a basic deployment manifest with one module as an example to be used for 
 
 Click  **Browse** button 
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplateuploadmanifest.png)
+Make sure to select **Gateway device with downstream devices** checkbox
+
+![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-upload.png)
 
 You will be presented with a file selection dialog. Select the deployment manifest file and click **Open** button.
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/deploymentmanifestupload.png)
-
 Deployment Manifest file will be validated against a schema. After successful validation click on **Review** button
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/deploymentmanifestvalidate.png)
+![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-dm-review.png)
 
 Review page is displayed with details of the deployment manifest. List of modules from the deployment manifest will be displayed on the review page. In this tutorial, you will see SimulatedTemperatureSensor module listed. Click **Create** button.
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatereview.png)
+
+![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-review.png)
 
 Creating a new device template spinner will be displayed which the device template is being created in IoT Central.
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatecreatingtemplate.png)
+![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-review.png)
 
 Device template is created with module capability models. In this tutorial, you will see SimulatedTemperatureSensor module capability model create. 
 
-Change title of the device template to Environment Sensor Device Template.
-
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgedevicetemplatelanding.png)
+Change title of the device template to Environment Gateway Template.
 
 Edge Device Plug n Play modeling is done as follows
 * Every edge device template will have a **Device Capability Model**
@@ -178,7 +197,7 @@ Edge Device Plug n Play modeling is done as follows
   2. Properties
   3. Commands
 
-![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgemodelling.png)
+![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/edgemodelling.png)
 
 **Add Capabilities to Module Capability Model**
 
@@ -202,27 +221,42 @@ Here is a sample output from SimulatedTemperatureSensor module
 Add capabilities to SimulatedTemperatureSensor module which will reflect the above JSON. 
 
 * Click **Manage** an interface of SimulatedTemperatureSensor module capability model. Click **Add Capability**. 
-
-    ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplateaddcapability.png)
-  
-* Add machine as an Object type since it's a complex type
-  
-    ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplatemachineobject.png)
-
-    Click **Define**. In the popup modal change object name to machine and create properties temperature, pressure and click **Apply**
-  
-    ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplatemachineattributes.png)
   
 * Add ambient as an Object type since it's a complex type
+  
+    ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-ambient.png)
 
     Click **Define**. In the popup modal change object name to ambient and create properties temperature, humidity and click **Apply**
   
-    ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplateambientattributes.png)
+    ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/edgetemplateambientattributes.png)
 
   
-* Add timeCreated as a DateTime type and click **Save**
+* Add ambient as an Object type since it's a complex type
+
+    Click **Define**. In the popup modal change object name to ambient and create properties temperature, pressure and click **Apply**
   
-    ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplateallattributes.png)
+* Add timeCreated as a DateTime type and click **Save**
+
+### Add Relationships
+
+You can add downstream relationships to device capability models for devices you will connect to gateway device.
+  
+  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-add-relationship.png)
+
+Relationship can be added at a device or at a module.
+  
+  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-relationship-types.png)
+
+
+You can select a downstream device capability model or select asterix. 
+  
+  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-downstream-rel.png)
+
+  For this tutorial we will select asterix which means any downstream relationship will be allowed. Click **Save**
+
+  ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-add-relationship-asterix.png)
+
+
 
 ### Add cloud properties
 
@@ -238,7 +272,7 @@ A device template can include cloud properties. Cloud properties only exist in t
 2. Select **Save** to save your changes:
 
   
-    ![Cloud Properties - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplatecloudproperties.png)
+    ![Cloud Properties - Azure IoT Edge](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-cloud-properties.png)
 
 ### Add customizations
 
@@ -249,9 +283,6 @@ Use customizations when you need to modify an interface or add IoT Central-speci
 - Specify initial, minimum, and maximum values for a property.
 
 You can't customize the capability name or capability type. Click **Save**
-  
-![Customizations - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplatecustomize.png)
-
 
 ### Create views
 
@@ -264,25 +295,6 @@ As a builder, you can customize the application to display relevant information 
 
 A device dashboard lets an operator visualize a device using charts and metrics. As a builder, you can define what information displays on a device dashboard. You can define multiple dashboards for devices. To create a dashboard to visualize the environmental sensor telemetry, select **Views** and then **Visualizing the Device**:
 
-  
-![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/visualizingthedevice.png)
-
-
-1. Ambient Telemetry and Machine Telemetry are complex objects, to create charts do the following
-
-Drag Ambient Telemetry and select line chart. 
-  
-![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/sensorambientchart.png)
-
-Click on Configure icon and select temperature and humidity to visualize the data and click **Update configuration** button. 
-  
-![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/sensorambienttelemetrychart.png)
-
-2. Select **Save** to save your view:
-
-You can add more tiles that show other properties or telemetry values. You can also add static text, links, and images. To move or resize a tile on the dashboard, move the mouse pointer over the tile and drag the tile to a new location or resize it.
-  
-![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/viewsdashboard.png)
 
 ### Add a device form
 
@@ -290,15 +302,11 @@ A device form lets an operator edit writeable device properties and cloud proper
 
 To create a form to view and edit environmental sensor properties:
 
-1. Navigate to **Views** in the **Environmental Sensor** template. Select the **Editing Device and Cloud data** tile to add a new view.
-  
-![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/editingdeviceandclouddata.png)
+1. Navigate to **Views** in the **Environmental Gateway** template. Select the **Editing Device and Cloud data** tile to add a new view.
 
-1. Enter the form name **Environmental Sensor properties**.
+2. Enter the form name **Environmental Gateway properties**.
 
-1. Drag the **Customer name** and **Last service date** cloud properties onto the existing section on the form.
-  
-![Views - Azure IoT Edge](./media/tutorial-define-edge-as-leaf-device-type-pnp/views-properties.png)
+3. Drag the **Customer name** and **Last service date** cloud properties onto the existing section on the form.
 
 Select **Save** to save your view.
 
@@ -316,15 +324,15 @@ To publish a device template:
 
 2. Select **Publish**.
   
-![Views - Publish](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgetemplatepublish.png)
+![Views - Publish](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-publish.png)
 
 3. On the **Publish a Device Template** dialog, choose **Publish**:
   
-![Views - Publish](./media/tutorial-define-edge-as-leaf-device-type-pnp/edgepublishtemplate.png)
+![Views - Publish](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-publish-template.png)
 
 After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
   
-![Views - Publish](./media/tutorial-define-edge-as-leaf-device-type-pnp/publishedtemplate.png)
+![Views - Publish](./media/tutorial-define-edge-as-gateway-device-type-pnp/gateway-published.png)
 
 ## Next steps
 
@@ -340,5 +348,7 @@ In this tutorial, you learned how to:
 
 Now that you've created a device template in your Azure IoT Central application, here is the suggested next step:
 
+To Configure a transparent gateway follow this tutorial
+
 > [!div class="nextstepaction"]
-> [Add Edge device](tutorial-add-edge-as-leaf-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [Configure Transparent Gateway](https://docs.microsoft.com/en-us/azure/iot-edge/how-to-create-transparent-gateway)
