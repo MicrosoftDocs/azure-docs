@@ -1,6 +1,6 @@
 ---
 title: Monitor your web application with multi-step web tests and Azure Application Insights | Microsoft Docs
-description: Set-up multi-step web tests to monitor your web applications with Azure Application Insights
+description: Set up multi-step web tests to monitor your web applications with Azure Application Insights
 ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
@@ -33,7 +33,7 @@ To locate the testing tools pre-requisite. Launch the **Visual Studio Installer*
 ## Record a multi-step web test 
 
 > [!WARNING]
-> We no longer recommend using the multi-step recorder. The recorder was developed for static html pages with basic interactions, and does not provide a functional experience for modern web pages.
+> We no longer recommend using the multi-step recorder. The recorder was developed for static HTML pages with basic interactions, and does not provide a functional experience for modern web pages.
 
 ## Upload the web test
 
