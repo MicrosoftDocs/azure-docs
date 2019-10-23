@@ -30,7 +30,7 @@ In this quickstart, write a Python application that gets an accessing token usin
 
 ## Prerequisites
 
-To run this sample, you will need:
+To run this sample, you need:
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
