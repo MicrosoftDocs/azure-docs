@@ -46,7 +46,7 @@ The following limitations apply when you create an AKS cluster using availabilit
 * Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones.
 * You must use Kubernetes version 1.13.5 or greater in order to deploy Standard Load Balancers.
 
-AKS clusters that use availability zones must use the Azure load balancer *standard* SKU. The default *basic* SKU of the Azure load balancer doesn't support distribution across availability zones. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
+AKS clusters that use availability zones must use the Azure load balancer *standard* SKU, which is the default value for the load balancer type. This load balancer type can only be defined at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
 
 ### Azure disks limitations
 
