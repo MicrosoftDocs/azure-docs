@@ -1,6 +1,6 @@
 ---
 title: Tutorial of IoT Smart inventory management | Microsoft Docs
-description: An tutorial of smart inventory management application template for IoT Central
+description: A tutorial of smart inventory management application template for IoT Central
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
@@ -23,7 +23,7 @@ In this tutorial, you learn how to,
 ## Create smart inventory management application template
 
 You can create application using following steps
-1. * Navigate to the Azure IoT Central application manager website. Select Build from the left-hand navigation bar and then click the **Retail** tab.
+1. * Navigate to the Azure IoT Central application manager website. Select **Build** from the left-hand navigation bar and then click the **Retail** tab.
 
 [!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/IoTC_Retail_Homepage.png)
@@ -34,10 +34,10 @@ You can create application using following steps
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_app_create.png)
 
 3. **Create app** will open New application form and fill up the requested details as show below.
-**Application name**: you can use default suggested name or enter your friendly application name.
-**URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, default setting is recommended if you already have an Azure Subscription or else you can start with 7-day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
-**Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
-**Create**: Select create at the bottom of the page to deploy your application.
+   **Application name**: you can use default suggested name or enter your friendly application name.
+   **URL**: you can use suggested default URL or enter your friendly unique memorable URL. Next, default setting is recommended if you already have an Azure Subscription or else you can start with seven-day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
+   **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
+   **Create**: Select create at the bottom of the page to deploy your application.
 
 ## Walk through the application 
 
@@ -46,16 +46,16 @@ You can create application using following steps
 After successfully deploying the app template, your default dashboard is a smart inventory management operator focused portal. Northwind Trader is a fictitious smart inventory provider managing warehouse with Bluetooth low energy (BLE) and retail store with Radio-frequency identification (RFID). In this dashboard, you will see two different gateways providing telemetry about inventory along with associated commands, jobs, and actions that you can perform. 
 This dashboard is pre-configured to showcase the critical smart inventory management device operations activity.
 The dashboard is logically divided between two different gateway device management operations, 
-* The warehouse is deployed with a fixed BLE gateway & BLE tags on pallets to track & trace inventory at a larger facility
-* Retail store is implemented with a fixed RFID gateway & RFID tags at individual an item level to track and trace the stock in a store outlet
-* View the gateway location, status & related details 
+   * The warehouse is deployed with a fixed BLE gateway & BLE tags on pallets to track & trace inventory at a larger facility
+   * Retail store is implemented with a fixed RFID gateway & RFID tags at individual an item level to track and trace the stock in a store outlet
+   * View the gateway location, status & related details 
 
 [!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard1.png)
 
-* You can easily track the total number of gateways, active, and unknown tags.
-* You can perform device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals & update device service contracts
-* Gateway devices can perform on-demand inventory management with a complete or incremental scan.
+   * You can easily track the total number of gateways, active, and unknown tags.
+   * You can perform device management operations such as update firmware, disable sensor, enable sensor, update sensor threshold, update telemetry intervals & update device service contracts
+   * Gateway devices can perform on-demand inventory management with a complete or incremental scan.
 
 [!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_dashboard2.png)
@@ -89,11 +89,15 @@ Select the rules tab to see two different rules that exist in this application t
 ## Jobs
 
 Select the jobs tab to see five different jobs that exist as part of this application template:
+You can leverage jobs feature to perform solution-wide operations. Here inventory management jobs are using the device commands & twin capability to perform tasks such as,
+   * disabling readers across all the gateway
+   * modifying the telemetry threshold between 
+   * perform on-demand inventory scanning across the entire solution.
 
 [!div class="mx-imgBorder"]
 ![Smart Inventory Management Dashboard](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_jobs.png)
 
-## Cleanup resources
+## Clean up resources
 
 If you're not going to continue to use this application, delete the application template by visiting **Administration** > **Application settings** and click **Delete**.
 
