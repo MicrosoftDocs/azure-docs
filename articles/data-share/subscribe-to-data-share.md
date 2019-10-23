@@ -42,11 +42,9 @@ Ensure that all pre-requisites are complete before accepting a data share invita
     1. Use Query Editor (preview) to execute the following script to add the Data Share MSI as a db_owner. You must connect using Active Directory and not SQL Server authentication. 
 
 ```sql
-            create user <share_acct_name> from external provider;
-        
-            exec sp_addrolemember db_owner, <share_acct_name>; 
-```
-   
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```      
 Note that the *<share_acc_name>* is the name of your Data Share Account. If you have not created a Data Share account as yet, you can come back to this pre-requisite later.         
 
 * Client IP SQL Server Firewall access: This can be done through the following steps: 

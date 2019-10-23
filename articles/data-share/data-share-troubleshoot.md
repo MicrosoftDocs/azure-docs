@@ -57,10 +57,11 @@ If you receive any of the above errors when creating a new data share or receivi
 
 If you receive this error when adding a dataset from a SQL-based source, it may be because you did not create a user for the Azure Data Share MSI on your SQL Server.  To resolve this issue, run the following script:
 
-* create user [datashareaccountname] from external provider; 
-* exec sp_addrolemember db_owner, [datashareaccountname];
-
-Note that the [datashareaccountname] must be the same name as your Data Share resource. 
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```      
+Note that the *<share_acc_name>* is the name of your Data Share Account. If you have not created a Data Share account as yet, you can come back to this pre-requisite later.         
 
 Ensure that you have followed all prerequisites listed in [Share your data](share-your-data.md) tutorial.
 
