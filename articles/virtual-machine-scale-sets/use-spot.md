@@ -55,10 +55,8 @@ To deploy spot VMs on scale sets, you can set the new *Priority* flag to *spot*.
 ## Portal
 
 The process to create a scale set that uses spot VMs is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the spot flag, and the eviction policy:
-![Create a scale set with spot VMs](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
+![Create a scale set with spot VMs](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
-> [!NOTE]
-> If you want to set a max price per instance, use a the CLI, PowerShell or template methods.
 
 ## Azure CLI
 
