@@ -312,8 +312,6 @@ Click **+ New** to start creating a new device template.
 
 ![Device Templates - New](./media/tutorial-define-an-iot-device-type-pnp/devicetemplatenew.png)
 
-You will land on device template type selection page. Select **Azure IoT ** Tile and click **Next: Customize** button at the bottom
-
 ![Device Templates Selection - Gateway](./media/tutorial-define-an-iot-device-type-pnp/gateway-review.png)
 
 You will land on device template type selection page. Select **Azure IoT** Tile and click **Next: Customize** button at the bottom
@@ -402,7 +400,7 @@ From the device explorer create a simulated s1 sensor.
 
 ![Device Template - s1](./media/tutorial-define-an-iot-device-type-pnp/s1device.png)
 
-## Add Downstream Devices relationships to Gateway DEvice
+## Add Downstream Devices relationships to Gateway Device
 
 Select S1 Sensor and Occupancy Sensor and click **Connect to gateway**. 
 
