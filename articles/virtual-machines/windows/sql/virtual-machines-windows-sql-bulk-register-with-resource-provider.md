@@ -204,7 +204,8 @@ Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.l
 ## Remarks
 
 When registering SQL Server VMs with the resource provider using the provided script, consider the following:
-- This script will skip any end-of-service SQL Server virtual machines running SQL Server 2008 or 2008 R2 on Windows 2008 or Windows 2008 R2. This is because end-of-service virtual machines only support the _NoAgent_ management mode 
+
+- This script will skip any end-of-service SQL Server virtual machines running SQL Server 2008 or 2008 R2 on Windows 2008 or Windows 2008 R2. This is because end-of-service virtual machines only support the _NoAgent_ management mode, and the script will register the virtual machines in _lightweight_ management mode. 
 
 ## Full script
 
