@@ -1,7 +1,7 @@
 ---
 title:  "Export Data: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Export Data module in Azure Machine Learning to save results, intermediate data, and working data from your experiments into cloud storage destinations outside Azure Machine Learning.
+description: Learn how to use the Export Data module in Azure Machine Learning to save results, intermediate data, and working data from your pipelines into cloud storage destinations outside Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

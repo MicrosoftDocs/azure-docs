@@ -1,7 +1,7 @@
 ---
 title: "Designer example #5: Classification to predict churn + appetency + up-selling"
 titleSuffix: Azure Machine Learning
-description: This designer (preview) sample experiment shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
+description: This designer (preview) sample pipeline shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,7 @@ ms.date: 09/23/2019
 
 Learn how to build a complex machine learning experiment without writing a single line of code using the designer (preview).
 
-This experiment trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the designer to combine data sets and train a model using the scrambled values.
+This pipeline trains three, **two-class boosted decision tree** classifiers to predict common tasks for customer relationship management (CRM) systems: churn, appetency, and up-selling. The data values and labels are split across multiple data sources and scrambled to anonymize customer information, however, we can still use the designer to combine data sets and train a model using the obscured values.
 
 Because you're trying to answer the question "Which one?" this is called a classification problem, but you can apply the same logic shown in this sample to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
 
@@ -39,7 +39,7 @@ The data for this pipeline is from KDD Cup 2009. It has 50,000 rows and 230 feat
 
 ## Pipeline summary
 
-This sample experiment in the designer shows binary classifier prediction of churn, appetency, and up-selling, a common task for customer relationship management (CRM).
+This sample pipeline in the designer shows binary classifier prediction of churn, appetency, and up-selling, a common task for customer relationship management (CRM).
 
 First, some simple data processing.
 

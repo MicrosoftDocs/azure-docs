@@ -31,14 +31,14 @@ Here's the final pipeline graph for this sample:
 
 ## Get the data
 
-This experiment uses the **Flight Delays Data** dataset. It's part of the TranStats data collection from the U.S. Department of Transportation. The dataset contains flight delay information from April to October  2013. Before uploading the data to the designer, it has been pre-processed as follows:
+This sample uses the **Flight Delays Data** dataset. It's part of the TranStats data collection from the U.S. Department of Transportation. The dataset contains flight delay information from April to October 2013. The dataset has been pre-processed as follows:
 
 * Filtered to include the 70 busiest airports in the continental United States.
 * Relabeled canceled flights as delayed by more than 15 mins.
 * Filtered out diverted flights.
 * Selected 14 columns.
 
-To supplement the flight data, the **Weather Dataset** is used. The weather data contains hourly land-based weather observations from NOAA, and represents observations from airport weather stations, covering the same time period of April-October 2013. Before uploading to the designer, it has been pre-processed as follows:
+To supplement the flight data, the **Weather Dataset** is used. The weather data contains hourly, land-based weather observations from NOAA, and represents observations from airport weather stations, covering the same time period as the flights dataset. It has been pre-processed as follows:
 
 * Weather station IDs were mapped to corresponding airport IDs.
 * Weather stations not associated with the 70 busiest airports were removed.

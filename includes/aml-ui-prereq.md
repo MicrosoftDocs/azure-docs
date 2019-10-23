@@ -18,6 +18,5 @@ ms.date: 05/06/2019
  
     ![Launch visual interface](./media/aml-ui-prereq/launch-ui.png)
 
-    The interface webpage opens in a new browser page.  
+    You can also access the designer from your [Azure Machine Learning studio](https://ml.azure.com).
 
-You can also access the visual interface from the [Azure Machine Learning studio](https://ml.azure.com).

@@ -58,7 +58,7 @@ To learn how to get started with the designer, see [Tutorial: Predict automobile
 
 ## Datasets
 
-A dataset is data that has been uploaded to the designer to use in the modeling process. A number of sample datasets are included for you to experiment with, and you can upload more datasets as you need them.
+A machine learning dataset makes it easy to access and work with your data. A number of sample datasets are included in the designer for you to experiment with. You can [register](./how-to-create-register-datasets.md) more datasets as you need them.
 
 ## Module
 
@@ -89,7 +89,7 @@ In addition, a PublishedPipeline can be used to resubmit a Pipeline with differe
 
 ## Deployment
 
-Once your predictive model is ready, deploy it as a pipeline endpoint or real-time endpoint right from the visual interface.
+Once your predictive model is ready, deploy it as a pipeline endpoint or real-time endpoint right from the designer.
 
 The pipeline endpoint is a [PublishedPipeline, which you can submit a pipeline run with different PipelineParameter values and inputs for batch inference.
 

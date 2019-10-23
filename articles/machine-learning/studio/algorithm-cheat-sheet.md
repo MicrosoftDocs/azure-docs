@@ -13,6 +13,7 @@ ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
 ---
 # Machine learning algorithm cheat sheet for Azure Machine Learning Studio (classic)
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 
 The **Azure Machine Learning Studio (classic) Algorithm Cheat Sheet** helps you choose the right algorithm for a predictive analytics model.
 

@@ -18,7 +18,7 @@ This reference content provides the technical background on each of the machine 
 Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis.
 
 > [!TIP]
-> In any experiment in the designer, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
+> In any pipeline in the designer, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
 
 ## Modules
 

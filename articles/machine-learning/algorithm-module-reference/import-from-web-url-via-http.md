@@ -1,7 +1,7 @@
 ---
 title:  "Import from Web URL via HTTP: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Import from Web URL via HTTP module in Azure Machine Learning to read data from a public Web page for use in a machine learning experiment.
+description: Learn how to use the Import from Web URL via HTTP module in Azure Machine Learning to read data from a public Web page for use in a machine learning pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core

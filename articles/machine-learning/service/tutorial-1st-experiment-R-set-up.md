@@ -68,7 +68,7 @@ From your workspace, create a cloud resource to get started using R Studio. This
 
 1. Select **RStudio** in the **URI** column for your VM.
 
-   The link starts the RStudio server and opens the landing page in a new browser tab.  
+   The link starts the RStudio server and opens RStudio in a new browser tab.  
 
 
 ## Next steps

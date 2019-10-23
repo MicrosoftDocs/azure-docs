@@ -1,7 +1,7 @@
 ---
 title:  "Linear Regression: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn how to use the Linear Regression module in Azure Machine Learning to create a linear regression model for use in an experiment.
+description: Learn how to use the Linear Regression module in Azure Machine Learning to create a linear regression model for use in a pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
