@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sihhu
 author: sihhu
 ms.reviewer: nibaccam
-ms.date: 10/22/2019
+ms.date: 10/225/2019
 ms.custom: 
 
 # Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple ML experiments.
@@ -36,7 +36,7 @@ For this how-to, you need:
     import azureml.core
     from azureml.core import Workspace
     
-    workspace = Workspace.from_config()
+    ws = Workspace.from_config()
     ```
 - An [Azure Machine Learning dataset](how-to-create-register-datasets.md).
 
@@ -44,7 +44,7 @@ For this how-to, you need:
 
 ## Register and retrieve dataset versions
 
-After you create a dataset, you need to register the dataset with your workspace in order to version, reuse, and share it across experiments and with colleagues. You can register multiple datasets under the same name, and retrieve a specific version by name and version number.
+Registering a dataset allows you to version, reuse, and share it across experiments and with colleagues. You can register multiple datasets under the same name, and retrieve a specific version by name and version number.
 
 ### Register a dataset version
 
@@ -140,7 +140,17 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## Track dataset usage in machine learning experiments
 
-For each machine learning experiment, you can easily trace the datasets used as the input through a `Run` object.
+For each machine learning experiment, you can easily trace the datasets used as the input through the registered model's  `Run` object.
+
+Use the following code to register models with datasets.
+
+```Python
+model = run.register_model(model_name='keras-mlp-mnist',
+                           model_path=model_path,
+                           datasets =[('training data',train_dataset)])
+```
+
+After registration, you will be able to see the list of models registered with the dataset using Python or the [workspace landing page](https://ml.azure.com/).
 
 ```Python
 # get input datasets
@@ -155,17 +165,6 @@ You can also find the `input_datasets` from experiments using [workspace landing
 
 ![input_datasets](media/how-to-version-datasets/input_datasets.png)
 
-Use the following code to register models with datasets.
-
-```Python
-model = run.register_model(model_name='keras-mlp-mnist',
-                           model_path=model_path,
-                           datasets =[('training data',train_dataset)])
-```
-
-After registration, you will be able to see the list of models registered with the dataset using [workspace landing page](https://ml.azure.com/).
-
-![dataset_models](media/how-to-version-datasets/dataset_models.png)
 
 ## Next steps
 
