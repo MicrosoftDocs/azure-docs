@@ -13,8 +13,8 @@ ms.custom: [iot-p0-scenario]
 # Building retail solutions with Azure IoT Central
 Azure IoT Central is an Internet of Things (IoT) app platform for solution builders that simplifies the challenges of building & managing scalable applications. In this article, we will highlight several retail-specific application templates within IoT Central. Solution builders can leverage published templates to build IoT solutions to optimize supply chain, improve in-store experience for customers, and track inventory more efficiently.
 
-[!div class="mx-imgBorder"]
-![Azure IoT Retail Overview](./media/overview-iot-central-retail/retail-app-templates.png)
+> [!div class="mx-imgBorder"]
+> ![Azure IoT Retail Overview](./media/overview-iot-central-retail/retail-app-templates.png)
 
 
 ## What is connected logistics solution?
@@ -31,11 +31,12 @@ Connected logistics solution benefits are,
 ### Out of box experience
 Partners can leverage template to develop end to end Connected Logistics solutions & outlined benefits. This published template is focused on device connectivity, configuration & management of devices in IoT Central. 
 
-[!div class="mx-imgBorder"]
-![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected_logistics_dashboard1.png)
+> [!div class="mx-imgBorder"]
+> ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected_logistics_dashboard1.png)
 
-[!div class="mx-imgBorder"]
-![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected_logistics_dashboard2.png)
+> [!div class="mx-imgBorder"]
+> ![Connected Logistics Dashboard](./media/overview-iot-central-retail/connected_logistics_dashboard2.png)
+
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case.
 
 Get started with [end to end tutorial](./tutorial-iot-central-connected-logistics.md) that walks you through how to build a solution leveraging one of the connected logistics solution templates.
@@ -57,8 +58,9 @@ Benefits are,
 ### Out of box experience
 Partners can leverage this application template to build Digital Distribution Center to gain actionable insights & above outlined benefits. The published template is focused on device connectivity configuration & management of camera and edge devices in IoT Central. 
 
-[!div class="mx-imgBorder"]
-![Digital Distribution Center Dashboard](./media/overview-iot-central-retail/digital_distribution_center_dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![Digital Distribution Center Dashboard](./media/overview-iot-central-retail/digital_distribution_center_dashboard.png)
+
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case.
 
 Get started with [end to end tutorial](./tutorial-iot-central-digital-distribution-center.md) that walks you through how to build a solution leveraging one of the digital distribution center templates.
@@ -72,17 +74,18 @@ The In-Store Analytics Condition Monitoring application template within IoT Cent
 
 The application template allows you to:
 
-1. Seamlessly connect a variety of IoT sensors to an IoT Central application instance.
-1. Monitor and manage the health of the sensor network as well as gateway devices in the environment.
-1. Create custom rules around the environmental conditions within a store to trigger appropriate alerts.
-1. Transform the environment conditions within your store into insights that can be leveraged by the retail store team.
-1. Export the aggregated insights into existing or new business applications empowering the retail staff members.
+*  Seamlessly connect a variety of IoT sensors to an IoT Central application instance.
+*  Monitor and manage the health of the sensor network as well as gateway devices in the environment.
+*  Create custom rules around the environmental conditions within a store to trigger appropriate alerts.
+*  Transform the environment conditions within your store into insights that can be leveraged by the retail store team.
+* Export the aggregated insights into existing or new business applications empowering the retail staff members.
 
 ### Out of box experience
 The application template comes with a set of device templates and an operator experience out of the box. It leverages a set of simulated devices to populate the dashboard elements. Once you deploy an IoT Central application using the [In-Store Analytics Condition Monitoring](https://aka.ms/conditiontemplate) app template, you will land on the default application dashboard as shown below. 
 
-[!div class="mx-imgBorder"]
-![In-Store Analytics Condition Monitoring](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![In-Store Analytics Condition Monitoring](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
+
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
 Get started with [end to end tutorial](./tutorial-in-store-analytics-create-app-pnp.md) that walks you through how to build a solution leveraging one of the in-store analytics condition monitoring templates.
@@ -96,17 +99,18 @@ The In-Store Analytics Checkout application template within IoT Central enables 
 
 The template helps the solution builder accelerate their go-to-market plans by providing a baseline IoT solution that enables them to: 
 
-- Seamlessly connect a variety of IoT sensors to an IoT Central application instance.
-- Monitor and manage the health of the sensor network as well as gateway devices in the environment.
-- Create custom rules around the checkout condition within a store to trigger appropriate alerts.
-- Transform the checkout conditions within your store into insights that can be leveraged by the retail store team.
-- Export the aggregated insights into existing or new business applications empowering the retail staff members.
+* Seamlessly connect a variety of IoT sensors to an IoT Central application instance.
+* Monitor and manage the health of the sensor network as well as gateway devices in the environment.
+* Create custom rules around the checkout condition within a store to trigger appropriate alerts.
+* Transform the checkout conditions within your store into insights that can be leveraged by the retail store team.
+* Export the aggregated insights into existing or new business applications empowering the retail staff members.
 
 ### Out of box experience
 The application template comes with a set of device templates and an operator experience out of the box. It leverages a set of simulated devices to populate the dashboard elements. Once you deploy an IoT Central application using the [In-Store Analytics Checkout](https://aka.ms/checkouttemplate) app template, you will land on the default application dashboard as shown below. 
 
-[!div class="mx-imgBorder"]
-![In-Store Analytics Checkout](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![In-Store Analytics Checkout](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
+
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
 
@@ -126,8 +130,9 @@ Smart Inventory management benefits are,
 ### Out of box experience
 Partners can leverage template to develop end to end Smart inventory management solutions & outlined benefits. This published template is focused on device connectivity, configuration & management of RFID & Bluetooth low energy (BLE) readers in IoT Central. 
 
-[!div class="mx-imgBorder"]
-![Smart Inventory Management Dashboard](./media/overview-iot-central-retail/smart_inventory_management_dashboard.png)
+> [!div class="mx-imgBorder"]
+> ![Smart Inventory Management Dashboard](./media/overview-iot-central-retail/smart_inventory_management_dashboard.png)
+
 Please note that the above dashboard is a sample experience and you can completely customize this application to fit your desired use case. 
 
 Get started with [end to end tutorial](./iot-central-smart-inventory-management.md) that walks you through how to build a solution leveraging one of the smart inventory management templates.
