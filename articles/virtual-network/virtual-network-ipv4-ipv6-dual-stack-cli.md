@@ -50,7 +50,7 @@ az provider register --namespace Microsoft.Network
 ```
 ## Create a resource group
 
-Before you can create your dual-stack virtual network, you must create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myRGDualStack* in the *eastus* location:
+Before you can create your dual-stack virtual network, you must create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *DsResourceGroup01* in the *eastus* location:
 
 ```azurecli
 az group create \
@@ -59,7 +59,7 @@ az group create \
 ```
 
 ## Create IPv4 and IPv6 public IP addresses for load balancer
-To access your IPv4 and IPv6 endpoints on the Internet, you need IPv4 and IPv6 public IP addresses for the load balancer. Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip). The following example creates IPv4 and IPv6 public IP address named *dsPublicIP_v4* and *dsPublicIP_v6* in the *myRGDualStack* resource group:
+To access your IPv4 and IPv6 endpoints on the Internet, you need IPv4 and IPv6 public IP addresses for the load balancer. Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip). The following example creates IPv4 and IPv6 public IP address named *dsPublicIP_v4* and *dsPublicIP_v6* in the *DsResourceGroup01* resource group:
 
 ```azurecli
 # Create an IPV4 IP address
@@ -379,7 +379,7 @@ You can view the IPv6 dual stack virtual network in Azure portal as follows:
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group, VM, and all related resources.
 
 ```azurecli
- az group delete --name DsRG1
+ az group delete --name DsResourceGroup01
 ```
 
 ## Next steps
