@@ -1,18 +1,20 @@
 ---
-title: Monitor resource usage and query metrics for an search service - Azure Search
-description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Search service.
-author: HeidiSteen
-manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/16/2019
-ms.author: heidist
----
-# Monitor resource consumption and query activity in Azure Search
+title: Monitor resource usage and query metrics 
+titleSuffix: Azure Cognitive Search
+description: Enable logging, get query activity metrics, resource usage, and other system data from an Azure Cognitive Search service.
 
-In the Overview page of your Azure Search service, you can view system data about resource usage, query metrics, and how much quota is available to create more indexes, indexers, and data sources. You can also use the portal to configure log analytics or another resource used for persistent data collection. 
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+---
+
+# Monitor resource consumption and query activity in Azure Cognitive Search
+
+In the Overview page of your Azure Cognitive Search service, you can view system data about resource usage, query metrics, and how much quota is available to create more indexes, indexers, and data sources. You can also use the portal to configure log analytics or another resource used for persistent data collection. 
 
 Setting up logs is useful for self-diagnostics and preserving operational history. Internally, logs exist on the backend for a short period of time, sufficient for investigation and analysis if you file a support ticket. If you want control over and access to log information, you should set up one of the solutions described in this article.
 
@@ -46,7 +48,7 @@ For in-service tasks like creating an index or deleting a data source, you'll se
 
 ## Add-on monitoring solutions
 
-Azure Search does not store any data beyond the objects it manages, which means log data has to be stored externally. You can configure any of the resources below if you want to persist log data. 
+Azure Cognitive Search does not store any data beyond the objects it manages, which means log data has to be stored externally. You can configure any of the resources below if you want to persist log data. 
 
 The following table compares options for storing logs and adding in-depth monitoring of service operations and query workloads through Application Insights.
 
@@ -58,17 +60,17 @@ The following table compares options for storing logs and adding in-depth monito
 
 Both Azure Monitor logs and Blob storage are available as a free service so that you can try it out at no charge for the lifetime of your Azure subscription. Application Insights is free to sign up and use as long as application data size is under certain limits (see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for details).
 
-The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Search operations.
+The next section walks you through the steps of enabling and using Azure Blob storage to collect and access log data created by Azure Cognitive Search operations.
 
 ## Enable logging
 
-Logging for indexing and query workloads is off by default and depends on add-on solutions for both logging infrastructure and long-term external storage. By itself, the only persisted data in Azure Search are the objects it creates and manages, so logs must be stored elsewhere.
+Logging for indexing and query workloads is off by default and depends on add-on solutions for both logging infrastructure and long-term external storage. By itself, the only persisted data in Azure Cognitive Search are the objects it creates and manages, so logs must be stored elsewhere.
 
 In this section, you'll learn how to use Blob storage to store logged events and metrics data.
 
-1. [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you don't already have one. You can place it in the same resource group as Azure Search to simplify clean up later if you want to delete all resources used in this exercise.
+1. [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) if you don't already have one. You can place it in the same resource group as Azure Cognitive Search to simplify clean up later if you want to delete all resources used in this exercise.
 
-   Your storage account must exist in the same region as Azure Search.
+   Your storage account must exist in the same region as Azure Cognitive Search.
 
 2. Open your search service Overview page. In the left-navigation pane, scroll down to **Monitoring** and click **Enable Monitoring**.
 
@@ -152,14 +154,14 @@ You can use any JSON editor to view the log file. If you don't have one, we reco
 
 1. In Azure portal, open your Storage account. 
 
-2. In the left-navigation pane, click **Blobs**. You should see **insights-logs-operationlogs** and **insights-metrics-pt1m**. These containers are created by Azure Search when the log data is exported to Blob storage.
+2. In the left-navigation pane, click **Blobs**. You should see **insights-logs-operationlogs** and **insights-metrics-pt1m**. These containers are created by Azure Cognitive Search when the log data is exported to Blob storage.
 
 3. Click down the folder hierarchy until you reach the .json file.  Use the context-menu to download the file.
 
 Once the file is downloaded, open it in a JSON editor to view the contents.
 
 ## Use system APIs
-Both the Azure Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
+Both the Azure Cognitive Search REST API and the .NET SDK provide programmatic access to service metrics, index and indexer information, and document counts.
 
 * [Get Services Statistics](/rest/api/searchservice/get-service-statistics)
 * [Get Index Statistics](/rest/api/searchservice/get-index-statistics)
