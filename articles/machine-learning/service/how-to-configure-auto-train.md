@@ -539,7 +539,7 @@ RunDetails(automl_run).show()
 
 ![feature importance graph](./media/how-to-configure-auto-train/feature-importance.png)
 
-For more information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](machine-learning-interpretability-explainability.md) article on interpretability.
+For more information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](how-to-machine-learning-interpretability.md) article on interpretability.
 
 ## Next steps
 

@@ -114,7 +114,7 @@ The `explain` package is designed to work with both local and remote compute tar
 
 
 
-To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on your local machine, see the [How to explain models locally on your personal machine?](./how-to-machine-learning-interpretability-explainability-local.md) and [Azure Machine Learning Interpretability local run sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data).
+To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on your local machine, see the [How to explain models locally on your personal machine?](how-to-machine-learning-interpretability-local.md) and [Azure Machine Learning Interpretability local run sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data).
 
 
-To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on Azure Machine Learning, see the [How to explain models on Azure](./how-to-machine-learning-interpretability-explainability-aml.md) and [Azure Machine Learning Interpretability AzureML sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration).
+To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on Azure Machine Learning, see the [How to explain models on Azure](how-to-machine-learning-interpretability-aml.md) and [Azure Machine Learning Interpretability AzureML sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration).
