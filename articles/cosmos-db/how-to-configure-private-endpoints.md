@@ -104,7 +104,7 @@ Create a parameters file for the template, and name it "PrivateEndpoint_paramete
 
 Next create a PowerShell script with the following code. Before you run the script, make sure to replace the subscription ID, resource group name and other variable values with the details specific to your environment:
 
-```powershell
+```azurepowershell-interactive
 ### This script creates a private endpoint for an existing Cosmos DB account in an existing VNet
 
 ## Step 1: Fill in these details, make sure to replace the variable values with the details specific to your environment.
