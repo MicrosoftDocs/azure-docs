@@ -23,6 +23,10 @@ landingContent:
   # Card
   - title: About Event Grid on IoT Edge
     linkLists:
+      - linkListType: overview
+        links:
+          - text: What's Event Grid on IoT Edge?
+            url: overview.md
       - linkListType: concept
         links:
           - text: Event Grid concepts
