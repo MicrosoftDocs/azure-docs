@@ -14,4 +14,4 @@ ms.author: erhopf
 
 # Quickstart: Speech SDK for Java (Windows, Linux, macOS) platform setup
 
-T[!INCLUDE [](includes/quickstarts/platform/java-jre.md)]
+[!INCLUDE [](includes/quickstarts/platform/java-jre.md)]
