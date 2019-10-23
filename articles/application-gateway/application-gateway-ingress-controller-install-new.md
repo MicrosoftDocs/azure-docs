@@ -1,6 +1,6 @@
 ---
 title: Creating an ingress controller with a new Application Gateway 
-description: This article provides an introduction to what Application Gateway Ingress Controller is. 
+description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway. 
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -22,7 +22,7 @@ We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all co
 
 Alternatively, launch Cloud Shell from Azure portal using the following icon:
 
-![Portal launch](../portal-launch-icon.png)
+![Portal launch](./media/portal-launch-icon.png)
 
 Your [Azure Cloud Shell](https://shell.azure.com/) already has all necessary tools. Should you
 choose to use another environment, please ensure the following command line tools are installed:
@@ -292,5 +292,5 @@ kubectl apply -f apsnetapp.yaml
 
 
 ## Other Examples
-The **[tutorials](../tutorial.md)** document contains more examples on how toexpose an AKS
+This [how-to guide](application-gateway-ingress-controller-expose-service-over-http-https.md) contains more examples on how to expose an AKS
 service via HTTP or HTTPS, to the Internet with App Gateway.

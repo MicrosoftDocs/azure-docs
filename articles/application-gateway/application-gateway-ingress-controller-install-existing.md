@@ -1,6 +1,6 @@
 ---
 title: Creating an ingress controller with an existing Application Gateway 
-description: This article provides an introduction to what Application Gateway Ingress Controller is. 
+description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway. 
 services: application-gateway
 author: caya
 ms.service: application-gateway
@@ -185,7 +185,7 @@ In the first few steps we install Helm's Tiller on your Kubernetes cluster. Use 
 
 1. Check the log of the newly created pod to verify if it started properly
 
-Refer to the [tutorials](../tutorial.md) to understand how you can expose an AKS service over HTTP or HTTPS, to the internet, using an Azure App Gateway.
+Refer to [this how-to guide](application-gateway-ingress-controller-expose-service-over-http-https.md) to understand how you can expose an AKS service over HTTP or HTTPS, to the internet, using an Azure App Gateway.
 
 
 

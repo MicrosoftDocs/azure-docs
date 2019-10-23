@@ -163,6 +163,8 @@
       href: create-custom-waf-rules.md
     - name: Configure WAF with custom rules
       href: configure-waf-custom-rules.md
+  - name: Deploy ingress controller over HTTP/HTTPS
+    href: application-gateway-ingress-controller-expose-service-over-http-https.md
   - name: Route by URL
     items:
     - name: Azure PowerShell
