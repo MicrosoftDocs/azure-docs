@@ -47,8 +47,13 @@ An Azure Machine Learning workspace is a foundational resource in the cloud that
 
 ### Download config.json file
 
-On the top of the workspace page, select **Download config.json**.  Add this file to your **tutorials** directory.
+1. On the top of the workspace page, select **Download config.json**.
 
+    ![Download config.json file](media/tutorial-1st-r-experiment/download-config.png)  
+
+1. Add this file to your **tutorials** directory.
+
+You are now ready to run the tutorial.
 
 ## Load the azureml package
 
