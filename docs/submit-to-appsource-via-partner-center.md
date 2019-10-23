@@ -8,9 +8,9 @@ localization_priority: Priority
 
 Microsoft AppSource provides a convenient location for you to upload new Office and SharePoint Add-ins, Microsoft Teams apps, and Power BI visuals that provide solutions for both consumers and businesses. When you add your add-in solution to AppSource, you also make it available in the in-product experience within Office. To include your solution in AppSource and within Office, you submit it to [Partner Center](https://partner.microsoft.com/en-us/dashboard/office/overview). You need to create an individual or company account and, if applicable, add payout information. For details, see:
 
-- [Register as an app developer](https://developer.microsoft.com/store/register). After you create your account, it goes through an approval process. 
+- [Create a developer account](https://partner.microsoft.com/en-us/dashboard/account/v3/enrollment/introduction/office). After you create your account, it goes through an approval process. 
   - For details about the registration process, see [Opening a developer account](open-a-developer-account.md).
-  - For details about adding and managing additional users in your Partner Center account, see [Manage account users](manage-account-users.md).
+  - For details about managing settings and additional users in your Partner Center account, see [Manage account users](manage-account-settings-and-profile.md).
 - [Submit your solution to AppSource via Partner Center](use-partner-center-to-submit-to-appsource.md).
 
 > [!NOTE]
