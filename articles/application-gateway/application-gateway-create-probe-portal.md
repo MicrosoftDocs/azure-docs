@@ -41,7 +41,7 @@ Probes are configured in a two-step process through the portal. The first step i
 
 2. In the Azure portal Favorites pane, click All resources. Click the application gateway in the All resources blade. If the subscription you selected already has several resources in it, you can enter partners.contoso.net in the Filter by name… box to easily access the application gateway.
 
-3. Click **Health probes** and click the **Add** button to add a new health probe.
+3. Select **Health probes** and then select **Add** to add a new health probe.
 
    ![Add new probe][4]
 
