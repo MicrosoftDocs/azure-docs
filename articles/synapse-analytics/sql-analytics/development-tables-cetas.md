@@ -12,73 +12,62 @@ ms.reviewer: jrasnick
 ---
 
 # Using CETAS in SQL Analytics
-CETAS (CREATE EXTERNAL TABLE AS SELECT) Creates an external table and then exports, in parallel, the results of a Transact-SQL SELECT statement to Hadoop, Azure Storage Blob or Azure Date Lake Store.
+CETAS (CREATE EXTERNAL TABLE AS SELECT) creates an external table and then exports, in parallel, the results of a Transact-SQL SELECT statement to Hadoop, Azure Storage Blob or Azure Date Lake Store Gen2.
 
 
 
 ## CETAS in SQL Analytics pool
 
-
+For usage and syntax in SQL Analytics pool, please check [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql).
 
 
 
 ## CETAS in SQL Analytics on-demand
 
-Use an external table to:
+Use CETAS to create external table and export results of query to Azure Storage Blob or Azure Data Lake Store Gen2.
 
-- Query data in Azure blob storage or Azure Data Lake Store with Transact-SQL statements
-- Store results of SQL Analytics on-demand query to files in Azure Blob Storage or Azure Data Lake Store.
+### Syntax
 
-You can create external table with following steps:
+```
+CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] table_name   
+    WITH (   
+        LOCATION = 'path_to_folder',  
+        DATA_SOURCE = external_data_source_name,  
+        FILE_FORMAT = external_file_format_name  
+) 
+    AS <select_statement>  
+[;] 
 
-1. CREATE EXTERNAL DATA SOURCE
-2. CREATE EXTERNAL FILE FORMAT
-3. CREATE EXTERNAL TABLE
+<select_statement> ::=  
+    [ WITH <common_table_expression> [ ,...n ] ]  
+    SELECT <select_criteria>
+```
 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
+#### Arguments
 
-Introductory paragraph.
-<!---Required:
-The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
---->
+[ [ *database_name* . [ *schema_name* ] . ] | *schema_name* . ] *table_name*
+The one to three-part name of the table to create. For an external table, SQL Analytics on-demand stores only the table metadata. No actual data is moved or stored in SQL Analytics on-demand.
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+LOCATION = 'path_to_folder'
+Specifies where to write the results of the SELECT statement on the external data source. The root folder is the data location specified in the external data source.
 
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
+DATA_SOURCE = *external_data_source_name*
+Specifies the name of the external data source object that contains the location where the external data will be stored. To create an external data source, use [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](development-tables-external-tables).
 
+FILE_FORMAT = *external_file_format_name*
+Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](development-tables-external-tables).
 
---->
+WITH *common_table_expression*
+Specifies a temporary named result set, known as a common table expression (CTE). For more information, see [WITH common_table_expression (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=aps-pdw-2016-au7).
 
-## <article body>
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
+SELECT <select_criteria> Populates the new table with the results from a SELECT statement. *select_criteria* is the body of the SELECT statement that determines which data to copy to the new table. For information about SELECT statements, see [SELECT (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/select-transact-sql?view=aps-pdw-2016-au7).
 
-## <Top task>
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
+### Example
 
+Following example 
 
---->
++++++++++++++++++++++++++++++++++++++++
+
 
 ## Next steps
 
-<!---Some context for the following links goes here--->
-<!--- [link to next logical step for the customer](quickstart-view-occupancy.md)--->
-
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
-
---->

@@ -47,10 +47,10 @@ External data sources are used to establish connectivity to storage accounts.
 
 #### Syntax
 
-```sql
+```
 CREATE EXTERNAL DATA SOURCE <data_source_name>
 WITH
-(	LOCATION         = '<prefix>://<path>[:<port>]' )
+(	LOCATION         = '<prefix>://<path>' )
 [;]
 ```
 
@@ -59,16 +59,26 @@ WITH
 data_source_name
 Specifies the user-defined name for the data source. The name must be unique within the database in SQL Server.
 
-LOCATION = `'<prefix>://<path>[:<port>]'`
-Provides the connectivity protocol and path to the external data source.
+LOCATION = `'<prefix>://<path>'`
+Provides the connectivity protocol and path to the external data source. Path can include container, in form of  `'<prefix>://<path>/container'`, as well as folder in form of `'<prefix>://<path>/container/folder'`.
 
-| External Data Source       | Location prefix | Location path                                                |
-| -------------------------- | --------------- | ------------------------------------------------------------ |
-| Azure Blob Storage         | https           | <storage_account>.blob.core.windows.net                      |
-| Azure Data Lake Store Gen1 | https           | <storage_account>.blob.core.windows.net                      |
-| Azure Data Lake Store Gen2 | https           | <storage_account>.blob.core.windows.net<br />or<br /><storage_account>.dfs.core.windows.net |
+| External Data Source       | Location prefix | Location path                                       |
+| -------------------------- | --------------- | --------------------------------------------------- |
+| Azure Blob Storage         | https           | <storage_account>.blob.core.windows.net             |
+| Azure Data Lake Store Gen1 | https           | <storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | https           | <storage_account>.dfs.core.windows.net              |
 
 #### Example
+
+Following example creates external data source pointing to US population census data:
+
+```sql
+CREATE EXTERNAL DATA SOURCE population_ds
+WITH
+(
+	LOCATION =  'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county'
+)
+```
 
 
 
@@ -83,7 +93,7 @@ SQL Analytics on-demand supports the following file formats:
 
 #### Syntax
 
-```sql
+```
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
 WITH (  
@@ -141,8 +151,6 @@ Examples:
 FIRST_ROW = *First_row_int*
 Specifies the row number that is read first and applies to all files. If the value is set to two, the first row in every file (header row) is skipped when the data is loaded. Rows are skipped based on the existence of row terminators (/r/n, /r, /n). 
 
-+++++++++++++++++++++++++++++++++++++++++When this option is used for export, rows are added to the data to make sure the file can be read with no data loss. If the value is set to >2, the first row exported is the Column names of the external table.
-
 USE_TYPE_DEFAULT = { TRUE | **FALSE** }
 Specifies how to handle missing values in delimited text files when retrieving data from the text file.
 
@@ -160,14 +168,24 @@ Encoding = {'UTF8' | 'UTF16'}
 SQL Analytics on-demand can read UTF8 and UTF16 encoded delimited text files.
 
 DATA_COMPRESSION = *data_compression_method*
-Specifies the data compression method for the external data. When DATA_COMPRESSION isn't specified, the default is uncompressed data. This argument is not used when reading from external tables, only when writing to external tables using [CETAS](development-tables-cetas.md).
+This argument is not used when reading from external tables, only when writing to external tables using [CETAS](development-tables-cetas.md). It specifies the data compression method for the external data. When DATA_COMPRESSION isn't specified, the default is +++++++++++++++uncompressed data. 
 
 The PARQUET file format type supports the following compression methods:
 
-- DATA COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
-- DATA COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
+- DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
+- DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
 
 #### Example
+
+Following example creates external file format for census files:
+
+```sql
+CREATE EXTERNAL FILE FORMAT census_file_format
+WITH 
+(  
+    FORMAT_TYPE = PARQUET
+)
+```
 
 
 
@@ -177,7 +195,7 @@ This command creates an external table for SQL Analytics to access data stored i
 
 #### Syntax
 
-```sql
+```
 CREATE EXTERNAL TABLE { database_name.schema_name.table_name | schema_name.table_name | table_name }
     ( <column_definition> [ ,...n ] )  
     WITH (
@@ -194,15 +212,21 @@ column_name <data_type>
 
 #### Arguments
 
-*{ database_name.schema_name.table_name | schema_name.table_name | table_name }* The one to three-part name of the table to create. For an external table, SQL Analytics on-demand stores only the table metadata. No actual data is moved or stored in SQL Analytics on-demand.
+*{ database_name.schema_name.table_name | schema_name.table_name | table_name }* 
 
-<column_definition> [ ,...*n* ] CREATE EXTERNAL TABLE supports the ability to configure column name, data type, nullability and collation. You can't use the DEFAULT CONSTRAINT on external tables.
+The one to three-part name of the table to create. For an external table, SQL Analytics on-demand stores only the table metadata. No actual data is moved or stored in SQL Analytics on-demand.
+
+<column_definition> [ ,...*n* ]
+
+CREATE EXTERNAL TABLE supports the ability to configure column name, data type, nullability and collation. You can't use the DEFAULT CONSTRAINT on external tables.
 
 The column definitions, including the data types and number of columns, must match the data in the external files. If there's a mismatch, the file rows will be rejected when querying the actual data.
 
-LOCATION = '*folder_or_filepath*' Specifies the folder or the file path and file name for the actual data in Hadoop or Azure blob storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
+In case of reading from Parquet files you can specify only columns you want to read and skip the rest.
 
-+++++++++++In SQL Analytics on-demand, the CREATE EXTERNAL TABLE statement creates the path and folder if it doesn't already exist.
+LOCATION = '*folder_or_filepath*'
+
+Specifies the folder or the file path and file name for the actual data in Azure blob storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
 
 If you specify LOCATION to be a folder, a SQL Analytics on-demand query that selects from the external table will retrieve files from the folder and all of its subfolders. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also return files for which the file name begins with an underline (_) or a period (.).
 
@@ -212,13 +236,39 @@ In this example, if LOCATION='/webdata/', a SQL Analytics on-demand query will r
 
 
 
-DATA_SOURCE = *external_data_source_name* Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
+DATA_SOURCE = *external_data_source_name*
 
-FILE_FORMAT = *external_file_format_name* Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+Specifies the name of the external data source that contains the location of the external data. To create an external data source, use [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
+
+FILE_FORMAT = *external_file_format_name*
+
+Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
 
 #### Example
 
+Following example creates external table using previously created external data source and external file format, and returns first row:
 
+```sql
+CREATE EXTERNAL TABLE census_external_table
+( 
+    decennialTime varchar(20),
+    stateName varchar(100),
+    countyName varchar(100),
+    population int,
+    race varchar(50),
+    sex	varchar(10),
+    minAge int,
+    maxAge int
+)  
+WITH (
+    LOCATION = 'year=*/*.parquet', 
+    DATA_SOURCE = population_ds,  
+    FILE_FORMAT = census_file_format
+)
+GO
+
+SELECT TOP 1 * FROM census_external_table
+```
 
 
 
