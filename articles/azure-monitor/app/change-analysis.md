@@ -1,15 +1,13 @@
 ---
 title: Use Application Change Analysis in Azure Monitor to find web-app issues | Microsoft Docs
 description: Use Application Change Analysis in Azure Monitor to troubleshoot application issues on live sites on Azure App Service.
-services: application-insights
-author: cawams
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+author: cawams
 ms.author: cawa
+ms.date: 05/07/2019
+
 ---
 
 # Use Application Change Analysis (preview) in Azure Monitor
@@ -85,7 +83,7 @@ In Azure Monitor, Change Analysis is currently built into the self-service **Dia
 If your subscription includes numerous web apps, enabling the service at the level of the web app would be inefficient. Run the following script to enable all web apps in your subscription.
 
 Pre-requisites:
-* PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)
+* PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
 
 Run the following script:
 
