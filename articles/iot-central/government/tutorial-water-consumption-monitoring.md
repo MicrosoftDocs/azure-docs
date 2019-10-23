@@ -10,12 +10,6 @@ services: iot-central
 manager: abjork
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
-
-<!---Tutorials are scenario-based procedures for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md).
-You only use tutorials to show the single best procedure for completing an approved top 10 customer task.
---->
-
 # Tutorial: Create a water consumption monitoring application in IoT Central
 This tutorial guides you to create an Azure IoT Central water consumption monitoring application from the IoT Central Water Consumption Monitoring application template. 
 
@@ -94,7 +88,7 @@ The dashboard consists of different kinds of tiles:
 
 * **Average water flow KPI tile**: the KPI tile is configured to display as an example *the average in the last 30 minutes*. You can customize KPI tiles and set to a different type and time range.
 
-* Then it has right in the dashboard *Device Command* tiles to **Close valve**, **Open valve**, or **Set valve position**. Clicking on the commands will take you to the simulated device device command page. In IoT Central a *Command* is a *device capability* type which we will explore later in the [device template section of this tutorial.](tba)
+* Then it has right in the dashboard *Device Command* tiles to **Close valve**, **Open valve**, or **Set valve position**. Clicking on the commands will take you to the simulated device device command page. In IoT Central a *Command* is a *device capability* type which we will explore later in the **device template section** of this tutorial.
 
 *  **Water distribution area map**: the map is using Azure Maps, which you can configure directly in Azure IoT Central. The map tile is displaying device location. Try to hover over the map and try the controls over the map, like *zoom-in*, *zoom-out* or *expand*. 
 
@@ -104,7 +98,7 @@ The dashboard consists of different kinds of tiles:
 
 * **Average valve pressure heatmap chart**: you can choose heatmap visualization type of device telemetry data you are interested to look at the distribution over a time range with a color index.
 
-* **Reset alert threshold content tile**: you can include call to action content tiles embedding the link to an action page. In this case reset alert threshold will take you to the application **Jobs** where you can run updates to devices properties, which we will explore later in the [configure jobs section of this tutorial.](tba)
+* **Reset alert threshold content tile**: you can include call to action content tiles embedding the link to an action page. In this case reset alert threshold will take you to the application **Jobs** where you can run updates to devices properties, which we will explore later in the **configure jobs** section of this tutorial.
 
 * **Property tiles**: the dashboard displays **Valve operational info**, **Flow alert thresholds**, and **Maintenance info** which are device properties.  
 
@@ -221,7 +215,13 @@ Within a few minutes, you should receive email when the configured **condition**
 To create a new rule: 
 * Select **+New** on the **Rules** from the left navigation pane.
 
-## Configure jobs
+## Configure Jobs
+
+In IoT Central, jobs allow you to trigger device or cloud propertie updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. IoT Central will automate the workflow for you. 
+
+* Go to **Jobs** from the left navigtion pane. 
+* Click **+New** and configure one or more jobs. 
+
 
 ## Customize your application 
 As a builder, you can change several settings to customize the user experience in your application.
@@ -255,15 +255,7 @@ If you're not going to continue to use this application, delete your application
 
     ![Delete application](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-application-settings-delete-app.PNG)        
 
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a Clean up resources (H2) should come just before Next steps (H2)
---->
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
-
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next logical tutorial in a series, or, if there are no other tutorials, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
+* Learn about more about [Water consumption monitoring concepts](./concepts-waterconsumptionmonitoring-architecture)
