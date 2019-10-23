@@ -23,9 +23,9 @@ First, register your application with your Azure Active Directory (Azure AD) ten
 1. Choose your Azure AD tenant by selecting your account in the top right corner of the page, followed by selecting the **Switch Directory** navigation and then selecting the appropriate tenant. 
    - Skip this step if you only have Azure AD tenant under your account, or if you've already selected the appropriate Azure AD tenant.
    
-1. In the Azure portal, select or search for and select **Azure Active Directory**.
+1. In the Azure portal, search for and select **Azure Active Directory**.
    
-1. Select **App Registrations** and then select **New registration**.
+1. In the **Azure Active Directory** left menu, select **App Registrations**, and then select **New registration**.
    
 1. Follow the prompts and create a new application. It doesn't matter if it is a web application or a public client (mobile & desktop) application for this tutorial, but if you'd like specific examples for web applications or public client applications, check out our [quickstarts](../articles/active-directory/develop/v1-overview.md).
    

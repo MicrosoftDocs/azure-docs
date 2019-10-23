@@ -59,7 +59,7 @@ Open the [Azure portal](https://portal.azure.com) and sign in with your Azure ac
 
 ### Select the app in the Azure portal
 
-Select or search for and select **App Services**.
+Search for and select **App Services**.
 
 ![Select App Services](./media/app-service-web-tutorial-custom-domain/app-services.png)
 
