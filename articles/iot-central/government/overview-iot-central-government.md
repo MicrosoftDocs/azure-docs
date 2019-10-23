@@ -1,5 +1,5 @@
 ---
-title: Build government solutions with IoT Central | Microsoft Docs
+title: Build government solutions with Azure IoT Central | Microsoft Docs
 description: Learn to build government solution using Azure IoT Central application templates.
 author: philmea
 ms.author: philmea
