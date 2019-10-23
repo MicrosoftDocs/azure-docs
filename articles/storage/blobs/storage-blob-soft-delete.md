@@ -342,6 +342,8 @@ Yes, soft delete is available for block blobs, append blobs, and page blobs.
 
 Soft delete is available for both premium and standard unmanaged disks, which are page blobs under the covers. Soft delete will only help you recover data deleted by **Delete Blob**, **Put Blob**, **Put Block List**, **Put Block** and **Copy Blob** operations. Data overwritten by a call to **Put Page** is not recoverable.
 
+An Azure virtual machine writes to an unmanaged disk using calls to **Put Page**, so using soft delete to undo writes to an unmanaged disk from an Azure VM is not a supported scenario.
+
 ### Do I need to change my existing applications to use soft delete?
 
 It is possible to take advantage of soft delete regardless of the API version you are using. However, to list and recover soft deleted blobs and blob snapshots, you will need to use version 2017-07-29 of the [Storage Services REST API](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) or greater. Microsoft recommends always using the latest version of the Azure Storage API.
