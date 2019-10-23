@@ -16,7 +16,7 @@ ms.author: travisw
 
 ## When to use Custom Commands Preview
 
-[Voice Assistants](voice-assistants.md) process transcribed text from Speech Service [speech-to-text](speech-to-text.md), take action on the natural language input from the user, and then respond, often with spoken output from [text-to-speech](text-to-speech.md). These assistants are then connected to from a device using the Speech SDK's `DialogServiceConnector` object.
+[Voice Assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech-to-text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text-to-speech](text-to-speech.md). Devices connect to assistants with the Speech SDK’s `DialogServiceConnector` object.
 
 **Custom Commands** is a streamlined solution for creating a Voice Assistant. It provides a unified authoring experience, an automatic hosting model, and relatively lower complexity versus other assistant creation options like [Direct Line Speech](direct-line-speech.md). This simplification, however, comes with a reduction in flexibility. So, Custom Commands is best suited for task completion or command-and-control scenarios.
 
