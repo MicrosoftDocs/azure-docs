@@ -36,7 +36,7 @@ The example domain used for this tutorial is contoso.net, but use your own domai
 
 ## Create a DNS zone
 
-1. Go to the Azure portal to create a DNS zone. Search for and select **DNS zones**.
+1. Go to the [Azure portal](https://portal.azure.com/) to create a DNS zone. Search for and select **DNS zones**.
 
    ![DNS zone](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
