@@ -47,6 +47,8 @@ landingContent:
             url: quickstarts-sdk/java-sdk.md
           - text: Using the Node SDK
             url: quickstarts-sdk/node-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts-sdk/go-sdk.md
             
 
   - title: Detect objects in images
@@ -65,6 +67,8 @@ landingContent:
             url: quickstarts-sdk/java-sdk.md
           - text: Using the Node SDK
             url: quickstarts-sdk/node-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts-sdk/go-sdk.md
 
   # Card 
   - title: Apply content tags to images
@@ -83,6 +87,8 @@ landingContent:
             url: quickstarts-sdk/java-sdk.md
           - text: Using the Node SDK
             url: quickstarts-sdk/node-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts-sdk/go-sdk.md
 
   - title: Use containers
     linkLists:
@@ -117,6 +123,8 @@ landingContent:
             url: quickstarts-sdk/java-sdk.md
           - text: Using the Node SDK
             url: quickstarts-sdk/node-sdk.md
+          - text: Using the Go SDK
+            url: quickstarts-sdk/go-sdk.md
   
 #  - title: Get image descriptions
 #    linkLists:
