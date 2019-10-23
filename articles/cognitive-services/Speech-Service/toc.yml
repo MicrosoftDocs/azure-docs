@@ -198,9 +198,23 @@
     - name: 'Tenant Language Models'
       items:
       - name: Create, publish, and use a model
-        href: https://aka.ms/ignite2019/speech/placeholder
+        href: tutorial-tenant-language-model.md
   - name: Text-to-speech
     items:
+    - name: Responsible deployment
+      items:
+      - name: Gating of Custom Voice
+        href: concepts-gating-overview.md
+      - name: Deployment of synthetic technology
+        href: concepts-guidelines-responsible-deployment-synthetic.md
+      - name: Transparency note for Custom Voice
+        href: https://aka.ms/neural-tts-transparency-note
+      - name: Disclosure design guidelines
+        href: concepts-disclosure-guidelines.md
+      - name: Disclosure design patterns
+        href: concepts-disclosure-patterns.md
+      - name: Code of Conduct
+        href: https://aka.ms/custom-neural-code-of-conduct
     - name: Custom Voice portal
       items:
       - name: Get started with Custom Voice
@@ -214,7 +228,7 @@
     - name: Audio Content Creation
       items:
       - name: "How-to: Audio Content Creation"
-        href: https://aka.ms/ignite2019/speech/placeholder
+        href: how-to-audio-content-creation.md
     - name: Custom Neural Voices
       items:
       - name: Placeholder

@@ -18,6 +18,9 @@ Automatic language detection is used to determine the most likely match for audi
 
 In this article, you'll learn how to use `AutoDetectSourceLanguageConfig` to construct a `SpeechRecognizer` object and retrieve the detected language.
 
+> [!IMPORTANT]
+> This feature is only available for the Speech SDK for C++ and the Speech SDK for Java.
+
 ## Automatic language detection with the Speech SDK
 
 Automatic language detection currently has a services-side limit of two languages per detection. Keep this limitation in mind when construction your `AudoDetectSourceLanguageConfig` object. In the samples below, you'll create an `AutoDetectSourceLanguageConfig`, then use it to construct a `SpeechRecognizer`.
