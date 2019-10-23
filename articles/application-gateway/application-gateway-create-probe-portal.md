@@ -78,7 +78,7 @@ After entering the probe properties, you can test the health of the back-end res
 
    ![View probe result][6]
 
-3. Click on the **Add** button to save the probe. 
+3. Select **Add** to save the probe. 
 
 ## Create probe for Application Gateway v1 SKU
 
