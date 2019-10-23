@@ -1,33 +1,19 @@
 ---
-title: Querying parquet nested types #Required; update as needed page title displayed in search results. Include the brand.
+title: Querying parquet nested types 
 description: In this section, we will show how to query Parquet files.
- #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/07/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: v-stazar #Required; update with your microsoft alias of author; optional team alias.
+services: sql-data-warehouse
+author: azaricstefan 
+ms.service: sql-data-warehouse
+ms.topic: overview
+ms.subservice: design
+ms.date: 10/07/2019
+ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
 # Quickstart: Querying parquet nested types 
 
-In this section, we will show how to query Parquet files.
-
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
-
-In this quickstart, you will query a specific file.
-
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because quickstarts are intended to help new customers use a subscription to quickly try out a specific product/service, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write quickstarts](contribute-how-to-mvc-quickstart.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+Reading this article you will learn how to write a query in SQL Analytics on-demand that will read Parquet nested types.
 
 ## Prerequisites
 
@@ -36,120 +22,81 @@ Before reading rest of the article, make sure to check following articles:
 - [Prerequisites](query-data-in-storage.md#prerequisites)
 
 
-## Before you begin
-> Note that all URIs in sample queries are using storage account located in North Europe Azure region. 
+## Projecting nested and/or repeated data
 
-> Make sure that you created appropriate credential. Run this query and make sure storage account is listed:
+Following query reads file *justSimpleArray.parquet* file and projects all columns from Parquet file including nested and/or repeated data.
 
-```sql
-SELECT name
-FROM sys.credentials 
-WHERE 
-	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-```
-
-If you can't find appropriate credential, check [First time setup](query-data-in-storage.md#first-time-setup).
-
-## Read Parquet files
-
-You can query Parquet files the same way you read CSV files. The only difference is FILEFORMAT parameter that should be set to PARQUET. Examples in this section show specifics of reading Parquet files.
-
-> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand Query service will utilize metadata in parquet file and bind columns by name.  
-
-We will use folder *parquet/taxi* for following sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016. to June 2018.
-
-Data is partitioned by year and month and folder structure is:
-
-- year=2016
-  - month=6
-  - ...
-  - month=12
-- year=2017
-  - month=1
-  - ...
-  - month=12
-- year=2018
-  - month=1
-  - ...
-  - month=6
-
-
-### Read particular columns in Parquet files
-
-You can specify only columns of interest when you query Parquet files.
-
-```sql
+```mssql
 SELECT 
-		YEAR(pickup_datetime),
-		passenger_count,
-		COUNT(*) AS cnt
+	*
 FROM  
 	OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/*/*/*',
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet', 
 		FORMAT='PARQUET'
-	) WITH (
-		pickup_datetime DATETIME2, 
-		passenger_count INT
-	) AS nyc
-GROUP BY 
-	passenger_count,
-	YEAR(pickup_datetime)
-ORDER BY
-	YEAR(pickup_datetime),
-	passenger_count
+	) AS [r]
 ```
 
 
 
-### Read Parquet files without specifying schema
+## Accessing elements from nested columns
 
-You do not have to use OPENROWSET WITH clause when reading Parquet files because columns names and data types will be automatically read from Parquet files. 
+Following query reads file *structExample.parquet* file and shows how to surface elements of nested column:
 
-This sample shows automatic schema inference capabilities for Parquet files. It returns number of rows in September 2017. without specifying schema. 
-
-> Please note that you do not have to specify columns in OPENROWSET WITH clause when reading parquet files. In that case, SQL on-demand Query service will utilize metadata in parquet file and bind columns by name.  
-
-```sql
+```mssql
 SELECT 
-	COUNT_BIG(*)
+	*
 FROM  
 	OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2017/month=9/*.parquet',
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/structExample.parquet', 
 		FORMAT='PARQUET'
-	) AS nyc
+	) 
+	WITH (
+		-- you can see original nested columns values by uncommenting lines below
+		--DateStruct VARCHAR(8000),
+		[DateStruct.Date] DATE,
+		--TimeStruct VARCHAR(8000),
+		[TimeStruct.Time] TIME,
+		--TimestampStruct VARCHAR(8000),
+		[TimestampStruct.Timestamp] DATETIME2,
+		--DecimalStruct VARCHAR(8000),
+		[DecimalStruct.Decimal] DECIMAL(18, 5),
+		--FloatStruct VARCHAR(8000),
+		[FloatStruct.Float] FLOAT
+	) AS [r]
 ```
 
 
 
-### Target specific partitions using filepath function
+## Accessing elements from repeated columns
 
-You can target specific partitions using filepath function, just like we did in CSV examples. This example show fare amounts by year, month and payment_type, for first three months of 2017.
+Following query reads file *justSimpleArray.parquet* file and utilizes [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) to retrieve **scalar** element from within repeated column (e.g. Array or Map):
 
-> Please note that SQL on-demand Query is compatible with Hive/Hadoop partitioning scheme.
-
-```sql
+```mssql
 SELECT 
-	nyc.filepath(1) AS [year],
-	nyc.filepath(2) AS [month],
-	payment_type,
-	SUM(fare_amount) AS fare_total
+	*, 
+	JSON_VALUE(SimpleArray, '$[0]') AS FirstElement,
+	JSON_VALUE(SimpleArray, '$[1]') AS SecondElement,
+	JSON_VALUE(SimpleArray, '$[2]') AS ThirdElement
 FROM  
 	OPENROWSET(
-		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=*/month=*/*.parquet', 
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/justSimpleArray.parquet', 
 		FORMAT='PARQUET'
-	) AS nyc
-WHERE 
-	nyc.filepath(1) = 2017 
-	AND nyc.filepath(2) IN (1, 2, 3)
-	AND pickup_datetime BETWEEN CAST('1/1/2017' AS datetime) AND CAST('3/31/2017' AS datetime)
-GROUP BY 
-	nyc.filepath(1),
-	nyc.filepath(2),
-	payment_type
-ORDER BY
-	nyc.filepath(1),
-	nyc.filepath(2),
-	payment_type
+	) AS [r]
+```
+
+
+
+Following query reads file *mapExample.parquet* file and utilizes [JSON_QUERY](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) to retrieve **non-scalar** element from within repeated column (e.g. Array or Map):
+
+```mssql
+SELECT 
+	MapOfPersons, 
+	JSON_QUERY(MapOfPersons, '$."John Doe"') AS [John]
+FROM  
+	OPENROWSET(
+		BULK 'https://sqlondemandstorage.blob.core.windows.net/parquet/nested/mapExample.parquet', 
+		FORMAT='PARQUET'
+	) AS [r]
 ```
 
 ## Next steps
@@ -157,7 +104,3 @@ ORDER BY
 Advance to one of the following articles and learn how to query JSON files.
 > [!div class="nextstepaction"]
 > [Querying JSON files](querying-json-files.md)
-
-<!--- Required:
-Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->

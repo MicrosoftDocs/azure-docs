@@ -1,32 +1,19 @@
 ---
-title: Querying JSON files #Required; update as needed page title displayed in search results. Include the brand.
-description: This section explains how to read JSON files. #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/07/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: v-stazar #Required; update with your microsoft alias of author; optional team alias.
+title: Querying JSON files
+description: This section explains how to read JSON files.
+services: sql-data-warehouse
+author: azaricstefan
+ms.service: sql-data-warehouse
+ms.topic: overview
+ms.subservice: design
+ms.date: 10/07/2019
+ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
 # Quickstart: Querying JSON files 
 
-This section explains how to read JSON files.
-
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
-
-In this quickstart, you will query a specific file.
-
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because quickstarts are intended to help new customers use a subscription to quickly try out a specific product/service, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write quickstarts](contribute-how-to-mvc-quickstart.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+Reading this article you will learn how to write a query in SQL Analytics on-demand that will read JSON files.
 
 ## Prerequisites
 
@@ -34,20 +21,6 @@ Before reading rest of the article, make sure to check following articles:
 - [First time setup](query-data-in-storage.md#first-time-setup)
 - [Prerequisites](query-data-in-storage.md#prerequisites)
 
-
-## Before you begin
-> Note that all URIs in sample queries are using storage account located in North Europe Azure region. 
-
-> Make sure that you created appropriate credential. Run this query and make sure storage account is listed:
-
-```sql
-SELECT name
-FROM sys.credentials 
-WHERE 
-	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-```
-
-If you can't find appropriate credential, check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Sample JSON files
 
@@ -168,13 +141,9 @@ WHERE
 
 ## Next steps
 
-You can see more in [Querying Parquet nested types](querying-parquet-nested-types.md).
+You can see more in [Creating and using views](creating-and-using-views.md).
 
 
-Advance to the next article to learn how query parquet nested types.
+Advance to the next article to learn how create and use views.
 > [!div class="nextstepaction"]
-> [Querying Parquet nested types](querying-parquet-nested-types.md)
-
-<!--- Required:
-Quickstarts should always have a Next steps H2 that points to the next logical quickstart in a series, or, if there are no other quickstarts, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
+> [Creating and using views](creating-and-using-views.md)

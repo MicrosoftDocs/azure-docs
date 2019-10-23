@@ -120,7 +120,7 @@ Demo data contains following data sets:
 | /csv/population/<br />/csv/population-unix/<br />/csv/population-unix-hdr/<br />/csv/population-unix-hdr-escape<br />/csv/population-unix-hdr-quoted | Folders with Population data files in different CSV formats. |
 | /csv/taxi/                                                   | Folder with NYC public data files in CSV format              |
 | /parquet/                                                    | Parent folder for data in Parquet format                     |
-| /parquet/taxi                                                | NYC public data files in Parquet format, partitioned by year and month using Hive/Hadoop partitioning scheme. |
+| /parquet/taxi                                                | NYC public data files in Parquet format, partitioned by year, and month using Hive/Hadoop partitioning scheme. |
 | /parquet/nested/                                             | Sample Parquet files with nested columns                     |
 | /json/                                                       | Parent folder for data in JSON format                        |
 | /json/books/                                                 | JSON files with books data                                   |
@@ -128,7 +128,38 @@ Demo data contains following data sets:
 
 ## Validation
 
-Execute the following query and validate that credentials are created correctly.
+
+Execute following three queries and check if credentials are created correctly.
+
+> Note that all URIs in sample queries are using storage account located in North Europe Azure region. 
+> 
+> Make sure that you created appropriate credential. Run this query and make sure storage account is listed:
+
+```sql
+-- QUERY 1 - Validate CSV credential
+SELECT name
+FROM sys.credentials 
+WHERE 
+	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
+
+-- QUERY 2 - Validate Parquet credential
+SELECT name
+FROM sys.credentials 
+WHERE 
+	name = 'https://sqlondemandstorage.blob.core.windows.net/parquet'
+
+-- QUERY 3 - Validate JSON credential
+SELECT name
+FROM sys.credentials 
+WHERE 
+	name = 'https://sqlondemandstorage.blob.core.windows.net/json'
+```
+
+If you can't find appropriate credential, check [First time setup](#first-time-setup).
+
+### Sample query
+
+Last step of validation is to execute the following query.
 
 ```sql
 SELECT 

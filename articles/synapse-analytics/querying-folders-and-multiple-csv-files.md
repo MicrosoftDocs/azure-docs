@@ -1,5 +1,5 @@
 ---
-title: Querying folders and multiple csv files 
+title: Querying folders and multiple csv files
 description: Reading multiple files/folders is supported through usage of wildcards, similar to wildcard used in Windows OS but with greater flexibility since multiple wildcards are allowed.
 services: sql-data-warehouse 
 author: azaricstefan 
@@ -25,20 +25,6 @@ Before reading rest of the article make sure to check following articles:
 - [First time setup](query-data-in-storage.md#first-time-setup)
 - [Prerequisites](query-data-in-storage.md#prerequisites)
 
-
-## Before you begin
-> Note that all URIs in sample queries are using storage account located in North Europe Azure region. 
-
-> Make sure that you created appropriate credential. Run this query and make sure storage account is listed:
-
-```sql
-SELECT name
-FROM sys.credentials 
-WHERE 
-	name = 'https://sqlondemandstorage.blob.core.windows.net/csv'
-```
-
-If you can't find appropriate credential, check [First time setup](query-data-in-storage.md#first-time-setup).
 
 ## Read multiple files in folder
 
