@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech-to-text, Java (Windows, Linux) - Speech Service'
+title: 'Quickstart: Translate speech to multiple languages, Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services

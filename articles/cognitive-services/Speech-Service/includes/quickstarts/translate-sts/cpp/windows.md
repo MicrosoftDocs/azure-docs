@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Translate speech-to-text, C++ (Windows) - Speech Service'
+title: 'Quickstart: Translate speech-to-speech, C++ (Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -36,7 +36,7 @@ using namespace std;
 using namespace Microsoft::CognitiveServices::Speech;
 using namespace Microsoft::CognitiveServices::Speech::Translation;
 
-void TranslateSpeechToText()
+void TranslateSpeechToSpeech()
 {
     // Creates an instance of a speech translation config with specified subscription key and service region.
     // Replace with your own subscription key and service region (e.g., "westus").
@@ -49,9 +49,20 @@ void TranslateSpeechToText()
     config->SetSpeechRecognitionLanguage(fromLanguage);
     config->AddTargetLanguage(toLanguage);
 
+    // Sets the synthesis output voice name.
+    // Replace with the languages of your choice, from list found here: https://aka.ms/speech/tts-languages
+    config->SetVoiceName("de-DE-Hedda")
+
     // Creates a translation recognizer using the default microphone audio input device.
     auto recognizer = TranslationRecognizer::FromConfig(config);
     cout << "Say something...\n";
+
+    // Inspect the synthesized audio results
+    recognizer->Synthesizing.Connect([](const TranslationSynthesisEventArgs& e)
+    {
+        auto size = e.Result->Audio.size();
+        cout << "AUDIO SYNTHESIZED: " << size << " byte(s)" << (size == 0 ? "(COMPLETE)" : "");
+    });
 
     // Starts translation, and returns after a single utterance is recognized. The end of a
     // single utterance is determined by listening for silence at the end or until a maximum of 15
@@ -91,7 +102,7 @@ void TranslateSpeechToText()
 
 int wmain()
 {
-    TranslateSpeechToText();
+    TranslateSpeechToSpeech();
     return 0;
 }
 
@@ -114,12 +125,13 @@ int wmain()
 ````
 RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
+SYNTHESIZED 79878 byte(s)
+SYNTHESIZED 0 byte(s) (COMPLETE)
 ````
 
 ## Next steps
 
 Additional samples, such as how to read speech from an audio file or turn translated text into synthesized speech, are available on GitHub.
-
 
 > [!div class="nextstepaction"]
 > [Explore C++ samples on GitHub](https://aka.ms/csspeech/samples)

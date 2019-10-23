@@ -155,9 +155,9 @@
     - name: Translate speech-to-text
       href: quickstarts/translate-speech-to-text.md
     - name: Translate speech to multiple target languages
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/translate-speech-to-text-multiple-languages.md
     - name: Translate speech-to-speech
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/translate-speech-to-speech.md
   - name: Tutorials
     items:
     - name: Build a Flask app to translate and synthesize text, REST
