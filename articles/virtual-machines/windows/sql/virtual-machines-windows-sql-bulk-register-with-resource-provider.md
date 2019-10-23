@@ -19,7 +19,7 @@ ms.reviewer: jroth
 
 This article describes how to bulk register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider using the 'Register-SqlVMs' PowerShell cmdlet.
 
-The 'Register-SqlVMs' cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines, and then generate both a [report and a log file](#output-description). 
+The 'Register-SqlVMs' cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). The SQL Server service will not restart during the process.  
 
 For more information about the resource provider, see [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
@@ -31,7 +31,7 @@ To register your SQL Server VM with the resource provider, you'll need the follo
 - The client credentials used to register the virtual machines exist in any of the following RBAC roles: **Virtual Machine contributor**, **Contributor**, or **Owner**. 
 - The latest version of [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 
-## Before you begin
+## Getting started
 
 Before proceeding, you must first create a local copy of the script and import it as a PowerShell module. 
 
@@ -201,6 +201,10 @@ The report is generated as a `.txt` file named `RegisterSqlVMScriptReport<Timest
 
 Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.log` where timestamp is the time when the script started. If the error is at the subscription level, the log contains the comma-separated SubscriptionID and the error message. If the error is with the virtual machine registration, the log contains the Subscription ID, Resource group name, virtual machine name, error code and message separated by commas. 
 
+## Remarks
+
+When registering SQL Server VMs with the resource provider using the provided script, consider the following:
+- This script will skip any end-of-service SQL Server virtual machines running SQL Server 2008 or 2008 R2 on Windows 2008 or Windows 2008 R2. This is because end-of-service virtual machines only support the _NoAgent_ management mode 
 
 ## Full script
 
