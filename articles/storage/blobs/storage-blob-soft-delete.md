@@ -147,7 +147,7 @@ When you initially turn on soft delete, we recommend using a small retention per
 
 The following steps show how to get started with soft delete.
 
-### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 To enable soft delete, navigate to the **Soft delete** option under **Blob Service**. Then click **Enabled** and enter the number of days you want to retain soft deleted data.
 
@@ -177,7 +177,7 @@ Once you undelete a blob's snapshots, you can click **Promote** to copy a snapsh
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-### [Powershell](#tab/azure-powershell)
+# [Powershell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -214,7 +214,7 @@ To find the current soft delete retention policy, use the following command:
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-### [CLI](#tab/azure-CLI)
+# [CLI](#tab/azure-CLI)
 
 To enable soft delete, update a blob client's service properties:
 
@@ -228,7 +228,7 @@ To verify soft delete is turned on, use the following command:
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-### [Python](#tab/python)
+# [Python](#tab/python)
 
 To enable soft delete, update a blob client's service properties:
 
@@ -246,7 +246,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-### [.NET](#tab/.net)
+# [.NET](#tab/net)
 
 To enable soft delete, update a blob client's service properties:
 
