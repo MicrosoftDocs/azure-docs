@@ -33,14 +33,14 @@ If you have an existing Azure AD B2C tenant that was linked to a subscription pr
 
 ### Upgrade to MAU billing
 
-Azure subscription owners that have administrative access to the Azure AD B2C resource and the Azure AD B2C tenant can switch to the MAU billing model. Billing options are configured in your Azure AD B2C resource.
+Azure subscription owners that have administrative access to the Azure AD B2C resource can switch to the MAU billing model. Billing options are configured in your Azure AD B2C resource.
 
 The switch to monthly active users (MAU) billing is **irreversible**. Once you convert an Azure AD B2C resource to the MAU-based billing model, you cannot revert that resource to the per-authentication billing model.
 
 Here's how to make the switch to MAU billing for an existing Azure AD B2C resource:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the subscription owner.
-1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains the Azure AD B2C tenant that you want to upgrade to MAU billing.<br/>
+1. Select the **Directory + subscription** filter in the top menu, and then select the Azure AD B2C directory that you want to upgrade to MAU billing.<br/>
     :::image type="content" source="media/active-directory-b2c-how-to-enable-billing/portal-mau-01-select-b2c-directory.png" alt-text="Directory and subscription filter in Azure portal":::
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. On the **Overview** page of the Azure AD B2C tenant, select the link under **Resource name**. You're directed to the Azure AD B2C resource in your Azure AD tenant.<br/>
