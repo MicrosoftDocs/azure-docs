@@ -29,15 +29,18 @@ To demonstrate validations, let's create a new Command allowing the user to set 
 
 1. Create a new Command **SetTemperature**
 1. Add a parameter for the target temperature
+1. Add a validation for the temperature parameter
+   > [!div class="mx-imgBorder"]
+   > ![Add a range validation](media/custom-speech-commands/validations-add-temperature.png)
 
-   | Setting           | Suggested value                                   | Description                                                                                      |
-   | ----------------- | ------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-   | Name              | Temperature                                       | A descriptive name for your Command parameter                                                    |
-   | Required          | true                                              | Checkbox indicating whether a value for this parameter is required before completing the Command |
-   | Prompt            | "What temperature would you like?"                | A prompt to ask for the value of this parameter when it isn't known                              |
-   | Type              | Number                                            | The type of parameter, such as Number, String, or Date Time                                      |
-   | Validations       | NumberInRange                                     | For Strings, a String List limits inputs to a set of possible values                             |
-   | On Failure Prompt | "Sorry, I can only set between 50 and 80 degrees" | Prompt to ask for an updated value if the validation fails                                       |
+   | Setting           | Suggested value                                          | Description                                                                                      |
+   | ----------------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+   | Name              | Temperature                                              | A descriptive name for your Command parameter                                                    |
+   | Required          | true                                                     | Checkbox indicating whether a value for this parameter is required before completing the Command |
+   | Response template | "What temperature would you like?"                       | A prompt to ask for the value of this parameter when it isn't known                              |
+   | Type              | Number                                                   | The type of parameter, such as Number, String, or Date Time                                      |
+   | Validation       | <ul><li>Min Value - 60</li><li>Max Value - 80</li></ul>  | For Number parameters, the allowed range of values for the parameter                              |
+   | Response template | "Sorry, I can only set between 60 and 80 degrees"        | Prompt to ask for an updated value if the validation fails                                       |
 
 1. Add some sample sentences
 
@@ -68,7 +71,7 @@ Select the Test panel and try a few interactions.
 - B: "Ok, setting to 72 degrees"
 
 - A: Set the temperature to 45 degrees
-- B: "Sorry, I can only set between 50 and 80 degrees"
+- B: "Sorry, I can only set between 60 and 80 degrees"
 - A: make it 72 degrees instead
 - B: "Ok, setting to 72 degrees"
 

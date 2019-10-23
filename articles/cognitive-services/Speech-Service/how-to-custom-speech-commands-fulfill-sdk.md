@@ -35,20 +35,21 @@ This how-to will describe, step by step, how to make a client application to tal
 1. Open your previously created Custom Commands application from the [Speech Studio](https://speech.microsoft.com/)
 1. In the Completion Rules section, you should have your previously created rule that responds back to the user
 1. To send a payload directly to the client, create a new rule with a Send Activity action
-
-   ![Send Activity completion rule](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
+   > [!div class="mx-imgBorder"]
+   > ![Send Activity completion rule](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
    | Setting    | Suggested value                                  | Description                                        |
    | ---------- | ------------------------------------------------ | -------------------------------------------------- |
-   | Rule Name  | Set Device State                                 | A name describing the purpose of the rule          |
+   | Rule Name  | UpdateDeviceState                                | A name describing the purpose of the rule          |
    | Conditions | Required Parameter - `OnOff` and `SubjectDevice` | Conditions that determine when the rule can run    |
    | Actions    | Send Activity (see below)                        | The action to take when the rule condition is true |
 
-   ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
+   > [!div class="mx-imgBorder"]
+   > ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
 
    ```json
    {
-     "name": "SetDeviceState",
+     "name": "UpdateDeviceState",
      "state": "{OnOff}",
      "device": "{SubjectDevice}"
    }
@@ -81,7 +82,8 @@ Add labeled boxes with text indicating On or Off using the following XML added t
 
 Now that you've created a JSON payload, you can add a reference to the [JSON.NET](https://www.newtonsoft.com/json) library to handle deserialization.
 
-![Send Activity payload](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
+> [!div class="mx-imgBorder"]
+> ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
 
 In `InitializeDialogServiceConnector` add the following to your ActivityReceived event handler. The additional code will extract the payload from the activity and change the visual state of the tv or fan accordingly.
 

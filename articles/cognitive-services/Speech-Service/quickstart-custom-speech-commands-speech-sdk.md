@@ -34,7 +34,8 @@ This quickstart will describe, step by step, how to make a client application to
 
 1. Open your [previously created Custom Commands application](./quickstart-custom-speech-commands-create-new.md) and select **Publish**
 
-   ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
+   > [!div class="mx-imgBorder"]
+   > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copy the application ID from the publish notification for later use
 

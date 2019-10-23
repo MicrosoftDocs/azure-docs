@@ -26,13 +26,14 @@ In this article, we will extend this application with parameters so that it can 
 1. Create a new parameter to represent whether the user wants to turn the device on or off
    - Select the `+` icon next to the Parameters section
 
-   ![Create parameter](media/custom-speech-commands/create-on-off-parameter.png)
+> [!div class="mx-imgBorder"]
+> ![Create parameter](media/custom-speech-commands/create-on-off-parameter.png)
 
    | Setting            | Suggested value | Description                                                                                      |
    | ------------------ | --------------- | ------------------------------------------------------------------------------------------------ |
    | Name               | OnOff           | A descriptive name for your parameter                                                            |
    | Required           | checked         | Checkbox indicating whether a value for this parameter is required before completing the Command |
-   | Prompt             | On or off?      | A prompt to ask for the value of this parameter when it isn't known                              |
+   | Response template  | On or off?      | A prompt to ask for the value of this parameter when it isn't known                              |
    | Type               | String          | The type of parameter, such as Number, String, or Date Time                                      |
    | Configuration      | String List     | For Strings, a String List limits inputs to a set of possible values                             |
    | String list values | on, off         | For a String List parameter, the set of possible values and their synonyms                       |
@@ -43,7 +44,7 @@ In this article, we will extend this application with parameters so that it can 
    | ------------------ | ----------------- | ------------------------------------------------------------------------------------------------ |
    | Name               | SubjectDevice     | A descriptive name for your parameter                                                            |
    | Required           | checked           | Checkbox indicating whether a value for this parameter is required before completing the Command |
-   | Prompt             | Which device?     | A prompt to ask for the value of this parameter when it isn't known                              |
+   | Response template  | Which device?     | A prompt to ask for the value of this parameter when it isn't known                              |
    | Type               | String            | The type of parameter, such as Number, String, or Date Time                                      |
    | Configuration      | String List       | For Strings, a String List limits inputs to a set of possible values                             |
    | String list values | tv, fan           | For a String List parameter, the set of possible values and their synonyms                       |
@@ -65,7 +66,8 @@ Next, edit the Sample Sentences to use the parameters.
 > In the Sample Sentences editor use curly braces to refer to your parameters. - `turn {OnOff} the {SubjectDevice}`
 > Use tab completion to refer to previously created parameters.
 
-![Sample Sentences with parameters](media/custom-speech-commands/create-parameter-sentences.png)
+> [!div class="mx-imgBorder"]
+> ![Sample Sentences with parameters](media/custom-speech-commands/create-parameter-sentences.png)
 
 ```
 turn {OnOff} the {SubjectDevice}

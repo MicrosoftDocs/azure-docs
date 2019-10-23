@@ -17,6 +17,9 @@ ms.author: donkim
 In this article, you'll learn how to create and test a hosted Custom Commands application.
 The application will recognize an utterance like "turn on the tv" and respond with a simple message "Ok, turning on the tv".
 
+> [!div class="mx-imgBorder"]
+> ![Create Custom Commands project](media/custom-speech-commands/create-intro.png)
+
 ## Prerequisites
 
 - A Speech subscription. [Try the speech service for free](~/articles/cognitive-services/speech-service/get-started.md).
@@ -31,7 +34,8 @@ The application will recognize an utterance like "turn on the tv" and respond wi
   1. Select Authoring in the create options
   1. After the resource is deployed, go to the resource and copy the key from the Quickstart or Keys section
 
-![Create authoring resource](media/custom-speech-commands/resources-LUIS-authoring.png)
+> [!div class="mx-imgBorder"]
+> ![Create authoring resource](media/custom-speech-commands/resources-LUIS-authoring.png)
 
 ## Go to the Speech Studio for Custom Commands
 
@@ -51,7 +55,8 @@ The default view is a list of the Custom Commands applications you created.
 
 1. Select New project to create a new project
 
-   ![Create new project](media/custom-speech-commands/create-new-project.png)
+   > [!div class="mx-imgBorder"]
+   > ![Create new project](media/custom-speech-commands/create-new-project.png)
 
 1. Enter the project name and Language and select **Next** to continue
 1. Enter your LUIS authoring key
@@ -66,7 +71,8 @@ Now you can create a Command. Let's use an example that will take a single utter
 1. Create a new Command by selecting the `+` icon next to commands and give it the name `TurnOn`
 1. Select **Save**
 
-![Create a command](media/custom-speech-commands/create-add-command.png)
+> [!div class="mx-imgBorder"]
+> ![Create a command](media/custom-speech-commands/create-add-command.png)
 
 A Command is a set of:
 
@@ -91,7 +97,8 @@ For now, we have no parameters so we can move on to Completion Rules.
 
 Now add a Completion Rule to respond to the user indicating that an action is being taken.
 
-![Create a Completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
+> [!div class="mx-imgBorder"]
+> ![Create a Completion rule](media/custom-speech-commands/create-basic-completion-response-rule.png)
 
 | Setting    | Suggested value                        | Description                                        |
 | ---------- | -------------------------------------- | -------------------------------------------------- |
@@ -105,7 +112,8 @@ That's what's needed to handle this interaction.
 
 Test the behavior using the Test chat panel.
 
-![Create a Completion rule](media/custom-speech-commands/create-basic-test-chat.png)
+> [!div class="mx-imgBorder"]
+> ![Test with webchat](media/custom-speech-commands/create-basic-test-chat.png)
 
 - A: "turn on the tv"
 - B: "Ok, turning on the tv"
