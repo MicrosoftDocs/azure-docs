@@ -32,13 +32,13 @@ The following sections build on this information by describing the specific data
 
 ## Monitoring data from Azure Machine Learning
 
-Azure Machine Learning collects the same kinds of monitoring data as other Azure resources which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources). See [Azure Machine Learning monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
+Azure Machine Learning collects the same kinds of monitoring data as other Azure resources, which are described in [Monitoring data from Azure resources](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data-from-Azure-resources). See [Azure Machine Learning monitoring data reference](monitor-service-reference.md) for a detailed reference of the logs and metrics created by Azure Machine Learning.
 
 ## Configuration
 
 Metrics for Azure Machine Learning do not need to be configured, they are collected automatically.
 
-You must create a diagnostic setting to collect resource logs or forward them outside of Azure Monitor. See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell.
+To collect resource logs or forward them outside of Azure Monitor, create a diagnostic setting. See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell.
 
 When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Machine Learning are listed in the following table:
 
