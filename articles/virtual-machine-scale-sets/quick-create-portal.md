@@ -55,7 +55,7 @@ First, create a public Basic Load Balancer by using the portal. The name and pub
 1. When you are done, select **Review + create** 
 1. After it passes validation, select **Create**. 
 
-![Create a load balancer](./media/quick-create-portal/load-balancer.png)
+![Create a load balancer](./media/virtual-machine-scale-sets-create-portal/load-balancer.png)
 
 ## Create virtual machine scale set
 You can deploy a scale set with a Windows Server image or Linux image such as RHEL, CentOS, Ubuntu, or SLES.
@@ -69,7 +69,9 @@ You can deploy a scale set with a Windows Server image or Linux image such as RH
 1. Enter your desired username, and select which authentication type you prefer.
    - A **Password** must be at least 12 characters long and meet three out of the four following complexity requirements: one lower case character, one upper case character, one number, and one special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
    - If you select a Linux OS disk image, you can instead choose **SSH public key**. Only provide your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
-   ![Create a virtual machine scale set](./media/quick-create-portal/project-details.png)
+   
+	![Create a virtual machine scale set](./media/virtual-machine-scale-sets-create-portal/quick-create-scaleset.png)
+
 1. Select **Next** to move the the other pages. 
 1. Leave the defaults for the **Instance** and **Disks** pages.
 1. On the **Networking** page, under **Load balancing**, select **Yes** to put the scale set instances behind a load balancer. 
@@ -100,7 +102,7 @@ When prompted, enter the credentials you specified from the previous step when y
 
 
 ## Clean up resources
-When no longer needed, delete the resource group, scale set, and all related resources. To do so, select the resource group for the VM and click **Delete**.
+When no longer needed, delete the resource group, scale set, and all related resources. To do so, select the resource group for the scale set and then select **Delete**.
 
 
 ## Next steps
