@@ -103,9 +103,6 @@ namespace BlobQuickstartV12
 {
     class Program
     {
-        private static readonly string myDocumentsPath = 
-            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + '\\';
-
         static async Task Main()
         {
         }
@@ -217,10 +214,10 @@ Add this code to the end of the `Main` method:
 string containerName = "quickstartblobs" + Guid.NewGuid().ToString();
 
 // Create an object that represents the container
-BlobContainerClient container = new BlobContainerClient(connectionString, containerName);
+BlobContainerClient containerClient = new BlobContainerClient(connectionString, containerName);
 
 // Create the actual container
-await container.CreateAsync();
+await containerClient.CreateAsync();
 ```
 
 ### Set permissions on a container
@@ -229,7 +226,7 @@ Set permissions on the container so that any blobs in the container are public. 
 
 ```csharp
 // Set permissions so blobs in the container are public
-await container.SetAccessPolicyAsync(PublicAccessType.BlobContainer);
+await containerClient.SetAccessPolicyAsync(PublicAccessType.BlobContainer);
 ```
 
 ### Upload blobs to a container
@@ -255,7 +252,7 @@ string localFilePath = Path.Combine(myDocumentsPath, localFileName);
 await File.WriteAllTextAsync(localFilePath, "Hello, World!");
 
 // Get a reference to a blob
-BlobClient blob = container.GetBlobClient(localFileName);
+BlobClient blob = containerClient.GetBlobClient(localFileName);
 
 Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blob.Uri);
 
@@ -275,7 +272,7 @@ Add this code to the end of the `Main` method:
 Console.WriteLine("Listing blobs...");
 
 // List all blobs in the container
-await foreach (BlobItem blobItem in container.GetBlobsAsync())
+await foreach (BlobItem blobItem in containerClient.GetBlobsAsync())
 {
     Console.WriteLine("\t" + blobItem.Name);
 }
@@ -316,7 +313,7 @@ Console.Write("Press any key to begin clean up");
 Console.ReadLine();
 
 Console.WriteLine("Deleting blob container...");
-await container.DeleteAsync();
+await containerClient.DeleteAsync();
 
 Console.WriteLine("Deleting the local source and downloaded files...");
 File.Delete(localFilePath);

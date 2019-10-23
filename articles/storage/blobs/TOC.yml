@@ -31,6 +31,8 @@
         href: storage-quickstart-blobs-dotnet-v12.md
       - name: Java (v8)
         href: storage-quickstart-blobs-java.md
+      - name: Java (v12)
+        href: storage-quickstart-blobs-java-v12.md
       - name: Python
         href: storage-quickstart-blobs-python.md
       - name: Javascript (v10 for Node.js)

@@ -43,7 +43,7 @@ Create a Java Core application named *blob-quickstart-v12*.
 1. In a console window (such as cmd, PowerShell, or Bash), use Maven to create a new console app with the name *blob-quickstart-v12*. Type the following **mvn** command all on a single line to create a simple "Hello world!" Java project. The command is displayed here on multiple lines for readability.
 
    ```console
-   mvn archetype:generate -DgroupId=blob-quickstart-v12
+   mvn archetype:generate -DgroupId=com.blobs.quickstart
                           -DartifactId=blob-quickstart-v12
                           -DarchetypeArtifactId=maven-archetype-quickstart
                           -DarchetypeVersion=1.4
@@ -69,23 +69,23 @@ Create a Java Core application named *blob-quickstart-v12*.
     [INFO] ----------------------------------------------------------------------------
     [INFO] Using following parameters for creating project from Archetype: maven-archetype-quickstart:1.4
     [INFO] ----------------------------------------------------------------------------
-    [INFO] Parameter: groupId, Value: blob-quickstart-v12
+    [INFO] Parameter: groupId, Value: com.blobs.quickstart
     [INFO] Parameter: artifactId, Value: blob-quickstart-v12
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-    [INFO] Parameter: package, Value: blob-quickstart-v12
-    [INFO] Parameter: packageInPathFormat, Value: blob-quickstart-v12
+    [INFO] Parameter: package, Value: com.blobs.quickstart
+    [INFO] Parameter: packageInPathFormat, Value: com/blobs/quickstart
     [INFO] Parameter: version, Value: 1.0-SNAPSHOT
-    [INFO] Parameter: package, Value: blob-quickstart-v12
-    [INFO] Parameter: groupId, Value: blob-quickstart-v12
+    [INFO] Parameter: package, Value: com.blobs.quickstart
+    [INFO] Parameter: groupId, Value: com.blobs.quickstart
     [INFO] Parameter: artifactId, Value: blob-quickstart-v12
     [INFO] Project created from Archetype in dir: C:\QuickStarts\blob-quickstart-v12
     [INFO] ------------------------------------------------------------------------
     [INFO] BUILD SUCCESS
     [INFO] ------------------------------------------------------------------------
-    [INFO] Total time:  3.482 s
-    [INFO] Finished at: 2019-10-22T14:51:34-07:00
+    [INFO] Total time:  7.056 s
+    [INFO] Finished at: 2019-10-23T11:09:21-07:00
     [INFO] ------------------------------------------------------------------------
-    ```
+        ```
 
 1. Switch to the newly created *blob-quickstart-v12* folder.
 
@@ -101,7 +101,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-storage-blob</artifactId>
-    <version>12.0.0-preview.4</version>
+    <version>12.0.0-preview.5</version>
 </dependency>
 ```
 
@@ -109,15 +109,32 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 
 From the project directory:
 
-1. Navigate to the */src/main/java/blob-quickstart-v12* directory
+1. Navigate to the */src/main/java/com/blobs/quickstart* directory
 1. Open the *App.java* file in your editor
-1. Remove the `System.out.println( "Hello World!" );` statement
+1. Update the `System.out.println();` statement
 1. Add `import` directives
-1. Update the `Main` method declaration to support async code
 
 Here's the code:
 
 ```java
+package com.blobs.quickstart;
+
+/**
+ * Azure blob storage v12 SDK quickstart
+ */
+import com.azure.storage.blob.*;
+import com.azure.storage.blob.models.*;
+
+import java.io.*;
+import java.nio.charset.*;
+
+public class App
+{
+    public static void main( String[] args ) throws IOException
+    {
+        System.out.println("Azure blob storage v12 SDK quickstart");
+    }
+}
 ```
 
 ### Copy your credentials from the Azure portal
@@ -173,8 +190,9 @@ The following diagram shows the relationship between these resources.
 
 Use the following Java classes to interact with these resources:
 
-* [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers. The storage account provides the top-level namespace for the Blob service.
-* [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
+* [BlobServiceClient](https://azure.github.io/azure-sdk-for-java/track2reports/com/azure/storage/blob/BlobServiceClient.html): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers. The storage account provides the top-level namespace for the Blob service.
+* [BlobServiceClientBuilder](https://azure.github.io/azure-sdk-for-java/track2reports/com/azure/storage/blob/BlobServiceClientBuilder.html): The `BlobServiceClientBuilder` class provides a fluent builder API to help aid the configuration and instantiation of `BlobServiceClient` and `BlobServiceAsyncClient` objects.
+* [ContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
 * [BlobClient](/dotnet/api/azure.storage.blobs.blobclient): The `BlobClient` class allows you to manipulate Azure Storage blobs.
 * [BlobDownloadInfo](/dotnet/api/azure.storage.blobs.models.blobdownloadinfo): The `BlobDownloadInfo` class represents the properties and content returned from downloading a blob.
 
