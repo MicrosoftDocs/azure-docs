@@ -29,7 +29,7 @@ The Time Series Insights Preview supports the same event sources and file types 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
   
-Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs. To optimize your IoT JSON data, learn [How to shape JSON](./time-series-insights-send-events.md#json).
+Azure Time Series Insights supports JSON submitted through Azure IoT Hub or Azure Event Hubs. To optimize your IoT JSON data, learn [How to shape JSON](./time-series-insights-send-events.md#supported-json-shapes).
 
 ### Data storage
 

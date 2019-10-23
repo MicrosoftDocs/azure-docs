@@ -1,6 +1,6 @@
 ---
-title: Reference for functions in Workflow Definition Language - Azure Logic Apps and Microsoft Flow
-description: Reference guide for functions in expressions created with Workflow Definition Language for Azure Logic Apps and Microsoft Flow
+title: Reference guide for functions in expressions - Azure Logic Apps
+description: Reference guide to functions in expressions for Azure Logic Apps and Microsoft Flow
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,7 +11,7 @@ ms.topic: reference
 ms.date: 08/23/2019
 ---
 
-# Functions reference for Workflow Definition Language in Azure Logic Apps and Microsoft Flow
+# Reference guide to using functions in expressions for Azure Logic Apps and Microsoft Flow
 
 For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 and [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), some 

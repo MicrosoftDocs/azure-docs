@@ -1,5 +1,5 @@
 ---
-title: Quickstart to create a Python app that uses Azure Cache for Redis | Microsoft Docs
+title: 'Quickstart: Create a Python app that uses Azure Cache for Redis'
 description: In this quickstart, you learn how to create an Python App that uses Azure Cache for Redis
 services: cache
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: tbd
 ms.topic: quickstart
 ms.date: 05/11/2018
 ms.author: yegu
-ms.custom: mvc
+ms.custom: [mvc, seo-python-october2019]
 #Customer intent: As a Python developer, new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
 ---
-# Quickstart: Use Azure Cache for Redis with Python
+# Quickstart: Create a Python app that uses Azure Cache for Redis
 
-In this quickstart, you incorporate Azure Cache for Redis into a Python app to have access to a secure, dedicated cache that is accessible from any application within Azure.
+In this article, you incorporate Azure Cache for Redis into a Python app to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ The following example uses *pip3* for Python3 to install the redis-py package on
     pip3 install redis
 ```
 
-![Install redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
+![Install the redis-py Python interface to Azure Cache for Redis](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 
 ## Read and write to the cache
@@ -95,7 +95,7 @@ for c in result:
 
 Run the script with Python.
 
-![Python test completed](./media/cache-python-get-started/cache-python-completed.png)
+![Run Python script to test cache access in Azure Cache for Redis](./media/cache-python-get-started/cache-python-completed.png)
 
 
 ## Clean up resources
@@ -112,7 +112,7 @@ Sign in to the [Azure portal](https://portal.azure.com) and select **Resource gr
 
 In the **Filter by name...** text box, enter the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
 
-![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
+![Delete your quickstart resource group for Azure Cache for Redis](./media/cache-web-app-howto/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 You will be asked to confirm the deletion of the resource group. Enter the name of your resource group to confirm, and select **Delete**.
 
