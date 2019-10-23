@@ -228,7 +228,7 @@ To verify soft delete is turned on, use the following command:
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-### [Python](#tab/clientlibrary-python)
+### [Python](#tab/python)
 
 To enable soft delete, update a blob client's service properties:
 
@@ -246,7 +246,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-### [.NET](#tab/clientlibrary-.net)
+### [.NET](#tab/.net)
 
 To enable soft delete, update a blob client's service properties:
 
