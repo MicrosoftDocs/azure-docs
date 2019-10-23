@@ -48,8 +48,10 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 ## 2 - Create two managed instances
 Create two managed instances within this new resource group using the [Azure portal](https://portal.azure.com). 
 
-- The name of the first managed instance should be: `sql-mi-publisher` (along with a few characters for randomization) and the name of the virtual network should be `vnet-sql-mi-publisher`.
-- The name of the second managed instance should be: `sql-mi-distributor` (along with a few characters for randomization) and it should be _in the same virtual network as the first managed instance_. 
+- The name of the publisher managed instance should be: `sql-mi-publisher` (along with a few characters for randomization) and the name of the virtual network should be `vnet-sql-mi-publisher`.
+- The name of the distributor managed instance should be: `sql-mi-distributor` (along with a few characters for randomization) and it should be _in the same virtual network as the publisher managed instance_.
+
+   ![Use the publisher vnet for the distributor](media/sql-database-managed-instance-configure-replication-tutorial/use-same-vnet-for-distributor.png)
 
 For more information about creating a managed instance, see [Create a managed instance in the portal](sql-database-managed-instance-get-started.md)
 
@@ -68,9 +70,9 @@ Create a SQL Server virtual machine using the [Azure portal](https://portal.azur
 For more information about deploying a SQL Server VM to Azure, see [Quickstart: Create SQL Server VM](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
 
 ## 4 - Configure VPN peering
-To enable communication, configure VPN peering between the virtual network of the two managed instances, and the virtual network of the SQL Server VM. To do so, use the following PowerShell code snippet:
+Configure VPN peering to enable communication between the virtual network of the two managed instances, and the virtual network of the SQL Server VM. To do so, use the following PowerShell code snippet:
 
-```powershell
+```powershell-interactive
 # Set variables
 $SubscriptionId = '<SubscriptionID>'
 $resourceGroup = 'SQLMI-Repl'
@@ -114,6 +116,7 @@ Get-AzVirtualNetworkPeering `
 ```
 
 Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on your SQL Server VM and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to the MI](sql-database-managed-instance-configure-p2s#use-ssms-to-connect-to-the-managed-instance). 
+
 
 ## 5 - Create share on subscriber
 Create a shared folder on the subscriber for the snapshot location.  To do so, do the following:
