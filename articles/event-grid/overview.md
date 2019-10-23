@@ -1,5 +1,5 @@
 ---
-title: Publish and subscribe to application events - Azure Event Grid
+title: What is Azure Event Grid? 
 description: Send event data from a source to handlers with Azure Event Grid. Build event-based applications, and integrate with Azure services.
 services: event-grid
 author: banisadr
@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 05/25/2019
+ms.date: 10/22/2019
 ms.author: babanisa
 ms.custom: seodec18
 ---

@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 09/25/2019
+ms.date: 10/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -275,7 +275,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Description** | acr quarantine data reader |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Pull or Get quarantined images from container registry |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -290,8 +290,8 @@ The following table provides a brief description of each built-in role. Click th
 > | **Description** | acr quarantine data writer |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Write/Modify quarantine state of quarantined images |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Pull or Get quarantined images from container registry |
+> | Microsoft.ContainerRegistry/registries/quarantine/write | Write/Modify quarantine state of quarantined images |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1834,6 +1834,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Return the storage account with the given account. |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | Microsoft.Insights/logdefinitions/* | This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log. |
 > | Microsoft.Insights/metricDefinitions/* | Read metric definitions (list of available metric types for a resource). |
@@ -1866,6 +1867,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Insights/alertRules/*/read | Read Insights alert rules |
+> | Microsoft.Insights/metricAlerts/*/read |  |
 > | Microsoft.Insights/diagnosticSettings/*/read | Gets diagnostic settings for Logic Apps |
 > | Microsoft.Insights/metricDefinitions/*/read | Gets the available metrics for Logic Apps. |
 > | Microsoft.Logic/*/read | Reads Logic Apps resources. |
