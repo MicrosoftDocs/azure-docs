@@ -23,9 +23,14 @@ ms.author: cabailey
 
 Threat hunting typically requires reviewing mountains of log data looking for evidence of malicious behavior. During this process, investigators find events that they want to remember, revisit, and analyze as part of validating potential hypotheses and understanding the full story of a compromise.
 
-Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries you ran in Log Analytics, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
+Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries you ran in in **Azure Sentinel - Logs**, along with the query results that you deem relevant. You can also record your contextual observations and reference your findings by adding notes and tags. Bookmarked data is visible to you and your teammates for easy collaboration.
 
-You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** pane. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **Bookmark** table in your Log Analytics workspace. For example, from **Azure Sentinel - Hunting** > **Logs**. Viewing them from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
+You can revisit your bookmarked data at any time on the **Bookmark** tab of the **Hunting** pane. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in your Log Analytics workspace. For example:
+
+> [!div class="mx-imgBorder"]
+> ![view HuntingBook table](./media/bookmarks/huntingbookmark-table.png)
+
+Viewing bookmarks from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
 Currently in preview, if you find something that urgently needs to be addressed while hunting in your logs, in a couple of clicks, you can create a bookmark and promote it to an incident, or add the bookmark to an existing incident. For more information about incidents, see [Tutorial: Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md). 
 
@@ -60,7 +65,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
     
     To view the bookmark in the investigation graph (currently in preview), you must map at least one entity type that is either **Account**, **Host**, or **IP address**. 
 
-5. Click **Add** to commit your changes and add the bookmark. All bookmarked data is shared with other investigators, and is a first step toward a collaborative investigation experience.
+5. Click **Save** to commit your changes and add the bookmark. All bookmarked data is shared with other investigators, and is a first step toward a collaborative investigation experience.
 
  
 > [!NOTE]
