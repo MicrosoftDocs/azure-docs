@@ -76,14 +76,18 @@
     items:
     - name: Synthesize speech into an audio file
       href: quickstarts/text-to-speech-audio-file.md
-    - name: Synthesize speech with speaker output
+    - name: Synthesize speech to a speaker
       href: quickstarts/text-to-speech.md
+    - name: Async synthesis for long-form audio
+      href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
   - name: How-to guides
     items:
     - name: Improve output with SSML
       href: speech-synthesis-markup.md
     - name: Improve output with Custom Voices
       href: how-to-custom-voice.md
+    - name: Synthesize speech with Long Audio API
+      href: long-audio-api.md
     - name: Use speech synthesis with Docker containers
       href: speech-container-howto.md
   - name: Reference
@@ -253,10 +257,10 @@
         href: how-to-custom-speech-deploy-model.md
       - name: "Guide Create human-labeled transcriptions"
         href: how-to-custom-speech-human-labeled-transcriptions.md
-    - name: 'Tenant Language Models'
+    - name: 'Tenant Models'
       items:
       - name: Create, publish, and use a model
-        href: tutorial-tenant-language-model.md
+        href: tutorial-tenant-model.md
   - name: Text-to-speech
     items:
     - name: Responsible deployment
