@@ -674,9 +674,13 @@ Congratulations, you've now created and run a logic app that automates tasks acr
 
 ## Clean up resources
 
-When no longer needed, delete the resource group that contains your logic app and related resources. On the main Azure menu, go to **Resource groups**, and then select the resource group for your logic app. Select **Delete resource group**. Enter the resource group name as confirmation, and select **Delete**.
+When you no longer need this sample, delete the resource group that contains your logic app and related resources.
 
-![Delete logic app resource group](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
+1. On the main Azure menu, go to **Resource groups**, and then select the resource group for your logic app. Select **Delete resource group**.
+
+   ![Delete logic app resource group](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
+
+1. Enter the resource group name as confirmation, and select **Delete**.
 
 ## Next steps
 
