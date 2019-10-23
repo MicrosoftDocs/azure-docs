@@ -19,7 +19,9 @@ ms.reviewer: milanga; johndeu
 ---
 # Media Analytics on the Media Services platform 
 
-## Overview
+> [!NOTE]
+> The [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) media processor will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+
 More organizations are using video as the preferred medium to train their employees, engage their customers, and document business functions. Cloud computing provides a way to store, stream, and access these large media files. But as a company's library of video content grows, it needs an equally effective means of extracting insights from the content. 
 
 To address this growing need, Azure Media Services offers Azure Media Analytics. Media Analytics is a collection of speech and vision components that makes it easier for organizations and enterprises to derive actionable insights from their video files. Built by using the core Media Services platform components, Media Analytics can handle media processing at scale on day one.

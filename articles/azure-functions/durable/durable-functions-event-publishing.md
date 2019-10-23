@@ -120,6 +120,16 @@ Enter the name of the function, and then select `Create`.
 
 A function with the following code is created:
 
+#### Precompiled C#
+```csharp
+public static void Run([HttpTrigger] JObject eventGridEvent, ILogger log)
+{
+    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
+}
+```
+
+#### C# Script
+
 ```csharp
 #r "Newtonsoft.Json"
 using Newtonsoft.Json;
@@ -145,6 +155,8 @@ Now you're ready to receive lifecycle events.
 ## Create Durable Functions to send the events
 
 In your Durable Functions project, start debugging on your local machine.  The following code is the same as the template code for the Durable Functions. You already configured `host.json` and `local.settings.json` on your local machine.
+
+### Precompiled C#
 
 ```csharp
 using System.Collections.Generic;
@@ -183,8 +195,8 @@ namespace LifeCycleEventSpike
 
         [FunctionName("Sample_HttpStart")]
         public static async Task<HttpResponseMessage> HttpStart(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
-            [OrchestrationClient]DurableOrchestrationClient starter,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")] HttpRequestMessage req,
+            [OrchestrationClient] DurableOrchestrationClient starter,
             ILogger log)
         {
             // Function input comes from the request content.

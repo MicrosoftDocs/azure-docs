@@ -40,7 +40,7 @@ conceptualContent:
         - url: https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91
           itemType: concept
           text: Shared responsibilities for cloud computing
-        - url: ./fundamentals/common-security-attributes.md
+        - url: ./fundamentals/security-controls.md
           itemType: concept
           text: Security controls for Azure services
       footerLink: 
@@ -98,7 +98,7 @@ conceptualContent:
           itemType: concept
           text:  Storage security
       footerLink: 
-        url: azure-security-disk-encryption-overview.md
+        url: ./fundamentals/encryption-overview.md
         text: See more
 
     - title: Identity management

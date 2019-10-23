@@ -78,7 +78,7 @@ Once you have installed the solution, you can create a connection.
 
 For creating a connection, you will need to prep your ITSM tool to allow the connection from the ITSM Connector solution.  
 
-Depending on the ITSM product you are connecting to, use the following steps :
+Depending on the ITSM product you are connecting to, use the following steps:
 
 - [System Center Service Manager (SCSM)](../../azure-monitor/platform/itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](../../azure-monitor/platform/itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
@@ -126,7 +126,7 @@ Use the following procedure:
     ![Action Groups detail](media/itsmc-overview/action-groups-details.png)
 
 4. In the Actions list, select **ITSM** from the drop-down menu for **Action Type**. Provide a **Name** for the action and click **Edit details**.
-5. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)."
+5. Select the **Subscription** where your Log Analytics workspace is located. Select the **Connection** name (your ITSM Connector name) followed by your Workspace name. For example, "MyITSMMConnector(MyWorkspace)".
 
     ![ITSM Action details](media/itsmc-overview/itsm-action-details.png)
 

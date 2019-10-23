@@ -1,11 +1,12 @@
 ---
 title: Optimizing the cost of reads and writes in Azure Cosmos DB
 description: This article explains explains how to reduce Azure Cosmos DB costs when performing read and write operations on the data.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
+
 ---
 
 # Optimize reads and writes cost in Azure Cosmos DB

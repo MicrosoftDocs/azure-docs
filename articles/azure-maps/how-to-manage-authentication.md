@@ -98,3 +98,8 @@ To learn more about Azure AD authentication and the Azure Maps Web SDK, see [Azu
 Learn how to see the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]	
 > [View usage metrics](how-to-view-api-usage.md)
+
+For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
+
+> [!div class="nextstepaction"]
+> [AAD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

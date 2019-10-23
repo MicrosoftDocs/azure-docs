@@ -37,7 +37,7 @@ The **TrustFrameworkPolicy** element contains the following attributes:
 | Attribute | Required | Description |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Yes | The schema version that is to be used to execute the policy. The value must be `0.3.0.0` |
-| TenantObjectId | No | The unique object identifier of the Azure Active Directory (Azure AD) B2C tenant. |
+| TenantObjectId | No | The unique object identifier of the Azure Active Directory B2C (Azure AD B2C) tenant. |
 | TenantId | Yes | The unique identifier of the tenant to which this policy belongs. |
 | PolicyId | Yes | The unique identifier for the policy. This identifier must be prefixed by *B2C_1A_* |
 | PublicPolicyUri | Yes | The URI for the policy, which is combination of the tenant ID and the policy ID. |

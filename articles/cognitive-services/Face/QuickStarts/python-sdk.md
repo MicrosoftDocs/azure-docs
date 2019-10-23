@@ -60,7 +60,7 @@ Then, create variables for your resource's Azure endpoint and key. You may need 
 You can install the client library with:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Face
+pip install --upgrade azure-cognitiveservices-vision-face
 ```
 
 ## Object model
@@ -280,7 +280,7 @@ If you migrated data using the Snapshot feature in this quickstart, you'll also 
 
 ## Next steps
 
-In this quickstart, you learned how to use the Face library for Java to do basis tasks. Next, explore the reference documentation to learn more about the library.
+In this quickstart, you learned how to use the Face library for Python to do basis tasks. Next, explore the reference documentation to learn more about the library.
 
 > [!div class="nextstepaction"]
 > [Face API reference (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)

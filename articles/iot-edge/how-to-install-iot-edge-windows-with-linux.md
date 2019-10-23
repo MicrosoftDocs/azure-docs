@@ -88,20 +88,25 @@ You can read more about the different installation options and parameters in the
 
 ## Verify successful installation
 
-Check the status of the IoT Edge service. It should be listed as running.  
+Check the status of the IoT Edge service: 
 
 ```powershell
 Get-Service iotedge
 ```
 
-Examine service logs from the last 5 minutes. 
+Examine service logs from the last 5 minutes: 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md) for the first time, the other system module, **edgeHub**, will start on the device too. 
+Run an automated check for the most common configuration and networking errors: 
 
+```powershell
+iotedge check
+```
+
+List running modules. After a new installation, the only module you should see running is **edgeAgent**. After you [deploy IoT Edge modules](how-to-deploy-modules-portal.md) for the first time, the other system module, **edgeHub**, will start on the device too. 
 
 ```powershell
 iotedge list

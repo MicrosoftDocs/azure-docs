@@ -4,7 +4,7 @@ description: This document explains the Azure SQL connectivity architecture for 
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
+ms.custom: fasttrack-edit
 ms.devlang: 
 ms.topic: conceptual
 author: rohitnayakmsft
@@ -32,7 +32,7 @@ The following steps describe how a connection is established to an Azure SQL dat
 
 Azure SQL Database supports the following three options for the connection policy setting of a SQL Database server:
 
-- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity, the clients must allow outbound firewall rules to all Azure IP addresses in the region using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags)) for ports 11000-11999, not just the Azure SQL Database gateway IP addresses on port 1433. Because packets go directly to the database, latency and throughput have improved performance.
+- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity, the clients must allow outbound firewall rules to all Azure IP addresses in the region using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags) for ports 11000-11999, not just the Azure SQL Database gateway IP addresses on port 1433. Because packets go directly to the database, latency and throughput have improved performance.
 - **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure SQL Database gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload. We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.
 - **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The effective policy depends on whether connections originate from within Azure (`Redirect`) or outside of Azure (`Proxy`).
 
@@ -64,7 +64,7 @@ Details of how traffic shall be migrated to new Gateways in specific regions are
 | Brazil South         | 104.41.11.5, 191.233.200.14 |
 | Canada Central       | 40.85.224.249      |
 | Canada East          | 40.86.226.166      |
-| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
+| Central US           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | China East           | 139.219.130.35     |
 | China East 2         | 40.73.82.1         |
 | China North          | 139.219.15.17      |

@@ -49,8 +49,8 @@
   - name: Handle hit highlighting
     href: ../Bing-Web-Search/hit-highlighting.md
     maintainContext: true
-  - name: Page news
-    href: paging-news.md
+  - name: Page through search results
+    href: ../Bing-Web-Search/paging-search-results.md
   - name: Resize and crop thumbnails
     maintainContext: true
     href: ../bing-web-search/resize-and-crop-thumbnails.md

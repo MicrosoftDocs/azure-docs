@@ -1,8 +1,8 @@
 ---
 title: Use Azure Kinect recorder with external synchronized units
 description: Using Azure Kinect recorder with external synchronized units
-author: joylital
-ms.author: joylital
+author: tesych
+ms.author: tesych
 ms.reviewer: jawirth
 ms.prod: kinect-dk
 ms.date: 06/26/2019

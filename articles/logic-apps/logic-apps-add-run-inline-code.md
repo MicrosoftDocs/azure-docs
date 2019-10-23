@@ -21,6 +21,7 @@ to run code that fits this scenario:
 * Runs in JavaScript. More languages coming soon.
 * Finishes running in five seconds or fewer.
 * Handles data up to 50 MB in size.
+* Doesn't require working with the [**Variables** actions](../logic-apps/logic-apps-create-variables-store-values.md), which are not yet supported.
 * Uses Node.js version 8.11.1. For more information, see 
 [Standard built-in objects](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
 

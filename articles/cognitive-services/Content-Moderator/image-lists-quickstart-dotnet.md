@@ -3,14 +3,14 @@ title: "Check images against custom lists in C# - Content Moderator"
 titleSuffix: Azure Cognitive Services
 description: How to moderate images with custom image lists using the Content Moderator SDK for C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
+ms.author: pafarley
 #As a C# developer of content-providing software, I want to check images against a custom list of inappropriate images so that I can handle them more efficiently.
 ---
 
@@ -61,8 +61,7 @@ Add the following `using` statements
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

@@ -36,6 +36,8 @@ These features make up the Azure Speech Services. Use the links in this table to
 
 Learn what's new with the Azure Speech Services.
 
+* September 2019
+  * Released Speech SDK 1.7.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
 * August 2019
   * **New tutorial**: [Voice enable your bot with the Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
   * Added a new speaking style, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), for the `en-US-JessaNeural` voice. 

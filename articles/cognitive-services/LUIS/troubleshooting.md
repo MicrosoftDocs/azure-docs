@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/04/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -214,6 +214,10 @@ See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do
 
 See, Fix HTTP status code [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) and [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) to learn more.
 
+### I created an authoring key but it isn't showing in the LUIS portal. What happened?
+
+Authoring keys are available in the LUIS portal after [migrating to the authoring key experience](luis-migration-authoring.md).  
+
 ## App management
 
 ### How do I download a log of user utterances?
@@ -259,7 +263,7 @@ Your authoring/starter key is only allowed 1000 endpoint queries a month. Create
 The first issue is to isolate if the issue is related to LUIS or happens outside the LUIS middleware. 
 
 #### Resolve issue in LUIS
-Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
+Pass the same utterance to LUIS from the [LUIS endpoint](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). If you receive an error, resolve the issue in LUIS until the error is no longer returned. Common errors include:
 
 * `Out of call volume quota. Quota will be replenished in <time>.` - This issue indicates you either need to change from an authoring key to an [endpoint key](luis-how-to-azure-subscription.md) or you need to change [service tiers](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
