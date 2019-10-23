@@ -29,4 +29,4 @@ Any rules associated with threat intelligence-based filtering is always inherite
 
 ## Next steps
 
-- [Learn more about Azure Firewall Manager](overview.md)
+- [Learn more about Azure Firewall Manager Preview](overview.md)
