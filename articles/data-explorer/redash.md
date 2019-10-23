@@ -50,7 +50,7 @@ img step3
 |Row3     |         |
 
 1. In **Settings** window, select **Save** and **Test Connection** to test your **Azure Data Explorer (Kusto)** data source connection.
-img step3.5
+img step3.5 
 1. In Redash, on top left select **Create** > **Query**. Click on **New Query** and rename the query.
 img step4
 1. The data source connection **Github connector** is seen in drop-down. In the left pane, view the tables in the selected database.
