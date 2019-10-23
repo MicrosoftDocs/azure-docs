@@ -151,44 +151,44 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 
 1. Upload a file into the storage account
 
-```csharp
-string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=xxxxxxxxxxxxxx;AccountKey=xxxxxxxxxxxxxx;EndpointSuffix=core.windows.net";
-var cloudStorageAccount = CloudStorageAccount.Parse(storageConnectionString);
-CloudBlobClient blobClient = cloudStorageAccount.CreateCloudBlobClient();
-CloudBlobContainer container = blobClient.GetContainerReference(storageContainerName);
-CloudBlockBlob blockBlob = container.GetBlockBlobReference("test.csv");
-var blobContent = @"2007-01-01 00:00:00.0000000,2592,Several trees down
-2007-01-01 00:00:00.0000000,4171,Winter Storm";
-await blockBlob.UploadTextAsync(blobContent);
-```
-|**Setting** | **Field description**|
-|---|---|---|
-| storageConnectionString | The connection string of the programmatically created storage account.|
+    ```csharp
+    string storageConnectionString = "DefaultEndpointsProtocol=https;AccountName=xxxxxxxxxxxxxx;AccountKey=xxxxxxxxxxxxxx;EndpointSuffix=core.windows.net";
+    var cloudStorageAccount = CloudStorageAccount.Parse(storageConnectionString);
+    CloudBlobClient blobClient = cloudStorageAccount.CreateCloudBlobClient();
+    CloudBlobContainer container = blobClient.GetContainerReference(storageContainerName);
+    CloudBlockBlob blockBlob = container.GetBlockBlobReference("test.csv");
+    var blobContent = @"2007-01-01 00:00:00.0000000,2592,Several trees down
+    2007-01-01 00:00:00.0000000,4171,Winter Storm";
+    await blockBlob.UploadTextAsync(blobContent);
+    ```
+    |**Setting** | **Field description**|
+    |---|---|---|
+    | storageConnectionString | The connection string of the programmatically created storage account.|
 
 2. Run a test query in Azure Data Explorer
 
-```csharp
-var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
-var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(kustoUri)
-{
-    InitialCatalog = kustoDatabaseName,
-    FederatedSecurity = true,
-    ApplicationClientId = clientId,
-    ApplicationKey = clientSecret,
-    Authority = tenantId
-};
-using (var kustoClient = KustoClientFactory.CreateCslQueryProvider(kustoConnectionStringBuilder))
-{
-    var query = $"{kustoTableName} | take 10";
-    using (var reader = kustoClient.ExecuteQuery(query) as DataTableReader2)
-    {// Print the contents of each of the result sets. 
-        while (reader.Read())
-        {
-            Console.WriteLine($"{reader[0]}, {reader[1]}, {reader[2]}");
+    ```csharp
+    var kustoUri = $"https://{kustoClusterName}.{locationSmallCase}.kusto.windows.net";
+    var kustoConnectionStringBuilder = new KustoConnectionStringBuilder(kustoUri)
+    {
+        InitialCatalog = kustoDatabaseName,
+        FederatedSecurity = true,
+        ApplicationClientId = clientId,
+        ApplicationKey = clientSecret,
+        Authority = tenantId
+    };
+    using (var kustoClient = KustoClientFactory.CreateCslQueryProvider(kustoConnectionStringBuilder))
+    {
+        var query = $"{kustoTableName} | take 10";
+        using (var reader = kustoClient.ExecuteQuery(query) as DataTableReader2)
+        {// Print the contents of each of the result sets. 
+            while (reader.Read())
+            {
+                Console.WriteLine($"{reader[0]}, {reader[1]}, {reader[2]}");
+            }
         }
     }
-}
-```
+    ```
 
 ## Clean up resources
 
