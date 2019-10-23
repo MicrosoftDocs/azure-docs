@@ -64,7 +64,7 @@ The public preview is available to use globally; however, data storage is limite
 7. Once you have created a test, click **Review + create.** You may add more tests at any point, but one test must be created for the unique JavaScript client to be generated. 
 
 ## Embed Client
-To begin any test, the JavaScript client must be embedded in your Web application. After clicking **Review + create**, go to **Settings > Configuration** to copy the JavaScript client. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.  
+To begin any test, the JavaScript client must be embedded in your Web application. After configuring at least one test, click **Review + create**, go to **Settings > Configuration**, and copy the JavaScript client. Specific instructions can be found on the [Embed Internet Analyzer Client](internet-analyzer-embed-client.md) page.  
 
 
 ## Next steps
