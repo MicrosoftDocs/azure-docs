@@ -50,7 +50,7 @@ namespace helloworld
 
             // Sets the synthesis output voice name.
             // Replace with the languages of your choice, from list found here: https://aka.ms/speech/tts-languages
-            config.VoiceName = "de-DE-Hedda"
+            config.VoiceName = "de-DE-Hedda";
 
             // Creates a translation recognizer using the default microphone audio input device.
             using (var recognizer = new TranslationRecognizer(config))

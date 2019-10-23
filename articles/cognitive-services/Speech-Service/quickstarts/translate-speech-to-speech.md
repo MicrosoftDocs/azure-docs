@@ -13,7 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-# Quickstart: Translate speech-to-text
+# Quickstart: Translate speech-to-speech
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/translate-sts/header.md)]
