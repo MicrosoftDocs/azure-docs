@@ -1,6 +1,6 @@
 ---
 title: Tutorial of IoT Digital Distribution Center | Microsoft Docs
-description: An tutorial of digital distribution center application template for IoT Central
+description: A tutorial of digital distribution center application template for IoT Central
 author: KishorIoT
 ms.author: nandab
 ms.service: iot-central
@@ -35,7 +35,7 @@ You can create application using following steps
 
 3. **Create app** will open New application form and fill up the requested details as show below.
    **Application name**: you can use default suggested name or enter your friendly application name.
-   **URL**: you can use the suggested default URL or enter your friendly unique, memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. Else you can start with seven day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
+   **URL**: you can use the suggested default URL or enter your friendly unique, memorable URL. Next, the default setting is recommended if you already have an Azure Subscription. Else you can start with seven-day free trial and choose to convert pay-as-you-go at any time before the free trail expiration.
    **Billing Info**: The Directory, Azure Subscription, and Region details are required to provision the resources.
    **Create**: Select create at the bottom of the page to deploy your application.
 
@@ -100,7 +100,7 @@ This interface organizes all the gateway command capabilities
 Select the rules tab to see two different rules that exist in this application template. These rules are configured to email notifications to the operators for further investigations.
  **Too many invalid packages alert** - This rule is triggered when the camera detects a high number of invalid packages flowing through the conveyor system.
  
-**Very large package** - This rule will trigger if the camera detects huge package that cannot be inspected for the quality. 
+**Large package** - This rule will trigger if the camera detects huge package that cannot be inspected for the quality. 
 
 > [!div class="mx-imgBorder"]
 > ![Digital Distribution Center](./media/tutorial-iot-central-ddc/ddc-rules.png)
