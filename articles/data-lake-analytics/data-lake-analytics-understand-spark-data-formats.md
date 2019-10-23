@@ -31,7 +31,7 @@ U-SQL tables are not understood by Spark. If you have data stored in U-SQL table
 
 The output can be achieved in U-SQL with the built-in Parquet outputter and using the dynamic output partitioning with file sets to create the partition folders. [Process more files than ever and use Parquet](https://blogs.msdn.microsoft.com/azuredatalake/2018/06/11/process-more-files-than-ever-and-use-parquet-with-azure-data-lake-analytics) provides an example of how to create such Spark consumable data.
 
-After this transformation, you copy the data as outlined in the chapter [Move data stored in Azure Data Lake Storage Gen1 files](#move-data-stored-in-Azure-Data-Lake-Storage-Gen1-files).
+After this transformation, you copy the data as outlined in the chapter [Move data stored in Azure Data Lake Storage Gen1 files](#move-data-stored-in-azure-data-lake-storage-gen1-files).
 
 ## Caveats
 
