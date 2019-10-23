@@ -98,9 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	a. The **Signing Option** setting is pre populated. Please review the settings as per your organization.
 
-    b. Select **Sign SAML response and assertion** from the **Signing Option**.
-
-	c. Click **Save**
+	b. Click **Save**
 
 	![Communifire Signing option](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
 
