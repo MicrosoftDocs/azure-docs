@@ -12,7 +12,7 @@ ms.author: yunjchoi
 
 # Azure Kubernetes Service (AKS) Diagnostics overview
 
-Sometimes good clusters can go through bad times. Troubleshooting Azure Kubernetes Service (AKS) cluster issues is an important part of maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics is an intelligent, self-diagnostic experience that helps you identify and resolve problems in your cluster. AKS Diagnostics is cloud-native, and you can use it with no extra configuration or billing cost.
+Troubleshooting Azure Kubernetes Service (AKS) cluster issues is an important part of maintaining your cluster, especially if your cluster is running mission-critical workloads. AKS Diagnostics is an intelligent, self-diagnostic experience that helps you identify and resolve problems in your cluster. AKS Diagnostics is cloud-native, and you can use it with no extra configuration or billing cost.
 
 ## Open AKS Diagnostics
 
@@ -51,7 +51,7 @@ Cluster Node Issues checks for node-related issues that may cause your cluster t
 - Node authentication failure
 - Node kube-proxy stale
 
-### Create, Read, Update & Delete Operations
+### Create, read, update & delete operations
 
 CRUD Operations checks for any CRUD operations that may cause issues in your cluster.
 
@@ -67,7 +67,7 @@ CRUD Operations checks for any CRUD operations that may cause issues in your clu
 - Subnet capacity
 - Quota exceeded error
 
-### Identity and Security Management
+### Identity and security management
 
 Identity and security Management detects authentication and authorization errors that may prevent communication to your cluster.
 
