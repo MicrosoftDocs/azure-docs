@@ -1,6 +1,6 @@
 ---
-title: Enable passwordless security key sign in for Azure AD (preview) - Azure Active Directory
-description: Enable passwordless security key sign in to Azure AD using FIDO2 security keys (preview)
+title: Enable passwordless security key sign-in for Azure AD (preview) - Azure Active Directory
+description: Enable passwordless security key sign-in to Azure AD using FIDO2 security keys (preview)
 
 services: active-directory
 ms.service: active-directory
@@ -11,40 +11,64 @@ ms.date: 08/05/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: librown
+ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign in for Azure AD (preview)
+# Enable passwordless security key sign to Windows 10 devices (preview)
 
-This document focusses on enabling passwordless authentication for environments with **Azure AD joined devices**.
+This document focuses on enabling security key based passwordless authentication Windows 10 devices.
 
-For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Unlike passwords, these security keys have lower IT management costs, provide improved productivity for workers, and have better security.
+For enterprises that use passwords today and have a shared PC environment, security keys provide a seamless way for workers to authenticate without entering a username or password. Security keys provide improved productivity for workers, and have better security.
+
+Users can authenticate to their Windows PC or authenticate in their web browser using supported FIDO2 security keys.
 
 ## Requirements
 
-- Azure Multi-Factor Authentication
-- Combined security information registration preview enabled
-- Compatible FIDO2 security keys
-- WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher
-- FIDO2 based Windows sign in requires Azure AD joined Windows 10 version 1809 or higher
-- Azure AD joined devices
+| Device Type | Azure AD joined | Hybrid Azure AD joined |
+| --- | --- | --- |
+| Azure Multi-Factor Authentication | X | X |
+| Combined security information registration preview | X | X |
+| Compatible FIDO2 security keys | X | X |
+| WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher | X | X |
+| Azure AD joined devices require Windows 10 version 1809 or higher | X |   |
+| Hybrid Azure AD joined devices require Windows 10 Insider Build 18945 or higher |   | X |
+| Microsoft Intune (Optional) | X | X |
+| Provisioning package (Optional) | X |   |
+| Group Policy (Optional) |   | X |
+
+### Obtain FIDO2 security keys
+
+See the section FIDO2 Security Keys, in the article [What is passwordless?](concept-authentication-passwordless.md) for more information about supported keys and manufacturers.
+
+> [!NOTE]
+> If you purchase and plan to use NFC based security keys you will need a supported NFC reader.
+
+### Known limitations
+
+- Windows Server Active Directory Domain Services (AD DS) domain joined (on-premises only devices) deployment **not supported**.
+- RDP, VDI, and Citrix scenarios are **not supported** using security key.
+- S/MIME is **not supported** using security key.
+- “Run as“ is **not supported** using security key.
+- Log in to a server using security key is **not supported**.
 
 ## Prepare devices for preview
 
-Devices that you will be piloting with must be running Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
+Azure AD joined devices that you will be piloting with must be running Windows 10 version 1809 or higher. The best experience is on Windows 10 version 1903 or higher.
 
-## Enable security keys for Windows sign in
+Hybrid Azure AD joined devices that you will be piloting with must be running Windows 10 Insider Build 18945 or newer.
 
-Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign in.
+## Enable security keys for Windows sign-in
 
-### Enable credential provider via Intune
+Organizations may choose to use one or more of the following methods to enable the use of security keys for Windows sign-in.
+
+### Enable credential provider with Intune
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Browse to **Microsoft Intune** > **Device enrollment** > **Windows enrollment** > **Windows Hello for Business** > **Properties**.
 1. Under **Settings** set **Use security keys for sign-in** to **Enabled**.
 
-Configuration of security keys for sign in, is not dependent on configuring Windows Hello for Business.
+Configuration of security keys for sign-in, is not dependent on configuring Windows Hello for Business.
 
 #### Enable targeted Intune deployment
 
@@ -66,7 +90,7 @@ To target specific device groups to enable the credential provider, use the foll
 
 ![Intune custom device configuration policy creation](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
-### Enable credential provider via provisioning package
+### Enable credential provider with a provisioning package
 
 For devices not managed by Intune, a provisioning package can be installed to enable the functionality. The Windows Configuration Designer app can be installed from the [Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22).
 
@@ -87,12 +111,14 @@ For devices not managed by Intune, a provisioning package can be installed to en
 1. Save the two files created (ppkg and cat) to a location where you can apply them to machines later.
 1. Follow the guidance in the article [Apply a provisioning package](https://docs.microsoft.com/windows/configuration/provisioning-packages/provisioning-apply-package), to apply the provisioning package you created.
 
-## Obtain FIDO2 security keys
+### Enable credential provider with Group Policy
 
-See the section FIDO2 Security Keys, in the article [What is passwordless?](concept-authentication-passwordless.md) for more information about supported keys and manufacturers.
+You can configure the following Group Policy settings to enable FIDO security key sign-in **only for hybrid Azure AD joined devices** in your enterprise.
 
-> [!NOTE]
-> If you purchase and plan to use NFC based security keys you will need a supported NFC reader.
+The setting can be found under **Computer Configuration** > **Administrative Templates** > **System** > **Logon** > **Turn on security key sign-in**.
+
+- Setting this policy to **Enabled** will allow users to sign in with security keys.
+- Setting this policy to **Disabled** or **Not Configured** will stop users from signing in with security keys.
 
 ## Enable passwordless authentication method
 
@@ -147,24 +173,36 @@ In the example below a user Bala Sandhu has already provisioned their FIDO2 secu
 
 In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of the Microsoft Edge browser on Windows 10 version 1809 or higher.
 
-![Security key sign in Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
+![Security key sign-in Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
+
+## Troubleshooting and feedback
+
+If you would like to share feedback or encounter issues while previewing this feature, please share via the Windows Feedback Hub app.
+
+1. Launch **Feedback Hub** and make sure you're signed in.
+1. Submit feedback under the following categorization:
+   1. Category: Security and Privacy 
+   1. Subcategory: FIDO
+1. To capture logs, use **Recreate my Problem**.
 
 ## Known issues
+
+### Offline unlock and sign in
+
+If you have not used your security key to sign in to your device while online, you will not be able to use it to sign in or unlock offline. 
 
 ### Security key provisioning
 
 Administrator provisioning and de-provisioning of security keys is not available in the public preview.
 
-### Hybrid Azure AD join
-
-Users relying on WIA SSO that use managed credentials like FIDO2 security keys or passwordless sign in with Microsoft Authenticator app need to Hybrid Join on Windows 10 to get the benefits of SSO. Follow the guidance in the article [Enable passwordless security key sign in for hybrid Azure AD joined devices (preview)](howto-authentication-passwordless-security-key-hybrid.md) to enable these sceanrios.
-
 ### UPN changes
 
-We are working on supporting a feature that allows UPN change on hybrid AADJ and AADJ devices. If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for that. So the only approach is to reset the device and the user has to re-register.
+We are working on supporting a feature that allows UPN change on hybrid AADJ and AADJ devices. If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for the change. The resolution is to reset the device and the user has to re-register.
 
 ## Next steps
 
-[Learn about device registration](../devices/overview.md)
+[Enable access to on-premises resources for Azure AD and hybrid Azure AD devices]()
 
-[Learn about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
+[Learn more about device registration](../devices/overview.md)
+
+[Learn more about Azure Multi-Factor Authentication](../authentication/howto-mfa-getstarted.md)
