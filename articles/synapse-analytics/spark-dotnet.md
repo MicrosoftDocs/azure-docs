@@ -1,11 +1,9 @@
 ---
 title: Use .NET for Apache Spark with Azure Synapse Analytics
-description: Learn about how you can interface with Apache Spark using .NET languages in Azure Synapse Analytics notebooks.
-services: synapse-analytics 
+description: Learn about using .NET and Apache Spark to do batch processing, real-time streaming, machine learning, and write ad-hoc queries in Azure Synapse Analytics notebooks.
 author: mamccrea 
 ms.service: synapse-analytics 
-ms.topic: concepts
-ms.subservice:  #leave blank
+ms.topic: conceptual
 ms.date: 10/21/2019 
 ms.author: mamccrea 
 ms.reviewer: jrasnick
@@ -28,33 +26,30 @@ The .NET APIs for Spark enable you to access all aspects of Spark that help you 
 
 ## .NET for Apache Spark in Azure Synapse Analytics
 
-You can analyze your data using .NET for Apache Spark through interactive Azure Synapse Analytics notebooks. When creating a new Azure Synapse Analytics notebook, you choose a kernel that interacts with and processes the code you write. There is kernel support for several languages, including C#.
+You can analyze your data using .NET for Apache Spark through interactive Azure Synapse Analytics notebooks. When creating a new Azure Synapse Analytics notebook, you choose a language kernel that you wish to express your business logic. There is kernel support for several languages, including C#.
 
-To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select .NET as your kernel and attach a Spark pool to the notebook.
+To use .NET for Apache Spark in your Azure Synapse Analytics notebook, select **Spark.NET C#** as your kernel and attach the notebook to an existing Apache Spark pool.
 
 ## .NET for Apache Spark scenarios
 
-Notebooks are a great option for prototyping your .NET for Apache Spark queries. You can start working with, understanding, filtering, and displaying your data quickly and efficiently. Data engineers, data scientists, business analysts, and machine learning engineers are all able to collaborate over a shared, highly interactive document. You see immediate results from data exploration, and can visualize your data in the same notebook. 
+Notebooks are a great option for prototyping your .NET for Apache Spark pipelines and scenarios. You can start working with, understanding, filtering, displaying and visualizing your data quickly and efficiently. Data engineers, data scientists, business analysts, and machine learning engineers are all able to collaborate over a shared, highly interactive document. You see immediate results from data exploration, and can visualize your data in the same notebook. 
 
-Azure Synapse Analytics notebooks provide a smooth tooling experience with minimal setup, and allow for quick prototyping of big data queries as you learn and practice with Spark.
+Azure Synapse Analytics notebooks provide a smooth tooling experience with minimal setup, and allow for quick prototyping of big data queries in C# as you learn and practice solving your problems with Apache Spark.
 
 You can also develop a complete big data experience, such as reading in data, transforming it, and then exploring it through printed text or visualizing it through a plot or chart. 
 
-## C# kernel features
+## Spark.NET C# kernel features
 
 The following features are available when you use .NET for Apache Spark in the Azure Synapse Analytics notebook: 
 
 * Declarative HTML - generate output from your cells using HTML-syntax, such as headers, bulleted lists, and even displaying images.
-* Simple statements - variable assignments, Console.WriteLine(), exceptions.
-* Multiline statements, including Class definitions 
-* Built-in libraries/functions - for example, Enumerable.Range 
-* C# 8.0 support 
-* text/plain and text/html MIMETYPE support 
-* Default formatter for types 
-* Custom formatters for types 
-* User-defined function (UDF) Support 
-* Visualizations, such as line charts, histograms, custom coloring/fonts of DataFrame and the chart visuals 
-
+* Simple C# statements (e.g, assignments, printing to console, throwing exceptions etc.).
+* Multi-line C# code blocks (e.g., if statement, foreach loops, class definitions etc.).
+* Access to the standard C# library (e.g., System, LINQ, Enumerables etc.).
+* Support for [C# 8.0 language features](/dotnet/csharp/whats-new/csharp-8).
+* 'spark' as a pre-defined variable to give you access to your Apache Spark session.
+* Support for defining [.NET user-defined functions that can run within Apache Spark](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql/Basic.cs#L65).
+* Support for visualizing output from your Spark jobs using different charts (e.g., line, bar, histogram) and layouts (e.g., single, overlaid etc.).
 
 ## Next steps
 
