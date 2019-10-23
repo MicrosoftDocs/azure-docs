@@ -7,7 +7,7 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ---
 
