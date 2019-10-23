@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: stevestein
   ms.author: sstein
-  ms.date: 10/17/2019
+  ms.date: 10/22/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -20,23 +20,32 @@ landingContent:
 # Start card title with a verb
 
   # Card 
-  - title: SQL Database Edge Preview
+  - title: SQL Database Edge
     linkLists:
       - linkListType: overview
         links:
-          - text: What is SQL Database Edge Preview?
+          - text: What is SQL Database Edge?
             url: sql-database-edge-overview.md
 
   # Card 
-  - title: Deploy SQL Database Edge Preview
+  - title: Deploy SQL Database Edge
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Deploy SQL Database Edge Preview?
+          - text: Deploy SQL Database Edge
             url: sql-database-edge-deploy-portal.md
 
   # Card 
-  - title: About SQL Database Edge Preview
+  - title: Sync data  using Azure Data Factory
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Sync SQL Database Edge data
+            url: sql-database-edge-tutorial-adf.md
+
+
+  # Card 
+  - title: Machine learning
     linkLists:
       - linkListType: concept
         links:

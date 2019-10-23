@@ -9,6 +9,10 @@
   items:
   - name: Deploy SQL Database Edge
     href: sql-database-edge-deploy-portal.md 
+- name: Tutorials
+  items:
+  - name: Sync data to Azure Blob Storage
+    href: sql-database-edge-tutorial-adf.md
 - name: Concepts
   items:
   - name: Machine learning and artificial intelligence
