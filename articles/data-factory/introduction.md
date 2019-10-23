@@ -27,7 +27,7 @@ Azure Data Factory is the platform that solves such data scenarios. It is the *c
 
 Additionally, you can publish your transformed data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume. Ultimately, through Azure Data Factory, raw data can be organized into meaningful data stores and data lakes for better business decisions.
 
-![Top-level view of Data Factory](media/introduction/overview.png)
+![Top-level view of Data Factory](media/data-flow/overview.png)
 
 ## How does it work?
 
