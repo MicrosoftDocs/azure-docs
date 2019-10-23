@@ -33,9 +33,10 @@
           href: hpc-cache-ingest-msrsync.md
         - name: Populate the cache by manual file copy 
           href: hpc-cache-ingest-manual.md
-  
   - name: Connect to the cache
     href: hpc-cache-mount.md
+  - name: Manage the cache 
+    href: hpc-cache-manage.md
 
 - name: Resources
   items: 
