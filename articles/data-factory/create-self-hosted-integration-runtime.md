@@ -125,8 +125,8 @@ Here is a high-level data flow for the summary of steps for copying with a self-
 
 ## Considerations for using a self-hosted IR
 
-- A single self-hosted integration runtime can be used for multiple on-premises data sources. A single self-hosted integration runtime  can be shared with another data factory within the same Azure Active Directory tenant. For more information, see [Sharing a self-hosted integration runtime](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- You can have only one instance of a self-hosted integration runtime installed on a single machine. If you have two data factories that need to access on-premises data sources, either use the [self-hosted IR sharing feature](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) to share the self-hosted integration runtime, or install the self-hosted integration runtime on two on-premises computers, one for each data factory.  
+- A single self-hosted integration runtime can be used for multiple on-premises data sources. A single self-hosted integration runtime  can be shared with another data factory within the same Azure Active Directory tenant. For more information, see [Sharing a self-hosted integration runtime](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory).
+- You can have only one instance of a self-hosted integration runtime installed on a single machine. If you have two data factories that need to access on-premises data sources, either use the [self-hosted IR sharing feature](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) to share the self-hosted integration runtime, or install the self-hosted integration runtime on two on-premises computers, one for each data factory.  
 - The self-hosted integration runtime does not need to be on the same machine as the data source. However, having the self-hosted integration runtime closer to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that is different from the one that hosts on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime does not compete for resources with the data source.
 - You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, you might have two self-hosted integration runtimes that serve two data factories, but the same on-premises data source is registered with both the data factories.
 - If you already have a gateway installed on your computer to serve a Power BI scenario, install a separate self-hosted integration runtime for Azure Data Factory on another machine.
@@ -232,7 +232,7 @@ For a twelve-minute introduction and demonstration of this feature, watch the fo
 
 ### Methods to share a self-hosted integration runtime
 
-To share a self-hosted integration runtime with multiple data factories, see [this instruction](create-shared-self-hosted-integration-runtime-powershell) for details.
+To share a self-hosted integration runtime with multiple data factories, see [this instruction](create-shared-self-hosted-integration-runtime-powershell.md) for details.
 
 ### Monitoring
 
