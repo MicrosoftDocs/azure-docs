@@ -194,7 +194,7 @@ The following code prints the detected color attributes in the image, like the d
 
 ### Get domain-specific content
 
-Computer Vision can use specialized model to do further analysis on images. See [Domain-specific content](../concept-detecting-domain-content.md) for more details. 
+Computer Vision can use specialized models to do further analysis on images. See [Domain-specific content](../concept-detecting-domain-content.md) for more details. 
 
 The following code parses data about detected celebrities in the image.
 
@@ -206,7 +206,7 @@ The following code parses data about detected landmarks in the image.
 
 ### Get the image type
 
-The following code prints information about the type of image&mdash;whether it is clip art or line drawing.
+The following code prints information about the type of image&mdash;whether it is clip art or a line drawing.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ComputerVision/Program.cs?name=snippet_type)]
 
