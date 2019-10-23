@@ -18,7 +18,7 @@ Learn how to use backup and restore.  Use data warehouse restore points to recov
 
 ## What is a data warehouse snapshot
 
-A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since SQL pool is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
+A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since this is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
 A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse is also a powerful mechanism to create copies of your data warehouse for test or development purposes.  Data warehouse restore rates can vary depending on the database size and location of the source and target data warehouse. 
 
@@ -76,7 +76,7 @@ The total cost for your primary data warehouse and seven days of snapshot change
 
 If you are using geo-redundant storage, you receive a separate storage charge. The geo-redundant storage is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate.
 
-For more information about SQL Data Warehouse pricing, see [Azure Synapse Analytics Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). You are not charged for data egress when restoring across regions.
+For more information about data warehouse pricing, see [Azure Synapse Analytics Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). You are not charged for data egress when restoring across regions.
 
 ## Restoring from restore points
 
