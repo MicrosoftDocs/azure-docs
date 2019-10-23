@@ -15,29 +15,33 @@ ms.date: 10/22/2019
 
 This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to load data into a machine learning pipeline from existing cloud data services.  
+Use this module to load data into a machine learning pipeline from existing cloud data services. 
 
-The module now features a wizard to help you choose a storage option and select from among existing subscriptions and accounts to quickly configure all options. Need to edit an existing data connection? No problem; the wizard loads all previous configuration details so that you don't have to start again from scratch.
+<<<<<<< HEAD
+First, choose the source you are reading from, and finish the additional settings. Import data module support read data from following sources.  For all cloud storage, you need to register a datastore in you Azure Machine Learning service workspace first. Check [get data from datastore](../service/how-to-access-data.md) to learn how. 
+=======
+> [!Note]
+> All functionality provided by this module can be done by **datastore** and **datasets** in the worksapce landing page. We recommend you use **datastore** and **dataset** which includes additional features like data monitoring. To learn more, see [How to Access Data](../service/how-to-access-data.md) and [How to Register Datasets](../service/how-to-create-register-datasets.md) article.
+>  After you register a dataset, you can find it in the **Datasets** -> **My Datasets** category in designer interface. This module is reserved for Studio(classic) users to for a familiar experience. 
+>
 
-After you define the data you want and connect to the source, [Import Data](./import-data.md) infers the data type of each column based on the values it contains, and loads the data into your Azure Machine Learning workspace. The output of [Import Data](./import-data.md) is a dataset that can be used with any pipeline.
+First, choose the source you are reading from, and finish the additional settings. The **Import Data** module support read data from following sources:
 
+>>>>>>> cca4514dc9f... Edit pass
+- URL via HTTP
+- Azure cloud storages through [**Datastores**](../service/how-to-access-data.md))
+    - Azure Blob Container
+    - Azure File Share
+    - Azure Data Lake
+    - Azure Data Lake Gen2
+    - Azure SQL Database
+    - Azure PostgreSQL    
 
-  
-If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md). However, if you don't want to re-read from the source each time you run the pipeline, select the **Use cached results** option to TRUE. When this option is selected, the module checks whether the pipeline has run previously using the same source and same input options. If a previous run is found, the data in the cache is used, instead of reloading the data from the source.
- 
+Before using cloud storage, you need to register a datastore in your Azure Machine Learning workspace first. For more information, see [How to Access Data](../service/how-to-access-data.md). 
 
-## Data sources
+After you define the data you want and connect to the source, **[Import Data](./import-data.md)** infers the data type of each column based on the values it contains, and loads the data into your designer pipeline. The output of **Import Data** is a dataset that can be used with any designer pipeline.
 
-The Import Data module supports the following data sources. Click the links for detailed instructions and examples of using each data source. 
- 
-If you are not sure how or where you should store your data, see this guide to common data scenarios in the data science process:  [Scenarios for advanced analytics in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-plan-sample-scenarios). 
-
-
-|Data source| Use with|
-|-----------|-----------|  
-|[Web URL via HTTP](./import-from-web-url-via-http.md)|Get data that is hosted on a web URL that uses HTTP and that has been provided in the CSV, TSV, ARFF, or SvmLight formats|  
-|[Import from Azure Blob Storage](./import-from-azure-blob-storage.md) |Get data that is stored in the Azure blob service|  
-|[Import from Azure SQL Database](./import-from-azure-sql-database.md) |Get data from Azure SQL Database|
+If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md). However, if you don't want to re-read from the source each time you run the pipeline, set the **Use cached results** option to TRUE. When this option is selected, the module checks whether the pipeline has run previously using the same source and same input options. If a previous run is found, the data in the cache is used, instead of reloading the data from the source.
 
 ## How to configure Import Data
 
@@ -47,9 +51,14 @@ If you are not sure how or where you should store your data, see this guide to c
 
     The wizard gets the account name and credentials, and help you configure other options. If you are editing an existing configuration, it loads the current values first.
 
-1. Click **Data source**, and choose the type of cloud-based storage you are reading from. 
+1. Select **Data source**, and choose the data source type. It could be HTTP or datastore.
 
-    Additional settings depend on the type of storage you choose, and whether the storage is secured or not. You might need to provide the account name, file type, or credentials. Some sources do not require authentication; for others, you might need to know the account name, a key, or container name.
+    If you choose datastore, you can select existing datastores that already registered to your Azure Machine Learning workspace or create a new datastore. Then define the path of data to import in the datastore. You can easily browse the path by click **Browse Path**
+    ![import-data-path](media/module/import-data-path.png)
+
+1. Select the preview schema to filter the columns you want to include. You can also define advanced settings like Delimiter in Parsing options.
+
+    ![import-data-preview](media/module/import-data.png)
 
 1. Select the **Use cached results** option if you want to cache the dataset for reuse on successive runs.
 
@@ -69,10 +78,9 @@ If you are not sure how or where you should store your data, see this guide to c
 
 When import completes, click the output dataset and select **Visualize** to see if the data was imported successfully.
 
-If you want to save the data for re-use, rather than importing a new set of data each time the pipeline is run, right-click the output and select **Save as Dataset**. Choose a name for the dataset. The saved dataset preserves the data at the time of saving, and data is not updated when the pipeline is rerun, even if the dataset in the pipeline changes. This can be handy for taking snapshots of data.
+If you want to save the data for reuse, rather than importing a new set of data each time the pipeline is run, right-click the output and select **Save as Dataset**. Choose a name for the dataset. The saved dataset preserves the data at the time of saving, and data is not updated when the pipeline is rerun, even if the dataset in the pipeline changes. This can be handy for taking snapshots of data.
 
 After importing the data, it might need some additional preparations for modeling and analysis:
-
 
 - Use [Edit Metadata](./edit-metadata.md) to change column names, to handle a column as a different data type, or to indicate that some columns are labels or features.
 
