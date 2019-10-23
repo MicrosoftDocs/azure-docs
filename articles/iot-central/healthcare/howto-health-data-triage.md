@@ -1,5 +1,5 @@
 ---
-title: Create a health data triage dashboard with IoT Central | Microsoft Docs
+title: Create a health data triage dashboard with Azure IoT Central | Microsoft Docs
 description: Learn to build a health data triage dashboard using Azure IoT Central application templates.
 author: philmea
 ms.author: philmea
