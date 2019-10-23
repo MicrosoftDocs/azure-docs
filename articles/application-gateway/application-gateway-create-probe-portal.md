@@ -82,9 +82,9 @@ After entering the probe properties, you can test the health of the back-end res
 
 ## Create probe for Application Gateway v1 SKU
 
-### <a name="createprobe"></a>Create the probe
-
 Probes are configured in a two-step process through the portal. The first step is to create the probe. In the second step, you add the probe to the backend http settings of the application gateway.
+
+### <a name="createprobe"></a>Create the probe
 
 1. Log in to the [Azure portal](https://portal.azure.com). If you don't already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free)
 
