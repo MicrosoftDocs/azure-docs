@@ -11,11 +11,6 @@ ms.author: mrys #Required; update with your microsoft alias of author; optional 
 ms.reviewer: jrasnick
 ---
 
-<!---Recommended: Remove all the comments in this template before you sign-off or merge to master.--->
-
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
 
 # What is Azure Synapse Analytics' shared Meta Data Model? 
 <!---Required: 
@@ -35,9 +30,9 @@ The shared meta data model supports the modern data warehouse pattern as shown i
 
 2. The Spark created databases and their tables will become visible in any of the Synapse workspace's Spark Pool instances and can be used from any of the Spark jobs, subject to the [permissions](#Security-model-at-a-glance). 
 
-3. The Spark created databases and their tables will also become visible in the SQL Analytics On-Demand engine. Databases [ADD LINK] are being created automatically in the SQL Analytics On-Demand meta data, and both the external and managed tables [ADD LINK] created by a Spark job will be made accessible as external tables in the SQL Analytics On-Demand meta data in the `dbo` schema of the corresponding database. For more details, see [ADD LINK].
+3. The Spark created databases and their tables will also become visible in the SQL Analytics On-Demand engine. [Databases](azure-synapse-metadata-database.md) are being created automatically in the SQL Analytics On-Demand meta data, and both the [external and managed tables](azure-synapse-metadata-table.md) created by a Spark job will be made accessible as external tables in the SQL Analytics On-Demand meta data in the `dbo` schema of the corresponding database. <!--For more details, see [ADD LINK].-->
 
-4. If there are SQL Analytics Pools in the workspace that have their meta data synchronization enabled [ADD LINK] or if a new SQL Pool is being created with the meta data synchronization enabled, the Spark created databases and their tables will be mapped automatically into the SQL Pool's database as follows: The databases generated in Spark are mapped to special schemas inside the SQL Pool's database. Each such schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark generated database are exposed as external tables in the corresponding special schema. For more details, see [ADD LINK].
+4. If there are SQL Analytics Pools in the workspace that have their meta data synchronization enabled [ADD LINK] or if a new SQL Pool is being created with the meta data synchronization enabled, the Spark created databases and their tables will be mapped automatically into the SQL Pool's database as follows: The databases generated in Spark are mapped to special schemas inside the SQL Pool's database. Each such schema is named after the Spark database name with an additional `$` prefix. Both the external and managed tables in the Spark generated database are exposed as external tables in the corresponding special schema. <!--For more details, see [ADD LINK].-->
 
 [INSERT PICTURE]
 
@@ -45,46 +40,26 @@ __Figure 1 -__ Supporting the Modern Data Warehouse Pattern with Shared Meta Dat
 
 These shared meta data objects can now be queried (but not updated or changed) by the SQL engines that have access to them. 
 
+## Which Meta Data Objects are shared?
+
+Spark allows you to create databases, external and managed tables as well as views. However, since Spark views require a Spark engine to process the defining SparkSQL statement, only databases and their contained external and managed tables are being shared with the workspace's SQL engines. Views are only shared among the Spark Pool instances.
+
 ## Security model at a glance
 
 In the current public preview, the Spark databases and tables, as well as their synchronized representations in the SQL engines will be secured at the underlying storage level. When the table is being queried by any of the engines that the query submitter has the right to use, the query submitter's security principal is being passed through, down to the underlying files, and permissions are checked at the file system level.
 
-For more details, see [ADD LINK].
+<!-- For more details, see [ADD LINK].-->
 
 ## Change maintenance
 
-Change maintenance.
-
-<!---Required:
-The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
-
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
-
-
---->
-
-## <article body>
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
-
-## <Top task>
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
-
-
---->
+If a meta data object gets deleted or changed with Spark, the changes will be picked up and propagated to the workspace's SQL Analytics On-Demand Engine as well as the workspace's SQL Analytics Pools that have the objects synchronized. As with the initial synchronization, this will occur asynchronously and be reflected in the SQL engines after a short delay.
 
 ## Next steps
+
+- [Learn more about Azure Synapse Analytics' shared Meta Data Databases](azure-synapse-metadata-database.md)
+- [Learn more about Azure Synapse Analytics' shared Meta Data Tables](azure-synapse-metadata-table.md)
+- [Learn more about the Synchronization with SQL Analytics On-Demand]()
+- [Learn more about the Synchronization with SQL Analyiics Pools]()
 
 <!---Some context for the following links goes here--->
 <!--- [link to next logical step for the customer](quickstart-view-occupancy.md)--->
