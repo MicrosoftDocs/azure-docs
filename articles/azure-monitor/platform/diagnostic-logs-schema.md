@@ -106,6 +106,7 @@ The schema for resource diagnostic logs varies depending on the resource and log
 |Microsoft.BatchAI/workspaces|BaiJobEvent|BaiJobEvent|
 |Microsoft.Blockchain/blockchainMembers|BlockchainApplication|Blockchain Application|
 |Microsoft.Blockchain/blockchainMembers|Proxy|Proxy|
+|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Gets the metrics of the endpoint, e.g., bandwidth, egress, etc.|
 |Microsoft.ClassicNetwork/networksecuritygroups|Network Security Group Rule Flow Event|Network Security Group Rule Flow Event|
 |Microsoft.CognitiveServices/accounts|Audit|Audit Logs|
 |Microsoft.CognitiveServices/accounts|RequestResponse|Request and Response Logs|
