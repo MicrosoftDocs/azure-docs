@@ -16,7 +16,7 @@ ms.author: v-meravi
 
 Peering Service connection telemetry is the insights collected for a *Peering Service* connection. Customers can opt to obtain monitoring reports by defining the connection telemetry metrics. In this article you will learn how to view the latency report for a specific *Peering Service* connection.  
 
-To measure the Peering Service connection telemetry, you must register the Peering Service connection into the Azure portal. To learn how to register the connection, refer [register the connection](azure-portal.md).
+To measure the Peering Service connection telemetry, you must register Peering Service connection into the Azure portal. To learn how to register connection, refer [register the connection](azure-portal.md).
 
 > [!IMPORTANT]
 > "Peering Service” is currently in public preview.

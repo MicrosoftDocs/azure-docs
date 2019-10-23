@@ -14,9 +14,9 @@ ms.author: v-meravi
 
 # Register Peering Service (Preview) using the Azure portal
 
-*Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet
+*Peering Service* is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet.
 
-In this article, you will learn how to create a *Peering Service* connection using Azure portal.
+In this article, you will learn how to create a *Peering Service* connection using the Azure portal.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -33,11 +33,11 @@ A valid and active Microsoft Azure account. This account is required to set up t
 
 ### Connectivity provider
 
-   - You can work with an Internet Service provider or Internet Exchange Partner to obtain Peering Service to connect your network with Microsoft network.
+You can work with an Internet Service provider or Internet Exchange Partner to obtain Peering Service to connect your network with Microsoft network.
 
-   - Ensure the connectivity providers are certified.
+Ensure the connectivity providers are partnered with Microsoft.
 
-### Register your subscription with the resource provider and feature flag
+### Register subscription with the resource provider and feature flag
 
 Before proceeding to the steps of registering the *Peering Service*, you need to register your subscription with the resource provider and feature flag either via Azure PowerShell or Azure CLI. 
 
@@ -67,7 +67,7 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 > [!div class="mx-imgBorder"]
 > ![Register Peering Service](./media/peering-service-portal/peering-servicecreate.png)
  
-2.	**Basics** - Now, provide the following details in the **Basics** tab of the **Create a peering service connection** page. 
+2.	Now, provide the following details in the **Basics** tab of the **Create a peering service connection** page. 
  
 3.	Choose the **Subscription** and the **Resource group** associated with the subscription as shown in the screen below:
 
@@ -76,7 +76,7 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 
 4.	Next, provide a **Name** to which the *Peering Service* instance should be registered.
  
-5.	Now, click on the **Next:Configuration** button at the bottom.**Configuration** page appears.
+5.	Now, click on the **Next:Configuration** button at the bottom. **Configuration** page appears.
 
 ## Configure the Peering Service connection
 
@@ -94,9 +94,9 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 > [!div class="mx-imgBorder"]
 > ![Register Peering Service validation](./media/peering-service-portal/peering-service-validate.png).
 
-6. When you see the Validation passed message, select **Create**.
+6. When you see the **Validation passed message** as shown above, select **Create**.
 
-7. After registering the Peering Service, additional validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of the **MyPeeringService resource**. If the validation fails, one of the following error messages is displayed:
+7. After registering the Peering Service, additional validation is performed on the included prefixes. You can review the validation status under the **Prefixes** section of the resource name. If the validation fails, one of the following error messages is displayed:
 
    - Invalid Peering Service prefix, prefix should be valid format, only Ipv4 prefix is supported.
 
@@ -110,13 +110,13 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 
    - Prefix received with private AS in path, please contact Peering Service provider.
 
-**Add or remove a Prefix**
+**Add or remove Prefix**
 
-- Click on **Add prefixes** in the **Prefixes** page to add prefixes.
+Click on **Add prefixes** in the **Prefixes** page to add prefixes.
 
-- Click on the ellipsis (...) next to the listed prefix and click on the **Delete** option.
+Click on the ellipsis (...) next to the listed prefix and click on the **Delete** option.
 
-**Delete a Peering Service**
+**Delete Peering Service**
 
 In the **All Resources** page, click the checkbox on the Peering Service and click on the **Delete** option on the top of the page.
 
@@ -128,8 +128,8 @@ In the **All Resources** page, click the checkbox on the Peering Service and cli
 
 To learn more about Peering Service concepts, see [Peering Service Connection](connection.md).
 
-To measure the telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
+To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
 
-To register the connection using PowerShell, see [Peering Service connection](powershell.md).
+To register connection using PowerShell, see [Peering Service connection](powershell.md).
 
-To register the connection using Azure CLI, see [Peering Service connection](cli.md).
+To register connection using Azure CLI, see [Peering Service connection](cli.md).
