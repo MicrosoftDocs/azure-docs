@@ -19,7 +19,9 @@ ms.reviewer: jroth
 
 This article describes how to bulk register your SQL Server virtual machine (VM) in Azure with the SQL VM resource provider using the 'Register-SqlVMs' PowerShell cmdlet.
 
-The 'Register-SqlVMs' cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). The SQL Server service will not restart during the process.  
+The 'Register-SqlVMs' cmdlet can be used to register all virtual machines in a given list of subscriptions, resource groups, or a list of specific virtual machines. The cmdlet will register the virtual machines in _lightweight_ management mode, and then generate both a [report and a log file](#output-description). 
+
+The registration process carries no risk, has no downtime, and will not restart SQL Server or the virtual machine. 
 
 For more information about the resource provider, see [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). 
 
@@ -205,7 +207,8 @@ Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.l
 
 When registering SQL Server VMs with the resource provider using the provided script, consider the following:
 
-- This script will skip any end-of-service SQL Server virtual machines running SQL Server 2008 or 2008 R2 on Windows 2008 or Windows 2008 R2. This is because end-of-service virtual machines only support the _NoAgent_ management mode, and the script will register the virtual machines in _lightweight_ management mode. 
+- This script will skip any end-of-service SQL Server virtual machines running SQL Server 2008 or 2008 R2 on Windows 2008 or Windows 2008 R2. This is because end-of-service virtual machines only support the _NoAgent_ management mode, and the script will register the virtual machines in _lightweight_ management mode.
+- There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. Testing 100 VMs took over 2 hours, so customers with over 1000 VMs will likely run the script for the entire day. 
 
 ## Full script
 
