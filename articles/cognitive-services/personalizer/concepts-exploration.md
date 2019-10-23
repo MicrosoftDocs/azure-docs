@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
 ---
 
@@ -27,7 +27,7 @@ Personalizer currently uses an algorithm called *epsilon greedy* to explore.
 
 ## Choosing an exploration setting
 
-You configure the percentage of traffic to use for exploration in the Azure portal's **Settings** page for Personalizer. This setting determines the percentage of Rank calls that perform exploration. 
+You configure the percentage of traffic to use for exploration in the Azure portal's **Configuration** page for Personalizer. This setting determines the percentage of Rank calls that perform exploration. 
 
 Personalizer determines whether to explore or exploit with this probability on each rank call. This is different than the behavior in some A/B frameworks that lock a treatment on specific user IDs.
 
