@@ -35,7 +35,7 @@ In this tutorial, you learn how to:
 
 * An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
-* An Azure IoT Central continuous patient monitoring application template. If you don't have one already, you can follow steps to [Deploy an application template](overview-iot-central-cpm.md).
+* An Azure IoT Central continuous patient monitoring application template. If you don't have one already, you can follow steps to [Deploy an application template](overview-iot-central-healthcare.md).
 
 * An Azure [Event Hubs namespace and Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
@@ -200,4 +200,4 @@ If you're not going to continue to use this application, delete your resources w
 
 ## Next steps
 
-* Review the [continuous patient monitoring architecture guidance](concept-cpm-architecture.md)
+* Review the [continuous patient monitoring architecture guidance](concept-continuous-patient-monitoring-architecture.md)
