@@ -1,44 +1,33 @@
 ---
-title: Using SQL on-demand #Required; update as needed page title displayed in search results. Include the brand.
-description: In this quickstart, we will show capabilities of SQL on-demand and go through examples. #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: quickstart #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/07/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: v-stazar #Required; update with your microsoft alias of author; optional team alias.
+title: Using SQL on-demand
+description: In this quickstart, we will show capabilities of SQL on-demand and go through examples.
+services: sql-data-warehouse
+author: azaricstefan
+ms.service: sql-data-warehouse
+ms.topic: quickstart
+ms.subservice: design
+ms.date: 10/07/2019
+ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
 # Quickstart: Using SQL on-demand 
 
-In this quickstart, we will go through few examples and explain how to use SQL on-demand.
+In this quickstart you will see and learn how easy is to query various types of files using SQL on-demand.
 
-Following file extensions are supported: 
+Currently following file types are supported: 
 - JSON
 - CSV
 - Parquet
 
 CSV files may have different formats. In this section, we will show how to query single CSV file with different file formats: with and without header row, comma and tab-delimited values, Windows and Unix style line endings, non-quoted and quoted values, and escaping characters.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
-
-In this quickstart, you will query a single CSV file.
-
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because quickstarts are intended to help new customers use a subscription to quickly try out a specific product/service, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write quickstarts](contribute-how-to-mvc-quickstart.md)
---->
-
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
 
 ## Prerequisites
 
 Tool to issue queries:
 
 - SQL client of your choice:
+    - Azure Synapse Studio
     - Azure Data Studio
     - SQL Server Management Studio
 
@@ -62,8 +51,8 @@ There are two steps prior to using samples:
 
 Since you will use demo environment, you should create your own database for demo purposes. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
-> Please note that databases are used only for view metadata, not for actual data. Databases will be dropped on daily basis. Please keep all your scripts so you can easily regenerate database if needed.
-
+> Please note that databases are used only for view metadata, not for actual data.
+> 
 > Please write down database name you use. you will need it later on.
 
 ```sql
@@ -74,7 +63,7 @@ CREATE DATABASE mydbname
 
 ### Create credentials
 
-We need to create credential before you can run queries. This credential will be used by SQL on-demand service to access files in storage.
+We need to create credentials before you can run queries. This credentials will be used by SQL on-demand service to access files in storage.
 
 > Please note that you need to create credential for storage account that is located in your endpoint region. Although SQL on-demand can access storages from different regions, having storage and endpoint in same region will provide better performance experience.
 
@@ -144,7 +133,7 @@ Bellow you can see three examples of querying **CSV**, **Parquet** and **JSON** 
 
 ### Querying CSV file - no header row, Windows style new line
 
-Following query shows how to read CSV file without header row, with Windows-style new line and comma-delimited columns.
+Following query shows how to read CSV file without header row, with Windows-style new line and comma-delimited columns using SQL on-demand.
 
 File preview:
 
@@ -247,13 +236,14 @@ Now you are ready to start with following quickstarts:
 
 4. [Querying Parquet files](querying-parquet-files.md)
 
-5. [Creating and using views](creating-and-using-views.md)
+5. [Querying Parquet nested types](querying-parquet-nested-types.md)
 
 6. [Querying JSON files](querying-json-files.md)
 
-7. [Querying Parquet nested types](querying-parquet-nested-types.md)
+7. [Creating and using views](creating-and-using-views.md)
 
 
 Advance to the next article to learn how to query single CSV file.
 > [!div class="nextstepaction"]
 > [Querying single CSV file](querying-single-csv-file.md)
+
