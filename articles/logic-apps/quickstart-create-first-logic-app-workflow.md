@@ -169,7 +169,7 @@ When you no longer need this sample, delete the resource group that contains you
 
    ![Find, select, and delete resource group](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
-1. Enter the resource group name as confirmation, and select **Delete**.
+1. When the confirmation pane appears, enter the resource group name, and select **Delete**.
 
    ![To confirm deletion, select "Delete"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 

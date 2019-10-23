@@ -604,9 +604,9 @@ Next, add an action so that your logic app sends email to review the attachments
 
    | Setting | Value | Notes |
    | ------- | ----- | ----- |
-   | **Body** | ```Please review new applicant:``` <p>```Applicant name:``` **From** <p>```Application file location:``` **Path** <p>```Application email content:``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** |
-   | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. |
    | **To** | <*recipient-email-address*> | For testing purposes, you can use your own email address. |
+   | **Subject**  | ```ASAP - Review applicant for position:``` **Subject** | The email subject that you want to include. Click inside this box, enter the example text, and from the dynamic content list, select the **Subject** field under **When a new email arrives**. |
+   | **Body** | ```Please review new applicant:``` <p>```Applicant name:``` **From** <p>```Application file location:``` **Path** <p>```Application email content:``` **Body** | The email's body content. Click inside this box, enter the example text, and from the dynamic content list, select these fields: <p>- The **From** field under **When a new email arrives** </br>- The **Path** field under **Create blob for email body** </br>- The **Body** field under **Call RemoveHTMLFunction to clean email body** |
    ||||
 
    > [!NOTE]
@@ -676,11 +676,11 @@ Congratulations, you've now created and run a logic app that automates tasks acr
 
 When you no longer need this sample, delete the resource group that contains your logic app and related resources.
 
-1. On the main Azure menu, go to **Resource groups**, and then select the resource group for your logic app. Select **Delete resource group**.
+1. On the main Azure menu, select **Resource groups**. From the resource groups list, select the resource group for this tutorial. On the **Overview** pane, select **Delete resource group**.
 
    ![Delete logic app resource group](./media/tutorial-process-email-attachments-workflow/delete-resource-group.png)
 
-1. Enter the resource group name as confirmation, and select **Delete**.
+1. When the confirmation pane appears, enter the resource group name, and select **Delete**.
 
 ## Next steps
 
