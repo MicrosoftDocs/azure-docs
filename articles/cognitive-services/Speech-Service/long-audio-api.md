@@ -1,5 +1,5 @@
 ---
-title: Long Audio API - Speech Service
+title: Long Audio API (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description:
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.date: 10/26/2019
 ms.author: erhopf
 ---
 
-# Long Audio API
+# Long Audio API (Preview)
 
-As the name implies, the Long Audio API is designed for batch synthesis of long-form text to speech. This API doesn't return synthesized audio in real-time, instead the expectation is that you will poll for the response(s) and consume the output(s) as they are made available from the service. Unlike the text to speech API that's used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms.
+The Long Audio API is designed for asynchronous synthesis of long-form text to speech (for example: audio books). This API doesn't return synthesized audio in real-time, instead the expectation is that you will poll for the response(s) and consume the output(s) as they are made available from the service. Unlike the text to speech API that's used by the Speech SDK, the Long Audio API can create synthesized audio longer than 10 minutes, making it ideal for publishers and audio content platforms.
 
 Additional benefits of the Long Audio API:
 
@@ -58,15 +58,15 @@ The following audio output formats are supported by the Long Audio API:
 * audio-24khz-96kbitrate-mono-mp3
 * audio-24khz-160kbitrate-mono-mp3
 
-## Get started with Long Audio API
+## Quickstarts
 
 We offer quickstarts designed to help you run the Long Audio API successfully. This table includes a list of Long Audio API quickstarts organized by language.
+
 * [Quickstart: Python](https://aka.ms/long-audio-python)
-* [Quickstart: C#](https://aka.ms/long-audio-csharp)
-* [Quickstart: Java](https://aka.ms/long-audio-java)
 
 ## Sample code
-Sample code for Long Audio API is available on GitHub. 
+Sample code for Long Audio API is available on GitHub.
+
 * [Sample code: Python](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/Python)
 * [Sample code: C#](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/CustomVoice-API-Samples/CSharp)
 * [Sample code: Java](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Java/)
