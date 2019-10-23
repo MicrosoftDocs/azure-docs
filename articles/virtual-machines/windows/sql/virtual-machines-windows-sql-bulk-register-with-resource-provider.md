@@ -208,7 +208,7 @@ Errors are logged in the log file named `VMsNotRegisteredDueToError<Timestamp>.l
 When registering SQL Server VMs with the resource provider using the provided script, consider the following:
 
 - This script will skip any end-of-service SQL Server virtual machines running SQL Server 2008 or 2008 R2 on Windows 2008 or Windows 2008 R2. This is because end-of-service virtual machines only support the _NoAgent_ management mode, and the script will register the virtual machines in _lightweight_ management mode.
-- There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. Testing 100 VMs took over 2 hours, so customers with over 1000 VMs will likely run the script for the entire day. 
+- There is retry logic built-in to overcome transparent errors. If the virtual machine is successfully registered, then it is a rapid operation. However, if the registration fails, then each virtual machine will be retried.  As such, you should allow significant time to complete the registration process -  though actual time requirement is dependent on the type and number of errors. 
 
 ## Full script
 
