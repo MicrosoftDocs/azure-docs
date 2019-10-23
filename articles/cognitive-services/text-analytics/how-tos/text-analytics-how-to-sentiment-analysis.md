@@ -143,6 +143,7 @@ The [next version of Sentiment Analysis](https://cognitiveusw2ppe.portal.azure-a
 |Document and sentence-level sentiment score     | Detect the sentiment of both a document and its individual sentences. If the document includes multiple sentences, each sentence is also assigned a sentiment score.         |
 |Sentiment category and score     | The API now returns sentiment categories for text, in addition to a sentiment score. The categories are `positive`, `negative`, `neutral`, and `mixed`.       |
 | Improved output | Sentiment analysis now returns information for both an entire text document and its individual sentences. |
+| `model-version` parameter | An optional parameter for choosing a version of the Text Analytics model. Currently only the default model is available for use. |
 
 ### Sentiment labeling
 
