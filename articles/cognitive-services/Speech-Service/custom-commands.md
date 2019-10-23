@@ -20,7 +20,7 @@ ms.author: travisw
 
 **Custom Commands** is a streamlined solution for creating a Voice Assistant. It provides a unified authoring experience, an automatic hosting model, and lower complexity versus other assistant creation options like [Direct Line Speech](direct-line-speech.md). This simplification, however, comes with a reduction in flexibility. So, Custom Commands is best suited for task completion or command-and-control scenarios.
 
-For complex conversational interaction and integration with other solutions like the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) use Direct Line Speech.
+For complex conversational interaction and integration with other solutions like the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) you're encouraged to use Direct Line Speech.
 
 An example of a task completion assistant perfect for Custom Commands is a home automation tool for controlling a thermostat. A user's commands fit into a fixed vocabulary (“turn up the temperature” or “make it cooler”) with a well-defined set of variables (number of degrees, time).
 
