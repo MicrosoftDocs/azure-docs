@@ -30,7 +30,7 @@ Before you get started, make sure to:
 
     speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 
-    def translation_once_from_mic():
+    def translate_speech_to_speech():
 
         # Creates an instance of a speech translation config with specified subscription key and service region.
         # Replace with your own subscription key and service region (e.g., "westus").
@@ -43,8 +43,19 @@ Before you get started, make sure to:
         translation_config.speech_recognition_language = fromLanguage
         translation_config.add_target_language(toLanguage)
 
+        # Sets the synthesis output voice name.
+        # Replace with the languages of your choice, from list found here: https://aka.ms/speech/tts-languages
+        translation_config.voice_name = "de-DE-Hedda"
+
         # Creates a translation recognizer using and audio file as input.
         recognizer = speechsdk.translation.TranslationRecognizer(translation_config=translation_config)
+
+        # Prepare to handle the synthesized audio data.
+        def synthesis_callback(evt):
+            size = len(evt.result.audio)
+            print('AUDIO SYNTHESIZED: {} byte(s) {}'.format(size, '(COMPLETED)' if size == 0 else ''))
+
+        recognizer.synthesizing.connect(synthesis_callback)
 
         # Starts translation, and returns after a single utterance is recognized. The end of a
         # single utterance is determined by listening for silence at the end or until a maximum of 15
@@ -68,7 +79,7 @@ Before you get started, make sure to:
             if result.cancellation_details.reason == speechsdk.CancellationReason.Error:
                 print("CANCELED: ErrorDetails={}".format(result.cancellation_details.error_details))
 
-    translation_once_from_mic()
+    translate_speech_to_speech()
     ````
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
