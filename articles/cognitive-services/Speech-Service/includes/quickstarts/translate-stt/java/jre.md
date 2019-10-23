@@ -32,11 +32,10 @@ Before you get started, make sure to:
 1. Replace all code in `Main.java` with the following snippet:
 
 ````Java
-package speechsdk.quickstart;
+package quickstart;
 
 import java.io.IOException;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.concurrent.Future;
 import java.util.concurrent.ExecutionException;
 import com.microsoft.cognitiveservices.speech.*;
 import com.microsoft.cognitiveservices.speech.translation.*;
@@ -48,7 +47,9 @@ public class Main {
         // Creates an instance of a speech translation config with specified
         // subscription key and service region. Replace with your own subscription key
         // and service region (e.g., "westus").
-        SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
+
+        int exitCode = 1;
+        SpeechTranslationConfig config = SpeechTranslationConfig.fromSubscription("def785e72196496cb099bf027c8646b9", "westus");
         assert(config != null);
 
         // Sets source and target languages.
@@ -69,19 +70,19 @@ public class Main {
         // Note: Since recognizeOnceAsync() returns only a single utterance, it is suitable only for single
         // shot recognition like command or query.
         // For long-running multi-utterance recognition, use startContinuousRecognitionAsync() instead.
-        Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+        Future<TranslationRecognitionResult> task = recognizer.recognizeOnceAsync();
         assert(task != null);
 
         TranslationRecognitionResult result = task.get();
         assert(result != null);
 
         if (result.getReason() == ResultReason.TranslatedSpeech) {
-            System.out.println("RECOGNIZED '" + fromLanguage + "': " + e.getResult().getText());
-            System.out.println("TRANSLATED into '" + toLanguage + "': " + map.get(toLanguage));
+            System.out.println("RECOGNIZED '" + fromLanguage + "': " + result.getText());
+            System.out.println("TRANSLATED into '" + toLanguage + "': " + result.getTranslations().get(toLanguage));
             exitCode = 0;
         }
         else if (result.getReason() == ResultReason.RecognizedSpeech) {
-            System.out.println("RECOGNIZED '" + fromLanguage + "': " + e.getResult().getText() + "(text could not be translated)");
+            System.out.println("RECOGNIZED '" + fromLanguage + "': " + result.getText() + "(text could not be translated)");
             exitCode = 0;
         }
         else if (result.getReason() == ResultReason.NoMatch) {
@@ -128,6 +129,7 @@ Press F11, or select **Run** > **Debug**.
 1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
 
 ````
+Say something...
 RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
 ````

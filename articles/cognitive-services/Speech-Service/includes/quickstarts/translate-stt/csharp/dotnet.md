@@ -112,6 +112,7 @@ namespace helloworld
 1. Speak an English phrase or sentence. The application transmits your speech to the Speech Services, which translates and transcribes to text (in this case, to German). The Speech Services then sends the text back to the application for display.
 
 ````
+Say something...
 RECOGNIZED 'en-US': What's the weather in Seattle?
 TRANSLATED into 'de': Wie ist das Wetter in Seattle?
 ````
