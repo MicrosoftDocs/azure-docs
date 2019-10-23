@@ -152,7 +152,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-After registration, you're be able to see the list of models registered with the dataset using Python or the [workspace landing page](https://ml.azure.com/).
+After registration, you're able to see the list of models registered with the dataset using Python or the [workspace landing page](https://ml.azure.com/).
 
 The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with that experiment run.
 
@@ -168,7 +168,7 @@ train_dataset.to_path()
 You can also find the `input_datasets` from experiments using the [workspace landing page (preview)](https://ml.azure.com/). 
 
 The following image shows where to find the input dataset of an experiment on the workspace landing page. For this example, 
-we navigated to our **Experiments** pane, and opened the **Properties** tab for a specific run of our experiment, `keras-mnist`. 
+navigate to your **Experiments** pane, and open the **Properties** tab for a specific run of your experiment, `keras-mnist`. 
 
 ![input_datasets](media/how-to-version-datasets/input_datasets.png)
 
