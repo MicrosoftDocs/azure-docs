@@ -165,9 +165,9 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+
     > [!Note]  
-    > If you're running this command from outside the cluster, get the cluster name from the Azure portal. Enter <clustername> in lowercase and run the command `export clusterName='<clustername>'` to store the variable.  
-    ```
+    > If you're doing this process from outside the cluster, there is a different procedure for storing the cluster name. Get the cluster name in lower case from the Azure portal. Then, substitute the cluster name for `<clustername>` in the following command and execute it: `export clusterName='<clustername>'`.  
 
 5. To get the Kafka broker hosts and the Apache Zookeeper hosts, use the following commands. When prompted, enter the password for the cluster login (admin) account. You are prompted for the password twice.
 
