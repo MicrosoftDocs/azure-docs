@@ -19,7 +19,7 @@ Azure Form Recognizer is a cognitive service that uses machine learning technolo
 
 ## Custom models
 
-The Form Recognizer custom model trains to your own data. To get started, you just need five filled-in form documents or two filled-in forms plus an empty form of the same type as your input material. Or, you can use 10 manually-labeled forms for improved accuracy (see the [Labeled data](./feedback-loop.md) feature). When you submit your input data, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. It then outputs structured data that includes the relationships in the original file. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
+The Form Recognizer custom model trains to your own data. To get started, you just need five filled-in form documents or two filled-in forms plus an empty form of the same type as your input material. Or, you can use 10 manually-labeled forms for improved accuracy (see the [Labeled data](./labeled-data.md) feature). When you submit your input data, the algorithm clusters the forms by type, discovers what keys and tables are present, and associates values to keys and entries to tables. It then outputs structured data that includes the relationships in the original file. After you train the model, you can test and retrain it and eventually use it to reliably extract data from more forms according to your needs.
 
 Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. By contrast, pre-trained machine learning models require standardized data. They're less accurate with input material that deviates from traditional formats, like industry-specific forms.
 
@@ -64,7 +64,7 @@ We recommend that you use the free service when you're learning the technology. 
 
 **Step 3:** Check results.
 
-If you used a custom model, check the results for accuracy. If the model didn't detect some fields or returned incorrect values, you might want to try training again with manually-labeled data. See the [Labeled data](./feedback-loop.md) conceptual doc to learn about this option.
+If you used a custom model, check the results for accuracy. If the model didn't detect some fields or returned incorrect values, you might want to try training again with manually-labeled data. See the [Labeled data](./labeled-data.md) conceptual doc to learn about this option.
 
 **Step 4:** Review the REST APIs.
 

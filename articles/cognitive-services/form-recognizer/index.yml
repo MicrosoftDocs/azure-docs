@@ -65,11 +65,11 @@ landingContent:
       - linkListType: concept
         links:
             - text: Labeled data
-              url: feedback-loop.md
+              url: labeled-data.md
       - linkListType: how-to-guide
         links:
             - text: Train with labels using the REST API and Python
-              url: python-feedback-loop.md
+              url: python-labeled-data.md
 
 
 
