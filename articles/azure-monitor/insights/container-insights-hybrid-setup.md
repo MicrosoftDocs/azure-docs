@@ -11,7 +11,7 @@ ms.date: 10/15/2019
 
 # Configure hybrid Kubernetes clusters with Azure Monitor for containers
 
-Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS-Engine clusters hosted in Azure. This article describes the how to enable monitoring of Kuberentes clusters hosted outside of Azure and achieve a similar monitoring experience.
+Azure Monitor for containers provides rich monitoring experience for the Azure Kubernetes Service (AKS) and AKS-Engine clusters hosted in Azure. This article describes how to enable monitoring of Kuberentes clusters hosted outside of Azure and achieve a similar monitoring experience.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Before you start, make sure that you have the following:
 
 * The containerized agent requires `cAdvisor port: 10255` to be opened on all nodes in the cluster to collect performance metrics.
 
-* The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory datay - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`. 
+* The containerized agent requires the following environmental variables to be specified on the container in order to communicate with the Kubernetes API service within the cluster to collect inventory data - `KUBERNETES_SERVICE_HOST` and `KUBERNETES_PORT_443_TCP_PORT`. 
 
 >[!IMPORTANT]
 >The minimum agent version supported for monitoring hybrid Kubernetes clusters is ciprod10182019 or later. 
@@ -100,7 +100,7 @@ To first identify the full resource ID of your Log Analytics workspace required 
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **id**.
+    In the output, find the workspace name, and then copy the full resource ID of that Log Analytics workspace under the field **ID**.
 
 4. Copy and paste the following JSON syntax into your file:
 
@@ -194,12 +194,12 @@ To first identify the full resource ID of your Log Analytics workspace required 
        ```
 
        ```powershell
-       # set the context of the subscription of log analytics workspace
+       # set the context of the subscription of Log Analytics workspace
        Set-AzureRmContext -SubscriptionId <subscription Id of log analytics workspace>
        ```
        
        ```powershell
-       # execute deployment command to add container insights solution to the specified log analytics workspace
+       # execute deployment command to add container insights solution to the specified Log Analytics workspace
        New-AzureRmResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <resource group of log analytics workspace> -TemplateFile .\containerSolution.json -TemplateParameterFile .\containerSolutionParams.json
        ```
        
@@ -245,7 +245,7 @@ To enable the HELM chart, do the following:
     --set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
     ```
 
-    If the Log Analytics workspace is in Azure China, run the following command:
+    If the Log Analytics workspace is in Azure China 21Vianet , run the following command:
 
     ```
     $ helm install --name myrelease-1 \
