@@ -76,8 +76,6 @@ You can create a Livestream session from an existing hunting query, or create yo
     
     Unless you select **Pause**, the session continues to run until you are signed out from the Azure portal.
 
-if you want to leave the Livestream session running when you close the blade, it continues to run until you are signed out from the Azure portal.
-
 ## View your Livestream sessions
 
 1. In the Azure portal, navigate to **Sentinel** > **Threat management** > **Hunting** > **Livestream** tab.
