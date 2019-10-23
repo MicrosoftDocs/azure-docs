@@ -31,8 +31,6 @@ You can create and manage your applications on **My Apps**.
 
 1. Select **+ Create**.
 
-    [![Screenshot of app list](./media/empty-apps-list.png "Screenshot of app list")](./media/empty-apps-list.png)
-
 1. In the dialog box, name your application "Home Automation".
 
 1. Choose your application culture. For this Home Automation app, choose English. Then select **Done**. LUIS creates the app. 
