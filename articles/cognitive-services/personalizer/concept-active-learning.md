@@ -1,7 +1,7 @@
 ---
 title: Active and inactive events - Personalizer
 titleSuffix: Azure Cognitive Services
-description: When your application calls the Rank API, you receive the action that the application should show in the **rewardActionId** field. From that moment, Personalizer expects a Reward call that has the same eventId. The reward score will be used to train the model for future Rank calls. If no Reward call is received for the eventId, a default reward is applied. Default rewards are set in the Azure portal.
+description: When your application calls the Rank API, you receive the action that the application should show in the rewardActionId field. From that moment, Personalizer expects a Reward call that has the same eventId. The reward score will be used to train the model for future Rank calls. If no Reward call is received for the eventId, a default reward is applied. Default rewards are set in the Azure portal.
 services: cognitive-services
 author: diberry
 manager: nitinme
