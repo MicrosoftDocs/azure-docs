@@ -11,8 +11,17 @@ manager: eliotgra
 ---
 
 # Tutorial: Build a Power BI provider dashboard
-When building your continuous patient monitoring solution, you may want to also create a dashboard for a hospital care team to visualize patient data. This tutorial will walk you through the steps to be able to create a Power BI real-time streaming dashboard from your IoT Central Continuous Patient Monitoring application template. The basic architecture will follow this structure: 
 
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+
+When building your continuous patient monitoring solution, you may want to also create a dashboard for a hospital care team to visualize patient data. This tutorial will walk you through the steps to be able to create a Power BI real-time streaming dashboard from your IoT Central Continuous Patient Monitoring application template. 
+
+[!div class="mx-imgBorder"] 
+![Dashboard GIF](media/dashboard-gif-3.gif)
+
+The basic architecture will follow this structure: 
+
+[!div class="mx-imgBorder"] 
 ![Provider Triage Dashboard](media/dashboard-architecture.png)
 
 In this tutorial, you learn how to:
@@ -23,7 +32,6 @@ In this tutorial, you learn how to:
 > * Connect your Logic App to Azure Event Hubs
 > * Stream data to Power BI from your Logic App
 > * Build a real-time dashboard for patient vitals
-
 
 ## Prerequisites
 
@@ -38,23 +46,25 @@ In this tutorial, you learn how to:
 * A Power BI service account. If you don't have one already, you can [create a free trial account for Power BI service](https://app.powerbi.com/). If you haven't used Power BI before, it might be helpful to go through [Get started with Power BI](https://docs.microsoft.com/power-bi/service-get-started).
 
 ## Set up a continuous data export to Azure Event Hubs
-You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](https://docs.microsoft.com/azure/iot-central/howto-export-data-event-hubs-service-bus-pnp). Note that you will only need to export for the telemetry for the purposes of this tutorial.
+You will first need to set up a continuous data export from your Azure IoT Central app template to the Azure Event Hub in your subscription. You can do so by following the steps in this Azure IoT Central tutorial for [Exporting to Event Hubs](https://docs.microsoft.com/azure/iot-central/howto-export-data-event-hubs-service-bus-pnp). You will only need to export for the telemetry for the purposes of this tutorial.
 
 ## Create a Power BI streaming dataset
 
 1. Sign in to your Power BI account.
 
-2. In your preferred Workspace, create a new streaming dataset by clicking the **+ Create** button in the top right corner. You will need to create a separate dataset for  each patient that you would like to have on your dashboard.
+2. In your preferred Workspace, create a new streaming dataset by clicking the **+ Create** button in the top-right corner. You will need to create a separate dataset for  each patient that you would like to have on your dashboard.
 
+[!div class="mx-imgBorder"] 
 ![Create streaming dataset](media/create-streaming-dataset.png)
 
 3. Choose **API** for the source of your dataset.
 
 4. Enter a **name** (for example, a patient's name) for your dataset and then fill out the values from your stream. You can see an example below based on values coming from the simulated devices in the Continuous Patient Monitoring application template. The example has two patients:
 
-    * Teddy Silvers, who has data from both the Smart Vitals Patch and the Smart Knee Brace
-    * Yesenia Sanford, who has data from the Smart Vitals Patch only
+    * Teddy Silvers, who has data from the Smart Knee Brace
+    * Yesenia Sanford, who has data from the Smart Vitals Patch
 
+[!div class="mx-imgBorder"] 
 ![Enter dataset values](media/enter-dataset-values.png)
 
 To learn more about streaming datasets in Power BI, you can read this document on [real-time streaming in Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
@@ -70,7 +80,8 @@ To connect your Logic Azure Event Hubs, you can follow the instructions outlined
 
 At the end of this step, your Logic Apps Designer should look like this:
 
-![Logic Apps connect to Event Hubs](media/logic-apps-eh.png)
+[!div class="mx-imgBorder"] 
+![Logic Apps connect to Event Hubs](media/eh-logic-app.png)
 
 ## Stream data to Power BI from your Logic App
 The next step will be to parse the data coming from your Event Hub to stream it into the Power BI datasets that you have previously created.
@@ -127,44 +138,66 @@ Before you can do this, you will need to understand the JSON payload that is bei
 
     |Parameter|Value|
     |---|---|
-    |Name|Device ID|
+    |Name|Interface Name|
     |Type|String|
 
     Hit **Save**. 
 
-2. Click **+ New Step** and add a **Parse JSON** action. Rename this to **Parse Properties**. For the Content, choose **Properties** coming from the Event Hub. Click **Use sample payload to generate schema** at the bottom, and paste the sample payload from the Properties section above.
+2. Add another variable called **Body** with Type as **String**. Your logic app will have these actions added:
 
-3. For the telemetry coming from your devices, add 2 parallel branches to parse the JSON for those messages. For the Content, choose **Content** coming from the Event Hub. Copy and paste the sample payloads posted above. At the end of Step 3, your logic app should look like this:
+[!div class="mx-imgBorder"]
+![Initialize variables](media/initialize-string-variables.png)
 
-    ![End of Step 3](media/parse-JSON.png)
+3. Click **+ New Step** and add a **Parse JSON** action. Rename this to **Parse Properties**. For the Content, choose **Properties** coming from the Event Hub. Click **Use sample payload to generate schema** at the bottom, and paste the sample payload from the Properties section above.
 
-4. Off of your **Parse Properties** action, add a **Set variable** action. You will use this to funnel the correct Device ID to the correct patient. Choose the name that you specified for the variable in Step 1. For Value, choose **iothub-connection-device-id** from the parsed JSON.
+4. Next, choose the **Set variable** action and update your **Interface Name** variable with the **iothub-interface-name** from the parsed JSON properties.
 
-5. Add a new step to link everything together with a **Switch** Control. Rename the Switch Control to **Split by Device ID** and choose the Device ID variable for the **On** parameter.
+5. Add a **Split** Control as your next action and choose the **Interface Name** variable as the On parameter. You will use this to funnel the data to the correct dataset.
 
-6. From your Azure IoT Central application, find the device ID for the Smart Vitals Patch and the Smart Knee Braces from the **Devices** view. Create two different cases for the Switch Control: one for the Smart Vitals Patch device ID and one for the Smart Knee Brace device ID. Add action for each case that calls the **Add rows to a dataset** Power BI functionality and rename appropriately. You will have to sign into Power BI for this. Add an additional action for the Smart Vitals operation.
+6. In your Azure IoT Central application that you're using, find the Interface Name for the Smart Vitals Patch health data and the Smart Knee Brace health data from the **Device Templates** view. Create two different cases for the Switch Control for each Interface Name and rename the control appropriately. You can set the Default case to use the **Terminate** Control and choose what status you would like to show.
 
-7. Choose the appropriate **Workspace**, **Dataset**, and **Table**. Map the parameters that you specified when creating your streaming dataset in Power BI to the parsed JSON values that are coming from your Event Hub. Your filled out actions should look like this:
+[!div class="mx-imgBorder"] 
+![Split control](media/split-by-interface.png)
 
-    ![Add rows to Power BI](media/power-bi-mapping.png)
+7. For the **Smart Vitals Patch** case, add a **Parse JSON** action. For the Content, choose **Content** coming from the Event Hub. Copy and paste the sample payloads for the Smart Vitals Patch above to generate the schema.
 
-    Press **Save** and then run your logic app. Note that because not all messages fit the same schema, the logic app will not be successful for every single run.
+8. Add a **Set variable** action and update the **Body** variable with the **Body** from the parsed JSON in Step 7.
+
+9. Add a **Condition** Control as your next action and set the condition to **Body**, **contains**, **HeartRate**. This will make sure that you have the right set of data coming from the Smart Vitals Patch before populating the Power BI dataset. Steps 7-9 will look like this:
+
+[!div class="mx-imgBorder"] 
+![Smart Vitals add condition](media/smart-vitals-pbi.png)
+
+10. For the **True** case of the Condition, add an action that calls the **Add rows to a dataset** Power BI functionality. You will have to sign into Power BI for this. Your **False** case can again use the **Terminate** control.
+
+11. Choose the appropriate **Workspace**, **Dataset**, and **Table**. Map the parameters that you specified when creating your streaming dataset in Power BI to the parsed JSON values that are coming from your Event Hub. Your filled out actions should look like this:
+
+![Add rows to Power BI](media/add-rows-yesenia.png)
+
+12. For the **Smart Knee Brace** switch case, add a **Parse JSON** action to parse the content similar to Step 7. Then **Add rows to a dataset** to update your Teddy Silvers dataset in Power BI.
+
+[!div class="mx-imgBorder"] 
+![Smart Vitals add condition](media/knee-brace-pbi.png)
+
+13 Press **Save** and then run your logic app.
 
 ## Build a real-time dashboard for patient vitals
-Now go back to Power BI and selec **+ Create** to create a new **Dashboard**. Give your dashboard a name and hit **Create**.
+Now go back to Power BI and select **+ Create** to create a new **Dashboard**. Give your dashboard a name and hit **Create**.
 
 Click the three dots in the top navigation bar and then select **+ Add tile**.
 
+[!div class="mx-imgBorder"] 
 ![Add tile to dashboard](media/add-tile.png)
 
 Choose the type of tile you would like to add and customize your app how you would like.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete <resources> with the following steps:
+If you're not going to continue to use this application, delete your resources with the following steps:
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
+1. From the Azure portal, you can delete the Event Hub and Logic Apps resources that you created.
+
+2. For your IoT Central application, go to the Administration tab and click Delete.
 
 ## Next steps
 
