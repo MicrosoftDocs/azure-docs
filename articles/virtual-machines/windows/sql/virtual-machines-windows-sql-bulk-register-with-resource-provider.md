@@ -43,7 +43,7 @@ To create the script, copy the [full script](#full-script) from the end of this 
 
 Once the script is created, you can import it as a module in the Powershell terminal. 
 
-Open the PowerShell terminal and navigate to where you saved the `RegisterSqlVMs.psm1` file. Then, run the following PowerShell cmdlet to import the script as a module: 
+Open an administrative PowerShell terminal and navigate to where you saved the `RegisterSqlVMs.psm1` file. Then, run the following PowerShell cmdlet to import the script as a module: 
 
 ```powershell-interactive
 Import-Module .\RegisterSqlVMs.psm1
