@@ -30,6 +30,8 @@ Applications in the VNet can connect to the storage service over the private end
 
 When you create a private endpoint for a storage service in your VNet, a consent request is sent for approval to the storage account owner. If the user requesting the creation of the private endpoint is also an owner of the storage account, this consent request is automatically approved.
 
+Storage account owners can approve or reject the consent requests, as well as view or manage the private endpoints, through the 'Private Endpoints' tab for the storage account in the [Azure portal](https://portal.azure.com).
+
 You can secure your storage account to only accept connections from your  VNet, by [configuring the storage firewall](storage-network-security.md#change-the-default-network-access-rule) to deny access through its public endpoint by default. You don't need a storage firewall rule to allow traffic from a VNet that has a private endpoint, since the storage firewall rules only apply to its public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
 
 ### Private Endpoints for Storage Service
@@ -80,7 +82,7 @@ For pricing details, see [Azure Private Link pricing](https://azure.microsoft.co
 
 ### Copy Blob failures
 
-Currently, [Copy Blob](https://docs.microsoft.com/en-us/rest/api/storageservices/Copy-Blob) commands issued to storage accounts accessed through private endpoints fail when the source storage account is protected by a firewall.
+Currently, [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) commands issued to storage accounts accessed through private endpoints fail when the source storage account is protected by a firewall.
 
 ### Storage access constraints for clients in VNets with Private Endpoints
 
@@ -90,4 +92,4 @@ This constraint is a result of the DNS changes made when account A2 creates a pr
 
 ### NSG rules on subnets with private endpoints
 
-[Network Security Group](../../virtual-network/security-overview.md) (NSG) rules cannot be configured for subnets with private endpoints, at this time. A limited workaround for this issue is to implement your access rules for the private endpoints on the source subnets, though this approach may require a higher managementgit  overhead.
+[Network Security Group](../../virtual-network/security-overview.md) (NSG) rules cannot be configured for subnets with private endpoints, at this time. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
