@@ -10,7 +10,9 @@ ms.reviewer: sngun
 ---
 # Optimize throughput when bulk importing data to Azure Cosmos DB SQL API account
 
-This tutorial shows how to build a .Net console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB by performing concurrent operations on your data. In this article, you will read data from a sample data source and bulk import it into an Azure Cosmos container.
+This tutorial shows how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
+
+In this article, you will read data from a sample data source and import it into an Azure Cosmos container.
 
 This tutorial uses [Version 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) of the Azure Cosmos DB .NET SDK, which can be targeted to .NET Framework or .NET Core.
 
@@ -34,9 +36,9 @@ Before following the instructions in this article, make sure that you have the f
 
 ## Step 1: Create an Azure Cosmos DB account
 
-[Create an Azure Cosmos DB SQL API account](create-cosmosdb-resources-portal.md) by using the steps described in the create an account section of this article. Optionally, you can [use the Azure Cosmos DB Emulator](local-emulator.md).
+Create an Azure Cosmos DB SQL API account by using the steps described in [this article](create-cosmosdb-resources-portal.md). Optionally, you can [use the Azure Cosmos DB Emulator](local-emulator.md).
 
-## Step 2: Setup your .NET project
+## Step 2: Set up your .NET project
 
 Open the Windows command prompt or a Terminal window from your local computer. You will run all the commands in the next sections from the command prompt or terminal. Run the following dotnet new command to create a new app with the name *bulk-import-demo*. The `--langVersion` parameter sets the *LangVersion* property in the created project file.
 
@@ -86,7 +88,7 @@ If you are using the Azure Cosmos DB Emulator, obtain the [emulator credentials 
 
 Open the generated `Program.cs` file in a code editor. We will create a new instance of CosmosClient with bulk execution enabled and use it to do operations against Azure Cosmos DB. 
 
-Let’s start by overwriting the default `Main` method and defining global variables. These global variables will include the endpoint and authorization keys (replace these values with your desired ones), the name of the database and container we will be creating, and finally, the amount of items we will be inserting in bulk.
+Let's start by overwriting the default `Main` method and defining global variables. These global variables will include the endpoint and authorization keys (replace these values with your desired ones), the name of the database and container we will be creating, and the number of items we will be inserting in bulk.
 
 
    ```csharp
@@ -133,7 +135,7 @@ Then, we define the Model of the items we want to save, we can add this class de
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
 
-And create a helper function inside our Program class that will, for the amount of items we defined to insert, generate random data:
+And create a helper function inside our Program class that will, for the number of items we defined to insert, generate random data:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
 
@@ -141,7 +143,7 @@ In a real-world application, the items would come from your desired data source.
 
 We then take the items and serialize them into `Stream` instances using `System.Text.Json`. Because of the nature of our data, we receive the information as streams, we can use them directly as long as we know the PartitionKey.
 
-Inside the `Main` method, right after creating the container, add the following:
+Inside the `Main` method, right after creating the container, add the following code:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
 
@@ -176,7 +178,7 @@ The sample can be run by changing to the repository directory and using `dotnet`
 
 ## Next steps
 
-In this tutorial, you've done the following:
+In this tutorial, you've done the following steps:
 
 > [!div class="checklist"]
 > * Creating an Azure Cosmos account
