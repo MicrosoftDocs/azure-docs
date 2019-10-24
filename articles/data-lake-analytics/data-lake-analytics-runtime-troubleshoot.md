@@ -33,7 +33,6 @@ The following are the available runtime versions.
 
 - release_20190318_adl_3394512
 - release_20190318_adl_5832669 the current default
-- default
 - release_20190703_adl_4713356
 
 > [!CAUTION]
