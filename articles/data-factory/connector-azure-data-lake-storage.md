@@ -198,12 +198,9 @@ These properties are supported for the linked service:
 
 For a full list of sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md).
 
-- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC format**, refer to [Other format dataset](#other-format-dataset) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
-
-To copy data to and from **Parquet, delimited text, Avro or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Data Lake Storage Gen2 under `location` settings in the format-based dataset:
+The following properties are supported for Data Lake Storage Gen2 under `location` settings in the format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -211,9 +208,6 @@ To copy data to and from **Parquet, delimited text, Avro or binary format**, ref
 | fileSystem | The Data Lake Storage Gen2 file system name.                              | No       |
 | folderPath | The path to a folder under the given file system. If you want to use a wildcard to filter folders, skip this setting and specify it in activity source settings. | No       |
 | fileName   | The file name under the given fileSystem + folderPath. If you want to use a wildcard to filter files, skip this setting and specify it in activity source settings. | No       |
-
-> [!NOTE]
-> The **AzureBlobFSFile** type dataset with parquet or text format mentioned in the following section is still supported as is for copy, lookup, or GetMetadata activity for backward compatibility. But it doesn't work with the mapping data flow feature. We recommend that you use this new model going forward. The Data Factory authoring UI generates these new types.
 
 **Example:**
 
@@ -242,9 +236,10 @@ To copy data to and from **Parquet, delimited text, Avro or binary format**, ref
 }
 ```
 
-### Other format dataset
+### Legacy dataset model
 
-To copy data to and from Data Lake Storage Gen2 in **ORC format**, the following properties are supported:
+>[!NOTE]
+>The following dataset model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned in above section going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -295,12 +290,9 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake Storage Gen2 as a source type
 
-- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
-- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
-
-To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy source:
+The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -311,9 +303,6 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 | modifiedDatetimeStart    | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL, which means that no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means that the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means that the files whose last modified attribute is less than the datetime value are selected. | No                                            |
 | modifiedDatetimeEnd      | Same as above.                                               | No                                            |
 | maxConcurrentConnections | The number of connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
-
-> [!NOTE]
-> For the parquet or delimited text format, the **AzureBlobFSSource** type copy activity source mentioned in the following section is still supported as is for backward compatibility. We recommend that you use this new model going forward. The Data Factory authoring UI generates these new types.
 
 **Example:**
 
@@ -356,9 +345,10 @@ To copy data from **Parquet, delimited text, JSON, Avro and binary format**, ref
 ]
 ```
 
-#### Other format source
+#### Legacy source model
 
-To copy data from Data Lake Storage Gen2 in **ORC format**, the following properties are supported in the copy activity **source** section:
+>[!NOTE]
+>The following copy source model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -400,21 +390,15 @@ To copy data from Data Lake Storage Gen2 in **ORC format**, the following proper
 
 ### Azure Data Lake Storage Gen2 as a sink type
 
-- To copy to **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format sink](#format-based-sink) section.
-- To copy to other formats like **ORC/JSON format**, refer to [Other format sink](#other-format-sink) section.
+[!INCLUDE [data-factory-v2-file-formats](../../includes/data-factory-v2-file-formats.md)] 
 
-#### <a name="format-based-sink"></a> Parquet, delimited text, JSON, Avro and binary format sink
-
-To copy data to **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity sink and supported settings. The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy sink:
+The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
 | type                     | The type property under `storeSettings` must be set to **AzureBlobFSWriteSetting**. | Yes      |
 | copyBehavior             | Defines the copy behavior when the source is files from a file-based data store.<br/><br/>Allowed values are:<br/><b>- PreserveHierarchy (default)</b>: Preserves the file hierarchy in the target folder. The relative path of the source file to the source folder is identical to the relative path of the target file to the target folder.<br/><b>- FlattenHierarchy</b>: All files from the source folder are in the first level of the target folder. The target files have autogenerated names. <br/><b>- MergeFiles</b>: Merges all files from the source folder to one file. If the file name is specified, the merged file name is the specified name. Otherwise, it's an autogenerated file name. | No       |
 | maxConcurrentConnections | The number of connections to connect to the data store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No       |
-
-> [!NOTE]
-> For the parquet or delimited text format, the **AzureBlobFSSink** type copy activity sink mentioned in the following section is still supported as is for backward compatibility. We recommend that you use this new model going forward. The Data Factory authoring UI generates these new types.
 
 **Example:**
 
@@ -451,9 +435,10 @@ To copy data to **Parquet, delimited text, JSON, Avro and binary format**, refer
 ]
 ```
 
-#### Other format sink
+#### Legacy sink model
 
-To copy data to Data Lake Storage Gen2 in **ORC format**, the following properties are supported in the **sink** section:
+>[!NOTE]
+>The following copy sink model is still supported as-is for backward compatibility. You are suggested to use the new model mentioned above going forward, and the ADF authoring UI has switched to generating the new model.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
