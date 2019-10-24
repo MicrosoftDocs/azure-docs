@@ -2,11 +2,12 @@
 title: View a knowledge store with Storage Explorer
 titleSuffix: Azure Cognitive Search
 description: View and analyze an Azure Cognitive Search knowledge store with the Azure portal's Storage Explorer.  
+
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 

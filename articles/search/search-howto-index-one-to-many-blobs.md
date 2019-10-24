@@ -1,5 +1,6 @@
 ---
 title: Index one blob into many search index documents from Azure Blob indexer for full text search
+titleSuffix: Azure Cognitive Search
 description: Crawl Azure blobs for text content using the Azure Congitive Search Blob indexer. Each blob might yield one or more search index documents.
 
 manager: nitinme

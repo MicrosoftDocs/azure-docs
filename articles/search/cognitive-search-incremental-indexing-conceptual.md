@@ -1,23 +1,23 @@
 ---
-title: Introduction to Incremental Indexing (preview) - Azure Search
-description: Configure your AI enrichment pipeline to drive your data to eventual consistency to handle any updates to skills, skillsets, indexers, or data sources
+title: Introduction to Incremental Indexing (preview)
+titleSuffix: Azure Cognitive Search
+description: Configure your AI enrichment pipeline to drive your data to eventual consistency to handle any updates to skills, skillsets, indexers, or data sources.
+
 manager: nitinme
 author: Vkurpad
-services: search
-ms.service: cognitive-search
-ms.topic: overview
-ms.date: 10/11/2019
 ms.author: vikurpad
-
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 10/11/2019
 ---
 
-# What is incremental indexing in Azure Search?
+# What is incremental indexing in Azure Cognitive Search?
 
 > [!Note]
 > Incremental indexing is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
-Incremental indexing is a feature of Azure Search that brings a declarative approach to indexing your data. Indexers in Azure Search add documents to your search index from a data source. Indexers track updates to the documents in your data sources and update the index with the new or updated documents from the data source. Indexers can be executed on a recurring schedule ensuring the data source and the index are eventually consistent. Incremental indexing is a new feature that extends change tracking from only the data source to all aspects of the enrichment pipeline. With incremental indexing, the indexer will drive your documents to eventual consistency with your data source, the current version of your skillset, and the indexer.
+Incremental indexing is a feature of Azure Cognitive Search that brings a declarative approach to indexing your data. Indexers in Azure Cognitive Search add documents to your search index from a data source. Indexers track updates to the documents in your data sources and update the index with the new or updated documents from the data source. Indexers can be executed on a recurring schedule ensuring the data source and the index are eventually consistent. Incremental indexing is a new feature that extends change tracking from only the data source to all aspects of the enrichment pipeline. With incremental indexing, the indexer will drive your documents to eventual consistency with your data source, the current version of your skillset, and the indexer.
 
 Indexers have a few key characteristics:
 
@@ -77,7 +77,7 @@ To ensure that the indexer only does enrichments you explicitly require, updates
 
 ## Cache invalidation
 
-The converse of that scenario is one where you may deploy a new version of a custom skill, nothing within the enrichment pipeline changes, but you need a specific skill invalidated and all affected documents reprocessed to reflect the benefits of an updated model. In such instances, you can call the invalidate skills operation on the skillset. The reset skills API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information on the reset skills API, see the documentation ["Reset Indexer (Azure Search Service REST API)](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
+The converse of that scenario is one where you may deploy a new version of a custom skill, nothing within the enrichment pipeline changes, but you need a specific skill invalidated and all affected documents reprocessed to reflect the benefits of an updated model. In such instances, you can call the invalidate skills operation on the skillset. The reset skills API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information on the reset skills API, see the documentation ["Reset Indexer (Search REST API)](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
 
 ## Change detection
 

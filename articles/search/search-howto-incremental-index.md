@@ -1,6 +1,7 @@
 ---
-title: Incrementally index your documents with change tracking across the entire indexing pipeline - Azure Search
-description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search.
+title: Incrementally index your documents with change tracking across the entire indexing pipeline
+titleSuffix: Azure Cognitive Search
+description: Learn how to index Azure Blob Storage and extract text from documents with Azure Cognitive Search.
 
 ms.date: 10/07/2019
 author: vkurpad 
@@ -14,17 +15,17 @@ ms.topic: conceptual
 ms.custom: seonov2019
 ---
 
-# Incrementally indexing documents with Azure Search
+# Incrementally indexing documents with Azure Cognitive Search
 
-This article shows how to use Azure Search to incrementally index documents from any of the supported data sources. 
-If you're not familiar with setting up indexers in Azure search start with [indexer overview](search-indexer-overview.md). If you need to learn more about the incremental indexing feature start with [incremental indexing](cognitive-search-incremental-indexing-conceptual.md).
+This article shows how to use Azure Cognitive Search to incrementally index documents from any of the supported data sources. 
+If you're not familiar with setting up indexers in Azure Cognitive Search start with [indexer overview](search-indexer-overview.md). If you need to learn more about the incremental indexing feature start with [incremental indexing](cognitive-search-incremental-indexing-conceptual.md).
 First, it explains the basics of setting up and configuring incremental indexing. Then, it offers a deeper exploration of behaviors and scenarios you're likely to come across.
 
 ## Setting up incremental indexing
 
 Incremental indexing can be configured using:
 
-* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* [Search REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 
 > [!NOTE]
 > This feature is not yet available in the portal and has to be used programmatically.
@@ -103,5 +104,5 @@ Instanced when you want the indexing pipeline to recognize a change to an extern
 
 ## Next steps
 
-Learn more about incremental indexing behavior in [What is incremental indexing in Azure Search?](cognitive-search-incremental-indexing-conceptual.md). 
+Learn more about incremental indexing behavior in [What is incremental indexing in Azure Cognitive Search?](cognitive-search-incremental-indexing-conceptual.md). 
 
