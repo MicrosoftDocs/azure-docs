@@ -1,6 +1,6 @@
 ---
-title: Deploy Azure Blob Storage module - Azure Event Grid IoT Edge | Microsoft Docs 
-description: Deploy Azure FunBlob Storage module as a Publisher from Azure portal
+title: React to Blob Storage module events - Azure Event Grid IoT Edge | Microsoft Docs 
+description: React to Blob Storage module events
 author: arduppal
 manager: mchad
 ms.author: arduppal
@@ -11,9 +11,9 @@ ms.service: event-grid
 services: event-grid
 ---
 
-# Tutorial: Deploy Azure Blob Storage on IoT Edge module (Preview)
+# Tutorial: React to Blob Storage events on IoT Edge (Preview)
 
-This article shows you how to deploy the Azure Blob Storage on IoT module, which would act as an Event Grid publisher to send events on Blob creation and Blob deletion to Event Grid. 
+This article shows you how to locally react to Blob creation and Blob deletion events on IoT Edge using Event Grid.
 
 Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
@@ -27,7 +27,6 @@ Complete the [Publish and subscribe to events locally](pub-sub-events-webhook-lo
 
 > [!NOTE]
 > Blob Storage module publishes events using HTTP. Confirm that the Event Grid module allows both HTTP and HTTPS requests with the following configuration: `inbound:serverAuth:tlsPolicy=enabled"`. If you followed the prerequisite tutorial, it should be already set. 
-
 
 ## Select your IoT Edge device
 
@@ -145,22 +144,22 @@ Keep the default routes, and select **Next** to continue to the review section
     2. Run the following command to create a subscription for the topic. Confirm that you see the HTTP status code is `200 OK`.
 
     ```sh
-    curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
+    curl -k -H "Content-Type: application/json" -X PUT -g -d @blobsubscription.json https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
     ```
 
     3. Run the following command to verify subscription was created successfully. HTTP Status Code of 200 OK should be returned.
 
     ```sh
-    curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
+    curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5?api-version=2019-01-01-preview
     ```
 
     Sample output:
 
     ```json
         {
-          "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription1",
+          "id": "/iotHubs/eg-iot-edge-hub/devices/eg-edge-device/modules/eventgridmodule/topics/MicrosoftStorage/eventSubscriptions/sampleSubscription5",
           "type": "Microsoft.EventGrid/eventSubscriptions",
-          "name": "sampleSubscription1",
+          "name": "sampleSubscription5",
           "properties": {
             "Topic": "MicrosoftStorage",
             "destination": {
@@ -176,7 +175,6 @@ Keep the default routes, and select **Next** to continue to the review section
 2. Download [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) and [connect it to your local storage](../../iot-edge/how-to-store-data-blob.md#connect-to-your-local-storage-with-azure-storage-explorer)
 
 ## Verify event delivery
-
 
 ### Verify BlobCreated event delivery
 
@@ -208,6 +206,7 @@ Keep the default routes, and select **Next** to continue to the review section
             }
           ]
     ```
+
 ### Verify BlobDeleted event delivery
 
 1. Delete blobs from the local storage using Azure Storage Explorer, and the module will automatically publish delete events. 
@@ -242,6 +241,7 @@ Keep the default routes, and select **Next** to continue to the review section
 Congratulations! You have completed the tutorial. The following sections provide details on the event properties.
 
 ### Event properties
+
 Here's the list of supported event properties and their types and descriptions. 
 
 | Property | Type | Description |
@@ -269,8 +269,8 @@ The data object has the following properties:
 | url | string | The path to the blob. <br>If the client uses a Blob REST API, then the url has this structure: *\<storage-account-name\>.blob.core.windows.net/\<container-name\>/\<file-name\>*. <br>If the client uses a Data Lake Storage REST API, then the url has this structure: *\<storage-account-name\>.dfs.core.windows.net/\<file-system-name\>/\<file-name\>*. |
 
 
-
 ## Next steps
+
 See the following articles from the Blob Storage documentation:
 
 - [Filter Blob Storage events](../../storage/blobs/storage-blob-event-overview.md#filtering-events)
@@ -280,5 +280,3 @@ In this tutorial, you published events by creating or deleting blobs in an Azure
 
 - [Forward events to Azure Event Grid](forward-events-event-grid-cloud.md)
 - [Forward events to Azure IoT Hub](forward-events-iothub.md)
-
-
