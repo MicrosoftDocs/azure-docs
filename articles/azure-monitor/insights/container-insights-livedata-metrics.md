@@ -33,7 +33,7 @@ For help with setting up or troubleshooting the Live Data (preview) feature, rev
 
 The Live Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-This feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` and `/api/v1/pods`), which is every five seconds by default. This data is cached in your browser and charted in the four performance charts included in Azure Monitor for containers on the **Cluster** tab. Each subsequent poll is charted into a rolling five-minute visualization window. 
+This feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` and `/api/v1/pods`), which is every five seconds by default. This data is cached in your browser and charted in the four performance charts included in Azure Monitor for containers on the **Cluster** tab by selecting **Go live (preview)**. Each subsequent poll is charted into a rolling five-minute visualization window. 
 
 ![Go Live option in the Cluster view](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
@@ -58,6 +58,8 @@ These two performance charts map to an equivalent of invoking `kubectl top nodes
 ![Kubectl top nodes example results](./media/container-insights-livedata-metrics/kubectl-top-nodes-example.png)
 
 ![Nodes CPU utilization percent chart](./media/container-insights-livedata-metrics/cluster-view-node-cpu-util.png)
+
+![Node Memory utilization percent chart](./media/container-insights-livedata-metrics/cluster-view-node-memory-util.png)
 
 The percentile calculations will function in larger clusters to help identify outlier nodes in your cluster. For example, to understand if nodes are under-utilized for scale down purposes. Utilizing the **Min** aggregation you can see which nodes have low utilization in the cluster. To further investigate, you select the **Nodes** tab and sort the grid by CPU or memory utilization.
 
