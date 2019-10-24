@@ -75,9 +75,6 @@ az aks create \
   --max-count 3
 ```
 
-> [!NOTE]
-> If you specify a *--kubernetes-version* when running `az aks create`, that version must meet or exceed the minimum version number required as outlined in the preceding [Before you begin](#before-you-begin) section.
-
 It takes a few minutes to create the cluster and configure the cluster autoscaler settings.
 
 ## Change the cluster autoscaler settings
