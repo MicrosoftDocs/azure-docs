@@ -4,7 +4,7 @@ description: How to create and manage Blockchain Data Manager using Azure CLI
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/23/2019
+ms.date: 10/24/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
@@ -12,20 +12,21 @@ ms.reviewer: chroyal
 ---
 # Configure Blockchain Data Manager using Azure CLI
 
-Use Azure CLI to configure Blockchain Data Manager for Azure Blockchain Service. A Blockchain Data Manager instance monitors an Azure Blockchain Service member and sends data to an Azure Event Grid Topic.
+Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data send it to an Azure Event Grid Topic.
 
 To configure a Blockchain Data Manager instance, you:
 
-* [Create a Blockchain Manager instance](#create-an-instance)
-* [Create an input](#create-an-input) to an Azure Blockchain Service transaction node
-* [Create an output](#create-an-output) to an Azure Event Grid Topic
-* [Add a blockchain application](#add-a-blockchain-application)
-* [Start an instance](#start-an-instance)
+* [Create a Blockchain Manager instance](#create-instance)
+* [Create an input](#create-input) to an Azure Blockchain Service transaction node
+* [Create an output](#create-output) to an Azure Event Grid Topic
+* [Add a blockchain application](#add-blockchain-application)
+* [Start an instance](#start-instance)
 
 ## Prerequisites
 
 * Install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and signed in using `az login`.
 * Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md)
+* Learn about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md)
 
 ## Launch Azure Cloud Shell
 
@@ -43,7 +44,7 @@ Create a resource group with the [az group create](https://docs.microsoft.com/cl
 az group create --name myRG --location eastus
 ```
 
-## Create an instance
+## Create instance
 
 A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node. An instance captures all raw block and raw transaction data from the transaction node.
 
@@ -103,7 +104,7 @@ az resource create \
                     --properties @watcher.json
 ```
 
-## Create an input
+## Create input
 
 An input connects Blockchain Data Manager to an Azure Blockchain Service transaction node. Only users with access to the transaction node can create a connection.
 
@@ -175,9 +176,9 @@ az resource create \
                    --properties @input.json
 ```
 
-## Create an output
+## Create output
 
-An outbound connection sends blockchain data to Azure Event Grid. Blockchain Data Manager supports multiple Event Grid Topic outbound connections for any given Blockchain Data Manager instance. You can send blockchain data to a single destination or send blockchain data to multiple destinations.
+An outbound connection sends blockchain data to Azure Event Grid. You can send blockchain data to a single destination or send blockchain data to multiple destinations. Blockchain Data Manager supports multiple Event Grid Topic outbound connections for any given Blockchain Data Manager instance.
 
 ``` azurecli
 az resource create \
@@ -248,9 +249,9 @@ az resource create \
                    --properties @output.json
 ```
 
-## Add a blockchain application
+## Add blockchain application
 
-For added a blockchain applications, Blockchain Data Manager decodes event and property state. Blockchain Data Manager also discovers contract addresses when the contract is deployed. You can add multiple blockchain applications to a Blockchain Data Manager instance. 
+If you add a blockchain application, Blockchain Data Manager decodes event and property state for the application. Otherwise, only raw block and raw transaction data is sent. Blockchain Data Manager also discovers contract addresses when the contract is deployed. You can add multiple blockchain applications to a Blockchain Data Manager instance.
 
 ``` azurecli
 az resource create \
@@ -296,8 +297,8 @@ Configuration JSON example to create an application resource in the *East US* re
 |---------|-------------|
 | location | Region where to create the application resource. |
 | artifactType | Type of application. Currently, **EthereumSmartContract** is supported. |
-| abiFileUrl | URL for smart contract ABI JSON file. For more information on obtaining contract ABI and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode)  and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url).(data-manager-portal.md#get-contract-abi-and-bytecode). |
-| bytecodeFileUrl | URL for smart contract bytecode JSON file. For more information on obtaining the smart contract bytecode and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode)  and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
+| abiFileUrl | URL for smart contract ABI JSON file. For more information on obtaining contract ABI and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
+| bytecodeFileUrl | URL for smart contract bytecode JSON file. For more information on obtaining the smart contract bytecode and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
 
 Create an application named *myApplication* for *mywatcher* that monitors a smart contract defined by a JSON string.
 
@@ -323,7 +324,7 @@ az resource create \
                    --properties @artifact.json
 ```
 
-## Start an instance
+## Start instance
 
 When running, a Blockchain Manager instance monitors blockchain events from the defined inputs and sends data to the defined outputs.
 
@@ -348,7 +349,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/mywatcher
 ```
 
-## Stop an instance
+## Stop instance
 
 Stop a Blockchain Data Manager instance.
 
@@ -373,7 +374,7 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/mywatcher
 ```
 
-## Delete an instance
+## Delete instance
 
 Delete a Blockchain Data Manager instance.
 

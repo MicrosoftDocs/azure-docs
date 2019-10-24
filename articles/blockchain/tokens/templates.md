@@ -4,7 +4,7 @@ description: Azure Blockchain Tokens templates are standardized and reusable tem
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/23/2019
+ms.date: 10/24/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -48,7 +48,7 @@ A hybrid fungible base with a non-fungible segments token has a fungible base wi
 
 A token behavior defines capabilities or restrictions of the token. The behavior includes supporting properties that are a part of the token definition. Behaviors can be applied across all token types or just one. Behaviors can be internal or external depending on what the behavior effects. An internal behavior enables or restricts properties on the token itself. An external behavior enables or restricts the invocation of the behavior from an external actor.
 
-The token behaviors supported in Azure Blockchain Tokens preview from the Token Taxonomy Framework (TTF) without modifications are listed in the [token composability](composability.md) page. 
+For more information about Azure Blockchain Tokens supported Token Taxonomy Framework (TTF) token behaviors, see [token composability](composability.md).
 
 ## Pre-built token templates
 

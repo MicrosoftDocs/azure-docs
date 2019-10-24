@@ -4,7 +4,7 @@ description: Blockchain Data Manager to captures, transforms, and delivers block
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/23/2019
+ms.date: 10/24/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
@@ -14,7 +14,7 @@ ms.reviewer: chroyal
 
 Blockchain Data Manager captures, transforms, and delivers Azure Blockchain Service transaction data to Azure Event Grid Topics providing reliable and scalable blockchain ledger integration with Azure services.
 
-In most enterprise blockchain scenarios, a blockchain ledger is one part of a solution. For example, to transfer an asset from one entity to another, you need a mechanism for submitting the transaction and then a mechanism for reading ledger data to ensure the transaction occurred, was accepted, and the resulting state changes are then integrated with the end-to-end workload. In this example, if you write a smart contract to transfer assets you could use Blockchain Data Manager in an event-based architecture to integrate off-chain applications and data stores. For the asset transfer example, when an asset is transferred on the blockchain, events and property state changes are delivered by Blockchain Data Manager via Event Grid. You can then use multiple possible event handlers for Event Grid to store blockchain data off-chain or react to state changes in real time.
+In most enterprise blockchain scenarios, a blockchain ledger is one part of a solution. For example, to transfer an asset from one entity to another, you need one mechanism for submitting the transaction. You then need a mechanism for reading ledger data to ensure the transaction occurred, was accepted, and the resulting state changes are then integrated with other systems. In this example, if you write a smart contract to transfer assets, you can use Blockchain Data Manager to integrate off-chain applications and data stores. For the asset transfer example, when an asset is transferred on the blockchain, events and property state changes are delivered by Blockchain Data Manager via Event Grid. You can then use multiple possible event handlers for Event Grid to store blockchain data off-chain or react to state changes in real time.
 
 Blockchain Data Manager performs three main functions: capture, transform, and deliver.
 
@@ -37,7 +37,7 @@ Blockchain Data Manager supports multiple Event Grid Topic outbound connections 
 You can configure Blockchain Data Manager to meet the needs of your solution. For example, you can provision:
 
 * A single Blockchain Data Manager instance for an Azure Blockchain Service member.
-* A Blockchain Data Manager instance for an Azure Blockchain Service transaction node. For example, private transaction nodes can have their own Blockchain Data Manager instance to maintain confidentiality.
+* A Blockchain Data Manager instance per Azure Blockchain Service transaction node. For example, private transaction nodes can have their own Blockchain Data Manager instance to maintain confidentiality.
 * A Blockchain Data Manager instance can support multiple output connections. One Blockchain Data Manager instance can be used to manage all data publishing integration points for an Azure Blockchain Service member.
 
 ## Next steps

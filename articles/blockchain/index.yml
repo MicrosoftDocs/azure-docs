@@ -77,14 +77,20 @@ conceptualContent:
         - url: ./tokens/account-management.md
           itemType: concept
           text: Manage tokens using Azure Blockchain Tokens
-    - title: Capture blockchain ledger data using Blockchain Data Manager
+        - url: https://aka.ms/ABTokensPartI
+          itemType: video
+          text: Watch an introduction to Azure Blockchain Tokens
+    - title: Publish blockchain data using Blockchain Data Manager
       links:
         - url: ./service/data-manager.md
           itemType: concept
-          text: What is Blockchain Data Manager?
+          text: What is Blockchain Data Manager for Azure Blockchain Service?
         - url: ./service/data-manager-portal.md
           itemType: how-to-guide
           text: Create a Blockchain Data Manager instance using the Azure portal
+        - url: https://aka.ms/BTDataManager
+          itemType: video
+          text: Watch an introduction to Blockchain Data Manager
     - title: Build with the ledger that suits your use case
       links:
         - url: ./templates/ethereum-poa-deployment.md
