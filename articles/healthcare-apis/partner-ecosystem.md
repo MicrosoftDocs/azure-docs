@@ -1,5 +1,5 @@
 ---
-title: Partner Ecosystem around Azure API for FHIR
+title: Partner ecosystem around Azure API for FHIR
 description: This article highlights some partners that provide unique IP or consulting services to build an end-to-end solution with Azure API for FHIR
 services: healthcare-apis
 author: chrupa
@@ -16,15 +16,15 @@ We are excited that Azure API for FHIR has been released in generally availabili
 When creating an end-to-end solution built around Azure API for FHIR, you may require the help of a partner for their unique IP or for help stitching everything together. We are hard at work growing this ecosystem of diverse partners and I’d like to introduce you to a few of them.
 
 
-| Partner          | Capabilities                               | Supported Countries         | Contact                                                                                                |
-|------------------|--------------------------------------------|-----------------------------|--------------------------------------------------------------------------------------------------------|
-| Medal            | De-identification, Legacy-FHIR conversion  | USA                         | [Contact](https://www.medal.com/contact-us/)                                                           |
-| Rhapsody         | Legacy-FHIR conversion                     | USA, Australia, New Zealand | [Contact](https://rhapsody.health/contact-us)                                                          |
-| Interfaceware    | Legacy-FHIR conversion                     | USA                         | [Contact](https://www.interfaceware.com/contact.html)                                                  |
-| Darena Solutions | Application Development, System Integrator | USA                         | [Contact](https://www.darenasolutions.com/contact)                                                     |
-| NewWave          | Application Development, System Integrator | USA                         | [Contact](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/newwave.mycareai?tab=Overview) |
-| Dapasoft         | Application Development, System Integrator | USA, Canada                 | [Contact](https://www.dapasoft.com/contact-us/)                                                        |
-| CitiusTech       | Application Development, System Integrator | USA, India                  | [Contact](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/citiustech.ics?tab=Overview)   |
-| Firely           | Application Development, System Integrator | USA, UK, Europe             | [Contact](https://fire.ly/contact/)                                                                    |
-| Perspecta        | Application Development, System Integrator | USA                         | [Contact](https://perspecta.com/contact)                                                               |
-| Aridhia          | Analytics                                  | USA, UK                     | [Contact](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/aridhiainformatics.analytixagility_workspace_123?tab=Overview) |
+| Partner          | Capabilities                               | Supported Countries         | Contact                                                                                                                                |
+|------------------|--------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Medal            | De-identification, Legacy-FHIR conversion  | USA                         | [Contact](https://www.medal.com/contact-us/)                                                                                           |
+| Rhapsody         | Legacy-FHIR conversion                     | USA, Australia, New Zealand | [Contact](https://rhapsody.health/contact-us)                                                                                          |
+| iNTERFACEWARE    | Legacy-FHIR conversion                     | USA                         | [Contact](https://www.interfaceware.com/contact.html)                                                                                  |
+| Darena Solutions | Application Development, System Integrator | USA                         | [Contact](https://www.darenasolutions.com/contact)                                                                                     |
+| NewWave          | Application Development, System Integrator | USA                         | [Contact](https://azuremarketplace.microsoft.com/marketplace/apps/newwave.mycareai?tab=Overview)                                       |
+| Dapasoft         | Application Development, System Integrator | USA, Canada                 | [Contact](https://www.dapasoft.com/contact-us/)                                                                                        |
+| CitiusTech       | Application Development, System Integrator | USA, India                  | [Contact](https://azuremarketplace.microsoft.com/marketplace/apps/citiustech.ics?tab=Overview)                                         |
+| Firely           | Application Development, System Integrator | USA, UK, Europe             | [Contact](https://fire.ly/contact/)                                                                                                    |
+| Perspecta        | Application Development, System Integrator | USA                         | [Contact](https://perspecta.com/contact)                                                                                               |
+| Aridhia          | Analytics                                  | USA, UK                     | [Contact](https://azuremarketplace.microsoft.com/marketplace/apps/aridhiainformatics.analytixagility_workspace_123?tab=Overview)       |
