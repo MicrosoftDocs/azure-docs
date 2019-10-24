@@ -84,7 +84,7 @@ Add the account as follows:
 6. Click **Save**.
 7. Click **Save and start discovery**.
 
-    ![Add VM user account](./media/how-to-create-group-machine-dependencies-analysis/add-vm-credential.png)
+    ![Add VM user account](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
 
 ## Start dependency discovery
 
@@ -97,7 +97,7 @@ Choose the machines on which you want to enable dependency discovery.
 4. From the machine list, select the machines.
 5. Click **Start dependency discovery**.
 
-    ![Start dependency discovery](./media/how-to-create-group-machine-dependencies-analysis/start-dependency-discovery.png)
+    ![Start dependency discovery](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
 ## Visualize dependencies
 
@@ -109,13 +109,13 @@ Choose the machines on which you want to enable dependency discovery.
 6. Expand the **Server port** group to list the machines that have a dependency from the selected machine. 
 7. To navigate to the map view of any of the dependent machines, click on the machine name, and then click **Load server map**
 
-    ![Expand Server port group and load server map](./media/how-to-create-group-machine-dependencies-analysis/load-server-map.png)
+    ![Expand Server port group and load server map](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)
 
-    ![Expand client group ](./media/how-to-create-group-machine-dependencies-analysis/expand-client-group.png)
+    ![Expand client group ](./media/how-to-create-group-machine-dependencies-agentless/expand-client-group.png)
 
 8. Expand the selected machine to view process-level details for each dependency.
 
-    ![Expand server to show processes](./media/how-to-create-group-machine-dependencies-analysis/expand-server-processes.png)
+    ![Expand server to show processes](./media/how-to-create-group-machine-dependencies-agentless/expand-server-processes.png)
 
 > [!NOTE]
 > Process information for a dependency is not always available. If it's not available, the dependency is depicted with the process marked as "Unknown process".
@@ -136,4 +136,4 @@ Choose the machines on which you want to stop dependency discovery.
 
 ## Next steps
 
-[Group the machines](how-to-create-group.md) you would like to migrate together.
+[Group the machines](how-to-create-a-group.md)
