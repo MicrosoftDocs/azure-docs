@@ -49,11 +49,17 @@ landingContent:
         links:
           - text: Using the API console
             url: try-image-api.md
+      - linkListType: tutorial
+        links:
+          - text: Moderate e-commerce product images
+            url: ecommerce-retail-catalog-moderation.md
 
-  - title: Moderate with custom images
+  - title: Use custom image lists
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Using the .NET SDK
+            url: image-lists-quickstart.dotnet.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
           - text: Using the Java SDK
@@ -82,10 +88,12 @@ landingContent:
           - text: Using the API console
             url: try-text-api.md
 
-  - title: Moderate with custom terms list
+  - title: Use custom terms lists
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Using the .NET SDK
+            url: term-lists-quickstart.dotnet.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
           - text: Using the Java SDK
@@ -94,6 +102,17 @@ landingContent:
         links:
           - text: Using the API console
             url: try-terms-list-api.md
+
+  - title: Analyze video content
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Using the .NET SDK
+            url: video-moderation-api.md
+      - linkListType: tutorial
+        links:
+          - text: Video and transcript moderation
+            url: video-transcript-moderation-review-tutorial-dotnet.md
 
   - title: Use reviews, workflows, and jobs
     linkLists:
