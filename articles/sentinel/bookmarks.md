@@ -58,7 +58,7 @@ Also in preview, you can visualize your bookmarked data, by clicking **Investiga
 
 6. On the right, in the **Add bookmark** pane, optionally, update the bookmark name, add tags, and notes to help you identify what was interesting about the item.
 
-7. In the **Query Information** section, use the drop down boxes to extract information from the query results for the **Account**, **Host**, and **IP address** entity types. This action maps the selected entity type to a specific column from the query result. For example:
+7. In the **Query Information** section, use the drop-down boxes to extract information from the query results for the **Account**, **Host**, and **IP address** entity types. This action maps the selected entity type to a specific column from the query result. For example:
     
     > [!div class="mx-imgBorder"]
     > ![Map entity types for hunting bookmark](./media/bookmarks/map-entity-types-bookmark.png)
