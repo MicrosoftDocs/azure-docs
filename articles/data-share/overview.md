@@ -1,5 +1,5 @@
 ---
-title: What is Azure Data Share 
+title: What is Azure Data Share?
 description: An overview of Azure Data Share 
 author: joannapea
 
@@ -8,7 +8,7 @@ ms.topic: overview
 ms.date: 07/10/2019
 ms.author: joanpo
 ---
-# What is Azure Data Share ?
+# What is Azure Data Share?
 
 In today's world, data is viewed as a key strategic asset that many organizations need to simply and securely share with their customers and partners. There are many ways that customers do this today, including through FTP, e-mail, APIs to name a few. Organizations can easily lose track of who they've shared their data with. Sharing data through FTP or through standing up their own API infrastructure is often expensive to provision and administer. There's management overhead associated with using these methods of sharing on a large scale. 
 

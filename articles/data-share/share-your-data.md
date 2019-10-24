@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to:
 ## Prerequisites
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* Your recipients Azure login e-mail address (using their e-mail alias won't work).
+* Your recipient's Azure login e-mail address (using their e-mail alias won't work).
 
 ### Share from a storage account:
 

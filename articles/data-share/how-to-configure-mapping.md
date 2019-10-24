@@ -1,6 +1,6 @@
 ---
-title: Configure a dataset mapping
-description: Configure a dataset mapping
+title: Configure a dataset mapping in Azure Data Share
+description: Configure a dataset mapping in Azure Data Share
 author: joannapea
 
 ms.service: data-share
