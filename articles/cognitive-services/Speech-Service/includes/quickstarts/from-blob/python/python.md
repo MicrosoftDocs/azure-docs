@@ -66,7 +66,7 @@ Let's add some code that works as a skeleton for our project.
 (You'll need to replace the values of `YourSubscriptionKey`, `YourServiceRegion`, and `YourFileUrl` with your own values.)
 
 ## Create and configure an Http Client
-The first thing we'll need is an Http Client that has a correct base URL and authtentication set.
+The first thing we'll need is an Http Client that has a correct base URL and authentication set.
 Insert this code in `transcribe`
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=37-45)]
 
@@ -75,11 +75,11 @@ Next, we'll generate the transcription request. Add this code to `transcribe`
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=52-54)]
 
 ## Send the request and check its status
-Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has recived the requet. The service will return a Url in the response headers that's the location where it will store the transscription status.
+Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has received the request. The service will return a Url in the response headers that's the location where it will store the transcription status.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=65-73)]
 
 ## Wait for the transcription to complete
-Since the service processes the transcription asyncronously, we need to poll for its status every so often. We'll check every 5 seconds.
+Since the service processes the transcription asynchronously, we need to poll for its status every so often. We'll check every 5 seconds.
 
 We'll enumerate all the transcriptions that this Speech Service resource is processing and look for the one we created.
 

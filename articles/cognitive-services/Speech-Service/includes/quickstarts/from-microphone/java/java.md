@@ -14,7 +14,7 @@ ms.author: erhopf
 
 **Choose your target environment**
 #### [Java Runtime](#tab/jre)
-[!INCLUDE [jre](./jre.md)]
+[!INCLUDE [JRE](./jre.md)]
 #### [Android](#tab/android)
-[!INCLUDE [android](./android.md)]
+[!INCLUDE [Android](./android.md)]
 * * *
