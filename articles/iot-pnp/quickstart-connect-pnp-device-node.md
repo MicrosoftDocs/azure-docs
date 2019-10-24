@@ -104,7 +104,9 @@ Run the sample with the following command:
     node sample_device.js
 ```
 
-The device application starts sending data to IoT Hub.
+The device application starts sending data to IoT Hub:
+
+   ![Device confirmation messages](media/quickstart-connect-pnp-device/device-confirmation-node.png)
 
 ## Use the Azure IoT explorer to validate the code
 
