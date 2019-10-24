@@ -43,7 +43,7 @@ In this section, you create a new build pipeline. Configure the pipeline to run 
 >1. In Azure DevOps, select your profile icon then select **Preview features**.
 >2. Turn **New YAML pipeline creation experience** off. 
 >
->For more information, see [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline).
+>For more information, see [Create a build pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline).
 
 1. Sign into your Azure DevOps organization (**https:\//dev.azure.com/{your organization}/**) and open the project that contains your IoT Edge solution repository.
 

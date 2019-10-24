@@ -1,18 +1,15 @@
 ---
 title: Resources, roles and access control in Azure Application Insights | Microsoft Docs
 description: Owners, contributors and readers of your organization's insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 49f736a5-67fe-4cc6-b1ef-51b993fb39bd
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 02/14/2019
+
 ---
+
 # Resources, roles, and access control in Application Insights
 
 You can control who has read and update access to your data in Azure [Application Insights][start], by using [Role-based access control in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md).
