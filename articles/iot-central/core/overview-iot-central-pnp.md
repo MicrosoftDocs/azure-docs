@@ -24,7 +24,7 @@ The web UI lets you monitor device conditions, create rules, and manage millions
 
 The following video presents an overview of Azure IoT Central:
 
->[!VIDEO https://azure.microsoft.com/en-us/resources/videos/iot-central-updates/]
+>[!VIDEO https://azure.microsoft.com/resources/videos/iot-central-updates/]
 
 This article outlines, for Azure IoT Central:
 
