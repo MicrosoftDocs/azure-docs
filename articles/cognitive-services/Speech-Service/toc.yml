@@ -307,7 +307,7 @@
     - name: Try Speech Service for free
       href: get-started
     - name: Create Speech Service Resource
-      href: get-started?#create-a-speech-resource-in-azure
+      href: get-started.md#create-a-speech-resource-in-azure
     - name: Containers
       exanded: false
       items:

@@ -123,15 +123,15 @@ Now add the C# code that defines the UWP-specific part of the application.
 
 1. Select **Debug** > **Start Debugging** (or select **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP speech recognition application in C# - quickstart](../../../media/sdk/qs-csharp-xamarin-helloworld-uwp-window.png)
+   ![Sample UWP speech recognition application in C# - quickstart](../../../../media/sdk/qs-csharp-xamarin-helloworld-uwp-window.png)
 
 1. Select **Enable Microphone**. When the access permission request appears, select **Yes**.
 
-   ![Microphone access permission request](../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
+   ![Microphone access permission request](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
 1. Select **Start Speech recognition**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to Speech Services and transcribed to text, which appears in the window.
 
-   ![Speech recognition user interface](../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
+   ![Speech recognition user interface](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *
 
 ## Build and run the Android and iOS applications
