@@ -253,9 +253,7 @@ If you're not going to continue to use this application, delete your application
 1. Open the Administration tab from the left navigation menu of your IoT Central application. 
 2. Select Application settings and click Delete button at the bottom of the page. 
 
-    ![Delete application](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-application-settings-delete-app.PNG)        
-
 
 ## Next steps
 
-* Learn about more about [Water consumption monitoring concepts](./concepts-waterconsumptionmonitoring-architecture)
+* Learn about more about [Water consumption monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md)
