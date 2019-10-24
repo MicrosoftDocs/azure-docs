@@ -24,7 +24,7 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
 * Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download) 
 
-* First, open Azure Data Studio and follow these steps to install the packages needed for this quickstart:
+* Open Azure Data Studio and follow these steps to install the packages needed for this quickstart:
 
     1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
     1. Click on the Manage Packages and under **Add New** search for **sklearn** and install the scikit-learn package. 
@@ -218,9 +218,9 @@ R2 Scores are equal
 MSE are equal
 ```
 
-## Insert the ONNX model into Azure SQL Database Edge
+## Insert the ONNX model
 
-Store the model a `models` table in a database `onnx`. In the connection string, specify the **server address, username, and password**. You will also import the **pyodbc** package.
+Store the model in Azure SQL Database Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address, username, and password**. You will also import the **pyodbc** package.
 
 ```python
 import pyodbc
@@ -276,9 +276,11 @@ cursor.execute(query, insert_params)
 conn.commit()
 ```
 
-## Load the data into Azure SQL Database Edge
+## Load the data
 
-Create two tables, **features** and **target**, to store subsets of the boston housing dataset. 
+Load the data into Azure SQL Database Edge.
+
+First, create two tables, **features** and **target**, to store subsets of the boston housing dataset.
 
 * **Features** will contain all data being used to predict the target, median value. 
 * **Target** contains the median value for each record in the dataset. 
@@ -338,7 +340,7 @@ print(x_train.head())
 print(y_train.head())
 ```
 
-Finally, using sqlalchemy, we insert the `x_train` and `y_train` pandas dataframes into tables `features` and `target`, respectively. 
+Finally, use sqlalchemy to insert the `x_train` and `y_train` pandas dataframes into the tables `features` and `target`. 
 
 ```python
 db_connection_string = 'mssql+pyodbc://' + username + ':' + password + '@' + server + '/' + database + '?driver=ODBC+Driver+17+for+SQL+Server'
