@@ -43,7 +43,7 @@ The following resources can help you get started with Azure Machine Learning
 - [Create your first designer pipeline](/service/ui-tutorial-automobile-price-train-score.md) to predict auto prices.
 
 
-![Azure Machine Learning designer example](./media/concept-ml-pipelines/visual-design-surface.gif)
+![Azure Machine Learning designer example](/service/media/concept-ml-pipelines/visual-design-surface.gif)
 
 ## Next steps
 
