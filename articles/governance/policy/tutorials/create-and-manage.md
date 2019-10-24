@@ -31,10 +31,9 @@ definition defines under what condition a policy is enforced and what effect to 
 example, assign a built-in policy definition, called *Require SQL Server version 12.0*, to enforce
 the condition that all SQL Server databases must be v12.0 to be compliant.
 
-1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching
-   for and selecting **Policy**.
+1. Go to the Azure portal to assign policies. Search for and select **Policy**.
 
-   ![Search for Policy in All Services](../media/create-and-manage/search-policy.png)
+   ![Search for Policy in the search bar](../media/create-and-manage/search-policy.png)
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that
    has been assigned to take place within a specific scope.
