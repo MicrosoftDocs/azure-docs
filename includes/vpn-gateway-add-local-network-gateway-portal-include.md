@@ -11,7 +11,7 @@
 ---
 1. From the [Azure portal](https://portal.azure.com) menu, select **Create a resource**. 
 
-![Create a resource in the Azure portal](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
+  ![Create a resource in the Azure portal](./media/vpn-gateway-add-local-network-gateway-portal-include/azure-portal-create-resource.png)
 
 2. In the **Search the marketplace** field, type **Local network gateway**, then press **Enter** to search. This will return a list of results. Click **Local network gateway**, then click the **Create** button to open the **Create local network gateway** page.
 
