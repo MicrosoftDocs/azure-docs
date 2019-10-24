@@ -32,7 +32,7 @@ If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Serv
 - <a href="https://git-scm.com/downloads" target="_blank">Git</a>
 - <a href="https://docs.microsoft.com/cli/azure/install-azure-cli" target="_blank">Azure CLI</a>
 
-## Download the sample locally
+## Download the sample
 
 In a terminal window, run the following commands to clone the sample application to your local computer, then go to the folder with the sample code.
 
@@ -61,7 +61,7 @@ cd python-docs-hello-world
 
 The repository contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
 
-## Run the app locally
+## Run the sample
 
 In a terminal window, use the commands below to install the required dependencies and launch the built-in development server. 
 
@@ -103,7 +103,7 @@ Open a web browser, and go to the sample app at `http://localhost:5000/`. The ap
 
 In your terminal window, press **Ctrl**+**C** to exit the web server.
 
-## Sign in to Azure using the CLI
+## Sign in to Azure
 
 The Azure CLI provides you with many convenient commands that you use from a local terminal to provision and manage Azure resources from the command line, rather than accomplishing these tasks through the Azure portal in a browser. You can also use CLI commands in scripts to automate management processes.
 
@@ -129,7 +129,7 @@ az login
 
 ---
 
-## Create a web app and deploy the code
+## Deploy the sample
 
 The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app on App Service and deploys your code.
 
@@ -194,7 +194,7 @@ The Python sample code is running a Linux container in App Service using a built
 
 **Congratulations!** You've deployed your Python app to App Service on Linux.
 
-## Update locally and redeploy the code
+## Redeploy updates
 
 In your favorite code editor, open *application.py* and change the `return` statement on the last line to match the following code. The `print` statement is included here to generate logging output that you work with in the next section. 
 
@@ -234,7 +234,7 @@ Once deployment has completed, switch back to the browser window open to `http:/
 > [!TIP]
 > Visual Studio Code provides powerful extensions for Python and Azure App Service, which simplify the process of deploying Python web apps to App Service. For more information, see [Deploy Python apps to App Service from Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
 
-## Stream diagnostic logs
+## Stream logs
 
 You can access the console logs generated from inside the app and the container in which it runs. Logs includes any output generated using `print` statements.
 
@@ -293,7 +293,7 @@ You can also inspect the log files from the browser at `https://<app-name>.scm.a
 
 To stop log streaming at any time, type `Ctrl`+`C`.
 
-## Manage your new Azure app
+## Manage the Azure app
 
 You manage the app you created in the <a href="https://portal.azure.com" target="_blank">Azure portal</a>. 
 
