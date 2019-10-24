@@ -13,12 +13,7 @@ ms.custom: mvc
 
 # ################################INCOMPLETE###############################
 # ASSUMPTIONS/QUESTIONS:
-# 26, 77, 79, 81, 84     -    Uses Microsoft Azure IoT device SDK for Node.js (Azure/azure-iot-sdk-node)
-#    84                      -    "digitaltwins-preview" branch
-# 30                     -    Version of Node.js?
-# 89-99                  -    How do I build? This section needs to be filled in or replaced.
-# 105-109                -    Where is the project that you run? How do you run it?
-#     103, 108               -    takes same parameter as C project
+# 25                     -    Should I give a minimum version of Node.js?
 ---
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
@@ -90,22 +85,23 @@ You should expect this operation to take several minutes to complete.
 
 The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. In a local terminal window, navigate to ...
-
-1. In the local terminal window, run the following command to install the required libraries:
+1. In a local terminal window, navigate to the **/azure-iot-sdk-node/digitaltwins/samples/device/javascript** folder. Then run the following command to install the required libraries:
 
     ```cmd/sh
     npm install
     ```
+1. Configure the _device connection string_:
+
+    ```cmd/sh
+    set DEVICE_CONNECTION_STRING=<your device connection string>
+    ```
 
 ## Run the device sample
 
-Run your application by passing the IoT hub device connection string as parameter.
+Run the sample with the following command
 
 ```cmd\sh
-cd digitaltwin_client\samples\digitaltwin_sample_device\Release
-copy ..\EnvironmentalSensor.interface.json .
-digitaltwin_sample_device.exe "[IoT Hub device connection string]"
+    node sample_device.js
 ```
 
 The device application starts sending data to IoT Hub.
