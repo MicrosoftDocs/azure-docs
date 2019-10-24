@@ -1,4 +1,5 @@
 - name: Azure IoT Central for Healthcare Documentation
+  href: index.yml
 - name: Overview
   items:
     - name: Building healthcare solutions with Azure IoT Central
