@@ -68,6 +68,8 @@
           href: end-user-experiences.md
     - name: Automatic user provisioning
       items:
+       - name: Plan an automatic user provisioning deployment
+         href: plan-auto-user-provisioning.md
        - name: Automatic provisioning for SCIM-enabled apps
          href: use-scim-to-provision-users-and-groups.md
     - name: Application Proxy for on-premises apps

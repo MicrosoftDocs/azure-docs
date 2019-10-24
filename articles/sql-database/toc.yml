@@ -289,6 +289,8 @@
           href: sql-database-xevent-code-event-file.md
         - name: Extended events - ring buffer
           href: sql-database-xevent-code-ring-buffer.md
+    - name: Hyperscale performance diagnostics
+      href: sql-database-hyperscale-performance-diagnostics.md
 
   - name: Scalability
     items:
@@ -757,6 +759,8 @@
         href: sql-database-managed-instance-aad-security-tutorial.md
       - name: Add managed instance to a failover group
         href: sql-database-managed-instance-failover-group-tutorial.md
+      - name: Migrate on-premises users and groups
+        href: tutorial-managed-instance-azure-active-directory-migration.md
 
   - name: Concepts
     items:
