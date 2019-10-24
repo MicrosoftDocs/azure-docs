@@ -391,8 +391,6 @@ GoPath/src/staticwebpage/test$ go test
 Integration tests take much longer than unit tests (two minutes for one integration case compared to one minute for five unit cases). But it's your decision whether to use unit tests or integration tests in a scenario. Typically, we prefer to use unit tests for complex logic by using Terraform HCL functions. We usually use integration tests for the end-to-end perspective of a user.
 
 ## Use mage to simplify running Terratest cases 
-Running test cases in Azure Cloud Shell isn't an easy task. You have to go to different directories and execute different commands. To avoid using Cloud Shell, we introduce the build system in our project. In this section, we use a Go build system, mage, for the job.
-
 Running test cases in Azure Cloud Shell requires executing different commands in various directories. To make this process more efficient, we introduce the build system in our project. In this section, we use a Go build system, mage, for the job.
 
 The only thing required by mage is `magefile.go` in your project's root directory (marked with `(+)` in the following example):
