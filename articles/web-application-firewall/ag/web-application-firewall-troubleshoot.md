@@ -322,7 +322,7 @@ If the request contains cookies, the **Cookies** tab can be selected to view the
 For v1 Web Application Firewalls, the following metrics are now available in the portal: 
 
 1. Web Application Firewall Blocked Request Count
-  - The number of requests that were blocked
+     The number of requests that were blocked
 2. Web Application Firewall Blocked Rule Count
   - All rules that were matched **and** the request was blocked
 3. Web Application Firewall Total Rule Distribution
