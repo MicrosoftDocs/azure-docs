@@ -4,8 +4,8 @@ description: How to define storage targets so that your Azure HPC Cache can use 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
-ms.author: rohogue
+ms.date: 10/24/2019
+
 ---
 
 # Add storage targets
@@ -56,6 +56,9 @@ The storage account owner must explicitly add the roles [Storage Account Contrib
 
 You can do this ahead of time, or by clicking a link on the page where you add a Blob storage target.
 
+> [!NOTE]
+> It can take up to five minutes for role assignments to propagate through the Azure system. Wait several minutes after adding the roles before trying to add a storage target that uses them.
+
 Steps to add the RBAC roles:
 
 1. Open the **Access control (IAM)** page for the storage account. (The link in the **Add storage target** page automatically opens this page for the selected account.)
@@ -76,6 +79,8 @@ Steps to add the RBAC roles:
 1. Repeat this process to assign the role "Storage Blob Data Contributor".  
 
 ![screenshot of add role assignment GUI](media/hpc-cache-add-role.png)
+
+Learn more about access roles for Blob storage in the [Azure Blob storage documentation](azure/storage/common/storage-auth-aad-rbac-portal).
 
 ## Add a new NFS storage target
 
