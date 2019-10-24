@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/23/2019
 ---
 
 # Use Terraform to create an Azure virtual machine scale set from a Packer custom image
@@ -140,7 +140,7 @@ Initialize the Terraform environment by running the following command in the dir
 terraform init 
 ```
  
-The provider plugins download  from the Terraform registry into the `.terraform` folder in the directory where you ran the command.
+The provider plug-ins download  from the Terraform registry into the `.terraform` folder in the directory where you ran the command.
 
 Run the following command to deploy the infrastructure in Azure.
 
