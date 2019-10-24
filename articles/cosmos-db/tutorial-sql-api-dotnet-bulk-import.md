@@ -1,11 +1,11 @@
 ---
 title: Optimize throughput when bulk importing data to Azure Cosmos DB SQL API account 
-description: Learn how to set up Azure Cosmos DB global distribution using the SQL API.
+description: Learn how to build a .NET console application that optimizes provisioned throughput (RU/s) required to import data to Azure Cosmos DB. 
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.reviewer: sngun
 ---
 # Optimize throughput when bulk importing data to Azure Cosmos DB SQL API account
@@ -36,7 +36,7 @@ Before following the instructions in this article, make sure that you have the f
 
 ## Step 1: Create an Azure Cosmos DB account
 
-Create an Azure Cosmos DB SQL API account by using the steps described in [this article](create-cosmosdb-resources-portal.md). Optionally, you can [use the Azure Cosmos DB Emulator](local-emulator.md).
+[Create an Azure Cosmos DB SQL API account](create-cosmosdb-resources-portal.md) from the Azure portal or you can create the account by using the [Azure Cosmos DB Emulator](local-emulator.md).
 
 ## Step 2: Set up your .NET project
 
@@ -88,7 +88,7 @@ If you are using the Azure Cosmos DB Emulator, obtain the [emulator credentials 
 
 Open the generated `Program.cs` file in a code editor. We will create a new instance of CosmosClient with bulk execution enabled and use it to do operations against Azure Cosmos DB. 
 
-Let's start by overwriting the default `Main` method and defining global variables. These global variables will include the endpoint and authorization keys (replace these values with your desired ones), the name of the database and container we will be creating, and the number of items we will be inserting in bulk.
+Let's start by overwriting the default `Main` method and defining the global variables. These global variables will include the endpoint and authorization keys, the name of the database, container that you will create, and the number of items that you will be inserting in bulk. Make sure to replace the endpointURL and authorization key values according to your environment. 
 
 
    ```csharp
@@ -115,7 +115,7 @@ After the bulk execution is enabled, the CosmosClient internally groups concurre
 
 After the bulk execution is enabled, the CosmosClient internally groups concurrent operations into single service calls. This way it optimizes the throughput utilization by distributing service calls across partitions, and finally assigning individual results to the original callers.
 
-We can then create a container to store all our items. We are defining `/pk` as the partition key, 50000 RU/s as provisioned throughput, and a custom indexing policy that will exclude all fields, to optimize write throughput. Add the following code after the CosmosClient initialization statement:
+You can then create a container to store all our items.  Define `/pk` as the partition key, 50000 RU/s as provisioned throughput, and a custom indexing policy that will exclude all fields to optimize the write throughput. Add the following code after the CosmosClient initialization statement:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Initialize)]
 
@@ -123,7 +123,7 @@ We can then create a container to store all our items. We are defining `/pk` as 
 
 To take advantage of the bulk execution support, create a list of asynchronous tasks based on the source of data and the operations you want to perform, and use `Task.WhenAll` to execute them concurrently.
 
-Let’s start by using **Bogus** to generate a list of items from our data model.
+Let’s start by using "Bogus" data to generate a list of items from our data model. In a real-world application, the items would come from your desired data source.
 
 First, add the Bogus package to the solution by using the dotnet add package command.
 
@@ -131,29 +131,30 @@ First, add the Bogus package to the solution by using the dotnet add package com
    dotnet add package Bogus
    ```
 
-Then, we define the Model of the items we want to save, we can add this class definition inside the same `Program.cs` file:
+Define the definition of the items that you want to save. You need to define the `Item` class within the `Program.cs` file:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
 
-And create a helper function inside our Program class that will, for the number of items we defined to insert, generate random data:
+Next, create a helper function inside the `Program` class. This helper function will get the number of items you defined to insert and generates random data:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
 
 In a real-world application, the items would come from your desired data source.
 
-We then take the items and serialize them into `Stream` instances using `System.Text.Json`. Because of the nature of our data, we receive the information as streams, we can use them directly as long as we know the PartitionKey.
+Read the items and serialize them into stream instances by using the `System.Text.Json` class. Because of the nature of the autogenerated data, you are serializing the data as streams. You can also use the item instance directly, but by converting them to streams, you can leverage the performance of stream APIs in the CosmosClient. Typically you can use the data directly as long as you know the partition key. 
 
-Inside the `Main` method, right after creating the container, add the following code:
+
+To convert the data to stream instances, within the `Main` method, add the following code right after creating the container:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
 
 We can also use the Item instance directly, but by using Stream, you can leverage the **performance* of stream APIs in the CosmosClient.
 
-And then use those streams to create concurrent tasks and populate the task list:
+Next use the data streams to create concurrent tasks and populate the task list to insert the items into the container. To perform this operation, add the following code to the `Program` class:
 
 [!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
 
-All these concurrent point operations will be executed together/bulk as described in the opening paragraph.
+All these concurrent point operations will be executed together (that is in bulk) as described in the introduction section.
 
 ## Step 7: Run the sample
 
