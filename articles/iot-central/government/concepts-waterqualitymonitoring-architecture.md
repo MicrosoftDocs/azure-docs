@@ -1,13 +1,12 @@
 ---
-title: Reference architecture for water quality monitoring solution built with IoT Central| Microsoft Docs
-description: Learn concepts for a water quality monitoring solution built with IoT Central.
+title: Reference architecture for water quality monitoring solution built with Azure IoT Central| Microsoft Docs
+description: Learn concepts for a water quality monitoring solution built with Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 09/24/2019
+ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: aabjork
 ---
 
 
@@ -16,7 +15,6 @@ manager: aabjork
 Water quality monitoring solutions can be built with the **Azure IoT Central app template** as a kick starter IoT application. This article provides a high-level reference architecture guidance on building an end to end solution. 
 
 
-[!div class="mx-imgBorder"] 
 ![Water quality monitoring architecture](./media/concepts-waterqualitymonitoring-architecture/concepts-waterqualitymonitoring-architecture1.png)
 
 Concepts:
@@ -43,7 +41,7 @@ You can extend your IoT application in IoT Central and optionally:
 * automate workflows in other systems by triggering actions via Microsoft Flow or webhooks from IoT Central application
 * programatically access your IoT application in IoT Central through IoT Central APIs
 
-## Business Applications 
+## Business applications 
 The IoT data can be used to power a variety of business applications within a water utility. To learn how to connect your IoT Central water quality monitoring application with field services, follow the article on [how to integrate with Dynamics 365 Field Services](./how-to-configure-connected-field-services.md). 
 
 
