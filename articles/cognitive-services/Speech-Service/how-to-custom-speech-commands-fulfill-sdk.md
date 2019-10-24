@@ -81,7 +81,7 @@ Add labeled boxes with text indicating **On** or **Off** using the following XML
 </StackPanel>
 ```
 
-## Handle customizable payload using the Speech SDK
+## Handle customizable payload
 
 Now that you've created a JSON payload, you can add a reference to the [JSON.NET](https://www.newtonsoft.com/json) library to handle deserialization.
 
