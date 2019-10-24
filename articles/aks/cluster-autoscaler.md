@@ -117,7 +117,7 @@ You can manually scale your cluster after disabling the cluster autoscaler by us
 
 ## Re-enable a disabled cluster autoscaler
 
-If you wish to re-enable the cluster autoscaler on an existing cluster, you can re-enable it using the [az aks update][az-aks-update] command, specifying the *--enable-cluster-autoscaler* parameter.
+If you wish to re-enable the cluster autoscaler on an existing cluster, you can re-enable it using the [az aks update][az-aks-update] command, specifying the *--enable-cluster-autoscaler*, *--min-count*, and *--max-count* parameters.
 
 ## Use the cluster autoscaler with multiple node pools enabled
 
@@ -144,6 +144,8 @@ az aks nodepool update \
   --name nodepool1 \
   --disable-cluster-autoscaler
 ```
+
+If you wish to re-enable the cluster autoscaler on an existing cluster, you can re-enable it using the [az aks nodepool update][az-aks-nodepool-update] command, specifying the *--enable-cluster-autoscaler*, *--min-count*, and *--max-count* parameters.
 
 ## Next steps
 
