@@ -39,7 +39,7 @@ ms.date: 11/04/2019
 
  If this is your first time doing any experiments, you'll see the **Get started** screen. 
 
-Otherwise, you'll see a links to documentation and a list of your recent automated machine learning experiments, including those created with the SDK. 
+Otherwise, you'll see links to documentation and a list of your recent automated machine learning experiments, including those created with the SDK. 
 
 ## Create and run experiment
 
@@ -193,9 +193,9 @@ Automated ML helps you with deploying the model without writing code:
 
 1. You have a couple options for deployment. 
 
-    + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Run Detail page.
+    + Option 1: To deploy the best model (according to the metric criteria you defined), select Deploy Best Model from the Details tab.
 
-    + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its Run detail page and select Deploy Model.
+    + Option 2: To deploy a specific model iteration from this experiment, drill down on the model to open its Model details tab and select Deploy Model.
 
 1. Populate the **Deploy Model** pane.
 
