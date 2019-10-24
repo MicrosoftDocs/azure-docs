@@ -15,7 +15,7 @@ ms.reviewer: prishet
 
 This article shows you how to use PowerShell to work with directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace.
 
-## Connect to your storage account
+## Connect to the account
 
 1. Open a Windows PowerShell command window.
 
@@ -146,7 +146,7 @@ $blob = Set-AzStorageBlob -Context $ctx -Container $containerName -Path text1.tx
 $blob.ICloudBlob.PathProperties
 ```
 
-## Download a file from a directory
+## Download from a directory
 
 Download a file from a directory by using the `Get-AzStorageBlobFromDirectory` cmdlet.
 
@@ -159,7 +159,7 @@ $blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -
 $blob
 ```
 
-## List the contents of a directory
+## List directory contents
 
 List the contents of a directory by using the `Get-AzStorageBlobFromDirectory` cmdlet.
 
@@ -171,7 +171,7 @@ $directoryName = "my-directory"
 Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath $directoryName 
 ```
 
-## Next steps
+## See also
 
 To learn more about working with Blob storage by using PowerShell, see [Using Azure PowerShell with Azure Storage](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 

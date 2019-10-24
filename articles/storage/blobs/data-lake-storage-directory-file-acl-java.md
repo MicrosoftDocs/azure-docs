@@ -14,7 +14,7 @@ ms.reviewer: prishet
 
 This article shows you how to use Java to work with directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace. 
 
-## Connect to the storage account 
+## Connect to the account 
 
 To use the snippets in this article, you'll need to create a [CloudBlobClient](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_client?view=azure-java-legacy) instance that represents the storage account. The easiest way to get one is to use a connection string. 
 
@@ -360,7 +360,7 @@ throws URISyntaxException, StorageException{
 }
 ```
 
-## Download a file from a directory
+## Download from a directory
 
 First, create a blob reference in the source directory by calling the **CloudBlobDirectory.getBlockBlobReference** method. That method returns a **CloudBlockBlob** object. Download that blob by calling the **downloadToFileAsync** method of a **CloudBlockBlob** object.
 
@@ -390,7 +390,7 @@ throws URISyntaxException, StorageException, IOException{
 }
 ```
 
-## List the contents of a directory
+## List directory contents
 
 To list containers in your storage account, call the **CloudBlobDirectory.listBlobsSegmented**.
 
@@ -431,6 +431,6 @@ throws URISyntaxException, StorageException{
 }
 ```
 
-## Next steps
+## See also
 
 Explore more APIs in the [com.microsoft.azure.storage.blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob?view=azure-java-preview) namespace of the [Azure Storage libraries for Java](https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-preview) docs.

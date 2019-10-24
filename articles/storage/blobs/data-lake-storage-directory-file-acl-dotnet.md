@@ -14,7 +14,7 @@ ms.reviewer: prishet
 
 This article shows you how to use .NET to work with directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace.
 
-## Connect to the storage account
+## Connect to the account
 
 To use the snippets in this article, you'll need to create a [CloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet) instance that represents the storage account. The easiest way to get one is to use a connection string. 
 
@@ -378,7 +378,7 @@ public async Task SetFileACL(CloudBlobClient cloudBlobClient,
 }
 ```
 
-## Download a file from a directory 
+## Download from a directory 
 
 First, create a blob reference in the source directory by calling the **CloudBlobDirectory.GetBlockBlobReference** method. That method returns a **CloudBlockBlob** object. Download that blob by calling the **DownloadToFileAsync** method of a **CloudBlockBlob** object.
 
@@ -409,7 +409,7 @@ public async Task DownloadFileFromDirectory(CloudBlobClient cloudBlobClient,
 }
 ```
 
-## List the contents of a directory
+## List directory contents
 
 To list containers in your storage account, call one of the following methods of a **CloudBlobDirectory** object:
 
@@ -460,6 +460,3 @@ Put link to github sample here along with some explanatory text.
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## See also
-
-Learn to set access control lists on files and directories. See [Manage file and directory level permissions in Azure Storage by using code](data-lake-storage-develop-acl.md).

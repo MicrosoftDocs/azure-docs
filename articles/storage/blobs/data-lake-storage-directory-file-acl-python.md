@@ -14,7 +14,7 @@ ms.reviewer: prishet
 
 This article shows you how to use Python to work with directories, files, and POSIX [access control lists](data-lake-storage-access-control.md) (ACLs) in storage accounts that have a hierarchical namespace.
 
-## Connect to the storage account
+## Connect to the account
 
 To use the snippets in this article, you'll need to create a [BlockBlobService](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob.blockblobservice.blockblobservice?view=azure-python) instance that represents the storage account. The easiest way to get one is to use an account key. 
 
@@ -231,7 +231,7 @@ def set_file_ACL(container_name):
         print(e)
 ```
 
-## Download a file from a directory 
+## Download from a directory 
 
 Download a file from a directory by calling the **BlockBlobService.get_blob_to_path** method. Pass these items as parameters to the method:
 
@@ -244,7 +244,7 @@ def download_file_from_directory(container_name, file_destination_path):
 
     block_blob_service.get_blob_to_path(container_name, "my-directory/my-file.txt", file_destination_path)
 ```
-## List the contents of a directory 
+## List directory contents
 
 List the contents of a directory by calling the **BlockBlobService.list_blobs** method.
 
@@ -256,6 +256,6 @@ def list_directory_contents():
         print("\t Blob name: " + blob.name)
 ```
 
-## Next steps
+## See also
 
 Explore more APIs in the [blob package](https://docs.microsoft.com/python/api/azure-storage-blob/azure.storage.blob?view=azure-python) section of the [Azure Client SDK for Python](https://docs.microsoft.com/python/api/overview/azure/storage/client?view=azure-python) docs.
