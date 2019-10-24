@@ -1,6 +1,6 @@
 ---
-title: Reference architecture for water consumption monitoring solution built with IoT Central| Microsoft Docs
-description: Learn concepts for a water consumption monitoring solution built with IoT Central.
+title: Reference architecture for water consumption monitoring solution built with Azure IoT Central| Microsoft Docs
+description: Learn concepts for a water consumption monitoring solution built with Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
 ms.date: 10/23/2019
@@ -13,7 +13,6 @@ services: iot-central
 
 Water consumption monitoring solutions can be built with the **Azure IoT Central app template** as a kick starter IoT application. This article provides a high-level reference architecture guidance on building an end to end solution. 
 
-[!div class="mx-imgBorder"] 
 ![Water consumption monitoring architecture](./media/concepts-waterconsumptionmonitoring-architecture/concepts-waterconsumptionmonitoring-architecture1.png)
 
 Concepts:
