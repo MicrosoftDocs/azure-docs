@@ -191,7 +191,7 @@ The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid
 
 #### Terms of use
 
-If your license terms are different from the Standard Contract, you can elect to enter your own legal terms of use here. You can also enter up to 10,000 characters of text in this field. If your terms of use require a longer description, enter a single URL link into this field where your additional license terms can be found. It will display to customers as an active link.
+If your license terms are different from the Standard Contract, you can elect to enter your own legal terms of use here. These can be entered as plain text or as a single URL linking to where your additional license terms can be found.
 
 Customers are required to accept these terms before they can try your app. 
 
