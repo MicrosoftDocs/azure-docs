@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 10/14/2019
+ ms.date: 10/23/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -48,10 +48,10 @@ VMs can be evicted based on capacity or the max price you set. For virtual machi
 The following VM sizes are not supported for spot VMs:
  - B-series
  - Promo versions of any size (like Dv2, NV, NC, H promo sizes)
- - The original A-series (like Basic_A1 and Standard_A1)
- - The original D-series (like Standard_D1)
- 
-spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet and Department of Defense (DoD) in the Azure Government region.
+
+Spot VMs cannot use ephemeral OS disks during the initial part of the preview.
+
+Spot VMs can be deployed to any region, except Microsoft Azure China 21Vianet and Department of Defense (DoD) in the Azure Government region.
 
 ## Pricing
 
