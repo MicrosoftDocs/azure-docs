@@ -26,7 +26,7 @@ For this article, you can create the same logic app from this [quickstart](../lo
 
 Before you start, make sure you have these items:
 
-* If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* If you don't have an Azure account and subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * Basic knowledge about [logic app workflow definitions](../logic-apps/logic-apps-workflow-definition-language.md) and their structure as described with JSON
 
@@ -58,31 +58,42 @@ Before you start, make sure you have these items:
 
    ![Select Azure icon on Visual Studio Code toolbar](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. In the Azure window, under **Logic Apps**, select **Sign in to Azure**.
+1. In the Azure window, under **Logic Apps**, select **Sign in to Azure**. When the Microsoft sign-in page prompts you, sign in with your Azure account.
 
    ![Select "Sign in to Azure"](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
-   You're now prompted to sign in by using the provided authentication code.
+   1. If sign in takes longer than usual, Visual Studio Code prompts you to sign in through a Microsoft authentication website by providing you a device code. To sign in with the code instead, select **Use Device Code**.
 
-1. Copy the authentication code, and then select **Copy & Open**, which opens a new browser window.
+      ![Continue with device code instead](./media/quickstart-create-logic-apps-visual-studio-code/use-device-code-prompt.png)
 
-   ![Copy authentication code to use for Azure sign-in](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
+   1. To copy the code, select **Copy & Open**.
 
-1. Enter your authentication code. When prompted, select **Continue**.
+      ![Copy code for Azure sign in](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
-   ![Enter authentication code for Azure sign-in](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
+   1. To open a new browser window and continue to the authentication website, select **Open Link**.
+
+      ![Confirm opening a browser and going to authentication website](./media/quickstart-create-logic-apps-visual-studio-code/confirm-open-link.png)
+
+   1. On the **Sign in to your account** page, enter your authentication code, and select **Next**.
+
+      ![Enter authentication code for Azure sign in](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
 1. Select your Azure account. After you sign in, you can close your browser, and return to Visual Studio Code.
 
-   In the Azure window, the Logic Apps pane and Integration Accounts pane now show the Azure subscriptions in your account.
+   In the Azure pane, the **Logic Apps** and **Integration Accounts** sections now show the Azure subscriptions that are associated with your account. However, if you don't see the subscriptions that you expect, or if the sections show too many subscriptions, follow these steps:
+   
+   1. Move your pointer over the **Logic Apps** label. When the toolbar appears, select **Select Subscriptions** (filter icon).
+
+      ![Find or filter Azure subscriptions](./media/quickstart-create-logic-apps-visual-studio-code/find-or-filter-subscriptions.png)
+
+   1. From the list that appears, select the subscriptions that you want to appear.
+
+1. Under **Logic Apps**, select the subscription that you want. The subscription node expands and shows any logic apps that exist in that subscription.
 
    ![Select your Azure subscription](./media/quickstart-create-logic-apps-visual-studio-code/select-azure-subscription.png)
 
-   If you don't see the subscriptions that you expect, next to **Logic Apps** label, select the **Select Subscriptions** (filter icon). Find and select the subscriptions that you want.
-
-1. To view any existing logic apps or integration accounts in your Azure subscription, expand your subscription.
-
-   ![View logic apps and integration accounts](./media/quickstart-create-logic-apps-visual-studio-code/view-existing-logic-apps-azure.png)
+   > [!TIP]
+   > Selecting your subscription under **Integration Accounts** shows any integration accounts that exist in that.
 
 <a name="create-logic-app"></a>
 
