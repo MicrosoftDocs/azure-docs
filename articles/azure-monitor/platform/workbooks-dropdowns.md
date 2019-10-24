@@ -1,6 +1,6 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+title: Learn more about Azure Monitor Workbook drop down parameters | Microsoft docs
+description: Simplify complex reporting with prebuilt and custom parameterized workbooks containing dropdown parameters
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -14,7 +14,7 @@ ms.author: mbullwin
 
 # Workbook drop down parameters
 
-Drop downs allow user to collect one or more input values from a known set (for example, select one of your app’s requests). Drop downs provide user-friendly way to collect arbitrary inputs from users. Drop downs are especially useful in enabling filtering in your interactive reports. 
+Drop downs allow user to collect one or more input values from a known set (for example, select one of your app’s requests). Drop downs provide a user-friendly way to collect arbitrary inputs from users. Drop downs are especially useful in enabling filtering in your interactive reports. 
 
 The easiest way to specify a drop-down is by providing a static list in the parameter setting. A more interesting way is to get the list dynamically via a KQL query. Parameter settings also allow you to specify whether it is single or multi-select, and if it is multi-select, how the result set should be formatted (delimiter, quotation, etc.).
 
@@ -69,14 +69,15 @@ If your query result/json contains a "group" field, the dropdown will display gr
     4. Allow `multiple selection`: `unchecked`
     5. Get data from: `Query`
 5. In the JSON Input text block, insert this json snippet:
-    ```
+
+    ```kusto
         requests
         | summarize by name
         | order by name asc
     ```
-6. Hit the blue `Run Query` button.
-7. Choose 'Save' from the toolbar to create the parameter.
-8. The RequestName parameter will be a drop-down the names of all requests in the app.
+1. Hit the blue `Run Query` button.
+2. Choose 'Save' from the toolbar to create the parameter.
+3. The RequestName parameter will be a drop-down the names of all requests in the app.
 
 ![Image showing the creation of a dynamic drop-down](./media/workbook-dropdowns/dropdown-dynamic.png)
 
@@ -84,14 +85,16 @@ If your query result/json contains a "group" field, the dropdown will display gr
 ### In KQL
 1. Add a query control to the workbook and select an Application Insights resource.
 2. In the KQL editor, enter this snippet
-    ```
+
+    ```kusto
         requests
         | where name == '{RequestName}'
         | summarize Requests = count() by bin(timestamp, 1h)
 
     ```
 3. This expands on query evaluation time to:
-    ```
+
+    ```kusto
         requests
         | where name == 'GET Home/Index'
         | summarize Requests = count() by bin(timestamp, 1h)
@@ -106,7 +109,8 @@ If your query result/json contains a "group" field, the dropdown will display gr
 The query used in the dynamic drop-down parameter above just returns a list of values that are rendered faithfully in the drop-down. But what if you wanted a different display name, or one of these to be selected? Drop down parameters allow this via the value, label, selection and group columns.
 
 The sample below shows how to get a list of Application Insights dependencies whose display names are styled with an emoji, has the first one selected, and is grouped by  operation names.
-```
+
+```kusto
 dependencies
 | summarize by operation_Name, name
 | where name !contains ('.')
@@ -131,7 +135,7 @@ The user also has the option of specifying the format of the result set via the 
 
 The KQL referencing the parameter will need to change to work with the format of the result. The most common way to enable it is via the `in` operator.
 
-```
+```kusto
 dependencies
 | where name in ({DependencyName})
 | summarize Requests = count() by bin(timestamp, 1h), name
@@ -141,4 +145,7 @@ Here is an example for multi-select drop-down at work:
 
 ![Image showing a multi-select drop-down parameter](./media/workbook-dropdowns/dropdown-multiselect.png)
 
-## Next steps
+## Next Steps
+
+* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Control](workbooks-access-control.md) and share access to your workbook resources.
