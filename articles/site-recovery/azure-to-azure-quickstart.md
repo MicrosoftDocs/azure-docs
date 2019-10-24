@@ -27,7 +27,7 @@ Log in to the Azure portal at https://portal.azure.com.
 ## Enable replication for the Azure VM
 
 1. On the Azure portal menu, select **Virtual machines**, or search for and select *Virtual machines* on the **Home** page. Select the VM you want to replicate.
-2. In **Operations**, click **Disaster recovery**.
+2. In **Operations**, select **Disaster recovery**.
 3. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate.
 4. For this Quickstart, accept the other default settings.
 5. Select **Review + Start replication**. Then select **Start replication** to start a job to enable replication for the VM.
@@ -39,7 +39,7 @@ Log in to the Azure portal at https://portal.azure.com.
 After the replication job has finished, you can check the replication status, modify replication settings, and test the deployment.
 
 1. On the Azure portal menu, select **Virtual machines**, or search for and select *Virtual machines* on the **Home** page. Select the VM you want to verify.
-2. In **Operations**, click **Disaster recovery**.
+2. In **Operations**, select **Disaster recovery**.
 
    You can verify replication health, the recovery points that have been created, and source, target regions on the map.
 
@@ -55,7 +55,7 @@ The VM in the primary region stops replicating when you disable replication for 
 Stop replication as follows
 
 1. On the Azure portal menu, select **Virtual machines**, or search for and select *Virtual machines* on the **Home** page. Select the VM you want to modify.
-2. In **Disaster recovery**, click **Disable Replication**.
+2. In **Disaster recovery**, select **Disable Replication**.
 
    ![Disable replication](media/azure-to-azure-quickstart/disable2-replication.png)
 
