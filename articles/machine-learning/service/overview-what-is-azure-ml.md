@@ -100,7 +100,7 @@ For code-free training and deployment, try:
 
   Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
 
-  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/designer.png)
+  ![Azure Machine Learning designer](media/concept-ml-pipelines/visual-design-surface.gif)
 
 + **Automated machine learning UI**
 
