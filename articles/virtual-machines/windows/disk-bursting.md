@@ -5,7 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.date: 10/22/2019
 ms.topic: conceptual
-ms.service: virtual-machines-linux
+ms.service: virtual-machines-windows
 ms.subservice: disks
 ---
 
@@ -15,4 +15,4 @@ ms.subservice: disks
 
 ## Next steps
 
-[Use the portal to attach a data disk to a Linux VM](attach-disk-portal.md)
+[Attach a managed data disk to a Windows VM by using the Azure portal](attach-managed-disk-portal.md)
