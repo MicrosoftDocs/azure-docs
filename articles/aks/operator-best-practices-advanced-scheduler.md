@@ -175,7 +175,7 @@ A good example is a web application that also uses an Azure Cache for Redis. You
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-This example is a more complex deployment than the use of node selectors or node affinity. The deployment gives you control over how Kubernetes schedules pods on nodes and can logically isolate resources. For a complete example of this web application with Azure Cache for Redis example, see [Colocate pods on the same node][k8s-pod-affinity].
+This example is a more complex deployment than the use of node selectors or node affinity. The deployment gives you control over how Kubernetes schedules pods on nodes and can logically isolate resources. For a complete example of this web application with Azure Cache for Redis example, see [Co-locate pods on the same node][k8s-pod-affinity].
 
 ## Next steps
 
