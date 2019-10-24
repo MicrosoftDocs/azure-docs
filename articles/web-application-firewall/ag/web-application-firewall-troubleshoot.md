@@ -326,7 +326,7 @@ For v1 Web Application Firewalls, the following metrics are now available in the
 2. Web Application Firewall Blocked Rule Count
   - All rules that were matched **and** the request was blocked
 3. Web Application Firewall Total Rule Distribution
-  - All rules that were matched during evaluation
+     All rules that were matched during evaluation
 
 ## Next steps
 
