@@ -76,6 +76,8 @@
         href: connect-fortinet.md
       - name: Connect F5 
         href: connect-f5.md  
+      - name: Connect F5 BIG-IP
+        href: connect-f5-big-ip.md
       - name: Connect Syslog
         href: connect-syslog.md
       - name: Connect Symantec ICDX
