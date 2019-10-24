@@ -31,7 +31,9 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 ## Register a web application
 
-#### [Applications](#tab/portal/)
+To register an application in your Azure AD B2C tenant, you can use the current **Applications** experience, or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](https://aka.ms/b2cappregintro).
+
+#### [Applications](#tab/applications/)
 
 1. Make sure you're using the directory that contains your Azure AD B2C tenant by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your tenant.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
@@ -49,12 +51,12 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
 1. Click **Create** to complete the application registration.
 
-#### [App registrations (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/app-reg-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
-1. Select **Applications (Preview)**, and then select **New registration**.
+1. Select **App registrations (Preview)**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *webapp1*.
 1. Select **Accounts in any organizational directory or any identity provider**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
@@ -82,15 +84,15 @@ Once the application registration is complete, enable the implicit grant flow:
 
 If your application exchanges a code for a token, you need to create an application secret.
 
-#### [Applications](#tab/portal/)
+#### [Applications](#tab/applications/)
 
 1. In the **Azure AD B2C - Applications** page, select the application you created, for example *webapp1*.
 1. Select **Keys** and then select **Generate key**.
 1. Select **Save** to view the key. Make note of the **App key** value. You use this value as the application secret in your application's code.
 
-#### [App registrations (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/app-reg-preview/)
 
-1. In the **Azure AD B2C - Applications (Preview)** page, select the application you created, for example *webapp1*.
+1. In the **Azure AD B2C - App registrations (Preview)** page, select the application you created, for example *webapp1*.
 1. Under **Manage**, select **Certificates & secrets**.
 1. Select **New client secret**.
 1. Enter a description for the client secret in the **Description** box. For example, *clientsecret1*.

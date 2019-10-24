@@ -126,9 +126,11 @@ Not currently. This feature is on our roadmap. Verifying your domain in the **Do
 
 ### How do I delete my Azure AD B2C tenant?
 
-Follow these steps to delete your Azure AD B2C tenant:
+Follow these steps to delete your Azure AD B2C tenant.
 
-#### [Applications](#tab/portal/)
+You can use the current **Applications** experience or our new unified **App registrations (Preview)** experience. [Learn more about the preview experience](http://aka.ms/b2cappregintro).
+
+#### [Applications](#tab/applications/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
@@ -149,13 +151,13 @@ Follow these steps to delete your Azure AD B2C tenant:
 1. Select **Azure Active Directory** on the left-hand menu.
 1. On the **Overview** page, select **Delete directory**. Follow the on-screen instructions to complete the process.
 
-#### [App registrations (Preview)](#tab/portal-preview/)
+#### [App registrations (Preview)](#tab/app-reg-preview/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the *Subscription Administrator*. Use the same work or school account or the same Microsoft account that you used to sign up for Azure.
 1. Select the **Directory + subscription** filter in the top menu, and then select the directory that contains your Azure AD B2C tenant.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Delete all **User flows (policies)** in your Azure AD B2C tenant.
-1. Select **Applications (Preview)**, then select the **All applications** tab.
+1. Select **App registrations (Preview)**, then select the **All applications** tab.
 1. Delete all applications that you registered.
 1. Delete the **b2c-extensions-app**.
 1. Under **Manage**, select **Users**.
