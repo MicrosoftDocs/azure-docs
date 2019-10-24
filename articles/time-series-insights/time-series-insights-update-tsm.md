@@ -46,14 +46,14 @@ These limitations revealed the importance of smart data aggregation and visualiz
 [![Time Series Model charting](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
 
 * Time Series Model plays a vital role in queries and navigation because it contextualizes data by allowing comparisons to be drawn across time ranges and between sensor and device kinds.
-* Data is further contextualized because data persisted in Time Series Model preserves time series query computations as variables, and use these at query time.
+* Data is further contextualized because data persisted in a Time Series Model preserves time series query computations as variables, and use these at query time.
 * Time Series Model organize and aggregate data for improved visualization and management capabilities.
 
 ### Key capabilities
 
-With the goal to make it simple and effortless to manage time series contextualization, Time Series Model enable the following capabilities in Time Series Insights Preview. It helps you:
+With the goal to make it simple and effortless to manage time series contextualization, Time Series Model enables the following capabilities in Time Series Insights Preview. It helps you:
 
-* Author and manage computations or formulas, transform data leveraging scalar functions, aggregate operations, and so on.
+* Author and manage computations or formulas leveraging scalar functions, aggregate operations, and so on.
 * Define parent-child relationships to enable navigation, search, and reference.
 * Define properties that are associated with the instances, defined as *instance fields* and use them to create hierarchies.
 
