@@ -12,8 +12,7 @@
 
 1. From the [Azure portal](https://portal.azure.com) menu, select **Create a resource**. 
 
-  ![Create a resource in the Azure portal](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
-
+   ![Create a resource in the Azure portal](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
 2. In the **Search the marketplace** field, type 'Virtual Network Gateway'. Locate **Virtual network gateway** in the search return and click the entry. On the **Virtual network gateway** page, click **Create**. This opens the **Create virtual network gateway** page.
 
    ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw.png "Create virtual network gateway page fields")
