@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -68,6 +68,13 @@ The Teradata linked service supports the following properties:
 | username | Specify a user name to connect to Teradata. Applies when you are using Windows authentication. | No |
 | password | Specify a password for the user account you specified for the user name. You can also choose to [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br>Applies when you are using Windows authentication, or referencing a password in Key Vault for basic authentication. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |Yes |
+
+More connection properties you can set in connection string per your case:
+
+| Property | Description | Allowed values |
+|:--- |:--- |:--- |
+| CharacterSet | The character set to use for the session. E.g., `CharacterSet=UTF16`.<br><br/>This value can be a user-defined character set, or one of the following pre-defined character sets: ASCII, UTF8, UTF16, ATIN1252_0A, ATIN9_0A, ATIN1_0A Shift-JIS(Windows, DOS compatible, KANJISJIS_0S),  EUC(Unix compatible,KANJIEC_0U), IBM Mainframe(KANJIEBCDIC5035_0I), KANJI932_1S0, BIG5(TCHBIG5_1R0), GB(SCHGB2312_1T0), SCHINESE936_6R0, TCHINESE950_8R0, NetworkKorean(HANGUlKSC5601_2R4), HANGU, 949_7R0, ARABIC1256_6A0, CYRI, IC1251_2A0, HEBREW1255_5A0, ATIN1250_1A0, ATIN1254_7A0, ATIN1258_8A0, THAI874_4A0. | See description. Default value is `ASCII`. |
+| ArraySize |The number of bytes the connector can fetch in a single network round trip. E.g., `ArraySize=‭10485760‬`.<br/><br/>Larger values increase throughput by reducing the number of times to fetch data across the network. Smaller values increase response time, as there is less of a delay waiting for the server to transmit data. | An integer from 1 to 4,294,967,296 (4 GB). The value 1 does not define the number of bytes, but indicates allocating space for exactly one row of data. |
 
 **Example using basic authentication**
 
