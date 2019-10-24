@@ -36,7 +36,7 @@ This is how the workbook will look like in read-mode.
 ![Image showing a text parameter in read mode](./media/workbooks-text/text-readmode.png)
 
 ## Referencing a text parameter
-1. Add a query control to the workbook and select an Application Insights resource.
+1. Add a query control to the workbook by selecting the blue `Add query` link and select an Application Insights resource.
 2. In the KQL box, add this snippet:
     ```
     requests
@@ -44,7 +44,7 @@ This is how the workbook will look like in read-mode.
     | extend SlowRequestPercent = 100.0 * SlowRequests / AllRequests
     | order by SlowRequests desc
     ```
-3. This expands on query evaluation time to `| where timestamp > ago(1d)` which is the time range value of the parameter.
+3. By using the text parameter with a value of 500 coupled with the query control you effectively running the query below:
     ```
     requests
     | summarize AllRequests = count(), SlowRequests = countif(duration >= 500) by name
@@ -77,6 +77,7 @@ This is how the workbook will look like in read-mode.
 ![Image showing a text parameter with default value from KQL](./media/workbooks-text/text-default-value.png)
 
 > [!NOTE]
-> While default example queries Application Insights data, the approach can be used for any log based data source - Log Analytics, Azure Resource Graph, etc.
+> While this example queries Application Insights data, the approach can be used for any log based data source - Log Analytics, Azure Resource Graph, etc.
 
 ## Next steps
+
