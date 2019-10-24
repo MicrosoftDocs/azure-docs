@@ -13,7 +13,7 @@ ms.author: raynew
 
 This article describes how to set up the Azure Migrate appliance if you're assessing physical servers with the Azure Migrate: Server Assessment tool.
 
-The Azure Migrate appliance is a lightweight appliance used by Azure Migrate Server Assessment to do the following:
+The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate Server Assessment to do the following:
 
 - Discover on-premises servers.
 - Send metadata and performance data for discovered servers to Azure Migrate Server Assessment.
