@@ -79,46 +79,9 @@ Grants the ability to read owners property on single-tenant and multi-tenant app
 
 ![This permissions grants access to the app registration owners page](./media/roles-custom-available-permissions/app-registration-owners.png)
 
-#### microsoft.directory/applications/standard/read: Grants access to all fields on the application registration branding page
+#### microsoft.directory/applications/standard/read
 
-![This permission grants access to the app registration branding page](./media/roles-custom-available-permissions/app-registration-branding.png)
-
-Grants access to the following properties on the application entity:
-
-- AllowActAsForAllClients
-- AllowPassthroughUsers
-- AppAddress
-- AppBrandingElements
-- AppCategory
-- AppCreatedDateTime
-- AppData
-- AppId
-- AppInformationalUrl
-- ApplicationTag
-- AppLogoUrl
-- AppMetadata
-- AppOptions
-- BinaryExtensionAttribute
-- BooleanExtensionAttribute
-- CountriesBlockedForMinors
-- CreatedOnBehalfOf
-- DateTimeExtensionAttribute
-- DisplayName
-- ExtensionAttributeDefinition
-- IntegerExtensionAttribute
-- KnownClientApplications
-- LargeIntegerExtensionAttribute
-- LegalAgeGroupRule
-- LocalizedAppBrandingElements
-- MainLogo
-- MsaAppId
-- ResourceApplicationSet
-- ServiceDiscoveryEndpoint
-- StringExtensionAttribute
-- TrustedCertificateSubject
-- WebApi
-- WebApp
-- WwwHomepage
+Grants access to read standard application registration properties. This includes properties across application registration pages.
 
 #### microsoft.directory/applications.myOrganization/standard/read
 
@@ -140,11 +103,6 @@ Ability to update the supported account type (signInAudience) property on single
 
 ![This permission grants access to app registration supported account type property on authentication page](./media/roles-custom-available-permissions/supported-account-types.png)
 
-Grants access to the following properties on the application resource:
-
-- AvailableToOtherTenants
-- SignInAudience
-
 #### microsoft.directory/applications.myOrganization/audience/update
 
 Grants the same permissions as microsoft.directory/applications/audience/update, but only for single-tenant applications.
@@ -154,20 +112,6 @@ Grants the same permissions as microsoft.directory/applications/audience/update,
 Ability to update the reply URL, sign-out URL, implicit flow, and publisher domain properties on single-tenant and multi-tenant applications. Grants access to all fields on the application registration authentication page except supported account types:
 
 ![Grants access to app registration authentication but not supported account types](./media/roles-custom-available-permissions/supported-account-types.png)
-
- Grants access to the following properties on the application resource:
-
-- AcceptMappedClaims
-- AccessTokenAcceptedVersion
-- AddIns
-- GroupMembershipClaims
-- IsDeviceOnlyAuthSupported
-- OAuth2LegacyUrlPathMatching
-- OauthOidcResponsePolicyBitmap
-- OptionalClaims
-- OrgRestrictions
-- PublicClient
-- UseCustomTokenSigningKey
 
 #### microsoft.directory/applications.myOrganization/authentication/update
 
@@ -179,42 +123,6 @@ Ability to update the name, logo, homepage URL, terms of service URL, and privac
 
 ![This permission grants access to the app registration branding page](./media/roles-custom-available-permissions/app-registration-branding.png)
 
-Grants access to the following properties on the application resource:
-
-- AllowActAsForAllClients
-- AllowPassthroughUsers
-- AppAddress
-- AppBrandingElements
-- AppCategory
-- AppData
-- AppId
-- AppInformationalUrl
-- ApplicationTag
-- AppLogoUrl
-- AppMetadata
-- AppOptions
-- BinaryExtensionAttribute
-- BooleanExtensionAttribute
-- CountriesBlockedForMinors
-- CreatedOnBehalfOf
-- DateTimeExtensionAttribute
-- DisplayName
-- ExtensionAttributeDefinition
-- IntegerExtensionAttribute
-- KnownClientApplications
-- LargeIntegerExtensionAttribute
-- LegalAgeGroupRule
-- LocalizedAppBrandingElements
-- MainLogo
-- MsaAppId
-- ResourceApplicationSet
-- ServiceDiscoveryEndpoint
-- StringExtensionAttribute
-- TrustedCertificateSubject
-- WebApi
-- WebApp
-- WwwHomepage
-
 #### microsoft.directory/applications.myOrganization/basic/update
 
 Grants the same permissions as microsoft.directory/applications/basic/update, but only for single-tenant applications.
@@ -225,13 +133,6 @@ Ability to update the certificates and client secrets properties on single-tenan
 
 ![This permission grants access to the app registration certificates & secrets page](./media/roles-custom-available-permissions/app-registration-secrets.png)
 
-Grants access to the following properties on the application resource:
-- AsymmetricKey
-- EncryptedSecretKey
-- KeyDescription
-- SharedKeyReference
-- TokenEncryptionKeyId
-
 #### microsoft.directory/applications.myOrganization/credentials/update
 
 Grants the same permissions as microsoft.directory/applications/credentials/update, but only for single-directory applications.
@@ -241,9 +142,6 @@ Grants the same permissions as microsoft.directory/applications/credentials/upda
 Ability to update the owner property on single-tenant and multi-tenant. Grants access to all fields on the application registration owners page:
 
 ![This permissions grants access to the app registration owners page](./media/roles-custom-available-permissions/app-registration-owners.png)
-
-Grants access to the following properties on the application resource:
-- Owners
 
 #### microsoft.directory/applications.myOrganization/owners/update
 
@@ -256,14 +154,6 @@ Ability to update the delegated permissions, application permissions, authorized
 ![This permissions grants access to the app registration API permissions page](./media/roles-custom-available-permissions/app-registration-api-permissions.png)
 
 ![This permissions grants access to the app registration Expose an API page](./media/roles-custom-available-permissions/app-registration-expose-api.png)
-
-Grants access to the following properties on the application resource:
-
-- AppIdentifierUri
-- Entitlement
-- PreAuthorizedApplications
-- RecordConsentConditions
-- RequiredResourceAccess
 
 #### microsoft.directory/applications.myOrganization/permissions/update
 
