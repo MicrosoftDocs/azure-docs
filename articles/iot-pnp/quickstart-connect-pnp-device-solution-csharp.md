@@ -40,7 +40,7 @@ dotnet --version
 
 ## Prepare an IoT hub
 
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't have an IoT hub, follow [these instructions](../iot-hub/iot-hub-create-using-cli.md) to create one:
 
 > [!NOTE]
 > During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
@@ -51,7 +51,7 @@ Run the following command to add the Microsoft Azure IoT Extension for Azure CLI
 az extension add --name azure-cli-iot-ext
 ```
 
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** with your actual names. If you don't have an IoT Hub, follow [these instructions](../iot-hub/iot-hub-create-using-cli.md) to create one:
+Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** with your actual names.
 
 ```azurecli-interactive
 az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
@@ -73,7 +73,7 @@ az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
 
 In this quickstart, you use a sample environmental sensor that's written in C# as the IoT Plug and Play device. The following instructions show you how to install and run the device:
 
-1. Clone the GitHub repository:
+1. Clone the [Azure IoT Samples for C# (.NET)](https://github.com/azure-samples/azure-iot-samples-csharp) GitHub repository:
 
     ```cmd/sh
     git clone https://github.com/azure-samples/azure-iot-samples-csharp

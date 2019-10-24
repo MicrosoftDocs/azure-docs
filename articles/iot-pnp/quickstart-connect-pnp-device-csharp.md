@@ -23,7 +23,7 @@ ms.custom: mvc
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C#, and is included in the Microsoft Azure IoT device SDK for C#. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C#, and is included in the Microsoft Azure IoT Hub device SDK for C#. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
@@ -37,13 +37,13 @@ dotnet --version
 
 ### Install the Azure IoT explorer
 
-Download and install the Azure IoT explorer tool from the [latest release](https://github.com/Azure/azure-iot-explorer/releases) page.
+Download and install the latest release of **Azure IoT explorer** from the tool's [repository](https://github.com/Azure/azure-iot-explorer/releases) page.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prepare an IoT hub
 
-You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. If you don't have an IoT hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md):
 
 > [!NOTE]
 > During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
@@ -54,7 +54,7 @@ Run the following command to add the Microsoft Azure IoT Extension for Azure CLI
 az extension add --name azure-cli-iot-ext
 ```
 
-Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** placeholders with your actual names. If you don't have an IoT Hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md):
+Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** placeholders with your actual names.
 
 ```azurecli-interactive
 az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
@@ -74,11 +74,11 @@ az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
 
 ## Prepare the development environment
 
-### Get Microsoft Azure IoT device SDK for C#
+### Get Microsoft Azure IoT SDK for .NET
 
-In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT C# device SDK.
+In this quickstart, you prepare a development environment you can use to clone and build the Microsoft Azure IoT Hub device SDK for C#.
 
-Open a command prompt. Execute the following command to clone the [Azure IoT C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository:
+Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository into this location:
 
 ```cmd/sh
 git clone https://github.com/Azure/azure-iot-sdk-csharp --recursive -b preview
@@ -122,7 +122,7 @@ The device application starts sending data to IoT Hub.
 
 ## Use the Azure IoT explorer to validate the code
 
-1. Open Azure IoT explorer, you see the **App configurations** page.
+1. Open Azure IoT explorer. You see the **App configurations** page.
 
 1. Enter your _IoT Hub connection string_ and click **Connect**.
 
@@ -142,7 +142,7 @@ The device application starts sending data to IoT Hub.
 
 1. Expand property **name**, update with a new name and select **update writable property**. 
 
-1. To see the new name shows up in the **Reported Property** column, click the **Refresh** button on top of the page.
+1. To see the new name show up in the **Reported Property** column, click the **Refresh** button on top of the page.
 
 1. Select the **Command** page to view all the commands the device supports.
 
