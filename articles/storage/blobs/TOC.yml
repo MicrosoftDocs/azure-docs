@@ -635,16 +635,18 @@
         href: ../blobs/data-lake-storage-explorer.md
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Create and manage directories 
+    - name: Manage directories, files, and ACLs
       items:
+      - name: Storage Explorer
+        href: data-lake-storage-how-to-set-permissions-storage-explorer.md
       - name: PowerShell
-        href: ../blobs/data-lake-storage-manage-directories-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Manage files 
-      items:
-       - name: PowerShell
-         href: /powershell/module/azure.storage
-       - name: Azure CLI
-         href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        href: data-lake-storage-directory-file-acl-powershell.md
+      - name: .NET
+        href: data-lake-storage-directory-file-acl-dotnet.md
+      - name: Java
+        href: data-lake-storage-directory-file-acl-java.md
+      - name: Python
+        href: data-lake-storage-directory-file-acl-python.md
     - name: Transfer data
       items:
       - name: AzCopy
@@ -679,12 +681,6 @@
             href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Azure CLI
             href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Manage directory and file permissions 
-          items:
-          - name: Storage Explorer
-            href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
-          - name: PowerShell
-            href: ../blobs/data-lake-storage-acl-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Optimize performance
       items:
         - name: Overview
