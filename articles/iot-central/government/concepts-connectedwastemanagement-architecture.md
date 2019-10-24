@@ -17,7 +17,7 @@ manager: aabjork
 A connected waste management solution can be built using tthe **Azure IoT Central app template** as a kick starter IoT application. This article provides a high-level reference architecture guidance on building an end to end solution. 
 
 [!div class="mx-imgBorder"] 
-![Connected waste management architecture](./media/concepts-connectedwastemanagement-architecture/concepts-connectedwastemanagement-architecture1.png)
+![Connected waste management architecture](./media/concepts-connectedwastemanagement-architecture/concepts-connectedwastemanagement-architecture.png)
 
 
 Concepts:
