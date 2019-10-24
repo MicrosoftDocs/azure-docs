@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: integration
-ms.date: 08/28/2019
+ms.date: 10/24/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -19,13 +19,10 @@ This simple tutorial outlines how to integrate your SQL Server Data tools (SSDT)
 
 - Go through the [source control integration tutorial](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration)
 
-- Create a [self-hosted agent](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops#install) that has the SSDT Preview Bits (16.3 preview 2 and higher) installed for SQL Data Warehouse (preview)
+- Create a [self-hosted agent](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops#install) that has the SSDT Preview Bits (16.3 preview 2 and higher) installed for SQL Data Warehouse. You can also use the Microsoft-hosted agent with Visual Studio 2019 installed (windows-2019).
 
 - Set up and connect to Azure DevOps
 
-  > [!NOTE]
-  > SSDT is currently in preview where you will need to leverage a self-hosted agent. The
-  > Microsoft-hosted agents will be updated in the next few months.
 
 ## Continuous integration with Visual Studio build
 
