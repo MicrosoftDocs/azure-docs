@@ -8,7 +8,7 @@ manager: gwallace
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 10/24/2019
 ms.author: cynthn
 ---
 
@@ -18,7 +18,7 @@ Using [spot VMs](spot-vms.md) allows you to take advantage of our unused capacit
 
 Pricing for spot VMs is variable, based on region and SKU. For more information, see VM pricing for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For more information about setting the max price, see [spot VMs - Pricing](spot-vms.md#pricing).
 
-You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a spot VM can be set in USD, using up to 5 decimal places. For example, the value `0.98765`would be a max price of $0.98765 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available.
+You have option to set a max price you are willing to pay, per hour, for the VM. The max price for a spot VM can be set in USD, using up to 5 decimal places. For example, the value `0.05701`would be a max price of $0.05701 USD per hour. If you set the max price to be `-1`, the VM won't be evicted based on price. The price for the VM will be the current price for spot or the price for an on-demand VM, which ever is less, as long as there is capacity and quota available.
 
 > [!IMPORTANT]
 > Spot VMs are currently in public preview.
@@ -36,9 +36,11 @@ On the **Basics** tab, in the **Instance details** section, **No** is the defaul
 
 ![Screen capture for choosing no, don't use an Azure spot instance](media/spot-portal/no.png)
 
-It you select **Yes**, the section expands and you can choose your {Eviction type and Eviction policy](spot-vms.md#eviction-policy). 
+It you select **Yes**, the section expands and you can choose your [eviction type and eviction policy](spot-vms.md#eviction-policy). 
 
 ![Screen capture for choosing yes, use an Azure spot instance](media/spot-portal/yes.png)
 
 
 ## Next steps
+
+You can also create spot VMs using [PowerShell](spot-powershell.md).
