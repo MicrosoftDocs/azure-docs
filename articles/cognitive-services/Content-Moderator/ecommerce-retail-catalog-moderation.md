@@ -55,7 +55,7 @@ Next, create custom tags in the Review tool (see the [Tags](https://docs.microso
 1. Name the application **EcommerceModeration**, then click **OK**.
 1. If you're adding this project to an existing solution, select this project as the single startup project.
 
-This tutorial highlights the code that is central to the project, but it won't cover every line of [!INCLUDE [CONTRIBUTING](../../../CONTRIBUTING.md)]code. Copy the full contents of _Program.cs_ from the sample project ([Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) into the _Program.cs_ file of your new project. Then, step through the following sections to learn about how the project works and how to use it yourself.
+This tutorial highlights the code that is central to the project, but it won't cover every line of code. Copy the full contents of _Program.cs_ from the sample project ([Samples eCommerce Catalog Moderation](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration)) into the _Program.cs_ file of your new project. Then, step through the following sections to learn about how the project works and how to use it yourself.
 
 ## Define API keys and endpoints
 
