@@ -43,6 +43,6 @@ Here are some possible error codes you could receive when using spot VMs and sca
 
 
 
-** Next steps **
+**Next steps**
 
 For more information, see [spot Virtual Machines](./linux/spot-vms.md).
