@@ -2,12 +2,12 @@
 title: Operator best practices - Advanced scheduler features in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for using advanced scheduler features such as taints and tolerations, node selectors and affinity, or inter-pod affinity and anti-affinity in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
+ms.author: mlearned 
 ---
 
 # Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)
@@ -83,7 +83,7 @@ When you upgrade a node pool in AKS, taints and tolerations follow a set pattern
   - Another new node is created (named *node1*, since the previous *node1* was deleted), and the *node2* taints are applied to the new *node1*. Then, *node2* is deleted.
   - In essence *node1* becomes *node3*, and *node2* becomes *node1*.
 
-- **Clusters that use virtual machine scale sets** (currently in preview in AKS)
+- **Clusters that use virtual machine scale sets**
   - Again, let's assume you have a two-node cluster - *node1* and *node2*. You upgrade the node pool.
   - Two additional nodes are created, *node3* and *node4*, and the taints are passed on respectively.
   - The original *node1* and *node2* are deleted.
@@ -153,11 +153,11 @@ spec:
   affinity:
     nodeAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-      - matchExpressions:
-        - key: hardware
-          operator: In
-          values: highmem
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: hardware
+            operator: In
+            values: highmem
 ```
 
 The *IgnoredDuringExecution* part of the setting indicates that if the node labels change, the pod shouldn't be evicted from the node. The Kubernetes scheduler only uses the updated node labels for new pods being scheduled, not pods already scheduled on the nodes.

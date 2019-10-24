@@ -6,7 +6,7 @@ ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 06/25/2019
 ms.custom: mvc
 ---
 # Quickstart: Create an Azure Database for PostgreSQL - Single Server using the Azure CLI
@@ -138,6 +138,13 @@ If your client computer has PostgreSQL installed, you can use a local instance o
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
+
+   > [!TIP]
+   > If you prefer to use a URL path to connect to Postgres, URL encode the @ sign in the username with `%40`. For example the connection string for psql would be,
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
+
 
 2. Once you are connected to the server, create a blank database at the prompt.
    ```sql

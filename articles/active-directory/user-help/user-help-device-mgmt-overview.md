@@ -24,5 +24,5 @@ Make sure you're able to access all of your organization's potentially restricte
 
 |Article |Description |
 |------|------------|
-|[Join your work device](user-help-join-device-on-network.md)|Learn how to join your work-owned device to your organization's network.|
-|[Register your personal device](user-help-register-device-on-network.md)|Learn how to register your personal device on your organization's network.|
+| [Join your work device](user-help-join-device-on-network.md) ]Learn how to join your work-owned device to your organization's network.|
+| [Register your personal device](user-help-register-device-on-network.md) ]Learn how to register your personal device on your organization's network.|

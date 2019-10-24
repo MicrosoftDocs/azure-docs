@@ -32,7 +32,7 @@ The following steps outline the process to set up a local environment for UI dev
     az network nsg rule update --name SSH --nsg-name {your solution name}-nsg --resource-group {your solution name} --access Allow
     ```
 
-    Only enable SSH access during test and development. If you enable SSH, [you should disable it as soon as you're finished using it](../security/azure-security-network-security-best-practices.md#disable-rdpssh-access-to-virtual-machines).
+    Only enable SSH access during test and development. If you enable SSH, [you should disable it as soon as you're finished using it](../security/fundamentals/network-best-practices.md#disable-rdpssh-access-to-virtual-machines).
 
 1. Use the Azure portal or the Azure Cloud Shell to find the name and public IP address of your virtual machine. For example:
 

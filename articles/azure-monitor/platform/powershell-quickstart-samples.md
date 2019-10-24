@@ -1,14 +1,15 @@
 ---
 title: Azure Monitor PowerShell quick start samples
 description: Use PowerShell to access Azure Monitor features such as autoscale, alerts, webhooks and searching Activity logs.
-author: rboucher
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 2/14/2018
-ms.author: robb
+ms.service:  azure-monitor
 ms.subservice: ""
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 2/14/2018
+
 ---
+
 # Azure Monitor PowerShell quick start samples
 This article shows you sample PowerShell commands to help you access Azure Monitor features.
 
@@ -36,6 +37,11 @@ You'll see a sign in screen. Once you sign in your Account, TenantID, and defaul
 Get-AzSubscription
 ```
 
+To see your working context (which subscription your commands are run against), use the following command:
+
+```powershell
+Get-AzContext
+```
 To change your working context to a different subscription, use the following command:
 
 ```powershell
@@ -44,18 +50,23 @@ Set-AzContext -SubscriptionId <subscriptionid>
 
 
 ## Retrieve Activity log for a subscription
-Use the `Get-AzLog` cmdlet.  The following are some common examples.
+Use the [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet.  The following are some common examples. The Activity Log holds the last 90 days of operations. Using dates before this time results in an error message.  
+
+See what the current date/time are to verify what times to use in the commands below:
+```powershell
+Get-Date
+```
 
 Get log entries from this time/date to present:
 
 ```powershell
-Get-AzLog -StartTime 2016-03-01T10:30
+Get-AzLog -StartTime 2019-03-01T10:30
 ```
 
 Get log entries between a time/date range:
 
 ```powershell
-Get-AzLog -StartTime 2015-01-01T10:30 -EndTime 2015-01-01T11:30
+Get-AzLog -StartTime 2019-01-01T10:30 -EndTime 2015-01-01T11:30
 ```
 
 Get log entries from a specific resource group:
@@ -79,13 +90,13 @@ Get-AzLog -Caller 'myname@company.com'
 The following command retrieves the last 1000 events from the activity log:
 
 ```powershell
-Get-AzLog -MaxEvents 1000
+Get-AzLog -MaxRecord 10
 ```
 
 `Get-AzLog` supports many other parameters. See the `Get-AzLog` reference for more information.
 
 > [!NOTE]
-> `Get-AzLog` only provides 15 days of history. Using the **-MaxEvents** parameter allows you to query the last N events, beyond 15 days. To access events older than 15 days, use the REST API or SDK (C# sample using the SDK). If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
+> `Get-AzLog` only provides 15 days of history. Using the **-MaxRecords** parameter allows you to query the last N events, beyond 15 days. To access events older than 15 days, use the REST API or SDK (C# sample using the SDK). If you do not include **StartTime**, then the default value is **EndTime** minus one hour. If you do not include **EndTime**, then the default value is current time. All times are in UTC.
 > 
 > 
 
@@ -301,7 +312,7 @@ To fetch your existing log profiles, use the `Get-AzLogProfile` cmdlet.
 
 ### Add a log profile without data retention
 ```powershell
-Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
+Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Location global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia
 ```
 
 ### Remove a log profile
@@ -313,14 +324,14 @@ Remove-AzLogProfile -name my_log_profile_s1
 You can specify the **-RetentionInDays** property with the number of days, as a positive integer, where the data is retained.
 
 ```powershell
-Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
+Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -Location global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ### Add log profile with retention and EventHub
 In addition to routing your data to storage account, you can also stream it to an Event Hub. In this preview release the storage account configuration is mandatory but Event Hub configuration is optional.
 
 ```powershell
-Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Locations global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
+Add-AzLogProfile -Name my_log_profile_s1 -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus,northeurope,westeurope,eastasia,southeastasia,japaneast,japanwest,northcentralus,southcentralus,eastus2,centralus,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia -RetentionInDays 90
 ```
 
 ## Configure diagnostics logs

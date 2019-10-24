@@ -3,7 +3,7 @@ title: Create webhooks on rules in Azure IoT Central | Microsoft Docs
 description: Create webhooks in Azure IoT Central to automatically notify other applications when rules fire.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/20/2019
+ms.date: 06/16/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -13,6 +13,8 @@ manager: peterpr
 # Create webhook actions on rules in Azure IoT Central
 
 *This topic applies to builders and administrators.*
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 Webhooks enable you to connect your IoT Central app to other applications and services for remote monitoring and notifications. Webhooks automatically notify other applications and services you connect whenever a rule is triggered in your IoT Central app. Your IoT Central app sends a POST request to the other application's HTTP endpoint whenever a rule is triggered. The payload contains device details and rule trigger details.
 

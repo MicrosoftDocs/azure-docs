@@ -4,6 +4,7 @@ description: This article explains how to register a confidential client applica
 services: healthcare-apis
 author: hansenms
 ms.service: healthcare-apis
+ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: mihansen
@@ -19,7 +20,7 @@ To register a new confidential application in the portal, follow the steps below
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
 
-2. In the **Azure Active Directory** blade click **App registrations (Preview)**:
+2. In the **Azure Active Directory** blade click **App registrations**:
 
     ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
 

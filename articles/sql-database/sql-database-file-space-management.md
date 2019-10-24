@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Manage file space for single and pooled databases in Azure SQL Database
@@ -210,6 +209,9 @@ ORDER BY end_time DESC
 ```
 
 ## Reclaim unused allocated space
+
+> [!NOTE]
+> This command can impact database performance while it is running, and if possible should be run during periods of low usage.
 
 ### DBCC shrink
 

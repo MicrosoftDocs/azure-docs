@@ -11,16 +11,16 @@
     href: quick-start.md
   - name: Using the client SDK
     items:
-    - name: C#
+    - name: Using the .NET SDK
       items:
       - name: Analyze image content
         href: image-moderation-quickstart-dotnet.md
       - name: Analyze text content
         href: text-moderation-quickstart-dotnet.md
-    - name: Python
-      items:
-      - name: Analyze text content
-        href: text-moderation-quickstart-python.md
+    - name: Using the Python SDK
+      href: python-sdk-quickstart.md
+    - name: Using the Java SDK
+      href: java-sdk-quickstart.md
 - name: Tutorials
   items:
   - name: Moderate e-commerce images
@@ -123,8 +123,6 @@
       href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
   - name: Azure webinar series
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-  - name: FAQ
-    href: FAQs.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator
   - name: UserVoice
@@ -139,3 +137,5 @@
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Azure roadmap
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

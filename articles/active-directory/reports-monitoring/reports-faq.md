@@ -3,7 +3,7 @@ title: Azure Active Directory Reports FAQ | Microsoft Docs
 description: Frequently asked quesitons around Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -34,7 +34,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: I currently use the `https://graph.windows.net/<tenant-name>/reports/` endpoint APIs to pull Azure AD security reports (specific types of detections, such as leaked credentials or sign-ins from anonymous IP addresses) into our reporting systems programmatically. What should I switch to?**
 
-**A:** You can use the [Identity Protection risk events API](../identity-protection/graph-get-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk events into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current MS Graph investments or help you begin your transition to this new standard platform.
+**A:** You can use the [Identity Protection risk detections API](../identity-protection/graph-get-started.md) to access security detections through Microsoft Graph. This new format gives greater flexibility in how you can query data, with advanced filtering, field selection, and more, and standardizes risk detections into one type for easier integration into SIEMs and other data collection tools. Because the data is in a different format, you can't substitute a new query for your old queries. However, [the new API uses Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), which is the Microsoft standard for such APIs as O365 or Azure AD. So the work required can either extend your current MS Graph investments or help you begin your transition to this new standard platform.
 
 ---
 
@@ -104,7 +104,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ## Risky sign-ins
 
-**Q: There is a risk event in Identity Protection but I’m not seeing corresponding sign-in in the sign-ins report. Is this expected?**
+**Q: There is a risk detection in Identity Protection but I’m not seeing corresponding sign-in in the sign-ins report. Is this expected?**
 
 **A:** Yes, Identity Protection evaluates risk for all authentication flows whether interactive or non-interactive. However, all sign-ins only report shows only the interactive sign-ins.
 
@@ -112,7 +112,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: How do I know why a sign-in or a user was flagged risky in the Azure portal?**
 
-**A:** If you have an **Azure AD Premium** subscription, you can learn more about the underlying risk events by selecting the user in **Users flagged for risk** or by selecting a record in the **Risky sign-ins** report. If you have a **Free** or **Basic** subscription, then you can view the users at risk and risky sign-ins reports, but you cannot see the underlying risk event information.
+**A:** If you have an **Azure AD Premium** subscription, you can learn more about the underlying risk detections by selecting the user in **Users flagged for risk** or by selecting a record in the **Risky sign-ins** report. If you have a **Free** or **Basic** subscription, then you can view the users at risk and risky sign-ins reports, but you cannot see the underlying risk detection information.
 
 ---
 
@@ -122,17 +122,17 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ---
 
-**Q: What does the risk event "Sign-in with additional risk detected" signify?**
+**Q: What does the risk detection "Sign-in with additional risk detected" signify?**
 
 **A:** To give you insight into all the risky sign-ins in your environment, "Sign-in with additional risk detected" functions as placeholder for sign-ins for detections that are exclusive to Azure AD Identity Protection subscribers.
 
 ---
 
-## Conditional access
+## Conditional Access
 
 **Q: What's new with this feature?**
 
-**A:** Customers can now troubleshoot conditional access policies through all sign-ins report. Customers can review the conditional access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+**A:** Customers can now troubleshoot Conditional Access policies through all sign-ins report. Customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 
 **Q: How do I get started?**
 
@@ -140,20 +140,20 @@ This article includes answers to frequently asked questions about Azure Active D
 
 * Navigate to the sign-ins report in the [Azure portal](https://portal.azure.com).
 * Click on the sign-in that you want to troubleshoot.
-* Navigate to the **Conditional access** tab.
+* Navigate to the **Conditional Access** tab.
 Here, you can view all the policies that impacted the sign-in and the result for each policy. 
     
-**Q: What are all possible values for the conditional access status?**
+**Q: What are all possible values for the Conditional Access status?**
 
-**A:** Conditional access status can have the following values:
+**A:** Conditional Access status can have the following values:
 
 * **Not Applied**: This means that there was no CA policy with the user and app in scope. 
 * **Success**: This means that there was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
 * **Failure**: This means that there was a CA policy with the user and app in scope and CA policies were not satisfied. 
     
-**Q: What are all possible values for the conditional access policy result?**
+**Q: What are all possible values for the Conditional Access policy result?**
 
-**A:** A conditional access policy can have the following results:
+**A:** A Conditional Access policy can have the following results:
 
 * **Success**: The policy was successfully satisfied.
 * **Failure**: The policy was not satisfied.
@@ -164,6 +164,6 @@ Here, you can view all the policies that impacted the sign-in and the result for
 
 **A:** The policy name in the all sign-in report is based on the CA policy name at the time of the sign-in. This can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
 
-**Q: My sign-in was blocked due to a conditional access policy, but the sign-in activity report shows that the sign-in succeeded. Why?**
+**Q: My sign-in was blocked due to a Conditional Access policy, but the sign-in activity report shows that the sign-in succeeded. Why?**
 
-**A:** Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when conditional access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a conditional access policy. 
+**A:** Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a Conditional Access policy. 

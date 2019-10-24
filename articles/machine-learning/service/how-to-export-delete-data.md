@@ -1,6 +1,6 @@
 ---
 title: Export or delete workspace data
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Learn how to export or delete your workspace with the Azure portal, CLI, SDK, and authenticated REST APIs.
 services: machine-learning
 ms.service: machine-learning
@@ -22,9 +22,9 @@ In Azure Machine Learning, you can export or delete your workspace data with the
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## Control your workspace data
-In-product data stored by Azure Machine Learning Services is available for export and deletion through the Azure portal, CLI, SDK, and authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy portal. 
+In-product data stored by Azure Machine Learning is available for export and deletion through the Azure portal, CLI, SDK, and authenticated REST APIs. Telemetry data can be accessed through the Azure Privacy portal. 
 
-In Azure Machine Learning Services, personal data consists of user information in run history documents and telemetry records of some user interactions with the service.
+In Azure Machine Learning, personal data consists of user information in run history documents and telemetry records of some user interactions with the service.
 
 ## Delete workspace data with the REST API 
 

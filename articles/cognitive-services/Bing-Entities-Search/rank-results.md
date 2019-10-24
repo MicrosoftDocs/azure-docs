@@ -1,6 +1,6 @@
 ---
 title: Using ranking to display answers - Bing Entity Search
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to use ranking to display the answers that the Bing Entity Search API returns.
 services: cognitive-services
 author: aahill

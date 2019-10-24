@@ -64,8 +64,8 @@ Choose which of your Azure subscriptions to use.
 az account set --subscription "subscription name"
 ```
 
-### Optional: To install/use Azure DNS Private Zones feature (Public Preview)
-The Azure DNS Private Zone feature is released in Public Preview via an extension to the Azure CLI. Install the “dns” Azure CLI extension 
+### Optional: To install/use Azure DNS Private Zones feature
+The Azure DNS Private Zone feature is available via an extension to the Azure CLI. Install the “dns” Azure CLI extension 
 ```
 az extension add --name dns
 ``` 

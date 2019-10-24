@@ -5,7 +5,8 @@ services: functions
 keywords:
 author: joeyaiello
 manager: jeconnoc
-ms.author: jaiello, glenga
+ms.author: jaiello
+ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
@@ -31,7 +32,7 @@ The following steps are supported on macOS, Windows, and Linux-based operating s
 
 To complete this quickstart:
 
-* Install [PowerShell Core](/powershell/scripting/install/installing-powershell#powershell-core)
+* Install [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). 
 
@@ -90,7 +91,7 @@ Azure Functions Core Tools integrates with Visual Studio Code to let you run and
 
     You can also execute the GET request from a browser.
 
-    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a 500 error. When you review the code in run.ps1, you see that this error occurs by design.
+    When you call the HttpTrigger endpoint without passing a `name` parameter either as a query parameter or in the body, the function returns a [HttpStatusCode]::BadRequest error. When you review the code in run.ps1, you see that this error occurs by design.
 
 1. To stop debugging, press Shift + F5.
 

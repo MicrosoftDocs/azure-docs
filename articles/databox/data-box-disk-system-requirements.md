@@ -7,15 +7,32 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 09/04/2019
 ms.author: alkohli
+ms.localizationpriority: high 
 ---
+
+::: zone target="docs"
+
 # Azure Data Box Disk system requirements
 
 This article describes the important system requirements for your Microsoft Azure Data Box Disk solution and for the clients connecting to the Data Box Disk. We recommend that you review the information carefully before you deploy your Data Box Disk, and then refer back to it as necessary during the deployment and subsequent operation.
 
 The system requirements include the supported platforms for clients connecting to disks, supported storage accounts, and storage types.
 
+::: zone-end
+
+::: zone target="chromeless"
+
+## Review prerequisites
+
+1. You must have ordered your Data Box Disk using the [Tutorial: Order your Azure Data Box Disk](data-box-disk-deploy-ordered.md). You have received your disks and one connecting cable per disk.
+2. You have a client computer available from which you can copy the data. Your client computer must:
+
+    - Run a supported operating system.
+    - Have other required software installed.
+
+::: zone-end
 
 ## Supported operating systems for clients
 
@@ -24,7 +41,7 @@ Here is a list of the supported operating systems for the disk unlock and data c
 | **Operating system** | **Tested versions** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+| Windows (64-bit) |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## Other required software for Windows clients
@@ -74,8 +91,11 @@ Here is a list of the storage types supported for uploaded to Azure using Data B
 | Azure Files  | |
 | Managed Disks | |
 
+::: zone target="docs"
 
 ## Next step
 
 * [Deploy your Azure Data Box Disk](data-box-disk-deploy-ordered.md)
+
+::: zone-end
 

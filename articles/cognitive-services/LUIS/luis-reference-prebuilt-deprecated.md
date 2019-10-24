@@ -1,6 +1,6 @@
 ---
-title: Deprecated Prebuilt entities
-titleSuffix: Azure
+title: Deprecated Prebuilt entities - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains deprecated prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
@@ -8,8 +8,8 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 02/28/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 

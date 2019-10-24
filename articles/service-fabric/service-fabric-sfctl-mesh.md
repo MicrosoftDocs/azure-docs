@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple

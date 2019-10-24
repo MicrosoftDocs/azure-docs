@@ -64,7 +64,7 @@ Select an Azure virtual machine to onboard.
 
 If the machine does not have the PowerShell desired state extension installed and the power state is running, click **Connect**.
 
-Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4)
+Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/scripting/dsc/managing-nodes/metaConfig)
 required for your use case, and optionally a node configuration to assign to the VM.
 
 ![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
@@ -79,8 +79,10 @@ If you are managing a Virtual Machine Scale Set, see the example template
 
 ### PowerShell
 
-The [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode)
-cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
+The [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode)
+cmdlet can be used to onboard virtual machines in Azure by using PowerShell.
+However, this is currently only implemented for machines running Windows (the cmdlet
+only triggers the Windows extension).
 
 ### Registering virtual machines across Azure subscriptions
 
@@ -121,7 +123,7 @@ can also be onboarded to Azure Automation State Configuration, as long as they h
 [outbound access to Azure](automation-dsc-overview.md#network-planning):
 
 1. Make sure the latest version of [PowerShell Desired State Configuration for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) is installed on the machines you want to onboard to Azure Automation State Configuration.
-1. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/dsc/metaconfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation State Configuration:
+1. If the [PowerShell DSC Local Configuration Manager defaults](/powershell/scripting/dsc/managing-nodes/metaConfig4) match your use case, and you want to onboard machines such that they **both** pull from and report to Azure Automation State Configuration:
 
    - On each Linux machine to onboard to Azure Automation State Configuration, use `Register.py` to onboard using the PowerShell DSC Local Configuration Manager defaults:
 
@@ -155,7 +157,7 @@ The machine this command is run from must have the latest version of [WMF 5](htt
 
 ## Generating DSC metaconfigurations
 
-To generically onboard any machine to Azure Automation State Configuration, a [DSC metaconfiguration](/powershell/dsc/metaconfig)
+To generically onboard any machine to Azure Automation State Configuration, a [DSC metaconfiguration](/powershell/scripting/dsc/managing-nodes/metaConfig)
 can be generated that tells the DSC
 agent to pull from and/or report to Azure Automation State Configuration. DSC
 metaconfigurations for Azure Automation State Configuration can be generated using either a
@@ -298,11 +300,11 @@ the Azure Automation cmdlets provide a simplified method of generating the DSC m
 needed:
 
 1. Open the PowerShell console or VSCode as an administrator in a machine in your local environment.
-2. Connect to Azure Resource Manager using `Connect-AzureRmAccount`
+2. Connect to Azure Resource Manager using `Connect-AzAccount`
 3. Download the PowerShell DSC metaconfigurations for the machines you want to onboard from the Automation account to which you want to onboard nodes:
 
    ```powershell
-   # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+   # Define the parameters for Get-AzAutomationDscOnboardingMetaconfig using PowerShell Splatting
    $Params = @{
        ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation Account
        AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
@@ -311,7 +313,7 @@ needed:
    }
    # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
    # For more info about splatting, run: Get-Help -Name about_Splatting
-   Get-AzureRmAutomationDscOnboardingMetaconfig @Params
+   Get-AzAutomationDscOnboardingMetaconfig @Params
    ```
 
 1. You should now have a folder called ***DscMetaConfigs***, containing the PowerShell DSC metaconfigurations for the machines to onboard (as an administrator):
@@ -366,8 +368,8 @@ click **View detailed status**.
 After registering a machine as a DSC node in Azure Automation State Configuration, there are a
 number of reasons why you may need to reregister that node in the future:
 
-- After registering, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year's time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node's authentication certificate expires, and the node is not reregistered, the node is unable to communicate with Azure Automation and is marked 'Unresponsive.' Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.
-- To change any [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through reregistration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
+- For versions of Windows Server prior to Windows Server 2019, each node automatically negotiates a unique certificate for authentication that expires after one year. Currently, the PowerShell DSC registration protocol cannot automatically renew certificates when they are nearing expiration, so you need to reregister the nodes after a year's time. Before reregistering, ensure that each node is running Windows Management Framework 5.0 RTM. If a node's authentication certificate expires, and the node is not reregistered, the node is unable to communicate with Azure Automation and is marked 'Unresponsive.' Reregistration performed 90 days or less from the certificate expiration time, or at any point after the certificate expiration time, will result in a new certificate being generated and used.  A resolution to this issue is included in Windows Server 2019 and later.
+- To change any [PowerShell DSC Local Configuration Manager values](/powershell/scripting/dsc/managing-nodes/metaConfig4) that were set during initial registration of the node, such as ConfigurationMode. Currently, these DSC agent values can only be changed through reregistration. The one exception is the Node Configuration assigned to the node -- this can be changed in Azure Automation DSC directly.
 
 Reregistration can be performed in the same way you registered the node initially, using any of the
 onboarding methods described in this document. You do not need to unregister a node from Azure
@@ -377,6 +379,6 @@ Automation State Configuration before reregistering it.
 
 - To get started, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md)
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md)
-- For PowerShell cmdlet reference, see [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation)
+- For PowerShell cmdlet reference, see [Azure Automation State Configuration cmdlets](/powershell/module/az.automation#automation)
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/)
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous Deployment Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md)

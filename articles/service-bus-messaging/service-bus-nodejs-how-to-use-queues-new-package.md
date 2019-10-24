@@ -1,10 +1,9 @@
 ---
-title: How to use Azure Service Bus queues in Node.js - azure/service-bus | Microsoft Docs
-description: Learn how to use Service Bus queues in Azure from a Node.js app.
+title: How to use azure/service-bus queues in Node.js 
+description: Learn how to use Service Bus queues in Azure from a Node.js app using the azure/service-bus package. 
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
-manager: timlt
 editor: spelluru
 
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
@@ -13,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 10/22/2019
 ms.author: aschhab
 
 ---
@@ -105,7 +104,7 @@ Interacting with a Service Bus queue starts with instantiating the [ServiceBusCl
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
       const queueClient = sbClient.createQueueClient(queueName);
-      const receiver = queueClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const receiver = queueClient.createReceiver(ReceiveMode.receiveAndDelete);
       try {
         const messages = await receiver.receiveMessages(10)
         console.log("Received messages:");
@@ -127,6 +126,9 @@ Interacting with a Service Bus queue starts with instantiating the [ServiceBusCl
 Congratulations! You just received messages from a Service Bus queue.
 
 The [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) method takes in a `ReceiveMode` which is an enum with values [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) and [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Remember to [settle your messages](message-transfers-locks-settlement.md#settling-receive-operations) if you use the `PeekLock` mode by using any of `complete()`, `abandon()`, `defer()`, or `deadletter()` methods on the message.
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 To learn more, see the following resources.

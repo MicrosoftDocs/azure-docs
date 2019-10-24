@@ -2,22 +2,16 @@
 title: Data Factory Functions and System Variables | Microsoft Docs
 description: Provides a list of Azure Data Factory functions and system variables
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-services: data-factory
-
-ms.assetid: b6b3c2ae-b0e8-4e28-90d8-daf20421660d
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Azure Data Factory - Functions and System Variables
 > [!NOTE]
 > This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [System variables in Data Factory](../control-flow-system-variables.md).

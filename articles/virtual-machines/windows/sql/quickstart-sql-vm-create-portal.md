@@ -7,11 +7,11 @@ author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ---
@@ -37,16 +37,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using your account.
 
-1. In the Azure portal, select **Create a resource**. 
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
+1. Select **+Add** to open the **Select SQL deployment option** page. You can view additional information by selecting **Show details** on the **SQL virtual machines** tile.
+1. Select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** image from the dropdown.
 
-1. In the search field, type `SQL Server 2017 Developer on Windows Server 2016`, and press ENTER. Expand the SQL Server 2017 on Windows Server 2016 option. 
-
-1. Select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** image. The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM. For complete pricing considerations, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
-
-   ![New search window](./media/quickstart-sql-vm-create-portal/newsearch.png)
-
+   ![New search window](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
 1. Select **Create**.
+
+   ![New search window](./media/quickstart-sql-vm-create-portal/create-sql-2017-vm-image.png)
 
 ## <a id="configure"></a> Provide basic details
 
@@ -59,7 +58,7 @@ On the **Basics** tab, provide the following information:
 1. Under **Instance details**:
     1. Type _SQLVM_ for the **Virtual machine name**. 
     1. Choose a location for your **Region**. 
-    1. For the purpose of this quickstart, leave **Availability options** set to _No infrastructure redundancy required_. To find out more information about availability options, see [Azure regions and availability](../../windows/regions-and-availability.md). 
+    1. For the purpose of this quickstart, leave **Availability options** set to _No infrastructure redundancy required_. To find out more information about availability options, see [Availability](../../windows/availability.md). 
     1. In the **Image** list, select _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_. 
     1. Choose to **Change size** for the **Size** of the virtual machine and select the **A2 Basic** offering. Be sure to clean up your resources once you're done with them to prevent any unexpected charges. 
 
@@ -78,9 +77,10 @@ On the **Basics** tab, provide the following information:
 On the **SQL Server settings** tab, configure the following options:
 
 1. Under **Security & Networking**, select _Public (Internet_) for **SQL Connectivity** and change the port to `1401` to avoid using a well-known port number in the public scenario. 
-1. Under **SQL Authentication**, select **Enable**. The SQL Login is set to the same user name and password that you configured for the VM. Use the default settings for **Azure Key Vault integration** and **Storage configuration**.  
+1. Under **SQL Authentication**, select **Enable**. The SQL Login is set to the same user name and password that you configured for the VM. Use the default setting for [**Azure Key Vault integration**](virtual-machines-windows-ps-sql-keyvault.md). **Storage configuration** is not available for the basic SQL Server VM image but you can find more information about available options for other images at [storage configuration](virtual-machines-windows-sql-server-storage-configuration.md#new-vms).  
 
    ![SQL server security settings](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
+
 
 1. Change any other settings if needed, and then select **Review + create**. 
 

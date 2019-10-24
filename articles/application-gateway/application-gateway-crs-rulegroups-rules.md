@@ -6,6 +6,7 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 4/11/2019
 ms.author: victorh
+ms.topic: conceptual
 ---
 
 # Web application firewall CRS rule groups and rules
@@ -191,6 +192,7 @@ The following rule groups and rules are available when using Application Gateway
 |942270|Looking for basic sql injection. Common attack string for mysql oracle and others.|
 |942290|Finds basic MongoDB SQL injection attempts|
 |942300|Detects MySQL comments, conditions and ch(a)r injections|
+|942310|Detects chained SQL injection attempts 2/2|
 |942320|Detects MySQL and PostgreSQL stored procedure/function injections|
 |942330|Detects classic SQL injection probings 1/2|
 |942340|Detects basic SQL authentication bypass attempts 3/3|

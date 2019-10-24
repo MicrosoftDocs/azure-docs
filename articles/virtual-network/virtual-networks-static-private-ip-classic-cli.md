@@ -5,6 +5,7 @@ description: Learn how to configure private IP addresses for virtual machines (C
 services: virtual-network
 documentationcenter: na
 author: genlin
+manager: dcscontentpm
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article

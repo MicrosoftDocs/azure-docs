@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Enable automatic tuning to monitor queries and improve workload performance
@@ -36,7 +35,7 @@ To enable automatic tuning on Azure SQL Database logical **server**, navigate to
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases.
+> Please note that **DROP_INDEX** option at this time is not compatible with applications using partition switching and index hints and should not be enabled in these cases. Dropping unused indexes is not supported for Premium and Business Critical service tiers.
 >
 
 Select the automatic tuning options you want to enable and select **Apply**.
@@ -99,9 +98,15 @@ Find our more abut T-SQL options to configure Automatic tuning, see [ALTER DATAB
 
 Automatic tuning is monitoring all the actions it takes on the database and in some cases it can determine that automatic tuning can't properly work on the database. In this situation, tuning option will be disabled by the system. In most cases this happens because Query Store is not enabled or it's in read-only state on a specific database.
 
+## Permissions
+
+As automatic tuning is Azure feature, to use it you will need to use Azure's built-in RBAC roles. Using SQL Authentication only will not be sufficient to use the feature from Azure portal.
+
+To use automatic tuning, the minimum required permission to grant to the user is Azure's built-in [SQL DB contributor](../role-based-access-control/built-in-roles.md#sql-db-contributor) role. You can also consider using higher privilege roles such are SQL Server Contributor, Contributor and Owner.
+
 ## Configure automatic tuning e-mail notifications
 
-See [Automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md) guide.
+See [automatic tuning e-mail notifications](sql-database-automatic-tuning-email-notifications.md) guide.
 
 ## Next steps
 

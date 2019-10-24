@@ -1,14 +1,14 @@
 ---
-title: "How to prepare data for Custom Voice - Speech Services"
-titlesuffix: Azure Cognitive Services
-description: "Create a custom voice for your brand with Azure Speech Services. You provide studio recordings and the associated scripts, the service generates a unique voice model tuned to the recorded voice. Use this voice to synthesize speech in your products, tools, and applications."
+title: "How to prepare data for Custom Voice - Speech Service"
+titleSuffix: Azure Cognitive Services
+description: "Create a custom voice for your brand with Speech Service. You provide studio recordings and the associated scripts, the service generates a unique voice model tuned to the recorded voice. Use this voice to synthesize speech in your products, tools, and applications."
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -44,7 +44,7 @@ You can prepare recordings of individual utterances and the matching transcript 
 To produce a good voice font, create the recordings in a quiet room with a high-quality microphone. Consistent volume, speaking rate, speaking pitch, and expressive mannerisms of speech are essential.
 
 > [!TIP]
-> To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [How to record voice samples for a custom voice](https://review.docs.microsoft.com/azure/cognitive-services/speech-service/record-custom-voice-samples).
+> To create a voice for production use, we recommend you use a professional recording studio and voice talent. For more information, see [How to record voice samples for a custom voice](record-custom-voice-samples.md).
 
 ### Audio files
 
@@ -119,7 +119,7 @@ Transcripts must be prepared to the specifications listed in this table. Each au
 | File name | Use the same name as the matching audio file |
 | Encoding format | UTF-8-BOM only |
 | # of utterances per line | No limit |
-| Maximum file size | 50M |
+| Maximum file size | 50 MB |
 
 All transcripts files in this data type should be grouped into a zip file. No subfolder is allowed in the zip file. For example, you have uploaded a zip file containing an audio file named ‘kingstory.wav’, 45 seconds long, and another one named ‘queenstory.mp3’, 200 seconds long. You will need to upload another zip file containing two transcripts, one named ‘kingstory.txt’, the other one ‘queenstory.txt’. Within each plain text file, you will provide the full correct transcription for the matching audio.
 

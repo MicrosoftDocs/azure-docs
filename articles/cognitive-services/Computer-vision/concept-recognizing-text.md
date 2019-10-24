@@ -1,5 +1,5 @@
 ---
-title: Recognize printed/handwritten text, Computer Vision
+title: Printed, handwritten text recognition - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to recognizing printed and handwritten text in images using the Computer Vision API.
 services: cognitive-services
@@ -20,19 +20,19 @@ Computer Vision provides a number of services that detect and extract printed or
 
 ## Read API
 
-The Read API detects text content in an image using our latest recognition models and converts the identified text into a machine-readable character stream. It is optimized for text-heavy images (such as documents that have been digitally scanned) and for images with a lot of visual noise. It executes asynchronously because larger documents can take several minutes to return a result.
+The Read API detects text content in an image using our latest recognition models and converts the identified text into a machine-readable character stream. It's optimized for text-heavy images (such as documents that have been digitally scanned) and for images with a lot of visual noise. It will determine which recognition model to use for each line of text, supporting images with both printed and handwritten text. The Read API executes asynchronously because larger documents can take several minutes to return a result.
 
 The Read operation maintains the original line groupings of recognized words in its output. Each line comes with bounding box coordinates, and each word within the line also has its own coordinates. If a word was recognized with low confidence, that information is conveyed as well. See the [Read API reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) to learn more.
 
 > [!NOTE]
-> This feature is currently in preview and is only available for English text.
+> This feature is only available for English text.
 
 ### Image requirements
 
 The Read API works with images that meet the following requirements:
 
 - The image must be presented in JPEG, PNG, BMP, PDF, or TIFF format.
-- The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels. PDF pages must be 17 x 17 inches or smaller.
+- The dimensions of the image must be between 50 x 50 and 10000 x 10000 pixels. PDF pages must be 17 x 17 inches or smaller.
 - The file size of the image must be less than 20 megabytes (MB).
 
 ### Limitations
@@ -76,7 +76,7 @@ The Recognize Text API works with images that meet the following requirements:
 - The dimensions of the image must be between 50 x 50 and 4200 x 4200 pixels.
 - The file size of the image must be less than 4 megabytes (MB).
 
-## Improve results
+## Limitations
 
 The accuracy of text recognition operations depends on the quality of the images. The following factors may cause an inaccurate reading:
 

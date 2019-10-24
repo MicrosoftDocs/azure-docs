@@ -3,12 +3,12 @@ title: Azure Stream Analytics output to Azure SQL Database
 description: Learn about outputting data to SQL Azure from Azure Stream Analytics and achieve higher write throughput rates.
 services: stream-analytics
 author: chetanmsft
-ms.author: chetanmsft
+ms.author: chetang
 manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 3/18/2019
+ms.date: 03/18/2019
 ---
 # Azure Stream Analytics output to Azure SQL Database
 
@@ -33,7 +33,7 @@ Here are some configurations within each service that can help improve overall t
 
 - **Partitioned Table and Indexes** – Using a [partitioned](https://docs.microsoft.com/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) SQL table and partitioned indexes on the table with the same column as your partition key (for example, PartitionId) can significantly reduce contentions among partitions during writes. For a partitioned table, you'll need to create a [partition function](https://docs.microsoft.com/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) and a [partition scheme](https://docs.microsoft.com/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) on the PRIMARY filegroup. This will also increase availability of existing data while new data is being loaded. Log IO limit may be hit based on number of partitions, which can be increased by upgrading the SKU.
 
-- **Avoid unique key violations** – If you get [multiple key violation warning messages](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output) in the Azure Stream Analytics Activity Log, ensure your job isn't impacted by unique constraint violations which are likely to happen during recovery cases. This can be avoided by setting the [IGNORE\_DUP\_KEY](stream-analytics-common-troubleshooting-issues.md#handle-duplicate-records-in-azure-sql-database-output) option on your indexes.
+- **Avoid unique key violations** – If you get [multiple key violation warning messages](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) in the Azure Stream Analytics Activity Log, ensure your job isn't impacted by unique constraint violations which are likely to happen during recovery cases. This can be avoided by setting the [IGNORE\_DUP\_KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) option on your indexes.
 
 ## Azure Data Factory and In-Memory Tables
 

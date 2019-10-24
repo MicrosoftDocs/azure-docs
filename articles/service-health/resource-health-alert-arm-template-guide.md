@@ -286,7 +286,7 @@ Note that it is possible for the currentHealthStatus and previousHealthStatus pr
 
 ### Adjusting the alert to avoid User Initiated events
 
-Resource Health events can be trigger by platform initiated and user initiated events. It may make sense to only send a notification when the health event is caused by the Azure platform.
+Resource Health events can be triggered by platform initiated and user initiated events. It may make sense to only send a notification when the health event is caused by the Azure platform.
 
 It's easy to configure your alert to filter for only these kinds of events:
 
@@ -438,5 +438,7 @@ Learn more about Resource Health:
 -  [Azure Resource Health overview](Resource-health-overview.md)
 -  [Resource types and health checks available through Azure Resource Health](resource-health-checks-resource-types.md)
 
+
 Create Service Health Alerts:
 -  [Configure Alerts for Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Azure Activity Log event schema](../azure-monitor/platform/activity-log-schema.md)

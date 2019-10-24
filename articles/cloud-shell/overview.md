@@ -3,7 +3,7 @@ title: Azure Cloud Shell overview | Microsoft Docs
 description: Overview of the Azure Cloud Shell.
 services: 
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -13,13 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/03/2019
 ms.author: damaerte
 ---
 # Overview of Azure Cloud Shell
-Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources.
-It provides the flexibility of choosing the shell experience that best suits the way you work.
-Linux users can opt for a Bash experience, while Windows users can opt for PowerShell.
+Azure Cloud Shell is an interactive, authenticated, browser-accessible shell for managing Azure resources.
+It provides the flexibility of choosing the shell experience that best suits the way you work, either Bash or PowerShell.
 
 Try from shell.azure.com by clicking below.
 
@@ -66,11 +65,9 @@ Cloud Shell is a flexible tool that can be used from:
 * [Visual Studio Code Azure Account extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### Connect your Microsoft Azure Files storage
-Cloud Shell machines are temporary and require a new or existing Azure Files share to be mounted as `clouddrive` to persist your files.
+Cloud Shell machines are temporary, but your files are persisted in two ways: through a disk image, and through a mounted file share named `clouddrive`.  On first launch, Cloud Shell prompts to create a resource group, storage account, and Azure Files share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell.
 
-On first launch Cloud Shell prompts to create a resource group, storage account, and Azure Files share on your behalf. This is a one-time step and will be automatically attached for all sessions. A single file share can be mapped and will be used by both Bash and PowerShell in Cloud Shell.
-
-Read more to learn how to mount a [new or existing storage account](persisting-shell-storage.md).
+Read more to learn how to mount a [new or existing storage account](persisting-shell-storage.md) or to learn about the [persistence mechanisms used in Cloud Shell](persisting-shell-storage.md#how-cloud-shell-storage-works).
 
 ## Concepts
 * Cloud Shell runs on a temporary host provided on a per-session, per-user basis

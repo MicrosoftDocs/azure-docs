@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: 
-manager: craigg
 ms.date: 03/08/2019
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in the Windows certificate store

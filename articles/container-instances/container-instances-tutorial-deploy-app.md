@@ -3,6 +3,7 @@ title: Tutorial - Deploy container app to Azure Container Instances
 description: Azure Container Instances tutorial part 3 of 3 - Deploy container application to Azure Container Instances
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: tutorial

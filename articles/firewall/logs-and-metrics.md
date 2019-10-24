@@ -1,19 +1,21 @@
 ---
-title: Overview of Azure Firewall logs
-description: This article is an overview of the Azure Firewall diagnostic logs.
+title: Overview of Azure Firewall logs and metrics
+description: This article is an overview of the Azure Firewall diagnostic logs and metrics.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 9/24/2018
+ms.date: 08/22/2019
 ms.author: victorh
 ---
 
-# Azure Firewall logs
+# Azure Firewall logs and metrics
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
 You can access some of these logs through the portal. Logs can be sent to [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Azure Monitor logs or by different tools such as Excel and Power BI.
+
+Metrics are lightweight and can support near real-time scenarios making them useful for alerting and fast issue detection. 
 
 ## Diagnostic logs
 
@@ -21,7 +23,7 @@ You can access some of these logs through the portal. Logs can be sent to [Azure
 
 * **Application rule log**
 
-   The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+   The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
    Category: application rule logs.
@@ -44,7 +46,7 @@ You can access some of these logs through the portal. Logs can be sent to [Azure
 
 * **Network rule log**
 
-   The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you have enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+   The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you've enabled it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```
    Category: network rule logs.
@@ -76,9 +78,47 @@ You have three options for storing your logs:
 
    Activity log entries are collected by default, and you can view them in the Azure portal.
 
-   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription.
+   You can use [Azure activity logs](../azure-resource-manager/resource-group-audit.md) (formerly known as operational logs and audit logs) to view all operations submitted to your Azure subscription.
+
+## Metrics
+
+Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time. Metrics are collected every minute, and are useful for alerting because they can be sampled frequently. An alert can be fired quickly with relatively simple logic.
+
+The following metrics are available for Azure Firewall:
+
+- **Application rules hit count** - The number of times an application rule has been hit.
+
+    Unit: count
+
+- **Network rules hit count** - The number of times a network rule has been hit.
+
+    Unit: count
+
+- **Data processed** - Amount of data traversing the firewall.
+
+    Unit: bytes
+
+- **Firewall health state** - Indicates the health of the firewall.
+
+    Unit: percent
+
+   This metric has two dimensions:
+  - **Status**: Possible values are *Healthy*, *Degraded*, *Unhealthy*.
+  - **Reason**: Indicates the reason for the corresponding status of the firewall. For example, it can indicate *SNAT ports* if the firewall status is Degraded or Unhealthy.
+
+
+
+
+
+- **SNAT port utilization** - The percentage of SNAT ports that have been utilized by the firewall.
+
+    Unit: percent
+
+   When you add more public IP addresses to your firewall, more SNAT ports are available, reducing the SNAT ports utilization. Additionally, when the firewall scales out for different reasons (for example, CPU or throughput) additional SNAT ports also become available. So effectively, a given percentage of SNAT ports utilization may go down without you adding any public IP addresses, just because the service scaled out. You can directly control the number of public IP addresses available to increase the ports available on your firewall. But, you can't directly control firewall scaling. Currently, SNAT ports are added only for the first five public IP addresses.   
 
 
 ## Next steps
 
-To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md).
+- To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](tutorial-diagnostics.md).
+
+- To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).

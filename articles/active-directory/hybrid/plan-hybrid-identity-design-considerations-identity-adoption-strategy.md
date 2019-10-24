@@ -1,6 +1,6 @@
 ---
 title: Hybrid identity design - adoption strategy Azure | Microsoft Docs
-description: With Conditional access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
+description: With Conditional Access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -196,8 +196,7 @@ Even though you may have settled on a solution for your strategy, you still need
 | On-premises AD |Multi-Factor Authentication Server |
 
 > [!NOTE]
-> You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](../authentication/concept-mfa-whichversion.md#what-am-i-trying-to-secure).
-> 
+> You should also ensure that the multi-factor authentication design option that you selected supports the features that are required for your design.  For more information read [Choose the multi-factor security solution for you](../authentication/concept-mfa-howitworks.md).
 > 
 
 ## Multi-Factor Auth Provider

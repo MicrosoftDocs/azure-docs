@@ -5,14 +5,13 @@ keywords: connect to sql database,azure portal, portal, query editor
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: 
-ms.devlang: 
+ms.custom:
+ms.devlang:
 ms.topic: quickstart
-author: AyoOlubeko
-ms.author: ayolubek
+author: Ninarn
+ms.author: ninarn
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 02/12/2019
+ms.date: 06/28/2019
 ---
 # Quickstart: Use the Azure portal's SQL query editor to connect and query data
 
@@ -26,14 +25,14 @@ To complete this tutorial, you need:
 
   || Single database |
   |:--- |:--- |
-  | Create| [Portal](sql-database-single-database-get-started.md) | 
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | 
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | 
-  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| 
+  | Create| [Portal](sql-database-single-database-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)|
   |||
 
 > [!NOTE]
-> Make sure that the **Allow access to Azure Services** option is set to **ON** in your SQL server firewall settings. This option gives the SQL query editor access to your databases and data warehouses.
+> The query editor uses ports 443 and 1443 to communicate.  Please ensure you have enabled outbound HTTPS traffic on these ports. You will also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.
 
 ## Sign in the Azure portal
 
@@ -49,7 +48,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 3. From the **Authorization type** drop-down menu, select  **SQL Server authentication** and enter the user ID and password of the server admin account used to create the database.
 
-    ![sign in](./media/sql-database-connect-query-portal/login-menu.png) 
+    ![sign in](./media/sql-database-connect-query-portal/login-menu.png)
 
 4. Select **OK**.
 
@@ -72,8 +71,8 @@ Configuring an Active Directory (AD) administrator enables you to use a single i
 
 4. From the AD admin page toolbar, select **Save**.
 
-5. Navigate to the **mySampleDatabase** database and, from the left-hand menu, select **Query editor (preview)**. The **Login** page appears. If you're an AD admin, then, on the right-hand side, under **Active Directory single sign-on**, a message appears saying you have been signed in. 
-   
+5. Navigate to the **mySampleDatabase** database and, from the left-hand menu, select **Query editor (preview)**. The **Login** page appears. If you're an AD admin, then, on the right-hand side, under **Active Directory single sign-on**, a message appears saying you have been signed in.
+
 6. Select **OK**.
 
 
@@ -154,7 +153,7 @@ Run the following [DELETE](https://msdn.microsoft.com/library/ms189835.aspx) Tra
 
 There are a few things to know when working with the query editor.
 
-* You can't use the query editor to query SQL server databases in a Virtual Network.
+* The query editor uses ports 443 and 1443 to communicate.  Please ensure you have enabled outbound HTTPS traffic on these ports. You will also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.
 
 * Pressing F5 refreshes the query editor page and any query being worked on is lost.
 

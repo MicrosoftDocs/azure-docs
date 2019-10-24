@@ -11,6 +11,7 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
+ROBOTS: NOINDEX
 ---
 
 # Similarity Method

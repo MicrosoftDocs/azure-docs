@@ -29,7 +29,7 @@ Use [Create and Connect - portal](create-data-warehouse-portal.md) to create a d
 
 To save costs, you can pause and resume compute resources on-demand. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. You won't be charged for compute resources while the database is paused. However, you will continue to be charged for storage. 
 
-Follow these steps to pause a SQL data warehouse.
+Follow these steps to pause a SQL Data Warehouse.
 
 1. Click **SQL databases** in the left page of the Azure portal.
 2. Select **mySampleDataWarehouse** from the **SQL databases** page. This opens the data warehouse. 
@@ -51,7 +51,7 @@ Follow these steps to pause a SQL data warehouse.
 
 ## Resume compute
 
-Follow these steps to resume a SQL data warehouse.
+Follow these steps to resume a SQL Data Warehouse.
 
 1. Click **SQL databases** in the left page of the Azure portal.
 2. Select **mySampleDataWarehouse** from the **SQL databases** page. This opens the data warehouse. 
@@ -97,4 +97,4 @@ Follow these steps to clean up resources as you desire.
 You have now paused and resumed compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
-> [Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

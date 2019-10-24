@@ -9,10 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 f1_keywords: 
   - "mi.azure.sqlaudit.general.f1"
-author: vainolo
-ms.author: arib
+author: barmichal
+ms.author: mibar
 ms.reviewer: vanto
-manager: craigg
 ms.date: 04/08/2019
 ---
 # Get started with Azure SQL Database managed instance auditing

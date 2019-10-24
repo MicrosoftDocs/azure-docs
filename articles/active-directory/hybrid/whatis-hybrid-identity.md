@@ -30,7 +30,7 @@ To achieve hybrid identity with Azure AD, one of three authentication methods ca
 
 These authentication methods also provide [single-sign on](how-to-connect-sso.md) capabilities.  Single-sign on automatically signs your users in when they are on their corporate devices, connected to your corporate network.
 
-For additional information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). 
+For additional information, see [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
 
 ## Common scenarios and recommendations 
 
