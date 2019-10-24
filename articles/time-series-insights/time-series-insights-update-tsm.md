@@ -41,7 +41,7 @@ These limitations revealed the importance of smart data aggregation and visualiz
 * Data visualization proves useful when you're able to associate and combine data into a convenient view. For example, showing voltage sensors along with temperature sensors.
 * Managing multi-dimensional data for several entities along with comparison, zooming, and time range functionalities can be difficult to accomplish.
 
-**Time Series Model provide a convenient solution** for many of the scenarios encountered in the fictitious example above:
+**Time Series Model provides a convenient solution** for many of the scenarios encountered in the fictitious example above:
 
 [![Time Series Model charting](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
 
