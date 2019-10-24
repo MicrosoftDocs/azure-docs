@@ -63,7 +63,7 @@ You are now ready to run the tutorial.
 We recommend using RStudio to run these examples. In RStudio, choose File > New Project > Existing Directory and select the **tutorials** directory you created above.
 
 > [!Important]
-> The rest of this article contains the same content as you see in the  **train-and-deploy-with-caret.Rmd** file.  
+> The rest of this article contains the same content as you see in the  **train-and-deploy-to-aci.Rmd** file.  
 > If you are experienced with RMarkdown, feel free to use the code from that file.  Or you can copy/paste the code snippets from there, or from this article into an R script or the command line.
 
 ```R
