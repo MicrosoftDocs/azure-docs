@@ -112,6 +112,7 @@ For the code sample for this quickstart to work, you need to:
 >
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
 > - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
+> - `Enter_the_Tenant_Name_Here` - is the **Directory (tenant) ID** value of the application you registered.
 
 #### Step 4: Run the code sample
 
