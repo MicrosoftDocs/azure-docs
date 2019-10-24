@@ -49,7 +49,7 @@ Before you start, make sure that you have the following:
 
 The following is officially supported with Azure Monitor for containers.
 
-- Environments: AKS Engine clusters deployed to on-premises and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+- Environments: Kubernetes on-premises, AKS Engine on Azure and Azure Stack. For more information, see [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 - Versions of Kubernetes and support policy are the same as versions of [AKS supported](../../aks/supported-kubernetes-versions.md). 
 - Container Runtime: Docker and Moby
 - Linux OS release for master and worked nodes: Ubuntu (18.04 LTS and 16.04 LTS)
