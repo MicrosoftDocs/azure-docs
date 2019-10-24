@@ -19,7 +19,7 @@ Speaker Recognition APIs are cloud-based APIs that provide the advanced AI algor
 
 ## Speaker Verification
 
-Voice has unique characteristics that can be associated with an individual.  Applications can use voice as an additional factor for verification in scenarios like call centers and web services.
+Voice has unique characteristics that can be associated with an individual.  Applications can use voice as an additional factor for verification, in scenarios like call centers and web services.
 
 Speaker Verification APIs serve as an intelligent tool to help verify users using both their voice and speech passphrases.
 
@@ -27,7 +27,7 @@ Speaker Verification APIs serve as an intelligent tool to help verify users usin
 
 Enrollment for speaker verification is text-dependent, which means speakers need to choose a specific passphrase to use during both enrollment and verification phases.
 
-In the speaker enrollment phase, the speaker's voice is recorded saying a specific phrase. Voice features are extracted to form a unique voice signature while the chosen phrase is recognized. Together, this speaker enrollment data would be used to verify the speaker. The speaker enrollment data are stored in a secured system and the Customer controls how long it should be retained. Customers can create, update, and remove enrollment data for individual speakers through API calls.  When the subscription is deleted, all the speaker enrollment data associated with the subscription will also be deleted.
+In the speaker enrollment phase, the speaker's voice is recorded saying a specific phrase. Voice features are extracted to form a unique voice signature while the chosen phrase is recognized. Together, this speaker enrollment data would be used to verify the speaker. The speaker enrollment data are stored in a secured system. The Customer controls how long it should be retained. Customers can create, update, and remove enrollment data for individual speakers through API calls.  When the subscription is deleted, all the speaker enrollment data associated with the subscription will also be deleted.
 
 Customers should ensure they have received the appropriate permissions from the users for speaker verification.
 
@@ -38,7 +38,7 @@ In the verification phase, the Customer should call the speaker verification API
 The threshold confidence level should be set based on the scenario and other verification factors that are being used. We recommend you experiment with the confidence level and consider the appropriate setting for each application.
 
 The service does not retain the speech recording or the extracted voice features that are sent to the service during the verification phase.
-There are no anti-spoofing countermeasures built into Speaker Recognition APIs. In cases where voice recognition is supporting human judgement and improving efficiency, this is generally not a key limitation.
+There are no anti-spoofing countermeasures built into Speaker Recognition APIs. In cases where voice recognition is supporting human judgment and improving efficiency, it is not a key limitation in general.
 
 For more details about speaker verification, please refer to the API [Speaker - Verification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
@@ -50,7 +50,7 @@ Applications can use voice to identify "who is speaking" given a group of enroll
 
 Enrollment for speaker identification is text-independent, which means that there are no restrictions on what the speaker says in the audio. No passphrase is required.
 
-In the enrollment phase, the speaker's voice is recorded, and voice features are extracted to form a unique voice signature. The speech audio and features extracted are stored in a secured system and the Customer controls how long it is retained. Customers can create, update, and remove this speaker enrollment data for individual speakers through API calls. When the subscription is deleted, all the speaker enrollment data associated with the subscription will also be deleted.
+In the enrollment phase, the speaker's voice is recorded, and voice features are extracted to form a unique voice signature. The speech audio and features extracted are stored in a secured system. The Customer controls how long it is retained. Customers can create, update, and remove this speaker enrollment data for individual speakers through API calls. When the subscription is deleted, all the speaker enrollment data associated with the subscription will also be deleted.
 
 Customers should ensure they have received the appropriate permissions from the users for speaker identification.
 
@@ -61,4 +61,5 @@ In the identification phase, the speaker identification service extracts voice f
 The threshold confidence level should be set based on the scenario. We recommend you experiment with the confidence level and consider the appropriate setting for each application.
 
 The service does not retain the speech recording or the extracted voice features that are sent to the service for the identification phase.
+
 For more details about speaker identification, please refer to the API [Speaker - Identification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e).
