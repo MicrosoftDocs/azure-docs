@@ -1,5 +1,5 @@
 ---
-title: Model interpretability
+title: Model interpretability in Azure Machine Learning service
 titleSuffix: Azure Machine Learning
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
 services: machine-learning
@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 06/21/2019
+ms.date: 10/24/2019
 ---
 
-# Model interpretability with Azure Machine Learning
+# Model interpretability in Azure Machine Learning service
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 ## Overview of model interpretability
@@ -111,8 +111,4 @@ The `explain` package is designed to work with both local and remote compute tar
 
 ## Next steps
 
-
-To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on your local machine, see the [How to explain models locally on your personal machine?](how-to-machine-learning-interpretability-local.md) and [Azure Machine Learning Interpretability local run sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data).
-
-
-To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on Azure Machine Learning, see the [How to explain models on Azure](how-to-machine-learning-interpretability-aml.md) and [Azure Machine Learning Interpretability AzureML sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration).
+See the [how-to](how-to-machine-learning-interpretability-aml.md) for enabling interpretability for models training both locally and on Azure Machine Learning remote compute resources. See the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data) for additional scenarios.

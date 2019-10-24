@@ -1,5 +1,5 @@
 ---
-title: Model interpretability in Azure Machine Learning service
+title: Model interpretability for local and remote runs
 titleSuffix: Azure Machine Learning
 description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model determines feature importance and makes predictions.
 services: machine-learning
@@ -13,7 +13,7 @@ ms.reviewer: trbye
 ms.date: 10/24/2019
 ---
 
-# Model interpretability in Azure Machine Learning service
+# Model interpretability for local and remote runs
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -97,6 +97,7 @@ The following example shows how to use the interpret package locally without con
                              features=breast_cancer_data.feature_names, 
                              classes=classes)
     ```
+
 ### Overall (global) feature importance values
 
 Get the global feature importance values.
@@ -532,9 +533,6 @@ The explainer can be deployed along with the original model and can be used at i
 
 1. Clean up: To delete a deployed web service, use `service.delete()`.
 
-
 ## Next steps
 
-To learn more about model interpretability, see the [concept article](how-to-machine-learning-interpretability.md).
-
-To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on your local machine, see the [How to explain models locally on your personal machine?](how-to-machine-learning-interpretability-local.md) and [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data).
+To learn more about model interpretability, see the [conceptual article](how-to-machine-learning-interpretability.md).
