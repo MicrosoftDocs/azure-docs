@@ -29,7 +29,7 @@ Here's the completed graph for this pipeline:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 4 pipeline:
+4. Select the Sample 4 pipeline:
 
     ![Open the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 

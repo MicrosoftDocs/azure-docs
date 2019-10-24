@@ -27,7 +27,7 @@ Here's the final pipeline graph for this sample:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 3 pipeline:
+4. Select the Sample 3 pipeline:
 
     ![Open the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
 

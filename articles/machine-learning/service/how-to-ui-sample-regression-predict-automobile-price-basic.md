@@ -34,7 +34,7 @@ Here's the final, completed graph of the pipeline. This article provides the rat
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 1 pipeline:
+4. Select the Sample 1 pipeline:
 
     ![Open the pipeline](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
