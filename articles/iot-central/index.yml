@@ -114,8 +114,6 @@ productDirectory:
           text: Build healthcare solutions with IoT Central
         - url: ./healthcare/tutorial-continuous-patient-monitoring.md
           text: Create a continuous patient monitoring app
-        - url: ./healthcare/tutorial-health-data-triage.md
-          text: Build a health data triage dashboard
     # Card
     - title: Build for energy
       imageSrc: ./energy/media/index/iot-central-energy.svg

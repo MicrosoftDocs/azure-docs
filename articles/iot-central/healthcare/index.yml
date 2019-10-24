@@ -29,8 +29,6 @@ landingContent:
         links:
           - text: Build a continuous patient monitoring solution
             url: tutorial-continuous-patient-monitoring.md
-          - text: Create a health data triage dashboard
-            url: tutorial-health-data-triage.md
 
   # Card (optional)
   - title: Get connected
