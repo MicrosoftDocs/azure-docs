@@ -40,13 +40,13 @@ In your IoT Hub in the Azure portal, IoT Edge devices are created and managed se
 4. Provide a descriptive device ID. Use the default settings to auto-generate authentication keys and connect the new device to your hub.
 5. Select **Save**.
 
-### View Iot Edge devices in the Azure Portal
+### View IoT Edge devices in the Azure Portal
 
 All the edge-enabled devices that connect to your IoT hub are listed on the **IoT Edge** page.
 
 ![View all IoT Edge devices in your IoT hub](./media/how-to-register-device/portal-view-devices.png)
 
-### Retrieve the connection string from the Azure Portal
+### Retrieve the connection string in the Azure Portal
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub.
 
@@ -89,13 +89,13 @@ In the output screen, you see the result of the command. The device info is prin
 
 In the output screen, you see the result of the command. The device info is printed, which includes the **deviceId** that you provided and the **connectionString** that you can use to connect your physical device to your IoT hub.
 
-### View IoT Edge devices in Visual Studio Code
+### View IoT Edge devices with Visual Studio Code
 
 All the devices that connect to your IoT hub are listed in the **Azure IoT Hub** section of the Visual Studio Code Explorer. IoT Edge devices are distinguishable from non-Edge devices with a different icon, and the fact that the **$edgeAgent** and **$edgeHub** modules are deployed to each IoT Edge device.
 
 ![View all IoT Edge devices in your IoT hub](./media/how-to-register-device/view-devices.png)
 
-### Retrieve the connection string in Visual Studio Code
+### Retrieve the connection string with Visual Studio Code
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub.
 
@@ -116,7 +116,7 @@ The [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is a
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
 * The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
-### Create an IoT Edge device with Azure CLI
+### Create an IoT Edge device with the Azure CLI
 
 Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-create) command to create a new device identity in your IoT hub. For example:
 
@@ -132,7 +132,7 @@ This command includes three parameters:
 
    ![az iot hub device-identity create output](./media/how-to-register-device/Create-edge-device.png)
 
-### View Iot Edge devices in Azure CLI
+### View IoT Edge devices with the Azure CLI
 
 Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-list) command to view all devices in your IoT hub. For example:
 
@@ -142,7 +142,7 @@ Use the [az iot hub device-identity list](https://docs.microsoft.com/cli/azure/e
 
 Any device that is registered as an IoT Edge device will have the property **capabilities.iotEdge** set to **true**.
 
-### Retrieve the connection string from the Azure CLI
+### Retrieve the connection string with the Azure CLI
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub. Use the [az iot hub device-identity show-connection-string](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string) command to return the connection string for a single device:
 
