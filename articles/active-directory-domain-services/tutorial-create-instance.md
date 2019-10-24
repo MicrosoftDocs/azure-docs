@@ -53,7 +53,7 @@ In this tutorial, you create and configure the Azure AD DS instance using the Az
 
 To launch the **Enable Azure AD Domain Services** wizard, complete the following steps:
 
-1. In the upper left-hand corner of the Azure portal, select **+ Create a resource**.
+1. On the Azure portal menu or from the **Home** page, select **Create a resource**.
 1. Enter *Domain Services* into the search bar, then choose *Azure AD Domain Services* from the search suggestions.
 1. On the Azure AD Domain Services page, select **Create**. The **Enable Azure AD Domain Services** wizard is launched.
 1. Select the Azure **Subscription** in which you would like to create the managed domain.
