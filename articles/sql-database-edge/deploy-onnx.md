@@ -4,7 +4,7 @@ description: Learn how to deploy Azure SQL Database Edge using the Azure portal
 keywords: deploy sql database edge
 services: sql-database-edge
 ms.service: sql-database-edge
-ms.subservice: machine-learning
+#ms.subservice: machine-learning
 ms.topic: conceptual
 author: ronychatterjee
 ms.author: achatter
