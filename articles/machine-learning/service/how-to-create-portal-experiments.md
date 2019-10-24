@@ -37,9 +37,9 @@ ms.date: 11/04/2019
 
 [![Azure Machine Learning studio navigation pane](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
- If this is your first time doing any experiments, you'll see the **Get started** screen. 
+ If this is your first time doing any experiments, you'll see an empty list and links to documentation. 
 
-Otherwise, you'll see links to documentation and a list of your recent automated machine learning experiments, including those created with the SDK. 
+Otherwise, you'll see a list of your recent automated machine learning experiments, including those created with the SDK. 
 
 ## Create and run experiment
 
@@ -210,7 +210,7 @@ Automated ML helps you with deploying the model without writing code:
 
 1. Select **Deploy**. Deployment can take about 20 minutes to complete.
 
-Now you have an operational web service to generate predictions!
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI’s built in Azure Machine Learning support](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## Next steps
 

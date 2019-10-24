@@ -58,11 +58,11 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. In the left pane, select **Automated ML** under the **Author** section.
 
-   Since this is your first automated ML experiment, you'll see the Getting started screen.
+   Since this is your first automated ML experiment, you'll see an empty list and links to documentation.
 
    ![Azure Machine Learning studio](media/tutorial-1st-experiment-automated-ml/get-started.png)
 
-1. Select **Create experiment**. 
+1. Select **New automated ML run**. 
 
 1. Create a new dataset by selecting **From local files** from the  **+Create dataset** drop-down. 
 
@@ -137,7 +137,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
         
         Select **OK**.
 
-1. Select **Create** to run the experiment. The **Run details**  screen opens with the **Run status** as the experiment preparation begins.
+1. Select **Create** to run the experiment. The **Run Detail**  screen opens with the **Run status** as the experiment preparation begins.
 
 >[!IMPORTANT]
 > Preparation takes **10-15 minutes** to prepare the experiment run.
@@ -150,7 +150,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 Navigate to the **Models** tab to see the algorithms (models) tested. By default, the models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
-While you wait for all of the experiment models to finish, select the **Name** of a completed model to explore its performance details. 
+While you wait for all of the experiment models to finish, select the **Algorith name** of a completed model to explore its performance details. 
 
 The following navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
 
@@ -181,7 +181,9 @@ In this experiment context, **VotingEnsemble** is considered the best model, bas
 
     In the **Recommended model** pane, a deployment success message appears under **Deploy status** when deployment completes. Select **Refresh** periodically to check the deployment status.
     
-Now you have an operational web service to generate predictions.
+Now you have an operational web service to generate predictions. 
+
+Proceed to the [**Next Steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learing support.
 
 ## Clean up resources
 
@@ -206,7 +208,7 @@ Delete just the deployment instance from the Azure Machine Learning studio, if y
 In this automated machine learning tutorial, you used Azure Machine Learning studio to create and deploy a classification model. See these articles for more information and next steps:
 
 > [!div class="nextstepaction"]
-> [Consume a web service](how-to-consume-web-service.md)
+> [Consume a web service](how-to-consume-web-service.md#consume-the-service-from-power-bi)
 
 + Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
 + Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
