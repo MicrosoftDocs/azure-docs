@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/13/2018
+ms.date: 10/15/2019
 ms.author: stemi
 
 ---
@@ -72,9 +72,6 @@ For more information on Azure Government Compliance, refer to the [compliance do
 ## Endpoint mapping
 
 The following table shows the mapping between some Azure services and Azure Government endpoints.
-
-> [!NOTE]
-> The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
 
 | Name | Azure Government endpoint | Azure Commercial endpoint |
 | --- | --- | --- |

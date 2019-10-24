@@ -114,12 +114,12 @@ Here is an example of an ordered CCI table distribution that has zero segment ov
 ## Create ordered CCI on large tables
 Creating an ordered CCI is an offline operation.  For tables with no partitions, the data won't be accessible to users until the ordered CCI creation process completes.   For partitioned tables,since the engine creates the ordered CCI partition by partition, users can still access the data in partitions where ordered CCI creation isn't in process.   You can use this option to minimize the downtime during ordered CCI creation on large tables: 
 
-1.	Create partitions on the target large table (called Table A).
-2.	Create an empty ordered CCI table (called Table B) with the same table and partition schema as Table A.
+1.	Create partitions on the target large table (called Table_A).
+2.	Create an empty ordered CCI table (called Table_B) with the same table and partition schema as Table A.
 3.	Switch one partition from Table A to Table B.
-4.	Run ALTER INDEX <Ordered_CCI_Index> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
-5.	Repeat step 3 and 4 for each partition in Table A.
-6.	Once all partitions are switched from Table A to Table B and have been rebuilt, drop Table A, and rename Table B to Table A. 
+4.	Run ALTER INDEX <Ordered_CCI_Index> ON <Table_B> REBUILD PARTITION = <Partition_ID> on Table B to rebuild the switched-in partition.  
+5.	Repeat step 3 and 4 for each partition in Table_A.
+6.	Once all partitions are switched from Table_A to Table_B and have been rebuilt, drop Table_A, and rename Table_B to Table_A. 
 
 ## Examples
 

@@ -73,7 +73,7 @@ It will take a few minutes for your VM to be deployed. When the deployment is fi
 
 1. On the encryption screen, under **Disks to encrypt**, choose **OS and data disks**.
 1. Under **Encryption settings**, click "Select a key vault and key for encryption".
-1. In the right-hand sidebar, select the name of the key vault you created earlier as the value for *Key vault**, and click **Select**.
+1. In the right-hand sidebar, select the name of the key vault you created earlier as the value for **Key vault**, and click **Select**.
 
     ![disks and encryption selection](../media/disk-encryption/portal-qs-encrypt-vm-screen.png)
 1. At the top of the encryption screen, click "Save". A popup will warn you that the VM will reboot. Click **Yes**.

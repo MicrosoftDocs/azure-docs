@@ -1,18 +1,13 @@
 ---
 title: Configure Azure Monitor for containers agent data collection | Microsoft Docs
 description: This article describes how you can configure the Azure Monitor for containers agent to control stdout/stderr and environment variables log collection.
-services: azure-monitor
-documentationcenter: ''
+ms.service:  azure-monitor
+ms.subservice: 
+ms.topic: conceptual
 author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 
-ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/08/2019
 ms.author: magoedte
+ms.date: 10/08/2019
+
 ---
 
 # Configure agent data collection for Azure Monitor for containers
