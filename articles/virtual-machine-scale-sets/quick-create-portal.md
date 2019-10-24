@@ -34,7 +34,7 @@ Azure [load balancer](../load-balancer/load-balancer-overview.md) distributes in
 First, create a public Basic Load Balancer by using the portal. The name and public IP address you create are automatically configured as the load balancer's front end.
 
 1. In the search box, type **load balancer**. Under **Marketplace** in the search results, pick **Load balancer**.
-1. In the **Basics** tab of the **Create load balancer** page, enter or select the following information, accept the defaults for the remaining settings, and then select **Review + create**:
+1. In the **Basics** tab of the **Create load balancer** page, enter or select the following information:
 
     | Setting                 | Value   |
     | ---| ---|
