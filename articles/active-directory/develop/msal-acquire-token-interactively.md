@@ -1,5 +1,6 @@
 ---
-title: Managing tokens (Microsoft Authentication Library) | Azure
+title: Managing tokens (Microsoft Authentication Library) 
+titleSuffix: Microsoft identity platform
 description: Learn about acquiring and caching tokens using the Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
