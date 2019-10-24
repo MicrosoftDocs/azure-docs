@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Monitor with Azure Application Insights'
 description: Provides instructions to quickly setup a Node.js Web App for monitoring with Application Insights
-services: application-insights
-keywords:
+ms.service:  azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
-ms.service: application-insights
+
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.topic: quickstart
-manager: carmonm
 ---
 
 # Quickstart: Start monitoring your Node.js Web application with Azure Application Insights
