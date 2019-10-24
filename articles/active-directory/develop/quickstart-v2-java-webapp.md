@@ -140,7 +140,7 @@ Add MSAL4J to your application by using Maven or Gradle to manage your dependenc
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>
-    <version>0.5.0-preview</version>
+    <version>0.6.0-preview</version>
 </dependency>
 ```
 
@@ -171,6 +171,6 @@ To know more about the auth flow for this scenario, see the Oauth 2.0 authorizat
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 
 > [!div class="nextstepaction"]
-> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspxid=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
