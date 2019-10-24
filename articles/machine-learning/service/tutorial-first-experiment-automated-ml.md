@@ -167,7 +167,7 @@ In this experiment context, **VotingEnsemble** is considered the best model, bas
     
 Now you have an operational web service to generate predictions.
 
-Proceed to the [**Next Steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learing support.
+Proceed to the [**Next Steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learning support.
 
 ## Clean up resources
 
