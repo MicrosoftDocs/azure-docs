@@ -500,14 +500,14 @@
           href: insights/container-insights-optout.md
         - name: View live data
           items:
+          - name: Live Data (preview) overview
+            href: insights/container-insights-livedata-overview.md
           - name: Setup
             href: insights/container-insights-livedata-setup.md
           - name: View cluster metrics
             href: insights/container-insights-livedata-metrics.md
           - name: View deployments
             href: insights/container-insights-livedata-deployments.md
-          - name: View logs and events
-            href: insights/container-insights-livedata-console.md
         - name: Analyze data with log queries
           href: insights/container-insights-log-search.md
         - name: Alerting
