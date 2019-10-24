@@ -11,7 +11,7 @@ manager: carmonm
 
 # Cross-tenant management experiences
 
-As a service provider, you can use [Azure delegated resource management](../concepts/azure-delegated-resource-management.md) to manage Azure resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com). Most tasks and services can be performed on delegated resources across managed tenants. This article describes some of the enhanced scenarios where Azure delegated resource management can be effective.
+As a service provider, you can use [Azure delegated resource management](../concepts/azure-delegated-resource-management.md) to manage Azure resources for multiple customers from within your own tenant in the [Azure portal](https://portal.azure.com). Most tasks and services can be performed on delegated Azure resources across managed tenants. This article describes some of the enhanced scenarios where Azure delegated resource management can be effective.
 
 > [!NOTE]
 > Azure delegated resource management can also be used within an enterprise which has multiple tenants of its own to simplify cross-tenant administration.
