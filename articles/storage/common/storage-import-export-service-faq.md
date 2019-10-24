@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 07/18/2019
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -61,7 +61,7 @@ You can view the status for completed jobs for up to 90 days. Completed jobs are
 
 ### If I want to import or export more than 10 drives, what should I do?
 One import or export job can reference only 10 drives in a single job. To ship more than 10 drives, you should create multiple jobs. Drives associated with the same job must be shipped together in the same package. 
-For more information and guidance when data capacity spans multiple disk import jobs, contact Microsoft at bulkimport@microsoft.com. 
+For more information and guidance when data capacity spans multiple disk import jobs, contact Microsoft Support. 
 
 ### The uploaded blob shows status as "Lease expired". What should I do?
 You can ignore the “Lease Expired” field. Import/Export takes lease on the blob during upload to make sure that no other process can update the blob in parallel. Lease Expired implies that Import/export is no longer uploading to it and the blob is available for your use. 

@@ -1,14 +1,15 @@
 ---
-title: Sending and using Bing Local Business Search API queries and responses | Microsoft Docs
+title: Sending and using Bing Local Business Search API queries and responses
 titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to send and use search queries with the Bing Local Business Search API.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh; v-gedod
+ms.subservice: bing-local-business
+ms.topic: conceptual
+ms.date: 06/26/2018
+ms.author: rosh
 ---
 
 # Sending and using Bing Local Business Search API queries and responses
@@ -32,6 +33,8 @@ https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localC
 ## Using responses
 
 JSON responses from the Bing Local Business Search API contain a `SearchResponse` object. The API will return relevant search results in the `places` field. if no results are found, the `places` field will not be included in the response.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ```
 {

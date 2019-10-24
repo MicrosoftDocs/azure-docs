@@ -4,12 +4,11 @@ description: How to mount an Azure Files share from compute nodes in a Linux or 
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
 ms.service: batch
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
@@ -48,7 +47,7 @@ In Batch, you need to mount the share each time a task is run on a Windows node.
 For example, include a `net use` command to mount the file share as part of each task command line. To mount the file share, the following credentials are needed:
 
 * **User name**: AZURE\\\<storageaccountname\>, for example, AZURE\\*mystorageaccountname*
-* **Password**: <StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
+* **Password**: \<StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
 
 The following command mounts a file share *myfileshare* in storage account *mystorageaccountname* as the *S:* drive:
 
@@ -125,7 +124,7 @@ apt-get update && apt-get install cifs-utils && sudo mkdir -p /mnt/MyAzureFileSh
 Then, run the `mount` command to mount the file share, providing these credentials:
 
 * **User name**: \<storageaccountname\>, for example, *mystorageaccountname*
-* **Password**: <StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
+* **Password**: \<StorageAccountKeyWhichEnds in==>, for example, *XXXXXXXXXXXXXXXXXXXXX==*
 
 The following command mounts a file share *myfileshare* in storage account *mystorageaccountname* at */mnt/MyAzureFileShare*: 
 
@@ -144,17 +143,18 @@ The following Python example shows how to configure an Ubuntu pool to mount the 
 ```python
 pool = batch.models.PoolAddParameter(
     id=pool_id,
-    virtual_machine_configuration = batchmodels.VirtualMachineConfiguration(
-        image_reference = batchmodels.ImageReference(
-    	    publisher="Canonical",
-    	    offer="UbuntuServer",
-    	    sku="16.04.0-LTS",
-    	    version="latest"),
-        node_agent_sku_id = "batch.node.ubuntu 16.04"),
+    virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
+        image_reference=batchmodels.ImageReference(
+            publisher="Canonical",
+            offer="UbuntuServer",
+            sku="16.04.0-LTS",
+            version="latest"),
+        node_agent_sku_id="batch.node.ubuntu 16.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_POOL_NODE_COUNT,
     start_task=batchmodels.StartTask(
-        command_line="/bin/bash -c \"apt-get update && apt-get install cifs-utils && mkdir -p {} && mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(_COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
+        command_line="/bin/bash -c \"apt-get update && apt-get install cifs-utils && mkdir -p {} && mount -t cifs {} {} -o vers=3.0,username={},password={},dir_mode=0777,file_mode=0777,serverino\"".format(
+            _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_SHARE_ENDPOINT, _COMPUTE_NODE_MOUNT_POINT, _STORAGE_ACCOUNT_NAME, _STORAGE_ACCOUNT_KEY),
         wait_for_success=True,
         user_identity=batchmodels.UserIdentity(
             auto_user=batchmodels.AutoUserSpecification(

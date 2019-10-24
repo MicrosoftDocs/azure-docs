@@ -24,7 +24,7 @@ ms.author: aschhab
 
 In this tutorial, you learn how to create Node.js applications to send messages to a Service Bus topic and receive messages from a Service Bus subscription using the [azure-sb](https://www.npmjs.com/package/azure-sb) package. The samples are written in JavaScript and use the Node.js [Azure module](https://www.npmjs.com/package/azure) which internally uses the `azure-sb` package.
 
-The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). To learn more about the new package, see [How to use Service Bus topics and subscriptions with Node.js and @azure/service-bus package](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
+The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). To learn more about the new package, see [How to use Service Bus topics and subscriptions with Node.js and @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
 
 The scenarios covered here include:
 
@@ -161,13 +161,13 @@ restricts the set of messages delivered to the subscription's virtual
 queue.
 
 > [!NOTE]
-> Subscriptions are persistent until
+> By default, subscriptions are persistent until
 > either they, or the topic they are associated with, are deleted. If your
 > application contains logic to create a subscription, it should first
 > check if the subscription exists by using the
 > `getSubscription` method.
 >
->
+> You can have the subscriptions automatically deleted by setting the [AutoDeleteOnIdle property](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle).
 
 ### Create a subscription with the default (MatchAll) filter
 The **MatchAll** filter is the default filter used when a subscription is created. When you use the **MatchAll**
@@ -406,7 +406,7 @@ to handle duplicate message delivery. You can use the
 delivery attempts.
 
 ## Delete topics and subscriptions
-Topics and subscriptions are persistent, and must be explicitly deleted
+Topics and subscriptions are persistent unless the [autoDeleteOnIdle property](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle) is set, and must be explicitly deleted
 either through the [Azure portal][Azure portal] or programmatically.
 The following example demonstrates how to delete the topic named `MyTopic`:
 
@@ -430,6 +430,9 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
     }
 });
 ```
+
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
 
 ## Next steps
 Now that you've learned the basics of Service Bus topics, follow these links to learn more.

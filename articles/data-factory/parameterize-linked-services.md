@@ -8,8 +8,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/18/2018
-author: gauravmalhot
-ms.author: gamal
+author: djpmsft
+ms.author: daperlov
 manager: craigg
 ---
 # Parameterize linked services in Azure Data Factory

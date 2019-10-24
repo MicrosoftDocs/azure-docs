@@ -1,20 +1,20 @@
 ---
 title: "Check text against a custom term list in C# - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How to moderate text with custom term lists using the Content Moderator SDK for C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
-ms.author: sajagtap
+ms.topic: conceptual
+ms.date: 07/03/2019
+ms.author: pafarley
 #As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Check text against a custom term list in C#
+# Check text against a custom term list in C#
 
 The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
@@ -57,8 +57,7 @@ Add the following `using` statements.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -275,7 +274,7 @@ You screen text using a term list with **ContentModeratorClient.TextModeration.S
 - A MIME type, which can be "text/html", "text/xml", "text/markdown", or "text/plain".
 - The text to screen.
 - A boolean value. Set this field to **true** to autocorrect the text before screening it.
-- A boolean value. Set this field to **true** to detect Personal Identifiable Information (PII) in the text.
+- A boolean value. Set this field to **true** to detect personal data in the text.
 - The term list ID.
 
 For more information, see the [API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
@@ -373,7 +372,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## Putting it all together
+## Compose the Main method
 
 Add the **Main** method definition to namespace **TermLists**, class **Program**. Finally, close the **Program** class and the **TermLists** namespace.
 
@@ -415,9 +414,9 @@ static void Main(string[] args)
 
 ## Run the application to see the output
 
-Your output will be on the following lines but the data may vary.
+Your console output will look like the following:
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

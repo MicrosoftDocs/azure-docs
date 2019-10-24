@@ -6,7 +6,7 @@ author: yijenj
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: yijenj
+ms.author: pabutler
 ---
 
 # Lead management for cloud marketplace

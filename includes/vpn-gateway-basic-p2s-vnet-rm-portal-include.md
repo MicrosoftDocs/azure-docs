@@ -16,7 +16,7 @@ To create a VNet in the Resource Manager deployment model by using the Azure por
 >
 >
 
-1. From a browser, navigate to the [Azure portal](http://portal.azure.com) and, if necessary, sign in with your Azure account.
+1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
 2. Click **+**. In the **Search the marketplace** field, type "Virtual Network". Locate **Virtual Network** from the returned list and click to open the **Virtual Network** page.
 
    ![Locate Virtual Network resource page](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/newvnetportal700.png "Locate virtual network resource page")

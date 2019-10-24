@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Check spelling with the Bing Spell Check REST API and Ruby"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 09/13/2019
 ms.author: aahi
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Ruby
@@ -44,7 +44,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API usi
 
 ## Send a spell check request
 
-1. Create a URI from your host uri, path, and parameters string. Set it's query to contain the text you want to spell check.
+1. Create a URI from your host uri, path, and parameters string. Set its query to contain the text you want to spell check.
 
    ```ruby
    uri = URI(uri + path + params)
@@ -125,4 +125,4 @@ A successful response is returned in JSON, as shown in the following example:
 > [Create a single page web-app](../tutorials/spellcheck.md)
 
 - [What is the Bing Spell Check API?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

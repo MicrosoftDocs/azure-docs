@@ -3,21 +3,16 @@ title: Process large-scale datasets by using Data Factory and Batch | Microsoft 
 description: Describes how to process huge amounts of data in an Azure Data Factory pipeline by using the parallel processing capability of Azure Batch.
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-
-
-ms.assetid: 688b964b-51d0-4faa-91a7-26c7e3150868
+author: djpmsft
+ms.author: daperlov
+manager: jroth
+ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: shlo
-
-robots: noindex
 ---
+
 # Process large-scale datasets by using Data Factory and Batch
 > [!NOTE]
 > This article applies to version 1 of Azure Data Factory, which is generally available. If you use the current version of the Data Factory service, see [Custom activities in Data Factory](../transform-data-using-dotnet-custom-activity.md).
@@ -122,7 +117,7 @@ Create a Batch pool with at least two compute nodes.
    f. Select **OK** to create the pool.
 
 #### Azure Storage Explorer
-You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
+You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
 
 1. Create a container named **mycontainer** with private access (no anonymous access).
 

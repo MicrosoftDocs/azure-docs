@@ -11,7 +11,7 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Project Answer Search query in C#
@@ -22,7 +22,7 @@ The following C# example creates and sends a query for information about the thi
 
 You will need [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## Code scenario
 

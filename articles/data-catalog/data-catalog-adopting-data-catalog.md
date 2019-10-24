@@ -5,7 +5,7 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 08/01/2019
 ---
 
 # Approach and process for adopting Azure Data Catalog
@@ -49,7 +49,7 @@ Here are some tips to help you define you vision:
 
 Here is an example vision statement for a Data Catalog adoption plan for the fictitious company called Adventure Works:
 
-**Azure Data Catalog** empowers the Adventure Works Finance team to collaborate on key data sources, so every team member can easily find and use the data they need and can share her knowledge with the team as a whole.
+**Azure Data Catalog** empowers the Adventure Works Finance team to collaborate on key data sources, so every team member can easily find and use the data they need and can share their knowledge with the team as a whole.
 
 Once you have a crisp vision statement, you should identify a suitable pilot project for Data Catalog. Generally, there are several scenarios for Data Catalog, so the next section provides some tips to identify relevant uses cases.
 
@@ -120,7 +120,7 @@ To learn more about the data source registration tool, see [Get started with Azu
 As part of the pilot project, Nancy's team also uses data sources that are described in an Excel workbook that David and is colleagues maintain. Since other teams in the enterprise also use Excel workbooks to describe data sources, the IT team decides to create a tool to migrate the Excel workbook to Data Catalog. By using the Data Catalog REST API to import existing annotations, the pilot project team can have a complete data catalog consisting of metadata extracted from the data sources using the data source registration tool, complete with information previously documented by data producers and consumers, without the need for manual re-entry. As the enterprise data catalog grows, the organization can use the data source registration tool for common data sources, and the Data Catalog API for custom sources and uncommon scenarios.
 
 > [!NOTE]
-> We wrote a sample tool that uses the **Azure Data Catalog** API to migrate an Excel workbook to Data Catalog. To learn about the Data Catalog API and the sample tool, [download the Ad Hoc workbook code sample](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/), and check out the [Azure Data Catalog REST API](/rest/api/datacatalog/) documentation.
+> We wrote a sample tool that uses the **Azure Data Catalog** API to migrate an Excel workbook to Data Catalog. To learn about the Data Catalog API and the sample tool, [download the Ad Hoc workbook code sample](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets), and check out the [Azure Data Catalog REST API](/rest/api/datacatalog/) documentation.
 
 After the pilot project is in place, it's time to execute your Data Catalog adoption plan.
 

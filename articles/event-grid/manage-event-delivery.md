@@ -1,12 +1,12 @@
 ---
-title: Dead letter and retry policies for Azure Event Grid subscriptions
+title: Dead letter and retry policies - Azure Event Grid
 description: Describes how to customize event delivery options for Event Grid. Set a dead-letter destination, and specify how long to retry delivery.
 services: event-grid
 author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/06/2019
+ms.date: 10/22/2019
 ms.author: spelluru
 ---
 
@@ -21,7 +21,9 @@ When creating an event subscription, you can customize the settings for event de
 To set a dead letter location, you need a storage account for holding events that can't be delivered to an endpoint. The examples get the resource ID of an existing storage account. They create an event subscription that uses a container in that storage account for the dead-letter endpoint.
 
 > [!NOTE]
-> Create a storage account and a blob container in the storage before running commands in this article.
+> - Create a storage account and a blob container in the storage before running commands in this article.
+> - The Event Grid service creates blobs in this container. The names of blobs will have the name of the Event Grid subscription with all the letters in upper case. For example, if the name of the subscription is My-Blob-Subscription, names of the dead letter blobs will have MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json). This behavior is to protect against differences in case handling between Azure services.
+
 
 ### Azure CLI
 

@@ -1,7 +1,7 @@
 ---
 title: External & community content for Text Analytics API
 titleSuffix: Azure Cognitive Services
-description: Partner blogs, youtube videos, training for Microsoft Cognitive Services Text Analytics API on Azure.
+description: Partner blogs, YouTube videos, training for Azure Cognitive Services Text Analytics API.
 services: cognitive-services
 author: aahill
 manager: nitinme

@@ -38,7 +38,7 @@ Assume that the user has been authenticated on an application using the [OAuth 2
 
 The steps that follow constitute the OBO flow and are explained with the help of the following diagram.
 
-![OAuth2.0 On-Behalf-Of flow](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
+![Shows the OAuth2.0 On-Behalf-Of flow](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. The client application makes a request to API A with token A (with an `aud` claim of API A).
 1. API A authenticates to the Microsoft identity platform token issuance endpoint and requests a token to access API B.
@@ -159,7 +159,7 @@ The following example shows a success response to a request for an access token 
 
 ### Error response example
 
-An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a conditional access policy (such as multi-factor authentication) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the conditional access policy.
+An error response is returned by the token endpoint when trying to acquire an access token for the downstream API, if the downstream API has a Conditional Access policy (such as multi-factor authentication) set on it. The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the Conditional Access policy.
 
 ```
 {

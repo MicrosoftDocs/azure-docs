@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
+ms.reviewer: ganesr
 ms.custom: seodec18
 
 ---
@@ -18,6 +19,7 @@ ms.custom: seodec18
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
+> * [Azure Resource Manager template](expressroute-howto-circuit-resource-manager-template.md)
 > * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
@@ -118,7 +120,7 @@ You can view the status of a circuit by selecting it and viewing the Overview pa
 
 ## <a name="modify"></a>Modifying an ExpressRoute circuit
 
-You can modify certain properties of an ExpressRoute circuit without impacting connectivity. You can modify the bandwidth, SKU, billing model and allow classic operations on the **Configuration** page. For information on limits and limitations, see the [ExpressRoute FAQ](expressroute-faqs.md). 
+You can modify certain properties of an ExpressRoute circuit without impacting connectivity. You can modify the bandwidth, SKU, billing model and allow classic operations on the **Configuration** page. For information on limits and limitations, see the [ExpressRoute FAQ](expressroute-faqs.md).
 
 You can perform the following tasks with no downtime:
 
@@ -136,9 +138,9 @@ You can perform the following tasks with no downtime:
 * You can enable and disable *Allow Classic Operations*.
   > [!IMPORTANT]
   > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
-  > 
+  >
   > Although you can seamlessly upgrade the bandwidth, you cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
-  > 
+  >
   > Disabling the Premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
 
 To modify an ExpressRoute circuit, click **Configuration**.

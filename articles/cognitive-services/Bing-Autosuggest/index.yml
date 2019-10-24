@@ -3,17 +3,16 @@ documentType: LandingData
 title: Bing Autosuggest Documentation
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: Bing Autosuggest Documentation - Tutorials, quickstarts, API references | Microsoft Docs
+  title: Bing Autosuggest Documentation - Tutorials, quickstarts, API references
+  titleSuffix: Azure Cognitive Services
   description: Learn how to use Bing Autosuggest API to obtain suggested queries based on a partial query. Tutorials show you how to build apps that use the service.
   services: cognitive-services
   author: aahill
   manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/20/2019
+  ms.date: 07/25/2019
   ms.author: aahi
 abstract:
   description: Bing Autosuggest API lets you send a partial search query term to Bing and get back a list of suggested queries that other users have searched on.  For example, as users type each character of their search term, you can call this API to populate the search box's drop-down list with suggestions. Learn how to use Autosuggest API with our quickstarts, tutorials, and samples.
@@ -83,12 +82,12 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference">Bing Autosuggest API v7</a></p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference">Bing Autosuggest API v7</a></p>
             <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference">Bing Autosuggest API v5</p>
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet">.NET</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest">Go</a></p>
-            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/autosuggest?view=azure-java-stable">Java</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable">Java</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI

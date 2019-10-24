@@ -6,7 +6,6 @@ author: cgillum
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
-ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
@@ -29,9 +28,6 @@ The [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/ap
 
 This async operation completes when the orchestration process is successfully scheduled. The orchestration process should start within 30 seconds. If it takes longer, you'll see a `TimeoutException`.
 
-> [!WARNING]
-> When developing locally in JavaScript, set the environment variable `WEBSITE_HOSTNAME` to `localhost:<port>` (for example, `localhost:7071`) to use methods on `DurableOrchestrationClient`. For more information about this requirement, see the [GitHub issue](https://github.com/Azure/azure-functions-durable-js/issues/28).
-
 ### .NET
 
 The parameters to [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) are as follows:
@@ -40,7 +36,9 @@ The parameters to [StartNewAsync](https://azure.github.io/azure-functions-durabl
 * **Input**: Any JSON-serializable data that should be passed as the input to the orchestrator function.
 * **InstanceId**: (Optional) The unique ID of the instance. If you don't specify this parameter, the method uses a random ID.
 
-Here is a simple C# example:
+Here are some examples:
+
+### C#
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -356,7 +354,7 @@ func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was ti
 
 ## Send events to instances
 
-In some scenarios, it's important for your orchestrator functions to be able to wait and listen for external events. This includes [monitor functions](durable-functions-concepts.md#monitoring) and functions that are waiting for [human interaction](durable-functions-concepts.md#human).
+In some scenarios, it's important for your orchestrator functions to be able to wait and listen for external events. This includes [monitor functions](durable-functions-overview.md#monitoring) and functions that are waiting for [human interaction](durable-functions-overview.md#human).
 
 Send event notifications to running instances by using the [RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_) method of the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class (.NET) or the `raiseEvent` method of the `DurableOrchestrationClient` class (JavaScript). Instances that can handle these events are those that are awaiting a call to [WaitForExternalEvent](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_WaitForExternalEvent_) (.NET) or `waitForExternalEvent` (JavaScript).
 
@@ -536,7 +534,7 @@ If you have an orchestration failure for an unexpected reason, you can *rewind* 
 
 Use the [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) (.NET) or `rewindAsync` (JavaScript) API to put the orchestration back into the *Running* state. Rerun the activity or suborchestration execution failures that caused the orchestration failure.
 
-For example, let's say you have a workflow involving a series of [human approvals](durable-functions-concepts.md#human). Suppose there are a series of activity functions that notify someone that their approval is needed, and wait out the real-time response. After all of the approval activities have received responses or timed out, suppose that another activity fails due to an application misconfiguration, such as an invalid database connection string. The result is an orchestration failure deep into the workflow. With the `RewindAsync` (.NET) or `rewindAsync` (JavaScript) API, an application administrator can fix the configuration error, and rewind the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be reapproved, and the orchestration can now complete successfully.
+For example, let's say you have a workflow involving a series of [human approvals](durable-functions-overview.md#human). Suppose there are a series of activity functions that notify someone that their approval is needed, and wait out the real-time response. After all of the approval activities have received responses or timed out, suppose that another activity fails due to an application misconfiguration, such as an invalid database connection string. The result is an orchestration failure deep into the workflow. With the `RewindAsync` (.NET) or `rewindAsync` (JavaScript) API, an application administrator can fix the configuration error, and rewind the failed orchestration back to the state immediately before the failure. None of the human-interaction steps need to be reapproved, and the orchestration can now complete successfully.
 
 > [!NOTE]
 > The *rewind* feature doesn't support rewinding orchestration instances that use durable timers.
@@ -589,6 +587,8 @@ To remove all the data associated with an orchestration, you can purge the insta
 
  The method has two overloads. The first one purges history by the ID of the orchestration instance:
 
+### C#
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -600,6 +600,8 @@ public static Task Run(
 ```
 
 The second example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it removes data for all instances completed 30 or more days ago. It's scheduled to run once per day, at 12 AM:
+
+### C#
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -652,4 +654,7 @@ func durable delete-task-hub --task-hub-name UserTest
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to use the HTTP APIs for instance management](durable-functions-http-api.md)
+> [Learn how to handle versioning](durable-functions-versioning.md)
+
+> [!div class="nextstepaction"]
+> [Built-in HTTP API reference for instance management](durable-functions-http-api.md)

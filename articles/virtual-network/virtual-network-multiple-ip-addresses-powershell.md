@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
-ms.author: kumud;annahar
+ms.author: kumud
+ms.reviewer: annahar
 ---
 
 # Assign multiple IP addresses to virtual machines using PowerShell

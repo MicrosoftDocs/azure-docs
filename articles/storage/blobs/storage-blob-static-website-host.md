@@ -1,15 +1,13 @@
 ---
 title: 'Tutorial: Host a static website on Blob storage - Azure Storage'
 description: Learn how to configure a storage account for static website hosting, and deploy a static website to Azure Storage.
-services: storage
 author: normesta
-
 ms.service: storage
+ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 10/22/2019
 ms.author: normesta
-ms.reviewer: seguler
-ms.custom: seodec18
+ms.reviewer: dineshm
 ---
 
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
@@ -27,6 +25,9 @@ In part one of the series, you learn how to:
 ## Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+
+> [!NOTE] 
+> Make sure to create a general-purpose v2 storage account. Static websites aren't available in any other type of storage account.
 
 This tutorial uses [Visual Studio Code](https://code.visualstudio.com/download), a free tool for programmers, to build the static website and deploy it to an Azure Storage account.
 

@@ -104,7 +104,7 @@ To configure Azure AD single sign-on with ZIVVER, perform the following steps:
     In the **Identifier** text box, type a URL:
     `https://app.zivver.com/SAML/Zivver`
 
-5. ZIVVER application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. ZIVVER application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+5. ZIVVER application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. ZIVVER application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
@@ -112,7 +112,7 @@ To configure Azure AD single sign-on with ZIVVER, perform the following steps:
 
 	| Name | Namespace | Source Attribute|
 	| ---------------| --------------- |
-	| ZivverAccountKey | https://zivver.com/SAML/Attributes | user.objectid |
+	| ZivverAccountKey | https:\//zivver.com/SAML/Attributes | user.objectid |
 
 	>[!NOTE]
 	>If you are using a hybrid setup with Active Directory on-premise and Azure AD Connect Tool, VALUE should be set to `user.objectGUID`
@@ -215,7 +215,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create ZIVVER test user
 
-In this section, you create a user called Britta Simon in ZIVVER. Work with [ZIVVER support team](https://support.zivver.com/) to add the users in the ZIVVER platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in ZIVVER. Work with [ZIVVER support team](https://support.zivver.com/) to add the users in the ZIVVER platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
@@ -229,5 +229,5 @@ When you click the ZIVVER tile in the Access Panel, you should be automatically 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

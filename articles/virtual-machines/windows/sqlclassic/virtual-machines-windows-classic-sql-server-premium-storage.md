@@ -10,7 +10,7 @@ tags: azure-service-management
 
 ms.assetid: 7ccf99d7-7cce-4e3d-bbab-21b751ab0e88
 ms.service: virtual-machines-sql
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server

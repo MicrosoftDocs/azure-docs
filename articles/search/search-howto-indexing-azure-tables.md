@@ -4,7 +4,7 @@ description: Learn how to index data stored in Azure Table storage with an Azure
 
 ms.date: 05/02/2019
 author: mgottein 
-manager: cgronlun
+manager: nitinme
 ms.author: magottei
 services: search
 ms.service: search
@@ -110,6 +110,8 @@ After the index and datasource are created, you're ready to create the indexer:
 This indexer runs every two hours. (The schedule interval is set to "PT2H".) To run an indexer every 30 minutes, set the interval to "PT30M". The shortest supported interval is five minutes. The schedule is optional; if omitted, an indexer runs only once when it's created. However, you can run an indexer on demand at any time.   
 
 For more information on the Create Indexer API, see [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+
+For more information about defining indexer schedules see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
 
 ## Deal with different field names
 Sometimes, the field names in your existing index are different from the property names in your table. You can use field mappings to map the property names from the table to the field names in your search index. To learn more about field mappings, see [Azure Search indexer field mappings bridge the differences between datasources and search indexes](search-indexer-field-mappings.md).

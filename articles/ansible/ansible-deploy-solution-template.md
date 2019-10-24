@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Deploy the Ansible solution template for Azure to CentOS | Microsoft Docs
+title: Quickstart - Deploy the Ansible solution template for Azure to CentOS
 description: In this quickstart, learn how to deploy the Ansible solution template on a CentOS virtual machine hosted on Azure, along with tools configured to work with Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart

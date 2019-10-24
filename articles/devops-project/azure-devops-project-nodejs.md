@@ -1,26 +1,25 @@
 ---
-title: 'Quickstart: Create a CI/CD pipeline for  Node.js with Azure DevOps Projects' 
+title: Create a CI/CD pipeline for Node.js with Azure DevOps Projects
 description: DevOps Projects makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
 documentationcenter: vs-devops-build
 author: mlearned
-manager: douge
+manager: gwallace
 editor: ''
 ms.assetid:
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/09/2018
 ms.author: mlearned
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 monikerRange: 'vsts'
 ---
 
 
-#  Create a CI/CD pipeline for  Node.js with Azure DevOps Projects 
+#  Quickstart: Create a CI/CD pipeline in Azure Pipelines for Node.js with Azure DevOps Projects
 
 Azure DevOps Projects presents a simplified experience that creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Node.js app in Azure Pipelines.  
 
@@ -34,7 +33,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  n
 
 1. In the left pane, select **Create a resource**, and then search for **DevOps Projects**. 
 
-   	![Starting Continuous Delivery configuration](_img/azure-devops-project-nodejs/fullbrowser.png)
+   	![Create continuous delivery configuration resource](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
 ## Select a sample application and Azure service
 
@@ -50,14 +49,14 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  n
 
 1. Create a new Azure DevOps organization or choose an existing organization. 
 
-	a. Choose a name for your project. 
+	a. Enter a name for your project.
 
-	b. Select your Azure subscription and location, choose a name for your application, and then select **Done**.  
+	b. Select your Azure subscription and location, enter a name for your application, and then select **Done**.  
 	After a few minutes, the DevOps Projects dashboard is displayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
 	 
 3. Select **Browse** to view your running application.
 
-   	![Dashboard view](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
+   	![Dashboard view of CI/CD pipeline](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 	
 DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a  Node.js app with a CI/CD process that automatically deploys your latest work to your web site.
 
@@ -74,7 +73,7 @@ This link opens a view to the newly created Git repository.
 1. On the left side of the browser, go to the **views/index.pug** file.
 
 1. Select **Edit**, and then make a change to the h2 heading.  
-	For example, type **Get started right away with the Azure DevOps Project** or make some other change.
+	For example, enter **Get started right away with Azure DevOps Projects** or make some other change.
 
 1. Select **Commit**, and then save your changes.
 

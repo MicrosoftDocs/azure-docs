@@ -1,6 +1,6 @@
 ---
 title: Limits and quotas - Custom Vision Service
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about the limits and quotas for the Custom Vision Service.
 services: cognitive-services
 author: anrothMSFT
@@ -23,8 +23,8 @@ The number of training images per project and tags per project are expected to i
 |-----|-----|-----|
 |Projects|2|100|
 |Training images per project |5,000|100,000|
-|Predictions/ month|10,000 |Unlimited|
-|Tags/ project|50|500|
+|Predictions / month|10,000 |Unlimited|
+|Tags / project|50|500|
 |Iterations |10|10|
 |Min labeled images per Tag, Classification (50+ recommended) |5|5|
 |Min labeled images per Tag, Object Detection (50+ recommended)|15|15|
@@ -33,5 +33,13 @@ The number of training images per project and tags per project are expected to i
 |[Prediction](https://go.microsoft.com/fwlink/?linkid=865445) operations without storage (Transactions Per Second)|2|20|
 |[TrainProject](https://go.microsoft.com/fwlink/?linkid=865446) (API calls Per Second)|2|10|
 |[Other API calls](https://go.microsoft.com/fwlink/?linkid=865446) (Transactions Per Second)|10|10|
+|Accepted image types|jpg, png, bmp, gif|jpg, png, bmp, gif|
+|Min image height/width in pixels|256 (see note)|256 (see note)|
+|Max image height/width in pixels|unlimited|unlimited|
 |Max image size (training image upload) |6 MB|6 MB|
 |Max image size (prediction)|4 MB|4 MB|
+|Max regions per object detection training image|200|200|
+|Max tags per classification image|30|30|
+
+> [!NOTE]
+> Images smaller than than 256 pixels will be accepted but upscaled.

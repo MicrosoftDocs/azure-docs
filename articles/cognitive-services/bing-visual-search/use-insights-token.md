@@ -430,7 +430,8 @@ To run this application, follow these steps:
 # Run the following in a command console window
 # pip3 install requests
 
-import requests, json
+import requests
+import json
 
 BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
 
@@ -445,10 +446,11 @@ insightsToken = 'ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simi
 formData = '{"imageInfo":{"imageInsightsToken":"' + insightsToken + '"}}'
 
 
-file = {'knowledgeRequest' : (None, formData)}
+file = {'knowledgeRequest': (None, formData)}
+
 
 def main():
-    
+
     try:
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
@@ -461,7 +463,6 @@ def main():
 def print_json(obj):
     """Print the object as json"""
     print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-
 
 
 # Main execution

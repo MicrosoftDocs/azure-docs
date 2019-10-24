@@ -1,6 +1,6 @@
 ---
 title: Improving your classifier - Custom Vision Service
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to improve the quality of your classifier.
 services: cognitive-services
 author: PatrickFarley

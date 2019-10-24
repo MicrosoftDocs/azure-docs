@@ -10,7 +10,7 @@ ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/24/2018
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD) is a cloud identity service that allows develo
 
 | | |
 | --- | --- |
-|[Authentication basics](authentication-scenarios.md) | An introduction to authentication with Azure AD. |
+|[Authentication basics](v1-authentication-scenarios.md) | An introduction to authentication with Azure AD. |
 |[Types of applications](app-types.md) | An overview of the authentication scenarios that are supported by Azure AD. |
 | | |
 

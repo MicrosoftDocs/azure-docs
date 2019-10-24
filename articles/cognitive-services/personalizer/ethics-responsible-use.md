@@ -2,13 +2,14 @@
 title: Ethics and responsible use - Personalizer
 titleSuffix: Azure Cognitive Services
 description: These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people’s lives. When in doubt, seek guidance.
-author: edjez
+services: cognitive-services
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/07/2019
-ms.author: edjez
+ms.topic: conceptual
+ms.date: 06/12/2019
+ms.author: diberry
 ---
      
 # Guidelines for responsible implementation of Personalizer
@@ -57,7 +58,8 @@ When choosing use cases for Personalizer:
 
 * Start the design process considering how the personalization helps your users.
 * Consider the negative consequences in the real world if some items aren't ranked for users due to personalization patterns or exploration.
-* Consider self-fulfilling prophecy loops. This may happen if a personalization reward trains a model so it may subsequently further exclude a demographic group from accessing relevant content. For example, most people in a low-income neighborhood don't obtain a premium insurance offer, and slowly nobody in the neighborhood tends to see the offer at all.
+* Consider whether your use case constitutes automated processing which significantly affects data subjects that is regulated under [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) Article 22 or other laws.
+* Consider self-fulfilling prophecy loops. This may happen if a personalization reward trains a model so it may subsequently further exclude a demographic group from accessing relevant content. For example, most people in a low-income neighborhood don't obtain a premium insurance offer, and slowly nobody in the neighborhood tends to see the offer at all if there isn't enough exploration.
 * Save copies of models and learning policies in case it is necessary to reproduce Personalizer in the future. You can do this periodically or every model refresh period.
 * Consider the level of exploration adequate for the space and how to use it as a tool to mitigate "echo chamber" effects.
 
@@ -123,17 +125,13 @@ The following are areas of design for responsible implementations of AI. Learn m
 * Archive information and assets - such as models, learning policies, and other data - that Personalizer uses to function, to be able to reproduce results.
 
 ### Transparency
-*AI Systems Should be Understandable*. With Personalizer
+*AI Systems Should be Understandable*. With Personalizer:
 
-•	Give users information about how the content was personalized. For example, you can show your users a button labeled "Why These Suggestions?" showing which top features of the user and actions played a role in the results of Personalizer.
-•	Make sure your terms of use make mention that you will use information about users and their behavior to personalize the experience.
-
-
-* *Give users information about how the content was personalized.* For example, you can show your users a button labeled `Why These Suggestions?` showing which top features of the user and actions played a role in the personalization.
-* Make sure your terms of use mention that you will use information about users to personalize the experience.
+* *Give users information about how the content was personalized.* For example, you can show your users a button labeled `Why These Suggestions?` showing which top features of the user and actions played a role in the results of Personalizer.
+* Make sure your terms of use make mention that you will use information about users and their behavior to personalize the experience.
 
 ### Fairness
-*AI Systems should treat all people fairly.
+*AI Systems should treat all people fairly*.
 
 * Don't use Personalizer for use cases where the outcomes are long-term, consequential, or involve real harm.
 * Don't use features that are not appropriate to personalize content with, or that may help propagate undesired biases. For example, anyone with similar financial circumstances should see the same personalized recommendations for financial products.
@@ -181,7 +179,7 @@ Consider creating methods for team members, users and business owners to report 
 
 Any person thinking about side effects of use of any technology is limited by their perspective and life experience. Expand the range of opinions available by bringing in more diverse voices into your teams, users, or advisory boards; such that it is possible and encouraged for them to speak up. Consider training and learning materials to further expand the team knowledge in this domain, and to add capability to discuss complex and sensitive topics.
 
-Consider treating tasks regarding responsible use just like other crosscutting tasks in the application lifecycle, such as tasks related to user experience, security, or devops. These tasks and their requirements can't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle.
+Consider treating tasks regarding responsible use just like other crosscutting tasks in the application lifecycle, such as tasks related to user experience, security, or DevOps. These tasks and their requirements can't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle.
  
 ## Questions and feedback
 
@@ -195,7 +193,7 @@ Microsoft is continuously putting effort into tools and documents to help you ac
 * [Ethics and Data Science](https://www.oreilly.com/library/view/ethics-and-data/9781492043898/) by DJ Patil, Hilary Mason, Mike Loukides.
 * [ACM Code of Ethics](https://www.acm.org/code-of-ethics)
 * [Genetic Information Nondiscrimination Act - GINA](https://en.wikipedia.org/wiki/Genetic_Information_Nondiscrimination_Act)
-* [FATML Principles for Accountable Algorithms](http://www.fatml.org/resources/principles-for-accountable-algorithms)
+* [FATML Principles for Accountable Algorithms](https://www.fatml.org/resources/principles-for-accountable-algorithms)
 
 
 ## Next steps

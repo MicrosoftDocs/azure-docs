@@ -1,5 +1,5 @@
 ---
-title: Pattern.any entity
+title: "Tutorial: Pattern.any entity - LUIS"
 titleSuffix: Azure Cognitive Services
 description: Use the pattern.any entity to extract data from utterances where the utterances is well-formatted and where the end of the data may be easily confused with the remaining words of the utterance.  
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 09/05/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern.any entity to improve predictions. 
 ---
@@ -61,24 +61,20 @@ The varying length includes words that may confuse LUIS about where the entity e
 |{FormName} is published in French[?]|
 
 ## Import example app
-Continue with the app created in the last tutorial, named **HumanResources**. 
 
-Use the following steps:
+1. Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
 
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-pattern-roles-HumanResources.json).
+1. In the [LUIS portal](https://www.luis.ai), on the **My apps** page, import the JSON into a new app.
 
-2. Import the JSON into a new app.
-
-3. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patt-any`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
+1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `patt-any`. Cloning is a great way to play with various LUIS features without affecting the original version. Because the version name is used as part of the URL route, the name can't contain any characters that are not valid in a URL.
 
 ## Add example utterances 
-Remove the prebuilt keyPhrase entity if it is difficult to create and label the FormName entity. 
 
 1. Select **Build** from the top navigation, then select **Intents** from left navigation.
 
-2. Select **FindForm** from the intents list.
+1. Select **FindForm** from the intents list.
 
-3. Add some example utterances:
+1. Add some example utterances:
 
     |Example utterance|
     |--|
@@ -90,13 +86,13 @@ Remove the prebuilt keyPhrase entity if it is difficult to create and label the 
     Without a Pattern.any entity, it would be difficult for LUIS to understand where the form title ends because of the many variations of form names.
 
 ## Create a Pattern.any entity
-The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity. If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem. 
+The Pattern.any entity extracts entities of varying length. It only works in a pattern because the pattern marks the beginning and end of the entity.  
 
 1. Select **Entities** in the left navigation.
 
-2. Select **Create new entity**, enter the name `FormName`, and select **Pattern.any** as the type. Select **Done**. 
+1. Select **Create new entity**, enter the name `FormName`, and select **Pattern.any** as the type. Select **Done**. 
 
-    You can't label the entity in the intent because a Pattern.any is only valid in a pattern. 
+    You can't label the entity in an intent's example utterances because a Pattern.any is only valid in a pattern. 
 
     If you want the extracted data to include other entities such as number or datetimeV2, you need to create a composite entity that includes the Pattern.any, as well as number and datetimeV2.
 
@@ -104,9 +100,9 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
 1. Select **Patterns** from the left navigation.
 
-2. Select the **FindForm** intent.
+1. Select the **FindForm** intent.
 
-3. Enter the following template utterances, which use the new entity:
+1. Enter the following template utterances, which use the new entity:
 
     |Template utterances|
     |--|
@@ -117,8 +113,6 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 
     If you want to account for variations of the form such as single quotes instead of double quotes or a period instead of a question mark, create a new pattern for each variation.
 
-4. If you removed the keyPhrase entity, add it back to the app. 
-
 ## Train the LUIS app
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
@@ -126,15 +120,20 @@ The Pattern.any entity extracts entities of varying length. It only works in a p
 ## Test the new pattern for free-form data extraction
 1. Select **Test** from the top bar to open the test panel. 
 
-2. Enter the following utterance: 
+1. Enter the following utterance: 
 
     `Where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
-3. Select **Inspect** under the result to see the test results for entity and intent.
+1. Select **Inspect** under the result to see the test results for entity and intent.
 
     The entity `FormName` is found first, then the pattern is found, determining the intent. If you have a test result where the entities are not detected, and therefore the pattern is not found, you need to add more example utterances on the intent (not the pattern).
 
-4. Close the test panel by selecting the **Test** button in the top navigation.
+1. Close the test panel by selecting the **Test** button in the top navigation.
+
+## Using an explicit list
+
+If you find that your pattern, when it includes a Pattern.any, extracts entities incorrectly, use an [explicit list](luis-concept-patterns.md#explicit-lists) to correct this problem.
+
 
 ## Clean up resources
 

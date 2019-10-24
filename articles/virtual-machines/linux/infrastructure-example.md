@@ -4,7 +4,7 @@ description: Learn about the key design and implementation guidelines for deploy
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -12,7 +12,7 @@ ms.assetid: 281fc2c0-b533-45fa-81a3-728c0049c73d
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
+
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: cynthn

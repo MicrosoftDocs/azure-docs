@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 03/06/2019
-ms.author: zsk0646
+ms.author: zakramer
 
 ---
 # Azure Government Databases
@@ -75,7 +75,7 @@ The URLs for accessing and managing Azure Cache for Redis in Azure Government ar
 | Cache endpoint |*.redis.cache.windows.net |*.redis.cache.usgovcloudapi.net |
 
 > [!NOTE]
-> All scripts and code need to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+> All scripts and code need to account for the appropriate endpoints and environments. For more information, see [How to connect to other clouds](../azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 >
 >
 

@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 09/06/2019
 ms.author: pafarley
 #Customer intent: As a C# developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
@@ -48,8 +48,9 @@ using System.Text;
 
 ### Add essential fields
 
-Add the **Program** class containing the following fields. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
+Add the **Program** class containing the following fields. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains your resource endpoint string.
 
+[!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ```csharp
 namespace DetectFace
@@ -59,22 +60,15 @@ namespace DetectFace
 
         // Replace <Subscription Key> with your valid subscription key.
         const string subscriptionKey = "<Subscription Key>";
-
-        // NOTE: You must use the same region in your REST call as you used to
-        // obtain your subscription keys. For example, if you obtained your
-        // subscription keys from westus, replace "westcentralus" in the URL
-        // below with "westus".
-        //
-        // Free trial subscription keys are generated in the "westus" region.
-        // If you use a free trial subscription key, you shouldn't need to change
-        // this region.
+        
+        // replace <myresourcename> with the string found in your endpoint URL
         const string uriBase =
-            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+            "https://<myresourcename>.cognitive.microsoft.com/face/v1.0/detect";
 ```
 
 ### Receive image input
 
-Add the following code to the **Main** method of the **Program** class. This writes a prompt to the console asking the user to enter an image URL. Then it calls another method, **MakeAnalysisRequest**, to process the image at that location.
+Add the following code to the **Main** method of the **Program** class. This code writes a prompt to the console asking the user to enter an image URL. Then it calls another method, **MakeAnalysisRequest**, to process the image at that location.
 
 ```csharp
         static void Main(string[] args)
@@ -159,7 +153,7 @@ You will define the helper methods in the following steps.
 
 ### Process the input image data
 
-Add the following method to the **Program** class. This converts the image at the specified URL into a byte array.
+Add the following method to the **Program** class. This method converts the image at the specified URL into a byte array.
 
 ```csharp
         // Returns the contents of the specified file as a byte array.
@@ -176,7 +170,7 @@ Add the following method to the **Program** class. This converts the image at th
 
 ### Parse the JSON response
 
-Add the following method to the **Program** class. This formats the JSON input to be more easily readable. Your app will write this string data to the console. You can then close the class and namespace.
+Add the following method to the **Program** class. This method formats the JSON input to be more easily readable. Your app will write this string data to the console. You can then close the class and namespace.
 
 ```csharp
         // Formats the given JSON string by adding line breaks and indents.

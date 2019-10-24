@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 09/25/2018
 ---
 # Manage historical data in Temporal Tables with retention policy

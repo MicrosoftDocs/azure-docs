@@ -11,7 +11,7 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
-# Quickstart: Pause and resume compute in Azure SQL Data Warehouse with PowerShell
+# Quickstart: Pause and resume compute in Azure SQL Data Warehouse with Azure PowerShell
 
 Use PowerShell to pause compute in Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
 
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-This quickstart assumes you already have a SQL data warehouse that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
+This quickstart assumes you already have a SQL Data Warehouse that you can pause and resume. If you need to create one, you can use [Create and Connect - portal](create-data-warehouse-portal.md) to create a data warehouse called **mySampleDataWarehouse**.
 
 ## Log in to Azure
 
@@ -133,4 +133,4 @@ Follow these steps to clean up resources as you desire.
 You have now paused and resumed compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
-> [Load data into a SQL data warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

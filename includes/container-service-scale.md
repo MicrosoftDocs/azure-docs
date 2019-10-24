@@ -24,7 +24,7 @@ You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes
 
 ## Scale with the Azure CLI
 
-Make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI and signed in to an Azure account (`az login`).
+[Install the Azure CLI](/cli/azure/install-azure-cli) and sign in to an Azure account with `az login`.
 
 ### See the current agent count
 To see the number of agents currently in the cluster, run the `az acs show` command. This shows the cluster configuration. For example, the following command shows the configuration of the container service named `containerservice-myACSName` in the resource group `myResourceGroup`:

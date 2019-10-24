@@ -509,7 +509,7 @@ namespace DynamicEncryptionWithFairPlay
             // Get a reference to the streaming manifest file from the  
             // collection of files in the asset.
 
-            var assetFile = asset.AssetFiles.Where(f => f.Name.ToLower().
+            var assetFile = asset.AssetFiles.LoList().Where(f => f.Name.ToLower().
                          EndsWith(".ism")).
                          FirstOrDefault();
 

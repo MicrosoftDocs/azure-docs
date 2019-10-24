@@ -5,7 +5,7 @@ author: snehithm
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 07/17/2019
 ms.author: snmuvva
 ms.subservice: alerts
 ---
@@ -82,11 +82,13 @@ The POST operation contains the following JSON payload and schema for all near n
       "name": "StorageCheck",
       "description": "",
       "conditionType": "SingleResourceMultipleMetricCriteria",
+      "severity":"3",
       "condition": {
         "windowSize": "PT5M",
         "allOf": [
           {
             "metricName": "Transactions",
+            "metricNamespace":"microsoft.storage/storageAccounts",
             "dimensions": [
               {
                 "name": "AccountResourceId",

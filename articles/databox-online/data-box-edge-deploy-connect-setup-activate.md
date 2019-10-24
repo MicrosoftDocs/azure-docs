@@ -39,7 +39,7 @@ Before you configure and set up your Data Box Edge device, make sure that:
     ![Backplane of a cabled device](./media/data-box-edge-deploy-install/backplane-cabled.png)
 
 
-3. Open a browser window and access the local web UI of the device at https://192.168.100.10.  
+3. Open a browser window and access the local web UI of the device at `https://192.168.100.10`.  
     This action may take a few minutes after you've turned on the device. 
 
     You see an error or a warning indicating that there is a problem with the website’s security certificate. 

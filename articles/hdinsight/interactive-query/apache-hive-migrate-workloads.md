@@ -5,7 +5,7 @@ ms.service: hdinsight
 author: msft-tacox
 ms.author: tacox
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 04/24/2019
 ---
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
@@ -66,7 +66,7 @@ Once your table properties are set correctly, execute the Hive warehouse migrati
 1. Execute the following command from the shell. Replace `${{STACK_VERSION}}` with the version string from the previous step:
 
 ```bash
-/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true  -m automatic  automatic  --modifyManagedTables --oldWarehouseRoot /apps/hive/warehouse
+/usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
 ```
 
 After the migration tool completes, your Hive warehouse will be ready for HDInsight 4.0. 
@@ -94,9 +94,7 @@ In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari 
 
 Launch a script action against your cluster, with "Head nodes" as the node type for execution. Paste the following URI into the textbox marked "Bash Script URI": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-Data Analytics Studio can be launched with URL : https://<clustername>.azurehdinsight.net/das/
-
-
+Wait 5 to 10 minutes, then launch Data Analytics Studio by using this URL: https://\<clustername>.azurehdinsight.net/das/
 
 Once DAS is installed, if you don't see the queries you’ve run in the queries viewer, do the following steps:
 

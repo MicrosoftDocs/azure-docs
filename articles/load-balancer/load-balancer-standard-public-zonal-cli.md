@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Learn how to create a public Standard Load Balancer with zonal Public IP address frontend using Azure CLI
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 #  Create a Standard Load Balancer with zonal frontend using Azure CLI

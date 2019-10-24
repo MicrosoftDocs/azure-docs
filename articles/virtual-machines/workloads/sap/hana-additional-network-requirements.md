@@ -4,11 +4,11 @@ description: Additional network requirements for SAP HANA on Azure (large instan
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux
-ms.devlang: NA
+
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure

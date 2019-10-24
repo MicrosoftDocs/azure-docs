@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -31,7 +31,7 @@ Specifically, this MongoDB connector supports **versions up to 3.4**.
 
 ## Prerequisites
 
-To copy data from a MongoDB database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 ## Getting started
 
@@ -48,7 +48,7 @@ The following properties are supported for MongoDB linked service:
 | type |The type property must be set to: **MongoDbV2** |Yes |
 | connectionString |Specify the MongoDB connection string e.g. `mongodb://[username:password@]host[:port][/[database][?options]]`. Refer to [MongoDB manual on connection string](https://docs.mongodb.com/manual/reference/connection-string/) for more details. <br/><br />Mark this field as a **SecureString** type to store it securely in Data Factory. You can also [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | database | Name of the database that you want to access. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example:**
 
@@ -88,12 +88,13 @@ For a full list of sections and properties that are available for defining datas
     "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbV2Collection",
+        "typeProperties": {
+            "collectionName": "<Collection name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<MongoDB linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "collectionName": "<Collection name>"
         }
     }
 }

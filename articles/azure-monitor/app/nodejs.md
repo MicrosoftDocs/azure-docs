@@ -1,22 +1,18 @@
 ---
 title: Monitor Node.js services with Azure Application Insights | Microsoft Docs
 description: Monitor performance and diagnose problems in Node.js services with Application Insights.
-services: application-insights
-documentationcenter: nodejs
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 03/14/2019
+
 ---
 
 # Monitor your Node.js services and apps with Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors your backend services and components after deployment, to help you [discover and rapidly diagnose performance and other issues](../../azure-monitor/app/detect-triage-diagnose.md). You can use Application Insights for Node.js services that are hosted in your datacenter, in Azure VMs and web apps, and even in other public clouds.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors your backend services and components after deployment, to help you discover and rapidly diagnose performance and other issues. You can use Application Insights for Node.js services that are hosted in your datacenter, in Azure VMs and web apps, and even in other public clouds.
 
 To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
@@ -197,7 +193,7 @@ server.on("listening", () => {
 
 ## Next steps
 
-* [Monitor your telemetry in the portal](../../azure-monitor/app/app-insights-dashboards.md)
+* [Monitor your telemetry in the portal](../../azure-monitor/app/overview-dashboard.md)
 * [Write Analytics queries over your telemetry](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

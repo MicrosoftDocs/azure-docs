@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Set up and use Azure Monitor logs with a multitenant SQL Database SaaS app

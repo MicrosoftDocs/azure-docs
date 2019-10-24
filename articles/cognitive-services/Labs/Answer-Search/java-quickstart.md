@@ -11,6 +11,7 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Project Answer Search query in Java
@@ -20,7 +21,7 @@ The example code uses Java with minimal external dependencies.  You can also run
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## Request 
 

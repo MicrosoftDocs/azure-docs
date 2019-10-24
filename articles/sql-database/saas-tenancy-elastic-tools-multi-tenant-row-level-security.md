@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
-manager: craigg
 ms.date: 12/18/2018
 ---
 # Multi-tenant applications with elastic database tools and row-level security
@@ -222,7 +221,7 @@ RLS is implemented in Transact-SQL. A user-defined function defines the access l
     - A BLOCK predicate prevents rows that fail the filter from being INSERTed or UPDATEd.
     - If SESSION\_CONTEXT has not been set, the function returns NULL, and no rows are visible or able to be inserted.
 
-To enable RLS on all shards, execute the following T-SQL by using either Visual Studio (SSDT), SSMS, or the PowerShell script included in the project. Or if you are using [Elastic Database Jobs](sql-database-elastic-jobs-overview.md), you can automate execution of this T-SQL on all shards.
+To enable RLS on all shards, execute the following T-SQL by using either Visual Studio (SSDT), SSMS, or the PowerShell script included in the project. Or if you are using [Elastic Database Jobs](elastic-jobs-overview.md), you can automate execution of this T-SQL on all shards.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

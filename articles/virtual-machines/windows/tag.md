@@ -4,13 +4,13 @@ description: Learn about tagging a Windows virtual machine created in Azure usin
 services: virtual-machines-windows
 documentationcenter: ''
 author: mmccrory
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 56d17f45-e4a7-4d84-8022-b40334ae49d2
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

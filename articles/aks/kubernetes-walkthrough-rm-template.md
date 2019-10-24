@@ -2,12 +2,12 @@
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster using an Azure Resource Manager template and deploy an application in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
@@ -17,7 +17,7 @@ ms.custom: mvc
 
 Azure Kubernetes Service (AKS) is a managed Kubernetes service that lets you quickly deploy and manage clusters. In this quickstart, you deploy an AKS cluster using an Azure Resource Manager template. A multi-container application that includes a web front end and a Redis instance is run in the cluster.
 
-![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
@@ -257,7 +257,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 To see the Azure Vote app in action, open a web browser to the external IP address of your service.
 
-![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Image of browsing to Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## Delete cluster
 

@@ -1,18 +1,14 @@
 ---
-# required metadata
-title: Handle content types - Azure Logic Apps | Microsoft Docs
+title: Handle content types - Azure Logic Apps
 description: Learn how Logic Apps handles content types at design time and run time
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: article
-ms.date: 07/20/2018
-
-# optional metadata
 ms.reviewer: klam, LADocs
-ms.suite: integration
+ms.topic: conceptual
+ms.date: 07/20/2018
 ---
 
 # Handle content types in Azure Logic Apps
@@ -191,11 +187,12 @@ This list describes how Logic Apps converts content when you use these
 * `xml()`: Casts data to `application/xml`
 * `binary()`: Casts data to `application/octet-stream`
 * `string()`: Casts data to `text/plain`
-* `base64()`: Converts content to a base64 string
-* `base64toString()`: Converts a base64 encoded string to `text/plain`
-* `base64toBinary()`: Converts a base64 encoded string to `application/octet-stream`
-* `encodeDataUri()`: Encodes a string as a dataUri byte array
-* `decodeDataUri()`: Decodes a `dataUri` into a byte array
+* `base64()`: Converts content to a base64-encoded string
+* `base64toString()`: Converts a base64-encoded string to `text/plain`
+* `base64toBinary()`: Converts a base64-encoded string to `application/octet-stream`
+* `dataUri()`: Converts a string to a data URI
+* `dataUriToBinary()`: Converts a data URI to a binary string
+* `dataUriToString()`: Converts a data URI to a string
 
 For example, if you receive an HTTP request 
 where `Content-Type` set to `application/xml`, 

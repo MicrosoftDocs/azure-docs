@@ -7,7 +7,8 @@ author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 07/24/2018
-ms.author: yushwang, cherylmc
+ms.author: yushwang
+ms.reviewer: cherylmc
 
 ---
 # Configure active-active S2S VPN connections with Azure VPN Gateways

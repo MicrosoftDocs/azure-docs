@@ -9,7 +9,7 @@ ms.date: "01/28/2019"
 ms.topic: "conceptual"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
-manager: "jeconnoc"
+manager: gwallace
 ---
 # Business continuity and disaster recovery in Azure Dev Spaces
 
@@ -21,7 +21,7 @@ Azure Dev Spaces is a feature of Azure Kubernetes Service (AKS). You should be a
 
 Enabling Dev Spaces on AKS clusters in different regions allows you to resume using Dev Spaces immediately after an Azure region failure.
 
-For general information about multi-region deployments of AKS, see [Plan for multi-region deployment](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multi-region-deployment)
+For general information about multi-region deployments of AKS, see [Plan for multi-region deployment](https://docs.microsoft.com/azure/aks/operator-best-practices-multi-region#plan-for-multiregion-deployment)
 
 For information about deploying an AKS cluster that is compatible with Azure Dev Spaces, see [Create a Kubernetes cluster using Azure Cloud Shell](https://docs.microsoft.com/azure/dev-spaces/how-to/create-cluster-cloud-shell)
 

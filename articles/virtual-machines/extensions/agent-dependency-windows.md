@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor Dependency virtual machine extension for Windows | Microsoft Docs
-description: Deploy the Azure Monitor Dependency agent on Windows virtual machine using a virtual machine extension.
+description: Deploy the Azure Monitor Dependency agent on Windows virtual machine by using a virtual machine extension.
 services: virtual-machines-windows
 documentationcenter: ''
 author: mgoedtel
@@ -10,7 +10,6 @@ tags: azure-resource-manager
 
 ms.assetid: 
 ms.service: virtual-machines-windows
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
@@ -32,7 +31,7 @@ The Azure VM Dependency agent extension for Windows can be run against the suppo
 
 ## Extension schema
 
-The following JSON shows the schema for the Azure VM Dependency agent extension on a Azure Windows VM. 
+The following JSON shows the schema for the Azure VM Dependency agent extension on an Azure Windows VM.
 
 ```json
 {
@@ -72,7 +71,7 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 
 ### Property values
 
-| Name | Value / Example |
+| Name | Value/Example |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
 | publisher | Microsoft.Azure.Monitoring.DependencyAgent |
@@ -81,11 +80,11 @@ The following JSON shows the schema for the Azure VM Dependency agent extension 
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Azure VM Dependency agent extension during an Azure Resource Manager template deployment. 
+You can deploy the Azure VM extensions with Azure Resource Manager templates. You can use the JSON schema detailed in the previous section in an Azure Resource Manager template to run the Azure VM Dependency agent extension during an Azure Resource Manager template deployment.
 
-The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
+The JSON for a virtual machine extension can be nested inside the virtual machine resource. Or, you can place it at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/child-resource-name-type.md).
 
-The following example assumes the Dependency agent extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
+The following example assumes the Dependency agent extension is nested inside the virtual machine resource. When you nest the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
 
 ```json
@@ -106,7 +105,7 @@ The following example assumes the Dependency agent extension is nested inside th
 }
 ```
 
-When placing the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine, and the type reflects the nested configuration. 
+When you place the extension JSON at the root of the template, the resource name includes a reference to the parent virtual machine. The type reflects the nested configuration.
 
 ```json
 {
@@ -128,7 +127,7 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ## PowerShell deployment
 
-The `Set-AzVMExtension` command can be used to deploy the Dependency agent virtual machine extension to an existing virtual machine. Before running the command, the public and private configurations need to be stored in a PowerShell hash table. 
+You can use the `Set-AzVMExtension` command to deploy the Dependency agent virtual machine extension to an existing virtual machine. Before you run the command, the public and private configurations need to be stored in a PowerShell hash table.
 
 ```powershell
 
@@ -145,7 +144,7 @@ Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
 
 ### Troubleshoot
 
-Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command using the Azure PowerShell module.
+Data about the state of extension deployments can be retrieved from the Azure portal and by using the Azure PowerShell module. To see the deployment state of extensions for a given VM, run the following command by using the Azure PowerShell module:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -159,4 +158,4 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitoring.DependencyAgent\
 
 ### Support
 
-If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/forums/). Or, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get support**. For information about how to use Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/support/faq/).

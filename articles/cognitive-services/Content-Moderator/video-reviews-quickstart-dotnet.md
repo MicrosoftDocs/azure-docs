@@ -1,16 +1,16 @@
 ---
 title: Create video reviews using .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: This article provides information and code samples to help you quickly get started using the Content Moderator SDK with C# to create video reviews.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/19/2019
-ms.author: sajagtap
+ms.author: pafarley
 
 ---
 
@@ -84,8 +84,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 ```
 
