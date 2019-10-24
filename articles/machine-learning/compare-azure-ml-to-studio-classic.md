@@ -48,12 +48,12 @@ Here is a quick comparison.
 
 The following resources can help you get started with Azure Machine Learning
 
-- Read the [Azure Machine Learning overview](./service/tutorial-first-experiment-automated-ml.md) 
+- Read the [Azure Machine Learning overview](service/tutorial-first-experiment-automated-ml.md) 
 
-- [Create your first designer pipeline](./service/ui-tutorial-automobile-price-train-score.md) to predict auto prices.
+- [Create your first designer pipeline](service/tutorial-designer-automobile-price-train-score.md) to predict auto prices.
 
 
-![Azure Machine Learning designer example](./service/media/concept-ml-pipelines/visual-design-surface.gif)
+![Azure Machine Learning designer example](service/media/concept-ml-pipelines/visual-design-surface.gif)
 
 ## Next steps
 
