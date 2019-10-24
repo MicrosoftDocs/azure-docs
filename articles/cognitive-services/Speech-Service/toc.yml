@@ -29,8 +29,8 @@
       href: how-to-custom-speech.md
     - name: Improve accuracy with Phrase Lists
       href: how-to-phrase-lists.md
-    - name: Improve accuracy with Tenant Language Models
-      href: tutorial-tenant-language-model.md
+    - name: Improve accuracy with Tenant Models
+      href: tutorial-tenant-model.md
     - name: Select a specific microphone input device
       href: how-to-select-audio-input-devices.md
     - name: Use automatic source language detection
@@ -305,7 +305,7 @@
   - name: How-to guides
     items:
     - name: Try Speech Service for free
-      href: get-started
+      href: get-started.md
     - name: Create Speech Service Resource
       href: get-started.md#create-a-speech-resource-in-azure
     - name: Containers
