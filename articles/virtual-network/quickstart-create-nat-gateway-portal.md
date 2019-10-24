@@ -36,7 +36,7 @@ For this quickstart, you'll need the following prerequisites:
 
 ### Create a virtual network
 
-Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network that will contain the VM and NAT gateway.
+Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.  
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 
@@ -65,7 +65,7 @@ We'll now create a VM to use the NAT service. This VM has a public IP to use as 
    - **Instance Details** > **Virtual machine name**: Type **myVM**.
    - **Instance Details** > **Region** > select **East US 2**.
    - **Administrator account** > **Authentication type**: Select **Password**.
-   - **Administrator account** > Enter the **Username**, **Password** and **Confirm password** information.
+   - **Administrator account** > Enter the **Username**, **Password, and **Confirm password** information.
    - **Inbound port rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound port rules** > **Select inbound ports**: Select **SSH (22)**
    - Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
@@ -86,7 +86,7 @@ We'll now create a VM to use the NAT service. This VM has a public IP to use as 
 
 ## Create the NAT Gateway
 
-You can use one or more public IP address resources or one or more public IP prefixes or both with NAT gateway. We will add a public IP resource, public IP prefix, and a NAT gateway resource.
+You can use one or more public IP address resources, public IP prefixes, or both with NAT gateway. We'll add a public IP resource, public IP prefix, and a NAT gateway resource.
 
 This section details how you can create and configure the following components of the NAT service using the NAT gateway resource:
   - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
@@ -170,13 +170,13 @@ You're now ready to use the NAT service.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, NAT gateway, and all related resources. To do so, select the resource group (**myResourceGroupNAT**) that contains the NAT gateway, and then select **Delete**.
+When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group (**myResourceGroupNAT**) that contains the NAT gateway, and then select **Delete**.
 
 ## Next steps
 
 In this tutorial, you created a NAT gateway and a VM to use the NAT service. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
 
-You can also review metrics in Azure Monitor to see your NAT service operating and diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+You can also review metrics in Azure Monitor to see your NAT service operating. You candiagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
 > [!div class="nextstepaction"]
 
