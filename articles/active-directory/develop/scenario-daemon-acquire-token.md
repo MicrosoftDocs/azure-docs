@@ -37,7 +37,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 # [Python](#tab/python)
 
-In MSAL.Python, the configuration file would look like the following code snippet:
+In MSAL Python, the configuration file would look like the following code snippet:
 
 ```Json
 {
@@ -112,8 +112,6 @@ if not result:
 if "access_token" in result:
     # Call a protected API with the access token
     print(result["token_type"])
-    print(result["expires_in"])  # You don't normally need to care about this.
-                                 # It will be good for at least 5 minutes.
 else:
     print(result.get("error"))
     print(result.get("error_description"))

@@ -60,11 +60,10 @@ Here are a few links to learn more:
 
 # [Python](#tab/python)
 
-MSAL Python is currently in public preview.
-For more info, see [MSAL Python's in-repository samples](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample).
+Try the quickstart [Acquire a token and call Microsoft Graph API from a Python console app using app's identity](./quickstart-v2-python-daemon.md).
 
 # [Java](#tab/java)
 
-msal4j (MSAL.Java) is currently in public preview. For more info, see [MSAL Java in-repository samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
+msal4j (MSAL Java) is currently in public preview. For more info, see [MSAL Java in-repository samples](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples).
 
 ---
