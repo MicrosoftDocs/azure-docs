@@ -66,6 +66,10 @@ ms.author: ramkris
 
 * Added .NET Standard 2.0 as one of the supported target frameworks to make the bulk executor library work with .NET Core applications.
 
+### <a name="1.8.5"/>1.8.5
+
+* Removed lock on SDK version. Package is now dependent on SDK >= 2.5.1.
+
 ### <a name="1.8.4"/>1.8.4
 
 * Fixed handling of identifiers when calling BulkImport with a list of POCO objects with numeric values.
