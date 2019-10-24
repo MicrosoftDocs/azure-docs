@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2018
+ms.date: 10/23/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
 ---
@@ -39,11 +39,11 @@ After the role is created in your Azure AD organization, go to the **Privileged 
 
 ![The "Privileged Identity Management - Azure resources" pane](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
-[Configure SPrivileged Identity Management role settings](pim-resource-roles-configure-role-settings.md) that should apply to these members of the role.
+[Configure Privileged Identity Management role settings](pim-resource-roles-configure-role-settings.md) that should apply to these members of the role.
 
 Finally, [assign roles](pim-resource-roles-assign-roles.md) to the distinct group of members that you want to target with these settings.
 
 ## Next steps
 
-- [Configure Azure resource role settings in SPrivileged Identity Management](pim-resource-roles-configure-role-settings.md)
+- [Configure Azure resource role settings in Privileged Identity Management](pim-resource-roles-configure-role-settings.md)
 - [Custom roles in Azure](../../role-based-access-control/custom-roles.md)
