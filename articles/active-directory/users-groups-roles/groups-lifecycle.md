@@ -30,13 +30,7 @@ Once you set a group to expire:
 - Any group that is not renewed is deleted
 - Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
 
-The following actions will lead to automatic renewal of a group:
-
-- SharePoint - View, Edit, Download, Move, Share, and Upload files
-- Outlook - Join group, Read/write group message, and Like a message
-- Teams - Visit a Teams channel
-
-Currently only one expiration policy can be configured for Office 365 groups in an Azure AD organization.
+Currently only one expiration policy can be configured for all Office 365 groups in an Azure AD organization.
 
 > [!NOTE]
 > Configuring and using the expiration policy for Office 365 groups requires you to possess but not necessarily assign Azure AD Premium licenses for the members of all groups to which the expiration policy is applied.
