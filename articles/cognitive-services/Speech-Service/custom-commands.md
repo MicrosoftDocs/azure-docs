@@ -32,9 +32,9 @@ The first step for using Custom Commands (Preview) to make a Voice Assistant is 
 
 We offer Quickstarts designed to have you running code in less than 10 minutes.
 
-* [Create a Custom Commands (Preview) application](quickstart-custom-speech-commands-create-new.md)
-* [Create a Custom Commands (Preview) application with parameters](quickstart-custom-speech-commands-create-parameters.md)
-* [Connect to a Custom Commands (Preview) application with the Speech SDK, C#](quickstart-custom-speech-commands-speech-sdk.md)
+* [Create a Custom Commands (Preview) application](https://aka.ms/CustomCommands/quickstart/create)
+* [Create a Custom Commands (Preview) application with parameters](https://aka.ms/CustomCommands/quickstart/createWithParameters)
+* [Connect to a Custom Commands (Preview) application with the Speech SDK, C#](https://aka.ms/CustomCommands/quickstart/integrateWithSDK)
 
 ## Sample Code
 
