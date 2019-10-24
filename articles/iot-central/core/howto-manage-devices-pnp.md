@@ -25,7 +25,7 @@ This article describes how, as an operator, to manage devices in your Azure IoT 
 
 To view an individual device:
 
-1. Choose **Devices** on the left navigation menu. Here you see a list of all devices and of your device templates.
+1. Choose **Devices** on the left pane. Here you see a list of all devices and of your device templates.
 
 1. Choose a device template.
 
@@ -38,7 +38,7 @@ To view an individual device:
 
 To add a device to your Azure IoT Central application:
 
-1. Choose **Devices** on the left navigation menu.
+1. Choose **Devices** on the left pane.
 
 1. Choose the device template from which you want to create a device.
 
@@ -59,7 +59,7 @@ To connect large number of devices to your application, you can bulk import devi
 
 To bulk-register devices in your application:
 
-1. Choose **Devices** on the left navigation menu.
+1. Choose **Devices** on the left pane.
 
 1. On the left panel, choose the device template for which you want to bulk create the devices.
 
@@ -86,7 +86,7 @@ If the device import operation fails, you see an error message on the Device Ope
 
 If you register devices by starting the import under **All devices**, then the devices are created without any device template association. Devices must be associated with a template to explore the data and other details about the device. Follow these steps to associate devices with a template:
 
-1. Choose **Devices** on the left navigation menu.
+1. Choose **Devices** on the left pane.
 
 1. On the left panel, choose **All devices**:
 
@@ -113,9 +113,9 @@ To connect a real device to IoT Central, you need its connection string. You can
 
 To bulk export devices from your application:
 
-1. Choose **Devices** on the left navigation menu.
+1. Choose **Devices** on the left pane.
 
-1. On the left panel, choose the device template from which you want to export the devices.
+1. On the left pane, choose the device template from which you want to export the devices.
 
 1. Select the devices that you want to export and then select the **Export** action.
 
@@ -146,7 +146,7 @@ For more information about connection strings and connecting real devices to you
 
 To delete either a real or simulated device from your Azure IoT Central application:
 
-1. Choose **Devices** on the navigation menu.
+1. Choose **Devices** on the left pane.
 
 1. Choose the device template of the device you want to delete.
 
@@ -158,7 +158,7 @@ To delete either a real or simulated device from your Azure IoT Central applicat
 
 Cloud properties are the device metadata associated with the device, such as city and serial number. Writeable properties control the behavior of a device. In other words, they enable you to provide inputs to your device.  Device properties are set by the device and are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
 
-1. Choose **Devices** on the navigation menu.
+1. Choose **Devices** on the left pane.
 
 1. Choose the device template of the device whose properties you want to change and select the target device.
 

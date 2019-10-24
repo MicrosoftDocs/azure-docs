@@ -18,7 +18,7 @@ Instead of creating and managing IoT Central applications on the [Azure IoT Cent
 
 ## Create IoT Central applications
 
-To create an application, navigate to the [Azure portal](https://ms.portal.azure.com) and select **Create a resource** in the main navigation menu on the left.
+To create an application, navigate to the [Azure portal](https://ms.portal.azure.com) and select **Create a resource** in the main pane on the left.
 
 ![Management portal: nav menu](media/howto-manage-iot-central-from-portal/image0.png)
 
@@ -52,7 +52,7 @@ If you already have an Azure IoT Central application you can delete it, or move 
 > [!NOTE]
 > You can't see Trial applications in the Azure portal because they are not associated with your subscription.
 
-To get started, select **All resources** in the main navigation menu on the left. Use the search box to type in the name of your application to find it in your list of resources. Then select the IoT Central application you'd like to manage.
+To get started, select **All resources** in the main pane on the left. Use the search box to type in the name of your application to find it in your list of resources. Then select the IoT Central application you'd like to manage.
 
 ![Management portal: resource management](media/howto-manage-iot-central-from-portal/image2a.png)
 
