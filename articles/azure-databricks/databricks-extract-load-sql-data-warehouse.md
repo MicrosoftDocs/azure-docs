@@ -83,9 +83,15 @@ Make sure that you complete the prerequisites of this tutorial.
 
 In this section, you create an Azure Databricks service by using the Azure portal.
 
-1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
+1. From the Azure portal menu, select **Create a resource**.
 
-    ![Databricks on Azure portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks on Azure portal")
+    ![Create a resource on Azure portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png)
+
+    Then, select **Analytics** > **Azure Databricks**.
+
+    ![Create Azure Databricks on Azure portal](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-resource-create.png)
+
+
 
 2. Under **Azure Databricks Service**, provide the following values to create a Databricks service:
 
