@@ -29,7 +29,7 @@ landingContent:
             url: secure-web-app.md
           - text: Web app with Azure Active Directory
             url: secure-aad-app.md
-          - text: Payment card industry PaaS
+          - text: Payment card industry
             url: secure-pci-web-app.md
 
   # Card
@@ -39,11 +39,11 @@ landingContent:
         links:
           - text: Secure development best practices
             url: secure-dev-overview.md
-          - text: Recommendations during desgin
+          - text: Desgin phase
             url: secure-design.md
-          - text: Recommendatins during development
+          - text: Development phase
             url: secure-develop.md
-          - text: Recommendations during deployment
+          - text: Deployment phase
             url: secure-deploy.md
 
   # Card
@@ -61,7 +61,7 @@ landingContent:
     linkLists:
       - linkListType: learn
         links:
-          - text: Top 5 security items to consider before deploying
+          - text: Top 5 security items
             url: https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider
           - text: Secure your cloud applications in Azure
             url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps
