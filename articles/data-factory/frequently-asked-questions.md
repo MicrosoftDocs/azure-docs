@@ -5,8 +5,6 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
@@ -175,31 +173,19 @@ You can use the `@coalesce` construct in the expressions to handle null values g
 
 ## Mapping data flows
 
-### Which Data Factory version do I use to create mapping data flows?
-Use the V2 version of Data Factory to create mapping data flows.
-  
-### I was a previous private preview customer who used data flows, and I used the Data Factory V2 preview version for data flows.
-This version is now obsolete. Use Data Factory V2 for data flows.
-  
-### What has changed from private preview to limited public preview in regard to data flows?
-You'll no longer have to bring your own Azure Databricks clusters. Data Factory manages cluster creation and tear-down when running mapping data flows. Blob datasets and Azure Data Lake Storage Gen2 datasets are separated into delimited text and Apache Parquet datasets. You can still use Data Lake Storage Gen2 and Blob storage to store those files. Use the appropriate linked service for those storage engines.
-
-### Can I migrate my private preview factories to Data Factory V2?
-
-Yes. [Follow these instructions](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
-
 ### I need help troubleshooting my data flow logic. What info do I need to provide to get help?
 
-When Microsoft provides help or troubleshooting with data flows, please provide the data flow script. To do this, follow these steps:
+When Microsoft provides help or troubleshooting with data flows, please provide the Data Flow Script. This is the code-behind script from your data flow graph. From the ADF UI, open your data flow, then click the "Script" button at the top-right corner. Copy and paste this script or save it in a text file.
 
-1. From the data flow canvas, select **Script** in the top-right corner. This will display the editable data flow script.
-3. Copy and paste this script or save it in a text file.
-
-### How do I access data by using the other 80 dataset types in Data Factory?
+### How do I access data by using the other 90 dataset types in Data Factory?
 
 The mapping data flow feature currently allows Azure SQL Database, Azure SQL Data Warehouse, delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 
 
 Use the Copy activity to stage data from any of the other connectors, and then execute a Data Flow activity to transform data after it's been staged. For example, your pipeline will first copy into Blob storage, and then a Data Flow activity will use a dataset in source to transform that data.
+
+### Is the self-hosted integration runtime available for data flows?
+
+Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. Stage the data first with a Copy, then Data Flow for transformation, and then a subsequent copy if you need to move that transformed data back to the on-prem store.
 
 ## Next steps
 For step-by-step instructions to create a data factory, see the following tutorials:
