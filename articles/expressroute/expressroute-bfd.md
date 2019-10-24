@@ -13,7 +13,7 @@ ms.custom: seodec18
 ---
 # Configure BFD over ExpressRoute
 
-ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you went with managed Layer 3 connection service). This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
+ExpressRoute supports Bidirectional Forwarding Detection (BFD) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE/CE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you went with managed Layer 3 connection service). This document walks you through the need for BFD, and how to enable BFD over ExpressRoute.
 
 ## Need for BFD
 
@@ -31,9 +31,9 @@ In this scenario, BFD can help. BFD provides low-overhead link failure detection
 
 ## Enabling BFD
 
-BFD is configured by default under all the newly created ExpressRoute private peering interfaces on the MSEEs. Therefore, to enable BFD, you need to just configure BFD on your PEs. Configuring BFD is two-step process: you need configure the BFD on the interface and then link it to the BGP session.
+BFD is configured by default under all the newly created ExpressRoute private peering interfaces on the MSEEs. Therefore, to enable BFD, you need to just configure BFD on your PEs/CEs (both on your primary and secondary devices). Configuring BFD is two-step process: you need to configure the BFD on the interface and then link it to the BGP session.
 
-An example PE (using Cisco IOS XE) configuration is shown below. 
+An example PE/CE (using Cisco IOS XE) configuration is shown below. 
 
 	interface TenGigabitEthernet2/0/0.150
  	  description private peering to Azure
