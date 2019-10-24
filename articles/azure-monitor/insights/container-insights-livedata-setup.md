@@ -1,5 +1,5 @@
 ---
-title: Setup live data monitoring with Azure Monitor for containers | Microsoft Docs
+title: Setup Azure Monitor for containers Live Data (preview) | Microsoft Docs
 description: This article describes how to setup the real-time view of container logs (stdout/stderr) and events without using kubectl with Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.date: 10/16/2019
 ms.author: magoedte
 ---
 
-# How to setup the Live Metrics and Data (preview) feature
+# How to setup the Live Data (preview) feature
 
-To view Live Metrics and Data (preview) with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real time access to your data through the Kubernetes API directly in the Azure portal.
+To view Live Data (preview) with Azure Monitor for containers from Azure Kubernetes Service (AKS) clusters, you need to configure authentication to grant permission to access to your Kubernetes data. This security configuration allows real time access to your data through the Kubernetes API directly in the Azure portal.
 
 This feature supports three different methods to control access to the logs, events, and metrics:
 
@@ -27,7 +27,7 @@ This feature supports three different methods to control access to the logs, eve
 
 These instructions require both administrative access to your Kubernetes cluster, and if configuring to use Azure Active Directory (AD) for user authentication, administrative access to Azure AD.  
 
-This article explains how to configure authentication to control access to the Live Metric and Data (preview) feature from the cluster:
+This article explains how to configure authentication to control access to the Live Data (preview) feature from the cluster:
 
 - Role based access control (RBAC) enabled AKS cluster
 - Azure Active Directory integrated AKS cluster. 
@@ -40,7 +40,7 @@ This article explains how to configure authentication to control access to the L
 
 ## Authentication model
 
-The Live Data and Metrics (preview) features utilizes the Kubernetes API, identical to the `kubectl` command-line tool. The Kubernetes API endpoints utilize a self-signed certificate, which your browser will be unable to validate. This feature utilizes a internal proxy to validate the certificate with the AKS service, ensuring the traffic is trusted.
+The Live Data (preview) features utilizes the Kubernetes API, identical to the `kubectl` command-line tool. The Kubernetes API endpoints utilize a self-signed certificate, which your browser will be unable to validate. This feature utilizes a internal proxy to validate the certificate with the AKS service, ensuring the traffic is trusted.
 
 The Azure portal prompts you to validate your login credentials for an Azure Active Directory cluster, and redirect you to the client registration setup during cluster creation (and re-configured in this article). This behavior is similar to the authentication process required by `kubectl`. 
 
@@ -129,7 +129,7 @@ For more information on advanced security setup in Kubernetes, review the [Kuber
 
 ## Grant permission
 
-Each Azure AD account must be granted permission to the appropriate APIs in Kubernetes in order to access the Live Metrics and Data (preview) feature. The steps to grant the Azure Active Directory account are similar to the steps described in the [Kubernetes RBAC authentication](#configure-kubernetes-rbac-authentication) section. Before applying the yaml configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user. 
+Each Azure AD account must be granted permission to the appropriate APIs in Kubernetes in order to access the Live Data (preview) feature. The steps to grant the Azure Active Directory account are similar to the steps described in the [Kubernetes RBAC authentication](#configure-kubernetes-rbac-authentication) section. Before applying the yaml configuration template to your cluster, replace **clusterUser** under **ClusterRoleBinding** with the desired user. 
 
 >[!IMPORTANT]
 >If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the userPrincipalName. If the user is in a different Azure AD tenant, query for and use the objectId property.
@@ -138,4 +138,4 @@ For additional help configuring your AKS cluster **ClusterRoleBinding**, see [Cr
 
 ## Next steps
 
-Now that you have setup authentication, you can view live [metric data](container-insights-livedata-metrics.md), [deployments](container-insights-livedata-deployments.md), and [events and logs](container-insights-livedata-console.md) from your cluster.
+Now that you have setup authentication, you can view [metrics](container-insights-livedata-metrics.md), [deployments](container-insights-livedata-deployments.md), and [events and logs](container-insights-livedata-console.md) in real-time from your cluster.

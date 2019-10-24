@@ -1,5 +1,5 @@
 ---
-title: View Azure Monitor for containers Live Metrics (preview) | Microsoft Docs
+title: View metrics in real-time with Azure Monitor for containers | Microsoft Docs
 description: This article describes the real-time view of metrics without using kubectl with Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
@@ -15,9 +15,9 @@ ms.date: 10/15/2019
 ms.author: magoedte
 ---
 
-# How to view metrics in real time (preview)
+# How to view metrics in real-time
 
-Azure Monitor for containers Live Metrics and Data (preview) feature allows you to directly visualize metrics about node and pod state in a cluster. It emulates direct access to the `kubectl top nodes`, `kubectl get pods –all-namespaces`, and `kubectl get nodes` commands to call, parse, and visualize the data in performance charts that are included with this Insight. 
+Azure Monitor for containers Live Data (preview) feature allows you to visualize metrics about node and pod state in a cluster in real-time. It emulates direct access to the `kubectl top nodes`, `kubectl get pods –all-namespaces`, and `kubectl get nodes` commands to call, parse, and visualize the data in performance charts that are included with this Insight. 
 
 This article provides a detailed overview and helps you understand how to use this feature.  
 
@@ -27,13 +27,13 @@ This article provides a detailed overview and helps you understand how to use th
 >[!NOTE]
 >This feature is available in all Azure regions, including Azure China. It is currently not available in Azure US Government.
 
-For help with setting up or troubleshooting the Live Metrics and Data (preview) feature, review our [setup guide](container-insights-livedata-setup.md).
+For help with setting up or troubleshooting the Live Data (preview) feature, review our [setup guide](container-insights-livedata-setup.md).
 
 ## How it Works 
 
-The Live Metrics and Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
+The Live Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-Live metrics feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` and `/api/v1/pods`), which is five seconds by default. This data is cached in your browser and charted in the four performance charts included in Azure Monitor for containers on the **Cluster** tab. Each subsequent poll is charted into a rolling five-minute visualization window. 
+This feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` and `/api/v1/pods`), which is every five seconds by default. This data is cached in your browser and charted in the four performance charts included in Azure Monitor for containers on the **Cluster** tab. Each subsequent poll is charted into a rolling five-minute visualization window. 
 
 ![Go Live option in the Cluster view](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
