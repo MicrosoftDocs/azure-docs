@@ -24,7 +24,7 @@ This article shows you how to set up disaster recovery to a secondary site, for 
 > * Enable replication for a VM
 
 > [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](Deprecation-details-site-to-site-VMM.md) details before proceeding.
+> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-asr-deprecation-details.md) details before proceeding.
 
 
 ## Prerequisites
