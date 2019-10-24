@@ -270,6 +270,8 @@
         href: dedicated-hosts-portal.md
       - name: Deploy spot VMs
         items:
+        - name: Portal
+          href: spot-portal.md
         - name: PowerShell
           href: spot-powershell.md
         - name: Template
