@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 10/23/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
@@ -48,7 +48,7 @@ If you have permission to access and use your organization's cloud-based apps, y
 
 1. Sign in to your work or school account on your computer.
 
-2. Open a supported web browser and go to https://myapplications.microsoft.com, or use the link provided by your organization. For example, you might be directed to use a customized page for your organization, such as `https://myapplications.microsoft.com/contoso.com`.
+2. Open a supported web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to use a customized page for your organization, such as `https://myapps.microsoft.com/contoso.com`.
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
@@ -58,7 +58,7 @@ View and use your organization's apps from the Intune Managed Browser app on you
 
 1. On your mobile device, download and install the Intune Managed Browser app from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) or the [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Open the Intune Managed Browser app, go to https://myapplications.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapplications.microsoft.com/contoso.com.
+2. Open the Intune Managed Browser app, go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
@@ -68,7 +68,7 @@ View and use the **My Apps** portal from an iPhone or iPad device, running iOS v
 
 1. On your mobile device, start a web browser app, such as Safari.
 
-2. Go to https://myapplications.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapplications.microsoft.com/contoso.com.
+2. Go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
@@ -78,7 +78,7 @@ View and use the **My Apps** portal on an Android device.
 
 1. On your mobile device, start a web browser app, such as Google Chrome.
 
-2. Go to https://myapplications.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapplications.microsoft.com/contoso.com.
+2. Go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
     The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
@@ -96,9 +96,7 @@ After you get to the **My Apps** portal, you can:
 
 - Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use workspaces in the My Apps (preview) portal](my-applications-portal-workspaces.md).
 
-- Request access to additional apps in your **My Apps** portal. For more information, see [Add or request access to applications in the My Apps (preview) portal](my-applications-portal-add-apps.md).
-
-- Review, update, or revoke permissions granted to applications and saved accounts. For more information, see [Edit or revoke application permissions and saved accounts in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md).
+- Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md).
 
 >[!Note]
 >If you don't see any workspaces or categories available, it means that your administrator hasn't set up or shared any with you. Contact your organization's Helpdesk for additional assistance or permissions to see shared workspaces.

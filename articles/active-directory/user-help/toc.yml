@@ -124,7 +124,5 @@
     href: my-applications-portal-access.md
   - name: Access and use workspaces
     href: my-applications-portal-workspaces.md
-  - name: Add or request access to applications
-    href: my-applications-portal-add-apps.md
-  - name: Edit or revoke app permissions and saved accounts
+  - name: Edit or revoke app permissions
     href: my-applications-portal-permissions-saved-accounts.md

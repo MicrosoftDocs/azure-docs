@@ -1,6 +1,6 @@
 ---
-title: Manage application permissions and saved accounts from the My Apps (preview) portal - Azure Active Directory | Microsoft Docs
-description: Learn how to manage application permissions and saved accounts for your organization's cloud-based apps from the My Apps (preview) portal.
+title: Manage application permissions from the My Apps (preview) portal - Azure Active Directory | Microsoft Docs
+description: Learn how to manage application permissions for your organization's cloud-based apps from the My Apps (preview) portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/18/2019
+ms.date: 10/23/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
 ---
 
-# Edit or revoke application permissions and saved accounts in the My Apps (preview) portal
+# Edit or revoke application permissions in the My Apps (preview) portal
 
 When you use organizational applications in the **My Apps** (preview) portal, you often grant permissions and save account information. To keep your data secure, you may want to review and revoke permissions or clear saved account credentials. Removing permissions or accounts may break some app functionality. If you have problems after you remove permissions or accounts, contact your organization's Helpdesk for additional assistance.
 
@@ -38,23 +38,11 @@ You can revoke any of the permissions you consented to by selecting **Revoke Per
 
 The bottom part of the permissions window shows what your administrator consented to on your behalf. This section isn't shown if there are no admin-consented permissions. You can't revoke these permissions because the administrator consented to them, and they're often required for your organization's policy.
 
-## Manage saved accounts
-
-Some applications you use may store credentials to sign you into the app. For example, if you want to add Facebook to your My Apps experience and have single sign-on (SSO), you can store your email and password. When you then launch the app from the My Apps (preview) portal, the saved credentials are used to sign in.
-
-To add, update, or clear these accounts, select the app and choose **Manage app**, the go to the **Accounts** page.
-
-** SCREENSHOT OF ACCOUNTS PAGE **
-
-A list of all the saved accounts associated with the app is shown. As needed, select the account, then update or remove it from the app.
-
 ## Next steps
 
 After you manage app permissions and saved accounts in the **My Apps** portal, you can:
 
 - Organize your apps into the various categories created and provided by your organization. For more information, see [Access and use workspaces in the My Apps (preview) portal](my-applications-portal-workspaces.md).
-
-- Request access to additional organizational apps in the **My Apps** portal. For more information, see [Add or request access to apps](my-applications-portal-add-apps.md).
 
 ## Related articles
 

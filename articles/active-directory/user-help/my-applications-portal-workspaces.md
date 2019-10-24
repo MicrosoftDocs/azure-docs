@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/18/2019
+ms.date: 10/23/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
@@ -34,15 +34,13 @@ Any other workspace you see in this list was created by your admin and shared wi
 
 ![Individual workspace and scoped set of apps in the My Apps portal](media/my-applications-portal-workspaces/my-apps-workspace.png)
 
-When you select and view a workspace, you only see the default applications that you have access to. Not all available applications are listed. For example, you may have a *Design* workspace. A new design app is available that requires a license, so your administrator only wants people who need to use app to have access. The administrator adds the app to the *Design* workspace, but it's not shown by default. Instead, anyone with access to the *Design* workspace can request access for that new app as needed. To learn more, see [Add or request access to apps](my-applications-portal-add-apps.md).
+When you select and view a workspace, you only see the default applications that you have access to.
 
 ## Next steps
 
 After you organize your apps into the various categories in the **My Apps** portal, you can:
 
-- Request access to additional organizational apps in the **My Apps** portal. For more information, see [Add or request access to apps](my-applications-portal-add-apps.md).
-
-- Review, update, or revoke permissions granted to applications and saved accounts. For more information, see [Edit or revoke application permissions and saved accounts in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md).
+- Review, update, or revoke permissions granted to applications. For more information, see [Edit or revoke application permissions in the My Apps (preview) portal](my-applications-portal-permissions-saved-accounts.md).
 
 ## Related articles
 
