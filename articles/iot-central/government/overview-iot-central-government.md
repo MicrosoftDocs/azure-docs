@@ -1,6 +1,6 @@
 ---
 title: Building government solutions with Azure IoT Central
-description: Learn to build government solution using Azure IoT Central application templates.
+description: Learn to build smart city solutions using Azure IoT Central application templates.
 author: miriambrus
 ms.author: miriamb
 ms.date: 10/23/2019
@@ -72,4 +72,4 @@ Get started with the [Connected Waste Management application tutorial](./tutoria
 * Learn about Water Quality Monitoring concepts  [concepts](./concepts-waterqualitymonitoring-architecture.md)
 * Learn about Water Consumption Monitoring [concepts](./concepts-waterconsumptionmonitoring-architecture.md)
 * Learn about Connected Waste Management [concepts](./concepts-connectedwastemanagement-architecture.md)  
-* Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
+* Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
