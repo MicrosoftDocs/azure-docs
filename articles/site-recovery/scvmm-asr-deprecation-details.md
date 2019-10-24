@@ -7,7 +7,7 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/13/2019
-ms.author: rajanaki 
+ms.author: rajanaki  
 
 ---
 # Upcoming deprecation of DR between customer owned sites using Hyper-V and between sites managed by SCVMM to Azure
