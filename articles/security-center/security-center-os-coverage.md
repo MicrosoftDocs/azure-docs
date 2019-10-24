@@ -35,15 +35,12 @@ The following sections list the supported server operating systems on which the 
 
 ### Windows server operating systems <a name="os-windows"></a>
 
-[!div class="mx-tableFixed"]
 |OS|Supported by Azure Security Center|Support for integration with Microsoft Defender ATP|
-|---|---|---|
+|:---|:-:|:-:|
 |Windows Server 2019|✔|X|
 |Windows Server 2016|✔|✔|
 |Windows Server 2012 R2|✔|✔|
-|Windows Server 2012|✔|✔|
 |Windows Server 2008 R2|✔|✔|
-|Windows Server 2008|✔|✔|
 
 To learn more about the supported features for the Windows operating systems, listed above, see [Virtual machine / server supported features](security-center-services.md##vm-server-features).
 

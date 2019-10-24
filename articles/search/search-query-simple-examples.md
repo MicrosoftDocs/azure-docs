@@ -123,7 +123,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "select=job_id, business_title, agency, salary_range_from",
+      "select": "job_id, business_title, agency, salary_range_from",
       "count": "true"
     }
 ```
