@@ -55,7 +55,7 @@ Time Series Insights Preview partitions and indexes data for optimum query perfo
 
 ### Scale
 
-By default, Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. A througput of up to 16 MB/s is available if you need it. If you need enhanced scaling support, please contact us.
+By default, Time Series Insights Preview supports an initial ingress scale of up to 1 megabyte per second (MB/s) per environment. A throughput of up to 16 MB/s is available if you need it. If you need enhanced scaling support, please contact us.
 
 You can get additional ingress and scaling capabilities for the event source:
 
@@ -100,7 +100,7 @@ Don't delete your Time Series Insights Preview files. You should manage related 
 
 Parquet is an open-source columnar file format that was designed for efficient storage and performance. Time Series Insights Preview uses Parquet for these reasons. It partitions data by Time Series ID for query performance at scale.  
 
-For more information about the Parquet file type, consult the [Parquet documentation](https://parquet.apache.org/documentation/latest/).
+For more information about the Parquet file type, see the [Parquet documentation](https://parquet.apache.org/documentation/latest/).
 
 Time Series Insights Preview stores copies of your data as follows:
 
