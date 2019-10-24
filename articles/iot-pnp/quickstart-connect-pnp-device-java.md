@@ -1,28 +1,48 @@
 ---
 title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microsoft Docs
-description: Build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
-author: ChrisGMsft
-ms.author: chrisgre
-ms.date: 08/02/2019
+description: Using Java, build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
+author: baanders
+ms.author: baanders
+ms.date: 10/24/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
 # As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
+
+# ################################INCOMPLETE###############################
+# ASSUMPTIONS/QUESTIONS:
+# 27, 86, 88, 90, 93     -    Uses Microsoft Azure IoT device SDK for Java (Azure/azure-iot-sdk-java)
+#    93                      -    "preview-test" branch
+# 31                     -    Version of Java?
+# 39-45                  -    Do I need Maven? Version?
+# 98-108                 -    How do I build? This section needs to be filled in or replaced.
+# 114-118                -    Where is the project that you run? How do you run it?
+#     112, 117               -    takes same parameter as C project
 ---
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in Java and is included in the Azure IoT device SDK for Java. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
-To complete this quickstart, you need to install the following software on your local machine:
+To complete this quickstart, you need Java SE 8 on your development machine. You can download the Java SE Development Kit 8 for multiple platforms from [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/en-us/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
-* [Git](https://git-scm.com/download/).
-* [CMake](https://cmake.org/download/).
+You can verify the current version of Java on your development machine using the following command: 
+
+```cmd/sh
+java -version
+```
+
+To build the samples, you need to install Maven 3. You can download Maven for multiple platforms from [Apache Maven](https://maven.apache.org/download.cgi).
+
+You can verify the current version of Maven on your development machine using the following command:
+
+```cmd/sh
+mvn --version
+```
 
 ### Install the Azure IoT explorer
 
@@ -63,14 +83,14 @@ az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
 
 ## Prepare the development environment
 
-### Get Azure IoT device SDK for C
+### Get Azure IoT device SDK for Java
 
-In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT C device SDK.
+In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT Java device SDK.
 
-Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+Open a command prompt. Execute the following command to clone the [Azure IoT Java SDK](https://github.com/Azure/azure-iot-sdk-java) GitHub repository:
 
 ```cmd/sh
-git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
+git clone https://github.com/Azure/azure-iot-sdk-java --recursive -b preview-test
 ```
 
 You should expect this operation to take several minutes to complete.
@@ -79,23 +99,13 @@ You should expect this operation to take several minutes to complete.
 
 The application you build simulates a device that connects to an IoT hub. The application sends telemetry and properties and receives commands.
 
-1. Create a `cmake` subdirectory in the device SDK root folder, and navigate to that folder:
+1. In a local terminal window, navigate to ...
 
-    ```cmd\sh
-    cd <root folder>\azure-iot-sdk-c
-    mkdir cmake
-    cd cmake
+1. In the local terminal window, run the following command to install the required libraries and build the simulated device application:
+
+    ```cmd/sh
+    mvn clean package
     ```
-
-1. Run the following commands to build the device SDK and the generated code stub:
-
-    ```cmd\sh
-    cmake ..
-    cmake --build . -- /m /p:Configuration=Release
-    ```
-
-    > [!NOTE]
-    > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 ## Run the device sample
 
