@@ -35,7 +35,6 @@ Currently, disk bursting is only available in the West Central US region.
 
 ## Disk sizes
 
-[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 ## Example scenarios
 
