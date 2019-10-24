@@ -44,7 +44,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Opal supports **IDP** initiated SSO
 
-
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 
 ## Adding Opal from the gallery
