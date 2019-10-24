@@ -97,19 +97,19 @@ Before you start, make sure you have these items:
 
 <a name="create-logic-app"></a>
 
-## Create logic app
+## Create your logic app
 
-1. If you haven't signed in to your Azure subscription from inside Visual Studio Code, follow the steps in this article to [sign in now](#sign-in-azure).
+1. If you haven't signed in to your Azure subscription already from inside Visual Studio Code, follow the [previous steps to sign in now](#sign-in-azure).
 
-1. From your subscription's context menu, select **Create**.
+1. Open your subscription's context menu, and select **Create Logic App**.
 
-   ![Select "Create" from subscription menu](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
+   ![From subscription menu, select "Create Logic App"](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
-1. From the list that shows Azure resource groups in your subscription, select an existing resource group or **Create a new resource group**.
+   A list appears that shows any Azure resource groups in your subscription.
 
-   This example creates a new resource group:
+1. From resource group list, select either **Create a new resource group** or an existing resource group. For this example, create a new resource group.
 
-   ![Create your new Azure resource group](./media/quickstart-create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
+   ![Create a new Azure resource group](./media/quickstart-create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
 
 1. Provide a name for your Azure resource group, and then press ENTER.
 
@@ -119,7 +119,7 @@ Before you start, make sure you have these items:
 
    ![Select Azure location for saving logic app metadata](./media/quickstart-create-logic-apps-visual-studio-code/select-azure-location-new-resources.png)
 
-1. Provide a name for your logic app, and then press ENTER.
+1. Provide a name for your logic app, and then press Enter.
 
    ![Provide name for your logic app](./media/quickstart-create-logic-apps-visual-studio-code/enter-name-logic-app.png)
 
