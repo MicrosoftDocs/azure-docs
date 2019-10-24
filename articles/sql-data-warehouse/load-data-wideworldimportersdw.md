@@ -14,7 +14,7 @@ ms.reviewer: igorstan
 
 # Tutorial: Load data to Azure SQL Analytics (formerly SQL DW)
 
-This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to SQL pool (data warehouse). The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
+This tutorial uses PolyBase to load the WideWorldImportersDW data warehouse from Azure Blob storage to  SQL Analytics tables. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to:
 
 > [!div class="checklist"]
 > * Create a data warehouse in the Azure portal
@@ -37,7 +37,7 @@ Before you begin this tutorial, download and install the newest version of [SQL 
 
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Create an empty database
+## Create an empty Synapse SQL pool
 
 The database is created with a defined set of [compute resources](memory-and-concurrency-limits.md). The database is created within an [Azure resource group](../azure-resource-manager/resource-group-overview.md) and in an [Azure SQL logical server](../sql-database/sql-database-features.md). 
 
@@ -80,7 +80,7 @@ Follow these steps to create an empty database.
     ![configure performance](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. Click **Apply**.
-9. In the SQL pool page, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations)
+9. In the SQL Data Warehouse page, select a **collation** for the blank database. For this tutorial, use the default value. For more information about collations, see [Collations](/sql/t-sql/statements/collations)
 
 11. Now that you have completed the SQL Database form, click **Create** to provision the database. Provisioning takes a few minutes. 
 
@@ -210,7 +210,7 @@ The first step toward loading data is to login as LoaderRC60.
 
 ## Create external tables and objects
 
-You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL pool, see the [loading overview](sql-data-warehouse-overview-load.md).
+You are ready to begin the process of loading data into your new data warehouse. For future reference, to learn how to get your data to Azure Blob storage or to load it directly from your source into SQL Analytics tables, see the [loading overview](sql-data-warehouse-overview-load.md).
 
 Run the following SQL scripts to specify information about the data you wish to load. This information includes where the data is located, the format of the contents of the data, and the table definition for the data. The data is located in a global Azure Blob.
 

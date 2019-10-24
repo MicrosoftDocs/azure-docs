@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ---
 
 # Connect to Azure Synapse Analytics (formerly SQL DW)
-Connect to Azure Synapse Analytics using a SQL Analytics end point.
+Connect to Azure Synapse Analytics using a SQL end point.
 
 ## Find your server name
 The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:

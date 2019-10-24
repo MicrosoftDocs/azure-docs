@@ -27,7 +27,7 @@ A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into f
 - **Integration tables** provide a place for integrating or staging data. You can create an integration table as a regular table, an external table, or a temporary table. For example, you can load data to a staging table, perform transformations on the data in staging, and then insert the data into a production table.
 
 ## Schema and table names
-Schemas are a good way to group tables, used in a similar fashion, together.  If you are migrating multiple databases from an on-prem solution to SQL pool (data warehouse) , it works best to migrate all of the fact, dimension, and integration tables to one schema. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called wwi. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
+Schemas are a good way to group tables, used in a similar fashion, together.  If you are migrating multiple databases from an on-prem solution to SQL Analytics tables, it works best to migrate all of the fact, dimension, and integration tables to one schema. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called wwi. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
 
 ```sql
 CREATE SCHEMA wwi;
