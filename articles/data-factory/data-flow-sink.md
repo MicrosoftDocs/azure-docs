@@ -49,7 +49,7 @@ Select **Validate schema** to fail the sink if the schema changes.
 Select **Clear the folder** to truncate the contents of the sink folder before writing the destination files in that target folder.
 
 ## Fixed mapping vs. rule-based mapping
-When you turn-off auto-mapping, you will have the option to add either column-based mapping (fixed mapping) or rule-based mapping. Rule-based mapping will allow you to write expressions with pattern matching while fixed mapping will map logical and physical column names.
+When you turn off auto-mapping, you will have the option to add either column-based mapping (fixed mapping) or rule-based mapping. Rule-based mapping will allow you to write expressions with pattern matching while fixed mapping will map logical and physical column names.
 
 ![Rule-based Mapping](media/data-flow/rules4.png "Rule-based mapping")
 
@@ -65,7 +65,7 @@ A very basic common example for a rule-based mapping vs. fixed mapping is the ca
 
 ### Sink association with dataset
 
-The dataset that you select for your sink may or may not have a schema defined in the dataset definition. If it does not have a defined schema, then you must allow schema drift. When you defined a fixed mapping, the logical-to-physical name mapping will persist in the sink transformation. If you change the schema definition of the dataset, then you will potentionally break your sink mapping. To avoid this, use rule-based mapping. Rule-based mappings are generlized, meaning that schema changes on your dataset will not break the mapping.
+The dataset that you select for your sink may or may not have a schema defined in the dataset definition. If it does not have a defined schema, then you must allow schema drift. When you defined a fixed mapping, the logical-to-physical name mapping will persist in the sink transformation. If you change the schema definition of the dataset, then you will potentially break your sink mapping. To avoid this, use rule-based mapping. Rule-based mappings are generalized, meaning that schema changes on your dataset will not break the mapping.
 
 ## File name options
 
