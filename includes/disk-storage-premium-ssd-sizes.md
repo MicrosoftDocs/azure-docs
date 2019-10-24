@@ -19,6 +19,6 @@
 | Max Burst throughput per disk** | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec | 170 MiB/sec |
 | Credit bucket size** | 6,084,000 IO; 255 GiB  | 6,084,000 IO; 255 GiB  | 6,084,000 IO; 255 GiB  | 6,084,000 IO; 255 GiB  | 5,868,000 IO; 211 GiB  | 5,400,000 IO; 123 GiB  | 4,320,000 IO; 79 GiB  | 2,160,000 IO; 35 GiB  |
 
-\*Denotes a disk size that is currently in preview, for regional availability information see [Premium disks: Managed and unmanaged](virtual-machines-faq-for-disks.md#premium-disks-managed-and-unmanaged).
+\*Denotes a disk size that is currently in preview
 
-\**Denotes a feature that is currently in preview, see [Disk bursting](managed-disks-bursting.md#regional-availability) for more information.
+\**Denotes a feature that is currently in preview
