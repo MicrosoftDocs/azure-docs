@@ -41,7 +41,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 2. At this time, you can find Virtual WAN by navigating to **All services** and searching for Virtual WAN. Or, you can search for Virtual WAN in the search box at the top of the Azure portal. Click **Virtual WAN** to open the page.
-3. Click **Create** to open the **Create WAN** page. If the page is not available, you have not yet been approved for this Preview.
+3. Click **Create** to open the **Create WAN** page.
 
    ![Create WAN](./media/virtual-wan-point-to-site-portal/createwan.png)
 4. On the Create WAN page, fill in the following fields.
@@ -157,10 +157,6 @@ When you no longer need these resources, you can use [Remove-AzureRmResourceGrou
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
-
-## <a name="feedback"></a>Preview feedback
-
-We would appreciate your feedback. Please send an email to <azurevirtualwan@microsoft.com> to report any issues, or to provide feedback (positive or negative) for Virtual WAN. Include your company name in “[ ]” in the subject line. Also include your subscription ID if you are reporting an issue.
 
 ## Next steps
 
