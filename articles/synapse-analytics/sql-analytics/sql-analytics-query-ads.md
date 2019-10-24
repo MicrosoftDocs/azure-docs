@@ -13,6 +13,7 @@ ms.reviewer: jrasnick
 
 # Connect to SQL on-demand with Azure Data Studio
 > [!div class="op_single_selector"]
+> * [Azure Data Studio](sql-analytics-query-ads.md)
 > * [Power BI](tutorial-bi-professional.md)
 > * [Visual Studio](sql-analytics-query-visual-studio.md)
 > * [sqlcmd](sql-analytics-get-started-connect-sqlcmd.md)

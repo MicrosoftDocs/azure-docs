@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL on-demand sqlcmd | Microsoft Docs
-description: Use sqlcmd command-line utility to connect to and query an Azure SQL on-demand.
+title: Connect to Azure SQL analytics sqlcmd | Microsoft Docs
+description: Use sqlcmd command-line utility to connect to and query an Azure SQL analytics.
 services: sql-data-warehouse
 author: azaricstefan 
 ms.service: sql-data-warehouse
@@ -11,8 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL on-demand with sqlcmd
+# Connect to SQL analytics with sqlcmd
 > [!div class="op_single_selector"]
+> * [Azure Data Studio](sql-analytics-query-ads.md)
 > * [Power BI](tutorial-bi-professional.md)
 > * [Visual Studio](sql-analytics-query-visual-studio.md)
 > * [sqlcmd](sql-analytics-get-started-connect-sqlcmd.md) 
@@ -20,14 +21,14 @@ ms.reviewer: jrasnick
 > 
 > 
 
-Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL on-demand.  
+Use [sqlcmd][sqlcmd] command-line utility to connect to and query an Azure SQL analytics.  
 
 ## 1. Connect
-To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL on-demand database. The connection string requires the following parameters:
+To get started with [sqlcmd][sqlcmd], open the command prompt and enter **sqlcmd** followed by the connection string for your SQL analytics database. The connection string requires the following parameters:
 
 * **Server (-S):** Server in the form `<`Server Name`>`.database.windows.net
 * **Database (-d):** Database name.
-* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL on-demand instance.
+* **Enable Quoted Identifiers (-I):** Quoted identifiers must be enabled to connect to a SQL analytics instance.
 
 To use SQL Server Authentication, you need to add the username/password parameters:
 

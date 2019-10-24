@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL on-demand - SSMS | Microsoft Docs
-description: Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL on-demand. 
+title: Connect to Azure SQL analytics - SSMS | Microsoft Docs
+description: Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL analytics. 
 services: sql-data-warehouse
 author: azaricstefan 
 ms.service: sql-data-warehouse
@@ -11,8 +11,9 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL on-demand with SQL Server Management Studio (SSMS)
+# Connect to SQL analytics with SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
+> * [Azure Data Studio](sql-analytics-query-ads.md)
 > * [Power BI](tutorial-bi-professional.md)
 > * [Visual Studio](sql-analytics-query-visual-studio.md)
 > * [sqlcmd](sql-analytics-get-started-connect-sqlcmd.md)
@@ -20,16 +21,16 @@ ms.reviewer: jrasnick
 > 
 > 
 
-Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL on-demand. 
+Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL analytics. 
 
 ## Prerequisites
 To use this tutorial, you need:
 
-* An existing SQL on-demand. To create one, see [Create a SQL on-demand][Create a SQL on-demand].
+* An existing SQL analytics. To create one, see [Create a SQL analytics][Create a SQL analytics].
 * SQL Server Management Studio (SSMS) installed. [Install SSMS][Install SSMS] for free if you don't already have it.
-* The fully qualified SQL server name. To find this, see [Connect to SQL on-demand][Connect to SQL on-demand].
+* The fully qualified SQL server name. To find this, see [Connect to SQL analytics][Connect to SQL analytics].
 
-## 1. Connect to your SQL on-demand
+## 1. Connect to your SQL analytics
 1. Open SSMS.
 2. Open Object Explorer. To do this, select **File** > **Connect Object Explorer**.
    
@@ -68,12 +69,12 @@ Now that a connection has been established to your database, let's write a query
 ## Next steps
 Now that you can connect and query, try [visualizing the data with PowerBI][visualizing the data with PowerBI].
 
-To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL on-demand][Authenticate to SQL on-demand].
+To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL analytics][Authenticate to SQL analytics].
 
 <!--Arcticles-->
-[Connect to SQL on-demand]: sql-analytics-connect-overview.md
-[Create a SQL on-demand]: sql-data-warehouse-get-started-provision.md
-[Authenticate to SQL on-demand]: sql-data-warehouse-authentication.md
+[Connect to SQL analytics]: sql-analytics-connect-overview.md
+[Create a SQL analytics]: sql-data-warehouse-get-started-provision.md
+[Authenticate to SQL analytics]: sql-data-warehouse-authentication.md
 [visualizing the data with PowerBI]: tutorial-bi-professional.md 
 
 <!--Other-->
