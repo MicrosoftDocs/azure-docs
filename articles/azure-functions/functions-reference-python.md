@@ -85,7 +85,7 @@ You can change the default behavior of a function by optionally specifying the `
 The folder structure for a Python Functions project looks like the following example:
 
 ```
- FunctionApp
+ __app__
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
@@ -98,6 +98,7 @@ The folder structure for a Python Functions project looks like the following exa
  | | - mySecondHelperFunction.py
  | - host.json
  | - requirements.txt
+ tests
 ```
 
 There's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has its own code file and binding configuration file (function.json). 
@@ -421,7 +422,7 @@ To build your dependencies and publish using a continuous delivery (CD) system, 
 
 ## Unit Testing
 
-Functions written in Python can be tested like other Python code using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package is not immediately available, be sure to install it via your `requirements.txt` file as described in [Python version and package management](#python-version-and-package-management) section above.
+Functions written in Python can be tested like other Python code using standard testing frameworks. For most bindings, it's possible to create a mock input object by creating an instance of an appropriate class from the `azure.functions` package. Since the [`azure.functions`](https://pypi.org/project/azure-functions/) package is not immediately available, be sure to install it via your `requirements.txt` file as described in [Python version and package management](#python-version-and-package-management) section above. 
 
 For example, following is a mock test of an HTTP triggered function:
 
@@ -450,7 +451,7 @@ For example, following is a mock test of an HTTP triggered function:
 ```
 
 ```python
-# myapp/httpfunc.py
+# __app__/httpfunc.py
 import azure.functions as func
 import logging
 
@@ -476,12 +477,11 @@ def my_function(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 ```python
-# myapp/test_httpfunc.py
+# tests/test_httpfunc.py
 import unittest
 
 import azure.functions as func
-from httpfunc import my_function
-
+from __app__.httpfunc import my_function
 
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
@@ -505,7 +505,7 @@ class TestFunction(unittest.TestCase):
 Here is another example, with a queue triggered function:
 
 ```python
-# myapp/__init__.py
+# __app__/__init__.py
 import azure.functions as func
 
 
@@ -514,12 +514,11 @@ def my_function(msg: func.QueueMessage) -> str:
 ```
 
 ```python
-# myapp/test_func.py
+# tests/test_func.py
 import unittest
 
 import azure.functions as func
-from . import my_function
-
+from __app__ import my_function
 
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
