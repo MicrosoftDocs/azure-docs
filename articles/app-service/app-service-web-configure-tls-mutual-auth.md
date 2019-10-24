@@ -12,7 +12,7 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 10/01/2019
 ms.author: cephalin
 ms.custom: seodec18
 
@@ -32,6 +32,15 @@ To set up your app to require client certificates, you need to set the `clientCe
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
+
+## Exclude paths from requiring authentication
+
+When you enable mutual auth for your application, all paths under the root of your app will require a client certificate for access. To allow certain paths to remain open for anonymous access, you can define exclusion paths as part of your application configuration.
+
+Exclusion paths can be configured by selecting **Configuration** > **General Settings** and defining an exclusion path. In this example, anything under `/public` path for your application would not request a client certificate.
+
+![Certificate Exclusion Paths][exclusion-paths]
+
 
 ## Access client certificate
 
@@ -209,3 +218,5 @@ export class AuthorizationHandler {
     }
 }
 ```
+
+[exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png

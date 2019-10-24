@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 09/03/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Import and export blueprint definitions with PowerShell
 

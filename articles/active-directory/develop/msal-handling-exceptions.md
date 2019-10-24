@@ -1,5 +1,6 @@
 ---
-title: Errors and exceptions (MSAL) | Microsoft identity platform
+title: Errors and exceptions (MSAL) 
+titleSuffix: Microsoft identity platform
 description: Learn how to handle errors and exceptions, conditional access, and claims challenges in MSAL applications.
 services: active-directory
 documentationcenter: dev-center-name
@@ -435,8 +436,6 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## Conditional Access and claims challenges
-
-When getting tokens silently, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
 
 When getting tokens silently, your application may receive errors when a [Conditional Access claims challenge](conditional-access-dev-guide.md) such as MFA policy is required by an API you're trying to access.
 
