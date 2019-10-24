@@ -112,8 +112,6 @@
       items:
       - name: Text-to-speech REST API
         href: rest-text-to-speech.md
-      - name: Audio content generation REST API
-        href: https://aka.ms/ignite2019/speech/placeholder
 - name: Intent recognition
   exanded: false
   items:
@@ -293,10 +291,6 @@
       items:
       - name: "How-to: Audio Content Creation"
         href: how-to-audio-content-creation.md
-    - name: Custom Neural Voices
-      items:
-      - name: Placeholder
-        href: https://example.com
   - name: Custom wake word/key word spotting
     href: speech-devices-sdk-create-kws.md
 - name: Speech Service
@@ -338,9 +332,9 @@
       - name: Text-to-speech REST API
         href: https://aka.ms/ignite2019/speech/placeholder
       - name: Webhooks REST API
-        href: https://aka.ms/ignite2019/speech/placeholder
+        href: webhooks.md
     - name: Swagger documentation
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: swagger-documentation.md
 - name: Speech SDK
   expanded: false
   items:
