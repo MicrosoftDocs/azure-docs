@@ -28,6 +28,17 @@ Machine learning is a data science technique that allows computers to use existi
 Forecasts or predictions from machine learning can make apps and devices smarter. For example, when you shop online, machine learning helps recommend other products you might want based on what you've bought. Or when your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. And when your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
 ## Machine learning tools to fit each task 
+Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud.
+
+
+The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
+
+Train, test, and deploy your models with rich tools such as:
++ The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy models
++ Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
++ R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code, or use the R modules in the designer.
++ [Visual Studio Code extension](how-to-vscode-tools.md)
++ [Machine learning CLI](reference-azure-machine-learning-cli.md)
 
 ## Build ML models in Python or R
 
@@ -38,6 +49,12 @@ With many available [compute targets](how-to-set-up-training-targets.md), like A
 You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
 ## Build ML models with no-code tools
+
+For code-free or low-code training and deployment, try:
+
++ **Azure Machine Learning designer (preview)**
+
+  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](ui-tutorial-automobile-price-train-score.md).
 
   Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
 
@@ -67,20 +84,6 @@ If you want to use scripts to automate your machine learning workflow, the [mach
 
 To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
-## About Azure Machine Learning
-
-Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud.
-
-
-The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
-
-Train, test, and deploy your models with rich tools such as:
-+ The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy models
-+ Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
-+ R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code, or use the R modules in the designer.
-+ [Visual Studio Code extension](how-to-vscode-tools.md)
-+ [Machine learning CLI](reference-azure-machine-learning-cli.md)
-
 ## What can I do with the service?
 
 Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [designer to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning Workspace.
@@ -88,25 +91,6 @@ Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?v
 Azure Machine Learning provides all the tools you need for your machine learning workflow such as Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> and <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html on" target="_blank">SDK for R</a>. The service also interoperates with popular open-source tools, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, and <a href="https://pytorch.org" target="_blank">PyTorch</a>.  You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
 Whether you write code or use the [designer](ui-tutorial-automobile-price-train-score.md), you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
-
-
-### UI-based, low-code experience
-
-For code-free training and deployment, try:
-
-+ **Azure Machine Learning designer (preview)**
-
-  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](ui-tutorial-automobile-price-train-score.md).
-
-  Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
-
-  ![Azure Machine Learning designer](media/concept-ml-pipelines/visual-design-surface.gif)
-
-+ **Automated machine learning UI**
-
-  Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
-
-  [![Azure Machine Learning studio navigation pane](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
 
 ## <a name="sku"></a>Basic & Enterprise editions
 
