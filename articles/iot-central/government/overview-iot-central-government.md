@@ -11,7 +11,7 @@ services: iot-central
 
 # Building government solutions with Azure IoT Central
 
-Get started with building smart city solutions leveraging Azure IoT Central application templates. 
+Get started with building smart city solutions leveraging Azure IoT Central application templates. Start now with **water quality monitoring**, **water consumption monitoring**, and **connected waste management**.
 
 ## What is Water Quality Monitoring application template? 
 
