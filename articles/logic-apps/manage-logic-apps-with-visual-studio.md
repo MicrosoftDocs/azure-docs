@@ -65,7 +65,7 @@ In Visual Studio, you can find all the logic apps that are associated with your 
 
 1. In Cloud Explorer, select **Account Management**. Select the Azure subscription associated with your logic apps, and then select **Apply**. For example:
 
-   ![Select "Account Management"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
+   ![Select "Account Management"](./media/manage-logic-apps-with-visual-studio/account-management-select-azure-subscription.png)
 
 1. Based on whether you're searching by **Resource Groups** or **Resource Types**, follow these steps:
 
