@@ -53,6 +53,6 @@ For more info about SQL Data Sync, seen the following articles:
 
 * [Update the sync schema with Transact-SQL](../sql-database/sql-database-update-sync-schema.md) or [PowerShell](../sql-database/scripts/sql-database-sync-update-schema.md)
 
-## Next Steps
+## Next steps
 
 * [Use Powershell to sync between Azure SQL Database and Azure SQL Database Edge](../sql-database/scripts/sql-database-sync-data-between-azure-onprem.md). In the tutorial, replace the *OnPremiseServer* database details with the Azure SQL Database Edge details.

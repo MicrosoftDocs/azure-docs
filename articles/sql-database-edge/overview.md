@@ -39,7 +39,7 @@ SQL Database Edge is available with three different editions or software plans. 
 Azure SQL Database is currently in preview. For more information on the pricing and availability, see [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 
 > [!IMPORTANT]
-> To understand the feature differences between Azure SQL Database Edge and SQL Server, as well as the differences among different Azure SQL Database Edge options, see [SQL Database Edge Database features](Add link to Database Features section).
+> To understand the feature differences between Azure SQL Database Edge and SQL Server, as well as the differences among different Azure SQL Database Edge options, see [SQL Database Edge Database features](https://azure.microsoft.com/services/sql-database-edge/).
 
 ## Streaming Capabilities  
 
@@ -60,11 +60,6 @@ Azure SQL Database Edge makes developing and maintaining applications easier and
 - [SQL Server Data Tools in Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt/) - A free, downloadable client application for developing SQL Server relational databases, SQL databases, Integration Services packages, Analysis Services data models, and Reporting Services reports.
 - [Azure Data Studio](/sql/azure-data-studio/what-is/) - A free, downloadable, cross platform database tool for data professional using the Microsoft family of on-premises and cloud data platforms on Windows, MacOS, and Linux.
 - [Visual Studio Code](https://code.visualstudio.com/docs) - A free, downloadable, open-source code editor for Windows, macOS, and Linux. It supports extensions, including the [mssql extension](https://aka.ms/mssql-marketplace) for querying Microsoft SQL Server, Azure SQL Database, and Azure SQL Data Warehouse.
-
-
-## SQL Database Edge frequently asked questions
-
-Add frequently asked questions.
 
 
 ## Next steps

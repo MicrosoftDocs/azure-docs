@@ -15,7 +15,7 @@ ms.date: 10/23/2019
 
 Azure SQL Database Edge Preview is an optimized relational database engine geared for IoT and edge deployments. It is built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Database Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
-Azure SQL Database Edge also provides a native implementation of [SQLPackage.exe that enables users to deploy a [SQL Database DAC](/sql/relational-databases/data-tier-applications/data-tier-applications/) package during the deployment of SQL Database Edge.
+Azure SQL Database Edge also provides a native implementation of [SQLPackage.exe that enables users to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Database Edge.
 
 Azure SQL Database Edge exposes two optional parameters through the *module twin's desired properties* option of the IoT Edge Module.
 
@@ -48,7 +48,7 @@ To use a SQL Database DAC package (*.dacpac) with SQL Database Edge, please foll
 
     1. On the Azure portal, browse to your IoT Hub deployment.
 
-    2. On the left side pane, click on **IoT Edge **.
+    2. On the left side pane, click on **IoT Edge**.
 
     3. On the **IoT Edge** page, find and click on the IoT Edge where the SQL Database Edge module is deployed.
 
@@ -139,7 +139,7 @@ To deploy the streaming job to the SQL Database Edge module, update the SQL Data
 
 1. On the Azure portal, browse to your IoT Hub deployment.
 
-2. On the left side pane, click on **IoT Edge **.
+2. On the left side pane, click on **IoT Edge**.
 
 3. On the **IoT Edge** page, find and click on the IoT Edge where the SQL Database Edge module is deployed.
 
@@ -169,7 +169,7 @@ To deploy the streaming job to the SQL Database Edge module, update the SQL Data
 
 10. Post the module update, the stream analytics job file is downloaded, unzipped, and deployed against the SQL Database Edge instance.
 
-## Next Steps
+## Next steps
 
 - For pricing and availability-related details, see [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 - Request to enable Azure SQL Database Edge for your subscription.
