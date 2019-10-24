@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure SQL on-demand | Microsoft Docs
-description: Get connected to Azure SQL on-demand.
+title: Connect to Azure SQL analytics | Microsoft Docs
+description: Get connected to Azure SQL analytics.
 services: sql-data-warehouse 
 author: azaricstefan 
 ms.service: sql-data-warehouse 
@@ -11,21 +11,21 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to Azure SQL on-demand
-Get connected to Azure SQL on-demand.
+# Connect to Azure SQL analytics
+Get connected to Azure SQL analytics.
 
 ## Find your server name
 The server name in the following example is samplesvr.database.windows.net. To find the fully qualified server name:
 
 1. Go to the [Azure portal][Azure portal].
-2. Click on **SQL on-demand**.
-3. Click on the on-demand you want to connect to.
+2. Click on **SQL analytics**.
+3. Click on the analytics you want to connect to.
 4. Locate the full server name.
    
     ![Full server name][1]
 
 ## Supported drivers and connection strings
-Azure SQL on-demand supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
+Azure SQL analytics supports [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP], and [JDBC][JDBC]. To find the latest version and documentation, click on one of the preceding drivers. To automatically generate the connection string for the driver that you are using from the Azure portal, click on the **Show database connection strings** from the preceding example. Following are also some examples of what a connection string looks like for each driver.
 
 > [!NOTE]
 > Consider setting the connection timeout to 300 seconds to allow your connection to survive short periods of unavailability.
@@ -53,7 +53,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ```
 
 ## Connection settings
-SQL on-demand standardizes some settings during connection and object creation. These settings cannot be overridden and include:
+SQL analytics standardizes some settings during connection and object creation. These settings cannot be overridden and include:
 
 | Database Setting | Value |
 |:--- |:--- |
@@ -62,12 +62,17 @@ SQL on-demand standardizes some settings during connection and object creation. 
 | [DATEFORMAT][DATEFORMAT] |mdy |
 | [DATEFIRST][DATEFIRST] |7 |
 
+## Recommendations
+
+For executing **SQL analytics on-demand** queries, recommended tools are [Azure Data Studio](sql-analytics-query-ads.md) and Azure Synapse Studio.
+
+
 ## Next steps
-To connect and query with Visual Studio, see [Query with Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL on-demand][Authentication to Azure SQL on-demand].
+To connect and query with Visual Studio, see [Query with Visual Studio][Query with Visual Studio]. To learn more about authentication options, see [Authentication to Azure SQL analytics][Authentication to Azure SQL analytics].
 
 <!--Articles-->
-[Query with Visual Studio]: ./sql-analytics-query-visual-studio.md
-[Authentication to Azure SQL on-demand]: ./../../sql-data-warehouse/sql-data-warehouse-authentication.md
+[Query with Visual Studio]: ../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md
+[Authentication to Azure SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
