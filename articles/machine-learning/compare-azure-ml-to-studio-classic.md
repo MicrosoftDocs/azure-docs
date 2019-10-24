@@ -46,7 +46,7 @@ The following resources can help you get started with Azure Machine Learning
 
 In addition to the drag-n-drop capabilities in the designer, Azure Machine Learning has other tools available:  
   + [Use Python notebooks to train & deploy ML models](/service/tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown to train & deploy ML models](/service/tutorial-1st-experiment-r-set-up.md) 
+  + [Use R Markdown to train & deploy ML models](/service/tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](/service/ui-tutorial-automobile-price-train-score.md) 
   + [Use the machine learning CLI to train and deploy a model](/service/tutorial-train-deploy-model-cli.md)
 

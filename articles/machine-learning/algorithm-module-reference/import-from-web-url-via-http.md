@@ -26,7 +26,7 @@ There are two ways to get data: use the wizard to set up the data source, or con
 
 ## Use the Data Import Wizard
 
-1. Add the **Import Data** module to your pipeline. You can find the module in the interface, in the **Data Input and Output** category.
+1. Add the **Import Data** module to your pipeline. You can find the module in the designer, in the **Data Input and Output** category.
 
 2. Click **Launch Import Data Wizard** and select Web URL via HTTP.
 
@@ -40,7 +40,7 @@ To edit an existing data connection, start the wizard again. The wizard loads al
 
 The following steps describe how to manually configure the import source.
 
-1. Add the [Import Data](import-data.md) module to your pipeline. You can find the module in the interface, in the **Data Input and Output** category.
+1. Add the [Import Data](import-data.md) module to your pipeline. You can find the module in the designer, in the **Data Input and Output** category.
 
 2. For **Data source**, select **Web URL via HTTP**.
 

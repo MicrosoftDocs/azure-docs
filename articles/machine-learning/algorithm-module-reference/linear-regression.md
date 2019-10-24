@@ -58,7 +58,7 @@ This module supports two methods for fitting a regression model, with different 
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a> Create a regression model using ordinary least squares
 
-1. Add the **Linear Regression Model** module to your pipeline in the interface.
+1. Add the **Linear Regression Model** module to your pipeline in the designer.
 
     You can find this module in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and then drag the **Linear Regression Model** module to your pipeline.
 
@@ -92,7 +92,7 @@ After training is complete:
 
 ## <a name="bkmk_GradientDescent"></a> Create a regression model using online gradient descent
 
-1. Add the **Linear Regression Model** module to your pipeline in the interface.
+1. Add the **Linear Regression Model** module to your pipeline in the designer.
 
     You can find this module in the **Machine Learning** category. Expand **Initialize Model**, expand **Regression**, and drag the **Linear Regression Model** module to your pipeline
 

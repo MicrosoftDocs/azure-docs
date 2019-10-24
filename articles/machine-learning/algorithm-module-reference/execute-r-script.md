@@ -14,7 +14,7 @@ ms.date: 06/01/2019
 
 # Execute R Script
 
-This article describes how to use the **Execute R Script** module to run R code in your Azure Machine Learning designer (preview) experiment.
+This article describes how to use the **Execute R Script** module to run R code in your Azure Machine Learning designer (preview) pipeline.
 
 With R, you can perform tasks that aren't currently supported by existing modules such as: 
 - Create custom data transformations
@@ -112,7 +112,7 @@ azureml_main <- function(dataframe1, dataframe2){
  * The entry point function can contain up to two input arguments: `Param<dataframe1>` and `Param<dataframe2>`
  
    > [!NOTE]
-    > The data passed to the **Execute R Script** module is referenced as `dataframe1` and `dataframe2`, which is different from Azure Machine Learning Studio (Studio reference as `dataset1`, `dataset2`). Please check to make sure input data is referneced correctly in your script.  
+    > The data passed to the **Execute R Script** module is referenced as `dataframe1` and `dataframe2`, which is different from Azure Machine Learning designer (the designer reference as `dataset1`, `dataset2`). Please check to make sure input data is referneced correctly in your script.  
  
     > [!NOTE]
     >  Existing R code may need minor changes to run in a designer pipeline. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the designer.
