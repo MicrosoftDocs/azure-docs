@@ -41,6 +41,10 @@ As a builder, you have several options for creating device templates:
 - Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 - Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your real device to your IoT Central application using a device-first connection. IoT Central finds and imports the device capability model from the public repository for you. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
 
+## Prerequisites
+
+To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+
 ## Create a device template from the device catalog
 
 As a builder, you can quickly start building out your solution using an IoT Plug and Play certified device listed in the [Azure IoT Device Catalog](https://catalog.azureiotsolutions.com/alldevices). IoT Central integrates with the device catalog to let you import a device capability model from any of these IoT Plug and Play certified devices. To create a device template from one of these devices in IoT Central:
@@ -408,7 +412,7 @@ Select S1 Sensor and Occupancy Sensor and click **Connect to gateway**.
 
 Select gateway device template, gateway device instance and click **Join**.
 
-## Summary
+## Next steps
 
 In this tutorial, you learned how to:
 
@@ -418,3 +422,8 @@ In this tutorial, you learned how to:
 * Define a visualization for the device telemetry.
 * Add relationships
 * Publish your device template.
+
+Here is the suggested next step:
+
+> [!div class="nextstepaction"]
+> [Add Edge device](tutorial-add-edge-as-leaf-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

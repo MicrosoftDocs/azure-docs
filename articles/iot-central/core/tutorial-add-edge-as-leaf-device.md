@@ -31,6 +31,10 @@ In this tutorial, you learn how to:
 > * Send commands to a module running on the Azure IoT Edge device
 > * Set properties on a module running on the Azure IoT Edge device
 
+## Prerequisites
+
+To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+
 ## Enable Azure IoT Edge Enrollment Group
 Enable SAS keys for Azure IoT Edge enrollment group from the Administration page.
 
@@ -175,7 +179,13 @@ In this tutorial, you learned how to:
 * Send commands to a module running on the Azure IoT Edge device
 * Set properties on a module running on the Azure IoT Edge device
 
-To Configure a transparent gateway follow this tutorial
+## Next steps
+
+Now that you've learned how to work with manage Azure IoT Edge devices in IoT Central, here is the suggested next step:
+
+<!-- Next how-tos in the sequence -->
+
+How To Configure a transparent gateway, follow this tutorial
 
 > [!div class="nextstepaction"]
 > [Configure Transparent Gateway](../../iot-edge/how-to-create-transparent-gateway.md)
