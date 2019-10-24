@@ -27,10 +27,10 @@ Dependency mapping helps you to visualize dependencies across machines that you 
 
 Before you deploy dependency visualization you should have an Azure Migrate project in place, with the Azure Migrate: Server Assessment tool added to the project. You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises machines.
 
-[Learn more](how-to-assess.md) about adding the tool, and deploying an appliance for [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or [physical servers](how-to-set-up-appliance-physical.md).
+[Learn more](how-to-assess.md) about adding the tool, and deploying an appliance for [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
 
 
-## How does dependency visualization work?
+## How does it work?
 
 Azure Migrate uses the [Service Map](../operations-management-suite/operations-management-suite-service-map.md) solution in [Azure Monitor logs](../log-analytics/log-analytics-overview.md) for dependency visualization.
 
