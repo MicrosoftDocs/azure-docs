@@ -1098,10 +1098,8 @@
       href: platform/metrics-supported.md
     - name: Supported metrics for newer alerts
       href: platform/alerts-metric-near-real-time.md
-  - name: Diagnostic Logs
-    items:
-    - name: Diagnostic logs services, categories, and schemas
-      href: platform/diagnostic-logs-schema.md
+  - name: Resource log services, categories, and schemas
+    href: platform/diagnostic-logs-schema.md
   - name: Azure CLI
     href: /cli/azure/monitor?view=azure-cli-latest
   - name: Azure CLI - Application Insights (Preview)
