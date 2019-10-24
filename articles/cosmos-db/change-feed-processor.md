@@ -1,12 +1,12 @@
 ---
 title: Working with the change feed processor library in Azure Cosmos DB 
 description: Using the Azure Cosmos DB change feed processor library. 
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
 ---
 
@@ -92,5 +92,6 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed](change-feed.md)
+* [How to migrate from the change feed processor library](how-to-migrate-from-change-feed-library.md)
 * [Using the change feed estimator](how-to-use-change-feed-estimator.md)
 * [Change feed processor start time](how-to-configure-change-feed-start-time.md)

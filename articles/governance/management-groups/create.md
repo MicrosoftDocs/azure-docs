@@ -1,12 +1,8 @@
 ---
-title: Create management groups to organize Azure resources - Azure Governance
+title: Create management groups to organize resources - Azure Governance
 description: Learn how to create Azure management groups to manage multiple resources using the portal, Azure PowerShell, and Azure CLI. 
 author: rthorn17
-manager: rithorn
 ms.service: governance
-ms.devlang: na
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
@@ -32,15 +28,19 @@ can't use Resource Manager templates to create management groups.
 
 1. Log into the [Azure portal](https://portal.azure.com).
 
-1. Select **All services** > **Management groups**.
+1. Select **All services** > **Management + governance**.
 
-1. On the main page, select **New Management group**.
+1. Select **Cost Management + Billing**
+
+1. On the Cost Management + Billing - Management groups page, select **Management Groups**
+
+1. Select **+ Add management group**.
 
    ![Page for working with management groups](./media/main.png)
 
 1. Fill in the management group ID field.
 
-   - The **Management Group ID** is the directory unique identifier that is used to submit commands on this management group. This identifier isn't editable after creation as it is used throughout the Azure system to identify this group. The [root management group](index.md#root-management-group-for-each-directory) is automatically created with an ID that is the Azure Active Directory ID. For all other management groups, assign a unique ID.
+   - The **Management Group ID** is the directory unique identifier that is used to submit commands on this management group. This identifier isn't editable after creation as it is used throughout the Azure system to identify this group. The [root management group](overview.md#root-management-group-for-each-directory) is automatically created with an ID that is the Azure Active Directory ID. For all other management groups, assign a unique ID.
    - The display name field is the name that is displayed within the Azure portal. A separate display name is an optional field when creating the management group and can be changed at any time.  
 
    ![Options pane for creating a new management group](./media/create_context_menu.png)  

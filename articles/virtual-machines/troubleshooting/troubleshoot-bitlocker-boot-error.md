@@ -4,7 +4,7 @@ description: Learn how to troubleshoot BitLocker boot errors in an Azure VM
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: v-jesits
 
 ms.service: virtual-machines-windows

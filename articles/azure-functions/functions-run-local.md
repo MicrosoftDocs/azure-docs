@@ -92,19 +92,37 @@ The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. Verify your Ubuntu server is running one of the appropriate versions from the table below. To add the apt source, run:
+1. Set up the .NET development source list before doing an APT update.
+
+   To set up the APT source list for Ubuntu, run this command:
 
     ```bash
     sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-$(lsb_release -cs)-prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
-    sudo apt-get update
     ```
+
+   To set up the APT source list for Debian, run this command:
+
+    ```bash
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    ```
+
+1. Check the `/etc/apt/sources.list.d/dotnetdev.list` file for one of the appropriate Linux version strings listed below:
 
     | Linux distribution | Version |
     | --------------- | ----------- |
+    | Debian 10 | `buster` |
+    | Debian 9 | `stretch` |
+    | Debian 8 | `jessie` |
     | Ubuntu 18.10    | `cosmic`    |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux Mint 18    | `xenial`  |
+
+1. Start the APT source update:
+
+    ```bash
+    sudo apt-get update
+    ```
 
 1. Install the Core Tools package:
 
@@ -418,7 +436,7 @@ To publish your local code to a function app in Azure, use the `publish` command
 func azure functionapp publish <FunctionAppName>
 ```
 
-This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
+This command publishes to an existing function app in Azure. You'll get an error if you try to publish to a `<FunctionAppName>` that doesn't exist in your subscription. To learn how to create a function app from the command prompt or terminal window using the Azure CLI, see [Create a Function App for serverless execution](./scripts/functions-cli-create-serverless.md). By default, this command uses [remote build](functions-deployment-technologies.md#remote-build) and deploys your app to [run from the deployment package](run-functions-from-deployment-package.md). To disable this recommended deployment mode, use the `--nozip` option.
 
 >[!IMPORTANT]
 > When you create a function app in the Azure portal, it uses version 2.x of the Function runtime by default. To make the function app use version 1.x of the runtime, follow the instructions in [Run on version 1.x](functions-versions.md#creating-1x-apps).
@@ -440,6 +458,7 @@ The following publish options are only supported in version 2.x:
 | **`--list-included-files`** | Displays a list of files that are published, which is based on the .funcignore file. |
 | **`--nozip`** | Turns the default `Run-From-Package` mode off. |
 | **`--build-native-deps`** | Skips generating .wheels folder when publishing python function apps. |
+| **`--build [-b]`** | Performs build action when deploying to a Linux function app. (accepts: remote, local) |
 | **`--additional-packages`** | List of packages to install when building native dependencies. For example: `python3-dev libevent-dev`. |
 | **`--force`** | Ignore pre-publishing verification in certain scenarios. |
 | **`--csx`** | Publish a C# script (.csx) project. |

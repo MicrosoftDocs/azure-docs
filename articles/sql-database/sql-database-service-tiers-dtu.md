@@ -29,7 +29,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 | :-- | --: |--:| --:|
 |Target workload|Development and production|Development and production|Development and production|
 |Uptime SLA|99.99%|99.99%|99.99%|
-|Backup retention|7 days|35 days|35 days|
+|Maximum backup retention|7 days|35 days|35 days|
 |CPU|Low|Low, Medium, High|Medium, High|
 |IO throughput (approximate) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |IO latency (approximate)|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|

@@ -91,6 +91,8 @@
     href: service-bus-async-messaging.md
   - name: Handling outages and disasters
     href: service-bus-outages-disasters.md
+  - name: Throttling
+    href: service-bus-throttling.md
   - name: Security  
     items:
     - name: Authentication and authorization

@@ -101,7 +101,7 @@ To complete the steps in this tutorial, you first need to create a resource grou
 
 ### Create an Azure Maps account 
 
-In order to implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys) to create an Azure Maps account subscription with S1 pricing tier and see [authentication details](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) to learn how to get your subscription key.
+In order to implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) to create an Azure Maps account subscription with S1 pricing tier and follow the steps in [get primary key](./tutorial-search-location.md#getkey) to get the primary subscription key for your account.
 
 
 ### Create a storage account
@@ -164,7 +164,7 @@ Open the Postman app and follow the steps below to upload the geofence using the
     
     The "geojson" value against the `dataFormat` parameter in the URL path represents the format of the data being uploaded.
 
-3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps subscription key.
+3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps primary subscription key.
    
     ![Key-Value params Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
@@ -221,7 +221,7 @@ Azure Functions is a serverless compute service that enables us to run code on-d
 6. Copy the [c# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function and click **Save**.
  
 7. In the c# script, replace the following parameters:
-    * Replace the **SUBSCRIPTION_KEY** with your Azure Maps account subscription key.
+    * Replace the **SUBSCRIPTION_KEY** with your Azure Maps account primary subscription key.
     * Replace the **UDID** with the udId of the geofence you uploaded, 
     * The **CreateBlobAsync** function in the script creates a blob per event in the data storage account. Replace the **ACCESS_KEY**, **ACCOUNT_NAME** and **STORAGE_CONTAINER_NAME** with your storage account's access key and account name and data storage container.
 

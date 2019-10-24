@@ -35,7 +35,7 @@ ms.date: 08/14/2019
 1. After you are finished configuring the workspace, select **Create**. 
 
    > [!Warning] 
-   > It can take a several minutes to create your workspace in the cloud.
+   > It can take several minutes to create your workspace in the cloud.
 
    When the process is finished, a deployment success message appears. 
  

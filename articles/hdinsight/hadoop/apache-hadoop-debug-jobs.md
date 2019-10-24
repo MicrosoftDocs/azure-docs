@@ -106,7 +106,7 @@ For more information about application logs, see [Simplifying user-logs manageme
 ### Access the Ambari UI
 From the Azure portal, click an HDInsight cluster name to open the cluster pane. From the cluster pane, click **Dashboard**.
 
-![Launch cluster dashboard](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
+![HDInsight launch cluster dashboard](./media/apache-hadoop-debug-jobs/hdi-debug-launch-dashboard.png)
 
 
 ### Access the Yarn UI
@@ -116,7 +116,7 @@ You can use the YARN UI to do the following:
 
 * **Get cluster status**. From the left pane, expand **Cluster**, and click **About**. This present cluster status details like total allocated memory, cores used, state of the cluster resource manager, cluster version, and so on.
   
-    ![Launch cluster dashboard yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "Launch cluster dashboard yarn")
+    ![HDInsight launch cluster dashboard yarn](./media/apache-hadoop-debug-jobs/hdi-debug-yarn-cluster-state.png "HDInsight launch cluster dashboard yarn")
 * **Get node status**. From the left pane, expand **Cluster**, and click **Nodes**. This lists all the nodes in the cluster, HTTP address of each node, resources allocated to each node, etc.
 * **Monitor job status**. From the left pane, expand **Cluster**, and then click **Applications** to list all the jobs in the cluster. If you want to look at jobs in a specific state (such as new, submitted, running, etc.), click the appropriate link under **Applications**. You can further click the job name to find out more about the job such including the output, logs, etc.
 

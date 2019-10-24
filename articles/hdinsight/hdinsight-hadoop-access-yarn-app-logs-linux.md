@@ -2,15 +2,14 @@
 title: Access Apache Hadoop YARN application logs on Linux-based HDInsight - Azure 
 description: Learn how to access YARN application logs on a Linux-based HDInsight (Apache Hadoop) cluster using both the command-line and a web browser.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.author: hrasheed
-
 ---
+
 # Access Apache Hadoop YARN application logs on Linux-based HDInsight
 
 Learn how to access the logs for [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) (Yet Another Resource Negotiator) applications on an [Apache Hadoop](https://hadoop.apache.org/) cluster in Azure HDInsight.
@@ -58,11 +57,11 @@ The YARN ResourceManager UI runs on the cluster headnode. It is accessed through
 1. In your web browser, navigate to https://CLUSTERNAME.azurehdinsight.net. Replace CLUSTERNAME with the name of your HDInsight cluster.
 2. From the list of services on the left, select **YARN**.
 
-    ![Yarn service selected](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
+    ![Apache Ambari Yarn service selected](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)
 
 3. From the **Quick Links** dropdown, select one of the cluster head nodes and then select **ResourceManager Log**.
 
-    ![Yarn quick links](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
+    ![Apache Ambari Yarn quick links](./media/hdinsight-hadoop-access-yarn-app-logs-linux/hdi-yarn-quick-links.png)
 
     You are presented with a list of links to YARN logs.
 
