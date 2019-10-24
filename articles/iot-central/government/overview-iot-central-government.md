@@ -69,7 +69,7 @@ Get started with the [Connected Waste Management application tutorial](./tutoria
 ## Next steps
 
 * Try any of the Government application templates in IoT Central for free [create app](https://apps.azureiotcentral.com/build/government)
-* Learn about Water Quality Monitoring concepts  [concepts](./concepts-waterqualitymonitoring-architecture.md)
-* Learn about Water Consumption Monitoring [concepts](./concepts-waterconsumptionmonitoring-architecture.md)
-* Learn about Connected Waste Management [concepts](./concepts-connectedwastemanagement-architecture.md)  
+* Learn about [Water Quality Monitoring concepts](./concepts-waterqualitymonitoring-architecture.md)
+* Learn about [Water Consumption Monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md)
+* Learn about [Connected Waste Management concepts](./concepts-connectedwastemanagement-architecture.md)  
 * Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
