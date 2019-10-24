@@ -10,6 +10,7 @@ ms.date: 02/12/2019
 
 # Mapping data flow select transformation
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 Use this transformation for column selectivity (reducing number of columns), alias columns and stream names, and reorder columns.
 
