@@ -2,7 +2,7 @@
 title: Building government solutions with Azure IoT Central
 description: Learn to build government solution using Azure IoT Central application templates.
 author: miriambrus
-ms.author: miramb
+ms.author: miriamb
 ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
@@ -11,9 +11,11 @@ services: iot-central
 
 # Building government solutions with Azure IoT Central
 
+Get started with building smart city solutions leveraging Azure IoT Central application templates. 
+
 ## What is Water quality monitoring application template? 
 
-Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to digitally monitor water quality. 
+Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities. 
 
 Traditional water quality monitoring relies on manual sampling techniques and field laboratory analysis, which is time consuming and costly. By remotely monitoring water quality in real-time, water quality issues can be managed before citizens are impacted. Moreover, with advanced analytics, water utilities, and environmental agencies can act on early warnings on potential water quality issues and plan on water treatment in advance.  
 
@@ -67,7 +69,7 @@ Get started with the [Connected Waste Management application tutorial](./tutoria
 ## Next steps
 
 * Try any of the Government application templates in IoT Central for free [create app](https://apps.azureiotcentral.com/build/government)
-* Learn about Water Quality Monitoring concepts  [concepts section](./concepts-waterqualitymonitoring-architecture.md)
-* Learn about Water Consumption Monitoring [concepts](./concepts-waterconsumptionmonitoring-architecture.md).  
-* Learn about Connected Waste Management [concepts](./concepts-connectedwastemanagement-architecture.md).  
+* Learn about Water Quality Monitoring concepts  [concepts](./concepts-waterqualitymonitoring-architecture.md)
+* Learn about Water Consumption Monitoring [concepts](./concepts-waterconsumptionmonitoring-architecture.md)
+* Learn about Connected Waste Management [concepts](./concepts-connectedwastemanagement-architecture.md)  
 * Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
