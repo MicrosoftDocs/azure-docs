@@ -1,6 +1,6 @@
 ---
 title: Distributed tables design guidance using SQL Analytics in Azure Synapse Analytics  | Microsoft Docs
-description: Recommendations for designing hash-distributed and round-robin distributed tables in Azure SQL Data Warehouse.
+description: Recommendations for designing hash-distributed and round-robin distributed tables in a SQL Analytics data warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -14,9 +14,9 @@ ms.reviewer: igorstan
 
 # Distributed tables design guidance using SQL Analytics in Azure Synapse Analytics
 
-Recommendations for designing hash-distributed and round-robin distributed tables in SQL pool (data warehouse).
+Recommendations for designing hash-distributed and round-robin distributed tables in SQL Analytics.
 
-This article assumes you are familiar with data distribution and data movement concepts in SQL pool.  For more information, see [Azure SQL Data Warehouse - Massively Parallel Processing (MPP) architecture](massively-parallel-processing-mpp-architecture.md). 
+This article assumes you are familiar with data distribution and data movement concepts.  For more information, see [Azure Synapse Analytics - Massively Parallel Processing (MPP) architecture](massively-parallel-processing-mpp-architecture.md). 
 
 ## What is a distributed table?
 
@@ -30,7 +30,7 @@ As part of table design, understand as much as possible about your data and how 
 
 - How large is the table?   
 - How often is the table refreshed?   
-- Do I have fact and dimension tables in a SQL pool?   
+- Do I have fact and dimension tables in a SQL Analytics?   
 
 
 ### Hash distributed
@@ -38,7 +38,7 @@ A hash-distributed table distributes table rows across the Compute nodes by usin
 
 ![Distributed table](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "Distributed table")  
 
-Since identical values always hash to the same distribution, the data warehouse has built-in knowledge of the row locations. SQL pool uses this knowledge to minimize data movement during queries, which improves query performance. 
+Since identical values always hash to the same distribution, the data warehouse has built-in knowledge of the row locations. SQL Analytics uses this knowledge to minimize data movement during queries, which improves query performance. 
 
 Hash-distributed tables work well for large fact tables in a star schema. They can have very large numbers of rows and still achieve high performance. There are, of course, some design considerations that help you to get the performance the distributed system is designed to provide. Choosing a good distribution column is one such consideration that is described in this article. 
 
@@ -61,7 +61,7 @@ Consider using the round-robin distribution for your table in the following scen
 - If the join is less significant than other joins in the query
 - When the table is a temporary staging table
 
-The tutorial [Load New York taxicab data to SQL pool](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-sql-pool) gives an example of loading data into a round-robin staging table.
+The tutorial [Load New York taxicab data to SQL Analytics](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-sql-pool) gives an example of loading data into a round-robin staging table.
 
 
 ## Choosing a distribution column
@@ -105,7 +105,9 @@ To balance the parallel processing, select a distribution column that:
 
 ### Choose a distribution column that minimizes data movement
 
-To get the correct query result queries might move data from one Compute node to another. Data movement commonly happens when queries have joins and aggregations on distributed tables. Choosing a distribution column that helps minimize data movement is one of the most important strategies for optimizing performance of your SQL pool.
+To get the correct query result queries might move data from one Compute node to another. Data movement commonly happens when queries have joins and aggregations on distributed tables. 
+
+Choosing a distribution column that helps minimize data movement is one of the most important strategies for optimizing performance.
 
 To minimize data movement, select a distribution column that:
 
@@ -151,7 +153,9 @@ order by two_part_name, row_count
 ```
 
 ### Check query plans for data movement
-A good distribution column enables joins and aggregations to have minimal data movement. This affects the way joins should be written. To get minimal data movement for a join on two hash-distributed tables, one of the join columns needs to be the distribution column.  When two hash-distributed tables join on a distribution column of the same data type, the join does not require data movement. Joins can use additional columns without incurring data movement.
+A good distribution column enables joins and aggregations to have minimal data movement. This affects the way joins should be written. To get minimal data movement for a join on two hash-distributed tables, one of the join columns needs to be the distribution column.  
+
+When two hash-distributed tables join on a distribution column of the same data type, the join does not require data movement. Joins can use additional columns without incurring data movement.
 
 To avoid data movement during a join:
 
@@ -213,7 +217,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 To create a distributed table, use one of these statements:
 
-- [CREATE TABLE (SQL pool)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (SQL pool](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [CREATE TABLE AS SELECT (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

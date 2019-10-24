@@ -14,37 +14,41 @@ ms.reviewer: igorstan
 
 # What is Azure Synapse Analytics (formerly SQL DW)?
 
-Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data on your terms, using on-demand or provisioned resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. Empower all data engineers and SQL data professionals to collaborate, manage, and analyze all your most important data with ease. Enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
+Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data on your terms, using on-demand or provisioned resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. 
+
+Empower all data engineers and SQL data professionals to collaborate, manage, and analyze all your most important data with ease. Enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
 
 Azure Synapse Analytics has four components:
 - SQL Analytics : Complete T-SQL based analytics 
-    - SQL pool (pay per DWU provisioned) – Generally Available
+    - Synapse SQL pool (pay per DWU provisioned) – Generally Available
     - SQL on-demand (pay per TB processed) – (Preview)
 - Spark : Deeply integrated Apache Spark (Preview) 
 - Data Integration : Hybrid data integration (Preview)
-- Studio : unified user experience.  (Preview)
+- Studio : Unified user experience.  (Preview)
 
 
-## SQL pool (data warehouse)
+## SQL Analytics and Synapse SQL pool (data warehouse)
 
-SQL pool is a cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data and is a key component of a big data solution. Import big data into SQL pool with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the SQL pool will become the single version of truth your business can count on for insights.  
+Within the SQL Analytics component, Synapse SQL pool is a cloud-based Enterprise Data Warehouse (EDW) built upon Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data and is a key component of an optimized big data solution. 
 
-## Key component of big data solution
+Import big data with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, SQL Analytics will become the single version of truth your business can count on for faster and more robust insights.  
 
-Data warehousing is a key component of an end-to-end big data solution in the Cloud.
+## Key component of a big data solution
+
+Data warehousing is a key component of a cloud-based, end-to-end big data solution.
 
 ![Data warehouse solution](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
 
-In a cloud data solution, data is ingested into big data stores from a variety of sources. Once in a big data store, Hadoop, Spark, and machine learning algorithms prepare and train the data. When the data is ready for complex analysis, SQL pool uses PolyBase to query the big data stores. PolyBase uses standard T-SQL queries to bring the data into SQL pool.
+In a cloud data solution, data is ingested into big data stores from a variety of sources. Once in a big data store, Hadoop, Spark, and machine learning algorithms prepare and train the data. When the data is ready for complex analysis, SQL Analytics uses PolyBase to query the big data stores. PolyBase uses standard T-SQL queries to bring the data into SQL Analytics.
  
-SQL pool stores data in relational tables with columnar storage. This format significantly reduces the data storage costs, and improves query performance. Once data is stored in SQL pool, you can run analytics at massive scale. Compared to traditional database systems, analysis queries finish in seconds instead of minutes, or hours instead of days. 
+SQL Analytics stores data in relational tables with columnar storage. This format significantly reduces the data storage costs, and improves query performance. Once data is stored, you can run analytics at massive scale. Compared to traditional database systems, analysis queries finish in seconds instead of minutes, or hours instead of days. 
 
 The analysis results can go to worldwide reporting databases or applications. Business analysts can then gain insights to make well-informed business decisions.
 
 ## Next steps
 
 - Explore [Azure Synapse Analytics architecture](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
-- Quickly [create a SQL pool](create-data-warehouse-portal.md)
+- Quickly [create a Synapse SQL pool](create-data-warehouse-portal.md)
 - [Load sample data][load sample data].
 - Explore [Videos](/azure/sql-data-warehouse/sql-data-warehouse-videos)
 
