@@ -83,6 +83,8 @@ We'll now create a VM to use the NAT service. This VM has a public IP to use as 
 
 5. Select **Review + create**. 
 
+6. Review the settings and click **Create**.
+
 ## Create the NAT Gateway
 
 You can use one or more public IP address resources or one or more public IP prefixes or both with NAT gateway. We will add a public IP resource, public IP prefix, and a NAT gateway resource.
