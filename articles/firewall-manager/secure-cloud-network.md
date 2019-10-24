@@ -44,7 +44,7 @@ First, create a spoke VNet where you can place your servers.
 5. For **Address space**, type **10.0.0.0/16**.
 6. For **Subscription**, select your subscription.
 7. For **Resource group**, select **Create new**, and type **FW-Manager** for the name and select **OK**.
-8. For **Location**, select **(US East US)**.
+8. For **Location**, select **(US) East US**.
 9. Under **Subnet**, for **Name** type **Workload-SN**.
 10. For **Address range**, type **10.0.1.0/24**.
 11. Accept the other default settings, and then select **Create**.
@@ -62,25 +62,25 @@ Next, create a subnet for a jump server.
 
 Create your secured virtual hub using Firewall Manager.
 
-1. From the Azure portal home page, select **All resources**.
+1. From the Azure portal home page, select **All services**.
 2. In the search box, type **Firewall Manager** and select **Firewall Manager**.
 3. On the **Firewall Manager** page, select **Create a Secured Virtual Hub**.
 4. On the **Create new Secured virtual hub** page, select your subscription and the **FW-Manager** resource group.
 5. For the **Secured virtual hub name**, type **Hub-01**.
 6. For **Location**, select **East US**.
-7. For **HUb address space**, type **10.1.0.0/16**.
-8. For the new vWAN name, type **vWAN-01**.
+7. For **Hub address space**, type **10.1.0.0/16**.
+8. For the new vWAN name, type **vwan-01**.
 9. Clear the **Include VPN gateway to enable Trusted Security Partners** check box.
 10. Select **Next:Azure Firewall**.
 11. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
 12. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
-13. Select **Create**. It will take about 20 minutes to deploy.
+13. Select **Create**. It will take about 30 minutes to deploy.
 
 ### Connect the hub and spoke VNets
 
 Now you can peer the hub and spoke VNets.
 
-1. Select the **FW-Manager** resource group, then select the **vWAN-01** virtual WAN.
+1. Select the **FW-Manager** resource group, then select the **vwan-01** virtual WAN.
 2. Under **Connectivity**, select **Virtual network connections**.
 3. Select **Add connection**.
 4. For **Connection name**, type **hub-spoke**.
@@ -101,14 +101,14 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 7. For **Rule type**, select **Application**.
 8. For **Priority**, type **100**.
 9. Ensure **Rule Action** is **Allow**.
-10. For **Name** type **Allow-msft**.
+10. For the rule **Name** type **Allow-msft**.
 11. For **Source IP address**, type **\***.
 12. For **Protocol**, type **http,https**.
 13. Ensure **Destination type is **FQDN**.
 14. For **Destination**, type **\*.microsoft.com**.
 15. Select **Add**.
-16. Select **Next: Secure hubs**.
-17. On the **Secure hubs** tab, select **+Secure hubs**.
+16. Select **Next: Secured virtual hubs**.
+17. On the **Secured virtual hubs** tab, select **Convert existing hubs**.
 18. Select **Hub-01**, and then select **Add**.
 19. Select **Review + create**.
 20. Select **Create**.
