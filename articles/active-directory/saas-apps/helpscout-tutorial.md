@@ -69,7 +69,7 @@ To configure and test Azure AD single sign-on with Help Scout, you need to compl
     * **[Create Help Scout test user](#create-help-scout-test-user)** - to have a counterpart of B.Simon in Help Scout that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD single sign-on
+### Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -169,7 +169,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-## Configure Help Scout Single Sign-On
+## Configure Help Scout SSO
 
 1. To automate the configuration within Help Scout, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
@@ -215,7 +215,7 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 In this section, a user called B.Simon is created in Help Scout. Help Scout supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Help Scout, a new one is created after authentication.
 
-### Test single sign-on
+### Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
