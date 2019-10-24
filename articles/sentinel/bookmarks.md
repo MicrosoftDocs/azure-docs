@@ -28,7 +28,7 @@ Hunting bookmarks in Azure Sentinel help you do this, by preserving the queries 
 You can revisit your bookmarked data at any time on the **Bookmarks** tab of the **Hunting** pane. You can use filtering and search options to quickly find specific data for your current investigation. Alternatively, you can view your bookmarked data directly in the **HuntingBookmark** table in your Log Analytics workspace. For example:
 
 > [!div class="mx-imgBorder"]
-> ![view HuntingBook table](./media/bookmarks/huntingbookmark-table.png)
+> ![view HuntingBookmark table](./media/bookmarks/bookmark-table.png)
 
 Viewing bookmarks from the table enables you to filter, summarize, and join bookmarked data with other data sources, making it easy to look for corroborating evidence.
 
