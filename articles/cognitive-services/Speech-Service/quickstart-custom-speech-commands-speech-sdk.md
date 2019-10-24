@@ -21,14 +21,14 @@ In this article, you'll:
 
 ## Prerequisites
 
-If you haven't created a Custom Commands application yet, you can do so in these previous quickstarts:
+A Custom Commands application is required to complete this article. If you haven't created a Custom Commands application yet, you can do so in these previous quickstarts:
 
 - [Quickstart: Create a Custom Command (Preview)](./quickstart-custom-speech-commands-create-new.md)
 - [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
 
 ## Optional: Get started fast
 
-This quickstart will describe, step by step, how to make a client application to connect to your Custom Commands app. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
+This quickstart describes, step by step, how to make a client application to connect to your Custom Commands app. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
 
 ## Step 1: Publish Custom Commands application
 
@@ -37,7 +37,7 @@ This quickstart will describe, step by step, how to make a client application to
    > [!div class="mx-imgBorder"]
    > ![Publish application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
-1. Copy the application ID from the publish notification for later use
+1. Copy the app id from the publish notification for later use
 
 ## Step 2: Create a Visual Studio project
 
@@ -302,11 +302,15 @@ Add the code-behind source as follows:
    connector = new DialogServiceConnector(speechCommandsConfig);
    ```
 
-1. Replace the strings `YourApplicationId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your app, speech subscription, and [region](regions.md).
+1. Replace the strings `YourApplicationId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your app, speech subscription, and [region](regions.md)
 
-1. Append the following code snippet to the end of the method body of `InitializeDialogServiceConnector`. This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, speech recognition results, and other information.
+1. Append the following code snippet to the end of the method body of `InitializeDialogServiceConnector`
 
    ```csharp
+   //
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // speech recognition results, and other information.
+   //
    // ActivityReceived is the main way your client will receive messages, audio, and events
    connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
    {
@@ -358,9 +362,11 @@ Add the code-behind source as follows:
    };
    ```
 
-1. Add the following code snippet to the body of the `ListenButton_ButtonClicked` method in the `MainPage` class. This code sets up `DialogServiceConnector` to listen, since you already established the configuration and registered the event handlers.
+1. Add the following code snippet to the body of the `ListenButton_ButtonClicked` method in the `MainPage` class
 
    ```csharp
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // registered the event handlers.
    if (connector == null)
    {
        InitializeDialogServiceConnector();
@@ -380,19 +386,17 @@ Add the code-behind source as follows:
    }
    ```
 
-1. From the menu bar, choose **File** > **Save All** to save your changes.
+1. From the menu bar, choose **File** > **Save All** to save your changes
 
 ## Build and run the application
 
-Now you are ready to build and test your application.
-
-1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors now.
+1. From the menu bar, choose **Build** > **Build Solution** to build the application. The code should compile without errors.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
    ![Sample UWP virtual assistant application in C# - quickstart](media/sdk/qs-virtual-assistant-uwp-helloworld-window.png)
 
-1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
+1. Select **Enable Microphone**. If the access permission request pops up, select **Yes**.
 
    ![Microphone access permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
