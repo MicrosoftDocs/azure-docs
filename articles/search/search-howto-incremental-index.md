@@ -15,11 +15,11 @@ ms.date: 11/04/2019
 
 # How to set up incremental indexing of enriched documents in Azure Cognitive Search
 
-This article shows you how to add state and caching to enriched documents moving through a Azure Cognitive Search enrichment pipeline so that you can incrementally index documents from any of the supported data sources. The cache is in Azure Storage.
+This article shows you how to add state and caching to enriched documents moving through an Azure Cognitive Search enrichment pipeline so that you can incrementally index documents from any of the supported data sources. The cache is in Azure Storage.
 
-If you're not familiar with setting up indexers, start with [indexer overview](search-indexer-overview.md). If you need to learn more about the incremental indexing, start with [incremental indexing](cognitive-search-incremental-indexing-conceptual.md).
+If you're not familiar with setting up indexers, start with [indexer overview](search-indexer-overview.md). For more background on key concepts, start with [incremental indexing](cognitive-search-incremental-indexing-conceptual.md) first.
 
-Incremental indexing can be configured using the [Search REST api-version=2019-05-06-Preview](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
+Incremental indexing is configured using the [Search REST api-version=2019-05-06-Preview](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations).
 
 > [!NOTE]
 > This feature is not yet available in the portal and has to be used programmatically.
