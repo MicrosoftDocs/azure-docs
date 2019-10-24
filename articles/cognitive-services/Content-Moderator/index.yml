@@ -113,6 +113,10 @@ landingContent:
         links:
           - text: Video and transcript moderation
             url: video-transcript-moderation-review-tutorial-dotnet.md
+      - linkListType: video
+        links:
+          - text: Video moderation with Content Moderator
+            url: https://channel9.msdn.com/Shows/AI-Show/Video-Moderation-with-Content-Moderator?term=content%20moderator&lang-en=true
 
   - title: Use reviews, workflows, and jobs
     linkLists:
