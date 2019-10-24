@@ -27,7 +27,7 @@ In this tutorial, you perform the following steps:
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use Azure Data Lake Storage Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure storage account](../../storage/blobs/data-lake-storage-quickstart-create-account.md) for steps to create one.
-* **Azure Synapse Analytics**. You use a SQL analytics pool database as a *sink* data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
+* **Azure Synapse Analytics**. You use a SQL analytics pool database as a *sink* data store. If you don't have an Azure Synapse Analytics instance, see [Create a SQL database](../../sql-database/sql-database-get-started-portal.md) for steps to create one.
 
 ## Create linked services
 
@@ -58,7 +58,7 @@ next to the pipelines header and select **Pipeline**.
 
 ## Debug and publish pipeline
 
-Once you've finished configuring your pipeline, you can execute a debug run before you publish your artifacts to verify everything is correct.
+Once you've finished configuring your pipeline, you can execute a debug run before you publish your artifactsto verify everything is correct.
 
 1. To debug the pipeline, select **Debug** on the toolbar. You see the status of the pipeline run in the **Output** tab at the bottom of the window. 
 1. Once the pipeline can run successfully, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to the Synapse Analytics service.
