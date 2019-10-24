@@ -181,4 +181,4 @@ In this tutorial, you've done the following steps:
 You can now proceed to the next tutorial:
 
 > [!div class="nextstepaction"]
-[QUery Azure Cosmos DB by using the SQL API](tutorial-query-sql-api.md)
+>[Query Azure Cosmos DB by using the SQL API](tutorial-query-sql-api.md)
