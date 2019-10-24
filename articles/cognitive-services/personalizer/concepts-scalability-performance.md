@@ -18,11 +18,11 @@ High-performance and high-traffic websites and applications have two main factor
 * Keeping low latency when making Rank API calls
 * Making sure training throughput keeps up with event input
 
-Personalization can return a rank very rapidly, with most of the call duration dedicated to communication through the REST API. Azure will autoscale the ability to respond to requests rapidly.
+Personalization can return a rank rapidly, with most of the call duration dedicated to communication through the REST API. Azure will autoscale the ability to respond to requests rapidly.
 
 ##  Low-latency scenarios
 
-Some applications require low latencies when returning a rank. This is necessary:
+Some applications require low latencies when returning a rank. Low latencies are necessary:
 
 * To keep the user from waiting a noticeable amount of time before displaying ranked content.
 * To help a server that is experiencing extreme traffic avoid tying up scarce compute time and network connections.

@@ -49,7 +49,7 @@ Configure the service for your feedback loop's use of rewards. Changes to the fo
 |Default reward|If no reward call is received by Personalizer during the Reward Wait Time window associated to a Rank call, Personalizer will assign the Default Reward. By default, and in most scenarios, the Default Reward is zero.|
 |Reward aggregation|If multiple rewards are received for the same Rank API call, this aggregation method is used: **sum** or **earliest**. Earliest picks the earliest score received and discards the rest. This is useful if you want unique reward among possibly duplicate calls. |
 
-After changing these valuse, make sure to select **Save**.
+After changing these values, make sure to select **Save**.
 
 ### Configure exploration 
 
