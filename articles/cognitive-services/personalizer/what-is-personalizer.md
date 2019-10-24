@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.author: diberry
 #Customer intent: 
 ---
