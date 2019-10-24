@@ -22,7 +22,7 @@ Although you can perform these same tasks in the [Azure portal](https://portal.a
 
 For this article, you can create the same logic app from this [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), which focuses more on the basic concepts. In Visual Studio Code, the logic app looks like this example:
 
-![Example logic app workflow definition](./media/create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
+![Example logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
 Before you start, make sure you have these items:
 
@@ -42,11 +42,11 @@ Before you start, make sure you have these items:
 
     You can download and install this extension from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-logicapps) or directly from inside Visual Studio Code. Make sure that you reload Visual Studio Code after installing.
 
-    ![Find "Visual Studio Code extension for Azure Logic Apps"](./media/create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
+    ![Find "Visual Studio Code extension for Azure Logic Apps"](./media/quickstart-create-logic-apps-visual-studio-code/find-install-logic-apps-extension.png)
 
     To check that the extension installed correctly, select the Azure icon that appears in your Visual Studio Code toolbar.
 
-    ![Confirm extension correctly installed](./media/create-logic-apps-visual-studio-code/confirm-installed-visual-studio-code-extension.png)
+    ![Confirm extension correctly installed](./media/quickstart-create-logic-apps-visual-studio-code/confirm-installed-visual-studio-code-extension.png)
 
     For more information, see [Extension Marketplace](https://code.visualstudio.com/docs/editor/extension-gallery). To contribute to this extension's open-source version, visit the [Azure Logic Apps extension for Visual Studio Code on GitHub](https://github.com/Microsoft/vscode-azurelogicapps).
 
@@ -56,33 +56,33 @@ Before you start, make sure you have these items:
 
 1. Open Visual Studio Code. On the Visual Studio Code toolbar, select the Azure icon.
 
-   ![Select Azure icon on Visual Studio Code toolbar](./media/create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
+   ![Select Azure icon on Visual Studio Code toolbar](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
 1. In the Azure window, under **Logic Apps**, select **Sign in to Azure**.
 
-   ![Select "Sign in to Azure"](./media/create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
+   ![Select "Sign in to Azure"](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
    You're now prompted to sign in by using the provided authentication code.
 
 1. Copy the authentication code, and then select **Copy & Open**, which opens a new browser window.
 
-   ![Copy authentication code to use for Azure sign-in](./media/create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
+   ![Copy authentication code to use for Azure sign-in](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
 1. Enter your authentication code. When prompted, select **Continue**.
 
-   ![Enter authentication code for Azure sign-in](./media/create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
+   ![Enter authentication code for Azure sign-in](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
 1. Select your Azure account. After you sign in, you can close your browser, and return to Visual Studio Code.
 
    In the Azure window, the Logic Apps pane and Integration Accounts pane now show the Azure subscriptions in your account.
 
-   ![Select your Azure subscription](./media/create-logic-apps-visual-studio-code/select-azure-subscription.png)
+   ![Select your Azure subscription](./media/quickstart-create-logic-apps-visual-studio-code/select-azure-subscription.png)
 
    If you don't see the subscriptions that you expect, next to **Logic Apps** label, select the **Select Subscriptions** (filter icon). Find and select the subscriptions that you want.
 
 1. To view any existing logic apps or integration accounts in your Azure subscription, expand your subscription.
 
-   ![View logic apps and integration accounts](./media/create-logic-apps-visual-studio-code/view-existing-logic-apps-azure.png)
+   ![View logic apps and integration accounts](./media/quickstart-create-logic-apps-visual-studio-code/view-existing-logic-apps-azure.png)
 
 <a name="create-logic-app"></a>
 
@@ -92,35 +92,35 @@ Before you start, make sure you have these items:
 
 1. From your subscription's context menu, select **Create**.
 
-   ![Select "Create" from subscription menu](./media/create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
+   ![Select "Create" from subscription menu](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
 1. From the list that shows Azure resource groups in your subscription, select an existing resource group or **Create a new resource group**.
 
    This example creates a new resource group:
 
-   ![Create your new Azure resource group](./media/create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
+   ![Create your new Azure resource group](./media/quickstart-create-logic-apps-visual-studio-code/select-or-create-azure-resource-group.png)
 
 1. Provide a name for your Azure resource group, and then press ENTER.
 
-   ![Provide name for your Azure resource group](./media/create-logic-apps-visual-studio-code/enter-name-resource-group.png)
+   ![Provide name for your Azure resource group](./media/quickstart-create-logic-apps-visual-studio-code/enter-name-resource-group.png)
 
 1. Select the datacenter location for where to save your logic app's metadata.
 
-   ![Select Azure location for saving logic app metadata](./media/create-logic-apps-visual-studio-code/select-azure-location-new-resources.png)
+   ![Select Azure location for saving logic app metadata](./media/quickstart-create-logic-apps-visual-studio-code/select-azure-location-new-resources.png)
 
 1. Provide a name for your logic app, and then press ENTER.
 
-   ![Provide name for your logic app](./media/create-logic-apps-visual-studio-code/enter-name-logic-app.png)
+   ![Provide name for your logic app](./media/quickstart-create-logic-apps-visual-studio-code/enter-name-logic-app.png)
 
    Your new logic app now appears in the Azure window, under your Azure subscription. Now you can start creating your logic app's workflow definition.
 
 1. From your logic app's shortcut menu, select **Open in Editor**.
 
-   ![Open logic app in code view editor](./media/create-logic-apps-visual-studio-code/open-new-logic-app-visual-studio-code.png)
+   ![Open logic app in code view editor](./media/quickstart-create-logic-apps-visual-studio-code/open-new-logic-app-visual-studio-code.png)
 
    Visual Studio Code opens a logic app workflow definition template (.logicapp.json file) so that you can start creating your logic app's workflow.
 
-   ![New logic app workflow definition](./media/create-logic-apps-visual-studio-code/blank-logic-app-workflow-definition.png)
+   ![New logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/blank-logic-app-workflow-definition.png)
 
 1. In the logic app workflow definition template file, start building your logic app's workflow definition.
 For technical reference, see the [Workflow Definition Language schema for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
@@ -185,11 +185,11 @@ For technical reference, see the [Workflow Definition Language schema for Azure 
 
 1. When you're done, save your logic app definition file. When Visual Studio Code prompts you to confirm uploading your logic app definition to your Azure subscription, select **Upload**.
 
-   ![Upload new logic app to your Azure subscription](./media/create-logic-apps-visual-studio-code/upload-new-logic-app.png)
+   ![Upload new logic app to your Azure subscription](./media/quickstart-create-logic-apps-visual-studio-code/upload-new-logic-app.png)
 
    After Visual Studio Code publishes your logic app to Azure, you can find your app now live and running in the Azure portal.
 
-   ![Logic app published in Azure portal](./media/create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
+   ![Logic app published in Azure portal](./media/quickstart-create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
 
 <a name="edit-logic-app"></a>
 
@@ -203,11 +203,11 @@ To work on a logic app that's published in Azure, you can open that logic app's 
 
 1. From your logic app's menu, select **Open in Editor**. Or, next to your logic app's name, select the edit icon.
 
-   ![Open editor for existing logic app](./media/create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
+   ![Open editor for existing logic app](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
    Visual Studio Code opens the .logicapp.json file for your logic app's workflow definition.
 
-   ![Opened logic app workflow definition](./media/create-logic-apps-visual-studio-code/edit-logic-app-workflow-definition-file.png)
+   ![Opened logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/edit-logic-app-workflow-definition-file.png)
 
 1. Make your changes in your logic app's definition.
 
@@ -215,7 +215,7 @@ To work on a logic app that's published in Azure, you can open that logic app's 
 
 1. When Visual Studio Code prompts you to update your logic app definition in your Azure subscription, select **Upload**.
 
-   ![Upload your edits to logic app definition](./media/create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
+   ![Upload your edits to logic app definition](./media/quickstart-create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
 
 ## Next steps
 
