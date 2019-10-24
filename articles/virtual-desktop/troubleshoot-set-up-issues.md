@@ -337,6 +337,21 @@ If you're running the GitHub Azure Resource Manager template, provide values for
 - IsServicePrincipal: **true**
 - AadTenantId: The Azure AD Tenant ID of the service principal you created
 
+### Error: Azure virtual machine vCPU quota limit
+
+![Screenshot of template validation failure due to quota limit exceeded](media/MQuota Limit- Template Inner Error WVD.png)
+
+Example of error:
+
+```Error
+“The template deployment 'xxxx-xxx-xxx' is not valid according to the validation procedure. The tracking id is 'xxxx-xxxx-xxxx'. See inner errors for details."
+```
+
+**Cause:** The template can't complete the validation as it exceed the quota limt for vCPU within the Azure Subscription.
+
+**Fix:** Increase the Azure subscription quota limit by creating a [Azure support case](https://docs.microsoft.com/en-us/azure/azure-supportability/per-vm-quota-requests).
+
+
 ## Next steps
 
 - For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
