@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure Blob storage cli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/23/2019
+ms.date: 10/26/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
@@ -17,17 +17,16 @@ Get started with the Azure Blob Storage client library v12 for Java. Azure Blob 
 Use the Azure Blob Storage client library v12 for Java to:
 
 * Create a container
-* Set permissions on a container
 * Create a blob in Azure Storage
-* Download the blob to your local computer
 * List all of the blobs in a container
+* Download a blob to your local computer
 * Delete a container
 
 [API reference documentation](/java/api/overview/azure/storage?view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples)
 
 ## Prerequisites
 
-* [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) with version 8 or above
+* [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 or above
 * [Apache Maven](https://maven.apache.org/download.cgi)
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
@@ -213,12 +212,12 @@ Add this code inside the `Main` method:
 ```java
 System.out.println("Azure Blob Storage v12 - Java quickstart sample\n");
 
-// Retrieve the connection string for use with the application. The storage 
-// connection string is stored in an environment variable on the machine 
-// running the application called CONNECT_STR. If the 
-// environment variable is created after the application is launched in a 
-// console or with Visual Studio, the shell or application needs to be closed
-// and reloaded to take the environment variable into account.
+// Retrieve the connection string for use with the application. The storage
+// connection string is stored in an environment variable on the machine
+// running the application called CONNECT_STR. If the environment variable
+// is created after the application is launched in a console or with
+// Visual Studio, the shell or application needs to be closed and reloaded
+// to take the environment variable into account.
 String connectStr = System.getenv("CONNECT_STR");
 ```
 
@@ -229,7 +228,7 @@ Decide on a name for the new container. The code below appends a UUID value to t
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Next, create an instance of the [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) class, then call the [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) method to create actually the container in your storage account.
+Next, create an instance of the [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) class, then call the [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) method to actually create the container in your storage account.
 
 Add this code to the end of the `Main` method:
 
@@ -251,8 +250,8 @@ containerClient.create();
 
 The following code snippet:
 
-1. Creates a text file in the local *Documents* directory.
-1. Gets a reference to a [BlobClient](/java/api/com.azure.storage.blob.blobclient) object by calling the [GetBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
+1. Creates a text file in the local directory.
+1. Gets a reference to a [BlobClient](/java/api/com.azure.storage.blob.blobclient) object by calling the [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
 1. Uploads the local text file to the blob by calling the [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add this code to the end of the `Main` method:
@@ -310,7 +309,7 @@ blobClient.downloadToFile(downloadFileName);
 
 ### Delete a container
 
-The following code cleans up the resources the app created by deleting the entire container using [​delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete). You can also delete the local files if you like.
+The following code cleans up the resources the app created by removing the entire container using the [​delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) method. You can also delete the local files, if you like.
 
 The app pauses for user input by calling `System.console().readLine()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
 
@@ -351,22 +350,39 @@ mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonTh
 The output of the example application is similar to the following example:
 
 ```output
+[INFO] Scanning for projects...
+[INFO]
+[INFO] --------------< com.blobs.quickstart:blob-quickstart-v12 >--------------
+[INFO] Building blob-quickstart-v12 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO]
+[INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ blob-quickstart-v12 ---
 Azure Blob Storage v12 - Java quickstart sample
 
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+
 Uploading to Blob storage as blob:
-        https://mystorageacct.blob.core.windows.net/quickstartblobs79c3043b-0b0b-4935-9dc3-308fcb89a616/quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
+        https://myragrsacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
 
 Listing blobs...
-        quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
+        quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
 
-Downloading blob to:
-        quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0afDOWNLOAD.txt
+Downloading blob to
+         quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65DOWNLOAD.txt
 
 Press the Enter key to begin clean up
 
 Deleting blob container...
 Deleting the local source and downloaded files...
 Done
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:25 min
+[INFO] Finished at: 2019-10-24T15:45:14-07:00
+[INFO] ------------------------------------------------------------------------
 ```
 
 When you press the **Enter** key, the application deletes the storage container and the files. Before you delete them, check your *MyDocuments* folder for the two files. You can open them and observe that they are identical. Copy the blob's URL from the console window and paste it into a browser to view the contents of the blob.
