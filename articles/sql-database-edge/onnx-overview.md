@@ -36,4 +36,4 @@ Once you have an ONNX model, you'll deploy the model in Azure SQL Database Edge,
 - For pricing and availability-related details, see [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 - Request to enable Azure SQL Database Edge for your subscription.
 - To get started, see the following:
-  - [Deploy SQL Database Edge through Azure portal](sql-database-edge-deploy-portal.md)
+  - [Deploy SQL Database Edge through Azure portal](deploy-portal.md)

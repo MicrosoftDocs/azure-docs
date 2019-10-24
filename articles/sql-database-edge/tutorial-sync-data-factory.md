@@ -1,6 +1,6 @@
 ---
 title: Sync data from Azure SQL Database Edge using Azure Data Factory | Microsoft Docs
-description: Learn about Azure SQL Database Edge
+description: Learn about syncing data between Azure SQL Database Edge and Azure Blob Storage
 keywords: sql database edge,sync data from sql database edge, sql database edge data factory
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -70,15 +70,15 @@ Create a Data Factory using the instructions in this [tutorial](../data-factory/
 
 ### Create a Data Factory pipeline
 
-1. On the **Get Started** page of the Data Factory UI, select the **Create Pipeline* tile.
+1. On the **Get Started** page of the Data Factory UI, select the **Create Pipeline** tile.
 
-    :::image type="content" source="media/sql-database-edge-tutorial-adf/data-factory-get-started.png" alt-text="Data Factory - create pipeline":::
+    :::image type="content" source="media/tutorial-sync-data-factory/data-factory-get-started.png" alt-text="Data Factory - create pipeline":::
 
 2. On the **General** page of the **Properties** window for the pipeline, enter **PeriodicSync** name.
 
 3. Add the **Lookup** activity to get the old watermark value. In the **Activities toolbox**, expand **General**, drag & drop the **Lookup** activity to the pipeline designer surface. Change the name of the activity to *OldWatermark*.
 
-    :::image type="content" source="media/sql-database-edge-tutorial-adf/create-old-watermark-lookup.png" alt-text="old watermark lookup":::
+    :::image type="content" source="media/tutorial-sync-data-factory/create-old-watermark-lookup.png" alt-text="old watermark lookup":::
 
 4. Switch to the **Settings** tab, and select **+ New** for **Source Dataset**. In this step, you create a dataset to represent data in the watermarktable. This table contains the old watermark that was used in the previous copy operation.
 
@@ -88,21 +88,21 @@ Create a Data Factory using the instructions in this [tutorial](../data-factory/
 
 7. For **Linked Service**, select **New**, and then perform the following steps:
 
-    a. Enter *SQLDBEdgeLinkedService* for **Name**.
+    1. Enter *SQLDBEdgeLinkedService* for **Name**.
 
-    b. Input your SQL Database Edge server details for **Server name**.
+    2. Input your SQL Database Edge server details for **Server name**.
 
-    c. Input your **Database name** from the dropdown list.
+    3. Input your **Database name** from the dropdown list.
 
-    d. Enter your **User name** and **Password**.
+    4. Enter your **User name** and **Password**.
 
-    e. To test connection to the SQL Database Edge instance, select **Test connection**.
+    5. To test connection to the SQL Database Edge instance, select **Test connection**.
 
-    f. Select **Create**.
+    6. Select **Create**.
 
-    :::image type="content" source="media/sql-database-edge-tutorial-adf/create-linked-service.png" alt-text="create linked service":::
+    :::image type="content" source="media/tutorial-sync-data-factory/create-linked-service.png" alt-text="create linked service":::
 
-    g. Select **Ok**
+    7. Select **Ok**
 
 8. In the **Settings** tab, select **Edit**.
 
@@ -130,7 +130,7 @@ Create a Data Factory using the instructions in this [tutorial](../data-factory/
     select MAX(timestamp) as NewWatermarkvalue from [TableName]
     ```
 
-    :::image type="content" source="media/sql-database-edge-tutorial-adf/select-query-data-factory.png" alt-text="select query":::
+    :::image type="content" source="media/tutorial-sync-data-factory/select-query-data-factory.png" alt-text="select query":::
 
 16. In the **Activities** toolbox, expand **Move & Transform**, drag and drop the **Copy** activity from the Activities toolbox, and set the name to **IncrementalCopy**.
 
@@ -172,7 +172,7 @@ Create a Data Factory using the instructions in this [tutorial](../data-factory/
 
 26. In **Sink** tab, select **Edit**.
 
-27. Go to the **Connection** tab of *SinkDataset and do the following steps:
+27. Go to the **Connection** tab of *SinkDataset* and do the following steps:
 
     1. For the **File path** field, enter *asdedatasync/incrementalcopy*, where **adftutorial** is the blob container name and **incrementalcopy** is the folder name. Create the container if it doesn't exist, or set it to the name of an existing one. Azure Data Factory automatically creates the output folder *incrementalcopy* if it does not exist. You can also use the **Browse** button for the **File path** to navigate to a folder in a blob container.
 
@@ -215,6 +215,6 @@ Create a Data Factory using the instructions in this [tutorial](../data-factory/
 
 6. Switch to the **Monitor** tab on the left. You can see the status of the pipeline run triggered by the manual trigger. Select **Refresh** button to refresh the list.
 
-## Next Steps
+## Next steps
 
 The Azure Data Factory pipeline in this tutorial copies data from a table on the SQL Database Edge instance to a location in Azure Blob storage at an hourly frequency. To learn about using Data Factory in more scenarios, go through these [tutorials](../data-factory/tutorial-copy-data-portal.md).
