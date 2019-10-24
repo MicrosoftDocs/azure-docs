@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Your first ML experiment with R"
 titleSuffix: Azure Machine Learning
-description: In this tutorial series, you complete steps to get train and deploy a model with the Azure Machine Learning SDK for R. 
+description: In this tutorial, you learn the foundational design patterns in Azure Machine Learning, and train a logistic regression model model using R packages azuremlsdk and caret to predict likelihood of a fatality in an automobile accident. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
