@@ -58,7 +58,7 @@ While general-purpose v2 accounts are recommended in most cases, general-purpose
 
 ### BlockBlobStorage accounts
 
-A BlockBlobstorage account is a specialized storage account used to store unstructured object data as block blobs and create premium block blobs. This storage account kind supports block blobs and append blobs, but not page blobs, tables, or queues.
+A BlockBlobStorage account is a specialized storage account used to store unstructured object data as block blobs and create premium block blobs. This storage account kind supports block blobs and append blobs, but not page blobs, tables, or queues.
 
 Compared with general-purpose v2 and BlobStorage accounts, BlockBlobStorage accounts provide low and consistent latency, and higher transaction rates.
 
