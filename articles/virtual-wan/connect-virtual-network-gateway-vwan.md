@@ -18,7 +18,7 @@ In order to minimize possible confusion between two features, we will preface th
 
 ## Before you begin
 
-Before you begin, create the following items. 
+Before you begin, create the following resources:
 
 Azure Virtual WAN
 
