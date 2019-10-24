@@ -94,6 +94,23 @@ Clicking the other **Edit** buttons on the right will reveal a number of the cor
 
 Exploring the pre-built templates in edit-mode and then modifying them to fit your needs and save your own custom workbook is an excellent way to start to learn about what is possible with Azure Monitor workbooks.
 
+## Pinning Visualizations
+
+Text, Query, and Metrics steps in a workbook can be pinned by using the pin button on those items while the workbook is in pin mode, or if the workbook author has used settings on the step to make the pin icon visible on that step.
+
+> [!NOTE]
+> The state of the the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
+
+## Dashboard time ranges
+
+Pinned workbook query parts will respect the dashboard's time range if the pinned item is configured to use a Time Range parameter. The dashboard's time range value will be used as the time range parameter's value, and any change of the dashboard time range will cause the pinned item to update. If a pinned part is using the dashboard's time range, you will see the subtitle of the pinned part update to show the dashboard's time range whenever the time range changes. 
+
+Additionally, pinned workbook parts using a time range parameter will auto refresh at a rate determined by the dashboard's time range. The last time the query ran will appear in the subtitle of the pinned part.
+If a pinned step has an explicitly set time range (does not use a time range parameter), that time range will always be used for the dashboard, regardless of the dashboard's settings. The subtitle of the pinned part will not show the dashboard's time range, and the query will not auto-refresh on the dashboard. The subtitle will show the last time the query executed.
+
+> [!NOTE]
+> Queries using the "merge" data source are not currently supported in pins.
+
 ## Sharing workbook templates
 
 Once you start creating your own workbook templates you might want to share it with the wider community. To learn more, and to explore other templates that aren't part of the default Azure Monitor gallery view visit our [GitHub repository](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md). To browse existing workbooks, visit the [Workbook library](https://github.com/microsoft/Application-Insights-Workbooks/tree/master/Workbooks) on GitHub.
