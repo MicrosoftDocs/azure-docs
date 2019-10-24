@@ -42624,12 +42624,12 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/articles/machine-learning/algorithm-module-reference/import-from-azure-sql-database.md",
+      "source_path": "articles/machine-learning/algorithm-module-reference/import-from-azure-sql-database.md",
       "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/algorithm-module-reference/articles/machine-learning/algorithm-module-reference/import-from-web-url-via-http.md",
+      "source_path": "articles/machine-learning/algorithm-module-reference/import-from-web-url-via-http.md",
       "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
       "redirect_document_id": false
     }
