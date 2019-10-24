@@ -15,7 +15,7 @@ ms.reviewer: librown, aakapo
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless security key sign to Windows 10 devices (preview)
+# Enable passwordless security key sign in to Windows 10 devices (preview)
 
 This document focuses on enabling security key based passwordless authentication Windows 10 devices.
 
@@ -33,7 +33,7 @@ Users can authenticate to their Windows PC or authenticate in their web browser 
 | WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher | X | X |
 | [Azure AD joined devices](../devices/concept-azure-ad-join.md) require Windows 10 version 1809 or higher | X |   |
 | [Hybrid Azure AD joined devices](../devices/concept-azure-ad-join-hybrid.md) require Windows 10 Insider Build 18945 or higher |   | X |
-| Hybrid deployments require at least one Domain Controller running the Windows Server Insider skip ahead build. <br> **Or** have fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
+| Hybrid environments require fully patched Windows Server 2016/2019 Domain Controllers. |   | X |
 | [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (Optional) | X | X |
 | Provisioning package (Optional) | X | X |
 | Group Policy (Optional) |   | X |
