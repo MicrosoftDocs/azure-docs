@@ -47,10 +47,10 @@ Now that you have a Storage destination to export data to, follow these steps to
 
 1. Sign in to your IoT Central application.
 
-2. In the left menu, select **Data Export**.
+2. In the left pane, select **Data Export**.
 
     > [!Note]
-    > If you don't see Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
+    > If you don't see Data Export in the left pane, you are not an administrator in your app. Talk to an administrator to set up data export.
 
 3. Select the **+ New** button in the top right. Choose **Azure Blob Storage** as the destination of your export. 
 
