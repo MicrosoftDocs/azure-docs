@@ -13,7 +13,7 @@ services: iot-central
 
 Get started with building smart city solutions leveraging Azure IoT Central application templates. 
 
-## What is Water quality monitoring application template? 
+## What is Water Quality Monitoring application template? 
 
 Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities. 
 
@@ -32,7 +32,7 @@ The App template consists of:
 Get started with the [Water Quality Monitoring application tutorial](./tutorial-water-quality-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
 
 
-## What is Water consumption monitoring application template? 
+## What is Water Consumption Monitoring application template? 
 
 
 Water Consumption Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption. 
@@ -49,7 +49,7 @@ The Water Consumption Monitoring app template consist of pre-configured:
 
  Get started with the [Water Consumption Monitoring application tutorial](./tutorial-water-consumption-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
 
-## What is Connected waste management application template? 
+## What is Connected Waste Management application template? 
 
 Connected Waste Management app is an IoT Central app template to help you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection. 
 
