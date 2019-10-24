@@ -11,7 +11,7 @@ manager:
 ---
 
 
-# Stay Connected with Azure IoT Central
+# Stay connected with Azure IoT Central
 
 This article provides an overview of the how Azure IoT Central helps keep your devices connected and healthy.
 
