@@ -44,7 +44,7 @@ Self-service application access is a great way to allow users to self-discover a
 
 To enable self-service application access to an application, follow the steps below:
 
-1.  Open the [**Azure Portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
+1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
 2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left hand navigation menu.
 
