@@ -653,7 +653,7 @@ description: Get started with the Speech service.
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Improve accuracy with Tenant Models</h3>
-                                                    <p>Use a Office265 Tenant Model to improve recognition accuracy.</p>
+                                                    <p>Generate custom models with Office365 data to optimize speech recognition accuracy for organization-specific terms.</p>
                                                 </div>
                                             </div>
                                         </div>
