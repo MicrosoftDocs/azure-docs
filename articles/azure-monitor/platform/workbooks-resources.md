@@ -108,3 +108,6 @@ Values from resource pickers can come from the workbook context, static list or 
 | `{Applications:grid}` | A grid showing the resource properties. Useful to render in a text block while debugging  |  |
 
 ## Next steps
+
+* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Control](workbooks-access-control.md) and share access to your workbook resources.

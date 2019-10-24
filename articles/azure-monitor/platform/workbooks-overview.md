@@ -123,3 +123,4 @@ Once you start creating your own workbook templates you might want to share it w
 ## Next step
 
 * [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Control](workbooks-access-control.md) and share access to your workbook resources.

@@ -1,6 +1,6 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+title: Create interactive reports with Azure Monitor workbooks from multiple dispate Azure data sources | Microsoft docs
+description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks built from multiple data sources 
 services: azure-monitor
 documentationcenter: ''
 author: mrbullwinkle
@@ -81,8 +81,11 @@ To make a query control use this data source, use the **Query type** drop-down t
 
 ## Azure Data Explorer (Preview)
 
-Workbook now has support for querying from [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/) clusters with the powerful [Kusto](https://docs.microsoft.com/azure/kusto/query/index) query language.   
+Workbooks now have support for querying from [Azure Data Explorer](https://docs.microsoft.com/en-us/azure/data-explorer/) clusters with the powerful [Kusto](https://docs.microsoft.com/azure/kusto/query/index) query language.   
 
 ![Screenshot of Kusto query window](./media/workbooks-overview/data-explorer.png)
 
 ## Next Steps
+
+* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Control](workbooks-access-control.md) and share access to your workbook resources.

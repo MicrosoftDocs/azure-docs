@@ -1,6 +1,6 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+title: Programatically manage Azure Monitor Workbooks with Azure Resource Manager Templates | Microsoft docs
+description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks deployed via Azure Resource Manager Templates
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -23,7 +23,7 @@ This can be useful in scenarios like:
 The workbook will be created in the desired sub/resource-group and with the content specified in the Resource Manager templates.
 
 ## Creating an Azure Resource Manager template that deploys a workbook
-1. Open a workbook whose content you want to deploy programmatically.
+1. Open a workbook that you want to deploy programmatically.
 2. Switch the workbook to edit mode by clicking on the _Edit_ toolbar item.
 3. Open the _Advanced Editor_ using the _</>_ button on the toolbar.
 4. In the editor, switch _Template Type_ to _Resource Manager template_.
@@ -99,7 +99,7 @@ This template shows how to deploy a simple workbook that displays a 'Hello World
 | :------------- |:-------------|
 | `workbookDisplayName` | The friendly name for the workbook that is used in the Gallery or Saved List. Needs to be unique in the scope of the resource group and source |
 | `workbookType` | The gallery that the workbook will be shown under. Supported values include workbook, `tsg`, Azure Monitor, etc. |
-| `workbookSourceId` | The ID of resource instance to which the workbook will be associated. The new workbook will show up related to this resource instance - for example in the resource's table of content under _Workbook_. If you want your workbook to show up in the workbook gallery in Azure Monitor, use the string _Azure Monitor_ instead of a resource ID. |
+| `workbookSourceId` | The ID of the resource instance to which the workbook will be associated. The new workbook will show up related to this resource instance - for example in the resource's table of content under _Workbook_. If you want your workbook to show up in the workbook gallery in Azure Monitor, use the string _Azure Monitor_ instead of a resource ID. |
 | `workbookId` | The unique guid for this workbook instance. Use _[newGuid()]_ to automatically create a new guid. |
 | `kind` | Used to specify if the created workbook is shared or private. Use value _shared_ for shared workbooks and _user_ for private ones. |
 | `location` | The Azure location where the workbook will be created. Use _[resourceGroup().location]_ to create it in the same location as the resource group |
@@ -118,3 +118,6 @@ Workbook types specify which workbook gallery type the new workbook instance wil
 For a technical reason, this mechanism cannot be used to create workbook instances in the _Workbooks_ gallery of Application Insights. We are working on addressing this limitation. In the meanwhile, we recommend that you use the Troubleshooting Guide gallery (workbookType: `tsg`) to deploy Application Insights related workbooks.
 
 ## Next steps
+
+Explore how workbooks are being used to power the new [Azure Monitor for Storage experience](..\insights\storage-insights-overview.md).
+

@@ -157,14 +157,14 @@ This is how the tiles will look in read mode:
 
 Workbooks support hierarchical views via tree-grids. Trees allow some rows to be expandable into the next level for a drill-down experience.
 
-The example below shows container health metrics (working set size) visualized as a tree grid. The top-level nodes here are Azure Kubernetes Service (AKS) nodes, the next level are pods and the final level are containers. Notice that you can still format your columns like in a grid (heatmap, icons, link). The underlying data source in this case is an LA workspace with AKS logs.
+The example below shows container health metrics (working set size) visualized as a tree grid. The top-level nodes here are Azure Kubernetes Service (AKS) nodes, the next level are pods and the final level are containers. Notice that you can still format your columns like in a grid (heatmap, icons, link). The underlying data source in this case is an Log Analytics workspace with AKS logs.
 
 ![Screenshot of tile summary view](./media/workbooks-visualizations/trees.png)
 
 ### Adding a Tree Grid
 1. Switch the workbook to edit mode by clicking on the _Edit_ toolbar item.
-2. Use the _Add query_ link to add a log query control to the workbook. 
-3. Select the query type as _Log_, resource type (for example, Application Insights) and the resources to target.
+2. Use the **Add query** link to add a log query control to the workbook. 
+3. Select the query type as **Log**, resource type (for example, Application Insights) and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis
     ```kusto
     requests
@@ -176,9 +176,9 @@ The example below shows container health metrics (working set size) visualized a
     | project Name, Kind, Requests, Id, ParentId
     | order by Requests desc
     ```
-5. Set the visualization to _Grid_
-6. Click the _Column Settings_ button to open the settings pane
-7. In the _Tree/Group By Settings_ section at the bottom, set:
+5. Set the visualization to **Grid**
+6. Click the **Column Settings** button to open the settings pane
+7. In the **Tree/Group By Settings** section at the bottom, set:
     * Tree Type: `Parent/Child`
     * Id Field: `Id`
     * Parent Id Field: `ParentId`
@@ -205,14 +205,14 @@ The example below shows container health metrics (working set size) visualized a
 
 Workbooks support visualizing arbitrary graphs based on data from logs to show the relationships between monitoring entities.
 
-The graph below show data flowing in/out of a computer via various port to/from external computers. It is colored by type (computer vs. port vs. external i/p) and the edge sizes correspond to the amount of data flowing in-between. The underlying data comes from KQL query targeting VM connections.
+The graph below show data flowing in/out of a computer via various port to/from external computers. It is colored by type (computer vs. port vs. external IP) and the edge sizes correspond to the amount of data flowing in-between. The underlying data comes from KQL query targeting VM connections.
 
 ![Screenshot of tile summary view](./media/workbooks-visualizations/graph.png)
 
 ### Adding a Graph
 1. Switch the workbook to edit mode by clicking on the _Edit_ toolbar item.
-2. Use the _Add query_ link to add a log query control to the workbook. 
-3. Select the query type as _Log_, resource type (for example, Application Insights) and the resources to target.
+2. Use the **Add query** link to add a log query control to the workbook. 
+3. Select the query type as **Log**, resource type (for example, Application Insights) and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis
     ```kusto
     let data = dependencies
@@ -235,8 +235,8 @@ The graph below show data flowing in/out of a computer via various port to/from 
     nodes
     | union (links)
     ```
-7. Set the visualization to _Graph_
-8. Click the _Graph Settings_ button to open the settings pane
+7. Set the visualization to **Graph**
+8. Click the **Graph Settings** button to open the settings pane
 9. In _Layout Fields_ at the bottom, set:
     * Node Id: `Id`
     * Source Id: `SourceId`
@@ -256,3 +256,6 @@ The graph below show data flowing in/out of a computer via various port to/from 
 ![Screenshot of tile summary view](./media/workbooks-visualizations/graph-settings.png)
 
 ## Next steps
+
+* [Deploy](workbooks-automate.md) workbooks with Azure Resource Manager.
+* [Control](workbooks-access-control.md) and share access to your workbook resources.
