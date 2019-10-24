@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions about Speech Assistants
+title: Frequently asked questions about Voice Assistants
 titleSuffix: Azure Cognitive Services
 description: Get answers to the most popular questions about Voice Assistants using Custom Commands (Preview) or the Direct Line Speech channel.
 services: cognitive-services
