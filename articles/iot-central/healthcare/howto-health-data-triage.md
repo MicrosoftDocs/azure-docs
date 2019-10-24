@@ -12,12 +12,12 @@ manager: eliotgra
 
 # Tutorial: Build a Power BI provider dashboard
 
-When building your continuous patient monitoring solution, you may want to also create a dashboard for a hospital care team to visualize patient data. This tutorial will walk you through the steps to be able to create a Power BI real-time streaming dashboard from your IoT Central continuous patient monitoring application template. 
+When building your continuous patient monitoring solution, you may want to also create a dashboard for a hospital care team to visualize patient data. This tutorial will walk you through the steps to be able to create a Power BI real-time streaming dashboard from your IoT Central continuous patient monitoring application template.
 
->[!div class="mx-imgBorder"] 
+>[!div class="mx-imgBorder"]
 >![Dashboard GIF](media/dashboard-gif-3.gif)
 
-The basic architecture will follow this structure: 
+The basic architecture will follow this structure:
 
 >[!div class="mx-imgBorder"] 
 >![Provider Triage Dashboard](media/dashboard-architecture.png)
@@ -52,8 +52,8 @@ You will first need to set up a continuous data export from your Azure IoT Centr
 
 2. In your preferred Workspace, create a new streaming dataset by selecting the **+ Create** button in the upper-right corner of the toolbar. You will need to create a separate dataset for  each patient that you would like to have on your dashboard.
 
->[!div class="mx-imgBorder"] 
->![Create streaming dataset](media/create-streaming-dataset.png)
+    >[!div class="mx-imgBorder"] 
+    >![Create streaming dataset](media/create-streaming-dataset.png)
 
 3. Choose **API** for the source of your dataset.
 
@@ -62,8 +62,8 @@ You will first need to set up a continuous data export from your Azure IoT Centr
     * Teddy Silvers, who has data from the Smart Knee Brace
     * Yesenia Sanford, who has data from the Smart Vitals Patch
 
->[!div class="mx-imgBorder"] 
->![Enter dataset values](media/enter-dataset-values.png)
+    >[!div class="mx-imgBorder"] 
+    >![Enter dataset values](media/enter-dataset-values.png)
 
 To learn more about streaming datasets in Power BI, you can read this document on [real-time streaming in Power BI](https://docs.microsoft.com/power-bi/service-real-time-streaming).
 
@@ -86,7 +86,7 @@ The next step will be to parse the data coming from your Event Hub to stream it 
 
 1. Before you can do this, you will need to understand the JSON payload that is being sent from your device to your Event Hub. You can do so by looking at this [sample schema](https://docs.microsoft.com/azure/iot-central/howto-export-data-event-hubs-service-bus-pnp#telemetry) and modifying it to match your schema or using [Service Bus explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to inspect the messages. If you are using the continuous patient monitoring applications, your messages will look like this:
 
-### Smart Vitals Patch telemetry
+**Smart Vitals Patch telemetry**
 
 ```json
 {
@@ -102,7 +102,7 @@ The next step will be to parse the data coming from your Event Hub to stream it 
 }
 ```
 
-### Smart Knee Brace telemetry
+**Smart Knee Brace telemetry**
 
 ```json
 {
@@ -116,7 +116,7 @@ The next step will be to parse the data coming from your Event Hub to stream it 
 }
 ```
 
-### Properties
+**Properties**
 
 ```json
 {
@@ -143,9 +143,9 @@ The next step will be to parse the data coming from your Event Hub to stream it 
 
 3. Add another variable called **Body** with Type as **String**. Your Logic App will have these actions added:
 
->[!div class="mx-imgBorder"]
->![Initialize variables](media/initialize-string-variables.png)
-
+    >[!div class="mx-imgBorder"]
+    >![Initialize variables](media/initialize-string-variables.png)
+    
 4. Select **+ New Step** and add a **Parse JSON** action. Rename this to **Parse Properties**. For the Content, choose **Properties** coming from the Event Hub. Select **Use sample payload to generate schema** at the bottom, and paste the sample payload from the Properties section above.
 
 5. Next, choose the **Set variable** action and update your **Interface Name** variable with the **iothub-interface-name** from the parsed JSON properties.
@@ -154,8 +154,8 @@ The next step will be to parse the data coming from your Event Hub to stream it 
 
 7. In your Azure IoT Central application, find the Interface Name for the Smart Vitals Patch health data and the Smart Knee Brace health data from the **Device Templates** view. Create two different cases for the **Switch** Control for each Interface Name and rename the control appropriately. You can set the Default case to use the **Terminate** Control and choose what status you would like to show.
 
->[!div class="mx-imgBorder"] 
->![Split control](media/split-by-interface.png)
+    >[!div class="mx-imgBorder"] 
+    >![Split control](media/split-by-interface.png)
 
 8. For the **Smart Vitals Patch** case, add a **Parse JSON** action. For the Content, choose **Content** coming from the Event Hub. Copy and paste the sample payloads for the Smart Vitals Patch above to generate the schema.
 
@@ -163,20 +163,20 @@ The next step will be to parse the data coming from your Event Hub to stream it 
 
 10. Add a **Condition** Control as your next action and set the condition to **Body**, **contains**, **HeartRate**. This will make sure that you have the right set of data coming from the Smart Vitals Patch before populating the Power BI dataset. Steps 7-9 will look like this:
 
->[!div class="mx-imgBorder"] 
->![Smart Vitals add condition](media/smart-vitals-pbi.png)
+    >[!div class="mx-imgBorder"] 
+    >![Smart Vitals add condition](media/smart-vitals-pbi.png)
 
 11. For the **True** case of the Condition, add an action that calls the **Add rows to a dataset** Power BI functionality. You will have to sign into Power BI for this. Your **False** case can again use the **Terminate** control.
 
 12. Choose the appropriate **Workspace**, **Dataset**, and **Table**. Map the parameters that you specified when creating your streaming dataset in Power BI to the parsed JSON values that are coming from your Event Hub. Your filled-out actions should look like this:
 
->[!div class="mx-imgBorder"] 
->![Add rows to Power BI](media/add-rows-yesenia.png)
+    >[!div class="mx-imgBorder"] 
+    >![Add rows to Power BI](media/add-rows-yesenia.png)
 
 13. For the **Smart Knee Brace** switch case, add a **Parse JSON** action to parse the content, similar to Step 7. Then **Add rows to a dataset** to update your Teddy Silvers dataset in Power BI.
 
->[!div class="mx-imgBorder"] 
->![Smart Vitals add condition](media/knee-brace-pbi.png)
+    >[!div class="mx-imgBorder"] 
+    >![Smart Vitals add condition](media/knee-brace-pbi.png)
 
 14. Press **Save** and then run your Logic App.
 
@@ -200,4 +200,4 @@ If you're not going to continue to use this application, delete your resources w
 
 ## Next steps
 
-* Review the [continuous patient monitoring architecture guidance](concept-continuous-patient-monitoring-architecture.md)
+* Review the [continuous patient monitoring architecture guidance](concept-continuous-patient-monitoring-architecture.md).
