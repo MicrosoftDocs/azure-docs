@@ -5,7 +5,7 @@ description: This quickstart shows how to create a NAT gateway using the Azure p
 services: virtual-network
 documentationcenter: na
 author: asudbring
-manager: kumund
+manager: KumudD
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
 ms.devlang: na
