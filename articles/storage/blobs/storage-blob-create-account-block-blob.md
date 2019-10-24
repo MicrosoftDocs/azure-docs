@@ -115,6 +115,8 @@ To create a block blob account by using the Azure CLI, you must first install Az
     --sku "Premium_LRS"
    ```
 
+---
+
 ## Next steps
 
 - For more information about storage accounts, see [Azure storage account overview](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
