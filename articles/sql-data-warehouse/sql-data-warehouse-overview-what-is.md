@@ -27,21 +27,21 @@ Azure Synapse Analytics has four components:
 - Studio : Unified user experience.  (Preview)
 
 
-## Synapse SQL pool (data warehouse)
+## SQL Analytics and Synapse SQL pool (data warehouse)
 
 Within the SQL Analytics component, Synapse SQL pool is a cloud-based Enterprise Data Warehouse (EDW) built upon Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data and is a key component of an optimized big data solution. 
 
-Import big data with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the Synapse SQL pool will become the single version of truth your business can count on for faster and robust insights.  
+Import big data with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, SQL Analytics will become the single version of truth your business can count on for faster and more robust insights.  
 
-## Key component of big data solution
+## Key component of a big data solution
 
-Data warehousing is a key component of a cloud-based end-to-end big data solution.
+Data warehousing is a key component of a cloud-based, end-to-end big data solution.
 
 ![Data warehouse solution](media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png) 
 
-In a cloud data solution, data is ingested into big data stores from a variety of sources. Once in a big data store, Hadoop, Spark, and machine learning algorithms prepare and train the data. When the data is ready for complex analysis, Synapse SQL pool uses PolyBase to query the big data stores. PolyBase uses standard T-SQL queries to bring the data into Synapse SQL pool.
+In a cloud data solution, data is ingested into big data stores from a variety of sources. Once in a big data store, Hadoop, Spark, and machine learning algorithms prepare and train the data. When the data is ready for complex analysis, SQL Analytics uses PolyBase to query the big data stores. PolyBase uses standard T-SQL queries to bring the data into SQL Analytics.
  
-Synapse SQL pool stores data in relational tables with columnar storage. This format significantly reduces the data storage costs, and improves query performance. Once data is stored in Synapse SQL pool, you can run analytics at massive scale. Compared to traditional database systems, analysis queries finish in seconds instead of minutes, or hours instead of days. 
+SQL Analytics stores data in relational tables with columnar storage. This format significantly reduces the data storage costs, and improves query performance. Once data is stored, you can run analytics at massive scale. Compared to traditional database systems, analysis queries finish in seconds instead of minutes, or hours instead of days. 
 
 The analysis results can go to worldwide reporting databases or applications. Business analysts can then gain insights to make well-informed business decisions.
 
