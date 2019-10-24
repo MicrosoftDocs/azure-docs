@@ -231,7 +231,7 @@ Decide on a name for the new container. The code below appends a GUID value to t
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Next, create an instance of the [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) class, then call the [CreateAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createasync) method to create actually the container in your storage account. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.createifnotexistsasync) method to create the container only if it does not already exist.
+Next, create an instance of the [BlobContainerClient](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient) class, then call the [CreateAsync](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient.createasync) method to create actually the container in your storage account. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient.createifnotexistsasync) method to create the container only if it does not already exist.
 
 Add this code to the end of the `Main` method:
 
@@ -255,8 +255,8 @@ The following code snippet:
 
 1. Declares and initializes a member variable that contains the path to the local *Documents* directory.
 1. Creates a text file in the local *Documents* directory.
-1. Gets a reference to a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object by calling the [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
-1. Uploads the local text file to the blob by calling the [​Upload​Async](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+1. Gets a reference to a [BlobClient](/java/api/com.microsoft.azure.storage.blob.blobclient) object by calling the [GetBlobClient](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
+1. Uploads the local text file to the blob by calling the [​Upload​Async](/java/api/com.microsoft.azure.storage.blob.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add this code to the end of the `Main` method:
 
@@ -281,7 +281,7 @@ blobClient.uploadFromFile(fileName);
 
 ### List the blobs in a container
 
-List the blobs in the container by calling the [GetBlobsAsync](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+List the blobs in the container by calling the [GetBlobsAsync](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
 Add this code to the end of the `Main` method:
 
@@ -296,7 +296,7 @@ for (BlobItem blobItem : containerClient.listBlobsFlat()) {
 
 ### Download blobs
 
-Download the blob created previously by calling the [​Download​Async](/dotnet/api/azure.storage.blobs.specialized.blobbaseclient.downloadasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
+Download the blob created previously by calling the [​Download​Async](/java/api/com.microsoft.azure.storage.blob.specialized.blobbaseclient.downloadasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
 
 Add this code to the end of the `Main` method:
 
@@ -336,16 +336,19 @@ System.out.println("Done");
 
 ## Run the code
 
-This app creates a test file in your local *MyDocuments* folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
+This app creates a test file in your local folder and uploads it to Blob storage. The example then lists the blobs in the container and downloads the file with a new name so that you can compare the old and new files.
 
-Navigate to your application directory, then build and run the application.
+Navigate to the directory containing the *pom.xml* file, then build the package.
 
 ```console
-dotnet build
+mvn compile
+mvn package
 ```
 
+Run the following `mvn` command to execute the app.
+
 ```console
-dotnet run
+mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonThreads=false
 ```
 
 The output of the example application is similar to the following example:
@@ -360,9 +363,10 @@ Listing blobs...
         quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
 
 Downloading blob to:
-        C:\Users\myusername\Documents\quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0afDOWNLOADED.txt
+        quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0afDOWNLOAD.txt
 
 Press any key to begin clean up
+
 Deleting blob container...
 Deleting the local source and downloaded files...
 Done
