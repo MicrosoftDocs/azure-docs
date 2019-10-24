@@ -273,7 +273,7 @@ Types will conform to the following JSON example:
           }
         }
       }
-    },
+    }
   ]
 }
 ```
@@ -304,21 +304,21 @@ The table below displays which properties are relevant for each variable kind.
 Variables conform to the following JSON example:
 
 ```JSON
-"Interpolated Speed": {​
-    "kind": "numeric",​
-    "value": {​
-        "tsx": "$event.[speed].Double"​
-    },​
-    "filter": null,​
-    "interpolation": {​
-        "kind": "step",​
-        "boundary": {​
-             "span": "P1D"​
-        }​
-    },​
-    "aggregation": {​
-        "tsx": "left($value)"​
+"Interpolated Speed": {
+  "kind": "numeric",
+  "value": {
+    "tsx": "$event.[speed].Double"
+  },
+  "filter": null,
+  "interpolation": {
+    "kind": "step",
+    "boundary": {
+      "span": "P1D"
     }
+  },
+  "aggregation": {
+    "tsx": "left($value)"
+  }
 }
 ```
 
@@ -336,27 +336,27 @@ Variables conform to the following JSON example:
 
 ```JSON
 "Status": {
-    "kind": "categorical",
-    "value": "toLong($event.[Status].Double)",
-    "interpolation": {
-        "kind": "step",
-        "boundary": {
-            "span" : "PT1M"
-        }
-    },
-    "categories": [
-        {
-            "values": [0, 1, 2, 3],
-            "label": "Good",
-        },
-        {
-            "values": [3],
-            "label": "Bad"
-        }
-    ],
-    "defaultCategory": {
-        "label": "Not Applicable"
+  "kind": "categorical",
+  "value": "toLong($event.[Status].Double)",
+  "interpolation": {
+    "kind": "step",
+    "boundary": {
+      "span" : "PT1M"
     }
+  },
+  "categories": [
+    {
+      "values": [0, 1, 2, 3],
+      "label": "Good"
+    },
+    {
+      "values": [3],
+      "label": "Bad"
+    }
+  ],
+  "defaultCategory": {
+    "label": "Not Applicable"
+  }
 }
 ```
 
@@ -370,12 +370,12 @@ Variables conform to the following JSON example:
 Variables conform to the following JSON example:
 
 ```JSON
-"Aggregate Speed": {​
-    "kind": "aggregate",​
-    "filter": null,​​
-    "aggregation": {​
-        "tsx": "avg($event.Speed.Double)"​
-    }
+"Aggregate Speed": {
+  "kind": "aggregate",
+  "filter": null,
+  "aggregation": {
+    "tsx": "avg($event.Speed.Double)"
+  }
 }
 ```
 
