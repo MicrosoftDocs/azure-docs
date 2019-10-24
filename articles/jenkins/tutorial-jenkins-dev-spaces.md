@@ -1,16 +1,15 @@
 ---
-title: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service
+title: Using the Azure Dev Spaces Plug-in for Jenkins with Azure Kubernetes Service
 description: Learn how to use the Azure Dev Spaces plug-in in a continuous integration pipeline.
 author: tomarchermsft
 ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/31/2019
+ms.date: 10/23/2019
 ---
-<!-- GMinchAQ, 06/18/19 -->
 
-# Tutorial: Using the Azure Dev Spaces Plugin for Jenkins with Azure Kubenetes Service 
+# Tutorial: Using the Azure Dev Spaces Plug-in for Jenkins with Azure Kubernetes Service 
 
 Azure Dev Spaces allows you to test and iteratively develop your microservice application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. The Azure Dev Spaces plug-in for Jenkins helps you use Dev Spaces in your continuous integration and delivery (CI/CD) pipeline.
 
