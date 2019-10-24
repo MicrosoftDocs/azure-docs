@@ -33,6 +33,8 @@
     href: concepts-architecture.md
   - name: Connectivity
     href: concepts-connectivity.md
+  - name: What are application templates?
+    href: concepts-app-templates.md
 - name: How-to guides
   items:
   - name : Connect devices
