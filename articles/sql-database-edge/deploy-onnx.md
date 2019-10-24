@@ -14,13 +14,13 @@ ms.date: 11/04/2019
 
 # Deploy an ONNX model on Azure SQL Database Edge Preview
 
-In this quickstart you will learn how to deploy an ONNX model to Azure SQL Database Edge Preview.
+In this quickstart, you will learn how to deploy an ONNX model to Azure SQL Database Edge Preview.
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## Before you begin
 
-* If you don't have an Azure SQL Database Edge, please follow the steps of [eploy SQL Database Edge Preview using the Azure portal](deploy-portal.md)
+* If you don't have an Azure SQL Database Edge, please follow the steps of [deploy SQL Database Edge Preview using the Azure portal](deploy-portal.md)
 
 * Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download) 
 
@@ -280,7 +280,7 @@ conn.commit()
 
 Load the data into Azure SQL Database Edge.
 
-First, create two tables, **features** and **target**, to store subsets of the boston housing dataset.
+First, create two tables, **features** and **target**, to store subsets of the Boston housing dataset.
 
 * **Features** will contain all data being used to predict the target, median value. 
 * **Target** contains the median value for each record in the dataset. 

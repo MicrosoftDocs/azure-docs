@@ -35,7 +35,7 @@ There are several ways that you can obtain a model in the ONNX format:
 
 - [ONNX Model Zoo](https://github.com/onnx/models): Contains several pre-trained ONNX models for different types of tasks. You can download and use versions that are supported by Windows Machine Learning.
 
-- [Native export from machine learning training frameworks](https://onnx.ai/supported-tools): Several training frameworks support native export functionality to ONNX, which allows you to save your trained model to a specific versions of the ONNX format. For example, Chainer, Caffee2, and PyTorch. In addition, services such as [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning-service/) and [Azure Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) also provide native ONNX export.
+- [Native export from machine learning training frameworks](https://onnx.ai/supported-tools): Several training frameworks support native export functionality to ONNX, which allows you to save your trained model to a specific version of the ONNX format. For example, Chainer, Caffee2, and PyTorch. In addition, services such as [Azure Machine Learning Service](https://azure.microsoft.com/services/machine-learning-service/) and [Azure Custom Vision](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) also provide native ONNX export.
 
   - To learn how to train and export an ONNX model in the cloud using Custom Vision, see [Tutorial: Use an ONNX model from Custom Vision with Windows ML (preview)](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/custom-vision-onnx-windows-ml).
 
