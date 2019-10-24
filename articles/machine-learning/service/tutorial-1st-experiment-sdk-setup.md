@@ -60,7 +60,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
     ![Clone folder](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **tutorial**  folder there.
+1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **tutorials**  folder there.
 
 ## <a name="open">Select a VM to run the notebook
 
