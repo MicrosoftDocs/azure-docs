@@ -82,10 +82,6 @@ landingContent:
           url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
         - text: Custom Video Search REST API v7 
           url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference
-- title: SDK reference
-  linkLists:
-    - linkListType: reference
-      links:
         - text: .NET 
           url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
         - text: Python
