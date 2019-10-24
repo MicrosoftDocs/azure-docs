@@ -11,6 +11,8 @@ ms.date: 08/30/2019
 
 # Mapping data flow JSON handling
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 ## Creating JSON structures in Derived Column
 
 You can add a complex column to your data flow via the derived column expression builder. In the derived column transformation, add a new column and open the expression builder by clicking on the blue box. To make a column complex, you can enter the JSON structure manually or use the UX to add subcolumns interactively.

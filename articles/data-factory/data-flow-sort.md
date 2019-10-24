@@ -11,7 +11,7 @@ ms.date: 10/08/2018
 
 # Azure Data Factory Data Flow Sort Transformations
 
-
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ![Sort settings](media/data-flow/sort.png "Sort")
 

@@ -11,8 +11,10 @@ ms.date: 02/12/2019
 
 # Azure Data Factory mapping data flow New Branch Transformation
 
-![Branch options](media/data-flow/menu.png "menu")
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+![Branch options](media/data-flow/menu.png "menu")
+
 
 Branching will take the current data stream in your data flow and replicate it to another stream. Use New Branch to perform multiple sets of operations and transformations against the same data stream.
 

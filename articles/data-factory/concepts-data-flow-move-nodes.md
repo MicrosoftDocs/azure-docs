@@ -10,7 +10,7 @@ ms.date: 10/04/2018
 
 # Mapping data flow Move Nodes
 
-
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 ![Aggregate Transformation options](media/data-flow/agghead.png "aggregator header")
 

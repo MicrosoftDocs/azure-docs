@@ -11,6 +11,8 @@ ms.author: makromer
 
 # Troubleshoot Azure Data Factory Data Flows
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article explores common troubleshooting methods for data flows in Azure Data Factory.
 
 ## Common errors and messages
