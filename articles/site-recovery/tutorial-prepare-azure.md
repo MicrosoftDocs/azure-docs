@@ -45,21 +45,22 @@ If you just created your free Azure account, you're the administrator of your su
 - Write to an Azure storage account.
 - Write to an Azure managed disk.
 
-To complete these tasks your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor build-in role.
+To complete these tasks your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor built-in role.
 
 
 ## Create a Recovery Services vault
 
-1. In the Azure portal, click **+Create a resource**, and search the Marketplace for **Recovery**.
-2. Click **Backup and Site Recovery**, and in the Backup and Site Recovery page, click **Create**. 
-1. In **Recovery Services vault** > **Name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
-2. In **Resource group**, select an existing resource group or create a new one. For this tutorial we're using **contosoRG**.
-3. In **Location**, select the region in which the vault should be located. We're using **West Europe**.
-4. To quickly access the vault from the dashboard, select **Pin to dashboard** > **Create**.
+1. From the Azure portal menu, select **Create a resource**, and search the Marketplace for **Recovery**.
+2. Select **Backup and Site Recovery** from the search results, and in the Backup and Site Recovery page, click **Create**. 
+3. In the **Create Recovery Services vault** page, select the **Subscription**. We're using **Contoso Subscription**.
+4. In **Resource group**, select an existing resource group or create a new one. For this tutorial we're using **contosoRG**.
+5. In **Vault name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
+6. In **Region**, select the region in which the vault should be located. We're using **West Europe**.
+7. Select **Review + create**.
 
    ![Create a new vault](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   The new vault appears on **Dashboard** > **All resources**, and on the main **Recovery Services vaults** page.
+   The new vault will now be listed in **Dashboard** > **All resources**, and on the main **Recovery Services vaults** page.
 
 ## Set up an Azure network
 
@@ -68,16 +69,17 @@ On-premises machines are replicated to Azure managed disks. When failover occurs
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** > **Virtual network**.
 2. Keep **Resource Manager** selected as the deployment model.
 3. In **Name**, enter a network name. The name must be unique within the Azure resource group. We're using **ContosoASRnet** in this tutorial.
-4. Specify the resource group in which the network will be created. We're using the existing resource group **contosoRG**.
-5. In **Address range**, enter the range for the network. We're using **10.1.0.0/24**, and not using a subnet.
-6. In **Subscription**, select the subscription in which to create the network.
+4. In **Address space**, enter the virtual network's address range in CDR notation. We're using **10.1.0.0/24**.
+5. In **Subscription**, select the subscription in which to create the network.
+6. Specify the **Resource group** in which the network will be created. We're using the existing resource group **contosoRG**.
 7. In **Location**, select the same region as that in which the Recovery Services vault was created. In our tutorial it's **West Europe**. The network must be in the same region as the vault.
-8. We're leaving the default options of basic DDoS protection, with no service endpoint on the network.
-9. Click **Create**.
+8. In **Address range**, enter the range for the network. We're using **10.1.0.0/24**, and not using a subnet.
+9. We're leaving the default options of basic DDoS protection, with no service endpoint, or firewall on the network.
+9. Select **Create**.
 
    ![Create a virtual network](media/tutorial-prepare-azure/create-network.png)
 
-The virtual network takes a few seconds to create. After it's created, you see it in the Azure portal dashboard.
+The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
 
 
 
