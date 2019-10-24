@@ -141,9 +141,9 @@ The [next version of Sentiment Analysis](https://cognitiveusw2ppe.portal.azure-a
 |---------|---------|
 |Improved accuracy     | Significant improvement in detecting positive, neutral, negative, and mixed sentiment in text documents over previous versions.           |
 |Document and sentence-level sentiment score     | Detect the sentiment of both a document and its individual sentences. If the document includes multiple sentences, each sentence is also assigned a sentiment score.         |
-|Sentiment category and score     | The API now returns sentiment categories for text, in addition to a sentiment score. The categories are `positive`, `negative`, `neutral`, and `mixed`.       |
+|Sentiment labeling and scoring     | The API now returns sentiment categories for text, in addition to a sentiment score. The categories are `positive`, `negative`, `neutral`, and `mixed`.       |
 | Improved output | Sentiment analysis now returns information for both an entire text document and its individual sentences. |
-| `model-version` parameter | An optional parameter for choosing a version of the Text Analytics model. Currently only the default model is available for use. |
+| model-version parameter | An optional parameter for choosing which version of the Text Analytics model is used on your data. |
 
 ### Sentiment labeling
 
@@ -155,6 +155,23 @@ Sentiment Analysis v3 can return scores and labels at a sentence and document le
 | At least one negative sentence and the rest of the sentences are neutral.  | `negative`     |
 | At least one negative sentence and at least one positive sentence.         | `mixed`        |
 | All sentences are neutral.                                                 | `neutral`      |
+
+### Model versioning
+
+Starting in version 3.0, the Text Analytics API lets you choose the Text Analytics model used on your data. Use the optional `model-version` parameter to select a version of the model in your requests. If this parameter isn't specified the API will default to `latest`, the latest stable model version.
+
+Available model versions:
+* `2019-10-01` (`latest`)
+
+Each response from the v3 endpoints includes a `model-version` field specifying the model version that was used.
+
+```json
+{
+    “documents”: […]
+    “errors”: []
+    “model-version”: “2019-10-01”
+}
+```
 
 ### Sentiment Analysis v3 example request
 
