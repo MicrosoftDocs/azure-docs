@@ -1,6 +1,6 @@
 ---
-title: Connect your Azure IoT Central application with Dyanmics 365 Field Services | Microsoft Docs
-description: Learn how to build an end-to-end solution with Azure IoT Central and Dyanmics 365 Field Service 
+title: Connect your Azure IoT Central application with Dynamics 365 Field Services | Microsoft Docs
+description: Learn how to build an end-to-end solution with Azure IoT Central and Dynamics 365 Field Service 
 author: miriambrus
 ms.author: philmea
 ms.date: 09/24/2019
@@ -11,18 +11,14 @@ manager: miriamb
 ---
 
 
-<<<<<<< HEAD
-# Build end-to-end solution with Azure IoT Central and Dyanmics 365 Field Service 
-=======
-# How to connect your application with Dynamics 365 Field Services 
->>>>>>> b41578228fa73c347842cf71113270b5bbaf93d9
+# Build end-to-end solution with Azure IoT Central and Dynamics 365 Field Service 
 
 As a builder, you can enable integration of your Azure IoT Central application to other business systems. 
 
 
-For example, in a connected waste management solution you can optimize the dispatch of the collections trucks based on the data from IoT sensors from connected waste bins. In your [IoT Central connected waste management application](./tutorial-connected-waste-management.md) you can configure rules and actions, and set it to trigger creating alerts in Dynamics Field Service. This scenario is accomplished by using Microsoft Flow, which you can configure directly in IoT Central for automating workflows across applications and services. Also, based on service activities in Field Service, information can be sent back to Azure IoT Central. 
+For example, in a connected waste management solution you can optimize the dispatch of trash collections trucks based on IoT sensors data from connected waste bins. In your [IoT Central connected waste management application](./tutorial-connected-waste-management.md) you can configure rules and actions, and set it to trigger creating alerts in Dynamics Field Service. This scenario is accomplished by using Microsoft Flow, which you can configure directly in IoT Central for automating workflows across applications and services. Also, based on service activities in Field Service, information can be sent back to Azure IoT Central. 
 
-## How to connect your Azure IoT Central application with Dyanmics 365 Field Services 
+## How to connect your Azure IoT Central application with Dynamics 365 Field Services 
 
 The below end-to-end integration processes can be easily implemented based on a pure configuration experience:
 * Azure IoT Central can send information about device anomalies to Connected Field Service (as an IoT Alert) for diagnosis.
