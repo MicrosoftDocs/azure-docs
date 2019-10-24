@@ -6691,6 +6691,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/app-service/app-service-web-ssl-cert-load.md",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate-in-code",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/app-service-web/web-sites-restore.md",
       "redirect_url": "/azure/app-service/web-sites-restore",
       "redirect_document_id": false
