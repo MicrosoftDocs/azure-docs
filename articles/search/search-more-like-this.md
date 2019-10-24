@@ -1,18 +1,17 @@
 ---
-title: moreLikeThis (preview) query feature
-titleSuffix: Azure Cognitive Search
-description: Describes the moreLikeThis (preview) feature, which is available in preview versions of the Azure Cognitive Search REST API.
-
-manager: nitinme
+title: moreLikeThis in Azure Search (preview) - Azure Search
+description: Preliminary documentation for the moreLikeThis (preview) feature, exposed in the Azure Search REST API.
 author: brjohnstmsft
-ms.author: brjohnst
+manager: nitinme
+services: search
+ms.service: search
 ms.devlang: rest-api
-ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/02/2019
+ms.author: brjohnst
+ms.custom: seodec2018
 ---
-
-# moreLikeThis (preview) in Azure Cognitive Search
+# moreLikeThis in Azure Search
 
 > [!Note]
 > moreLikeThis is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
@@ -45,4 +44,4 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
 You can use any web testing tool to experiment with this feature.  We recommend using Postman for this exercise.
 
 > [!div class="nextstepaction"]
-> [Explore Azure Cognitive Search REST APIs using Postman](search-get-started-postman.md)
+> [Explore Azure Search REST APIs using Postman](search-get-started-postman.md)

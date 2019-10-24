@@ -152,7 +152,7 @@ In this section, you get the host information from the Apache Ambari REST API on
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
     > [!Note]  
-    > If you're running this command from outside the cluster, get the cluster name from the Azure portal. Enter clusterName in lowercase and run the command `export clusterName='clustername'` to store the variable.  
+    > If you're doing this process from outside the cluster, there is a different procedure for storing the cluster name. Get the cluster name in lower case from the Azure portal. Then, substitute the cluster name for `<clustername>` in the following command and execute it: `export clusterName='<clustername>'`.
 
 
 1. To set an environment variable with Zookeeper host information, use the command below. The command retrieves all Zookeeper hosts, then returns only the first two entries. This is because you want some redundancy in case one host is unreachable.
