@@ -123,9 +123,9 @@ Before you start, make sure you have these items:
 
    ![Provide name for your logic app](./media/quickstart-create-logic-apps-visual-studio-code/enter-name-logic-app.png)
 
-   Your new logic app now appears in the Azure window, under your Azure subscription. Now you can start creating your logic app's workflow definition.
+   In the Azure window, under your Azure subscription, your new logic app now appears. Now you can start creating your logic app's workflow definition.
 
-1. From your logic app's shortcut menu, select **Open in Editor**.
+1. Open your logic app's shortcut menu, and select **Open in Editor**.
 
    ![Open logic app in code view editor](./media/quickstart-create-logic-apps-visual-studio-code/open-new-logic-app-visual-studio-code.png)
 
