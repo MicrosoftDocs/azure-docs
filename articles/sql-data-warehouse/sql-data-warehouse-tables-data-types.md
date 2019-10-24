@@ -29,7 +29,7 @@ Minimizing the size of data types shortens the row length, which leads to better
 If you are using PolyBase external tables to load your tables, the defined length of the table row cannot exceed 1 MB. When a row with variable-length data exceeds 1 MB, you can load the row with BCP, but not with PolyBase.
 
 ## Identify unsupported data types
-If you are migrating your database from another SQL database, you might encounter data types that are not supported in SQL Analytics. Use this query to discover unsupported data types in your existing SQL schema.
+If you are migrating your database from another SQL database, you might encounter data types that are not currently supported. Use this query to discover unsupported data types in your existing SQL schema.
 
 ```sql
 SELECT  t.[name], c.[name], c.[system_type_id], c.[user_type_id], y.[is_user_defined], y.[name]

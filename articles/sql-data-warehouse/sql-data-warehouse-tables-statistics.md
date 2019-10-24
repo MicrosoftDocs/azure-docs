@@ -66,7 +66,11 @@ The table_name is the name of the table that contains the statistics to display.
 
 ## Updating statistics
 
-One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a country/region column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse only contains one country/region and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
+One best practice is to update statistics on date columns each day as new dates are added. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. 
+
+Conversely, statistics on a country/region column in a customer table might never need to be updated, because the distribution of values doesn’t generally change. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. 
+
+However, if your data warehouse only contains one country/region and you bring in data from a new country/region, resulting in data from multiple countries/regions being stored, then you need to update statistics on the country/region column.
 
 The following are recommendations updating statistics:
 
@@ -111,7 +115,9 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
+**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. 
+
+Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
 
 For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics).
 
@@ -237,7 +243,7 @@ CREATE STATISTICS stats_col3 on dbo.table3 (col3);
 
 ### Use a stored procedure to create statistics on all columns in a database
 
-SQL pool does not have a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
+There isn't a system stored procedure equivalent to sp_create_stats in SQL Server. This stored procedure creates a single column statistics object on every column of the database that doesn't already have statistics.
 
 The following example will help you get started with your database design. Feel free to adapt it to your needs:
 
