@@ -5,10 +5,10 @@ services: terraform
 ms.service: azure
 keywords: terraform, devops, storage account, azure, terratest, unit test, integration test
 author: tomarchermsft
-manager: jeconnoc
+manager: gwallace
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/23/2019
 
 ---
 
@@ -222,7 +222,7 @@ func TestUT_StorageAccountName(t *testing.T) {
 		// Terraform init and plan only
 		tfPlanOutput := "terraform.tfplan"
 		terraform.Init(t, tfOptions)
-		terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions.Vars, "plan", "-out="+tfPlanOutput)...)
+		terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions, "plan", "-out="+tfPlanOutput)...)
 
 		// Read and parse the plan output
 		f, err := os.Open(path.Join(tfOptions.TerraformDir, tfPlanOutput))
