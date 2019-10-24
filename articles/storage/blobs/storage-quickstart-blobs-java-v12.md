@@ -23,7 +23,7 @@ Use the Azure Blob Storage client library v12 for Java to:
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](/java/api/overview/azure/storage?view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12) | [Samples](/samples/browse/?products=azure&service=storage&languages=java&term=blob)
+[API reference documentation](/java/api/overview/azure/storage?view=azure-java-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples)
 
 ## Prerequisites
 
@@ -101,7 +101,7 @@ Open the *pom.xml* file in your text editor. Add the following dependency elemen
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-storage-blob</artifactId>
-    <version>12.0.0-preview.5</version>
+    <version>12.0.0-preview.4</version>
 </dependency>
 ```
 
@@ -124,9 +124,7 @@ package com.blobs.quickstart;
  */
 import com.azure.storage.blob.*;
 import com.azure.storage.blob.models.*;
-
 import java.io.*;
-import java.nio.charset.*;
 
 public class App
 {
@@ -226,12 +224,12 @@ String connectStr = System.getenv("CONNECT_STR");
 
 ### Create a container
 
-Decide on a name for the new container. The code below appends a GUID value to the container name to ensure that it is unique.
+Decide on a name for the new container. The code below appends a UUID value to the container name to ensure that it is unique.
 
 > [!IMPORTANT]
 > Container names must be lowercase. For more information about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-Next, create an instance of the [BlobContainerClient](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient) class, then call the [CreateAsync](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient.createasync) method to create actually the container in your storage account. In a production environment, it's often preferable to use the [CreateIfNotExistsAsync](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient.createifnotexistsasync) method to create the container only if it does not already exist.
+Next, create an instance of the [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) class, then call the [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) method to create actually the container in your storage account.
 
 Add this code to the end of the `Main` method:
 
@@ -253,10 +251,9 @@ containerClient.create();
 
 The following code snippet:
 
-1. Declares and initializes a member variable that contains the path to the local *Documents* directory.
 1. Creates a text file in the local *Documents* directory.
-1. Gets a reference to a [BlobClient](/java/api/com.microsoft.azure.storage.blob.blobclient) object by calling the [GetBlobClient](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
-1. Uploads the local text file to the blob by calling the [​Upload​Async](/java/api/com.microsoft.azure.storage.blob.blobclient.uploadasync) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
+1. Gets a reference to a [BlobClient](/java/api/com.azure.storage.blob.blobclient) object by calling the [GetBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) method on the container from the [Create a container](#create-a-container) section.
+1. Uploads the local text file to the blob by calling the [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) method. This method creates the blob if it doesn't already exist, and overwrites it if it does.
 
 Add this code to the end of the `Main` method:
 
@@ -281,7 +278,7 @@ blobClient.uploadFromFile(fileName);
 
 ### List the blobs in a container
 
-List the blobs in the container by calling the [GetBlobsAsync](/java/api/com.microsoft.azure.storage.blob.blobcontainerclient.getblobsasync) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
+List the blobs in the container by calling the [listBlobsFlat](/java/api/com.azure.storage.blob.blobcontainerclient.listblobsflat) method. In this case, only one blob has been added to the container, so the listing operation returns just that one blob.
 
 Add this code to the end of the `Main` method:
 
@@ -296,13 +293,13 @@ for (BlobItem blobItem : containerClient.listBlobsFlat()) {
 
 ### Download blobs
 
-Download the blob created previously by calling the [​Download​Async](/java/api/com.microsoft.azure.storage.blob.specialized.blobbaseclient.downloadasync) method. The example code adds a suffix of "DOWNLOADED" to the file name so that you can see both files in local file system.
+Download the blob created previously by calling the [downloadToFile](/java/api/com.azure.storage.blob.blobclient.downloadtofile) method. The example code adds a suffix of "DOWNLOAD" to the file name so that you can see both files in local file system.
 
 Add this code to the end of the `Main` method:
 
 ```java
 // Download the blob to local file.
-// Append the string "DOWNLOADED" before the .txt extension so that you can see both files.
+// Append the string "DOWNLOAD" before the .txt extension so that you can see both files.
 String downloadFileName = fileName.replace(".txt", "DOWNLOAD.txt");
 File downloadedFile = new File(downloadFileName);
 
@@ -313,15 +310,15 @@ blobClient.downloadToFile(downloadFileName);
 
 ### Delete a container
 
-The following code cleans up the resources the app created by deleting the entire container using [​DeleteAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.deleteasync). You can also delete the local files if you like.
+The following code cleans up the resources the app created by deleting the entire container using [​delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete). You can also delete the local files if you like.
 
-The app pauses for user input by calling `Console.ReadLine` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
+The app pauses for user input by calling `System.console().readLine()` before it deletes the blob, container, and local files. This is a good chance to verify that the resources were actually created correctly, before they are deleted.
 
 Add this code to the end of the `Main` method:
 
 ```java
 // Clean up
-System.out.println("\nPress any key to begin clean up");
+System.out.println("\nPress the Enter key to begin clean up");
 System.console().readLine();
 
 System.out.println("Deleting blob container...");
@@ -365,7 +362,7 @@ Listing blobs...
 Downloading blob to:
         quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0afDOWNLOAD.txt
 
-Press any key to begin clean up
+Press the Enter key to begin clean up
 
 Deleting blob container...
 Deleting the local source and downloaded files...
@@ -380,10 +377,10 @@ After you've verified the files, hit any key to finish the demo and delete the t
 
 In this quickstart, you learned how to upload, download, and list blobs using Java.
 
-To learn how to create a web app that uploads an image to Blob storage, continue to:
+To see Blob storage sample apps, continue to:
 
 > [!div class="nextstepaction"]
-> [Upload and process an image](storage-upload-process-images.md)
+> [Azure blob storage Java samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
-* To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
-* To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
+* To learn more, see the [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
+* For tutorials, samples, quick starts and other documentation, visit [Azure for Java cloud developers](/azure/java/).
