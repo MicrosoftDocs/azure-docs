@@ -78,7 +78,7 @@ In the case of this particular workbook, the experience is interactive. You can 
 
 ### Editing mode
 
-To understand how the this workbook template is put together you need to swap to editing mode by selecting **Edit**. 
+To understand how this workbook template is put together you need to swap to editing mode by selecting **Edit**. 
 
 ![Screenshot of application failure analysis template](./media/workbooks-overview/edit.png)
 
@@ -100,7 +100,7 @@ Text, query, and metrics steps in a workbook can be pinned by using the pin butt
 
 To access pin mode, click **Edit** to enter editing mode, and select the blue pin icon in the top bar. An individual pin icon will then appear above each corresponding workbook part's *Edit* box on the right-hand side of your screen.
 
-![Pin experience](.\media\workbooks-overview\pin-experience.png)
+![Pin experience](./media/workbooks-overview/pin-experience.png)
 
 > [!NOTE]
 > The state of the the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
