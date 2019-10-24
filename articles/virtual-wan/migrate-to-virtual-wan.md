@@ -16,7 +16,7 @@ Azure Virtual WAN allows companies to simplify their global connectivity and ben
 The [Global transit network architecture and Virtual WAN](virtual-wan-global-transit-network-architecture.md) article highlights the benefits that Azure Virtual WAN enables for enterprises adopting a cloud-centric modern enterprise global network.
 
 ![hub and spoke](./media/virtual-wan-global-transit-network-architecture/figure3.png)
-**Figure 1: Virtual WAN traffic paths**
+**Figure 1: Azure Virtual WAN**
 
 The Azure Virtual Datacenter (VDC) hub-and-spoke connectivity model has been adopted by 1000s of our customers to leverage the default transitive routing behavior  of Azure Networking to build simple and scalable cloud networks. Azure Virtual WAN builds on these concepts and introduces new capabilities that allow global connectivity topologies, not only between on-premises locations and Azure but also allowing customers to leverage the scale of the Microsoft network to augment their existing global networks.
 
