@@ -3,7 +3,7 @@ title: Create and manage rules in your Azure IoT Central application | Microsoft
 description: Azure IoT Central rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/18/2019
+ms.date: 10/24/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -16,11 +16,11 @@ manager: philmea
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email. In just a few clicks, you can define a condition to monitor your device data and configure the corresponding action. This article explains how to create rules to monitor telemetry sent by the device.
+You can use Azure IoT Central to remotely monitor your connected devices. Azure IoT Central rules enable you to monitor your devices in near real time and automatically invoke actions, such as send an email. In just a few clicks, you can define a condition to monitor telemetry from your devices and configure a corresponding action. This article explains how to create rules to monitor telemetry sent by the device.
 
-Devices can use telemetry measurement to send numerical data from the device. A telemetry rule triggers when the selected device telemetry crosses a specified threshold.
+Devices use telemetry to send numerical data from the device. A  rule triggers when the selected device telemetry crosses a specified threshold.
 
-In this tutorial, you create a rule that sends an email when the temperature in an environmental sensor device exceeds 80&deg; F.
+In this tutorial, you create a rule to send an email when the temperature in an environmental sensor device exceeds 80&deg; F.
 
 In this tutorial, you learn how to:
 
@@ -58,7 +58,7 @@ Conditions define the criteria that the rule monitors. In this tutorial, you con
 
 1. Next, choose **Is greater than** as the **Operator** and enter _80_ as the **Value**.
 
-     ![Condition](media/tutorial-create-telemetry-rules-pnp/condition-filled-out1.png)
+    ![Condition](media/tutorial-create-telemetry-rules-pnp/condition-filled-out1.png)
 
 1. Optionally, you can set a **Time aggregation**. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.
 
@@ -73,7 +73,7 @@ You can add multiple conditions to a rule by selecting **+ Condition**. When mul
 
 After you define the condition, you set up the actions to take when the rule fires. Actions are invoked when all the conditions specified in the rule evaluate to true. Currently, email is the only available action.
 
-1. Select **+ Email** in the **Action** section.
+1. Select **+ Email** in the **Actions** section.
 
 1. Enter _Temperature warning_ as the display name for the action, your email address in the **To** field, and _You should check the device!_ as a note to appear in the body of the email.
 
