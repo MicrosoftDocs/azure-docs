@@ -2,7 +2,7 @@
 author: PatAltimore
 ms.service: azure-blockchain 
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 10/23/2019
 ms.author: patricka
 ---
 

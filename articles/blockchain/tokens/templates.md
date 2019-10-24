@@ -1,14 +1,14 @@
 ---
 title: Azure Blockchain Tokens templates
-description: description
+description: Azure Blockchain Tokens templates are standardized and reusable templates that simplify the creation and deployment of ledger-based tokens.
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
-#Customer intent: As an administrator, I want to use Azure Blockchain Tokens.
+#Customer intent: As an administrator, I want to use token templates to define tokens for my blockchain solution.
 ---
 
 # Azure Blockchain Tokens templates

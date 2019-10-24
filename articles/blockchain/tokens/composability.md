@@ -4,11 +4,11 @@ description: Azure Blockchain Tokens composability provides flexibility to creat
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/22/2019
+ms.date: 10/23/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
-#Customer intent: As an administrator, I want to use Azure Blockchain Tokens.
+#Customer intent: As an administrator, I want to use behaviors to create a token for my solution.
 ---
 
 # Azure Blockchain Tokens composablity

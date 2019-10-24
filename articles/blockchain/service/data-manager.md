@@ -4,7 +4,7 @@ description: Blockchain Data Manager to captures, transforms, and delivers block
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/22/2019
+ms.date: 10/23/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
