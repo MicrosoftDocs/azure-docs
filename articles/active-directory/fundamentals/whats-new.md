@@ -51,13 +51,13 @@ For more information about the new riskDetection API, see the [Risk detection AP
 
 ## September 2019
 
-### Deprecation of the Power BI content packs
+### Plan for change: Deprecation of the Power BI content packs
 
-**Type:** Deprecated  
+**Type:** Plan for change  
 **Service category:** Reporting  
 **Product capability:** Monitoring & Reporting
 
-Power BI is deprecating content packs from their store, and as of **October 1, 2019**, we're no longer supporting the Azure AD Power BI content pack. Customers currently using the content pack can continue to use it even though the underlying APIs are older versions. As an alternative to this content pack, you can use Azure AD Workbooks (built on Log Analytics) to gain insights into your Azure AD-related services.
+Starting on October 1, 2019, Power BI will begin to deprecate all content packs, including the Azure AD Power BI content pack. As an alternative to this content pack, you can use Azure AD Workbooks to gain insights into your Azure AD-related services. Additional workbooks are coming, including workbooks about Conditional Access policies in report-only mode, app consent-based insights, and more.
 
 For more information about the workbooks, see [How to use Azure Monitor workbooks for Azure Active Directory reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). For more information about the deprecation of the content packs, see the [Announcing Power BI template apps general availability](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) blog post.
 
@@ -188,18 +188,6 @@ Starting July 1, 2019, Microsoft stopped offering MFA Server for new deployments
 ---
 
 ## August 2019
-
-### Plan for change: Deprecation of the Power BI content packs
-
-**Type:** Plan for change  
-**Service category:** Reporting  
-**Product capability:** Monitoring & Reporting
-
-Starting on October 1, 2019, Power BI will begin to deprecate all content packs, including the Azure AD Power BI content pack. As an alternative to this content pack, you can use Azure AD Workbooks to gain insights into your Azure AD-related services. Additional workbooks are coming, including workbooks about Conditional Access policies in report-only mode, app consent-based insights, and more.
-
-For more information about the workbooks, see [How to use Azure Monitor workbooks for Azure Active Directory reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). For more information about the deprecation of the content packs, see the [Announcing Power BI template apps general availability](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) blog post.
-
----
 
 ### Enhanced search, filtering, and sorting for groups is available in the Azure AD portal (Public Preview)
 

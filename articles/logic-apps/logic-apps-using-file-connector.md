@@ -41,8 +41,7 @@ This article shows how you can connect to an on-premises file system as describe
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer, if not open already.
 
-1. In the search box, enter "dropbox" as your filter. From the triggers list, select this trigger: 
-**When a file is created**
+1. In the search box, enter "dropbox" as your filter. From the triggers list, select this trigger: **When a file is created**
 
    ![Select Dropbox trigger](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
