@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ---
 
 # Design decisions and coding techniques for Azure Synapse Analytics (formerly SQL DW)
-Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for a data warehouse.
+The development articles listed below will help you to better understand key design decisions, recommendations, and coding techniques for a data warehouse.
 
 ## Key design decisions
 The following articles highlight concepts and design decisions for developing a distributed data warehouse:

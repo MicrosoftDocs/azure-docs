@@ -14,7 +14,8 @@ ms.reviewer: igorstan
 
 # Tutorial: Load New York Taxicab data to SQL Analytics (formerly SQL DW)
 
-This tutorial uses PolyBase to load New York Taxicab data from a global Azure blob to SQL Analytics. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
+This tutorial uses PolyBase to load New York Taxicab data from a global Azure blob to [SQL Analytics](sql-data-warehouse-overview-what-is
+). The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a SQL pool (data warehouse) in the Azure portal

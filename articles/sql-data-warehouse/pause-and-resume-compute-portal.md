@@ -94,7 +94,7 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-You have now paused and resumed compute for your data warehouse. To learn more about the Azure Synapse Analytics, continue to the tutorial for loading data.
+You have now paused and resumed compute for your data warehouse. To learn more about Azure Synapse Analytics, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
 > [Load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md)

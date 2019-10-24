@@ -23,7 +23,8 @@ Traditional SMP data warehouses use an Extract, Transform and Load (ETL) process
 
 Extract, Load, and Transform (ELT) is a process by which data is extracted from a source system, loaded into a data warehouse and then transformed. 
 
-The basic steps for implementing a PolyBase ELT for SQL Analytics are:
+The basic steps for implementing a PolyBase ELT for [SQL Analytics](sql-data-warehouse-overview-what-is
+) are:
 
 1. Extract the source data into text files.
 2. Land the data into Azure Blob storage or Azure Data Lake Store.
