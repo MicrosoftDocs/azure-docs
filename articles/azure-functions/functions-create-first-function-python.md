@@ -13,7 +13,7 @@ manager: gwallace
 
 # Create an HTTP triggered function in Azure
 
-This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. You also create a function that is triggered by an HTTP request. Finally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
+This article shows you how to use command-line tools to create a Python project that runs in Azure Functions. You also create a function that is triggered by an HTTP request. After running locally, you publish your project to run as a [serverless function](functions-scale.md#consumption-plan) in Azure.
 
 This article is the first of two Python quickstarts for Azure Functions. After you complete this quickstart, you can [add an Azure Storage queue output binding](functions-add-output-binding-storage-queue-python.md) to your function.
 
@@ -21,9 +21,9 @@ This article is the first of two Python quickstarts for Azure Functions. After y
 
 Before you start, you must:
 
-+ Install [Python 3.6.x](https://www.python.org/downloads/).
++ Install [Python 3.7.4](https://www.python.org/downloads/). This version of Python is verified with Functions. 3.8.x and later versions are not yet supported.
 
-+ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1575 or a later version.
++ Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1724 or a later version.
 
 + Install the [Azure CLI](/cli/azure/install-azure-cli) version 2.x or a later version.
 
@@ -31,9 +31,9 @@ Before you start, you must:
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create and activate a virtual environment (optional)
+## Create and activate a virtual environment
 
-You should use a Python 3.6.x environment to locally develop Python functions. Run the following commands to create and activate a virtual environment named `.venv`.
+You should use a Python 3.7 environment to locally develop Python functions. Run the following commands to create and activate a virtual environment named `.venv`.
 
 > [!NOTE]
 > If Python didn't install venv on your Linux distribution, you can install it using the following command:
