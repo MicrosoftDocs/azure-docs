@@ -1,18 +1,13 @@
 ---
 title: Optimize your SQL Server environment with Azure Monitor | Microsoft Docs
 description: With Azure Monitor, you can use the SQL Health Check solution to assess the risk and health of your environments on a regular interval.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: e297eb57-1718-4cfe-a241-b9e84b2c42ac
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 03/28/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 03/28/2019
+
 ---
 
 # Optimize your SQL environment with the SQL Server Health Check solution in Azure Monitor
