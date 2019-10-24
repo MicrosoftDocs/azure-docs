@@ -20,11 +20,12 @@ In order to minimize possible confusion between two features, we will preface th
 
 Before you begin, create the following items. 
 
-**Virtual WAN**
+Azure Virtual WAN
+
 * [Create a virtual WAN](virtual-wan-site-to-site-portal.md#openvwan).
 * [Create a hub](virtual-wan-site-to-site-portal.md#hub). The virtual hub contains the Virtual WAN VPN gateway.
 
-**Virtual Network**
+Azure Virtual Network
 
 * Create a virtual network without any virtual network gateways. You can quickly create a virtual network using the PowerShell steps in the [site-to-site connection](virtual-wan-site-to-site-portal.md#vnet) article. Be sure to change the values before running the cmdlets.
 
