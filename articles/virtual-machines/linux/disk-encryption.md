@@ -14,7 +14,7 @@ ms.subservice: disks
 
 Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption (SSE) protects your data and help you meet your organizational security and compliance commitments. Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant.   
 
-Encryption does not affect performance of managed disks. There is no additional cost for the encryption.
+Encryption does not impact the performance of managed disks. There is no additional cost for the encryption.
 
 For more information about the cryptographic modules underlying Azure managed disks, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)
 
@@ -26,7 +26,7 @@ The following sections describe each of the options for key management in greate
 
 ## Platform-managed keys
 
-By default, your managed disk uses Platform-managed encryption keys. Starting June 10th, 2017, all new managed disks, snapshots, images and new data written to existing managed disks are automatically encrypted-at-rest with PMK. 
+By default, managed disks use Platform-managed encryption keys. As of June 10th, 2017, all new managed disks, snapshots, images and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
 
 ## Customer-managed keys
 
