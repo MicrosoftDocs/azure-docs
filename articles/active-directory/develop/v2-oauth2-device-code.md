@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 10/24/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -46,7 +46,7 @@ The client must first check with the authentication server for a device and user
 ```
 // Line breaks are for legibility only.
 
-POST https://login.microsoftonline.com/{authority}/oauth2/v2.0/devicecode
+POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/devicecode
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
@@ -56,7 +56,7 @@ scope=user.read%20openid%20profile
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| `authority` | Required | Can be /common, /consumers, or /organizations.  It can also be the directory tenant that you want to request permission from in GUID or friendly name format.  |
+| `tenant` | Required | Can be /common, /consumers, or /organizations.  It can also be the directory tenant that you want to request permission from in GUID or friendly name format.  |
 | `client_id` | Required | The **Application (client) ID** that the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience assigned to your app. |
 | `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md) that you want the user to consent to.  |
 
@@ -85,7 +85,7 @@ If the user authenticates with a personal account (on /common or /consumers), th
 While the user is authenticating at the `verification_uri`, the client should be polling the `/token` endpoint for the requested token using the `device_code`.
 
 ``` 
-POST https://login.microsoftonline.com/{authority}/oauth2/v2.0/token
+POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 Content-Type: application/x-www-form-urlencoded
 
 grant_type: urn:ietf:params:oauth:grant-type:device_code
@@ -95,7 +95,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8...
 
 | Parameter | Required | Description|
 | -------- | -------- | ---------- |
-| `authority`  | Required | The same authority used in the initial request. | 
+| `tenant`  | Required | The same tenant or tenant alias used in the initial request. | 
 | `grant_type` | Required | Must be `urn:ietf:params:oauth:grant-type:device_code`|
 | `client_id`  | Required | Must match the `client_id` used in the initial request. |
 | `device_code`| Required | The `device_code` returned in the device authorization request.  |
