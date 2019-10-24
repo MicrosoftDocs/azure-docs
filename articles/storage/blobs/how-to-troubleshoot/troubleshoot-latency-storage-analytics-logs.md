@@ -1,26 +1,27 @@
 ---
-title: Troubleshoot Latency using Storage Analytics Logs
-description: Troubleshoot Latency using Storage Analytics Logs
+title: Troubleshoot latency using Storage Analytics logs
+description: Identify and troubleshoot latency issues using Azure Storage Analytic logs, and optimize the client application.
 author: v-miegge
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.author: kartup
 ms.date: 10/21/2019
 ms.service: storage
+ms.subservice: common
 ---
 
-# Troubleshoot Latency using Storage Analytics Logs
+# Troubleshoot latency using Storage Analytics logs
 
-Diagnosing and troubleshooting is a key skill for building and supporting client applications with Microsoft Azure Storage.
+Diagnosing and troubleshooting is a key skill for building and supporting client applications with Azure Storage.
 
 Because of the distributed nature of an Azure application, diagnosing and troubleshooting both errors and performance issues may be more complex than in traditional environments.
 
-The following steps demonstrate how to identify & troubleshoot Latency Issues using Azure Storage Analytic Logs, and optimize the client application.
+The following steps demonstrate how to identify and troubleshoot latency issues using Azure Storage Analytic logs, and optimize the client application.
 
-## Recommended Steps
+## Recommended steps
 
-1. Download the Storage Analytics Logs.
+1. Download the [Storage Analytics logs](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging#download-storage-logging-log-data).
 
-2. Use the following PowerShell Script to convert the raw format logs into tabular format:
+2. Use the following PowerShell script to convert the raw format logs into tabular format:
 
    ```Powershell
    $Columns = 
@@ -90,16 +91,16 @@ The following steps demonstrate how to identify & troubleshoot Latency Issues us
 
    |   |RequestStatus=<br>Success|RequestStatus=<br>(SAS)NetworkError|Recommendation|
    |---|---|---|---|
-   |GetBlob|Yes|No|[GetBlob Operation: RequestStatus = Success](#GetBlob=Success)|
-   |GetBlob|No|Yes|[GetBlob Operation: RequestStatus = (SAS)NetworkError](#GetBlob=(SAS)NetworkError)|
-   |PutBlob|Yes|No|[Put Operation: RequestStatus = Success](#PutOperation=Success)|
-   |PutBlob|No|Yes|[Put Operation: RequestStatus = (SAS)NetworkError](#PutOperation=(SAS)NetworkError)|
+   |GetBlob|Yes|No|GetBlob Operation: RequestStatus = Success|
+   |GetBlob|No|Yes|GetBlob Operation: RequestStatus = (SAS)NetworkError|
+   |PutBlob|Yes|No|Put Operation: RequestStatus = Success|
+   |PutBlob|No|Yes|Put Operation: RequestStatus = (SAS)NetworkError|
 
 ## Status results
 
 ### GetBlob=Success
 
-In a **GetBlob Operation** with **RequestStatus = Success**, check the following values as mentioned in Step 5:
+In a **GetBlob Operation** with **RequestStatus = Success**, check the following values as mentioned in step 5 of the "Recommended steps" section:
 
 * End-to-End Latency
 * Server-Latency
@@ -112,9 +113,9 @@ If **Max Time** is spent in **Client-Latency**, this indicates that Azure Storag
 * Investigate the code in your client.
 * Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-## GetBlob=(SAS)NetworkError
+### GetBlob=(SAS)NetworkError
 
-In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, check the following values as mentioned in Step 5:
+In a **GetBlob Operation** with **RequestStatus = (SAS)NetworkError**, check the following values as mentioned in step 5 of the "Recommended steps" section:
 
 * End-to-End Latency
 * Server-Latency
@@ -127,9 +128,9 @@ If **Max Time** is spent in **Client-Latency**, the most common issue is that th
 * Investigate the code in your client to understand why and when the client disconnects from the storage service.
 * se Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-## Put Operation=Success
+### Put Operation=Success
 
-In a **Put Operation** with **RequestStatus = Success**, check the following values as mentioned in Step 5:
+In a **Put Operation** with **RequestStatus = Success**, check the following values as mentioned in step 5 of the "Recommended steps" section:
 
 * End-to-End Latency
 * Server-Latency
@@ -142,9 +143,9 @@ If **Max Time** is spent in **Client-Latency**, this indicates that the Client i
 * Investigate the code in your client.
 * Use Wireshark, Microsoft Message Analyzer, or Tcping to investigate network connectivity issues from the client. 
 
-## PutOperation=(SAS)NetworkError
+### PutOperation=(SAS)NetworkError
 
-In a PutBlob Operation with RequestStatus = (SAS)NetworkError, check the following values as mentioned in Step 5:
+In a PutBlob Operation with RequestStatus = (SAS)NetworkError, check the following values as mentioned in step 5 of the "Recommended steps" section:
 
 * End-to-End Latency
 * Server-Latency
