@@ -1,10 +1,10 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
-author: roygara
+author: v-miegge
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -92,13 +92,16 @@ To display the results in CSV:
 ```
 
 ### System Requirements
-- A server running Windows Server 2012 R2, Windows Server 2016 or Windows Server 2019:
+- A server running one of the following OS versions:
 
     | Version | Supported SKUs | Supported deployment options |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter and Standard | Full and Core |
     | Windows Server 2016 | Datacenter and Standard | Full and Core |
     | Windows Server 2012 R2 | Datacenter and Standard | Full and Core |
+    | Windows Server IoT 2019 for Storage| Datacenter and Standard | Full and Core |
+    | Windows Storage Server 2016| Datacenter and Standard | Full and Core |
+    | Windows Storage Server 2012 R2| Datacenter and Standard | Full and Core |
 
     Future versions of Windows Server will be added as they are released.
 
