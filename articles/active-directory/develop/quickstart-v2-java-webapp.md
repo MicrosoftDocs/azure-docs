@@ -33,7 +33,7 @@ When you've completed this quickstart, your application will accept sign-ins of 
 To run this sample you will need:
 
 - [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or greater, and [Maven](https://maven.apache.org/).
-- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/en-us/documentation/articles/active-directory-howto-tenant/).
+- An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/).
 
 > [!div renderon="docs"]
 
@@ -131,7 +131,7 @@ If you are running the web application from an IDE, click on run, then navigate 
     - *Show User Info*: Acquires a token for Microsoft Graph and calls Microsoft Graph with a request containing the token, which returns basic information about the signed-in user.
 
 >[!IMPORTANT]
-This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [Certificate credentials for application authentication](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
+This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [Certificate credentials for application authentication](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
 ## More information
 
@@ -166,12 +166,12 @@ import com.microsoft.aad.msal4j.*;
 Learn more about permissions and consent:
 
 > [!div class="nextstepaction"]
-> [Permissions and Consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
+> [Permissions and Consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
 
 To know more about the auth flow for this scenario, see the Oauth 2.0 authorization code flow:
 
 > [!div class="nextstepaction"]
-> [Authorization Code Oauth flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+> [Authorization Code Oauth flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
 
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 
