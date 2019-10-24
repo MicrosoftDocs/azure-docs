@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ---
 
 # What is Azure SQL Database Edge Preview?
@@ -19,10 +19,10 @@ Azure SQL Database Edge is built on the latest versions of the [Microsoft SQL Se
 
 ## Deployment Models
 
-Azure SQL Database Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Database Edge](sql-database-edge-deploy-portal.md).<br>
+Azure SQL Database Edge is available on the Azure Marketplace and can be deployed as a module for [Azure IoT Edge](../iot-edge/about-iot-edge.md). For more information, see [Deploy Azure SQL Database Edge](deploy-portal.md).<br>
 
 
-:::image type="content" source="media/sql-database-edge-overview/sql-database-edge-overview.png" alt-text="SQL Database Edge overview diagram":::
+:::image type="content" source="media/overview/overview.png" alt-text="SQL Database Edge overview diagram":::
 
 ## Editions of SQL Database Edge
 
@@ -49,7 +49,7 @@ The streaming engine for Azure SQL Database Edge is designed for low-latency, re
 
 ## Machine Learning and Artificial Intelligence Capabilities
 
-Azure SQL Database Edge provides built-in machine learning and analytics capabilities by integrating the open format ONNX (Open Neural Network Exchange) runtime, which allows exchange of deep learning and neural network models between different frameworks. For more information on ONNX, see [here](https://onnx.ai/). ONNX runtime provides the flexibility to develop models in a language or tools of your choice, which can then be converted to the ONNX format for execution within SQL Database Edge. For more information, see [Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge](sql-database-edge-onnx-overview.md).
+Azure SQL Database Edge provides built-in machine learning and analytics capabilities by integrating the open format ONNX (Open Neural Network Exchange) runtime, which allows exchange of deep learning and neural network models between different frameworks. For more information on ONNX, see [here](https://onnx.ai/). ONNX runtime provides the flexibility to develop models in a language or tools of your choice, which can then be converted to the ONNX format for execution within SQL Database Edge. For more information, see [Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge](onnx-overview.md).
 
 ## Working with Azure SQL Database Edge
 
@@ -72,5 +72,5 @@ Add frequently asked questions.
 - For pricing and availability-related details, see [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 - Request to enable Azure SQL Database Edge for your subscription.
 - To get started, see the following:
-  - [Deploy SQL Database Edge through Azure portal](sql-database-edge-deploy-portal.md)
-  - [Machine Learning and Artificial Intelligence with SQL Database Edge](sql-database-edge-onnx-overview.md)
+  - [Deploy SQL Database Edge through Azure portal](deploy-portal.md)
+  - [Machine Learning and Artificial Intelligence with SQL Database Edge](onnx-overview.md)

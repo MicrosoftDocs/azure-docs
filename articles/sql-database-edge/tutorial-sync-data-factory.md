@@ -1,6 +1,6 @@
 ---
 title: Sync data from Azure SQL Database Edge using Azure Data Factory | Microsoft Docs
-description: Learn about syncing data between Azure SQL Database Edge and Azure Blob Storage
+description: Learn about syncing data between Azure SQL Database Edge and Azure Blob storage
 keywords: sql database edge,sync data from sql database edge, sql database edge data factory
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 10/22/2019
+ms.date: 10/23/2019
 ---
 
-# Tutorial: Sync data from SQL Database Edge to Azure Blob Storage using Azure Data Factory
+# Tutorial: Sync data from SQL Database Edge to Azure Blob storage using Azure Data Factory
 
-In this tutorial, you use Azure Data Factory to incrementally sync data from a table in an instance of Azure SQL Database Edge to Azure Blob Storage.
+In this tutorial, you use Azure Data Factory to incrementally sync data from a table in an instance of Azure SQL Database Edge to Azure Blob storage.
 
 ## Before you begin
 
@@ -39,7 +39,7 @@ If you haven't already created a database or table in your Azure SQL Database Ed
 
 ## Create a SQL table and procedure to store and update the Watermark levels
 
-The Watermark table is used to store the last timestamp up to which the data has already been synchronized with the Azure Storage. The Transact-SQL (T-SQL) stored procedure is used to update the watermark table after every sync. 
+The Watermark table is used to store the last timestamp up to which the data has already been synchronized with the Azure storage. The Transact-SQL (T-SQL) stored procedure is used to update the watermark table after every sync. 
 
 Execute the following commands on the SQL Database Edge instance:
 
@@ -62,7 +62,7 @@ Execute the following commands on the SQL Database Edge instance:
 
 ## Create a Data Factory Workflow
 
-In this section, you create an Azure Data Factory pipeline to sync data from a table within Azure SQL Database Edge to Azure Blob Storage.
+In this section, you create an Azure Data Factory pipeline to sync data from a table within Azure SQL Database Edge to Azure Blob storage.
 
 ### Create Data Factory using the Data Factory UI
 
@@ -154,13 +154,13 @@ Create a Data Factory using the instructions in this [tutorial](../data-factory/
 
 20. Switch to the **Sink** tab, and select **+ New** for the **Sink Dataset** field.
 
-21. In this tutorial, sink data store is of type **Azure Blob Storage**. Select **Azure Blob Storage**, and select **Continue** in the **New Dataset** window.
+21. In this tutorial, sink data store is of type **Azure Blob storage**. Select **Azure Blob storage**, and select **Continue** in the **New Dataset** window.
 
 22. In the **Select Format** window, select the format type of your data, and select **Continue**.
 
 23. In the **Set Properties** window, enter **SinkDataset** for Name. For Linked Service, select **+ New**. In this step, you create a connection (linked service) to your **Azure Blob storage**.
 
-24. In the **New Linked Service (Azure Blob Storage)** window, do the following steps:
+24. In the **New Linked Service (Azure Blob storage)** window, do the following steps:
 
     1. Enter *AzureStorageLinkedService* for Name.
 

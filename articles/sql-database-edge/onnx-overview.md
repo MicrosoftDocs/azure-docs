@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ---
 
 # Machine learning and artificial intelligence with ONNX in SQL Database Edge Preview
