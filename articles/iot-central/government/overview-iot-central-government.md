@@ -28,7 +28,7 @@ The App template consists of:
 * Pre-configured rules and jobs
 * Branding using white labeling 
 
-Get started with the [Water Quality Monitoring application tutorial](./tutorial-water-quality-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+Get started with the [Water Quality Monitoring application tutorial](./tutorial-water-quality-monitoring.md).
 
 
 ## What is Water Consumption Monitoring application template? 
@@ -47,7 +47,7 @@ The Water Consumption Monitoring app template consist of pre-configured:
 * Pre-configured rules and jobs
 * Branding using white labeling 
 
- Get started with the [Water Consumption Monitoring application tutorial](./tutorial-water-consumption-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+ Get started with the [Water Consumption Monitoring application tutorial](./tutorial-water-consumption-monitoring.md).
 
 ## What is Connected Waste Management application template? 
 
@@ -63,7 +63,7 @@ The Connected Waste Management app template consist of pre-configured:
 * Pre-configured rules and jobs
 * Branding using white labeling 
 
-Get started with the [Connected Waste Management application tutorial](./tutorial-connected-waste-management.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+Get started with the [Connected Waste Management application tutorial](./tutorial-connected-waste-management.md).
 
 
 ## Next steps
@@ -73,3 +73,4 @@ Get started with the [Connected Waste Management application tutorial](./tutoria
 * Learn about [Water Consumption Monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md)
 * Learn about [Connected Waste Management concepts](./concepts-connectedwastemanagement-architecture.md)  
 * Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
+ 
