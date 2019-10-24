@@ -63,7 +63,7 @@ Here are the known limitations of Azure Spring Cloud while the service is in pre
 
 ### How can I provide feedback and report issues?
 
-If you have created your Spring service instances in Azure Spring Cloud, you can create an [Azure Support Request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). If you have not yet onboarded to Azure Spring Cloud, you can go to [Azure Feedback](https://feedback.azure.com/) to request features or provide feedback.
+If you encounter any issues with Azure Spring Cloud, please create an [Azure Support Request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request. For feature requests, please go to  [Azure Feedback](https://feedback.azure.com/forums/34192--general-feedback) to request features or to provide feedback.
 
 ## Development
 
