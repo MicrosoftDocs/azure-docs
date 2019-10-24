@@ -45,7 +45,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Otsuka Shokai supports **IDP** initiated SSO
 
 
-
+> [!NOTE]
+> Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
 
 ## Adding Otsuka Shokai from the gallery
 
