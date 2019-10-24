@@ -33,7 +33,7 @@ For help with setting up or troubleshooting the Live Data (preview) feature, rev
 
 The Live Data (preview) feature directly access the Kubernetes API, and additional information about the authentication model can be found [here](https://kubernetes.io/docs/concepts/overview/kubernetes-api/). 
 
-This feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes` and `/api/v1/pods`), which is every five seconds by default. This data is cached in your browser and charted in the four performance charts included in Azure Monitor for containers on the **Cluster** tab by selecting **Go live (preview)**. Each subsequent poll is charted into a rolling five-minute visualization window. 
+This feature performs a polling operation against the metrics endpoints (including `/api/v1/nodes`, `/apis/metrics.k8s.io/v1beta1/nodes`, and `/api/v1/pods`), which is every five seconds by default. This data is cached in your browser and charted in the four performance charts included in Azure Monitor for containers on the **Cluster** tab by selecting **Go live (preview)**. Each subsequent poll is charted into a rolling five-minute visualization window. 
 
 ![Go Live option in the Cluster view](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 
@@ -89,4 +89,4 @@ This performance chart maps to an equivalent of invoking `kubectl get pods –al
 
 ## Next steps
 
-View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to evaluate or customize to alert, visualize, or analyze your clusters.
+View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to create alerts, visualizations, or perform further analysis of your clusters.
