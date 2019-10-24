@@ -19,7 +19,7 @@ ms.date: 11/04/2019
 
 Incremental indexing is a feature of Azure Cognitive Search that adds caching and change tracking to enriched content in a cognitive skillset, giving you control over processing and re-processing of individual steps in an enrichment pipeline. For example, it's possible to determine which skills have changed and run only those that have been modified as well sa any downstream dependent skills.
 
-With incremental indexing, the current version of the enrichment pipeline does the least amount of work to guarantee consistency for all documents in your index. For scenarios where you want full control, you can use fine-grained controls to determine how a change is handled.
+With incremental indexing, the current version of the enrichment pipeline does the least amount of work to guarantee consistency for all documents in your index. For scenarios where you want full control, you can use fine-grained controls to determine how a change is handled. For more information about configuration, see [Set up incremental indexing](search-howto-incremental-index.md).
 
 ## Indexer cache
 
