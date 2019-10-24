@@ -299,7 +299,7 @@ If you have Automation Hybrid Runbook Workers in your environment, follow these 
 
 Refer to the [Configure your network](../../automation/automation-hybrid-runbook-worker.md#network-planning) section of the Automation documentation to find the URL for each region.
 
-If your computer is registered as a Hybrid Runbook Worker automatically, use the Update Management solution to manage the patch. Follow these steps:
+If your computer is registered as a Hybrid Runbook Worker automatically, for example if the Update Management solution is enabled for one or more VMs, follow these steps:
 
 1. Add the Job Runtime Data service URLs to the Allowed Host list on the Log Analytics gateway. For example:
     `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
