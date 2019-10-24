@@ -1,17 +1,17 @@
 ---
-title: Upgrade to Azure Search .NET SDK version 5
-titleSuffix: Azure Cognitive Search
+title: Upgrade to the Azure Search .NET SDK version 5 - Azure Search
 description: Migrate code to the Azure Search .NET SDK version 5 from older versions. Learn what is new and which code changes are required.
-
-manager: nitinme
 author: brjohnstmsft
-ms.author: brjohnst
-ms.service: cognitive-search
+manager: nitinme
+services: search
+ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 05/02/2019
+ms.author: brjohnst
+ms.custom: seodec2018
 ---
-# Upgrade to Azure Search .NET SDK version 5
+# Upgrading to the Azure Search .NET SDK version 5
 
 If you're using version 4.0-preview or older of the [Azure Search .NET SDK](https://aka.ms/search-sdk), this article will help you upgrade your application to use version 5.
 
