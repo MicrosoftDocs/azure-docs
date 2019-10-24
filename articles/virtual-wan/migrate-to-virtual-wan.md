@@ -28,7 +28,7 @@ Contoso are a global financial organization with offices in both Europe and Asia
 
 Figure 2 shows a high-level view of the existing global network including connectivity to multiple Azure regions.
 
-![Contoso existing network topology](./media/migrate-to-virtual-wan/figure3.png)
+![Contoso existing network topology](./media/migrate-to-virtual-wan/figure2.png)
 **Figure 2: Contoso existing network topology**
 
 The following points can be understood from the existing network topology:
@@ -170,9 +170,9 @@ Contoso has now validated connectivity between all branches and VNets in line wi
 ![Security and policy control via Azure Firewall](./media/migrate-to-virtual-wan/figure12.png)
 **Figure 12: Azure Firewall in Virtual WAN (Secured Virtual Hub)**
 
-The following high-level steps are required to introduce Azure Firewall into the Virtual WAN Hubs to enable a unified point of policy control. This process and the concept of Secure Virtual Hubs are explained in full detail here<add link>. 
-- Create Azure Firewall policy <add link>.
-- Link firewall policy to Azure virtual WAN hub <add link>.
+The following high-level steps are required to introduce Azure Firewall into the Virtual WAN Hubs to enable a unified point of policy control. This process and the concept of Secure Virtual Hubs are explained in full detail [here](../firewall/index.yml). 
+- Create Azure Firewall policy.
+- Link firewall policy to Azure virtual WAN hub.
 The above step allows the existing virtual WAN hub to function as a secured virtual hub, and deploys the required Azure Firewall resources.
 
 The following table describes the connectivity paths enabled by utilizing Azure secured virtual hubs.
