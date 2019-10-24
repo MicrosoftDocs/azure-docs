@@ -38,7 +38,7 @@ Administrators receive notifications when a user or group assigned an expiring o
 
 The following steps outline the process for requesting, resolving, or administering an extension or renewal of a role assignment.
 
-### self-extend expiring assignments
+### Self-extend expiring assignments
 
 Users or groups assigned to a role can extend expiring role assignments directly from the **Eligible** or **Active** tab on the **My roles** page of a resource and from the top level **My roles** page of the Privileged Identity Management portal.Users or groups can request to extend eligible and active (assigned) roles that expire in the next 14 days.
 
