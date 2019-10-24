@@ -1,11 +1,3 @@
-
-metadata:
-  title: Face API Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
-  description: Learn how to use the Face API to detect and identify faces in images and return facial information. Tutorials show you how to build apps that use the API.
-
-  description: The cloud-based Face API provides developers with access to advanced face algorithms. Microsoft Face algorithms enable face attribute detection and face recognition. Learn how to analyze content in different ways with quickstarts, tutorials, and samples.
-
-
 ### YamlMime:Landing
 
 title: Face documentation # < 60 chars
