@@ -156,5 +156,5 @@ The value for the `device-id` parameter is case-sensitive. Don't copy the quotat
 
 Now that you have a device identity registered in your IoT hub, you're ready to install the IoT Edge runtime on your devices. Install the runtime according to the device's operating system:
 
-* [Install Azure IoT Edge on Windows](how-to-install-edge-windows.md)
-* [Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-windows-with-linux.md)
+* [Install Azure IoT Edge on Windows](how-to-install-iot-edge-windows.md)
+* [Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
