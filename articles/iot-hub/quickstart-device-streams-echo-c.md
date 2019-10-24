@@ -53,8 +53,8 @@ The preview of device streams is currently supported only for IoT hubs that are 
 
   * Central US
   * Central US EUAP
-  * Southeast Asia
   * North Europe
+  * Southeast Asia
 
 ## Prepare the development environment
 

@@ -41,8 +41,8 @@ The preview of device streams is currently only supported for IoT Hubs created i
 
   * Central US
   * Central US EUAP
-  * Southeast Asia
   * North Europe
+  * Southeast Asia
 
 To run the service-side application in this quickstart you need Node.js v10.x.x or later on your development machine.
 
