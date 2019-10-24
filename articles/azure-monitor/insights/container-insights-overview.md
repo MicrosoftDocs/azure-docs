@@ -34,7 +34,7 @@ Azure Monitor for containers delivers a comprehensive monitoring experience usin
     >Support for Prometheus is a feature in public preview at this time.
     >
 
-* Monitor container workloads [deployed to AKS Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine) and [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Monitor container workloads [deployed to AKS Engine](https://github.com/microsoft/OMS-docker/tree/aks-engine) on-premises and [AKS Engine on Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 
 Check out the following video providing an intermediate level deep dive to help you learn about monitoring your AKS cluster with Azure Monitor for containers.
 
