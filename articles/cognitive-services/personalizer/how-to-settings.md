@@ -75,18 +75,18 @@ After changing this setting, make sure to select **Save**.
 
 ## Export the Personalizer model
 
-From the Resource management's section for **Model and Policy**, review model creation and last updated date and export the current model. You can use the Azure portal or the Personalizer APIs to export a model file for archival purposes. 
+From the Resource management's section for **Model and learning settings**, review model creation and last updated date and export the current model. You can use the Azure portal or the Personalizer APIs to export a model file for archival purposes. 
 
 ![Export current Personalizer model](media/settings/export-current-personalizer-model.png)
 
 ## Import and export learning policy
 
-From the Resource management's section for **Model and Policy**, import a new learning policy or export the current learning policy.
+From the Resource management's section for **Model and learning settings**, import a new learning policy or export the current learning policy.
 You can get learning policy files from previous exports, or downloading the optimized policies discovered during Offline Evaluations. Making manual changes to these files will affect machine learning performance and accuracy of offline evaluations, and Microsoft cannot vouch for the accuracy of machine learning and evaluations, or service exceptions resulting from manually edited policies.
 
 ## Clear data for your learning loop
 
-1. In the Azure portal, for your Personalizer resource, on the **Model and Policy** page, select **Clear data**.
+1. In the Azure portal, for your Personalizer resource, on the **Model and learning settings** page, select **Clear data**.
 1. In order to clear all data, and reset the learning loop to the original state, select all 3 check boxes.
 
     ![In Azure portal, clear data from Personalizer resource.](./media/settings/clear-data-from-personalizer-resource.png)
