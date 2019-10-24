@@ -19,7 +19,7 @@ Azure Machine Learning has a large library of algorithms from the ***regression*
 
 ## Download: Machine Learning Algorithm Cheat Sheet
 
-**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/A/6/1/ec051615-1650-4f83-84a2-4d2bef0f89e5/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf)**
+**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/3/5/b/35bb997f-a8c7-485d-8c56-19444dafd757/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf)**
 
 ![Machine Learning Algorithm Cheat Sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
 
