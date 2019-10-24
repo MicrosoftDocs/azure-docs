@@ -1,6 +1,6 @@
 ---
 title: What is Azure Machine Learning
-description: Overview of Azure Machine Learning - An integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
+description: How Azure Machine Learning is different from ML Studio (classic)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.author: jmartens
 ms.date: 10/29/2019
 ---
 
-# How Azure Machine Learning compares to ML Studio
+# How Azure Machine Learning compares to ML Studio (classic)
 
 [ML Studio (classic)](/studio/what-is-ml-studio.md) is a collaborative, drag-and-drop visual workspace where you can build, test, and deploy machine learning solutions without needing to write code. It uses prebuilt and preconfigured machine learning algorithms and data-handling modules as well as a proprietary compute platform.
 
@@ -49,7 +49,6 @@ The following resources can help you get started with Azure Machine Learning
 
 In addition to the drag-n-drop capabilities in the designer, Azure Machine Learning has other tools available:  
   + [Use Python notebooks to train & deploy ML models](/service/tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown to train & deploy ML models](/service/tutorial-1st-r-experiment.md) 
-  + [Use automated machine learning to train & deploy ML models](/service/ui-tutorial-automobile-price-train-score.md) 
-  + [Use the machine learning CLI to train and deploy a model](/service/tutorial-train-deploy-model-cli.md)
-
+  + [Use R Markdown to train & deploy ML models](./service/tutorial-1st-r-experiment.md) 
+  + [Use automated machine learning to train & deploy ML models](./service/ui-tutorial-automobile-price-train-score.md) 
+  + [Use the machine learning CLI to train and deploy a model](./service/tutorial-train-deploy-model-cli.md)
