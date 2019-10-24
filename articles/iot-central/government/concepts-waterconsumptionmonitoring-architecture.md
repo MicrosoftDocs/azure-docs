@@ -29,11 +29,11 @@ Let's take a look at key components that generally play a part in a water consum
 ## Devices and connectivity 
 In this section, we will refer to devices used for smart water solutions, such as water quality monitoring or water consumption monitoring, generally as smart water devices. Smart water devices can be flow meters, water quality monitors, smart valves, leak detectors etc.
 
-Devices used in smart water solutions will generally be connected through low power wide area networks (LPWAN), via a third-party network operator. For these types of devices, you can leverage the [Azure IoT Central Device Bridge](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
+Devices used in smart water solutions will generally be connected through low-power wide area networks (LPWAN), via a third-party network operator. For these types of devices, you can leverage the [Azure IoT Central Device Bridge](https://docs.microsoft.com/en-us/azure/iot-central/howto-build-iotc-device-bridge) to send your device data to your IoT application in Azure IoT Central. Alternatively, you may have device gateways that are IP capable and can connect directly to IoT Central.
 
 ## IoT Central 
-Azure IoT Central is an IoT App platform which gets you started up and running on your IoT solution quickly. You can brand, customize, and integrate your solution with third-party services.
-After you connect your smart water devices to IoT Central, you get out of the box device command and control, monitoring and alerting, user interface with built in RBAC, configurable insights dashboards, and extensibility options. 
+Azure IoT Central is an IoT App platform, which gets you started up and running on your IoT solution quickly. You can brand, customize, and integrate your solution with third-party services.
+After you connect your smart water devices to IoT Central, you get device command and control, monitoring and alerting, user interface with built-in RBAC, configurable insights dashboards, and extensibility options. 
 
 
 ## Extensibility and integrations 
@@ -43,7 +43,7 @@ You can extend your IoT application in IoT Central and optionally:
 * programatically access your IoT application in IoT Central through IoT Central APIs
 
 ## Business Applications 
-The IoT data can be used to power a variety of business applications within a water utility, to visualize business insights and take meaningful actions. To learn how to connect your IoT Central water consumption monitoring application with field services, follow the tutorial on [how to integrate with Dynamics 365 Field Services](./how-to-configure-connected-field-services.md) 
+The IoT data can be used to power a variety of business applications within a water utility. To learn how to connect your IoT Central water consumption monitoring application with field services, follow the tutorial on [how to integrate with Dynamics 365 Field Services](./how-to-configure-connected-field-services.md) 
 
 
 ## Next steps
