@@ -18,7 +18,6 @@ The **Document Extraction** skill extracts content from a file within the enrich
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
 > Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
-
 ## @odata.type  
 Microsoft.Skills.Util.DocumentExtractionSkill
 
@@ -40,7 +39,6 @@ Parameters are case-sensitive.
 
 > [!NOTE]
 > The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). The [OCR skill](cognitive-search-skill-ocr.md) supports a maximum width and height of 4200 for non-English languages, and 10000 for English.  If you increase the maximum limits, processing could fail on larger images depending on your skillset definition and the language of the documents. 
-
 ## Skill inputs
 
 | Input name	 | Description |
@@ -59,9 +57,9 @@ The "file_data" input must be an object defined as follows:
 This file reference object can be generated one of 3 ways:
 
  - Setting the `allowSkillsetToReadFileData` parameter on your indexer definition to "true".  This will create a path `/document/file_data` that is a object representing the original file data downloaded from your blob data source. This parameter only applies to data in Blob storage.
- 
+
  - Setting the `imageAction` parameter on your indexer definition to a value other than `none`.  This creates an array of images `/document/normalized_images` that follow the required convention for input to this skill if passed individually (i.e. `/document/normalized_images/*`).
- 
+
  - Having a custom skill return a json object defined EXACTLY as above.  The `$type` parameter must be set to exactly `file` and the `data` parameter must be the base 64 encoded byte array data of the file content.
 
 ## Skill outputs
@@ -141,6 +139,6 @@ This file reference object can be generated one of 3 ways:
 
 ## See also
 
-+ [Predefined skills](cognitive-search-predefined-skills.md)
++ [Built-in skills](cognitive-search-predefined-skills.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [How to process and extract information from images in cognitive search scenarios](cognitive-search-concept-image-scenarios.md)
