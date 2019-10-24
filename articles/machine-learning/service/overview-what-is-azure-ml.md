@@ -64,7 +64,7 @@ For code-free or low-code training and deployment, try:
 
   Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
 
-  ![Azure Machine Learning designer example](./service/media/concept-ml-pipelines/visual-design-surface.gif)
+  ![Azure Machine Learning designer example](/media/concept-ml-pipelines/visual-design-surface.gif)
 
 + **Automated machine learning UI**
 
