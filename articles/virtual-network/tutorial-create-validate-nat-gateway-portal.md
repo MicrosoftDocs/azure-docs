@@ -2,23 +2,23 @@
 title: 'Tutorial: Create and test a NAT Gateway - Azure portal'
 titlesuffix: Azure NAT service
 description: This tutorial shows how to create a NAT Gateway using the Azure portal and test the NAT service
-services: nat
+services: virtual-network
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: KumundD
 Customer intent: I want to test a NAT Gateway for outbound connectivity for my virtual network.
-ms.service: nat
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2019
+ms.date: 10/25/2019
 ms.author: allensu
-ms.custom: seodec18
+
 ---
 # Tutorial: Create a NAT Gateway using the Azure portal and test the NAT service
 
-This tutorial shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for virtual machines  in Azure. To test the NAT gateway, you deploy a source and destination virtual machine.  You will test the NAT gateway by making outbound connections to a public IP address from the source to the destination virtual machine.  This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
+This tutorial shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for virtual machines  in Azure. To test the NAT gateway, you deploy a source and destination virtual machine.  You'll test the NAT gateway by making outbound connections to a public IP address from the source to the destination virtual machine.  This tutorial deploys source and destination in two different virtual networks in the same resource group for simplicity only.
 
 >[!NOTE] 
 >Azure NAT service is available as Public Preview at this time and available in a limited set of [regions](https://azure.microsoft.com/global-infrastructure/regions/). This preview is provided without a service level agreement and isn't recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms) for details.
@@ -36,11 +36,11 @@ For this quickstart, you'll need the following prerequisites:
 
 ## Prepare the source for outbound traffic
 
-We will guide you through configuration of a full test environment and the execution of the tests itself in the next steps. We will start with the source, which will use the NAT gateway resource we create in subsequent steps.
+We'll guide you through configuration of a full test environment and the execution of the tests itself in the next steps. We'll start with the source, which will use the NAT gateway resource we create in later steps.
 
 ### Create a virtual network
 
-Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network that will contain the VM and NAT gateway.
+Before you deploy a VM and can use your NAT gateway, we need to create the resource group and virtual network.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 
@@ -62,7 +62,7 @@ Before you deploy a VM and can use your NAT gateway, we need to create the resou
 
 We'll now create a VM to use the NAT service. This VM has a public IP to use as an instance-level Public IP to allow you to access the VM. NAT service is flow direction aware and will replace the default Internet destination in your subnet. The VM's public IP address won't be used for outbound connections.
 
-To test the NAT gateway, we will assign a public IP address resource as an instance-level Public IP to access this VM from the outside. This address is only used to access it for the test.  We will demonstrate how the NAT service takes precedence over other outbound options.
+To test the NAT gateway, we'll assign a public IP address resource as an instance-level Public IP to access this VM from the outside. This address is only used to access it for the test.  We'll demonstrate how the NAT service takes precedence over other outbound options.
 
 You could also create this VM without a public IP and create another VM to use as a jumpbox without a public IP as an exercise.
 
@@ -73,7 +73,7 @@ You could also create this VM without a public IP and create another VM to use a
    - **Instance Details** > **Virtual machine name**: Type **myVMsource**.
    - **Instance Details** > **Region** > select **East US 2**.
    - **Administrator account** > **Authentication type**: Select **Password**.
-   - **Administrator account** > Enter the **Username**, **Password** and **Confirm password** information.
+   - **Administrator account** > Enter the **Username**, **Password**, and **Confirm password** information.
    - **Inbound port rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound port rules** > **Select inbound ports**: Select **SSH (22)**
    - Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
@@ -88,11 +88,13 @@ You could also create this VM without a public IP and create another VM to use a
 
 4. In the **Management** tab, under **Monitoring**, set **Boot diagnostics** to **Off**.
 
-5. Select **Review + create**. 
+5. Select **Review + create**.
+
+6. Review the settings and click **Create**.
 
 ## Create the NAT Gateway
 
-You can use one or more public IP address resources or one or more public IP prefixes or both with NAT gateway. We will add a public IP resource, public IP prefix, and a NAT gateway resource.
+You can use one or more public IP address resources, public IP prefixes, or both with NAT gateway. We'll add a public IP resource, public IP prefix, and a NAT gateway resource.
 
 This section details how you can create and configure the following components of the NAT service using the NAT gateway resource:
   - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
@@ -154,16 +156,16 @@ This section details how you can create and configure the following components o
 
 6. Review the settings, and then select **Create**.
 
-All outbound traffic to Internet destinations is now using the NAT service.  It is not necessary to configure a UDR.
+All outbound traffic to Internet destinations is now using the NAT service.  It isn't necessary to configure a UDR.
 
 
 ## Prepare destination for outbound traffic
 
-We will now create a destination for the outbound traffic translated by the NAT service to allow you to test it.
+We'll now create a destination for the outbound traffic translated by the NAT service to allow you to test it.
 
 ### Configure virtual network for destination
 
-Before you deploy a VM and for the destination, we also need to create a virtual network where the destination virtual machine can be placed.  These are the same steps as for the source VM with some small changes to expose the destination endpoint.
+Before you deploy a VM for the destination, we need to create a virtual network where the destination virtual machine can reside. The following are the same steps as for the source VM with some small changes to expose the destination endpoint.
 
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 
@@ -188,7 +190,7 @@ Before you deploy a VM and for the destination, we also need to create a virtual
    - **Instance Details** > **Virtual machine name**: Type **myVMdestination**.
    - **Instance Details** > **Region** > select **East US 2**.
    - **Administrator account** > **Authentication type**: Select **Password**.
-   - **Administrator account** > Enter the **Username**, **Password** and **Confirm password** information.
+   - **Administrator account** > Enter the **Username**, **Password**, and **Confirm password** information.
    - **Inbound port rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound port rules** > **Select inbound ports**: Select **SSH (22)** and **HTTP (80)**.
    - Select the **Networking** tab, or select **Next: Disks**, then **Next: Networking**.
@@ -203,7 +205,9 @@ Before you deploy a VM and for the destination, we also need to create a virtual
 
 4. In the **Management** tab, under **Monitoring**, set **Boot diagnostics** to **Off**.
 
-5. Select **Review + create**. 
+5. Select **Review + create**.
+
+6. Review the settings, and then select **Create**.
 
 ## Prepare a web server and test payload on destination VM
 
@@ -221,11 +225,11 @@ First we need to discover the IP address of the destination VM.
 
 Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine.
 
-```bash
+```azurecli-interactive
 ssh <username>@<ip-address-destination>
 ```
 
-Copy and paste the following commands once you have logged in.  
+Copy and paste the following commands once you've logged in.  
 
 ```bash
 sudo apt-get -y update && \
@@ -240,7 +244,7 @@ sudo rm /var/www/html/index.nginx-debian.html && \
 sudo dd if=/dev/zero of=/var/www/html/100k bs=1024 count=100
 ```
 
-These commands will update your virtual machine, install nginx, and create a 100 KBytes file you can use to retrieve from the source VM using the NAT service.
+These commands will update your virtual machine, install nginx, and create a 100-KBytes file. This file will be retrieved from the source VM using the NAT service.
 
 Close the SSH session with the destination VM.
 
@@ -260,7 +264,7 @@ First we need to discover the IP address of the source VM.
 
 Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 
-```bash
+```azurecli-interactive
 ssh <username>@<ip-address-source>
 ```
 
@@ -280,15 +284,15 @@ go get -u github.com/rakyll/hey
 
 ```
 
-This will update your virtual machine, install go, install [hey](https://github.com/rakyll/hey) from GitHub, and update your shell environment.
+This command will update your virtual machine, install go, install [hey](https://github.com/rakyll/hey) from GitHub, and update your shell environment.
 
-You are now ready to test NAT service.
+You're now ready to test the NAT service.
 
 ## Validate NAT service
 
 While logged into the source VM, you can use **curl** and **hey** to generate requests to the destination IP address.
 
-Use curl to retrieve the 100 KBytes file.  Replace **\<ip-address-destination>** in the example below with the destination IP address you have previously copied.  The **--output** parameter indicates that the retrieved file will be discarded.
+Use curl to retrieve the 100-KBytes file.  Replace **\<ip-address-destination>** in the example below with the destination IP address you have previously copied.  The **--output** parameter indicates that the retrieved file will be discarded.
 
 ```bash
 curl http://<ip-address-destination>/100k --output /dev/null
@@ -300,16 +304,16 @@ You can also generate a series of requests using **hey**. Again, replace **\<ip-
 hey -n 100 -c 10 -t 30 --disable-keepalive http://<ip-address-destination>/100k
 ```
 
-This will generate 100 requests, 10 concurrently, with a timeout of 30 seconds, and without reusing the TCP connection.  Each request will retrieve 100 Kbytes.  At the end of the run, **hey** will report some statistics about how well the NAT service performed.
+This command will generate 100 requests, 10 concurrently, with a timeout of 30 seconds, and without reusing the TCP connection.  Each request will retrieve 100 Kbytes.  At the end of the run, **hey** will report some statistics about how well the NAT service did.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, NAT gateway, and all related resources. To do so, select the resource group (**myResourceGroupNAT**) that contains the NAT gateway, and then select **Delete**.
+When no longer needed, delete the resource group, NAT gateway, and all related resources. Select the resource group (**myResourceGroupNAT**) that contains the NAT gateway, and then select **Delete**.
 
 ## Next steps
 In this tutorial, you created a NAT gateway,  created a source and destination VM, and then tested the NAT gateway. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
 
-You can also review metrics in Azure Monitor to see your NAT service operating and diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+You can also review metrics in Azure Monitor to see how your NAT service is operating.  You can diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
 > [!div class="nextstepaction"]
 
