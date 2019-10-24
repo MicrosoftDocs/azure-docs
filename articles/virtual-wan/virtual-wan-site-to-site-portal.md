@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/25/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -48,7 +48,7 @@ From a browser, navigate to the [Azure portal](https://aka.ms/azurevirtualwanpre
 
 Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. At this time, you can specify only one private address space for your site.
 
-1. Click the WAN you created. On the WAN page, under **WAN Architecture**, click **VPN sites** to open the VPN sites page.
+1. Click the WAN you created. On the WAN page, under **Virtual WAN Architecture**, click **VPN sites** to open the VPN sites page.
 2. On the **VPN sites** page, click **+Create site**.
 3. On the **Create site** page, fill in the following fields:
 

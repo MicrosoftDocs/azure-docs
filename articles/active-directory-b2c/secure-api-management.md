@@ -199,17 +199,17 @@ If you see the `401` status code, you've verified that only callers with a valid
 
 ## Support multiple applications and issuers
 
-Several applications typically interact with a single REST API. To allow multiple applications to call your API, add their application IDs to the `<audiences>` element in the APIM inbound policy.
+Several applications typically interact with a single REST API. To enable your API to accept tokens intended for multiple applications, add their application IDs to the `<audiences>` element in the APIM inbound policy.
 
 ```XML
-<!-- Accept requests from multiple applications -->
+<!-- Accept tokens intended for these recipient applications -->
 <audiences>
     <audience>44444444-0000-0000-0000-444444444444</audience>
     <audience>66666666-0000-0000-0000-666666666666</audience>
 </audiences>
 ```
 
-Similarly, to support multiple token issuers, add their endpoint URIs to the `<audiences>` element in the APIM inbound policy.
+Similarly, to support multiple token issuers, add their endpoint URIs to the `<issuers>` element in the APIM inbound policy.
 
 ```XML
 <!-- Accept tokens from multiple issuers -->

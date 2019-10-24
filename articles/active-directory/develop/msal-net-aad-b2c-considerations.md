@@ -1,5 +1,6 @@
 ---
-title: Azure AD B2C (Microsoft Authentication Library for .NET) | Azure
+title: Azure AD B2C (Microsoft Authentication Library for .NET) 
+titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using Azure AD B2C with the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name

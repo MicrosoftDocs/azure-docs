@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: reference
 ms.tgt_pltfrm:
 ms.workload: identity
-ms.date: 08/27/2019
+ms.date: 10/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -56,6 +56,9 @@ The following table provides a brief description of each built-in role. Click th
 | [Azure Kubernetes Service Cluster Admin Role](#azure-kubernetes-service-cluster-admin-role) | List cluster admin credential action. |
 | [Azure Kubernetes Service Cluster User Role](#azure-kubernetes-service-cluster-user-role) | List cluster user credential action. |
 | [Azure Maps Data Reader (Preview)](#azure-maps-data-reader-preview) | Grants access to read map related data from an Azure maps account. |
+| [Azure Sentinel Contributor](#azure-sentinel-contributor) | Azure Sentinel Contributor |
+| [Azure Sentinel Reader](#azure-sentinel-reader) | Azure Sentinel Reader |
+| [Azure Sentinel Responder](#azure-sentinel-responder) | Azure Sentinel Responder |
 | [Azure Service Bus Data Owner](#azure-service-bus-data-owner) | Allows for full access to Azure Service Bus resources. |
 | [Azure Service Bus Data Receiver](#azure-service-bus-data-receiver) | Allows for receive access to Azure Service Bus resources. |
 | [Azure Service Bus Data Sender](#azure-service-bus-data-sender) | Allows for send access to Azure Service Bus resources. |
@@ -174,7 +177,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Description** | Lets you manage everything except access to resources. |
+> | **Description** | Lets you manage everything except granting access to resources. |
 > | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **Actions** |  |
 > | * | Create and manage resources of all types |
@@ -182,8 +185,8 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Authorization/*/Delete | Delete roles, policy assignments, policy definitions and policy set definitions |
 > | Microsoft.Authorization/*/Write | Create roles, role assignments, policy assignments, policy definitions and policy set definitions |
 > | Microsoft.Authorization/elevateAccess/Action | Grants the caller User Access Administrator access at the tenant scope |
-> | Microsoft.Blueprint/blueprintAssignments/write | Create or update any blueprint artifacts |
-> | Microsoft.Blueprint/blueprintAssignments/delete | Delete any blueprint artifacts |
+> | Microsoft.Blueprint/blueprintAssignments/write | Create or update any blueprint assignments |
+> | Microsoft.Blueprint/blueprintAssignments/delete | Delete any blueprint assignments |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -272,7 +275,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Description** | acr quarantine data reader |
 > | **Id** | cdda3590-29a3-44f6-95f2-9f980659eb04 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Pull or Get quarantined images from container registry |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -287,8 +290,8 @@ The following table provides a brief description of each built-in role. Click th
 > | **Description** | acr quarantine data writer |
 > | **Id** | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
 > | **Actions** |  |
-> | Microsoft.ContainerRegistry/registries/quarantineRead/read | Pull or Get quarantined images from container registry |
-> | Microsoft.ContainerRegistry/registries/quarantineWrite/write | Write/Modify quarantine state of quarantined images |
+> | Microsoft.ContainerRegistry/registries/quarantine/read | Pull or Get quarantined images from container registry |
+> | Microsoft.ContainerRegistry/registries/quarantine/write | Write/Modify quarantine state of quarantined images |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -641,6 +644,89 @@ The following table provides a brief description of each built-in role. Click th
 > | *none* |  |
 > | **DataActions** |  |
 > | Microsoft.Maps/accounts/data/read | Grants data read access to a maps account. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Azure Sentinel Contributor
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Azure Sentinel Contributor |
+> | **Id** | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | **Actions** |  |
+> | Microsoft.SecurityInsights/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
+> | Microsoft.OperationalInsights/workspaces/read | Gets an existing workspace |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
+> | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
+> | Microsoft.OperationalInsights/workspaces/query/read | Run queries over the data in the workspace |
+> | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
+> | Microsoft.Insights/workbooks/* |  |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
+> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Azure Sentinel Reader
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Azure Sentinel Reader |
+> | **Id** | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | **Actions** |  |
+> | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
+> | Microsoft.OperationalInsights/workspaces/read | Gets an existing workspace |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | Gets a saved search query |
+> | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
+> | Microsoft.OperationalInsights/workspaces/query/read | Run queries over the data in the workspace |
+> | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
+> | Microsoft.Insights/workbooks/read | Read a workbook |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
+> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+## Azure Sentinel Responder
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Description** | Azure Sentinel Responder |
+> | **Id** | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | **Actions** |  |
+> | Microsoft.SecurityInsights/*/read |  |
+> | Microsoft.SecurityInsights/cases/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Search using new engine. |
+> | Microsoft.OperationalInsights/workspaces/read | Gets an existing workspace |
+> | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | Gets a saved search query |
+> | Microsoft.OperationsManagement/solutions/read | Get exiting OMS solution |
+> | Microsoft.OperationalInsights/workspaces/query/read | Run queries over the data in the workspace |
+> | Microsoft.OperationalInsights/workspaces/dataSources/read | Get datasources under a workspace. |
+> | Microsoft.Insights/workbooks/read | Read a workbook |
+> | Microsoft.Authorization/*/read | Read roles and role assignments |
+> | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.Support/* | Create and manage support tickets |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -1748,6 +1834,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.ClassicStorage/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
 > | Microsoft.ClassicStorage/storageAccounts/read | Return the storage account with the given account. |
 > | Microsoft.Insights/alertRules/* | Create and manage Insights alert rules |
+> | Microsoft.Insights/metricAlerts/* |  |
 > | Microsoft.Insights/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
 > | Microsoft.Insights/logdefinitions/* | This permission is necessary for users who need access to Activity Logs via the portal. List log categories in Activity Log. |
 > | Microsoft.Insights/metricDefinitions/* | Read metric definitions (list of available metric types for a resource). |
@@ -1763,7 +1850,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Web/customApis/* | Creates and manages a Custom API. |
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Get the properties on an App Service Plan |
-> | Microsoft.Web/sites/functions/listSecrets/action | List Secrets Web Apps Functions. |
+> | Microsoft.Web/sites/functions/listSecrets/action | List Function secrets. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1780,6 +1867,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **Actions** |  |
 > | Microsoft.Authorization/*/read | Read roles and role assignments |
 > | Microsoft.Insights/alertRules/*/read | Read Insights alert rules |
+> | Microsoft.Insights/metricAlerts/*/read |  |
 > | Microsoft.Insights/diagnosticSettings/*/read | Gets diagnostic settings for Logic Apps |
 > | Microsoft.Insights/metricDefinitions/*/read | Gets the available metrics for Logic Apps. |
 > | Microsoft.Logic/*/read | Reads Logic Apps resources. |
@@ -2274,6 +2362,7 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Read any Replication Recovery Points |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Repair replication |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | ReProtect Protected Item |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Switch Protection Container |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Test Failover |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Test Failover Cleanup |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Failover |

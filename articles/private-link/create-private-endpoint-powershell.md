@@ -46,7 +46,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### Add a Subnet
 
-Azure deploys resources to a subnet within a Virtual Network, so you need to create a subnet. Create a subnet configuration named *mySubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet named *mySubnet* with the private endpoint network policy flag set to **Disabled**.
+Azure deploys resources to a subnet within a Virtual Network, so you need to create a subnet. Create a subnet configuration named *mySubnet* with [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). The following example creates a subnet named *mySubnet* with the private endpoint network policy flag set to **Disabled**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -163,7 +163,7 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
   
 ## Connect to a VM from the internet
 
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) to return the public IP address of a VM. This example returns the public IP address of the *myVM* VM:
+Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) to return the public IP address of a VM. This example returns the public IP address of the *myVM* VM:
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -180,13 +180,13 @@ Open a command prompt on your local computer. Run the mstsc command. Replace
 mstsc /v:<publicIpAddress>
 ```
 
-1. If prompted, select **Connect**. 
+1. If prompted, select **Connect**. 
 2. Enter the user name and password you specified when creating the VM.
   > [!NOTE]
   > You may need to select More choices > Use a different account, to specify the credentials you entered when you created the VM. 
   
-3. Select **OK**. 
-4. You may receive a certificate warning. If you do, select **Yes** or **Continue**. 
+3. Select **OK**. 
+4. You may receive a certificate warning. If you do, select **Yes** or **Continue**. 
 
 ## Access SQL Database Server privately from the VM
 
@@ -201,6 +201,7 @@ mstsc /v:<publicIpAddress>
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
+    ```
 3. Install SQL Server Management Studio
 4. In Connect to server, enter or select this information:
   	Setting	Value
@@ -212,7 +213,7 @@ mstsc /v:<publicIpAddress>
 5. Select Connect.
 6. Browse Databases from left menu. 
 7. (Optionally) Create or query information from mydatabase
-8. Close the remote desktop connection to *myVM*. 
+8. Close the remote desktop connection to *myVM*. 
 
 ## Clean up resources 
 When you're done using the private endpoint, SQL Database server and the VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it has:

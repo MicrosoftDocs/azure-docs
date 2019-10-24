@@ -1,13 +1,13 @@
 ---
-title: 'Understand Digital Twins object models and spatial intelligence graph | Microsoft Docs'
+title: 'Understand Azure Digital Twins object models and spatial intelligence graph | Microsoft Docs'
 description: Use Azure Digital Twins to model relationships between people, places, and devices
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
 ---
 
 # Understand Digital Twins object models and spatial intelligence graph
@@ -80,7 +80,7 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 
  The full URL format appears in this image.
 
-(![Digital Twins portal Management API](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
+[![Digital Twins portal Management API](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 For more details on how to use spatial intelligence graphs, visit the Azure Digital Twins Management APIs sneak preview.
 

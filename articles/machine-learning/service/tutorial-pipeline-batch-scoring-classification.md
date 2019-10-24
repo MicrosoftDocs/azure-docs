@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Machine learning pipelines for batch scoring'
+title: 'Tutorial: ML pipelines for batch scoring'
 titleSuffix: Azure Machine Learning
 description: Build a machine learning pipeline for running batch scoring on an image classification model in Azure Machine Learning. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on your expertise - machine learning - instead of on infrastructure and automation.
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: trbye
 ms.date: 09/05/2019
 ---
 
-# Use a machine learning pipeline for batch scoring
+# Build & use an Azure Machine Learning pipeline for batch scoring
 
 In this tutorial, you use a pipeline in Azure Machine Learning to run a batch scoring job. The example uses the pretrained [Inception-V3](https://arxiv.org/abs/1512.00567) convolutional neural network Tensorflow model to classify unlabeled images. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform.
 

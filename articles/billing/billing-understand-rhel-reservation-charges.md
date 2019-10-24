@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/22/2019
+ms.date: 09/30/2019
 ms.author: cwatson
 ---
 # Understand how the Red Hat Linux Enterprise software reservation plan discount is applied for Azure

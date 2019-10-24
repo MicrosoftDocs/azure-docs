@@ -1,11 +1,12 @@
 ---
 title: Optimizing throughput cost in Azure Cosmos DB
 description: This article explains how to optimize throughput costs for the data stored in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: rimman
+
 ---
 
 # Optimize provisioned throughput cost in Azure Cosmos DB

@@ -1,7 +1,7 @@
 ---
 title:  "Import from Azure Blob Storage: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn This topic describes how to use the Import from Azure Blob Storage module in Azure Machine Learning service to read data from Azure blob storage, so that you can use the data in a machine learning experiment.
+description: Learn This topic describes how to use the Import from Azure Blob Storage module in Azure Machine Learning service to read data from Azure blob storage, so that you can use the data in a machine learning pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -15,7 +15,7 @@ ms.date: 05/02/2019
 
 This article describes a module of the visual interface (preview) for Azure Machine Learning service.
 
-Use this module to read data from Azure blob storage, so that you can use the data in a machine learning experiment.  
+Use this module to read data from Azure blob storage, so that you can use the data in a machine learning pipeline.  
 
 The Azure Blob Service is for storing large amounts of data, including binary data. Azure blobs can be accessed from anywhere, by using either HTTP or HTTPS. Authentication might be required depending on the type of blob storage. 
 
@@ -33,7 +33,7 @@ We strongly recommend that you profile your data before importing, to make sure 
 
 The following steps describe how to manually configure the import source.
 
-1. Add the **Import Data** module to your experiment. You can find this module in the interface, in the **Data Input and Output**
+1. Add the **Import Data** module to your pipeline. You can find this module in the interface, in the **Data Input and Output**
 
 2. For **Data source**, select **Azure Blob Storage**.
 
@@ -72,7 +72,7 @@ The following steps describe how to manually configure the import source.
     You cannot use wildcards in container names. If you need to import files from multiple containers, use a separate instance of the **Import Data** module for each container, and then merge the datasets using the [Add Rows](./add-rows.md) module.
 
     > [!NOTE]
-    > If you have selected the option, **Use cached results**, any changes that you make to the files in the container do not trigger a refresh of the data in the experiment.
+    > If you have selected the option, **Use cached results**, any changes that you make to the files in the container do not trigger a refresh of the data in the pipeline.
 
 7. For **Blob file format**, select an option that indicates the format of the data that is stored in the blob, so that Azure Machine Learning can process the data appropriately. The following formats are supported:
 
@@ -88,7 +88,7 @@ The following steps describe how to manually configure the import source.
 
    
 
-8. Run the experiment.
+8. Run the pipeline.
 
 
 ## Next steps

@@ -6,9 +6,8 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 09/27/2019
 ms.custom: mvc
-
 #Customer intent: As a developer new to Apache Spark on Azure, I need to see how to create a spark cluster and query some data.
 ---
 
@@ -29,37 +28,38 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
     ![Azure portal create a resource HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight on Azure portal")
 
-2. Under **Basics**, provide the following values:
+1. Under **Basics**, provide the following values:
 
     |Property  |Description  |
     |---------|---------|
-    |**Cluster name**     | Give a name to your HDInsight Spark cluster. The cluster name used for this quickstart is **myspark20180403**.|
-    |**Subscription**     | From the drop-down, select an Azure subscription used for this cluster. The subscription used for this quickstart is **&lt;Azure subscription**. |
-    |**Cluster type**| Expand the item, and then select **Spark** as the cluster type, and specify the Spark cluster version. <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Azure portal select HDInsight cluster type" /> |
-    |**Cluster login username**| Enter the cluster login username.  The default name is *admin*. You use this account to login in to the Jupyter notebook later in the quickstart. |
-    |**Cluster login password**| Enter the cluster login password. |
-    |**Secure Shell (SSH) username**| Enter the SSH username. The SSH username used for this quickstart is **sshuser**. By default, this account shares the same password as the *Cluster Login username* account. |
-    |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. The resource group name used for this quickstart is **myspark20180403rg**. |
-    |**Location**     | Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage. The location used for this quickstart is **East US 2**. |
+    |Subscription  | From the drop-down, select an Azure subscription used for this cluster. The subscription used for this quickstart is **Azure**. |
+    |Resource group | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. The resource group name used for this quickstart is **myResourceGroup**. |
+    |Cluster name | Give a name to your HDInsight Spark cluster. The cluster name used for this quickstart is **myspark2019**.|
+    |Location   | Select a location for the resource group. The template uses this location for creating the cluster as well as for the default cluster storage. The location used for this quickstart is **East US**. |
+    |Cluster type| Select **Spark** as the cluster type.|
+    |Cluster version|This field will auto-populate with the default version once the cluster type has been selected.|
+    |Cluster login username| Enter the cluster login username.  The default name is *admin*. You use this account to login in to the Jupyter notebook later in the quickstart. |
+    |Cluster login password| Enter the cluster login password. |
+    |Secure Shell (SSH) username| Enter the SSH username. The SSH username used for this quickstart is **sshuser**. By default, this account shares the same password as the *Cluster Login username* account. |
 
-    ![Create HDInsight Spark cluster basic configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-basic2.png "Create Spark cluster in HDInsight the Basic configurations")
+    ![Create HDInsight Spark cluster basic configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Create Spark cluster in HDInsight the Basic configurations")
 
-    Select **Next** to continue to the **Storage** page.
+    Select **Next: Storage >>** to continue to the **Storage** page.
 
-3. Under **Storage**, provide the following values:
+1. Under **Storage**, provide the following values:
 
-   - **Select a Storage account**: select **Create new**, and then give a name to the new storage account. The storage account name used for this quickstart is **myspark20180403store**.
+    |Property  |Description  |
+    |---------|---------|
+    |Primary storage type|Use the default value **Azure Storage**.|
+    |Selection method|Use the default value **Select from list**.|
+    |Primary storage account|Use the auto-populated value.|
+    |Container|Use the auto-populated value.|
 
-     ![Create HDInsight Spark cluster storage configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Create Spark cluster in HDInsight the storage configurations")
+    ![Create HDInsight Spark cluster basic configurations](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage-spark.png "Create Spark cluster in HDInsight the Basic configurations")
 
-     > [!NOTE]  
-     > On the screenshot, it shows **Select existing**. The link toggles between **Create new** and **Select existing**.
+    Select **Review + create** to continue.
 
-     The **Default container** has a default name.  You can change the name if you want.
-
-     Select **Next** to continue to the **Summary** page.
-
-4. On **Summary**, select **Create**. It takes about 20 minutes to create the cluster. The cluster must be created before you can proceed to the next session.
+1. Under **Review + create**, select **Create**. It takes about 20 minutes to create the cluster. The cluster must be created before you can proceed to the next session.
 
 If you run into an issue with creating HDInsight clusters, it could be that you do not have the right permissions to do so. For more information, see [Access control requirements](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -68,15 +68,16 @@ If you run into an issue with creating HDInsight clusters, it could be that you 
 Jupyter Notebook is an interactive notebook environment that supports various programming languages. The notebook allows you to interact with your data, combine code with markdown text and perform simple visualizations.
 
 1. Open the [Azure portal](https://portal.azure.com).
-2. Select **HDInsight clusters**, and then select the cluster you created.
+
+1. Select **HDInsight clusters**, and then select the cluster you created.
 
     ![open HDInsight cluster in the Azure portal](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
 
-3. From the portal, select **Cluster dashboards**, and then select **Jupyter Notebook**. If prompted, enter the cluster login credentials for the cluster.
+1. From the portal, select **Cluster dashboards**, and then select **Jupyter Notebook**. If prompted, enter the cluster login credentials for the cluster.
 
    ![Open Jupyter Notebook to run interactive Spark SQL query](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Open Jupyter Notebook to run interactive Spark SQL query")
 
-4. Select **New** > **PySpark** to create a notebook. 
+1. Select **New** > **PySpark** to create a notebook.
 
    ![Create a Jupyter Notebook to run interactive Spark SQL query](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
 
@@ -95,7 +96,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
 1. Paste the following code in an empty cell, and then press **SHIFT + ENTER** to run the code. The command lists the Hive tables on the cluster:
 
     ```PySpark
-	%%sql
+    %%sql
     SHOW TABLES
     ```
 
@@ -108,7 +109,7 @@ SQL (Structured Query Language) is the most common and widely used language for 
 1. Run another query to see the data in `hivesampletable`.
 
     ```PySpark
-	%%sql
+    %%sql
     SELECT * FROM hivesampletable LIMIT 10
     ```
 
@@ -133,4 +134,4 @@ You can also select the resource group name to open the resource group page, and
 In this quickstart, you learned how to create an HDInsight Spark cluster and run a basic Spark SQL query. Advance to the next tutorial to learn how to use an HDInsight Spark cluster to run interactive queries on sample data.
 
 > [!div class="nextstepaction"]
->[Run interactive queries on Apache Spark](./apache-spark-load-data-run-query.md)
+> [Run interactive queries on Apache Spark](./apache-spark-load-data-run-query.md)

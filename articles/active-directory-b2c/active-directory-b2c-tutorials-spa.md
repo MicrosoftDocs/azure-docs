@@ -13,7 +13,7 @@ ms.service: active-directory
 ms.subservice: B2C
 ---
 
-# Tutorial: Enable authentication in a single-page application using Azure Active Directory B2C
+# Tutorial: Enable authentication in a single-page application using Azure Active Directory B2C (Azure AD B2C)
 
 This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign in and sign up users in a single-page application (SPA). Azure AD B2C enables your applications to authenticate to social accounts, enterprise accounts, and Azure Active Directory accounts using open standard protocols.
 

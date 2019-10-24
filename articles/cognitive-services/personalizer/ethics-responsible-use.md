@@ -58,7 +58,8 @@ When choosing use cases for Personalizer:
 
 * Start the design process considering how the personalization helps your users.
 * Consider the negative consequences in the real world if some items aren't ranked for users due to personalization patterns or exploration.
-* Consider self-fulfilling prophecy loops. This may happen if a personalization reward trains a model so it may subsequently further exclude a demographic group from accessing relevant content. For example, most people in a low-income neighborhood don't obtain a premium insurance offer, and slowly nobody in the neighborhood tends to see the offer at all.
+* Consider whether your use case constitutes automated processing which significantly affects data subjects that is regulated under [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) Article 22 or other laws.
+* Consider self-fulfilling prophecy loops. This may happen if a personalization reward trains a model so it may subsequently further exclude a demographic group from accessing relevant content. For example, most people in a low-income neighborhood don't obtain a premium insurance offer, and slowly nobody in the neighborhood tends to see the offer at all if there isn't enough exploration.
 * Save copies of models and learning policies in case it is necessary to reproduce Personalizer in the future. You can do this periodically or every model refresh period.
 * Consider the level of exploration adequate for the space and how to use it as a tool to mitigate "echo chamber" effects.
 

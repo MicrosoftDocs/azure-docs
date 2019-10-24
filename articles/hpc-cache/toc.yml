@@ -41,3 +41,5 @@
   items: 
   - name: Open a support ticket
     href: hpc-cache-support-ticket.md
+  - name: Recover from a regional outage
+    href: hpc-region-recovery.md

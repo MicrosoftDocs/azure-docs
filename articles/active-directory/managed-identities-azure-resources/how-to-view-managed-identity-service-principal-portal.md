@@ -24,6 +24,9 @@ Managed identities for Azure resources provides Azure services with an automatic
 
 In this article, you learn how to view the service principal of a managed identity using the Azure portal.
 
+ > [!NOTE] 
+ > Service principals are Enterprise Applications. 
+
 ## Prerequisites
 
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](overview.md).

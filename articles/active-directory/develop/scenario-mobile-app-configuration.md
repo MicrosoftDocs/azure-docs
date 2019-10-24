@@ -152,9 +152,13 @@ On Android and iOS, brokers enable:
 - Device identification. Enables Azure AD device related conditional access policies, by accessing the device certificate that was created on the device when it was workplace joined.
 - Application identification verification. When an application calls the broker, it passes its redirect url, and the broker verifies it.
 
-### Enable the brokers on Xamarin
+### Enable the broker on Xamarin
 
 To enable one of these features, use the `WithBroker()` parameter when calling the `PublicClientApplicationBuilder.CreateApplication` method. `.WithBroker()` is set to true by default. Follow the steps below for [Xamarin.iOS](#brokered-authentication-for-xamarinios).
+
+### Enable the broker for MSAL for Android
+
+See [Brokered auth in Android](brokered-auth.md) for information about enabling a broker on Android. 
 
 ### Enable the broker for MSAL for iOS and macOS
 

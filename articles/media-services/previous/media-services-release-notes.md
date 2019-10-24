@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 10/01/2019
 ms.author: juliako
 
 ---
@@ -46,9 +46,9 @@ For information about the Media Services REST API version history, see the [Azur
 
 ### Deprecation of media processors
 
-We are announcing deprecation of *Azure Media Indexer v1* and *Azure Media Indexer v2 Preview*. The [Azure Media Indexer v1](media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer v2 Preview](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. The [Azure Media Indexer](media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
 
-For more information, see [Migrate from Azure Media Indexer v1 and Azure Media Indexer v2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 ## August 2019
 
