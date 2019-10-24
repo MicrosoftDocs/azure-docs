@@ -1,18 +1,13 @@
 ---
 title: Get started with log queries in Azure Monitor | Microsoft Docs
 description: This article provides a tutorial for getting started writing log queries in Azure Monitor.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: 
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/09/2019
+author: bwren
 ms.author: bwren
+ms.date: 05/09/2019
+
 ---
 
 # Get started with log queries in Azure Monitor
