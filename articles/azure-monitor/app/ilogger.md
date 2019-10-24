@@ -1,14 +1,14 @@
 ---
 title: Explore .NET trace logs in Azure Application Insights with ILogger
 description: Samples of using the Azure Application Insights ILogger provider with ASP.NET Core and Console applications.
-services: application-insights
-author: cijothomas
-manager: carmonm
-ms.service: application-insights
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.reviewer: mbullwin
+author: cijothomas
 ms.author: cithomas
+ms.date: 02/19/2019
+
+ms.reviewer: mbullwin
 ---
 
 # ApplicationInsightsLoggerProvider for .NET Core ILogger logs
