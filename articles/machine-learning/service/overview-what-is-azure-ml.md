@@ -39,6 +39,12 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 
 ## Build ML models with no-code tools
 
+For code-free or low-code training and deployment, try:
+
++ **Azure Machine Learning designer (preview)**
+
+  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](ui-tutorial-automobile-price-train-score.md).
+
   Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
 
   ![Azure Machine Learning designer](media/overview-what-is-azure-ml/designer.png)
@@ -88,25 +94,6 @@ Use the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?v
 Azure Machine Learning provides all the tools you need for your machine learning workflow such as Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> and <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html on" target="_blank">SDK for R</a>. The service also interoperates with popular open-source tools, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, and <a href="https://pytorch.org" target="_blank">PyTorch</a>.  You can even use [MLflow to track metrics and deploy models](how-to-use-mlflow.md) or Kubeflow to [build end-to-end workflow pipelines](https://www.kubeflow.org/docs/azure/).
 
 Whether you write code or use the [designer](ui-tutorial-automobile-price-train-score.md), you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
-
-
-### UI-based, low-code experience
-
-For code-free training and deployment, try:
-
-+ **Azure Machine Learning designer (preview)**
-
-  Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](ui-tutorial-automobile-price-train-score.md).
-
-  Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
-
-  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/designer.png)
-
-+ **Automated machine learning UI**
-
-  Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
-
-  [![Azure Machine Learning studio navigation pane](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
 
 ## <a name="sku"></a>Basic & Enterprise editions
 
