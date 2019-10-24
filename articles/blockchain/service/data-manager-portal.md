@@ -24,7 +24,7 @@ To configure a Blockchain Data Manager instance, you:
 ## Prerequisites
 
 * Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
-* Learn event-grid/event-handlers
+* Learn about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md)
 
 ## Create a Blockchain Data Manager instance
 
@@ -181,7 +181,4 @@ When running, a Blockchain Manager instance captures blockchain events from the 
 
 ## Next steps
 
-Try a tutorial using Blockchain Data Manager.
-
-> [!div class="nextstepaction"]
-> [Use Blockchain Data Manager to update an off-chain database](data-manager-event-grid.md)
+Learn more about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md).

@@ -57,8 +57,6 @@
     href: data-manager-portal.md
   - name: Configure Data Manager - CLI
     href: data-manager-cli.md
-  - name: Send data to Event Grid
-    href: data-manager-event-grid.md
 - name: Resources
   items:
   - name: Blockchain REST API

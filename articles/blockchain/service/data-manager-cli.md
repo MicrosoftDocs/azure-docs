@@ -403,7 +403,4 @@ az resource delete \
 
 ## Next steps
 
-Try a tutorial using Blockchain Data Manager.
-
-> [!div class="nextstepaction"]
-> [Use Blockchain Data Manager to update an off-chain database](data-manager-event-grid.md)
+Learn more about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md).
