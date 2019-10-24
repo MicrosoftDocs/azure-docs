@@ -18,6 +18,43 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+
+## 2019-11-04
+
+### Web experience 
+
+The collaborative workspace landing page at [https://ml.azure.com](https://ml.azure.com) has been enhanced and rebranded as the Azure Machine Learning studio (preview).
+
+From the studio, you can train, test, deploy, and manage Azure Machine Learning assets such as datasets, pipelines, models, endpoints, and more.  
+
+Access the following web-based authoring tools from the studio:
+
+| Web-based tool | Description | Edition |
+|-|-|-|
+| [Compute Instance](concept-compute-instance.md) (GA) | Fully managed cloud-based workstation | Basic & Enterprise |
+| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
+| [Designer](ui-concept-visual-interface.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | Enterprise |
+
+### Azure Machine Learning designer enhancements 
+
++ Formerly known as the visual interface 
++	11 new [modules](../algorithm-module-reference/module-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
+
+### R SDK 
+ 
+Data scientists and AI developers use the [Azure Machine Learning SDK for R](tutorial-1st-r-experiment.md) to build and run machine learning workflows with Azure Machine Learning.
+
+The Azure Machine Learning SDK for R uses the `reticulate` package to bind to the Python SDK. By binding directly to Python, the SDK for R allows you access to core objects and methods implemented in the Python SDK from any R environment you choose.
+
+Main capabilities of the SDK include:
+
++	Manage cloud resources for monitoring, logging, and organizing your machine learning experiments.
++	Train models using cloud resources, including GPU-accelerated model training.
++	Deploy your models as webservices on Azure Container Instances (ACI) and Azure Kubernetes Service (AKS).
+
+See the [package website](https://azure.github.io/azureml-sdk-for-r) for complete documentation.
+
+
 ## 2019-10-21
 
 ### Visual interface (preview)
