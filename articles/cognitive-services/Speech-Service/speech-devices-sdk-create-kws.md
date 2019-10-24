@@ -26,7 +26,7 @@ Consider the following guidelines when you choose a keyword:
 
 * Words of 4 to 7 syllables work best. For example, "Hey, Computer" is a good keyword. Just "Hey" is a poor one.
 
-* Wake words should follow common English pronunciation rules.
+* Keywords should follow common English pronunciation rules.
 
 * A unique or even a made-up word that follows common English pronunciation rules might reduce false positives. For example, "computerama" might be a good keyword.
 
@@ -41,23 +41,21 @@ Consider the following guidelines when you choose a keyword:
 
 ## Create your keyword
 
-Before you can use a custom keyword with your device, you'll need to create a keyword with the Microsoft Custom Wake Word Generation service. After you provide a keyword, the service produces a file that you deploy to your development kit to enable the keyword on your device.
+Before you can use a custom keyword with your device, you'll need to create a keyword with the Microsoft Custom Keyword Generation service. After you provide a keyword, the service produces a file that you deploy to your development kit to enable the keyword on your device.
 
-1. Go to the [Custom Speech Service Portal](https://aka.ms/sdsdk-speechportal) and **Sign in** or if you do not have a speech subscription choose [**Create a subscription**](https://go.microsoft.com/fwlink/?linkid=2086754)
+1. Go to the [Speech Studio](https://aka.ms/sdsdk-speechportal) and **Sign in** or, if you do not yet have a speech subscription, choose [**Create a subscription**](https://go.microsoft.com/fwlink/?linkid=2086754).
 
-    ![The Custom Speech Service Portal](media/speech-devices-sdk/wake-word-4.png)
+1. At the [Custom Keyword](https://aka.ms/sdsdk-wakewordportal) page, type in the keyword of your choice and click **Add keyword**. We have some [guidelines](#choose-an-effective-keyword) to help choose an effective keyword. Support is currently limited to the en-US language.
 
-1. At the [Custom Wake Word](https://aka.ms/sdsdk-wakewordportal) page type in the keyword of your choice and click **Add keyword**. We have some [guidelines](#choose-an-effective-keyword) to help choose an effective keyword. Currently we only support en-US language.
+    ![Enter your keyword](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
 
-    ![Enter your keyword](media/speech-devices-sdk/wake-word-5.png)
+1. The portal will now create candidate pronunciations for your keyword. Listen to each candidate by clicking the play buttons and remove the checks next to any pronunciations that are incorrect. Once only good pronunciations are checked, select **Submit** to begin generating the keyword. If you want to change the keyword, first remove the existing one by clicking on the delete button that appears on the right side of the row while hovering over it.
 
-1. Three alternative pronunciations of your keyword will be created. You can choose all the pronunciations that you like. Then select **Submit** to generate the keyword. If you want to change the keyword please remove the existing one first, when you hover on the pronunciation line the delete icon will appear.
+    ![Review your keyword](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
 
-    ![Review your keyword](media/speech-devices-sdk/wake-word-6.png)
+1. It may take up to one minute for the model to be generated. You will then be prompted to download the file.
 
-1. It might take up to one minute for the model to be generated. You will be prompted to download the file.
-
-    ![Download your keyword](media/speech-devices-sdk/wake-word-7.png)
+    ![Download your keyword](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
 1. Save the .zip file to your computer. You will need this file to deploy your custom keyword to the development kit.
 

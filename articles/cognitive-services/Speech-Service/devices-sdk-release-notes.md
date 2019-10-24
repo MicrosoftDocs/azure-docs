@@ -71,7 +71,7 @@ The following sections list changes in the most recent releases.
 **Breaking changes**
 
 * With this release a number of breaking changes are introduced. Please check [this page](https://aka.ms/csspeech/breakingchanges_1_0_0) for details relating to the APIs.
-* The KWS model files are not compatible with Speech Devices SDK 1.0.1. The existing Wake Word files will be deleted after the new Wake Word files are written to the device.
+* The KWS model files are not compatible with Speech Devices SDK 1.0.1. The existing keyword files will be deleted after the new keyword files are written to the device.
 
 ## Cognitive Services Speech Devices SDK 0.5.0: 2018-Aug release
 

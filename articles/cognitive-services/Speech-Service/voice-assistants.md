@@ -16,7 +16,7 @@ ms.author: travisw
 
 Voice Assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences.
 
-The Voice Assistant service provides fast, reliable interaction between a device and an assistant implementation that uses either (1) the Bot Framework's Direct Line Speech channel or (2) the integrated Custom Commands Preview service for task completion.
+The Voice Assistant service provides fast, reliable interaction between a device and an assistant implementation that uses either (1) the Bot Framework's Direct Line Speech channel or (2) the integrated Custom Commands (Preview) service for task completion.
 
 Applications connect to the Voice Assistant service with the Speech Software Development Kit (SDK).
 
@@ -32,13 +32,13 @@ Applications connect to the Voice Assistant service with the Speech Software Dev
 
 ## Comparing Assistant Solutions
 
-The Voice Assistant service connects your on-device application to your unique assistant implementation. Developers author Voice Assistants using either (1) the Bot Framework's [Direct Line Speech](direct-line-speech.md) channel or (2) the [Custom Commands Preview](custom-commands.md) solution.
+The Voice Assistant service connects your on-device application to your unique assistant implementation. Developers author Voice Assistants using either (1) the Bot Framework's [Direct Line Speech](direct-line-speech.md) channel or (2) the [Custom Commands (Preview)](custom-commands.md) solution.
 
    ![Comparison of assistant solutions](media/voice-assistants/assistant-solution-comparison.png "Comparison of assistant solutions")
 
 | Solution | Features |
 |----------|----------|
-|[Custom Commands Preview](custom-commands.md) | Custom Commands Preview provides a streamlined authoring and hosting solution for Voice Assistants. It's tailored to the needs of task completion and command-and-control scenarios.
+|[Custom Commands (Preview)](custom-commands.md) | Custom Commands (Preview) provides a streamlined authoring and hosting solution for Voice Assistants. It's tailored to the needs of task completion and command-and-control scenarios.
 |[Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | Direct Line Speech enables a smooth and seamless connection between (1) your client application, (2) a compatible bot, and (3) the capabilities of Azure Speech Services. For more information on configuring your bot to use the Direct Line Speech channel, please see [its page in the Bot Framework documentation](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
 Once you've created a Voice Assistant with one of these solutions, connect your on-device application to it using the `DialogServiceConnector` in the Speech SDK. For more details, please see the Quickstarts and samples for each solution.
@@ -80,5 +80,5 @@ Voice Assistants built using Azure Speech Services can use the full range of cus
 
 * [Get a Speech Services subscription key for free](get-started.md)
 * [Get the Speech SDK](speech-sdk.md)
-* [Learn more about Custom Commands Preview](custom-commands.md)
+* [Learn more about Custom Commands (Preview)](custom-commands.md)
 * [Learn more about Direct Line Speech](direct-line-speech.md)

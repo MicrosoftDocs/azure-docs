@@ -26,12 +26,12 @@ The Speech service SDK features many scenarios across a wide variety of programm
   - Swift
   - Objective-C
   - TTS REST API can be used in every other situation.
-- **Wake Word (Keyword Spotter/KWS)**
+- **Keyword Spotting (KWS)**
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)
-  - Wake Word (Keyword Spotter/KWS) functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
+  - Keyword spotting (KWS) functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
 - **Speech Assistants**
   - C++/Windows & Linux & macOS
   - C#/Windows

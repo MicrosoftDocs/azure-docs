@@ -160,7 +160,7 @@
       href: voice-assistants.md
   - name: Building your assistant
     items:
-    - name: Custom Commands Preview
+    - name: Custom Commands (Preview)
       href: custom-commands.md
     - name: Direct Line Speech
       href: direct-line-speech.md

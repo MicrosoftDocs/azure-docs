@@ -342,9 +342,9 @@ The Direct Line Speech Client uses the NuGet package [Microsoft.CognitiveService
 The Speech SDK supports custom keyword activation. Similar to "Hey Cortana" for Microsoft's Assistant, you can write an app that will continuously listen for a keyword of your choice. Keep in mind that a keyword can be single word or a multi-word phrase.
 
 > [!NOTE]
-> The term *keyword* is often used interchangeably with the term *keyword*, and you may see both used in Microsoft documentation.
+> The term *keyword* is often used interchangeably with the term *wake word*, and you may see both used in Microsoft documentation.
 
-Wake word detection is done on the client app. If using a keyword, audio is only streamed to the Direct Line Speech channel if the keyword is detected. The Direct Line Speech channel includes a component called *keyword verification (KWV)*, which does more complex processing in the cloud to verify that the keyword you've chosen is at the start of the audio stream. If key word verification succeeds, then the channel will communicate with the bot.
+Keyword detection is done on the client app. If using a keyword, audio is only streamed to the Direct Line Speech channel if the keyword is detected. The Direct Line Speech channel includes a component called *keyword verification (KWV)*, which does more complex processing in the cloud to verify that the keyword you've chosen is at the start of the audio stream. If key word verification succeeds, then the channel will communicate with the bot.
 
 Follow these steps to create a keyword model, configure the Direct Line Speech Client to use this model, and finally, test it with your bot.
 

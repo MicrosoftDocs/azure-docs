@@ -14,17 +14,15 @@ ms.author: travisw
 
 # About Direct Line Speech
 
-## When to use Direct Line Speech
-
 [Voice Assistants](voice-assistants.md) listen to users and take an action in response, often speaking back. They use [speech-to-text](speech-to-text.md) to transcribe the user's speech, then take action on the natural language understanding of the text. This action frequently includes spoken output from the assistant generated with [text-to-speech](text-to-speech.md). Devices connect to assistants with the Speech SDK’s `DialogServiceConnector` object.
 
 **Direct Line Speech** is a robust, end-to-end solution for creating a flexible, extensible Voice Assistant, powered by the Bot Framework and its Direct Line Speech channel, that is optimized for voice-in, voice-out interaction with bots.
 
-Direct Line Speech offers the highest levels of customization and sophistication for Voice Assistants. It is well-suited to conversational scenarios that’re open-ended, natural, or hybrids of these with task completion or command-and-control use. This high degree of flexibility comes with a greater complexity, and scenarios that are scoped to well-defined tasks using natural language input may want to consider [Custom Commands Preview](custom-commands.md) for a streamlined solution experience.
+Direct Line Speech offers the highest levels of customization and sophistication for Voice Assistants. It is well-suited to conversational scenarios that’re open-ended, natural, or hybrids of these with task completion or command-and-control use. This high degree of flexibility comes with a greater complexity, and scenarios that are scoped to well-defined tasks using natural language input may want to consider [Custom Commands (Preview)](custom-commands.md) for a streamlined solution experience.
 
 ## Getting started with Direct Line Speech
 
-The first steps for creating a Voice Assistant using Direct Line Speech are to get a speech subscription key, create a new bot associated with that subscription, and connect the bot to the Direct Line Speech Channel. 
+The first steps for creating a Voice Assistant using Direct Line Speech are to [get a speech subscription key](get-started.md), create a new bot associated with that subscription, and connect the bot to the Direct Line Speech Channel.
 
    ![Conceptual diagram of the direct line speech orchestration service flow](media/voice-assistants/overview-dls.png "The Speech Channel flow")
 
