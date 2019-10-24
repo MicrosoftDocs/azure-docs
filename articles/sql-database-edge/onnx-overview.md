@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ---
 
 # Machine learning and artificial intelligence with ONNX in SQL Database Edge Preview
@@ -36,4 +36,4 @@ Once you have an ONNX model, you'll deploy the model in Azure SQL Database Edge,
 - For pricing and availability-related details, see [Azure SQL Database Edge](https://azure.microsoft.com/services/sql-database-edge/).
 - Request to enable Azure SQL Database Edge for your subscription.
 - To get started, see the following:
-  - [Deploy SQL Database Edge through Azure portal](sql-database-edge-deploy-portal.md)
+  - [Deploy SQL Database Edge through Azure portal](deploy-portal.md)

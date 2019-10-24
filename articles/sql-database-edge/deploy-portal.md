@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ---
 
 # Deploy Azure SQL Database Edge Preview
@@ -33,11 +33,11 @@ Azure Marketplace is an online applications and services marketplace where you c
 
 1. Find the Azure SQL Database Edge module on the Azure Marketplace.<br><br>
 
-   :::image type="content" source="media/sql-database-edge-deploy-portal/find-offer-marketplace.png" alt-text="SQL Database Edge in MarketPlace":::
+   :::image type="content" source="media/deploy-portal/find-offer-marketplace.png" alt-text="SQL Database Edge in MarketPlace":::
 
 2. Pick the software plan that best matches your requirements and click **Create**. <br><br>
 
-   :::image type="content" source="media/sql-database-edge-deploy-portal/pick-correct-plan.png" alt-text="Pick the correct software plan":::
+   :::image type="content" source="media/deploy-portal/pick-correct-plan.png" alt-text="Pick the correct software plan":::
 
 3. On the Target Devices for IoT Edge Module page, specify the following details and then click **Create**
 
@@ -114,5 +114,5 @@ In this quickstart, you deployed a SQL Database Edge Module on an IoT Edge devic
 
 ## Next Steps
 
-- [Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge](sql-database-edge-onnx-overview.md).
+- [Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge](onnx-overview.md).
 - Building an end to end IoT Solution with SQL Database Edge using IoT Edge.
