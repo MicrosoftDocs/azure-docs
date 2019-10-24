@@ -25,7 +25,7 @@ This article tells you how to manage the lifecycle of Office 365 groups by setti
 
 Once you set a group to expire:
 
-- Groups with user activities are automatically renewed as the expiration nears
+- Groups with user activities are automatically renewed as the expiration nears (preview)
 - Owners of the group are notified to renew the group, if the group is not auto-renewed
 - Any group that is not renewed is deleted
 - Any Office 365 group that is deleted can be restored within 30 days by the group owners or the administrator
