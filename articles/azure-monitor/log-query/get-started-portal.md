@@ -3,7 +3,7 @@ title: Get started with Azure Monitor Log Analytics | Microsoft Docs
 description: This article provides a tutorial for using Log Analytics in the Azure portal to write queries.
 ms.service:  azure-monitor
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 07/19/2019
@@ -14,6 +14,8 @@ ms.date: 07/19/2019
 
 > [!NOTE]
 > You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 In this tutorial you will learn how to use Log Analytics in the Azure portal to write Azure Monitor log queries. It will teach you how to:
 
