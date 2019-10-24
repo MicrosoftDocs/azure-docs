@@ -34,22 +34,10 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 ## Machine learning tools to fit each task 
 
-<<<<<<< HEAD
 Azure Machine Learning provides all the tools developers and data scientists need for their machine learning workflows, including:
 + The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy pipelines.
 
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK for Python</a> samples for your machine learning. 
-=======
-<<<<<<< HEAD
-Azure Machine Learning provides you with many data science tools you can use to train, test, and deploy your models, such as:
-+ The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy models
-
-=======
-Train, test, and deploy your models with rich tools such as:
-+ The [Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy models
->>>>>>> 75c9918f44f... Add sample redirects
-+ Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
->>>>>>> ee6bc68f164... Add sample redirects
 
 + R scripts or notebooks in which you use the <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html on" target="_blank">SDK for R</a> to write your own code, or use the R modules in the designer.
 
@@ -78,7 +66,7 @@ For code-free or low-code training and deployment, try:
 
   Use the designer to prep data, train, test, deploy, manage, and track machine learning models without writing any code. There is no programming required, you visually connect datasets and modules to construct your model.   Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
-  Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
+  Learn more in [the Azure Machine Learning designer overview article](concept-designer.md). 
 
   ![Azure Machine Learning designer example](/media/concept-ml-pipelines/visual-design-surface.gif)
 

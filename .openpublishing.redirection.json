@@ -42619,7 +42619,6 @@
       "redirect_document_id": false
     },
     {
-<<<<<<< HEAD
       "source_path": "articles/machine-learning/algorithm-module-reference/import-from-azure-blob-storage.md",
       "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
       "redirect_document_id": false
@@ -42633,51 +42632,56 @@
       "source_path": "articles/machine-learning/algorithm-module-reference/import-from-web-url-via-http.md",
       "redirect_url": "/azure/machine-learning/algorithm-module-reference/module-reference",
       "redirect_document_id": false
-=======
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-churn.md",
-      "redirect_url": "azure/machine-learning/service/how-to-designer-sample-classification-churn",
+      "redirect_url": "how-to-designer-sample-classification-churn",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-basic.md",
-      "redirect_url": "azure/machine-learning/service/how-to-designer-sample-classification-credit-risk-basic",
+      "redirect_url": "how-to-designer-sample-classification-credit-risk-basic",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md",
-      "redirect_url": "azure/machine-learning/service/how-to-designer-sample-classification-credit-risk-cost-sensitive",
+      "redirect_url": "how-to-designer-sample-classification-credit-risk-cost-sensitive",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-classification-predict-flight-delay.md",
-      "redirect_url": "azure/machine-learning/service/how-to-designer-sample-classification-flight-delay",
+      "redirect_url": "how-to-designer-sample-classification-flight-delay",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-basic.md",
-      "redirect_url": "azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-basic",
+      "redirect_url": "how-to-designer-sample-regression-automobile-price-basic",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md",
-      "redirect_url": "azure/machine-learning/service/how-to-designer-sample-regression-automobile-price-compare-algorithms",
+      "redirect_url": "how-to-designer-sample-regression-automobile-price-compare-algorithms",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/how-to-ui-sample-text-classification.md",
-      "redirect_url": "azure/machine-learning/service/how-to-designer-sample-text-classification",
+      "redirect_url": "how-to-designer-sample-text-classification",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-deploy.md",
-      "redirect_url": "azure/machine-learning/service/tutorial-designer-automobile-price-deploy",
+      "redirect_url": "tutorial-designer-automobile-price-deploy",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/machine-learning/service/ui-tutorial-automobile-price-train-score.md",
-      "redirect_url": "azure/machine-learning/service/tutorial-designer-automobile-price-train-score",
+      "redirect_url": "tutorial-designer-automobile-price-train-score",
       "redirect_document_id": true
->>>>>>> 75c9918f44f... Add sample redirects
+    },
+    {
+      "source_path": "articles/machine-learning/service/ui-concept-visual-interface.md",
+      "redirect_url": "concept-designer",
+      "redirect_document_id": true
     }
   ]
 }
