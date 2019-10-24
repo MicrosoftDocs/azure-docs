@@ -43,11 +43,7 @@
   - name: R SDK
     items:
     - name: Create first ML experiment (R)
-      items:
-      - name: 1. Set up a workspace & environment
-        href: tutorial-1st-experiment-R-set-up.md
-      - name: 2. Train your first model
-        href: tutorial-1st-experiment-R-train-model.md
+      href: tutorial-1st-r-experiment.md
   - name: Designer
     items:
     - name: 1. Train regression model

@@ -30,7 +30,7 @@ landingContent:
           - text: Experiment in Python notebooks
             url: service/tutorial-1st-experiment-sdk-setup.md
           - text: Experiment in RStudio
-            url: service/tutorial-1st-experiment-r-set-up.md
+            url: service/tutorial-1st-r-experiment.md
           - text: Experiment using drag & drop designer
             url: service/ui-tutorial-automobile-price-train-score.md
           - text: Automate your first ML experiment
