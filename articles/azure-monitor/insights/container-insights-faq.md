@@ -79,7 +79,7 @@ If after you enable Azure Monitor for containers for an AKS cluster, you delete 
 
 ## Which ports and domains do I need to open/whitelist for the agent?
 
-See the [Network firewall requirements](container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required with Azure, Azure US Government, and Azure China clouds.
+See the [Network firewall requirements](container-insights-onboard.md#network-firewall-requirements) for the proxy and firewall configuration information required for the containerized agent with Azure, Azure US Government, and Azure China clouds.
 
 ## Next steps
 
