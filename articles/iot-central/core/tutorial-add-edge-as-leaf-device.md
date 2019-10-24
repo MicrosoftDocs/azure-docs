@@ -115,17 +115,21 @@ Edit Azure IoT Edge config.yaml file
 Scroll down and comment out connection string portion of the yaml file. 
 
 **Before**
+
 ![Ubuntu VM](./media/tutorial-add-edge-as-leaf-device/cfmanualprovisioning.png)
 
 **After** (Press Esc and Press lower case a, to start editing)
+
 ![Ubuntu VM](./media/tutorial-add-edge-as-leaf-device/cfmanualprovisioningcomments.png)
 
 Uncomment Symmetric key portion of the yaml file. 
 
 **Before**
+
 ![Ubuntu VM](./media/tutorial-add-edge-as-leaf-device/cfconsolesymmcomments.png)
 
 **After**
+
 ![Ubuntu VM](./media/tutorial-add-edge-as-leaf-device/cfconsolesymmuncomments.png)
 
 Go to IoT Central and get scope ID, device ID and symmetric key of the Azure IoT Edge device

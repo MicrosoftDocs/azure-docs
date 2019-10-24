@@ -54,7 +54,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-To complete this tutorial, you need an Azure IoT Central application. Follow this quick start to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 
 ## Downstream Device Relationships with Gateway & Modules
@@ -71,7 +71,7 @@ Downstream devices can connect to Azure IoT Edge gateway device through a custom
 
 ![Central Application page](./media/tutorial-define-edge-device-type-pnp/gateway-module-transparent.png)
 
-Downstream devices can connect to Azure IoT Edge gateway device through multipe custom modules. In the scenario below downstream devices are connecting through a Modbus custom module, BLE custom moduele and Downstream devices can connect to Azure IoT Edge gateway device through the $edgeHub module. 
+Downstream devices can connect to Azure IoT Edge gateway device through multiple custom modules. In the scenario below downstream devices are connecting through a Modbus custom module, BLE custom module and Downstream devices can connect to Azure IoT Edge gateway device through the $edgeHub module. 
 
 ![Central Application page](./media/tutorial-define-edge-device-type-pnp/gateway-module2-transparent.png)
 
@@ -329,7 +329,7 @@ A device dashboard lets an operator visualize a device using charts and metrics.
 ![Views - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/visualizingthedevice.png)
 
 
-1. Ambient Telemetry and Machine Telemetry are complex objects, to create charts do the following
+Ambient Telemetry and Machine Telemetry are complex objects, to create charts do the following
 
 Drag Ambient Telemetry and select line chart. 
   
@@ -339,7 +339,7 @@ Click on Configure icon and select temperature and humidity to visualize the dat
   
 ![Views - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/sensorambienttelemetrychart.png)
 
-1. Select **Save** to save your view:
+Select **Save** to save your view:
 
 You can add more tiles that show other properties or telemetry values. You can also add static text, links, and images. To move or resize a tile on the dashboard, move the mouse pointer over the tile and drag the tile to a new location or resize it.
   
@@ -351,13 +351,13 @@ A device form lets an operator edit writeable device properties and cloud proper
 
 To create a form to view and edit environmental sensor properties:
 
-1. Navigate to **Views** in the **Environmental Sensor** template. Select the **Editing Device and Cloud data** tile to add a new view.
+Navigate to **Views** in the **Environmental Sensor** template. Select the **Editing Device and Cloud data** tile to add a new view.
   
 ![Views - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/editingdeviceandclouddata.png)
 
-1. Enter the form name **Environmental Sensor properties**.
+Enter the form name **Environmental Sensor properties**.
 
-2. Drag the **Customer name** and **Last service date** cloud properties onto the existing section on the form.
+Drag the **Customer name** and **Last service date** cloud properties onto the existing section on the form.
   
 ![Views - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/views-properties.png)
 
@@ -377,11 +377,11 @@ To publish a device template:
 
 2. Select **Publish**.
   
-![Views - Publish](./media/tutorial-define-edge-device-type-pnp/edgetemplatepublish.png)
+    ![Views - Publish](./media/tutorial-define-edge-device-type-pnp/edgetemplatepublish.png)
 
 1. On the **Publish a Device Template** dialog, choose **Publish**:
   
-![Views - Publish](./media/tutorial-define-edge-device-type-pnp/edgepublishtemplate.png)
+    ![Views - Publish](./media/tutorial-define-edge-device-type-pnp/edgepublishtemplate.png)
 
 After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
   

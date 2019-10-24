@@ -197,9 +197,9 @@ You can't customize the capability name or capability type. If there are changes
 
 Generating default views is a quick way to get started with visualizing your important device information. You will have up to three default views generated for your device template:
 
-1. **Commands** will provide a view with device commands and will allow your operator to dispatch them to your device.
-1. **Overview** will provide a view with device telemetry, displaying charts and metrics.
-1. **About** will provide a view with device information, displaying device properties.
+- **Commands** will provide a view with device commands and will allow your operator to dispatch them to your device.
+- **Overview** will provide a view with device telemetry, displaying charts and metrics.
+- **About** will provide a view with device information, displaying device properties.
 
 Once you have selected **Generate default views** you will see that they have been automatically added under the **Views** section of your device template.
 
@@ -209,14 +209,14 @@ Add dashboards to a device template to enable operators to visualize a device us
 
 To add a dashboard to a device template:
 
-1. Go to your device template and select **Views**.
-1. Then choose **Visualizing the Device**.
-1. Enter a name for your dashboard in **Dashboard Name**.
-1. Add tiles to your dashboard from the list of static, property, cloud property, telemetry, and command tiles. Drag and drop the tiles you would like to add to your dashboard.
-1. To plot multiple telemetry values on a single chart tile, select the telemetry values and then select **Combine**.
-1. Configure each tile you add to customize how it displays data by selecting the gear icon or by selecting the **Change configuration** button on your chart tile.
-1. Arrange and resize the tiles on your dashboard.
-1. Save the changes.
+- Go to your device template and select **Views**.
+- Then choose **Visualizing the Device**.
+- Enter a name for your dashboard in **Dashboard Name**.
+- Add tiles to your dashboard from the list of static, property, cloud property, telemetry, and command tiles. Drag and drop the tiles you would like to add to your dashboard.
+- To plot multiple telemetry values on a single chart tile, select the telemetry values and then select **Combine**.
+- Configure each tile you add to customize how it displays data by selecting the gear icon or by selecting the **Change configuration** button on your chart tile.
+- Arrange and resize the tiles on your dashboard.
+- Save the changes.
 
 ### Configure preview device to view dashboard
 
@@ -266,29 +266,29 @@ You will create IoT device templates.
 
 Click on Device Templates in the left navigation, click **+ New**, select **IoT Device** tile and select occupancy sensor tile and click **Next: Customize**
 
-![IoT Device](./media/tutorial-define-an-iot-device-type-pnp/gateway-downstream-new.png)
+![IoT Device](./media/tutorial-define-iot-device-type-pnp/gateway-downstream-new.png)
 
 You will be presented the review page. Click **Create** button. 
 
-![IoT Device](./media/tutorial-define-an-iot-device-type-pnp/gateway-downstream-review.png)
+![IoT Device](./media/tutorial-define-iot-device-type-pnp/gateway-downstream-review.png)
 
 New device template is created. 
 
-![IoT Device](./media/tutorial-define-an-iot-device-type-pnp/occupancy-sensor.png)
+![IoT Device](./media/tutorial-define-iot-device-type-pnp/occupancy-sensor.png)
 
 You will create a device template for S1 Sensor. 
 
 Click on Device Templates in the left navigation, click **+ New**, select **IoT Device** tile and select occupancy sensor tile and click **Next: Customize**
 
-![IoT Device](./media/tutorial-define-an-iot-device-type-pnp/s1-sensor.png)
+![IoT Device](./media/tutorial-define-iot-device-type-pnp/s1-sensor.png)
 
 You will be presented the review page. Click **Create** button. 
 
-![Downstream Device](./media/tutorial-define-an-iot-device-type-pnp/s1-review.png)
+![Downstream Device](./media/tutorial-define-iot-device-type-pnp/s1-review.png)
 
 New device template is created. 
 
-![Downstream Device](./media/tutorial-define-an-iot-device-type-pnp/s1-template.png)
+![Downstream Device](./media/tutorial-define-iot-device-type-pnp/s1-template.png)
 
 ## Create an IoT Gateway Device template
 
@@ -298,7 +298,7 @@ You can choose to create an IoT gateway device template. Gateway device will hav
 
 IoT devices can connect to Azure IoT gateway device 
 
-![Central Application page](./media/tutorial-define-an-iot-device-type-pnp/gatewaypattern.png)
+![Central Application page](./media/tutorial-define-iot-device-type-pnp/gatewaypattern.png)
 
 As a builder, you can create and edit Azure IoT gateway device templates in your application. After you publish a device template, you can connect real devices that implement the device template.
 
@@ -306,23 +306,23 @@ As a builder, you can create and edit Azure IoT gateway device templates in your
 
 To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left navigation menu.
 
-![Central Application page](./media/tutorial-define-an-iot-device-type-pnp/devicetemplate.png)
+![Central Application page](./media/tutorial-define-iot-device-type-pnp/devicetemplate.png)
 
 Click **+ New** to start creating a new device template.
 
-![Device Templates - New](./media/tutorial-define-an-iot-device-type-pnp/devicetemplatenew.png)
+![Device Templates - New](./media/tutorial-define-iot-device-type-pnp/devicetemplatenew.png)
 
-![Device Templates Selection - Gateway](./media/tutorial-define-an-iot-device-type-pnp/gateway-review.png)
+![Device Templates Selection - Gateway](./media/tutorial-define-iot-device-type-pnp/gateway-review.png)
 
 You will land on device template type selection page. Select **Azure IoT** Tile and click **Next: Customize** button at the bottom
 
 Select Gateway checkbox and click **Create** 
 
-![Device Templates Selection - Gateway](./media/tutorial-define-an-iot-device-type-pnp/gateway-customize.png)
+![Device Templates Selection - Gateway](./media/tutorial-define-iot-device-type-pnp/gateway-customize.png)
 
 You will be presented with a review page, click **Create** 
 
-![Device Template - Gateway](./media/tutorial-define-an-iot-device-type-pnp/gateway-review.png)
+![Device Template - Gateway](./media/tutorial-define-iot-device-type-pnp/gateway-review.png)
 
 Enter the gateway template name **Smart Building Gateway Template**. Click **Custom** tile.
 
@@ -334,7 +334,7 @@ You can add downstream relationships to device capability models for devices you
 
 Create relationships to downstream device capability models. Click **Save**
 
-![Device Template - Gateway](./media/tutorial-define-an-iot-device-type-pnp/gateway-occupancy-s1-rel.png)
+![Device Template - Gateway](./media/tutorial-define-iot-device-type-pnp/gateway-occupancy-s1-rel.png)
 
 ### Add cloud properties
 
@@ -388,23 +388,23 @@ After a device template is published, it's visible on the **Devices** page and t
 
 From the device explorer create a simulated smart building gateway. 
 
-![Device Template - Gateway](./media/tutorial-define-an-iot-device-type-pnp/smartbuildingdevice.png)
+![Device Template - Gateway](./media/tutorial-define-iot-device-type-pnp/smartbuildingdevice.png)
 
 ## Create Downstream Simulated Devices
 
 From the device explorer create a simulated occupancy sensor. 
 
-![Device Template - occupancy](./media/tutorial-define-an-iot-device-type-pnp/occupancydevice.png)
+![Device Template - occupancy](./media/tutorial-define-iot-device-type-pnp/occupancydevice.png)
 
 From the device explorer create a simulated s1 sensor. 
 
-![Device Template - s1](./media/tutorial-define-an-iot-device-type-pnp/s1device.png)
+![Device Template - s1](./media/tutorial-define-iot-device-type-pnp/s1device.png)
 
 ## Add Downstream Devices relationships to Gateway Device
 
 Select S1 Sensor and Occupancy Sensor and click **Connect to gateway**. 
 
-![Device Template - s1](./media/tutorial-define-an-iot-device-type-pnp/connecttogateway.png)
+![Device Template - s1](./media/tutorial-define-iot-device-type-pnp/connecttogateway.png)
 
 Select gateway device template, gateway device instance and click **Join**.
 
