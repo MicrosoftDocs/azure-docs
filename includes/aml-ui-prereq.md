@@ -12,11 +12,11 @@ ms.date: 05/06/2019
 
 1. [Create an Azure Machine Learning workspace](../articles/machine-learning/service/how-to-manage-workspace.md) if you don't have one.
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see [how to find your workspace](../articles/machine-learning/service/how-to-manage-workspace.md#view).  
+1. Sign into [ml.azure.com](https://ml.azure.com) and select the workspace you want to work with.
 
-1. In your workspace, select **Visual interface**.  
- 
-    ![Launch visual interface](./media/aml-ui-prereq/launch-ui.png)
+1. Select **Designer**.
 
-    You can also access the designer from your [Azure Machine Learning studio](https://ml.azure.com).
+    ![Launch the designer](./media/aml-ui-prereq/launch-designer.png)
+
+
 
