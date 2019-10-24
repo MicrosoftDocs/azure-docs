@@ -32,11 +32,11 @@ For a full list of prerequisites, see [Azure Disk Encryption for Linux VMs](../l
 
 ## Extension schemata
 
-There are two schemata for Azure Disk Encryption: v1.1, a newer, recommended schema that does not use Azure Active Directory (AAD) properties, and v0.1, an older schema that requires AAD properties. You must use the schema version corresponding to the extension you are using: schema v1.1 for the AzureDiskEncryption extension version 1.1, schema v0.1 for the AzureDiskEncryption extension version 0.1.
+There are two schemata for the Windows AzureDiskEncryption extension: v2.2, a newer, recommended schema that does not use Azure Active Directory (AAD) properties, and v1.1, an older schema that requires AAD properties. You must use the schema version corresponding to the extension you are using: schema v2.2 for the AzureDiskEncryption extension version 2.2, schema v1.1 for the AzureDiskEncryption extension version 1.1.
 
-### Schema v1.1: No AAD (recommended)
+### Schema v2.2: No AAD (recommended)
 
-The v1.1 schema is recommended and does not require Azure Active Directory properties.
+The v2.2 schema is recommended for all new VMs and does not require Azure Active Directory properties.
 
 ```json
 {
@@ -63,9 +63,9 @@ The v1.1 schema is recommended and does not require Azure Active Directory prope
 ```
 
 
-### Schema v0.1: with AAD 
+### Schema v1.1: with AAD 
 
-The 0.1 schema requires `aadClientID` and either `aadClientSecret` or `AADClientCertificate`.
+The 1.1 schema requires `aadClientID` and either `aadClientSecret` or `AADClientCertificate` and is not recommended for new VMs.
 
 Using `aadClientSecret`:
 
