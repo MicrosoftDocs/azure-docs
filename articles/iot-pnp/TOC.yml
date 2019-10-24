@@ -10,11 +10,25 @@
   - name: Use a device capability model to create a device
     href: quickstart-create-pnp-device.md
   - name: Connect a device to IoT Hub
-    href: quickstart-connect-pnp-device.md
+    items:
+      - name: C
+        href: quickstart-connect-pnp-device-c.md
+      - name: Node.js
+        href: quickstart-connect-pnp-device-node.md
+      - name: .NET
+        href: quickstart-connect-pnp-device-csharp.md
+      - name: Java
+        href: quickstart-connect-pnp-device-java.md
   - name: Connect a device to IoT Central
     href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - name: Connect to a device in your solution
-    href: quickstart-connect-pnp-device-solution.md
+    items:
+      - name: Node.js
+        href: quickstart-connect-pnp-device-solution-node.md
+      - name: .NET
+        href: quickstart-connect-pnp-device-solution-csharp.md
+      - name: Java
+        href: quickstart-connect-pnp-device-solution-java.md
 - name: Tutorials
   items:
   - name: Create a device using VS Code
