@@ -47,7 +47,7 @@ Go ahead and put their declarations after `TranscribeAsync`.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=140-276)]
 
 ## Create and configure an Http Client
-The first thing we'll need is an Http Client that has a correct base URL and authtentication set.
+The first thing we'll need is an Http Client that has a correct base URL and authentication set.
 Insert this code in `TranscribeAsync`
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=46-50)]
 
@@ -56,13 +56,13 @@ Next, we'll generate the transcription request. Add this code to `TranscribeAsyn
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=52-57)]
 
 ## Send the request and check its status
-Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has recived the requet. The service will return a Url in the response headers that's the location where it will store the transscription status.
+Now we post the request to the Speech Service and check the initial response code. This response code will simply indicate if the service has received the request. The service will return a Url in the response headers that's the location where it will store the transcription status.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=59-70)]
 
 ## Wait for the transcription to complete
-Since the service processes the transcription asyncronously, we need to poll for its status every so often. We'll check every 5 seconds.
+Since the service processes the transcription asynchronously, we need to poll for its status every so often. We'll check every 5 seconds.
 
-We can check the status by retrieveing the content at the Url we got when the posted the request. When we get the content back, we deserialize it into one of our helper class to make it easier to interact with.
+We can check the status by retrieving the content at the Url we got when the posted the request. When we get the content back, we deserialize it into one of our helper class to make it easier to interact with.
 
 Here's the polling code with status display for everything except a successful completion, we'll do that next.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=72-106,121-137)]
@@ -70,8 +70,8 @@ Here's the polling code with status display for everything except a successful c
 ## Display the transcription results
 Once the service has successfully completed the transcription the results will be stored in another Url that we can get from the status response.
 
-Here we make a request to downlaod those results in to a temporary file before reading and deserializing them.
-Once the results are loaded we can pring them to the console.
+Here we make a request to download those results in to a temporary file before reading and deserializing them.
+Once the results are loaded we can print them to the console.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=107-120)]
 
 ## Check your code
@@ -83,7 +83,7 @@ At this point, your code should look like this:
 
 Now you're ready to build your app and test our speech recognition using the Speech service.
 
-1. **Compile the code** - From the menu bar of Visual Stuio, choose **Build** > **Build Solution**.
+1. **Compile the code** - From the menu bar of Visual Studio, choose **Build** > **Build Solution**.
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press **F5**.
 3. **Start recognition** - It'll prompt you to speak a phrase in English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
 
