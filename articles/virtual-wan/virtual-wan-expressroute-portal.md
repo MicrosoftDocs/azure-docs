@@ -6,11 +6,11 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
 ---
-# Tutorial: Create an ExpressRoute association using Azure Virtual WAN (Preview)
+# Tutorial: Create an ExpressRoute association using Azure Virtual WAN
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over using an ExpressRoute circuit and association. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md)
 
@@ -26,24 +26,11 @@ In this tutorial, you learn how to:
 > * View resource health
 > * Monitor a connection
 
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
->
-
 ## Before you begin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
-
-## <a name="register"></a>Register this feature
-
-Before you can configure Virtual WAN, you must first enroll your subscription in the Preview. Otherwise, you will not be able to work with Virtual WAN in the portal. To enroll, send an email to **azurevirtualwan\@microsoft.com** with your subscription ID. You will receive an email back once your subscription has been enrolled.
-
-**Preview Considerations:**
-
-  * The ExpressRoute circuit must be enabled in a country/region that supports [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
-  * The ExpressRoute circuit must be a Premium circuit in order to connect to Virtual WAN hub. 
 
 ## <a name="vnet"></a>1. Create a virtual network
 
@@ -51,7 +38,7 @@ Before you can configure Virtual WAN, you must first enroll your subscription in
 
 ## <a name="openvwan"></a>2. Create a virtual WAN
 
-From a browser, navigate to the [Azure portal (preview)](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
+From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
