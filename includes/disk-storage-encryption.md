@@ -59,7 +59,7 @@ During the preview, only the following scenarios are supported:
 - Create a VM from a custom image and encrypt the OS disk using server-side encryption and customer-managed keys.
 - Create data disks encrypted using server-side encryption and customer-managed keys.
 - Create snapshots that are encrypted using server-side encryption and customer-managed keys.
-- Create VM scale sets that are encrypted with server-side encryption and customer-managed keys.
+- Create virtual machine scale sets that are encrypted with server-side encryption and customer-managed keys.
 
 The preview also has the following restrictions:
 
