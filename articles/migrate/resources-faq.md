@@ -72,7 +72,7 @@ Yes, both.
 ### How does the appliance communicate with vCenter Server and Azure Migrate?
 
 1. The appliance connects to vCenter Server (port 443), using the credentials you provided when you set up the appliance.
-2. The appliance uses VMware PowerCLI to query vCenter Server, to collect metadata about the VMs managed by vCenter Server. It collects configuration data about VMs (cores, memory, disks, NICs, etc) and the performance history of each VM for the past month.
+2. The appliance uses VMware PowerCLI to query vCenter Server, to collect metadata about the VMs managed by vCenter Server. It collects configuration data about VMs (cores, memory, disks, NICs) and the performance history of each VM for the past month.
 3. The collected metadata is then sent to Azure Migrate: Server Assessment (over the internet via HTTPS) for assessment.
 
 ### Can I connect the same appliance to multiple vCenter Server instances?
@@ -98,7 +98,7 @@ You can discover up to 10,000 VMware VMs and up to 5,000 Hyper-V VMs with a sing
 Currently deletion of appliance from the project isn't supported.
 
 - The only way to delete the appliance is to delete the resource group that contains the Azure Migrate project associated with the appliance.
-- However, deleting the resource group will also delete other registered appliances, the discovered inventory, assessments and all other Azure artifacts associated with the project in the resource group.
+- However, deleting the resource group will also delete other registered appliances, the discovered inventory, assessments and all other Azure components associated with the project in the resource group.
 
 ## Azure Migrate Server Assessment
 
@@ -206,8 +206,8 @@ You can [visualize dependencies](https://docs.microsoft.com/azure/migrate/how-to
 
 ### What's the difference between Azure Migrate Server Migration and Site Recovery?
 
-- Agentless migration of on-premies VMware VMs is native within Azure Migrate Server Migration.
-- For migration of Hyper-V VMs, physical servers, and agent-based VMware VMs, Azure Migrate Server Migration uses the Azure Site REcovery replication engine.
+- Agentless migration of on-premises VMware VMs is native within Azure Migrate Server Migration.
+- For migration of Hyper-V VMs, physical servers, and agent-based VMware VMs, Azure Migrate Server Migration uses the Azure Site Recovery replication engine.
 
 
 ## Next steps
