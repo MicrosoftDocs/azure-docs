@@ -1,6 +1,6 @@
 ---
-title: What's new in Web Application Firewall
-description: Learn what's new with Web Application Firewall, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
+title: What's new in Azure Web Application Firewall
+description: Learn what's new with Azure Web Application Firewall, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
@@ -9,7 +9,7 @@ ms.date: 10/24/2019
 ms.author: victorh
 
 ---
-# What's new in Web Application Firewall?
+# What's new in Azure Web Application Firewall?
 
 Azure Web Application Firewall is updated on an ongoing basis. To stay up-to-date with the most recent developments, this article provides you with information about:
 
