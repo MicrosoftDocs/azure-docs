@@ -1,7 +1,7 @@
 ---
-title: Model interpretability
+title: Model interpretability in Azure Machine Learning service
 titleSuffix: Azure Machine Learning
-description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model makes predictions.
+description: Learn how to explain why your model makes predictions using the Azure Machine Learning SDK. It can be used during training and inference to understand how your model determines feature importance and makes predictions.
 services: machine-learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,37 +9,131 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: larryfr
-ms.date: 06/21/2019
+ms.reviewer: trbye
+ms.date: 10/24/2019
 ---
 
-# Model interpretability: Azure Machine Learning
+# Model interpretability in Azure Machine Learning service
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn how to explain why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK. This particular tutorial focuses on using the interpretability package with Azure Machine Learning Service offerings. You will learn how to 
+In this article, you learn how to explain why your model made the predictions it did with the interpretability package of the Azure Machine Learning Python SDK. You learn the following tasks:
 
-
-Part 1:
-* Train and explain machine learning models on the various compute targets supported by Azure Machine Learning
+* Interpret machine learning models trained both locally and on remote compute resources
 * Store local and global explanations on Azure Run History
-* View model explanations in [Azure Machine Learning studio](ml.azure.com) 
-
-Part 2:
+* View interpretability visualizations in [Azure Machine Learning studio](https://ml.azure.com)
 * Deploy a scoring explainer with your model
 
+To learn more about model interpretability, see the [concept article](how-to-machine-learning-interpretability.md).
 
+## Local interpretability
 
+The following example shows how to use the interpret package locally without contacting Azure services. Run `pip install azureml-interpret` to get the interpretability package.
 
-To learn more about model interpretability, see the [ Machine Learning Interpretability Concept](how-to-machine-learning-interpretability.md).
+1. Train a sample model in a local Jupyter notebook.
 
+    ```python
+    # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
+    from sklearn.datasets import load_breast_cancer
+    from sklearn import svm
+    from sklearn.model_selection import train_test_split
+    breast_cancer_data = load_breast_cancer()
+    classes = breast_cancer_data.target_names.tolist()
+    
+    # split data into train and test
+    from sklearn.model_selection import train_test_split
+    x_train, x_test, y_train, y_test = train_test_split(breast_cancer_data.data,            
+                                                        breast_cancer_data.target,  
+                                                        test_size=0.2,
+                                                        random_state=0)
+    clf = svm.SVC(gamma=0.001, C=100., probability=True)
+    model = clf.fit(x_train, y_train)
+    ```
 
+2. Call the explainer locally: To initialize an explainer object, you need to pass your model and some training data to the explainer's constructor. You can also optionally pass in feature names and output class names (if doing classification) which will be used to make your explanations and visualizations more informative. Here is how to instantiate an explainer object using [TabularExplainer](https://docs.microsoft.com/python/api/azureml-interpret/azureml.interpret.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-interpret/azureml.interpret.mimic.mimicexplainer?view=azure-ml-py), and [PFIExplainer](https://docs.microsoft.com/python/api/azureml-interpret/azureml.interpret.permutation.permutation_importance.pfiexplainer?view=azure-ml-py) locally. `TabularExplainer` is calling one of the three SHAP explainers underneath (`TreeExplainer`, `DeepExplainer`, or `KernelExplainer`), and is automatically selecting the most appropriate one for your use case. You can however,call each of its three underlying explainers directly.
 
-## Part 1: Interpretability at training time
+    ```python
+    from interpret.ext.blackbox import TabularExplainer
 
+    # "features" and "classes" fields are optional
+    explainer = TabularExplainer(model, 
+                                 x_train, 
+                                 features=breast_cancer_data.feature_names, 
+                                 classes=classes)
+    ```
 
+    or
 
+    ```python
 
-While you can train on the various compute targets supported by Azure Machine Learning, the example in this section shows how to do this using an Azure Machine Learning Compute target.
+    from interpret.ext.blackbox import MimicExplainer
+    
+    # you can use one of the following four interpretable models as a global surrogate to the black box model
+    
+    from interpret.ext.glassbox import LGBMExplainableModel
+    from interpret.ext.glassbox import LinearExplainableModel
+    from interpret.ext.glassbox import SGDExplainableModel
+    from interpret.ext.glassbox import DecisionTreeExplainableModel
+
+    # "features" and "classes" fields are optional
+    # augment_data is optional and if true, oversamples the initialization examples to improve surrogate model accuracy to fit original model.  Useful for high-dimensional data where the number of rows is less than the number of columns. 
+    # max_num_of_augmentations is optional and defines max number of times we can increase the input data size.
+    # LGBMExplainableModel can be replaced with LinearExplainableModel, SGDExplainableModel, or DecisionTreeExplainableModel
+    explainer = MimicExplainer(model, 
+                               x_train, 
+                               LGBMExplainableModel, 
+                               augment_data=True, 
+                               max_num_of_augmentations=10, 
+                               features=breast_cancer_data.feature_names, 
+                               classes=classes)
+    ```
+   or
+
+    ```python
+    from interpret.ext.blackbox import PFIExplainer 
+    
+    # "features" and "classes" fields are optional
+    explainer = PFIExplainer(model, 
+                             features=breast_cancer_data.feature_names, 
+                             classes=classes)
+    ```
+### Overall (global) feature importance values
+
+Get the global feature importance values.
+    
+```python
+
+# you can use the training data or the test data here
+global_explanation = explainer.explain_global(x_train)
+
+# if you used the PFIExplainer in the previous step, use the next line of code instead
+# global_explanation = explainer.explain_global(x_train, true_labels=y_test)
+
+# sorted feature importance values and feature names
+sorted_global_importance_values = global_explanation.get_ranked_global_values()
+sorted_global_importance_names = global_explanation.get_ranked_global_names()
+dict(zip(sorted_global_importance_names, sorted_global_importance_values))
+
+# alternatively, you can print out a dictionary that holds the top K feature names and values
+global_explanation.get_feature_importance_dict()
+```
+
+### Instance-level (local) feature importance values
+
+Get the local feature importance values: use the following function calls to explain an individual instance or a group of instances. Please note that PFIExplainer does not support local explanations.
+
+```python
+# explain the first data point in the test set
+local_explanation = explainer.explain_local(x_test[0:5])
+
+# sorted feature importance values and feature names
+sorted_local_importance_names = local_explanation.get_ranked_local_names()
+sorted_local_importance_values = local_explanation.get_ranked_local_values()
+```
+
+## Interpretability for remote runs
+
+This example shows how to use the `ExplanationClient` class for enabling model interpretability for remote runs. The concept is similar to the previous section,but you use the `ExplanationClient` in the remote run to upload the interpretability context, and then you can download the context later in a local environment. Use `pip install azureml-contrib-interpret` to get the necessary package.
 
 1. Create a training script in a local Jupyter notebook (for example, train_explain.py).
 
@@ -72,8 +166,9 @@ While you can train on the various compute targets supported by Azure Machine Le
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Follow the instructions on [Set up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) to learn about how to set up an Azure Machine Learning Compute as your compute target and submit your training run. You can look at the example notebooks [Azure Integration: Remote Explanations](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation).
-3. Download the explanation in your local Jupyter notebook.
+1. Follow the instructions for [setting up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) to learn how to set up an Azure Machine Learning compute as your compute target and submit your training run. You can also see the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation).
+
+1. Download the explanation in your local Jupyter notebook.
 
     ```python
     from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
@@ -91,14 +186,14 @@ While you can train on the various compute targets supported by Azure Machine Le
     print('global importance names: {}'.format(global_importance_names))
     ```
 
-
-### Raw feature transformations
+## Raw feature transformations
 
 Optionally, you can pass your feature transformation pipeline to the explainer (in train_explain.py) to receive explanations in terms of the raw features before the transformation (rather than engineered features). If you skip this, the explainer provides explanations in terms of engineered features.
 
 The format of supported transformations is same as the one described in [sklearn-pandas](https://github.com/scikit-learn-contrib/sklearn-pandas). In general, any transformations are supported as long as they operate on a single column and are therefore clearly one to many. 
 
-We can explain raw features by either using a `sklearn.compose.ColumnTransformer` or a list of fitted transformer tuples. The cell below uses `sklearn.compose.ColumnTransformer`. 
+Explain raw features by either using a `sklearn.compose.ColumnTransformer` or a list of fitted transformer tuples. The code below uses `sklearn.compose.ColumnTransformer`. 
+
 
 ```python
 from sklearn.compose import ColumnTransformer
@@ -132,7 +227,8 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=preprocessor)
 ```
 
-In case you want to run the example with the list of fitted transformer tuples, use the following code: 
+In case you want to run the example with the list of fitted transformer tuples, use the following code.
+
 ```python
 from sklearn.pipeline import Pipeline
 from sklearn.impute import SimpleImputer
@@ -165,11 +261,11 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=transformations)
 ```
 
-### Visualizations
+## Visualizations
 
 Once you download the explanations in your local Jupyter notebook, you can use the visualization dashboard to understand and interpret your model.
 
-#### Global visualizations
+### Global visualizations
 
 The following plots provide a global view of the trained model along with its predictions and explanations.
 
@@ -182,9 +278,9 @@ The following plots provide a global view of the trained model along with its pr
 
 [![Visualization Dashboard Global](./media/machine-learning-interpretability-explainability/global-charts.png)](./media/machine-learning-interpretability-explainability/global-charts.png#lightbox)
 
-#### Local visualizations
+### Local visualizations
 
-You can click on any individual data point at any time of the preceding plots to load the local feature importance plot for the given data point.
+Click on any individual data point at any time in the preceding plots to load the local feature importance plot for the given data point.
 
 |Plot|Description|
 |----|-----------|
@@ -217,20 +313,18 @@ Note you will need to have widget extensions of the visualization dashboard enab
     jupyter labextension install @jupyter-widgets/jupyterlab-manager
     jupyter labextension install microsoft-mli-widget
     ```
-To load the visualization dashboard, use the following code:
+
+To load the visualization dashboard, use the following code.
 
 ```python
 from azureml.contrib.interpret.visualize import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
 ```
-### Interpretability in Azure Machine Learning studio
 
-By uploading global model explanation data via the following command,
-```python
-client.upload_model_explanation(global_explanation, comment='global explanation: all features')
-```
-You can check the visualization dashboard in [Azure Machine Learning studio](ml.azure.com). The dashboard shown in Azure Machine Learning studio, is a simpler version of the visualization dashboard explained above and only supports the following two tabs:
+### Visualization in Azure Machine Learning studio
+
+By completing the steps in the [remote interpretability](how-to-machine-learning-interpretability-aml.md#nterpretability-for-remote-runs) section, you can check the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). The dashboard shown in Azure Machine Learning studio, is a simpler version of the visualization dashboard explained above and only supports the following two tabs.
 
 |Plot|Description|
 |----|-----------|
@@ -253,11 +347,9 @@ To access the visualization dashboard in Azure Machine Learning studio, you can 
 [![Visualization Dashboard Local Feature Importance](./media/machine-learning-interpretability-explainability/amlstudio-models.png)](./media/machine-learning-interpretability-explainability/amlstudio-models.png#lightbox)
 
 
-## [Part 2] Interpretability at inferencing time
+## Interpretability at inference time
 
-The explainer can be deployed along with the original model and can be used at scoring time to provide the local explanation information. We also offer lighter-weight scoring explainers to make interpretability at inferencing time more performant. The process of deploying a lighter-weight scoring explainer is similar to deploying a model and includes the following steps:
-
-
+The explainer can be deployed along with the original model and can be used at inference time to provide the local explanation information. We also offer lighter-weight scoring explainers to improve performance of interpretability at inference time. The process of deploying a lighter-weight scoring explainer is similar to deploying a model and includes the following steps:
 
 
 1. Create an explanation object (e.g., using TabularExplainer):
@@ -441,13 +533,8 @@ The explainer can be deployed along with the original model and can be used at s
 1. Clean up: To delete a deployed web service, use `service.delete()`.
 
 
-
-
-
 ## Next steps
 
-
-To learn more about model interpretability, see the [ Machine Learning Interpretability Concept](how-to-machine-learning-interpretability.md).
-
+To learn more about model interpretability, see the [concept article](how-to-machine-learning-interpretability.md).
 
 To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on your local machine, see the [How to explain models locally on your personal machine?](how-to-machine-learning-interpretability-local.md) and [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data).

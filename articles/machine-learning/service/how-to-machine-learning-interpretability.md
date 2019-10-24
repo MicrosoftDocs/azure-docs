@@ -16,7 +16,7 @@ ms.date: 06/21/2019
 # Model interpretability with Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-## Overview of Model Interpretability
+## Overview of model interpretability
 
 Interpretability is critical for data scientists and business decision makers alike to ensure compliance with company policies, industry standards, and government regulations:
 + Data scientists need the ability to explain their models to executives and stakeholders, so they can understand the value and accuracy of their findings 
@@ -109,9 +109,7 @@ The explanation functions accept both models and pipelines as input. If a model 
 The `explain` package is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning Workspace portal for user analysis.
 
 
-
 ## Next steps
-
 
 
 To see a collection of instructions and Jupyter notebooks that demonstrate how to run interpretability on your local machine, see the [How to explain models locally on your personal machine?](how-to-machine-learning-interpretability-local.md) and [Azure Machine Learning Interpretability local run sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data).
