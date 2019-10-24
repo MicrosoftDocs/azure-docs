@@ -1,5 +1,5 @@
 ---
-title: Machine learning and AI with ONNX in Azure SQL Database Edge | Microsoft Docs
+title: Machine learning and AI with ONNX in Azure SQL Database Edge Preview | Microsoft Docs
 description: Machine learning in Azure SQL Database Edge Preview supports models in the Open Neural Network Exchange (ONNX) format. ONNX is an open format you can use to interchange models between various machine learning frameworks and tools.
 keywords: deploy sql database edge
 services: sql-database-edge
@@ -16,7 +16,20 @@ ms.date: 11/04/2019
 
 Machine learning in Azure SQL Database Edge Preview supports models in the [Open Neural Network Exchange (ONNX)](https://onnx.ai/) format. ONNX is an open format you can use to interchange models between various [machine learning frameworks and tools](https://onnx.ai/supported-tools).
 
-## Getting ONNX models
+## Supported tool kits
+
+ONNXMLTools enables you to convert models from different machine learning tool kits to an ONNX model. Currently, for numeric data types and single column inputs, the following tool kits are supported:
+
+* [scikit-learn](https://github.com/onnx/sklearn-onnx)
+* [Tensorflow](https://github.com/onnx/tensorflow-onnx)
+* [Keras](https://github.com/onnx/keras-onnx)
+* [CoreML](https://github.com/onnx/onnxmltools)
+* [Spark ML (experimental)](https://github.com/onnx/onnxmltools/tree/master/onnxmltools/convert/sparkml)
+* [LightGBM](https://github.com/onnx/onnxmltools)
+* [libsvm](https://github.com/onnx/onnxmltools)
+* [XGBoost](https://github.com/onnx/onnxmltools)
+
+## Get ONNX models
 
 There are several ways that you can obtain a model in the ONNX format:
 
@@ -32,6 +45,17 @@ There are several ways that you can obtain a model in the ONNX format:
 > Not all ONNX versions are supported by Azure SQL database Edge. Only predicting numeric data types through the ONNX model is currently supported.
 
 Once you have an ONNX model, you can deploy the model in Azure SQL Database Edge. You can then use [native scoring with the PREDICT T-SQL function](/sql/advanced-analytics/sql-native-scoring/).
+
+## Limitations
+
+Currently, this support is limited to models with **numeric data types**:
+
+- [int and bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
+- [real and float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql).
+  
+Other numeric types can be converted to supported types by using CAST and CONVERT [CAST and CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql).
+
+The model inputs should be structured so that each input to the model corresponds to a single column in a table. For example, if you are using a pandas dataframe to train a model, then each input should be a separate column to the model.
 
 ## Next steps
 
