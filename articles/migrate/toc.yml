@@ -86,6 +86,7 @@
     href: how-to-create-a-group.md
   - name: Group machines using dependency visualization
     href: how-to-create-group-machine-dependencies.md
+    href: how-to-set-up-machine-dependencies-agentless.md
   - name: Create an assessment
     href: how-to-create-assessment.md
   - name: Assess a SQL Server database

@@ -12,6 +12,8 @@ ms.author: hamusa
 
 Azure Migrate: Server Assessment assesses groups of on-premises machines for migration to Azure. You can use the dependency visualization functionality in Server Assessment to create groups. This article provides information about this feature.
 
+Learn more about the preview support of agentless dependency visualization [here](how-to-create-group-machine-dependencies-agentless.md).
+
 > [!NOTE]
 > The dependency visualization functionality is not available in Azure Government.
 
