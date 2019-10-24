@@ -9,7 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
 
 ---
@@ -17,16 +17,22 @@ ms.custom: seodec18
 
 This article helps you find and correct errors or failures encountered when using Azure Machine Learning.
 
-## Visual interface issues
+## Outage: SR-IOV upgrade to NCv3 machines in AmlCompute
 
-Visual interface for machine learning service issues.
+Azure Compute will be updating the NCv3 SKUs starting early November 2019 to support all MPI implementations and versions, and RDMA verbs for InfiniBand-equipped virtual machines. This will require a short downtime - [read more about the SR-IOV upgrade](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+
+As a customer of Azure Machine Learning's managed compute offering (AmlCompute), you are not required to make any changes at this time. Based on the [update schedule](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) you would need to plan for a short break in your training. The service will take responsibility to update the VM images on your cluster nodes and automatically scale up your cluster. Once the upgrade completes you may be able to use all other MPI discibutions (like OpenMPI with Pytorch) besides getting higher InfiniBand bandwidth, lower latencies, and better distributed application performance.
+
+## Azure Machine Learning designer issues
+
+Known issues with the designer.
 
 ### Long compute preparation time
 
 Create new compute or evoke leaving compute takes time, may be a few minutes or even longer. The team is working for optimization.
 
 
-### Cannot run an experiment only contains dataset 
+### Cannot run an experiment only contains a dataset 
 
 You might want to run an experiment only contains dataset  to visualize the dataset. However, it's not allowed to run an experiment only contains dataset today. We are actively fixing this issue.
  
@@ -128,17 +134,17 @@ If these steps don't solve the issue, try restarting the cluster.
 
 If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
 
-* Upgrade `azureml-sdk[automl_databricks]` package to the latest version.
+* Upgrade `azureml-sdk[automl]` package to the latest version.
 * Add `azure-dataprep` version 1.1.8 or above.
 * Add `pyarrow` version 0.11 or above.
 
-## Azure portal
+## Azure Machine Learning studio
 
-If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
+If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to [Azure Machine Learning studio](https://ml.azure.com) and search for the workspace name.
 
 ## Diagnostic logs
 
-Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.  You can also find this information in the **Experiments** section of your [workspace landing page (preview)](https://ml.azure.com).
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure Machine Learning studio](https://ml.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.  
 
 > [!NOTE]
 > Azure Machine Learning logs information from a variety of sources during training, such as AutoML or the Docker container that runs the training job. Many of these logs are not documented. If you encounter problems and contact Microsoft support, they may be able to use these logs during troubleshooting.
@@ -183,7 +189,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## Updating Azure Machine Learning components in AKS cluster
 
-Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
+Updates to Azure Machine Learning components installed in an Azure Kubernetes Service cluster must be manually applied. 
+
+> [!WARNING]
+> Before performing the following actions, check the version of your Azure Kubernetes Service cluster. If the cluster version is equal to or greater than 1.14, you will not be able to re-attach your cluster to the Azure Machine Learning workspace.
+
+You can apply these updates by detaching the cluster from the Azure Machine Learning workspace, and then re-attaching the cluster to the workspace. If SSL is enabled in the cluster, you will need to supply the SSL certificate and private key when re-attaching the cluster. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)

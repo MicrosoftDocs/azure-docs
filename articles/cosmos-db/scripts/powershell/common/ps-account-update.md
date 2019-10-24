@@ -8,7 +8,7 @@ ms.date: 09/20/2019
 ms.author: mjbrown
 ---
 
-# Update an Azure Cosmos account or add modify regions using PowerShell
+# Update an Azure Cosmos account or modify regions using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 

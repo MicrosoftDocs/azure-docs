@@ -6,6 +6,9 @@
   - name: What is Azure Machine Learning?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
+  - name: Azure Machine Learning vs Studio
+    displayName: AML, Studio, designer
+    href: ../compare-azure-ml-to-studio-classic.md
   - name: Architecture & terms
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
@@ -40,12 +43,8 @@
   - name: R SDK
     items:
     - name: Create first ML experiment (R)
-      items:
-      - name: 1. Set up a workspace & environment
-        href: tutorial-1st-experiment-R-set-up.md
-      - name: 2. Train your first model
-        href: tutorial-1st-experiment-R-train-model.md
-  - name: Visual interface
+      href: tutorial-1st-r-experiment.md
+  - name: Designer
     items:
     - name: 1. Train regression model
       displayName: studio
@@ -54,14 +53,10 @@
       displayName: studio
       href: ui-tutorial-automobile-price-deploy.md
   - name: Automated ML (interface)
-    items:
-    - name: Classification (Bank data)
-      displayName: automl, automated, auto ml, portal, ui
-      href: tutorial-first-experiment-automated-ml.md
+    displayName: automl, automated, auto ml, portal, ui
+    href: tutorial-first-experiment-automated-ml.md
   - name: Machine Learning CLI
-    items:
-    - name: Train and deploy a model
-      href: tutorial-train-deploy-model-cli.md
+    href: tutorial-train-deploy-model-cli.md
 - name: Samples
   items:
   - name: Notebooks
@@ -73,26 +68,29 @@
   items:
   - name: Workspace
     href: concept-workspace.md
-  - name: Compute target
-    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-    href: concept-compute-target.md
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
-  - name: Visual interface
-    displayName: studio
-    href: ui-concept-visual-interface.md
-  - name: Automated machine learning
-    displayName: automl, auto ml
-    href: concept-automated-ml.md
   - name: Model management (MLOps)
     displayName: deploy, deployment, publish, production, operationalize, operationalization
     href: concept-model-management-and-deployment.md
-  - name: ML pipelines
-    href: concept-ml-pipelines.md
-  - name: Model interpretability
+  - name: Interpretability
     displayName: explainability
     href: machine-learning-interpretability-explainability.md
+  - name: 'Designer: no-code ML'
+    displayName: studio
+    href: ui-concept-visual-interface.md
+  - name: Automated ML
+    displayName: automl, auto ml
+    href: concept-automated-ml.md
+  - name: Compute instance
+    displayName: resource, dsvm, Data Science Virtual Machine
+    href: concept-compute-instance.md
+  - name: Compute target
+    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+    href: concept-compute-target.md
+  - name: ML pipelines
+    href: concept-ml-pipelines.md
   - name: ONNX
     href: concept-onnx.md
   - name: Enterprise readiness & security
@@ -118,6 +116,9 @@
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
+  - name: Git integration
+    displayName: git github gitlab
+    href: concept-train-model-git-integration.md
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -157,27 +158,13 @@
     - name: Train with datasets
       displayName: data, dataset
       href: how-to-train-with-datasets.md
+    - name: Detect drift on datasets
+      displayName: data, dataset
+      href: how-to-monitor-datasets.md
   - name: Train models
     items:
-    - name: Set up training environments
-      displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-      href: how-to-set-up-training-targets.md
-    - name: Use estimators to train
-      items:
-      - name: Create estimators in training
-        href: how-to-train-ml-models.md
-      - name: Use Scikit-learn
-        href: how-to-train-scikit-learn.md
-      - name: Use TensorFlow
-        href: how-to-train-tensorflow.md
-      - name: Use Keras
-        href: how-to-train-keras.md
-      - name: Use PyTorch
-        href: how-to-train-pytorch.md
-      - name: Use Chainer
-        href: how-to-train-chainer.md
-    - name: Use visual interface
-      displayName: sample visual interface experiments
+    - name: Use the designer
+      displayName: sample designer experiments
       items:
       - name: "Predict price"
         displayName: regression, studio
@@ -197,25 +184,29 @@
       - name: "Predict flight delays"
         displayName: classification, studio
         href:  how-to-ui-sample-classification-predict-flight-delay.md
-    - name: Tune hyperparameters
-      displayName: parameter
-      href: how-to-tune-hyperparameters.md
-    - name: Use Key Vault when training
-      displayName: secrets keyvault
-      href: how-to-use-secrets-in-runs.md
-  - name: Track & monitor experiments
-    items:
-    - name: Start, monitor or cancel runs
-      displayName: cancel, fail, status, child run
-      href: how-to-manage-runs.md
-    - name: Log metrics for training runs
-      href: how-to-track-experiments.md
-    - name: Track experiments with MLflow
-      displayName: log, monitor, metrics
-      href: how-to-use-mlflow.md
-    - name: Visualize runs with TensorBoard
-      displayName: log, monitor, metrics
-      href: how-to-monitor-tensorboard.md
+    - name: Use estimators for ML
+      items:
+      - name: Create estimators in training
+        href: how-to-train-ml-models.md
+      - name: Set up training environments
+        displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+        href: how-to-set-up-training-targets.md
+      - name: Tune hyperparameters
+        displayName: parameter
+        href: how-to-tune-hyperparameters.md
+      - name: Use Key Vault when training
+        displayName: secrets keyvault
+        href: how-to-use-secrets-in-runs.md
+    - name: Scikit-learn
+      href: how-to-train-scikit-learn.md
+    - name: TensorFlow
+      href: how-to-train-tensorflow.md
+    - name: Keras
+      href: how-to-train-keras.md
+    - name: PyTorch
+      href: how-to-train-pytorch.md
+    - name: Chainer
+      href: how-to-train-chainer.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
@@ -232,34 +223,47 @@
       href: how-to-auto-train-forecast.md
     - name: Understand charts and metrics
       href: how-to-understand-automated-ml.md
+  - name: Track & monitor experiments
+    items:
+    - name: Start, monitor or cancel runs
+      displayName: cancel, fail, status, child run
+      href: how-to-manage-runs.md
+    - name: Log metrics for training runs
+      href: how-to-track-experiments.md
+    - name: Track experiments with MLflow
+      displayName: log, monitor, metrics
+      href: how-to-use-mlflow.md
+    - name: Visualize runs with TensorBoard
+      displayName: log, monitor, metrics
+      href: how-to-monitor-tensorboard.md
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
       href: how-to-deploy-and-where.md
-    - name: Deploy to Azure Kubernetes Service
+    - name: Azure Kubernetes Service
       displayName: aks, aad, authentication, azure active directory
       href: how-to-deploy-azure-kubernetes-service.md
-    - name: Deploy for GPU inference
-      href: how-to-deploy-inferencing-gpus.md
-    - name: Deploy to Azure App Service
-      displayName: web app
-      href: how-to-deploy-app-service.md
-    - name: Deploy to Azure Container Instances
+    - name: Azure Container Instances
       displayName: aci
       href: how-to-deploy-azure-container-instance.md
-    - name: Deploy to Notebook VMs
+    - name: IoT Edge
+      href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: FPGA inference
+      href: how-to-deploy-fpga-web-service.md
+    - name: GPU inference
+      href: how-to-deploy-inferencing-gpus.md
+    - name: Azure App Service
+      displayName: web app
+      href: how-to-deploy-app-service.md
+    - name: Compute instances
       href: how-to-deploy-local-container-notebook-vm.md
     - name: Use custom Docker image
       href: how-to-deploy-custom-docker-image.md
-    - name: Deploy existing models
+    - name: Use existing models
       displayName: publish existing model
       href: how-to-deploy-existing-model.md
-    - name: Deploy to IoT Edge
-      href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: Deploy for FPGAs inference
-      href: how-to-deploy-fpga-web-service.md
-    - name: Troubleshoot & debug deployments
+    - name: Troubleshoot & debug
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
     items:
@@ -269,6 +273,9 @@
     - name: Run batch predictions
       displayName: score scoring asynchronous consume pipeline
       href: how-to-run-batch-predictions.md
+    - name: Use the designer for batch predictions
+      displayName: score scoring asynchronous consume pipeline
+      href: how-to-run-batch-predictions-ui.md
   - name: Monitor models
     items:
     - name: Collect & evaluate model data
@@ -278,11 +285,15 @@
       href: how-to-monitor-data-drift.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
-  - name: Create reusable workflows
+  - name: Build & use ML pipelines
     displayName: pipelines
     items:
-    - name: Create ML pipelines in Python
+    - name: Create ML pipelines (Python)
       href: how-to-create-your-first-pipeline.md
+    - name: Schedule a pipeline (Python)
+      href: how-to-schedule-pipelines.md
+    - name: Debug & troubleshoot pipelines
+      href: how-to-debug-pipelines.md
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
@@ -299,13 +310,13 @@
     href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
   - name: ML SDK (R)
     displayName: api, core, package, R, class
-    href: https://github.com/Azure/azureml-sdk-for-r
+    href: https://azure.github.io/azureml-sdk-for-r/reference/index.html
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
   - name: Monitor data reference
     href: monitor-resource-reference.md
-  - name: Visual interface modules
+  - name: Designer modules
     displayName: module, reference, algorithm, studio
     items:
     - name: Module reference overview
@@ -314,10 +325,20 @@
       items:
       - name: Convert to CSV
         href: ../algorithm-module-reference/convert-to-csv.md
+      - name: Convert to Dataset
+        href: ../algorithm-module-reference/convert-to-dataset.md
     - name: Data input & output
       items:
       - name: Import Data
-        href: ../algorithm-module-reference/import-data.md
+        items: 
+        - name: Import Data
+          href: ../algorithm-module-reference/import-data.md
+        - name: Import from Web URL via HTTP
+          href: ../algorithm-module-reference/import-from-web-url-via-http.md
+        - name: Import from Azure Blob Storage module
+          href: ../algorithm-module-reference/import-from-azure-blob-storage.md
+        - name: Import from Azure SQL Database
+          href: ../algorithm-module-reference/import-from-azure-sql-database.md
       - name: Export Data
         href: ../algorithm-module-reference/export-data.md
       - name: Enter Data Manually
@@ -326,12 +347,18 @@
       items:
       - name: Select Columns in Dataset
         href: ../algorithm-module-reference/select-columns-in-dataset.md
+      - name: Select Columns Transform
+        href: ../algorithm-module-reference/select-columns-transform.md
       - name: Edit Metadata
         href: ../algorithm-module-reference/edit-metadata.md
       - name: Clean Missing Data
         href: ../algorithm-module-reference/clean-missing-data.md
       - name: Feature Hashing
         href: ../algorithm-module-reference/feature-hashing.md
+      - name: Permutation Feature Importance
+        href: ../algorithm-module-reference/permutation-feature-importance.md
+      - name: Filter Based Feature Selection
+        href: ../algorithm-module-reference/filter-based-feature-selection.md
       - name: Extract N-Gram Features from Text
         href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
       - name: Add Columns
@@ -348,20 +375,36 @@
         href: ../algorithm-module-reference/split-data.md
       - name: Normalize Data
         href: ../algorithm-module-reference/normalize-data.md
+      - name: SMOTE
+        href: ../algorithm-module-reference/smote.md
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
+      - name: Clip Values
+        href: ../algorithm-module-reference/clip-values.md
+      - name: Apply SQL Transformation
+        href: ../algorithm-module-reference/apply-sql-transformation.md
     - name: Machine learning
       items:
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
+      - name: Score SVD Recommender
+        href: ../algorithm-module-reference/score-svd-recommender.md
       - name: Assign Data To Clusters
         href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
       - name: Train Clustering Model
         href: ../algorithm-module-reference/train-clustering-model.md
+      - name: Train SVD Recommender
+        href: ../algorithm-module-reference/train-svd-recommender.md
+      - name: Tune Model Hyperparameters
+        href: ../algorithm-module-reference/tune-model-hyperparameters.md
+      - name: Cross Validate Model
+        href: ../algorithm-module-reference/cross-validate-model.md
       - name: Evaluate Model
         href: ../algorithm-module-reference/evaluate-model.md
+      - name: Evaluate Recommender
+        href: ../algorithm-module-reference/evaluate-recommender.md
       - name: Apply Transformation
         href: ../algorithm-module-reference/apply-transformation.md
       - name: Linear Regression
@@ -384,6 +427,8 @@
         href: ../algorithm-module-reference/multiclass-decision-forest.md
       - name: Multiclass Boosted Decision Tree
         href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
+      - name: One vs. All Multiclass
+        href: ../algorithm-module-reference/one-vs-all-multiclass.md
       - name: Two-Class Averaged Perceptron
         href: ../algorithm-module-reference/two-class-averaged-perceptron.md
       - name: Two-Class Decision Forest
@@ -402,6 +447,12 @@
         href: ../algorithm-module-reference/create-python-model.md
       - name: Execute R Script
         href: ../algorithm-module-reference/execute-r-script.md
+    - name: Statistical Functions
+      items: 
+      - name: Apply Math Operation
+        href: ../algorithm-module-reference/apply-math-operation.md
+      - name: Summarize Data
+        href: ../algorithm-module-reference/summarize-data.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources

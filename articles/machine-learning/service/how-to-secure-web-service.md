@@ -15,6 +15,7 @@ ms.custom: seodec18
 ---
 
 # Use SSL to secure a web service through Azure Machine Learning
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 This article shows you how to secure a web service that's deployed through Azure Machine Learning.
 
@@ -71,7 +72,7 @@ To deploy (or redeploy) the service with SSL enabled, set the *ssl_enabled* para
 ### Deploy on AKS and field-programmable gate array (FPGA)
 
   > [!NOTE]
-  > The information in this section also applies when you deploy a secure web service for the visual interface. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+  > The information in this section also applies when you deploy a secure web service for the designer. If you aren't familiar with using the Python SDK, see [What is the Azure Machine Learning SDK for Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 When you deploy to AKS, you can create a new AKS cluster or attach an existing one. For more information on creating or attaching a cluster, see [Deploy a model to an Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
   

@@ -4,8 +4,8 @@ description: Prerequisites for using Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
+ms.date: 10/01/2019
+ms.author: rohogue
 ---
 
 # Prerequisites for Azure HPC Cache (preview)
@@ -52,15 +52,14 @@ Learn more about Azure virtual networks and DNS server configurations in [Name r
 Check these permission-related prerequisites before starting to create your cache.
 
 * The cache instance needs to be able to create virtual network interfaces (NICs). The user who creates the cache must have sufficient privileges in the subscription to create NICs.
-<!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
 * If using Blob storage, Azure HPC Cache needs authorization to access your storage account. You can use role-based access control (RBAC) to give the cache access to your Blob storage. Two roles are required: Storage Account Contributor and Storage Blob Data Contributor. Follow the instructions in [Add storage targets](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) to add the roles.
 
 ## Storage infrastructure
 
-The cache supports Azure Blob containers or NFS hardware storage exports. You can define storage targets when you create the cache, but you also can add storage afterward.
+The cache supports Azure Blob containers or NFS hardware storage exports. Add storage targets after you create the cache.
 
-Each storage type has specific prerequisites. 
+Each storage type has specific prerequisites.
 
 ### NFS storage requirements
 

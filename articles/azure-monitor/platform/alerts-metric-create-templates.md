@@ -2474,7 +2474,7 @@ Save the json below as list-of-vms-static.json for the purpose of this walk-thro
                 "PT5M",
                 "PT15M",
                 "PT30M",
-                "PT1H""
+                "PT1H"
             ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
