@@ -260,7 +260,7 @@ Unsupported:
 > [!CAUTION]
 > The integration with Event Grid on IoT Edge is in preview
 
-This Azure Blob Storage on IoT Edge module now provides integration with Event Grid on IoT Edge. For detailed information on this integration, see the [tutorial to deploy the modules, publish events and verify event delivery](../event-grid/edge/deploy-blob-storage-module-portal.md).
+This Azure Blob Storage on IoT Edge module now provides integration with Event Grid on IoT Edge. For detailed information on this integration, see the [tutorial to deploy the modules, publish events and verify event delivery](../event-grid/edge/react-blob-storage-events-locally.md).
 
 ## Release Notes
 

@@ -293,5 +293,5 @@ In this tutorial, you created an event grid topic, subscription, and published e
 - Enable persistence of Event Grid module on [Linux](persist-state-linux.md) or [Windows](persist-state-windows.md)
 - Follow [documentation](configure-client-auth.md) to configure client authentication
 - Forward events to Azure Functions in the cloud by following this [tutorial](pub-sub-events-webhook-cloud.md)
-- [React to Blob Storage events on IoT Edge](deploy-blob-storage-module-portal.md)
+- [React to Blob Storage events on IoT Edge](react-blob-storage-events-locally.md)
 
