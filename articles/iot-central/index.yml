@@ -70,7 +70,7 @@ conceptualContent:
 
     - title: Transform 
       links: 
-        - url: ./core/howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - url: ./core/howto-create-telemetry-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
           text: Create a telemetry rule 
         - url: ./core/howto-create-event-rules.md
