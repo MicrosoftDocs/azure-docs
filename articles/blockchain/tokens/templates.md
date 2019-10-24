@@ -46,7 +46,7 @@ A hybrid fungible base with a non-fungible segments token has a fungible base wi
 
 ## Token behaviors
 
-A token behavior defines capabilities or restrictions of the token. The behavior includes supporting properties that are a part of the token definition. Behaviors can be applied across all token types or just one. Behaviors can be internal or external depending on what the behavior effects. An internal behavior enables or restricts properties on the token itself. An external behavior is enables or restricts the invocation of the behavior from an external actor.
+A token behavior defines capabilities or restrictions of the token. The behavior includes supporting properties that are a part of the token definition. Behaviors can be applied across all token types or just one. Behaviors can be internal or external depending on what the behavior effects. An internal behavior enables or restricts properties on the token itself. An external behavior enables or restricts the invocation of the behavior from an external actor.
 
 The token behaviors supported in Azure Blockchain Tokens preview from the Token Taxonomy Framework (TTF) without modifications are listed in the [token composability](composability.md) page. 
 
@@ -68,7 +68,7 @@ Qualified tokens represent something earned and are usually associated with one 
 
 **𝜏N{s,~t}** - non-fungible, singleton, and non-transferable
 
-Various audit and attestation scenarios require that the ownership of the token cannot be changed. There are a set of use cases which have a need to provide a qualified token whether the association is good or bad.
+Various audit and attestation scenarios require that the ownership of the token cannot be changed. There is a set of use cases, which have a need to provide a qualified token whether the association is good or bad.
 
 ### Asset tokens
 
@@ -84,7 +84,7 @@ Ticket tokens have consistent value but typically expire. For example, a plane t
 
 **𝜏N{m,b,r}** - non-fungible, mintable, burnable, and have role support.
 
-Ticket tokens typically have an expiry date which make them different from a regular commodity token. For example, an airplane ticket, concert ticket, or sports ticket all have options of assigned seating with specific dates of use. You cannot easily interchange tickets between dates or seating areas.
+Ticket tokens typically have an expiry date that makes them different from a regular commodity token. For example, an airplane ticket, concert ticket, or sports ticket all have options of assigned seating with specific dates of use. You cannot easily interchange tickets between dates or seating areas.
 
 ## Next steps
 

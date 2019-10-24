@@ -115,7 +115,7 @@
     - name: Blockchain Service
       tocHref: /azure/blockchain/service/
       topicHref: /azure/blockchain/service/index
-    - name: Blockchain Tokens Service
+    - name: Blockchain Tokens
       tocHref: /azure/blockchain/tokens/
       topicHref: /azure/blockchain/tokens/index
     - name: Blockchain Workbench

@@ -12,7 +12,7 @@ ms.reviewer: chroyal
 ---
 # Configure Blockchain Data Manager using the Azure portal
 
-Use the Azure portal to configure Blockchain Data Manager for Azure Blockchain Service. A Blockchain Data Manager instance monitors a Azure Blockchain Service transaction node and sends data to an Azure Event Grid Topic.
+Use the Azure portal to configure Blockchain Data Manager for Azure Blockchain Service. A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node and sends data to an Azure Event Grid Topic.
 
 To configure a Blockchain Data Manager instance, you:
 
@@ -126,7 +126,7 @@ Blockchain Data Manager requires the contract ABI and bytecode files to be acces
 
 1. Select **OK** to create the container.
 1. Select the container then select **Upload**.
-1. Choose the both JSON files you created in the [Get Contract ABI and bytecode](#get-contract-abi-and-bytecode) section.
+1. Choose both JSON files you created in the [Get Contract ABI and bytecode](#get-contract-abi-and-bytecode) section.
 
     ![Upload blob](./media/data-manager-portal/upload-blobs.png)
 

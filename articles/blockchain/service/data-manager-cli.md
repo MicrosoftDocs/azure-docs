@@ -12,7 +12,7 @@ ms.reviewer: chroyal
 ---
 # Configure Blockchain Data Manager using Azure CLI
 
-Use Azure CLI to configure Blockchain Data Manager for Azure Blockchain Service. A Blockchain Data Manager instance monitors a Azure Blockchain Service member and sends data to an Azure Event Grid Topic.
+Use Azure CLI to configure Blockchain Data Manager for Azure Blockchain Service. A Blockchain Data Manager instance monitors an Azure Blockchain Service member and sends data to an Azure Event Grid Topic.
 
 To configure a Blockchain Data Manager instance, you:
 
@@ -275,7 +275,7 @@ az resource create \
 
 ### Blockchain application examples
 
-Configuration JSON example to create an application resource in the *East US* region that is watches a smart contract properties and events defined by the contract ABI and bytecode.
+Configuration JSON example to create an application resource in the *East US* region that monitors a smart contract defined by the contract ABI and bytecode.
 
 ``` json
 {
@@ -299,7 +299,7 @@ Configuration JSON example to create an application resource in the *East US* re
 | abiFileUrl | URL for smart contract ABI JSON file. For more information on obtaining contract ABI and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode)  and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url).(data-manager-portal.md#get-contract-abi-and-bytecode). |
 | bytecodeFileUrl | URL for smart contract bytecode JSON file. For more information on obtaining the smart contract bytecode and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode)  and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
 
-Create an application named *myApplication* for *mywatcher* that watches a smart contract property and events using a JSON string.
+Create an application named *myApplication* for *mywatcher* that monitors a smart contract defined by a JSON string.
 
 ``` azurecli-interactive
 az resource create \
@@ -311,7 +311,7 @@ az resource create \
                    --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","contractAddresses":null,"queryTargetType":"ContractPropertiesAndEvents"}}}'
 ```
 
-Create an application named *myApplication* for *mywatcher* that watches a smart contract property and events using a JSON configuration file.
+Create an application named *myApplication* for *mywatcher* that watches a smart contract defined using a JSON configuration file.
 
 ``` azurecli
 az resource create \
@@ -392,7 +392,7 @@ az resource delete \
 
 ### Delete instance example
 
-Delete a instance named *mywatcher* in the *myRG* resource group.
+Delete an instance named *mywatcher* in the *myRG* resource group.
 
 ``` azurecli-interactive
 az resource delete \
