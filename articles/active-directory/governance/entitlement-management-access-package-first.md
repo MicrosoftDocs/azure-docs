@@ -93,7 +93,7 @@ An *access package* is a bundle of resources that a team or project needs and is
 
 1. Click **New access package**.
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-first/access-packages-list.png)
+    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/access-packages-list.png)
 
 1. On the **Basics** tab, type the name **Marketing Campaign** access package and description **Access to resources for the campaign**.
 
