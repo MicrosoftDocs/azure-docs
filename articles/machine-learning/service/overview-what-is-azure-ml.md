@@ -27,18 +27,24 @@ Machine learning is a data science technique that allows computers to use existi
 
 Forecasts or predictions from machine learning can make apps and devices smarter. For example, when you shop online, machine learning helps recommend other products you might want based on what you've bought. Or when your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. And when your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
 
+Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud. Azure Machine Learning can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
+
+
+
 ## Machine learning tools to fit each task 
-Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud.
 
-
-The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
-
-Train, test, and deploy your models with rich tools such as:
+Azure Machine Learning provides you with many data science tools you can use to train, test, and deploy your models, such as:
 + The [Azure Machine Learning designer](ui-tutorial-automobile-price-train-score.md) (preview): drag-n-drop modules to build your experiments and then deploy models
+
 + Jupyter notebooks: use our [example notebooks](https://aka.ms/aml-notebooks) or create your own notebooks to leverage our Python SDK samples for your machine learning. 
+
 + R scripts or notebooks in which you use the [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html) to write your own code, or use the R modules in the designer.
+
 + [Visual Studio Code extension](how-to-vscode-tools.md)
+
 + [Machine learning CLI](reference-azure-machine-learning-cli.md)
+
++ Open-source frameworks such as PyTorch, TensorFlow, and scikit-learn and many more
 
 ## Build ML models in Python or R
 
@@ -58,7 +64,7 @@ For code-free or low-code training and deployment, try:
 
   Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
 
-  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/designer.png)
+  ![Azure Machine Learning designer example](./service/media/concept-ml-pipelines/visual-design-surface.gif)
 
 + **Automated machine learning UI**
 
