@@ -97,7 +97,7 @@ from azureml.core.dataset import Dataset
 
 mnist_ds_name = 'mnist_sample_data'
 
-path_on_datastore = mnist_blob.path('mnist/*.png')
+path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 registered_mnist_ds = input_mnist_ds.register(ws, mnist_ds_name, create_new_version=True)
 named_mnist_ds = registered_mnist_ds.as_named_input(mnist_ds_name)
