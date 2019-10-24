@@ -50,7 +50,7 @@ When using Azure AD authentication, there are two Administrator accounts for the
 
 To create new users that can authenticate with Azure AD, you must have the `azure_ad_admin` role in the database. This role is assigned by configuring the Azure AD Administrator account for a specific Azure Database for PostgreSQL server.
 
-To create a new Azure AD database user, you must connect as the Azure AD administrator. This is demonstrated in [Configure and Login with Azure AD for Azure Database for PostgreSQL](howto-configure-login-aad-authentication.md).
+To create a new Azure AD database user, you must connect as the Azure AD administrator. This is demonstrated in [Configure and Login with Azure AD for Azure Database for PostgreSQL](howto-configure-sign-in-aad-authentication.md).
 
 Any Azure AD authentication is only possible if the Azure AD admin was created for Azure Database for PostgreSQL. If the Azure Active Directory admin was removed from the server, existing Azure Active Directory users created previously can no longer connect to the database using their Azure Active Directory credentials.
 

@@ -170,7 +170,7 @@
         - name: Create users
           href: howto-create-users.md
         - name: Configure Azure AD integration
-          href: howto-configure-sign-in-aad-authentication
+          href: howto-configure-sign-in-aad-authentication.md
     - name: Optimize
       items: 
         - name: Bulk inserts
