@@ -31,7 +31,7 @@ The table summarizes supported scenarios for VMware VMs.
 --- | ---
 **Azure permissions** | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
 **VMware limitations**  | Assess up to 35,000 VMware VMs in a single project. You can create multiple projects in an Azure subscription. A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
-**Geography** | You can create an Azure Migrate project in a number of geographies. Although you can only create projects in these geographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
+**Geography** | [Review](migrate-support-matrix.md#supported-geographies) supported geographies.
 
 **Geography** | **Metadata storage location**
 --- | ---

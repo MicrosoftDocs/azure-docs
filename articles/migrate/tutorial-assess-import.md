@@ -1,32 +1,40 @@
 ---
-title: Assess imported servers for migration to Azure with Azure Migrate
-description: Describes how to assess imported on-premises servers for migration to Azure using Azure Migrate.
+title: Assess servers using imported server data with Azure Migrate Server Assessment
+description: Describes how to assess on-premises servers for migration to Azure with Azure Migrate Server Assessment using imported data.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/15/2019
-ms.author: hamusa
+ms.date: 10/23/2019
+ms.author: raynew
 ---
 
-# Assess servers by importing into Azure Migrate: Server Assessment
+# Assess servers using imported data
 
-This article shows you how to assess on-premises servers by importing server metadata using the Azure Migrate: Server Assessment tool. The import can be done by uploading a .CSV file containing the server information. There is no requirement to set up an appliance. 
+This article explains how to assess on-premises servers with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), by importing server metadata in a .CSV file. With this method of assessment, you don't need to set up the Azure Migrate appliance to create an assessment. This is useful if: 
 
-Assessing using import is useful in the following scenarios:
- * You are looking for a quick initial assessment before you can deploy the appliance 
- * You are not able to deploy the Azure Migrate appliance or share credentials to on-premises servers.
- * Security constraints disallow deploying an appliance due to the data collected and sent by the appliance to Azure. With import, you can control what data you share. For example, providing IP address is optional.
+- You want to create a quick initial assessment before you deploy the appliance.
+- You can't deploy the Azure Migrate appliance in your organization.
+- You can't share credentials that allow access to on-premises servers.
+- Security constraints prevent you from gathering and sending data collected by the appliance to Azure. With an imported file, you can control the data you share, and lots of data (for example providing IP addresses) is optional.
 
-[Azure Migrate](migrate-services-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
+
+## Before you start
+
+Note that:
+
+- You can add up to a maximum of 10000 servers in a single CSV file.
+- You can add up to 20000 servers in an Azure Migrate project using CSV files.
+- You can upload server information in a CSV file multiple times to Azure Migrate Server Assessment.
+- The option to specify a group name in the CSV file isn't currently supported. Instead, you add server names to a group when you create an assessment.
+- Although gathering app information is useful when evaluating your on-premises environment for migration, Azure Migrate Server Assessment doesn't currently perform app-level assessment, and doesn't take apps into account when creating an assessment.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up an Azure Migrate project.
-> * Import servers to Azure Migrate by uploading server information in a .CSV file. 
-> * Add configuration and performance data for these servers to Azure Migrate.
-> * Group discovered servers, and assess the server group.
-> * Review the assessment.
+> * Fill in a CSV file with server information.
+> * Import the file to add server information into Azure Migrate Server Assessment.
+> * Create and review an assessment.
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the How-to articles.
@@ -34,9 +42,9 @@ In this tutorial, you learn how to:
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
 
-## Prerequisites
+## Set Azure permissions for Azure Migrate 
 
-Your Azure account needs permissions to create an Azure Migrate project for assessment and migration.
+Your Azure account needs permissions to create an Azure Migrate project.
 
 1. In the Azure portal, open the subscription, and select **Access control (IAM)**.
 2. In **Check access**, find the relevant account, and click it to view permissions.
@@ -57,9 +65,9 @@ Set up a new Azure Migrate project as follows.
 
 4. In **Getting started**, click **Add tools**.
 5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.     
-6. In **Project Details**, specify the project name, and the geography in which you want to create the project. Asia, Europe, UK, and the United States are supported.
+6. In **Project Details**, specify the project name, and the geography in which you want to create the project.
 
-    - The project geography is used only to store the metadata gathered from on-premises VMs.
+    - [Review](migrate-support-matrix.md#supported-geographies) supported geographies. The project geography is used only to store the metadata gathered from on-premises VMs.
     - You can select any target region when you run a migration.
 
     ![Create an Azure Migrate project](./media/tutorial-assess-import/migrate-project.png)
@@ -75,180 +83,132 @@ Set up a new Azure Migrate project as follows.
 11. Wait a few minutes for the Azure Migrate project to deploy. You'll be taken to the project page. If you don't see the project, you can access it from **Servers** in the Azure Migrate dashboard.
 
 
-## Prepare the server information for upload
+## Prepare the CSV file
 
-Azure Migrate: Server Assessment requires server information to be provided in a .CSV template.
+Download the CSV file template, and add server information to it.
 
-- The .CSV file helps to provide server metadata and performance data to Azure Migrate Server Assessment.
-- To prepare the .CSV file:
-    - Download the template for .CSV file.
-    - Populate the .CSV file with the required data. Note that not all values are mandatory.
-- You can upload server information multiple times. A total of 20,000 servers can be added via .CSV. A maximum of 10,000 servers can be added in a single file
 
 ### Download the template
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
-2. In **Discover machines**, choose **Import using .CSV**.
-3. Click **Download** to download the .CSV template. You can also download it [here](https://go.microsoft.com/fwlink/?linkid=2108404).
+2. In **Discover machines**, select **Import using .CSV**.
+3. Click **Download** to download the .CSV template. Alternatively, you can [download it directly](https://go.microsoft.com/fwlink/?linkid=2108404).
 
     ![Download .CSV template](./media/tutorial-assess-import/download-template.png)
 
 
-### Populate server information
+### Add server information to the file
 
-Following are details on each field in the .CSV template. To gather this data, consider exporting it from tools you use to manage on-premises servers such as CMDBs, VMware vSphere. Download this [example file](https://go.microsoft.com/fwlink/?linkid=2108405) to review the sample data for each field.
+Gather server data, and add it to the CSV file.
 
-**Field name** | **Mandatory / Optional** | **Details**
+- To gather data, you can export it from tools you use for on-premises server management, such as VMware vSphere or your configuration management database (CMDB).
+- To review sample data, download our [example file](https://go.microsoft.com/fwlink/?linkid=2108405).
+
+
+The following table summarizes the file fields to fill in.
+
+**Field name** | **Mandatory** | **Details**
 --- | --- | ---
-Server name | Mandatory | Server name. <br/> It is recommended the fully qualified domain name is specified. 
-IP address | Optional | IP address of server
-Cores | Mandatory | No. of processor cores allocated to the machine
-Memory (in MB) | Mandatory | Total RAM allocated to the server, in MB
-OS name | Mandatory | Operating System of the server. Refer to the following section to know more on providing OS names.
-OS version | Optional | Operating System version of the server
-Number of disks | Optional | No. of disks. This is not required if individual disk details are provided.
-Disk 1 size (in GB) | Optional | Maximum size of disk <br/> Add disk details for a second disk by adding an column in the template called "Disk 2 size". In this way, you can add upto 8 disks.
-Disk 1 read ops (operations per second) | Optional | Disk read operations per second
-Disk 1 write ops (operations per second) | Optional | Disk write operations per second
-Disk 1 read throughput (MB per second) | Optional | Data read from the disk per second in MBPS
-Disk 1 write throughput (MB per second) | Optional | Data written to disk per second in MBPS
-CPU utilization percentage | Optional | Percentage utilization of CPU
-Memory utilization percentage | Optional | Percentage utilization of RAM
-Total disks read ops | Optional | Disk read operations per second
-Total disks write ops | Optional | Disk write operations per second
-Total disks read throughput | Optional | Data read from the disk per second in MBPS
-Total disks write throughput | Optional | Data written to disk per second in MBPS
-Network In throughput | Optional | Data received per second by the server in MBPS
-Network Out throughput | Optional | Data transmitted per second by the srver in MBPS
-Firmware type | Optional | Firmware type of server. <br/> Permitted values in this field are "BIOS" or "UEFI"
-Server Type | Optional | Whether the server is physical or virtual. <br/> Permitted values in this field are "Physical" or "Virtual"
-Hypervisor | Optional | Hypervisor that the server is running on. <br/> Permitted values in this field are "VMware", "Hyper-V", "Xen", "AWS", "GCP", "Other"
-Hypervisor version number | Optional | Hypervisor version number
-Virtual machine ID | Optional | VM InstanceUUid in case of vCenter VM (or) Hyper-V VM Id in case of Hyper-V 
-Virtual machine manager ID | Optional | vCenter InstanceUUid in case of vCenter VM. Not needed for Hyper-V.
-MAC address | Optional | MAC address of server
-BIOS ID | Optional | BIOS ID of server
-Custom server ID | Optional | Reference to local unique IDs in on-premises infrastructure. <br/> This is useful if you would like to track the imported server using the ID. 
-Application 1 name | Optional | Name of the workload running in the server. The application details have to be shown like for apps and roles. <br/> Add details on a second application by adding an column in the template called "Application 2 name". In this way, you can add upto 5 applications.
-Application 1 type | Optional | Type of workload running in the server
-Application 1 version | Optional | Version of the workload running on the server
-Application 1 license expiry | Optional | License expiry of the workload if applicable
-Business unit | Optional | Business unit the server belongs to
-Business owner | Optional | Business unit owner
-Business application name | Optional | Name of the application the server belongs to
-Location | Optional | Data center the server is located in
-Groups | Optional | The server will be added to the specified Azure Migrate group. <br/> If a group with the name already exists, the server will be added to the group. If not, a new group with the specified name is created and the server is added to the group.
-Server decommission date | Optional | Decommission date of physical server or the underlying physical server of the virtual server
+**Server name** | Yes | We recommend specifying the FQDN. 
+**IP address** | No | Server address.
+**Number of cores** | Yes | The number of processor cores allocated to the server.
+**Memory** | Yes | Total RAM (MB) allocated to the server.
+**OS name** | Yes | Server operating system.
+**OS version** | No | Server operating system version.
+**Number of disks** | No | Not needed if individual disk details are provided.
+**Disk 1 size**  | No | Maximum size of disk (GB)<br/><br/> To add details for a second disk, add a column **Disk 2 size**  in the template. You can add up to 8 disks.
+**Disk 1 read ops** | No | Disk read operations per second.
+**Disk 1 write ops** | No | Disk write operations per second.
+**Disk 1 read throughput** | No | Data read from the disk per second in MB per second.
+**Disk 1 write throughput** | No | Data written to disk per second in MB per second.
+**CPU utilization percentage** | No | Percentage utilization of CPU.
+**Memory utilization percentage** | No | Percentage utilization of RAM.
+**Total disks read ops** | No | Disk read operations per second.
+**Total disks write ops** | No | Disk write operations per second.
+**Total disks read throughput** | No | Data read from the disk in MB per second.
+**Total disks write throughput** | No | Data written to disk in MB per second.
+**Network in throughput** | No | Data received by the server in MB per second.
+**Network out throughput** | No | Data transmitted by the server in MB per second.
+**Firmware type** | No | Server firmware. Values can be "BIOS" or "UEFI"
+**Server type** | No | Values can be "Physical" or "Virtual".
+**Hypervisor** | No | Hypervisor on which a machine is running. <br/> Values can be "VMware", "Hyper-V", "Xen", "AWS", "GCP", or "Other".
+**Hypervisor version number** | No | Hypervisor version.
+**Virtual machine ID** | No | VM identifier. This is the **InstanceUUid** for VMware vCenter VM, or **Hyper-V VM ID** for Hyper-V.
+**Virtual machine manager ID** | No | This is the **InstanceUUid** for VMWare vCenter. Not needed for Hyper-V.
+**MAC address**| No | Server MAC address.
+**BIOS ID** | No | Server BIOS ID.
+**Custom server ID**| No | Local unique server IDs on-premises. <br/> Useful for tracking the imported server by local ID. 
+**Application 1 name** | No | Name of workloads running on the server.<br/> You can add details for more apps by [adding columns](#add-multiple-applications) in the template. You can add up to five applications.
+**Application 1 type** | No | Type of workload running in the server
+**Application 1 version** | No | Version of the workload running on the server.
+**Application 1 license expiry** | No | License expiry of the for the workload (if applicable).
+**Business unit** | No | Business unit the server belongs to.
+**Business owner** | No | Business unit owner.
+**Business application name** | No | Name of the application to which the app belongs.
+**Location** | No | Datacenter in which the server is located.
+**Groups** | No | The server will be added to the specified Azure Migrate group. <br/><br/> If the group exists, the server is added. If not, a new group with is created and the server is added.
+**Server decommission date** | No | Decommission date of physical server or the underlying physical server of the virtual server
 
-### Populating Operating System information
+### Add operating systems
 
-Please ensure the OS names you provide match the name in the following list. The assessment recognizes an OS name that contains one of the following names. For example, providing an OS name of "Windows Server 2016 Datacenter" would work. On the other hand, "Windos Server 2016 Datacenter" would not work. 
-
-    Apple Mac OS X 10
-    Asianux 3
-    Asianux 4
-    Asianux 5
-    CentOS
-    CentOS 4/5
-    CoreOS Linux
-    Debian GNU/Linux 4
-    Debian GNU/Linux 5
-    Debian GNU/Linux 6
-    Debian GNU/Linux 7
-    Debian GNU/Linux 8
-    FreeBSD
-    IBM OS/2
-    MS-DOS
-    Novell NetWare 5
-    Novell NetWare 6
-    Oracle Linux
-    Oracle Linux 4/5
-    Oracle Solaris 10
-    Oracle Solaris 11
-    Red Hat Enterprise Linux 2
-    Red Hat Enterprise Linux 3
-    Red Hat Enterprise Linux 4
-    Red Hat Enterprise Linux 5
-    Red Hat Enterprise Linux 6
-    Red Hat Enterprise Linux 7
-    Red Hat Fedora
-    SCO OpenServer 5
-    SCO OpenServer 6
-    SCO UnixWare 7
-    Serenity Systems eComStation 1
-    Serenity Systems eComStation 2
-    Sun Microsystems Solaris 8
-    Sun Microsystems Solaris 9
-    SUSE Linux Enterprise 10
-    SUSE Linux Enterprise 11
-    SUSE Linux Enterprise 12
-    SUSE Linux Enterprise 8/9
-    SUSE openSUSE
-    Ubuntu Linux
-    VMware ESXi 4
-    VMware ESXi 5
-    VMware ESXi 6
-    Windows 10
-    Windows 2000
-    Windows 3
-    Windows 7
-    Windows 8
-    Windows 95
-    Windows 98
-    Windows NT
-    Windows Server (R) 2008
-    Windows Server 2003
-    Windows Server 2008
-    Windows Server 2008 R2
-    Windows Server 2012
-    Windows Server 2012 R2
-    Windows Server 2016
-    Windows Server 2019
-    Windows Server Threshold
-    Windows Vista
-    Windows Web Server 2008 R2
-    Windows XP Professional
-    
+Assessment recognizes specific operating system names. Any operating system name you specify must match one of the options in the [supported names](#supported-operating-system-names) list.
 
 
-### Adding multiple disks
+### Add multiple disks
 
-Individual disk details are provided using the following fields. You can add upto 8 disks by adding more such columns. For example, you can specify size and throughput for a second disk by adding the columns: "Disk 2 size", "Disk 2 read ops", "Disk 2 write ops", "Disk 2 read throughput", "Disk 2 write througput"
+The template provides default fields for the first disk.  You can add similar columns for up to 8 disks. 
 
-    Disk 1 size
-    Disk 1 read ops
-    Disk 1 write ops
-    Disk 1 read throughput
-    Disk 1 write throughput
+For example, to specify all fields for a second disk, add the columns:
+
+Disk 2 size
+Disk 2 read ops
+Disk 2 write ops
+Disk 2 read throughput
+Disk 2 write throughput
+
+Optionally you can add specific fields only for a disk.
 
 
-### Adding multiple applications
+### Add multiple applications
 
-Individual application details are provided using the following fields. You can add upto 5 applications by adding more such columns. For example, you can specify name and type for a second second by adding the columns: "Application 2 name", "Application 2 type"
+The template provides fields for a single application. You can add similar columns for up to five apps.  
 
-    Application 1 name
-    Application 1 type
-    Application 1 version
-    Application 1 license expiry
+For example, to specify all fields for a second app, add the columns:
+
+Application 2 name
+Application 2 type
+Application 2 version
+Application 2 license expiry
+
+
+Optionally you can add specific fields only for an app.
+
+> [!NOTE]
+> App information is useful when evaluating your on-premises environment for migration. However, Azure Migrate Server Assessment doesn't currently perform app-level assessment, and doesn't take apps into account when creating an assessment.
 
 
 ## Upload the server information
 
-Now, import the servers into Azure Migrate: Server Assessment.
+After adding information to the CSV template, import the servers into Azure Migrate: Server Assessment.
 
-1. In the Azure portal, in **Discover machines**, browse to the file populated with the server information.
-2. Click **Import**. You can see the status of the import. When completed, you will see an **Import status** of **Completed** or **Failed**.
-3. You may see warnings in the **Import status**. It is optional to address warnings. Click **Download warning details .CSV**. Warnings provide remediation guidance to help you improve the accuracy of the assessment by enhancing the server information provided. You can proceed with the assessments without addressing the remediation guidance provided as warnings. 
-    - Open the .CSV file downloaded. This is the .CSV file you upload along with an additional column containing warnings.
-    - Review the warnings in the **Error details** column.
-    - Optionally, modify the server information as per the remediation guidance.
-4. You may see errors in the **Import status**. You cannot proceed with the import without fixing these errors.
-    - Open the .CSV file downloaded. This is the .CSV file you upload along with an additional column containing error details
-    - Review the errors in the **Error details** column.
-    - Address the errors as per the remediation guidance provided in the column
-    - Upload the modified file again.
+1. In Azure Migrate > **Discover machines**, browse to the filled out template.
+2. Click **Import**.
+3. The import status is shown. 
+    - If warnings appear in the status, you can either fix them, or continue without addressing them.
+    - Improving server information as suggested in warnings improves assessment accuracy.
+    - To view and fix warnings if they appear, click **Download warning details .CSV**. This downloads the CSV file, with warnings added. You can review the warnings, and fix issues as needed. 
+    If errors appear in the status (the import status is **Failed**), you need to fix these before you can continue with the import. To do this, download the CSV file, that now has error details added. Review and address the errors as needed. Then upload the modified file again.
+4. When the import status **Completed**, the server information is imported.
 
-The servers have now been imported. 
+
+> [!NOTE]
+> To update server information uploaded to Azure Migrate, upload data for the server again, using the same **Server name**. Note that the **Server name** field can't be modified after importing the template. Deleting servers isn't currently supported.
+
+## Updating server information
+
+You can update a server information by uploading the data for the server again with the same **Server name**. You cannot modify the **Server name** field. 
+
+Deleting servers is currently not supported.
 
 ### Verify servers in the portal
 
@@ -334,20 +294,35 @@ This view shows the estimated compute and storage cost of running VMs in Azure.
 3. You can drill down to see details for specific VMs.
 
 > [!NOTE]
-> Confidence ratings are not assigned to assessments of servers imported using .CSV file into Azure Migrate. 
+> Confidence ratings are not assigned to assessments of servers imported into Azure Migrate Server Assessment using  a CSV file.
 
-## Updating server information
 
-You can update a server information by uploading the data for the server again with the same **Server name**. You cannot modify the **Server name** field. 
+## Supported operating system names
 
-Deleting servers is currently not supported.
+Name | Name
+--- | ---
+**A - H** | 
+Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
+CentOS<br/>CentOS 4/5 | CoreOS Linux 
+Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD 
+**I - R** | 
+IBM OS/2 | MS-DOS |
+Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11 
+Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | 
+**S-T** | 
+SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7 | Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2
+Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
+**U-Z** | 
+Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
+Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
+    
 
 ## Next steps
 
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Imported servers to Azure Migrate: Server Assessment using a .CSV file.
+> * Imported servers to Azure Migrate: Server Assessment using a CSV file.
 > * Created and reviewed an assessment
 
-Continue to [deploy an appliance](./migrate-appliance.md) to get assessments of better accuracy, and to group your servers using [dependency analysis](./concepts-dependency-visualization.md).
+Now, [deploy an appliance](./migrate-appliance.md) for more accurate assessments, and gather servers together for deeper assessment using [dependency analysis](./concepts-dependency-visualization.md).
