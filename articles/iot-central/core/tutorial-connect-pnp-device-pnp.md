@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial to create an IoT Central application using the **Preview application** template.
+Complete the [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart to create an IoT Central application using the **Custom app > Preview application** template.
 
 To complete this tutorial, you need to install the following software on your local machine:
 
@@ -75,11 +75,11 @@ Prepare a development environment you can use to  build the Azure IoT C device S
 
 To connect a device to an IoT Central application, you need a device key. To generate a device key:
 
-1. Sign in to the IoT Central application you created in the previous tutorial.
+1. Sign in to the IoT Central application you created using the **Custom app > Preview application** template in the [Create an Azure IoT Central application (preview features)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart.
 
 1. Go to the **Administration** page and select **Device Connection**.
 
-1. Make a note of the **Scope ID** and **Primary Key**. You use these values later in this tutorial.
+1. Make a note of the **ID Scope** and the **Primary Key** you see when you select **View Keys**. You use these values later in this tutorial.
 
     ![Device connection](./media/tutorial-connect-pnp-device-pnp/device-connection.png)
 
@@ -129,18 +129,6 @@ Now you have the **MXChip IoT DevKit** DCM and its associated interfaces, you ca
 
 ![Generated device code](./media/tutorial-connect-pnp-device-pnp/generated-code.png)
 
-To add the connection information to the generated device code:
-
-1. In the VS Code window that contains the generated C code. Open the `main.c` file.
-
-1. Replace `[DPS Id Scope]` with the **Scope ID** you made a note of previously.
-
-1. Replace `[DPS symmetric key]` with the device key you generated in a previous step.
-
-1. Replace `[device registration Id]` with `mxchip-01`.
-
-1. Save your changes.
-
 ## Build the code
 
 You use the device SDK to build the generated device code stub. The application you build simulates an **MXChip IoT DevKit** device and connects to your IoT Central application. The application sends telemetry and properties, and receives commands.
@@ -167,10 +155,10 @@ You use the device SDK to build the generated device code stub. The application 
     cmake --build . -- /m /p:Configuration=Release
     ```
 
-1. After the build completes successfully, at the same command prompt run your application:
+1. After the build completes successfully, at the same command prompt run your application. Replace `scopeid`, `primarykey` with the values you noted previously :
 
     ```cmd\sh
-    .\central_app\devkit_device\Release\devkit_device.exe
+    .\central_app\devkit_device\Release\devkit_device.exe scopeid primarykey mxchip-001
     ```
 
 1. The device application starts sending data to your IoT Central application.
