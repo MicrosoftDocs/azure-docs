@@ -25,11 +25,11 @@ In this article, you will learn how to create, configure, and manage elastic job
 
 ## Create, run, and manage jobs
 
-1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets), or [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
-2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell.md#define-the-target-databases-you-want-to-run-the-job-against), or [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Create a job agent credential in each database the job will run [(add the user (or role) to each database in the group)](sql-database-control-access.md). For an example, see the [PowerShell tutorial](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets).
-4. Create a job using [PowerShell](elastic-jobs-powershell.md#create-a-job), or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
-5. Add job steps using [PowerShell](elastic-jobs-powershell.md#create-a-job-step) or [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
+1. Create a credential for job execution in the *Job database* using [PowerShell](elastic-jobs-powershell.md), or [T-SQL](elastic-jobs-tsql.md).
+2. Define the target group (the databases you want to run the job against) using [PowerShell](elastic-jobs-powershell.md), or [T-SQL](elastic-jobs-tsql.md).
+3. Create a job agent credential in each database the job will run [(add the user (or role) to each database in the group)](sql-database-control-access.md). For an example, see the [PowerShell tutorial](elastic-jobs-powershell.md).
+4. Create a job using [PowerShell](elastic-jobs-powershell.md), or [T-SQL](elastic-jobs-tsql.md).
+5. Add job steps using [PowerShell](elastic-jobs-powershell.md) or [T-SQL](elastic-jobs-tsql.md).
 6. Run a job using [PowerShell](elastic-jobs-powershell.md#run-the-job), or [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).
 7. Monitor job execution status using the portal, [PowerShell](elastic-jobs-powershell.md#monitor-status-of-job-executions), or [T-SQL](elastic-jobs-tsql.md#monitor-job-execution-status).
 
