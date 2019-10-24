@@ -33,7 +33,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
    ![Create an app in the Azure portal.][createWebApp]
 
-2. Configure the **Instance Details** section before configuring the App Service plan. Settings such as **Publish** and **Operating Systems** can change the available pricing tiers for your App Service plan. **Region** deterimines where your App Service plan is created.
+2. Configure the **Instance Details** section before configuring the App Service plan. Settings such as **Publish** and **Operating Systems** can change the available pricing tiers for your App Service plan. **Region** determines where your App Service plan is created.
    
 3. In the **App Service Plan** section, select an existing plan, or create a plan by selecting **Create new**.
 
