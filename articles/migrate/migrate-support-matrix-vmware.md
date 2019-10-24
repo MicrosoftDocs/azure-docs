@@ -61,7 +61,7 @@ Azure Migrate: Server Assessment can discover apps, role, and features. Discover
 --- | ---
 Supported machines | On-premises VMware VMs
 Machine operating system | All Windows and Linux versions
-Credentials | Currently supports the use of one credential for all Windows servers, and one credential for all Linux servers.
+Credentials | Currently supports the use of one credential for all Windows servers, and one credential for all Linux servers. You create a guest user account for Windows VMs, and a regular/normal user account (non-sudo access) for all Linux VMs.
 Machine limits for app-discovery | 10000 per appliance. 35000 per project
 
 ## Assessment-vCenter Server requirements
@@ -115,6 +115,22 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 --- | ---
 Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
+
+## Assessment-dependency visualization
+
+Dependency visualization helps you to visualize dependencies across machines that you want to assess and migrate. You typically use dependency mapping when you want to assess machines with higher levels of confidence. For VMware VMs, dependency visualization is supported as follows:
+
+- **Agentless dependency visualization**: This option is currently in preview. It doesn't require you to install any agents on machines.
+    - It works by capturing the TCP connection data from machines for which it's enabled. After dependency discovery is started, the appliance gathers data from machines at a polling interval of five minutes.
+    - The following data is collected:
+        - TCP connections
+        - Names of processes that have active connections
+        - Names of installed applications that run the above processes
+        - No. of connections detected at every polling interval
+- **Agent-based dependency visualization**: To use agent-based dependency visualization, you need to download and install the following agents on each on-premises machine that you want to analyze.
+    - Microsoft Monitoring agent (MMA) needs to be installed on each machine. [Learn more](how-to-create-group-machine-dependencies.md#install-the-mma) about how to install the MMA agent.
+    - The Dependency agent needs to be installed on each machine. [Learn more](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) about how to install the dependency agent.
+    - In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
 
 ## Migration - limitations
 You can select up to 10 VMs at once for replication. If you want to migrate more machines, then replicate in groups of 10. For VMware agentless migration, you can run up to 100 replications simultaneously.

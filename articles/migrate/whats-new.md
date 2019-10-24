@@ -19,10 +19,12 @@ ms.custom: mvc
 
 A number of new features were added to Azure Migrate:
 
-- Discovery and assessment of on-premises physical servers, in addition to physical server migration that is already supported. 
-- **App-level discovery**: Azure Migrate now supports application-level discovery of apps, roles, and features using the Azure Migrate appliance. This is currently supported for VMware VMs only, and is limited to discovery only (assessment isn't currently supported). [Learn more](how-to-discover-applications.md)
-- **Agentless dependency visualization**: You no longer need to explicitly install agents for dependency visualization.
+- **Physical server assessment**. Assessment of on-premises physical servers is now supported, in addition to physical server migration that is already supported.
+- **Import-based assessment**. Assessment of machines using metadata and performance data provided in a CSV file is now supported.
+- **Application discovery**: Azure Migrate now supports application-level discovery of apps, roles, and features using the Azure Migrate appliance. This is currently supported for VMware VMs only, and is limited to discovery only (assessment isn't currently supported). [Learn more](how-to-discover-applications.md)
+- **Agentless dependency visualization**: You no longer need to explicitly install agents for dependency visualization. Both agentless and agent-based are now supported.
 - **Virtual Desktop**: Use ISV tools to assess and migrate on-premises virtual desktop infrastructure (VDI) to Windows Virtual Desktop in Azure.
+- **Web app**: The Azure App Service Migration Assistant, used for assessing and migration web apps, is now integrated into Azure Migrate.
 
 ## Release version (July 2019)
 
