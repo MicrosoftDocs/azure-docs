@@ -136,6 +136,9 @@
     - name: Add & register datasets
       displayName: data, dataset
       href: how-to-create-register-datasets.md
+    - name: Version & track datasets
+      displayName: data, data set, track
+      href: how-to-version-track-datasets.md
     - name: Train with datasets
       displayName: data, dataset
       href: how-to-train-with-datasets.md
