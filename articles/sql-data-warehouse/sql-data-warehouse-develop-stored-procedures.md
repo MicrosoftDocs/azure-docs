@@ -17,7 +17,7 @@ Tips for implementing stored procedures in Azure Synapse Analytics for developin
 
 ## What to expect
 
-Azure Synapse Analytics supports many of the T-SQL features that are used in SQL Server. More importantly, there are scale-out specific features that you can use to maximize the performance of your solution.
+SQL Analytics supports many of the T-SQL features that are used in SQL Server. More importantly, there are scale-out specific features that you can use to maximize the performance of your solution.
 
 However, to maintain the scale and performance there are also some features and functionality that have behavioral differences and others that are not supported.
 
@@ -25,14 +25,14 @@ However, to maintain the scale and performance there are also some features and 
 ## Introducing stored procedures
 Stored procedures are a great way for encapsulating your SQL code; storing it close to your data in the data warehouse. Stored procedures help developers modularize their solutions by encapsulating the code into manageable units; facilitating greater reusability of code. Each stored procedure can also accept parameters to make them even more flexible.
 
-Azure Synapse Analytics provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code. In data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It is more important to ensure the stored procedure code is correctly optimized for large queries. The goal is to save hours, minutes, and seconds, not milliseconds. It is therefore more helpful to think of stored procedures as containers for SQL logic.     
+SQL Analytics provides a simplified and streamlined stored procedure implementation. The biggest difference compared to SQL Server is that the stored procedure is not pre-compiled code. In data warehouses, the compilation time is small in comparison to the time it takes to run queries against large data volumes. It is more important to ensure the stored procedure code is correctly optimized for large queries. The goal is to save hours, minutes, and seconds, not milliseconds. It is therefore more helpful to think of stored procedures as containers for SQL logic.     
 
-When Azure Synapse Analytics executes your stored procedure, the SQL statements are parsed, translated, and optimized at run time. During this process, each statement is converted into distributed queries. The SQL code that is executed against the data is different than the query submitted.
+When your stored procedure is executed, the SQL statements are parsed, translated, and optimized at run time. During this process, each statement is converted into distributed queries. The SQL code that is executed against the data is different than the query submitted.
 
 ## Nesting stored procedures
 When stored procedures call other stored procedures, or execute dynamic SQL, then the inner stored procedure or code invocation is said to be nested.
 
-Azure Synapse Analytics supports a maximum of eight nesting levels. This is slightly different to SQL Server. The nest level in SQL Server is 32.
+SQL Analytics supports a maximum of eight nesting levels. This is slightly different to SQL Server. The nest level in SQL Server is 32.
 
 The top-level stored procedure call equates to nest level 1.
 
@@ -58,13 +58,13 @@ GO
 EXEC prc_nesting
 ```
 
-Note, Azure Synapse Analytics does not currently support [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). You need to track the nest level. It is unlikely for you to exceed the eight nest level limit, but if you do, you need to rework your code to fit the nesting levels within this limit.
+Note, SQL Analytics does not currently support [@@NESTLEVEL](/sql/t-sql/functions/nestlevel-transact-sql). You need to track the nest level. It is unlikely for you to exceed the eight nest level limit, but if you do, you need to rework your code to fit the nesting levels within this limit.
 
 ## INSERT..EXECUTE
-Azure Synapse Analytics does not permit you to consume the result set of a stored procedure with an INSERT statement. However, there is an alternative approach you can use. For an example, see the article on [temporary tables](sql-data-warehouse-tables-temporary.md). 
+SQL Analytics does not permit you to consume the result set of a stored procedure with an INSERT statement. However, there is an alternative approach you can use. For an example, see the article on [temporary tables](sql-data-warehouse-tables-temporary.md). 
 
 ## Limitations
-There are some aspects of Transact-SQL stored procedures that are not implemented in Azure Synapse Analytics.
+There are some aspects of Transact-SQL stored procedures that are not implemented in SQL Analytics.
 
 They are:
 
