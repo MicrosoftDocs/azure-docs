@@ -35,7 +35,7 @@ Through the two joined connections, your app has a TCP tunnel to a fixed host:po
 When your app makes a DNS request that matches a configured Hybrid Connection endpoint, the outbound TCP traffic will be redirected through the Hybrid Connection.  
 
 > [!NOTE]
-> This means that you should try to always use a DNS name for your Hybrid Connection. Some client software does not do a DNS lookup if the endpoint uses an IP address instead.
+> This means that you should try to always use a DNS name for your Hybrid Connection. Some client software does not do a DNS lookup if the endpoint uses an IP address instead. 
 >
 
 ### App Service Hybrid Connection benefits ###
@@ -59,6 +59,9 @@ Things you cannot do with Hybrid Connections include:
 - Access TCP-based services that use dynamic ports, such as FTP Passive Mode or Extended Passive Mode.
 - Support LDAP, because it can require UDP.
 - Support Active Directory, because you cannot domain join an App Service worker.
+
+### Prerequisites ###
+ - Windows App service is required. It is only available in Windows.  
 
 ## Add and Create Hybrid Connections in your app ##
 

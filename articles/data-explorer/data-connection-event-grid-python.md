@@ -81,7 +81,7 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 |**Setting** | **Suggested value** | **Field description**|
 |---|---|---|
 | tenant_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | Your tenant ID. Also known as directory ID.|
-| subscriptionId | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
+| subscription_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The subscription ID that you use for resource creation.|
 | client_id | *xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx* | The client ID of the application that can access resources in your tenant.|
 | client_secret | *xxxxxxxxxxxxxx* | The client secret of the application that can access resources in your tenant. |
 | resource_group_name | *testrg* | The name of the resource group containing your cluster.|

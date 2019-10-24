@@ -323,6 +323,8 @@
         href: confluencemicrosoft-tutorial.md
       - name: Consent2Go
         href: consent2go-tutorial.md
+      - name: Contentful
+        href: contentful-tutorial.md
       - name: ContractWorks
         href: contractworks-tutorial.md
       - name: Control
@@ -405,6 +407,8 @@
         href: easyterritory-tutorial.md
       - name: EBSCO
         href: ebsco-tutorial.md
+      - name: eCornell
+        href: ecornell-tutorial.md
       - name: Edcor
         href: edcor-tutorial.md
       - name: eDigitalResearch
@@ -888,6 +892,8 @@
         href: netdocuments-tutorial.md
       - name: Netop Portal
         href: netop-portal-tutorial.md
+      - name: Netskope Cloud Security
+        href: netskope-cloud-security-tutorial.md
       - name: Netsuite
         href: netsuite-tutorial.md
       - name: New Relic
@@ -1178,6 +1184,8 @@
         href: sharepoint-on-premises-tutorial.md
       - name: Shibumi
         href: shibumi-tutorial.md
+      - name: ShipHazmat
+        href: shiphazmat-tutorial.md
       - name: Shmoop For Schools
         href: shmoopforschools-tutorial.md
       - name: Showpad
@@ -1376,6 +1384,8 @@
         href: vibehcm-tutorial.md
       - name: Vidyard
         href: vidyard-tutorial.md
+      - name: Visit.org
+        href: visitorg-tutorial.md
       - name: Visitly
         href: visitly-tutorial.md
       - name: Vocoli

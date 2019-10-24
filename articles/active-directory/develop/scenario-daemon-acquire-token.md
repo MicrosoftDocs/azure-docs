@@ -210,5 +210,19 @@ Content: {
 
 ## Next steps
 
+# [.NET](#tab/dotnet)
+
 > [!div class="nextstepaction"]
-> [Daemon app - calling a web API](scenario-daemon-call-api.md)
+> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
+
+# [Python](#tab/python)
+
+> [!div class="nextstepaction"]
+> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
+
+# [Java](#tab/java)
+
+> [!div class="nextstepaction"]
+> [Daemon app - calling a web API](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)
+
+---

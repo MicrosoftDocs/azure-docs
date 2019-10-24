@@ -48,6 +48,8 @@ Once you have added a source, configure via the **Source Settings** tab. Here yo
 
 **Sampling:** Enable sampling to limit the number of rows from your source. Use this setting when you test or sample data from your source for debugging purposes.
 
+**Multiline rows:** Select multiline rows if your source text file contains string values that span multiple rows, i.e. newlines inside a value.
+
 To validate your source is configured correctly, turn on debug mode and fetch a data preview. For more information, see [Debug mode](concepts-data-flow-debug-mode.md).
 
 > [!NOTE]

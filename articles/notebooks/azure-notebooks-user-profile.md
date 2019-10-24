@@ -1,6 +1,6 @@
 ---
 title: User profile and ID for use with Azure Notebooks
-description: How to create and manage your user profile and user ID with Azure Notebooks.
+description: How to create and manage your user profile and user ID with Azure Notebooks, which becomes part of the URL of shared notebooks.
 services: app-service
 documentationcenter: ''
 author: kraigb

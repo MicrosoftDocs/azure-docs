@@ -18,7 +18,7 @@ In this article, you'll learn how to register a resource (or API) application in
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, click **Azure Active Directory**.
 
-2. In the **Azure Active Directory** blade click **App registrations (Preview)**:
+2. In the **Azure Active Directory** blade click **App registrations**:
 
     ![Azure portal. New App Registration.](media/how-to-aad/portal-aad-new-app-registration.png)
 

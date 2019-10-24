@@ -312,7 +312,7 @@ For details, see MSAL.Python's reference documentation for [ConfidentialClientAp
 
 # [Java](#tab/java)
 
-msal4j is in public preview. Signed assertions aren't yet supported
+msal4j is in public preview. Signed assertions aren't yet supported.
 
 ---
 
