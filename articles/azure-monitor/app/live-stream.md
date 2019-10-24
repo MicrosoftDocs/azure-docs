@@ -196,11 +196,11 @@ However, if you recognize and trust all the connected servers, you can try the c
 ## Supported features table
 
 | Language | Basic Metrics  | Performance metrics  | Custom filtering | Sample telemetry | CPU split by process |
-|----------|:---------------|:---------------------|:-----------------|:-----------------|:---------------------|
-| .NET     | Supported      | Supported            | Supported        | Supported        | Supported            |
-| .NET Core| Supported      | Supported            | Supported        | Supported        | Supported            |
-| Java     | Supported      | Supported            | **Not Supported**| **Not Supported**| **Not Supported**    |
-| Node.js  | Supported      | Supported            | **Not Supported**| Supported        | **Not Supported**    |
+|----------|:--------------------|:--------------------|:-----------------|:--------------------|:---------------------|
+| .NET     | Supported           | Supported           | Supported        | Supported           | Supported            |
+| .NET Core| Supported           | Supported           | Supported        | Supported           | Supported            |
+| Java     | Supported (V1.0.7+) | Supported (V1.0.7+) | **Not Supported**| **Not Supported**   | **Not Supported**    |
+| Node.js  | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**| Supported (V1.3.0+) | **Not Supported**    |
 
 Basic metrics include request, dependency and exception rate. Performance metrics include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events and traces.
 
