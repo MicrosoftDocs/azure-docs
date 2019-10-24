@@ -40,6 +40,17 @@ Then you can manage your deployed models by using the [Azure Machine Learning SD
 
 These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
+And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
+
+* Automate the end-to-end machine learning process in the cloud
+* Reuse components and only re-run steps when needed
+* Use different compute resources in each step
+* Run batch scoring tasks
+
+If you want to use scripts to automate your machine learning workflow, the [machine learning CLI](reference-azure-machine-learning-cli.md) provides command-line tools that perform common tasks, such as submitting a training run or deploying a model.
+
+To get started using Azure Machine Learning, see [Next steps](#next-steps).
+
 ## About Azure Machine Learning
 
 Azure Machine Learning provides a cloud-based environment you can use to train, deploy, automate, manage, and track ML models. Start training on your local machine and then scale out to the cloud.
@@ -90,16 +101,6 @@ For code-free training and deployment, try:
 ### Deploy & operationalize (MLOps)
 
 
-And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
-
-* Automate the end-to-end machine learning process in the cloud
-* Reuse components and only re-run steps when needed
-* Use different compute resources in each step
-* Run batch scoring tasks
-
-If you want to use scripts to automate your machine learning workflow, the [machine learning CLI](reference-azure-machine-learning-cli.md) provides command-line tools that perform common tasks, such as submitting a training run or deploying a model.
-
-To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
 ## <a name="sku"></a>Basic & Enterprise editions
 
