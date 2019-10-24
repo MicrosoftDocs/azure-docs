@@ -40,11 +40,11 @@ You can sign in to Azure and run Azure CLI commands in one of two ways:
 
 Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. The Azure CLI is pre-installed and configured to use with your account. Click the **Cloud Shell** button on the menu in the upper-right section of the Azure portal:
 
-[![Cloud Shell](./media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
+[![Cloud Shell](../common/media/storage-quickstart-create-account/cloud-shell-menu.png)](https://portal.azure.com)
 
 The button launches an interactive shell that you can use to run the steps outlined in this how-to article:
 
-[![Screenshot showing the Cloud Shell window in the portal](./media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
+[![Screenshot showing the Cloud Shell window in the portal](../common/media/storage-quickstart-create-account/cloud-shell.png)](https://portal.azure.com)
 
 ### Install the CLI locally
 
