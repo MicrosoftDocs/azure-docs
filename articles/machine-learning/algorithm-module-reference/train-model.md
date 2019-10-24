@@ -15,7 +15,7 @@ ms.date: 10/22/2019
 
 This article describes a module in Azure Machine Learning designer (preview).
 
-Use this module to  train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
+Use this module to train a classification or regression model. Training takes place after you have defined a model and set its parameters, and requires tagged data. You can also use **Train Model** to retrain an existing model with new data. 
 
 ## How the training process works
 

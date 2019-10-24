@@ -43,11 +43,7 @@
   - name: R SDK
     items:
     - name: Create first ML experiment (R)
-      items:
-      - name: 1. Set up a workspace & environment
-        href: tutorial-1st-experiment-R-set-up.md
-      - name: 2. Train your first model
-        href: tutorial-1st-experiment-R-train-model.md
+      href: tutorial-1st-r-experiment.md
   - name: Designer
     items:
     - name: 1. Train regression model
@@ -72,16 +68,16 @@
   items:
   - name: Workspace
     href: concept-workspace.md
-  - name: Compute instance
-    displayName: resource, dsvm, Data Science Virtual Machine
-    href: concept-compute-instance.md
-  - name: Compute target
-    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
-    href: concept-compute-target.md
   - name: Model training
     displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
     href: concept-train-machine-learning-model.md
-  - name: Designer
+  - name: Model management (MLOps)
+    displayName: deploy, deployment, publish, production, operationalize, operationalization
+    href: concept-model-management-and-deployment.md
+  - name: Interpretability
+    displayName: explainability
+    href: machine-learning-interpretability-explainability.md
+  - name: 'Designer: no-code ML'
     displayName: studio
     href: ui-concept-visual-interface.md
   - name: Algorithm cheat sheet
@@ -89,14 +85,14 @@
   - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
-  - name: Model management (MLOps)
-    displayName: deploy, deployment, publish, production, operationalize, operationalization
-    href: concept-model-management-and-deployment.md
+  - name: Compute instance
+    displayName: resource, dsvm, Data Science Virtual Machine
+    href: concept-compute-instance.md
+  - name: Compute target
+    displayName: resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
+    href: concept-compute-target.md
   - name: ML pipelines
     href: concept-ml-pipelines.md
-  - name: Model interpretability
-    displayName: explainability
-    href: machine-learning-interpretability-explainability.md
   - name: ONNX
     href: concept-onnx.md
   - name: Security
@@ -323,6 +319,8 @@
       items:
       - name: Convert to CSV
         href: ../algorithm-module-reference/convert-to-csv.md
+      - name: Convert to Dataset
+        href: ../algorithm-module-reference/convert-to-dataset.md
     - name: Data input & output
       items:
       - name: Import Data
@@ -343,12 +341,18 @@
       items:
       - name: Select Columns in Dataset
         href: ../algorithm-module-reference/select-columns-in-dataset.md
+      - name: Select Columns Transform
+        href: ../algorithm-module-reference/select-columns-transform.md
       - name: Edit Metadata
         href: ../algorithm-module-reference/edit-metadata.md
       - name: Clean Missing Data
         href: ../algorithm-module-reference/clean-missing-data.md
       - name: Feature Hashing
         href: ../algorithm-module-reference/feature-hashing.md
+      - name: Permutation Feature Importance
+        href: ../algorithm-module-reference/permutation-feature-importance.md
+      - name: Filter Based Feature Selection
+        href: ../algorithm-module-reference/filter-based-feature-selection.md
       - name: Extract N-Gram Features from Text
         href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
       - name: Add Columns
@@ -365,6 +369,8 @@
         href: ../algorithm-module-reference/split-data.md
       - name: Normalize Data
         href: ../algorithm-module-reference/normalize-data.md
+      - name: SMOTE
+        href: ../algorithm-module-reference/smote.md
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
       - name: Clip Values
@@ -375,14 +381,24 @@
       items:
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
+      - name: Score SVD Recommender
+        href: ../algorithm-module-reference/score-svd-recommender.md
       - name: Assign Data To Clusters
         href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
       - name: Train Clustering Model
         href: ../algorithm-module-reference/train-clustering-model.md
+      - name: Train SVD Recommender
+        href: ../algorithm-module-reference/train-svd-recommender.md
+      - name: Tune Model Hyperparameters
+        href: ../algorithm-module-reference/tune-model-hyperparameters.md
+      - name: Cross Validate Model
+        href: ../algorithm-module-reference/cross-validate-model.md
       - name: Evaluate Model
         href: ../algorithm-module-reference/evaluate-model.md
+      - name: Evaluate Recommender
+        href: ../algorithm-module-reference/evaluate-recommender.md
       - name: Apply Transformation
         href: ../algorithm-module-reference/apply-transformation.md
       - name: Linear Regression
@@ -405,6 +421,8 @@
         href: ../algorithm-module-reference/multiclass-decision-forest.md
       - name: Multiclass Boosted Decision Tree
         href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
+      - name: One vs. All Multiclass
+        href: ../algorithm-module-reference/one-vs-all-multiclass.md
       - name: Two-Class Averaged Perceptron
         href: ../algorithm-module-reference/two-class-averaged-perceptron.md
       - name: Two-Class Decision Forest

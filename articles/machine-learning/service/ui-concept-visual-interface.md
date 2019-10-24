@@ -1,7 +1,7 @@
 ---
 title: Build ML models with designer
 titleSuffix: Azure Machine Learning
-description: Learn about the terms, concepts, and workflow that make up the designer for Azure Machine Learning.
+description: Learn about the terms, concepts, and workflow that makes up the designer for Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -96,6 +96,24 @@ The pipeline endpoint is a [PublishedPipeline, which you can submit a pipeline r
 The real-time endpoint provides an interface between an application and your scoring model. An external application can communicate with the scoring model in real time. A call to a real-time endpoint returns prediction results to an external application. To make a call to a real-time endpoint, you pass an API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
 To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](ui-tutorial-automobile-price-deploy.md).
+
+## Moving from the visual interface to the designer
+
+The visual interface (preview) has been updated and is now Azure Machine Learning designer (preview). The designer has been rearchitected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. 
+
+As a result of these updates, some concepts and terms for the visual interface have been changed or renamed. See the table below for the most important conceptual changes. 
+
+| Concept in the designer | Previously in the visual interface |
+| ---- |:----:|
+| Pipeline draft | Experiment |
+| Real-time endpoint | Web service |
+
+### Migrating to the designer
+
+You can convert existing visual interface experiments and web services to pipelines and real-time endpoints in the designer. Use the following steps to migrate your visual interface assets:
+
+[!INCLUDE [migrate from the visual interface](../../../includes/aml-vi-designer-migration.md)]
+
 
 ## Next steps
 

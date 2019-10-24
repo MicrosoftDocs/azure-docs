@@ -1,7 +1,7 @@
 ---
 title:  "Import Data: Module Reference"
 titleSuffix: Azure Machine Learning
-description: Learn  how to use the Import Data module in Azure Machine Learning designer to load data into a machine learning pipeline from existing cloud data services.  
+description: Learn  how to use the Import Data module in Azure Machine Learning to load data into a machine learning pipeline from existing cloud data services.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,7 +17,10 @@ This article describes a module in Azure Machine Learning designer (preview).
 
 Use this module to load data into a machine learning pipeline from existing cloud data services.  
 
-At first, choose the type of cloud-based storage you are reading from, and finish the additional settings. After you define the data you want and connect to the source, [Import Data](./import-data.md) infers the data type of each column based on the values it contains, and loads the data into your Azure Machine Learning workspace. The output of [Import Data](./import-data.md) is a dataset that can be used with any pipeline.
+The module now features a wizard to help you choose a storage option and select from among existing subscriptions and accounts to quickly configure all options. Need to edit an existing data connection? No problem; the wizard loads all previous configuration details so that you don't have to start again from scratch.
+
+After you define the data you want and connect to the source, [Import Data](./import-data.md) infers the data type of each column based on the values it contains, and loads the data into your Azure Machine Learning workspace. The output of [Import Data](./import-data.md) is a dataset that can be used with any pipeline.
+
 
   
 If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md). However, if you don't want to re-read from the source each time you run the pipeline, select the **Use cached results** option to TRUE. When this option is selected, the module checks whether the pipeline has run previously using the same source and same input options. If a previous run is found, the data in the cache is used, instead of reloading the data from the source.
@@ -37,8 +40,12 @@ If you are not sure how or where you should store your data, see this guide to c
 |[Import from Azure SQL Database](./import-from-azure-sql-database.md) |Get data from Azure SQL Database|
 
 ## How to configure Import Data
- 
-1. Add the **Import Data** module to your pipeline. You can find this module in the **Data Input and Output** category in the interface.
+
+1. Add the **Import Data** module to your pipeline. You can find this module in the **Data Input and Output** category in the designer.
+
+1. Click **Launch Data Import Wizard** to configure the data source using a wizard.
+
+    The wizard gets the account name and credentials, and help you configure other options. If you are editing an existing configuration, it loads the current values first.
 
 1. Click **Data source**, and choose the type of cloud-based storage you are reading from. 
 
@@ -52,7 +59,7 @@ If you are not sure how or where you should store your data, see this guide to c
 
 1. Run the pipeline.
 
-    When Import Data loads the data into the interface, it infers the data type of each column based on the values it contains, either numerical or categorical.
+    When Import Data loads the data into the designer, it infers the data type of each column based on the values it contains, either numerical or categorical.
 
     - If a header is present, the header is used to name the columns of the output dataset.
 

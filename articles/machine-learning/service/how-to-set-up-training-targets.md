@@ -3,8 +3,8 @@ title: Create and use compute targets for model training
 titleSuffix: Azure Machine Learning
 description: Configure the training environments (compute targets) for machine learning model training. You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -442,6 +442,8 @@ The run configuration file is YAML formatted, with following sections
  * Configuration details specific to the framework selected.
  * Data reference and data store details.
  * Configuration details specific for Machine Learning Compute for creating a new cluster.
+
+See the example [JSON file](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) for a full runconfig schema.
 
 ### Create an experiment
 

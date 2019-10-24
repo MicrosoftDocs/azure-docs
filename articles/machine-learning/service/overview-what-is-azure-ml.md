@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/21/2019
+ms.date: 10/29/2019
 ms.custom: seodec18
 ---
 
@@ -26,6 +26,46 @@ Azure Machine Learning is a cloud service that you use to train, deploy, automat
 Machine learning is a data science technique that allows computers to use existing data to forecast future behaviors, outcomes, and trends. By using machine learning, computers learn without being explicitly programmed.
 
 Forecasts or predictions from machine learning can make apps and devices smarter. For example, when you shop online, machine learning helps recommend other products you might want based on what you've bought. Or when your credit card is swiped, machine learning compares the transaction to a database of transactions and helps detect fraud. And when your robot vacuum cleaner vacuums a room, machine learning helps it decide whether the job is done.
+
+## Machine learning tools to fit each task 
+
+## Build ML models in Python or R
+
+Start training on your local machine using the Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
+
+With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
+
+You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
+
+## Build ML models with no-code tools
+
+  Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
+
+  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/designer.png)
+
++ **Automated machine learning UI**
+
+  Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
+
+  [![Azure Machine Learning studio navigation pane](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
+## MLOps: Deploy & lifecycle management
+When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
+
+Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
+
+These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
+
+And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
+
+* Automate the end-to-end machine learning process in the cloud
+* Reuse components and only re-run steps when needed
+* Use different compute resources in each step
+* Run batch scoring tasks
+
+If you want to use scripts to automate your machine learning workflow, the [machine learning CLI](reference-azure-machine-learning-cli.md) provides command-line tools that perform common tasks, such as submitting a training run or deploying a model.
+
+To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
 ## About Azure Machine Learning
 
@@ -49,11 +89,6 @@ Azure Machine Learning provides all the tools you need for your machine learning
 
 Whether you write code or use the [designer](ui-tutorial-automobile-price-train-score.md), you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
 
-### Code-first experience
-
-Start training on your local machine using the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
-
-You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
 ### UI-based, low-code experience
 
@@ -65,33 +100,13 @@ For code-free training and deployment, try:
 
   Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
 
-  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/designer.png)
+  ![Azure Machine Learning designer](media/concept-ml-pipelines/visual-design-surface.gif)
 
 + **Automated machine learning UI**
 
   Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
 
   [![Azure Machine Learning studio navigation pane](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
-
-
-### Deploy & operationalize (MLOps)
-
-When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
-
-Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk), [Azure Machine Learning studio](https://ml.azure.com), or the [machine learning CLI](reference-azure-machine-learning-cli.md).
-
-These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
-
-And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
-
-* Automate the end-to-end machine learning process in the cloud
-* Reuse components and only re-run steps when needed
-* Use different compute resources in each step
-* Run batch scoring tasks
-
-If you want to use scripts to automate your machine learning workflow, the [machine learning CLI](reference-azure-machine-learning-cli.md) provides command-line tools that perform common tasks, such as submitting a training run or deploying a model.
-
-To get started using Azure Machine Learning, see [Next steps](#next-steps).
 
 ## <a name="sku"></a>Basic & Enterprise editions
 
@@ -111,7 +126,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
 
 - Create your first experiment with your preferred method:
   + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
-  + [Use R Markdown to train & deploy ML models](tutorial-1st-experiment-r-set-up.md) 
+  + [Use R Markdown to train & deploy ML models]( tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
   + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
   + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
