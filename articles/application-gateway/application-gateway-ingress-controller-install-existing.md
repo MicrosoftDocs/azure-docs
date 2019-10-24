@@ -18,10 +18,10 @@ resources, and creates and applies Application Gateway config based on these.
 ### Outline:
 - [Prerequisites](#prerequisites)
 - [Azure Resource Manager Authentication (ARM)](#azure-resource-manager-authentication)
-    - Option 1: [Set up aad-pod-identity](#set-up-aad-pod-identity) and [Create Azure Identity on ARM](#create-azure-identity-on-arm)
+    - Option 1: [Set up aad-pod-identity](#set-up-aad-pod-identity) and create Azure Identity on ARMs
     - Option 2: [Using a Service Principal](#using-a-service-principal)
 - [Install Ingress Controller using Helm](#install-ingress-controller-as-a-helm-chart)
-- [Multi-cluster / Shared Application Gateway](#multi-cluster--shared-app-gateway): Install AGIC in an environment, where Application Gateway is
+- [Multi-cluster / Shared Application Gateway](#multi-cluster--shared-application-gateway): Install AGIC in an environment, where Application Gateway is
 shared between one or more AKS clusters and/or other Azure components.
 
 ### Prerequisites

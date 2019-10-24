@@ -77,7 +77,7 @@ Copy and paste all lines at once from the
 script above into a [Azure Cloud Shell](https://shell.azure.com/). Please ensure the entire
 command is copied - starting with `cat` and including the last `EOF`.
 
-![apply](images/tsg--apply-config.png)
+![apply](./media/application-gateway-ingress-controller-troubleshooting/tsg--apply-config.png)
 
 After a successful deployment of the app above your AKS cluster will have a new Pod, Service and an Ingress.
 
@@ -85,17 +85,17 @@ Get the list of pods with [Cloud Shell](https://shell.azure.com/): `kubectl get 
 We expect for a pod named 'test-agic-app-pod' to have been created. It will have an IP address. This address
 must be within the VNET of the Application Gateway, which is used with AKS.
 
-![pods](images/tsg--get-pods.png)
+![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-pods.png)
 
 Get the list of services: `kubectl get services -o wide`. We expect to see a service named
 'test-agic-app-service'.
 
-![pods](images/tsg--get-services.png)
+![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-services.png)
 
 Get the list of the ingresses: `kubectl get ingress`. We expect an Ingress resource named
 'test-agic-app-ingress' to have been created. The resource will have a host name 'test.agic.contoso.com'.
 
-![pods](images/tsg--get-ingress.png)
+![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--get-ingress.png)
 
 One of the pods will be AGIC. `kubectl get pods` will show a list of pods, one of which will begin
 with 'ingress-azure'. Get all logs of that pod with `kubectl logs <name-of-ingress-controller-pod>`
@@ -115,14 +115,14 @@ indicating successful Application Gateway configuration with
 Application Gateway will have the following configuration applied:
 
 - Listener:
-![listener](images/tsg--listeners.png)
+![listener](./media/application-gateway-ingress-controller-troubleshooting/tsg--listeners.png)
 
 - Routing Rule:
-![routing_rule](images/tsg--rule.png)
+![routing_rule](./media/application-gateway-ingress-controller-troubleshooting/tsg--rule.png)
 
 - Backend Pool:
   - There will be one IP address in the backend address pool and it will match the IP address of the Pod we observed earlier with `kubectl get pods -o wide`
-![backend_pool](images/tsg--backendpools.png)
+![backend_pool](./media/application-gateway-ingress-controller-troubleshooting/tsg--backendpools.png)
 
 
 Finally we can use the `cURL` command from within [Cloud Shell](https://shell.azure.com/) to
@@ -131,7 +131,7 @@ establish an HTTP connection to the newly deployed app:
 1. Use `kubectl get ingress` to get the Public IP address of Application Gateway
 2. Use `curl -I -H 'test.agic.contoso.com' <publitc-ip-address-from-previous-command>`
 
-![pods](images/tsg--curl.png)
+![pods](./media/application-gateway-ingress-controller-troubleshooting/tsg--curl.png)
 
 A result of `HTTP/1.1 200 OK` indicates that the Application Gateway + AKS + AGIC system is working as expected.
 
@@ -194,7 +194,7 @@ The following must be in place for AGIC to function as expected:
 
 * Get the existing namespaces in Kubernetes cluster. What namespace is your app
 running in? Is AGIC watching that namespace? Refer to the
-[Multiple Namespace Support](features/multiple-namespaces.md#enable-multiple-namespace-support)
+[Multiple Namespace Support](./application-gateway-ingress-controller-multiple-namespace-support.md#enable-multiple-namespace-support)
 documentation on how to properly configure observed namespaces.
 ```bash
 # What namespaces exist on your cluster
@@ -242,7 +242,7 @@ kubectl get ingress --namespace  <which-namespace?>  <which-ingress?>  -o yaml
   - in your browser using the [Kubernetes Web UI (Dashboard)](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)
 
 
-# Logging Levels
+## Logging Levels
 
 AGIC has 3 logging levels. Level 1 is the default one and it shows minimal number of log lines.
 Level 5, on the other hand, would display all logs, including sanitized contents of config applied
