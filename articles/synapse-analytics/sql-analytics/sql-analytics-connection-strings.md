@@ -39,13 +39,17 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 > 
 > 
 
+## Recommendations
+
+For executing **SQL analytics on-demand** queries, recommended tools are [Azure Data Studio](sql-analytics-query-ads.md) and Azure Synapse Studio.
+
 ## Next steps
 To start querying your analytics with Visual Studio and other applications, see [Query with Visual Studio][Query with Visual Studio].
 
 <!--Image references-->
 
 <!--Azure.com references-->
-[Query with Visual Studio]: ./sql-analytics-query-visual-studio.md
+[Query with Visual Studio]: ../../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md
 
 <!--MSDN references-->
 [ADO.NET]: https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx
