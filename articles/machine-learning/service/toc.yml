@@ -109,10 +109,8 @@
           href: how-to-secure-web-service.md
         - name: Regenerate storage access keys
           href: how-to-change-storage-access-key.md
-      - name: Monitoring
-        items:
-        - name: Monitor Azure Machine Learning
-          href: monitor-azure-machine-learning.md
+      - name: Monitor Azure Machine Learning
+        href: monitor-azure-machine-learning.md
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
