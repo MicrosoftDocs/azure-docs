@@ -22,7 +22,7 @@ App discovery using Azure Migrate: Server Assessment is agentless. Nothing needs
 
 ## Before you start
 
-1. Review the [support limitations](migrate-support-matrix-vmware.md#app-level-discovery) for app-level discovery.
+1. Review the [support limitations](migrate-support-matrix-vmware.md#application-discovery) for app-level discovery.
 2. Make sure you've [created](how-to-add-tool-first-time.md) an Azure Migrate project.
 3. If you've already created a project, make sure you've [added](how-to-assess.md) the Azure Migrate: Server Assessment tool.
 4. Check the [VMware requirements](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) for discovering and assessing VMware VMs with the Azure Migrate appliance.
