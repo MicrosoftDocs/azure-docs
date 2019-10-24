@@ -66,7 +66,7 @@ You must have an Azure Notebooks account to launch notebooks directly from withi
     > [!div class="mx-imgBorder"]
     > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
-## Clone a notebook
+## Clone Azure Sentinel Notebooks to a new Azure Notebooks project
 
 These instruction use an example that creates an Azure Notebooks project from the Azure portal, populating the project with notebooks. Before you use these notebooks, it's a good idea to make a copy of the notebook and work on the copy. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
 
