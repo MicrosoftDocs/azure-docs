@@ -150,7 +150,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 Navigate to the **Models** tab to see the algorithms (models) tested. By default, the models are ordered by metric score as they complete. For this tutorial, the model that scores the highest based on the chosen **AUC_weighted** metric is at the top of the list.
 
-While you wait for all of the experiment models to finish, select the **Algorith name** of a completed model to explore its performance details. 
+While you wait for all of the experiment models to finish, select the **Algorithm name** of a completed model to explore its performance details. 
 
 The following navigates through the **Model details** and the **Visualizations** tabs to view the selected model's properties, metrics and performance charts. 
 
@@ -183,7 +183,7 @@ In this experiment context, **VotingEnsemble** is considered the best model, bas
     
 Now you have an operational web service to generate predictions. 
 
-Proceed to the [**Next Steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learing support.
+Proceed to the [**Next Steps**](#next-steps) to learn more about how to consume your new web service, and test your predictions using Power BI's built in Azure Machine Learning support.
 
 ## Clean up resources
 
