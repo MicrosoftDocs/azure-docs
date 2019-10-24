@@ -52,7 +52,7 @@ Create your elastic pool using the Azure portal.
    - **Name**: Provide a unique name for your elastic pool, such as `myElasticPool`. 
    - **Subscription**: Select your subscription from the drop-down.
    - **ResourceGroup**: Select `myResourceGroup` from the drop-down, the resource group you created in section 1. 
-   - **Server**: Select the server you created in section 1 from the drop down.  
+   - **Server**: Select the server you created in section 1 from the drop-down.  
 
        ![Create new server for elastic pool](media/sql-database-elastic-pool-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
 
@@ -114,7 +114,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 | Command | Notes |
 |---|---|
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for a an Azure SQL Database.| 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for an Azure SQL Database.| 
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Sets properties for a database, or moves an existing database into an elastic pool. | 
 
 ---
@@ -125,7 +125,7 @@ In this step, you will create a [failover group](sql-database-auto-failover-grou
 
 # [Portal](#tab/azure-portal)
 
-Create your failover group using the Azure Portal. 
+Create your failover group using the Azure portal. 
 
 1. Select **Azure SQL** in the left-hand menu of the [Azure portal](https://portal.azure.com). If **Azure SQL** is not in the list, select **All services**, then type Azure SQL in the search box. (Optional) Select the star next to **Azure SQL** to favorite it and add it as an item in the left-hand navigation. 
 1. Select the elastic pool created in the previous section, such as `myElasticPool`. 
@@ -234,7 +234,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 |---|---|
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for a an Azure SQL Database.| 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for an Azure SQL Database.| 
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Creates a new failover group. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more Azure SQL Databases to a failover group. |
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Gets or lists Azure SQL Database failover groups. |
@@ -396,7 +396,7 @@ This script uses the following commands. Each command in the table links to comm
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Creates a SQL Database server that hosts single databases and elastic pools. |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) | Creates a firewall rule for a logical server. | 
 | [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Creates a new Azure SQL Database single database. | 
-| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for a an Azure SQL Database.| 
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for an Azure SQL Database.| 
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Sets properties for a database, or moves an existing database into an elastic pool. | 
 | [New-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/new-azsqldatabasefailovergroup) | Creates a new failover group. |
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Gets one or more SQL databases. |
@@ -409,6 +409,7 @@ This script uses the following commands. Each command in the table links to comm
 # [Portal](#tab/azure-portal)
 There are no scripts available for the Azure portal.
 
+---
 
 ## Next steps
 

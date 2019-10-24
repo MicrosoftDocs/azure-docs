@@ -485,10 +485,10 @@ Create connections between the two gateways using the Azure portal.
     1. Select `VNet-to-VNet` for the **Connection type**. 
     1. Select your subscription from the drop-down. 
     1. Select the resource group for your managed instance in the drop-down. 
-    1. Select the location of your primary managed instance from the drop down 
+    1. Select the location of your primary managed instance from the drop-down 
 1. On the **Settings** tab, select or enter the following values and then select **OK**:
     1. Choose the primary network gateway for the **First virtual network gateway**, such as `Primary-Gateway`.  
-    1. Choose the secondary network gateway for the **Second virtual network gateawy**, such as `Secondary-Gateway`. 
+    1. Choose the secondary network gateway for the **Second virtual network gateway**, such as `Secondary-Gateway`. 
     1. Select the checkbox next to **Establish bidirectional connectivity**. 
     1. Either leave the default primary connection name, or rename it to a value of your choice. 
     1. Provide a **Shared key (PSK)** for the connection, such as `mi1m2psk`. 
@@ -641,7 +641,7 @@ The listener endpoint is in the form of `fog-name.database.windows.net`, and is 
 
 ## Remarks
 
-- Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after its been removed. Failing to do either thing may result in an error similar to `The operation cannot be performed due to multiple errors` when attempting to add the database to the failover group. 
+- Removing a failover group for a single or pooled database does not stop replication, and it does not delete the replicated database. You will need to manually stop geo-replication and delete the database from the secondary server if you want to add a single or pooled database back to a failover group after it's been removed. Failing to do either thing may result in an error similar to `The operation cannot be performed due to multiple errors` when attempting to add the database to the failover group. 
 
 
 ## Next steps

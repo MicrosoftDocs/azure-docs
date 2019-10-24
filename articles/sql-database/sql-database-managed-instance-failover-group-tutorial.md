@@ -816,7 +816,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 
 ## 5 - Create secondary gateway 
-In this step, create the gateway for the virtual network of your secondary managed instance using the Azure Portal, 
+In this step, create the gateway for the virtual network of your secondary managed instance using the Azure portal, 
 
 
 # [Portal](#tab/azure-portal)
@@ -911,10 +911,10 @@ Connect the two gateways using the Azure portal.
     1. Select `VNet-to-VNet` for the **Connection type**. 
     1. Select your subscription from the drop-down. 
     1. Select the resource group for your managed instance in the drop-down. 
-    1. Select the location of your primary managed instance from the drop down 
+    1. Select the location of your primary managed instance from the drop-down 
 1. On the **Settings** tab, select or enter the following values and then select **OK**:
     1. Choose the primary network gateway for the **First virtual network gateway**, such as `Primary-Gateway`.  
-    1. Choose the secondary network gateway for the **Second virtual network gateawy**, such as `Secondary-Gateway`. 
+    1. Choose the secondary network gateway for the **Second virtual network gateway**, such as `Secondary-Gateway`. 
     1. Select the checkbox next to **Establish bidirectional connectivity**. 
     1. Either leave the default primary connection name, or rename it to a value of your choice. 
     1. Provide a **Shared key (PSK)** for the connection, such as `mi1m2psk`. 
@@ -1130,6 +1130,8 @@ This script uses the following commands. Each command in the table links to comm
 # [Portal](#tab/azure-portal) 
 
 There are no scripts available for the Azure portal.
+
+---
 
 ## Next steps
 
