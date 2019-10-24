@@ -192,15 +192,15 @@ Azure IoT Central classifies Azure IoT Edge device types as follows:
 
 ### Azure IoT Edge patterns supported in IoT Central
 
-- **Azure IoT Edge as leaf device**
+- Azure IoT Edge as leaf device
   ![Azure IoT Edge as leaf device](./media/overview-iot-central-pnp-edge/edgeasleafdevice.png)
   Azure IoT Edge device will be provisioned in IoT Central and any downstream devices and its telemetry will be represented as coming from Azure IoT Edge device. Downstream devices if any connected to the Azure IoT Edge device will not be provisioned in IoT Central. 
 
-- **Azure IoT Edge Gateway Device connected to Downstream Devices with identity**
+- Azure IoT Edge Gateway Device connected to Downstream Devices with identity
   ![Azure IoT Edge with downstream device identity](./media/overview-iot-central-pnp-edge/edgewithdownstreamdeviceidentity.png)
   Azure IoT Edge device will be provisioned in IoT Central along with the downstream devices connected to the Azure IoT Edge device. Runtime support provisioning of downstream devices through gateway is planned for the future. IoT Central will light up Cloud First Provisioning of the downstream devices and the credentials are managed manually on the downstream device. Device first provisioning of downstream devices planned for the future semesters. 
 
-- **Azure IoT Edge Gateway Device connected to Downstream Devices with identity provided by Edge Gateway**
+- Azure IoT Edge Gateway Device connected to Downstream Devices with identity provided by Edge Gateway
   ![Azure IoT Edge with downstream device without identity](./media/overview-iot-central-pnp-edge/edgewithoutdownstreamdeviceidentity.png)
   Azure IoT Edge device will be provisioned in IoT Central along with the downstream devices connected to the Azure IoT Edge device. Runtime support of gateway providing identity to downstream devices and provisioning of downstream devices is planned for the future. You can bring your own identity translation module and IoT Central will support this pattern. 
 

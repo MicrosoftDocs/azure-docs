@@ -247,7 +247,7 @@ To publish a device template, go to you your device template and select **Publis
 
 After you publish a device template, an operator can go to the **Devices** page and add either real or simulated devices that use your device template. You can continue to modify and save your device template as you are making changes, however, when you want to push these changes out to the operator to view under the **Devices** page you must select **Publish** each time.
 
-## Define a new IoT gateway device type in your Azure IoT Central application (preview features)
+## Define a new IoT gateway device type (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
