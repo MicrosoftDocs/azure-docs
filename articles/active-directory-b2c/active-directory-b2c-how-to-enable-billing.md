@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -31,7 +31,7 @@ If you have an existing Azure AD B2C tenant that was linked to a subscription pr
 * Upgrade to the monthly active users (MAU) billing model, or
 * Stay on the per-authentication billing model
 
-### Upgrade to MAU billing
+### Upgrade to monthly active users billing model
 
 Azure subscription owners that have administrative access to the Azure AD B2C resource can switch to the MAU billing model. Billing options are configured in your Azure AD B2C resource.
 
