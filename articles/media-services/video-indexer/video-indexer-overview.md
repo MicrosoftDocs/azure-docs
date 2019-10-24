@@ -15,7 +15,7 @@ ms.author: juliako
 
 # What is Video Indexer?
 
-Video Indexer (VI) is the Azure Media Services AI solution and part of the Microsoft Cognitive Services brand. Video Indexer provides ability to extract deep insights (with no need for data analysis or coding skills) using machine learning models based on multiple channels (voice, vocals, visual). You can further customize and train the models. The service enables deep search, reduces operational costs, enables new monetization opportunities, and creates new user experiences on large archives of videos (with low entry barriers).
+Video Indexer (VI) is the Azure Media Services AI solution and part of the Azure Cognitive Services brand. Video Indexer provides ability to extract deep insights (with no need for data analysis or coding skills) using machine learning models based on multiple channels (voice, vocals, visual). You can further customize and train the models. The service enables deep search, reduces operational costs, enables new monetization opportunities, and creates new user experiences on large archives of videos (with low entry barriers).
 
 To start extracting insights with Video Indexer, you need to create an account and upload videos. When you upload your videos to Video Indexer, it analyses both visuals and audio by running different AI models. As Video Indexer analyzes your video, the insights that are extracted by the AI models.
 
@@ -28,20 +28,20 @@ The following diagram is an illustration and not a technical explanation of how 
 Video Indexer's insights can be applied to many scenarios, among them are:
 
 * *Deep search*: Use the insights extracted from the video to enhance the search experience across a video library. For example, indexing spoken words and faces can enable the search experience of finding moments in a video where a person spoke certain words or when two people were seen together. Search based on such insights from videos is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise LOB apps, and in general to any industry that has a video library that users need to search against.
-* *Content creation*: Create trailers, highlight reels, social media content or news clips based on the insights Video Indexer extracts from your content. Keyframes, scenes markers, and timestamps for the people and label appearances make the creation process much smoother and easier, and allows you to get right to the interesting parts of the video you need for the content you're creating.
+* *Content creation*: Create trailers, highlight reels, social media content, or news clips based on the insights Video Indexer extracts from your content. Keyframes, scenes markers, and timestamps for the people and label appearances make the creation process much smoother and easier, and allows you to get to the parts of the video you need for the content you're creating.
 * *Accessibility*: Whether you want to make your content available for people with disabilities or if you want your content to be distributed to different regions using different languages, you can use the transcription and  translation provided by video indexer in multiple languages.
-* *Monetization*: Video Indexer can help increase the value of videos. For example, industries that rely on ad revenue (news media, social media, and so on), can deliver relevant ads by using the extracted insights as additional signals to the ad server.
-* *Content moderation*: Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization’s values. You can automatically block certain videos or alert your users regarding the content. 
-* *Recommendations*: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend users the most relevant videos and highlight the parts of the video that will match their needs.
+* *Monetization*: Video Indexer can help increase the value of videos. For example, industries that rely on ad revenue (news media, social media, and so on) can deliver relevant ads by using the extracted insights as additional signals to the ad server.
+* *Content moderation*: Use textual and visual content moderation models to keep your users safe from inappropriate content and validate that the content you publish matches your organization’s values. You can automatically block certain videos or alert your users about the content.
+* *Recommendations*: Video insights can be used to improve user engagement by highlighting the relevant video moments to users. By tagging each video with additional metadata, you can recommend to users the most relevant videos and highlight the parts of the video that will match their needs.
 
 ## Features
 
-The following is the list of insights you can retrieve from your videos using Video Indexer video and audio models:
+The following list shows the insights you can retrieve from your videos using Video Indexer video and audio models:
 
 ### Video insights
 
 * **Face detection**: Detects and groups faces appearing in the video.
-* **Celebrity identification**: Video Indexer automatically identifies over 1 million celebrities—such as world leaders, actors, actresses, athletes, researchers, business, and tech leaders across the globe. The data about these celebrities can also be found on various websites (IMDB, Wikipedia, and so on).
+* **Celebrity identification**: Video Indexer automatically identifies over 1 million celebrities—like world leaders, actors, actresses, athletes, researchers, business, and tech leaders across the globe. The data about these celebrities can also be found on various websites (IMDB, Wikipedia, and so on).
 * **Account-based face identification**: Video Indexer trains a model for a specific account. It then recognizes faces in the video based on the trained model. For more information, see [Customize a Person model from the Video Indexer website](customize-person-model-with-website.md) and [Customize a Person model with the Video Indexer API](customize-person-model-with-api.md).
 * **Thumbnail extraction for faces** ("best face"): Automatically identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extracts it as an image asset.
 * **Visual text recognition** (OCR): Extracts text that's visually displayed in the video.
@@ -58,7 +58,7 @@ The following is the list of insights you can retrieve from your videos using Vi
 ### Audio insights
 
 * **Automatic language detection**: Automatically identifies the dominant spoken language. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Russian, and Brazilian Portuguese. If the language can't be identified with confidence, Video Indexer assumes the spoken language is English. For more information, see [Language identification model](language-identification-model.md).
-* **Multi-language speech identification and transcription** (preview): Automatically identifies the spoken language in different segments from audio, sending each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
+* **Multi-language speech identification and transcription** (preview): Automatically identifies the spoken language in different segments from audio. It sends each segment of the media file to be transcribed and then combines the transcription back to one unified transcription. For more information, see [Automatically identify and transcribe multi-language content](multi-language-identification-transcription.md).
 * **Audio transcription**: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish, French, German, Italian, Chinese (Simplified), Japanese, Arabic, Russian, Brazilian Portuguese, Hindi, and Korean.
 * **Closed captioning**: Creates closed captioning in three formats: VTT, TTML, SRT.
 * **Two channel processing**: Auto detects separate transcript and merges to single timeline.
@@ -89,9 +89,9 @@ You can access Video Indexer capabilities in three ways:
 
     For more information about the portal, see [Get started with the Video Indexer website](video-indexer-get-started.md).  
 
-* API integration: All of Video Indexer’s capabilities are available through a REST API which lets you integrate the solution into your apps and infrastructure.
+* API integration: All of Video Indexer’s capabilities are available through a REST API, which lets you integrate the solution into your apps and infrastructure.
 
-    To get started as a developer, see [Use Video Indexer REST API](video-indexer-use-apis.md). 
+    To get started as a developer, see [Use Video Indexer REST API](video-indexer-use-apis.md).
 
 * Embeddable widget: Lets you embed the Video Indexer insights, player, and editor experiences into your app.
 
