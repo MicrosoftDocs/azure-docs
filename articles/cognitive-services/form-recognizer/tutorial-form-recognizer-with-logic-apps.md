@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Use Form Recognizer with Azure Logic Apps to analyze invoice - Form Recognizer"
+title: "Tutorial: Use Form Recognizer with Azure Logic Apps to analyze invoices - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you'll use Form Recognizer with Azure Logic Apps to create a workflow that automates the process of training a model and testing it using sample data.
 services: cognitive-services
@@ -36,10 +36,10 @@ Form Recognizer is available in a limited-access preview. To get access to the p
 
 ## Understand the invoice to be analyzed
 
-The sample data set that we use to train the model and test the model is available as a .zip file from [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract the .zip file and open a receipt PDF file under the **/Train** folder. Notice how it has a table with the invoice number, invoice date, etc. 
+The sample data set that we use to train the model and test the model is available as a .zip file from [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Download and extract the .zip file and open an invoice PDF file under the **/Train** folder. Notice how it has a table with the invoice number, invoice date, etc. 
 
 > [!div class="mx-imgBorder"]
-> ![Sample receipt](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
+> ![Sample invoice](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
 
 In this tutorial, we learn how to extract the information from such tables into a JSON format using a workflow created using Azure Logic Apps and Form Recognizer.
 
@@ -65,10 +65,10 @@ Copy the URL of the container. You will need this later in this tutorial. If you
 
 ## Create your logic app
 
-You can use Azure Logic Apps to automate and orchestrate tasks and workflows. In this tutorial, you create a logic app that is triggered by receiving a receipt that you want to analyze as an email attachment. In this workflow, you perform the following tasks:
-* Configure the logic app to trigger automatically when you receive an email with a receipt attached.
+You can use Azure Logic Apps to automate and orchestrate tasks and workflows. In this tutorial, you create a logic app that is triggered by receiving an invoice that you want to analyze as an email attachment. In this workflow, you perform the following tasks:
+* Configure the logic app to trigger automatically when you receive an email with an invoice attached.
 * Configure the logic app to use a Form Recognizer **Train Model** operation to train a model using the sample data that you uploaded to the Azure blob storage.
-* Configure the logic app to use a Form Recognizer **Analyze Form** operation to use the model that you already trained. This component will analyze the receipt that you provide to this logic app based on the model that it trained earlier.
+* Configure the logic app to use a Form Recognizer **Analyze Form** operation to use the model that you already trained. This component will analyze the invoice that you provide to this logic app based on the model that it trained earlier.
 
 Let's start! Follow these steps to set up your workflow.
 
@@ -94,7 +94,7 @@ Let's start! Follow these steps to set up your workflow.
 
 ### Configure the logic app to trigger the workflow when an email arrives
 
-In this tutorial, you trigger the workflow when an email is received with an attached receipt. For this tutorial, we choose Office 365 as the email service but you can use any other email provider that you wish to use.
+In this tutorial, you trigger the workflow when an email is received with an attached invoice. For this tutorial, we choose Office 365 as the email service but you can use any other email provider that you wish to use.
 
 1. From the tabs, select All, select **Office 365 Outlook**, and then under **Triggers**, select **When a new email arrives**.
 
@@ -104,7 +104,7 @@ In this tutorial, you trigger the workflow when an email is received with an att
 
 1. In the next dialog box, perform the following steps.
     1. Select the folder that should be monitored for any new email.
-    1. For **Has attachments** select **Yes**. This ensures that only the e-mails with attachments trigger the workflow.
+    1. For **Has attachments** select **Yes**. This ensures that only the emails with attachments trigger the workflow.
     1. For **Include attachments** select **Yes**. This ensures that the contents of the attachment are used in downstream processing.
 
         > [!div class="mx-imgBorder"]
@@ -137,7 +137,7 @@ Before you can use the Form Recognizer service to analyze invoices, you need to 
 
 ### Configure the logic app to use the Form Recognizer Analyze Form operation
 
-In this section, you add the **Analyze Form** operation to the workflow. This operation uses the already trained model to analyze a new receipt that is provided to the logic app.
+In this section, you add the **Analyze Form** operation to the workflow. This operation uses the already trained model to analyze a new invoice that is provided to the logic app.
 
 1. Select **New step**, and under **Choose an action**, search for **Form Recognizer**. From the results that show up, select **Form Recognizer**, and then under the actions that are available for Form Recognizer, select **Analyze Form**.
 
@@ -151,24 +151,24 @@ In this section, you add the **Analyze Form** operation to the workflow. This op
         > [!div class="mx-imgBorder"]
         > ![Use the ModelID for Form Recognizer](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png)
 
-    2. Click the **Document** text box, and in the dialog box that opens up, under **Dynamic Content** tab, select **Attachments Content**. By doing this you configure the flow to use the sample receipt file that is attached in the email that is sent to trigger the workflow.
+    2. Click the **Document** text box, and in the dialog box that opens up, under **Dynamic Content** tab, select **Attachments Content**. By doing this you configure the flow to use the sample invoice file that is attached in the email that is sent to trigger the workflow.
 
         > [!div class="mx-imgBorder"]
         > ![Use email attachment to analyze invoices](media/tutorial-form-recognizer-with-logic-apps/analyze-form-input-data.png)
 
 1. Click **Save** from the toolbar at the top.
 
-### Extract the table information from the receipt
+### Extract the table information from the invoice
 
 In this section, we configure the logic app to extract the information from the table within the invoices.
 
 1. Select **Add an action**, and under **Choose an action**, search for **Compose** and under the actions that are available, select **Compose** again.
-    ![Extract table information from the receipt](media/tutorial-form-recognizer-with-logic-apps/extract-table.png)
+    ![Extract table information from the invoice](media/tutorial-form-recognizer-with-logic-apps/extract-table.png)
 
 1. In the **Compose** dialog box, click the **Inputs** text box, and from the dialog box that pops up, select **tables**.
 
     > [!div class="mx-imgBorder"]
-    > ![Extract table information from the receipt](media/tutorial-form-recognizer-with-logic-apps/select-tables.png)
+    > ![Extract table information from the invoice](media/tutorial-form-recognizer-with-logic-apps/select-tables.png)
 
 1. Click **Save**.
 
@@ -176,8 +176,8 @@ In this section, we configure the logic app to extract the information from the 
 
 To test the logic app, use the sample invoices in the **/Test** folder of the sample data set that you downloaded from [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Perform the following steps:
 
-1. From the Azure Logic Apps designer for your app, select **Run** from the toolbar at the top. The workflow is now active and waits to receive an email with the receipt attached.
-1. Send an email with a sample receipt attached to the email address that you provided while creating the logic app. Make sure the email is delivered to the folder that you provided while configuring the logic app.
+1. From the Azure Logic Apps designer for your app, select **Run** from the toolbar at the top. The workflow is now active and waits to receive an email with the invoice attached.
+1. Send an email with a sample invoice attached to the email address that you provided while creating the logic app. Make sure the email is delivered to the folder that you provided while configuring the logic app.
 1. As soon as the email is delivered to the folder, the Logic Apps Designer shows a screen with the progress of each stage. In the screenshot below, you see that an email with attachment is received and the workflow is in progress.
 
     > [!div class="mx-imgBorder"]
@@ -190,7 +190,7 @@ To test the logic app, use the sample invoices in the **/Test** folder of the sa
 
     From the **OUTPUTS** box, copy the output and paste it to any text editor.
 
-1. Compare the JSON output with the sample receipt that you sent as an attachment in the email. Notice how the JSON corresponds to the data in the table within the receipt.
+1. Compare the JSON output with the sample invoice that you sent as an attachment in the email. Verify that the JSON data corresponds to the data in the table within the invoice.
 
     ```json
     [
@@ -376,7 +376,7 @@ To test the logic app, use the sample invoices in the **/Test** folder of the sa
       }
     ]
     ```
-    Verify that the JSON data corresponds to the data in the table within the invoice. You have successfully completed this tutorial!
+    You have successfully completed this tutorial!
 
 ## Next steps
 
