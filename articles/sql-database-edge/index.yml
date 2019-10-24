@@ -40,8 +40,10 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Sync SQL Database Edge data
+          - text: Sync SQL Database Edge data with Azure Data Factory
             url: tutorial-sync-data-factory.md
+          - text: Sync SQL Database Edge data with SQL Database
+            url: tutorial-sync-data-sync.md
 
 
   # Card 

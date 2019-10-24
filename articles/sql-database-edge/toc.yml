@@ -11,8 +11,14 @@
     href: deploy-portal.md 
 - name: Tutorials
   items:
-  - name: Sync data to Azure Blob Storage
+  - name: Sync data with Azure Data Factory
     href: tutorial-sync-data-factory.md
+  - name: Sync data with SQL Data Sync
+    href: tutorial-sync-data-sync.md
+- name: How to
+  items:
+  - name: Use stream analytics jobs
+    href: stream-analytics.md
 - name: Concepts
   items:
   - name: Machine learning and artificial intelligence
