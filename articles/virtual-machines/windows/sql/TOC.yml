@@ -56,28 +56,37 @@
         href: virtual-machines-windows-ps-sql-keyvault.md
 - name: How-to guides
   items:
-  - name: Create a SQL VM
+  - name: Create SQL VM
     items:
     - name: Use the portal
       href: virtual-machines-windows-portal-sql-server-provision.md
     - name: Use Azure PowerShell
       href: virtual-machines-windows-ps-sql-create.md
-  - name: Register with the resource provider
-    href: virtual-machines-windows-sql-register-with-resource-provider.md
-  - name: Change licensing model 
-    href: virtual-machines-windows-sql-ahb.md
-  - name: Change edition 
-    href: virtual-machines-windows-sql-change-edition.md
+  - name: Register with SQL VM RP
+    displayName: resource provider, registration
+    items:
+    - name: Single VM
+      href: virtual-machines-windows-sql-register-with-resource-provider.md
+    - name: Bulk register multiple VMs
+      href: virtual-machines-windows-sql-bulk-register-with-resource-provider.md
+  - name: Manage
+    items: 
+    - name: Licensing model
+      displayName: ahb, ahub, payg, change, modify, update
+      href: virtual-machines-windows-sql-ahb.md
+    - name: Edition 
+      displayName: change, modify, update
+      href: virtual-machines-windows-sql-change-edition.md
+    - name: Azure Storage for backup & restore
+      href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
   - name: Migrate
     items:
-    - name: Migrate a SQL Server database
+    - name: SQL Server database to VM
       href: virtual-machines-windows-migrate-sql.md
     - name: VM to a new region
       href: virtual-machines-windows-sql-move-different-region.md
   - name: Configure High Availability
     items:
-    - name: Use Azure Storage for backup and restore
-      href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
     - name: Always On availability group
       items:
       - name: Azure SQL VM CLI
