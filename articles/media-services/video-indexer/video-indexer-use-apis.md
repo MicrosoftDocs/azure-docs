@@ -15,7 +15,7 @@ ms.author: juliako
 
 # Tutorial: Use the Video Indexer API
 
-Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platform. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
+Video Indexer consolidates various audio and video artificial intelligence (AI) technologies offered by Microsoft into one integrated service, making development simpler. The APIs are designed to enable developers to focus on consuming Media AI technologies without worrying about scale, global reach, availability, and reliability of cloud platforms. You can use the API to upload your files, get detailed video insights, get URLs of embeddable insight and player widgets, and more.
 
 When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you're not limited by the quota). With a free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With a paid option, you create a Video Indexer account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Azure Media Services account related charges.
 
@@ -41,7 +41,7 @@ This article shows how the developers can take advantage of the [Video Indexer A
     > [!NOTE]
     > New users are automatically subscribed to Authorization.
 	
-	Once you subscribe, you'll be able to see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
+	Once you subscribe, you can see your subscription and your primary and secondary keys. The keys should be protected. The keys should only be used by your server code. They shouldn't be available on the client side (.js, .html, and so on).
 
 	![Subscription and keys in Video Indexer Developer Portal](./media/video-indexer-use-apis/video-indexer-api03.png)
 
