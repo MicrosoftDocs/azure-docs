@@ -70,7 +70,7 @@ In some cases, you might want to directly assign specific users to an access pac
 
 1. Click **Add users** to select the users you want to assign this access package to.
 
-1. In the **Select policy** list, select a policy that the users will be governed and tracked by. If you want the selected users to have different policy settings, you can click **Create new policy** to add one.
+1. In the **Select policy** list, select a policy that the users will be governed and tracked by. If you want the selected users to have different policy settings, you can click **Create new policy** to add a new policy.
 
 1. Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's lifecycle settings will be used.
 
