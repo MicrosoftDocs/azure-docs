@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 05/07/2019
+ms.date: 10/25/2019
 ---
 
 # Manage logic apps with Visual Studio
@@ -41,7 +41,7 @@ Although you can create, edit, manage, and deploy logic apps in the [Azure porta
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * Azure Logic Apps Tools for the Visual Studio version you want:
+  * The latest Azure Logic Apps Tools for the Visual Studio extension for the version that you want:
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
@@ -65,7 +65,7 @@ In Visual Studio, you can find all the logic apps that are associated with your 
 
 1. In Cloud Explorer, select **Account Management**. Select the Azure subscription associated with your logic apps, and then select **Apply**. For example:
 
-   ![Select "Account Management"](./media/manage-logic-apps-with-visual-studio/account-management-select-azure-subscription.png)
+   ![Select "Account Management"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
 1. Based on whether you're searching by **Resource Groups** or **Resource Types**, follow these steps:
 
@@ -128,19 +128,67 @@ To build logic apps for business-to-business (B2B) enterprise integration scenar
    ![Open logic app's .json file with Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
-   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates to Visual Studio and the Azure Logic Apps Tools extension.
 
-1. To make sure that the Logic App Designer has focus, select the designer's tab or surface so that the Properties pane shows the **Integration Account** property for your logic app.
+1. Make sure that the Logic App Designer has focus, and select the designer's tab or surface so that the Properties pane shows the **Integration Account** property for your logic app.
 
-   ![Properties pane shows the "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties.png)
+   ![Properties pane shows the "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
 
-1. Open the **Integration Account** list, and select the integration account that you want to link to your logic app, for example:
+1. Open the **Integration Account** property list, and select the integration account that you want to link to your logic app, for example:
 
    ![Open "Integration Account" property list](./media/manage-logic-apps-with-visual-studio/select-integration-account.png)
 
 1. When you're done, remember to save your Visual Studio solution.
 
 When you set the **Integration Account** property in Visual Studio and save your logic app as an Azure Resource Manager template, that template also includes a parameter declaration for the selected integration account. For more information about template parameters and logic apps, see [Overview: Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters).
+
+<a name="change-location"></a>
+
+## Change deployment location
+
+For deployment, the Azure Resource Group project for your logic app is set to a location type and a specific location. This location type is set to either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md). However, you can change the location type and also the specific location.
+
+> [!IMPORTANT]
+> Changing the location type from a region to an 
+> [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md) affects your logic app's 
+> [pricing model](logic-apps-pricing.md#fixed-pricing) that's used for billing, 
+> [limits](logic-apps-limits-and-config.md#integration-account-limits), [integration account support](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), and so on.
+> Before you select a different location type, make sure that you understand the resulting impact on your logic app.
+
+1. In Visual Studio, open the Azure Resource Group project that contains your logic app.
+
+1. In Solution Explorer, open the **<logic-app-name>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
+
+   ![Open logic app's .json file with Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
+
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates to Visual Studio and the Azure Logic Apps Tools extension.
+
+1. Make sure that the Logic App Designer has focus, and select the designer's tab or surface so that the Properties pane shows the **Choose Location Type** and **Location** properties for your logic app.
+
+   Your project's location type is set to either **Region** or **Integration Service Environment**.
+
+   ![Properties pane shows the "Choose Location Type" and "Location" properties](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+
+1. To change the location type, open the **Choose Location Type** property, and select the location type that you want.
+
+   For example, if the location type is **Integration Service Environment**, you can select **Region**.
+
+   ![Open "Choose Location Type" property list, select different location type](./media/manage-logic-apps-with-visual-studio/change-location-type.png)
+
+1. To change the specific location, open the **Location** property list. Based on the location type, select the location that you want, for example:
+
+   * Select a different Azure region:
+
+     ![Open "Location" property list, select another Azure region](./media/manage-logic-apps-with-visual-studio/change-azure-region.png)
+
+   * Select a different ISE:
+
+     ![Open "Location" property list, select another integration service environment](./media/manage-logic-apps-with-visual-studio/change-integration-service-environment.png)
+
+1. When you're done, remember to save your Visual Studio solution.
+
+When you change the location type or location in Visual Studio and save your logic app as an Azure Resource Manager template, that template also includes parameter declarations for that location type and location. For more information about template parameters and logic apps, see [Overview: Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters).
 
 <a name="refresh"></a>
 
