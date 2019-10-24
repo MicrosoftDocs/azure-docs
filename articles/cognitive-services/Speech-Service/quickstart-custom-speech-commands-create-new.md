@@ -17,9 +17,6 @@ ms.author: donkim
 In this article, you'll learn how to create and test a hosted Custom Commands application.
 The application will recognize an utterance like "turn on the tv" and respond with a simple message "Ok, turning on the tv".
 
-> [!div class="mx-imgBorder"]
-> ![Create Custom Commands project](media/custom-speech-commands/create-intro.png)
-
 ## Prerequisites
 
 - A Speech subscription. [Try the speech service for free](~/articles/cognitive-services/speech-service/get-started.md).
