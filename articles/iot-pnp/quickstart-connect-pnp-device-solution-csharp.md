@@ -28,7 +28,7 @@ IoT Plug and Play Preview simplifies IoT by enabling you to interact with a devi
 
 ## Prerequisites
 
-To complete this quickstart, you need to install .NET Core SDK 2.1.0 or greater on your development machine. You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+To complete this quickstart, you need to install .NET Core on your development machine. You can download the latest recommended version of the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
 
 You can verify the current version of .NET on your development machine using the following command: 
 
@@ -45,7 +45,7 @@ You also need an Azure IoT hub in your Azure subscription to complete this quick
 > [!NOTE]
 > During public preview, IoT Plug and Play features are only available on IoT hubs created in the **Central US**, **North Europe**, and **Japan East** regions.
 
-Add the Microsoft Azure IoT Extension for Azure CLI:
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
