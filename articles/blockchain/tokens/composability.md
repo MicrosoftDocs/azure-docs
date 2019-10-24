@@ -11,7 +11,7 @@ ms.reviewer: brendal
 #Customer intent: As an administrator, I want to use behaviors to create a token for my solution.
 ---
 
-# Azure Blockchain Tokens composablity
+# Azure Blockchain Tokens composability
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
