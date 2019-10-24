@@ -90,7 +90,10 @@ If your Windows 10 domain joined devices are [Azure AD registered](overview.md#g
 - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
 - In Windows 10 1803, if you have Windows Hello for Business configured, the user needs to re-setup Windows Hello for Business after the dual state clean up.This issue has been addressed with KB4512509
 
-
+> [!NOTE]
+> The Azure AD registered device will not be automatically removed if it is managed by Intune. When the automatic device removal is attempted, you will see an error in the User Device Registration event log with an Event ID of 204 and an error code of 0x801c03f2 (DSREG_E_DIRECTORY_FAILURE).
+>
+> The server response will include the following message: The device object with id '00000000-0000-0000-0000-000000000000' in tenant '00000000-0000-0000-0000-000000000000' could not be removed from the store because it is managed by MDM application '00000000-0000-0000-0000-000000000000'.
 
 ## Review controlled validation of hybrid Azure AD join
 
