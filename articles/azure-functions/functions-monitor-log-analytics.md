@@ -23,13 +23,11 @@ Azure Monitor uses a version of the [Kusto query language](/azure/kusto/query/) 
 
 ## Setting up
 
-TODO: go through the different screens to setup sending logs to a log analytics workspace. Need to wait for new portal + ANT 85 for that as a new table name will show up, screen shots provided for extra clarity
-
 From the Monitoring section, select **Diagnostic settings** and the click **Add**
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-In the setting page, choose **Send to Log Analytics**, and under **LOG** choose the **insert new name here** table name, this table contains the desired logs.
+In the setting page, choose **Send to Log Analytics**, and under **LOG** choose **FunctionAppLogs**, this table contains the desired logs.
 
 ![Add a diagnostic setting](media/functions-monitor-log-analytics/choose-table.png)
 
@@ -73,29 +71,35 @@ To query the generated logs, go to the log analytics workspace and click **Logs*
 
 ![Query window in LA workspace](media/functions-monitor-log-analytics/querying.png)
 
-TODO: update table name
+Azure Functions writes all logs to **FunctionAppLogs** table, here are some sample queries.
 
-Azure Functions writes all logs to **table-name** table, here are some sample queries.
+**All logs**
 
-QUESTION: should we have the different column names of the table here? the schema I mean
+```
 
-TODO: show sample queries
+FunctionAppLogs
+| order by TimeGenerated desc
 
-**Function App logs**
-
-TODO: sample query
-
-**Function App platform logs (Host Logs)**
-
-TODO: sample query
+```
 
 **A specific function logs**
 
-TODO: sample query
+```
+
+FunctionAppLogs
+| where FunctionName == "<Function name>" 
+
+```
 
 **Exceptions**
 
-TODO: sample query
+```
+
+FunctionAppLogs
+| where ExceptionDetails != ""  
+| order by TimeGenerated asc
+
+```
 
 ## Next steps
 
