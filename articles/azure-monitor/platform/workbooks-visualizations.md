@@ -133,7 +133,7 @@ Workbook tiles support showing a title, subtitle, large text, icons, metric base
 2. Use the **Add query** link to add a log query control to the workbook. 
 3. Select the query type as **Log**, resource type (for example, Application Insights) and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis
-    ```
+    ```kusto
     requests
     | summarize Requests = count() by appName, name
     | top 7 by Requests desc
@@ -175,6 +175,7 @@ The example below shows container health metrics (working set size) visualized a
     | extend Kind = 'Request', ParentId = '', Name = strcat('📱 ', Id))
     | project Name, Kind, Requests, Id, ParentId
     | order by Requests desc
+    ```
 5. Set the visualization to _Grid_
 6. Click the _Column Settings_ button to open the settings pane
 7. In the _Tree/Group By Settings_ section at the bottom, set:
@@ -213,7 +214,7 @@ The graph below show data flowing in/out of a computer via various port to/from 
 2. Use the _Add query_ link to add a log query control to the workbook. 
 3. Select the query type as _Log_, resource type (for example, Application Insights) and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis
-    ```
+    ```kusto
     let data = dependencies
     | summarize Calls = count() by App = appName, Request = operation_Name, Dependency = name
     | extend RequestId = strcat(App, '::', Request);
