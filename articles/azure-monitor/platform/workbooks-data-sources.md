@@ -23,7 +23,6 @@ Workbooks are compatible with the following data sources:
 * [Alerts (Preview)](#alerts-preview)
 * [Workload Health (Preview)](#workload-health-preview)
 * [Azure Resource Health (Preview)](#azure-resource-health)
-* [Custom Endpoints (Preview)](#custom-endpoints-preview)
 * [Azure Data Explorer (Preview)](#azure-data-explorer-preview)
 
 ## Logs
@@ -79,14 +78,6 @@ Workbooks support getting Azure resource health and combining it with other data
 To make a query control use this data source, use the **Query type** drop-down to choose Azure health and select the resources to target. Use the health filter drop downs to select an interesting subset of resource issues for your analytic needs.
 
 ![Screenshot of alerts query](./media/workbooks-overview/resource-health.png)
-
-## Custom Endpoints (Preview)
-
-Workbooks support getting data from any external source. If your data lives outside Azure you can bring it to Workbooks by using this data source type.
-
-To make a query control use this data source, use the Query Type drop down to choose Custom Endpoint. Provide the appropriate parameters such as Http method, url, headers, url parameters and/or body. Make sure your data source supports [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) otherwise the request will fail.
-
-![Screenshot of alerts query](./media/workbooks-overview/custom-endpoints.png)
 
 ## Azure Data Explorer (Preview)
 

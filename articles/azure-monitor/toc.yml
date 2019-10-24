@@ -893,27 +893,27 @@
       - name: Overview
         href: platform/workbooks-overview.md
       - name: Visualizations
-        href: workbooks-visualizations.md
+        href: platform/workbooks-visualizations.md
       - name: Data sources
-        href: workbooks-data-sources.md
-      - name: Workbooks & Azure Resource Manager
-        href: workbooks-automate.md
+        href: platform/workbooks-data-sources.md
+      - name: platform/Workbooks & Azure Resource Manager
+        href: platform/workbooks-automate.md
       - name: Configuration
         items:
         - name: Access control
-          href: workbooks-access-control.md
+          href: platform/workbooks-access-control.md
         - name: Parameters
           items:
           - name: Parameter summary
-            href: workbooks-parameters.md
+            href: platform/workbooks-parameters.md
           - name: Drop down parameters
-            href: workbooks-dropdowns.md
+            href: plaform/workbooks-dropdowns.md
           - name: Interactive parameters
-            href: workbooks-interactive.md
+            href: platform/workbooks-interactive.md
           - name: Time parameters
-            href: workbooks-time.md
+            href: platform/workbooks-time.md
           - name: Text parameters
-            href: workbooks-text
+            href: platform/workbooks-text
     - name: Dashboards
       href: app/app-insights-dashboards.md
     - name: Send data to Grafana
