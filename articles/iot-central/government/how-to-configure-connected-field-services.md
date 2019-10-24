@@ -11,7 +11,11 @@ manager: miriamb
 ---
 
 
+<<<<<<< HEAD
 # Build end-to-end solution with Azure IoT Central and Dyanmics 365 Field Service 
+=======
+# How to connect your application with Dynamics 365 Field Services 
+>>>>>>> b41578228fa73c347842cf71113270b5bbaf93d9
 
 As a builder, you can enable integration of your Azure IoT Central application to other business systems. 
 
