@@ -93,15 +93,13 @@ In this section, you create an Azure Databricks service by using the Azure porta
 
     ![Create Databricks Spark cluster on Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Create Databricks Spark cluster on Azure")
 
-4. Fill in values for the following fields, and accept the default values for the other fields:
+    Fill in values for the following fields, and accept the default values for the other fields:
 
-    * Enter a name for the cluster.
+    - Enter a name for the cluster.
+     
+    - Make sure you select the **Terminate after 120 minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
 
-    * For this article, create a cluster with the **5.1** runtime.
-
-    * Make sure you select the **Terminate after \_\_ minutes of inactivity** check box. If the cluster isn't being used, provide a duration (in minutes) to terminate the cluster.
-
-    * Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
+4. Select **Create cluster**. After the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 
 ## Ingest data
 
