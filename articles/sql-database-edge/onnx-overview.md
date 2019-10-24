@@ -60,3 +60,4 @@ The model inputs should be structured so that each input to the model correspond
 ## Next steps
 
 - [Deploy SQL Database Edge through Azure portal](deploy-portal.md)
+- [Deploy an ONNX model on Azure SQL Database Edge Preview](deploy-onnx.md)

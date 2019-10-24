@@ -28,7 +28,7 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
     1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
     1. Click on the Manage Packages and under **Add New** search for **sklearn** and install the scikit-learn package. 
-    1. Also, install the **onnxmltools**, **onnxruntime** packages, which are used with ONNX.
+    1. Also, install the **onnxmltools**, **onnxruntime**, **skl2onnx**, and **sqlalchemy** packages.
     
 * For each script part below, enter it in a cell in the Azure Data Studio notebook and run the cell.
 
@@ -353,5 +353,4 @@ Now, you will be able to view the data in the database.
 
 ## Next Steps
 
-- [Machine Learning and AI with ONNX in SQL Database Edge](onnx-overview.md).
-- Building an end to end IoT Solution with SQL Database Edge using IoT Edge.
+- [Machine Learning and AI with ONNX in SQL Database Edge](onnx-overview.md)
