@@ -32,11 +32,11 @@ Measures latency from the client to the Microsoft Edge PoP for the registered pr
 
 Monitors routing path for any suspicious activity and captures the same in the event logs. For instance, event logs are created for some of the factors specified below: 
 
-Prefix hijacks
+- Prefix hijacks
 
-Prefix withdrawal
+- Prefix withdrawal
 
-Route leak
+- Route leak
 
 ## Next steps
 

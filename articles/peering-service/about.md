@@ -26,14 +26,14 @@ To use Peering Service, customer isn't required to register with Microsoft. The 
 
 For instructions on how to register Peering Service, refer [here](azure-portal.md).  
 
+> [!Note]
+> This article is intended for network architects of enterprises.
+>
+
 > [!IMPORTANT]
 > "Peering Service” is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-> [!Note]
-> This article is intended for network architects of enterprises.
->
 
 ## What Peering Service isn't about?
 
@@ -81,7 +81,7 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 
    Microsoft interconnects with Service Provider at multiple metro locations so that if one of the edge nodes has degraded performance, the traffic routes to/from Microsoft via alternate sites. Microsoft routes traffic in its global network using SDN-based routing policies for optimal performance.
 
-   Ensures to use the shortest routing path by always choosing the nearest Microsoft Edge POP to the end user and ensures the customer is one network hop(AS hops) away from Microsoft​.  
+   Ensures to use the shortest routing path by always choosing the nearest Microsoft Edge POP to the end user and ensures the customer is one network hop (AS hops) away from Microsoft​.  
 
    ![Geo Redundancy](./media/peering-service-about/peering-service-geo-shortest.png)
 

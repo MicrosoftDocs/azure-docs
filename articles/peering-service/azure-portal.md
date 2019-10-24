@@ -62,7 +62,7 @@ From a browser, navigate to the Azure portal and sign in with your Azure account
 
 ## Register Peering Service connection
 
-1. To register *Peering Service* connection, click **Create a resource > Peering Service** as depicted below:
+1. To register *Peering Service* connection, click  **Create a resource > Peering Service** as depicted below:
 
     > [!div class="mx-imgBorder"]
     > ![Register Peering Service](./media/peering-service-portal/peering-servicecreate.png)

@@ -43,7 +43,6 @@ The table in this article provides information on the *Peering Service* connecti
 
 ## Next steps
 
-For more information about Peering Service, see the [Peering Service FAQ](faq.md).
+For more information about Peering Service, see the [Peering Service Overview](about.md).
 
 For more information on how to onboard Peering Service, see the [Onboarding Peering Service](onboarding-model.md).
-
