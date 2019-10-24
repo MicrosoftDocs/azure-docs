@@ -34,36 +34,23 @@ If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Serv
 
 ## Download the sample
 
-In a terminal window, run the following commands to clone the sample application to your local computer, then go to the folder with the sample code.
+In a terminal window, run the following command to clone the sample application to your local computer. 
 
-# [Bash](#tab/bash)
-
-```bash
+```
 git clone https://github.com/Azure-Samples/python-docs-hello-world
-cd python-docs-hello-world
 ```
 
-# [PowerShell](#tab/powershell)
+Then go into that folder:
 
-```powershell
-git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
 cd python-docs-hello-world
 ```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-git clone https://github.com/Azure-Samples/python-docs-hello-world
-cd python-docs-hello-world
-```
-
----
 
 The repository contains an *application.py* file, which tells App Service that the code contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
 
 ## Run the sample
 
-In a terminal window, use the commands below to install the required dependencies and launch the built-in development server. 
+In a terminal window, use the commands below (as appropriate for your operating system) to install the required dependencies and launch the built-in development server. 
 
 # [Bash](#tab/bash)
 
@@ -109,25 +96,9 @@ The Azure CLI provides you with many convenient commands that you use from a loc
 
 To run Azure commands in the Azure CLI, you must first log in using the `az login` command. This command opens a browser to gather your credentials.
 
-# [Bash](#tab/bash)
-
-```bash
+```
 az login
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az login
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-az login
-```
-
----
 
 ## Deploy the sample
 
@@ -135,25 +106,10 @@ The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app
 
 In the *python-docs-hello-world* folder that contains the sample code, run the following command, replacing  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*) and replacing `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
 
-# [Bash](#tab/bash)
 
-```bash
+```
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az webapp up --sku F1 -n <app-name> -l <location-name>
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-az webapp up --sku F1 -n <app-name> -l <location-name>
-```
-
----
 
 This command may take a few minutes complete run. While running, it displays information similar to the following example:
 
@@ -207,25 +163,9 @@ Save your changes and exit the editor.
 
 Redeploy the app using the following `az webapp up` command, using the same command you used to deploy the app the first time, replacing `<app-name>` and `<location-name>` with the same names you used before. 
 
-# [Bash](#tab/bash)
-
-```bash
+```
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az webapp up --sku F1 -n <app-name> -l <location-name>
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-az webapp up --sku F1 -n <app-name> -l <location-name>
-```
-
----
 
 Once deployment has completed, switch back to the browser window open to `http://<app-name>.azurewebsites.net` and refresh the page, which should display the modified message:
 
@@ -240,47 +180,15 @@ You can access the console logs generated from inside the app and the container 
 
 First, turn on container logging by running the following command in a terminal, replacing `<app-name>` with the name of your app and `<resource-group-name>` with the name of the resource group shown in the output of the `az webapp up` command you used (such as "appsvc_rg_Linux_centralus"):
 
-# [Bash](#tab/bash)
-
-```bash
+```
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
-```
-
----
 
 Once container logging is turned on, run the following command to show the log stream:
 
-# [Bash](#tab/bash)
-
-```bash
+```
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az webapp log tail --name <app-name> --resource-group <resource-group-name>
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-az webapp log tail --name <app-name> --resource-group <resource-group-name>
-```
-
----
 
 Refresh the app in the browser to generate console logs, which should include lines similar to the following text. If you don't see output immediately, try again in 30 seconds.
 
@@ -313,25 +221,9 @@ In the preceding steps, you created Azure resources in a resource group. The res
 
 If you don't expect to need these resources in the future, delete the resource group by running the following command, replacing `<resource-group-name>` with the resource group shown in the output of the `az webapp up` command, such as "appsvc_rg_Linux_centralus". The command may take a minute to complete.
 
-# [Bash](#tab/bash)
-
-```bash
+```
 az group delete -n <resource-group-name>
 ```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-az group delete -n <resource-group-name>
-```
-
-# [Cmd](#tab/cmd)
-
-```cmd
-az group delete -n <resource-group-name>
-```
-
----
 
 ## Next steps
 
