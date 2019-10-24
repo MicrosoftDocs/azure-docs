@@ -129,6 +129,7 @@ Must be one of the following operators:
 - BeginsWith
 - EndsWith
 - Regex
+- Geomatch
 
 ### Negate condition [optional]
 
