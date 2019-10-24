@@ -32,12 +32,6 @@ First, open Azure Data Studio and follow these steps to install the packages nee
 1. Click on the Manage Packages and under **Add New** search for **sklearn** and install the scikit-learn package. 
 1. Also, install the **onnxmltools**, **onnxruntime** packages, which are used with ONNX.
 
-This quickstart has three parts:
-
-1. Create a pipeline to train a LinearRegression model
-2. Convert the model to the ONNX format
-3. Predict using the ONNX model
-
 For each script part below, enter it in a cell in the Azure Data Studio notebook and run the cell.
 
 ### Train a pipeline
@@ -184,9 +178,180 @@ onnx_model_path = 'boston1.model.onnx'
 onnxmltools.utils.save_model(onnx_model, onnx_model_path)
 ```
 
+### Test the ONNX model
 
+After converting the model to ONNX format, you can score the model to show little to no degradation in performance.
+
+> [!NOTE]
+> ONNX Runtime uses floats instead of doubles so small discrepancies are possible.
+
+```python
+import onnxruntime as rt
+sess = rt.InferenceSession(onnx_model_path)
+
+y_pred = np.full(shape=(len(x_train)), fill_value=np.nan)
+
+for i in range(len(x_train)):
+    inputs = {}
+    for j in range(len(x_train.columns)):
+        inputs[x_train.columns[j]] = np.full(shape=(1,1), fill_value=x_train.iloc[i,j])
+
+    sess_pred = sess.run(None, inputs)
+    y_pred[i] = sess_pred[0][0][0]
+
+onnx_r2_score = r2_score(y_train, y_pred)
+onnx_mse = mean_squared_error(y_train, y_pred)
+
+print()
+print('*** Onnx r2 score: {}'.format(onnx_r2_score))
+print('*** Onnx MSE: {}\n'.format(onnx_mse))
+print('R2 Scores are equal' if sklearn_r2_score == onnx_r2_score else 'Difference in R2 scores: {}'.format(abs(sklearn_r2_score - onnx_r2_score)))
+print('MSE are equal' if sklearn_mse == onnx_mse else 'Difference in MSE scores: {}'.format(abs(sklearn_mse - onnx_mse)))
+print()
+```
+
+**Output**:
+
+```
+*** Onnx r2 score: 0.7406426691136831
+*** Onnx MSE: 21.894830759270633
+
+R2 Scores are equal
+MSE are equal
+```
+
+### Insert the ONNX model into Azure SQL Database Edge
+
+Store the model a `models` table in a database `onnx`. In the connection string, specify the **server address, username, and password**. You will also import the **pyodbc** package.
+
+```python
+import pyodbc
+
+server = '' # SQL Server IP address
+username = '' # SQL Server username
+password = '' # SQL Server password
+
+# Connect to the master DB to create the new onnx database
+connection_string = "Driver={ODBC Driver 17 for SQL Server};Server=" + server + ";Database=master;UID=" + username + ";PWD=" + password + ";"
+
+conn = pyodbc.connect(connection_string, autocommit=True)
+cursor = conn.cursor()
+
+database = 'onnx'
+query = 'DROP DATABASE IF EXISTS ' + database
+cursor.execute(query)
+conn.commit()
+
+# Create onnx database
+query = 'CREATE DATABASE ' + database
+cursor.execute(query)
+conn.commit()
+
+# Connect to onnx database
+db_connection_string = "Driver={ODBC Driver 17 for SQL Server};Server=" + server + ";Database=" + database + ";UID=" + username + ";PWD=" + password + ";"
+
+conn = pyodbc.connect(db_connection_string, autocommit=True)
+cursor = conn.cursor()
+
+table_name = 'models'
+
+# Drop the table if it exists
+query = f'drop table if exists {table_name}'
+cursor.execute(query)
+conn.commit()
+
+# Create the model table
+query = f'create table {table_name} ( ' \
+    f'[id] [int] IDENTITY(1,1) NOT NULL, ' \
+    f'[data] [varbinary](max) NULL, ' \
+    f'[description] varchar(1000))'
+cursor.execute(query)
+conn.commit()
+
+# Insert the ONNX model into the models table
+query = f"insert into {table_name} ([description], [data]) values ('Onnx Model',?)"
+
+model_bits = onnx_model.SerializeToString()
+
+insert_params  = (pyodbc.Binary(model_bits))
+cursor.execute(query, insert_params)
+conn.commit()
+```
+
+### Load the data into Azure SQL Database Edge
+
+Create two tables, **features** and **target**, to store subsets of the boston housing dataset. 
+
+* **Features** will contain all data being used to predict the target, median value. 
+* **Target** contains the median value for each record in the dataset. 
+
+You also need to import the **sqlalchemy** package.
+
+```python
+import sqlalchemy
+from sqlalchemy import create_engine
+import urllib
+
+db_connection_string = "Driver={ODBC Driver 17 for SQL Server};Server=" + server + ";Database=" + database + ";UID=" + username + ";PWD=" + password + ";"
+
+conn = pyodbc.connect(db_connection_string)
+cursor = conn.cursor()
+
+features_table_name = 'features'
+
+# Drop the table if it exists
+query = f'drop table if exists {features_table_name}'
+cursor.execute(query)
+conn.commit()
+
+# Create the features table
+query = \
+    f'create table {features_table_name} ( ' \
+    f'    [CRIM] real, ' \
+    f'    [ZN] real, ' \
+    f'    [INDUS] real, ' \
+    f'    [CHAS] real, ' \
+    f'    [NOX] real, ' \
+    f'    [RM] real, ' \
+    f'    [AGE] real, ' \
+    f'    [DIS] real, ' \
+    f'    [RAD] real, ' \
+    f'    [TAX] real, ' \
+    f'    [PTRATIO] real, ' \
+    f'    [B] real, ' \
+    f'    [LSTAT] real, ' \
+    f'    [id] int)'
+
+cursor.execute(query)
+conn.commit()
+
+target_table_name = 'target'
+
+# Create the target table
+query = \
+    f'create table {target_table_name} ( ' \
+    f'    [MEDV] real, ' \
+    f'    [id] int)'
+
+x_train['id'] = range(1, len(x_train)+1)
+y_train['id'] = range(1, len(y_train)+1)
+
+print(x_train.head())
+print(y_train.head())
+```
+
+Finally, using sqlalchemy, we insert the `x_train` and `y_train` pandas dataframes into tables `features` and `target`, respectively. 
+
+```python
+db_connection_string = 'mssql+pyodbc://' + username + ':' + password + '@' + server + '/' + database + '?driver=ODBC+Driver+17+for+SQL+Server'
+sql_engine = sqlalchemy.create_engine(db_connection_string)
+x_train.to_sql(features_table_name, sql_engine, if_exists='append', index=False)
+y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
+```
+
+Now, you will be able to view the data in the database.
 
 ## Next Steps
 
-- [Machine Learning and Artificial Intelligence with ONNX in SQL Database Edge](onnx-overview.md).
+- [Machine Learning and AI with ONNX in SQL Database Edge](onnx-overview.md).
 - Building an end to end IoT Solution with SQL Database Edge using IoT Edge.
