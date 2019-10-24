@@ -28,7 +28,7 @@ There's more than one way to deploy Azure Firewall Manager Preview, but the foll
 3. Create a firewall policy and associate it with your hub
 
    - Applicable only if using Azure Firewall.
-   - Third-party Network Security as a Service (NSaaS) policies are configured via partners management experience.
+   - Third-party security as a service (SECaaS) policies are configured via partners management experience.
 4. Configure route settings to route traffic to your secured hub
 
    - Easily route traffic to your secured hub for filtering and logging without User Defined Routes (UDR) on spoke Virtual Networks using the Secured Virtual Hub Route Setting page.

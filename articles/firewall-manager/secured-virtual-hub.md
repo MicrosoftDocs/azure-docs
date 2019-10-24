@@ -19,7 +19,7 @@ A *secured* virtual hub is an [Azure Virtual WAN Hub](../virtual-wan/virtual-wan
 
 You can use a secured virtual hub as a managed central VNet with no on-prem connectivity. It replaces the central VNet that was previously required for an Azure Firewall deployment. Since the secured virtual hub provides automated routing, there's no need to configure your own UDRs (user defined routes) to route traffic through your firewall.
 
-It's also possible to use secured virtual hubs as part of a full Virtual WAN architecture. This architecture provides secured, optimized, and automated branch connectivity to and through Azure. You can choose the services to protect and govern your network traffic, including Azure Firewall and other third-party NSaaS (Network Security as a service) providers.
+It's also possible to use secured virtual hubs as part of a full Virtual WAN architecture. This architecture provides secured, optimized, and automated branch connectivity to and through Azure. You can choose the services to protect and govern your network traffic, including Azure Firewall and other third-party security as a service (SECaaS) providers.
 
 ## Create a secured virtual hub
 
