@@ -25,27 +25,27 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 The collaborative workspace landing page at [https://ml.azure.com](https://ml.azure.com) has been enhanced and rebranded as the Azure Machine Learning studio (preview).
 
-From this web page, you can train, test, deploy, and manage Azure Machine Learning assets such as datasets, pipelines, models, endpoints, computes, and more.  
+From the studio, you can train, test, deploy, and manage Azure Machine Learning assets such as datasets, pipelines, models, endpoints, and more.  
 
 Access the following web-based authoring tools from the studio:
 
 | Web-based tool | Description | Edition |
 |-|-|-|
-| Notebook VM (GA) | A fully managed cloud-based workstation | Basic & Enterprise |
-| Automated machine learning (preview) | Automate time intensive machine learning tasks to quickly build production-ready models | Enterprise |
-| Designer (preview) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | Enterprise |
+| [Notebook VM](concept-compute-instance.md) (GA) | Fully managed cloud-based workstation | Basic & Enterprise |
+| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
+| [Designer](ui-concept-visual-interface.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | Enterprise |
 
 ### Azure Machine Learning designer enhancements 
 
 + Formerly known as the visual interface 
-+	11 new [modules](../algorithm-module-reference/module-reference) including recommenders, classifiers, training utilities, feature engineering, and data transformation tools.
++	11 new [modules](../algorithm-module-reference/module-reference) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
 +	Learn more in this blog at http://aka.ms/designer-announcement 
 
 ### R SDK 
  
-Data scientists and AI developers use the Azure Machine Learning SDK for R to build and run machine learning workflows with the Azure Machine Learning service.
+Data scientists and AI developers use the [Azure Machine Learning SDK for R](tutorial-1st-r-experiment.md) to build and run machine learning workflows with Azure Machine Learning.
 
-Azure Machine Learning SDK for R uses the `reticulate` package to bind to the Python SDK. By binding directly to Python, the SDK for R allows you access to core objects and methods implemented in the Python SDK from any R environment you choose.
+The Azure Machine Learning SDK for R uses the `reticulate` package to bind to the Python SDK. By binding directly to Python, the SDK for R allows you access to core objects and methods implemented in the Python SDK from any R environment you choose.
 
 Main capabilities of the SDK include:
 
