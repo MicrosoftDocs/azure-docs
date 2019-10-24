@@ -147,12 +147,66 @@ In the first few steps we install Helm's Tiller on your Kubernetes cluster. Use 
     helm repo update
     ```
 
-1. Download [helm-config.yaml](../examples/sample-helm-config.yaml), which will configure AGIC:
+1. Download helm-config.yaml, which will configure AGIC:
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
+    Or copy the YAML file below: 
+    
+    ```yaml
+    # This file contains the essential configs for the ingress controller helm chart
 
-1. Edit [helm-config.yaml](../examples/sample-helm-config.yaml) and fill in the values for `appgw` and `armAuth`.
+    # Verbosity level of the App Gateway Ingress Controller
+    verbosityLevel: 3
+    
+    ################################################################################
+    # Specify which application gateway the ingress controller will manage
+    #
+    appgw:
+        subscriptionId: <subscriptionId>
+        resourceGroup: <resourceGroupName>
+        name: <applicationGatewayName>
+    
+        # Setting appgw.shared to "true" will create an AzureIngressProhibitedTarget CRD.
+        # This prohibits AGIC from applying config for any host/path.
+        # Use "kubectl get AzureIngressProhibitedTargets" to view and change this.
+        shared: false
+    
+    ################################################################################
+    # Specify which kubernetes namespace the ingress controller will watch
+    # Default value is "default"
+    # Leaving this variable out or setting it to blank or empty string would
+    # result in Ingress Controller observing all acessible namespaces.
+    #
+    # kubernetes:
+    #   watchNamespace: <namespace>
+    
+    ################################################################################
+    # Specify the authentication with Azure Resource Manager
+    #
+    # Two authentication methods are available:
+    # - Option 1: AAD-Pod-Identity (https://github.com/Azure/aad-pod-identity)
+    armAuth:
+        type: aadPodIdentity
+        identityResourceID: <identityResourceId>
+        identityClientID:  <identityClientId>
+    
+    ## Alternatively you can use Service Principal credentials
+    # armAuth:
+    #    type: servicePrincipal
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    
+    ################################################################################
+    # Specify if the cluster is RBAC enabled or not
+    rbac:
+        enabled: false # true/false
+    
+    # Specify aks cluster related information. THIS IS BEING DEPRECATED.
+    aksClusterConfiguration:
+        apiServerAddress: <aks-api-server-address>
+    ```
+
+1. Edit helm-config.yaml and fill in the values for `appgw` and `armAuth`.
     ```bash
     nano helm-config.yaml
     ```

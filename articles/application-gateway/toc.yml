@@ -19,11 +19,11 @@
   items:
   - name: Enable web application firewall
     href: application-gateway-web-application-firewall-portal.md
-  - name: Creating an ingress controller
+  - name: Ingress for AKS 
     items:
-    - name: Using an existing Application Gateway
+    - name: Set up Ingress for AKS with existing Application Gateway 
       href: application-gateway-ingress-controller-install-existing.md
-    - name: Using a new Application Gateway 
+    - name: Set up Ingress for AKS with new Application Gateway 
       href: application-gateway-ingress-controller-install-new.md
   - name: Secure with SSL
     href: create-ssl-portal.md
@@ -83,7 +83,7 @@
       href: application-gateway-waf-configuration.md
     - name: Custom rules
       href: custom-waf-rules-overview.md
-  - name: Ingress Controller 
+  - name: Ingress for AKS
     items:
     - name: Ingress controller overview
       href: application-gateway-ingress-controller-overview.md
