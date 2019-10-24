@@ -1,6 +1,6 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+title: Create interactive reports with Azure Monitor workbooks visualizations | Microsoft docs
+description: Learn about all the Azure Monitor workbook visualizations components including - text, charts, grids, trees, and graphs.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -27,7 +27,7 @@ Azure Monitor workbooks support a number of different styles of visualizations t
 
 ## Text
 
-Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of the telemetry, information to help users interpret the data, section headings, etc.
+Workbooks allow authors to include text blocks in their workbooks. The text can be human analysis of telemetry, information to help users interpret your data, section headings, etc.
 
 ![Screenshot of Apdex table of text](./media/workbooks-visualizations/apdex.png)
 
@@ -49,7 +49,7 @@ Text is added through a Markdown control which provides for full formatting cont
 
 Workbooks allow monitoring data to be presented as charts. Supported chart types include line, bar, bar categorical, area, scatter plots, pie and time. Authors can choose to customize the height, width, color palette, legend, titles, no-data message, etc. of the chart.
 
-Workbooks support charts for both analytics logs and metric data sources. 
+Workbooks support charts for both logs and metric data sources. 
 
 ### Adding a log chart
 
