@@ -4,7 +4,7 @@ description: A high-level overview and links to more information about the My Ac
 services: active-directory
 author: eross-msft
 manager: daveba
-ms.reviewer: kasimpso
+ms.reviewer: jpettere
 
 ms.service: active-directory
 ms.workload: identity
@@ -41,16 +41,17 @@ For detailed information and instructions about what's available from the **My A
 |Article |Description |
 |------|------------|
 | [Add your security info](user-help-security-info-overview.md) | Several articles with instructions about how to set up the Microsoft Authenticator app, text messaging, or phone calls as your verification method. Also includes articles about how to add an email address or pre-defined security questions so you can reset your own forgotten password, if necessary.|
-| [View or leave your connected organizations](my-account-portal-organizations-page.md) | Instructions about how to view and leave organizations connected to your work or school account.|
 | [View or disable your connected devices](my-account-portal-devices-page.md) | Instructions about how to view or disable any devices you've connected to your work or school account.|
+| [Change your work or school account password](my-account-change-password-page.md) | Instructions about how to change the password for your work or school account. |
+| [View or leave your connected organizations](my-account-portal-organizations-page.md) | Instructions about how to view and leave organizations connected to your work or school account.|
 | [View your privacy-related info](my-account-portal-privacy-page.md) | Instructions about how to view which online services are connected to your work or school account, along with your organization's terms of use statement.|
 
 ## Related Office content
 
 - [Sign in to manage your Office product](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
 
-- [Go to the **My Account** page](https://portal.office.com/account/#home)
+- [Go to the Office **My Account** page](https://portal.office.com/account/#home)
 
-- [Go to the **My installs** page](https://portal.office.com/account/#installs)
+- [Go to the Office **My installs** page](https://portal.office.com/account/#installs)
 
-- [Go to the **Subscriptions** page](https://portal.office.com/account/#subscriptions)
+- [Go to the Office **Subscriptions** page](https://portal.office.com/account/#subscriptions)
