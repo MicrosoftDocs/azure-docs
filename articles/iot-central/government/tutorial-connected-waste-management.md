@@ -76,7 +76,7 @@ It is your application and you can modify it anytime. Let’s now explore the ap
 ## Explore and customize operator dashboard 
 After creating the application you land in the **Wide Waste connected waste management dashboard**.
 
-   ![Connected Waste Management dashboard](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard.png)
+   ![Connected Waste Management dashboard](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard1.png)
 
 As a builder, you can create and customize views on the dashboard for operators. Before you try to customize, let's explore the dashboard. 
 
@@ -260,8 +260,8 @@ If you're not going to continue to use this application, delete your application
 1. Open the Administration tab from the left navigation menu of your IoT Central application. 
 2. Select Application settings and click Delete button at the bottom of the page. 
 
-    ![Delete application](./media/tutorial-connectedwastemanagement/connectedwastemanagement-application-settings-delete-app.PNG)        
+  
 
 ## Next steps
 
-* Learn about more about [Connected waste management concepts](./concepts-connectedwastemanagement-architecture)
+* Learn about more about [Connected waste management concepts](./concepts-connectedwastemanagement-architecture.md)
