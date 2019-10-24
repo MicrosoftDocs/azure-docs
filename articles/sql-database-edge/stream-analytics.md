@@ -15,7 +15,7 @@ ms.date: 10/23/2019
 
 Azure SQL Database Edge Preview is an optimized relational database engine geared for IoT and edge deployments. It is built on the latest versions of the Microsoft SQL Server Database Engine, which provides industry-leading performance, security and query processing capabilities. Along with the industry-leading relational database management capabilities of SQL Server, Azure SQL Database Edge provides in-built streaming capability for real-time analytics and complex event-processing.
 
-Azure SQL Database Edge also provides a native implementation of [SQLPackage.exe that enables users to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Database Edge.
+Azure SQL Database Edge also provides a native implementation of SQLPackage.exe that enables users to deploy a [SQL Database DAC](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) package during the deployment of SQL Database Edge.
 
 Azure SQL Database Edge exposes two optional parameters through the *module twin's desired properties* option of the IoT Edge Module.
 
