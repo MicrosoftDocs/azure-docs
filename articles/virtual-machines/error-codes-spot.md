@@ -23,6 +23,7 @@ ms.author: cynthn
 
 Here are some possible error codes you could receive when using spot VMs and scale sets.
 
+[!div class="mx-tdBreakAll"]
 | Key | Message | Description |
 |-----|---------|
 | EvictionPolicyCanBeSetOnlyOnLowPriorityVirtualMachines | Eviction policy can be set only on spot Virtual Machines. | This VM is not a spot VM, so you can't set the eviction policy. |
