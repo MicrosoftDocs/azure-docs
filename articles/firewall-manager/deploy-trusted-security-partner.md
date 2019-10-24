@@ -15,7 +15,7 @@ ms.author: victorh
 
 *Trusted security partners* in Azure Firewall Manager allows you to use your familiar, best-in-breed third-party security-as-a-service (SECaaS) offerings to protect Internet access for your users.
 
-To learn more about about supported scenarios and best practice guidelines, see [What are trusted security partners (preview)?](trusted-security-partners.md).
+To learn more about supported scenarios and best practice guidelines, see [What are trusted security partners (preview)?](trusted-security-partners.md).
 
 The supported security partners are ZScaler and iboss for this preview.
 
@@ -31,7 +31,7 @@ The supported security partners are ZScaler and iboss for this preview.
    > Trusted security partners connect to your hub using VPN Gateway tunnels. If you delete the VPN Gateway, the connections to your Trusted security partners are lost.
 7. If you want to deploy Azure Firewall to filter private traffic along with third-party service provider to  filter Internet traffic, select a policy for Azure Firewall. See the [supported scenarios](trusted-security-partners.md#key-scenarios).
 8. If you want to only deploy a third-party security provider in the hub, select **Azure Firewall: Enabled/Disabled** to set it to **Disabled**. 
-9. Select  **Next: Trusted Security Parnters**.
+9. Select  **Next: Trusted Security Partners**.
 10. Select **Trusted Security Partner** to set it to **Enabled**. Select a partner. 
 11. Select **Next**. 
 12. Review the content and then select **Create**.
@@ -80,9 +80,9 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 3. Select the hub, and navigate to **Route Settings**.
 
    When you deploy a third-party provider into the hub, it converts the hub into a *secured virtual hub*. This ensures that the third-party provider is advertising a 0.0.0.0/0 (default) route to the hub. However, VNet connections and sites connected to the hub don’t get this route unless you opt-in on which connections should get this default route.
-4. Under **Internet traffic**, select **VNet-to-Internet** or **Branch-to-Internet** or both so routes are configured to be sent via the third party.
+4. Under **Internet traffic**, select **VNet-to-Internet** or **Branch-to-Internet** or both so routes are configured send via the third party.
 
-   This only indicates which type of traffic should be routed to the hub, but it doesn’t effect the routes on VNets or branches yet. These routes are not propagated to all VNets/branches attached to the hub by default.
+   This only indicates which type of traffic should be routed to the hub, but it doesn’t affect the routes on VNets or branches yet. These routes are not propagated to all VNets/branches attached to the hub by default.
 5. You must select **secure connections** and select the connections on which these routes should be set. This indicates which VNets/branches can start sending Internet traffic to the third-party provider.
 6. From **Route settings**, select **Secure connections** under Internet traffic, then select the VNet or branches (*sites* in Virtual WAN) to be secured. Select **Secure Internet traffic**.
    ![Secure Internet traffic](media/deploy-trusted-security-partner/secure-internet-traffic.png)
@@ -92,7 +92,7 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 
 Next, you can check if VNet virtual machines or the branch site can access the Internet and validate that the traffic is flowing to the third-party service.
 
-After finishing the route setting steps, the VNet virtual machines as well as the branch sites are sent a 0/0 to third party service route. You will not be able to RDP or SSH into these virtual machines. To login, you can deploy the [Azure Bastion](../bastion/bastion-overview.md) service in a peered VNet.
+After finishing the route setting steps, the VNet virtual machines as well as the branch sites are sent a 0/0 to third party service route. You can't RDP or SSH into these virtual machines. To sign in, you can deploy the [Azure Bastion](../bastion/bastion-overview.md) service in a peered VNet.
 
 ## Next steps
 
