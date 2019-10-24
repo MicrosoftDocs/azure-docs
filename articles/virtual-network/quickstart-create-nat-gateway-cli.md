@@ -27,8 +27,7 @@ This quickstart shows you how to use Azure NAT service and create a NAT gateway 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you have never used Azure cloud shell, [login now](https://shell.azure.com) to go through the initial setup.
-
+You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you have never used Azure cloud shell, [Sign in now](https://shell.azure.com) to go through the initial setup.
 If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you are running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
@@ -52,13 +51,13 @@ To access the public Internet, you need one or more public IP addresses for the 
 ```azurecli-interactive
   az network public-ip create \
     --resource-group myResourceGroupNAT \
-    --name myPublicIP \
+    --name myPublicIPVM \
     --sku standard
 ```
 
 ### Create a public IP prefix
 
-You can use one or more public IP address resources or one or more public IP prefixes or both with NAT gateway. We will add a public IP prefix resource to this scenario to demonstrate.   Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) to create a public IP prefix resource named **myPublicIPprefix** in **myResourceGroupNAT**.
+You can use one or more public IP address resources, public IP prefixes, or both with NAT gateway. We"ll add a public IP prefix resource to this scenario to demonstrate.   Use [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix) to create a public IP prefix resource named **myPublicIPprefix** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -114,7 +113,7 @@ We'll configure the source subnet **mySubnet** in virtual network **myVnet** to 
     --nat-gateway myNATgateway
 ```
 
-All outbound traffic to Internet destinations is now using the NAT service.  It is not necessary to configure a UDR.
+All outbound traffic to Internet destinations is now using the NAT service.  It's not necessary to configure a UDR.
 
 ## Create a VM to use the NAT service
 
@@ -194,7 +193,7 @@ First we need to discover the IP address of the VM you've created. To retrieve t
 ```azurecli-interactive
   az network public-ip show \
     --resource-group myResourceGroupNAT \
-    --name myPublicIP \
+    --name myPublicIPVM \
     --query [ipAddress] \
     --output tsv
 ``` 
