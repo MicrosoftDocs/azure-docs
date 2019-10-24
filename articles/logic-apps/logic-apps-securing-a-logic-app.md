@@ -681,7 +681,7 @@ For more information about securing services by using client certificate authent
 * [Secure back-end services using client certificate authentication in Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
 * [Secure your RESTfuL service by using client certificates](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 * [Certificate credentials for application authentication](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Use an SSL certificate in your application code in Azure App Service](../app-service/app-service-web-ssl-cert-load.md)
+* [Use an SSL certificate in your application code in Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -774,9 +774,9 @@ If the [Managed Identity](../active-directory/managed-identities-azure-resources
 
 1. Before your logic app can use the system-assigned identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
-1. Before an Azure function can use the system-assigned identity, first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
+2. Before an Azure function can use the system-assigned identity, first [enable authentication for Azure functions](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions).
 
-1. In the trigger or action where you want to use the managed identity, specify these property values:
+3. In the trigger or action where you want to use the managed identity, specify these property values:
 
    | Property (designer) | Property (JSON) | Required | Value | Description |
    |---------------------|-----------------|----------|-------|-------------|
