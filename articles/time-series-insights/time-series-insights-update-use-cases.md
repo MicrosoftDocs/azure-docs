@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Azure Time Series Insights Preview use cases
 
-This article summarizes several common use cases for the Azure Time Series Insights Preview. The recommendations in this article serve as a starting point to develop your applications and solutions with Time Series Insights.
+This article summarizes several common use cases for Azure Time Series Insights Preview. The recommendations in this article serve as a starting point to develop your applications and solutions with Time Series Insights.
 
 Specifically, this article answers the following questions:
 
