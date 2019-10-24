@@ -98,7 +98,7 @@ conceptualContent:
           itemType: concept
           text:  Storage security
       footerLink: 
-        url: /fundamentals/encryption-overview.md
+        url: ./fundamentals/encryption-overview.md
         text: See more
 
     - title: Identity management

@@ -1,16 +1,15 @@
 ---
-title: Virtual Network service endpoints and rules for Azure Service Bus | Microsoft Docs
+title: Virtual network service endpoints - Azure Service Bus
 description: Add a Microsoft.ServiceBus service endpoint to a virtual network. 
 services: service-bus
 documentationcenter: ''
 author: axisc
-manager: timlt
 editor: spelluru
 
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/22/2018
 ms.author: aschhab
 ---
 

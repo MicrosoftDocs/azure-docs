@@ -1,6 +1,6 @@
 ---
-title: Resources for developing a data warehouse in Azure | Microsoft Docs
-description: Development concepts, design decisions, recommendations and coding techniques for SQL Data Warehouse.
+title: Resources for developing a data warehouse in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Development concepts, design decisions, recommendations and coding techniques for Azure Synapse Analytics (formerly SQL DW).
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -12,11 +12,11 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Design decisions and coding techniques for SQL Data Warehouse
-Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for SQL Data Warehouse.
+# Design decisions and coding techniques for Azure Synapse Analytics (formerly SQL DW)
+Take a look through these development articles to better understand key design decisions, recommendations, and coding techniques for a data warehouse.
 
 ## Key design decisions
-The following articles highlight concepts and design decisions for developing a distributed data warehouse using SQL Data Warehouse:
+The following articles highlight concepts and design decisions for developing a distributed data warehouse:
 
 * [connections][connections]
 * [concurrency][concurrency]
@@ -29,7 +29,7 @@ The following articles highlight concepts and design decisions for developing a 
 * [statistics][statistics]
 
 ## Development recommendations and coding techniques
-These articles highlight specific coding techniques, tips, and recommendations for developing your SQL Data Warehouse:
+These articles highlight specific coding techniques, tips, and recommendations for developing your data warehouse:
 
 * [stored procedures][stored procedures]
 * [labels][labels]
@@ -41,7 +41,7 @@ These articles highlight specific coding techniques, tips, and recommendations f
 * [variable assignment][variable assignment]
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).
+For more reference information, see [SQL Analytics T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 
