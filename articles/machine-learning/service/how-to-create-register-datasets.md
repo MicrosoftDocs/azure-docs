@@ -171,9 +171,8 @@ To create a dataset in the studio:
 1. Select **Datasets** in the **Assets** section of the left pane. 
 1. Select **+ Create Dataset** to choose the source of your dataset; this can either be from local files, datastore or public web urls.
 1. Select **Tabular** or **File** for Dataset type.
-1. Select **Next** to review the **Settings and preview** and the **Schema** forms; they are intelligently populated based on file type. 
-    Use these forms to further configure your dataset prior to creation.  
-1. Select **Done** to complete your dataset creation.
+1. Select **Next** to review the **Settings and preview**, **Schema** and **Confirm details** forms; they are intelligently populated based on file type. Use these forms to check your selections and to further configure your dataset prior to creation.  
+1. Select **Create** to complete your dataset creation.
 
 ## Register datasets
 
