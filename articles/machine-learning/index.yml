@@ -78,7 +78,7 @@ landingContent:
       - text: What are ML pipelines?
         url: service/concept-ml-pipelines.md   
       - text: The 'drag-n-drop' designer
-        url: service/ui-concept-visual-interface.md   
+        url: service/concept-designer.md   
     - linkListType: tutorial
       links:
       - text: Linear regression to predict prices (designer)

@@ -43,7 +43,7 @@ Here is a quick comparison:
 
 || Machine Learning Studio (classic) | Azure Machine Learning |
 |---| --- | --- |
-| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../service/ui-concept-visual-interface.md) |
+| Drag and drop interface | Yes | Yes - [Azure Machine Learning designer (preview)](../service/concept-designer.md) |
 | Experiment | Scalable (10-GB training data limit) | Scale with compute target |
 | Modules for drag-and-drop interface | Many | Initial set of popular [modules](../algorithm-module-reference/module-reference.md)|
 |Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute (GPU or CPU) and Notebook VMs.<br/>([Other computes supported in SDK](../service/concept-compute-target.md#train))|

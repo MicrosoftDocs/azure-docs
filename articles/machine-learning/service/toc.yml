@@ -79,7 +79,7 @@
     href: machine-learning-interpretability-explainability.md
   - name: 'Designer: no-code ML'
     displayName: studio
-    href: ui-concept-visual-interface.md
+    href: concept-designer.md
   - name: Automated ML
     displayName: automl, auto ml
     href: concept-automated-ml.md

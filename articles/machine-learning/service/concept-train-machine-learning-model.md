@@ -88,7 +88,7 @@ Machine learning pipelines can use the previously mentioned training methods (ru
 
 The designer lets you to train models using a drag and drop interface in your web browser.
 
-+ [What is the designer?](ui-concept-visual-interface.md)
++ [What is the designer?](concept-designer.md)
 + [Tutorial : Predict automobile price](tutorial-designer-automobile-price-train-score.md)
 + [Regression: Predict price](how-to-designer-sample-regression-automobile-price-basic.md)
 + [Classification: Predict income](how-to-ui-sample-classification-predict-income.md)
