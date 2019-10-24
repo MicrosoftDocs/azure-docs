@@ -51,7 +51,7 @@ An Enterprise cloud footprint can span multiple cloud regions and it is optimal 
 
 **Figure 3: Virtual WAN cross-region connectivity**
 
-When multiple hubs are enabled in a single virtual WAN, the hubs are automatically interconnected via hub-to-hub links.
+When multiple hubs are enabled in a single virtual WAN, the hubs are automatically interconnected via hub-to-hub links, thus enabling global connectivity between branches and Vnets that are distributed across multiple regions. 
 
 Additionally, hubs that are all part of the same virtual WAN, can be associated with different regional access and security policies. For more information, see [Security and policy control](#security) later in this article.
 
@@ -59,7 +59,7 @@ Additionally, hubs that are all part of the same virtual WAN, can be associated 
 
 Global transit network architecture enables any-to-any connectivity via virtual WAN hubs. This architecture eliminates or reduces the need for full mesh or partial mesh connectivity between spokes, that are more complex to build and maintain. In addition, routing control in hub-and-spoke vs. mesh networks is easier to configure and maintain.
 
-Any-to-any connectivity (in the context of a global architecture) allows an enterprise with globally distributed users, branches, datacenters, VNets, and applications to connect to each other through the “transit” hub. Azure Virtual WAN acts as the global transit system.
+Any-to-any connectivity (in the context of a global architecture) allows an enterprise with globally distributed users, branches, datacenters, VNets, and applications to connect to each other through the “transit” hub(s). Azure Virtual WAN acts as the global transit system.
 
 ![any to any](./media/virtual-wan-global-transit-network-architecture/figure4.png)
 
