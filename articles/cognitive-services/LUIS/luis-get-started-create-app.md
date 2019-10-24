@@ -29,30 +29,30 @@ For this article, you need a free LUIS account, created on the LUIS portal at [h
 ## Create a new app
 You can create and manage your applications on **My Apps**. 
 
-1. Select **+ Create**.
+1. In the LUIS portal, on the My apps list, select **+ Create**.
 
-1. In the dialog box, name your application "Home Automation".
+    ![In the LUIS portal, on the My apps list, select '+ Create.](./media/create-app-in-portal.png)
 
-1. Choose your application culture. For this Home Automation app, choose English. Then select **Done**. LUIS creates the app. 
+1. In the dialog box, name your application `Home Automation` then select **Done**. LUIS creates the app.
+
+    ![In the dialog box, name your application `Home Automation`](./media/create-new-app-details.png)
 
     >[!NOTE]
     >The culture cannot be changed once the application is created. 
 
 ## Add prebuilt domain
 
-Select **Prebuilt domains** then search for "HomeAutomation". Select **Add domain**.
+Select **Prebuilt domains** then search for **HomeAutomation**. Select **Add domain** on the HomeAutomation card.
 
-[![Screenshot of Home Automation domain called out in prebuilt domain menu](media/luis-quickstart-new-app/home-automation.png "Screenshot of Home Automation domain called out in prebuilt domain menu")](media/luis-quickstart-new-app/home-automation.png)
+![Select 'Prebuilt domains' then search for 'HomeAutomation'. Select 'Add domain' on the HomeAutomation card.](media/luis-quickstart-new-app/home-automation.png)
 
 When the domain is successfully added, the prebuilt domain box displays a **Remove domain** button.
-
-[![Screenshot of Home Automation domain with remove button](media/luis-quickstart-new-app/remove-domain.png "Screenshot of Home Automation domain with remove button")](media/luis-quickstart-new-app/remove-domain.png)
 
 ## Intents and entities
 
 Select **Intents** to review the HomeAutomation domain intents. The prebuilt domain intents have sample utterances.
 
-![Screenshot of HomeAutomation intents list](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of HomeAutomation intents list")]
+![Screenshot of HomeAutomation intents list](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of HomeAutomation intents list")
 
 > [!NOTE]
 > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides. 
@@ -76,12 +76,11 @@ Check that the top scoring intent corresponds to the intent you expected for eac
 
 In this example, `Turn off the lights` is correctly identified as the top scoring intent of **HomeAutomation.TurnOff**.
 
-[![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/test.png "Screenshot of Test panel with utterance highlighted")](media/luis-quickstart-new-app/test.png)
-
+![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
 Select **Inspect** to review more information about the prediction.
 
-![Screenshot of Test panel with utterance highlighted](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+![Screenshot of Test panel with inspection information](media/luis-quickstart-new-app/test.png)
 
 Select **Test** again to collapse the test pane. 
 
