@@ -114,7 +114,7 @@ Customers are responsible for costs incurred on compute and other Azure resource
   + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
   + [Use R Markdown to train & deploy ML models]( tutorial-1st-r-experiment.md) 
   + [Use automated machine learning to train & deploy ML models](  tutorial-first-experiment-automated-ml.md) 
-  + [Use the designer's drag & drop capabilities to train & deploy](ui-tutorial-automobile-price-train-score.md) 
+  + [Use the designer's drag & drop capabilities to train & deploy](tutorial-designer-automobile-price-train-score.md) 
   + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.

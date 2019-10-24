@@ -54,7 +54,7 @@ A pipeline consists of datasets and analytical modules, which you connect togeth
 * All required parameters for each module must be set.
 
 
-To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md).
+To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
 
 ## Datasets
 
@@ -95,7 +95,7 @@ The pipeline endpoint is a [PublishedPipeline, which you can submit a pipeline r
 
 The real-time endpoint provides an interface between an application and your scoring model. An external application can communicate with the scoring model in real time. A call to a real-time endpoint returns prediction results to an external application. To make a call to a real-time endpoint, you pass an API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 
-To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](ui-tutorial-automobile-price-deploy.md).
+To learn how to deploy your model, see [Tutorial: Deploy a machine learning model with the designer](tutorial-designer-automobile-price-deploy.md).
 
 ## Moving from the visual interface to the designer
 
@@ -117,7 +117,7 @@ You can convert existing visual interface experiments and web services to pipeli
 
 ## Next steps
 
-* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md)
+* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Use one of the samples and modify to suite your needs:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)

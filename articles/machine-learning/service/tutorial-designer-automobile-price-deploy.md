@@ -15,7 +15,7 @@ ms.date: 10/22/2019
 # Tutorial: Deploy a machine learning model with the designer (preview)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-To give others a chance to use the predictive model developed in [part one of the tutorial](ui-tutorial-automobile-price-train-score.md), you can deploy it as a real-time endpoint. In part 1, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
+To give others a chance to use the predictive model developed in [part one of the tutorial](tutorial-designer-automobile-price-train-score.md), you can deploy it as a real-time endpoint. In part 1, you trained your model. Now, it's time to generate new predictions based on user input. In this part of the tutorial, you:
 
 > [!div class="checklist"]
 > * Deploy a real-time endpoint
@@ -24,7 +24,7 @@ To give others a chance to use the predictive model developed in [part one of th
 
 ## Prerequisites
 
-Complete [part one of the tutorial](ui-tutorial-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
+Complete [part one of the tutorial](tutorial-designer-automobile-price-train-score.md) to learn how to train and score a machine learning model in the designer.
 
 ## Deploy a real-time endpoint
 

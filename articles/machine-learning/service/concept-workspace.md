@@ -112,4 +112,4 @@ To get started with Azure Machine Learning, see:
 + [Tutorial: Get started creating your first ML experiment with the Python SDK](tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: Get started with Azure Machine Learning  with the R SDK]( tutorial-1st-r-experiment.md)
 + [Tutorial: Create your first classification model with automated machine learning](tutorial-first-experiment-automated-ml.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)
-+ [Tutorial: Predict automobile price with the designer](ui-tutorial-automobile-price-train-score.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)
++ [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md) (Available only in [Enterprise edition](overview-what-is-azure-ml.md#sku) workspaces)

@@ -48,10 +48,10 @@
     items:
     - name: 1. Train regression model
       displayName: studio
-      href: ui-tutorial-automobile-price-train-score.md
+      href: tutorial-designer-automobile-price-train-score.md
     - name: 2. Deploy regression model
       displayName: studio
-      href: ui-tutorial-automobile-price-deploy.md
+      href: tutorial-designer-automobile-price-deploy.md
   - name: Automated ML (interface)
     displayName: automl, automated, auto ml, portal, ui
     href: tutorial-first-experiment-automated-ml.md
