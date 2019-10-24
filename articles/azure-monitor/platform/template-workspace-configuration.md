@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/22/2019
 ms.author: magoedte
 ---
 
@@ -233,13 +233,13 @@ The following template sample illustrates how to:
         "metadata": {
           "description": "The resource group name containing the storage account with Azure diagnostics output"
         }
-      }
     },
-    "customlogName": {
+    "customLogName": {
     "type": "string",
     "metadata": {
       "description": "The custom log name"
       }
+	 }
     },
     "variables": {
       "Updates": {
@@ -412,13 +412,13 @@ The following template sample illustrates how to:
         {
           "apiVersion": "2015-11-01-preview",
           "type": "dataSources",
-          "name": "[concat(parameters('workspaceName'), parameters('customlogName'))]",
+          "name": "[concat(parameters('workspaceName'), parameters('customLogName'))]",
           "dependsOn": [
             "[concat('Microsoft.OperationalInsights/workspaces/', '/', parameters('workspaceName'))]"
           ],
           "kind": "CustomLog",
           "properties": {
-            "customLogName": "[parameters('customlogName')]",
+            "customLogName": "[parameters('customLogName')]",
             "description": "this is a description",
             "extractions": [
               {
@@ -443,7 +443,7 @@ The following template sample illustrates how to:
                   "fileSystemLocations": {
                     "linuxFileTypeLogPaths": null,
                     "windowsFileTypeLogPaths": [
-                      "[concat('c:\\Windows\\Logs\\',parameters('customlogName'))]"
+                      "[concat('c:\\Windows\\Logs\\',parameters('customLogName'))]"
                     ]
                   }
                 },
@@ -585,7 +585,6 @@ The following template sample illustrates how to:
     }
   }
 }
-
 ```
 
 ### Deploying the sample template
