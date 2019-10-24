@@ -98,7 +98,7 @@ The dashboard consists of different kinds of tiles:
   ![Connected Waste Management dashboard bar chart](./media/tutorial-connectedwastemanagement/connectedwastemanagement-dashboard-barchart.png)
 
 
-* **Field Services content tile**: the dashboard includes link to how to integrate with Dyanmics 365 Field Services from your Azure IoT Central application. As an example, you can use Field Services to create tickets for dispatching trash collection services. 
+* **Field Services content tile**: the dashboard includes link to how to integrate with Dynamics 365 Field Services from your Azure IoT Central application. As an example, you can use Field Services to create tickets for dispatching trash collection services. 
 
 
 ### Customize dashboard 
