@@ -1,5 +1,5 @@
 ---
-title: Dataset Versioning
+title: Dataset versioning
 titleSuffix: Azure Machine Learning service
 description: Learn the best practice to version your datasets and how versioning works with machine learning pipelines
 services: machine-learning
@@ -15,7 +15,7 @@ ms.custom:
 # Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple ML experiments.
 ---
 
-# Version & track datasets in experiments
+# Version and track datasets in experiments
 
 In this how-to, you learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data, so you can apply a specific version of the dataset for future experiments.
 
@@ -84,7 +84,7 @@ When loading data from a dataset, it will always load the current data content r
 
 The following image and sample code show the recommended way to structure your data folders, and create dataset versions referencing those folders.
 
-![folder_image](media/how-to-version-datasets/folder_image.png)
+![Folder structure](media/how-to-version-datasets/folder-image.png)
 
 ```Python
 from azureml.core import Dataset
@@ -140,7 +140,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 <a name="track"></a>
 
-## Track dataset usage in machine learning experiments
+## Track datasets in experiments
 
 For each machine learning experiment, you can easily trace the datasets used as the input through the registered model's  `Run` object.
 
@@ -170,7 +170,11 @@ You can also find the `input_datasets` from experiments using the [workspace lan
 The following image shows where to find the input dataset of an experiment on the workspace landing page. For this example, 
 navigate to your **Experiments** pane, and open the **Properties** tab for a specific run of your experiment, `keras-mnist`. 
 
-![input_datasets](media/how-to-version-datasets/input_datasets.png)
+![Input datasets](media/how-to-version-datasets/input-datasets.png)
+
+You can also find the models that used your dataset with the workspace landing page. The following view is from the Datasets blade under Assets. Select the dataset and navigate to the Models tab for a list of the models using that dataset. 
+
+![Input datasets models](media/how-to-version-datasets/dataset-models.png)
 
 ## Next steps
 
