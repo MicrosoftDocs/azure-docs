@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/18/2019
+ms.date: 10/23/2019
 ---
 # vCore purchasing model
 
@@ -58,8 +58,7 @@ Hardware generation options in the vCore model include Gen 4/5, M-series, and Fs
 - Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
 - Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
 
-Fsv2-series is currently available in the following regions:
-US West, US West 2, and US East.
+Fsv2-series is available in most regions. For details, see [Fsv2-series availability](#fsv2-series-availability).
 
 
 ### M-series (preview)
@@ -67,10 +66,7 @@ US West, US West 2, and US East.
 - M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
 - M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
 
-M-series is currently available in the following regions:
-US West, US West 2, and US East.
-
-To enable M-series availability in a subscription, access must be requested by filing a new support request. For details on creating a support request, see [Hardware availability](#hardware-availability).
+M-series is available in a limited number of regions, and must be enabled by filing a support request. For details, see [M-series availability](#m-series-availability).
 
 
 ### Compute and memory specifications
@@ -89,11 +85,48 @@ To enable M-series availability in a subscription, access must be requested by f
 
 For more information on resource limits, see [Resource limits for single databases (vCore)](sql-database-vcore-resource-limits-single-databases.md), or [Resource limits for elastic pools (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
 
+### Selecting a hardware generation
+
+In the Azure portal, you can select the hardware generation for a SQL database at the time of creation, or you can change the hardware generation of an existing SQL database. For details on creating a database, see [Create a SQL database](sql-database-single-database-get-started.md).
+
+**To select a hardware generation when creating a SQL database**
+
+On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section:
+
+  :::image type="content" source="media/sql-database-service-tiers-vcore/create-sql-database.png" alt-text="create database":::
+
+Select the **Change configuration** link:
+
+  :::image type="content" source="media/sql-database-service-tiers-vcore/configure-sql-database.png" alt-text="configure database":::
+
+Select the desired hardware generation:
+  :::image type="content" source="media/sql-database-service-tiers-vcore/select-hardware.png" alt-text="select hardware":::
+
+**To change the hardware generation of an existing SQL database**
+
+On the database's Overview page, select the **Pricing tier** link:
+
+  :::image type="content" source="media/sql-database-service-tiers-vcore/change-hardware.png" alt-text="change hardware":::
+
+Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
+
 ### Hardware availability
  
-All hardware generations are available without requesting access, except M-series. For M-series, access must be requested by filing a new support request. 
+#### Fsv2-series availability
 
-Create a support request in the Azure portal by completing the following steps: 
+Fsv2-series is available in the following regions:
+Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, East Asia, East Us, France Central, India Central, India West, Korea Central, Korea South, North Europe, South Africa North, Southeast Asia, UK South, UK West, West Europe, West Us 2.
+
+
+#### M-series availability
+
+M-series is available in the following regions:
+East US, North Europe, West Europe, West US 2.
+
+To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
+
+
+##### Create a support request to enable M-series: 
 
 1. Select **Help + support** in the portal.
 2. Select **New support request**.
@@ -107,11 +140,9 @@ On the Basics page, provide the following:
 5. In the **PROBLEM DETAILS** section select the **Provide details** link. 
 6. For **SQL Database quota type** select **M-series**.
 7. For **Region**, select the region to enable M-series.
-    M-series is currently available in the following regions: US West, US West 2, and US East.
+    M-series is available in the following regions: East US, North Europe, West Europe, West US 2. You can request a region other than the currently available regions, but availability is limited so fulfillment in a region outside the four available regions is not guaranteed.
 
 Approved support requests are typically fulfilled within 5 business days.
-
-
 
 
 ## Next steps
