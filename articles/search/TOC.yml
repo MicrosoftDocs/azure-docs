@@ -215,8 +215,6 @@
       href: search-howto-schedule-indexers.md
     - name: Map fields
       href: search-indexer-field-mappings.md
-    - name: Incremental indexing
-      href: search-howto-incremental-index.md
     - name: Connect to SQL Managed Instance
       href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
     - name: Connect to SQL Server VMs
@@ -239,6 +237,8 @@
         href: cognitive-search-output-field-mapping.md
       - name: Process and extract information from images
         href: cognitive-search-concept-image-scenarios.md
+      - name: Set up incremental indexing
+        href: search-howto-incremental-index.md
     - name: Custom skills
       items:
       - name: Integrate custom skills
