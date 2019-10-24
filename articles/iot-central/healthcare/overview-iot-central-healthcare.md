@@ -10,51 +10,31 @@ services: iot-central
 manager: eliotgra
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# Building healthcare solutions with Azure IoT Central 
 
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
+Learn to build healthcare solutions with Azure IoT Central using application templates.
 
-# What is <product/service>? 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
+## What is continuous patient monitoring template?
 
-Introductory paragraph.
-<!---Required:
-The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
---->
+In the healthcare IoT space, Continuous Patient Monitoring is one of the key enablers of reducing the risk of readmissions, managing chronic diseases more effectively, and improving patient outcomes. Continuous Patient Monitoring can be split into two major categories:
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+1. **In-patient monitoring**: Using medical wearables and other devices in the hospital, care teams can monitor patient vital signs and medical conditions without having to send a nurse to check up on a patient multiple times a day. Care teams can understand the moment that a patient needs critical attention through notifications and prioritizes their time effectively.
+1. **Remote patient monitoring**: By using medical wearables and patient reported outcomes (PROs) to monitor patients outside of the hospital, the risk of re-admission can be significantly lowered. Data from chronic disease patients and rehabilitation patients can be collected to ensure that patients are adhering to care plans and that alerts of patient deterioration can be surfaced to care teams before they become critical.
 
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
---->
+This application template can be used to build solutions for both categories of Continuous Patient Monitoring. The benefits include:
 
-## <article body>
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
+* Seamlessly connect a variety of medical wearables to an IoT Central instance.
+* Monitor and manage the devices to ensure they remain healthy.
+* Create custom rules around device data to trigger appropriate alerts.
+* Export your patient health data to the Azure API for FHIR, a compliant data store.
+* Export the aggregated insights into existing or new business applications empowering care teams.
 
-## <Top task>
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
---->
+>[!div class="mx-imgBorder"] 
+>![CPM-dashboard](media/in-patient-dashboard.png)
 
 ## Next steps
 
-<!---Some context for the following links goes here--->
+To get started building a Continuous Patient monitoring solution:
 
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->
+* [Deploy the application template](tutorial-continuous-patient-monitoring.md)
+* [See an example architecture](concept-continuous-patient-monitoring-architecture.md)
