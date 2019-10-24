@@ -1,5 +1,5 @@
 ---
-title: Set up an appliance for assessment of physical servers
+title: Set up an appliance for assessment of physical servers with Azure Migrate Server Assessment
 description: Describes how to set up an appliance for assessment of physical servers using Azure Migrate Server Assessment.
 author: rayne-wiselman
 ms.service: azure-migrate
@@ -62,7 +62,7 @@ The installer script does the following:
 
 - Installs agents and a web application for physical server discovery and assessment.
 - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/en-in/download/details.aspx?id=7435).
+- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
 - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
 - Creates the following files under the path:
     - **Config Files**: %Programdata%\Microsoft Azure\Config
