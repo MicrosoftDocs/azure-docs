@@ -1,6 +1,6 @@
 ### YamlMime:Hub 
 
-title: IoT Central documentation hub
+title: IoT Central solutions documentation
 summary: Explore the Azure IoT Central service and solutions documentation. 
 brand: azure ## Used for color theming of icons and hero area 
 
@@ -145,6 +145,6 @@ additionalContent:
       - title: IoT Central APIs
         summary: Explore the IoT Central APIs.
         url: https://docs.microsoft.com/rest/api/azure/
-      - title: Azure IoT Platform services
-        summary: Explore the set of Azure IoT developer services for building your own IoT solution.
-        url: https://docs.microsoft.com/azure/iot-fundamentals
+      - title: IoT Central on Microsoft Learn
+        summary: Explore the IoT Central in the a free sandbox environment.
+        url: https://aka.ms/iotcentralapimslearnjourney
