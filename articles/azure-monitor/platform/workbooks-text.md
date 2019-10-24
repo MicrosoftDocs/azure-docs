@@ -1,6 +1,6 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
+title: Create interactive reports with Azure Monitor workbooks + text parameters | Microsoft docs
+description: Simplify complex reporting with prebuilt and custom parameterized workbooks. Learn more about workbook text parameters.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -38,14 +38,14 @@ This is how the workbook will look like in read-mode.
 ## Referencing a text parameter
 1. Add a query control to the workbook by selecting the blue `Add query` link and select an Application Insights resource.
 2. In the KQL box, add this snippet:
-    ```
+    ```kusto
     requests
     | summarize AllRequests = count(), SlowRequests = countif(duration >= {SlowRequestThreshold}) by name
     | extend SlowRequestPercent = 100.0 * SlowRequests / AllRequests
     | order by SlowRequests desc
     ```
 3. By using the text parameter with a value of 500 coupled with the query control you effectively running the query below:
-    ```
+    ```kusto
     requests
     | summarize AllRequests = count(), SlowRequests = countif(duration >= 500) by name
     | extend SlowRequestPercent = 100.0 * SlowRequests / AllRequests
@@ -66,7 +66,7 @@ This is how the workbook will look like in read-mode.
     3. Required: `checked`
     4. Get default value from query: `checked`
 5. In the KQL box, add this snippet:
-    ```
+    ```kusto
     requests
     | summarize round(percentile(duration, 95), 2)
     ```
@@ -81,3 +81,5 @@ This is how the workbook will look like in read-mode.
 
 ## Next steps
 
+* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Control](workbooks-access-control.md) and share access to your workbook resources.

@@ -1,5 +1,5 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
+title: Create interactive reports with Azure Monitor workbooks | Resource parameters | Microsoft docs
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks
 services: azure-monitor
 author: mrbullwinkle
@@ -46,7 +46,7 @@ Values from resource pickers can come from the workbook context, static list or 
     1. Query Type: `Azure Resource Graph`
     2. Subscriptions: `Use default subscriptions`
     3. In the query control, add this snippet
-    ```
+    ```kusto
     where type == 'microsoft.insights/components'
     | project value = id, label = name, selected = false, group = resourceGroup
     ```
@@ -84,7 +84,7 @@ Values from resource pickers can come from the workbook context, static list or 
 1. Add a query control to the workbook and select an Application Insights resource.
 2. Use the _Application Insights_ drop down to bind the parameter to the control. Doing this sets the scope of the query to the resources returned by the parameter at run time.
 4. In the KQL control, add this snippet
-    ```
+    ```kusto
     requests
     | summarize Requests = count() by appName, name
     | order by Requests desc

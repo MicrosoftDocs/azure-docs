@@ -1,5 +1,5 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
+title: Create interactive reports with Azure Monitor workbooks | Time parameters | Microsoft docs
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks
 services: azure-monitor
 author: mrbullwinkle
@@ -45,7 +45,7 @@ This is how the workbook will look like in read-mode.
 ### In KQL
 1. Add a query control to the workbook and select an Application Insights resource.
 2. In the KQL, enter a time scope filter using the parameter: `| where timestamp {TimeRange}`
-3. This expands on query evaluation time to `| where timestamp > ago(1d)` which is the time range value of the parameter.
+3. This expands on query evaluation time to `| where timestamp > ago(1d)`, which is the time range value of the parameter.
 4. Run query to see the results
 
 ![Image showing a time range referenced in KQL](./media/workbooks-time/time-in-code.png)
@@ -65,13 +65,16 @@ This is how the workbook will look like in read-mode.
 | `{TimeRange:query}` | Time range query | > ago(1d) |
 | `{TimeRange:start}` | Time range start time | 3/20/2019 4:18 PM |
 | `{TimeRange:end}` | Time range end time | 3/21/2019 4:18 PM |
-| `{TimeRange:grain}` | Time range grain | 30m |
+| `{TimeRange:grain}` | Time range grain | 30 m |
 
 
 ### Using parameter options in a query
-```
+```kusto
 requests
 | make-series Requests = count() default = 0 on timestamp from {TimeRange:start} to {TimeRange:end} step {TimeRange:grain}
 ```
 
 ## Next steps
+
+* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Control](workbooks-access-control.md) and share access to your workbook resources.
