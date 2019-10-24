@@ -68,11 +68,9 @@ In some cases, you might want to directly assign specific users to an access pac
 
     ![Assignments - Add user to access package](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. Click **Add users** to select the users you want to assign the access package to.
+1. Click **Add users** to select the users you want to assign this access package to.
 
-1. In the **Select policy** list, select a policy that has the [None (administrator direct assignments only)](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only) setting.
-
-    If this access package does not have this type of policy, you can click **Create new policy** to add one.
+1. In the **Select policy** list, select a policy that the users' future requests and lifecycle will be governed and tracked by. If you want the selected users to have different policy settings, you can click **Create new policy** to add a new policy.
 
 1. Set the date and time you want the selected users' assignment to start and end. If an end date is not provided, the policy's lifecycle settings will be used.
 
