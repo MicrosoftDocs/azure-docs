@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -106,16 +106,13 @@ To use service principal authentication, follow these steps.
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission. Learn more on how permission works in Data Lake Storage Gen2 from [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
+2. Grant the service principal proper permission. See examples on how permission works in Data Lake Storage Gen2 from [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories)
 
-    - **As source**: In Storage Explorer, grant at least **Execute** permission starting from the source file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
-    - **As sink**: In Storage Explorer, grant at least **Execute** permission starting from the sink file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
+    - **As source**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
+    - **As sink**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->To list folders starting from the account level or to test connection, you need to set the permission of the service principal being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
->- **Copy data tool** to author copy pipeline.
->- **Data Factory UI** to test connection and navigating folders during authoring. 
->If you have concerns about granting permission at the account level, during authoring, skip testing connection, and input a parent path with permission granted then choose to browse from that specified path. Copy activity works as long as the service principal is granted with proper permission at the files to be copied.
+>If you use Data Factory UI to author and the service principal is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a file system or path with Execute permission to continue.
 
 These properties are supported for the linked service:
 
@@ -160,16 +157,13 @@ To use managed identities for Azure resource authentication, follow these steps.
 
 1. [Retrieve the Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **service identity application ID** generated along with your factory.
 
-2. Grant the managed identity proper permission. Learn more on how permission works in Data Lake Storage Gen2 from [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
+2. Grant the managed identity proper permission. See examples on how permission works in Data Lake Storage Gen2 from [Access control lists on files and directories](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
-    - **As source**: In Storage Explorer, grant at least **Execute** permission starting from the source file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
-    - **As sink**: In Storage Explorer, grant at least **Execute** permission starting from the sink file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
+    - **As source**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
+    - **As sink**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
 
 >[!NOTE]
->To list folders starting from the account level or to test connection, you need to set the permission of the managed identity being granted to **storage account with "Storage Blob Data Reader" permission in IAM**. This is true when you use the:
->- **Copy data tool** to author copy pipeline.
->- **Data Factory UI** to test connection and navigating folders during authoring. 
->If you have concerns about granting permission at the account level, during authoring, skip testing connection, and input a parent path with permission granted then choose to browse from that specified path. Copy activity works as long as the service principal is granted with proper permission at the files to be copied.
+>If you use Data Factory UI to author and the managed identity is not set with "Storage Blob Data Reader/Contributor" role in IAM, when doing test connection or browsing/navigating folders, choose "Test connection to file path" or "Browse from specified path", and specify a file system or path with Execute permission to continue.
 
 >[!IMPORTANT]
 >If you use PolyBase to load data from Data Lake Storage Gen2 into SQL Data Warehouse, when using  managed identity authentication for Data Lake Storage Gen2, make sure you also follow steps 1 and 2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your SQL Database server with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your SQL Database server; the rest are handled by Data Factory. If your Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
