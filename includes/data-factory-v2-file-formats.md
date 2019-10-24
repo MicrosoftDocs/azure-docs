@@ -13,6 +13,6 @@ Azure Data Factory support the following file formats. Refer to each article on 
 - [Avro format](../articles/data-factory/format-avro.md)
 - [Binary format](../articles/data-factory/format-binary.md)
 - [Delimited text format](../articles/data-factory/format-delimited-text.md)
-- [JSON](../articles/data-factory/format-json.md)
-- [ORC](../articles/data-factory/format-orc.md)
+- [JSON format](../articles/data-factory/format-json.md)
+- [ORC format](../articles/data-factory/format-orc.md)
 - [Parquet format](../articles/data-factory/format-parquet.md)
