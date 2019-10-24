@@ -11,9 +11,9 @@ ms.workload: Infrastructure-services
 ms.date: 11/04/2019
 ms.author: v-meravi
 ---
-# Peering Service (Preview) connection telemetry 
+# Peering Service (Preview) connection telemetry
 
-Connection telemetry is the insights collected for a *Peering Service* connection. Customers can obtain telemetry for *Peering Service* connection by registering the connection into the Azure portal. This feature provides prefix security, and insights into the network latency.
+Connection telemetry is the insights collected for *Peering Service* connection. Customers can obtain telemetry for *Peering Service* connection by registering the connection into the Azure portal. This feature provides prefix security, and insights into the network latency.
 
 > [!IMPORTANT]
 > "Peering Service” is currently in public preview.

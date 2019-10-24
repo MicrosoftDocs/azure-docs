@@ -35,7 +35,7 @@ Action plans for the above listed models are described as below:
 
 ## Onboarding Peering Service connection
 
-To onboard the *Peering Service* connection, do the following:
+To onboard *Peering Service* connection, do the following:
 
 - Work with Internet Service provider or Internet Exchange Partner to obtain *Peering Service* to connect your network with Microsoft network.
 
@@ -43,14 +43,14 @@ To onboard the *Peering Service* connection, do the following:
 
 ## Onboarding Peering Service connection telemetry
 
-In addition to the Peering Service enabled service, customers can opt for its telemetry such as route analytics to monitor networking latency and performance when accessing Microsoft network. This can be achieved by registering connection into the Azure portal.
+ Customers can opt for its telemetry such as route analytics to monitor networking latency and performance when accessing Microsoft network. This can be achieved by registering connection into the Azure portal.
 
-To onboard the Peering Service connection telemetry, customer must register service connection into the Azure portal. Refer [Azure portal](azure-portal.md) to learn the procedure.
+To onboard Peering Service connection telemetry, customer must register service connection into the Azure portal. Refer [Register Peering Service - Azure portal](azure-portal.md) to learn the procedure.
 
-Following that, you can measure the telemetry by referring [here](measure-connection-telemetry.md).
+Following that, you can measure telemetry by referring [here](measure-connection-telemetry.md).
 
 ## Next steps
 
-To learn step by step process on how to register Peering Service, see [Register the Peering Service](azure-portal.md).
+To learn step by step process on how to register Peering Service, see [Register Peering Service - Azure portal](azure-portal.md).
 
 To learn on how to measure connection telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).

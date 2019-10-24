@@ -104,7 +104,7 @@ az peering service prefix create \
 
 ## Next steps
 
-To learn more about Peering Service concepts, see [Peering Service Connection](connection.md).
+To learn more about Peering Service connection, see [Peering Service Connection](connection.md).
 
 To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).
 

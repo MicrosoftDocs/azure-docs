@@ -14,14 +14,11 @@ ms.author: v-meravi
 
 # What is Peering Service (Preview)?
 
-Peering Service is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. Microsoft has partnered with Internet Service Providers [ISP], Internet Exchange Providers [IXP] and, Software Defined Cloud Interconnect (SDCI) providers, worldwide, to provide highly reliable and performant public connectivity with optimal routing to/from for the customers.
+Peering Service is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via public internet. Microsoft has partnered with Internet Service Providers (ISP), Internet Exchange Providers (IXP) and, Software Defined Cloud Interconnect (SDCI) providers, worldwide, to provide highly reliable and performant public connectivity with optimal routing to/from for the customers.
 
-By selecting “*Peering Service*”, an end user is selecting a partner Service Provider [SP] in a given region, which is well connected to Microsoft through highly reliable interconnections. These connections are optimized for high reliability and minimal latency from  cloud services to the end user location.
+By selecting “*Peering Service*”, an end user is selecting a partner Service Provider (SP) in a given region, which is well connected to Microsoft through highly reliable interconnections. These connections are optimized for high reliability and minimal latency from  cloud services to the end user location.
 
-<figure align="center">
-<img src="./media/peering-service-about/peering-service-what.png" alt="Distributed connectivity to Microsoft Cloud">
-<figcaption align="center"><i>Figure 1 - Distributed connectivity to Microsoft Cloud</i></figcaption>
-</figure>
+![Distributed connectivity to Microsoft Cloud](./media/peering-service-about/peering-service-what.png)
 
 Customers can also opt for *Peering Service telemetry* such as user latency measures to Microsoft network, BGP route monitoring, and alerts against leaks and hijacks by registering Peering Service in the Azure portal.  
 
@@ -56,10 +53,7 @@ Office 365, Dynamics 365, and any other Microsoft SaaS services are hosted in mu
 
 Microsoft and partner SPs ensure that traffic for the prefixes registered with Peering Service connection enters and exits the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*. Microsoft ensures the networking traffic egressing from the prefixes registered with Peering Service connection takes the nearest Microsoft Edge PoP locations on the *Microsoft Global Network*.
 
-<figure align="center">
-<img src="./media/peering-service-about/peering-service-background-final.png" alt="Microsoft network and public connectivity">
-<figcaption align="center"><i>Figure 2 - Microsoft Network and Public connectivity</i></figcaption>
-</figure>
+![Microsoft Network and Public connectivity](./media/peering-service-about/peering-service-background-final.png)
 
 > [!Note]
 > For more information about the Microsoft Global Network, refer [here](https://docs.microsoft.com/azure/networking/microsoft-global-network).
@@ -89,10 +83,7 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 
    Ensures to use the shortest routing path by always choosing the nearest Microsoft Edge POP to the end user and ensures the customer is one network hop(AS hops) away from Microsoft​.  
 
-<figure align="center">
-<img src="./media/peering-service-about/peering-service-geo-shortest.png" alt="Geo Redundancy">
-<figcaption align="center"><i>Figure 3 - Geo Redundancy</i></figcaption>
-</figure>
+   ![Geo Redundancy](./media/peering-service-about/peering-service-geo-shortest.png)
 
 ### Optimal Routing
 
@@ -102,10 +93,7 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 
    When traffic egresses, the chances of exiting the Microsoft network close to the service (*Hot-potato*) are possible. Cold-potato technique prevents the packets from the immediate exit and ensures the best routing path is chosen to reach the destination.
 
-<figure align="center">
-<img src="./media/peering-service-about/peering-service-cold-potato.png" alt="Cold-potato routing">
-<figcaption align="center"><i>Figure 4 - Cold-potato routing</i></figcaption>
-</figure>
+   ![Cold-potato routing](./media/peering-service-about/peering-service-cold-potato.png)
 
 ### Monitoring platform
 
@@ -125,11 +113,8 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
 
    Captures failover events and notifies the customer.
 
-<figure align="center">
-<img src="media/peering-service-about/peering-service-latency-report.png" alt="Monitoring platform for Peering Service">
-<figcaption align="center"><i>Figure 4 - Monitoring platform for Peering Service</i></figcaption>
-</figure>
- 
+   ![Monitoring platform for Peering Service](media/peering-service-about/peering-service-latency-report.png)
+
 ### Traffic protection
 
 Ensures routing happens only via preferred path that is defined when registering the customer with peering Service.
@@ -140,12 +125,12 @@ Route anomalies are reported in the Azure portal, if any.
 
 ## Next steps
 
-To learn about peering Service concepts, see [Peering Service connection](faq.md).
+To learn about peering Service connection, see [Peering Service connection](connection.md).
 
 To find a Service Provider partner, see [Peering Service partners and locations](location-partners.md).
 
-To onboard Peering Service connection, see [Peering Service connection](onboarding-model.md).
+To onboard Peering Service connection, see [Onboarding Peering Service model](onboarding-model.md).
 
-To register connection using Azure portal, see [Peering Service connection](azure-portal.md.
+To register connection using the Azure portal, see [Register Peering Service connection using the Azure portal](azure-portal.md).
 
 To measure telemetry, see [Measure connection telemetry](measure-connection-telemetry.md).

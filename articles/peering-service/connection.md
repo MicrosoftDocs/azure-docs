@@ -14,7 +14,7 @@ ms.author: v-meravi
 
 # Peering Service (Preview) connection
 
-Connection is typically referred to a logical information set, identifying a *Peering Service*. It is defined by specifying the following attributes:
+Connection is typically referred to a logical information set, identifying *Peering Service*. It is defined by specifying the following attributes:
 
 - Logical Name
 - Connectivity partner
@@ -35,12 +35,9 @@ Customer can establish a single connection or multiple connections as per the re
 
 ## How to register connection?
 
-<figure align="center">
-<img src="./media/peering-service-about/peering-service-geo-shortest.png" alt="Geo Redundancy"text-align: center>
-<figcaption align="center"><i>Figure 1 - Geo Redundant connections</i></figcaption>
-</figure>
+**Scenario** - Let’s say the enterprise X is spread across different geographic locations as shown in the figure below. Here, customer is required to provide a logical name, Service Provider(SP) name, customer’s physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection. This process must be repeated to register *Peering Service* for separate geo-redundant connections.
 
-**Scenario** - Let’s say the enterprise X is spread across different geographic locations as shown in the screen above. Here, customer is required to provide a logical name, Service Provider(SP) name, customer’s physical location, and IP prefixes that are (owned by the customer or allocated by the Service Provider) associated with a single connection. This process must be repeated to register *Peering Service* for separate geo-redundant connections.
+![Geo Redundant connections](./media/peering-service-about/peering-service-geo-shortest.png)
 
 > [!Note]
 >For preview, State level-filtration is considered for the customer’s physical location when the connection is geo-located in the United States.
@@ -48,4 +45,4 @@ Customer can establish a single connection or multiple connections as per the re
 
 ## Next steps
 
-To learn step by step process on how to register Peering Service, see [Register the Peering Service](azure-portal.md).
+To learn step by step process on how to register Peering Service, see [Register Peering Service using the Azure portal](azure-portal.md).
