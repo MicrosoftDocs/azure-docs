@@ -1,7 +1,7 @@
 ---
 title: Planning for an Azure File Sync deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
-author: v-miegge
+author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/24/2019
