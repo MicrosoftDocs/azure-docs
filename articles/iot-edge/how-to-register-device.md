@@ -22,7 +22,7 @@ You have the choice of registering by using one of the following tools:
 * [Visual Studio Code](https://code.visualstudio.com/) is a source-code editor. Azure IoT extensions make it easy to manage IoT resources from the same tool where you're developing IoT solutions.
 * [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is a command-line tool for managing Azure resources. Its reusable commands are helpful for automating tasks.
 
-## Register an IoT Edge device in the Azure Portal
+## Register in the Azure Portal
 
 You can perform all registration tasks in the Azure portal.
 
@@ -53,7 +53,7 @@ When you're ready to set up your device, you need the connection string that lin
 1. From the **IoT Edge** page in the portal, click on the device ID from the list of IoT Edge devices.
 2. Copy the value of either **Connection string (primary key)** or **Connection string (secondary key)**.
 
-## Register an Iot Edge device with Visual Studio Code
+## Register with Visual Studio Code
 
 There are multiple ways to perform most operations in VS Code. This article uses the Explorer, but you can also use the Command Palette to run the steps.
 
@@ -106,7 +106,7 @@ When you're ready to set up your device, you need the connection string that lin
 
 You can also select **Get Device Info** from the right-click menu to see all the device info, including the connection string, in the output window.
 
-## Register an IoT Edge device with the Azure CLI
+## Register with the Azure CLI
 
 The [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
 
