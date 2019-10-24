@@ -29,10 +29,10 @@ landingContent:
         links:
         - url: overview-iot-central-energy.md
           text: Build energy solutions with IoT Central
-        - url: tutorial-smart-meter-analytics.md
-          text: Create a smart meter analytics app
-        - url: tutorial-solar-pv-app.md
-          text: Create a solar PV monitoring app
+        - url: tutorial-smart-meter-app.md
+          text: Create a smart meter monitoring app
+        - url: tutorial-solar-panel-app.md
+          text: Create a solar panel monitoring app
 
   # Card (optional)
   - title: Get connected

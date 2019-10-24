@@ -122,10 +122,10 @@ productDirectory:
       links:
         - url: ./energy/overview-iot-central-energy.md
           text: Build energy solutions with IoT Central
-        - url: ./energy/tutorial-smart-meter-analytics.md
-          text: Create a smart meter analytics app
-        - url: ./energy/tutorial-solar-pv-app.md
-          text: Create a solar PV monitoring app
+        - url: ./energy/tutorial-smart-meter-app.md
+          text: Create a smart meter monitoring app
+        - url: ./energy/tutorial-solar-panel-app.md
+          text: Create a solar panel monitoring app
     # Card
     - title: Build for government
       imageSrc: ./government/media/index/iot-central-government.svg
