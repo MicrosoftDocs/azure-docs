@@ -46,7 +46,7 @@ To view Describe details for a deployment, which is the equivalent to `kubectl d
 
 3. Select the **Deployments (preview)** tab.
 
-    [!Deployments view in the Azure portal](./media/container-insights-livedata-deployments/deployment-view.png)
+    ![Deployments view in the Azure portal](./media/container-insights-livedata-deployments/deployment-view.png)
 
 The view shows a list of all the running deployments along with the namespace and other detailed information, emulating execution of the command `kubectl get deployments –all-namespaces`. You can sort the results by selecting any one of the columns. 
 
