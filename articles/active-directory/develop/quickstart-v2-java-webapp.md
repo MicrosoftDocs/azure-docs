@@ -36,56 +36,52 @@ To run this sample you will need:
 - An Azure Active Directory (Azure AD) tenant. For more information on how to get an Azure AD tenant, see [How to get an Azure AD tenant](https://azure.microsoft.com/documentation/articles/active-directory-howto-tenant/).
 
 > [!div renderon="docs"]
-
-## Register and download your quickstart app
-
-You have two options to start your quickstart application: express (Option 1), or manual (Option 2)
-
-### Option 1: Register and auto configure your app and then download your code sample
-
-1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
-1. Enter a name for your application and select **Register**.
-1. Follow the instructions to download and automatically configure your new application.
-
-### Option 2: Register and manually configure your application and code sample
-
-#### Step 1: Register your application
-
-To register your application and manually add the app's registration information to your solution, follow these steps:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-
-1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/linkid=2083908) page.
-1. Select **New registration**.
-1. When the **Register an application** page appears, enter your application's registration information:
-   - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-webapp`.
-   - Leave **Redirect URI** blank for now, and select **Register**.
-1. On the **Overview** page, find the **Application (client) ID** and the **Directory (tenant) ID** values of the application. Copy these values for later.
-1. Select the **Authentication** from the menu, and then add the following information:
-   - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/me`.
-   - Select **Save**.
-1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
-
-   - Type a key description (for instance app secret).
-   - Select a key duration **In 1 year**.
-   - The key value will display when you select **Add**.
-   - Copy the value of the key for later. This key value will not be displayed again, nor retrievable by any other means, so record it as soon as it is visible from the Azure portal.
+> ## Register and download your quickstart app
+> You have two options to start your quickstart application: express (Option 1), or manual (Option 2)
+> 
+> ### Option 1: Register and auto configure your app and then download your code sample
+> 
+> 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
+> 1. Enter a name for your application and select **Register**.
+> 1. Follow the instructions to download and automatically configure your new application.
+> 
+> ### Option 2: Register and manually configure your application and code sample
+> 
+> #### Step 1: Register your application
+> 
+> To register your application and manually add the app's registration information to your solution, follow these steps:
+> 
+> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+> 
+> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/linkid=2083908) page.
+> 1. Select **New registration**.
+> 1. When the **Register an application** page appears, enter your application's registration information:
+>    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-webapp`.
+>    - Leave **Redirect URI** blank for now, and select **Register**.
+> 1. On the **Overview** page, find the **Application (client) ID** and the **Directory (tenant) ID** values of the application. Copy these values for later.
+> 1. Select the **Authentication** from the menu, and then add the following information:
+>    - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/me`.
+>    - Select **Save**.
+> 1. Select the **Certificates & secrets** from the menu and in the **Client secrets** section, click on **New client secret**:
+> 
+>    - Type a key description (for instance app secret).
+>    - Select a key duration **In 1 year**.
+>    - The key value will display when you select **Add**.
+>    - Copy the value of the key for later. This key value will not be displayed again, nor retrievable by any other means, so record it as soon as it is visible from the Azure portal.
 >
 > [!div class="sxs-lookup" renderon="portal"]
-
-#### Step 1: Configure your application in the Azure portal
-
-For the code sample for this quickstart to work, you need to:
-
-1. Add reply URLs as `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/me`.
-1. Create a Client Secret.
-
- > [!div renderon="portal" id="makechanges" class="nextstepaction"]
- > [Make this change for me]()
-
- > [!div id="appconfigured" class="alert alert-info"]
- > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with these attributes.
+> #### Step 1: Configure your application in the Azure portal
+> 
+> For the code sample for this quickstart to work, you need to:
+> 
+> 1. Add reply URLs as `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/me`.
+> 1. Create a Client Secret.
+> > [!div renderon="portal" id="makechanges" class="nextstepaction"]
+> > [Make this change for me]()
+>
+> > [!div id="appconfigured" class="alert alert-info"]
+> > ![Already configured](media/quickstart-v2-aspnet-webapp/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download the code sample
 
