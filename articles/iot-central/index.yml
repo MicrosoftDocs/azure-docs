@@ -1,17 +1,17 @@
 ### YamlMime:Hub 
 
-title: IoT Central documentation 
-summary: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. 
+title: IoT Central documentation hub
+summary: Explore the Azure IoT Central service and solutions documentation. 
 brand: azure ## Used for color theming of icons and hero area 
 
 metadata: 
-  title: IoT Central documentation
-  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale.
+  title: Azure IoT Central documentation hub
+  description: Explore the Azure IoT Central service and solutions documentation.
   ms.service: iot-central
   ms.topic: hub-page
   author: philmea
   ms.author: philmea
-  ms.date: 10/16/2019
+  ms.date: 10/25/2019
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -19,7 +19,7 @@ highlightedContent:
     - title: What is IoT Central? 
       itemType: overview # controls the icon image and super-title text 
       url: ./core/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-    - title: What are Application Templates? 
+    - title: What are application templates? 
       itemType: concept 
       url: ./core/howto-use-app-templates.md
     - title: Azure IoT Central Architecture
@@ -72,8 +72,8 @@ conceptualContent:
       links: 
         - url: ./core/howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
-          text: Create telemetry rule 
-        - url: ./core/howto-create-event-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          text: Create a telemetry rule 
+        - url: ./core/howto-create-event-rules.md
           itemType: how-to-guide
           text: Create an event rule
         - url: ./core/howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
@@ -86,10 +86,10 @@ conceptualContent:
 # productDirectory section (optional)
 productDirectory:
   title: Get started building with industry application templates # < 60 chars (optional)
-  summary: Ready to build? Checkout our industry relevant application templates built for solution builders # < 160 chars (optional)
+  summary: Ready to build? Check out our industry relevant application templates built for solution builders. # < 160 chars (optional)
   items:
     # Card
-    - title: Build for Retail
+    - title: Build for retail
       # imageSrc should be square in ratio with no whitespace
       imageSrc: ./retail/media/index/iot-central-retail.svg
       links:
@@ -144,7 +144,7 @@ additionalContent:
     - items:
       - title: IoT Central APIs
         summary: Explore the IoT Central APIs.
-        url: https://docs.microsoft.com/en-us/rest/api/azure/
+        url: https://docs.microsoft.com/rest/api/azure/
       - title: Azure IoT Platform services
         summary: Explore the set of Azure IoT developer services for building your own IoT solution.
         url: https://docs.microsoft.com/azure/iot-fundamentals

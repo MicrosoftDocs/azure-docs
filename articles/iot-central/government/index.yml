@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Azure IoT Central for Government documentation # < 60 chars
-summary: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # < 160 chars
+summary: Learn how to create, customize, and manage government IoT solutions using IoT Central application templates . # < 160 chars
 
 metadata:
   title: Azure IoT Central for Government documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # Required; article description that is displayed in search results. < 160 chars.
+  description: Learn how to create, customize, and manage government IoT solutions using IoT Central application templates . # Required; article description that is displayed in search results. < 160 chars.
   services: iot-central
   ms.service: iot-central #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   author: philmea #Required; your GitHub user alias, with correct capitalization.
   ms.author: philmea #Required; microsoft alias of author; optional team alias.
-  ms.date: 09/24/2019 #Required; mm/dd/yyyy format.
+  ms.date: 10/25/2019 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -19,7 +19,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
    # Card
-  - title: Build Government Solutions
+  - title: Build government solutions
     linkLists:
       - linkListType: overview
         links:
