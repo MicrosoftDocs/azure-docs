@@ -35,7 +35,7 @@ This tutorial requires a Windows computer configured with the [Azure SQL Data Sy
 
 Setting up synchronization between an Azure SQL Database and a SQL Database Edge instance using SQL Data Sync involves three key steps.  
 
-1. Use Azure portal to create a sync group. To create the Sync Group, see [Create Sync Group using Azure portal](../sql-database/sql-database-get-started-sql-data-sync#create-sync-group.md). The same *Hub* database can be used to create multiple different sync groups to synchronize data from different SQL Database Edge instances to one or more SQL Databases in Azure.
+1. Use Azure portal to create a sync group. To create the Sync Group, see [Create Sync Group using Azure portal](../sql-database/sql-database-get-started-sql-data-sync.md#create-sync-group). The same *Hub* database can be used to create multiple different sync groups to synchronize data from different SQL Database Edge instances to one or more SQL Databases in Azure.
 
 2. Add Sync members to the sync group. To add members to the Sync Group refer [Add members to SQL Data Sync Group](../sql-database/sql-database-get-started-sql-data-sync.md#add-sync-members).
 
@@ -45,13 +45,13 @@ After completing the above steps, you have a sync group that includes an Azure S
 
 For more info about SQL Data Sync, seen the following articles:
 
-* [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
+* [Data Sync Agent for Azure SQL Data Sync](../sql-database/sql-database-data-sync-agent.md)
 
-* [Best practices](sql-database-best-practices-data-sync.md) and [How to troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+* [Best practices](../sql-database/sql-database-best-practices-data-sync.md) and [How to troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
 
-* [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
+* [Monitor SQL Data Sync with Azure Monitor logs](../sql-database/sql-database-sync-monitor-oms.md)
 
-* [Update the sync schema with Transact-SQL](sql-database-update-sync-schema.md) or [PowerShell](scripts/sql-database-sync-update-schema.md)
+* [Update the sync schema with Transact-SQL](../sql-database/sql-database-update-sync-schema.md) or [PowerShell](scripts/sql-database-sync-update-schema.md)
 
 ## Next Steps
 
