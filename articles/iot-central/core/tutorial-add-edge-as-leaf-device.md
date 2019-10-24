@@ -36,7 +36,7 @@ Enable SAS keys for Azure IoT Edge enrollment group from the Administration page
 
 ![Device Template - Azure IoT Edge](./media/tutorial-add-edge-as-leaf-device/groupenrollment.png)
 
-## Cloud First Azure IoT Edge Device Provisioning	
+## Cloud first Azure IoT Edge device provisioning	
 In this section, you will create a new Azure IoT Edge device using the **environment sensor template** and provision a device. 
 Click on Devices on the left navigation and click on Environment Sensor Template. 
 
@@ -80,7 +80,7 @@ Takes a few minutes to create the resources. Click on Go to **Resource**
 
 ![Ubuntu VM](./media/tutorial-add-edge-as-leaf-device/cfvmdeploymentcomplete.png)
 
-### Provision VM as Azure IoT Edge Device 
+### Provision VM as Azure IoT Edge device 
 
 Under Support + troubleshooting in the left navigation, click on Serial console
 
@@ -148,7 +148,7 @@ Type: **iotedge list**, it will take few minutes, you will see three modules dep
 ![Device Connect](./media/tutorial-add-edge-as-leaf-device/cfconsolemodulelist.png)
 
 
-## IoT Central Device Explorer 
+## IoT Central device explorer 
 
 In IoT Central your device will move into provisioned state
 

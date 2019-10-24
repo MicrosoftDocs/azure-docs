@@ -57,7 +57,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need an Azure IoT Central application. Follow this quickstart to [Create an Azure IoT Central application](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 
-## Downstream Device Relationships with Gateway & Modules
+## Downstream device relationships with gateway & modules
 
 Downstream devices can connect to Azure IoT Edge gateway device through the $edgeHub module. This Azure IoT Edge device becomes a transparent gateway in this scenario
 
@@ -80,7 +80,7 @@ Downstream devices can connect to Azure IoT Edge gateway device through multiple
 
 As a builder, you can create and edit Azure IoT Edge device templates in your application. After you publish a device template, you can connect real devices that implement the device template.
 
-### Select Device Template Type 
+### Select device template type 
 
 To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left navigation menu.
 
@@ -94,7 +94,7 @@ You will land on device template type selection page. Select **Azure IoT Edge** 
 
 ![Device Templates Selection - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/selectiotedge.png)
 
-### Customize Device Template
+### Customize device template
 
 Azure IoT Edge lets you deploy and manage business logic in the form of modules. **Azure IoT Edge modules** are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained read [IoT Edge Modules](../../iot-edge/iot-edge-modules.md).
 
@@ -220,7 +220,7 @@ Azure IoT Edge Device Plug n Play modeling is done as follows
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/edgemodelling.png)
 
-**Add Capabilities to Module Capability Model**
+**Add capabilities to module capability model**
 
 Here is a sample output from SimulatedTemperatureSensor module
 ```json
@@ -265,7 +265,7 @@ Add capabilities to SimulatedTemperatureSensor module which will reflect the abo
     ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/edgetemplateallattributes.png)
 
 
-### Add Relationships
+### Add relationships
 
 If you selected Azure IoT Edge device to be a gateway device you can add downstream relationships to device capability models for devices you will connect to gateway device.
   

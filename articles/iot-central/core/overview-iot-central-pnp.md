@@ -181,7 +181,7 @@ Azure IoT Central performs the following functions:
 - Build dashboards and analytics 
 - Continuous data export of telemetry flowing from Azure IoT Edge devices
 
-### Azure IoT Edge Device Types in IoT Central
+### Azure IoT Edge device types in IoT Central
 
 Azure IoT Central classifies Azure IoT Edge device types as follows:
 
@@ -190,7 +190,7 @@ Azure IoT Central classifies Azure IoT Edge device types as follows:
 
 ![IoT Central with Azure IoT Edge Overview](./media/overview-iot-central-pnp-edge/gatewayedge.png)
 
-### Azure IoT Edge Patters Supported in Central
+### Azure IoT Edge patterns supported in IoT Central
 
 - **Azure IoT Edge as leaf device**
   ![Azure IoT Edge as leaf device](./media/overview-iot-central-pnp-edge/edgeasleafdevice.png)

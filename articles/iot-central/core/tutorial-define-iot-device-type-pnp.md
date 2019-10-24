@@ -260,7 +260,7 @@ In this section, you create an **Smart Building** device template. A Smart Build
 * Responds to commands such as resetting temperature.
 * Allows relationships to other device capability models
 
-### Create IoT Device Templates
+### Create IoT device templates
 
 You will create IoT device templates. 
 
@@ -294,7 +294,7 @@ New device template is created.
 
 You can choose to create an IoT gateway device template. Gateway device will have relationships with downstream devices which connect into IoT Central through the gateway device. 
 
-### Downstream Device Relationships with Gateway Device
+### Downstream device relationships with gateway device
 
 IoT devices can connect to Azure IoT gateway device 
 
@@ -302,7 +302,7 @@ IoT devices can connect to Azure IoT gateway device
 
 As a builder, you can create and edit Azure IoT gateway device templates in your application. After you publish a device template, you can connect real devices that implement the device template.
 
-### Select Device Template Type 
+### Select device template type 
 
 To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left navigation menu.
 
@@ -328,7 +328,7 @@ Enter the gateway template name **Smart Building Gateway Template**. Click **Cus
 
 Add a standard interface **Device Information**.
 
-### Add Relationships
+### Add relationships
 
 You can add downstream relationships to device capability models for devices you will connect to gateway device.
 
@@ -384,13 +384,13 @@ To publish a device template:
 
 After a device template is published, it's visible on the **Devices** page and to the operator. In a published device template, you can't edit a device capability model without creating a new version. However, you can make updates to cloud properties, customizations, and views, in a published device template without versioning. After making any changes, select **Publish**  to push those changes out to your operator.
 
-## Create Gateway Simulated Device
+## Create gateway simulated device
 
 From the device explorer create a simulated smart building gateway. 
 
 ![Device Template - Gateway](./media/tutorial-define-iot-device-type-pnp/smartbuildingdevice.png)
 
-## Create Downstream Simulated Devices
+## Create downstream simulated devices
 
 From the device explorer create a simulated occupancy sensor. 
 
@@ -400,7 +400,7 @@ From the device explorer create a simulated s1 sensor.
 
 ![Device Template - s1](./media/tutorial-define-iot-device-type-pnp/s1device.png)
 
-## Add Downstream Devices relationships to Gateway Device
+## Add downstream devices relationships to gateway device
 
 Select S1 Sensor and Occupancy Sensor and click **Connect to gateway**. 
 
