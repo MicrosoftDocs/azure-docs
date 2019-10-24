@@ -214,9 +214,9 @@ Azure IoT Edge Device Plug n Play modeling is done as follows
 * A **relationship** will be established between each Module Capability Model and a Device Capability Model
 * Module capability model implements **module interfaces**
 * Each module interface contains
-  1. Telemetry
-  2. Properties
-  3. Commands
+   - Telemetry
+   - Properties
+   - Commands
 
 ![Device Template - Azure IoT Edge](./media/tutorial-define-edge-device-type-pnp/edgemodelling.png)
 
