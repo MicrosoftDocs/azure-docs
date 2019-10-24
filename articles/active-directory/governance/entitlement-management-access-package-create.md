@@ -122,6 +122,8 @@ Perform the steps in one of the following sections.
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
+[!INCLUDE [Entitlement management access reviews policy](../../../includes/active-directory-entitlement-management-access-reviews-policy.md)]
+
 ## Review + create
 
 On the **Review + create** tab, you can review your settings and check for any validation errors.

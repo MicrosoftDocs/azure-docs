@@ -38,50 +38,12 @@ To enable reviews of access packages, you must meet the prerequisites for creati
 
 You can enable access reviews when creating a new policy or editing an existing access package policy. Follow these steps to enable access reviews while creating a new policy in an access package:
 
-## Enable reviews in an existing access package
-
-Follow these steps to enable access reviews to an existing access package:
-
-1. Sign in to the Azure portal and open the **Identity Governance Blade**. 
-![Identity Governance Blade](./media/entitlement-management-access-reviews-create/IGA-portal.png)
-
-1. In the left menu, click on **Access packages** under **Entitlement Management**. !![Select Access Packages](./media/entitlement-management-access-reviews-create/select-access-package.png)
-
-1. In the right pane, select the access package for which you would like to create an access review.
- 
-1. In the left menu, click on **Policies**. 
-![Select Policies](./media/entitlement-management-access-reviews-create/select-policies.png)
-
-
-1. Select the policy in which you want to create the access review. 
-![Select A Policy](./media/entitlement-management-access-reviews-create/select-a-policy-in-access-package.png)
-
-1. Click **Edit** under **Policy details**. 
-![Edit Policy](./media/entitlement-management-access-reviews-create/edit-policy-in-access-package.png)
-
-1. Click on **Lifecycle**. 
-![Select Lifestyle](./media/entitlement-management-access-reviews-create/select-lifestyle-tab.png)
-
-1. Under **Access Reviews**, click **Yes** for Require access reviews. 
-![Require Access Reviews](./media/entitlement-management-access-reviews-create/create-access-reviews.png)
-
-1. Set the **Starting on** date. The review will begin at the end of day on this date. For example, if you select the start date as July 15, 2020, the review will begin on July 15 at 11:59PM.
-
-1. Set the **Review frequency** to **Annually**, **Bi-annually** (every 6 months), **Quarterly** (every 3 months), or **Monthly** (once per month).
-
-1. Set the **Duration** to define how many days each review of the recurring series will be open for input from reviewers. For example, you might schedule an Annual review that starts on January 1 and is open for input for 30 days so that reviewers have until the end of the month to respond.
-
-1. Set the **Reviewers** to be
-
-    1. **Self-review** if you want the access package assignees to review their own access, or 
-    1. Select **Specific reviewer(s)** if you want to choose one or more specific individuals to be the reviewers
-
-1. Click on **Update** at the bottom of the page.
+[!INCLUDE [Entitlement management access reviews policy](../../../includes/active-directory-entitlement-management-access-reviews-policy.md)]
 
 ## View status of the review
 
 After the start date of the review, it will appear in the list with an indicator of its status: 
- ![Review Status List](./media/entitlement-management-access-reviews-create/access-review-status.png.jpg)
+![View review status](./media/entitlement-management-access-reviews-review-access/access-review-status.png)
  
 By default, Azure AD will send an email to reviewers shortly after the review starts. The email will contain instructions for how to review access to access packages. If the review is for users to review their own access, show them the instructions for how to review access for yourself to access packages.
   

@@ -18,7 +18,7 @@ ms.reviewer:
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As an administrator or user, I want to complete an access review of the active assignments of myself or other users.
+#Customer intent: As an administrator or designated user, I want to complete an access review of the active assignments of other users.
 
 ---
 # Complete an access review of an entitlement management access package using Azure AD access reviews 
