@@ -35,7 +35,7 @@ CREATE SCHEMA wwi;
 
 To show the organization of the tables, you could use fact, dim, and int as prefixes to the table names. The following table shows some of the schema and table names for WideWorldImportersDW.  
 
-| WideWorldImportersDW table  | table type | table name |
+| WideWorldImportersDW table  | Table type | Table name |
 |:-----|:-----|:------|:-----|
 | City | Dimension | wwi.DimCity |
 | Order | Fact | wwi.FactOrder |
@@ -337,4 +337,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data](load-data-wideworldimportersdw.md).
+After creating the tables for your data warehouse, the next step is to load data into the tables.  For a loading tutorial, see [Loading data](load-data-wideworldimportersdw.md).
