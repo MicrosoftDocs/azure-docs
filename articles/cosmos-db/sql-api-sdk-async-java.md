@@ -39,6 +39,31 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 
 ## Release notes
 
+### <a name="2.6.3"/>2.6.3
+* Fixed issue where retry not happening in direct mode for RequestRateTooLargeException
+* Added more logging for CorruptFrameException in Direct TCP mode code path
+
+### <a name="2.6.2"/>2.6.2
+* Memory improvements when reading from network through netty ByteBuff
+* Offset limit query bug fixes
+* NPE fix in Gateway Address Cache
+* Fixed issue with cannot set MaxItemCount to -1
+
+### <a name="2.6.1"/>2.6.1
+* Addressed back pressure issue that caused Out Of Direct Memory Access Buffer Memory error
+* Eliminated some resource leaks
+* Bug Fixes related to multimaster query support
+
+### <a name="2.6.0"/>2.6.0
+* Retrieving query info using new query plan retriever
+* Offset limit query support
+
+### <a name="2.4.6"/>2.4.6
+* Memory Improvements
+
+### <a name="2.5.1"/>2.5.1
+* Fixed executeStoredProcedureInternal to use client retry policy
+
 ### <a name="2.5.0"/>2.5.0
 * TCP mode now on by default
 * Query metrics in cross partition now returns all partitions
