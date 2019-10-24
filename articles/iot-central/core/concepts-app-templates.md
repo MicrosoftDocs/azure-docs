@@ -10,6 +10,7 @@ services: iot-central
 ---
 
 # What are application templates?
+
 Application templates in Azure IoT Central are a tool to help solution builders kickstart their IoT solution development. You can use app templates for everything from getting a feel for what is possible, to fully customizing and white labeling your application for resale to your customers.
 
 Application templates consist of:
@@ -19,6 +20,8 @@ Application templates consist of:
 - Simulated devices producing real-time data
 - Pre-configured rules and jobs
 - Rich documentation including tutorials and how-tos
+
+## Industry focused app templates
 
 Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today, with more to come in the future:
 
