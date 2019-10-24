@@ -173,28 +173,28 @@ poller.wait()
 
 1. Upload a file into the storage account
 
-```python
-account_key = "xxxxxxxxxxxxxx"
-block_blob_service = BlockBlobService(account_name=storage_account_name, account_key=account_key)
-blob_name = "test.csv"
-blob_content = """2007-01-01 00:00:00.0000000,2592,Several trees down
-2007-01-01 00:00:00.0000000,4171,Winter Storm"""
-block_blob_service.create_blob_from_text(container_name=storage_container_name, blob_name=blob_name, text=blob_content)
-```
-|**Setting** | **Field description**|
-|---|---|---|
-| account_key | The access key of the programmatically created storage account.|
+    ```python
+    account_key = "xxxxxxxxxxxxxx"
+    block_blob_service = BlockBlobService(account_name=storage_account_name, account_key=account_key)
+    blob_name = "test.csv"
+    blob_content = """2007-01-01 00:00:00.0000000,2592,Several trees down
+    2007-01-01 00:00:00.0000000,4171,Winter Storm"""
+    block_blob_service.create_blob_from_text(container_name=storage_container_name, blob_name=blob_name, text=blob_content)
+    ```
+    |**Setting** | **Field description**|
+    |---|---|---|
+    | account_key | The access key of the programmatically created storage account.|
 
 2. Run a test query in Azure Data Explorer
 
-```python
-kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
-kusto_connection_string_builder = KustoConnectionStringBuilder.with_aad_application_key_authentication(connection_string=kusto_uri, aad_app_id=client_id, app_key=client_secret, authority_id=tenant_id)
-kusto_client = KustoClient(kusto_connection_string_builder)
-query = "{} | take 10".format(kusto_table_name)
-response = kusto_client.execute_query(kusto_database_name, query)
-print(response.primary_results[0].rows_count)
-```
+    ```python
+    kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
+    kusto_connection_string_builder = KustoConnectionStringBuilder.with_aad_application_key_authentication(connection_string=kusto_uri, aad_app_id=client_id, app_key=client_secret, authority_id=tenant_id)
+    kusto_client = KustoClient(kusto_connection_string_builder)
+    query = "{} | take 10".format(kusto_table_name)
+    response = kusto_client.execute_query(kusto_database_name, query)
+    print(response.primary_results[0].rows_count)
+    ```
 
 ## Clean up resources
 

@@ -1,25 +1,24 @@
 ---
-title: Introduction to knowledge store (preview)
-titleSuffix: Azure Cognitive Search
-description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Cognitive Search and in other applications.
-
-author: HeidiSteen
+title: Introduction to knowledge store (preview) - Azure Search
+description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Search and in other applications.
 manager: nitinme
+author: HeidiSteen
+services: search
+ms.service: search
+ms.topic: overview
+ms.date: 08/02/2019
 ms.author: heidist
-ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
----
 
-# Introduction to knowledge stores in Azure Cognitive Search
+---
+# What is knowledge store in Azure Search?
 
 > [!Note]
 > Knowledge store is in preview and not intended for production use. The [REST API version 2019-05-06-Preview](search-api-preview.md) provides this feature. There is no .NET SDK support at this time.
 >
 
-Knowledge store is a feature in Azure Cognitive Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for later analysis or other downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. 
+Knowledge store is a feature in Azure Search that persists output from an [AI enrichment pipeline](cognitive-search-concept-intro.md) for later analysis or other downstream processing. An *enriched document* is a pipeline's output, created from content that has been extracted, structured, and analyzed using AI processes. In a standard AI pipeline, enriched documents are transitory, used only during indexing and then discarded. With knowledge store, enriched documents are preserved. 
 
-If you have used cognitive skills with Azure Cognitive Search in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, share the same content, but are stored and used in very different ways.
+If you have used AI skills with Azure Search in the past, you already know that *skillsets* move a document through a sequence of enrichments. The outcome can be a search index, or (new in this preview) projections in a knowledge store. The two outputs, search index and knowledge store, share the same content, but are stored and used in very different ways.
 
 Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-account-overview), either Azure Table storage, Azure Blob storage, or both. Any tool or process that can connect to Azure Storage can consume the contents of a knowledge store.
 
@@ -27,13 +26,13 @@ Physically, a knowledge store is [Azure Storage](https://docs.microsoft.com/azur
 
 Projections are your mechanism for structuring data in a knowledge store. For example, through projections, you can choose whether output is saved as a single blob or a collection of related tables. 
 
-To use knowledge store, add a `knowledgeStore` element to a skillset that defines step-wise operations in an indexing pipeline. During execution, Azure Cognitive Search creates a space in your Azure storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
+To use knowledge store, add a `knowledgeStore` element to a skillset that defines step-wise operations in an indexing pipeline. During execution, Azure Search creates a space in your Azure storage account and projects the enriched documents as blobs or into tables, depending on your configuration.
 
 ## Benefits of knowledge store
 
 A knowledge store gives you structure, context, and actual content - gleaned from unstructured and semi-structured data files like blobs, image files that have undergone analysis, or even structured data that is reshaped into new forms. In a [step-by-step walkthrough](knowledge-store-howto.md) written for this preview, you can see first-hand how a dense JSON document is partitioned out into substructures, reconstituted into new structures, and otherwise made available for downstream processes like machine learning and data science workloads.
 
-Although it's useful to see what an AI enrichment pipeline can produce, the real power of knowledge store is the ability to reshape data. You might start with a basic skillset, and then iterate over it to add increasing levels of structure, which you can then combine into new structures, consumable in other apps besides Azure Cognitive Search.
+Although it's useful to see what an AI-based indexing pipeline can produce, the real power of knowledge store is the ability to reshape data. You might start with a basic skillset, and then iterate over it to add increasing levels of structure, which you can then combine into new structures, consumable in other apps besides Azure Search.
 
 Enumerated, the benefits of knowledge store include the following:
 
@@ -41,10 +40,10 @@ Enumerated, the benefits of knowledge store include the following:
 
 + Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) in Azure storage to view the contents of a knowledge store.
 
-+ Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Cognitive Search has been extended to accommodate this task. Reshaping allows you to define a projection that aligns with your intended use of the data while preserving relationships.
++ Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Search has been extended to accommodate this task. Reshaping allows you to define a projection that aligns with your intended use of the data while preserving relationships.
 
 > [!Note]
-> Not familiar with AI enrichcment using Cognitive Services? Azure Cognitive Search integrates with Cognitive Services Vision and Language features to extract and enrich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [AI enrichment in Azure Cognitive Search](cognitive-search-concept-intro.md).
+> Not familiar with AI-based indexing using Cognitive Services? Azure Search integrates with Cognitive Services Vision and Language features to extract and enrich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [What is cognitive search?](cognitive-search-concept-intro.md).
 
 ## Creating a knowledge store
 
@@ -129,7 +128,7 @@ A `knowledgeStore` consists of a connection and projections.
 
 ### Sources of data for a knowledge store
 
-If a knowledge store is output from an AI enrichment pipeline, what are the inputs? The original data that you want to extract, enrich, and ultimately save to a knowledge store can originate from any Azure data source supported by search indexers: 
+If a knowledge store is output from an AI enrichment pipeline, what are the inputs? The original data that you want to extract, enrich, and ultimately save to a knowledge store can originate from any Azure data source supported by Azure Search indexers: 
 
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
@@ -149,7 +148,7 @@ Only two APIs have the extensions required for creating a knowledge store (Creat
 |--------|----------|-------------|
 | data source | [Create Data Source](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | A resource identifying an external Azure data source providing source data used to create enriched documents.  |
 | skillset | [Create Skillset (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource coordinating the use of [built-in skills](cognitive-search-predefined-skills.md) and [custom cognitive skills](cognitive-search-custom-skill-interface.md) used in an enrichment pipeline during indexing. A skillset has a `knowledgeStore` definition as a child element. |
-| index | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
+| index | [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index)  | A schema expressing an Azure Search index. Fields in the index map to fields in source data or to fields manufactured during the enrichment phase (for example, a field for organization names created by entity recognition). |
 | indexer | [Create Indexer (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | A resource defining components used during indexing: including a data source, a skillset, field associations from source and intermediary data structures to target index, and the index itself. Running the indexer is the trigger for data ingestion and enrichment. The output is a search index based on the index schema, populated with source data, enriched through skillsets.  |
 
 ### Physical composition of a knowledge store
@@ -215,7 +214,7 @@ We recommend the Free service for learning purposes, but be aware that the numbe
 
 When using multiple services, create all of your services in the same region for best performance and to minimize costs. You are not charged for bandwidth for inbound data or outbound data that goes to another service in the same region.
 
-**Step 1: [Create an Azure Cognitive Search resource](search-create-service-portal.md)** 
+**Step 1: [Create an Azure Search resource](search-create-service-portal.md)** 
 
 **Step 2: [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
 
