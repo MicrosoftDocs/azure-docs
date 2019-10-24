@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -31,6 +31,16 @@ Specifically, this Google Cloud Storage connector supports copying files as-is o
 >[!NOTE]
 >Copying data from Google Cloud Storage leverages the [Amazon S3 connector](connector-amazon-simple-storage-service.md) with corresponding custom S3 endpoint, as Google Cloud Storage provides S3-compatible interoperability.
 
+## Prerequisites
+
+The following set-up is required on your Google Cloud Storage account:
+
+1. Enable interoperability for your Google Cloud Storage account
+2. Set the default project which contains the data you want to copy
+3. Create an access key.
+
+![Retrieve access key for Google Cloud Storage](media/connector-google-cloud-storage/retrieve-access-key-for-google-cloud-storage.jpg)
+
 ## Required permissions
 
 To copy data from Google Cloud Storage, make sure you have been granted the following permissions:
@@ -51,7 +61,7 @@ The following properties are supported for Google Cloud Storage linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **AmazonS3**. | Yes |
-| accessKeyId | ID of the secret access key. To find the access key and secret, go to **Google Cloud Storage** > **Settings** > **Interoperability**. |Yes |
+| accessKeyId | ID of the secret access key. To find the access key and secret, see [Prerequisites](#prerequisites). |Yes |
 | secretAccessKey | The secret access key itself. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
 | serviceUrl | Specify the custom S3 endpoint as **`https://storage.googleapis.com`**. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime. |No |
