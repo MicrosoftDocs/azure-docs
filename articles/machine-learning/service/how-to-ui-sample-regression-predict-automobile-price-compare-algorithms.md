@@ -27,7 +27,7 @@ Here's the completed graph for this pipeline:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 2 pipeline:
+4. Select the Sample 2 pipeline:
 
     ![Open the pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
