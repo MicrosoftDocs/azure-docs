@@ -135,3 +135,12 @@ landingContent:
             url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: UserVoice
+            url: https://cognitive.uservoice.com/forums/598141-custom-vision-service
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive

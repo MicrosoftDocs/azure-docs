@@ -198,3 +198,11 @@ landingContent:
           - text: Azure Command-Line Interface (CLI)
             url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
      
+  - title: Help and feedback
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: UserVoice
+            url: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+          - text: Stack Overflow
+            url: https://stackoverflow.com/questions/tagged/microsoft-cognitive
