@@ -42,16 +42,16 @@ You can also develop a complete big data experience, such as reading in data, tr
 
 The following features are available when you use .NET for Apache Spark in the Azure Synapse Analytics notebook: 
 
-* Declarative HTML - generate output from your cells using HTML-syntax, such as headers, bulleted lists, and even displaying images.
-* Simple C# statements (e.g, assignments, printing to console, throwing exceptions etc.).
-* Multi-line C# code blocks (e.g., if statement, foreach loops, class definitions etc.).
-* Access to the standard C# library (e.g., System, LINQ, Enumerables etc.).
+* Declarative HTML: Generate output from your cells using HTML-syntax, such as headers, bulleted lists, and even displaying images.
+* Simple C# statements (such as assignments, printing to console, throwing exceptions, and so on).
+* Multi-line C# code blocks (such as if statements, foreach loops, class definitions, and so on).
+* Access to the standard C# library (such as System, LINQ, Enumerables, and so on).
 * Support for [C# 8.0 language features](/dotnet/csharp/whats-new/csharp-8).
 * 'spark' as a pre-defined variable to give you access to your Apache Spark session.
 * Support for defining [.NET user-defined functions that can run within Apache Spark](https://github.com/dotnet/spark/blob/master/examples/Microsoft.Spark.CSharp.Examples/Sql/Basic.cs#L65).
-* Support for visualizing output from your Spark jobs using different charts (e.g., line, bar, histogram) and layouts (e.g., single, overlaid etc.).
+* Support for visualizing output from your Spark jobs using different charts (such as line, bar, or histogram) and layouts (such as single, overlaid, and so on).
 
 ## Next steps
 
 * [.NET for Apache Spark documentation](/dotnet/spark)
-* [Azure Synape Analytics documentation](index.md)
+* [Azure Synapse Analytics documentation](index.md)
