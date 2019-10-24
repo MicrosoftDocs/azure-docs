@@ -22,6 +22,7 @@ Azure Monitor for containers can be enabled for new, or one or more existing dep
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
+
 Before you start, make sure that you have the following:
 
 * **A Log Analytics workspace.**
@@ -37,6 +38,40 @@ Before you start, make sure that you have the following:
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 * Prometheus metrics are not collected by default. Before [configuring the agent](container-insights-prometheus-integration.md) to collect them, it is important you review the Prometheus [documentation](https://prometheus.io/) to understand what you can define.
+
+## Network firewall requirements
+
+The information in the following table lists the proxy and firewall configuration information required for the containerized agent to communicate with Azure Monitor for containers. All network traffic from the agent is outbound to Azure Monitor.
+
+|Agent Resource|Ports |
+|--------------|------|
+| *.ods.opinsights.azure.com | 443 |  
+| *.oms.opinsights.azure.com  443 | 
+| *.blob.core.windows.net | 443 |
+| dc.services.visualstudio.com | 443 |
+| *.microsoftonline.com | 443 |
+| *.monitoring.azure.com | 443 |
+| login.microsoftonline.com | 443 |
+
+The information in the following table lists the proxy and firewall configuration information for Azure China.
+
+|Agent Resource|Ports |Description | 
+|--------------|------|-------------|
+| *.ods.opinsights.azure.cn | 443 | Data ingestion |
+| *.oms.opinsights.azure.cn | 443 | OMS onboarding |
+| *.blob.core.windows.net | 443 | Used for monitoring outbound connectivity. |
+| microsoft.com | 80 | Used for network connectivity. This is required only if the agent image version is ciprod09262019 or earlier. |
+| dc.services.visualstudio.com | 443 | For for agent telemetry using Azure Public Cloud Application Insights. |
+
+The information in the following table lists the proxy and firewall configuration information for Azure US Government.
+
+|Agent Resource|Ports |Description | 
+|--------------|------|-------------|
+| *.ods.opinsights.azure.us | 443 | Data ingestion |
+| *.oms.opinsights.azure.us | 443 | OMS onboarding |
+| *.blob.core.windows.net | 443 | Used for monitoring outbound connectivity. |
+| microsoft.com | 80 | Used for network connectivity. This is required only if the agent image version is ciprod09262019 or earlier. |
+| dc.services.visualstudio.com | 443 | For agent telemetry using Azure Public Cloud Application Insights. |
 
 ## Components
 
