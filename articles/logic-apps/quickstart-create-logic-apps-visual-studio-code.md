@@ -123,18 +123,20 @@ Before you start, make sure you have these items:
 
    ![Provide name for your logic app](./media/quickstart-create-logic-apps-visual-studio-code/enter-name-logic-app.png)
 
-   In the Azure window, under your Azure subscription, your new logic app now appears. Now you can start creating your logic app's workflow definition.
+   In the Azure window, under your Azure subscription, your new and empty logic app appears. Visual Studio Code also opens a JSON (.logicapp.json) file, which includes a skeleton workflow definition for your logic app. Now you can start manually authoring your logic app's workflow definition in this JSON file. For technical reference about the structure and syntax for a workflow definition, see the [Workflow Definition Language schema for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
+
+   ![Open logic app in code view editor](./media/quickstart-create-logic-apps-visual-studio-code/new-logic-app-workflow-definition.png)
+
+
+
 
 1. Open your logic app's shortcut menu, and select **Open in Editor**.
 
-   ![Open logic app in code view editor](./media/quickstart-create-logic-apps-visual-studio-code/open-new-logic-app-visual-studio-code.png)
 
-   Visual Studio Code opens a logic app workflow definition template (.logicapp.json file) so that you can start creating your logic app's workflow.
 
    ![New logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/blank-logic-app-workflow-definition.png)
 
-1. In the logic app workflow definition template file, start building your logic app's workflow definition.
-For technical reference, see the [Workflow Definition Language schema for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
+1. In the logic app workflow definition template file, 
 
    Here is an example logic definition. Usually, JSON elements appear alphabetically in each section. However, this sample shows these elements roughly in the order that the logic app's steps appear in the designer.
 
