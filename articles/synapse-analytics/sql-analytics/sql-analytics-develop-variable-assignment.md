@@ -1,6 +1,6 @@
 ---
-title: Assign variables in Azure SQL on-demand | Microsoft Docs
-description: Tips for assigning T-SQL variables in Azure SQL on-demand for developing solutions.
+title: Assign variables in Azure SQL analytics | Microsoft Docs
+description: Tips for assigning T-SQL variables in Azure SQL analytics for developing solutions.
 services: sql-data-warehouse
 author: azaricstefan 
 ms.service: sql-data-warehouse
@@ -11,13 +11,13 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Assigning variables in Azure SQL on-demand
+# Assigning variables in Azure SQL analytics
 
-Tips for assigning T-SQL variables in Azure SQL on-demand for developing solutions.
+Tips for assigning T-SQL variables in Azure SQL analytics for developing solutions.
 
 ## Setting variables with DECLARE
 
-Variables in SQL on-demand are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL on-demand.
+Variables in SQL analytics are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL analytics.
 
 ```sql
 DECLARE @v  int = 0
@@ -61,4 +61,4 @@ You cannot use UPDATE for variable assignment.
 
 ## Next steps
 
-For more development tips, see [SQL on-demand development overview](sql-analytics-overview-develop.md).
+For more development tips, see [SQL analytics development overview](sql-analytics-overview-develop.md).
