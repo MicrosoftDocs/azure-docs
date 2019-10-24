@@ -100,6 +100,8 @@
     href: how-to-migrate.md
   - name: Prepare machines for migration
     href: prepare-for-migration.md
+  - name: Delete an Azure Migrate project
+    href: how-to-delete-project.md
 - name: Scale assessment and migration
   items:
   - name: Assess large numbers of VMware VMs
