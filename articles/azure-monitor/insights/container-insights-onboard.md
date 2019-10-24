@@ -6,7 +6,7 @@ ms.subservice:
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/12/2019
+ms.date: 10/15/2019
 
 ---
 
@@ -46,7 +46,7 @@ The information in the following table lists the proxy and firewall configuratio
 |Agent Resource|Ports |
 |--------------|------|
 | *.ods.opinsights.azure.com | 443 |  
-| *.oms.opinsights.azure.com  443 | 
+| *.oms.opinsights.azure.com | 443 | 
 | *.blob.core.windows.net | 443 |
 | dc.services.visualstudio.com | 443 |
 | *.microsoftonline.com | 443 |
