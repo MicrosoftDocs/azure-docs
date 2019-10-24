@@ -79,7 +79,7 @@ See [Azure Machine Learning monitoring data reference](monitor-resource-referenc
 
 Following are queries that you can use to help you monitor your Azure Machine Learning resources: 
 
-+ Get failed jobs in the last 5 days:
++ Get failed jobs in the last five days:
 
     ```Kusto
     AmlComputeJobEvent
@@ -103,7 +103,7 @@ Following are queries that you can use to help you monitor your Azure Machine Le
     | project  ClusterName , InitialNodeCount , MaximumNodeCount , QuotaAllocated , QuotaUtilized
     ```
 
-+ Get nodes allocated in the last 8 days:
++ Get nodes allocated in the last eight days:
 
     ```Kusto
     AmlComputeClusterNodeEvent
@@ -117,9 +117,9 @@ The following table lists common and recommended alert rules for Azure Machine L
 
 | Alert type | Condition | Description |
 |:---|:---|:---|
-| Model Deploy Failed | Aggregation type: Total, Operator: Greater than, Threshold value: 0 | When one or more model deployments have failed. |
-| Quota Utilization Percentage | Aggregation type: Average, Operator: Greater than, Threshold value: 90| When the quota utilization percentage is greater than 90%. |
-| Unusable Nodes | Aggregation type: Total, Operator: Greater than, Threshold value: 0 | When there are one or more unusable nodes. |
+| Model Deploy Failed | Aggregation type: Total, Operator: Greater than, Threshold value: 0 | When one or more model deployments have failed |
+| Quota Utilization Percentage | Aggregation type: Average, Operator: Greater than, Threshold value: 90| When the quota utilization percentage is greater than 90% |
+| Unusable Nodes | Aggregation type: Total, Operator: Greater than, Threshold value: 0 | When there are one or more unusable nodes |
 
 ## Next steps
 
