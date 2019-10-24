@@ -79,4 +79,4 @@ Identity and security Management detects authentication and authorization errors
 
 Collect logs to help you further troubleshoot your cluster issues by using [AKS Periscope](https://aka.ms/aksperiscope).
 
-Post your questions or feedback at [UserVoice](​​​​​​​​​​​​​​https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) by adding "[Diag]" in the title.
+Post your questions or feedback at [UserVoice](https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks) by adding "[Diag]" in the title.
