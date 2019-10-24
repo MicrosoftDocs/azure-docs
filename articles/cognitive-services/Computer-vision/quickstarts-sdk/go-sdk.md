@@ -87,6 +87,8 @@ Also, declare a context at the root of your script. You'll need this object to e
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_context)]
 
+Next, you'll begin adding code to carry out different Computer Vision operations.
+
 ## Object model
 
 The following classes and interfaces handle some of the major features of the Computer Vision Go SDK.
@@ -109,9 +111,9 @@ These code snippets show you how to do the following tasks with the Computer Vis
 ## Authenticate the client
 
 > [!NOTE]
-> This quickstart assumes you've [created environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Computer Vision key and endpoint, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT` respectively.
+> This step assumes you've [created environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Computer Vision key and endpoint, named `COMPUTER_VISION_SUBSCRIPTION_KEY` and `COMPUTER_VISION_ENDPOINT` respectively.
 
-Create a `main` function and add the following code to instantiate a client with your endpoint and key.
+Create a `main` function and add the following code to it to instantiate a client with your endpoint and key.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
 
@@ -121,7 +123,7 @@ The following code uses the client object to analyze a remote image and print th
 
 ### Set up test image
 
-First save a reference to the URL of the image you want to analyze.
+First save a reference to the URL of the image you want to analyze. Put this inside your `main` function.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_analyze_url)]
 
@@ -227,7 +229,7 @@ Define the new function for reading text, `RecognizeTextReadAPIRemoteImage`. Add
 
 Next, get the operation ID returned from the **BatchReadFile** call, and use it with the **GetReadOperationResult** method to query the service for operation results. The following code checks the operation at one-second intervals until the results are returned. It then prints the extracted text data to the console.
 
-[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_results)]
+[!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_response)]
 
 ### Display Read results
 
