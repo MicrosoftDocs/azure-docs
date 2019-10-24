@@ -1,6 +1,6 @@
 ---
-title: Conditional Access - Require MFA for administrators - Azure Active Directory
-description: Create a custom Conditional Access policy to require administrators to perform multi-factor authentication
+title: Conditional Access - Require MFA for all users - Azure Active Directory
+description: Create a custom Conditional Access policy to require all users to perform multi-factor authentication
 
 services: active-directory
 ms.service: active-directory
@@ -15,23 +15,13 @@ ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Require MFA for administrators
+# Conditional Access: Require MFA for all users
 
-Accounts that are assigned administrative rights are targeted by attackers. Requiring multi-factor authentication (MFA) on those accounts is an easy way to reduce the risk of those accounts being compromised.
+As Alex Weinert, the Directory of Identity Security at Microsoft, mentions in his blog post [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984):
 
-Microsoft recommends you require MFA on the following roles at a minimum:
+> Your password doesn’t matter, but MFA does! Based on our studies, your account is more than 99.9% less likely to be compromised if you use MFA.
 
-* Global administrator
-* SharePoint administrator
-* Exchange administrator
-* Conditional Access administrator
-* Security administrator
-* Helpdesk (Password) administrator
-* Password administrator
-* Billing administrator
-* User administrator
-
-Organizations can choose to include or exclude roles as they see fit.
+The guidance in this article will help your organization create a balanced MFA policy for your environment.
 
 ## User exclusions
 
@@ -42,6 +32,10 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 * **Service accounts** and **service principles**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can’t be completed programmatically.
    * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
 
+## Application exclusions
+
+Organizations may have many cloud applications in use. Not all of those applications may require equal security. For example, the payroll and attendance applications may require MFA but the cafeteria probably doesn't. Administrators can choose to exclude specific applications from their policy.
+
 ## Create a Conditional Access policy
 
 The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multi-factor authentication.
@@ -51,19 +45,11 @@ The following steps will help create a Conditional Access policy to require thos
 1. Select **New policy**.
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
-   1. Under **Include**, select **Directory roles (preview)** and choose the following roles at a minimum:
-      * Global administrator
-      * SharePoint administrator
-      * Exchange administrator
-      * Conditional Access administrator
-      * Security administrator
-      * Helpdesk administrator
-      * Password administrator
-      * Billing administrator
-      * User administrator
+   1. Under **Include**, select **All users**
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**, and select **Done**.
+1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
+   1. Under **Exclude**, select any applications that do not require multi-factor authentication.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
