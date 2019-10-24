@@ -1,6 +1,6 @@
 --- 
-title: Access Azure VMware Solution by CloudSimple - Portal 
-description: Describes how to access VMware Solution by CloudSimple portal from Azure portal
+title: Access Azure VMware Solutions (AVS) - Portal
+description: Describes how to access Azure VMware Solutions (AVS) from Azure portal
 author: sharaths-cs 
 ms.author: b-shsury 
 ms.date: 06/04/2019 
@@ -10,7 +10,7 @@ ms.reviewer: cynthn
 manager: dikamath 
 ---
 
-# Access the VMware Solution by CloudSimple portal from the Azure portal
+# Access the Azure VMware Solutions (AVS) from the Azure portal
 
 Single sign-on is supported for access to the CloudSimple portal. After you sign in to the Azure portal, you can access the CloudSimple portal without signing in again. The first time you access the CloudSimple portal you're prompted to authorize the [CloudSimple Service Authorization](#consent-to-cloudsimple-service-authorization-application) application.  Authorization is a one-time action.
 
@@ -18,7 +18,7 @@ Single sign-on is supported for access to the CloudSimple portal. After you sign
 
 Users with builtin **Owner** and **Contributor** roles can access CloudSimple portal.  The roles must be configured on the resource group where CloudSimple service is deployed.  The roles can also be configured on the CloudSimple service object.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article. Only users with built-in **Owner** and **Contributor** roles can access the CloudSimple portal.  The roles must be configured on the subscription.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article.
 
-If you are using custom roles, the role should have any of the following operations under ```Actions```.  For more information on custom roles, see [Custom roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  If any of the operations is a part of ```NotActions```, the user cannot access CloudSimple portal.
+If you are using custom roles, the role should have any of the following operations under ```Actions```.  For more information on custom roles, see [Custom roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  If any of the operations is a part of ```NotActions```, the user cannot access CloudSimple portal. 
 
 ```
 Microsoft.VMwareCloudSimple/*
