@@ -46,7 +46,6 @@ You have two options to start your quickstart application: express (Option 1), o
 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 1. Enter a name for your application and select **Register**.
 1. Follow the instructions to download and automatically configure your new application.
-If you want to use this automation, read the instructions in [App Creation Scripts](./AppCreationScripts/AppCreationScripts.md). Please note that the configuration of your code (Step 3) still needs to be done manually.
 
 ### Option 2: Register and manually configure your application and code sample
 
