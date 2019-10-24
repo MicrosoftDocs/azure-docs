@@ -27,7 +27,7 @@ This quickstart shows you how to use Azure NAT service and create a NAT gateway 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you have never used Azure cloud shell, [Sign in now](https://shell.azure.com) to go through the initial setup.
-If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you are running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you're running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group
 
@@ -71,7 +71,7 @@ This section details how you can create and configure the following components o
   - A public IP pool and public IP prefix to use for outbound flows translated by the NAT gateway resource.
   - Change the idle timeout from the default of 4 minutes to 10 minutes.
 
-Create a global Azure NAT Gateway with [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) named **myNATgateway** that uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix** and changes the idle timeout to 10 minutes.
+Create a global Azure NAT Gateway with [az network nat gateway create](https://docs.microsoft.com/cli/azure/network/nat?view=azure-cli-latest) named **myNATgateway**. The command uses both the public IP address **myPublicIP** and the public IP prefix **myPublicIPprefix**. The command also changes the idle timeout to 10 minutes.
 
 ```azurecli-interactive
   az network nat gateway create \
@@ -88,7 +88,7 @@ At this point, the NAT gateway is functional and all that is missing is to confi
 
 Before you deploy a VM and can use your NAT gateway, we need to create the virtual network.
 
-Create a virtual network named **myVnet** with a subnet named **mySubnet** in the **myResourceGroup** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16** and the subnet within the virtual network is **192.168.0.0/24**.
+Create a virtual network named **myVnet** with a subnet named **mySubnet** in the **myResourceGroupNAT** using [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).  The IP address space for the virtual network is **192.168.0.0/16**. The subnet within the virtual network is **192.168.0.0/24**.
 
 ```azurecli-interactive
   az network vnet create \
@@ -131,7 +131,7 @@ We create a public IP to be used to access the VM.  Use [az network public-ip cr
 
 ### Create an NSG for VM
 
-Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access. Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) to create a NSG resource named **myNSG** in **myResourceGroupNAT**.
+Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access. Use [az network nsg create](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create) to create an NSG resource named **myNSG** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg create \
@@ -141,7 +141,7 @@ Because Standard Public IP addresses are 'secure by default', we need to create 
 
 ### Expose SSH endpoint on source VM
 
-We create a rule in the NSG for SSH access to the source vm. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) to create a NSG rule named **ssh** in the NSG named **myNSG** in **myResourceGroupNAT**.
+We create a rule in the NSG for SSH access to the source vm. Use [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) to create an NSG rule named **ssh** in the NSG named **myNSG** in **myResourceGroupNAT**.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -183,7 +183,7 @@ Create the virtual machine with [az vm create](/cli/azure/vm#az-vm-create).  We 
     --generate-ssh-keys \
 ```
 
-Wait for the VM to finish deploying then proceed with the rest of the steps.
+Wait for the VM to finish deploying then continue with the rest of the steps.
 
 ## Discover the IP address of the VM
 
@@ -223,7 +223,7 @@ When no longer needed, you can use the [az group delete](/cli/azure/group#az-gro
 
 In this tutorial, you created a NAT gateway and a VM to use the NAT service. To learn more about Azure NAT service, continue to other tutorials for Azure NAT service.
 
-You can also review metrics in Azure Monitor to see your NAT service operating and diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
+You can also review metrics in Azure Monitor to see your NAT service operating. You can diagnose issues such as resource exhaustion of available SNAT ports.  Resource exhaustion of SNAT ports is easily addressed by adding additional public IP address resources or public IP prefix resources or both.
 
 > [!div class="nextstepaction"]
 
