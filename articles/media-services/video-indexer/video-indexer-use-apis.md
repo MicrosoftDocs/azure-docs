@@ -1,7 +1,7 @@
 ---
-title: Use the Video Indexer API - Azure
+title: Tutorial&#58; Use the Video Indexer API
 titlesuffix: Azure Media Services
-description: This article shows how to get started using the Video Indexer API.
+description: A tutorial for getting started with Azure Media Services Video Indexer API.
 services: media-services
 author: Juliako
 manager: femila
