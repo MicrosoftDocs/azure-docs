@@ -4,7 +4,7 @@ description: Describes the functions to use in an Azure Resource Manager templat
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 10/24/2019
 ms.author: tomfitz
 
 ---
@@ -30,7 +30,7 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returns the resource ID for an extension resource.
+Returns the resource ID for an [extension resource](extension-resource-types.md), which is a resource type that is applied to another resource to add to its capabilities.
 
 ### Parameters
 
@@ -45,21 +45,29 @@ Continue adding resource names as parameters when the resource type includes mor
 
 ### Return value
 
-When the extension resource is applied to a resource, the resource ID is returned in the following format:
+The basic format of the resource ID returned by this function is:
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
-```
+`{scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
 
-When the extension resource is applied to a resource group, the format is:
+The scope segment varies by the resource being extended.
 
-```json
-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
-```
+When the extension resource is applied to a **resource**, the resource ID is returned in the following format:
+
+`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
+
+When the extension resource is applied to a **resource group**, the format is:
+
+`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
+
+When the extension resource is applied to a **subscription**, the format is:
+
+`/subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
+
+When the extension resource is applied to a **management group**, the format is:
+
+`/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
 
 ### Remarks
-
-An extension resource is a resource that extends another resource's capabilities. For example, you apply a resource lock to a another resource to prevent it from being deleted or modified. Or, you apply an Event Grid subscription to another resource to send events from that resource to an endpoint. For a list of extension types, see [Resource types that extend capabilities of other resources](extension-resource-types.md).
 
 The resource ID for extension resource types includes the resource being extended.
 
