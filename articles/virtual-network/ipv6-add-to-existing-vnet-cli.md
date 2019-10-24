@@ -48,18 +48,76 @@ After the registration is complete, run the following command:
 az provider register --namespace Microsoft.Network
 ```
 
-### Create a Standard Load Balancer
-This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
+### Deploy an IPv4 application
+This article assumes that your current environment includes a public Standard Load Balancer with a frontend IPv4 configuration and a backend pool that includes three  virtual machines with IPv4 NICs. You can deploy an IPv4 application using Azure CLI as follows:
+
+```azurecli
+# Create a resource group
+az group create \
+--name UpgradeInPlace_CLI_RG1 \
+--location WestUS
+
+# Create an IPV4 IP address
+az network public-ip create \
+--name dsPublicIP_v4 \
+--resource-group UpgradeInPlace_CLI_RG1 \
+--location WestUS \
+--sku Standard \
+--allocation-method static \
+--version IPv4
+
+
+# Create public IP addresses for remote access to VMs
+az network public-ip create \
+--name dsVM0_remote_access \
+--resource-group UpgradeInPlace_CLI_RG1 \
+--location WestUS  \
+--sku Standard \
+--allocation-method static \
+--version IPv4
+
+az network public-ip create \
+--name dsVM1_remote_access \
+--resource-group UpgradeInPlace_CLI_RG1 \
+--location WestUS \
+--sku Standard \
+--allocation-method static \
+--version IPv4
+
+# Create load balancer as IPv4-only
+az network lb create \
+--name dsLB \
+--resource-group UpgradeInPlace_CLI_RG1 \
+--sku Standard  \
+--location WestUS \
+--frontend-ip-name dsLbFrontEnd_v4 \
+--public-ip-address dsPublicIP_v4 \`
+--backend-pool-name dsLbBackEndPool_v4
+
+
+# Create IPv4 load balancer rules
+
+az network lb rule create \
+--lb-name dsLB  \
+--name dsLBrule_v4 \
+--resource-group UpgradeInPlace_CLI_RG1 \
+--frontend-ip-name dsLbFrontEnd_v4  \
+--protocol Tcp \
+--frontend-port 80 \
+--backend-port 80 \
+--backend-pool-name dsLbBackEndPool_v4
+
+
+```
 
 ## Create IPv6 addresses
 
-Create public IPv6 address with with [az network public-ip create](/cli/azure/network/public-ip) for your Standard Load Balancer. The following example creates an IPv6 public IP address named *PublicIP_v6* in the *myResourceGroupSLB* resource group:
-
+Create public IPv6 address with with [az network public-ip create](/cli/azure/network/public-ip) for your Standard Load Balancer. 
 ```azurecli
   
 az network public-ip create \
---name PublicIP_v6 \
---resource-group MyResourceGroupSLB \
+--name dsPublicIP_v6 \
+--resource-group UpgradeInPlace_CLI_RG1 \`
 --location WestUS \
 --sku Standard \
 --allocation-method static \
@@ -72,10 +130,10 @@ COnfigure the load balancer with the new IPv6 IP address using [az network lb fr
 
 ```azurecli
 az network lb frontend-ip create \
---lb-name myLoadBalancer \
+--lb-name dsLB \
 --name dsLbFrontEnd_v6 \
---resource-group MyResourceGroupSLB \
---public-ip-address PublicIP_v6
+--resource-group UpgradeInPlace_CLI_RG1 \
+--public-ip-address dsPublicIP_v6
 ```
 
 ## Configure IPv6 load balancer backend pool
@@ -84,9 +142,9 @@ Create the backend pool for NICs with IPv6 addresses using [az network lb addres
 
 ```azurecli
 az network lb address-pool create \
---lb-name myLoadBalancer \
+--lb-name dsLB \
 --name dsLbBackEndPool_v6 \
---resource-group MyResourceGroupSLB
+--resource-group UpgradeInPlace_CLI_RG1
 ```
 
 ## Configure IPv6 load balancer rules
@@ -95,13 +153,13 @@ Create IPv6 load balancer rules with [az network lb rule create](https://docs.mi
 
 ```azurecli
 az network lb rule create \
---lb-name myLoadBalancer \
+--lb-name dsLB \
 --name dsLBrule_v6 \
---resource-group MyResourceGroupSLB \
---frontend-ip-name dsLbFrontEnd_v6 \
---protocol Tcp \
---frontend-port 80 \
---backend-port 80 \
+--resource-group UpgradeInPlace_CLI_RG1 `
+--frontend-ip-name dsLbFrontEnd_v6  `
+--protocol Tcp  `
+--frontend-port 80 `
+--backend-port 80  `
 --backend-pool-name dsLbBackEndPool_v6
 ```
 
@@ -111,7 +169,7 @@ Add IPv6 address ranges to the virtual network and subnet hosting the load balan
 
 ```azurecli
 az network vnet update \
---name myVnet  `
+--name myVnet \
 --resource-group MyResourceGroupSLB \
 --address-prefixes  "10.0.0.0/16"  "ace:cab:deca::/48"
 
@@ -119,7 +177,7 @@ az network vnet subnet update \
 --vnet-name myVnet \
 --name mySubnet \
 --resource-group MyResourceGroupSLB \
---address-prefixes  "10.0.0.0/24"  "ace:cab:deca:deed::/64"  
+--address-prefixes  "10.0.0.0/24"  "ace:cab:deca:deed::/64" 
 ```
 
 ## Add IPv6 configuration to NICs
@@ -131,11 +189,11 @@ az network nic ip-config create \
 --name dsIp6Config_NIC1 \
 --nic-name myNicVM1 \
 --resource-group MyResourceGroupSLB \
---vnet-name dsVNET \
---subnet dsSubNet \
+--vnet-name myVnet \
+--subnet mySubNet \
 --private-ip-address-version IPv6 \
 --lb-address-pools dsLbBackEndPool_v6 \
---lb-name dsLB
+--lb-name myLoadBalancer
 
 az network nic ip-config create \
 --name dsIp6Config_NIC2 \
