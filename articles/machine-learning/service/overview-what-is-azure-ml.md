@@ -33,6 +33,16 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 ## Build ML models with no-code tools
 
+  Learn more in [the Azure Machine Learning designer overview article](ui-concept-visual-interface.md). 
+
+  ![Azure Machine Learning designer](media/overview-what-is-azure-ml/designer.png)
+
++ **Automated machine learning UI**
+
+  Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
+
+  [![Azure Machine Learning studio navigation pane](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
 ## MLOps: Deploy & lifecycle management
 When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
@@ -96,11 +106,6 @@ For code-free training and deployment, try:
   Learn how to create [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface. 
 
   [![Azure Machine Learning studio navigation pane](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
-
-
-### Deploy & operationalize (MLOps)
-
-
 
 ## <a name="sku"></a>Basic & Enterprise editions
 
