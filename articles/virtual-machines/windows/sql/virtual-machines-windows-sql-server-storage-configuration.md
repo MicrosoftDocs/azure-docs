@@ -127,15 +127,12 @@ Azure uses the following settings to create the storage pool on SQL Server VMs.
 | Disk sizes |1 TB each |
 | Cache |Read |
 | Allocation size |64 KB NTFS allocation unit size |
-| Instant file initialization |Enabled |
-| Lock pages in memory |Enabled |
-| Recovery |Simple recovery (no resiliency) |
-| Number of columns |Number of data disks<sup>1</sup> |
-| TempDB location |Stored on data disks<sup>2</sup> |
+| Recovery | Simple recovery (no resiliency) |
+| Number of columns |Number of data disks up to 8<sup>1</sup> |
+
 
 <sup>1</sup> After the storage pool is created, you cannot alter the number of columns in the storage pool.
 
-<sup>2</sup> This setting only applies to the first drive you create using the storage configuration feature.
 
 ## Workload optimization settings
 
