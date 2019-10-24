@@ -1,13 +1,12 @@
 ---
-title: Reference architecture for connected waste management solution built with IoT Central| Microsoft Docs
-description: Learn concepts for a connected waste management solution built with IoT Central.
+title: Reference architecture for connected waste management solution built with Azure IoT Central| Microsoft Docs
+description: Learn concepts for a connected waste management solution built with Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
-ms.date: 09/24/2019
+ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-manager: aabjork
 ---
 
 
@@ -16,7 +15,6 @@ manager: aabjork
 
 A connected waste management solution can be built using the **Azure IoT Central app template** as a kick starter IoT application. This article provides a high-level reference architecture guidance on building an end to end solution. 
 
-[!div class="mx-imgBorder"]
 ![Connected waste management architecture](./media/concepts-connectedwastemanagement-architecture/concepts-connectedwastemanagement-architecture1.png)
 
 
@@ -40,9 +38,9 @@ After you connect your smart water devices to IoT Central, you get device comman
 You can extend your IoT application in IoT Central and optionally:
 * transform and integrate your IoT data for advanced analytics, for example training machine learning models, through continuous data export from IoT Central application. 
 * automate workflows in other systems by triggering actions via Microsoft Flow or webhooks from IoT Central application
-* programatically access your IoT application in IoT Central through IoT Central APIs
+* programatically access your IoT application in IoT Central through IoT Central APIs.
 
-## Business Applications 
+## Business applications 
 The IoT data can be used to power a variety of business applications within a waste utility. To learn how to connect your IoT Central connected waste management application with field services, follow the tutorial on [how to integrate with Dynamics 365 Field Services](./how-to-configure-connected-field-services.md) 
 
 ## Next steps
