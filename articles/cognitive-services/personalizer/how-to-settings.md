@@ -35,8 +35,7 @@ Create a Personalizer resource for each feedback loop.
 
     Before leaving the Azure portal, copy one of your resource keys from the **Keys** page. You will need this to use the [Personalizer SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
 
-<a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case></a>
-
+<a name="configure-reward-settings-for-the-feedback-loop-based-on-use-case"></a>
 
 ### Configure reward for the feedback loop based on use case
 
