@@ -19,12 +19,13 @@ ms.author: amverma
 
 The Azure NC, ND, and H-series of VMs are all backed by a dedicated InfiniBand network. All RDMA-enabled sizes are capable of leveraging that network using Intel MPI. Some VM series have expanded support for all MPI implementations and RDMA verbs through SR-IOV. RDMA capable VMs include [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) and [High-performance compute (HPC)](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) VMs.
 
+## Choose your installation path
 
 To get started, the simplest option is to use a platform image pre-configured for InfiniBand, where available:
 
-- HPC IaaS VMs – To get started with IaaS VMs for HPC, the simplest solution is to use the [CentOS-HPC 7.6 VM OS image](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), which is already configured with InfiniBand. Since this image is already configured with InfiniBand, you don't have to configure it manually.
+- **HPC IaaS VMs** – To get started with IaaS VMs for HPC, the simplest solution is to use the [CentOS-HPC 7.6 VM OS image](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557), which is already configured with InfiniBand. Since this image is already configured with InfiniBand, you don't have to configure it manually. For compatible Windows versions, see [Windows RDMA-capable instances](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
 
-- GPU IaaS VMs – No platform images are currently pre-configured for GPU optimized VMs. See [Manually install Mellanox OFED](#manually-install-mellanox-ofed) to learn how how to configure your image with InfiniBand.
+- **GPU IaaS VMs** – No platform images are currently pre-configured for GPU optimized VMs, except for [CentOS-HPC 7.6 VM OS image](https://techcommunity.microsoft.com/t5/Azure-Compute/CentOS-HPC-VM-Image-for-SR-IOV-enabled-Azure-HPC-VMs/ba-p/665557). To configure a custom image with InfiniBand, see [Manually install Mellanox OFED](#manually-install-mellanox-ofed).
 
 If you're using a custom VM image or a [GPU optimized](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) VM, you should configure it with InfiniBand by adding the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment. Learn how to use these VM extensions with [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances) and [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances).
 
@@ -37,12 +38,15 @@ For more information on the supported distributions for the Mellanox driver, see
 See the following example for how to configure InfiniBand on Linux:
 
 ```bash
-sudo yum install -y kernel-devel python-devel
-sudo yum install -y redhat-rpm-config rpm-build gcc-gfortran gcc-c++
-sudo yum install -y gtk2 atk cairo tcl tk createrepo
-wget <Link to driver> #Example: https://www.mellanox.com/downloads/ofed/MLNX_OFED-4.7-1.0.0.1/MLNX_OFED_LINUX-4.7-1.0.0.1-rhel7.6-x86_64.tgz
-tar zxvf <.tgx file> #Example: MLNX_OFED_LINUX-4.7-1.0.0.1-rhel7.6-x86_64.tgz
-sudo <Script> --add-kernel-support  #Example script: ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall
+# Modify the variable to desired Mellanox OFED version
+MOFED_VERSION=#4.7-1.0.0.1
+# Modify the variable to desired OS
+MOFED_OS=#rhel7.6
+pushd /tmp
+curl -fSsL https://www.mellanox.com/downloads/ofed/MLNX_OFED-${MOFED_VERSION}/MLNX_OFED_LINUX-${MOFED_VERSION}-${MOFED_OS}-x86_64.tgz | tar -zxpf -
+cd MLNX_OFED_LINUX-*
+sudo ./mlnxofedinstall
+popd
 ```
 
 For Windows, download and install the [Mellanox OFED for Windows drivers](https://www.mellanox.com/page/products_dyn?product_family=32&menu_section=34).
