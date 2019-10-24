@@ -121,7 +121,7 @@ The **Water consumption monitoring** application created from the application te
 To view the device template:
 
 * Click on **Device templates** from the left navigation pane of your application in IoT Central. 
-* In the Device templates list you will see two device templates **Flow meterr** and **Smart Valve**
+* In the Device templates list you will see two device templates **Flow meter** and **Smart Valve**
 
    ![Device Template](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
 
@@ -217,9 +217,9 @@ To create a new rule:
 
 ## Configure Jobs
 
-In IoT Central, jobs allow you to trigger device or cloud propertie updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. IoT Central will automate the workflow for you. 
+In IoT Central, jobs allow you to trigger device or cloud property updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. IoT Central will automate the workflow for you. 
 
-* Go to **Jobs** from the left navigtion pane. 
+* Go to **Jobs** from the left navigation pane. 
 * Click **+New** and configure one or more jobs. 
 
 
