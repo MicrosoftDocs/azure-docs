@@ -53,6 +53,9 @@ You can create Azure Machine Learning compute instances or compute clusters in:
 
 When created these compute resources are automatically part of your workspace unlike other kinds of compute targets.
 
+[!INCLUDE [compute-instance-only](../../../includes/aml-compute-instance-only.md)]
+>If your workspace is in any other region, you can continue to create and use a Notebook VM instead. 
+
 ### Compute clusters
 
 You can use Azure Machine Learning compute clusters for training and for batch inferencing (preview).  With this compute resource, you have:

@@ -35,6 +35,9 @@ Access the following web-based authoring tools from the studio:
 | [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
 | [Designer](ui-concept-visual-interface.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | Enterprise |
 
+[!INCLUDE [compute-instance-only](../../../includes/aml-compute-instance-only.md)]
+>If your workspace is in any other region, you can continue to create and use a Notebook VM instead.  
+
 ### Azure Machine Learning designer enhancements 
 
 + Formerly known as the visual interface 
