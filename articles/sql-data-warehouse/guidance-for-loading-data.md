@@ -1,6 +1,6 @@
 ---
-title: Data loading best practices - Azure SQL Analytics | Microsoft Docs
-description: Recommendations and performance optimizations for loading data into Azure SQL Analytics.
+title: Data loading best practices - Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Recommendations and performance optimizations for loading data into Azure Synapse Analytics (formerly SQL DW).
 services: sql-data-warehouse
 author: kevinvngo 
 manager: craigg
@@ -13,9 +13,9 @@ ms.reviewer: igorstan
 ms.custom: seoapril2019
 ---
 
-# Best practices for loading data into Azure SQL Analytics (formerly SQL DW)
+# Best practices for loading data into Azure Synapse Analytics (formerly SQL DW)
 
-Recommendations and performance optimizations for loading data into Azure SQL Analytics.
+This article presents recommendations and performance optimizations for loading data.
 
 ## Preparing data in Azure Storage
 
@@ -84,7 +84,7 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 - Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
 ## Increase batch size when using SQLBulkCopy API or BCP
-As mentioned before, loading with PolyBase will provide the highest throughput with SQL Analytics. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput. 
+As mentioned before, loading with PolyBase will provide the highest throughput for loading data. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput. 
 
 ## Handling loading failures
 
@@ -138,6 +138,6 @@ No other changes to underlying external data sources are needed.
 
 ## Next steps
 
-- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](design-elt-data-loading.md).
-- For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for Azure Synapse Analytics](design-elt-data-loading.md).
+- For a loading tutorial, [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
 - To monitor data loads, see [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md).

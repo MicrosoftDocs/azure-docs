@@ -1,5 +1,5 @@
 ---
-title: Temporary tables in SQL Analytics | Microsoft Docs
+title: Temporary tables in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
 description: Essential guidance for using temporary tables and highlights the principles of session level temporary tables. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -12,7 +12,7 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Temporary tables in SQL Analytics (formerly SQL DW)
+# Temporary tables in Azure Synapse Analytics (formerly SQL DW)
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance of your code.
 
 ## What are temporary tables?
@@ -197,7 +197,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## Temporary table limitations
-SQL Analytics does impose a couple of limitations when implementing temporary tables.  Currently, only session scoped temporary tables are supported.  Global Temporary Tables are not supported.  In addition, views cannot be created on temporary tables.  Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution is not supported. 
+Currently, only session scoped temporary tables are supported.  Global Temporary Tables are not supported.  In addition, views cannot be created on temporary tables.  Temporary tables can only be created with hash or round robin distribution.  Replicated temporary table distribution is not supported. 
 
 ## Next steps
 To learn more about developing tables, see the [Table Overview](sql-data-warehouse-tables-overview.md).

@@ -1,6 +1,6 @@
 ---
-title: Resource classes for workload management in Azure SQL Analytics | Microsoft Docs
-description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure SQL Analytics.
+title: Resource classes for workload management in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
+description: Guidance for using resource classes to manage concurrency and compute resources for queries in Azure Synapse Analytics (formerly SQL DW).
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -12,13 +12,13 @@ ms.author: rortloff
 ms.reviewer: jrasnick
 ---
 
-# Workload management with resource classes in Azure SQL Analytics
+# Workload management with resource classes in Azure Synapse Analytics (formerly SQL DW)
 
-Guidance for using resource classes to manage memory and concurrency for queries in your Azure SQL Analytics.  
+This article provides guidance for using resource classes to manage memory and concurrency for queries.  
 
 ## What are resource classes
 
-The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits in Azure SQL Analytics that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
 - Larger resource classes increase the maximum memory per query, but reduce concurrency.
@@ -577,7 +577,7 @@ GO
 
 ## Next step
 
-For more information about managing database users and security, see [Secure a database in SQL Data Warehouse][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+For more information about managing database users and security, see [Secure a database][Secure a database in SQL Data Warehouse]. For more information about how larger resource classes can improve clustered columnstore index quality, see [Memory optimizations for columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
 <!--Image references-->
 
@@ -586,7 +586,4 @@ For more information about managing database users and security, see [Secure a d
 [Rebuilding indexes to improve segment quality]: ./sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
-<!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
-<!--Other Web references-->
