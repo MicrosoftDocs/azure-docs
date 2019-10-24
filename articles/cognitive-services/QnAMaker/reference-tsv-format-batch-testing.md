@@ -8,13 +8,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 10/20/2019
+ms.date: 10/24/2019
 ms.author: diberry
 ---
 
 # Batch testing TSV format
 
-Batch testing is available from [source code](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting) or as a [downloadable executable zipped](https://qnamakerstore.blob.core.windows.net/qnamakerdata/batchtesting/bt.zip). The format of the command to run the batch test is:
+Batch testing is available from [source code](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/batchtesting) or as a [downloadable executable zipped](https://aka.ms/qna_btzip). The format of the command to run the batch test is:
 
 ```console
 batchtesting.exe input.tsv https://YOUR-HOST.azurewebsites.net ENDPOINT-KEY out.tsv
