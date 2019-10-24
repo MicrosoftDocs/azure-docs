@@ -13,11 +13,11 @@ ms.author: caya
 
 ## Introductions
 
-The Kubernetes Ingress resource can be annotated with arbitrary key/value pairs. AGIC relies on annotations to program Application Gateway features, which are not configurable via the Ingress YAML. Ingress annotations are applied to all HTTP setting, backend pools and listeners derived from an ingress resource.
+The Kubernetes Ingress resource can be annotated with arbitrary key/value pairs. AGIC relies on annotations to program Application Gateway features, which are not configurable via the Ingress YAML. Ingress annotations are applied to all HTTP setting, backend pools, and listeners derived from an ingress resource.
 
 ## List of supported annotations
 
-For an Ingress resource to be observed by AGIC it **must be annotated** with `kubernetes.io/ingress.class: azure/application-gateway`. Only then AGIC will work with the Ingress resource in question.
+For an Ingress resource to be observed by AGIC, it **must be annotated** with `kubernetes.io/ingress.class: azure/application-gateway`. Only then AGIC will work with the Ingress resource in question.
 
 | Annotation Key | Value Type | Default Value | Allowed Values
 | -- | -- | -- | -- |
@@ -32,7 +32,7 @@ For an Ingress resource to be observed by AGIC it **must be annotated** with `ku
 
 ## Backend Path Prefix
 
-This annotation allows the backend path specified in an ingress resource to be re-written with prefix specified in this annotation. This allows users to expose services whose endpoints are different than endpoint names used to expose a service in an ingress resource.
+This annotation allows the backend path specified in an ingress resource to be rewritten with prefix specified in this annotation. This allows users to expose services whose endpoints are different than endpoint names used to expose a service in an ingress resource.
 
 ### Usage
 
@@ -60,9 +60,9 @@ spec:
           serviceName: go-server-service
           servicePort: 80
 ```
-In the example above we have defined an ingress resource named `go-server-ingress-bkprefix` with an annotation `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . The annotation tells application gateway to create an HTTP setting which will have a path prefix override for the path `/hello` to `/test/`.
+In the example above, we have defined an ingress resource named `go-server-ingress-bkprefix` with an annotation `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"` . The annotation tells application gateway to create an HTTP setting, which will have a path prefix override for the path `/hello` to `/test/`.
 
-***NOTE:*** In the above example we have only one rule defined. However, the annotations is applicable to the entire ingress resource so if a user had defined multiple rules the backend path prefix would be setup for each of the paths specified. Thus, if a user wants different rules with different path prefixes (even for the same service) they would need to define different ingress resources.
+***NOTE:*** In the above example we have only one rule defined. However, the annotations are applicable to the entire ingress resource, so if a user had defined multiple rules, the backend path prefix would be set up for each of the paths specified. Thus, if a user wants different rules with different path prefixes (even for the same service) they would need to define different ingress resources.
 
 ## SSL Redirect
 
@@ -105,8 +105,8 @@ spec:
 
 ## Connection Draining
 
-`connection-draining`: This annotation allows to specify whether to enable connection draining.
-`connection-draining-timeout`: This annotation allows to specify a timeout after which Application Gateway will terminate the requests to the draining backend endpoint.
+`connection-draining`: This annotation allows users to specify whether to enable connection draining.
+`connection-draining-timeout`: This annotation allows users to specify a timeout after which Application Gateway will terminate the requests to the draining backend endpoint.
 
 ### Usage
 

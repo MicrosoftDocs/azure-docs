@@ -1,5 +1,5 @@
 ---
-title: Enabling multiple namespace support for Application Gateway Ingress Controller
+title: Enabling multiple namespace supports for Application Gateway Ingress Controller
 description: This article provides information on how to enable multiple namespace support in a Kubernetes cluster with an Application Gateway Ingress Controller. 
 services: application-gateway
 author: caya
@@ -14,7 +14,7 @@ ms.author: caya
 #### Motivation
 Kubernetes [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
 make it possible for a Kubernetes cluster to be partitioned and allocated to
-sub-groups of a larger team. These sub-teams can then deploy and manage
+subgroups of a larger team. These subteams can then deploy and manage
 infrastructure with finer controls of resources, security, configuration etc.
 Kubernetes allows for one or more ingress resources to be defined independently
 within each namespace.
@@ -52,10 +52,10 @@ could instruct AGIC to create conflicting configurations for a single Applicatio
 domain for instance.)
 
 At the top of the hierarchy - **listeners** (IP address, port, and host) and **routing rules** (binding listener,
-backend pool and HTTP settings) could be created and shared by multiple namespaces/ingresses.
+backend pool, and HTTP settings) could be created and shared by multiple namespaces/ingresses.
 
 On the other hand - paths, backend pools, HTTP settings, and TLS certificates could be created by one namespace only
-and duplicates will removed..
+and duplicates will be removed.
 
 For example, consider the following duplicate ingress resources defined
 namespaces `staging` and `production` for `www.contoso.com`:
@@ -118,14 +118,14 @@ points in time, it is likely for AGIC to end up in a scenario where it
 reconfigures Application Gateway and re-routes traffic from `namespace-B` to
 `namespace-A`.
 
-For example if you added `staging` first, AGIC will configure App Gwy to route
+For example if you added `staging` first, AGIC will configure Application Gateway to route
 traffic to the staging backend pool. At a later stage, introducing `production`
-ingress, will cause AGIC to reprogram App Gwy, which will start routing traffic
+ingress, will cause AGIC to reprogram Application Gateway, which will start routing traffic
 to the `production` backend pool.
 
 #### Restricting Access to Namespaces
 By default AGIC will configure Application Gateway based on annotated Ingress within
-any namespace. Should you want to limit this behaviour you have the following
+any namespace. Should you want to limit this behavior you have the following
 options:
   - limit the namespaces, by explicitly defining namespaces AGIC should observe via the `watchNamespace` YAML key in [helm-config.yaml](../examples/sample-helm-config.yaml)
   - use [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) to limit AGIC to specific namespaces
