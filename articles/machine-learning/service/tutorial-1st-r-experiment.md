@@ -39,7 +39,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 1. Get the three tutorial files from [GitHub](https://github.com/Azure/azureml-sdk-for-r/tree/master/vignettes/train-and-deploy-with-caret).  Save them into a **tutorials** directory.
 
-2. Create an Azure Machine Learning workspace using the steps below.
+2. Create an Azure Machine Learning workspace and download its configuration file using the steps below.
 
 
 ### Create a workspace
