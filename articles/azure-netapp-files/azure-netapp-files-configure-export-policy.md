@@ -22,7 +22,7 @@ You can optionally configure export policy to control access to an Azure NetApp 
 
 ## Steps 
 
-1.	Click the **Create Export Policy** blade from the Manage Volume blade. 
+1.	Click **Export policy** from the Azure NetApp Files navigation pane. 
 
 2.	Specify information for the following fields to create an export policy rule:   
     *  **Index**   

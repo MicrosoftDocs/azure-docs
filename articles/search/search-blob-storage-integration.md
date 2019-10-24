@@ -66,5 +66,5 @@ A more permanent solution is to gather query inputs and present the response as 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Set up a blob indexer](search-howto-indexing-azure-blob-storage.md) 
++ [Upload, download, and list blobs with the Azure portal (Azure Blob storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Set up a blob indexer (Azure Search)](search-howto-indexing-azure-blob-storage.md) 

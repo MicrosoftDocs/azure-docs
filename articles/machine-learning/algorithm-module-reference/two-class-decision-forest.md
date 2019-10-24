@@ -44,7 +44,7 @@ For more information, see [Decision Forests](https://go.microsoft.com/fwlink/?Li
 
 ## How to configure
   
-1.  Add the **Two-Class Decision Forest** module to your experiment in Azure Machine Learning, and open the **Properties** pane of the module. 
+1.  Add the **Two-Class Decision Forest** module to your pipeline in Azure Machine Learning, and open the **Properties** pane of the module. 
 
     You can find the module under **Machine Learning**. Expand **Initialize**, and then **Classification**.  
   
@@ -92,9 +92,9 @@ After training is complete:
   
     Click each tree to drill down into the splits and see the rules for each node.
 
-+ To save a snapshot of the model, right-click the **Trained Model** output, and select **Save Model**. The saved model is not updated on successive runs of the experiment.
++ To save a snapshot of the model, right-click the **Trained Model** output, and select **Save Model**. The saved model is not updated on successive runs of the pipeline.
 
-+ To use the model for scoring, add the **Score Model** module to an experiment.
++ To use the model for scoring, add the **Score Model** module to a pipeline.
 
 
 ## Next steps
