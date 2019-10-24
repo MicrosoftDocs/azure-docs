@@ -37,6 +37,12 @@ Currently only one expiration policy can be configured for all Office 365 groups
 
 For information on how to download and install the Azure AD PowerShell cmdlets, see [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
+## Activity-based automatic renewal (preview)
+
+Group expiration policy allows you to set the expiration lifespan for selected or all Office 365 groups. After the defined group lifespan, owners are asked to renew the group if it is still needed. With Azure AD intelligence, groups also now automatically renewed based on whether they have been in recent used. This feature eliminates the need for manual action on the part of the group owners, and is based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, Yammer, and others.
+
+For a real-world example: At Contoso, the administrator has configured the group lifetime to be 180 days. Megan is the owner of the Contoso Marketing Office 365 group, with Enrico and Alex as its members. Her group is set to expire in only 45 days. If an owner or a group member does anything like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed for another 180 days, and the owner Megan does not get any renewal notifications.
+
 ## Roles and permissions
 
 The following are roles that can configure and use expiration for Office 365 groups in Azure AD.
@@ -47,12 +53,6 @@ Global administrator or User administrator | Can create, read, update, or delete
 User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own<br>Can read the expiration policy settings
 
 For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](groups-restore-deleted.md).
-
-## Activity-based automatic renewal (preview)
-
-Group expiration policy allows you to set the expiration lifespan for selected or all Office 365 groups. After the defined group lifespan, owners are asked to renew the group if it is still needed. With Azure AD intelligence, groups also now automatically renewed based on whether they have been in recent used. This feature eliminates the need for manual action on the part of the group owners, and is based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, Yammer, and others.
-
-For a real-world example: At Contoso, the administrator has configured the group lifetime to be 180 days. Megan is the owner of the Contoso Marketing Office 365 group, with Enrico and Alex as its members. Her group is set to expire in only 45 days. If an owner or a group member does anything like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed for another 180 days, and the owner Megan does not get any renewal notifications.
 
 ### User actions for group automatic expiration renewal
 
