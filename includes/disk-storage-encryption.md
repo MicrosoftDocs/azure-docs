@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption (SSE) protects your data and help you meet your organizational security and compliance commitments. Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant.   
+Azure managed disks automatically encrypt your data by default when persisting it to the cloud. Server-side encryption protects your data and helps you meet your organizational security and compliance commitments. Data in Azure managed disks is encrypted transparently using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available, and is FIPS 140-2 compliant.   
 
 Encryption does not impact the performance of managed disks. There is no additional cost for the encryption.
 
@@ -18,23 +18,23 @@ For more information about the cryptographic modules underlying Azure managed di
 
 ## About encryption key management
 
-You can rely on platform-managed keys for the encryption of your managed disk, or you can manage encryption with your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all data in managed disks. 
+You can rely on platform-managed keys for the encryption of your managed disk, or you can manage encryption using your own keys. If you choose to manage encryption with your own keys, you can specify a *customer-managed key* to use for encrypting and decrypting all data in managed disks. 
 
 The following sections describe each of the options for key management in greater detail.
 
 ## Platform-managed keys
 
-By default, managed disks use platform-managed encryption keys. As of June 10th, 2017, all new managed disks, snapshots, images and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
+By default, managed disks use platform-managed encryption keys. As of June 10th, 2017, all new managed disks, snapshots, images, and new data written to existing managed disks are automatically encrypted-at-rest with platform-managed keys. 
 
 ## Customer-managed keys
 
-You can choose to manage encryption at the level of each managed disk, with your own keys. Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../articles/storage/common/storage-client-side-encryption.md#encryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. Customer-managed keys offer greater flexibility to create, disable, and revoke access controls. SSE with customer-managed keys is integrated with Azure Key Vault that provides highly available and scalable secure storage for RSA cryptographic keys backed by Hardware Security Modules (HSMs). You can either import [your RSA keys](../articles/key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. You can also audit the encryption keys used via Azure Key Vault monitoring to protect your data. Managed disks and the Key Vault must be created in the same subscription and region.
+You can choose to manage encryption at the level of each managed disk, with your own keys. Azure managed disks handles the encryption and decryption in a fully transparent fashion using [envelope encryption](../articles/storage/common/storage-client-side-encryption.md#encryption-via-the-envelope-technique). It encrypts data using an [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 based data encryption key (DEK), which is, in turn, protected using your keys. Customer-managed keys offer greater flexibility to create, disable, and revoke access controls. Server-side encryption with customer-managed keys is integrated with Azure Key Vault that provides highly available and scalable secure storage for RSA cryptographic keys backed by Hardware Security Modules (HSMs). You can either import [your RSA keys](../articles/key-vault/key-vault-hsm-protected-keys.md) to your Key Vault or generate new RSA keys in Azure Key Vault. You can also audit the encryption keys used via Azure Key Vault monitoring to protect your data. Managed disks and the Key Vault must be created in the same subscription and region.
 
-![Interaction of disk set and customer managed keys](media/disk-storage-encryption/how-sse-customer-managed-keys-works-for-managed-disks.png)
+![Interaction of disk set and customer-managed keys](media/disk-storage-encryption/how-sse-customer-managed-keys-works-for-managed-disks.png)
 
 This diagram shows how managed disks uses Azure Active Directory and Azure Key Vault to make requests using the customer-managed key:
 
-![Managed disks customer managed keys workflow](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
+![Managed disks customer-managed keys workflow](media/disk-storage-encryption/customer-managed-keys-sse-managed-disks-workflow.png)
 
 
 The following list explains the numbered steps in the diagram:
@@ -42,9 +42,9 @@ The following list explains the numbered steps in the diagram:
 1. An Azure Key Vault administrator creates key vault resources.
 1. The key vault admin either imports their RSA keys to Key Vault or generate new RSA keys in Key Vault.
 1. That administrator creates an instance of Disk Encryption Set resource, specifying an Azure Key Vault ID and a key URL. Disk Encryption Set is a new Azure Resource Manager (ARM) introduced for simplifying the key management for managed disks. 
-1. When a disk encryption set is created, a [system-assigned managed identity](../articles/active-directory/managed-identities-azure-resources/overview) is created in Azure active directory (AD) and associated with the disk encryption set. 
+1. When a disk encryption set is created, a [system-assigned managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) is created in Azure active directory (AD) and associated with the disk encryption set. 
 1. The Azure key vault administrator then grants the managed identity permission to perform operations in the key vault.
-1. A VM user creates disks by associating them with the disk encryption set. The VM user can also enable SSE with customer-managed keys for existing resources by associating them with the disk encryption set. 
+1. A VM user creates disks by associating them with the disk encryption set. The VM user can also enable server-side encryption with customer-managed keys for existing resources by associating them with the disk encryption set. 
 1. Managed disks use the managed identity to send requests to the Azure Key Vault.
 1. For reading or writing data, managed disks sends requests to Azure Key Vault to encrypt (wrap) and decrypt (unwrap) the data encryption key in order to perform encryption and decryption of the data. 
 
@@ -66,7 +66,7 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
     -Destination Software `  
     ```
 
-1.	Create an instance of a new resource type called as DiskEncryptionSet which represents a CMK. 
+1.	Create an instance of a new resource type called a DiskEncryptionSet, which represents a customer-managed key. 
     
     ```powershell
     New-AzResourceGroupDeployment -ResourceGroupName myRGName ` 
@@ -100,8 +100,7 @@ To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](http
 
 ## Server-side encryption versus Azure disk encryption
 
-[Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md) leverages the [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to encrypt managed disks with customer-managed keys within the guest VM.  Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
-
+[Azure Disk Encryption](../articles/security/fundamentals/azure-disk-encryption-vms-vmss.md) leverages the [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) feature of Windows and the [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) feature of Linux to encrypt managed disks with customer-managed keys within the guest VM.  Server-side encryption with customer-managed keys improves on ADE by enabling you to use any OS types and images for your VMs by encrypting data in the Storage service.
 
 ## Next steps
 
