@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 10/21/2019
+ms.date: 10/29/2019
 ms.custom: seodec18
 ---
 
@@ -19,28 +19,26 @@ Meanwhile, [**Azure Machine Learning**](/service/overview-what-is-azure-ml.md) p
 
 Here is a quick comparison.
 
-|| Studio (classic) | Azure Machine Learning designer|
+||  Azure Machine Learning designer|Studio (classic) |
 |---| --- | --- |
-|| Generally available (GA) | In preview|
+|| In preview|Generally available (GA) | 
 |Drag-and-drop interface| Yes | Yes|
-|Experiment| Scale (10GB training data limit) | Scale with compute target|
-|Modules for interface| Many | Many popular modules|
-|Training compute targets| Proprietary compute target, CPU only|AML Compute(GPU/CPU)<br/> Notebook VMs |
-|Inferencing compute targets| Proprietary web service format, not customizable | Azure Kubernetes Service(real-time inferencing) <br/>AML Compute(batch inferencing) |
-|ML Pipeline| Not supported | Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](/service/concept-ml-pipelines.md)|
-|ML Ops| Basic model management and deployment | Configurable deployment, model and pipeline versioning|
-|Model| Proprietary format. Can not be used outside of Studio | Standard format, various depends on the training job|
-|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the Python SDK and workspace landing page.) |
-
-Try out the designer (preview) with [Tutorial: Predict automobile price with the visual interface](/service/ui-tutorial-automobile-price-train-score.md).
+|Experiment| Scale with compute target|Scale (10GB training data limit) | 
+|Modules for interface|  Many popular modules|Many |
+|Training compute targets| AML Compute(GPU/CPU)<br/> Notebook VMs |Proprietary compute target, CPU only|
+|Inferencing compute targets| Azure Kubernetes Service for real-time inference <br/>AML Compute for batch inference|Proprietary web service format, not customizable | 
+|ML Pipeline| Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](/service/concept-ml-pipelines.md)|Not supported | 
+|ML Ops| Configurable deployment, model and pipeline versioning|Basic model management and deployment | 
+|Model| Standard format, various depends on the training job|Proprietary, non portable format.| 
+|Automated model training & hyperparameter tuning |Not yet in design, but possible through the interface and SDKs.| No | 
 
 ## Get started with Azure Machine Learning
 
 The following resources can help you get started with Azure Machine Learning
 
-- Read the Azure Machine Learning service overview.
+- Read the [Azure Machine Learning overview](/service/tutorial-first-experiment-automated-ml.md) 
 
-- [Create and deploy your first designer pipeline](/service/tutorial-first-experiment-automated-ml.md) 
+- [Create your first designer pipeline](/service/ui-tutorial-automobile-price-train-score.md) to predict auto prices.
 
 ## Next steps
 
