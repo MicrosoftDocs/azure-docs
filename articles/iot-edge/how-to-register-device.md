@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Register an Azure IoT Edge device
 
-Before you can use your IoT devices with Azure IoT Edge, you need to register them with your IoT hub. After a device is registered, you receive a connection string that can be used to set up your device for IoT Edge workloads.
+Before you can use your IoT devices with Azure IoT Edge, you must register them with your IoT hub. After a device is registered, you receive a connection string that can be used to set up your device for IoT Edge workloads.
 
 You have the choice of registering by using one of the following tools:
 
