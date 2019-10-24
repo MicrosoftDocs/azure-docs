@@ -4547,7 +4547,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-administer-dns.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network",
       "redirect_document_id": false
     },
     {
@@ -42072,6 +42072,11 @@
       "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
       "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-password-hash-sync",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
