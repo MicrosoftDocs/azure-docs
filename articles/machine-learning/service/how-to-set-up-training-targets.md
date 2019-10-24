@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Configure the training environments (compute targets) for machine learning model training. You can easily switch between training environments. Start training locally. If you need to scale out, switch to a cloud-based compute target.
 services: machine-learning
 author: heatherbshapiro
-ms.author: hshapiro
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
