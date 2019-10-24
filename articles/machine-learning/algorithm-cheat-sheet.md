@@ -9,7 +9,6 @@ ms.topic: conceptual
 
 author: FrancescaLazzeri
 ms.author: lazzeri
-ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 11/04/2019
 ---
 # Machine Learning Algorithm Cheat Sheet for Azure Machine Learning designer
@@ -20,9 +19,9 @@ Azure Machine Learning has a large library of algorithms from the ***regression*
 
 ## Download: Machine Learning Algorithm Cheat Sheet
 
-**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/A/6/1/ec051615-1650-4f83-84a2-4d2bef0f89e5/azure-machine-learning-algorithm-cheat-sheet-nov2019.pdf)**
 
-![Machine Learning Algorithm Cheat Sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.png)
+![Machine Learning Algorithm Cheat Sheet: Learn how to choose a Machine Learning algorithm.](./media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
 
 Download and print the Machine Learning Algorithm Cheat Sheet in tabloid size to keep it handy and get help choosing an algorithm.
 
