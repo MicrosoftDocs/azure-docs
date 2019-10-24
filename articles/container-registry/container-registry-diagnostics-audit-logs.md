@@ -63,7 +63,7 @@ For example, to view logs and metrics for a container registry in near real-time
 
 The following image shows creation of a diagnostic setting for a registry using the portal.
 
-:::image type="content" source="media/container-registry-diagnostics-audit-logs/diagnostic-settings.png" alt-text="Enable diagnostic settings":::
+![Enable diagnostic settings](media/container-registry-diagnostics-audit-logs/diagnostic-settings.png)
 
 > [!TIP]
 > Collect only the data that you need, balancing cost and your monitoring needs. For example, if you only need to audit authentication events, select only the **ContainerRegistryLoginEvents** log. 
@@ -81,7 +81,7 @@ ContainerRegistryRepositoryEvents
 
 The following image shows sample output:
 
-:::image type="content" source="media/container-registry-diagnostics-audit-logs/azure-monitor-query.png" alt-text="Query log data":::
+![Query log data](media/container-registry-diagnostics-audit-logs/azure-monitor-query.png)
 
 For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](../azure-monitor/log-query/get-started-portal.md), or try the Log Analytics [Demo environment](https://portal.loganalytics.io/demo). 
 
