@@ -8,7 +8,7 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
+ms.date: 10/23/2019
 ---
 
 # Create a Kubernetes cluster with Azure Kubernetes Service and Terraform
@@ -331,7 +331,7 @@ In this section, you see how to use the `terraform init` command to create the r
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
     ```
     
-    The `terraform init` command displays the success of initializing the backend and provider plugin:
+    The `terraform init` command displays the success of initializing the backend and provider plug-in:
 
     ![Example of "terraform init" results](./media/terraform-create-k8s-cluster-with-tf-and-aks/terraform-init-complete.png)
 
