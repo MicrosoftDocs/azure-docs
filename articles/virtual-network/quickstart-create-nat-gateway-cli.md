@@ -26,7 +26,7 @@ This quickstart shows you how to use Azure NAT service and create a NAT gateway 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you have never used Azure cloud shell, [Sign in now](https://shell.azure.com) to go through the initial setup.
+You can complete this tutorial using Azure cloud shell or run the respective commands locally.  If you have never used Azure cloud shell, [sign in now](https://shell.azure.com) to go through the initial setup.
 If you choose to run these commands locally, you need to install CLI.  This tutorial requires that you're running a version of the Azure CLI version 2.0.71 or later. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create a resource group

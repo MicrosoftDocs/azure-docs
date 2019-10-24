@@ -8,14 +8,13 @@ author: asudbring
 manager: twooley
 Customer intent: I want to test a NAT Gateway for outbound connectivity for my virtual network.
 ms.custom: seodec18
-ms.service: nat
+ms.service: n
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2019
+ms.date: 010/25/2019
 ms.author: allensu
-ms.custom: seodec18
 ---
 # Tutorial: Create a NAT Gateway using Azure CLI and test the NAT service
 
