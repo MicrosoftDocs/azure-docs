@@ -1,5 +1,5 @@
 ---
-title: Create interactive reports with Azure Monitor workbooks | Microsoft docs
+title: Create interactive reports with Azure Monitor workbooks custom parameters | Microsoft docs
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks
 services: azure-monitor
 author: mrbullwinkle
@@ -31,7 +31,7 @@ For instance, a user can have a grid that shows a list of requests and some stat
 2. Use the _Add query_ link to add a log query control to the workbook. 
 3. Select the query type as _Log_, resource type (for example, Application Insights) and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis
-    ```
+    ```kusto
     requests
     | summarize AllRequests = count(), FailedRequests = countif(success == false) by Request = name
     | order by AllRequests desc    
@@ -48,7 +48,7 @@ For instance, a user can have a grid that shows a list of requests and some stat
 8. Click `Done Editing`.
 9. Add another query control using steps 2 and 3.
 10. Use the Query editor to enter the KQL for your analysis
-    ```
+    ```kusto
     requests
     | where name == '{SelectedRequest}' or 'All Requests' == '{SelectedRequest}'
     | summarize ['{SelectedRequest}'] = count() by bin(timestamp, 1h)
@@ -78,7 +78,7 @@ Workbooks allow authors to add interactivity via a special type of grid column r
 2. Use the _Add query_ link to add a log query control to the workbook. 
 3. Select the query type as _Log_, resource type (for example, Application Insights) and the resources to target.
 4. Use the Query editor to enter the KQL for your analysis
-    ```
+    ```kusto
     requests
     | summarize Count = count(), Sample = any(pack_all()) by Request = name
     | order by Count desc
@@ -136,6 +136,8 @@ The image below shows the hidden case where `ShowDetails` is `No`
 
 ![Image showing the conditional visibility where the chart is hidden](./media/workbooks-interactive/conditional-invisible.png)
 
-
-
 ## Next steps
+
+
+* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Control](workbooks-access-control.md) and share access to your workbook resources.
