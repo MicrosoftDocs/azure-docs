@@ -10,7 +10,7 @@ ms.date: 10/15/2019
 ms.author: magoedte
 ---
 
-# How to view deployments in real time (preview)
+# How to view Deployments (preview) in real-time
 
 With Azure Monitor for containers, the view Deployments (preview) feature emulates direct access to Kubernetes Deployment objects in real time by exposing the `kubeclt get deployments` and `kubectl describe deployment {your deployment}` commands. 
 
@@ -34,7 +34,7 @@ Selecting **Refresh** in the top left of the page refreshes the deployment list.
 >No data is stored permanently during operation of this feature. All information captured during the session is deleted when you close your browser or navigate away from it.  
 
 >[!NOTE]
->You cannot pin live data to an Azure dashboard.
+>You cannot pin Live Data (Preview) data from the console to an Azure dashboard.
 
 ## Deployments describe
 
