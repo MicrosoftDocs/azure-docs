@@ -1,6 +1,6 @@
 ---
-title: Automate workflows with Visual Studio - Azure Logic Apps
-description: Create, schedule, and run recurring workflows for enterprise integration by using Azure Logic Apps and Visual Studio
+title: Create automated workflows with Visual Studio - Azure Logic Apps
+description: Automate tasks, business processes, and workflows for enterprise integration by using Azure Logic Apps and Visual Studio
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,12 +8,13 @@ ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
+ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/25/2019
+ms.date: 10/25/2019
 ---
 
-# Quickstart: Automate tasks, processes, and workflows by using Azure Logic Apps and Visual Studio
+# Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio, 
 you can create workflows for automating tasks and processes that integrate apps, 
@@ -33,7 +34,7 @@ Azure portal quickstart. This logic app monitors a website's RSS feed and
 sends email for each new item in that feed. Your finished logic app 
 looks like this high-level workflow:
 
-![High-level logic app workflow overview](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
+![Finished logic app](./media/quickstart-create-logic-apps-with-visual-studio/overview.png)
 
 <a name="prerequisites"></a>
 
@@ -56,7 +57,7 @@ looks like this high-level workflow:
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
-  * Azure Logic Apps Tools for the Visual Studio version you want:
+  * The latest Azure Logic Apps Tools for the Visual Studio extension for the version that you want:
 
     * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
@@ -68,8 +69,6 @@ looks like this high-level workflow:
     directly from the Visual Studio Marketplace, or learn 
     [how to install this extension from inside Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Make sure that you restart Visual Studio after you finish installing.
-
-* To work with different Azure environments, such as Azure Government, you can install and use the [Azure Environment Selector](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector) extension, which helps you switch more easily between environments. For more information, see [Introducing the Azure Environment Selector Visual Studio extension](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/).
 
 * Access to the web while using the embedded Logic App Designer
 
@@ -95,7 +94,7 @@ Learn more about [Azure resource groups and resources](../azure-resource-manager
 
 1. On the **File** menu, select **New** > **Project**. (Keyboard: Ctrl+Shift+N)
 
-   ![Create new Visual Studio project](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
+   ![On "File" menu, select "New" > "Project"](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
 1. Under **Installed**, select **Visual C#** or **Visual Basic**. 
 Select **Cloud** > **Azure Resource Group**. Name your project, 
@@ -115,14 +114,14 @@ for example:
 
    1. In the **Create a new project** box, select the 
    **Azure Resource Group** project for Visual C# 
-   or Visual Basic. Choose **Next**.
+   or Visual Basic. Select **Next**.
 
    1. Provide a name for the Azure resource group you want to use 
-   and other project information. Choose **Create**.
+   and other project information. Select **Create**.
 
-1. From the template list, select the **Logic App** template. Choose **OK**.
+1. From the template list, select the **Logic App** template. Select **OK**.
 
-   ![Select "Logic App" template for creating project](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
+   ![Select Logic App template](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
 
    After Visual Studio creates your project, 
    Solution Explorer opens and shows your solution. 
@@ -156,10 +155,10 @@ For **Resource group**, select **Create New** to create a new Azure resource gro
 
    | Setting | Example value | Description |
    | ------- | ------------- | ----------- |
-   | User profile list | Contoso <br> jamalhartnett@contoso.com | By default, the account that you used to sign in |
-   | **Subscription** | Pay-As-You-Go <br> (jamalhartnett@contoso.com) | The name for your Azure subscription and associated account |
+   | User profile list | Fabrikam <br> sophia-owen@fabrikam.com | By default, the account that you used to sign in |
+   | **Subscription** | Pay-As-You-Go <br> (sophia-owen@fabrikam.com) | The name for your Azure subscription and associated account |
    | **Resource Group** | MyLogicApp-RG <br> (West US) | The Azure resource group and location for storing and deploying your logic app's resources |
-   | **Location** | MyLogicApp-RG2 <br> (West US) | A different location if you don't want to use the resource group location |
+   | **Location** | **Same as Resource Group** | The location type and specific location for deploying your logic app. The location type is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>For this quickstart, keep the location type set to **Region** and the location set to **Same as Resource Group**. <p>**Important**: After you create your project, you can't change the location type. However, you can [select either a different region or a different ISE](manage-logic-apps-with-visual-studio.md#change-location). |
    ||||
 
 1. The Logic Apps Designer opens a page that shows an introduction 
@@ -175,9 +174,9 @@ that fires when a new feed item appears. Every logic app starts with a trigger,
 which fires when specific criteria is met. Each time the trigger fires, 
 the Logic Apps engine creates a logic app instance that runs your workflow.
 
-1. In Logic App Designer, under the search box, choose **All**.
+1. In Logic App Designer, under the search box, select **All**.
 In the search box, enter "rss". From the triggers list, 
-select this trigger: **When a feed item is published - RSS**
+select this trigger: **When a feed item is published**
 
    ![Build your logic app by adding a trigger and actions](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -187,7 +186,7 @@ the logic app by following the workflow steps in the
 then return to this article. When you're done, your logic app 
 looks like this example:
 
-   ![Finished example logic app workflow](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app-workflow.png)
+   ![Finished logic app](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app.png)
 
 1. Save your Visual Studio solution. (Keyboard: Ctrl + S)
 
@@ -200,10 +199,10 @@ Before you can run and test your logic app, deploy the app to Azure from Visual 
 1. In Solution Explorer, on your project's shortcut menu, 
 select **Deploy** > **New**. If prompted, sign in with your Azure account.
 
-   ![Create new logic app deployment](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
+   ![Create logic app deployment](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
 1. For this deployment, keep the default Azure subscription, 
-resource group, and other settings. Choose **Deploy**.
+resource group, and other settings. Select **Deploy**.
 
    ![Deploy logic app to Azure resource group](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-deployment.png)
 
@@ -216,14 +215,14 @@ resource name for your logic app. Save your settings.
    the Visual Studio **Output** window. If the status doesn't appear, 
    open the **Show output from** list, and select your Azure resource group.
 
-   ![Deployment status in Visual Studio output window](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
+   ![Deployment status output](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
    If your selected connectors need input from you, a PowerShell 
    window opens in the background and prompts for any necessary 
    passwords or secret keys. After you enter this information, 
    deployment continues.
 
-   ![PowerShell prompt for passwords or secret keys](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   ![PowerShell window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
 
    After deployment finishes, your logic app is live in the 
    Azure portal and runs on your specified schedule 
@@ -238,7 +237,7 @@ resource name for your logic app. Save your settings.
    Here are sample emails that this logic app sends. 
    If you don't get any emails, check your junk email folder.
 
-   ![Outlook sends email for each new RSS item](./media/quickstart-create-logic-apps-with-visual-studio/example-outlook-email.png)
+   ![Outlook sends email for each new RSS item](./media/quickstart-create-logic-apps-with-visual-studio/outlook-email.png)
 
 Congratulations, you've successfully built and deployed your logic app with 
 Visual Studio. To manage your logic app and review its run history, see 
@@ -252,13 +251,13 @@ When you have an existing Azure Resource Group project, you can add a new blank 
 
 1. From the **View** menu, select **Other Windows** > **JSON Outline**.
 
-1. To add a resource to the template file, choose **Add Resource** at the top of the JSON Outline window. Or in the JSON Outline window, right-click **resources**, and select **Add New Resource**.
+1. To add a resource to the template file, select **Add Resource** at the top of the JSON Outline window. Or in the JSON Outline window, open the **resources** shortcut menu, and select **Add New Resource**.
 
-   ![In JSON Outline window, add new resource](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
+   ![JSON Outline window](./media/quickstart-create-logic-apps-with-visual-studio/jsonoutline.png)
 
-1. In the **Add Resource** dialog box, find and select **Logic App**. Name your logic app, and choose **Add**.
+1. In the **Add Resource** dialog box, in the search box, find `logic app`, and select **Logic App**. Name your logic app, and select **Add**.
 
-   ![Add new logic app resource to project](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
+   ![Add resource](./media/quickstart-create-logic-apps-with-visual-studio/addresource.png)
 
 ## Clean up resources
 
@@ -271,10 +270,10 @@ with the same account used to create your logic app.
 1. On the main Azure menu, select **Resource groups**.
 Select your logic app's resource group, and select **Overview**.
 
-1. On the **Overview** page, choose **Delete resource group**. 
-Enter the resource group name as confirmation, and choose **Delete**.
+1. On the **Overview** page, select **Delete resource group**. 
+Enter the resource group name as confirmation, and select **Delete**.
 
-   ![Delete logic app resource group](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
+   !["Resource groups" > "Overview" > "Delete resource group"](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
 
 1. Delete the Visual Studio solution from your local computer.
 
@@ -285,4 +284,4 @@ To learn about managing and performing advanced deployment
 for logic apps with Visual Studio, see these articles:
 
 > [!div class="nextstepaction"]
-> * [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
+> [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
