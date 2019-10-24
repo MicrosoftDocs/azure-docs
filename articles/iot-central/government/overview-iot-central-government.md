@@ -13,12 +13,11 @@ services: iot-central
 
 Get started with building smart city solutions leveraging Azure IoT Central application templates. Start now with **water quality monitoring**, **water consumption monitoring**, and **connected waste management**.
 
-## What is Water Quality Monitoring application template? 
-
-Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities. 
+## What is Water Quality Monitoring application template?   
 
 Traditional water quality monitoring relies on manual sampling techniques and field laboratory analysis, which is time consuming and costly. By remotely monitoring water quality in real-time, water quality issues can be managed before citizens are impacted. Moreover, with advanced analytics, water utilities, and environmental agencies can act on early warnings on potential water quality issues and plan on water treatment in advance.  
 
+Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities. 
 
 ![Water Quality Monitoring App template](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
@@ -34,9 +33,10 @@ Get started with the [Water Quality Monitoring application tutorial](./tutorial-
 
 ## What is Water Consumption Monitoring application template? 
 
+Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More and more cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption as well as remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption. 
+
 
 Water Consumption Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption. 
-Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More and more cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption as well as remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption. 
 
   ![Water Consumption Monitoring App template](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
