@@ -1,6 +1,6 @@
 ---
-title: Upload, encode, and stream with Azure Media Services v3 | Microsoft Docs
-description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Media Services v3.
+title: Tutorial&#58; Upload, encode, and stream with Azure Media Services v3 | Microsoft Docs
+description: Tutorial showing how to upload a file, encode video, and stream content with Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -15,35 +15,35 @@ ms.date: 03/22/2019
 ms.author: juliako
 ---
 
-# Tutorial: Upload, encode, and stream videos
+# Tutorial: Upload, encode, and stream videos with Azure Media Services v3
 
 > [!NOTE]
-> Even though the tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
+> Even though this tutorial uses [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
-Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md). This tutorial uploads a local video file and encodes the uploaded file. You can also encode content that you make accessible via a HTTPS URL. For more information, see [Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
+Azure Media Services lets you to encode your media files into formats that play on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For help with encoding, see [Encoding concept](encoding-concept.md). This tutorial uploads a local video file and encodes the uploaded file. You can also encode content that you make accessible via an HTTPS URL. For more information, see [Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
 
-![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
+![Play a video with Azure Media Player](./media/stream-files-tutorial-with-api/final-video.png)
 
-This tutorial shows you how to:    
+This tutorial shows you how to:
 
 > [!div class="checklist"]
-> * Download the sample app described in the topic
-> * Examine the code that uploads, encodes, and streams
-> * Run the app
-> * Test the streaming URL
-> * Clean up resources
+> * Download the sample app described in the topic.
+> * Examine the code that uploads, encodes, and streams.
+> * Run the app.
+> * Test the streaming URL.
+> * Clean up resources.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-- If you do not have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
+- If you don't have Visual Studio installed, you can get [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Create a Media Services account](create-account-cli-how-to.md).<br/>Make sure to remember the values that you used for the resource group name and Media Services account name.
-- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You will need to use them to access the API.
+- Follow the steps in [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md) and save the credentials. You'll need to use them to access the API.
 
-## Download and configure the sample
+## Download and set up the sample
 
-Clone a GitHub repository that contains the streaming .NET sample to your machine using the following command:  
+Clone a GitHub repository that has the streaming .NET sample to your machine using the following command:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
@@ -51,7 +51,7 @@ Clone a GitHub repository that contains the streaming .NET sample to your machin
 
 The sample is located in the [UploadEncodeAndStreamFiles](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/UploadEncodeAndStreamFiles) folder.
 
-Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) in you downloaded project. Replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md).
+Open [appsettings.json](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/appsettings.json) in your downloaded project. Replace the values with credentials that you got from [accessing APIs](access-api-cli-how-to.md).
 
 ## Examine the code that uploads, encodes, and streams
 
@@ -59,9 +59,9 @@ This section examines functions defined in the [Program.cs](https://github.com/A
 
 The sample performs the following actions:
 
-1. Creates a new **Transform** (first, checks if the specified Transform exists). 
-2. Creates an output **Asset** that is used as the encoding **Job**'s output.
-3. Create an input **Asset** and uploads the specified local video file into it. The asset is used as the job's input. 
+1. Creates a new **Transform** (first, checks if the specified Transform exists).
+2. Creates an output **Asset** that's used as the encoding **Job**'s output.
+3. Create an input **Asset** and uploads the specified local video file into it. The asset is used as the job's input.
 4. Submits the encoding job using the input and output that was created.
 5. Checks the job's status.
 6. Creates a **Streaming Locator**.
@@ -69,25 +69,25 @@ The sample performs the following actions:
 
 ### <a id="start_using_dotnet" />Start using Media Services APIs with .NET SDK
 
-To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you need to supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file. 
+To start using Media Services APIs with .NET, you need to create an **AzureMediaServicesClient** object. To create the object, you must supply credentials needed for the client to connect to Azure using Azure AD. In the code you cloned at the beginning of the article, the **GetCredentialsAsync** function creates the ServiceClientCredentials object based on the credentials supplied in local configuration file.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateMediaServicesClient)]
 
-### Create an input asset and upload a local file into it 
+### Create an input asset and upload a local file into it
 
-The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This **Asset** is used as the input to your encoding Job. In Media Services v3, the input to a **Job** can either be an **Asset**, or it can be content that you make available to your Media Services account via HTTPS URLs. If you want to learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.  
+The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This **Asset** is used as the input to your encoding job. In Media Services v3, the input to a **Job** can either be an **Asset** or content that you make available to your Media Services account via HTTPS URLs. To learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.
 
 In Media Services v3, you use Azure Storage APIs to upload files. The following .NET snippet shows how.
 
 The following function performs these actions:
 
-* Creates an **Asset** 
-* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container)
-* Uploads the file into the container in storage using the SAS URL
+* Creates an **Asset**.
+* Gets a writable [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to the asset’s [container in storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container).
+* Uploads the file into the container in storage using the SAS URL.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
 
-### Create an output asset to store the result of a job 
+### Create an output asset to store the result of a job
 
 The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the result of your encoding job. The project defines the **DownloadResults** function that downloads the results from this output asset into the "output" folder, so you can see what you got.
 
