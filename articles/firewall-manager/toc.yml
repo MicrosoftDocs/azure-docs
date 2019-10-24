@@ -21,6 +21,9 @@
   - name: Rule processing logic
     href: rule-processing.md
 - name: How-to guides
+  items:
+  - name: Deploy trusted security partners
+    href: deploy-trusted-security-partner.md
 - name: Reference
   items:
   - name: Azure CLI
