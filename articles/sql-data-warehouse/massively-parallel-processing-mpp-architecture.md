@@ -18,7 +18,7 @@ Azure Synapse Analytics is a limitless cloud data warehouse that gives you the f
 
  Azure Synapse Analytics has four components:
 - SQL Analytics : Complete T-SQL based analytics 
-    - SQL pool (pay per DWU provisioned) – Generally Available
+    - Synapse SQL pool (pay per DWU provisioned) – Generally Available
     - SQL on-demand (pay per TB processed) – (Preview)
 - Spark : Deeply integrated Apache Spark (Preview) 
 - Data Integration : Hybrid data integration (Preview)
@@ -32,7 +32,9 @@ SQL Analytics leverages a scale out architecture to distribute computational pro
 
 ![Azure SQL Analytics Architecture](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Analytics uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for the Synapse SQL pool. The Control node runs the MPP engine which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel. The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results. 
+SQL Analytics uses a node-based architecture. Applications connect and issue T-SQL commands to a Control node, which is the single point of entry for the Synapse SQL pool. The Control node runs the MPP engine which optimizes queries for parallel processing, and then passes operations to Compute nodes to do their work in parallel. 
+
+The Compute nodes store all user data in Azure Storage and run the parallel queries. The Data Movement Service (DMS) is a system-level internal service that moves data across the nodes as necessary to run queries in parallel and return accurate results. 
 
 With decoupled storage and compute, SQL Analytics can:
 
@@ -50,7 +52,7 @@ SQL Analytics uses Azure storage to keep your user data safe.  Since your data i
 
 ### Control node
 
-The Control node is the brain of the Synapse SQL pool. It is the front end that interacts with all applications and connections. The MPP engine runs on the Control node to optimize and coordinate parallel queries. When you submit a T-SQL query to SQL Analytics, the Control node transforms it into queries that run against each distribution in parallel.
+The Control node is the brain of the architecture. It is the front end that interacts with all applications and connections. The MPP engine runs on the Control node to optimize and coordinate parallel queries. When you submit a T-SQL query to SQL Analytics, the Control node transforms it into queries that run against each distribution in parallel.
 
 ### Compute nodes
 
@@ -63,7 +65,9 @@ Data Movement Service (DMS) is the data transport technology that coordinates da
 
 ## Distributions
 
-A distribution is the basic unit of storage and processing for parallel queries that run on distributed data. When SQL Analytics runs a query, the work is divided into 60 smaller queries that run in parallel. Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A Synapse SQL pool with maximum compute resources has one distribution per Compute node. A Synapse SQL pool with minimum compute resources has all the distributions on one compute node.  
+A distribution is the basic unit of storage and processing for parallel queries that run on distributed data. When SQL Analytics runs a query, the work is divided into 60 smaller queries that run in parallel. 
+
+Each of the 60 smaller queries runs on one of the data distributions. Each Compute node manages one or more of the 60 distributions. A Synapse SQL pool with maximum compute resources has one distribution per Compute node. A Synapse SQL pool with minimum compute resources has all the distributions on one compute node.  
 
 ## Hash-distributed tables
 A hash distributed table can deliver the highest query performance for joins and aggregations on large tables. 
@@ -91,7 +95,7 @@ A replicated table provides the fastest query performance for small tables.
 
 A table that is replicated caches a full copy of the table on each compute node. Consequently, replicating a table removes the need to transfer data among compute nodes before a join or aggregation. Replicated tables are best utilized with small tables. Extra storage is required and there is additional overhead that is incurred when writing data which make large tables impractical.  
 
-The following diagram shows a replicated table. For Synapse SQL pool, the replicated table is cached on the first distribution on each compute node.  
+The diagram below shows a replicated table which is cached on the first distribution on each compute node.  
 
 ![Replicated table](media/sql-data-warehouse-distributed-data/replicated-table.png "Replicated table") 
 
