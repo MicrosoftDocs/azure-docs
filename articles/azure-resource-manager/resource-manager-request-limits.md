@@ -34,8 +34,6 @@ These limits are scoped to the security principal (user or application) making t
 
 These limits apply to each Azure Resource Manager instance. There are multiple instances in every Azure region, and Azure Resource Manager is deployed to all Azure regions.  So, in practice, the limits are higher than these limits. The requests from a user are usually handled by different instances of Azure Resource Manager.
 
-You can increase the throttling limit per operation through a support request. For the request to be accepted, the resource provider for the operation must support a higher limit. The limit can be either global or per subscription.  
-
 ## Resource provider limits
 
 Resource providers apply their own throttling limits. Because Resource Manager throttles by principal ID and by instance of Resource Manager, the resource provider might receive more requests than the default limits in the previous section.
@@ -55,8 +53,6 @@ The Microsoft.Network resource provider applies the following throttle limits:
 | write / delete (PUT) | 1000 per 5 minutes |
 | read (GET) | 10000 per 5 minutes |
 
-These limits can be increased.
-
 ### Compute throttling
 
 For information about throttling limits for compute operations, see [Troubleshooting API throttling errors - Compute](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md).
@@ -67,9 +63,17 @@ For checking virtual machine instances within a virtual machine scale set, use t
 
 Azure Resource Graph limits the number of requests to its operations. The steps in this article to determine the remaining requests and how to respond when the limit is reached also apply to Resource Graph. However, Resource Graph sets its own limit and reset rate. For more information, see [Throttle in Azure Resource Graph](../governance/resource-graph/overview.md#throttling).
 
+## Request increase
+
+Sometimes, throttle limits can be increased. To see if the throttling limits for your scenario can be increased, create a support request. The details of your calling pattern will be evaluated.
+
 ## Error code
 
 When you reach the limit, you receive the HTTP status code **429 Too many requests**. The response includes a **Retry-After** value, which specifies the number of seconds your application should wait (or sleep) before sending the next request. If you send a request before the retry value has elapsed, your request isn't processed and a new retry value is returned.
+
+After waiting for specified time, you can also close and reopen your connection to Azure. By resetting the connection, you may connect to a different instance of Azure Resource Manager.
+
+If you're using an Azure SDK, the SDK may have an auto retry configuration. For more information, see [Retry guidance for Azure services](/azure/architecture/best-practices/retry-service-specific).
 
 Some resource providers return 429 to report a temporary problem. The problem could be an overload condition that isn't directly caused by your request. Or, it could represent a temporary error about the state of the target resource or dependent resource. For example, the network resource provider returns 429 with the **RetryableErrorDueToAnotherOperation** error code when the target resource is locked by another operation. To determine if the error comes from throttling or a temporary condition, view the error details in the response.
 
@@ -87,6 +91,8 @@ You can determine the number of remaining requests by examining response headers
 | x-ms-ratelimit-remaining-subscription-resource-entities-read |Subscription scoped resource type collection requests remaining.<br /><br />This header value is only returned if a service has overridden the default limit. This value provides the number of remaining collection requests (list resources). |
 | x-ms-ratelimit-remaining-tenant-resource-requests |Tenant scoped resource type requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. Resource Manager adds this value instead of the tenant reads or writes. |
 | x-ms-ratelimit-remaining-tenant-resource-entities-read |Tenant scoped resource type collection requests remaining.<br /><br />This header is only added for requests at tenant level, and only if a service has overridden the default limit. |
+
+The resource provider can also return response headers with information about remaining requests. For information about response headers returned by the Compute resource provider, see [Call rate informational response headers](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md#call-rate-informational-response-headers).
 
 ## Retrieving the header values
 
