@@ -115,8 +115,6 @@
         items:
         - name: Monitor Azure Machine Learning
           href: monitor-azure-machine-learning.md
-        - name: Monitor data reference
-          href: monitor-resource-reference.md
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
@@ -305,6 +303,8 @@
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
+  - name: Monitor data reference
+    href: monitor-resource-reference.md
   - name: Visual interface modules
     displayName: module, reference, algorithm, studio
     items:
