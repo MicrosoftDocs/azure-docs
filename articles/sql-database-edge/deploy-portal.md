@@ -33,11 +33,11 @@ Azure Marketplace is an online applications and services marketplace where you c
 
 1. Find the Azure SQL Database Edge module on the Azure Marketplace.<br><br>
 
-   :::image type="content" source="media/deploy-portal/find-offer-marketplace.png" alt-text="SQL Database Edge in MarketPlace":::
+   ![SQL Database Edge in MarketPlace](media/deploy-portal/find-offer-marketplace.png)
 
 2. Pick the software plan that best matches your requirements and click **Create**. <br><br>
 
-   :::image type="content" source="media/deploy-portal/pick-correct-plan.png" alt-text="Pick the correct software plan":::
+   ![Pick the correct software plan](media/deploy-portal/pick-correct-plan.png)
 
 3. On the Target Devices for IoT Edge Module page, specify the following details and then click **Create**
 

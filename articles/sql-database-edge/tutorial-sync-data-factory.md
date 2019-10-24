@@ -72,13 +72,13 @@ Create a Data Factory using the instructions in this [tutorial](../data-factory/
 
 1. On the **Get Started** page of the Data Factory UI, select the **Create Pipeline** tile.
 
-    :::image type="content" source="media/tutorial-sync-data-factory/data-factory-get-started.png" alt-text="Data Factory - create pipeline":::
+    ![Data Factory - create pipeline](media/tutorial-sync-data-factory/data-factory-get-started.png)
 
 2. On the **General** page of the **Properties** window for the pipeline, enter **PeriodicSync** name.
 
 3. Add the **Lookup** activity to get the old watermark value. In the **Activities toolbox**, expand **General**, drag & drop the **Lookup** activity to the pipeline designer surface. Change the name of the activity to *OldWatermark*.
 
-    :::image type="content" source="media/tutorial-sync-data-factory/create-old-watermark-lookup.png" alt-text="old watermark lookup":::
+    ![old watermark lookup](media/tutorial-sync-data-factory/create-old-watermark-lookup.png)
 
 4. Switch to the **Settings** tab, and select **+ New** for **Source Dataset**. In this step, you create a dataset to represent data in the watermarktable. This table contains the old watermark that was used in the previous copy operation.
 
@@ -100,7 +100,7 @@ Create a Data Factory using the instructions in this [tutorial](../data-factory/
 
     6. Select **Create**.
 
-    :::image type="content" source="media/tutorial-sync-data-factory/create-linked-service.png" alt-text="create linked service":::
+    ![create linked service](media/tutorial-sync-data-factory/create-linked-service.png)
 
     7. Select **Ok**
 
@@ -130,7 +130,7 @@ Create a Data Factory using the instructions in this [tutorial](../data-factory/
     select MAX(timestamp) as NewWatermarkvalue from [TableName]
     ```
 
-    :::image type="content" source="media/tutorial-sync-data-factory/select-query-data-factory.png" alt-text="select query":::
+    ![select query](media/tutorial-sync-data-factory/select-query-data-factory.png)
 
 16. In the **Activities** toolbox, expand **Move & Transform**, drag and drop the **Copy** activity from the Activities toolbox, and set the name to **IncrementalCopy**.
 
