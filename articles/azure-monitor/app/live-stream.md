@@ -47,7 +47,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 ### Node.js
 
-To use Live Metrics with Node.js you must update to version 1.30 or greater of the SDK. By default Live Metrics is disabled in the Node.js SDK. To enable Live Metrics add `setSendLiveMetrics(true)` to your [configuration methods](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) as you initialize the SDK.
+To use Live Metrics with Node.js, you must update to version 1.30 or greater of the SDK. By default Live Metrics is disabled in the Node.js SDK. To enable Live Metrics add `setSendLiveMetrics(true)` to your [configuration methods](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) as you initialize the SDK.
 
 ### No data? Check your server firewall
 
@@ -62,13 +62,13 @@ Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-ad
 |On demand|Data is streamed while you open Live Metrics|Data is sent whenever the SDK is installed and enabled|
 |Free|There is no charge for Live Stream data|Subject to [pricing](../../azure-monitor/app/pricing.md)
 |Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](../../azure-monitor/app/api-filtering-sampling.md)|
-|Control channel|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one-way, to the portal|
+|Control channel|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one way, to the portal|
 
 ## Select and filter your metrics
 
 (Available with ASP.NET, ASP.NET Core, and Azure Functions (v2).)
 
-You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time. 
+You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time.
 
 ![Custom Request KPI](./media/live-stream/live-stream-filteredMetric.png)
 
@@ -165,7 +165,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ### Azure Function Apps
 
-For Azure Function Apps (v2) securing the channel with an API key can be accomplished with an environment variable. 
+For Azure Function Apps (v2), securing the channel with an API key can be accomplished with an environment variable.
 
 Create an API key from within your Application Insights resource and go to **Application Settings** for your Function App. Select **add new setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
 
@@ -202,13 +202,11 @@ However, if you recognize and trust all the connected servers, you can try the c
 | Java     | Supported (V1.0.7+) | Supported (V1.0.7+) | **Not Supported**| **Not Supported**   | **Not Supported**    |
 | Node.js  | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**| Supported (V1.3.0+) | **Not Supported**    |
 
-Basic metrics include request, dependency and exception rate. Performance metrics include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events and traces.
+Basic metrics include request, dependency, and exception rate. Performance metrics include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.
 
 ## Troubleshooting
 
-No data? If your application is in a protected network: Live Metrics Stream uses a different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](../../azure-monitor/app/ip-addresses.md) are open in your firewall.
-
-
+No data? If your application is in a protected network: Live Metrics Stream uses different IP addresses than other Application Insights telemetry. Make sure [those IP addresses](../../azure-monitor/app/ip-addresses.md) are open in your firewall.
 
 ## Next steps
 * [Monitoring usage with Application Insights](../../azure-monitor/app/usage-overview.md)
