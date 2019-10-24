@@ -359,10 +359,6 @@ The output of the example application is similar to the following example:
 [INFO] --- exec-maven-plugin:1.6.0:java (default-cli) @ blob-quickstart-v12 ---
 Azure Blob Storage v12 - Java quickstart sample
 
-SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
-
 Uploading to Blob storage as blob:
         https://myragrsacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
 
