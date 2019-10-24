@@ -5847,7 +5847,7 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-configure-ssl-certificate.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-ssl",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate",
       "redirect_document_id": false
     },
     {
@@ -6512,7 +6512,12 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-tutorial-custom-ssl.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-ssl",
+      "redirect_url": "/azure/app-service/configure-ssl-bindings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-tutorial-custom-ssl.md",
+      "redirect_url": "/azure/app-service/configure-ssl-bindings",
       "redirect_document_id": false
     },
     {
@@ -6677,7 +6682,17 @@
     },
     {
       "source_path": "articles/app-service-web/web-sites-purchase-ssl-web-site.md",
-      "redirect_url": "/azure/app-service/web-sites-purchase-ssl-web-site",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-purchase-ssl-web-site.md",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-ssl-cert-load.md",
+      "redirect_url": "/azure/app-service/configure-ssl-certificate-in-code",
       "redirect_document_id": false
     },
     {
@@ -7307,7 +7322,7 @@
     },
     {
       "source_path": "articles/app-service-web/app-service-web-app-powershell-ssl-binding.md",
-      "redirect_url": "/azure/app-service/app-service-web-tutorial-custom-ssl",
+      "redirect_url": "/azure/app-service/configure-ssl-bindings",
       "redirect_document_id": false
     },
     {
