@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 To configure a Conditional Access policy in report-only mode:
 
 1. Sign into the **Azure portal** as a Conditional Access administrator, security administrator, or global administrator.
-1. Browse to **Azure Active Directory** > **Conditional Access**.
+1. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 1. Select **New policy**.
 1. Configure the policy conditions and required grant controls as needed.
 1. Under **Enable policy** set the toggle to **Report-only** mode.
