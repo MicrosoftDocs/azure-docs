@@ -12,8 +12,6 @@ ms.custom: MVC
 
 # Set up disaster recovery of on-premises Hyper-V VMs to Azure
 
-c
-
 > [!div class="checklist"]
 > * Select your replication source and target.
 > * Set up the source replication environment, including on-premises Site Recovery components, and the target replication environment.
@@ -22,6 +20,10 @@ c
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the article in the How To section of the Site Recovery Table of Contents.
+
+> [!WARNING]
+> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](Deprecation-details-site-to-site-VMM.md) details before proceeding.
+
 
 ## Before you begin
 This is the third tutorial in a series. This tutorial assumes that you have already completed the tasks in the previous tutorials:
