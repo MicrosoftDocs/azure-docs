@@ -19,7 +19,7 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 
 ## Azure platform details
 
-|Features|Azure Files|Azure NetApp Files|Storage Spaces Direct|
+|Features|Azure Files|Azure NetApp Files|SoFS with Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
 |Platform service|Yes, Azure-native solution|Yes, Azure-native solution|No, self-managed|
 |Regional availability|All regions|[Select regions](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|All regions|
@@ -31,7 +31,7 @@ The following tables compare the storage solutions Azure Storage offers for Wind
 
 ## Azure management details
 
-|Features|Azure Files|Azure NetApp Files|Storage Spaces Direct|
+|Features|Azure Files|Azure NetApp Files|SoFS with Storage Spaces Direct|
 |--------|-----------|------------------|---------------------|
 |Access|Cloud, on-premises and hybrid (Azure file sync)|Cloud, on-premises (via ExpressRoute)|Cloud, on-premises|
 |Backup|Azure backup snapshot integration|Azure NetApp Files snapshots|Azure backup snapshot integration|
