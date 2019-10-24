@@ -10,119 +10,111 @@ services: iot-central
 manager: eliotgra
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# Tutorial: Deploy and walkthrough a continuous patient monitoring app template
 
-<!---Tutorials are scenario-based procedures for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md).
-You only use tutorials to show the single best procedure for completing an approved top 10 customer task.
---->
-
-# Tutorial: <do something with X> 
-<!---Required:
-Starts with "Tutorial: "
-Make the first word following "Tutorial:" a verb.
---->
-
-Introductory paragraph.
-<!---Required:
-Lead with a light intro that describes, in customer-friendly language, what the customer will learn, or do, or accomplish. Answer the fundamental “why would I want to do this?” question.
---->
+This tutorial shows you, as a solution builder, how to get started by deploying an IoT Central continuous patient monitoring application template. You will learn how to deploy the template, what's included out of the box, and what you might want to do next.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * All tutorials include a list summarizing the steps to completion
-> * Each of these bullet points align to a key H2
-> * Use these green checkboxes in a tutorial
-<!---Required:
-The outline of the tutorial should be included in the beginning and at the end of every tutorial. These will align to the **procedural** H2 headings for the activity. You do not need to include all H2 headings. Leave out the prerequisites, clean-up resources and next steps--->
-If you don’t have a <service> subscription, create a free trial account...
-<!--- Required, if a free trial account exists
-Because tutorials are intended to help new customers use the product or service to complete a top task, include a link to a free trial before the first H2, if one exists. You can find listed examples in [Write tutorials](contribute-how-to-mvc-tutorial.md)
---->
+> * Create an application template
+> * Walk through the application template
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+## Create an application template
 
-## Prerequisites
+Navigate to the [Azure IoT Central application manager website](https://apps.azureiotcentral.com/). Select **Build** from the left-hand navigation bar and then click the **Healthcare** tab. 
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you need them, make Prerequisites your first H2 in a tutorial. If there’s something a customer needs to take care of before they start (for example, creating a VM) it’s OK to link to that content before they begin.--->
+>[!div class="mx-imgBorder"] 
+>![App manager Healthcare](media/app-manager-health.png)
 
-## Sign in to <service/product/tool name>
+Click the **Create app** button to begin creating your application and then sign in with a Microsoft personal, work, or school account. This takes you to the **New application** page.
 
-<!-- Sign in to the [<service> portal](url). --->
-<!---If you need to sign in to the portal to do the tutorial, this H2 and link are required.--->
+>[!div class="mx-imgBorder"] 
+>![Create application Healthcare](media/app-manager-health-create.png)
 
-## Procedure 1
+To create your application:
 
-<!---Required:
-Tutorials are prescriptive and guide the customer through an end-to-end procedure. Make sure to use specific naming for setting up accounts and configuring technology.
-Don't link off to other content - include whatever the customer needs to complete the scenario in the article. For example, if the customer needs to set permissions, include the permissions they need to set, and the specific settings in the tutorial procedure. Don't send the customer to another article to read about it.
-In a break from tradition, do not link to reference topics in the procedural part of the tutorial when using cmdlets or code. Provide customers what they need to know in the tutorial to successfully complete the tutorial.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.
---->
+1. Azure IoT Central automatically suggests an application name based on the template you've selected. You can accept this name or enter your own friendly application name, such as **Continuous Patient Monitoring**. Azure IoT Central also generates a unique URL prefix for you based on the application name. You're free to change this URL prefix to something more memorable if you'd like.
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+2. You can select whether you would like to create a **Trial** application or a **Pay-As-You-Go** application. **Trial** applications are free for seven days before they expire and allow up to five free devices. They can be converted to Pay-As-You-Go at any time before they expire. If you create a Trial application, you need to enter your contact information and choose whether to receive information and tips from Microsoft. **Pay-As-You-Go** applications support up to two free devices and require you to put in your Azure subscription information.
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   <!--- ![Browser](media/contribute-how-to-mvc-tutorial/browser.png) --->
-   <!---Use screenshots but be judicious to maintain a reasonable length. Make sure screenshots align to the [current standards](contribute-mvc-screen-shots.md).
-   If users access your product/service via a web browser the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
+3. Select **Create** at the bottom of the page to deploy your application.
 
-## Procedure 2
+## Walk through the application template
 
-Include a sentence or two to explain only what is needed to complete the procedure.
+### Dashboards
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
+After deploying the app template, you will first land on the **Lamna in-patient monitoring dashboard**. Lamna Healthcare is a fictitious hospital system that contains two hospitals: Woodgrove Hospital and Burkville Hospital. On this operator dashboard for Woodgrove Hospital, you will see information and telemetry about the devices in this template along with a set of commands, jobs, and actions that you can take. From the dashboard you can:
 
-## Procedure 3
+* See device telemetry and properties such as the **battery level** of your device or its **connectivity** status.
 
-Include a sentence or two to explain only what is needed to complete the procedure.
-<!---Code requires specific formatting. Here are a few useful examples of commonly used code blocks. Make sure to use the interactive functionality where possible.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
+* View the **floor plan** and location of the Smart Vitals Patch device.
 
-Here is an example of a code block for Java:
+* **Re-provision** the Smart Vitals Patch for a new patient.
 
-    ```java
-    cluster = Cluster.build(new File("src/remote.yaml")).create();
-    ...
-    client = cluster.connect();
-    ```
+* See an example of a **provider dashboard** that a hospital care team might see to track their patients.
 
-or a code block for Azure CLI:
+* Change the **patient status** of your device to indicate if the device is being used for an in-patient or remote scenario.
 
-    ```azurecli-interactive 
-    az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-    ```
-    or a code block for Azure PowerShell:
+>[!div class="mx-imgBorder"] 
+>![Lamna in-patient](media/lamna-in-patient.png)
 
-    ```azurepowershell-interactive
-    New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-    ```
+You can also click on **Go to remote patient dashboard** to see the second operator dashboard used for Burkville Hospital. This dashboard contains a similar set of actions, telemetry, and information. In addition, you can see multiple devices being used and have the ability to **update the firmware** on each.
+
+>[!div class="mx-imgBorder"] 
+>![Lamna remote](media/lamna-remote.png)
+
+On both dashboards you can always link back to this documentation.
+
+### Device templates
+
+If you click on the **Device templates** tab, you will see that there are two different device types that are part of the template:
+
+* **Smart Vitals Patch**: This device represents a patch that measures a variety of vitals signs that could be used for monitoring patients in and outside of the hospital. If you click on the template, you'll see that in addition to sending device data such as battery level and device temperature, the patch is also sending patient health data such as respiratory rate and blood pressure.
+
+* **Smart Knee Brace**: This device represents a knee brace that patients might use when recovering from a knee replacement surgery. If you click on this template, you'll see capabilities such as range of motion and acceleration, in addition to device data.
+
+>[!div class="mx-imgBorder"] 
+>![Smart Vitals Patch Device Template](media/smart-vitals-device-template.png)
+
+If you click on the **Device groups** tab you will also see that these device templates automatically have device groups created for them.
+
+### Rules
+
+When jumping to the rules tab, you will see three rules that exist in the application template:
+
+* **Brace temperature high**: This rule is triggered when the device temperature of the Smart Knee Brace is greater than 95&deg;F over a 5-minute window. You could use this rule to alert the patient and care team, and cool the device down remotely.
+
+* **Fall detected**: This rule is triggered if a patient fall is detected. You could use this rule to configure an action to deploy an operational team to assist the patient who has fallen.
+
+* **Patch battery low**: This rule is triggered when the battery level on the device goes below 10%. You could use this rule to trigger a notification to the patient to charge their device.
+
+>[!div class="mx-imgBorder"] 
+>![Brace temperature high rule](media/brace-temp-rule.png)
+
+### Devices
+
+Click on the **Devices** tab and then select an instance of the **Smart Knee Brace**. You will see that there are three views to be able to explore information about the particular device that you have selected. These views are created and published when building the device template for your device. This means they will be consistent across all devices that you connect or simulate.
+
+The **Dashboard** view gives an overview of telemetry and properties that are coming from the device that are operator-oriented.
+
+The **Properties** tab will allow you to edit cloud properties and read/write device properties.
+
+The **Commands** tab will allow you to run commands that have been modeled as part of your device template.
+
+>[!div class="mx-imgBorder"] 
+>![Knee brace views](media/knee-brace-dashboard.png)
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete <resources> with the following steps:
+If you're not going to continue to use this application, delete the application by visiting **Administration > Application settings** and click **Delete**.
 
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-
-<!---Required:
-To avoid any costs associated with following the tutorial procedure, a Clean up resources (H2) should come just before Next steps (H2)
---->
+>[!div class="mx-imgBorder"] 
+>![Delete app](media/admin-delete.png)
 
 ## Next steps
 
-Advance to the next article to learn how to create...
-> [!div class="nextstepaction"]
+Advance to the next article to learn how to create a provider dashboard that connects to your IoT Central application.
 
-<!--- Required:
-Tutorials should always have a Next steps H2 that points to the next logical tutorial in a series, or, if there are no other tutorials, to some other cool thing the customer can do. A single link in the blue box format should direct the customer to the next article - and you can shorten the title in the boxes if the original one doesn’t fit.
-Do not use a "More info section" or a "Resources section" or a "See also section". --->
+> [!div class="nextstepaction"]
+> [Build a provider dashboard](howto-health-data-triage.md)
