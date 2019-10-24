@@ -4,7 +4,7 @@ description: This article provides information on how to customize Web Applicati
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 09/28/2019
+ms.date: 10/24/2019
 ms.author: victorh
 ms.topic: article
 ---
@@ -21,9 +21,10 @@ The Azure Application Gateway Web Application Firewall (WAF) provides protection
 ## View rule groups and rules
 
 **To view rule groups and rules**
-   1. Browse to the application gateway, and then select **Web application firewall**.  
-   2. Select your **WAF Policy**
-   2. Select **Managed Rules**
+1. Browse to the application gateway, and then select **Web application firewall**.  
+2. Select your **WAF Policy**.
+2. Select **Managed Rules**.
+
    This view shows a table on the page of all the rule groups provided with the chosen rule set. All of the rule's check boxes are selected.
 
 ## Disable rule groups and rules
@@ -62,6 +63,4 @@ CRS 3.x specific:
 After you configure your disabled rules, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
 
 [fig1]: ../media/application-gateway-customize-waf-rules-portal/1.png
-[1]: ../media/application-gateway-customize-waf-rules-portal/figure1.png
-[2]: ../media/application-gateway-customize-waf-rules-portal/figure2.png
 [3]: ../media/application-gateway-customize-waf-rules-portal/figure3.png

@@ -8,6 +8,8 @@
     items:
     - name: Web Application Firewall on Application Gateway
       href: ./ag/ag-overview.md
+    - name: What's new
+      href: ./ag/whats-new.md
   - name: Front Door
     items:
     - name: Web Application Firewall on Azure Front Door
