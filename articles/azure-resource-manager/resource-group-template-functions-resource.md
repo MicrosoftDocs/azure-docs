@@ -47,29 +47,59 @@ Continue adding resource names as parameters when the resource type includes mor
 
 The basic format of the resource ID returned by this function is:
 
-`{scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
+```json
+{scope}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
 
 The scope segment varies by the resource being extended.
 
 When the extension resource is applied to a **resource**, the resource ID is returned in the following format:
 
-`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{baseResourceProviderNamespace}/{baseResourceType}/{baseResourceName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
 
 When the extension resource is applied to a **resource group**, the format is:
 
-`/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
+```json
+/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
 
 When the extension resource is applied to a **subscription**, the format is:
 
-`/subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
+```json
+/subscriptions/{subscriptionId}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
 
 When the extension resource is applied to a **management group**, the format is:
 
-`/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}`
+```json
+/providers/Microsoft.Management/managementGroups/{managementGroupName}/providers/{extensionResourceProviderNamespace}/{extensionResourceType}/{extensionResourceName}
+```
 
-### Remarks
+### extensionResourceId example
 
-The resource ID for extension resource types includes the resource being extended.
+The following example returns the resource ID for a resource group lock.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "lockName":{
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "lockResourceId": {
+            "type": "string",
+            "value": "[extensionResourceId(resourceGroup().Id , 'Microsoft.Authorization/locks', parameters('lockName'))]"
+        }
+    }
+}
+```
 
 <a id="listkeys" />
 <a id="list" />
@@ -711,11 +741,17 @@ Continue adding resource names as parameters when the resource type includes mor
 
 ### Return value
 
-The identifier is returned in the following format:
+The resource ID is returned in the following format:
 
 ```json
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
+
+To get the ID in other formats, see:
+
+* [extensionResourceId](#extensionresourceid)
+* [subscriptionResourceId](#subscriptionresourceid)
+* [tenantResourceId](#tenantresourceid)
 
 ### Remarks
 
@@ -744,8 +780,6 @@ To get the resource ID for a resource in a different subscription and resource g
 ```json
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
-
-To get the resource ID of a resource deployed to the subscription, use [subscriptionResourceId](#subscriptionresourceid). For tenant level, use [tenantResourceId](#tenantresourceid). To get the resource ID for an extension resource, use [extensionResourceId](#extensionresourceid). Extension resources are applied to another resource type, like a resource lock or an event subscription.
 
 Often, you need to use this function when using a storage account or virtual network in an alternate resource group. The following example shows how a resource from an external resource group can easily be used:
 
