@@ -20,32 +20,25 @@ ms.collection: M365-identity-device-management
 
 This article contains the currently available app registration permissions for custom role definitions in Azure Active Directory (Azure AD).
 
-## Single-tenant v. multi-tenant permissions
+## Permissions for managing single-directory applications
 
-Custom role permissions differ for single-tenant and multi-tenant applications. Single-tenant applications are available only to users in the Azure AD organization where the application is registered. Multi-tenant applications are available to all Azure AD organizations. Single-tenant applications are defined as having **Supported account types** set to "Accounts in this organizational directory only." In the Graph API, single-tenant applications have the signInAudience property set to "AzureADMyOrg."
+When choosing the permissions for your custom role, you have the option to grant access to manage only single-directory applications. Single-directory applications are available only to users in the Azure AD organization where the application is registered. Single-directory applications are defined as having **Supported account types** set to "Accounts in this organizational directory only." In the Graph API, single-directory applications have the signInAudience property set to "AzureADMyOrg."
 
-## Application registration subtypes and permissions
+To grant access to manage only single-directory applications, use the permissions below with the subtype **applications.myOrganization**. For example, microsoft.directory/applications.myOrganization/basic/update.
 
 See the [custom roles overview](roles-custom-overview.md) for an explanation of what the general terms subtype, permission, and property set mean. The following information is specific to application registrations.
-
-### Subtypes
-
-There is just one app registration subtype - applications.myOrganization. For example, microsoft.directory/applications.myOrganization/basic/update. This subtype is set on the **Authentication** page for a specific app registration, and corresponds to setting the signInAudience property to "AzureADMyOrg" using Graph API or PowerShell. The subtype restricts the permission to app registrations that are marked as accessible only by accounts in your organization (single-tenant applications).
-
-You can use the restricted permission to grant read or manage permissions to internal applications only without granting read or manage permissions to applications accessible by accounts in other organizations.
-
-There are applications.myOrganization versions of all read and update permissions as well as the delete permission. There is no applications.myOrganization version of create at this time. Standard permissions (for example, microsoft.directory/applications/basic/update) grant read or management permissions for all app registration types.
-
-![Declare a single-tenant application or multi-tenant application](./media/roles-custom-available-permissions/supported-account-types.png)
-
-Details for the following permissions for the custom roles preview are listed in [Available custom role permissions in Azure Active Directory](roles-custom-available-permissions.md).
 
 ### Create and delete
 
 There are two permissions available for granting the ability to create application registrations, each with different behavior:
 
-- **microsoft.directory/applications/createAsOwner**: Assigning this permission results in the creator being added as the first owner of the created app registration, and the created app registration will count against the creator's 250 created objects quota.
-- **microsoft.directory/applicationPolicies/create**: Assigning this permission results in the creator not being added as the first owner of the created app registration, and the created app registration will not count against the creator's 250 created objects quota. Use this permission carefully, because there is nothing preventing the assignee from creating app registrations until the directory-level quota is hit. If both permissions are assigned, this permission takes precedence.
+#### microsoft.directory/applications/createAsOwner
+
+Assigning this permission results in the creator being added as the first owner of the created app registration, and the created app registration will count against the creator's 250 created objects quota.
+
+#### microsoft.directory/applications/create
+
+Assigning this permission results in the creator not being added as the first owner of the created app registration, and the created app registration will not count against the creator's 250 created objects quota. Use this permission carefully, because there is nothing preventing the assignee from creating app registrations until the directory-level quota is hit. If both permissions are assigned, this permission takes precedence.
 
 If both permissions are assigned, the /create permission will take precedence. Though the /createAsOwner permission does not automatically add the creator as the first owner, owners can be specified during the creation of the app registration when using Graph APIs or PowerShell cmdlets.
 
@@ -74,25 +67,21 @@ All member users in the organization can read app registration information by de
 
 #### microsoft.directory/applications/allProperties/read
 
-Ability to read all properties of single-tenant and multi-tenant applications outside of sensitive properties like credentials.
+Ability to read all properties of single-tenant and multi-tenant applications outside of properties that cannot be read in any situation like credentials.
 
 #### microsoft.directory/applications.myOrganization/allProperties/read
 
 Grants the same permissions as microsoft.directory/applications/allProperties/read, but only for single-tenant applications.
-
-#### microsoft.directory/applications/standard/read: Grants access to all fields on the application registration branding page
-
-![This permission grants access to the app registration branding page](./media/roles-custom-available-permissions/app-registration-branding.png)
-
-#### microsoft.directory/applications.myOrganization/standard/read
-
-Grants the same permissions as microsoft.directory/applications/standard/read, but for only single-tenant applications.
 
 #### microsoft.directory/applications/owners/read
 
 Grants the ability to read owners property on single-tenant and multi-tenant applications. Grants access to all fields on the application registration owners page:
 
 ![This permissions grants access to the app registration owners page](./media/roles-custom-available-permissions/app-registration-owners.png)
+
+#### microsoft.directory/applications/standard/read: Grants access to all fields on the application registration branding page
+
+![This permission grants access to the app registration branding page](./media/roles-custom-available-permissions/app-registration-branding.png)
 
 Grants access to the following properties on the application entity:
 
@@ -131,9 +120,15 @@ Grants access to the following properties on the application entity:
 - WebApp
 - WwwHomepage
 
+#### microsoft.directory/applications.myOrganization/standard/read
+
+Grants the same permissions as microsoft.directory/applications/standard/read, but for only single-tenant applications.
+
 ### Update
 
 #### microsoft.directory/applications/allProperties/update
+
+Ability to update all properties on single-directory and multi-directory applications.
 
 #### microsoft.directory/applications.myOrganization/allProperties/update
 
@@ -141,9 +136,9 @@ Grants the same permissions as microsoft.directory/applications/allProperties/up
 
 #### microsoft.directory/applications/audience/update
 
-Grants access to all fields on the application registration authentication page:
+Ability to update the supported account type (signInAudience) property on single-directory and multi-directory applications.
 
-![This permission grants access to app registration authentication page](./media/roles-custom-available-permissions/supported-account-types.png)
+![This permission grants access to app registration supported account type property on authentication page](./media/roles-custom-available-permissions/supported-account-types.png)
 
 Grants access to the following properties on the application resource:
 
