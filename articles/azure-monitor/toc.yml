@@ -396,6 +396,8 @@
           href: app/usage-flows.md
         - name: Usage analytics
           href: app/usage-troubleshoot.md
+        - name: Workbooks
+          href: app/usage-workbooks.md
       - name: Azure DevOps
         items: 
         - name: Release annotations
@@ -887,7 +889,31 @@
       - name: Export application data
         href: app/export-power-bi.md 
     - name: Workbooks
-      href: app/usage-workbooks.md
+      items:
+      - name: Overview
+        href: platform/workbooks-overview.md
+      - name: Visualizations
+        href: workbooks-visualizations.md
+      - name: Data sources
+        href: workbooks-data-sources.md
+      - name: Workbooks & Azure Resource Manager
+        href: workbooks-automate.md
+      - name: Configuration
+        items:
+        - name: Access control
+          href: workbooks-access-control.md
+        - name: Parameters
+          items:
+          - name: Parameter summary
+            href: workbooks-parameters.md
+          - name: Drop down parameters
+            href: workbooks-dropdowns.md
+          - name: Interactive parameters
+            href: workbooks-interactive.md
+          - name: Time parameters
+            href: workbooks-time.md
+          - name: Text parameters
+            href: workbooks-text
     - name: Dashboards
       href: app/app-insights-dashboards.md
     - name: Send data to Grafana
