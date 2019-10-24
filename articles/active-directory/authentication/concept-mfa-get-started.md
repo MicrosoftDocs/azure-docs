@@ -50,9 +50,9 @@ The recommendation is to use [Conditional Access policies](../conditional-access
 | Verification code from mobile app or hardware token |   | X |
 | Text message to phone |   | X |
 | Call to phone |   | X |
-| App passwords |   | X /* |
+| App passwords |   | X** |
 
-/* App passwords are only available in per-user MFA and legacy authentication scenarios if enabled by administrators.
+** App passwords are only available in per-user MFA and legacy authentication scenarios if enabled by administrators.
 
 ## Next steps
 
