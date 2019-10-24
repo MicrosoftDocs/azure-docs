@@ -49,6 +49,6 @@ The IoT data can be used to power a variety of business applications within a wa
 
 ## Next steps
 * Learn how to [create a water quality monitoring](./tutorial-water-quality-monitoring.md) IoT Central application
-* Learn more about [IoT Central government templates](tb./overview-iot-central-government.md)
+* Learn more about [IoT Central government templates](./overview-iot-central-government.md)
 * To learn more about IoT Central, see [IoT Central overview](https://docs.microsoft.com/en-us/azure/iot-central/overview-iot-central)
 
