@@ -56,7 +56,7 @@ We offer quickstarts in most popular programming languages, each designed to hav
 |----------------------|----------------------|-------------------|
 | [Recognize speech from an audio file](quickstarts/speech-to-text-from-file.md) | [Synthesize speech into an audio file](quickstarts/text-to-speech-audio-file.md) | [Translate speech to text](quickstarts/translate-speech-to-text.md) |
 | [Recognize speech with a microphone](quickstarts/speech-to-text-from-microphone.md) | [Synthesize speech to a speaker](quickstarts/text-to-speech.md) | [Translate speech to multiple target languages](quickstarts/translate-speech-to-text-multiple-languages.md) |
-| [Recognize speech stored in blob storage](quickstarts/from-blob.md) | [Async synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Translate speech-to-speech](quickstarts/translate-speech-to-speech) |
+| [Recognize speech stored in blob storage](quickstarts/from-blob.md) | [Async synthesis for long-form audio](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Translate speech-to-speech](quickstarts/translate-speech-to-speech.md) |
 
 > [!NOTE]
 > Speech-to-text and text-to-speech also have REST endpoints and associated quickstarts.
