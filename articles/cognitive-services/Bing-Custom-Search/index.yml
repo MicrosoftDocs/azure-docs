@@ -26,6 +26,17 @@ landingContent:
         - text: Compare the Bing Search applications
           url: ../bing-web-search/bing-api-comparison
 
+- title: Integrate and share your custom view of the web
+  linkLists:
+    - linkListType: how-to-guide
+      links:
+        - text: Configure and integrate a hosted UI
+          url: hosted-ui.md
+        - text: Define custom autosuggestions 
+          url: define-custom-suggestions.md
+        - text: Share your custom search instance
+          url: share-your-custom-search.md
+
 - title: Get custom search results from the web
   linkLists:
     - linkListType: get-started
@@ -59,16 +70,6 @@ landingContent:
         - text: Handle hit highlighting
           url: ../bing-web-search/hit-highlighting.md 
 
-- title: Integrate and share your custom view of the web
-  linkLists:
-    - linkListType: how-to-guide
-      links:
-        - text: Configure and integrate a hosted UI
-          url: hosted-ui.md
-        - text: Define custom autosuggestions 
-          url: define-custom-suggestions.md
-        - text: Share your custom search instance
-          url: share-your-custom-search.md
 
 - title: REST API Reference
   linkLists:
@@ -82,6 +83,10 @@ landingContent:
           url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
         - text: Custom Video Search REST API v7 
           url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference
+- title: SDK reference
+  linkLists:
+    - linkListType: reference
+      links:
         - text: .NET 
           url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
         - text: Python
