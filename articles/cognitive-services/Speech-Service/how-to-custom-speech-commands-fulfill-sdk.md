@@ -14,7 +14,7 @@ ms.author: donkim
 
 # How To: Fulfill Commands on the client with the Speech SDK (Preview)
 
-In this how-to you'll:
+In this article, you'll:
 
 - Define and send a custom JSON payload from your Custom Commands application
 - Receive and visualize the custom JSON payload contents from a C# UWP Speech SDK client application
@@ -22,18 +22,21 @@ In this how-to you'll:
 ## Prerequisites
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-- An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
-- A previously created Custom Commands app from [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
-- A Speech SDK enabled client application from [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
+- An Azure subscription key for Speech Services
+   - [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+- A previously created Custom Commands app
+   - [Quickstart: Create a Custom Command with Parameters (Preview)](./quickstart-custom-speech-commands-create-parameters.md)
+- A Speech SDK enabled client application
+   - [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## Optional: Get started fast
 
-This how-to will describe, step by step, how to make a client application to talk to your Custom Commands application. If you prefer to dive right in, the complete, ready-to-compile source code used in this how-to is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples).
+This article describes, step by step, how to make a client application to talk to your Custom Commands application. If you prefer to dive right in, the complete, ready-to-compile source code used in this article is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples).
 
 ## Fulfill with JSON payload
 
 1. Open your previously created Custom Commands application from the [Speech Studio](https://speech.microsoft.com/)
-1. In the Completion Rules section, you should have your previously created rule that responds back to the user
+1. Check the **Completion Rules** section to make sure you have the previously created rule that responds back to the user
 1. To send a payload directly to the client, create a new rule with a Send Activity action
    > [!div class="mx-imgBorder"]
    > ![Send Activity completion rule](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
@@ -42,7 +45,7 @@ This how-to will describe, step by step, how to make a client application to tal
    | ---------- | ------------------------------------------------ | -------------------------------------------------- |
    | Rule Name  | UpdateDeviceState                                | A name describing the purpose of the rule          |
    | Conditions | Required Parameter - `OnOff` and `SubjectDevice` | Conditions that determine when the rule can run    |
-   | Actions    | Send Activity (see below)                        | The action to take when the rule condition is true |
+   | Actions    | `SendActivity` (see below)                        | The action to take when the rule condition is true |
 
    > [!div class="mx-imgBorder"]
    > ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
@@ -57,9 +60,9 @@ This how-to will describe, step by step, how to make a client application to tal
 
 ## Create visuals for device on or off state
 
-In [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md) you created a Speech SDK enabled client application that handled commands such as `turn on the tv`, `turn off the fan`. Now add some visuals so you can see the result of those commands.
+In [Quickstart: Connect to a Custom Command application with the Speech SDK (Preview)](./quickstart-custom-speech-commands-speech-sdk.md) you created a Speech SDK client application that handled commands such as `turn on the tv`, `turn off the fan`. Now add some visuals so you can see the result of those commands.
 
-Add labeled boxes with text indicating On or Off using the following XML added to MainPage.xaml.cs
+Add labeled boxes with text indicating **On** or **Off** using the following XML added to `MainPage.xaml.cs`
 
 ```xml
 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
@@ -85,7 +88,7 @@ Now that you've created a JSON payload, you can add a reference to the [JSON.NET
 > [!div class="mx-imgBorder"]
 > ![Send Activity payload](media/custom-speech-commands/fulfill-sdk-json-nuget.png)
 
-In `InitializeDialogServiceConnector` add the following to your ActivityReceived event handler. The additional code will extract the payload from the activity and change the visual state of the tv or fan accordingly.
+In `InitializeDialogServiceConnector` add the following to your `ActivityReceived` event handler. The additional code will extract the payload from the activity and change the visual state of the tv or fan accordingly.
 
 ```C#
 connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
@@ -122,11 +125,11 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 
 ## Try it out
 
-- Start the application
-- Select Enable microphone
-- Select the Talk button
-- Say `turn on the tv`
-- The visual state of the tv should change to "On"
+1. Start the application
+1. Select Enable microphone
+1. Select the Talk button
+1. Say `turn on the tv`
+1. The visual state of the tv should change to "On"
 
 ## Next steps
 > [!div class="nextstepaction"]
