@@ -174,7 +174,7 @@ In IoT Central, you can create simulated devices to test your device template an
 > Note that all the tabs have been configured from the Device template Views.
 
 ### Add new devices
-You can add new devices by clicking on **+ New** on the **Devices** tab. 
+* Add new devices by clicking on **+ New** on the **Devices** tab. 
 
 ## Explore and configure rules
 
@@ -214,30 +214,24 @@ To create a new rule:
 
 ## Configure Jobs
 
-In IoT Central, jobs allow you to trigger device or cloud propertie updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. IoT Central will automate the workflow for you. 
+In IoT Central, jobs allow you to trigger device or cloud property updates on multiple devices. In addition to properties, you can also use jobs to trigger device commands on multiple devices. IoT Central will automate the workflow for you. 
 
-* Go to **Jobs** from the left navigtion pane. 
-* Click **+New** and configure one or more jobs. 
+1. Go to **Jobs** from the left navigation pane. 
+2. Click **+New** and configure one or more jobs. 
 
 
 ## Customize your application 
 As a builder, you can change several settings to customize the user experience in your application.
 
-### To change the application theme:
-
-1. You can change the **Theme** by clicking the **Settings** on the masthead.
-1. Select **Administration > Customize your application**.
-2. Use the **Change** button to choose an image to upload as the **Application logo**.
-3. Use the **Change** button to choose a **Browser icon** image that will appear on browser tabs.
-4. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
+1.  Go to **Administration > Customize your application**.
+3. Use the **Change** button to choose an image to upload as the **Application logo**.
+4. Use the **Change** button to choose a **Browser icon** image that will appear on browser tabs.
+5. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
 
    ![Azure IoT Central customize your application](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-customize-your-application.png)
 
-### To update the application image:
-
-1.  Select **Administration > Application settings**.
-
-2. Use the **Select image** button to choose an image to upload as the application image. 
+1.  You can also change application images by going to the **Administration > Application settings** and **Select image** button to choose an image to upload as the application image. 
+2. Finally, you can also change the **Theme** by clicking **Settings** on the masthead of the application. 
 
   
 ## Clean up resources
