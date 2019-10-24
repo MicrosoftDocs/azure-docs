@@ -5,10 +5,10 @@
       href: overview-iot-central-energy.md
 - name: Tutorials
   items:
-    - name: Create a smart meter analytics app
-      href: tutorial-smart-meter-analytics.md 
+    - name: Create a smart meter monitoring app
+      href: tutorial-smart-meter-app.md 
     - name: Create a solar panel monitoring app
-      href: tutorial-solar-pv-app.md
+      href: tutorial-solar-panel-app.md
 
 - name: Concepts
   items:
