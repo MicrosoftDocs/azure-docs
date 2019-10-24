@@ -25,7 +25,7 @@ Inbound connectivity can be enabled by configuring Destination Network Address T
 
 Network rule collections inherited from a parent policy are always prioritized above network rule collections that are defined as part of your new policy. The same logic also apply to application rule collections. However, network rule collections are always processed before application rule collections regardless of inheritance.
 
-Any rules associated with threat intelligence-based filtering is always inherited.
+By default, your policy inherits it's parent policy threat intelligence mode. You can override this by setting your threat Intelligence mode to a different value in the policy settings page. It is only possible to override with a stricter value. For example, if you parent policy is set to *Alert only*, you can configure this local policy to *Alert and deny*, but you can't turn it off.
 
 ## Next steps
 
