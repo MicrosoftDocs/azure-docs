@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 08/20/2019
+ms.date: 10/22/2019
 ms.custom: seodec18
 ---
 
@@ -192,6 +192,40 @@ The following commands demonstrate how to create, register, and list Azure Machi
     ```
 
     For more information, see [az ml environment download](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/environment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-environment-download).
+
+## ML pipeline management
+
+The following commands demonstrate how to work with machine learning pipelines:
+
++ Create a machine learning pipeline:
+
+    ```azurecli-interactive
+    az ml pipeline create -n mypipeline -y mypipeline.yml
+    ```
+
+    For more information, see [az ml pipeline create](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create).
+
+    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md).
+
++ Run a pipeline:
+
+    ```azurecli-interactive
+    az ml run submit-pipeline -n myexperiment -y mypipeline.yml
+    ```
+
+    For more information, see [az ml run submit-pipeline](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-pipeline).
+
+    For more information on the pipeline YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md).
+
++ Schedule a pipeline:
+
+    ```azurecli-interactive
+    az ml pipeline create-schedule -n myschedule -e myexpereiment -i mypipelineid -y myschedule.yml
+    ```
+
+    For more information, see [az ml pipeline create-schedule](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/pipeline?view=azure-cli-latest#ext-azure-cli-ml-az-ml-pipeline-create-schedule).
+
+    For more information on the pipeline schedule YAML file, see [Define machine learning pipelines in YAML](reference-pipeline-yaml.md#schedules).
 
 ## Model registration, profiling, deployment
 
