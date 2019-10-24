@@ -47,6 +47,9 @@ func init --docker-only
 
 To build an image and deploy your functions to Kubernetes, run the following command:
 
+> [!NOTE]
+> The core tools will leverage the docker CLI to build and publish the image. Be sure to have docker installed already and connected to your account with `docker login`.
+
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
 ```
@@ -54,6 +57,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 > Replace `<name-of-function-deployment>` with the name of your function app.
 
 This creates a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
+
+### Deploying a function app from a private registry
+
+The above flow works for private registries as well.  If you are pulling your container image from a private registry, include the `--pull-secret` flag that references the Kubernetes secret holding the private registry credentials when running `func kubernetes deploy`.
 
 ## Removing a function app from Kubernetes
 
