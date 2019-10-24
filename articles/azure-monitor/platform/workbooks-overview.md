@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/23/2019
 ms.author: mbullwin
 ---
 
@@ -29,7 +29,6 @@ Workbooks are currently compatible with the following data sources:
 * [Alerts (Preview)](workbooks-data-sources.md#alerts-preview)
 * [Workload Health (Preview)](workbooks-data-sources.md#workload-health-preview)
 * [Azure Resource Health (Preview)](workbooks-data-sources.md#azure-resource-health)
-* [Custom Endpoints (Preview)](workbooks-data-sources.md#custom-endpoints-preview)
 * [Azure Data Explorer (Preview)](workbooks-data-sources.md#azure-data-explorer-preview)
 
 ## Visualizations

@@ -907,13 +907,13 @@
           - name: Parameter summary
             href: platform/workbooks-parameters.md
           - name: Drop down parameters
-            href: plaform/workbooks-dropdowns.md
+            href: platform/workbooks-dropdowns.md
           - name: Interactive parameters
             href: platform/workbooks-interactive.md
           - name: Time parameters
             href: platform/workbooks-time.md
           - name: Text parameters
-            href: platform/workbooks-text
+            href: platform/workbooks-text.md
     - name: Dashboards
       href: app/app-insights-dashboards.md
     - name: Send data to Grafana

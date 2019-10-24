@@ -8,7 +8,7 @@ ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/123/2019
 ms.author: mbullwin
 ---
 

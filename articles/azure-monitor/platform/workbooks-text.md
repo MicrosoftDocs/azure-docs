@@ -8,13 +8,11 @@ ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/23/2019
 ms.author: mbullwin
 ---
 
 # Workbook text parameters
-
-# Text Parameters
 
 Textbox parameters provide a simple way to collect text input from workbook users. They are used when it is not practical to use a drop-down to collect the input (for example, an arbitrary threshold or generic filters). Workbooks allow authors to get the default value of the textbox from a query. This allows interesting scenarios like setting the default threshold based on the p95 of the metric.
 
