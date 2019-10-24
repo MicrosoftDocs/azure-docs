@@ -2,19 +2,18 @@
 title: 'Quickstart: Create a NAT gateway - Azure portal'
 titlesuffix: Azure NAT service
 description: This quickstart shows how to create a NAT gateway using the Azure portal
-services: nat
+services: virtual-network
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: kumund
 Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
-ms.service: nat
+ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/21/2019
+ms.date: 10/25/2019
 ms.author: allensu
-ms.custom: seodec18
 ---
 
 # Quickstart: Create a NAT gateway using Azure portal
@@ -163,7 +162,7 @@ This section details how you can create and configure the following components o
 
 Open an [Azure Cloud Shell](https://shell.azure.com) in your browser. Use the IP address retrieved in the previous step to SSH to the virtual machine.
 
-```bash
+```azurecli-interactive
 ssh <username>@<ip-address-destination>
 ```
 
