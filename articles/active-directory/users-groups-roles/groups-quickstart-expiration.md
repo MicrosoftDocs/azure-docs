@@ -29,7 +29,7 @@ Expiration policy is simple:
 - A deleted Office 365 group can be restored within 30 days by a group owner or by an Azure AD administrator
 
 > [!NOTE]
-> Groups now use Azure AD intelligence to automatically renewed based on whether they have been in recent used (currently in public preview, so no sign-up is required). This feature is based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, Yammer, and others.
+> Groups now use Azure AD intelligence to automatically renewed based on whether they have been in recent use (currently in public preview, so no sign-up is required). This feature is based on user activity in groups across Office 365 services like Outlook, SharePoint, Teams, Yammer, and others.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
