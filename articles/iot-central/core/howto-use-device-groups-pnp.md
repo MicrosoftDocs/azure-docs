@@ -25,7 +25,7 @@ A device group is a list of devices that are grouped together because they match
 
 To create a device group:
 
-1. Choose **Device Groups** on the left navigation menu.
+1. Choose **Device Groups** on the left pane.
 
 1. Select **+ New**.
 
@@ -44,7 +44,7 @@ To create a device group:
 
 ## Analytics
 
-The analytics in device groups is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+The analytics in device groups is the same as the main analytics tab in the left pane. You can learn more about analytics in the article on [how to create analytics](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
 ## Next steps
 

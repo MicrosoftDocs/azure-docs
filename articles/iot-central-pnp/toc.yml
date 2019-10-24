@@ -23,16 +23,27 @@
       href: ../iot-central/core/quick-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - name: Tutorials
   items:
+<<<<<<< HEAD
     - name: Build and manage a IoT device template
       href: ../iot-central/core/tutorial-define-iot-device-type-pnp.md.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Build and manage a IoT Edge device template
       href: ../iot-central/core/tutorial-define-edge-device-type-pnp.md.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: Connect an Edge device
       href: ../iot-central/core/tutorial-add-edge-as-leaf-device.md.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+=======
+    - name: Get connected
+      items:
+        - name: Build and manage a device template
+          href: ../iot-central/core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Connect a device
+          href: ../iot-central/core/tutorial-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+>>>>>>> fae143688cc7c8675b16e95ebb6817cd339d4bd0
     - name: Transform
       items:
         - name: Create a rule
           href: ../iot-central/core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Use the REST API
+          href: https://go.microsoft.com/fwlink/?linkid=2108888
 - name: Concepts
   items:
     - name: Architecture
@@ -65,6 +76,8 @@
           href: ../iot-central/core/howto-create-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         - name: Create webhooks on rules
           href: ../iot-central/core/howto-create-webhooks-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+        - name: Connect Azure Monitor action groups on rules
+          href: ../iot-central/core/howto-use-action-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 
     - name: Actions and extensibility
       items:

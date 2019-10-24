@@ -7,7 +7,9 @@
   - name: IoT Solution options
     href: overview-iot-options.md
   - name: Tour of the UI
-    href: overview-iot-central-tour.md
+    href: overview-iot-central-tour.md    
+  - name: Stay connected
+    href: concepts-stay-connected.md
 - name: Quickstarts
   expanded: true
   items:
@@ -31,6 +33,8 @@
     href: concepts-architecture.md
   - name: Connectivity
     href: concepts-connectivity.md
+  - name: What are application templates?
+    href: concepts-app-templates.md
 - name: How-to guides
   items:
   - name : Connect devices
@@ -47,6 +51,8 @@
         href: howto-connect-windowsiotcore.md
       - name: Prepare and connect a SensorTile.box device
         href: howto-connect-sensortile.md
+      - name: Prepare and connect a RuuviTag device
+        href: howto-connect-ruuvi-pnp.md
       - name: Monitor device connectivity using command line
         href: howto-use-iotc-explorer.md
   - name: Manage devices

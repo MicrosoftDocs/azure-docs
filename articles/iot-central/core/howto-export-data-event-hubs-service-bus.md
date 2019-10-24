@@ -56,10 +56,10 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
 
 1. Sign in to your IoT Central application.
 
-2. In the left menu, select **Continuous Data Export**.
+2. In the left pane, select **Continuous Data Export**.
 
     > [!Note]
-    > If you don't see Continuous Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
+    > If you don't see Continuous Data Export in the left pane, you are not an administrator in your app. Talk to an administrator to set up data export.
 
 3. Select the **+ New** button in the top right. Choose one of **Azure Event Hubs** or **Azure Service Bus** as the destination of your export. 
 

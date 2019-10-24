@@ -44,14 +44,14 @@ To customize the operator dashboard, you edit the default dashboard in your appl
 
 1. Optionally, hide the left pane. Hiding the left pane gives you a larger working area for editing the dashboard.
 
-1. Enter a friendly name for your dashboard in **Dashboard name.** This tutorial uses a fictional company named Contoso, and the example dashboard name is *Contoso checkout dashboard*. 
+1. Enter a friendly name for your dashboard in **Dashboard name.** This tutorial uses a fictional company named Contoso, and the example dashboard name is *Contoso dashboard*. 
 
 1. Select **Save**. This saves your changes to the dashboard and disables edit mode.
 
     ![Azure IoT Central change dashboard name](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
 ## Customize image tiles on the dashboard
-An Azure IoT Central application dashboard consists of one or more tiles. A tile is a rectangular container for displaying content on a dashboard. You associate various types of content with tiles, and you drag, drop, and resize tiles to customize a dashboard layout. There are several types of tiles for displaying content. Image tiles contain images. Label tiles display plain text. Markdown tiles contain formatted content and let you set an image, a URL, a title, and markdown code that renders as HTML. Telemetry, property, or command tiles display device-specific data. 
+An Azure IoT Central application dashboard consists of one or more tiles. A tile is a rectangular container for displaying content on a dashboard. You associate various types of content with tiles, and you drag, drop, and resize tiles to customize a dashboard layout. There are several types of tiles for displaying content. Image tiles contain images, and you can add a URL that enables users to click the image. Label tiles display plain text. Markdown tiles contain formatted content and let you set an image, a URL, a title, and markdown code that renders as HTML. Telemetry, property, or command tiles display device-specific data. 
 
 In this section, you learn how to customize image tiles on the dashboard.
 
@@ -236,6 +236,8 @@ To add a command tile to reboot the gateway:
 1. View your completed Contoso dashboard. 
 
     ![Azure IoT Central complete dashboard customization](./media/tutorial-in-store-analytics-customize-dashboard-pnp/completed-dashboard.png)
+
+1. Optionally, select the **Reboot** tile to run the reboot command on your gateway.
 
 ## Next steps
 In this tutorial, you learned how to:

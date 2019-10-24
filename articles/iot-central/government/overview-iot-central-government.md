@@ -1,60 +1,75 @@
 ---
-title: Build government solutions with IoT Central | Microsoft Docs
-description: Learn to build government solution using Azure IoT Central application templates.
-author: philmea
-ms.author: philmea
-ms.date: 09/24/2019
+title: Building government solutions with Azure IoT Central
+description: Learn to build smart city solutions using Azure IoT Central application templates.
+author: miriambrus
+ms.author: miriamb
+ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-manager: eliotgra
 ---
 
-<!---Recommended: Removal all the comments in this template before you sign-off or merge to master.--->
+# Building government solutions with Azure IoT Central
 
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
+Get started with building smart city solutions leveraging Azure IoT Central application templates. Start now with **water quality monitoring**, **water consumption monitoring**, and **connected waste management**.
 
-# What is <product/service>? 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
+## What is Water Quality Monitoring application template? 
 
-Introductory paragraph.
-<!---Required:
-The introductory paragraph helps customers quickly determine whether an article is relevant.
-Describe in customer-friendly terms what the service is and does, and why the customer should care. Keep it short for the intro.
-You can go into more detail later in the article. Many services add artwork or videos below the introduction.
---->
+Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities. 
 
-<!---Avoid notes, tips, and important boxes. Readers tend to skip over them. Better to put that info directly into the article text.--->
+Traditional water quality monitoring relies on manual sampling techniques and field laboratory analysis, which is time consuming and costly. By remotely monitoring water quality in real-time, water quality issues can be managed before citizens are impacted. Moreover, with advanced analytics, water utilities, and environmental agencies can act on early warnings on potential water quality issues and plan on water treatment in advance.  
 
-<!---Screenshots and videos can add another way to show and tell the overview story. But don’t overdo them. Make sure that they offer value for the overview.
-If users access your product/service via a web browser, the first screenshot should always include the full browser window in Chrome or Safari. This is to show users that the portal is browser-based - OS and browser agnostic.
---->
 
-## <article body>
-<!---
-After the intro, you can develop your overview by discussing the features that answer the "Why should I care" question with a bit more depth.
-Be sure to call out any basic requirements and dependencies, as well as limitations or overhead.
-Don't catalog every feature, and some may only need to be mentioned as available, without any discussion.
---->
+![Water Quality Monitoring App template](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
-## <Top task>
-<!---Suggested:
-An effective way to structure you overview article is to create an H2 for the top customer tasks identified in milestone one of the [APEX content model](contribute-get-started-mvc.md) and describe how the product/service helps customers with that task.
-Create a new H2 for each task you list.
---->
+The App template consists of:
+* Sample operator dashboards
+* Sample water quality monitor device templates
+* Simulated water quality monitor devices
+* Pre-configured rules and jobs
+* Branding using white labeling 
+
+Get started with the [Water Quality Monitoring application tutorial](./tutorial-water-quality-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+
+
+## What is Water Consumption Monitoring application template? 
+
+
+Water Consumption Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption. 
+Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More and more cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption as well as remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption. 
+
+  ![Water Consumption Monitoring App template](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
+
+The Water Consumption Monitoring app template consist of pre-configured:
+* Sample operator dashboards
+* Sample water quality monitor device templates
+* Simulated water quality monitor devices
+* Pre-configured rules and jobs
+* Branding using white labeling 
+
+ Get started with the [Water Consumption Monitoring application tutorial](./tutorial-water-consumption-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+
+## What is Connected Waste Management application template? 
+
+Connected Waste Management app is an IoT Central app template to help you kickstart your IoT solution development to enable smart cities to remotely monitor to maximize efficient waste collection. 
+
+![Connected Waste Management App template](media/overview-iotcentral-government/connectedwastemanagement-dashboard.png) 
+
+
+The Connected Waste Management app template consist of pre-configured:
+* Sample operator dashboards
+* Sample connected waste bin device templates
+* Simulated connected waste bin devices
+* Pre-configured rules and jobs
+* Branding using white labeling 
+
+Get started with the [Connected Waste Management application tutorial](./tutorial-connected-waste-management.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+
 
 ## Next steps
 
-<!---Some context for the following links goes here--->
-
-<!--- Required:
-In Overview articles, provide at least one next step and no more than three.
-Next steps in overview articles will often link to a quickstart.
-Use regular links; do not use a blue box link. What you link to will depend on what is really a next step for the customer.
-Do not use a "More info section" or a "Resources section" or a "See also section".
---->
+* Try any of the Government application templates in IoT Central for free [create app](https://apps.azureiotcentral.com/build/government)
+* Learn about Water Quality Monitoring concepts  [concepts](./concepts-waterqualitymonitoring-architecture.md)
+* Learn about Water Consumption Monitoring [concepts](./concepts-waterconsumptionmonitoring-architecture.md)
+* Learn about Connected Waste Management [concepts](./concepts-connectedwastemanagement-architecture.md)  
+* Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)

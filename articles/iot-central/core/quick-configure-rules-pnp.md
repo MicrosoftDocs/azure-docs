@@ -3,7 +3,7 @@ title: Configure rules and actions in Azure IoT Central | Microsoft Docs
 description: This quickstart shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/18/2019
+ms.date: 10/24/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -27,13 +27,13 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
 1. To add a new telemetry-based rule to your application, in the left pane, select **Rules**.
 
-1. To create a new rule, select **+ New**. Then choose **Telemetry**.
+1. To create a new rule, select **+ New**.
 
 1. Enter **Environmental temperature** as the rule name.
 
-1. In the **Scope** section, select the **Environment Sensor** as the device template. The scope which devices this rule applies to. You can add more filter criteria using **+ Filter**.
+1. In the **Target devices** section, select the **Environment Sensor** as the device template. This option filters the devices the rule applies to by device template type. You can add more filter criteria choosing **+ Filter**.
 
-1. In the **Condition** section, you define what triggers your rule. Use the following information to define a condition based on temperature telemetry:
+1. In the **Conditions** section, you define what triggers your rule. Use the following information to define a condition based on temperature telemetry:
 
     | Field                                        | Value                             |
     | -------------------------------------------- | ------------------------------    |
@@ -45,12 +45,13 @@ Before you begin, you should complete the two previous quickstarts [Create an Az
 
     ![Create rule condition](./media/quick-configure-rules-pnp/condition.png)
 
-1. To add an action to run when the rule triggers, select **+ Action**, and choose **Email**.
+1. To add an email action to run when the rule triggers, select **+ Email**.
 
 1. Use the information in the following table to define your action:
 
     | Setting   | Value                                             |
     | --------- | ------------------------------------------------- |
+    | Display name | Operator email action                          |
     | To        | Your email address                                |
     | Notes     | Environmental temperature exceeded the threshold. |
 

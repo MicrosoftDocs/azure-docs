@@ -100,19 +100,20 @@ To run this sample you will need:
 >
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
 > - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
+> - `Enter_the_Tenant_Name_Here` - is the **Directory (tenant) ID** value of the application you registered.
 
 #### Step 4: Run the code sample
 1. Run the code sample, and open a browser and navigate to *http://localhost:8080*.
 1. The front page contains a **sign-in** button. Click on the **sign-in** button to redirect to Azure Active Directory. The user will be prompted for their credentials.  
-1. After successfully authenticating on Azure Active Directory, they will be redirected to *http://localhost:8080/msal4jsamples/secure/aad*. They are officially signed in to the application, and the page should show information for the signed in account. It will also contain buttons for: 
+1. After successfully authenticating on Azure Active Directory, they will be redirected to *http://localhost:8080/msal4jsamples/secure/aad*. They are officially signed in to the application, and the page should show information for the signed in account. It will also contain buttons for:
     - *Sign Out*: Will sign out the current user from the application, and redirect them the home page.
     - *Show Users*: Will acquire a token for the Microsoft Graph, then call the Microsoft Graph with the token attached to the request to get all of the users in the tenant.
 
 ## More information
 
 ### Getting MSAL
-MSAL4J is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform. 
-You can add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the pom.xml or build.gradle file in your application. 
+MSAL4J is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
+You can add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the pom.xml or build.gradle file in your application.
 
 ```XML
 <dependency>

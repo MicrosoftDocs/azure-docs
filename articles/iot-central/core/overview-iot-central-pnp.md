@@ -18,22 +18,13 @@ manager: timlt
 > [!WARNING]
 > The [IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) capabilities in Azure IoT Central are currently in public preview. Don't use an IoT Plug and Play enabled IoT Central application for production workloads. For production environments use an IoT central application created from a current, generally available, application template.
 
-Azure IoT Central is a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds. You can bring your connected product vision to life by:
+Azure IoT Central is an IoT application platform that reduces the burden and cost of developing, managing, and maintaining enterprise-grade IoT solutions. Choosing to build with Azure IoT Central gives you the opportunity to focus time, money, and energy on transforming your business with IoT data, rather than just maintaining and updating a complex and continually evolving IoT infrastructure.
 
-- Deriving new insights from connected devices to enable better products and experiences for your customers.
-- Creating new business opportunities for your organization.
-
-Azure IoT Central, as compared to a typical IoT project:
-
-- Reduces the management burden.
-- Reduces operational costs and overheads.
-- Makes it easy to customize your application, while working with:
-  - Industry-leading technologies such as [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) and [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/).
-  - Enterprise-grade security features such as end-to-end encryption.
+The web UI lets you monitor device conditions, create rules, and manage millions of devices and their data throughout their life cycle. Furthermore, it enables you to act on device insights by extending IoT intelligence into line-of-business applications.
 
 The following video presents an overview of Azure IoT Central:
 
->[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
+>[!VIDEO https://azure.microsoft.com/resources/videos/iot-central-updates/]
 
 This article outlines, for Azure IoT Central:
 
@@ -67,9 +58,9 @@ This article outlines, for Azure IoT Central:
 
 The Azure IoT Central documentation refers to four personas who interact with an Azure IoT Central application:
 
-- A _builder_ is responsible for defining the types of devices that connect to the application and customizing the application for the operator.
+- A _solution builder_ is responsible for defining the types of devices that connect to the application and customizing the application for the operator.
 - An _operator_ manages the devices connected to the application.
-- An _administrator_ is responsible for administrative tasks such as managing users and roles within the application.
+- An _administrator_ is responsible for administrative tasks such as managing [user roles and permissions](howto-administer.md) within the application.
 - A _device developer_ creates the code that runs on a device connected to your application.
 - A _device/module developer_ creates the code/module that runs on a device connected to your application.
 
@@ -85,7 +76,7 @@ You can quickly deploy a new Azure IoT Central application and then customize it
 - Telemetry it sends.
 - Business properties that an operator can modify.
 - Device properties that are set by a device and are read-only in the application.
-- Properties set by an operator that determine the behavior of the device.
+- Properties, that an operator sets, that determine the behavior of the device.
 
 This device template includes:
 
@@ -95,7 +86,7 @@ This device template includes:
 
 ### Create device templates
 
-[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play is a device capability model schema that describes device capabilities. In an IoT Central Preview application, device templates use these IoT Plug and Play device capability models.
+[IoT Plug and Play](../../iot-pnp/overview-iot-plug-and-play.md) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play, is a device capability model schema that describes device capabilities. In an IoT Central Preview application, device templates use these IoT Plug and Play device capability models.
 
 As a builder, you have several options for creating device templates:
 

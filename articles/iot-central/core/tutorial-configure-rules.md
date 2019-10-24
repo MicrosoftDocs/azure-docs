@@ -31,7 +31,7 @@ Before you begin, you should complete the [Define a new device type in your appl
 
 ## Create a telemetry-based rule
 
-1. To add a new telemetry-based rule to your application, in the left navigation menu, select **Device Templates**:
+1. To add a new telemetry-based rule to your application, in the left pane, select **Device Templates**:
 
     ![Device Templates page](media/tutorial-configure-rules/templatespage1.png)
 
