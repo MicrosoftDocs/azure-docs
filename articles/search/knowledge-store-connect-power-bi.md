@@ -23,7 +23,7 @@ In this article, learn how to connect to and explore a knowledge store using Pow
 
 + [Install Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 
-+ You'll need a knowledge store, with a projection into Azure Table storage. You will also need the name of the Azure storage account used to create the knowledge store, along with its access key from the Azure portal.
++ You'll need a knowledge store, with a projection into Azure Table storage. You will also need the name of the Azure Storage account used to create the knowledge store, along with its access key from the Azure portal.
 
 If you want to work with a sample knowledge store, follow the instructions to [create a knowledge store](knowledge-store-create-portal.md).
 
