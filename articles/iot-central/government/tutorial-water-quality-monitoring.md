@@ -270,4 +270,4 @@ If you're not going to continue to use this application, delete your application
 
 ## Next steps
 
-* Learn about more about [Water quality monitoring concepts](./concepts-waterqualitymonitoring-architecture)
+* Learn about more about [Water quality monitoring concepts](./concepts-waterqualitymonitoring-architecture.md)
