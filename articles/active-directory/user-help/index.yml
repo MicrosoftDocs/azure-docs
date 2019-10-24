@@ -91,10 +91,10 @@ landingContent:
             url: my-account-portal-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Manage your organizations
-            url: my-account-portal-organizations-page.md
           - text: Manage your connected devices
             url: my-account-portal-devices-page.md
+          - text: Manage your organizations
+            url: my-account-portal-organizations-page.md
   
   # Card
   - title: Reset your own password
