@@ -184,10 +184,9 @@ model = Model.register(model_path="models/",
 
 The script *must contain* two functions:
 - `init()`: Use this function for any costly or common preparation for later inference. For example, use it to load the model into a global object.
-- `run(input_data, arguments)`: This function will run for each `mini_batch` instance.
-    - `input_data`: This is an array of locally accessible file paths or a Pandas dataframe. A subset of files or rows is specified in the inputs list.
-    - `arguments`: Arguments passed during the pipeline run will be passed to this function. 
-    - `run method response`: The `run()` method should return an array.
+-  `run(mini_batch)`: The function will run for each `mini_batch` instance.
+    -  `mini_batch`: Batch inference will invoke run method and pass either a list or Pandas DataFrame as an argument to the method. Each entry in min_batch will be - a filepath if input is a FileDataset, a Pandas DataFrame if input is a TabularDataset.
+    -  `response`: run() method should return a Pandas DataFrame or an array. For append_row output_action, these returned elements are appended into the common output file. For summary_only, the contents of the elements are ignored. For all output actions, each returned output element indicates one successful inference of input element in the input mini-batch. User should make sure that enough data is included in inference result to map input to inference. Inference output will be written in output file and not guaranteed to be in order, user should use some key in the output to map it to input.
 
 ```python
 # Snippets from a sample script.
@@ -247,7 +246,7 @@ from azureml.core import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow", "azure.storage.blob", "pandas"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
@@ -273,7 +272,7 @@ batch_env.spark.precache_packages = False
 - `process_count_per_node`: The number of processes per node.
 - `environment`: The Python environment definition. You can configure it to use an existing Python environment or to set up a temporary environment for the experiment. The definition is also responsible for setting the required application dependencies (optional).
 - `logging_level`: Log verbosity. Values in increasing verbosity are: `WARNING`, `INFO`, and `DEBUG`. The default is `INFO` (optional).
-- `run_invocation_timeout`: The `run()` method invocation timeout in seconds. The default value is `30`.
+- `run_invocation_timeout`: The `run()` method invocation timeout in seconds. The default value is `60`.
 
 ```python
 from azureml.contrib.pipeline.steps import ParallelRunConfig
