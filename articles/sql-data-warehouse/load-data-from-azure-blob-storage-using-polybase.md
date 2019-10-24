@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Load New York Taxicab data using SQL Analytics (formerly SQL DW) | Microsoft Docs'
+title: 'Tutorial: Load New York Taxicab data | Microsoft Docs'
 description: Tutorial uses Azure portal and SQL Server Management Studio to load New York Taxicab data from a global Azure blob to Azure Synapse Analytics (SQL DW).
 services: sql-data-warehouse
 author: kevinvngo  
@@ -12,17 +12,17 @@ ms.author: kevin
 ms.reviewer: igorstan
 ---
 
-# Tutorial: Load New York Taxicab data to SQL Analytics (formerly SQL DW)
+# Tutorial: Load New York Taxicab data
 
 This tutorial uses PolyBase to load New York Taxicab data from a global Azure blob to SQL Analytics. The tutorial uses the [Azure portal](https://portal.azure.com) and [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) to: 
 
 > [!div class="checklist"]
 > * Create a SQL pool (data warehouse) in the Azure portal
 > * Set up a server-level firewall rule in the Azure portal
-> * Connect to the SQL pool with SSMS
+> * Connect to the SQL Analytics end point with SSMS
 > * Create a user designated for loading data
 > * Create external tables for data in Azure blob storage
-> * Use the CTAS T-SQL statement to load data into your SQL pool
+> * Use the CTAS T-SQL statement to load data
 > * View the progress of data as it is loading
 > * Create statistics on the newly loaded data
 
