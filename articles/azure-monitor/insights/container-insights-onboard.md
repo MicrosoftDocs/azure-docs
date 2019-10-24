@@ -60,7 +60,7 @@ The information in the following table lists the proxy and firewall configuratio
 | *.ods.opinsights.azure.cn | 443 | Data ingestion |
 | *.oms.opinsights.azure.cn | 443 | OMS onboarding |
 | *.blob.core.windows.net | 443 | Used for monitoring outbound connectivity. |
-| microsoft.com | 80 | Used for network connectivity. This is required only if the agent image version is ciprod09262019 or earlier. |
+| microsoft.com | 80 | Used for network connectivity. This is only required if the agent image version is ciprod09262019 or earlier. |
 | dc.services.visualstudio.com | 443 | For for agent telemetry using Azure Public Cloud Application Insights. |
 
 The information in the following table lists the proxy and firewall configuration information for Azure US Government.
@@ -70,7 +70,7 @@ The information in the following table lists the proxy and firewall configuratio
 | *.ods.opinsights.azure.us | 443 | Data ingestion |
 | *.oms.opinsights.azure.us | 443 | OMS onboarding |
 | *.blob.core.windows.net | 443 | Used for monitoring outbound connectivity. |
-| microsoft.com | 80 | Used for network connectivity. This is required only if the agent image version is ciprod09262019 or earlier. |
+| microsoft.com | 80 | Used for network connectivity. This is only required if the agent image version is ciprod09262019 or earlier. |
 | dc.services.visualstudio.com | 443 | For agent telemetry using Azure Public Cloud Application Insights. |
 
 ## Components
