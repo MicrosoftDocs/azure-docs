@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Register an Azure IoT Edge device
 
-Before you can use your IoT devices with Azure IoT Edge, you must register them with your IoT hub. After a device is registered, you receive a connection string that can be used to set up your device for IoT Edge workloads.
+Before you can use your IoT devices with Azure IoT Edge, you must register them with your IoT hub. Once a device is registered, you can retrieve a connection string to set up your device for IoT Edge workloads.
 
 You have the choice of registering by using one of the following tools:
 
@@ -32,10 +32,10 @@ A free or standard [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in you
 
 ### Create an IoT Edge device in the Azure Portal
 
-In the Azure portal, IoT Edge devices are created and managed separately from devices that connect to your IoT hub but aren't edge-enabled.
+In your IoT Hub in the Azure portal, IoT Edge devices are created and managed separately from IOT devices that are not edge enabled.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
-2. Select **IoT Edge** from the menu.
+2. In the left pane, select **IoT Edge** from the menu.
 3. Select **Add an IoT Edge device**.
 4. Provide a descriptive device ID. Use the default settings to auto-generate authentication keys and connect the new device to your hub.
 5. Select **Save**.
@@ -108,7 +108,7 @@ You can also select **Get Device Info** from the right-click menu to see all the
 
 ## Register an IoT Edge device with the Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
+The [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Edge. It enables you to manage Azure IoT Hub resources, device provisioning service instances, and linked-hubs out of the box. The new IoT extension enriches Azure CLI with features such as device management and full IoT Edge capability.
 
 ### Prerequisites for the Azure CLI
 
@@ -127,9 +127,7 @@ Use the [az iot hub device-identity create](https://docs.microsoft.com/cli/azure
 This command includes three parameters:
 
 * **device-id**: Provide a descriptive name that's unique to your IoT hub.
-
 * **hub-name**: Provide the name of your IoT hub.
-
 * **edge-enabled**: This parameter declares that the device is for use with IoT Edge.
 
    ![az iot hub device-identity create output](./media/how-to-register-device/Create-edge-device.png)
@@ -156,7 +154,7 @@ The value for the `device-id` parameter is case-sensitive. Don't copy the quotat
 
 ## Next steps
 
-Now that you have a device identity registered in your IoT hub, you're ready to install the IoT Edge runtime on your devices. Install the runtime according to its operating system:
+Now that you have a device identity registered in your IoT hub, you're ready to install the IoT Edge runtime on your devices. Install the runtime according to the device's operating system:
 
 * [Install Azure IoT Edge on Windows](how-to-install-edge-windows.md)
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](how-to-install-iot-edge-windows-with-linux.md)
+* [Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-windows-with-linux.md)
