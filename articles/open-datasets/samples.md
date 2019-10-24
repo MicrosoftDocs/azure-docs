@@ -6,7 +6,7 @@ ms.service: open-datasets
 ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/02/2019
+ms.date: 11/04/2019
 ---
 
 # Example Jupyter notebooks show how to enrich data with Open Datasets 

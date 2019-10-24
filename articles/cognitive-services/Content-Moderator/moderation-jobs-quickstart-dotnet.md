@@ -3,14 +3,14 @@ title: "Use moderation jobs using .NET - Content Moderator"
 titleSuffix: Azure Cognitive Services
 description: Use the Content Moderator .NET SDK to initiate end-to-end content moderation jobs for image or text content in Azure Content Moderator.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: sajagtap
+ms.author: pafarley
 #The jobs how-to for .NET SDK
 ---
 

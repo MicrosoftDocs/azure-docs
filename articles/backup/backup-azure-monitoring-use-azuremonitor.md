@@ -24,7 +24,7 @@ Azure Backup provides [built-in monitoring and alerting capabilities](backup-azu
 ## Using Log Analytics workspace
 
 > [!NOTE]
-> Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings.
+> Data from Azure VM backups, the Azure Backup agent, System Center Data Protection Manager, SQL backups in Azure VMs, and Azure Files share backups is pumped to the Log Analytics workspace through diagnostic settings. Support for Microsoft Azure Backup Server (MABS) will be added soon
 
 To monitor/report at scale, you need the capabilities of two Azure services. *Diagnostic settings* send data from multiple Azure Resource Manager resources to another resource. *Log Analytics* generates custom alerts where you can use action groups to define other notification channels.
 

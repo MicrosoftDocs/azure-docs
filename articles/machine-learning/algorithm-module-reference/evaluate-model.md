@@ -39,7 +39,7 @@ There are three ways to use the **Evaluate Model** module:
 To evaluate a model, you must connect a dataset that contains a set of input columns and scores.  If no other data is available, you can use your original dataset.
 
 1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) to the input of **Evaluate Model**. 
-2. Click **Evaluate Model** module, and run the experiment to generate the evaluation scores.
+2. Click **Evaluate Model** module, and run the pipeline to generate the evaluation scores.
 
 ## Use testing data
 
@@ -64,7 +64,7 @@ This feature is useful because you can easily compare results from two different
 After you run **Evaluate Model**, right-click the module and select **Evaluation results** to see the results. You can:
 
 + Save the results as a dataset, for easier analysis with other tools
-+ Generate a visualization in the interface
++ Generate a visualization in the designer
 
 If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
 The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  

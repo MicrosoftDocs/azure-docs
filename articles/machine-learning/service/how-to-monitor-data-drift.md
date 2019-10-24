@@ -54,7 +54,7 @@ Using Azure Machine Learning, data drift is monitored through datasets or deploy
 - Install the data drift SDK using the following command:
 
     ```shell
-    pip install azureml-contrib-datadrift
+    pip install azureml-datadrift
     ```
 
 - Create a [dataset](how-to-create-register-datasets.md) from your model's training data.
@@ -80,7 +80,7 @@ This example demonstrates configuring the [`DataDriftDetector`](https://docs.mic
 ```python
 # Import Azure ML packages
 from azureml.core import Experiment, Run, RunDetails
-from azureml.contrib.datadrift import DataDriftDetector, AlertConfiguration
+from azureml.datadrift import DataDriftDetector, AlertConfiguration
 
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
@@ -154,7 +154,7 @@ datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-The configuration of the data drift detector can be seen under **Models** in the **Details** tab in your workspace in  [Azure Machine Learning studio](https://ml.azure.com).
+The configuration of the data drift detector can be seen under **Models** in the **Details** tab in your workspace on the [Azure Machine Learning studio](https://ml.azure.com).
 
 ![Azure Machine Learning studio Data Drift](media/how-to-monitor-data-drift/drift-config.png)
 

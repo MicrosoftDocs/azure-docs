@@ -3,7 +3,7 @@ title: Overview of Azure Resource Graph
 description: Understand how the Azure Resource Graph service enables complex querying of resources at scale.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/06/2019
+ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
 ---
@@ -36,8 +36,12 @@ facilities for calling individual resource providers for detailed properties one
 
 With Azure Resource Graph, you can access these properties the resource providers return without
 needing to make individual calls to each resource provider. For a list of supported resource types,
-look for a **Yes** in the [Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md)
-table. An alternative way to see supported resource types is through the [Azure Resource Graph Explorer Schema browser](./first-query-portal.md#schema-browser).
+look for a **Yes** in the
+[Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md)
+table. Additional resource types are found in the related
+[Resource Graph tables](./concepts/query-language.md#resource-graph-tables). An alternative way to
+see supported resource types is through the
+[Azure Resource Graph Explorer Schema browser](./first-query-portal.md#schema-browser).
 
 With Azure Resource Graph, you can:
 
@@ -52,6 +56,13 @@ When an Azure resource is updated, Resource Graph is notified by Resource Manage
 Resource Graph then updates its database. Resource Graph also does a regular _full scan_. This scan
 ensures that Resource Graph data is current if there are missed notifications or when a resource is
 updated outside of Resource Manager.
+
+> [!NOTE]
+> Resource Graph uses a `GET` to the latest non-preview API of each resource provider to gather
+> properties and values. As a result, the property expected may not be available. In some cases, the
+> API version used has been overridden to provide more current or widely used properties in the
+> results. See the [Show API version for each resource type](./samples/advanced.md#apiversion)
+> sample for a complete list in your environment.
 
 ## The query language
 

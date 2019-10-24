@@ -28,7 +28,7 @@ The **Preprocess Text** module currently only supports English.
 
 ## Configure Text Preprocessing  
 
-1.  Add the **Preprocess Text** module to your experiment in Azure Machine Learning. You can find this module under **Text Analytics**.
+1.  Add the **Preprocess Text** module to your pipeline in Azure Machine Learning. You can find this module under **Text Analytics**.
 
 1. Connect a dataset that has at least one column containing text.
 
@@ -42,7 +42,7 @@ The **Preprocess Text** module currently only supports English.
 
 1. **Lemmatization**: Select this option if you want words to be represented in their canonical form. This option is useful for reducing the number of unique occurrences of otherwise similar text tokens.
 
-    The lemmatization process is highly language-dependent..
+    The lemmatization process is highly language-dependent.
 
 1. **Detect sentences**: Select this option if you want the module to insert a sentence boundary mark when performing analysis.
 
@@ -78,7 +78,7 @@ The **Preprocess Text** module currently only supports English.
 
     For example, the string `MS---WORD` would be separated into three tokens, `MS`, `-`, and `WORD`.
 
-1. Run the experiment.
+1. Run the pipeline.
 
 ## Next steps
 

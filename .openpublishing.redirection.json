@@ -26,6 +26,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md",
+      "redirect_url": "/azure//virtual-machines/windows/sql/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-load-data.md",
       "redirect_url": "/azure/machine-learning/service/how-to-create-register-datasets",
       "redirect_document_id": false
@@ -243,6 +248,11 @@
     {
       "source_path": "articles/machine-learning/service/concept-accelerate-inferencing-with-gpus.md",
       "redirect_url": "/azure/machine-learning/service/how-to-deploy-inferencing-gpus",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/open-datasets/tutorial-opendatasets-automl.md",
+      "redirect_url": "/azure/machine-learning/service/tutorial-auto-train-models",
       "redirect_document_id": true
     },
     {
@@ -42566,6 +42576,46 @@
     {
       "source_path": "articles/aks/consul-install.md",
       "redirect_url": "/azure/aks/servicemesh-consul-install",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/iot-overview.md",
+      "redirect_url": "/azure/iot-fundamentals/iot-security-architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/service-fabric-overview.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/service-fabric-checklist.md",
+      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/white-papers.md",
+      "redirect_url": "https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/overviews.md",
+      "redirect_url": "/azure/security/fundamentals/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/mvp.md",
+      "redirect_url": "https://mvp.microsoft.com/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-cache-for-redis/cache-how-to-troubleshoot.md",
+      "redirect_url": "/azure/azure-cache-for-redis/cache-troubleshoot-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md",
+      "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell",
       "redirect_document_id": false
     }
   ]
