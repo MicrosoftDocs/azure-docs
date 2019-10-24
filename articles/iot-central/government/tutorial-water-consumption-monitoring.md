@@ -45,7 +45,7 @@ To create a new Azure IoT Central water consumption monitoring application:
 
 2. Click on **Build** from the left navigation menu and select the **Government** tab. The government page displays several government application templates.
 
-   ![Build Government App templates](./media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview.png)
+   ![Build Government App templates](./media/tutorial-waterconsumptionmonitoring/iotcentral-government-tab-overview1.png)
 
 1. Select the **Water consumption monitoring** application template. 
 This template includes sample water consumption device template, simulated device, operator dashboard, and pre-configured monitoring rules.    
