@@ -31,6 +31,12 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 ## Build ML models in Python or R
 
+Start training on your local machine using the Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> or <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a>. Then, you can scale out to the cloud. 
+
+With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
+
+You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
+
 ## Build ML models with no-code tools
 
 ## MLOps: Deploy & lifecycle management
@@ -73,11 +79,6 @@ Azure Machine Learning provides all the tools you need for your machine learning
 
 Whether you write code or use the [designer](ui-tutorial-automobile-price-train-score.md), you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
 
-### Code-first experience
-
-Start training on your local machine using the <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a> and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
-
-You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
 ### UI-based, low-code experience
 
