@@ -82,7 +82,7 @@ When you upgrade a node pool in AKS, taints and tolerations follow a set pattern
   - Two additional nodes are created, *node3* and *node4*, and the taints are passed on respectively.
   - The original *node1* and *node2* are deleted.
 
-- **Clusters that use virtual machine availability sets**
+- **Clusters without virtual machine scale set support**
   - Again, let's assume you have a two-node cluster - *node1* and *node2*. When you upgrade, an additional node (*node3*) is created.
   - The taints from *node1* are applied to *node3*, then *node1* is then deleted.
   - Another new node is created (named *node1*, since the previous *node1* was deleted), and the *node2* taints are applied to the new *node1*. Then, *node2* is deleted.
