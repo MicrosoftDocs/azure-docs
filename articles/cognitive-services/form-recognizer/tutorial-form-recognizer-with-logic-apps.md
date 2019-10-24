@@ -12,7 +12,7 @@ ms.date: 10/27/2019
 ms.author: nitinme
 ---
 
-# Tutorial: Use Form Recognizer with Azure Logic Apps to analyze invoice
+# Tutorial: Use Form Recognizer with Azure Logic Apps to analyze invoices
 
 In this tutorial, you create a workflow in Azure Logic Apps that uses Form Recognizer, a service that is part of Azure Cognitive Services suite, to extract data from invoices. You use Form Recognizer to first train a model using a sample data set and then test the model using another data set. The sample data used in this tutorial is stored in Azure Storage blob containers.
 
