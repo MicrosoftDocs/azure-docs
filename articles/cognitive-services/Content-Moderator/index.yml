@@ -59,7 +59,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: image-lists-quickstart.dotnet.md
+            url: image-lists-quickstart-dotnet.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
           - text: Using the Java SDK
@@ -93,7 +93,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Using the .NET SDK
-            url: term-lists-quickstart.dotnet.md
+            url: term-lists-quickstart-dotnet.md
           - text: Using the Python SDK
             url: python-sdk-quickstart.md
           - text: Using the Java SDK
