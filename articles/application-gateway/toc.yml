@@ -78,9 +78,7 @@
     - name: Custom rules
       href: custom-waf-rules-overview.md
   - name: Ingress for AKS
-    items:
-    - name: Overview
-      href: application-gateway-ingress-controller-overview.md
+    href: application-gateway-ingress-controller-overview.md
   - name: Health monitoring
     items:
     - name: Health probe
