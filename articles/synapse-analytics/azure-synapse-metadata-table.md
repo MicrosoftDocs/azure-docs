@@ -1,27 +1,18 @@
 ---
-title: What is Azure Synapse Analytics' shared Meta Data Model #Required; update as needed page title displayed in search results. Include the brand.
-description: Azure Synapse Analytics provides a shared meta data model where creating a database or table in Spark will make it accessible from its SQL Analytics and SQL Pool engines without duplicating the data or requiring user action. #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: MikeRys #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: overview #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/02/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: mrys #Required; update with your microsoft alias of author; optional team alias.
+title: Azure Synapse Analytics' shared Meta Data Tables 
+description: Azure Synapse Analytics provides a shared meta data model where creating a table in Spark will make it accessible from its SQL Analytics and SQL Pool engines without duplicating the data. 
+services: sql-data-warehouse 
+author: MikeRys 
+ms.service: sql-data-warehouse 
+ms.topic: overview 
+ms.subservice: design 
+ms.date: 10/23/2019 
+ms.author: mrys 
 ms.reviewer: jrasnick
 ---
 
-<!---Recommended: Remove all the comments in this template before you sign-off or merge to master.--->
+# Azure Synapse Analytics' shared Meta Data Tables
 
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
-
-# What is Azure Synapse Analytics' shared Meta Data Model? 
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
 
 Azure Synapse Analytics allows the different computational engines of a workspace to share databases and tables between its Apache Spark Pools, SQL Analytics On-Demand engine and SQL Pools. 
 
