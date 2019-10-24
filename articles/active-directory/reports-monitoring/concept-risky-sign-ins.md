@@ -1,6 +1,6 @@
 ---
 
-title: Risky sign-ins report in the Azure Active Directory portal | Microsoft Docs
+title: Risky sign-ins report in portal | Microsoft Docs
 description: Learn about the risky sign-ins report in the Azure Active Directory portal
 services: active-directory
 author: cawrites
