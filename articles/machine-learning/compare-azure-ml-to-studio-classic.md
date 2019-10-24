@@ -34,13 +34,16 @@ Here is a quick comparison.
 |Model| Standard format, various depends on the training job|Proprietary, non portable format.| 
 |Automated model training & hyperparameter tuning |Not yet in the designer, but possible through the interface and SDKs.| No | 
 
-## Get started with Azure Machine Learning
+## Get started with Azure Machine Learning designer
 
 The following resources can help you get started with Azure Machine Learning
 
 - Read the [Azure Machine Learning overview](/service/tutorial-first-experiment-automated-ml.md) 
 
 - [Create your first designer pipeline](/service/ui-tutorial-automobile-price-train-score.md) to predict auto prices.
+
+
+![Azure Machine Learning designer example](./media/concept-ml-pipelines/visual-design-surface.gif)
 
 ## Next steps
 
