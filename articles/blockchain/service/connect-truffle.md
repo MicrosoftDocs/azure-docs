@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/31/2019
+ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
@@ -13,15 +13,15 @@ manager: femila
 #Customer intent: As a developer, I want to connect to my blockchain member node so that I can perform actions on a blockchain.
 ---
 
-# Quickstart: Use Truffle to connect to an Azure Blockchain Service network
+# Quickstart: Use Truffle to connect to a transaction node
 
-Truffle is a blockchain development environment you can use to connect to an Azure Blockchain Service node.
+Truffle is a blockchain development environment you can use to connect to an Azure Blockchain Service transaction node.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-* [Create an Azure Blockchain member](create-member.md)
+* Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
 * Install [Truffle](https://github.com/trufflesuite/truffle). Truffle requires several tools to be installed including [Node.js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 * Install [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python is needed for Web3.
 
@@ -120,7 +120,7 @@ Use *Web3* to connect to the transaction node.
 
 In this quickstart, you created a Truffle project to connect to your Azure Blockchain Service default transaction node.
 
-Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to execute a smart contract function via a transaction on a consortium blockchain network.
+Try the next tutorial to use Azure Blockchain Development Kit for Ethereum and Truffle to create, build, deploy, and execute a smart contract function via a transaction.
 
 > [!div class="nextstepaction"]
-> [Use smart contracts on Azure Blockchain Service](send-transaction.md)
+> [Use Visual Studio Code to create, build, and deploy smart contracts](send-transaction.md)

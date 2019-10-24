@@ -3,7 +3,7 @@ title: Manage your Azure IoT Central application | Microsoft Docs
 description: As an administrator, how to manage your Azure IoT Central application by changing application name, URL, upload image, copy, and delete an application
 author: viv-liu
 ms.author: viviali
-ms.date: 04/26/2019
+ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -11,6 +11,8 @@ manager: peterpr
 ---
 
 # Manage your IoT Central application
+
+[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
 This article describes how, as an administrator, you can manage application by changing application name and URL, uploading image, also you can learn how to copy, and delete an application in your Azure IoT Central application.
 

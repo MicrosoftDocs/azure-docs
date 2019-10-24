@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/2/2019
+ms.date: 05/02/2019
 ---
 
 # Compatibility level for Azure Stream Analytics jobs

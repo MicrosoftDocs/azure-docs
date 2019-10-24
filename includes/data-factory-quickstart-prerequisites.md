@@ -33,21 +33,17 @@ For more info, see the following articles:
 ### Azure storage account
 You use a general-purpose Azure storage account (specifically Blob storage) as both *source* and *destination* data stores in this quickstart. If you don't have a general-purpose Azure storage account, see [Create a storage account](../articles/storage/common/storage-quickstart-create-account.md) to create one. 
 
-#### Get the storage account name and account key
-You will need the name and key of your Azure storage account for this quickstart. The following procedure provides steps to get the name and key of your storage account: 
+#### Get the storage account name
+You will need the name of your Azure storage account for this quickstart. The following procedure provides steps to get the name of your storage account: 
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com) and sign in using your Azure username and password.
 2. Select **All services** > **Storage** > **Storage accounts**.
 3. In the **Storage accounts** page, filter for your storage account (if needed), and then select your storage account. 
-4. From the *\<Account name>* - **Storage account** page's sidebar, go to the **Settings** label and select **Access keys**. The *\<Account name>* - **Access keys** appears.
-
-   ![Get storage account name and key](media/data-factory-quickstart-prerequisites/storage-account-name-key.png)
-5. Copy the values for the **Storage account name** and **key1** boxes to the clipboard. Paste them into Notepad or any other editor and save it. You use them later in this quickstart.   
 
 #### Create a blob container
 In this section, you create a blob container named **adftutorial** in Azure Blob storage.
 
-1. From the *\<Account name>* - **Access keys** page's sidebar, select **Overview** > **Blobs**.
+1. From the storage account page, select **Overview** > **Blobs**.
 2. On the *\<Account name>* - **Blobs** page's toolbar, select **Container**.
 3. In the **New container** dialog box, enter **adftutorial** for the name, and then select **OK**. The *\<Account name>* - **Blobs** page is updated to include **adftutorial** in the list of containers.
 

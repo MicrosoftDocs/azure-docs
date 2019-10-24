@@ -6,7 +6,7 @@ author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 4/3/2019
+ms.date: 04/03/2019
 ms.author: dacurwin
 ---
 # Back up and restore encrypted Azure VM
@@ -49,7 +49,7 @@ Azure Backup can back up and restore Azure VMs using ADE with and without the Az
 
 Before you start, do the following:
 
-1. Make sure you have one or more [Windows](../security/azure-security-disk-encryption-windows.md) or [Linux](../security/azure-security-disk-encryption-linux.md) VMs with ADE enabled.
+1. Make sure you have one or more [Windows](../security/azure-security-disk-encryption-windows.md) or [Linux](../virtual-machines/linux/disk-encryption-overview.md) VMs with ADE enabled.
 2. [Review the support matrix](backup-support-matrix-iaas.md) for Azure VM backup
 3. [Create](backup-azure-arm-vms-prepare.md#create-a-vault) a Recovery Services Backup vault if you don't have one.
 4. If you enable encryption for VMs that are already enabled for backup, you simply need to provide Backup with permissions to access the Key Vault so that backups can continue without disruption. [Learn more](#provide-permissions) about assigning these permissions.

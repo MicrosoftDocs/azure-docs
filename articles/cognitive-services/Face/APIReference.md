@@ -13,7 +13,7 @@ ms.date: 03/01/2018
 ms.author: sbowles
 ---
 
-# API Reference
+# Face API Reference List
 
 The Azure Face API is a cloud-based API that provides algorithms for face detection and recognition. The Face APIs comprise the following categories:
 

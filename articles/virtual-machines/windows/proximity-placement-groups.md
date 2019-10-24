@@ -7,7 +7,7 @@ author: cynthn
 manager: jeconnoc
 
 ms.service: virtual-machines-windows
-ms.devlang: na
+
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services

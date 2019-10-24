@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ROBOTS: NOINDEX
 ---
 
 # Join Data
@@ -21,7 +20,7 @@ This article describes how to use the **Join Data** module in the Azure Machine 
 
 To perform a join on two datasets, they should be related by a key column. Composite keys using multiple columns are also supported. 
 
-1. Add the datasets you want to combine, and then drag the **Join Data** module into your experiment. 
+1. Add the datasets you want to combine, and then drag the **Join Data** module into your pipeline. 
 
     You can find the module in the **Data Transformation** category, under **Manipulation**.
 
@@ -59,7 +58,7 @@ To perform a join on two datasets, they should be related by a key column. Compo
     * Select this option to view the keys from both input tables.
     * Deselect to only return the key columns from the left input.
 
-1. Run the experiment, or select the Join Data module and selected **Run Selected** to perform the join.
+1. Run the pipeline, or select the Join Data module and selected **Run Selected** to perform the join.
 
 1. To view the results, right-click the **Join Data** > **Results dataset** > **Visualize**.
 

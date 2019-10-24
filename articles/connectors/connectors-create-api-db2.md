@@ -7,7 +7,7 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: plarsen, LADocs
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
 ---
@@ -23,20 +23,19 @@ from your database and make the output available for other actions.
 
 This article shows how you can create a logic app that performs 
 various database operations. If you're new to logic apps, review 
-[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md).
+[What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## Supported platforms and versions
 
 The DB2 connector includes a Microsoft client that 
 communicates with remote DB2 servers across a TCP/IP network. 
 You can use this connector for accessing cloud databases such 
-as IBM Bluemix dashDB or IBM DB2 for Windows running in Azure virtualization. 
+as IBM DB2 for Windows running in Azure virtualization. 
 You can also access on-premises DB2 databases after you 
 [install and set up the on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md).
 
 The IBM DB2 connector supports these IBM DB2 platforms and versions along 
-with IBM DB2 compatible products, such as IBM Bluemix dashDB, 
-that support Distributed Relational Database Architecture (DRDA) 
+with IBM DB2 compatible products that support Distributed Relational Database Architecture (DRDA) 
 SQL Access Manager (SQLAM) versions 10 and 11:
 
 | Platform | Version | 
@@ -64,7 +63,7 @@ which map to the corresponding actions in the connector:
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * An IBM DB2 database, either cloud-based or on-premises
 
@@ -435,11 +434,6 @@ Expand the **Delete row** action.
 For technical details, such as triggers, actions, and limits, 
 as described by the connector's OpenAPI (formerly Swagger) file, 
 see the [connector's reference page](/connectors/db2/).
-
-## Get support
-
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

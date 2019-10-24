@@ -50,6 +50,16 @@
       href: backup-support-matrix-mabs-dpm.md
     - name: MARS agent support matrix
       href: backup-support-matrix-mars-agent.md
+  - name: Security
+    items:
+    - name: Role-Based Access Control
+      href: backup-rbac-rs-vault.md
+    - name: Security for cloud workloads
+      href: backup-azure-security-feature-cloud.md
+    - name: Security for hybrid backups
+      href: backup-azure-security-feature.md
+    - name: Built-in security controls
+      href: backup-security-controls.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
@@ -68,18 +78,12 @@
       href: backup-azure-monitor-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
-  - name: Role-Based Access Control
-    href: backup-rbac-rs-vault.md
-  - name: Security for hybrid backups
-    href: backup-azure-security-feature.md
   - name: Configure offline-backup
     href: backup-azure-backup-import-export.md
   - name: Offline backup for DPM and Azure Backup Server
     href: backup-azure-backup-server-import-export-.md
   - name: Replace your tape library
     href: backup-azure-backup-cloud-as-tape.md
-  - name: Azure Common Security Attributes
-    href: backup-security-attributes.md
 - name: How to
   items:
   - name: Azure Backup Server
@@ -114,6 +118,8 @@
         href: backup-mabs-system-state-and-bmr.md
     - name: Recover data from Azure Backup Server
       href: backup-azure-alternate-dpm-server.md
+    - name: Restore VMware VMs with Azure Backup Server
+      href: restore-azure-backup-server-vmware.md
   - name: Azure Backup Server on Azure Stack
     items:
     - name: Install Azure Backup Server
@@ -168,8 +174,6 @@
       href: backup-azure-reports-data-model.md
     - name: Log Analytics data model for Azure Backup
       href: backup-azure-log-analytics-data-model.md
-    - name: Updating Azure Backup Central Reporting Content Pack
-      href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
     - name: Prepare DPM workloads in the Azure portal

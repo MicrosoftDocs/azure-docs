@@ -3,8 +3,8 @@ title: Azure Resource Manager resource providers by Azure services
 description: Lists all resource provider namespaces for Azure Resource Manager and shows the Azure service for that namespace.
 author: tfitzmac
 ms.service: azure-resource-manager
-ms.topic: reference
-ms.date: 06/25/2019
+ms.topic: conceptual
+ms.date: 10/07/2019
 ms.author: tomfitz
 ---
 
@@ -25,6 +25,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.AnalysisServices | [Azure Analysis Services](/azure/analysis-services/) |
 | Microsoft.ApiManagement | [API Management](../api-management/index.yml) |
 | Microsoft.AppConfiguration | core |
+| Microsoft.Attestation | Azure Attestation Service |
 | Microsoft.Authorization | [Azure Resource Manager](index.yml) |
 | Microsoft.Automation | [Automation](../automation/index.yml) |
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../active-directory-b2c/index.yml) |
@@ -40,6 +41,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Content Delivery Network](../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [App Service Certificates](../app-service/web-sites-purchase-ssl-web-site.md) |
+| Microsoft.ChangeAnalysis | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.ClassicCompute | Classic deployment model virtual machine |
 | Microsoft.ClassicInfrastructureMigrate | Classic deployment model migration |
 | Microsoft.ClassicNetwork | Classic deployment model virtual network |
@@ -47,13 +49,14 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.ClassicSubscription | Classic deployment model |
 | Microsoft.CognitiveServices | [Cognitive Services](/azure/cognitive-services/) |
 | Microsoft.Commerce | core |
-| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/) |
+| Microsoft.Compute | [Virtual Machines](/azure/virtual-machines/)<br />[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) |
 | Microsoft.Consumption | [Cost Management](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Container Instances](/azure/container-instances/) |
 | Microsoft.ContainerRegistry | [Container Registry](/azure/container-registry/) |
 | Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
 | Microsoft.ContentModerator | [Azure Content Moderator](../cognitive-services/content-moderator/index.yml) |
 | Microsoft.CostManagement | [Cost Management](/azure/cost-management/) |
+| Microsoft.CostManagementExports | [Cost Management](/azure/cost-management/) |
 | Microsoft.CustomerInsights | Customer Insights |
 | Microsoft.CustomerLockbox | Customer Lockbox for Microsoft Azure |
 | Microsoft.CustomProviders | [Azure Custom Providers](../managed-applications/custom-providers-overview.md) |
@@ -65,11 +68,14 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.DataLakeAnalytics | [Data Lake Analytics](/azure/data-lake-analytics/) |
 | Microsoft.DataLakeStore | [Azure Data Lake Store](../storage/blobs/data-lake-storage-introduction.md) |
 | Microsoft.DataMigration | [Azure Database Migration Service](/azure/dms/) |
+| Microsoft.DataShare | [Azure Data Share](/azure/data-share/) |
 | Microsoft.DBforMariaDB | [Azure Database for MariaDB](/azure/mariadb/) |
 | Microsoft.DBforMySQL | [Azure Database for MySQL](/azure/mysql/) |
 | Microsoft.DBforPostgreSQL | [Azure Database for PostgreSQL](/azure/postgresql/) |
+| Microsoft.DesktopVirtualization | [Windows Virtual Desktop](/azure/virtual-desktop/) |
 | Microsoft.DeploymentManager | [Azure Deployment Manager](deployment-manager-overview.md) |
 | Microsoft.Devices | [IoT Hub](/azure/iot-hub/)<br />[IoT Hub Device Provisioning Service](/azure/iot-dps/) |
+| Microsoft.DevOps | [Azure DevOps](/azure/devops/) |
 | Microsoft.DevSpaces | [Azure Dev Spaces](/azure/dev-spaces/) |
 | Microsoft.DevTestLab | [Azure Lab Services](../lab-services/index.yml) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../cosmos-db/index.yml) |
@@ -84,6 +90,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.HardwareSecurityModules | [Azure Dedicated HSM](../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../hdinsight/index.yml) |
 | Microsoft.HealthcareApis | [Azure API for FHIR](../healthcare-apis/index.yml) |
+| Microsoft.HybridData | [StorSimple](/azure/storsimple/) |
 | Microsoft.ImportExport | [Azure Import/Export](../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Intune | [Intune](/intune/) |
@@ -97,17 +104,19 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.LogAnalytics | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.Logic | [Logic Apps](../logic-apps/index.yml) |
 | Microsoft.MachineLearning | [Machine Learning Studio](../machine-learning/studio/index.yml) |
-| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/service/index.yml) |
-| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/service/index.yml) |
+| Microsoft.MachineLearningCompute | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningModelManagement | [Machine Learning Service](../machine-learning/index.yml) |
+| Microsoft.MachineLearningServices | [Machine Learning Service](../machine-learning/index.yml) |
 | Microsoft.ManagedIdentity | [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml) |
 | Microsoft.ManagedLab | [Azure Lab Services](../lab-services/index.yml) |
+| Microsoft.ManagedServices | [Azure Lighthouse](/azure/lighthouse/) |
 | Microsoft.Management | [Management Groups](/azure/governance/management-groups/) |
 | Microsoft.Maps | [Azure Maps](../azure-maps/index.yml) |
 | Microsoft.Marketplace | core |
 | Microsoft.MarketplaceApps | core |
 | Microsoft.MarketplaceOrdering | core |
 | Microsoft.Media | [Media Services](../media-services/index.yml) |
+| Microsoft.Microservices4Spring | [Spring on Azure](/azure/java/spring-framework/) |
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Azure Spatial Anchors](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Azure NetApp Files](../azure-netapp-files/index.yml) |
@@ -116,6 +125,7 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../azure-monitor/index.yml) |
 | Microsoft.OperationsManagement | [Azure Monitor](../azure-monitor/index.yml) |
+| Microsoft.Peering | Microsoft Azure Peering Service |
 | Microsoft.PolicyInsights | [Azure Policy](../governance/policy/index.yml) |
 | Microsoft.Portal | [Azure portal](/azure/azure-portal/) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
@@ -129,15 +139,17 @@ This article shows how resource provider namespaces map to Azure services.
 | Microsoft.Scheduler | [Scheduler](/azure/scheduler/) |
 | Microsoft.Search | [Azure Search](../search/index.yml) |
 | Microsoft.Security | [Security Center](../security-center/index.yml) |
+| Microsoft.SecurityInsights | [Azure Sentinel](/azure/sentinel/) |
 | Microsoft.ServiceBus | [Service Bus](/azure/service-bus/) |
 | Microsoft.ServiceFabric | [Service Fabric](../service-fabric/index.yml) |
 | Microsoft.ServiceFabricMesh | [Service Fabric Mesh](../service-fabric-mesh/index.yml) |
 | Microsoft.SignalRService | [Azure SignalR Service](../azure-signalr/index.yml) |
 | Microsoft.SiteRecovery | [Site Recovery](../site-recovery/index.yml) |
 | Microsoft.Solutions | [Azure Managed Applications](../managed-applications/index.yml) |
-| Microsoft.Sql | [Azure SQL Database](../sql-database/index.yml) |
+| Microsoft.Sql | [Azure SQL Database](../sql-database/index.yml)<br />[SQL Data Warehouse](/azure/sql-data-warehouse/) |
 | Microsoft.SqlVirtualMachine | [SQL Server on Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md) |
 | Microsoft.Storage | [Storage](../storage/index.yml) |
+| Microsoft.StorageCache | [Azure HPC Cache](/azure/hpc-cache/) |
 | Microsoft.StorageSync | [Storage](../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](/azure/storsimple/) |
 | Microsoft.StreamAnalytics | [Stream Analytics](../stream-analytics/index.yml) |

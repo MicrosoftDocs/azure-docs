@@ -21,9 +21,9 @@ You can launch Azure Cloud Shell with:
 
 |  |   |
 |-----------------------------------------------|---|
-| Select **Try It** in the upper-right corner of a code block. This __doesn't__ automatically copy text to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
-| Open [shell.azure.com](https://shell.azure.com) in your browser. | [![Launch Azure Cloud Shell button](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com) |
-| Select the **Cloud Shell** button on the menu in the upper-right corner of the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+| Select **Try It** in the upper-right corner of a code block. This __doesn't__ automatically copy text to Cloud Shell. | ![Example of Try It for Azure Cloud Shell](./media/cloud-shell-try-it/hdi-azure-cli-try-it.png) |
+| Open [shell.azure.com](https://shell.azure.com) in your browser. | [![Launch Azure Cloud Shell button](./media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com) |
+| Select the **Cloud Shell** button on the menu in the upper-right corner of the [Azure portal](https://portal.azure.com). | ![Cloud Shell button in the Azure portal](./media/cloud-shell-try-it/hdi-cloud-shell-menu.png) |
 
 If you don't want to use Azure Cloud Shell, install Azure PowerShell locally instead. Be sure to install the latest version of the Azure PowerShell Az
 module to get up-to-date functionality. For more information, see [Install Azure PowerShell](/powershell/azure/overview).

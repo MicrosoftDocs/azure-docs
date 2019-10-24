@@ -10,7 +10,7 @@
   - name: Deploy and configure
     href: tutorial-firewall-deploy-portal.md
   - name: Deploy in hybrid network
-    href: tutorial-hybrid-ps.md
+    href: tutorial-hybrid-portal.md
   - name: Filter inbound traffic with DNAT
     href: tutorial-firewall-dnat.md
   - name: Monitor diagnostic logs
@@ -39,6 +39,8 @@
   items:
     - name: Deploy using Azure PowerShell
       href: deploy-ps.md
+    - name: Deploy in hybrid network - PowerShell
+      href: tutorial-hybrid-ps.md
     - name: Deploy using Azure CLI
       href: deploy-cli.md
     - name: Deploy using a template

@@ -10,7 +10,6 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ROBOTS: NOINDEX
 ---
 
 # Convert to CSV module
@@ -33,11 +32,11 @@ When you convert a dataset to CSV, the file is saved in your Azure ML workspace.
 
 ## How to configure Convert to CSV
 
-1.  Add the [Convert to CSV](./convert-to-csv.md) module to your experiment. You can find this module in the **Data Format Conversions** group in the interface. 
+1.  Add the [Convert to CSV](./convert-to-csv.md) module to your pipeline. You can find this module in the **Data Format Conversions** group in the interface. 
 
 2. Connect it to any module that outputs a dataset.   
   
-3.  Run the experiment.
+3.  Run the pipeline.
 
 ### Results
   

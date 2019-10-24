@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 10/02/2019
 ms.author: TomSh
 
 ---
@@ -59,7 +59,7 @@ When you use network security groups for network access control between subnets,
 **Best practice**: Avoid small virtual networks and subnets to ensure simplicity and flexibility.   
 **Detail**: Most organizations add more resources than initially planned, and re-allocating addresses is labor intensive. Using small subnets adds limited security value, and mapping a network security group to each subnet adds overhead. Define subnets broadly to ensure that you have flexibility for growth.
 
-**Best practice**: Simplify network security group rule management by defining [Application Security Groups](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).  
+**Best practice**: Simplify network security group rule management by defining [Application Security Groups](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
 **Detail**: Define an Application Security Group for lists of IP addresses that you think might change in the future or be used across many network security groups. Be sure to name Application Security Groups clearly so others can understand their content and purpose.
 
 ## Adopt a Zero Trust approach
@@ -110,7 +110,7 @@ Azure network security appliances can deliver better security than what network-
 To find available Azure virtual network security appliances, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/) and search for “security” and “network security.”
 
 ## Deploy perimeter networks for security zones
-A [perimeter network](./https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (also known as a DMZ) is a physical or logical network segment that provides an additional layer of security between your assets and the internet. Specialized network access control devices on the edge of a perimeter network allow only desired traffic into your virtual network.
+A [perimeter network](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) (also known as a DMZ) is a physical or logical network segment that provides an additional layer of security between your assets and the internet. Specialized network access control devices on the edge of a perimeter network allow only desired traffic into your virtual network.
 
 Perimeter networks are useful because you can focus your network access control management, monitoring, logging, and reporting on the devices at the edge of your Azure virtual network. A perimeter network is where you typically enable distributed denial of service (DDoS) prevention, intrusion detection/intrusion prevention systems (IDS/IPS), firewall rules and policies, web filtering, network antimalware, and more. The network security devices sit between the internet and your Azure virtual network and have an interface on both networks.
 

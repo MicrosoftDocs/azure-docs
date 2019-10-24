@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-When you use Azure Active Directory (Azure AD) B2C together with Azure Application Insights, you can get detailed and customized event logs for your user journeys. In this article, you learn how to:
+When you use Azure Active Directory B2C (Azure AD B2C) together with Azure Application Insights, you can get detailed and customized event logs for your user journeys. In this article, you learn how to:
 
 * Gain insights on user behavior.
 * Troubleshoot your own policies in development or in production.
@@ -41,7 +41,7 @@ Complete the steps in [Get started with custom policies](active-directory-b2c-ge
 When you're using Application Insights with Azure AD B2C, all you need to do is create a resource and get the instrumentation key.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure subscription by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your subscription. This tenant is not your Azure AD B2C tenant.
+2. Make sure you're using the directory that contains your Azure subscription by selecting the **Directory + subscription** filter in the top menu and choosing the directory that contains your subscription. This tenant is not your Azure AD B2C tenant.
 3. Choose **Create a resource** in the top-left corner of the Azure portal, and then search for and select **Application Insights**.
 4. Click **Create**.
 5. Enter a **Name** for the resource.
@@ -107,10 +107,10 @@ Technical profiles can be considered functions in the Identity Experience Framew
 
 | Technical Profile | Task |
 | ----------------- | -----|
-| AzureInsights-Common | Creates a common set of parameters to be included in all AzureInsights technical profiles. | 
-| AzureInsights-SignInRequest | Creates a SignIn event with a set of claims when a sign-in request has been received. | 
-| AzureInsights-UserSignup | Creates a UserSignup event when the user triggers the sign-up option in a sign-up/sign-in journey. | 
-| AzureInsights-SignInComplete | Records the successful completion of an authentication when a token has been sent to the relying party application. | 
+| AzureInsights-Common | Creates a common set of parameters to be included in all AzureInsights technical profiles. |
+| AzureInsights-SignInRequest | Creates a SignIn event with a set of claims when a sign-in request has been received. |
+| AzureInsights-UserSignup | Creates a UserSignup event when the user triggers the sign-up option in a sign-up/sign-in journey. |
+| AzureInsights-SignInComplete | Records the successful completion of an authentication when a token has been sent to the relying party application. |
 
 Add the profiles to the *TrustFrameworkExtensions.xml* file from the starter pack. Add these elements to the **ClaimsProviders** element:
 
@@ -226,11 +226,11 @@ Save and upload the *TrustFrameworkExtensions.xml* file. Then, call the relying 
 
 ## Next steps
 
-Add claim types and events to your user journey to fit your needs. You can use [claim resolvers](claim-resolver-overview.md) or any string claim type, add the claims by adding an **Input Claim** element to the Application Insights event or to the AzureInsights-Common technical profile. 
+Add claim types and events to your user journey to fit your needs. You can use [claim resolvers](claim-resolver-overview.md) or any string claim type, add the claims by adding an **Input Claim** element to the Application Insights event or to the AzureInsights-Common technical profile.
 
 - **ClaimTypeReferenceId** is the reference to a claim type.
-- **PartnerClaimType** is the name of the property that appears in Azure Insights. Use the syntax of `{property:NAME}`, where `NAME` is property being added to the event. 
-- **DefaultValue** use any string value or the claim resolver. 
+- **PartnerClaimType** is the name of the property that appears in Azure Insights. Use the syntax of `{property:NAME}`, where `NAME` is property being added to the event.
+- **DefaultValue** use any string value or the claim resolver.
 
 ```XML
 <InputClaim ClaimTypeReferenceId="app_session" PartnerClaimType="{property:app_session}" DefaultValue="{OAUTH-KV:app_session}" />

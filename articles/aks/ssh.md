@@ -35,7 +35,7 @@ To configure your virtual machine scale set-based for SSH access, find the name 
 Use the [az aks show][az-aks-show] command to get the resource group name of your AKS cluster, then the [az vmss list][az-vmss-list] command to get the name of your scale set.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
@@ -92,7 +92,7 @@ To configure your virtual machine availability set-based AKS cluster for SSH acc
 Use the [az aks show][az-aks-show] command to get the resource group name of your AKS cluster, then the [az vm list][az-vm-list] command to list the virtual machine name of your cluster's Linux node.
 
 ```azurecli-interactive
-$CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 

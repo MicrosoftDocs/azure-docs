@@ -244,7 +244,7 @@ These functions can also be used to validate Polygons. For example, here we use 
 ### LINQ Querying in the .NET SDK
 The SQL .NET SDK also providers stub methods `Distance()` and `Within()` for use within LINQ expressions. The SQL LINQ provider translates this method calls to the equivalent SQL built-in function calls (ST_DISTANCE and ST_WITHIN respectively). 
 
-Here's an example of a LINQ query that finds all documents in the Azure Cosmos DB collection whose "location" value is within a radius of 30 km of the specified point using LINQ.
+Here's an example of a LINQ query that finds all documents in the Azure Cosmos container whose "location" value is within a radius of 30 km of the specified point using LINQ.
 
 **LINQ query for Distance**
 

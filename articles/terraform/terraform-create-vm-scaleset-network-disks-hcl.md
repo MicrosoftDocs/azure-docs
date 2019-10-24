@@ -7,7 +7,7 @@ keywords: terraform, devops, virtual machine, Azure, scale set, network, storage
 author: tomarchermsft
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 09/20/2019
 ---
 
 # Use Terraform to create an Azure virtual machine scale set
@@ -75,7 +75,7 @@ Within the Azure Cloud Shell, perform the following steps:
 
 1. Paste the following code into the editor:
 
-   ```JSON
+   ```hcl
    variable "location" {
     description = "The location where resources will be created"
    }
@@ -119,7 +119,7 @@ Within the Azure Cloud Shell, perform the following steps:
 1. Paste the following code into the editor to expose the fully qualified domain name (FQDN) for the virtual machines.
    :
 
-   ```JSON
+   ```hcl
     output "vmss_public_ip" {
         value = "${azurerm_public_ip.vmss.fqdn}"
     }
@@ -152,7 +152,7 @@ Within the Azure Cloud Shell, perform the following steps:
 
 1. Paste the following code to the end of the file to expose the fully qualified domain name (FQDN) for the virtual machines.
 
-   ```JSON
+   ```hcl
    resource "azurerm_resource_group" "vmss" {
     name     = "${var.resource_group_name}"
     location = "${var.location}"
@@ -247,7 +247,7 @@ In Cloud Shell, perform the following steps:
 
 1. Paste the following code to the end of the file:
 
-   ```JSON
+   ```hcl
    resource "azurerm_lb" "vmss" {
     name                = "vmss-lb"
     location            = "${var.location}"
@@ -364,7 +364,7 @@ In Cloud Shell, perform the following steps:
 
 1. Paste the following code into the editor:
 
-   ```JSON
+   ```hcl
    #cloud-config
    packages:
     - nginx
@@ -388,7 +388,7 @@ In Cloud Shell, perform the following steps:
 
 1. Customize the deployment by pasting the following code to the end of the file:
 
-    ```JSON
+    ```hcl
     variable "application_port" {
        description = "The port that you want to expose to the external load balancer"
        default     = 80
@@ -453,7 +453,7 @@ An SSH *jumpbox* is a single server that you "jump" through in order to access o
 
 1. Paste the following code to the end of the file:
 
-   ```JSON
+   ```hcl
    resource "azurerm_public_ip" "jumpbox" {
     name                         = "jumpbox-public-ip"
     location                     = "${var.location}"
@@ -523,7 +523,7 @@ An SSH *jumpbox* is a single server that you "jump" through in order to access o
 
 1. Paste the following code to the end of the file to display the hostname of the jumpbox when the deployment is complete:
 
-   ```
+   ```hcl
    output "jumpbox_public_ip" {
       value = "${azurerm_public_ip.jumpbox.fqdn}"
    }

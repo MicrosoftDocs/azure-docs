@@ -21,9 +21,9 @@ ms.reviewer: kumud
 Integrating Azure services to an Azure virtual network enables private access to the service from virtual machines or compute resources in the virtual network.
 You can integrate Azure services in your virtual network with the following options:
 - Deploying dedicated instances of the service into a virtual network. The services can then be privately accessed within the virtual network and from on-premises networks.
-- Extending a virtual network to the service, through service endpoints. Service endpoints allow individual service resources to be secured to the virtual network.
+- Using [Private Link](../private-link/private-link-overview.md) to access privately an specific instance of the service from your virtual network and from on-premises networks.
 
-To integrate multiple Azure services to your virtual network, you can combine one or more of the above patterns. For example, you can deploy HDInsight into your virtual network and secure a storage account to the HDInsight subnet through Service endpoints.
+You can also access the service using public endpoints by extending a virtual network to the service, through [service endpoints](virtual-network-service-endpoints-overview.md). Service endpoints allow service resources to be secured to the virtual network.
  
 ## Deploy Azure services into virtual networks
 
@@ -58,8 +58,3 @@ Deploying services within a virtual network provides the following capabilities:
 
 ¹ 'Dedicated' implies that only service specific resources can be deployed in this subnet and cannot be combined with customer VM/VMSSs <br/> 
 ² Recommended, but not a mandatory requirement imposed by the service.
-
-
-## Service endpoints for Azure services
-
-Some Azure services can't be deployed in virtual networks. You can restrict access to some of the service resources to only specific virtual network subnets, if you choose, by enabling a virtual network service endpoint.  Learn more about [virtual network service endpoints](virtual-network-service-endpoints-overview.md), and the services that endpoints can be enabled for.

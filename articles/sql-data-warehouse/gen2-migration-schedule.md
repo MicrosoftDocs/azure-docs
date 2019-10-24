@@ -57,7 +57,7 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | UAE North |July 20, 2019 |Complete |
 | UK South |Available |In-progress |
 | UK West |Available |In-progress |
-| West Central US |September 1, 2019 |October 1, 2019|
+| West Central US |November 1, 2019 |December 1, 2019|
 | West Europe |Available |Complete |
 | West US |Available |Complete |
 | West US 2 |Available |Complete |

@@ -104,4 +104,4 @@ If using online data transfer, use the table in the following section for high n
 - Use the REST APIs to transfer data
 
     - [In .NET](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
-    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage/client)
+    - [In Java](https://docs.microsoft.com/java/api/overview/azure/storage)

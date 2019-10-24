@@ -1,11 +1,11 @@
 ---
 title: Work with databases, containers, and items in Azure Cosmos DB 
 description: This article describes how to create and use databases, containers, and items in Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.author: rimman
+ms.date: 09/01/2019
 ms.reviewer: sngun
 
 ---
@@ -70,7 +70,7 @@ An Azure Cosmos container is specialized into API-specific entities as shown in 
 
 | Azure Cosmos entity | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- |
-|Azure Cosmos container | Collection | Table | Collection | Graph | Table |
+|Azure Cosmos container | Container | Table | Collection | Graph | Table |
 
 ### Properties of an Azure Cosmos container
 

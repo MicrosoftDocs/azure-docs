@@ -90,6 +90,10 @@
       href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Create a dedicated private connection (ExpressRoute)
       href: ../expressroute/expressroute-howto-circuit-portal-resource-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Public cloud connectivity
+    items:
+    - name: Connect Azure to public clouds
+      href: ../expressroute/expressroute-connect-azure-to-public-cloud.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Management
     items:
     - name: Network monitoring overview

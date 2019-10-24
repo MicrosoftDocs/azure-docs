@@ -3,9 +3,7 @@ title: How to Make a phone call from Twilio (Java) | Microsoft Docs
 description: Learn how to make a phone call from a web page using Twilio in a Java application on Azure.
 services: ''
 documentationcenter: java
-author: devinrader
-manager: twilio
-editor: mollybos
+author: georgewallace
 
 ms.assetid: 0381789e-e775-41a0-a784-294275192b1d
 ms.service: multiple
@@ -14,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 11/25/2014
-ms.author: microsofthelp@twilio.com
+ms.author: gwallace
 
 ---
 # How to Make a Phone Call Using Twilio in a Java Application on Azure

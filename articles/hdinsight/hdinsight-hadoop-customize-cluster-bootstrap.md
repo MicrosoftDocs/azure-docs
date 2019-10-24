@@ -12,7 +12,7 @@ ms.date: 04/19/2019
 
 # Customize HDInsight clusters using Bootstrap
 
-Bootstrap scripts allow you to install and configure components in Azure HDInsight programmatically. 
+Bootstrap scripts allow you to install and configure components in Azure HDInsight programmatically.
 
 There are three approaches to set configuration file settings as your HDInsight cluster is created:
 
@@ -51,7 +51,6 @@ The following PowerShell code customizes an [Apache Hive](https://hive.apache.or
 
 > [!IMPORTANT]  
 > The parameter `Spark2Defaults` may need to be used with [Add-AzHDInsightConfigValue](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightconfigvalue). You can pass empty values to the parameter as shown in the code example below.
-
 
 ```powershell
 # hive-site.xml configuration
@@ -125,9 +124,10 @@ You can use bootstrap in Resource Manager template:
 }
 ```
 
-![HDInsight Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+![Hadoop customizes cluster bootstrap Azure Resource Manager template](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
 ## See also
+
 * [Create Apache Hadoop clusters in HDInsight][hdinsight-provision-cluster] provides instructions on how to create an HDInsight cluster by using other custom options.
 * [Develop Script Action scripts for HDInsight][hdinsight-write-script]
 * [Install and use Apache Spark on HDInsight clusters][hdinsight-install-spark]
@@ -137,8 +137,6 @@ You can use bootstrap in Resource Manager template:
 [hdinsight-write-script]: hdinsight-hadoop-script-actions-linux.md
 [hdinsight-provision-cluster]: hdinsight-hadoop-provision-linux-clusters.md
 [powershell-install-configure]: /powershell/azureps-cmdlets-docs
-
-
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster/HDI-Cluster-state.png "Stages during cluster creation"
 
 ## Appendix: PowerShell sample
@@ -147,7 +145,6 @@ This PowerShell script creates an HDInsight cluster and customizes a Hive settin
 
 > [!WARNING]  
 > Storage account kind `BlobStorage` cannot be used for HDInsight clusters.
-
 
 ```powershell
 ####################################

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 10/02/2019
 ms.author: diberry
 ---
 
@@ -23,7 +23,7 @@ This quickstart calls QnA Maker APIs:
 ## Prerequisites
 
 * [Go 1.10.1](https://golang.org/dl/)
-* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
+* You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
 
 * QnA Maker knowledge base (KB) ID found in the URL in the kbid query string parameter as shown below.
 

@@ -50,8 +50,6 @@ These quickstarts enable you to quickly create, configure, and restore database 
 
 Although the VNet/subnet can be automatically configured when the instance is created using [the Azure portal](sql-database-managed-instance-get-started.md), it might be good to create it before you start creating Managed Instances because you can configure the parameters of VNet and subnet. The easiest way to create and configure the network environment is to use [Azure Resource deployment](sql-database-managed-instance-create-vnet-subnet.md) template that will create and configure you network and subnet where the instance will be placed. You just need to press the Azure Resource Manager deploy button and populate the form with parameters.
 
-As an alternative, you can use [PowerShell script](https://www.powershellmagazine.com/20../../configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) to automate creation of the network.
-
 As an alternative, you can also use this [PowerShell script](https://www.powershellmagazine.com/2018/07/23/configuring-azure-environment-to-set-up-azure-sql-database-managed-instance-preview/) to automate creation of the network.
 
 If you already have a VNet and subnet where you would like to deploy your managed instance, you need to make sure that your VNet and subnet satisfy the [networking requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Use this [PowerShell script to verify that your subnet is properly configured](sql-database-managed-instance-configure-vnet-subnet.md). This script validates your network and report any issues, and it tells you what should be changed and then offers to make the necessary changes in your VNet/subnet. Run this script if you don't want to configure your VNet/subnet manually. You can also run it after any major reconfiguration of your network infrastructure. If you want to create and configure your own network, read [connectivity architecture](sql-database-managed-instance-connectivity-architecture.md) and this [ultimate guide for creating and configuring a managed instance environment](https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01).
@@ -69,6 +67,6 @@ Learn more about the [recommended migration process](sql-database-managed-instan
 ## Next steps
 
 - Find a [high-level list of supported features in managed instance here](sql-database-features.md) and [details and known issues here](sql-database-managed-instance-transact-sql-information.md).
-- Learn about [technical characteristics of managed instance](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+- Learn about [technical characteristics of managed instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 - Find more advanced how-to's in [how to use a managed instance in Azure SQL Database](sql-database-howto-managed-instance.md).
 - [Identify the right Azure SQL Database/Managed Instance SKU for your on-premises database](/sql/dma/dma-sku-recommend-sql-db/).

@@ -12,11 +12,11 @@ manager: dikamath
 
 # Delete a CloudSimple Private Cloud
 
-CloudSimple provides the flexibility to delete a Private Cloud.  A Private Cloud consists of one or more vSphere clusters. Each cluster can have 3 to 16 nodes. When you delete a Private Cloud, all clusters will be deleted. 
+CloudSimple provides the flexibility to delete a Private Cloud.  A Private Cloud consists of one or more vSphere clusters. Each cluster can have 3 to 16 nodes. When you delete a Private Cloud, all clusters will be deleted.
 
 ## Before you begin
 
-Deletion of a Private Cloud deletes the entire Private Cloud.  All components of the Private Cloud will be deleted.  If you want to keep any of the data, ensure you've backed up the data to on-premises storage or Azure storage. 
+Deletion of a Private Cloud deletes the entire Private Cloud.  All components of the Private Cloud will be deleted.  If you want to keep any of the data, ensure you've backed up the data to on-premises storage or Azure storage.
 
 The components of a Private Cloud include:
 
@@ -26,12 +26,11 @@ The components of a Private Cloud include:
 * All user data stored on the Private Cloud
 * All firewall rule attachments to a VLAN/Subnet
 
-
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
-## Delete a Private Cloud 
+## Delete a Private Cloud
 
 1. [Access the CloudSimple portal](access-cloudsimple-portal.md).
 
@@ -47,12 +46,10 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
     ![Delete private cloud - confirm](media/delete-private-cloud-confirm.png)
 
-
 The Private Cloud is marked for deletion.  The deletion process starts after three hours and deletes the Private Cloud.
 
 > [!CAUTION]
 > Nodes must be deleted after deletion of the Private Cloud.  Metering of nodes will continue till nodes are deleted from your subscription.
-
 
 ## Next steps
 

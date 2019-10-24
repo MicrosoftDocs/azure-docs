@@ -160,7 +160,7 @@ const score = intents[topIntentName];
 The response JSON schema changes allow for:
 
 * Clear distinction between original utterance, `query`, and returned prediction, `prediction`.
-* Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **named** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
+* Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **name** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
 * Data types, if determined, are respected. Numerics are no longer returned as strings.
 * Distinction between first priority prediction information and additional metadata, returned in the `$instance` object. 
 
@@ -414,7 +414,7 @@ Send in the following JSON body to add a new sublist with synonyms to the list, 
     },
     "dynamicLists": [
         {
-            "listEntityName":"ProductList",
+            "listEntity*":"ProductList",
             "requestLists":[
                 {
                     "name": "Azure Cognitive Services",

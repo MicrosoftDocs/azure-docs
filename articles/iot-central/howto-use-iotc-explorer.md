@@ -92,7 +92,7 @@ iotc-explorer monitor-messages <your-device-id>
 You can also output a more machine-friendly format by adding
 the `--raw` option to the command:
 
-```
+```cmd/sh
 iotc-explorer monitor-messages --raw
 ```
 

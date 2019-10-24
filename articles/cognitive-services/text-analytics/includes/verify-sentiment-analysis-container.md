@@ -1,22 +1,22 @@
 ---
-title: Verify the sentiment analysis container instance
+title: Verify the Sentiment Analysis container instance
 titleSuffix: Azure Cognitive Services
-description: Learn how to verify the sentiment analysis container instance.
+description: Learn how to verify the Sentiment Analysis container instance.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: include 
-ms.date: 06/26/2019
+ms.topic: include
+ms.date: 09/12/2019
 ms.author: dapine
 ---
 
-## Verify the sentiment analysis container instance
+### Verify the Sentiment Analysis container instance
 
 1. Select the **Overview** tab, and copy the IP address.
 1. Open a new browser tab, and enter the IP address. For example, enter `http://<IP-address>:5000 (http://55.55.55.55:5000`). The container's home page is displayed, which lets you know the container is running.
 
-    ![View the container home page to verify that it's running](../media/how-tos/container-instance/swagger-docs-on-container.png).
+    ![View the container home page to verify that it's running](../media/how-tos/container-instance/swagger-docs-on-container.png)
 
 1. Select the **Service API Description** link to go to the container's Swagger page.
 
@@ -58,11 +58,11 @@ ms.author: dapine
     }
     ```
 
-1. Set **showStats** to true.
+1. Set **showStats** to `true`.
 
 1. Select **Execute** to determine the sentiment of the text.
 
-    The model that's packaged in the container generates a score that ranges from 0 to 1, where 0 is negative and 1 is positive.
+    The model that's packaged in the container generates a score that ranges from 0 to 1, where 0 is negative sentiment and 1 is positive sentiment.
 
     The JSON response that's returned includes sentiment for the updated text input:
 
@@ -88,4 +88,4 @@ ms.author: dapine
     }
     ```
 
-We can now correlate the document `id` of the response payload's JSON data to the original request payload document `id`. The score of more than `.98` indicates a strongly positive sentiment.
+We can now correlate the document `id` of the response payload's JSON data to the original request payload document `id`. The score of more than `0.98` indicates a very positive sentiment.

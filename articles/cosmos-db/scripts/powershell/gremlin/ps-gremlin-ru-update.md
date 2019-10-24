@@ -3,6 +3,7 @@ title: Azure PowerShell script - Azure Cosmos DB Update RU/s for Gremlin API
 description: Azure PowerShell script - Azure Cosmos DB Update RU/s for Gremlin API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown

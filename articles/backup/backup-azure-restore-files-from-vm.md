@@ -7,7 +7,7 @@ manager: carmonm
 keywords: item level recovery; file recovery from Azure VM backup; restore files from Azure VM
 ms.service: backup
 ms.topic: conceptual
-ms.date: 3/01/2019
+ms.date: 03/01/2019
 ms.author: dacurwin
 ---
 # Recover files from Azure virtual machine backup
@@ -62,7 +62,7 @@ To restore files or folders from the recovery point, go to the virtual machine a
     - download.microsoft.com
     - Recovery Service URLs (geo-name refers to the region where the recovery service vault resides)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.com (For Azure public geos)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (For Azure China)
+        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (For Azure China 21Vianet)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.us (For Azure US Government)
         - https:\//pod01-rec2.geo-name.backup.windowsazure.de (For Azure Germany)
     - outbound port 3260
@@ -213,6 +213,35 @@ The script also requires Python and bash components to execute and connect secur
 | python | 2.6.6 and above  |
 | TLS | 1.2 should be supported  |
 
+## File recovery from Virtual machine backups having large disks
+
+This section explains how to perform file recovery from Azure Virtual machine backups whose number of disks are > 16 and each disk size is > 4 TB.
+
+Since file recovery process attaches all disks from the backup, in case of large number of disks (>16) or large disks (> 4TB each), following action points are recommended.
+
+- Keep a separate restore server (Azure VM D2v3 VMs) for file recovery. You can use that only file recovery and then shut down when not required. Restoring on the original machine is not recommended since it will have significant impact on the VM itself.
+- Then run the script once to check if the file recovery operation succeeds.
+- If the file recovery process hangs (the disks are never mounted or they are mounted but volumes do not appear), do the following steps.
+  - If the restore server is a Windows VM
+    - Ensure that the OS is WS 2012+.
+    - Ensure the registry keys are set as suggested below in the restore server and make sure to reboot the server. The number beside the GUID can range from 0001-0005. In the following example, it is 0004. Navigate through the registry key path until the parameters section.
+
+    ![iscsi-reg-key-changes.png](media/backup-azure-restore-files-from-vm/iscsi-reg-key-changes.png)
+
+```registry
+- HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Disk\TimeOutValue – change this from 60 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\SrbTimeoutDelta – change this from 15 to 1200
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\EnableNOPOut – change this from 0 to 1
+- HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control\Class\{4d36e97b-e325-11ce-bfc1-08002be10318}\0003\Parameters\MaxRequestHoldTime - change this from 60 to 1200
+```
+
+- If the restore server is a Linux VM
+  - In the file /etc/iscsi/iscsid.conf, change the setting from
+    - node.conn[0].timeo.noop_out_timeout = 5  to node.conn[0].timeo.noop_out_timeout = 30
+- After performing the following, now run the script again. With these changes, it is highly probable that the file recovery succeeds.
+- Each time user downloads a script, Azure Backup initiates the process of preparing the recovery point for download. In case of large disks, this will take considerable time. If there are successive bursts of requests, the target preparation will go into a download spiral. Hence it is recommended to download a script from Portal/Powershell/CLI, wait for 20-30 mins (a heuristic) and then run it. By this time, the target is expected to be ready for connection from script.
+- After file recovery, make sure you go back to Portal to click “Unmount disks” for recovery points where you were not able to mount volumes. Essentially, this step will clean any existing processes/sessions and increase the chance of recovery.
+
 ## Troubleshooting
 
 If you have problems while recovering files from the virtual machines, check the following table for additional information.
@@ -241,7 +270,7 @@ This feature was built to access the VM data without the need to restore the ent
 
 #### Select Recovery point (who can generate script)
 
-The script provides access to VM data, it is important to regulate who can generate it in the first place. One needs to login into Azure portal and should be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to be able to generate the script.
+The script provides access to VM data, it is important to regulate who can generate it in the first place. One needs to log in into Azure portal and should be [RBAC authorized](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) to be able to generate the script.
 
 File recovery needs the same level of authorization as required for VM restore and disks restore. In other words, only authorized users can view the VM data can generate the script.
 

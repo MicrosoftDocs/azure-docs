@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
+ms.custom: seodec18, seo-javascript-october2019
 ---
 
 # Try Speech Services for free
@@ -31,19 +31,19 @@ To sign up for a 30-day free trial:
 
 1. Select the **Speech APIs** tab.
 
-   ![Speech Services tab](media/index/try-speech-api-free-trial1.png)
+   ![Speech API - Speech Services tab](media/index/cognitive-services-speech-api-tab.png)
 
-1. Under **Speech Services**, select the **Get API Key** button.
+1. Under **Speech Services**, select **Get API Key**.
 
-   ![API key](media/index/try-speech-api-free-trial2.png)
+   ![Speech API - Get API key](media/index/speech-api-get-api-key.png)
 
 1. Agree to the terms and select your locale from the drop-down menu.
 
-   ![Agree to terms](media/index/try-speech-api-free-trial3.png)
+   ![Speech API - Agree to terms](media/index/speech-api-agree-to-terms.png)
 
 1. Sign in by using your Microsoft, Facebook, LinkedIn, or GitHub account.
 
-    You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, click **Sign in with Microsoft** and then, when asked to sign in, click **Create one.** Follow the steps to create and verify your new Microsoft account.
+    You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, select **Sign in with Microsoft** and then, when asked to sign in, select **Create one.** Follow the steps to create and verify your new Microsoft account.
 
 After you sign in to Try Cognitive Services, your free trial begins. The displayed webpage lists all the Azure Cognitive Services services for which you currently have trial subscriptions. Two subscription keys are listed beside **Speech Services**. You can use either key in your applications.
 
@@ -54,9 +54,9 @@ After you sign in to Try Cognitive Services, your free trial begins. The display
 
 New Azure accounts receive a $200 service credit that is available for up to 30 days. You can use this credit to further explore the Speech Services or to begin application development.
 
-To sign up for a new Azure account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), click **Start Free,** and create a new Azure account using your Microsoft account.
+To sign up for a new Azure account, go to the [Azure sign-up page](https://azure.microsoft.com/free/ai/), select **Start Free,** and create a new Azure account using your Microsoft account.
 
-You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, click **Sign in with Microsoft** and then, when asked to sign in, click **Create one.** Follow the steps to create and verify your new Microsoft account.
+You can sign up for a free Microsoft account at the [Microsoft account portal](https://account.microsoft.com/account). To get started, select **Sign in with Microsoft** and then, when asked to sign in, select **Create one.** Follow the steps to create and verify your new Microsoft account.
 
 After creating your Azure account, follow the steps in the next section to start a subscription to the Speech Services.
 
@@ -68,35 +68,35 @@ To add a Speech Services resource (free or paid tier) to your Azure account:
 
 1. Select **Create a resource** at the top left of the portal.
 
-    ![Create a resource](media/index/try-speech-api-create-speech1.png)
+    ![Speech API - Create a resource](media/index/speech-api-create-resource.png)
 
 1. In the **New** window, search for **speech**.
 
 1. In the search results, select **Speech**.
 
-    ![Select Speech](media/index/try-speech-api-create-speech2.png)
+    ![Speech API - Select Speech](media/index/speech-api-select-speech.png)
 
 1. Under **Speech**, select the **Create** button.
 
-    ![Select the Create button](media/index/try-speech-api-create-speech3.png)
+    ![Speech API - Create button](media/index/speech-api-create-button.png)
 
 1. Under **Create**, enter:
 
    * A name for the new resource. The name helps you distinguish among multiple subscriptions to the same service.
    * Choose the Azure subscription that the new resource is associated with to determine how the fees are billed.
    * Choose the [region](regions.md) where the resource will be used.
-   * Choose either a free or paid pricing tier. Click **View full pricing details** for complete information about pricing and usage quotas for each tier.
+   * Choose either a free or paid pricing tier. Select **View full pricing details** for complete information about pricing and usage quotas for each tier.
    * Create a new resource group for this Speech subscription or assign the subscription to an existing resource group. Resource groups help you keep your various Azure subscriptions organized.
    * For convenient access to your subscription in the future, select the **Pin to dashboard** check box.
    * Select **Create.**
 
-     ![Select the Create button](media/index/try-speech-api-create-speech4.png)
+     ![Speech API - Select Create](media/index/speech-api-select-create.png)
 
      It takes a moment to create and deploy your new Speech resource. Select **Quickstart** to see information about your new resource.
 
-     ![Quickstart panel](media/index/try-speech-api-create-speech5.png)
+     ![Speech API - Deploy the resource](media/index/speech-api-deploy-resource.png)
 
-1. Under **Quickstart**, click the **Keys** link under step 1 to display your subscription keys. Each subscription has two keys; you can use either key in your application. Select the button next to each key to copy it to the clipboard for pasting into your code.
+1. Under **Quickstart**, select the **Keys** link under step 1 to display your subscription keys. Each subscription has two keys; you can use either key in your application. Select the button next to each key to copy it to the clipboard for pasting into your code.
 
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decomissioned automatically.

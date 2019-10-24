@@ -47,7 +47,7 @@ The following limits apply only for networking resources managed through **Azure
 | --- | --- | --- |
 | Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
 | Public IP addresses - static | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 200 for Standard.|Contact support. |
+| Public IP addresses - static | 1,000 for Standard.|Contact support. |
 | Public IP prefix length | /28 | Contact support. |
 
 #### <a name="load-balancer"></a>Load balancer limits
@@ -74,7 +74,7 @@ The following limits apply only for networking resources managed through Azure R
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
 | Virtual networks |100 |100 |
-| Local network sites |20 |Contact support. |
+| Local network sites |20 |50 |
 | DNS servers per virtual network |20 |20 |
 | Private IP addresses per virtual network |4,096 |4,096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500,000, up to 1,000,000 for two or more NICs. |500,000, up to 1,000,000 for two or more NICs. |

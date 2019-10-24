@@ -14,7 +14,7 @@ ms.custom: "include file"
 
 A SAS token for access to a container or blob may be secured by using either Azure AD credentials or an account key. A SAS secured with Azure AD credentials is called a user delegation SAS, because the OAuth 2.0 token used to sign the SAS is requested on behalf of the user.
 
-Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures, use Azure AD credentials to create a user delegation SAS for superior security. For more information about the user delegation SAS, see [Create a user delegation SAS](/rest/api/storageservices/create-a-user-delegation-sas).
+Microsoft recommends that you use Azure AD credentials when possible as a security best practice, rather than using the account key, which can be more easily compromised. When your application design requires shared access signatures, use Azure AD credentials to create a user delegation SAS for superior security. For more information about the user delegation SAS, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 > [!NOTE]
 > The user delegation SAS preview is intended for non-production use only.

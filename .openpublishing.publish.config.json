@@ -91,6 +91,12 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-key-vault-dotnet-quickstart",
+      "url": "https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "samples-mediaservices-integration",
       "url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
       "branch": "master"
@@ -266,6 +272,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "cognitive-services-rest-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-REST-api-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cognitive-services-vision-csharp-sdk-quickstarts",
       "url": "https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts",
       "branch": "master"
@@ -291,9 +302,14 @@
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-todo-app",
       "branch": "master"
     },
-	{
+    {
       "path_to_root": "samples-cosmosdb-dotnet-v3",
       "url": "https://github.com/Azure/azure-cosmos-dotnet-v3",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-dotnet-v2",
+      "url": "https://github.com/Azure/azure-cosmos-dotnet-v2",
       "branch": "master"
     },
     {

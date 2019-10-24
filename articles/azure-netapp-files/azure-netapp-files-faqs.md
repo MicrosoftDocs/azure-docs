@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 10/12/2019
 ms.author: b-juche
 ---
 # FAQs About Azure NetApp Files
@@ -45,7 +45,7 @@ Yes, you can, if you create the required DNS entries. Azure NetApp Files supplie
 
 ### Can the network traffic between the Azure VM and the storage be encrypted?
 
-Data traffic (traffic from the NFSv3 or SMBv3 client to Azure NetApp Files volumes) is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
+Data traffic (traffic from the NFSv3, NFSv4.1, or SMBv3 client to Azure NetApp Files volumes) is not encrypted. However, the traffic from an Azure VM (running an NFS or SMB client) to Azure NetApp Files is as secure as any other Azure-VM-to-VM traffic. This traffic is local to the Azure data-center network. 
 
 ### Can the storage be encrypted at rest?
 
@@ -53,7 +53,9 @@ All Azure NetApp Files volumes are encrypted using the FIPS 140-2 standard. All 
 
 ### How are encryption keys managed? 
 
-Key management for Azure NetApp Files is handled by the service.  Currently, user-managed keys (Bring Your Own Keys) are not supported.
+Key management for Azure NetApp Files is handled by the service. A unique XTS-AES-256 data encryption key is generated for each volume. An encryption key hierarchy is used to encrypt and protect all volume keys. These encryption keys are never displayed or reported in an unencrypted format. Encryption keys are deleted immediately when a volume is deleted.
+
+Currently, user-managed keys (Bring Your Own Keys) are not supported.
 
 ### Can I configure the NFS export policy rules to control access to the Azure NetApp Files service mount target?
 
@@ -114,7 +116,11 @@ The volume size reported in DF is the maximum size the Azure NetApp Files volume
 
 ### What NFS version does Azure NetApp Files support?
 
-Azure NetApp Files currently supports NFSv3.
+Azure NetApp Files supports NFSv3 and NFSv4.1. You can create a volume using either NFS version. 
+
+> [!IMPORTANT] 
+> Access to the NFSv4.1 feature requires whitelisting.  To request whitelisting, submit a request to <anffeedback@microsoft.com>. 
+
 
 ### How do I enable root squashing?
 
@@ -133,6 +139,8 @@ Azure NetApp Files currently supports one Active Directory connection per subscr
 ### Does Azure NetApp Files support Azure Active Directory? 
 
 Both [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) and [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) are supported. You can use existing Active Directory domain controllers with Azure NetApp Files. Domain controllers can reside in Azure as virtual machines, or on premises via ExpressRoute or S2S VPN. Azure NetApp Files does not support AD join for [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) at this time.
+
+If you are using Azure NetApp Files with Azure Active Directory Domain Services, the organizational unit path is `OU=AADDC Computers` when you configure Active Directory for your NetApp account.
 
 ### What versions of Windows Server Active Directory are supported?
 

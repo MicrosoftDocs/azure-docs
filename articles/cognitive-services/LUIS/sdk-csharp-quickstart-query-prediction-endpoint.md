@@ -8,11 +8,11 @@ ms.service: cognitive-services
 services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 09/27/2019
 ms.author: diberry
 ---
 
-# Quickstart: Query prediction endpoint with C# .NET SDK
+# Quickstart: Query V2 prediction endpoint with C# .NET SDK
 
 Use the .NET SDK, found on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), to send a user utterance to Language Understanding (LUIS) and receive a prediction of the user's intention. 
 

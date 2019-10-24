@@ -1,17 +1,17 @@
 ---
-title: Offer creation checklist - Commercial Marketplace for Azure
-description: The details you can provide in the offer creation process. - Commercial Marketplace for Azure
+title: SaaS offer creation checklist - Commercial Marketplace for Azure
+description: The details you can provide in the SaaS offer creation process. - Commercial Marketplace for Azure
 author: qianw211 
 manager: evansma
 ms.author: v-qiwe 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 08/14/2019
 ---
 
-# Offer creation checklist
+# SaaS offer creation checklist
 
-The offer creation process will take you through multiple pages. Here are the details you can provide on each page, with links to learn more about each item.
+The SaaS offer creation process will take you through multiple pages. Here are the details you can provide on each page, with links to learn more about each item.
 
 Items you are required to provide or specify are noted below. Some areas are optional or have default values provided, that you can change as desired. You don't have to work on these sections in the order listed here.
 

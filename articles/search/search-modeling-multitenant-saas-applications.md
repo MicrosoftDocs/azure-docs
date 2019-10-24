@@ -1,15 +1,13 @@
 ---
 title: Modeling multitenancy for content isolation in one service - Azure Search
 description: Learn about common design patterns for multitenant SaaS applications while using Azure Search.
-manager: jlembicz
+manager: nitinme
 author: LiamCavanagh
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: liamca
-ms.custom: seodec2018
 ---
 # Design patterns for multitenant SaaS applications and Azure Search
 A multitenant application is one that provides the same services and capabilities to any number of tenants who cannot see or share the data of any other tenant. This document discusses tenant isolation strategies for multitenant applications built with Azure Search.

@@ -1,18 +1,18 @@
 ---
-title: Use the Azurite open-source emulator for blob storage development and testing (preview)
-description: The Azurite open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications.
+title: Use the Azurite open-source emulator for Azure storage development and testing (preview)
+description: The Azurite open-source emulator (preview) provides a free local environment for testing your Azure storage applications.
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 06/12/2019
+ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ---
 
-# Use the Azurite open-source emulator for blob storage development and testing (preview)
+# Use the Azurite open-source emulator for Azure storage development and testing (preview)
 
-The Azurite version 3 open-source emulator (preview) provides a free local environment for testing your Azure Blob storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
+The Azurite version 3.2 open-source emulator (preview) provides a free local environment for testing your Azure blob and queue storage applications. When you're satisfied with how your application is working locally, switch to using an Azure Storage account in the cloud. The emulator provides cross-platform support on Windows, Linux, and MacOS. Azurite v3 supports APIs implemented by the Azure Blob service.
 
 Azurite is the future storage emulator platform. Azurite supersedes the [Azure Storage Emulator](storage-use-emulator.md). Azurite will continue to be updated to support the latest versions of Azure Storage APIs.
 
@@ -31,18 +31,21 @@ Within Visual Studio Code, select the **EXTENSIONS** pane and search for *Azurit
 
 Alternatively, navigate to [VS Code extension market](https://marketplace.visualstudio.com/items?itemName=Azurite.azurite) in your browser. Select the **Install** button to open Visual Studio Code and go directly to the Azurite extension page.
 
-You can quickly start or close Azurite by clicking on **Azurite Blob Service** in the VS Code status bar or issuing the following commands in the VS Code command palette. To open the command palette, press **F1** in VS Code.
+You can quickly start or close Azurite by clicking on **[Azurite Blob Service]** or **[Azurite Queue Service]** in the VS Code status bar or issuing the following commands in the VS Code command palette. To open the command palette, press **F1** in VS Code.
 
 The extension supports the following Visual Studio Code commands:
 
    * **Azurite: Start** - Start all Azurite services
    * **Azurite: Close** - Close all Azurite services
    * **Azurite: Clean** - Reset all Azurite services persistency data
-   * **Azurite: Start** - Blob Start blob service
-   * **Azurite: Close** - Blob Close blob service
-   * **Azurite: Clean** - Blob Clean blob service
+   * **Azurite: Start Blob Service** - Start blob service
+   * **Azurite: Close Blob Service** - Close blob service
+   * **Azurite: Clean Blob Service** - Clean blob service
+   * **Azurite: Start Queue Service** - Start queue service
+   * **Azurite: Close Queue Service** - Close queue service
+   * **Azurite: Clean Queue Service** - Clean queue service
 
-To configure Azurite within Visual Studio Code, select the extensions pane and right-click on **Azurite**. Select **Configure Extension Settings**.
+To configure Azurite within Visual Studio Code, select the extensions pane. Select the **Manage** (gear) icon for **Azurite**. Select **Configure Extension Settings**.
 
 ![Azurite configure extension settings](media/storage-use-azurite/azurite-configure-extension-settings.png)
 
@@ -52,6 +55,8 @@ The following settings are supported:
    * **Azurite: Blob Port** - The Blob service listening port. The default port is 10000.
    * **Azurite: Debug** - Output the debug log to the Azurite channel. The default value is **false**.
    * **Azurite: Location** - The workspace location path. The default is the Visual Studio Code working folder.
+   * **Azurite: Queue Host** - The Queue service listening endpoint. The default setting is 127.0.0.1.
+   * **Azurite: Queue Port** - The Queue service listening port. The default port is 10001.
    * **Azurite: Silent** - Silent mode disables the access log. The default value is **false**.
 
 ## Install and run Azurite by using NPM
@@ -77,15 +82,22 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 The following command runs the Azurite Docker image. The `-p 10000:10000` parameter redirects requests from host machine's port 10000 to the Docker instance.
 
 ```console
-docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 ```
 
 **Specify the workspace location**:
 
-In the following example, the `-v c:/azurite:/data` parameter specifies `c:/azurite` as the Azurite persisted data location.
+In the following example, the `-v c:/azurite:/data` parameter specifies *c:/azurite* as the Azurite persisted data location. The directory, *c:/azurite*, must be created before running the Docker command.
 
 ```console
-docker run -p 10000:10000 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
+```
+
+**Run just the blob service**
+
+```console
+docker run -p 10000:10000 mcr.microsoft.com/azure-storage/azurite
+    azurite-blob --blobHost 0.0.0.0 --blobPort 10000
 ```
 
 **Set all Azurite parameters**:
@@ -94,11 +106,14 @@ This example shows how to set all of the command-line parameters. All of the par
 
 ```console
 docker run -p 8888:8888
+           -p 9999:9999
            -v c:/azurite:/workspace mcr.microsoft.com/azure-storage/azurite azurite
            -l /workspace
            -d /workspace/debug.log
            --blobPort 8888
            --blobHost 0.0.0.0
+           --queuePort 9999
+           --queueHost 0.0.0.0
 ```
 
 See [Command-line options](#command-line-options) for more information about configuring Azurite at start-up.
@@ -139,13 +154,15 @@ This command tells Azurite to store all data in a particular directory, **c:\azu
 This section details the command-line switches available when launching Azurite. All command-line switches are optional.
 
 ```console
-C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>]
-    [-l | --location <workspace path>] [-s | --silent] [-d | --debug <log file path>]
+C:\Azurite> azurite [--blobHost <IP address>] [--blobPort <port address>] 
+    [-d | --debug <log file path>] [-l | --location <workspace path>]
+    [--queueHost <IP address>] [--queuePort <port address>]
+    [-s | --silent] [-h | --help]
 ```
 
-The **-l** switch is a shortcut for **--location**, **-s** is a shortcut for **--silent**, and **-d** is a shortcut for **--debug**.
+The **-d** is a shortcut for **--debug**, **-l** switch is a shortcut for **--location**, **-s** is a shortcut for **--silent**, and **-h** is a shortcut for **--help**.
 
-### Listening host
+### Blob listening host
 
 **Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the **--blobHost** switch to set the address to your requirements.
 
@@ -164,7 +181,7 @@ azurite --blobHost 0.0.0.0
 > [!CAUTION]
 > Allowing remote requests may make your system vulnerable to external attacks.
 
-### Listening port configuration
+### Blob listening port configuration
 
 **Optional** By default, Azurite will listen for the Blob service on port 10000. Use the **--blobPort** switch to specify the listening port that you require.
 
@@ -181,6 +198,46 @@ Let the system auto select an available port:
 
 ```console
 azurite --blobPort 0
+```
+
+The port in use is displayed during Azurite startup.
+
+### Queue listening host
+
+**Optional** By default, Azurite will listen to 127.0.0.1 as the local server. Use the **--queueHost** switch to set the address to your requirements.
+
+Accept requests on the local machine only:
+
+```console
+azurite --queueHost 127.0.0.1
+```
+
+Allow remote requests:
+
+```console
+azurite --queueHost 0.0.0.0
+```
+
+> [!CAUTION]
+> Allowing remote requests may make your system vulnerable to external attacks.
+
+### Queue listening port configuration
+
+**Optional** By default, Azurite will listen for the Queue service on port 10001. Use the **--queuePort** switch to specify the listening port that you require.
+
+> [!NOTE]
+> After using a customized port, you need to update the connection string or corresponding configuration in your Azure Storage tools or SDKs.
+
+Customize the Queue service listening port:
+
+```console
+azurite --queuePort 8888
+```
+
+Let the system auto select an available port:
+
+```console
+azurite --queuePort 0
 ```
 
 The port in use is displayed during Azurite startup.

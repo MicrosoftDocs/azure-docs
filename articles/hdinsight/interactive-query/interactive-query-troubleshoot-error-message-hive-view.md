@@ -1,10 +1,11 @@
 ---
 title: Query error message not displayed in Apache Hive View in Azure HDInsight
-description: Query fails in Hive View without any details
+description: Query fails in Apache Hive View without any details on Azure HDInsight cluster.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.date: 07/30/2019
 ---
 

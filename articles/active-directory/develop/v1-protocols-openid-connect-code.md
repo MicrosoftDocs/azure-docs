@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -177,7 +177,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| post_logout_redirect_uri |recommended |The URL that the user should be redirected to after successful sign out. If not included, the user is shown a generic message. |
+| post_logout_redirect_uri |recommended |The URL that the user should be redirected to after successful sign out.  This URL must match one of the redirect URIs registered for your application in the app registration portal.  If *post_logout_redirect_uri* is not included, the user is shown a generic message. |
 
 ## Single sign-out
 

@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 09/09/2019
 ms.author: jingwang
 
 ---
@@ -26,10 +26,11 @@ This article outlines how to copy data to and from Azure Data Lake Storage Gen1.
 
 This Azure Data Lake Storage Gen1 connector is supported for the following activities:
 
-- [Copy activity](copy-activity-overview.md) with [supported source or sink matrix](copy-activity-overview.md)
+- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md) 
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
+- [Delete activity](delete-activity.md)
 
 Specifically, with this connector you can:
 
@@ -159,12 +160,12 @@ In Azure Data Factory, you don't need to specify any properties besides the gene
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format dataset](#format-based-dataset) section.
-- For other formats like **ORC/Avro/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
+- For **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC format**, refer to [Other format dataset](#other-format-dataset) section.
 
-### <a name="format-based-dataset"></a> Parquet, delimited text and binary format dataset
+### <a name="format-based-dataset"></a> Parquet, delimited text, JSON, Avro and binary format dataset
 
-To copy data to and from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings.
+To copy data to and from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings.
  The following properties are supported for Azure Data Lake Store Gen1 under `location` settings in the format-based dataset:
 
 | Property   | Description                                                  | Required |
@@ -205,7 +206,7 @@ To copy data to and from **Parquet, delimited text or binary format**, refer to 
 
 ### Other format dataset
 
-To copy data to and from Azure Data Lake Store Gen1 in **ORC/Avro/JSON format**, the following properties are supported:
+To copy data to and from Azure Data Lake Store Gen1 in **ORC format**, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -257,12 +258,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake Store as source
 
-- To copy from **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format source](#format-based-source) section.
-- To copy from other formats like **ORC/Avro/JSON format**, refer to [Other format source](#other-format-source) section.
+- To copy from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC format**, refer to [Other format source](#other-format-source) section.
 
-#### <a name="format-based-source"></a> Parquet, delimited text and binary format source
+#### <a name="format-based-source"></a> Parquet, delimited text, JSON, Avro and binary format source
 
-To copy data from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings.  The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy source:
+To copy data from **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings.  The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -320,7 +321,7 @@ To copy data from **Parquet, delimited text or binary format**, refer to [Parque
 
 #### Other format source
 
-To copy data from Azure Data Lake Store Gen1 in **ORC, Avro, or JSON format**, the following properties are supported in the copy activity **source** section:
+To copy data from Azure Data Lake Store Gen1 in **ORC format**, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -362,12 +363,12 @@ To copy data from Azure Data Lake Store Gen1 in **ORC, Avro, or JSON format**, t
 
 ### Azure Data Lake Store as sink
 
-- To copy to **Parquet, delimited text or binary format**, refer to [Parquet, delimited text and binary format sink](#format-based-sink) section.
-- To copy to other formats like **ORC/Avro/JSON format**, refer to [Other format sink](#other-format-sink) section.
+- To copy to **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet, delimited text, JSON, Avro and binary format sink](#format-based-sink) section.
+- To copy to other formats like **ORC/JSON format**, refer to [Other format sink](#other-format-sink) section.
 
-#### <a name="format-based-sink"></a> Parquet, delimited text and binary format sink
+#### <a name="format-based-sink"></a> Parquet, delimited text, JSON, Avro and binary format sink
 
-To copy data to **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based copy activity sink and supported settings.  The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy sink:
+To copy data to **Parquet, delimited text, JSON, Avro and binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md), [Avro format](format-avro.md) and [Binary format](format-binary.md) article on format-based copy activity sink and supported settings.  The following properties are supported for Azure Data Lake Store Gen1 under `storeSettings` settings in the format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -415,7 +416,7 @@ To copy data to **Parquet, delimited text or binary format**, refer to [Parquet 
 
 #### Other format sink
 
-To copy data to Azure Data Lake Store Gen1 in **ORC, Avro, or JSON format**, the following properties are supported in the **sink** section:
+To copy data to Azure Data Lake Store Gen1 in **ORC format**, the following properties are supported in the **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -486,6 +487,18 @@ If you want to replicate the access control lists (ACLs) along with data files w
 ## Mapping data flow properties
 
 Learn more about [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in the mapping data flow feature.
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
+## Delete activity properties
+
+To learn details about the properties, check [Delete activity](delete-activity.md)
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 10/16/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -126,20 +126,6 @@ error=access_denied
 | `error` |An error code string that can be used to classify types of errors that occur, and can be used to react to errors. |
 | `error_description` |A specific error message that can help a developer identify the root cause of an authentication error. |
 
-## Validate the id_token
-
-Just receiving an id_token isn't sufficient to authenticate the user; you must also validate the id_token's signature and verify the claims in the token based on your app's requirements. The Microsoft identity platform endpoint uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they're valid.
-
-You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you'll be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [validating tokens](id-tokens.md#validating-an-id_token) and [important information about signing key rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
-
-You may also wish to validate additional claims depending on your scenario. Some common validations include:
-
-* Ensuring the user/organization has signed up for the app.
-* Ensuring the user has proper authorization/privileges.
-* Ensuring a certain strength of authentication has occurred, such as multi-factor authentication.
-
-Once you have validated the id_token, you can begin a session with the user and use the claims in the id_token to obtain information about the user in your app. This information can be used for display, records, personalization, and more.
-
 ## Get access tokens
 
 Now that you've signed the user into your single-page app, you can get access tokens for calling web APIs secured by Microsoft identity platform, such as the [Microsoft Graph](https://developer.microsoft.com/graph). Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
@@ -209,16 +195,6 @@ error=user_authentication_required
 | `error_description` |A specific error message that can help a developer identify the root cause of an authentication error. |
 
 If you receive this error in the iframe request, the user must interactively sign in again to retrieve a new token. You can choose to handle this case in whatever way makes sense for your application.
-
-## Validating access tokens
-
-Once you receive an access_token, make sure to validate the signature of the token as well as the following claims. You may also choose to validate additional claims based on your scenario.
-
-* **audience** claim, to ensure that the token was intended to be given to your app
-* **issuer** claim, to verify that the token was issued to your app by the Microsoft identity platform endpoint
-* **not before** and **expiration time** claims, to verify that the token has not expired
-
-For more information about the claims present in the access token, see the [access token reference](access-tokens.md)
 
 ## Refreshing tokens
 

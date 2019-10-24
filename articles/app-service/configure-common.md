@@ -12,7 +12,6 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: cephalin
@@ -163,7 +162,7 @@ In the [Azure portal], navigate to the app's management page. In the app's left 
 
 ![General settings](./media/configure-common/open-general.png)
 
-Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](web-sites-scale.md).
+Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](manage-scale-up.md).
 
 - **Stack settings**: The software stack to run the app, including the language and SDK versions. For Linux apps and custom container apps, you can also set an optional start-up command or file.
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
@@ -264,4 +263,4 @@ See [Configure a custom Linux container for Azure App Service](containers/config
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Monitoring basics in Azure App Service]: ./web-sites-monitor.md
 [pipeline mode]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Scale an app in Azure App Service]: ./web-sites-scale.md
+[Scale an app in Azure App Service]: ./manage-scale-up.md

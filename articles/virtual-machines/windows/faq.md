@@ -12,7 +12,7 @@ ms.assetid: 757da816-a050-4889-a010-6f75d7978eb7
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.devlang: na
+
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: cynthn
@@ -73,10 +73,10 @@ Yes. To quickly create a Linux VM to try out, see [Create a Linux VM on Azure us
 Yes, this is now possible. The VM first needs to be stopped deallocated. Then you can add or remove a NIC (unless it's the last NIC on the VM). 
 
 ## Are there any computer name requirements?
-Yes. The computer name can be a maximum of 15 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions#compute) for more information around naming your resources.
+Yes. The computer name can be a maximum of 15 characters in length. See [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#sample-naming-convention) for more information around naming your resources.
 
 ## Are there any resource group name requirements?
-Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions) for more information about resource groups.
+Yes. The resource group name can be a maximum of 90 characters in length. See [Naming conventions rules and restrictions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming) for more information about resource groups.
 
 ## What are the username requirements when creating a VM?
 

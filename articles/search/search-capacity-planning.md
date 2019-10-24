@@ -2,7 +2,7 @@
 title:  Scale partitions and replicas for query and indexing - Azure Search
 description: Adjust partition and replica computer resources in Azure Search, where each resource is priced in billable search units.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual

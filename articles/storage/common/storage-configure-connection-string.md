@@ -14,7 +14,7 @@ ms.subservice: common
 
 # Configure Azure Storage connection strings
 
-A connection string includes the authentication information required for your application to access data in an Azure Storage account at runtime using Shared Key authorization. You can configure connection strings to:
+A connection string includes the authorization information required for your application to access data in an Azure Storage account at runtime using Shared Key authorization. You can configure connection strings to:
 
 * Connect to the Azure storage emulator.
 * Access a storage account in Azure.

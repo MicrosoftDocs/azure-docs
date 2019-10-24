@@ -11,11 +11,8 @@ ms.service: event-hubs
 ---
 
 
-# Process data from your event hub using Azure Stream Analytics (Preview)
+# Process data from your event hub using Azure Stream Analytics 
 The Azure Stream Analytics service makes it easy to ingest, process, and analyze streaming data from Azure Event Hubs, enabling powerful insights to drive real-time actions. This integration allows you to quickly create a hot-path analytics pipeline. You can use the Azure portal to visualize incoming data and write a Stream Analytics query. Once your query is ready, you can move it into production in only a few clicks. 
-
-> [!NOTE]
-> This feature is currently in preview. 
 
 ## Key benefits
 Here are the key benefits of Azure Event Hubs and Azure Stream Analytics integration: 

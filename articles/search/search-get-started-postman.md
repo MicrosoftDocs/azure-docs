@@ -1,13 +1,13 @@
 ---
-title: 'REST Quickstart: Create, load, and query indexes using Postman - Azure Search'
+title: 'Quickstart: Create a search index in Postman using REST APIs - Azure Search'
 description: Learn how to call the Azure Search REST APIs using Postman and sample data and definitions.
 author: HeidiSteen
-manager: cgronlun
+manager: nitinme
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 07/11/2019
+ms.date: 09/10/2019
 ms.author: heidist
 ---
 
@@ -274,7 +274,7 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 You can also use [Get Statistics](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) to query for document counts and index size: 
 
 ```
-https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06`
+https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06
 ```
 
 Adding `/stats` to your URL returns index information. In Postman, your request should look similar to the following, and the response includes a document count and space used in bytes.

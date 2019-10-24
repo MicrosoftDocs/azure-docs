@@ -1,15 +1,13 @@
 ---
 title: Interface definition for custom skills in cognitive search - Azure Search
 description: Custom data extraction interface for web-api custom skill in cognitive search pipeline in Azure Search.
-manager: pablocas
+manager: nitinme
 author: luiscabrer
 services: search
 ms.service: search
-ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
 ---
 
 # How to add a custom skill to a cognitive search pipeline
@@ -151,6 +149,7 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
 
 ## Next steps
 
++ [Power Skills: a repository of custom skills](https://aka.ms/powerskills)
 + [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)

@@ -1,19 +1,16 @@
 ---
-title: Azure Status Monitor v2 detailed instructions | Microsoft Docs
-description: Detailed instructions for getting started with Status Monitor v2. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
-services: application-insights
-documentationcenter: .net
-author: MS-TimothyMothra
-manager: alexklim
-ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure Application Insights Agent detailed instructions | Microsoft Docs
+description: Detailed instructions for getting started with Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/23/2019
+author: TimothyMothra
 ms.author: tilee
+ms.date: 04/23/2019
+
 ---
-# Status Monitor v2: Detailed instructions
+
+# Application Insights Agent (formerly named Status Monitor v2): Detailed instructions
 
 This article describes how to onboard to the PowerShell Gallery and download the ApplicationMonitor module.
 Included are the most common parameters that you'll need to get started.
@@ -239,6 +236,6 @@ See the [API reference](status-monitor-v2-api-enable-monitoring.md) for a detail
 - [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
 - [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
 
-Do more with Status Monitor v2:
+Do more with Application Insights Agent:
 
-- Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Status Monitor v2.
+- Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.

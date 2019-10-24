@@ -1,5 +1,5 @@
 ---
-title: Run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight
+title: Run Azure Machine Learning workloads on Apache Spark in Azure HDInsight
 description: Learn how to run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,7 +8,7 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
 ---
-# Run Azure Machine Learning workloads with automated machine learning (AutoML) on Apache Spark in Azure HDInsight
+# Run Azure Machine Learning workloads with automated machine learning on Apache Spark in HDInsight
 
 Azure Machine Learning simplifies and accelerates the building, training, and deployment of machine learning models. In automated machine learning (AutoML), you start with training data that has a defined target feature and then iterate through combinations of algorithms and feature selections to automatically select the best model for your data based on the training scores. HDInsight allows customers to provision clusters with hundreds of nodes. AutoML running on Spark in an HDInsight cluster allows users to use compute capacity across these nodes to run training jobs in a scale-out fashion, and to run multiple training jobs in parallel. This allows users to run AutoML experiments while sharing the compute with their other big data workloads.
  
@@ -28,7 +28,7 @@ You can alternatively use Zeppelin notebooks to use AutoML as well.
 
 ## Authentication for workspace
 
-Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals.md). An [Azure AD user](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
+Workspace creation and experiment submission require an authentication token. This token can be generated using an [Azure AD application](../../active-directory/develop/app-objects-and-service-principals.md). An [Azure AD user](/azure/python/python-sdk-azure-authenticate) can also be used to generate the required authentication token, if multi-factor authentication isn't enabled on the account.  
 
 The following code snippet creates an authentication token using an **Azure AD application**.
 

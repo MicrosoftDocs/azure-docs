@@ -20,7 +20,7 @@ To complete this how-to guide, you need:
 
 Follow these steps to set MariaDB server storage auto grow:
 
-1. In the [Azure portal](https://portal.azure.com/), select your Azure Database for MariaDB server.
+1. In the [Azure portal](https://portal.azure.com/), select your existing Azure Database for MariaDB server.
 
 2. On the MariaDB server page, under **Settings** heading, click **Pricing tier** to open the pricing tier page.
 

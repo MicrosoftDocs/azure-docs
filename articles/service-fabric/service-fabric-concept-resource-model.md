@@ -6,7 +6,7 @@ author: athinanthny
 
 ms.service: service-fabric
 ms.topic: conceptual 
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: atsenthi 
 ---
 
@@ -29,7 +29,7 @@ In this document, you will learn how to:
 ## Deploy application resources using Azure Resource Manager  
 To deploy an application and its services using the Azure Resource Manager application resource model, you need to package application code, upload the package, and then reference the location of package in an Azure Resource Manager template as an application resource. For more information, view [Package an application](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
-Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples here
+Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples [here](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM).
 
 ### Create a Storage account 
 Deploying an application from a Resource Manager template requires a storage account to stage the application image. You can re-use an existing storage account or create a new storage account to stage your applications. If you would like to use an existing storage account, you can skip this step. 
@@ -37,8 +37,14 @@ Deploying an application from a Resource Manager template requires a storage acc
 ![Create a storage account][CreateStorageAccount]
 
 ### Configure Storage account 
-Once the storage account has been created, you need to create a blob container where the applications can be staged. In the Azure portal, navigate to the storage account that you would like to store your applications. Select the **Blobs** blade, and click the **Add Container** button. Add a new container with Blob Public access level.
-   
+Once the storage account has been created, you need to create a blob container where the applications can be staged. In the Azure portal, navigate to the storage account that you would like to store your applications. Select the **Blobs** blade, and click the **Add Container** button. Resources in your cluster can be secured by setting the public access level to private. Access can be granted in a number of ways:
+* [Authorize access to blobs and queues with Azure Active Directory](../storage/common/storage-auth-aad-app.md)
+* [Grant access to Azure blob and queue data with RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md)
+* [Delegate access with a shared access signature (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
+)
+
+ For this example we will proceed using anonymous read access for blobs.
+
 ![Create blob][CreateBlob]
 
 ### Stage application in a Storage account
@@ -150,6 +156,10 @@ Get information about the application resource model:
 
 * [Model an application in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)
 * [Service Fabric application and service manifests](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
+
+## See Also
+* [Best practices](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
+* [Manage applications and services as Azure Resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code)
 
 <!--Image references-->
 [CreateStorageAccount]: ./media/service-fabric-application-model/create-storage-account.png

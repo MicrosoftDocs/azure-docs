@@ -48,7 +48,7 @@ Follow these steps to create a server-level IP firewall rule for your client's I
 4. Choose **Add client IP** on the toolbar to add your current IP address to a new server-level IP firewall rule. A server-level IP firewall rule can open port 1433 for a single IP address or a range of IP addresses.
 
    > [!IMPORTANT]
-   > By default, access through the SQL Database firewall is enabled for all Azure services. Choose **OFF** on this page to disable for all Azure services.
+   > By default, access through the SQL Database firewall is disabled for all Azure services. Choose **ON** on this page if you want to enable access for all Azure services.
    >
 
 5. Select **Save**. A server-level IP firewall rule is created for your current IP address opening port 1433 on the SQL Database server.

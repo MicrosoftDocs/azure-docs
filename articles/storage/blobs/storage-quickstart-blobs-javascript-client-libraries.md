@@ -5,7 +5,7 @@ keywords: storage, javascript, html
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 11/14/2018
+ms.date: 08/29/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart

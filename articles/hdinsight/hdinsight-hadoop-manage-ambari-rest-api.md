@@ -2,13 +2,12 @@
 title: Monitor and manage Hadoop with Ambari REST API - Azure HDInsight 
 description: Learn how to use Ambari to monitor and manage Hadoop clusters in Azure HDInsight. In this document, you will learn how to use the Ambari REST API included with HDInsight clusters.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: hrasheed
 ---
 
 # Manage HDInsight clusters by using the Apache Ambari REST API
@@ -38,6 +37,8 @@ Learn how to use the Apache Ambari REST API to manage and monitor Apache Hadoop 
 ## Authentication
 
 Connecting to Ambari on HDInsight requires HTTPS. Use the admin account name (the default is **admin**) and password you provided during cluster creation.
+
+For Enterprise Security Package clusters, instead of `admin`, use a fully qualified username like `username@domain.onmicrosoft.com`.
 
 ## Examples
 
@@ -504,4 +505,4 @@ At this point, if you look at the Ambari web UI, the Spark service indicates tha
 
 ## Next steps
 
-For a complete reference of the REST API, see [Apache Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+For a complete reference of the REST API, see [Apache Ambari API Reference V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  See also, [Authorize users for Apache Ambari Views](./hdinsight-authorize-users-to-ambari.md)

@@ -1,5 +1,5 @@
 ---
-title: Prebuilt intents and entities - LUIS
+title: "Tutorial: Prebuilt intents and entities - LUIS"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, add prebuilt intents and entities to an app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically. 
 services: cognitive-services
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 10/21/2019
 ms.author: diberry
 ---
 
@@ -46,18 +46,7 @@ LUIS provides several prebuilt intents to help with common user intentions.
 
 1. Search for `Utilities`. 
 
-    [![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
-
-1. Select the following intents and select **Done**: 
-
-   * Utilities.Cancel
-   * Utilities.Confirm
-   * Utilities.Help
-   * Utilities.StartOver
-   * Utilities.Stop
-
-     These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. These intents include usage of entities. These entities are automatically added to the LUIS app: number, ordinal, and Utilities.DirectionalReference. 
-
+1. Select all the intents and select **Done**. These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. 
 
 ## Add prebuilt entities to help with common data type extraction
 
@@ -69,12 +58,9 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select the following entities from the list of prebuilt entities then select **Done**:
 
-   * **[PersonName](luis-reference-prebuilt-person.md)** 
    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-     ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
-
-     These entities will help you add name and place recognition to your client application.
+     This entity will help you add place recognition to your client application.
 
 ## Add example utterances to the None intent 
 
@@ -92,39 +78,83 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Go to the end of the URL in the browser address bar and enter `I want to cancel my trip to Seattle to see Bob Smith`. The last query string parameter is `q`, the utterance **query**. 
+1. Go to the end of the URL in the browser address bar and enter `I want to cancel my trip to Seattle`. The last query string parameter is `q`, the utterance **query**. 
 
     ```json
     {
-      "query": "I want to cancel my trip to Seattle to see Bob Smith",
+      "query": "I want to cancel my trip to Seattle",
       "topScoringIntent": {
         "intent": "Utilities.Cancel",
-        "score": 0.807676256
+        "score": 0.1055009
       },
       "intents": [
         {
           "intent": "Utilities.Cancel",
-          "score": 0.807676256
+          "score": 0.1055009
         },
         {
-          "intent": "Utilities.StartOver",
-          "score": 0.0487322025
-        },
-        {
-          "intent": "Utilities.Help",
-          "score": 0.0208660364
-        },
-        {
-          "intent": "None",
-          "score": 0.008789532
+          "intent": "Utilities.SelectItem",
+          "score": 0.02659072
         },
         {
           "intent": "Utilities.Stop",
-          "score": 0.006929268
+          "score": 0.0253379084
+        },
+        {
+          "intent": "Utilities.ReadAloud",
+          "score": 0.02528683
+        },
+        {
+          "intent": "Utilities.SelectNone",
+          "score": 0.02434013
+        },
+        {
+          "intent": "Utilities.Escalate",
+          "score": 0.009161292
+        },
+        {
+          "intent": "Utilities.Help",
+          "score": 0.006861785
+        },
+        {
+          "intent": "Utilities.StartOver",
+          "score": 0.00633448
+        },
+        {
+          "intent": "Utilities.ShowNext",
+          "score": 0.0053827134
+        },
+        {
+          "intent": "None",
+          "score": 0.002602003
+        },
+        {
+          "intent": "Utilities.ShowPrevious",
+          "score": 0.001797354
+        },
+        {
+          "intent": "Utilities.SelectAny",
+          "score": 0.000831930141
+        },
+        {
+          "intent": "Utilities.Repeat",
+          "score": 0.0006924066
         },
         {
           "intent": "Utilities.Confirm",
-          "score": 0.00136293867
+          "score": 0.000606057351
+        },
+        {
+          "intent": "Utilities.GoBack",
+          "score": 0.000276725681
+        },
+        {
+          "intent": "Utilities.FinishTask",
+          "score": 0.000267822179
+        },
+        {
+          "intent": "Utilities.Reject",
+          "score": 3.21784828E-05
         }
       ],
       "entities": [
@@ -133,18 +163,12 @@ LUIS provides several prebuilt entities for common data extraction.
           "type": "builtin.geographyV2.city",
           "startIndex": 28,
           "endIndex": 34
-        },
-        {
-          "entity": "bob smith",
-          "type": "builtin.personName",
-          "startIndex": 43,
-          "endIndex": 51
         }
       ]
     }
     ```
 
-    The result predicted the Utilities.Cancel intent with 80% confidence and extracted the city and person name data. 
+    The result predicted the Utilities.Cancel intent with 80% confidence and extracted the city data. 
 
 
 ## Clean up resources

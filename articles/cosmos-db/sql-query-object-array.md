@@ -153,5 +153,5 @@ The results are:
 ## Next steps
 
 - [Getting started](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmos-dotnet-v3)
 - [Joins](sql-query-join.md)

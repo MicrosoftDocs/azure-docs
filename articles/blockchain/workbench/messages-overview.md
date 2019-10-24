@@ -1,11 +1,11 @@
----
+﻿---
 title: Azure Blockchain Workbench messages integration overview
-description: Overview of using messages in Azure Blockchain Workbench.
+description: Overview of using messages in Azure Blockchain Workbench Preview.
 services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/09/2019
+ms.date: 09/05/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
@@ -60,7 +60,7 @@ Blockchain Workbench returns a response with the following fields:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | Client supplied GUID |
 | userId                | ID of the user that was created |
-| userChainIdentifier   | Address of the user that was created on the blockchain network. In Ethereum, the address is the user's **on-chain** address. |
+| userChainIdentifier   | Address of the user that was created on the blockchain network. In Ethereum, the address is the user's **on-chain** address. |
 | connectionId          | Unique identifier for the blockchain connection|
 | messageSchemaVersion  | Messaging schema version |
 | messageName           | **CreateUserUpdate** |
