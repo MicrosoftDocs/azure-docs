@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 10/24/2019
 ms.author: diberry
 ms.custom: seodec18 
 ---
@@ -55,11 +55,11 @@ The following must be unique within a LUIS app:
 * version name
 * intent
 * entity
+* roles
 
 The following must be unique within the scope applied:
 
 * phrase list 
-* roles
 
 ## Object naming
 
