@@ -41,7 +41,7 @@ These articles highlight specific coding techniques, tips, and recommendations f
 * [variable assignment][variable assignment]
 
 ## Next steps
-For more reference information, see [SQL Data Warehouse T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).
+For more reference information, see [SQL Analytics T-SQL statements](sql-data-warehouse-reference-tsql-statements.md).
 
 <!--Image references-->
 

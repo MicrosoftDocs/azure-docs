@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Pause and resume compute in Azure Synapse Analytics - Azure portal | Microsoft Docs'
-description: Use the Azure portal to pause compute in Azure Synapse Analytics to save costs. Resume compute when you are ready to use the data warehouse.
+title: 'Quickstart: Pause and resume compute in Azure Synapse Analytics (formerly SQL DW) - Azure portal | Microsoft Docs'
+description: Use the Azure portal to pause compute in Azure Synapse Analytics (formerly SQL DW) to save costs. Resume compute when you are ready to use the data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
