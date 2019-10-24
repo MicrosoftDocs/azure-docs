@@ -99,10 +99,10 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     npm install
     ```
 
-1. Configure the _hub connection string_:
+1. Configure the _IoT hub connection string_:
 
     ```cmd/sh
-    set IOTHUB_CONNECTION_STRING=<your hub connection string>
+    set IOTHUB_CONNECTION_STRING=<your IoT hub connection string>
     ```
 
 ### Read a property

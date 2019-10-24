@@ -110,7 +110,7 @@ The device application starts sending data to IoT Hub.
 
 1. Open Azure IoT explorer, you see the **App configurations** page.
 
-1. Enter your IoT Hub connection string and click **Connect**.
+1. Enter your _IoT Hub connection string_ and click **Connect**.
 
 1. After you connect, you see the device overview page.
 

@@ -99,12 +99,12 @@ The application you build simulates a device that connects to an IoT hub. The ap
 
 ## Run the device sample
 
-Run your application by passing the IoT hub device connection string as parameter.
+Run your application by passing the _device connection string_ as parameter.
 
 ```cmd\sh
 cd digitaltwin_client\samples\digitaltwin_sample_device\Release
 copy ..\EnvironmentalSensor.interface.json .
-digitaltwin_sample_device.exe "[IoT Hub device connection string]"
+digitaltwin_sample_device.exe "<your device connection string>"
 ```
 
 The device application starts sending data to IoT Hub.
@@ -113,7 +113,7 @@ The device application starts sending data to IoT Hub.
 
 1. Open Azure IoT explorer, you see the **App configurations** page.
 
-1. Enter your IoT Hub connection string and click **Connect**.
+1. Enter your _IoT Hub connection string_ and click **Connect**.
 
 1. After you connect, you see the device overview page.
 
@@ -121,7 +121,7 @@ The device application starts sending data to IoT Hub.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry.
+1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - interface, properties, commands, and telemetry.
 
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
 
