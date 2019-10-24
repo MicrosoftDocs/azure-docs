@@ -42602,6 +42602,16 @@
       "source_path": "articles/security/fundamentals/mvp.md",
       "redirect_url": "https://mvp.microsoft.com/",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-cache-for-redis/cache-how-to-troubleshoot.md",
+      "redirect_url": "/azure/azure-cache-for-redis/cache-troubleshoot-server",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md",
+      "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell",
+      "redirect_document_id": false
     }
   ]
 }

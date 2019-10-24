@@ -1,5 +1,6 @@
 ---
-title: Authentication flows (Microsoft Authentication Library) | Azure
+title: Authentication flows (Microsoft Authentication Library) 
+titleSuffix: Microsoft identity platform
 description: Learn about the authentication flows and grants used by the Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name

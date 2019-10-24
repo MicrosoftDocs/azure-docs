@@ -1,13 +1,14 @@
 ---
- title: include file
- description: include file
- services: digital-twins
- author: kingdomofends
- ms.service: digital-twins
- ms.topic: include
- ms.date: 10/16/2019
- ms.author: v-adgera
- ms.custom: include file
+title: include file
+description: include file
+services: digital-twins
+ms.service: digital-twins
+ms.topic: include
+ms.date: 10/16/2019
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
+ms.custom: include file
 ---
 
 ### GA and Preview comparison
@@ -36,6 +37,13 @@ Time Series Insights property limits have been increased to 1000 from a maximum 
 | Preview PAYG | 1000 properties (columns) |
 | GA S1 | 600 properties (columns) |
 | GA S2 | 800 properties (columns) |
+
+### Event sources
+
+A maximum of two event sources per instance is supported. 
+
+* Learn how to [Add an event hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-eventhub).
+* Configure [an IoT hub source](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).
 
 ### API limits
 
