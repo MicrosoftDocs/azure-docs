@@ -34674,6 +34674,146 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/identity-protection/overview-v2.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/overview.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/quickstart-sign-in-risk-policy.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/howto-mfa-policy.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-configure-mfa-policy",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/howto-sign-in-risk-policy.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/howto-user-risk-policy.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/howto-close-active-risk-events.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/howto-unblock-user.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/playbook.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/faqs.md",
+      "redirect_url": "/azure/active-directory/identity-protection/troubleshooting-identity-protection-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/security-overview.md",
+      "redirect_url": "/azure/active-directory/identity-protection/concept-identity-protection-security-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/howto-investigate-risk.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-investigate-risk",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/howto-provide-risk-event-feedback.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-risk-feedback",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/howto-configure-risk-policies.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/known-issues.md",
+      "redirect_url": "/azure/active-directory/identity-protection/troubleshooting-identity-protection-faq",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/graph-get-started.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-graph-api",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/risk-events-reference.md",
+      "redirect_url": "/azure/active-directory/identity-protection/concept-identity-protection-risks",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/identity-protection/glossary.md",
+      "redirect_url": "/azure/active-directory/identity-protection/reference-identity-protection-glossary",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identityprotection-enable.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identity-protection-faqs.md",
+      "redirect_url": "/azure/active-directory/identity-protection/troubleshooting-identity-protection-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identityprotection-flows.md",
+      "redirect_url": "/azure/active-directory/identity-protection/concept-identity-protection-user-experience",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identityprotection-glossary.md",
+      "redirect_url": "/azure/active-directory/identity-protection/reference-identity-protection-glossary",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identityprotection-graph-getting-started.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-graph-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identityprotection-unblock-howto.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-remediate-unblock",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identityprotection-notifications.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-configure-notifications",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identityprotection-playbook.md",
+      "redirect_url": "/azure/active-directory/identity-protection/howto-identity-protection-simulate-risk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identityprotection-vulnerabilities.md",
+      "redirect_url": "/azure/active-directory/identity-protection/concept-identity-protection-risks",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/active-directory-identityprotection.md",
+      "redirect_url": "/azure/active-directory/identity-protection/overview-identity-protection",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/active-directory-conditional-access-baseline-protection.md",
       "redirect_url": "/azure/active-directory/conditional-access/baseline-protection",
       "redirect_document_id": true
@@ -34747,56 +34887,6 @@
       "source_path": "articles/active-directory/conditional-access/howto-baseline-protect-legacy-auth.md",
       "redirect_url": "/azure/active-directory/conditional-access/concept-baseline-protection",
       "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identityprotection-enable.md",
-      "redirect_url": "/azure/active-directory/identity-protection/enable",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identity-protection-faqs.md",
-      "redirect_url": "/azure/active-directory/identity-protection/faqs",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identityprotection-flows.md",
-      "redirect_url": "/azure/active-directory/identity-protection/flows",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identityprotection-glossary.md",
-      "redirect_url": "/azure/active-directory/identity-protection/glossary",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identityprotection-graph-getting-started.md",
-      "redirect_url": "/azure/active-directory/identity-protection/graph-get-started",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identityprotection-unblock-howto.md",
-      "redirect_url": "/azure/active-directory/identity-protection/howto-unblock-user",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identityprotection-notifications.md",
-      "redirect_url": "/azure/active-directory/identity-protection/notifications",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identityprotection-playbook.md",
-      "redirect_url": "/azure/active-directory/identity-protection/playbook",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identityprotection-vulnerabilities.md",
-      "redirect_url": "/azure/active-directory/identity-protection/vulnerabilities",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/active-directory-identityprotection.md",
-      "redirect_url": "/azure/active-directory/identity-protection/overview",
-      "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/active-directory-conditional-access-conditions.md",
