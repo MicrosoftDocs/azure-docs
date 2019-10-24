@@ -202,6 +202,15 @@
       href: how-to-train-pytorch.md
     - name: Chainer
       href: how-to-train-chainer.md
+  - name: Interpret models
+    displayName: interpretability
+    items:
+    - name: Interpret local and remote models
+      displayName: SDK, interpret
+      href: how-to-machine-learning-interpretability-aml.md
+    - name: Interpret automated ML models
+      displayName: SDK, interpret, automl
+      href: how-to-machine-learning-interpretability-aml.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
@@ -289,9 +298,6 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-  - name: Interpret models
-    displayName: interpret
-    href: how-to-machine-learning-interpretability-aml.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
