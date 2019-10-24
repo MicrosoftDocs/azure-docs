@@ -12,7 +12,7 @@ ms.date: 07/12/2019
 
 # How to enable Azure Monitor for containers
 
-This article provides an overview of the options available to setup Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
+This article provides an overview of the options available to setup Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/), AKS Engine on [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908) or Kubernetes deployed on-premises.
 
 Azure Monitor for containers can be enabled for new, or one or more existing deployments of AKS using the following supported methods:
 
@@ -36,7 +36,7 @@ Before you start, make sure that you have the following:
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-* Prometheus metrics are not collected by default. Before [configuring the agent](container-insights-agent-config.md) to collect them, it is important you review the Prometheus [documentation](https://prometheus.io/) to understand what you can define.
+* Prometheus metrics are not collected by default. Before [configuring the agent](container-insights-prometheus-integration.md) to collect them, it is important you review the Prometheus [documentation](https://prometheus.io/) to understand what you can define.
 
 ## Components
 
@@ -63,6 +63,7 @@ You enable Azure Monitor for containers by using one of the following methods de
 | | [Enable from Azure Monitor](container-insights-enable-existing-clusters.md#enable-from-azure-monitor-in-the-portal)| You can enable monitoring of one or more AKS clusters already deployed from the AKS multi-cluster page in Azure Monitor. |
 | | [Enable from AKS cluster](container-insights-enable-existing-clusters.md#enable-directly-from-aks-cluster-in-the-portal)| You can enable monitoring directly from an AKS cluster in the Azure portal. |
 | | [Enable using an Azure Resource Manager template](container-insights-enable-existing-clusters.md#enable-using-an-azure-resource-manager-template)| You can enable monitoring of an AKS cluster with a pre-configured Azure Resource Manager template. |
+| | [Enable for hybrid Kubernetes cluster](container-insights-hybrid-setup.md) | You can enable monitoring of an AKS Engine hosted in Azure Stack or for Kubernetes hosted on-premises. |
 
 ## Next steps
 
