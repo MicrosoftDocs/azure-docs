@@ -53,7 +53,7 @@ United States | Central US or West US 2
  > Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
 
 
-## App-level discovery
+## Application discovery
 
 Azure Migrate: Server Assessment can discover apps, role, and features. Discovering your app inventory allows you to identify and plan a migration path tailored for your on-premises workloads. Azure Migrate: Server Assessment provides agentless discovery, using machine guest credentials, remotely accessing machines using WMI and SSH calls.
 
