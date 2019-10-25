@@ -37,7 +37,7 @@ To follow the steps in this article, you must have:
 
 ## Overview
 Here is an illustration of the components in use and the flow between them once this process is complete.
-![Components in use and flow](../api-management/media/api-management-howto-protect-backendandfrontend-with-aad-b2c/image_arch.PNG "Components in use and flow")
+![Components in use and flow](../api-management/media/api-management-howto-protect-backend-and-frontend-with-aad-b2c/image_arch.png "Components in use and flow")
 
 Here is a quick overview of the steps:
 
