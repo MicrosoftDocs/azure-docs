@@ -1,6 +1,6 @@
 ---
-title: Tutorial: REST tutorial using Azure Relay
-description: Tutorial: Build an Azure Service Bus Relay host application that exposes a REST-based interface.
+title: REST tutorial using Azure Relay | Microsoft Docs
+description: Build an Azure Service Bus Relay host application that exposes a REST-based interface.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -10,10 +10,10 @@ editor: ''
 ms.assetid: 1312b2db-94c4-4a48-b815-c5deb5b77a6a
 ms.service: service-bus-relay
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/23/2019
+ms.date: 09/12/2019
 ms.author: spelluru
 
 ---
