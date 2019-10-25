@@ -36,11 +36,11 @@ Each API Management service is composed of the following key components:
 
 By default, all these components are deployed in Azure, causing all API traffic (shown as solid black arrows on the picture below) to flow through Azure regardless of where backends implementing the APIs are hosted. The operational simplicity of this model comes at the cost of increased latency, compliance issues, and in some cases, additional data transfer fees.
 
-:::image type="content" source="media/self-hosted-gateway-overview/without-gateways.png" alt-text="API traffic flow without self-hosted gateways":::
+![API traffic flow without self-hosted gateways](media/self-hosted-gateway-overview/without-gateways.png)
 
 Deploying self-hosted gateways into the same environments as backend API implementations and adding them to the API Management service allows API traffic to flow directly to the backend APIs, which improves latency, optimizes data transfer costs, and enables compliance while retaining the benefits of having a single point of management and discovery of all APIs within the organization regardless of where their implementations are hosted.
 
-:::image type="content" source="media/self-hosted-gateway-overview/with-gateways.png" alt-text="API traffic flow with self-hosted gateways":::
+![API traffic flow with self-hosted gateways](media/self-hosted-gateway-overview/with-gateways.png)
 
 ## Packaging and features
 
