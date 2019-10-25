@@ -13,13 +13,14 @@ ms.date: 07/29/2019
 ms.author: diberry
 ---
 
-<a name="train-your-app"></a>
-
 # Test your LUIS app in the LUIS portal
 
 [Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 <!-- anchors for H2 name changes -->
+<a name="train-your-app"></a>
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
