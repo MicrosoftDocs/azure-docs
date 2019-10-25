@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/25/2019
 ms.author: pafarley
 ---
 
@@ -127,7 +127,7 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
-### Use a helper class
+### Define helper class
 
 Then, in your *ContentModeratorQuickstart.java* file, add the following class definition inside the **ContentModeratorQuickstart** class. This inner class will be used later in the image moderation process.
 
