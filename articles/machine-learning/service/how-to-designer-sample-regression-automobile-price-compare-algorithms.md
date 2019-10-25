@@ -85,7 +85,7 @@ Both algorithms have a lower error on the training dataset than on the unseen te
 Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-ui-sample-classification-predict-income.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)

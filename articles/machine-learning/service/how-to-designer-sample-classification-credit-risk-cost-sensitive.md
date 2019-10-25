@@ -19,12 +19,6 @@ This article shows you how to build a complex machine learning pipeline using th
 
 This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
-<<<<<<< HEAD:articles/machine-learning/service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
-
-=======
-If you're just getting started with machine learning, you can take a look at the [basic classifier sample](how-to-designer-sample-classification-credit-risk-basic.md) first.
->>>>>>> 5b680abb31f... Rename sample files:articles/machine-learning/service/how-to-designer-sample-classification-credit-risk-cost-sensitive.md
-
 Here's the completed graph for this pipeline:
 
 [![Graph of the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
@@ -162,7 +156,7 @@ Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-ui-sample-classification-predict-income.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
 - [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
 - [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

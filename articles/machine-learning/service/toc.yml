@@ -168,7 +168,7 @@
         href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
       - name: "Predict income"
         displayName: classification, studio
-        href:  how-to-ui-sample-classification-predict-income.md
+        href:  how-to-designer-sample-classification-predict-income.md
       - name: "Predict credit risk (advanced)"
         displayName: classification, studio
         href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
