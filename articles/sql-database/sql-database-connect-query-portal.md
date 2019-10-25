@@ -48,7 +48,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
     ![Select a SQL database, Azure portal](./media/sql-database-connect-query-portal/select-a-sql-database.png)
 
-3. In the **SQL database** menu, select **Query editor (preview)**. The **Login** page appears.
+3. In the **SQL database** menu, select **Query editor (preview)**.
 
     ![find query editor](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
