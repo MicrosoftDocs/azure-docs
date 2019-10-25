@@ -14,7 +14,7 @@ ms.author: pafarley
 
 # Quickstart: Content Moderator client library for .NET
 
-Get started with the Content Moderator client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.
+Get started with the Content Moderator client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. Content Moderator is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content to comply with regulations or maintain the intended environment for users.
 
 Use the Content Moderator client library for .NET to:
 
@@ -167,7 +167,7 @@ Add the following class definition within the **Program** class. This inner clas
 
 ### Define the image moderation method
 
-The following method iterates through the image URLs in a text file, creates an **EvaluationData** instance, analyzes the image for adult/racy content, text, and human faces, and then adds the final **EvaluationData** instance to a list. It then writes the list of returned data to the console.
+The following method iterates through the image URLs in a text file, creates an **EvaluationData** instance, and analyzes the image for adult/racy content, text, and human faces. Then it adds the final **EvaluationData** instance to a list and writes the complete list of returned data to the console.
 
 #### Iterate through image URLs
 
@@ -193,7 +193,7 @@ The method in this section uses the [Reviews](https://docs.microsoft.com/dotnet/
 
 ### Get sample images
 
-Declare the following array at the root of your **Program** class. This references a sample image to use to create the review.
+Declare the following array at the root of your **Program** class. This variable references a sample image to use to create the review.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_urls)]
 
@@ -205,19 +205,19 @@ Sign in to the [Review tool](https://contentmoderator.cognitive.microsoft.com) a
 
 ### Define helper class
 
-Add the following class definition within your **Program** class. This will be used to represent a single review instance that is submitted to the Review tool.
+Add the following class definition within your **Program** class. This class will be used to represent a single review instance that is submitted to the Review tool.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_review_item)]
 
 ### Define helper method
 
-Add the following method to the **Program** class. This will write the results of review queries to the output text file.
+Add the following method to the **Program** class. This method will write the results of review queries to the output text file.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_writeline)]
 
 ### Define the review creation method
 
-Now you're ready to define the method which will handle the review creation and querying. Add a new method, **CreateReviews**, and define the following local variables.
+Now you're ready to define the method that will handle the review creation and querying. Add a new method, **CreateReviews**, and define the following local variables.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_fields)]
 
@@ -233,7 +233,7 @@ The object returned from the API call will contain unique ID values for each ima
 
 ### Get review details
 
-The following code causes the program to wait for user input. When you encounter this step at runtime, you can go to the [Review tool](https://contentmoderator.cognitive.microsoft.com) yourself, verify that the sample image is uploaded, and interact with it. For information on how to do this, see the [Reviews how-to guide](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). When you're finished, you can press any key to continue the program and retrieve the results of the review process.
+The following code causes the program to wait for user input. When you come to this step at runtime, you can go to the [Review tool](https://contentmoderator.cognitive.microsoft.com) yourself, verify that the sample image was uploaded, and interact with it. For information on how to interact with a review, see the [Reviews how-to guide](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images). When you're finished, you can press any key to continue the program and retrieve the results of the review process.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_createreview_results)]
 
