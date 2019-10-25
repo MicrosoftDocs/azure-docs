@@ -13,8 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying specific files 
 
-## TODO: Links bellow for syntax should be pointing to correct article!
-SQL on-demand Query service can address multiple files and folders as described in [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md). Sometimes you may need to know which row in result set came from which file/folder. In such cases, you can use virtual columns to return file name and/or path in result set, or you can use them to filter data based on file name and/or folder path. These functions are described in syntax section - [filename function](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#filename-function) and [filepath function](https://github.com/Azure/ProjectStarlight/blob/master/Syntax.md#filepath-function). You can find short descriptions along samples below.
+SQL on-demand Query service can address multiple files and folders as described in [Querying folders and multiple CSV files](querying-folders-and-multiple-csv-files.md). Sometimes you may need to know which row in result set came from which file/folder. In such cases, you can use virtual columns to return file name and/or path in result set, or you can use them to filter data based on file name and/or folder path. These functions are described in syntax section - [filename function](querying-storage-files.md#filename-function) and [filepath function](querying-storage-files.md#filepath-function). You can find short descriptions along samples below.
 
 
 In this quickstart, you will query a specific file.
@@ -31,7 +30,7 @@ Before reading rest of the article, make sure to check following articles:
 
 This function returns file name that row originates from.
 
-Following sample reads NYC Yellow Taxi data files for last three months of 2017. and returns number of rides per file. Note that OPENROWSET part of query specifies what files will be read.
+Following sample reads NYC Yellow Taxi data files for last three months of 2017. and returns number of rides per file. OPENROWSET part of query specifies what files will be read.
 
 ```sql
 SELECT 
@@ -117,7 +116,7 @@ This function returns full path or part of path:
 
 - When called with parameter, it returns part of path that matches wildcard on position specified in parameter. For example, parameter value 1 would return part of path that matches first wildcard.
 
-Following sample reads NYC Yellow Taxi data files for last three months of 2017. and returns number of rides per file path. Note that OPENROWSET part of query specifies what files will be read.
+Following sample reads NYC Yellow Taxi data files for last three months of 2017. and returns number of rides per file path. OPENROWSET part of query specifies what files will be read.
 
 ```sql
 SELECT 
@@ -203,6 +202,6 @@ ORDER BY
 You can see more in [Querying Parquet files](querying-parquet-files.md).
 
 
-Advance to the next article to learn how query Parquet files.
+Advance to the next article to learn how to query Parquet files.
 > [!div class="nextstepaction"]
 > [Querying Parquet files](querying-parquet-files.md)
