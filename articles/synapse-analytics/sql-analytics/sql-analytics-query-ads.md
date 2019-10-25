@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure SQL on-demand with Azure Data Studio | Microsoft Docs
+title: Connect to Azure SQL analytics with Azure Data Studio | Microsoft Docs
 description: Use Azure Data Studio to connect to and query an Azure SQL on-demand.
 services: sql-data-warehouse
 author: azaricstefan 
@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL on-demand with Azure Data Studio
+# Connect to SQL analytics on-demand with Azure Data Studio
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](sql-analytics-query-ads.md)
 > * [Power BI](tutorial-bi-professional.md)
@@ -52,7 +52,7 @@ Example of Windows authentication connection
 After successful login, you should see a dashboard like this.
 ![Dashboard][4]
 
-## 2. Query
+## 2. Query using SQL Analytics on-demand
 After connection, you can issue any supported Transact-SQL statements against the instance.
 
 On the screenshot bellow you can see the dashboard, select **"New query"**
