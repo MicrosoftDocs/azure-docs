@@ -16,12 +16,12 @@ This is the FAQ for Azure Internet Analyzer- if you have additional questions, g
 ## How do I participate in the preview? 
 The preview is available to select customers. If you are interested in joining the preview, please do the following:
 
-1. Log into the [Azure Portal](https://ms.portal.azure.com).
+1. Sign in to the [Azure portal](https://ms.portal.azure.com).
 2. Navigate to the **Subscriptions** page.
 3. Click on the Azure subscription that you plan to use Internet Analyzer with.
 4. Go to the **Resource providers** settings for the subscription.
 5. Search for **Microsoft.Network** and click on the **Register** (or **Re-register**) button.
-![access request](./media/ia-faq/request_preview_access.png)
+![access request](./media/ia-faq/request-preview-access.png)
 
 6. [Request approval](https://aka.ms/internetAnalyzerContact) by providing us your email address and the Azure subscription ID that was used to make the access request.
 7. Once your request has been approved, you will receive an email confirmation and will be able to create/update/modify Internet Analyzer resources from the newly allowed Azure subscription.
