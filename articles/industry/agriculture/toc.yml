@@ -7,14 +7,16 @@
   items:
    - name: Generate Soil Moisture Map
      href: generate-soil-moisture-map.md
-   - name: Ingest Histrorical Telemetry Data
+   - name: Ingest Historical Telemetry Data
      href: ingest-historical-telemetry-data.md
 - name: Concepts
   items:
    - name: Architecture
-     href: architecture-of-farm-beats.md
+     href: architecture-of-farmbeats.md
    - name: Sensor partner integration
      href: sensor-partner-integration.md
+   - name: Imagery partner integration
+     href: imagery-partner-integration.md
 - name: How to Guides
   items:
    - name: Deploy FarmBeats
@@ -31,11 +33,11 @@
      href: get-drone-imagery.md
 - name: Troubleshoot
   items:
-   - name: Troubleshooting farmbeats
-     href: troubleshoot-project-farm-beats.md
+   - name: Troubleshoote farmbeats
+     href: troubleshoot-project-farmbeats.md
 - name: Reference
   items:
-  href: references-for-farm-beats.md
+  href: references-for-farmbeats.md
 - name: Resources
   items:
-  href: resources-for-farm-beats.md
+  href: resources-for-farmbeats.md

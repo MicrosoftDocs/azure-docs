@@ -15,14 +15,13 @@ ms.service: backup
 
 ## Before you begin
 
-  Make sure you have deployed FarmBeats. To deploy FarmBeats, visit (add link here - awaiting links from SMEs)
-  This document outlines the process of ingesting historical sensor data into FarmBeats. To proceed, make sure you have historical sensor data that you have collected from your IoT devices/sensors.
+  Make sure you have deployed FarmBeats. To deploy FarmBeats. This article describes the process of ingesting historical sensor data into FarmBeats. To proceed, make sure you have historical sensor data that you have collected from your IoT devices/sensors.
 
 ## Enable partner access to Azure FarmBeats
 
 First, we will need to enable partner integration to your Azure FarmBeats instance. This step will create a client that will have access to your Azure FarmBeats as your device partner and will provide you the following values that are required in the subsequent steps.
 
-1. API Endpoint – This is the datahub URL for example, https://<datahub>.azurewebsites.net
+1. API Endpoint – This is the data hub URL for example, https://<datahub>.azurewebsites.net
 2. Tenant ID
 3. Client ID
 4. Client Secret
@@ -34,7 +33,7 @@ Follow the below steps to generate the above values:
 > You must be an administrator to do the following steps.
 
 1. Download this script (add link here. awaiting SMEs inputs) and extract it in on your local drive. You will find two files inside the ZIP file.
-2. Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top right bar of the portal)  
+2. Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top-right bar of the portal)  
 
   ![Project Farm Beats](./media/for-tutorials/navigation-bar.png)
 
@@ -60,7 +59,7 @@ Follow the below steps to generate the above values:
 
   Now that we have the required credentials, we will define the device and sensors by creating the metadata using FarmBeats APIs.
 
-  FarmBeats Datahub has the following APIs that enable creation and management of device/sensor metadata.   
+  FarmBeats Data hub has the following APIs that enable creation and management of device/sensor metadata.   
 
   /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
   /**Device** - Device corresponds to a physical device present in the farm.  
@@ -73,9 +72,9 @@ Follow the below steps to generate the above values:
 | :------------------- | -------------------        :             |
 |     Type (Node, Gateway)        |          1 Star      |
 |          Manufacturer            |         2 Star     |
-|  ProductCode                    |  Device product code Or Model Name/Number. eg: EnviroMonitor#6800  |
+|  ProductCode                    |  Device product code Or Model Name/Number. For example, EnviroMonitor#6800  |
 |            Ports          |     Port Name and Type (Digital/Analog)
-|     Name                 |  Name to identify resource. Eg. Model Name/Product Name
+|     Name                 |  Name to identify resource. For example, Model Name/Product Name
       Description     |Provide a meaningful description of the model
 |    Properties          |    Additional properties from the manufacturer   |
 |    **Device**             |                      |
@@ -83,20 +82,20 @@ Follow the below steps to generate the above values:
 |  HardwareId	       | Unique Id for the device such as MAC address etc  
 |  reportingInterval        |   Reporting Interval in seconds
 |  Location            |  Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)   
-|parentDeviceId       |         id of the parent device to which this device is connected to. Eg. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway  |
+|parentDeviceId       |         id of the parent device to which this device is connected to. For example,. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway  |
 |    Name            | Name to identify resource. Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats|
 |     Description       |      Provide a meaningful description  |
 |     Properties    |  Additional properties from the manufacturer
 |     **Sensor Model**        |          |
 |       Type (Analog, Digital)          |                    |
 |          manufacturer            |                     |
-|     productCode| Product code or Model Name/Number. eg: RS-CO2-N01 |
-|       TsensorMeasures > Name	    | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. Eg. soil_moisture_15cm This name has to be consistent with the telemetry d              |
+|     productCode| Product code or Model Name/Number. For example,: RS-CO2-N01 |
+|       TsensorMeasures > Name	    | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry d              |
 |          sensorMeasures > DataType	   |Telemetry Data Type. Currently Double is supported|
 |    sensorMeasures > Type	  |Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more refer to /ExtendedType API|
 |        sensorMeasures > Unit	            | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more refer to /ExtendedType API|
 |    sensorMeasures > aggregationType	 |  Either of None, Average, Maximum, Minimum, StandardDeviation  |
-|          name            | Name to identify resource. Eg. Model Name/Product Name  |
+|          name            | Name to identify resource. For example, Model Name/Product Name  |
 |    description        | Provide a meaningful description of the model  |
 |   properties       |  Additional properties from the manufacturer  |
 |    **Sensor**      |          |
@@ -105,7 +104,7 @@ Follow the below steps to generate the above values:
 | location          |  Sensor Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)|
 |   port > name	       |  Name and Type of the port that the sensor is connected to on the device. This needs to be same name as defined in the Device Mode |
 |    deviceId  |    id of the Device that the sensor is connected to     |
-| name	          |   Name to identify resource. Eg. Sensor Name/Product Name and Model Number/Product Code.|
+| name	          |   Name to identify resource. For example, Sensor Name/Product Name and Model Number/Product Code.|
 |    description	  | Provide a meaningful description |
 |    properties        |Additional properties from the manufacturer |
 
@@ -113,11 +112,11 @@ Follow the below steps to generate the above values:
 
 **API request to create metadata**
 
-  To make an API request, you combine the HTTP (POST) method, the URL to the API service, the URI to a resource to query, submit data to create or delete a request and add one or more HTTP request headers. The URL to the API service is the API Endpoint i.e. the datahub URL (https://<yourdatahub>.azurewebsites.net)  
+  To make an API request, you combine the HTTP (POST) method, the URL to the API service, the URI to a resource to query, submit data to create or delete a request and add one or more HTTP request headers. The URL to the API service is the API Endpoint i.e. the data hub URL (https://<yourdatahub>.azurewebsites.net)  
 
   **Authentication**:
 
-  FarmBeats Datahub uses Bearer Authentication, which needs the following credentials that we generated in the above section.
+  FarmBeats Data hub uses Bearer Authentication, which needs the following credentials that we generated in the above section.
     - Client ID
     - Client Secret
     - Tenant ID  
@@ -126,7 +125,7 @@ Follow the below steps to generate the above values:
   headers = *{"Authorization": "Bearer " + access_token, …}*
 
   **HTTP Request Headers**:
-    Here are the most common request headers that need to be specified when making an API call to FarmBeats Datahub:
+    Here are the most common request headers that need to be specified when making an API call to FarmBeats Data hub:
 
     - Content-Type: application/json
     - Authorization: Bearer <Access-Token>
@@ -316,3 +315,5 @@ Example Telemetry message:
 ```
 
 ## Next steps
+
+Click [REST API](references-for-farmbeats.md#rest-api) to know more on REST API based integration details.

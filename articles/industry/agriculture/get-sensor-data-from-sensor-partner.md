@@ -149,3 +149,5 @@ Follow these steps:
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/delete-device.png)
 
 ## Next Steps
+
+You have sensor data flowing into your Azure FarmBeats instance now. See how you can [generate maps](generate-maps.md#generate-maps) for your farms.

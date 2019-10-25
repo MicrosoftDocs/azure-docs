@@ -11,10 +11,10 @@ ms.service: backup
 
 # About Azure FarmBeats
 
-Azure FarmBeats is a collection of Azure services and capabilities, designed to help you rapidly build intelligent data-driven solutions in agriculture. Azure FarmBeats is an Azure marketplace, offering that allows you to acquire, aggregate and process agriculture related data from various sources such as sensors, drones, cameras, satellite, without investing in deep data engineering resources.
+Azure FarmBeats is a collection of Azure services and capabilities, designed to help you rapidly build intelligent data-driven solutions in agriculture. Azure FarmBeats is an Azure marketplace, offering that allows you to acquire, aggregate, and process agriculture-related data from various sources such as sensors, drones, cameras, satellite, without investing in deep data engineering resources.
 
 > [!NOTE]
-> Azure FarmBeats is currently in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats is provided without a service level agreement. Use the [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN ).
+> Azure FarmBeats is currently in public preview. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Azure FarmBeats is provided without a service level agreement. Use the [Azure FarmBeats Forum](https://aka.ms/FarmBeatsMSDN ) for support
 
 Using Azure FarmBeats you will be able to get data from various sources like sensors, satellite, drones, all in the context of a farm (a geographical area of interest).
 
@@ -41,13 +41,13 @@ Azure FarmBeats provides you with a robust and easy way to do the following:
 
 Azure FarmBeats consists of the following components:
 
-## Datahub
+## Data hub
 
-An API layer which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. As of this preview, you can leverage two sensor providers [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), one satellite imagery provider [Sentinel-2](https://sentinel.esa.int/web/sentinel/home), and two drone imagery providers [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/). Datahub is designed as an API platform and we are working with many more providers to integrate with Azure FarmBeats, so you have more choice while building your solution.
+An API layer, which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. As of this preview, you can leverage two sensor providers [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), one satellite imagery provider [Sentinel-2](https://sentinel.esa.int/web/sentinel/home), and two drone imagery providers [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/). Data hub is designed as an API platform and we are working with many more providers to integrate with Azure FarmBeats, so you have more choice while building your solution.
 
 ## Accelerator
 
-A sample solution, built on top of Datahub, that jumpstarts your User Interface and model development. This web application leverages APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps. For example, you can use this to quickly create a farm and easily get a vegetation index map or a sensor placement map for that farm.
+A sample solution, built on top of Data hub, that jumpstarts your User Interface and model development. This web application leverages APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps. For example, you can use this to quickly create a farm and easily get a vegetation index map or a sensor placement map for that farm.
 
 
 ## Next steps

@@ -115,8 +115,3 @@ To delete a rule, follow these steps:
   ![Project Farm Beats](./media/configure-rules-and-alerts/delete-rule.png)
 
 4. The **Delete Rule** dialog box displays. Click **Delete**.
-
-
-
-
-## Next steps

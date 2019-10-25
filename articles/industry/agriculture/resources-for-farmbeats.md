@@ -11,19 +11,12 @@ ms.service: backup
 
 # Resources
 
-Awaiting inputs
-
-## Commonly asked questions
-
-Awaiting inputs
+ In this section you can go to blog and forum for more information.
 
 ## Blog
 
-Awaiting inputs
-
-## Feedback
-
-Awaiting inputs
+https://aka.ms/AzureFarmBeats
 
 ## Forum
-Awaiting inputs
+
+https://aka.ms/FarmBeatsMSDN

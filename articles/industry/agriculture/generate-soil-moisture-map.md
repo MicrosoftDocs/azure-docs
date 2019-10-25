@@ -13,9 +13,9 @@ ms.service: backup
 
   This article describes the process of generating a soil moisture heatmap for your farm through the Azure FarmBeats accelerator. In this article, you will learn how to:
 
-1. [Create Farms](managing-farms.md#create-farm)
+1. [Create Farms](manage-farms.md#create-farm)
 2. [Assign devices to Farms](get-sensor-data-from-sensor-partner.md#assign-devices)
-3. [Generate Soil Moisture Heatmap](generating-maps.md#get-soil-moisture-heatmap)
+3. [Generate Soil Moisture Heatmap](generate-maps.md#get-soil-moisture-heatmap)
 
 ## Before you begin
 
@@ -27,7 +27,7 @@ ms.service: backup
 
 ## Create a farm
 
-A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a Farm either using the Farms API (http://aka.ms/FarmBeatsDatahubSwagger). Or you can [Create a Farm](managing-farms.md#create-farm) from the accelerator UI
+A farm is a geographical area of interest for which you want to create a soil moisture heatmap. You can create a Farm either using the [Farms API](http://aka.ms/FarmBeatsDatahubSwagger). Or you can [Create a Farm](manage-farms.md#create-farm) from the accelerator UI
 
 ## Deploy sensors
 
@@ -89,4 +89,4 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 
 ## Next steps
 
-For more information about sensor placement, [see sensor placement](generating-maps.md#sensor-placements-map) and about ingest historical telemetry data, see [ingest historical telemetry data](ingest-historical-telemetry-data.md#ingest-historical-telemetry-data).
+For more information about sensor placement, [see sensor placement](generate-maps.md#sensor-placements-map) and about ingest historical telemetry data, see [ingest historical telemetry data](ingest-historical-telemetry-data.md#ingest-historical-telemetry-data).
