@@ -15,7 +15,7 @@
      href: architecture-of-farm-beats.md
    - name: Sensor partner integration
      href: sensor-partner-integration.md
-- name: How to Guides
+- name: How-to guides
   items:
    - name: Deploy FarmBeats
      href: prepare-for-deployment.md
@@ -34,8 +34,6 @@
    - name: Troubleshooting farmbeats
      href: troubleshoot-project-farm-beats.md
 - name: Reference
-  items:
   href: references-for-farm-beats.md
 - name: Resources
-  items:
   href: resources-for-farm-beats.md
