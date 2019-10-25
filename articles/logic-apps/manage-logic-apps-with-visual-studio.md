@@ -123,16 +123,19 @@ To build logic apps for business-to-business (B2B) enterprise integration scenar
 
 1. In Visual Studio, open the Azure Resource Group project that contains your logic app.
 
-1. In Solution Explorer, open the **<logic-app-name>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
+1. In Solution Explorer, open the **<logic-app-name>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
 
    ![Open logic app's .json file with Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates to Visual Studio and the Azure Logic Apps Tools extension.
 
-1. Make sure that the Logic App Designer has focus, and select the designer's tab or surface so that the Properties pane shows the **Integration Account** property for your logic app.
+1. Make sure that the Logic App Designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Integration Account** property for your logic app.
 
-   ![Properties pane shows the "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
+   ![Properties window shows the "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
+
+   > [!TIP]
+   > If the Properties window isn't already open, from the **View** menu, select **Properties Window**. (Keyboard: Press F4)
 
 1. Open the **Integration Account** property list, and select the integration account that you want to link to your logic app, for example:
 
@@ -146,29 +149,36 @@ When you set the **Integration Account** property in Visual Studio and save your
 
 ## Change deployment location
 
-For deployment, the Azure Resource Group project for your logic app is set to a location type and a specific location. This location type is set to either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md). However, you can change the location type and also the specific location.
+In Visual Studio, if your logic app exists as a JSON (.json) file within an [Azure Resource Group project](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) that you use to automate deployment, that logic app is set to a location type and a specific location. This location is either an Azure region or an existing [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment.md).
+
+To change your logic app's location type or location, you have to open your logic app's workflow definition (.json) file from Solution Explorer by using the Logic App Designer. You can't change these properties by using Cloud Explorer.
 
 > [!IMPORTANT]
-> Changing the location type from a region to an 
-> [integration service environment](connect-virtual-network-vnet-isolated-environment-overview.md) affects your logic app's 
-> [pricing model](logic-apps-pricing.md#fixed-pricing) that's used for billing, 
-> [limits](logic-apps-limits-and-config.md#integration-account-limits), [integration account support](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), and so on.
+> Changing the location type from **Region** to 
+> [**Integration Service Environment**](connect-virtual-network-vnet-isolated-environment-overview.md) 
+> affects your logic app's [pricing model](logic-apps-pricing.md#fixed-pricing) that's used for billing, 
+> [limits](logic-apps-limits-and-config.md#integration-account-limits), [integration account support](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), and so on. 
 > Before you select a different location type, make sure that you understand the resulting impact on your logic app.
 
 1. In Visual Studio, open the Azure Resource Group project that contains your logic app.
 
-1. In Solution Explorer, open the **<logic-app-name>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl+L)
+1. In Solution Explorer, open the `<logic-app-name>.json` file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
 
    ![Open logic app's .json file with Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
    > [!TIP]
    > If you don't have this command in Visual Studio 2019, check that you have the latest updates to Visual Studio and the Azure Logic Apps Tools extension.
 
-1. Make sure that the Logic App Designer has focus, and select the designer's tab or surface so that the Properties pane shows the **Choose Location Type** and **Location** properties for your logic app.
+1. Make sure that the Logic App Designer has focus by selecting the designer's tab or surface so that the Properties window shows the **Choose Location Type** and **Location** properties for your logic app.
+
+   ![Properties window shows the "Integration Account" property](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-integration-account.png)
+
+   > [!TIP]
+   > If the Properties window isn't already open, from the **View** menu, select **Properties Window**. (Keyboard: Press F4)
 
    Your project's location type is set to either **Region** or **Integration Service Environment**.
 
-   ![Properties pane shows the "Choose Location Type" and "Location" properties](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
+   ![Properties window shows the "Choose Location Type" and "Location" properties](./media/manage-logic-apps-with-visual-studio/open-logic-app-properties-location.png)
 
 1. To change the location type, open the **Choose Location Type** property, and select the location type that you want.
 
