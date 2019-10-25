@@ -16,7 +16,7 @@ manager: abjork
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate various telemetries from your devices. To get started, visit **Analytics** on the left navigation menu.
+Azure IoT Central provides rich analytics capabilities to analyze historical trends and correlate various telemetries from your devices. To get started, visit **Analytics** on the pane.
 
 ## Understanding the Analytics UI
 Analytics user interface is made of three main components:

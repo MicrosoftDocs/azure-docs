@@ -82,7 +82,7 @@ As a builder, you can create and edit Azure IoT Edge device templates in your ap
 
 ### Select device template type 
 
-To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left navigation menu.
+To add a new device template to your application, go to the **Device Templates** page. To do so select the **Device Templates** tab on the left pane.
 
 ![Central Application page](./media/tutorial-define-edge-device-type-pnp/edgedevicetemplate.png)
 

@@ -22,7 +22,7 @@ A device set is a list of devices that are grouped together because they match s
 
 To create a device set:
 
-1. Choose **Device Sets** on the left navigation menu.
+1. Choose **Device Sets** on the left pane.
 
 1. Select **+ New**.
 
@@ -43,7 +43,7 @@ To create a device set:
 
 After you create your device set, you can configure its **Dashboard**. The **Dashboard** is the homepage where you place images and links. You can also add grids that list the devices in the device set.
 
-1. Choose **Device Sets** on the left navigation menu.
+1. Choose **Device Sets** on the left pane.
 
 1. Select your device set.
 
@@ -101,7 +101,7 @@ You can resize the map tile on the dashboard. Selecting a pin on the map display
 
 After you create your device set, you can configure the **List**. The **List** shows all the devices in the device set in a table with the columns you choose.
 
-1. Choose **Device Sets** on the left navigation menu.
+1. Choose **Device Sets** on the left pane.
 
 1. Choose the **List** tab.
 
@@ -117,7 +117,7 @@ After you create your device set, you can configure the **List**. The **List** s
 
 ## Analytics
 
-The analytics in device sets is the same as the main analytics tab in the left navigation menu. You can learn more about analytics in the article on [how to create analytics](howto-use-device-sets.md).
+The analytics in device sets is the same as the main analytics tab in the left pane. You can learn more about analytics in the article on [how to create analytics](howto-use-device-sets.md).
 
 ## Next steps
 
