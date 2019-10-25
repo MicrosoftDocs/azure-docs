@@ -24,7 +24,7 @@ ms.author: marsma
 1. Select the **My APIs** tab.
 1. Select the API to which the web application should be granted access. For example, *webapi1*.
 1. Under **PERMISSION**, expand **demo**, and then select the scopes that you defined earlier. For example, *demo.read* and *demo.write*.
-1. Select **Add permissions**. As directed, wait at least **10 seconds** before proceeding to the next step.
+1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select your currently signed-in administrator account, or sign in with an account in your Azure AD B2C tenant that's been assigned at least the *Cloud application administrator* role.
 1. Select **Accept**.

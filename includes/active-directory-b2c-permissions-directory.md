@@ -25,7 +25,7 @@ ms.author: marsma
 1. Select **Azure Active Directory Graph**.
 1. Select **Application permissions**.
 1. Expand **Directory** and then select the **Directory.ReadWrite.All** check box.
-1. Select **Add permissions**. As directed, wait at least **10 seconds** before proceeding to the next step.
+1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select a tenant administrator account.
 1. Select **Accept**.

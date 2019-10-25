@@ -115,7 +115,7 @@ Follow these steps register an application, grant it the required Microsoft Grap
 1. Select **Microsoft Graph**.
 1. Select **Application permissions**.
 1. Expand **AuditLog** and then select the **AuditLog.Read.All** check box.
-1. Select **Add permissions**. As directed, wait at least **10 seconds** before proceeding to the next step.
+1. Select **Add permissions**. As directed, wait a few minutes before proceeding to the next step.
 1. Select **Grant admin consent for (your tenant name)**.
 1. Select your currently signed-in account if it's been assigned the *Global Administrator* role, or sign in with an account in your Azure AD B2C tenant that's been assigned the *Global Administrator* role.
 1. Select **Accept**.
