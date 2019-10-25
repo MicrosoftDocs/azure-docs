@@ -125,20 +125,14 @@ Before you start, make sure you have these items:
 
    In the Azure window, under your Azure subscription, your new and empty logic app appears. Visual Studio Code also opens a JSON (.logicapp.json) file, which includes a skeleton workflow definition for your logic app. Now you can start manually authoring your logic app's workflow definition in this JSON file. For technical reference about the structure and syntax for a workflow definition, see the [Workflow Definition Language schema for Azure Logic Apps](../logic-apps/logic-apps-workflow-definition-language.md).
 
-   ![Open logic app in code view editor](./media/quickstart-create-logic-apps-visual-studio-code/new-logic-app-workflow-definition.png)
+   ![Empty logic app workflow definition JSON file](./media/quickstart-create-logic-apps-visual-studio-code/empty-logic-app-workflow-definition.png)
 
+   For example, here is a sample logic app workflow definition. Usually, JSON elements appear alphabetically in each section. However, this sample shows these elements roughly in the order that the logic app's steps appear in the designer.
 
-
-
-1. Open your logic app's shortcut menu, and select **Open in Editor**.
-
-
-
-   ![New logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/blank-logic-app-workflow-definition.png)
-
-1. In the logic app workflow definition template file, 
-
-   Here is an example logic definition. Usually, JSON elements appear alphabetically in each section. However, this sample shows these elements roughly in the order that the logic app's steps appear in the designer.
+   > [!IMPORTANT]
+   > If you use this sample logic app definition, make sure that you replace the fictitious email address with your own email address.
+   > Also, the sample uses the Office 365 Outlook connector. If you have a different email provider, such as Outlook.com or Gmail, 
+   > replace the `Send_an_email_action` action with an email connector that's supported by Azure Logic Apps.
 
    ```json
    {
@@ -154,7 +148,7 @@ Before you start, make sure you have these items:
          "When_a_feed_item_is_published": {
             "recurrence": {
                "frequency": "Minute",
-               "interval": 1
+               "interval": 3
             },
             "splitOn": "@triggerBody()?['value']",
             "type": "ApiConnection",
@@ -180,11 +174,11 @@ Before you start, make sure you have these items:
                "body": {
                   "Body": "Title: @{triggerBody()?['title']}\n\nDate published: @{triggerBody()?['publishDate']}\n\nLink: @{triggerBody()?['primaryLink']}",
                   "Subject": "New RSS item: @{triggerBody()?['title']}",
-                  "To": "Sophie.Owen@contoso.com"
+                  "To": "sophia-owen@fabrikam.com"
                },
                "host": {
                   "connection": {
-                     "name": "@parameters('$connections')['outlook']['connectionId']"
+                     "name": "@parameters('$connections')['outlook_1']['connectionId']"
                   }
                },
                "method": "post",
@@ -196,15 +190,29 @@ Before you start, make sure you have these items:
    }
    ```
 
-1. When you're done, save your logic app definition file. When Visual Studio Code prompts you to confirm uploading your logic app definition to your Azure subscription, select **Upload**.
+1. When you're done, save your logic app's workflow definition.
+
+1. When you're prompted to upload your logic app to your Azure subscription, select **Upload**.
+
+   This step publishes your logic app to the [Azure portal](https://portal.azure.com), which and makes your logic live and running in Azure.
 
    ![Upload new logic app to your Azure subscription](./media/quickstart-create-logic-apps-visual-studio-code/upload-new-logic-app.png)
 
-   After Visual Studio Code publishes your logic app to Azure, you can find your app now live and running in the Azure portal.
 
-   ![Logic app published in Azure portal](./media/quickstart-create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
+## View your logic app in the Azure portal
+
+1. To find and check your logic app in Azure, sign in to the Azure portal with the same Azure account that you used for creating your logic app.
+
+   ![Your new logic app in Azure portal](./media/quickstart-create-logic-apps-visual-studio-code/published-logic-app-in-azure.png)
 
 <a name="edit-logic-app"></a>
+
+
+1. To edit your logic app at any time, open your logic app's shortcut menu, and select **Open in Editor**.
+
+   ![New logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/blank-logic-app-workflow-definition.png)
+
+
 
 ## Edit logic app
 
