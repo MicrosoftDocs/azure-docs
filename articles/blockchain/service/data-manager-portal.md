@@ -17,9 +17,7 @@ Configure Blockchain Data Manager for Azure Blockchain Service to capture blockc
 To configure a Blockchain Data Manager instance, you:
 
 * [Create a Blockchain Data Manager instance](#create-instance) for an Azure Blockchain Service transaction node
-* [Create an outbound connection](#create-outbound-connection) to an Azure Event Grid Topic
 * [Add a blockchain application](#add-blockchain-application)
-* [Start the Blockchain Data Manager instance](#start-instance)
 
 ## Prerequisites
 
@@ -30,47 +28,30 @@ To configure a Blockchain Data Manager instance, you:
 
 A Blockchain Data Manager instance connects and monitors an Azure Blockchain Service transaction node. Only users with access to the transaction node can create a connection. An instance captures all raw block and raw transaction data from the transaction node.
 
+An outbound connection sends blockchain data to Azure Event Grid. You configure a single outbound connection when you create the instance. Blockchain Data Manager supports multiple Event Grid Topic outbound connections for any given Blockchain Data Manager instance. You can send blockchain data to a single destination or send blockchain data to multiple destinations. To add another destination, just add additional outbound connections to the instance.
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the Azure Blockchain Service member you want to connect to Blockchain Data Manager. Select **Blockchain Data Manager**.
 1. Select **Add**.
 
     ![Add Blockchain Data Manager](./media/data-manager-portal/add-instance.png)
 
-    Enter the name for the instance and select the Azure Blockchain Service transaction node.
+    Enter the following details:
 
     Setting | Description
     --------|------------
     Name | Enter a unique name for a connected Blockchain Data Manager. The Blockchain Data Manager name can contain lower case letters and numbers and has a maximum length of 20 characters.
     Transaction node | Choose a transaction node. Only transaction nodes you have read access are listed.
-
-1. Select **OK**.
-
-    It takes less than a minute to create a Blockchain Data Manager instance. The new instance appears in the list of Blockchain Data Manager instances for the Azure Blockchain Service member.
-
-    ![List of Blockchain Data Member instances](./media/data-manager-portal/instance-list.png)
-
-## Create outbound connection
-
-An outbound connection sends blockchain data to Azure Event Grid. Blockchain Data Manager supports multiple Event Grid Topic outbound connections for any given Blockchain Data Manager instance. You can send blockchain data to a single destination or send blockchain data to multiple destinations.
-
-1. Select your Blockchain Data Manager instance from the instance list.
-1. Select **Outbound connections**.
-1. Select **Add**.
-
-    ![Add an outbound connection](./media/data-manager-portal/add-output.png)
-
-    Enter the name for the outbound connection and select the Event Grid endpoint from the dropdown list.
-
-    Setting | Description
-    --------|------------
-    Name | Enter a unique name of the outbound connection where blockchain transaction data is sent.
+    Connection name | Enter a unique name of the outbound connection where blockchain transaction data is sent.
     Event grid endpoint | Choose an event grid topic in the same subscription as the Blockchain Data Manager instance.
 
 1. Select **OK**.
 
-    The new outbound connection appears in the list of outbound connections for the Blockchain Data Manager instance.
+    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. When running, a Blockchain Manager instance captures blockchain events from the defined inputs and sends data to the outbound connections.
 
-    ![List of outbound connections](./media/data-manager-portal/output-list.png)
+    The new instance appears in the list of Blockchain Data Manager instances for the Azure Blockchain Service member.
+
+    ![List of Blockchain Data Member instances](./media/data-manager-portal/instance-list.png)
 
 ## Add blockchain application
 
@@ -168,15 +149,13 @@ For each blob, generate a shared access signature.
 
 You can delete the Azure Storage account or use it to configure more blockchain applications. If you wish to delete the Azure Storage account, you can delete the resource group. Deleting the resource group also deletes the associated storage account, and any other resources associated with the resource group.
 
-## Start instance
+## Stop instance
 
-When running, a Blockchain Manager instance captures blockchain events from the defined inputs and sends data to the outbound connections.
+Stop the Blockchain Manager instance when you want to stop capturing blockchain events and sending data to the outbound connections. When the instance is stopped, no charges are incurred for Blockchain Data Manager. For more information, see [pricing](https://azure.microsoft.com/pricing/details/blockchain-service).
 
-1. Go to **Overview** and select **Start**.
+1. Go to **Overview** and select **Stop**.
 
-    ![Start instance](./media/data-manager-portal/start-instance.png)
-
-    Once started, the **Status** changes to **Running**.
+    ![Stop instance](./media/data-manager-portal/stop-instance.png)
 
 ## Next steps
 
