@@ -3,14 +3,14 @@ title: Code samples - Content Moderator, .NET
 titleSuffix: Azure Cognitive Services
 description: Use Content Moderator in your .NET applications through the SDK.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: sample
 ms.date: 01/10/2019
-ms.author: sajagtap
+ms.author: pafarley
 
 ---
 # Content Moderator .NET SDK samples

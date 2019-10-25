@@ -153,8 +153,8 @@ Visit [this getting started article](https://docs.microsoft.com/azure/azure-moni
 
 Environment variables inform the Azure Spring Cloud framework, ensuring that Azure understands where and how to configure the services that comprise your application.  Ensuring that your environment variables are correct is a necessary first step in troubleshooting potential problems.  You can use the Spring Boot Actuator endpoint to review your environment variables.  
 
-[!WARNING]
-> This procedure may expose your environment variables.  Do not proceed if your test endpoint is publicly accessible or if you've assigned a domain name to your application.
+> [!WARNING]
+> This procedure exposes your environment variables using your test endpoint.  Do not proceed if your test endpoint is publicly accessible or if you've assigned a domain name to your application.
 
 1. Navigate to this URL:  `https://<your application test endpoint>/actuator/health`.  
     - A response similar to `{"status":"UP"}` indicates that the endpoint has been enabled.
@@ -188,6 +188,9 @@ Environment variables inform the Azure Spring Cloud framework, ensuring that Azu
     ```
 
 Find the child node named `systemEnvironment`.  This node contains your application's environment variables.
+
+> [!IMPORTANT]
+> Remember to reverse the exposure of your environment variables before making your application accessible to the public.  Go to the Azure portal, find the configuration page of your application, and delete this environment variable:  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
 
 ### I cannot find metrics or logs for my application
 

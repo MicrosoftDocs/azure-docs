@@ -15,11 +15,10 @@ The exists transformation is a row filtering transformation that checks whether 
 
 ## Configuration
 
-Choose which data stream you're checking for existence in the **Right stream** dropdown.
-
-Specify whether you're looking for the data to exist or not exist in the **Exist type** setting.
-
-Choose which key columns you want to compare as your exists conditions. By default, data flow looks for equality between one column in each stream. To compare via a compute value, hover over the column dropdown and select **Computed column**.
+1. Choose which data stream you're checking for existence in the **Right stream** dropdown.
+1. Specify whether you're looking for the data to exist or not exist in the **Exist type** setting.
+1. Select whether or not your want a **Custom expression**.
+1. Choose which key columns you want to compare as your exists conditions. By default, data flow looks for equality between one column in each stream. To compare via a computed value, hover over the column dropdown and select **Computed column**.
 
 ![Exists settings](media/data-flow/exists.png "exists 1")
 
