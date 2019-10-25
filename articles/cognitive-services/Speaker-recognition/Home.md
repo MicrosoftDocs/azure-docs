@@ -35,10 +35,9 @@ Customers should ensure they have received the appropriate permissions from the 
 
 In the verification phase, the Customer should call the speaker verification API with the ID associated with the individual to be verified.  The service extracts voice features and the passphrase from the input speech recording. Then it compares the features against the corresponding elements of the speaker enrollment data for the speaker the Customer is seeking to verify and determines any match.  The response returns "accept" or "reject" with different confidence levels.  The Customer then determines how to use the results to help decide whether this person is the enrolled  speaker.
 
-The threshold confidence level should be set based on the scenario and other verification factors that are being used. We recommend you experiment with the confidence level and consider the appropriate setting for each application.
+The threshold confidence level should be set based on the scenario and other verification factors that are being used. We recommend you experiment with the confidence level and consider the appropriate setting for each application. The APIs are not intended to determine whether the audio is from a live person or an imitation or a recording of an enrolled speaker.
 
 The service does not retain the speech recording or the extracted voice features that are sent to the service during the verification phase.
-There are no anti-spoofing countermeasures built into Speaker Recognition APIs. In cases where voice recognition is supporting human judgment and improving efficiency, it is not a key limitation in general.
 
 For more details about speaker verification, please refer to the API [Speaker - Verification](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652).
 
@@ -58,7 +57,7 @@ Customers should ensure they have received the appropriate permissions from the 
 
 In the identification phase, the speaker identification service extracts voice features from the input speech recording. Then it compares the features against the enrollment data of the specified list of speakers. When a match is found with an enrolled speaker, the response returns the ID of the speaker with a confidence level.  Otherwise, the response returns "reject" when no speaker is a match to an enrolled speaker.
 
-The threshold confidence level should be set based on the scenario. We recommend you experiment with the confidence level and consider the appropriate setting for each application.
+The threshold confidence level should be set based on the scenario. We recommend you experiment with the confidence level and consider the appropriate setting for each application. The APIs are not intended to determine whether the audio is from a live person or an imitation or a recording of an enrolled speaker.
 
 The service does not retain the speech recording or the extracted voice features that are sent to the service for the identification phase.
 
