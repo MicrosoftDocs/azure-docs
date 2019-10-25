@@ -12,16 +12,8 @@ ms.date: 10/24/2019
 
 # Get started with log queries in Azure Monitor
 
-
-> [!NOTE]
-> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) before completing this tutorial.
-
 > [!NOTE]
 > You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.
-
-Follow along with a video version of this tutorial below:
-
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 In this tutorial you will learn to write log queries in Azure Monitor. It will teach you how to:
 
@@ -35,6 +27,10 @@ In this tutorial you will learn to write log queries in Azure Monitor. It will t
 
 For a tutorial on using Log Analytics in the Azure portal, see [Get started with Azure Monitor Log Analytics](get-started-portal.md).<br>
 For more details on log queries in Azure Monitor, see [Overview of log queries in Azure Monitor](log-query-overview.md).
+
+Follow along with a video version of this tutorial below:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## Writing a new query
 Queries can start with either a table name or the *search* command. You should start with a table name, since it defines a clear scope for the query and improves both query performance and relevance of the results.
