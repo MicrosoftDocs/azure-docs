@@ -112,15 +112,15 @@ The device application starts sending data to IoT Hub:
 
 1. Open Azure IoT explorer. You see the **App configurations** page.
 
-1. Enter your _IoT Hub connection string_ and click **Connect**.
+1. Enter your _IoT Hub connection string_ and select **Connect**.
 
 1. After you connect, you see the device overview page.
 
-1. To add your company repository, select **Settings**, then **+ New**, and then **On the connected device**.
+1. To add your company repository, select **Settings**, then **+ New**, and then **Company repository**.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:YOUR_COMPANY_NAME_HERE:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry.
+1. Expand the interface with ID **urn:<YOUR_COMPANY_NAME>:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - interface, properties, commands, and telemetry.
 
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
 
@@ -130,7 +130,7 @@ The device application starts sending data to IoT Hub:
 
 1. Expand property **name**, update with a new name and select **update writable property**. 
 
-1. To see the new name show up in the **Reported Property** column, click the **Refresh** button on top of the page.
+1. To see the new name show up in the **Reported Property** column, select the **Refresh** button on top of the page.
 
 1. Select the **Command** page to view all the commands the device supports.
 
