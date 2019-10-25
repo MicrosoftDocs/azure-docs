@@ -202,7 +202,7 @@ Automated ML helps you with deploying the model without writing code:
 
     ![Deploy complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png) 
 
-Now you have an operational web service to generate predictions!
+Now you have an operational web service to generate predictions! You can test the predictions by querying the service from [Power BI’s built in Azure Machine Learning support](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
 ## Next steps
 
