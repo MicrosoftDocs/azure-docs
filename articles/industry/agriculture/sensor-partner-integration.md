@@ -3,11 +3,8 @@ title: Sensor partner integration
 description: Describes Sensor Partner Integration
 author: uhabiba04
 ms.topic: article
-<<<<<<< HEAD
 ms.date: 10/25/2019
-=======
 ms.date: 11/04/2019
->>>>>>> 3c55119e1720690357dd0ea59afb451bfc331f47
 ms.author: v-umha
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description:
+description: how to troubleshoot the farmbeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019

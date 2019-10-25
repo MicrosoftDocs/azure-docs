@@ -5,7 +5,6 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/25/2019
 ms.author: v-umha
-ms.service: backup
 ---
 
 # Integration patterns
