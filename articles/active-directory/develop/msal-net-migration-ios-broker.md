@@ -1,5 +1,6 @@
 ---
-title: Migrate Xamarin iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET | Azure
+title: Migrate Xamarin iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET 
+titleSuffix: Microsoft identity platform
 description: Learn how to migrate Xamarin iOS applications that use Microsoft Authenticator from the Azure AD Authentication Library for .NET (ADAL.NET) to the Microsoft Authentication Library for .NET (MSAL.NET).
 documentationcenter: dev-center-name
 author: jmprieur
@@ -33,7 +34,7 @@ This article assumes that you already have a Xamarin iOS app that's integrated w
 
 ### What are brokers?
 
-Brokers are applications provided by Microsoft on Android and iOS. (See the [Microsoft Authenticator](https://www.microsoft.com/account/authenticator) app on iOS and Android, and the Intune Company Portal app on Android.) 
+Brokers are applications provided by Microsoft on Android and iOS. (See the [Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) app on iOS and Android, and the Intune Company Portal app on Android.) 
 
 They enable:
 

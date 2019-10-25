@@ -20,10 +20,6 @@ ms.collection: M365-identity-device-management
 
 Azure Active Directory (Azure AD) supports bulk user import (create) operations.
 
-## Bulk download service limits
-
-Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of at least 500,000 users.
-
 ## Required permissions
 
 To download the list of users from the Azure AD admin center, you must be signed in with a user assigned to one or more organization-level administrator roles in Azure AD. Guest inviter and application developer are not considered administrator roles.
@@ -36,11 +32,47 @@ To download the list of users from the Azure AD admin center, you must be signed
 
    ![Select where you want the list the users you want to download](./media/users-bulk-download/bulk-download.png)
 
+   The download file will contain the filtered list of users.
+
+   The following user attributes will be included: 
+
+   - userPrincipalName
+   - displayName
+   - surname
+   - mail
+   - givenName
+   - objectId
+   - userType
+   - jobTitle
+   - department
+   - manager
+   - accountEnabled
+   - usageLocation
+   - streetAddress
+   - state
+   - country
+   - physicalDeliveryOfficeName
+   - city
+   - postalCode
+   - telephoneNumber
+   - mobile
+   - authenticationPhoneNumber
+   - authenticationAlternativePhoneNumber
+   - authenticationEmail
+   - alternateEmailAddress
+   - ageGroup
+   - consentProvidedForMinor
+   - legalAgeGroupClassification
+
 ## Check status
 
 You can see the status of your pending bulk requests in the **Bulk operation results (preview)** page.
 
    ![Check upload status in the Bulk Operations Results page](./media/users-bulk-download/bulk-center.png)
+
+## Bulk download service limits
+
+Each bulk activity to create a list of users can run for up to one hour. This enables creation and download of a list of at least 500,000 users.
 
 ## Next steps
 

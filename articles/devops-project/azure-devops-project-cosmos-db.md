@@ -2,7 +2,7 @@
 title: 'Tutorial: Deploy Node.js apps powered by Azure Cosmos DB with Azure DevOps Projects'
 description: Azure DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your Node.js app that's powered by Azure Cosmos DB to Windows Web App in a few quick steps.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial

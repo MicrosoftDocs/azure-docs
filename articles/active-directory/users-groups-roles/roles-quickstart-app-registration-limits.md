@@ -1,4 +1,4 @@
----
+﻿---
 title: Grant an individual permission to exceed restrictions on app registrations - Azure Active Directory | Microsoft Docs
 description: Assign a custom role to grant unrestricted app registrations in the Azure AD Active Directory.
 services: active-directory
@@ -29,7 +29,7 @@ The least privileged role required to create and assign Azure AD custom roles is
 ## Create a new custom role using the Azure AD portal
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged Role administrator or Global administrator permissions in the Azure AD organization.
-1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
+1. Select **Azure Active Directory**, select **Roles and administrators**, and then select **New custom role**.
 
     ![Create or edit roles from the Roles and administrators page](./media/roles-create-custom/new-custom-role.png)
 
@@ -46,7 +46,7 @@ The least privileged role required to create and assign Azure AD custom roles is
 ### Assign the role to a user using the Azure AD portal
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Privileged role administrator or Global administrator permissions in your Azure AD organization.
-1. Select **Azure Active Directory** and then select **Roles and administrators**.
+1. Select **Azure Active Directory** and then select **Roles and administrators**.
 1. Select the Application Registration Creator role and select **Add assignment**.
 1. Select the desired user and click **Select** to add the user to the role.
 

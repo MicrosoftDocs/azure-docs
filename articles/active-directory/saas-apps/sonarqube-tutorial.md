@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Sonarqube | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sonarqube.
 services: active-directory
@@ -136,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Install the SAML plugin from the sonarqube market place.
 
-3. On the top left of the page, click on **ADMIN** and then navigate to **SAML**.
+3. On the top left of the page, click on **ADMIN** and then navigate to **SAML**.
 
 4. On the **SAML** page, perform the following steps:
 

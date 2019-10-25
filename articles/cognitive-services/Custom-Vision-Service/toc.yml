@@ -44,9 +44,9 @@
       href: go-tutorial-object-detection.md
 - name: Tutorials
   items:
-  - name: IoT Visual Alerts app
+  - name: Report visual states on IoT device
     href: iot-visual-alerts-tutorial.md
-  - name: Logo detector for mobile
+  - name: Recognize logos on mobile
     href: logo-detector-mobile.md
 - name: How-to guides
   items:
@@ -97,7 +97,7 @@
 - name: Resources
   items:
   - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+    href: https://docs.microsoft.com/samples/browse/?products=azure&term=vision
   - name: Limits and quotas
     href: limits-and-quotas.md
   - name: UserVoice

@@ -2,7 +2,6 @@
 title: Azure Analysis Services high availability | Microsoft Docs
 description: Assuring Azure Analysis Services high availability.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019

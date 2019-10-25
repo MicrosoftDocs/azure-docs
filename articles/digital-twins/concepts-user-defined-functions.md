@@ -1,13 +1,13 @@
 ---
-title: 'Data processing and user-defined functions with Azure Digital Twins| Microsoft Docs'
+title: 'Data processing and user-defined functions - Azure Digital Twins| Microsoft Docs'
 description: Overview of data processing, matchers, and user-defined functions with Azure Digital Twins.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
 ---
 
 # Data processing and user-defined functions

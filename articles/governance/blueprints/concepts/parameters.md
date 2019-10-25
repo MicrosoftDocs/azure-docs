@@ -6,7 +6,6 @@ ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
 ---
 # Creating dynamic blueprints through parameters
 

@@ -42,7 +42,7 @@ An Azure AD DS managed domain connects to a subnet in an Azure virtual network. 
 * Azure AD DS must be deployed in its own subnet. Don't use an existing subnet or a gateway subnet.
 * A network security group is created during the deployment of an Azure AD DS managed domain. This network security group contains the required rules for correct service communication.
     * Don't create or use an existing network security group with your own custom rules.
-* Azure AD DS requires between five and seven IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
+* Azure AD DS requires 3-5 IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
     * Restricting the available IP addresses can prevent Azure AD Domain Services from maintaining two domain controllers.
 
 The following example diagram outlines a valid design where Azure AD DS has its own subnet, there's a gateway subnet for external connectivity, and application workloads are in a connected subnet within the virtual network:

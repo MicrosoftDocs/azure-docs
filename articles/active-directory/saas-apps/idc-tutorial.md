@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. Click **Set additional URLs** and perform the following steps if you wish to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** text box, type a URL:
-    `https://cas.idc.com/saml-welcome/AzureAppDirectory`
+    `https://www.idc.com/saml-welcome/<SamlWelcomeCode>`
 
     > [!NOTE]
     > These values are not real. Update these values with the actual Identifier and Reply URL. Contact [IDC Client support team](mailto:webchanneldev@idc.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -140,7 +140,7 @@ To configure single sign-on on **IDC** side, you need to send the downloaded **F
 
 ### Create IDC test user
 
-In this section, you create a user called Britta Simon in IDC. Work with [IDC support team](mailto:webchanneldev@idc.com) to add the users in the IDC platform. Users must be created and activated before you use single sign-on.
+A user does not have to be created in IDC in advance. The user will created automatically once he uses single sign-on for the first time.
 
 ## Test SSO 
 

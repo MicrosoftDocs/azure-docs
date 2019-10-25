@@ -9,7 +9,7 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
 ---
 
@@ -110,6 +110,6 @@ You should not see the following values:
 
 ## Next steps
 
-- For assistance, start a conversation in the [MSDN forum](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) or [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+- Read about [How to mitigate latency in Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- For assisted support options, use [Azure support](https://azure.microsoft.com/support/options/).
+- Learn [how to scale your Time Series Insights environment](time-series-insights-how-to-scale-your-environment.md).

@@ -7,7 +7,7 @@
  ms.service: time-series-insights
  author: kingdomofends
  ms.author: adgera
- ms.date: 08/08/2019
+ ms.date: 09/24/2019
 ---
 
 > [!IMPORTANT]

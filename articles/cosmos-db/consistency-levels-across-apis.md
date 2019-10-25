@@ -1,8 +1,8 @@
 ---
 title: Consistency levels and Azure Cosmos DB APIs
 description: Understanding the consistency levels across APIs in Azure Cosmos DB.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019

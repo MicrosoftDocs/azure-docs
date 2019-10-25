@@ -10,7 +10,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.subservice: cognitive-search
+
 ---
 
 #	Shaper cognitive skill

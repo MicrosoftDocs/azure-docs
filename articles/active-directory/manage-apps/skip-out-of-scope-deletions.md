@@ -1,6 +1,6 @@
 ---
 title: 'Skip deletion of out of scope users | Microsoft Docs'
-description: Learn how to override the default behavior of deleting out of scope users.
+description: Learn how to override the default behavior of de-provisioning out of scope users.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2019
+ms.date: 10/03/2019
 ms.author: chmutali
 
 ms.collection: M365-identity-device-management
 ---
 # Skip deletion of user accounts that go out of scope
 
-By default, the Azure AD provisioning engine deletes or disables users that go out of scope. However, for certain scenarios like Workday to AD User Inbound Provisioning this behavior may not be the expected and you may want to override this default behavior.  
+By default, the Azure AD provisioning engine soft deletes or disables users that go out of scope. However, for certain scenarios like Workday to AD User Inbound Provisioning this behavior may not be the expected and you may want to override this default behavior.  
 
 This guide describes how to use the Microsoft Graph API and the Microsoft Graph API explorer to set the flag ***SkipOutOfScopeDeletions*** that controls the processing of accounts that go out of scope. 
 * If ***SkipOutOfScopeDeletions*** is set to 0 (false), then accounts that go out of scope will get disabled in the target
@@ -50,7 +50,7 @@ As this configuration is widely used with the *Workday to Active Directory user 
 In the Microsoft Graph Explorer, run the following GET query replacing [servicePrincipalId]  with the **ServicePrincipalId** extracted from the [Step 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
 ```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
+   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
    ![GET job query](./media/skip-out-of-scope-deletions/skip-03.png)

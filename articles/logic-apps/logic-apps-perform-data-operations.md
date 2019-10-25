@@ -172,55 +172,93 @@ If you prefer working in the code view editor, you can copy the example **Create
 
 ### Customize table format
 
-By default, the **Columns** property is set to automatically create the table columns based on the array items. 
-
-To specify custom headers and values, follow these steps:
+By default, the **Columns** property is set to automatically create the table columns based on the array items. To specify custom headers and values, follow these steps:
 
 1. Open the **Columns** list, and select **Custom**.
 
 1. In the **Header** property, specify the custom header text to use instead.
 
-1. In the **Key** property, specify the custom value to use instead.
+1. In the **Value** property, specify the custom value to use instead.
 
-To reference and edit the values from the array, you can use the `@item()` function in the **Create CSV table** action's JSON definition.
+To return values from the array, you can use the [`item()` function](../logic-apps/workflow-definition-language-functions-reference.md#item) with the **Create CSV table** action. In a `For_each` loop, you can use the [`items()` function](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
-1. On the designer toolbar, select **Code view**. 
-
-1. In the code editor, edit action's `inputs` section to customize the table output the way that you want.
-
-This example returns only the column values and not the headers from the `columns` array by setting the `header` property to an empty value and dereferencing each `value` property:
-
-```json
-"Create_CSV_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "CSV",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Here is the result that this example returns:
+For example, suppose you want table columns that have only the property values and not the property names from an array. To return only these values, follow these steps for working in designer view or in code view. Here is the result that this example returns:
 
 ```text
-Results from Create CSV table action:
-
 Apples,1
 Oranges,2
 ```
 
-In the designer, the **Create CSV table** action now appears this way:
+#### Work in designer view
 
-!["Create CSV table" with no column headers](./media/logic-apps-perform-data-operations/create-csv-table-no-column-headers.png)
+In the action, keep the **Header** column empty. On each row in the **Value** column, dereference each array property that you want. Each row under **Value** returns all the values for the specified array property and becomes a column in your table.
+
+1. Under **Value**, on each row that you want, click inside the edit box so that the dynamic content list appears.
+
+1. In the dynamic content list, select **Expression**.
+
+1. In the expression editor, enter this expression that specifies the array property value that you want, and select **OK**.
+
+   `item()?['<array-property-name>']`
+
+   For example:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Expression to dereference property](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+
+1. Repeat the previous steps for each array property that you want. When you're done, your action looks like this example:
+
+   ![Finished expressions](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+
+1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
+
+   The **Create CSV table** action now appears like this example:
+
+   !["Create CSV table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+
+#### Work in code view
+
+In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
+
+1. On the designer toolbar, select **Code view**.
+
+1. In the code editor, in the action's `columns` array, add the empty `header` property and this `value` expression for each column of array values that you want:
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   For example:
+
+   ```json
+   "Create_CSV_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "CSV",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Switch back to designer view, and reopen the collapsed action.
+
+   The **Create CSV table** action now appears like this example, and the expressions have resolved to more descriptive versions:
+
+   !["Create CSV table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 For more information about this action in your underlying workflow definition, see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -287,55 +325,93 @@ If you prefer working in the code view editor, you can copy the example **Create
 
 ### Customize table format
 
-By default, the **Columns** property is set to automatically create the table columns based on the array items. 
-
-To specify custom headers and values, follow these steps:
+By default, the **Columns** property is set to automatically create the table columns based on the array items. To specify custom headers and values, follow these steps:
 
 1. Open the **Columns** list, and select **Custom**.
 
 1. In the **Header** property, specify the custom header text to use instead.
 
-1. In the **Key** property, specify the custom value to use instead.
+1. In the **Value** property, specify the custom value to use instead.
 
-To reference and edit the values from the array, you can use the `@item()` function in the **Create HTML table** action's JSON definition.
+To return values from the array, you can use the [`item()` function](../logic-apps/workflow-definition-language-functions-reference.md#item) with the **Create HTML table** action. In a `For_each` loop, you can use the [`items()` function](../logic-apps/workflow-definition-language-functions-reference.md#items).
 
-1. On the designer toolbar, select **Code view**. 
-
-1. In the code editor, edit action's `inputs` section to customize the table output the way that you want.
-
-This example returns only the column values and not the headers from the `columns` array by setting the `header` property to an empty value and dereferencing each `value` property:
-
-```json
-"Create_HTML_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "HTML",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Here is the result that this example returns:
+For example, suppose you want table columns that have only the property values and not the property names from an array. To return only these values, follow these steps for working in designer view or in code view. Here is the result that this example returns:
 
 ```text
-Results from Create HTML table action:
-
-Apples    1
-Oranges   2
+Apples,1
+Oranges,2
 ```
 
-In the designer, the **Create HTML table** action now appears this way:
+#### Work in designer view
 
-!["Create HTML table" with no column headers](./media/logic-apps-perform-data-operations/create-html-table-no-column-headers.png)
+In the action, keep the **Header** column empty. On each row in the **Value** column, dereference each array property that you want. Each row under **Value** returns all the values for the specified property and becomes a column in your table.
+
+1. Under **Value**, on each row that you want, click inside the edit box so that the dynamic content list appears.
+
+1. In the dynamic content list, select **Expression**.
+
+1. In the expression editor, enter this expression that specifies the array property value that you want, and select **OK**.
+
+   `item()?['<array-property-name>']`
+
+   For example:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Expression to dereference property](./media/logic-apps-perform-data-operations/html-table-expression.png)
+
+1. Repeat the previous steps for each array property that you want. When you're done, your action looks like this example:
+
+   ![Finished expressions](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+
+1. To resolve expressions into more descriptive versions, switch to code view and back to designer view, and then reopen the collapsed action:
+
+   The **Create HTML table** action now appears like this example:
+
+   !["Create HTML table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+
+#### Work in code view
+
+In the action's JSON definition, within the `columns` array, set the `header` property to an empty string. For each `value` property, dereference each array property that you want.
+
+1. On the designer toolbar, select **Code view**.
+
+1. In the code editor, in the action's `columns` array, add the empty `header` property and this `value` expression for each column of array values that you want:
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   For example:
+
+   ```json
+   "Create_HTML_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "HTML",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Switch back to designer view, and reopen the collapsed action.
+
+   The **Create HTML table** action now appears like this example, and the expressions have resolved to more descriptive versions:
+
+   !["Create HTML table" action with resolved expressions and no headers](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 For more information about this action in your underlying workflow definition, see the [Table action](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 

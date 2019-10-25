@@ -8,7 +8,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 09/24/2019
 ms.custom: seodec18
 ---
 
@@ -49,7 +49,7 @@ To start, you need three additional items:
 To create a new Time Series Insights environment, select a Time Series ID. Doing so acts as a logical partition for your data. As noted, make sure to have your Time Series IDs ready.
 
 > [!IMPORTANT]
-> Time Series IDs are *immutable* and *can't be changed later*. Verify each one before final selection and first use.
+> Time Series IDs *cannot be changed later*. Verify each one before final selection and first use.
 
 You can select up to three keys to uniquely differentiate your resources. For more information, read [Best practices for choosing a Time Series ID](./time-series-insights-update-how-to-id.md) and [Storage and ingress](./time-series-insights-update-storage-ingress.md).
 
@@ -77,7 +77,7 @@ A good rule of thumb:
 * Store metadata in your Time Series Model.
 * Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp.
 
-For more information, see [Shape events](./time-series-insights-send-events.md#json).
+For more information, see [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

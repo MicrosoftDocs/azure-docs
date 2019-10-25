@@ -1,13 +1,11 @@
 ---
 title: 'Quickstart: Create a search index in Java using REST APIs - Azure Search'
 description: Explains how to create an index, load data, and run queries using Java and the Azure Search REST APIs.
-author: lisaleib
+
 manager: nitinme
+author: lisaleib
 ms.author: v-lilei
-tags: azure-portal
-services: search
 ms.service: search
-ms.author: jjed
 ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart

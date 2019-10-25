@@ -37,6 +37,8 @@ The following metrics are available in the Azure portal for SQL Data Warehouse. 
 > Things to consider when viewing metrics and setting alerts:
 >
 > - Failed and successful connections are reported for a particular data warehouse - not for the logical server
+> - Memory percentage reflects utilization even if the data warehouse is in idle state - it does not reflect active workload memory consumption. Use and track this metric along with others (tempdb, gen2 cache) to make a holistic decision on if scaling for additional cache capacity will increase workload performance to meet your requirements.
+
 
 ## Query activity
 For a programmatic experience when monitoring SQL Data Warehouse via T-SQL, the service provides a set of Dynamic Management Views (DMVs). These views are useful when actively troubleshooting and identifying performance bottlenecks with your workload.

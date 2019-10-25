@@ -10,7 +10,6 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: luisca
-ms.subservice: cognitive-search
 ---
 #	Key Phrase Extraction cognitive skill
 
