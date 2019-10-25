@@ -70,7 +70,7 @@ public async Task<ChangeFeed> GetChangeFeed(CloudBlobClient cloudBlobClient)
 ## Reading records
 
 > [!NOTE]
-> The change feed is an immutable and read-only entity in your storage account. Any number of applications can choose to read and process the change feed simultenosly and independently at thier own convenience. Records are not removed from the change feed when an application reads them. The read or iteration state of each consuming reader is independent and maintained by your application only.
+> The change feed is an immutable and read-only entity in your storage account. Any number of applications can read and process the change feed simultaneously and independently at their own convenience. Records aren't removed from the change feed when an application reads them. The read or iteration state of each consuming reader is independent and maintained by your application only.
 
 The simplest way to read records is to create an instance of the **ChangeFeedReader** class. 
 
@@ -103,13 +103,13 @@ public async Task ProcessRecords(ChangeFeed changeFeed)
 
 ## Resuming reading records from a saved position
 
-You can choose to save your read position in your change feed and resume iterating the records at a future time. You can save the state of your iteration of the change feed at any time using the **ChangeFeedReader.SerializeState()** method. The state is a **string** and you application can choose to save it based on your needs for eg. to a database or a file.
+You can choose to save your read position in your change feed and resume iterating the records at a future time. You can save the state of your iteration of the change feed at any time using the **ChangeFeedReader.SerializeState()** method. The state is a **string** and your application can save that state based on your application's design (For example: to a database or a file).
 
 ```csharp
     string currentReadState = processor.SerializeState();
 ```
 
-You can resume iterating from the last state by creating the **ChangeFeedReader** using the **CreateChangeFeedReaderFromPointerAsync** method
+You can continue iterating through records from the last state by creating the **ChangeFeedReader** using the **CreateChangeFeedReaderFromPointerAsync** method.
 
 ```csharp
 public async Task ProcessRecordsFromLastPosition(ChangeFeed changeFeed, string lastReadState)
@@ -139,7 +139,7 @@ public async Task ProcessRecordsFromLastPosition(ChangeFeed changeFeed, string l
 
 ## Stream processing of records
 
-You can choose to wait on the tail of appended records in the change feed and process them as they arrive. See [Specifications](storage-blob-change-feed.md#specifications).
+You can choose to process change feed records as they arrive. See [Specifications](storage-blob-change-feed.md#specifications).
 
 ```csharp
 public async Task ProcessRecordsStream(ChangeFeed changeFeed, int waitTimeMs)
@@ -173,7 +173,9 @@ public async Task ProcessRecordsStream(ChangeFeed changeFeed, int waitTimeMs)
 
 ## Reading records within a time range
 
-Change feed is organized into hourly segments based on the change event time. See [Specifications](storage-blob-change-feed.md#specifications). You can choose to read records within happened within a time range by reading the records from the change feed segments in that time range.
+The change feed is organized into hourly segments based on the change event time. See [Specifications](storage-blob-change-feed.md#specifications). You can read records from change feed segments that fall within a specific time range.
+
+This example gets the starting times of all segments. Then, it iterates through that list until the starting time is either beyond the time of the last consumable segment or beyond the ending time of the desired range. 
 
 ### Selecting segments for a time range
 
@@ -252,7 +254,7 @@ public async Task ProcessRecordsInSegment(ChangeFeed changeFeed, DateTimeOffset 
 
 ## Read records starting from a time
 
-You can choose to read the records of the change feed from a starting segment till the end. Similar to reading records within a time range, you can list the segments and choose a segment to start iterating from.
+You can read the records of the change feed from a starting segment till the end. Similar to reading records within a time range, you can list the segments and choose a segment to start iterating from.
 
 ```csharp
 public async Task<DateTimeOffset> GetChangeFeedSegmentRefAfterTime
