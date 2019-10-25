@@ -325,7 +325,7 @@ ExplanationDashboard(global_explanation, model, x_test)
 
 ### Visualization in Azure Machine Learning studio
 
-By completing the steps in the [remote interpretability](how-to-machine-learning-interpretability-aml.md#nterpretability-for-remote-runs) section, you can check the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). The dashboard shown in Azure Machine Learning studio, is a simpler version of the visualization dashboard explained above and only supports the following two tabs.
+By completing the steps in the [remote interpretability](how-to-machine-learning-interpretability-aml.md#interpretability-for-remote-runs) section, you can check the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). The dashboard shown in Azure Machine Learning studio, is a simpler version of the visualization dashboard explained above and only supports the following two tabs.
 
 |Plot|Description|
 |----|-----------|
