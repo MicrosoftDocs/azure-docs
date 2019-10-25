@@ -359,7 +359,7 @@ wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
 3. Go to Azure Cloud Shell once again and once you're successfully authenticated, select the upload button (see highlighted icon in below snip) and upload the input.json file to Cloud Shell storage.
 
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2-1.png)
+  ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2-1.png)
 
 4. Type or paste the *Deployment Command* into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.
 
@@ -463,7 +463,7 @@ The steps for upgrade are similar to the first-time installation as the followin
 
 5. Select the environment drop-down from the left-hand side of shell, which says Bash.
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/bash-1.png)
+   ![Project Farm Beats](./media/deploy-within-cloudshell/bash-1-1.png)
 
 6. Make changes to your input.json file only if needed and upload to the Azure Cloud Shell. For example, you can update your notification email address.
 
@@ -472,7 +472,7 @@ The steps for upgrade are similar to the first-time installation as the followin
 
 8. Go to Azure Cloud Shell once again and once you're successfully authenticated, select the upload button (see highlighted icon in below snip) and upload the input.json file to Cloud Shell storage.
 
-   ![Project Farm Beats](./media/prepare-for-deployment/bash-2.png)
+   ![Project Farm Beats](./media/prepare-for-deployment/bash-2-1.png)
 
 9. Type or paste the "Deployment Command" into the Cloud Shell. Make sure to modify the path to input. json file and press enter.
 
