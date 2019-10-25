@@ -32,18 +32,18 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Create a new service
 
 1. From the Azure portal menu, select **Create a resource**. You can also select **Create a resource** on the Azure **Home** page. 
-
-![Select Create a resource](./media/get-started-create-service-instance/00-CreateResource-01.png)
-
+   
+   ![Select Create a resource](./media/get-started-create-service-instance/00-CreateResource-01.png)
+   
 1. On the **New** screen, select **Integration** and then select **API Management**.
-
-![New Azure API Management instance](./media/get-started-create-service-instance/00-CreateResource-02.png)
-
+   
+   ![New Azure API Management instance](./media/get-started-create-service-instance/00-CreateResource-02.png)
+   
 1. In the **API Management service** screen, enter settings.
-
-    ![new instance](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
-
-    | Setting                 | Suggested value                               | Description                                                                                                                                                                                                                                                                                                                         |
+   
+   ![new instance](./media/get-started-create-service-instance/get-started-create-service-instance-create-new.png)
+   
+   | Setting                 | Suggested value                               | Description                                                                                                                                                                                                                                                                                                                         |
 |-------------------------|-----------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Name**                | A unique name for your API Management service | The name can't be changed later. Service name is used to generate a default domain name in the form of *{name}.azure-api.net.* If you would like to use a custom domain name, see [Configure a custom domain](configure-custom-domain.md). <br/> Service name is used to refer to the service and the corresponding Azure resource. |
 | **Subscription**        | Your subscription                             | The subscription under which this new service instance will be created. You can select the subscription among the different Azure subscriptions that you have access to.                                                                                                                                                            |
@@ -58,15 +58,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     > [!TIP]
     > It usually takes between 20 and 30 minutes to create an API Management service. Selecting **Pin to dashboard** makes finding a newly created service easier.
 
-## Go to your API Management instance
-
-1. In the Azure portal, search for and select **API Management services**.
-
-   ![Select API Management services](./media/get-started-create-service-instance/view-apim1.png)
-
-1. On the **API Management** screen, select your API Management instance.
-
-   ![Select your API Management instance](./media/get-started-create-service-instance/view-apim2.png)
+[!INCLUDE [api-management-navigate-to-instance](../../includes/api-management-navigate-to-instance.md)]
 
 ## Clean up resources
 
