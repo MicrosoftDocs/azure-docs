@@ -1,7 +1,7 @@
 ---
-title: Manage and request resource quotas
+title: Manage resources & quotas
 titleSuffix: Azure Machine Learning
-description: This how-to guide explains the various quotas on resources for Azure Machine Learning and how to view and request more quota.
+description: Learn about the quotas on resources for Azure Machine Learning and how to request more quota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,8 +10,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 05/10/2019
-ms.custom: seodec18
+ms.date: 11/04/2019
 ---
 
 # Manage and request quotas for Azure resources
@@ -29,7 +28,7 @@ Keep these quotas in mind as you design and scale up your Azure Machine Learning
 
 + Your quota is shared across all the services in your subscriptions including Azure Machine Learning. The only exception is Azure Machine Learning compute which has a separate quota from the core compute quota. Be sure to calculate the quota usage across all services when evaluating your capacity needs.
 
-+ Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and series, such as Dv2, F, G, and so on.
++ Default limits vary by offer Category Type, such as Free Trial, Pay-As-You-Go, and VM series, such as Dv2, F, G, and so on.
 
 ## Default resource quotas
 
@@ -48,14 +47,14 @@ It is important to emphasize that virtual machine cores have a regional total li
 For a more detailed and up-to-date list of quota limits, check the Azure-wide quota article [here](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ### Azure Machine Learning Compute
-For Azure Machine Learning Compute, there is a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota above and the core limits are not shared currently between the two resource types.
+For Azure Machine Learning Compute, there is a default quota limit on both the number of cores and number of unique compute resources allowed per region in a subscription. This quota is separate from the VM core quota above and the core limits are not shared between the two resource types since AmlCompute is a managed service which deploys resources in a hosted-on-behalf-of model.
 
 Available resources:
-+ Dedicated cores per region have a default limit of 24 - 300 depending on your subscription offer type.  The number of dedicated cores per subscription can be increased. Contact Azure support to discuss increase options.
++ Dedicated cores per region have a default limit of 24 - 300 depending on your subscription offer type with higher defaults for EA and CSP offer types.  The number of dedicated cores per subscription can be increased and is different for each VM family. Certain specialized VM families like NCv2, NCv3 or ND series start with a default of 0 cores. Contact Azure support by raising a quota request to discuss increase options.
 
-+ Low-priority cores per region have a default limit of 24 - 300 depending on your subscription offer type.  The number of low-priority cores per subscription can be increased. Contact Azure support to discuss increase options.
++ Low-priority cores per region have a default limit of 100 - 3000 depending on your subscription offer type with higher defaults for EA and CSP offer types. The number of low-priority cores per subscription can be increased and is a single value across VM families. Contact Azure support to discuss increase options.
 
-+ Clusters per region have a default limit of 100 and a maximum limit of 200. Contact Azure support if you want to request an increase beyond this limit.
++ Clusters per region have a default limit of 200. These are shared between a training cluster and a compute instnace (which is considered as a single node cluster for quota purposes). Contact Azure support if you want to request an increase beyond this limit.
 
 + There are **other strict limits**  which cannot be exceeded once hit.
 
@@ -66,7 +65,7 @@ Available resources:
 | Maximum GPU MPI processes per node | 1-4 |
 | Maximum GPU workers per node | 1-4 |
 | Maximum job lifetime | 90 days<sup>1</sup> |
-| Maximum job lifetime on a Low Priority Node | 1 day<sup>2</sup> |
+| Maximum job lifetime on a Low Priority Node | 7 days<sup>2</sup> |
 | Maximum parameter servers per node | 1 |
 
 <sup>1</sup> The maximum lifetime refers to the time that a run start and when it finishes. Completed runs persist indefinitely; data for runs not completed within the maximum lifetime is not accessible.
@@ -92,7 +91,23 @@ For a more detailed and up-to-date list of quota limits, check the Azure-wide qu
 There is a limit on the number of storage accounts per region as well in a given subscription. The default limit is 200 and includes both Standard and Premium Storage accounts. If you require more than 200 storage accounts in a given region, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). The Azure Storage team will review your business case and may approve up to 250 storage accounts for a given region.
 
 
-## Find your quotas
+## Workspace level quota
+
+To better manage resource allocations for Amlcompute between various workspaces, we have introduced a feature that allows you to distribute subscription level quotas (by VM family) and configure them at the workspace level. The default behavior is that all workspaces have the same quota as the subscription level quota for any VM family. However, as the number of workspaces increases, and workloads of varying priority start sharing the same resources, users want a way to better share capacity and avoid resource contention issues. Azure Machine Learning provides a way to achieve this on its managed compute offering by allowing users to set a maximum quota for a particular VM family on each workspace. This is analogous to distributing your capacity between workspaces, and the users can choose to also over-allocate to drive maximum utilization. 
+
+To set quotas at the workspace level, simply go to any workspace in your subscription, and click on **Usages + quotas** in the left pane. Then select the **Configure quotas** tab to view the quotas, expand any VM family, and set a quota limit on any workspace listed under that VM family. Remember that you cannot set a negative value or a value higher than the subscription level quota. Also, as you would observe, by default all workspaces are assigned the entire subscription quota to allow for full utilization of the allocated quota.
+
+[![Azure Machine Learning workspace level quota](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)](./media/how-to-manage-quotas/azure-machine-learning-workspace-quota.png)
+
+
+> [!NOTE]
+> This is an Enterprise edition feature only. If you have both a Basic and an Enterprise edition workspace in your subscription, you can use this to only set quotas on your Enterprise workspaces. Your Basic workspaces will continue to have the subscription level quota which is the default behavior.
+>
+> You need subscription level permissions to set quota at the workspace level. This is enforced so that individual workspace owners do not edit or increase their quotas and start encroaching onto resources set aside for another workspace. Thus a subscription admin is best suited to allocate and distribute these quotas across workspaces.
+
+
+
+## View your usage and quotas
 
 Viewing your quota for various resources, such as Virtual Machines, Storage, Network, is easy through the Azure portal.
 
@@ -108,6 +123,10 @@ Viewing your quota for various resources, such as Virtual Machines, Storage, Net
 
 1. Select a subscription to view the quota limits. Remember to filter to the region you are interested in.
 
+1. You can now toggle between a subscription level view and a workspace level view:
+    + **Subscription view:** This allows you to view your usage of core quota by VM family, expanding it by workspace, and further expanding it by the actual cluster names. This view is optimal for quickly getting into the details of core usage for a paritcular VM family to see the break-up by workspaces and further by the underlying clusters for each of those workspaces. The general convention in this view is (usage/quota), where the usage is the current number of scaled up cores, and quota is the logical maximum number of cores that the resource can scale to. In the case of a **workspace** the quota would be the workspace level quota (as explained above) which denotes the maximum number of cores that you can scale to for a particular VM family. In the case of a **cluster** similarly, the quota is actually the cores corresponding to the maximum number of nodes that the cluster can scale to defined by the max_nodes property.
+
+    + **Workspace view:** This allows you to view your usage of core quota by Workspace, expanding it by VM family, and further expanding it by the actual cluster names. This view is optimal for quickly getting into the details of core usage for a particular workspace to see the break-up by VM families and further by the underlying clusters for each of those families.
 
 ## Request quota increases
 
