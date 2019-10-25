@@ -287,8 +287,10 @@ Configuration JSON example to create an application resource in the *East US* re
         "content": {
             "abiFileUrl": "<ABI URL>",
             "bytecodeFileUrl": "<Bytecode URL>",
-            "contractAddresses": null,
-            "queryTargetType": "ContractPropertiesAndEvents"
+            "queryTargetTypes": [
+                "ContractProperties",
+                "ContractEvents"
+          ]
         }
     }
 }
@@ -300,6 +302,7 @@ Configuration JSON example to create an application resource in the *East US* re
 | artifactType | Type of application. Currently, **EthereumSmartContract** is supported. |
 | abiFileUrl | URL for smart contract ABI JSON file. For more information on obtaining contract ABI and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
 | bytecodeFileUrl | URL for smart contract bytecode JSON file. For more information on obtaining the smart contract bytecode and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
+| queryTargetTypes | Published message types. Specifying **ContractProperties** publishes *ContractPropertiesMsg* message type. Specifying **ContractEvents** publishes *DecodedContractEventMsg* message type. *RawBlockAndTransactionMsg* message type is always published. |
 
 Create an application named *myApplication* for *mywatcher* that monitors a smart contract defined by a JSON string.
 
@@ -310,7 +313,7 @@ az resource create \
                    --namespace Microsoft.Blockchain \ --resource-type artifacts \
                    --parent watchers/mywatcher \
                    --is-full-object \
-                   --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","contractAddresses":null,"queryTargetType":"ContractPropertiesAndEvents"}}}'
+                   --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","queryTargetType":"ContractPropertiesAndEvents"}}}'
 ```
 
 Create an application named *myApplication* for *mywatcher* that watches a smart contract defined using a JSON configuration file.

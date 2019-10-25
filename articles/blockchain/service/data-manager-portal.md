@@ -48,7 +48,7 @@ An outbound connection sends blockchain data to Azure Event Grid. You configure 
 
 1. Select **OK**.
 
-    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. When running, a Blockchain Manager instance captures blockchain events from the defined inputs and sends data to the outbound connections. If you would like to also capture decoded event and property data from the transaction node, then create a blockchain application for the Blockchain Data Manager instance.
+    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. A running Blockchain Data Manager instance captures blockchain events from the transaction node and sends data to the outbound connections. If you want to also capture decoded event and property data from the transaction node, then create a blockchain application for the Blockchain Data Manager instance.
 
     The new instance appears in the list of Blockchain Data Manager instances for the Azure Blockchain Service member.
 
