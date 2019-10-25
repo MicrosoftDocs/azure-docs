@@ -48,7 +48,7 @@ There are two steps prior to using samples:
 
 ### Create database
 
-You should create your own database. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
+Create your own database. Database is needed to create views in it. You will use this database in some of sample queries in this documentation. 
 
 > Note that databases are used only for view metadata, not for actual data.
 > 
