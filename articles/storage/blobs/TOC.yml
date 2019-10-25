@@ -124,6 +124,8 @@
         href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Built-in security controls
         href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Use Azure Private Endpoints
+        href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json  
     - name: Data redundancy
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       items:
@@ -631,7 +633,7 @@
     items:
     - name: Create and manage storage accounts
       items:
-      - name: Create a general-purpose storage account
+      - name: Create a storage account for your Data Lake
         href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage a storage account
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
