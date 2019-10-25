@@ -56,7 +56,7 @@ Solutions to the previous problems not only require an enormous amount of time i
 |  | Containers configured in manual mode  | Containers configured in autopilot mode |
 |---------|---------|---------|
 | **Provisioned throughput** | Manually provisioned | Proactively and reactively scaled based on the workload usage patterns. |
-| **Rate-limiting of requests/operations (429) **  | May happen, if consumption exceeds provisioned capacity. | Will not happen.  |
+| **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen.  |
 | **Capacity planning** |  You have to do an initial capacity planning and provision of the throughput you need. |    You don’t have to worry about capacity planning. The system automatically takes care of capacity planning and capacity management. |
 | **Pricing** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on hourly basis, using Autopilot RU/s per hour rate. For accounts with multiple write regions, there is no extra charge for Autopilot, you pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
 | **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
