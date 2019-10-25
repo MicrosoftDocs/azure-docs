@@ -1,18 +1,13 @@
 ---
 title: Connect computers by using the Log Analytics gateway | Microsoft Docs
 description: Connect your devices and Operations Manager-monitored computers by using the Log Analytics gateway to send data to the Azure Automation and Log Analytics service when they do not have internet access.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ae9a1623-d2ba-41d3-bd97-36e65d3ca119
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service:  azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/12/2019
+author: MGoedtel
 ms.author: magoedte
+ms.date: 10/24/2019
+
 ---
 
 # Connect computers without internet access by using the Log Analytics gateway in Azure Monitor
@@ -295,50 +290,11 @@ To configure specific servers or groups to use the Log Analytics gateway server:
 
 ### Configure for Automation Hybrid Runbook Workers
 
-If you have Automation Hybrid Runbook Workers in your environment, follow these steps for manual, temporary workarounds to configure OMS Gateway to support the workers.
+If you have Automation Hybrid Runbook Workers in your environment, follow these steps to configure the gateway to support the workers.
 
-To follow the steps in this section, you need to know the Azure region where the Automation account resides. To find that location:
+Refer to the [Configure your network](../../automation/automation-hybrid-runbook-worker.md#network-planning) section of the Automation documentation to find the URL for each region.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select the Azure Automation service.
-1. Select the appropriate Azure Automation account.
-1. View its region under **Location**.
-
-   ![Screenshot of the Automation account location in the Azure portal](./media/gateway/location.png)
-
-Use the following tables to identify the URL for each location.
-
-**Job Runtime Data service URLs**
-
-| **Location** | **URL** |
-| --- | --- |
-| North Central US |ncus-jobruntimedata-prod-su1.azure-automation.net |
-| West Europe |we-jobruntimedata-prod-su1.azure-automation.net |
-| South Central US |scus-jobruntimedata-prod-su1.azure-automation.net |
-| East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
-| Central Canada |cc-jobruntimedata-prod-su1.azure-automation.net |
-| North Europe |ne-jobruntimedata-prod-su1.azure-automation.net |
-| South East Asia |sea-jobruntimedata-prod-su1.azure-automation.net |
-| Central India |cid-jobruntimedata-prod-su1.azure-automation.net |
-| Japan |jpe-jobruntimedata-prod-su1.azure-automation.net |
-| Australia |ase-jobruntimedata-prod-su1.azure-automation.net |
-
-**Agent service URLs**
-
-| **Location** | **URL** |
-| --- | --- |
-| North Central US |ncus-agentservice-prod-1.azure-automation.net |
-| West Europe |we-agentservice-prod-1.azure-automation.net |
-| South Central US |scus-agentservice-prod-1.azure-automation.net |
-| East US 2 |eus2-agentservice-prod-1.azure-automation.net |
-| Central Canada |cc-agentservice-prod-1.azure-automation.net |
-| North Europe |ne-agentservice-prod-1.azure-automation.net |
-| South East Asia |sea-agentservice-prod-1.azure-automation.net |
-| Central India |cid-agentservice-prod-1.azure-automation.net |
-| Japan |jpe-agentservice-prod-1.azure-automation.net |
-| Australia |ase-agentservice-prod-1.azure-automation.net |
-
-If your computer is registered as a Hybrid Runbook Worker automatically, use the Update Management solution to manage the patch. Follow these steps:
+If your computer is registered as a Hybrid Runbook Worker automatically, for example if the Update Management solution is enabled for one or more VMs, follow these steps:
 
 1. Add the Job Runtime Data service URLs to the Allowed Host list on the Log Analytics gateway. For example:
     `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
