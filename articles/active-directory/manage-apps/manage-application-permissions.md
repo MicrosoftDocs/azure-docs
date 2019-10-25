@@ -14,7 +14,7 @@ ms.reviewer: luleonpla
 
 ms.collection: M365-identity-device-management
 ---
-# Manage application permission in Azure Active Directory
+# Take action on overpriviledged, or suspicious application in Azure Active Directory
 
 Learn how to review and manage application permissions. Based on the scenario, this article will provide different actions you can perform to secure your application. This apply to all applications that were added to your Azure Active Directory (Azure AD) tenant via user or admin consent.
 
