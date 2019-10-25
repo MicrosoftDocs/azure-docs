@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/18/2019
+ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -90,6 +90,22 @@ Follow these steps to add an external Azure AD directory or domain as a connecte
 1. On the **Review + create** tab, review your organization settings and then click **Create**.
 
     ![Access package - Policy - Add connected organization - Review + create tab](./media/entitlement-management-organization/organization-review-create.png)
+
+## Delete a connected organization
+
+If you no longer have a relationship with an external Azure AD directory or domain, you can delete the connected organization.
+
+**Prerequisite role:** Global administrator, User administrator, or Guest inviter
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
+
+1. In the left menu, click **Connected organizations** and then click to open the connected organization.
+
+1. On the Overview page, click **Delete** to delete the connected organization.
+
+    Currently, you can only delete a connected organization if there are no connected users.
+
+    ![Identity Governance - Connected organizations - Delete connected organization](./media/entitlement-management-organization/organization-delete.png)
 
 ## Next steps
 
