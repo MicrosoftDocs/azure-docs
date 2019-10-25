@@ -142,12 +142,13 @@ TOKEN_PWD=$(az acr token credential generate \
 
 ## Authenticate using token
 
-Run `docker login` to authenticate with the registry, entering the token name as the user name and one of its passwords. The following example is formatted for the bash shell, and provides the password using an environment variable.
+Run `docker login` to authenticate with the registry, entering the token name as the user name and one of its passwords. The following example is formatted for the bash shell, and provides the values using environment variables.
 
 ```bash
+TOKEN_NAME=MyToken
 TOKEN_PWD=<token password>
 
-echo $TOKEN_PWD | docker login --username MyToken --password-stdin myregistry.azurecr.io
+echo $TOKEN_PWD | docker login --username $TOKEN_NAME --password-stdin myregistry.azurecr.io
 ```
 
 Output should show successful authentication:
@@ -177,21 +178,23 @@ docker pull myregistry.azurecr.io/samples/nginx:v1
 
 ## Update scope map and token
 
-To update token permissions, first update the permissions in the associated scope map, using [az acr scope-map update][az-acr-scope-map-update]. For example, to update *MyScopeMap* to remove the `content/read` action on the `samples/hello-world` repository:
+To update token permissions, update the permissions in the associated scope map, using [az acr scope-map update][az-acr-scope-map-update]. For example, to update *MyScopeMap* to remove the `content/read` action on the `samples/hello-world` repository:
 
 ```azurecli
 az acr scope-map update --name MyScopeMap --registry myregistry \
   --remove hello-world content/read
 ```
 
-After updating a scope map, run [az acr token update][az-acr-token-update] to update a token that applies the scope map. For example:
+If you want to update a token with a different scope map, run [az acr token update][az-acr-token-update]. For example:
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \
-  --scope-map MyScopeMap
+  --scope-map MyNewScopeMap
 ```
 
-After updating a token, generate a new passwords to access the registry. Run [az acr token credential generate][az-acr-token-credential-generate]:
+After updating a token, or a scope map associated with a token, the permission changes take effect at the next `docker login` with the token.
+
+After updating a token, you might want to generate new passwords to access the registry. Run [az acr token credential generate][az-acr-token-credential-generate]. For example:
 
 ```azurecli
 az acr token credential generate \
@@ -217,7 +220,7 @@ To configure the permissions, you create an *access token* using commands in the
   |`content/write`     |  Write data to the repository. Use with `content/read` to push an artifact.    |
   |`metadata/write`     |  Write metadata to the repository       |
 
-* A **scope map** is a registry object that collects repository permissions you apply to a token, or can reapply to other tokens. If you don't apply a scope map when creating a token, a scope map is automatically created for you, to save the permission settings. 
+* A **scope map** is a registry object that groups repository permissions you apply to a token, or can reapply to other tokens. If you don't apply a scope map when creating a token, a scope map is automatically created for you, to save the permission settings. 
 
   A scope map helps you configure multiple users with identical access to a set of repositories. Azure Container Registry also provides system-defined scope maps that you can apply when creating access tokens.
 
