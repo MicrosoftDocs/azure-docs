@@ -95,7 +95,7 @@ The output [Asset](https://docs.microsoft.com/rest/api/media/assets) stores the 
 
 ### Create a Transform and a Job that encodes the uploaded file
 
-When encoding or processing content in Media Services, it is a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you are applying that recipe to all the videos in your library. A recipe in Media Services is called as a **Transform**. For more information, see [Transforms and Jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices. 
+When encoding or processing content in Media Services, it's a common pattern to set up the encoding settings as a recipe. You would then submit a **Job** to apply that recipe to a video. By submitting new jobs for each new video, you're applying that recipe to all the videos in your library. A recipe in Media Services is called a **Transform**. For more information, see [Transforms and Jobs](transform-concept.md). The sample described in this tutorial defines a recipe that encodes the video in order to stream it to a variety of iOS and Android devices.
 
 #### Transform
 
@@ -103,7 +103,7 @@ When creating a new [Transform](https://docs.microsoft.com/rest/api/media/transf
 
 You can use a built-in EncoderNamedPreset or use custom presets. For more information, see [How to customize encoder presets](customize-encoder-presets-how-to.md).
 
-When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method, as shown in the code that follows.  In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
+When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms), you should first check if one already exists using the **Get** method, as shown in the code that follows. In Media Services v3, **Get** methods on entities return **null** if the entity doesn’t exist (a case-insensitive check on the name).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#EnsureTransformExists)]
 
@@ -111,17 +111,17 @@ When creating a [Transform](https://docs.microsoft.com/rest/api/media/transforms
 
 As mentioned above, the [Transform](https://docs.microsoft.com/rest/api/media/transforms) object is the recipe and a [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Media Services to apply that **Transform** to a given input video or audio content. The **Job** specifies information like the location of the input video, and the location for the output.
 
-In this example, the input video has been uploaded from your local machine. If you want to learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.
+In this example, the input video has been uploaded from your local machine. If you want to learn how to encode from an HTTPS URL, see [this](job-input-from-http-how-to.md) article.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#SubmitJob)]
 
 ### Wait for the Job to complete
 
-The job takes some time to complete and when it does you want to be notified. The code sample below shows how to poll the service for the status of the [Job](https://docs.microsoft.com/rest/api/media/jobs). Polling is not a recommended best practice for production applications because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
+The job takes some time to complete and when it does you want to be notified. The code sample below shows how to poll the service for the status of the [Job](https://docs.microsoft.com/rest/api/media/jobs). Polling isn't a recommended best practice for production apps because of potential latency. Polling can be throttled if overused on an account. Developers should instead use Event Grid.
 
 Event Grid is designed for high availability, consistent performance, and dynamic scale. With Event Grid, your apps can listen for and react to events from virtually all Azure services, as well as custom sources. Simple, HTTP-based reactive event handling helps you build efficient solutions through intelligent filtering and routing of events.  See [Route events to a custom web endpoint](job-state-events-cli-how-to.md).
 
-The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it is done.
+The **Job** usually goes through the following states: **Scheduled**, **Queued**, **Processing**, **Finished** (the final state). If the job has encountered an error, you get the **Error** state. If the job is in the process of being canceled, you get **Canceling** and **Canceled** when it's done.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#WaitForJobToFinish)]
 
@@ -131,16 +131,16 @@ See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcod
 
 ### Get a Streaming Locator
 
-After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use. 
+After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use.
 
-The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it is deleted, unless you configure the optional start and end times. 
+The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it's deleted, unless you configure the optional start and end times.
 
-When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you will need to specify the desired **StreamingPolicyName**. In this example, you will be streaming in-the-clear (or non-encrypted content) so the predefined clear streaming policy (**PredefinedStreamingPolicy.ClearStreamingOnly**) is used.
+When creating a [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), you'll need to specify the desired **StreamingPolicyName**. In this example, you'll be streaming in-the-clear (or non-encrypted content) so the predefined clear streaming policy (**PredefinedStreamingPolicy.ClearStreamingOnly**) is used.
 
 > [!IMPORTANT]
-> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of Streaming Policy entries. You should not be creating a new Streaming Policy for each Streaming Locator.
+> When using a custom [Streaming Policy](https://docs.microsoft.com/rest/api/media/streamingpolicies), you should design a limited set of such policies for your Media Service account, and re-use them for your StreamingLocators whenever the same encryption options and protocols are needed. Your Media Service account has a quota for the number of Streaming Policy entries. You shouldn't be creating a new Streaming Policy for each Streaming Locator.
 
-The following code assumes that you are calling the function with a unique locatorName.
+The following code assumes that you're calling the function with a unique locatorName.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateStreamingLocator)]
 
@@ -157,31 +157,31 @@ Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/strea
 
 ### Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you are planning to reuse (typically, you will reuse Transforms, and you will persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, you should delete the resources that you do not plan to reuse.  For example, the following code deletes Jobs.
+Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, and you'll persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes Jobs:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 
 ## Run the sample app
 
-1. Press Ctrl+F5 to run the *EncodeAndStreamFiles* application.
+1. Press Ctrl+F5 to run the *EncodeAndStreamFiles* app.
 2. Copy one of the streaming URLs from the console.
 
 This example displays URLs that can be used to play back the video using different protocols:
 
-![Output](./media/stream-files-tutorial-with-api/output.png)
+![Example output showing URLs for Media Services streaming video](./media/stream-files-tutorial-with-api/output.png)
 
 ## Test the streaming URL
 
-To test the stream, this article uses Azure Media Player. 
+To test the stream, this article uses Azure Media Player.
 
 > [!NOTE]
 > If a player is hosted on an https site, make sure to update the URL to "https".
 
 1. Open a web browser and navigate to [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
-2. In the **URL:** box, paste one of the streaming URL values you got when you ran the application. 
-3. Press **Update Player**.
+2. In the **URL:** box, paste one of the streaming URL values you got when you ran the app.
+3. Select **Update Player**.
 
-Azure Media Player can be used for testing but should not be used in a production environment. 
+Azure Media Player can be used for testing but shouldn't be used in a production environment.
 
 ## Clean up resources
 
@@ -195,7 +195,7 @@ az group delete --name amsResourceGroup
 
 ## Multithreading
 
-The Azure Media Services v3 SDKs are not thread-safe. When developing a multi-threaded application, you should generate and use a new  AzureMediaServicesClient object per thread.
+The Azure Media Services v3 SDKs aren't thread-safe. When developing a multi-threaded app, you should generate and use a new AzureMediaServicesClient object per thread.
 
 ## Ask questions, give feedback, get updates
 
