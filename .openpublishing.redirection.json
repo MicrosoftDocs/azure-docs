@@ -4547,7 +4547,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-administer-dns.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network",
       "redirect_document_id": false
     },
     {
@@ -36169,6 +36169,46 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-central/core/howto-create-event-rules-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/howto-create-telemetry-rules-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-configure-rules-pnp.md",
+      "redirect_url": "/azure/iot-central/core/tutorial-create-telemetry-rules",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/core/tutorial-monitor-devices-pnp.md",
+      "redirect_url": "/azure/iot-central/core/quick-monitor-devices-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/tutorial-add-device-pnp.md",
+      "redirect_url": "/azure/iot-central/quick-create-pnp-device-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/tutorial-define-device-type-pnp.md",
+      "redirect_url": "/azure/iot-central/quick-create-pnp-device-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/howto-export-data-blob-storage-pnp.md",
+      "redirect_url": "/azure/iot-central/howto-export-data-pnp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/howto-export-data-event-hubs-service-bus-pnp.md",
+      "redirect_url": "/azure/iot-central/howto-export-data-pnp",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/iot-central/howto-generate-connection-string.md",
       "redirect_url": "/azure/iot-central",
       "redirect_document_id": false
@@ -42072,6 +42112,11 @@
       "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant.md",
       "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-password-hash-sync",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
