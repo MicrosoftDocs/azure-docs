@@ -37,7 +37,7 @@ landingContent:
   # Card
   - title: Get started
     linkLists:
-      - linkListType: concept
+      - linkListType: overview
         links:
           - text: Shared responsibility in the cloud
             url: shared-responsibility.md
