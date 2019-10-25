@@ -88,7 +88,7 @@ Here is a quick comparison.
 |Drag-and-drop interface| Yes | Yes|
 |Experiment| Scale (10GB training data limit) | Scale with compute target|
 |Modules for interface| Many | Initial set of popular modules|
-|Training compute targets| Proprietary compute target, CPU only|AML Compute(GPU/CPU)<br/> Notebook VMs |
+|Training compute targets| Proprietary compute target, CPU only|AML Compute(GPU/CPU) |
 |Inferencing compute targets| Proprietary web service format, not customizable | Azure Kubernetes Service(real-time inferencing) <br/>AML Compute(batch inferencing) |
 |ML Pipeline| Not supported | Pipeline authoring <br/> Published pipeline <br/> Pipeline endpoint <br/> [Learn more about ML pipeline](concept-ml-pipelines.md)|
 |ML Ops| Basic model management and deployment | Configurable deployment, model and pipeline versioning|
