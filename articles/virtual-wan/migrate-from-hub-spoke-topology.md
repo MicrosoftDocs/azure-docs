@@ -15,7 +15,7 @@ Azure Virtual WAN allows companies to simplify their global connectivity and ben
 
 The [Global transit network architecture and Virtual WAN](virtual-wan-global-transit-network-architecture.md) article highlights the benefits that Azure Virtual WAN enables for enterprises adopting a cloud-centric modern enterprise global network.
 
-![hub and spoke](./media/virtual-wan-global-transit-network-architecture/figure3.png)
+![hub and spoke](./media/migrate-from-hub-spoke-topology/figure1.png)
 **Figure 1: Azure Virtual WAN**
 
 The Azure Virtual Datacenter (VDC) hub-and-spoke connectivity model has been adopted by 1000s of our customers to leverage the default transitive routing behavior  of Azure Networking to build simple and scalable cloud networks. Azure Virtual WAN builds on these concepts and introduces new capabilities that allow global connectivity topologies, not only between on-premises locations and Azure but also allowing customers to leverage the scale of the Microsoft network to augment their existing global networks.
@@ -211,7 +211,7 @@ Contoso has now validated connectivity between all branches and VNets in line wi
 ![Security and policy control via Azure Firewall](./media/migrate-from-hub-spoke-topology/figure12.png)
 **Figure 12: Azure Firewall in Virtual WAN (Secured Virtual Hub)**
 
-The following high-level steps are required to introduce Azure Firewall into the Virtual WAN Hubs to enable a unified point of policy control. This process and the concept of Secure Virtual Hubs are explained in full detail [here](https://go.microsoft.com/fwlink/?linkid=2107683). 
+The following high-level steps are required to introduce Azure Firewall into the Virtual WAN Hubs to enable a unified point of policy control. This process and the concept of Secure Virtual Hubs are explained in full detail [here](https://go.microsoft.com/fwlink/?linkid=2107683).
 - Create Azure Firewall policy.
 - Link firewall policy to Azure virtual WAN hub.
 The above step allows the existing virtual WAN hub to function as a secured virtual hub, and deploys the required Azure Firewall resources.
