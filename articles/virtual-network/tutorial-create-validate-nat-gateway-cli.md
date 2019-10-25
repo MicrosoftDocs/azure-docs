@@ -354,7 +354,7 @@ First we need to discover the IP address of the source VM.  To get the public IP
 >[!IMPORTANT]
 >Copy the public IP address, and then paste it into a notepad so you can use it in subsequent steps. Indicate this is the source virtual machine.
 
-### Log into source VM
+### Sign in to source VM
 
 Again, the SSH credentials are stored in cloud shell. Open a new tab for [Azure Cloud Shell](https://shell.azure.com) in your browser.  Use the IP address retrieved in the previous step to SSH to the virtual machine. 
 

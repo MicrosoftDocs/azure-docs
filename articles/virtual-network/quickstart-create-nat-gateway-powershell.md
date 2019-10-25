@@ -110,7 +110,7 @@ We create a public IP to be used to access the VM.  Use [New-AzPublicIpAddress](
 
 ### Create an NSG and expose SSH endpoint for VM
 
-Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) to create an NSG resource named **myNSG**. Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for SSH access named **ssh** in **myResourceGroupNAT**.  The result of this command will be stored in variable named **$nsg** for later use.
+Because Standard Public IP addresses are 'secure by default', we need to create an NSG to allow inbound access for ssh access. Use [New-AzNetworkSecurityGroup](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecuritygroup?view=latest) to create an NSG resource named **myNSG**. Use [New-AzNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-aznetworksecurityruleconfig?view=latest) to create an NSG rule for SSH access named **ssh** in **myResourceGroupNAT**.  The result of this command will be stored in a variable named **$nsg** for later use.
 
 ```azurepowershell-interactive
   $sshrule = New-AzNetworkSecurityRuleConfig -Name ssh -Description "SSH access" -Access Allow -Protocol Tcp -Direction Inbound -Priority 100 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * -DestinationPortRange 22
