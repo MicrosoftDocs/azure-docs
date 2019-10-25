@@ -58,6 +58,8 @@ landingContent:
         links:
           - text: Create a custom policy
             url: ./tutorials/create-custom-policy-definition.md
+          - text: Manage tag governance
+            url: ./tutorials/govern-tags.md
       - linkListType: how-to-guide
         links:
           - text: Create policy with SDK
