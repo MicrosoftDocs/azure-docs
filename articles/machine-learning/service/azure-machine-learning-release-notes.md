@@ -54,12 +54,12 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-contrib-interpret**
     + azureml-contrib-explain-model package has been renamed to azureml-contrib-interpret
   + **[azureml-core](https://docs.microsoft.com/python/api/azureml-core)**
-    + Added API to unregister datasets. `dataset.unregister_all_versions()`
+    + Added API to unregister datasets. dataset.[unregister_all_versions()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_datastore.abstractdatastore#unregister--)
     + Added Dataset API to check data changed time. `dataset.data_changed_time`.
-    + Being able to consume `FileDataset` and `TabularDataset` as inputs to `PythonScriptStep`, `EstimatorStep`, and `HyperDriveStep` in Azure Machine Learning Pipeline
-    + Performance of `FileDataset.mount` has been improved for folders with a large number of files
+    + Being able to consume `FileDataset` and `TabularDataset` as inputs to [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep), [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep), and [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyperdrivestep) in Azure Machine Learning Pipeline
+    + Performance of FileDataset.[mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset#mount-mount-point-none-) has been improved for folders with a large number of files
     + Added URL to known error recommendations in run details.
-    + Fixed a bug in run.get_metrics where requests would fail if a run had too many children
+    + Fixed a bug in [run.get_metrics](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run#get-metrics-name-none--recursive-false--run-type-none--populate-false-) where requests would fail if a run had too many children
     + Added support for authentication on Arcadia cluster.
     + Creating an [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) object gets or creates the experiment in the Azure Machine Learning workspace for run history tracking. The experiment id and archived time are populated in the Experiment object on creation. Example:
 
@@ -210,7 +210,7 @@ The Experiment tab in the [new workspace portal](http://ml.azure.com) has been b
     + Added ability to override azureml installed package versions. 
     + Added dockerfile support in `environment_definition` parameter in estimators.
     + Simplified distributed training parameters in estimators.
-    
+
     	 ```py 
 	    from azureml.train.dnn import TensorFlow, Mpi, ParameterServer 
 	    ```
