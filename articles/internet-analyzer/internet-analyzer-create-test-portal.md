@@ -26,14 +26,14 @@ The public preview is available to use globally; however, data storage is limite
 
 ## Basics 
 
-1. [Request access](https://aka.ms/internetAnalyzerContact) to use Internet Analyzer by providing your active Subscription ID. 
+1. Get Internet Analyzer preview access by following the **How do I participate in the preview?** instructions from the [Azure Internet Analyzer FAQ](internet-analyzer-faq.md).
 2. From the home page in the [Azure portal](https://preview.portal.azure.com), click **+ Create a resource**. Internet Analyzer is currently only available from the preview version of the Azure portal. 
 3. On the **New** page, search for "Internet Analyzer" in the *Search the Marketplace* field. 
 4. Click **Internet Analyzer (preview)**. Make sure the publisher is *Microsoft* and the category is *Networking*.
 5. On the **Internet Analyzer (preview)** page, click **Create** to open the **Create an Internet Analyzer** page.
 6. Specify the following configuration settings for your Internet Analyzer resource:
 
-    * **Subscription:** The Azure subscription to host the new Internet Analyzer resource. ***Use the same Subscription ID used to request access.***
+    * **Subscription:** The Azure subscription to host the new Internet Analyzer resource. ***Use the same Subscription ID used to request preview access.***
     * **Resource Group:** The Azure resource group that the new Internet Analyzer resource will be created in. If you don’t have an existing resource group, you can create a new one.
     * **Name:** The name of the new Internet Analyzer resource profile. 
     * **Region:** The Azure public region that the resource will be created in. During preview, only *US West 2* is available.

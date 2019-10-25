@@ -11,10 +11,20 @@ ms.author: mebeatty
 ---
 # Azure Internet Analyzer FAQ (Preview)
 
-This is the FAQ for Azure Internet Analyzer- if you have additional questions, go to the [feedback forum](https://aka.ms/internetAnalyzerFeedbackForum) and post your question. When a question is frequently asked, we add it to this article so it can be found quickly and easily. 
+This is the FAQ for Azure Internet Analyzer- if you have additional questions, go to the [feedback forum](https://aka.ms/internetAnalyzerFeedbackForum) and post your question. When a question is frequently asked, we add it to this article so it can be found quickly and easily.
 
 ## How do I participate in the preview? 
-The preview is available to select customers. If you are interested in joining the preview, please [request access](https://aka.ms/internetAnalyzerContact) by providing us an active Azure subscription ID.  
+The preview is available to select customers. If you are interested in joining the preview, please do the following:
+
+1. Log into the [Azure Portal](https://ms.portal.azure.com).
+2. Navigate to the **Subscriptions** page.
+3. Click on the Azure subscription that you plan to use Internet Analyzer with.
+4. Go to the **Resource providers** settings for the subscription.
+5. Search for **Microsoft.Network** and click on the **Register** (or **Re-register**) button.
+![access request](./media/ia-faq/request_preview_access.png)
+
+6. [Request approval](https://aka.ms/internetAnalyzerContact) by providing us your email address and the Azure subscription ID that was used to make the access request.
+7. Once your request has been approved, you will receive an email confirmation and will be able to create/update/modify Internet Analyzer resources from the newly allowed Azure subscription.
 
 ## Do I need to embed the client to run a test? 
 Yes, the Internet Analyzer client must be installed in your application to collect metrics specific to your users. [Learn how to install the client.](internet-analyzer-embed-client.md) 

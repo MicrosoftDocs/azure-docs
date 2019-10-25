@@ -33,7 +33,7 @@ The Internet Analyzer CLI exposes the following types of resources:
 * **Time Series** - A time series shows how a metric changes over time.
 
 ## Profile and Test Creation
-1. [Request access](https://aka.ms/internetAnalyzerContact) to use Internet Analyzer by providing your active Subscription ID. 
+1. Get Internet Analyzer preview access by following the **How do I participate in the preview?** instructions from the [Azure Internet Analyzer FAQ](internet-analyzer-faq.md).
 2. [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 3. Run the `login` command to start a CLI session:
     ```azurecli-interactive
