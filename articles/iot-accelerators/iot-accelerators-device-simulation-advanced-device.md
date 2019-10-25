@@ -377,7 +377,7 @@ function main(context, previousState, previousProperties) {
     // Fluctuate altitude between given variation constant by more or less
     state.altitude = vary(AverageAltitude, AltitudeVariation, AverageAltitude - AltitudeVariation, AverageAltitude + AltitudeVariation).toFixed(DecimalPrecision);
 
-    return state;
+    updateState(state);
 }
 
 /**
@@ -460,7 +460,7 @@ function main(context, previousState, previousProperties) {
     //simulate the behavior of a drone when recalled
   state.latitude = 47.476075;
   state.longitude = -122.192026;
-  return state;
+  updateState(state);
 }
 ```
 
@@ -483,7 +483,7 @@ function main(context, state) {
 
     // ...
 
-    return updateState;
+    updateState(state);
 }
 ```
 
