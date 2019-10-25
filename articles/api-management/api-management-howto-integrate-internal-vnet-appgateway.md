@@ -204,12 +204,15 @@ Create and set the hostname configuration objects for the proxy and for the port
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
-$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 Set-AzApiManagement -InputObject $apimService
 ```
+
+> [!NOTE]
+> To configure the legacy developer portal connectivity you need to replace `-HostnameType DeveloperPortal` with `-HostnameType Portal`.
 
 ## Create a public IP address for the front-end configuration
 
