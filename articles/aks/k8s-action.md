@@ -167,12 +167,12 @@ jobs:
 
 You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
-- [Kubectl tool installer](https://github.com/Azure/setup-kubectl)
+- [setup-kubectl](https://github.com/Azure/setup-kubectl)
 
-- [Kubernetes set context](https://github.com/Azure/k8s-set-context)
+- [k8s-set-context](https://github.com/Azure/k8s-set-context)
 
-- [AKS set context](https://github.com/Azure/aks-set-context)
+- [aks-set-context](https://github.com/Azure/aks-set-context)
 
-- [K8s create secret](https://github.com/Azure/k8s-create-secret)
+- [k8s-create-secret](https://github.com/Azure/k8s-create-secret)
 
-- [K8s deploy](https://github.com/Azure/k8s-deploy)
+- [k8s-deploy](https://github.com/Azure/k8s-deploy)
