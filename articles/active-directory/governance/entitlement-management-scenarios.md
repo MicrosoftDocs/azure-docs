@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/21/2019
+ms.date: 10/25/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -117,7 +117,7 @@ There are several ways that you can configure entitlement management for your or
 > | --- | --- |
 > | **1.** [Read how access works for external users](entitlement-management-external-users.md#how-access-works-for-external-users) | Administrator |
 > | **2.** [Review lifecycle settings for external users](entitlement-management-external-users.md#manage-the-lifecycle-of-external-users) | Administrator |
-> | **3.** Add a connection to the external organization | Administrator |
+> | **3.** [Add a connection to the external organization](entitlement-management-organization.md) | Administrator |
 > | **4.** [Create a new access package](entitlement-management-access-package-create.md#start-new-access-package) | Access package manager |
 > | **5.** [Add group and Teams, application, and SharePoint site roles to access package](entitlement-management-access-package-resources.md#add-resource-roles) | Access package manager |
 > | **6.** [Add a request policy to allow users not in your directory to request access](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory) | Access package manager |
