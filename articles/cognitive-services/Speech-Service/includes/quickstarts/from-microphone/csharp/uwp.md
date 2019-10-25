@@ -39,9 +39,9 @@ Let's add some code that works as a skeleton for our project.
 
 3. In **Solution Explorer**, open the code-behind source file `MainPage.xaml.cs`. (It's grouped under `MainPage.xaml`.)
 
-4. Replace the code with the following bas code:
+4. Replace the code with the following base code:
 
-[!code-csharp[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=6-50,55-56,94-154)]
+   [!code-csharp[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp/uwp/from-microphone/helloworld/MainPage.xaml.cs?range=6-50,55-56,94-154)]
 
 ## Create a Speech configuration
 
