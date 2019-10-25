@@ -20,7 +20,7 @@ ms.author: juliako
 > [!NOTE]
 > Even though this tutorial uses [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
 
-Azure Media Services lets you to encode your media files into formats that play on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For help with encoding, see [Encoding concept](encoding-concept.md). This tutorial uploads a local video file and encodes the uploaded file. You can also encode content that you make accessible via an HTTPS URL. For more information, see [Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
+Azure Media Services lets you encode your media files into formats that play on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For help with encoding, see [Encoding concept](encoding-concept.md). This tutorial uploads a local video file and encodes the uploaded file. You can also encode content that you make accessible via an HTTPS URL. For more information, see [Create a job input from an HTTP(s) URL](job-input-from-http-how-to.md).
 
 ![Play a video with Azure Media Player](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -75,7 +75,7 @@ To start using Media Services APIs with .NET, you need to create an **AzureMedia
 
 ### Create an input asset and upload a local file into it
 
-The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This **Asset** is used as the input to your encoding job. In Media Services v3, the input to a **Job** can either be an **Asset** or content that you make available to your Media Services account via HTTPS URLs. To learn how to encode from a HTTPS URL, see [this](job-input-from-http-how-to.md) article.
+The **CreateInputAsset** function creates a new input [Asset](https://docs.microsoft.com/rest/api/media/assets) and uploads the specified local video file into it. This **Asset** is used as the input to your encoding job. In Media Services v3, the input to a **Job** can either be an **Asset** or content that you make available to your Media Services account via HTTPS URLs. To learn how to encode from an HTTPS URL, see [this](job-input-from-http-how-to.md) article.
 
 In Media Services v3, you use Azure Storage APIs to upload files. The following .NET snippet shows how.
 
@@ -131,7 +131,7 @@ See [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcod
 
 ### Get a Streaming Locator
 
-After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can accomplish this in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use.
+After the encoding is complete, the next step is to make the video in the output Asset available to clients for playback. You can make it available in two steps: first, create a [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators), and second, build the streaming URLs that clients can use.
 
 The process of creating a **Streaming Locator** is called publishing. By default, the **Streaming Locator** is valid immediately after you make the API calls, and lasts until it's deleted, unless you configure the optional start and end times.
 
@@ -157,7 +157,7 @@ Now that the [Streaming Locator](https://docs.microsoft.com/rest/api/media/strea
 
 ### Clean up resources in your Media Services account
 
-Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, and you'll persist StreamingLocators, etc.). If you want for your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes Jobs:
+Generally, you should clean up everything except objects that you're planning to reuse (typically, you'll reuse Transforms, and you'll persist StreamingLocators, etc.). If you want your account to be clean after experimenting, delete the resources that you don't plan to reuse. For example, the following code deletes Jobs:
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CleanUp)]
 
