@@ -1,0 +1,46 @@
+### YamlMime:Hub
+
+title: Industry for Azure documentation
+summary: Learn how to use Azure to build solutions for common industry use cases.
+brand: azure
+
+metadata:
+  title: Industry for Azure documentation
+  description: Learn how to use Azure to build solutions for common industry use cases.
+  ms.service: azure-industry
+  ms.topic: hub-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 11/04/2019
+
+highlightedContent:
+  items:
+    - title: Azure FarmBeats
+      itemType: overview
+      url: ./agriculture/overview.md
+    - title: Community Forum
+      itemType: concept
+      url: https://aka.ms/FarmBeatsMSDN
+    - title: UserVoice (Feedback)
+      itemType: get-started
+      url: https://aka.ms/FarmBeatsForum
+
+productDirectory:
+  title: Industry Solutions Areas
+  items:
+    - title: Agriculture
+      imageSrc: /media/index/industry-agriculture-farmbeats.svg
+      summary: Collection of Azure services and capabilities, rapidly builds intelligent data-driven solutions in agriculture.
+    - title: Financial Services
+      imageSrc: /media/index/industry-financial.png
+      summary: Solutions and use cases for the Financial Services industry.
+    - title: Health and Life Services
+      imageSrc: /media/index/industry-health.png
+      summary: Solutions and use cases for the Health and Life Sciences industry.
+    - title: Manufacturing
+      imageSrc: /media/index/industry-manufacturing.png
+      summary: Solutions and use cases for the Manufacturing industry.
+    - title: Retail
+      imageSrc: /media/index/industry-retail.png
+      summary: Solutions and use cases for the Retail industry.
