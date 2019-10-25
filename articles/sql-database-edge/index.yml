@@ -36,7 +36,7 @@ landingContent:
             url: deploy-portal.md
 
   # Card 
-  - title: Sync data  using Azure Data Factory
+  - title: Sync data
     linkLists:
       - linkListType: tutorial
         links:
@@ -53,5 +53,9 @@ landingContent:
         links:
           - text: Machine learning and artificial intelligence
             url: onnx-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy ONNX on SQL Database Edge
+            url: deploy-onnx.md
 
 
