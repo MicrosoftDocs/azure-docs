@@ -38,8 +38,8 @@ The following table lists the properties for Azure Machine Learning resource log
 | ResourceGroupName | Name of the resource group |
 | JobName | Name of the Job |
 | ClusterId | ID of the cluster |
-| EventType | Type of the Job event, e.g., JObSubmitted, JobRunning, JobFailed, JobSucceeded, etc. |
-| ExecutionState | State of the job execution, e.g., Queued, Running, Succeeded, Failed |
+| EventType | Type of the Job event, e.g., JobSubmitted, JobRunning, JobFailed, JobSucceeded, etc. |
+| ExecutionState | State of the job (the Run), e.g., Queued, Running, Succeeded, Failed |
 | ErrorDetails | Details of job error |
 | CreationApiVersion | Api version used to create the job |
 | ClusterResourceGroupName | Resource group name of the cluster |
@@ -174,9 +174,6 @@ The following are dimensions that can be used to filter run metrics:
 
 | Dimension | Description |
 | ---- | ---- |
-| Region | The Azure region the run occurred in. |
-| ResourceId | |
-| Scenario | |
 | ComputeType | The compute type that the run used. |
 | PipelineStepType | The type of [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) used in the run. |
 | PublishedPipelineId | The ID of the published pipeline used in the run. |
