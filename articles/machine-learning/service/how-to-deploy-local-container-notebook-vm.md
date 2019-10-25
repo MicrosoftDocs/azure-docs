@@ -46,7 +46,13 @@ An example notebook that demonstrates local deployments is included on your comp
 
     ![Screenshot of the running local service port](media/how-to-deploy-local-container-notebookvm/deploy-local-service-port.png)
 
-1. To test the service from the compute instance, use the `https://localhost:<local_service.port>` URL. To test from a remote client, get the public URL of the service running on the compute instance. The public URL can be determined use the following formula; `https://<notebookvm_name>-<local_service_port>.<azure_region_of_notebook>.notebooks.azureml.net/score`. For example, `https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score`.
+1. To test the service from a compute instance, use the `https://localhost:<local_service.port>` URL. To test from a remote client, get the public URL of the service running on the compute instance. The public URL can be determined use the following formula; 
+    * Notebook VM: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.notebooks.azureml.net/score`. 
+    * Compute instance: `https://<vm_name>-<local_service_port>.<azure_region_of_workspace>.instances.azureml.net/score`. 
+    
+    For example, 
+    * Notebook VM: `https://vm-name-6789.northcentralus.notebooks.azureml.net/score` 
+    * Compute instance: `https://vm-name-6789.northcentralus.instances.azureml.net/score`
 
 ## Test the service
 
@@ -62,7 +68,8 @@ test_sample = json.dumps({'data': [
 test_sample = bytes(test_sample,encoding = 'utf8')
 access_token = "your bearer token"
 headers = {'Content-Type':'application/json', 'Authorization': 'Bearer ' + access_token}
-service_url = "https://mynotebookvm-6789.eastus2.notebooks.azureml.net/score"
+service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
+# for a compute instance, the url would be https://vm-name-6789.northcentralus.instances.azureml.net/score
 resp = requests.post(service_url, test_sample, headers=headers)
 print("prediction:", resp.text)
 ```
