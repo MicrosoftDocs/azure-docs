@@ -43,7 +43,7 @@ You can create a [service principal](../active-directory/develop/app-objects-and
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
 ```
 
-In this example, replace the placeholders in the resource with your subscription ID, resource group and app name. The output is the role assignment credentials that provides access to your App Service app. Copy this JSON object, which you can use to authenticate from GitHub.
+In this example, replace the placeholders in the resource with your subscription ID, resource group name, and app name. The output is the role assignment credentials that provide access to your App Service app. Copy this JSON object, which you can use to authenticate from GitHub.
 
 > [!NOTE]
 > You do not need to create a service principal if you decide to use publish profile for authentication.
@@ -71,11 +71,11 @@ You could also use app-level credentials i.e. publish profile for deployment. Fo
             creds: ${{ secrets.azureWebAppPublishProfile }}
     ```
 
-5. You will see the secret as shown below once defined.
+5. You see the secret as shown below once defined.
 
     ![secrets](media/app-service-github-actions/app-service-secrets.png)
 
-## Setup the environment
+## Set up the environment
 
 Setting up the environment can be done using one of the setup actions.
 
@@ -186,7 +186,7 @@ The following examples show the part of the workflow that builds the web app, in
 ```
 ## Deploy to App Service
 
-To deploy your code to an App Service app, use the `azure/webapps-deploy@v1 ` action. This action has 4 parameters:
+To deploy your code to an App Service app, use the `azure/webapps-deploy@v1 ` action. This action has four parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|

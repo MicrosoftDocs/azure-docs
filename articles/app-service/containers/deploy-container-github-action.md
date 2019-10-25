@@ -86,7 +86,7 @@ The below example uses user-level credentials i.e. Azure Service Principal for d
     - REGISTRY_USERNAME
     - REGISTRY_PASSWORD
 
-5. You will see the secrets as shown below once defined.
+5. You see the secrets as shown below once defined.
 
     ![container secrets](../media/app-service-github-actions/app-service-secrets-container.png)
 
@@ -125,15 +125,15 @@ jobs:
 
 ## Deploy to an App Service container
 
-To deploy your image to a custom container in App Service, you will need to use the `azure/webapps-container-deploy@v1` action. This action has 5 parameters:
+To deploy your image to a custom container in App Service, use the `azure/webapps-container-deploy@v1` action. This action has five parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
 | **app-name** | (Required) Name of the App Service app | 
 | **slot-name** | (Optional) Enter an existing Slot other than the Production slot |
-| **images** | (Required) Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For multi-container scenario multiple container image names can be provided (multi-line separated) |
-| **configuration-file** | (Optional) Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container scenario |
-| **container-command** | (Optional) Enter the start up command. For ex. dotnet run or dotnet filename.dll |
+| **images** | (Required) Specify the fully qualified container image(s) name. For example, 'myregistry.azurecr.io/nginx:latest' or 'python:3.7.2-alpine/'. For a multi-container app, multiple container image names can be provided (multi-line separated) |
+| **configuration-file** | (Optional) Path of the Docker-Compose file. Should be a fully qualified path or relative to the default working directory. Required for multi-container apps. |
+| **container-command** | (Optional) Enter the start-up command. For ex. dotnet run or dotnet filename.dll |
 
 Below is the sample workflow to build and deploy a Node.js app to a custom container in App Service.
 
