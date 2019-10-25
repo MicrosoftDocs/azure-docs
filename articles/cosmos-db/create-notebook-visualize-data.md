@@ -1,15 +1,15 @@
 ---
-title: Tutorial: Create a notebook in Azure Cosmos DB to analyze and visualize the data
-description: Tutorial: Learn how to use built-in Jupyter notebooks to import data to Azure Cosmos DB, analyze the data, and visualize the output. 
+title: Create a notebook in Azure Cosmos DB to analyze and visualize the data
+description: Learn how to use built-in Jupyter notebooks to import data to Azure Cosmos DB, analyze the data, and visualize the output. 
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
-ms.date: 10/23/2019
-ms.author: de
+ms.date: 09/25/2019
+ms.author: dech
 ms.reviewer: sngun
 ---
 
-# Tutorial: Create a notebook in Azure Cosmos DB to analyze and visualize the data
+# Create a notebook in Azure Cosmos DB to analyze and visualize the data
 
 This article describes how to use built-in Jupyter notebooks to import sample retail data to Azure Cosmos DB. You will see how to use the SQL and Azure Cosmos DB magic commands to run queries, analyze the data, and visualize the results.
 
