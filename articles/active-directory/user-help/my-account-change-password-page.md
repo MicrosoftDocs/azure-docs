@@ -28,7 +28,7 @@ If you don't remember your password, if you've been locked out of your account, 
 
 1. Sign in to your work or school account, using your existing password, and then go to your https://myprofile.microsoft.com/ page.
 
-2. Select the **Change password** link from the **Password** block.
+2. Select **Password** from the left navigation pane or select the **Change password** link from the **Password** block.
 
     ![My Account page, showing highlighted Change password link](media/my-account-portal/my-account-portal-change-password.png)
 

@@ -49,7 +49,7 @@ You can leave any organization that isn't your Home organization.
 >[!Important]
 >If you leave an organization by mistake, there's no way to undo it. You'll have to wait for the administrator of that organization to invite you again.
 
-1. Select **Leave organization** next to the organization you want to leave, and then select **Yes** to confirm you want to leave.
+1. Select **Leave organization** next to the organization you want to leave, and then select **Leave** to confirm you want to leave.
 
     ![Organizations page with highlighted leave organization link](media/my-account-portal/my-account-portal-organizations-leave.png)
 
