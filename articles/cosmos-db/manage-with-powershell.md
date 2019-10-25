@@ -4,7 +4,7 @@ description: Use Azure Powershell manage your Azure Cosmos DB accounts, database
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 08/05/2019
+ms.date: 10/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ---
@@ -250,7 +250,8 @@ $keys = Invoke-AzResourceAction -Action listKeys `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
     -ResourceGroupName $resourceGroupName -Name $accountName
 
-Select-Object $keys
+Write-Host "PrimaryKey =" $keys.primaryMasterKey
+Write-Host "SecondaryKey =" $keys.secondaryMasterKey
 ```
 
 ### <a id="list-connection-strings"></a> List Connection Strings

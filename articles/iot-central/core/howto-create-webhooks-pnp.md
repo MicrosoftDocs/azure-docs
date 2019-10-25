@@ -40,46 +40,35 @@ When a rule is triggered, an HTTP POST request is made to the callback URL conta
 
 ```json
 {
-    "id": "ID",
-    "timestamp": "date-time",
-    "device" : {
-        "id":"ID",
-        "name":  "Refrigerator1",
-        "simulated" : true,
-        "deviceId": "deviceID",
-        "deviceTemplate":{
-            "id": "ID",
-            "version":"1.0.0"
-        },
-        "properties":{
-            "device":{
-                "firmwareversion":"1.0"
-            },
-            "cloud":{
-                "location":"One Microsoft Way"
-            }
-        },
-        "measurements":{
-            "telemetry":{
-                "temperature":20,
-                "pressure":10
-            }
-        }
-
-    },
+    "id": "<id>",
+    "displayName": "Webhook 1",
+    "timestamp": "2019-10-24T18:27:13.538Z",
     "rule": {
-        "id": "ID",
-        "name": "High temperature alert",
-        "enabled": true,
-        "deviceTemplate": {
-            "id":"GUID",
-            "version":"1.0.0"
-        }
+        "id": "<id>",
+        "displayName": "High temp alert",
+        "enabled": true
     },
+    "device": {
+        "id": "mx1",
+        "displayName": "MXChip IoT DevKit - mx1",
+        "instanceOf": "<device-template-id>",
+        "simulated": true,
+        "provisioned": true,
+        "approved": true
+    },
+    "data": [{
+        "@id": "<id>",
+        "@type": ["Telemetry"],
+        "name": "temperature",
+        "displayName": "Temperature",
+        "value": 66.27310467496761,
+        "interfaceInstanceName": "sensors"
+    }],
     "application": {
-        "id": "ID",
-        "name": "Contoso app",
-        "subdomain":"contoso-app"
+        "id": "<id>",
+        "displayName": "x - Store Analytics Checkout---PnP",
+        "subdomain": "<subdomain>",
+        "host": "<host>"
     }
 }
 ```
@@ -92,4 +81,4 @@ If you have ideas for how to improve this feature, post your suggestions to our 
 
 ## Next steps
 
-Now that you've learned how to set up and use webhooks, the suggested next step is to explore [building workflows in Microsoft Flow](howto-add-microsoft-flow.md).
+Now that you've learned how to set up and use webhooks, the suggested next step is to explore [configuring Azure Monitor Action Groups](howto-use-action-groups-pnp.md).

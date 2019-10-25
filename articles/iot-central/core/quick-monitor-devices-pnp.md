@@ -3,7 +3,7 @@ title: Monitor your devices in Azure IoT Central | Microsoft Docs
 description: As an operator, use your Azure IoT Central application to monitor your devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/18/2019
+ms.date: 10/24/2019
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -37,23 +37,19 @@ The **Dashboard** view for the environmental sensor simulated device you created
 
 ## Investigate an issue
 
-As an operator, you can view information about the device on the **Dashboard**, **Environmental Sensor properties**, and **Commands** pages. The builder customized the **Dashboard** and **Environmental Sensor properties** pages to display important information about a connected environmental sensor device.
+As an operator, you can view information about the device on the **Overview**, **Environmental Sensor properties**, and **Commands** pages. The builder customized the **Dashboard** and **Environmental Sensor properties** pages to display important information about a connected environmental sensor device.
 
-Choose the **Dashboard** view to see information about the device.
+Choose the **Overview** view to see information about the device.
 
-The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Device properties** tile. You decide that the target temperature is too high.
+The chart on the dashboard shows a plot of the device temperature. You decide that the device temperature is too high.
 
 ## Remediate an issue
 
-To make a change to the device, use the **Environmental Sensor properties** page:
+To make a change to the device, use the **Environmental Sensor properties** page.
 
-1. Choose **Environmental Sensor properties**. Change **Brightness Level** to 10. Choose **Save** to update the device. When the device confirms the settings change, the status of the property changes to **synced**:
+Choose **Environmental Sensor properties**. Change **Brightness Level** to 10. Choose **Save** to update the device. When the device confirms the settings change, the status of the property changes to **synced**:
 
-    ![Update settings](media/quick-monitor-devices-pnp/change-settings.png)
-
-2. Choose **Dashboard** and verify the new property value:
-
-    ![Updated device dashboard](media/quick-monitor-devices-pnp/new-settings.png)
+![Update settings](media/quick-monitor-devices-pnp/change-settings.png)
 
 ## Next steps
 
