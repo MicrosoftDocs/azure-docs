@@ -1,6 +1,6 @@
 ---
-title: Create containers and databases with provisioned throughput in autopilot mode (Preview)
-description: Learn about the benefits and use cases of autopilot mode and how to provision databases and containers in autopilot mode.
+title: Create Azure Cosmos containers and databases with throughput in autopilot mode.
+description: Learn about the benefits and use cases of autopilot mode and how to provision Azure Cosmos databases and containers in autopilot mode.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ---
 
-# Create containers and databases with provisioned throughput in autopilot mode (Preview)
+# Create Azure Cosmos containers and databases with provisioned throughput in autopilot mode (Preview)
 
 Azure Cosmos DB allows you to provision throughput on your containers in either manual or autopilot mode. This article describes the benefits and use cases of autopilot mode.
 
