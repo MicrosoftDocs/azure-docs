@@ -15,7 +15,7 @@ ms.author: mbaldwin
 
 # How to: Route Key Vault Events to Automation Runbook (preview)
 
-Key Vault integration with Azure Event Grid enables users to be notified when the status of a secret stored in key vault has changed. For an overview of the feature, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
+Key Vault integration with Azure Event Grid, currently in preview, enables users to be notified when the status of a secret stored in key vault has changed. For an overview of the feature, see [Monitoring Key Vault with Azure Event Grid](event-grid-overview.md).
 
 This guide will show you how to receive Key Vault notifications through Azure Event Grid, and how to respond to status changes with Azure Automation.
 
@@ -28,7 +28,7 @@ This guide will show you how to receive Key Vault notifications through Azure Ev
 
 ## Concepts
 
-Azure Event Grid is an eventing service for the cloud. In this guide, you will subscribe to events for key vault and route events to Azure Automation. When one of the secrets in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation execution of PowerShell script. 
+Azure Event Grid is an eventing service for the cloud. In this guide, you will subscribe to events for key vault and route events to Azure Automation. When one of the secrets in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation execution of PowerShell script.
 
 ![image](media/image1.png)
 
@@ -59,9 +59,9 @@ Register the Microsoft.KeyVault resource provider with the Azure CLI command [az
 az provider register --namespace Microsoft.KeyVault
 ```
 
-## Create an Azure Automation Account
+## Create an Azure Automation account
 
-Next 
+Create an Azure Automation account through the [Azure portal](http://portal.azure.com).
 
 1.  Go to portal.azure.com and log in to your subscription
 
@@ -78,6 +78,8 @@ Next
 1.  Wait for your automation account to be created.
 
 ## Create a Runbook and Webhook
+
+Now create a Runbook and webhook for your Azure Automation account.
 
 ![](media/image3.png)
 
@@ -231,6 +233,8 @@ Reregister Event Grid and Key Vault provider in your azure subscription resource
 
 ## Next steps
 
-- Learn more about [Azure Key Vault](key-vault-overview.md]
-- Learn more about [Event Grid](../event-grid/overview.md)
-- Learn more about [Azure Automation](../automation/index.yml)
+- [Azure Key Vault overview](key-vault-overview.md]
+- [Azure Event Grid overview](../event-grid/overview.md)
+- [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
+- [Azure Event Grid event schema for Azure Key Vault (preview)](event-schema-key-vault.md)
+- [Azure Automation overview](../automation/index.yml)
