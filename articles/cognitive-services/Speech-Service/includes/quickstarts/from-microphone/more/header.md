@@ -12,4 +12,4 @@ ms.date: 10/28/2019
 ms.author: erhopf
 ---
 
-View or download all <a href="https://aka.ms/ignite2019/speech/placeholder">Speech SDK Samples</a> on GitHub.
+View or download all <a href="https://aka.ms/speech/github">Speech SDK Samples</a> on GitHub.

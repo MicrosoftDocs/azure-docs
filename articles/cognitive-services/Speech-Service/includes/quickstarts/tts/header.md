@@ -12,7 +12,7 @@ ms.date: 09/20/2019
 ms.author: yulili
 ---
 
-In this quickstart you will use the [Speech SDK](https://aka.ms/ignite2019/speech/placeholder) to convert text to synthesized speech. After satisfying a few prerequisites, rendering synthesized speech to the default speakers only takes four steps:
+In this quickstart you will use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to convert text to synthesized speech. After satisfying a few prerequisites, rendering synthesized speech to the default speakers only takes four steps:
 > [!div class="checklist"]
 > * Create a ````SpeechConfig```` object from your subscription key and region.
 > * Create a ````SpeechSynthesizer```` object using the ````SpeechConfig```` object from above.

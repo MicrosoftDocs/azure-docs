@@ -62,10 +62,9 @@ Now you are ready to build and test your application.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
 
 ## See also
 
-- [Create and use Custom Voice models](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
-- [Record voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

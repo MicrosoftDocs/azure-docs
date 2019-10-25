@@ -113,3 +113,7 @@ The first 15 seconds of speech input from your audio file will be recognized and
    Recognizing first result...
    We recognized: What's the weather like?
    ```
+
+## Next steps
+
+[!INCLUDE [footer](./footer.md)]

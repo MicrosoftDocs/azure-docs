@@ -12,7 +12,7 @@ ms.date: 09/20/2019
 ms.author: yulili
 ---
 
-In this quickstart you will use the [Speech SDK](https://aka.ms/ignite2019/speech/placeholder) to interactively translate speech from one language to text in another language. After satisfying a few prerequisites, translating speech-to-text only takes five steps:
+In this quickstart you will use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to interactively translate speech from one language to text in another language. After satisfying a few prerequisites, translating speech-to-text only takes five steps:
 > [!div class="checklist"]
 > * Create a ````SpeechConfig```` object from your subscription key and region.
 > * Update the ````SpeechConfig```` object to specify the source and target languages.

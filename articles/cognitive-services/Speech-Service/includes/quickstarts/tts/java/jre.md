@@ -46,12 +46,9 @@ Input a text when prompted, and you will hear the synthesized audio played from 
 
 ## Next steps
 
-Additional samples, such as how to read speech from an audio file, are available on GitHub.
-
-> [!div class="nextstepaction"]
-> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
 
 ## See also
 
-- [Customize voice fonts](~/articles/cognitive-services/Speech-Service/how-to-customize-voice-font.md)
-- [Record voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

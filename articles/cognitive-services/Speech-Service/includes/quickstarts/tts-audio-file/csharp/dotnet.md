@@ -190,6 +190,9 @@ Now you're ready to build your app and test our speech synthesis using the Speec
 
 ## Next steps
 
-* How-tos
-* Samples
-* Reference
+[!INCLUDE [footer](./footer.md)]
+
+## See also
+
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

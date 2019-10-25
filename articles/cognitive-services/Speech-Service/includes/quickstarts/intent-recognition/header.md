@@ -13,7 +13,7 @@ ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
 ---
 
-In this quickstart you will use the [Speech SDK](https://aka.ms/ignite2019/speech/placeholder) to interactively recognize speech from audio data captured from a microphone. After satisfying a few prerequisites, recognizing speech from a microphone only takes four steps:
+In this quickstart you will use the [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) to interactively recognize speech from audio data captured from a microphone. After satisfying a few prerequisites, recognizing speech from a microphone only takes four steps:
 > [!div class="checklist"]
 > * Create a ````SpeechConfig```` object from your subscription key and region.
 > * Create a ````IntentRecognizer```` object using the ````SpeechConfig```` object from above.

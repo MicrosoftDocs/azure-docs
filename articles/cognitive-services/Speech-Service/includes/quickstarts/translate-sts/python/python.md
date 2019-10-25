@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Python - Speech Service'
+title: 'Quickstart: Translate speech-to-speech, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -108,5 +108,4 @@ Run the sample from the console or in your IDE:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore Python samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]

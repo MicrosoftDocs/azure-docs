@@ -45,8 +45,7 @@ Before you get started, make sure to:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
 
 ## See also
 

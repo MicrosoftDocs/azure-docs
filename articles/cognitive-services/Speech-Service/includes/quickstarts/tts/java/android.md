@@ -74,10 +74,9 @@ Enter a text and press the button in the application to begin a speech synthesis
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
 
 ## See also
 
-- [Customize voice fonts](~/articles/cognitive-services/Speech-Service/how-to-customize-voice-font.md)
-- [Record voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

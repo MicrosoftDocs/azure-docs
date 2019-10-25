@@ -75,6 +75,4 @@ Now you're ready to build your app and test our speech recognition using the Spe
 
 ## Next steps
 
-* How-tos
-* Samples
-* Reference
+[!INCLUDE [footer](./footer.md)]

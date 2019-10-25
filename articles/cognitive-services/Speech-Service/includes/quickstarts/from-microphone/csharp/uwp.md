@@ -89,5 +89,4 @@ Now you are ready to build and test your application.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
