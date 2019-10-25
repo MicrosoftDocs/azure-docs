@@ -23,7 +23,7 @@
         href: sql-database-purchase-models.md
       - name: vCore model
         items:
-        - name: vCore purchasing model
+        - name: vCore model overview
           href: sql-database-service-tiers-vcore.md
         - name: Serverless
           href: sql-database-serverless.md
@@ -31,7 +31,7 @@
           href: sql-database-azure-hybrid-benefit.md
         - name: Reserved capacity
           href: sql-database-reserved-capacity.md
-      - name: DTU model
+      - name: DTU model overview
         href: sql-database-service-tiers-dtu.md
       - name: Migrate from DTU to vCore
         href: sql-database-dtu-to-vcore.md
