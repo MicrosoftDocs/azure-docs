@@ -43,7 +43,7 @@ Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions,
 
 ### Node.js
 
-To use Live Metrics with Node.js, you must update to version 1.30 or greater of the SDK. By default Live Metrics is disabled in the Node.js SDK. To enable Live Metrics add `setSendLiveMetrics(true)` to your [configuration methods](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) as you initialize the SDK.
+To use Live Metrics with Node.js, you must update to version 1.30 or greater of the SDK. By default Live Metrics is disabled in the Node.js SDK. To enable Live Metrics, add `setSendLiveMetrics(true)` to your [configuration methods](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) as you initialize the SDK.
 
 ### No data? Check your server firewall
 
@@ -191,14 +191,22 @@ However, if you recognize and trust all the connected servers, you can try the c
 
 ## Supported features table
 
-| Language | Basic Metrics  | Performance metrics  | Custom filtering | Sample telemetry | CPU split by process |
-|----------|:--------------------|:--------------------|:-----------------|:--------------------|:---------------------|
-| .NET     | Supported           | Supported           | Supported        | Supported           | Supported            |
-| .NET Core| Supported           | Supported           | Supported        | Supported           | Supported            |
-| Java     | Supported (V1.0.7+) | Supported (V1.0.7+) | **Not Supported**| **Not Supported**   | **Not Supported**    |
-| Node.js  | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**| Supported (V1.3.0+) | **Not Supported**    |
+| Language                         | Basic Metrics       | Performance metrics | Custom filtering | Sample telemetry    | CPU split by process |
+|----------------------------------|:--------------------|:--------------------|:-----------------|:--------------------|:---------------------|
+| .NET                             | Supported           | Supported           | Supported        | Supported           | Supported            |
+| .NET Core (target=.NET Framework)| Supported           | Supported           | Supported        | Supported           | Supported            |
+| .NET Core (target=.NET Core)     | Supported           | Supported`*`        | Supported        | Supported           | Supported            |
+| Azure Functions v2               | Supported           | Supported           | Supported        | Supported           | Supported            |
+| Java                             | Supported (V1.0.7+) | Supported (V1.0.7+) | **Not Supported**| **Not Supported**   | **Not Supported**    |
+| Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**| Supported (V1.3.0+) | **Not Supported**    |
 
-Basic metrics include request, dependency, and exception rate. Performance metrics include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.
+Basic metrics include request, dependency, and exception rate. Performance metrics (performance counters) include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.
+
+`*` PerfCounters support varies slightly across versions of .NET Core that do not target the .NET Framework:
+
+- PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.0 or higher)
+- PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core 2.0 or higher.
+- PerfCounters are supported when app is running ANYWHERE (Linux, Windows, app service for Linux, containers, etc.) in the latest beta (i.e AspNetCore SDK Version 2.8.0-beta1 or higher), but for apps targeting .NET Core 2.0 or higher.
 
 ## Troubleshooting
 
