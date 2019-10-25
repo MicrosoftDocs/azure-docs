@@ -20,7 +20,7 @@ Compute instance is a hosted PaaS offering that supports the full lifecycle of i
 
 Compute instances are deeply integrated with Azure Machine Learning workspaces and provide a first-class experience for model authoring through integrated notebooks using Azure Machine Learning SDKs for Python and R. Use a compute instance as your fully configured and managed development environment in the cloud.
 
-Compute instances are available in both Basic and Enterprise edition. Learn more about the [pricing and details for these editions](https://azure.microsoft.com/pricing/details/machine-learning/).
+Instances are available in both Basic and Enterprise edition. Learn more about the [pricing and details for these editions](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US**.> Use this region to create a compute instance. 
