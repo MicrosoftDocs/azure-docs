@@ -39,7 +39,7 @@ The following list explains the numbered steps in the diagram:
 
 1. An Azure Key Vault administrator creates key vault resources.
 1. The key vault admin either imports their RSA keys to Key Vault or generate new RSA keys in Key Vault.
-1. That administrator creates an instance of Disk Encryption Set resource, specifying an Azure Key Vault ID and a key URL. Disk Encryption Set is a new Azure Resource Manager (ARM) introduced for simplifying the key management for managed disks. 
+1. That administrator creates an instance of Disk Encryption Set resource, specifying an Azure Key Vault ID and a key URL. Disk Encryption Set is a new resource introduced for simplifying the key management for managed disks. 
 1. When a disk encryption set is created, a [system-assigned managed identity](../articles/active-directory/managed-identities-azure-resources/overview.md) is created in Azure active directory (AD) and associated with the disk encryption set. 
 1. The Azure key vault administrator then grants the managed identity permission to perform operations in the key vault.
 1. A VM user creates disks by associating them with the disk encryption set. The VM user can also enable server-side encryption with customer-managed keys for existing resources by associating them with the disk encryption set. 
@@ -72,7 +72,7 @@ The preview also has the following restrictions:
 
 1.	Create an instance of Azure Key Vault and encryption key.
 
-    When creating the Key Vault instance you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection Ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
+    When creating the Key Vault instance, you must enable soft delete and purge protection. Soft delete ensures that the Key Vault holds a deleted key for a given retention period (90 day default). Purge protection Ensures that a deleted key cannot be permanently deleted until the retention period lapses. These settings protect you from losing data due to accidental deletion. These settings are mandatory when using a Key Vault for encrypting managed disks.
 
     ```powershell
     $keyVault = New-AzKeyVault -Name myKeyVaultName ` 
@@ -115,7 +115,7 @@ The preview also has the following restrictions:
         -ResourceGroupName myRGName `  
     ```
 
-### Create a VM using a marketplace image, encrypting the OS and data disks with customer-managed keys via an ARM template
+### Create a VM using a marketplace image, encrypting the OS and data disks with customer-managed keys via an Resource Manager template
 
 ```
 $password=ConvertTo-SecureString -String "myVMPassword" `
