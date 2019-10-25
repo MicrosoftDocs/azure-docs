@@ -36,6 +36,6 @@ The below table details different combinations and choices that data consumers h
 | <b>Azure SQL Data Warehouse |✓ | |✓|✓|✓|
 
 
-# Next steps
+## Next steps
 
 To learn how to start sharing data, continue to the [share your data](share-your-data.md) tutorial.
