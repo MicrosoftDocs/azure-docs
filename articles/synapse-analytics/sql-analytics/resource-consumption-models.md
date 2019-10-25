@@ -10,6 +10,8 @@ ms.author: vvasic
 ms.reviewer: jrasnick
 ---
 
+# Synapse Analytics SQL resource consumption
+
 ## SQL On-demand
 
 SQL Analytics on-demand is a pay per query service that doesn't require you to pick the right size. The system automatically adjusts based on your requirements, freeing you up from managing your infrastructure and picking the right size for your solution.
