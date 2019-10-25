@@ -1129,14 +1129,10 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="group">
                                     <h3>Industry</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/industry/agriculture">
+                                            <a href="/azure/industry/agriculture/overview">
                                                 <img src="media/index/industry-agriculture-farmbeats.svg" alt="" />
                                                 <p>Azure FarmBeats</p>
                                             </a>
@@ -3955,7 +3951,7 @@ featureFlags:
                                 <h2>Industry</h2>
                             </li>
                             <li>
-                                <a href="/azure/industry/agriculture/">
+                                <a href="/azure/industry/agriculture/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -3966,7 +3962,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure FarmBeats</h3>
-                                                    <p>Collection of Azure services and capabilities, rapidly builds intelligent data-driven solutions in agriculture.</p>
+                                                    <p>Rapidly builds digital agriculture solutions in the cloud.</p>
                                                 </div>
                                             </div>
                                         </div>
