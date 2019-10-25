@@ -1,5 +1,5 @@
 ---
-title: "Visual interface example #7: classify book reviews"
+title: "Designer example #7: classify book reviews"
 titleSuffix: Azure Machine Learning
 description: Learn how to build a machine learning model classify book reviews into different categories.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.date: 09/20/2019
 
 # Sample 7 - Text Classification: Predict company category 
 
-This sample demonstrates how to use text analytics modules to build a text classification pipeline in Azure Machine Learning visual interface.
+This sample demonstrates how to use text analytics modules to build a text classification pipeline in Azure Machine Learning designer (preview).
 
 The goal of text classification is to assign some piece of text to one or more predefined classes or categories. The piece of text could be a document, news article, search query, email, tweet, support tickets, customer feedback, user product review etc. Applications of text classification include categorizing newspaper articles and news wire contents into topics, organizing web pages into hierarchical categories, filtering spam email, sentiment analysis, predicting user intent from search queries, routing support tickets, and analyzing customer feedback. 
 
@@ -36,13 +36,13 @@ The fundamental steps of a training machine learning model with text data are:
 
 1. Evaluate the model
 
-Here's the final, completed graph of the experiment we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
+Here's the final, completed graph of the pipeline we'll be working on. We'll provide the rationale for all the modules so you can make similar decisions on your own.
 
-[![Graph of the experiment](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png)](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png#lightbox)
+[![Graph of the pipeline](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png)](./media/how-to-ui-sample-text-classification/nlp-modules-overall.png#lightbox)
 
 ## Data
 
-In this experiment, we use the **Wikipedia SP 500** dataset. The dataset is derived from Wikipedia (https://www.wikipedia.org/) based on articles of each S&P 500 company. Before uploading to Azure Machine Learning visual interface, the dataset was processed as follows:
+In this pipeline, we use the **Wikipedia SP 500** dataset. The dataset is derived from Wikipedia (https://www.wikipedia.org/) based on articles of each S&P 500 company. Before uploading to Azure Machine Learning designer, the dataset was processed as follows:
 
 - Extract text content for each specific company
 - Remove wiki formatting
@@ -65,7 +65,7 @@ We used the [**Feature Hashing**](../algorithm-module-reference/feature-hashing.
 
 The **Feature Hashing** module can be used to convert variable-length text documents to equal-length numeric feature vectors, using the 32-bit murmurhash v3 hashing method provided by the Vowpal Wabbit library. The objective of using feature hashing is dimensionality reduction; also feature hashing makes the lookup of feature weights faster at classification time because it uses hash value comparison instead of string comparison.
 
-In the sample experiment, we set the number of hashing bits to 14 and set the number of n-grams to 2. With these settings, the hash table can hold 2^14 entries, in which each hashing feature represents one or more n-gram features and its value represents the occurrence frequency of that n-gram in the text instance. For many problems, a hash table of this size is more than adequate, but in some cases, more space might be needed to avoid collisions. Evaluate the performance of your machine learning solution using different number of bits. 
+In the sample pipeline, we set the number of hashing bits to 14 and set the number of n-grams to 2. With these settings, the hash table can hold 2^14 entries, in which each hashing feature represents one or more n-gram features and its value represents the occurrence frequency of that n-gram in the text instance. For many problems, a hash table of this size is more than adequate, but in some cases, more space might be needed to avoid collisions. Evaluate the performance of your machine learning solution using different number of bits. 
 
 ### Extract N-Gram Feature from Text
 
@@ -78,7 +78,7 @@ After converting text data into numeric feature vectors, A **Select Column** mod
 ## Train the model
 
 Your choice of algorithm often depends on the requirements of the use case. 
-Because the goal of this experiment is to predict the category of company, a multi-class classifier model is a good choice. Considering that the number of features is large and these features are sparse, we use **Multiclass Logistic Regression** model for this experiment.
+Because the goal of this pipeline is to predict the category of company, a multi-class classifier model is a good choice. Considering that the number of features is large and these features are sparse, we use **Multiclass Logistic Regression** model for this pipeline.
 
 ## Test, evaluate, and compare
 
@@ -102,7 +102,7 @@ To check the result, select the output port of the **Evaluate Model** and then s
 
 ## Next steps
 
-Explore the other samples available for the visual interface:
+Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
