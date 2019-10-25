@@ -19,8 +19,6 @@ ms.date: 11/04/2019
 
 Incremental indexing is a new feature of Azure Cognitive Search that adds caching and state to enriched content in a cognitive skillset, giving you control over processing and re-processing of individual steps in an enrichment pipeline. Not only does this preserve your monetary investment in processing, but it also makes for a more efficient system. When structures and content are cached, an indexer can determine which skills have changed and run only those that have been modified, as well as any downstream dependent skills. 
 
-Incremental indexing extends change tracking to all aspects of the enrichment pipeline ranging from the data source, skillsets, and the indexer itself. A key benefit of this fo driving your documents to eventual consistency with your data source, the current version of your skillset, and the indexer.
-
 With incremental indexing, the current version of the enrichment pipeline does the least amount of work to guarantee consistency for all documents in your index. For scenarios where you want full control, you can use fine-grained controls to override the expected behaviors. For more information about configuration, see [Set up incremental indexing](search-howto-incremental-index.md).
 
 ## Indexer cache
@@ -143,7 +141,7 @@ Use the `ignoreResetRequirement` sparingly as it could lead to unintended incons
 
 ## Takeaways
 
-Incremental indexing is a powerful feature that pushes consistency from source data to enriched content in knowledge store, and search documents in a search index. As your skills, skillsets, or enrichments evolve, the enrichment pipeline ensures the least possible work is done while still driving your documents to eventual consistency.
+Incremental indexing is a powerful feature that extends change tracking from data source to all aspects of the enrichment pipeline including the data source, the current version of your skillset, and the indexer. As your skills, skillsets, or enrichments evolve, the enrichment pipeline ensures the least possible work is done while still driving your documents to eventual consistency.
 
 ## Next steps
 
