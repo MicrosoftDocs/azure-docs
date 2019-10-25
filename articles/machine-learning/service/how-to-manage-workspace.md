@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.author: sdgilley
-author: sgilley
+ms.author: sgilley
+author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
 
