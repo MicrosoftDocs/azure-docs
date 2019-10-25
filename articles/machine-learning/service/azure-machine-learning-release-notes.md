@@ -31,7 +31,7 @@ Access the following web-based authoring tools from the studio:
 
 | Web-based tool | Description | Edition |
 |-|-|-|
-| [Compute Instance](concept-compute-instance.md) (GA) | Fully managed cloud-based workstation | Basic & Enterprise |
+| [Compute Instance](concept-compute-instance.md) (preview) | Fully managed cloud-based workstation | Basic & Enterprise |
 | [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
 | [Designer](ui-concept-visual-interface.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the visual interface | Enterprise |
 
