@@ -3,9 +3,8 @@ title: Prepare for Deployment
 description: Describes how to deploy FarmBeats
 author: uhabiba04
 ms.topic: article
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.author: v-umha
-ms.service: backup
 ---
 
 
