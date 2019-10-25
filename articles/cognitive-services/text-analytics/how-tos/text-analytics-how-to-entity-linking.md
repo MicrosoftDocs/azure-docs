@@ -86,6 +86,12 @@ NER
 Entity linking
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/entities/linking`
 
+### Model versioning
+
+> [!NOTE]
+> Model versioning for sentiment analysis is available starting in version `v3.0-preview.1`.
+
+
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
 ## Supported Types for Named Entity Recognition v2

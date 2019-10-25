@@ -58,6 +58,8 @@ Sentiment Analysis v3 can return scores and labels at a sentence and document le
 | At least one negative sentence and at least one positive sentence.         | `mixed`        |
 | All sentences are neutral.                                                 | `neutral`      |
 
+### Model versioning
+
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
 ### Sentiment Analysis v3 example request
