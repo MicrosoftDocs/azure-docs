@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 10/21/2019
+ms.date: 11/04/2019
 ---
 
 # Monitoring Azure Machine Learning

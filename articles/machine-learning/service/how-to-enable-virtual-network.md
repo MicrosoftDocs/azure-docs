@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.reviewer: jmartens
+ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 08/05/2019
+ms.date: 10/25/2019
 ---
 
 # Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
