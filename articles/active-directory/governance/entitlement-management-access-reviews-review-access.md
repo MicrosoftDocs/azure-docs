@@ -46,6 +46,7 @@ For more information, see [License requirements](entitlement-management-overview
 Use the following steps to find and open the access review:
 
 1. You may receive an email from Microsoft that asks you to review access. Locate the email to open the access review. Here is an example email to review access: 
+    
     ![Access Review Email](./media/entitlement-management-access-reviews-review-access/review-access-email.png)
 
 1. Click the **Review access** link to open the access review. 
@@ -53,9 +54,11 @@ Use the following steps to find and open the access review:
 1. If you don’t have the email, you can find your pending access reviews by navigating directly to https://myaccess.microsoft.com.  
 
 1. Click on **Access reviews** on the left navigation bar to see a list of pending access reviews assigned to you.
+    
     ![Select Access reviews](./media/entitlement-management-access-reviews-review-access/access-reviews-review-select-access-review.png)
 
 1. Click on the review that you’d like to begin.
+    
     ![Select the review](./media/entitlement-management-access-reviews-review-access/access-reviews-review-select-compliance.png)
 
 ## Perform the access review
@@ -67,7 +70,8 @@ Once you have opened the access review, you will see the names of users for whic
 ### Manually approve or deny access for one or more users
 1. Review the list of users and determine whether or not each user needs to continue to have access.
 
-1. To approve or deny access, select the **radio** button to the left of the user’s name, and select **Approve** or **Deny** in the bar above the user names. 
+1. To approve or deny access, select the radio button to the left of the user’s name, and select **Approve** or **Deny** in the bar above the user names. 
+   
     ![Select the user(s)](./media/entitlement-management-access-reviews-review-access/access-reviews-review-select-user.png)
    
     ![Approve or deny access](./media/entitlement-management-access-reviews-review-access/access-reviews-review-make-decision.png)
@@ -91,11 +95,13 @@ If there are multiple reviewers, the last submitted response is recorded. Consid
 To make access reviews easier and faster for you, we also provide recommendations that you can accept with a single click. The recommendations are generated based on the user's sign-in activity.
 
 1.	In the bar at the top of the page, click **Accept recommendations**.
+    
     ![Select Accept recommendations](./media/entitlement-management-access-reviews-review-access/access-reviews-review-select-recommendations.png)
     
     You will see a summary of the recommended actions
 
 1.	Click **Submit** to accept the recommendations.
+    
     ![Select Accept recommendations](./media/entitlement-management-access-reviews-review-access/access-reviews-review-submit-recommendations.png)
 
 ## Next steps

@@ -44,6 +44,7 @@ For more information, see [License requirements](entitlement-management-overview
 You can enable access reviews when [creating a new policy](entitlement-management-access-package-create.md) or [editing an existing access package]entitlement-management-access-package-request-policy.md) policy. Follow these steps to enable access reviews while creating a new policy in an access package:git
 
 1. Once you are in the **Lifecycle** section while creating a new policy, scroll down to **Access Reviews**.
+
 ![Add the access review](./media/active-directory-entitlement-management-access-reviews/access-reviews-pane.png)
 
 1. Move the **Require access reviews** toggle to **Yes**. 
@@ -56,12 +57,14 @@ This determines how often access reviews will occur.
 1. Set the **Duration** to define how many days each review of the recurring series will be open for input from reviewers. For example, you might schedule an Annual review that starts on January 1 and is open for input for 30 days so that reviewers have until the end of the month to respond.
 
 1. Next to **Reviewers**, select **Self-review** if you want users to perform their own access review or select **Specific reviewer(s)** if you want to designate a reviewer.
+
 ![Select Add reviewers](./media/active-directory-entitlement-management-access-reviews/access-reviews-add-reviewer.png)
 
 1. If you selected **Specific reviewer(s)**, specify which users will perform the access review:
     1. Select **Add reviewers**
     1. In the **Select reviewers** pane, search for and select the user(s) you want to be a reviewer.
     1. Once you have selected your reviewer(s), click the **Select** button.
+
 ![Specify the reviewers](./media/active-directory-entitlement-management-access-reviews/access-reviews-select-reviewer.png)
 
 ## Create access reviews in an existing access package
@@ -71,6 +74,7 @@ Follow these steps to enable access reviews to an existing access package:
 1. Sign in to the Azure portal and open the **Identity Governance** blade. 
 
 1. In the left menu, click on **Access packages** under **Entitlement management**. 
+
 ![Select Access Packages](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-select-access-package.png)
 
 1. In the right pane, select the access package for which you would like to create an access review.
@@ -80,11 +84,13 @@ Follow these steps to enable access reviews to an existing access package:
 1. Select the policy in which you want to create the access review. 
 
 1. Click **Edit** under **Policy details**. 
+
 ![Select Edit Policy](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-select-edit-policy.png)
 
 1. Click on **Lifecycle**. 
 
 1. Under **Access Reviews**, click **Yes** for Require access reviews. 
+
 ![Add the access review](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-add-access-review.png)
 
 1. Set the **Starting on** date. The review will begin at the end of day on this date. For example, if you select the start date as July 15, 2020, the review will begin on July 15 at 11:59PM.
@@ -97,6 +103,7 @@ Follow these steps to enable access reviews to an existing access package:
 
     1. **Self-review** if you want the access package assignees to review their own access, or 
     1. Select **Specific reviewer(s)** if you want to choose one or more specific individuals to be the reviewers
+
 ![Add the reviewers and select update](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-add-reviewers.png)
 
 1. Click on **Update** at the bottom of the page.
@@ -104,6 +111,7 @@ Follow these steps to enable access reviews to an existing access package:
 ## View the status of the review
 
 After the start date of the review, it will appear in the list with an indicator of its status: 
+
 ![View review status](./media/entitlement-management-access-reviews-review-access/access-review-status.png)
  
 By default, Azure AD will send an email to reviewers shortly after the review starts. The email will contain instructions for how to review access to access packages. If the review is for users to review their own access, show them the instructions for how to review access for yourself to access packages.

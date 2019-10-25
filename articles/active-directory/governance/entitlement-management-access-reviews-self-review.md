@@ -43,6 +43,7 @@ For more information, see [License requirements](entitlement-management-overview
 To perform an access review, you must first open the access review. Use the following procedure to find and open the access review:
 
 1. You may receive an email from Microsoft that asks you to review access. Locate the email to open the access review. Here is an example email to review access: 
+    
     ![Access Review Email](./media/entitlement-management-access-reviews-review-access/review-access-email.png)
 
 1. Click the **Review access** link.
@@ -70,6 +71,6 @@ Once you have opened the access review, you can see your access. Use the followi
 
 You can return to the review if you change your mind and decide to change your response before the end of the review.
 
-## Next Steps
+## Next steps
 
 - [Review access to access packages](entitlement-management-access-reviews-review-access.md) 
