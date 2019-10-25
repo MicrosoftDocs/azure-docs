@@ -143,7 +143,7 @@ The Node.js web API sample uses the Passport.js library to enable Azure AD B2C t
 
 The desktop application makes a request to the locally running web API, and upon verification of a valid access token, shows the signed-in user's display name.
 
-:::image type="content" source="media/active-directory-b2c-tutorials-desktop-app-webapi/desktop-app-01-post-api-call.png" alt-text="Display name shown in the top pane of the WPF desktop application":::
+![Display name shown in the top pane of the WPF desktop application](media/active-directory-b2c-tutorials-desktop-app-webapi/desktop-app-01-post-api-call.png)
 
 Your desktop application, protected by Azure AD B2C, is calling the locally running web API that is also protected by Azure AD B2C.
 
