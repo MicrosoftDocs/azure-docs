@@ -310,7 +310,8 @@ Create an application named *myApplication* for *mywatcher* that monitors a smar
 az resource create \
                    --resource-group myRG \
                    --name myApplication \
-                   --namespace Microsoft.Blockchain \ --resource-type artifacts \
+                   --namespace Microsoft.Blockchain \
+                   --resource-type artifacts \
                    --parent watchers/mywatcher \
                    --is-full-object \
                    --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","queryTargetTypes":["ContractProperties","ContractEvents"]}}}'
@@ -322,7 +323,8 @@ Create an application named *myApplication* for *mywatcher* that watches a smart
 az resource create \
                    --resource-group myRG \
                    --name myApplication \
-                   --namespace Microsoft.Blockchain \ --resource-type artifacts \
+                   --namespace Microsoft.Blockchain \
+                   --resource-type artifacts \
                    --parent watchers/mywatcher \
                    --is-full-object \
                    --properties @artifact.json
