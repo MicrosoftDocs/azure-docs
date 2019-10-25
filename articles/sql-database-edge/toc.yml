@@ -19,7 +19,7 @@
     href: tutorial-sync-data-sync.md
 - name: How to
   items:
-  - name: Use stream analytics jobs
+  - name: DAC packages and Stream Analytics jobs
     href: stream-analytics.md
 - name: Concepts
   items:

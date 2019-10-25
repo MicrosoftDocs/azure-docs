@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ---
 
 # Using SQL Database DAC Package and Stream Analytics job with SQL Database Edge

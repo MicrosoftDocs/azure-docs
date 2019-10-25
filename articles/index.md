@@ -190,8 +190,8 @@ featureFlags:
                                                 <h3>Manage data and AI</h3>
                                                 <h4>Relational Databases</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">SQL database as a service</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-database-edge/">SQL database for the edge</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">SQL Database as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database-edge/">SQL Database for the edge</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server on an Azure VM</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL database as a service</a></li>
@@ -893,6 +893,12 @@ featureFlags:
                                             <a href="/azure/sql-database/">
                                                 <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>Azure SQL Database</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/sql-database-edge/">
+                                                <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                <p>Azure SQL Database Edge</p>
                                             </a>
                                         </li>
                                         <li>
