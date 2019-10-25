@@ -198,11 +198,11 @@
       - name: CLI
         href: spot-cli.md
       - name: Portal
-        href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
       - name: Template
         href: spot-template.md
       - name: Error codes
-        href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
   - name: Secure VMs
     items:
     - name: Recommendations
