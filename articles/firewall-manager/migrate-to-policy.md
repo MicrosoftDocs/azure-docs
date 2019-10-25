@@ -25,7 +25,7 @@ The beginning of the script defines the source firewall name and resource group 
 
 Modify the following script to migrate your firewall configuration.
 
-```azure-powershell
+```azurepowershell
 #Input params to be modified as needed
 $FirewallName = "AZFW"
 $ResourceGroupName = "AzFWMigrateRG"
