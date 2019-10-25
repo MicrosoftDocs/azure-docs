@@ -44,7 +44,7 @@ You can create a [service principal](https://docs.microsoft.com/en-us/azure/acti
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
 ```
 
-In this example, replace the placeholders in the resource with your subscription ID, resource group and web app name. The output is the role assignment credentials that provides access to your Web App. Copy this JSON object, which you can use to authenticate from GitHub.
+In this example, replace the placeholders in the resource with your subscription ID, resource group and, web app name. The output is the role assignment credentials that provide access to your Web App. Copy this JSON object, which you can use to authenticate from GitHub.
 
 > [!NOTE]
 > You do not need to create a service principal if you decide to use publish profile for authentication.
@@ -81,7 +81,7 @@ The below example uses user-level credentials i.e. Azure Service Principal for d
 
 ## Build the Container Image
 
-Here is an example of an workflow which builds and pushes a container image to Container Registry.
+Here is an example of a workflow, that builds and pushes a container image to Container Registry.
 
 ```yaml
 on: [push]
@@ -105,14 +105,14 @@ jobs:
 
 ## Deploy the Container Image
 
-To deploy the container image to AKS, you will need to use the `azure/k8s-actions/k8s-deploy@master` action. This action has 5 parameters:
+To deploy the container image to AKS, you will need to use the `Azure/k8s-deploy@v1` action. This action has five parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
 | **namespace** | (Optional) Choose the target Kubernetes namespace. If the namespace is not provided, the commands will run in the default namespace | 
-| **manifests** |  (Required) Path to the manifest files which will be used for deployment |
+| **manifests** |  (Required) Path to the manifest files, that will be used for deployment |
 | **images** | (Optional) Fully qualified resource URL of the image(s) to be used for substitutions on the manifest files |
-| **imagepullsecrets** | (Optional) Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names are added under imagePullSecrets field for the workloads found in the input manifest files |
+| **imagepullsecrets** | (Optional) Name of a docker-registry secret that has already been set up within the cluster. Each of these secret names is added under imagePullSecrets field for the workloads found in the input manifest files |
 | **kubectl-version** | (Optional) Installs a specific version of kubectl binary |
 
 ### Deploy to Azure Kubernetes Service cluster
