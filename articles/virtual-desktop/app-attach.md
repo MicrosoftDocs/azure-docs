@@ -20,50 +20,43 @@ This document walks through prerequisite, tools, and configurations steps needed
 >
 >- [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)
 >- [Windows Virtual Desktop feedback hub](https://aka.ms/MRSFeedbackHub)
->- [MSIX app attach feedback hub](http://aka.ms/msixappattachfeedback)
+>- [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback)
 >- [MSIX packaging tool feedback hub](../../../AppData/Roaming/Microsoft/Word/aka.ms/msixtoolfeedback)
 
 ## Prerequisites
 
-In this section we are going to cover all prerequisites needed for configuring the MSIX app attach preview:
+Here's what you need to configure MSIX app attach:
 
 - Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
-- Windows Virtual Desktop deployment. Steps 1 and 2 in Windows Virtual Desktop tutorial section [here](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory).
+- Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
 - MSIX packaging tool
 - Network share where the MSIX package will be stored (part of Windows Virtual Desktop deployment)
 
 ## Get the OS image
 
-Navigate to the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
+First, you need to get the OS image you'll use for the MSIX app. To do this:
+
+1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
 >[!NOTE]
->You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program,  see XXX.
+>You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, see XXX.
 
-Scroll down to **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX.**
+2. Scroll down to **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX.**
 
-Click **Confirm** and select **English**. Please click the second **Confirm.**
-
->[!NOTE]
->You can select other languages, but they haven't been tested with the feature yet, so either may not display or don't currently work as intended.
-
-When the download link is generated select the **64-bit Download** and save it to your local hard disk.
+3. Select **Confirm**, then select the language you wish to use, then select **Confirm**.
+    
+     >[!NOTE]
+     >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
+    
+4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
 
 ## Prepare the VHD image for Azure 
 
-The Windows Virtual Desktop article on preparing and customizing a master VHD
-image is
-[here](https://docs.microsoft.com/azure/virtual-desktop/set-up-customize-master-image).
-It outlines the steps needed to:
+Before you follow these instructions, you'll need to create and customize a master VHD image. To learn more, see the instructions in [here](set-up-customize-master-image.md). 
 
-Create a VM
+After that, you must disable automatic updates for MSIX app attach applications. To do this, you'll need to run the following commands in a command line:
 
-Perform additional OS configuration:
-
->   It is mandatory that auto updates for MSIX app attach applications are
->   disabled. Based on the type of application being used, run the below
->   commands in elevated **Command prompt:**
-
-```regedit
+```cmd
 # Disable Store auto update:
 
 reg add HKLM\Software\Policies\Microsoft\WindowsStore /v AutoDownload /t
@@ -85,264 +78,244 @@ HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\ContentDeliveryManager\Debug
 sc config wuauserv start=disabled
 ```
 
-Prepare the VM VHD for Azure
+Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure.
 
-Upload the resulting VHD disk to Azure.
+<!--can we get a tutorial for this?-->
 
-Once the VHD is uploaded in Azure, create a host pool based on this new image.
-Steps are outlined
-[here](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
+Once the VHD is uploaded in Azure, create a host pool based on this new image by following the instructions in [this tutorial](create-host-pools-azure-marketplace.md).
 
 ## Prepare the application for MSIX app attach 
 
-If you already have an MSIX package proceed to the next step. If you would like
-to test a legacy application please follow steps
-[here](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm)
-to convert that application to a MSIX package.
+If you already have an MSIX package proceed to the next step. If you would like to test a legacy application please follow steps [here](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) to convert that application to a MSIX package.
 
-## Expand MSIX
+## Generate a VHD or VHDX package for MSIX
 
-In order to optimize for performance MSIX packages are put into VHD or VHDX. The
-steps below outline the mandatory process for generating a VHD or VHDX from a
-MSIX package a process called “MSIX expansion”.
+Packages are in VHD or VHDX format to optimize performance. MSIX requres VHD or VHDX packages to work properly.
 
-### Preparation
+To generate a VHD or VHDX package for MSIX:
 
-Download the **msixmgr** tool from this link to a session host VM.
+1. Download the **msixmgr** tool from this link to a session host VM.
 
-Unzip to a folder on the session host VM.
+2. Unzip to a folder on the session host VM.
 
-Put the source MSIX package into the same folder where **msixmgr** was unzipped.
+3. Put the source MSIX package into the same folder where **msixmgr** was unzipped.
 
-### Create VHD
+4. Run the following cmdlet in Powershell to create a VHD:
 
->   In PowerShell ISE use the command below to create a VHD:
+    ```powershell
+    New-VHD -SizeBytes <size>MB -Path c:\temp\<name>.vhd -Dynamic -Confirm:$false
+    ```
 
-```powershell
-New-VHD -SizeBytes <size>MB -Path c:\temp\<name>.vhd -Dynamic -Confirm:$false
-```
+    >[!NOTE]
+    >Make sure the size of VHD is large enough to hold the expanded MSIX.*
 
->[!NOTE]
->Make sure the size of VHD is large enough to hold the expanded MSIX.*
+5. Run the following cmdlet to mount the newly created VHD:
 
-Mount the newly created VHD by using the command below:
+    ```powershell
+    $vhdObject = Mount-VHD c:\temp\<name>.vhd -Passthru
+    ```
 
-```powershell
-$vhdObject = Mount-VHD c:\temp\<name>.vhd -Passthru
-```
+6. Run this cmdlet to initialize the VHD:
 
-Initialize the VHD by using the command below:
+    ```powershell
+    $disk = Initialize-Disk -Passthru -Number $vhdObject.Number
+    ```
 
-```powershell
-$disk = Initialize-Disk -Passthru -Number $vhdObject.Number
-```
+7. Run this cmdlet to create a new partition:
 
-Create a new partition:
+    ```powershell
+    $partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskNumber $disk.Number
+    ```
 
-```powershell
-$partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskNumber $disk.Number
-```
+8. Run this cmdlet to format the partition:
 
-Format the partition:
+    ```powershell
+    Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
+    ```
 
-```powershell
-Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
-```
-
-Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. This can be named whatever you like.
+9. Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. This can be named whatever you like.
 
 ### Expand MSIX
 
->   Open a **command prompt** as Administrator and navigate to the folder where
->   **msixmgr** was downloaded and unzipped.
+After that, you'll need to "expand" the MSIX image by unpacking it. To do this:
 
->   Run the following command to unpack the MSIX into the VHD created and
->   mounted earlier.
+1. Open a **command prompt** as Administrator and navigate to the folder where **msixmgr** was downloaded and unzipped.
 
-```powershell
-msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder created earlier>" -applyacls
-```
+2. Run the following cmdlet to unpack the MSIX into the VHD you created and mounted in the previous section.
 
-Once completed following message will appear:
+    ```powershell
+    msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder created earlier>" -applyacls
+    ```
 
->   *Successfully unpacked and applied ACLs for package: \<package name\>.msix*
+    The following message should appear once unpacking is done:
 
->   *If your package is a store-signed package, please note that store-signed
->   apps require a license file to be included, which can be downloaded from the
->   Microsoft Store for Business. Instructions available*
->   [here](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app)*.*
+    `Successfully unpacked and applied ACLs for package: <package name>.msix`
 
-Navigate to the mounted VHD and open the app folder and confirm package content
-is present.
+    >[!NOTE]
+    > If your package is a store-signed package, please note that store-signed apps require a license file to be included, which can be downloaded from the Microsoft Store for Business. Instructions available [here](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
 
-Unmount the VHD.
+3. Navigate to the mounted VHD and open the app folder and confirm package content is present.
+
+4. Unmount the VHD.
 
 ## Configure Windows Virtual Desktop infrastructure
 
-By design a single MSIX expanded package (VHD created in previous step) can be
-shared between multiple session host VMs as the VHDs are attached in Read Only
-mode.
+By design a single MSIX expanded package (VHD created in previous step) can be shared between multiple session host VMs as the VHDs are attached in Read Only mode.
 
-There are two requirements for this network share:
+Before you start, make sure your network share meets these requirements:
 
-1.  The share is SMB compatible
+- The share is SMB compatible.
+- VMs that are part of the session host pool have NTFS permissions to the share.
 
-2.  VMs that are part of the session host pool have NTFS permissions to the
-    share
+### Set up a MSIX app attach share 
 
-### Setup a MSIX app attach share 
+In your Windows Virtual Desktop environment create a network share and place the package there.
 
->   In your Windows Virtual Desktop environment create a network share and place
->   the package there.
+>[!NOTE]
+> MSIX network share best practice is to set up the network share with NTFS read-only permissions.
 
->   Please note: best practices for the MSIX network share is to be set up with
->   NTFS read only permissions.
+<!---what does ntfs stand for?--->
 
-## Prepare PowerShell scripts needed for MSIX app attach
+## Prepare PowerShell scripts for MSIX app attach
 
-MSIX app attach has four distinct phases that need to be performed in the order
-listed below. Sample scripts are available
-[here](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach):
+MSIX app attach has four distinct phases that must be performed in the following order:
 
-1.  Stage
+1. Stage
+2. Register
+3. De-register
+4. De-stage
 
-2.  Register
-
-3.  De-register
-
-4.  De-stage
-
-A PowerShell script will be created for each of these stages. Once the scripts
-are created, they can be manually executed by users (assuming admin permissions)
-or setup as logon/logoff/shutdown/startup scripts. Instructions on how to setup
-the scripts can be found in the section Setup login/logoff/startup/shutdown
-scripts to simulate MSIX app attach agent below.
+Each phase creates a PowerShell script. Sample scripts for each phase are available [here](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
 ### Stage PowerShell script
 
-Prior to updating the PowerShell script below, make sure to obtain the volume
-GUID of the volume in the VHD. To do this:
+Prior to updating the PowerShell script below, make sure to obtain the volume GUID of the volume in the VHD. To do this:
 
-1.  From the VM where the script will run, navigate to the network share where
-    the VHD is located
+1.  In the VM where the script will run, open the network share where the VHD is located.
 
-2.  Right click on the VHD and select mount. This will mount the VHD to a drive
-    letter.
+2.  Right-click on the VHD and select **Mount**. This will mount the VHD to a drive letter.
 
-3.  Once mount is completed a **File Explorer** window will be opened
-
-4.  Make sure to capture the parent folder and update the **\$parentFolder**
-    variable
+3.  After you mount the VHD, the **File Explorer** window will open. Capture the parent folder and update the **\$parentFolder** variable
 
     >[!NOTE]
-    >If there is no parent folder the expanded MSIX was not created correctly.
+    >If you don't see a parent folder, that means the MSIX wasn't expanded properly. Redo the previous section and try again.
 
-5.  Open the “parent folder”, if correctly expanded that will contain a folder
-    that has the same name as the package. Update the **\$packageName** variable
-    to match the name of the folder which must match the name of the package.
+4.  Open the parent folder. If correctly expanded, you'll see a folder with the same name as the package. Update the **\$packageName** variable to match the name of this folder.
 
     For example, `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
 
-6.  Open **Command prompt** and type **mountvol** this will display list of
-    volumes and there GUIDs. Grab the GUID of the volume where the drive letter
-    matches that from step 2.
+5.  Open a command prompt and enter **mountvol**. This will display a list of volumes and their GUIDs. Copy the GUID of the volume where the drive letter matches the drive you mounted your VHD to in step 2.
 
-    ![A screenshot of a cell phone Description automatically generated](media/0a02203ae78fef125a625bb853d37655.png)
+    For example, in this example output for the mountvol command, if you mounted your VHD to Drive C, you'll want to copy the value above `C:\`:
 
-7.  Using the volume GUID update the **\$volumeGuid** variable.
+    ```cmd
+    Possible values for VolumeName along with current mount points are:
 
-Update script below with variables applicable to your environment.
+    \\?\Volume{a12b3456-0000-0000-0000-10000000000}\
+    *** NO MOUNT POINTS ***
 
-```powershell
-#MSIX app attach staging sample
+    \\?\Volume{c78d9012-0000-0000-0000-20000000000}\
+        E:\
 
-#region variables
+    \\?\Volume{d34e5678-0000-0000-0000-30000000000}\
+        C:\
 
-$vhdSrc="<path to vhd>"
+    ```
 
-$packageName = "<package name>"
 
-$parentFolder = "<package parent folder>"
+6.  Update the **\$volumeGuid** variable with the volume GUID you just copied.
 
-$parentFolder = "\" + $parentFolder + "\"
+7. Update the following PowerShell script with the variables that apply to your environment.
 
-$volumeGuid = "<vol guid>"
+    ```powershell
+    #MSIX app attach staging sample
 
-$msixJunction = "C:\temp\AppAttach\"
+    #region variables
 
-#endregion
+    $vhdSrc="<path to vhd>"
 
-#region mountvhd
+    $packageName = "<package name>"
 
-try
+    $parentFolder = "<package parent folder>"
 
-{
+    $parentFolder = "\" + $parentFolder + "\"
 
-Mount-Diskimage -ImagePath \$vhdSrc -NoDriveLetter -Access ReadOnly
+    $volumeGuid = "<vol guid>"
 
-Write-Host ("Mounting of " + \$vhdSrc + " was completed!") -BackgroundColor
-Green
+    $msixJunction = "C:\temp\AppAttach\"
 
-}
+    #endregion
 
-catch
+    #region mountvhd
 
-{
+    try
 
-Write-Host ("Mounting of " + \$vhdSrc + " has failed!") -BackgroundColor Red
+    {
 
-}
+    Mount-Diskimage -ImagePath \$vhdSrc -NoDriveLetter -Access ReadOnly
 
-#endregion
+    Write-Host ("Mounting of " + \$vhdSrc + " was completed!") -BackgroundColor Green
 
-#region makelink
+    }
 
-$msixDest = "\\?\Volume{" + $volumeGuid + "}\"
+    catch
 
-if (!(Test-Path $msixJunction))
+    {
 
-{
+    Write-Host ("Mounting of " + \$vhdSrc + " has failed!") -BackgroundColor Red
 
-md $msixJunction
+    }
 
-}
+    #endregion
 
-$msixJunction = $msixJunction + $packageName
+    #region makelink
 
-cmd.exe /c mklink /j $msixJunction $msixDest
+    $msixDest = "\\?\Volume{" + $volumeGuid + "}\"
 
-#endregion
+    if (!(Test-Path $msixJunction))
 
-#region stage
+    {
 
-[Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime]
-| Out-Null
+    md $msixJunction
 
-Add-Type -AssemblyName System.Runtime.WindowsRuntime
+    }
 
-$asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
-$_.ToString() -eq 'System.Threading.Tasks.Task\`1[TResult]
-AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress\`2[TResult,TProgress])'})[0]
+    $msixJunction = $msixJunction + $packageName
 
-$asTaskAsyncOperation =
-$asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
-[Windows.Management.Deployment.DeploymentProgress])
+    cmd.exe /c mklink /j $msixJunction $msixDest
 
-$packageManager = [Windows.Management.Deployment.PackageManager]::new()
+    #endregion
 
-$path = $msixJunction + $parentFolder + $packageName # needed if we do the
-pbisigned.vhd
+    #region stage
 
-$path = ([System.Uri]$path).AbsoluteUri
+    [Windows.Management.Deployment.PackageManager,Windows.Management.Deployment,ContentType=WindowsRuntime]
+    | Out-Null
 
-$asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
+    Add-Type -AssemblyName System.Runtime.WindowsRuntime
 
-$task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
+    $asTask = ([System.WindowsRuntimeSystemExtensions].GetMethods() | Where {
+    $_.ToString() -eq 'System.Threading.Tasks.Task\`1[TResult]
+    AsTask[TResult,TProgress](Windows.Foundation.IAsyncOperationWithProgress\`2[TResult,TProgress])'})[0]
 
-$task
+    $asTaskAsyncOperation =
+    $asTask.MakeGenericMethod([Windows.Management.Deployment.DeploymentResult],
+    [Windows.Management.Deployment.DeploymentProgress])
 
-#endregion
-```
+    $packageManager = [Windows.Management.Deployment.PackageManager]::new()
+
+    $path = $msixJunction + $parentFolder + $packageName # needed if we do the
+    pbisigned.vhd
+
+    $path = ([System.Uri]$path).AbsoluteUri
+
+    $asyncOperation = $packageManager.StagePackageAsync($path, $null, "StageInPlace")
+
+    $task = $asTaskAsyncOperation.Invoke($null, @($asyncOperation))
+
+    $task
+
+    #endregion
+    ```
 
 ### Register PowerShell script
 
@@ -379,7 +352,7 @@ $packageName = "<package name>"
 
 #endregion
 
-#region derregister
+#region deregister
 
 Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 
@@ -401,7 +374,7 @@ $msixJunction = "C:\temp\AppAttach\"
 
 #endregion
 
-#region derregister
+#region deregister
 
 Remove-AppxPackage -AllUsers -Package $packageName
 
@@ -414,18 +387,11 @@ rmdir $packageName -Force -Verbose
 
 ## Set up simulation scripts for MSIX app attach agent
 
-In this preview we are modeling MSIX app attach behavior by using four scripts
-(stage, register, de-register, and de-stage).
+After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [this article](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
 
-One way to setup these scripts to run without user interacting with them is via
-startup, logon, logoff, and shutdown scripts in Windows. Article outlining the
-steps is available
-[here](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
+Each of these automatic scripts runs one phase of the app attach scripts:
 
-Startup script will be the stage script.
-
-User logon script will be the register script.
-
-Logoff script will be setup run to de-register script.
-
-Shutdown scripts will run the de-stage script.
+- The startup script runs the stage script.
+- The logon script runs the register script.
+- The logoff script runs the de-register script.
+- The shutdown script runs the de-stage script.
