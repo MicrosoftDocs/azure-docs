@@ -154,7 +154,7 @@ Select and verify target resources.
 
 ## Create a replication policy
 
-1. Open the [Azure portal](https://portal.azure.com), and select **All resources**.
+1. Open the [Azure portal](https://portal.azure.com). Search for and select **Recovery Services vaults**.
 2. Select the Recovery Services vault (**ContosoVMVault** in this tutorial).
 3. To create a replication policy, select **Site Recovery infrastructure** > **Replication Policies** > **+Replication Policy**.
 4. In **Create replication policy**, enter the policy name. We're using **VMwareRepPolicy**.
