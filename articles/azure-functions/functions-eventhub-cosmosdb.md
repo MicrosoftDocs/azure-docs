@@ -242,7 +242,7 @@ func azure functionapp fetch-app-settings $FUNCTION_APP
 
 ### Add Java code
 
-Next, open the `Function.java` file and replace the contents with the following code. Replace `<event hub name>` with the name of the Event Hub you created inside your Event Hub namespace.
+Next, open the `Function.java` file and replace the contents with the following code.
 
 ```java
 package com.example;
@@ -254,10 +254,10 @@ import java.time.*;
 
 public class Function {
 
-    @FunctionName("EventHubOutput-Java")
+    @FunctionName("generateSensorData")
     @EventHubOutput(
         name = "event",
-        eventHubName = "<event hub name>",
+        eventHubName = "", // blank because the value is included in the connection string
         connection = "EventHubConnectionString")
     public TelemetryItem generateSensorData(
         @TimerTrigger(
@@ -272,11 +272,11 @@ public class Function {
         return new TelemetryItem(temperature, pressure);
     }
 
-    @FunctionName("EventHubTrigger-Java")
+    @FunctionName("processSensorData")
     public void processSensorData(
         @EventHubTrigger(
             name = "msg",
-            eventHubName = "<event hub name>",
+            eventHubName = "", // blank because the value is included in the connection string
             cardinality = Cardinality.ONE,
             connection = "EventHubConnectionString")
             TelemetryItem item,
@@ -380,23 +380,22 @@ mvn clean package
 mvn azure-functions:run
 ```
 
-<!-- 
-Cosmos DB account > **Data Explorer** > **TelemetryDb** > **TelemetryInfo** > **Items**
+After some build and startup messages, you will see output similar to the following for each time the functions run:
 
-example:
-{
-    "id": "TEST222",
-    "temperature": 28.8,
-    "pressure": 38.8,
-    "isNormalPressure": false,
-    "temperatureStatus": "COOL",
-    "_rid": "wIR4AK5lQHQHAAAAAAAAAA==",
-    "_self": "dbs/wIR4AA==/colls/wIR4AK5lQHQ=/docs/wIR4AK5lQHQHAAAAAAAAAA==/",
-    "_etag": "\"1a007499-0000-0700-0000-5d9d380b0000\"",
-    "_attachments": "attachments/",
-    "_ts": 1570584587
-}
-or screenshot -->
+```bash
+[10/22/19 4:01:30 AM] Executing 'Functions.generateSensorData' (Reason='Timer fired at 2019-10-21T21:01:30.0016769-07:00', Id=c1927c7f-4f70-4a78-83eb-bc077d838410)
+[10/22/19 4:01:30 AM] Java Timer trigger function executed at: 2019-10-21T21:01:30.015
+[10/22/19 4:01:30 AM] Function "generateSensorData" (Id: c1927c7f-4f70-4a78-83eb-bc077d838410) invoked by Java Worker
+[10/22/19 4:01:30 AM] Executed 'Functions.generateSensorData' (Succeeded, Id=c1927c7f-4f70-4a78-83eb-bc077d838410)
+[10/22/19 4:01:30 AM] Executing 'Functions.processSensorData' (Reason='', Id=f4c3b4d7-9576-45d0-9c6e-85646bb52122)
+[10/22/19 4:01:30 AM] Event hub message received: TelemetryItem={id=null,temperature=32.728691307527015,pressure=10.122563042388165}
+[10/22/19 4:01:30 AM] Function "processSensorData" (Id: f4c3b4d7-9576-45d0-9c6e-85646bb52122) invoked by Java Worker
+[10/22/19 4:01:38 AM] Executed 'Functions.processSensorData' (Succeeded, Id=1cf0382b-0c98-4cc8-9240-ee2a2f71800d)
+```
+
+You can then go to the Azure portal, navigate to your Cosmos DB account, and use Data Explorer to confirm that the database has been updated with records of the processing results:
+
+![Data Explorer](media/functions-eventhub-cosmosdb/data-explorer.png)
 
 ## Deploy to Azure
 
@@ -410,6 +409,10 @@ Then in the command palette do >Azure Functions: Deploy to Function App and sele
 TBD
 
 <!-- Follow the same steps that you used to test locally. This time your function app is running in Azure. Based on the function app logic, you can go to the cosmos db created in your resource group to see items being creates (as we used output binding).  -->
+
+## View Application Insights telemetry
+
+TBD
 
 ## Clean up resources
 
