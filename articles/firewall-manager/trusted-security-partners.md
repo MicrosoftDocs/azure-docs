@@ -1,5 +1,5 @@
 ---
-title: What are Azure Firewall Manager trusted security partners (preview?
+title: What are Azure Firewall Manager trusted security partners (preview)
 description: Learn about Azure Firewall Manager trusted security partners
 author: vhorne
 ms.service: firewall-manager
@@ -45,7 +45,7 @@ The following scenario isn't supported:
 
 - VNet to Internet via a partner offering can't be combined with Azure Firewall for private traffic. See the following limitations.
 
-## Current Limitations
+## Current limitations
 
 - For VNet to Internet, you can't mix adding Azure Firewall for private traffic and a partner offering for Internet traffic. You can either send Internet traffic to Azure Firewall or a third-party security partner offering in the secured virtual hub, but not both. 
 - You can deploy at most one security partner per virtual hub. If you need to change the provider, you must remove the existing partner and add a new one.
@@ -57,6 +57,7 @@ Internet traffic typically includes web traffic. But it also includes traffic de
 - Use Azure Firewall for protection if your traffic consists mostly of Azure PaaS, and the resource access for your applications can be filtered using IP addresses, FQDNs, Service tags, or FQDN tags.
 
 - Use a third-party partner solution in your hubs if your traffic consists of SaaS application access, or you need user-aware filtering (for example, for your virtual desktop infrastructure (VDI) workloads) or you need advanced Internet filtering capabilities.
+
 ![All scenarios for Azure Firewall Manager](media/trusted-security-partners/all-scenarios.png)
 
 ## Handling Office 365 (O365) traffic
