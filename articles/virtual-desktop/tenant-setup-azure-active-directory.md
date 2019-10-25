@@ -67,15 +67,16 @@ To assign the TenantCreator application role:
 
    ![Screenshot of searching for Enterprise applications in the Azure portal](media/azure-portal-enterprise-applications.png)
 2. Within **Enterprise applications**, search for **Windows Virtual Desktop**. You'll see the two applications that you provided consent for in the previous section. Of these two apps, select **Windows Virtual Desktop**.
+   
    ![A screenshot of the search results when searching for "Windows Virtual Desktop" in "Enterprise applications." The app named "Windows Virtual Desktop" is highlighted.](media/tenant-enterprise-app.png)
 3. Select **Users and groups**. You might see that the administrator who granted consent to the application is already listed with the **Default Access** role assigned. This is not enough to create a Windows Virtual Desktop tenant. Continue following these instructions to add the **TenantCreator** role to a user.
+   
    ![A screenshot of the users and groups assigned to manage the "Windows Virtual Desktop" enterprise application. The screenshot shows only one assignment, which is for "Default Access."](media/tenant-default-access.png)
 4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** blade.
 5. Search for a user account that will create your Windows Virtual Desktop tenant. For simplicity, this can be the global administrator account.
    - If you're using a Microsoft Identity Provider like contosoadmin@live.com or contosoadmin@outlook.com, you might not be able to sign in to Windows Virtual Desktop. We recommend using a domain-specific account like admin@contoso.com or admin@contoso.onmicrosoft.com instead.
 
    ![A screenshot of selecting a user to add as "TenantCreator."](media/tenant-assign-user.png)
-
    > [!NOTE]
    > You must select a user (or a group that contains a user) that's sourced from this Azure Active Directory instance. You can't choose a guest (B2B) user or a service principal.
 
