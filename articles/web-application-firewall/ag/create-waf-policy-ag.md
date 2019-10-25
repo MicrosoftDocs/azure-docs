@@ -61,7 +61,7 @@ To create a custom rule, select **Add custom rule** under the **Custom rules** t
 
 ![Edit custom rule](../media/create-waf-policy-ag/edit-custom-rule.png)
 
-## Migrate your WAF Config to a WAF Policy
+## <a name="migrate"></a>Migrate your WAF Config to a WAF Policy
 
 If you have an existing WAF, you may have noticed some changes in the portal. First you need to identify what kind of Policy you have enabled on your WAF. There are three potential states:
 
