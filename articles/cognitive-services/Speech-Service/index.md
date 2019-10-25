@@ -844,54 +844,6 @@ description: Get started with the Speech service.
                     </li>
                 </ul>
             </li>
-            <li>
-                <a href="#languages">Languages</a>
-                <ul id="languages">
-                    <li>
-                        <a href="#resources-all"></a>
-                        <ul id="resources-all" class="cardsC">
-                            <li>
-                                <a href="https://aka.ms/speech/sdk-languages">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Programming languages and platforms</h3>
-                                                    <p>Learn which programming languages and platforms are supported by the Speech service.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://aka.ms/speech/languages">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_human_languages.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Human languages</h3>
-                                                    <p>Learn what spoken and written human languages that you can use with the Speech service.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>            
         </ul>
     </div>
 </div>
