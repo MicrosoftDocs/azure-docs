@@ -245,6 +245,10 @@ FILE_FORMAT = *external_file_format_name*
 
 Specifies the name of the external file format object that stores the file type and compression method for the external data. To create an external file format, use [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
 
+#### Permissions
+
+You need proper credentials with list and read permissions to be able to select from external table.
+
 #### Example
 
 Following example creates external table using previously created external data source and external file format, and returns first row:
@@ -286,4 +290,4 @@ SELECT TOP 1 * FROM census_external_table
 ## Next steps
 
 
-Try [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage.
+Check [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage, or start querying [Spark tables](development-storage-spark-tables.md).

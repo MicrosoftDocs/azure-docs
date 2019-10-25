@@ -64,7 +64,7 @@ SELECT <select_criteria> Populates the new table with the results from a SELECT 
 
 ### Permissions
 
-You need to have permissions to list folder content and write to folder for CETAS to work. 
+You need to have permissions to list folder content and write to LOCATION folder for CETAS to work. 
 
 ### Examples
 
