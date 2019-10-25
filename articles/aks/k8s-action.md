@@ -1,19 +1,12 @@
 ---
 title: Build, test, and deploy code using GitHub Actions
 description:  Learn how to use GitHub Actions to deploy your container to Kubernetes
-services: app-service
-documentationcenter: ''
+services: aks
 author: azooinmyluggage
-writer: 
-manager: 
-editor: 
-ms.assetid: A9041382-B59F-476E-9F03-E2905F1E273B
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+
+ms.service: aks
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 10/25/2019
 ms.author: atulmal
 ---
 
