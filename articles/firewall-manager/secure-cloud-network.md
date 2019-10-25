@@ -70,7 +70,7 @@ Create your secured virtual hub using Firewall Manager.
 6. For **Location**, select **East US**.
 7. For **Hub address space**, type **10.1.0.0/16**.
 8. For the new vWAN name, type **vwan-01**.
-9. Clear the **Include VPN gateway to enable Trusted Security Partners** check box.
+9. Leave the **Include VPN gateway to enable Trusted Security Partners** check box cleared.
 10. Select **Next:Azure Firewall**.
 11. Accept the default **Azure Firewall** **Enabled** setting and then select **Next: Trusted Security Partner**.
 12. Accept the default **Trusted Security Partner** **Disabled** setting, and select **Next: Review + create**.
