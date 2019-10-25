@@ -24,8 +24,8 @@ A connection typically refers to a logical information set, identifying a Peerin
 Customer can establish a single connection or multiple connections as per the requirement. A connection is also used as a unit of telemetry collection. For instance, to opt for telemetry alerts, customer must define the connection that will be monitored.
 
 > [!Note]
-> When you sign up for Peering Service, we analyze your Windows and Office 365 telemetry in order to provide you with latency measurements for your selected prefixes. This telemetry data is always aggregated and anonymized.
->For more information about connection telemetry, refer to [Peering Service connection telemetry](connection-telemetry.md).
+> When you sign up for Peering Service, we analyze your Windows and Office 365 telemetry in order to provide you with latency measurements for your selected prefixes. This telemetry data is always aggregated.
+>For more information about connection telemetry, refer to the [Peering Service connection telemetry](connection-telemetry.md).
 >
 
 > [!IMPORTANT]
