@@ -78,4 +78,4 @@ Explore the other samples available for the designer:
 - [Sample 3 - Classification with feature selection: Income Prediction](how-to-ui-sample-classification-predict-income.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
-- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-ui-sample-text-classification.md)

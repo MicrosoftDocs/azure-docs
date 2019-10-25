@@ -25,13 +25,7 @@ Here's the final pipeline graph for this sample:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-<<<<<<< HEAD
 4. Click sample 6 to open it.
-=======
-4. Select the Sample 6 pipeline:
-
-    ![Open the pipeline](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
->>>>>>> fd68f12b5ebebc05d41d1c886abf8c9ffb57f48a
 
 ## Get the data
 
@@ -124,4 +118,4 @@ Explore the other samples available for the designer:
 - [Sample 3 - Classification with feature selection: Income Prediction](how-to-ui-sample-classification-predict-income.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
-- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-ui-sample-text-classification.md)

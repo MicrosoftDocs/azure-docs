@@ -19,7 +19,7 @@ This article shows you how to build a complex machine learning pipeline using th
 
 This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
-If you're just getting started with machine learning, you can take a look at the [basic classifier sample](how-to-ui-sample-classification-predict-credit-risk-basic.md) first.
+
 
 Here's the completed graph for this pipeline:
 
@@ -161,4 +161,4 @@ Explore the other samples available for the designer:
 - [Sample 3 - Classification with feature selection: Income Prediction](how-to-ui-sample-classification-predict-income.md)
 - [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
-- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-ui-sample-text-classification.md)
