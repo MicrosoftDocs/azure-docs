@@ -10,7 +10,9 @@ services: iot-central
 manager: corywink
 ---
 
-# Transform
+# Transform your IoT data (preview features)
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 As an application platform, IoT Central provides several key facets to help you transform your IoT data into the business insights that drive actionable outcomes. IoT Central provides ways to extend your IoT data to external systems to create integrations with Line-Of-Business applications and custom applications. You can monitor device health and operations by creating rules that notify technicians via a mobile service. You can generate specific business insights with custom analytics and machine learning by exporting raw telemetry data to services in Azure. You can create services and tools that monitor and control devices and manage your IoT Central app using the public APIs. 
 
