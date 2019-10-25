@@ -1,6 +1,6 @@
 ---
 title: Create Azure Cosmos containers and databases with throughput in autopilot mode.
-description: Learn about the benefits and use cases of autopilot mode and how to provision Azure Cosmos databases and containers in autopilot mode.
+description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autopilot mode.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
