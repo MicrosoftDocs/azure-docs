@@ -1,9 +1,10 @@
 ---
-title: Connect privately to an Azure Cosmos account using Azure Private Link
+title: Connect privately to an Azure Cosmos account using Azure Private Link.
+description: Learn how to securely access the Azure Cosmos account from ta VM by creating a Private Endpoint.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 09/16/2019
+ms.date: 11/04/2019
 ms.author: sngun
 
 ---
@@ -134,23 +135,14 @@ In this section, you will connect privately to the Azure Cosmos account using th
 
    [Private IP Address] myaccount.blob.core.windows.net
 
-   **Example:** 
+   **Example:**
 
    10.1.255.13 mycosmosaccount.documents.azure.com
 
    10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
-1. In the Remote Desktop of *myVM*, open PowerShell.
-
-1. Enter ` nslookup https:// mycosmosaccount.documents.azure.com:443/`
-    You'll receive a message similar to this:
-    ```azurepowershell
-    Server:  UnKnown
-    Address:  168.63.129.16
-    *** UnKnown can't find https://sqlcdb2.documents.azure.com:443/: Non-existent domain
-    ```
-1. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+1. In the Remote Desktop of *myVM*, install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
 
 1. Select **Cosmos DB Accounts (Preview)** with the right-click.
 
