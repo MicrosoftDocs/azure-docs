@@ -19,7 +19,7 @@ Different languages are supported for different Speech Services functions. The f
 
 ## Speech-to-text
 
-Both the Microsoft speech recognition SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences.  Pronunciation customization is currently only available for en-US and de-DE. Learn more about customization [here](how-to-custom-speech.md).
+Both the Microsoft Speech SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered for a subset of the languages through uploading Audio + Human-labeled Transcripts or Related Text: Sentences.  Pronunciation customization is currently only available for en-US and de-DE. Learn more about customization [here](how-to-custom-speech.md).
 
   Locale | Language | Supported | Customizable
  ------|----------|---------------------|---------------------
@@ -66,7 +66,7 @@ Both the Microsoft speech recognition SDK and the REST API support the following
 
 ## Text-to-speech
 
-The text-to-speech REST API supports these voices, each of which supports a specific language and dialect, identified by locale.
+Both the Microsoft Speech SDK and the REST API supports these voices, each of which supports a specific language and dialect, identified by locale.
 
 > [!IMPORTANT]
 > Pricing varies for standard, custom and neural voices. Please visit the [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) page for additional information.
