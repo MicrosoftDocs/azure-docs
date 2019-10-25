@@ -119,7 +119,7 @@ The Internet Analyzer CLI exposes the following types of resources:
 
 14. You can inspect the test's collected results by generating timeseries or scorecards for it:
     ```azurecli-interactive
-    az internet-analyzer show-scorecard --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --name "MyFirstInternetAnalyzerTest" --aggregation-interval "Daily"
+    az internet-analyzer show-scorecard --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --name "MyFirstInternetAnalyzerTest" --aggregation-interval "Daily" --end-date-time-utc "2019-10-24T00:00:00"
     ```
 
     ```azurecli-interactive
