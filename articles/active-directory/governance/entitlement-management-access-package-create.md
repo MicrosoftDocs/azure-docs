@@ -66,9 +66,8 @@ Here are the high-level steps to create a new access package.
 
 1. In the left menu, click **Access packages**.
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/elm-access-packages.png)
-
 1. Click **New access package**.
+    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/access-packages-list.png)
 
 ## Basics
 

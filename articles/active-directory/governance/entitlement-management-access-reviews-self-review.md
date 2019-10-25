@@ -36,7 +36,7 @@ To perform a self-review of your active access package assignments, you must mee
 - Azure AD Premium P2
 - User
 
-For more information, see [Licenses requirements](../../active-directory/governance/entitlement-management-overview#license-requirements.md). 
+For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
 ## Open the access review
 

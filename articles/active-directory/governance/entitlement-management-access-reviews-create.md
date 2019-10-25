@@ -36,12 +36,12 @@ To enable reviews of access packages, you must meet the prerequisites for creati
 - Azure AD Premium P2
 - Global administrator, User administrator, Catalog owner, or Access package manager
 
-For more information, see [Licenses requirements](../../active-directory/governance/entitlement-management-overview#license-requirement.md).  
+For more information, see [License requirements](entitlement-management-overview.md#license-requirements).
 
 
 ## Create access reviews in an access package
 
-You can enable access reviews when [creating a new policy](../../active-directory/governance/entitlement-management-access-package-create.md) or [editing an existing access package](../../active-directory/governance/entitlement-management-access-package-request-policy.md) policy. Follow these steps to enable access reviews while creating a new policy in an access package:git
+You can enable access reviews when [creating a new policy](entitlement-management-access-package-create.md) or [editing an existing access package]entitlement-management-access-package-request-policy.md) policy. Follow these steps to enable access reviews while creating a new policy in an access package:git
 
 1. Once you are in the **Lifecycle** section while creating a new policy, scroll down to **Access Reviews**.
 ![Add the access review](./media/active-directory-entitlement-management-access-reviews/access-reviews-pane.png)
