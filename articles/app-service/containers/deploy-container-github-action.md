@@ -3,19 +3,17 @@ title: Deploy your container from a CI/CD pipeline with GitHub Actions - Azure A
 description: Learn how to use GitHub Actions to deploy your container to App Service
 services: app-service
 documentationcenter: ''
-author: jasonfreeberg
-writer: 
-manager: 
-editor: 
+author: cephalin
+manager: gwallace
 
-ms.assetid: 
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2019
-ms.author: jafreebe, ushan
+ms.date: 10/25/2019
+ms.author: jafreebe
+ms.reviewer: ushan
 
 ---
 
