@@ -27,7 +27,7 @@ This article lists the steps to run the Azure IoT Edge runtime on a Windows Serv
     *	If it’s your first time trying out a VM, it’s easiest to use a password and to enable RDP and SSH in the public inbound port menu. 
     *	If you have a resource intensive workload, you should upgrade the virtual machine size by adding more CPUs and/or memory.
 5.	Once the virtual machine is deployed, configure it to connect to your IoT Hub:
-    1.	Copy your device connection string from your IoT Edge device created in your IoT Hub. See the procedure [Retrieve the connection string in the Azure Portal](how-to-register-device.md#Retrieve-the-connection-string-in-the-Azure-Portal).
+    1.	Copy your device connection string from your IoT Edge device created in your IoT Hub. See the procedure [Retrieve the connection string in the Azure Portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal).
     1.	Select your newly created virtual machine resource from the Azure portal and open the **run command** option
     1.	Select the **RunPowerShellScript** option
     1.	Copy this script into the command window with your device connection string: 
@@ -79,7 +79,7 @@ This article lists the steps to run the Azure IoT Edge runtime on a Windows Serv
    * This command will prompt you for a password, but you can add the option `--admin-password` to set it more easily in a script
    * The Windows Server Core image has command line support only with remote desktop, so if you'd like the full desktop experience, specify `MicrosoftWindowsServer:WindowsServer:2019-Datacenter-with-Containers:latest` as the image
 
-1. Set the device connection string (You can follow the [Retrieve the connection string with Azure CLI](how-to-register-device.md#Retrieve-the-connection-string-with-the-Azure-CLI) procedure if you’re not familiar with this process):
+1. Set the device connection string (You can follow the [Retrieve the connection string with Azure CLI](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) procedure if you’re not familiar with this process):
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunPowerShellScript --script ". {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'"
