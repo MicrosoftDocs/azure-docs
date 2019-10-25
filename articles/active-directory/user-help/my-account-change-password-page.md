@@ -10,7 +10,11 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
+
+# Change your work or school account password from the My Account portal
+
+From the **Change password** page of the **My Account** portal, you can... 
