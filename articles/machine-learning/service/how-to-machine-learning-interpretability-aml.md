@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
-ms.date: 10/24/2019
+ms.date: 10/25/2019
 ---
 
 # Model interpretability for local and remote runs
@@ -343,10 +343,6 @@ To access the visualization dashboard in Azure Machine Learning studio, you can 
 
 
 2. Models tab: In case you have registered your original model using the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where), your model will show up in the list of the "Models" tab. By clicking on each model and its "Explanations" tab, you will see the explanation visualization dashboard.
-
-
-[![Visualization Dashboard Local Feature Importance](./media/machine-learning-interpretability-explainability/amlstudio-models.png)](./media/machine-learning-interpretability-explainability/amlstudio-models.png#lightbox)
-
 
 ## Interpretability at inference time
 

@@ -9,8 +9,8 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
-ms.reviewer: larryfr
-ms.date: 10/24/2019
+ms.reviewer: trbye
+ms.date: 10/25/2019
 ---
 
 # Model interpretability in Azure Machine Learning service
@@ -22,12 +22,13 @@ Interpretability is critical for data scientists and business decision makers al
 + Data scientists need the ability to explain their models to executives and stakeholders, so they can understand the value and accuracy of their findings 
 + Business decision makers need peace-of-mind of the ability to provide transparency for end users to gain and maintain their trust
 
-Enabling the capability of explaining a machine learning model is important:
-+ During the training phase of the machine learning model development cycle: As model designers and evaluators can use interpretability output of a model to verify hypotheses and build trust with stakeholders.  They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias.
-+ During the inferencing phase: As having transparency around deployed models empowers executives to understand “when deployed” how the model is working and how its decisions are treating and impacting people in real life. 
+Enabling the capability of explaining a machine learning model is important during two main phases of model development:
++ During the training phase of the machine learning model development cycle. Model designers and evaluators can use interpretability output of a model to verify hypotheses and build trust with stakeholders. They also use the insights into the model for debugging, validating model behavior matches their objectives, and to check for bias or insignificant features.
++ During the inferencing phase, as having transparency around deployed models empowers executives to understand “when deployed” how the model is working and how its decisions are treating and impacting people in real life. 
+
 ## Interpretability with Azure Machine Learning
 
-In this article, you learn how to explain why your model made the predictions it did with the various interpretability packages of the Azure Machine Learning Python SDK.
+In this article, you learn how model interpretability concepts are implemented in the SDK.
 
 Using the classes and methods in the SDK, you can get:
 + Feature importance values for both raw and engineered features
@@ -43,7 +44,7 @@ Using these tools, you can explain machine learning models **globally on all dat
 
 The interpretability classes are made available through multiple SDK packages. Learn how to [install SDK packages for Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* [`azureml.interpret`](https://docs.microsoft.com/python/api/azureml-explain-model/?view=azure-ml-py), the main package, containing functionalities supported by Microsoft.
+* `azureml.interpret`, the main package, containing functionalities supported by Microsoft.
 
 * `azureml.contrib.interpret`, preview, and experimental functionalities that you can try.
 
@@ -88,7 +89,7 @@ This package uses the interpretability techniques developed in [Interpret-Commun
     3. Treat it as a black-box model and apply SHAP `KernelExplainer`
 
 
-`TabularExplainer` has also made significant feature and performance enhancements over the dlirect SHAP Explainers:
+`TabularExplainer` has also made significant feature and performance enhancements over the direct SHAP Explainers:
 
 * **Summarization of the initialization dataset**. In cases where speed of explanation is most important, we summarize the initialization dataset and generate a small set of representative samples, which speeds up both global and local explanation.
 * **Sampling the evaluation data set**. If the user passes in a large set of evaluation samples but doesn't actually need all of them to be evaluated, the sampling parameter can be set to true to speed up the global explanation.
