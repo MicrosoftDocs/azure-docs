@@ -68,7 +68,7 @@ Follow these steps if you want to allow users not in your directory to be able t
 
     ![Access package - Requests - Select directories](./media/active-directory-entitlement-management-request-policy/select-directories.png)
 
-    If the organization you want to collaborate with is not in the list, you can ask your administrator to add it as a connected organization. 
+    If the organization you want to collaborate with is not in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
 
 1. Once you have selected all your connected organizations, click **Select**.
 

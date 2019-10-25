@@ -120,7 +120,7 @@
     - name: REST API samples in C#
       href: samples-rest.md
     - name: Other Azure samples
-      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
+      href: https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator
   - name: Azure webinar series
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
   - name: Pricing and limits
