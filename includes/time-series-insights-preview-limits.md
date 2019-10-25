@@ -11,18 +11,18 @@ manager: cshankar
 ms.custom: include file
 ---
 
-### GA and Preview comparison
+### General availability and preview comparison
 
-The following table summarizes several key differences between Azure Time Series Insights GA and Preview instances.
+The following table summarizes several key differences between Azure Time Series Insights general availability (GA) and preview instances.
 
 | | GA | Preview |
 | --- | --- | ---|
 | First-class citizen | Event-centric | Time-series-centric |
 | Semantic reasoning | Low-level (reference data) | High-level (models) |
-| Data contextualization | Non-device level | Device and Non-device level |
+| Data contextualization | Non-device level | Device and non-device level |
 | Compute logic storage | No | Stored in type variables part of model |
 | Storage and access control | No | Enabled via model |
-| Aggregations/Sampling | No | Event-weighted and time-weighted |
+| Aggregations/Sampling | No | Event weighted and time weighted |
 | Signal reconstruction | No | Interpolation |
 | Production of derived time series | No | Yes, merges and joins |
 | Language flexibility | Non-composable | Composable |
@@ -30,11 +30,11 @@ The following table summarizes several key differences between Azure Time Series
 
 ### Property limits
 
-Time Series Insights property limits have been increased to 1000 from a maximum cap of 800 in GA. Supplied event properties have corresponding JSON, CSV, and chart columns that can viewed within the [Time Series Insights Preview Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
+Time Series Insights property limits have increased to 1,000 from a maximum cap of 800 in GA. Supplied event properties have corresponding JSON, CSV, and chart columns that you can view within the [Time Series Insights Preview explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-quickstart).
 
 | SKU | Maximum properties |
 | --- | --- |
-| Preview PAYG | 1000 properties (columns) |
+| Preview PAYG | 1,000 properties (columns) |
 | GA S1 | 600 properties (columns) |
 | GA S2 | 800 properties (columns) |
 
