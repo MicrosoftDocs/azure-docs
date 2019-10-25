@@ -3,7 +3,7 @@ title: Authentication with Azure Maps | Microsoft Docs
 description: Authentication for using Azure Maps services.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -41,6 +41,15 @@ Azure Maps generates a *unique identifier (client ID)* for each Azure Maps accou
 ```
 https://login.microsoftonline.com
 ```
+
+The following table contains values you will need depending upon your Azure Environment.
+
+| Azure Environment   | Azure AD token endpoint | Azure Resource ID |
+| --------------------|-------------------------|-------------------|
+| Azure Public        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
+
+
 For more information about how to configure Azure AD and request tokens for Azure Maps, see [Manage authentication in Azure Maps](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
 
 For general information about requesting tokens from Azure AD, see [What is authentication?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
