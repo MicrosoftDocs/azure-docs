@@ -36,7 +36,7 @@ Before you begin, the builder should complete the three builder tutorials to cre
 
 Azure IoT Central sends notifications about devices as email messages. The builder added a rule to send a notification when the temperature in a connected air conditioner device exceeded a threshold. Check the emails sent to the account the builder chose to receive notifications.
 
-Open the email message you received at the end of the [Configure rules and actions for your device](tutorial-configure-rules.md) tutorial. In the email, choose **Click here to open your device**:
+Open the email message you received at the end of the [Configure rules and actions for your device](tutorial-configure-rules.md) tutorial. In the email, select the link to the device next to **Device Name** in the **Details** section:
 
 ![Alert notification email](media/tutorial-monitor-devices/email.png)
 

@@ -460,7 +460,7 @@ To learn more about policies, see [Kubernetes network policies][kubernetes-netwo
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
 [calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
-[calico-support]: https://www.projectcalico.org/support
+[calico-support]: https://www.tigera.io/tigera-products/calico/
 [calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 

@@ -26,7 +26,7 @@ The following table describes default limits for Azure general-purpose v1, v2, a
 
 <sup>1</sup>Azure Standard Storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits for ingress, contact [Azure Support](https://azure.microsoft.com/support/faq/). For more information, see [Announcing larger, higher scale storage accounts](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
-<sup>2</sup> If you have Read-access enabled (RA-GRS/RA-GZRS), the egress targets for the secondary location are identical to those of the primary location. [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy) options include:
+<sup>2</sup> If you have Read-access enabled (RA-GRS/RA-GZRS), the egress targets for the secondary location are identical to those of the primary location. [Azure Storage replication](https://docs.microsoft.com/azure/storage/common/storage-redundancy) options include:  
 [!INCLUDE [azure-storage-redundancy](azure-storage-redundancy.md)]
 
 > [!NOTE]

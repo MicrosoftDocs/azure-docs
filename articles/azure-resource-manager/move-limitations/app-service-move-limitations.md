@@ -1,5 +1,5 @@
 ---
-title: Move Azure App Service resources to new subscription or resource group
+title: Move Azure App Service resources
 description: Use Azure Resource Manager to move App Service resources to a new resource group or subscription.
 author: tfitzmac
 ms.service: azure-resource-manager

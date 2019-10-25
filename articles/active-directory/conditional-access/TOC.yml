@@ -21,6 +21,8 @@
   items:
   - name: Common Conditional Access policies
     href: concept-conditional-access-policy-common.md
+  - name: Security defaults
+    href: concept-conditional-access-security-defaults.md
   - name: Conditional Access policy components
     href: concept-conditional-access-policies.md
   - name: Conditions
@@ -76,16 +78,6 @@
     href: howto-conditional-access-session-lifetime.md
   - name: Migrate classic policies
     href: policy-migration.md
-  - name: Baseline policies
-    items:
-    - name: Require MFA for admins
-      href: howto-baseline-protect-administrators.md
-    - name: End-user protection
-      href: howto-baseline-protect-end-users.md
-    - name: Block legacy authentication
-      href: howto-baseline-protect-legacy-auth.md
-    - name: Require MFA for service management
-      href: howto-baseline-protect-azure.md
   - name: Adopting Conditional Access
     href: howto-conditional-access-adoption-kit.md
   - name: Troubleshooting

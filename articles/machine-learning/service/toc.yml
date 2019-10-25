@@ -97,6 +97,9 @@
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
+  - name: Git integration
+    displayName: git github gitlab
+    href: concept-train-model-git-integration.md
 - name: How-to guides
   items:
   - name: Create & manage workspaces
@@ -138,23 +141,6 @@
       href: how-to-train-with-datasets.md
   - name: Train models
     items:
-    - name: Set up training environments
-      displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-      href: how-to-set-up-training-targets.md
-    - name: Use estimators to train
-      items:
-      - name: Create estimators in training
-        href: how-to-train-ml-models.md
-      - name: Use Scikit-learn
-        href: how-to-train-scikit-learn.md
-      - name: Use TensorFlow
-        href: how-to-train-tensorflow.md
-      - name: Use Keras
-        href: how-to-train-keras.md
-      - name: Use PyTorch
-        href: how-to-train-pytorch.md
-      - name: Use Chainer
-        href: how-to-train-chainer.md
     - name: Use visual interface
       displayName: sample visual interface experiments
       items:
@@ -176,25 +162,29 @@
       - name: "Predict flight delays"
         displayName: classification, studio
         href:  how-to-ui-sample-classification-predict-flight-delay.md
-    - name: Tune hyperparameters
-      displayName: parameter
-      href: how-to-tune-hyperparameters.md
-    - name: Use Key Vault when training
-      displayName: secrets keyvault
-      href: how-to-use-secrets-in-runs.md
-  - name: Track & monitor experiments
-    items:
-    - name: Start, monitor or cancel runs
-      displayName: cancel, fail, status, child run
-      href: how-to-manage-runs.md
-    - name: Log metrics for training runs
-      href: how-to-track-experiments.md
-    - name: Track experiments with MLflow
-      displayName: log, monitor, metrics
-      href: how-to-use-mlflow.md
-    - name: Visualize runs with TensorBoard
-      displayName: log, monitor, metrics
-      href: how-to-monitor-tensorboard.md
+    - name: Use estimators for ML
+      items:
+      - name: Create estimators in training
+        href: how-to-train-ml-models.md
+      - name: Set up training environments
+        displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+        href: how-to-set-up-training-targets.md
+      - name: Tune hyperparameters
+        displayName: parameter
+        href: how-to-tune-hyperparameters.md
+      - name: Use Key Vault when training
+        displayName: secrets keyvault
+        href: how-to-use-secrets-in-runs.md
+    - name: Scikit-learn
+      href: how-to-train-scikit-learn.md
+    - name: TensorFlow
+      href: how-to-train-tensorflow.md
+    - name: Keras
+      href: how-to-train-keras.md
+    - name: PyTorch
+      href: how-to-train-pytorch.md
+    - name: Chainer
+      href: how-to-train-chainer.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
@@ -211,6 +201,19 @@
       href: how-to-auto-train-forecast.md
     - name: Understand charts and metrics
       href: how-to-understand-automated-ml.md
+  - name: Track & monitor experiments
+    items:
+    - name: Start, monitor or cancel runs
+      displayName: cancel, fail, status, child run
+      href: how-to-manage-runs.md
+    - name: Log metrics for training runs
+      href: how-to-track-experiments.md
+    - name: Track experiments with MLflow
+      displayName: log, monitor, metrics
+      href: how-to-use-mlflow.md
+    - name: Visualize runs with TensorBoard
+      displayName: log, monitor, metrics
+      href: how-to-monitor-tensorboard.md
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
@@ -267,6 +270,8 @@
     - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Schedule ML pipelines in Python
+      href: how-to-schedule-pipelines.md
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
@@ -281,6 +286,8 @@
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
+  - name: Machine learning pipeline YAML reference
+    href: reference-pipeline-yaml.md
   - name: Visual interface modules
     displayName: module, reference, algorithm, studio
     items:
@@ -293,7 +300,15 @@
     - name: Data input & output
       items:
       - name: Import Data
-        href: ../algorithm-module-reference/import-data.md
+        items: 
+        - name: Import Data
+          href: ../algorithm-module-reference/import-data.md
+        - name: Import from Web URL via HTTP
+          href: ../algorithm-module-reference/import-from-web-url-via-http.md
+        - name: Import from Azure Blob Storage module
+          href: ../algorithm-module-reference/import-from-azure-blob-storage.md
+        - name: Import from Azure SQL Database
+          href: ../algorithm-module-reference/import-from-azure-sql-database.md
       - name: Export Data
         href: ../algorithm-module-reference/export-data.md
       - name: Enter Data Manually
@@ -326,6 +341,10 @@
         href: ../algorithm-module-reference/normalize-data.md
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
+      - name: Clip Values
+        href: ../algorithm-module-reference/clip-values.md
+      - name: Apply SQL Transformation
+        href: ../algorithm-module-reference/apply-sql-transformation.md
     - name: Machine learning
       items:
       - name: Score Model
@@ -378,6 +397,12 @@
         href: ../algorithm-module-reference/create-python-model.md
       - name: Execute R Script
         href: ../algorithm-module-reference/execute-r-script.md
+    - name: Statistical Functions
+      items: 
+      - name: Apply Math Operation
+        href: ../algorithm-module-reference/apply-math-operation.md
+      - name: Summarize Data
+        href: ../algorithm-module-reference/summarize-data.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources

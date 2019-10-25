@@ -1,5 +1,6 @@
 ---
-title: Configurable token lifetimes in Azure Active Directory | Microsoft Docs
+title: Configurable token lifetimes in Azure Active Directory 
+titleSuffix: Microsoft identity platform
 description: Learn how to set lifetimes for tokens issued by Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -14,7 +15,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 10/07/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
@@ -26,7 +27,7 @@ ms.collection: M365-identity-device-management
 You can specify the lifetime of a token issued by Azure Active Directory (Azure AD). You can set token lifetimes for all apps in your organization, for a multi-tenant (multi-organization) application, or for a specific service principal in your organization.
 
 > [!IMPORTANT]
-> After hearing from customers during the preview, we've implemented [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After November 1, 2019 you will not be able to use Configurable Token Lifetime policy to configure session and refresh tokens. You can still configure access token lifetimes after the deprecation.
+> After hearing from customers during the preview, we've implemented [authentication session management capabilities](https://go.microsoft.com/fwlink/?linkid=2083106) in Azure AD Conditional Access. You can use this new feature to configure refresh token lifetimes by setting sign in frequency. After May 1, 2020 you will not be able to use Configurable Token Lifetime policy to configure session and refresh tokens. You can still configure access token lifetimes after the deprecation.
 
 In Azure AD, a policy object represents a set of rules that are enforced on individual applications or on all applications in an organization. Each policy type has a unique structure, with a set of properties that are applied to objects to which they are assigned.
 
@@ -40,11 +41,19 @@ You can designate a policy as the default policy for your organization. The poli
 
 ## Token types
 
-You can set token lifetime policies for refresh tokens, access tokens, session tokens, and ID tokens.
+You can set token lifetime policies for refresh tokens, access tokens, SAML tokens, session tokens, and ID tokens.
 
 ### Access tokens
 
 Clients use access tokens to access a protected resource. An access token can be used only for a specific combination of user, client, and resource. Access tokens cannot be revoked and are valid until their expiry. A malicious actor that has obtained an access token can use it for extent of its lifetime. Adjusting the lifetime of an access token is a trade-off between improving system performance and increasing the amount of time that the client retains access after the user’s account is disabled. Improved system performance is achieved by reducing the number of times a client needs to acquire a fresh access token.  The default is 1 hour - after 1 hour, the client must use the refresh token to (usually silently) acquire a new refresh token and access token. 
+
+### SAML tokens
+
+SAML tokens are used by many web based SAAS applications, and are obtained using Azure Active Directory's SAML2 protocol endpoint.  They are also consumed by applications using WS-Federation.    The default lifetime of the token is 1 hour. After  From and applications perspective the validity period of the token is specified by the NotOnOrAfter value of the <conditions …>    element in the token.  After the token validity period the client must initiate a new authentication request, which will often be satisfied without interactive sign in as a result of the Single Sign On (SSO) Session token.
+
+The value of NotOnOrAfter can be changed using the AccessTokenLifetime parameter in a TokenLifetimePolicy.  It will be set to the lifetime configured in the policy if any, plus a clock skew factor of five minutes.
+
+Note that the subject confirmation NotOnOrAfter specified in the <SubjectConfirmationData> element is not affected by the Token Lifetime configuration. 
 
 ### Refresh tokens
 
@@ -86,7 +95,7 @@ A token lifetime policy is a type of policy object that contains token lifetime 
 | Multi-Factor Session Token Max Age |MaxAgeSessionMultiFactor |Session tokens (persistent and nonpersistent) |Until-revoked |10 minutes |Until-revoked<sup>1</sup> |
 
 * <sup>1</sup>365 days is the maximum explicit length that can be set for these attributes.
-* <sup>2</sup>To make the Microsoft Teams Web client works, it is recommended to set AccessTokenLifetime to greater than 15 minutes for the Microsoft Teams.
+* <sup>2</sup>To ensure the Microsoft Teams Web client works, it is recommended to keep AccessTokenLifetime to greater than 15 minutes for Microsoft Teams.
 
 ### Exceptions
 | Property | Affects | Default |
@@ -136,7 +145,7 @@ All timespans used here are formatted according to the C# [TimeSpan](/dotnet/api
 ### Access Token Lifetime
 **String:** AccessTokenLifetime
 
-**Affects:** Access tokens, ID tokens
+**Affects:** Access tokens, ID tokens, SAML tokens
 
 **Summary:** This policy controls how long access and ID tokens for this resource are considered valid. Reducing the Access Token Lifetime property mitigates the risk of an access token or ID token being used by a malicious actor for an extended period of time. (These tokens cannot be revoked.) The trade-off is that performance is adversely affected, because the tokens have to be replaced more often.
 

@@ -215,7 +215,7 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> Backup and restore operations can also be performed with PowerShell _Backup-AzApiManagement_ and _Restore-AzApiManagement_ commands respectively.
+> Backup and restore operations can also be performed with PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) and [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) commands respectively.
 
 ## Next steps
 

@@ -40,4 +40,4 @@ Add NuGet packages `Microsoft.IdentityModel.Clients.ActiveDirectory` and `Newton
 
 - To learn more about querying, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
-- Read how to [connect a JavaScript single-page app](tutorial-create-tsi-sample-spa.md) to Time Series Insights.
+- Read how to [connect a JavaScript app using the client SDK](https://github.com/microsoft/tsiclient) to Time Series Insights.

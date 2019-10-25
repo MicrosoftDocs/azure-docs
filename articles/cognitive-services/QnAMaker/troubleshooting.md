@@ -1,4 +1,4 @@
----
+﻿---
 title: Troubleshooting - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: The curated list of the most frequently asked questions regarding the QnA Maker service will help you adopt the service faster and with better results.
@@ -93,7 +93,7 @@ See [Data source locations](./Concepts/data-sources-supported.md#data-source-loc
 
 ### The updates that I made to my knowledge base are not reflected on publish. Why not?
 
-Every edit operation, whether in a table update, test, or setting, needs to be saved before it can be published. Be sure to click the **Save and train** button after every edit operation.
+Every edit operation, whether in a table update, test, or setting, needs to be saved before it can be published. Be sure to click the **Save and train** button after every edit operation.
 
 ### Does the knowledge base support rich data or multimedia?
 

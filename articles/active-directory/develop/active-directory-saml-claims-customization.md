@@ -1,5 +1,6 @@
 ---
-title: Customize SAML token claims for enterprise apps in Azure AD | Microsoft Docs
+title: Customize SAML token claims for enterprise apps in Azure AD 
+titleSuffix: Microsoft identity platform
 description: Learn how to customize the claims issued in the SAML token for enterprise applications in Azure AD.
 services: active-directory
 documentationcenter: ''
@@ -62,7 +63,7 @@ From the **Choose name identifier format** dropdown, you can select one of the f
 | **EmailAddress** | Azure AD will use EmailAddress as the NameID format. |
 | **Unspecified** | Azure AD will use Unspecified as the NameID format. |
 
-To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
+Transient NameID is also supported, but is not available in the dropdown and cannot be configured on Azure's side. To learn more about the NameIDPolicy attribute, see [Single Sign-On SAML protocol](single-sign-on-saml-protocol.md).
 
 ### Attributes
 

@@ -85,7 +85,7 @@ This capability is available in preview, and is available in all regions except 
 
 Check out these articles for more information about routing messages to an IoT Hub:
 
-* [Message enhancements tutorial](tutorial-message-enrichments.md)
+* [Message enrichments tutorial](tutorial-message-enrichments.md)
 
 * [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md)
 
