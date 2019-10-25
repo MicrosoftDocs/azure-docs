@@ -64,7 +64,7 @@ We need to create credential before you can run queries. This credential will be
 
 **Code snippet on how to create credentials for Census data containers**, run:
 
-```mssql
+```sql
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
 DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
 Go
