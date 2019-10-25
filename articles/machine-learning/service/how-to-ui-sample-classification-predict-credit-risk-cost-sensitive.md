@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
-ms.reviewer: sgilley
-ms.date: 09/23/2019
+ms.reviewer: peterlu
+ms.date: 11/04/2019
 ---
 
 # Sample 4 - Classification with custom Python script: Predict credit risk

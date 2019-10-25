@@ -8,8 +8,8 @@ ms.subservice: core
 ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
-ms.reviewer: sgilley
-ms.date: 05/10/2019
+ms.reviewer: peterlu
+ms.date: 11/04/2019
 ---
 
 # Sample 2 - Regression: Predict price and compare algorithms
