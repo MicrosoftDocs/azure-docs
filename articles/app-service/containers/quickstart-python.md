@@ -21,7 +21,7 @@ experiment_id: 1e304dc9-5add-4b
 ---
 # Quickstart: Create a Python app in Azure App Service on Linux
 
-In this quickstart, you deploy a simple Python web app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
+In this quickstart, you deploy a Python web app to [App Service on Linux](app-service-linux-intro.md), Azure's highly scalable, self-patching web hosting service. You use the local [Azure command-line interface (CLI)](/cli/azure/install-azure-cli) on a Mac, Linux, or Windows computer. The web app you configure uses a free App Service tier, so you incur no costs in the course of this article.
 
 If you prefer to deploy apps through an IDE, see [Deploy Python apps to App Service from Visual Studio Code](/python/tutorial-deploy-app-service-on-linux-01).
 
@@ -92,9 +92,9 @@ In your terminal window, press **Ctrl**+**C** to exit the web server.
 
 ## Sign in to Azure
 
-The Azure CLI provides you with many convenient commands that you use from a local terminal to provision and manage Azure resources from the command line, rather than accomplishing these tasks through the Azure portal in a browser. You can also use CLI commands in scripts to automate management processes.
+The Azure CLI provides you with many convenient commands that you use from a local terminal to provision and manage Azure resources from the command line. You can use commands to complete the same tasks that you would through the Azure portal in a browser. You can also use CLI commands in scripts to automate management processes.
 
-To run Azure commands in the Azure CLI, you must first log in using the `az login` command. This command opens a browser to gather your credentials.
+To run Azure commands in the Azure CLI, you must first sign in using the `az login` command. This command opens a browser to gather your credentials.
 
 ```terminal
 az login
@@ -104,7 +104,7 @@ az login
 
 The [`az webapp up`](/cli/azure/webapp#az-webapp-up) command creates the web app on App Service and deploys your code.
 
-In the *python-docs-hello-world* folder that contains the sample code, run the following command, replacing  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*) and replacing `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
+In the *python-docs-hello-world* folder that contains the sample code, run the following `az webapp up` command. Replace  `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*). Also replace `<location-name>` with an Azure region such as **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia**, and so on. (You can retrieve a list of allowable regions for your Azure account by running the [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command.)
 
 
 ```terminal
@@ -176,7 +176,7 @@ Once deployment has completed, switch back to the browser window open to `http:/
 
 ## Stream logs
 
-You can access the console logs generated from inside the app and the container in which it runs. Logs includes any output generated using `print` statements.
+You can access the console logs generated from inside the app and the container in which it runs. Logs include any output generated using `print` statements.
 
 First, turn on container logging by running the following command in a terminal, replacing `<app-name>` with the name of your app and `<resource-group-name>` with the name of the resource group shown in the output of the `az webapp up` command you used (such as "appsvc_rg_Linux_centralus"):
 
@@ -209,7 +209,7 @@ From the left menu, select **App Services**, and then select the name of your Az
 
 ![Navigate to your Python app in App Services in the Azure portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Your app's Overview page appears where you can perform basic management tasks like browse, stop, start, restart, and delete.
+Your app's Overview page then appears. On this page you can perform basic management tasks like browse, stop, start, restart, and delete.
 
 ![Manage your Python app in the Overview page in the Azure portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
