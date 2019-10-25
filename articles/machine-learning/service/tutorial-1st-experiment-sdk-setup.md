@@ -62,7 +62,7 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. A list of folders displays showing each user who accesses the workspace.  Select your folder to clone the **tutorials**  folder there.
 
-## <a name="open">Select a VM to run the notebook
+## <a name="open">Open the cloned notebook
 
 1. Under **User Files** open your folder and then open the cloned **tutorials** folder.
 

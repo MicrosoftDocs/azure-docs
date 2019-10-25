@@ -1,18 +1,15 @@
 ---
 title: How do I ... in Azure Application Insights | Microsoft Docs
 description: FAQ in Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/04/2017
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 04/04/2017
+
 ---
+
 # How do I ... in Application Insights?
 ## Get an email when ...
 ### Email if my site goes down

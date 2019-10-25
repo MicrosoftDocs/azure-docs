@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Deploy a machine learning model with the designer'
 titleSuffix: Azure Machine Learning
-description: Learn how to build a predictive analytics solution in Azure Machine Learning designer. Train, score, and deploy a machine learning model using drag and drop modules.
+description: Learn how to build a predictive analytics solution in Azure Machine Learning designer (preview). Train, score, and deploy a machine learning model using drag and drop modules.
 
 author: peterclu
 ms.author: peterlu
@@ -45,7 +45,7 @@ In order to deploy your pipeline, you must:
     * **Web Service Input** and **Web Service Output** modules are added. These modules identify where user data will enter the model, and where data is returned.
 
     > [!Note]
-    > The **training pipeline** is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the visual interface.
+    > The **training pipeline** is saved under the new tab at the top of the pipeline canvas. It can also be found as a published pipeline in the designer.
     >
 
     Your pipeline should now look like this:  
