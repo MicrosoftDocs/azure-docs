@@ -32,13 +32,17 @@ Another use case for Azure Data Share is establishing a data consortium. For exa
 
 ## How it works
 
-Azure Data Share uses a snapshot-based sharing approach, where data moves from the data provider's Azure subscription and lands in the data consumer's Azure subscription. As a data provider, you provision a data share and invite recipients to the data share. Data consumers receive an invitation to your data share via e-mail. Once a data consumer accepts the invitation, they can trigger a full snapshot of the data shared with them. This data is received into the data consumers storage account. Data consumers can receive regular, incremental updates to the data shared with them so that they always have the latest version of the data. 
+Azure Data Share currently offers snapshot-based sharing and in-place sharing (in limited preview). 
+
+In snapshot-based sharing, data moves from the data provider's Azure subscription and lands in the data consumer's Azure subscription. As a data provider, you provision a data share and invite recipients to the data share. Data consumers receive an invitation to your data share via e-mail. Once a data consumer accepts the invitation, they can trigger a full snapshot of the data shared with them. This data is received into the data consumers storage account. Data consumers can receive regular, incremental updates to the data shared with them so that they always have the latest version of the data. 
 
 Data providers can offer their data consumers incremental updates to the data shared with them through a snapshot schedule. Snapshot schedules are offered on an hourly or a daily basis. When a data consumer accepts and configures their data share, they can subscribe to a snapshot schedule. This is beneficial in scenarios where the shared data is updated on a regular basis, and the data consumer needs the most up-to-date data. 
 
 ![data share flow](media/data-share-flow.png)
 
-When a data consumer accepts a data share, they are able to receive the data in a storage account of their choosing. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. 
+When a data consumer accepts a data share, they are able to receive the data in a data store of their choice. For example, if the data provider shares data using Azure Blob Storage, the data consumer can receive this data in Azure Data Lake Store. Similarly, if the data provider shares data from an Azure SQL Datawarehouse, the data consumer can choose whether they want to receive the data into an Azure Data Lake Store, an Azure SQL Database or an Azure SQL Data Warehouse. In the case of sharing from SQL-based sources, the data consumer can also choose whether they receive data in parquet or csv. 
+
+In-place sharing is currently in limited preivew for Azure Data Explorer. 
 
 ## Key capabilities
 
@@ -70,18 +74,18 @@ All key capabilities listed above are supported through the Azure or via REST AP
 
 ## Security
 
-Azure Data Share leverages the underlying security that Azure offers to protect data at rest and in transit. Data is encrypted at rest, where supported by the underlying storage mechanism. Data is also encrypted in transit. Metadata about a data share is also encrypted at rest and in transit. 
+Azure Data Share leverages the underlying security that Azure offers to protect data at rest and in transit. Data is encrypted at rest, where supported by the underlying data store. Data is also encrypted in transit. Metadata about a data share is also encrypted at rest and in transit. 
 
 Access controls can be set on the Azure Data Share resource level to ensure it is accessed by those that are authorized. 
 
-Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. Managed identities for Azure Resources are leveraged for access to the storage accounts that are being used for data sharing. There is no exchange of credentials between a data provider and a data consumer. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
+Azure Data Share leverages Managed Identities for Azure Resources (previously known as MSIs) for automatic identity management in Azure Active Directory. Managed identities for Azure Resources are leveraged for access to the data stores that are being used for data sharing. There is no exchange of credentials between a data provider and a data consumer. For more information, refer to the [Managed Identities for Azure Resources page](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities). 
 
 
 ## Supported regions
 
-For a list of Azure regions that make Azure Data Share available, please refer to the [products available by region](https://azure.microsoft.com/global-infrastructure/services/) page and search for Azure Data Share. 
+For a list of Azure regions that make Azure Data Share available, please refer to the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-share/) page and search for Azure Data Share. 
 
-Azure Data Share does not store any data itself. The data is stored in the underlying storage accounts that are being shared. For example, if a data producer stores their data in an Azure Data Lake Store account located in West US, that is where the data is stored. If they are sharing data with an Azure Storage account located in West Europe, the data is transferred directly to the Azure Storage account located in West Europe. 
+Azure Data Share does not store any data itself. The data is stored in the underlying data store that is being shared. For example, if a data producer stores their data in an Azure Data Lake Store account located in West US, that is where the data is stored. If they are sharing data with an Azure Storage account located in West Europe, the data is transferred directly to the Azure Storage account located in West Europe. 
 
 The Azure Data Share service does not have to be available in your region to leverage the service. For example, if you have data stored in an Azure Storage account located in a region where Azure Data Share is not yet available, you can still leverage the service to share your data. 
 
