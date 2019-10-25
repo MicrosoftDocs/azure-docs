@@ -958,6 +958,9 @@
         href: how-to-configure-vnet-service-endpoint.md
       - name: Configure access from private endpoints
         href: how-to-configure-private-endpoints.md
+      - name: Connect privately to a Cosmos DB account
+        href: /azure/private-link/create-private-endpoint-cosmosdb-portal
+        maintainContext: true 
       - name: Configure Cross Origin Resource Sharing(CORS)
         href: how-to-configure-cross-origin-resource-sharing.md
       - name: Secure Azure Cosmos keys using Key Vault
