@@ -47,7 +47,7 @@ landingContent:
             url: security-controls.md
 
   # Card
-  - title: Secure your cloud solutions
+  - title: Best practices for securing your cloud solutions
     linkLists:
       - linkListType: concept
         links:
