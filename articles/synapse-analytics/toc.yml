@@ -515,19 +515,19 @@
         - name: Overview - Query data in storage
           href: query-data-in-storage.md
         - name: Querying single CSV file
-          href: querying-single-csv-file.md
+          href: ../synapse-analytics/sql-analytics/querying-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Querying folders and multiple CSV files
-          href: querying-folders-and-multiple-csv-files.md
+          href: ../synapse-analytics/sql-analytics/querying-folders-and-multiple-csv-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Querying specific files
-          href: querying-specific-files.md
+          href: ../synapse-analytics/sql-analytics/querying-specific-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Querying Parquet files
-          href: querying-parquet-files.md
-        - name: Creating and using views
-          href: creating-and-using-views.md
-        - name: Querying JSON files
-          href: querying-json-files.md
+          href: ../synapse-analytics/sql-analytics/querying-parquet-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Querying Parquet nested types
-          href: querying-parquet-nested-types.md
+          href: ../synapse-analytics/sql-analytics/querying-parquet-nested-types.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Querying JSON files
+          href: ../synapse-analytics/sql-analytics/querying-json-files.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+        - name: Creating and using views
+          href: ../synapse-analytics/sql-analytics/creating-and-using-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 #         - name: Querying Spark tables
 #           href: querying-spark-tables.md
 #       - name: Best practices
