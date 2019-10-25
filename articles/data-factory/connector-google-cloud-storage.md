@@ -39,7 +39,7 @@ The following set-up is required on your Google Cloud Storage account:
 2. Set the default project which contains the data you want to copy
 3. Create an access key.
 
-![Retrieve access key for Google Cloud Storage](media/connector-google-cloud-storage/retrieve-access-key-for-google-cloud-storage.jpg)
+![Retrieve access key for Google Cloud Storage](media/connector-google-cloud-storage/google-storage-cloud-settings.png)
 
 ## Required permissions
 
