@@ -89,7 +89,7 @@ Edits to the custom rule only WAF policy are disabled. To edit any WAF settings 
 
 To do so, simply create a *Web Application Firewall Policy* and associate it to your Application Gateway(s) and listener(s) of choice. This new Policy **must** be exactly the same as the current WAF config, meaning every custom rule, exclusion, disabled rule, etc. must be copied into the new Policy you are creating. Once you have a Policy associated with your Application Gateway, then you can continue to make changes to your WAF rules and settings. 
 
-You can also do so with PowerShell, please see {Using PowerShell to associate a new WAF Policy with an existing Application Gateway}
+You can also do this with Azure PowerShell.  For more information, see {Using PowerShell to associate a new WAF Policy with an existing Application Gateway}
 
 ## Next steps
 
