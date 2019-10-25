@@ -17,7 +17,15 @@ ms.collection: M365-identity-device-management
 ---
 # Get started with Azure Multi-Factor Authentication
 
-There are multiple ways to enable Azure Multi-Factor Authentication (MFA) for your Azure Active Directory (AD) users based on the licenses that your organization owns.
+There are multiple ways to enable Azure Multi-Factor Authentication (MFA) for your Azure Active Directory (AD) users based on the licenses that your organization owns. 
+
+![Investigate signals and enforce MFA if needed](./media/concept-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
+
+As Alex Weinert, the Directory of Identity Security at Microsoft, mentions in his blog post [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984):
+
+> Your password doesn’t matter, but MFA does! Based on our studies, your account is more than 99.9% less likely to be compromised if you use MFA.
+
+So how does your organization turn on multi-factor authentication even for free, before becoming a statistic?
 
 ## Free option
 
@@ -40,7 +48,7 @@ The recommendation is to use [Conditional Access policies](../conditional-access
 
 For customers with Azure AD Premium P2 licenses or similar licenses that include this functionality such as Enterprise Mobility + Security E5 or Microsoft 365 E5. 
 
-The recommendation is to use [Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md) along with [Identity Protection](../identity-protection/overview-v2.md) risk policies for the best user experience and security functionality.
+The recommendation is to use [Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md) along with [Identity Protection](../identity-protection/overview-v2.md) risk policies for the best user experience and enforcement flexibility.
 
 ## Authentication methods
 
@@ -52,7 +60,7 @@ The recommendation is to use [Conditional Access policies](../conditional-access
 | Call to phone |   | X |
 | App passwords |   | X** |
 
-** App passwords are only available in per-user MFA and legacy authentication scenarios if enabled by administrators.
+** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
 
 ## Next steps
 
