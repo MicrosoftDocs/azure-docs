@@ -65,7 +65,7 @@ landingContent:
           - text: Network topologies for SQL Database managed instance migrations
             url: resource-network-topologies.md
           - text: Custom roles for online migrations from SQL Server to SQL Database managed instance
-            url: resource-custom-roles-sqldbmi.md            
+            url: resource-custom-roles-sql-db-managed-instance.md            
       - linkListType: video
         links:
           - text: Migrate SQL Server 2008 to SQL Database managed instance

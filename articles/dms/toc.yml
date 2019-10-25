@@ -61,7 +61,7 @@
   - name: Network topologies for Azure SQL DB MI migrations
     href: resource-network-topologies.md
   - name: Custom roles for online migrations from SQL Server to Azure SQL DB MI
-    href: resource-custom-roles-sqldbmi.md
+    href: resource-custom-roles-sql-db-managed-instance.md.md
   - name: Troubleshooting and known issues
     items:
     - name: Troubleshoot source database connectivity issues
