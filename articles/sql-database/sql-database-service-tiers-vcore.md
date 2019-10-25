@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/23/2019
+ms.date: 10/24/2019
 ---
 # vCore purchasing model
 
 The virtual core (vCore) purchasing model provides several benefits:
 
-- Higher compute, memory, and storage limits.
+- Higher compute, memory, IO, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
 - Pricing discounts for [Azure Hybrid Benefit (AHB)](sql-database-azure-hybrid-benefit.md) and [Reserved Instance (RI)](sql-database-reserved-capacity.md).
 - Greater transparency in the hardware details that power the compute; facilitates planning for migrations from on-premises deployments.
@@ -43,14 +43,31 @@ For information on selecting a service tier for your particular workload, see th
 - [When to choose the Hyperscale service tier](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
 
+## Compute tiers
+
+Compute tier options in the vCore model include the provisioned and serverless compute tiers.
+
+
+### Provisioned compute
+
+The provisioned compute tier provides a specific amount of compute resources that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour.
+
+
+### Serverless compute
+
+The [serverless compute tier](sql-database-serverless.md) auto-scales compute resources based on workload activity, and bills for the amount of compute used per second.
+
+
+
 ## Hardware generations
 
-Hardware generation options in the vCore model include Gen 4/5, M-series, and Fsv2-series. The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
+Hardware generation options in the vCore model include Gen 4/5, M-series (preview), and Fsv2-series (preview). The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
 
 ### Gen4/Gen5
 
 - Gen4/Gen5 hardware provides balanced compute and memory resources, and is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by Fsv2-series or M-series.
 
+For regions where Gen4/Gen5 is available, see [Gen4/Gen5](#gen4gen5).
 
 ### Fsv2-series (preview)
 
@@ -58,7 +75,7 @@ Hardware generation options in the vCore model include Gen 4/5, M-series, and Fs
 - Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
 - Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
 
-Fsv2-series is available in most regions. For details, see [Fsv2-series availability](#fsv2-series-availability).
+For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series-availability).
 
 
 ### M-series (preview)
@@ -66,52 +83,55 @@ Fsv2-series is available in most regions. For details, see [Fsv2-series availabi
 - M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
 - M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
 
-M-series is available in a limited number of regions, and must be enabled by filing a support request. For details, see [M-series availability](#m-series-availability).
+To enable M-series hardware for a subscription and region, a support request must be open. If the support request is approved, creating or scaling databases as M-series follows the same process as working with other hardware generations. For regions where M-series is available, see [M-series availability](#m-series-availability).
 
 
 ### Compute and memory specifications
-
-> [!IMPORTANT]
-> New Gen4 databases are no longer supported in the Australia East or Brazil South regions.
 
 
 |Hardware generation  |Compute  |Memory  |
 |:---------|:---------|:---------|
 |Gen4     |- Intel E5-2673 v3 (Haswell) 2.4 GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
 |Gen5     |**Provisioned compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3 GHz processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**Serverless compute**<br>- Intel E5-2673 v4 (Broadwell) 2.3 GHz processors<br>- Auto-scale up to 16 vCores (1 vCore = 1 hyper-thread)|**Provisioned compute**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**Serverless compute**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 48 GB max|
-|M-series     |- Intel Xeon E7-8890 v3 2.5 GHz processors<br>- Provision 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision 3.7 TB|
 |Fsv2-series     |- Intel Xeon Platinum 8168 (SkyLake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision 136 GB|
+|M-series     |- Intel Xeon E7-8890 v3 2.5 GHz processors<br>- Provision 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision 3.7 TB|
 
 
 For more information on resource limits, see [Resource limits for single databases (vCore)](sql-database-vcore-resource-limits-single-databases.md), or [Resource limits for elastic pools (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
 
 ### Selecting a hardware generation
 
-In the Azure portal, you can select the hardware generation for a SQL database at the time of creation, or you can change the hardware generation of an existing SQL database. For details on creating a database, see [Create a SQL database](sql-database-single-database-get-started.md).
+In the Azure portal, you can select the hardware generation for a SQL database at the time of creation, or you can change the hardware generation of an existing SQL database.
 
 **To select a hardware generation when creating a SQL database**
 
-On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section:
+For detailed information, see [Create a SQL database](sql-database-single-database-get-started.md).
 
-  :::image type="content" source="media/sql-database-service-tiers-vcore/create-sql-database.png" alt-text="create database":::
+On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select the **Change configuration** link:
 
-Select the **Change configuration** link:
-
-  :::image type="content" source="media/sql-database-service-tiers-vcore/configure-sql-database.png" alt-text="configure database":::
+  ![configure database](media/sql-database-service-tiers-vcore/configure-sql-database.png)
 
 Select the desired hardware generation:
-  :::image type="content" source="media/sql-database-service-tiers-vcore/select-hardware.png" alt-text="select hardware":::
+
+  ![select hardware](media/sql-database-service-tiers-vcore/select-hardware.png)
+
 
 **To change the hardware generation of an existing SQL database**
 
 On the database's Overview page, select the **Pricing tier** link:
 
-  :::image type="content" source="media/sql-database-service-tiers-vcore/change-hardware.png" alt-text="change hardware":::
+  ![change hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
 
 Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
 
 ### Hardware availability
- 
+
+#### Gen4/Gen5
+
+New Gen4 databases are no longer supported in the Australia East or Brazil South regions. 
+
+Gen5 is available in most regions worldwide.
+
 #### Fsv2-series availability
 
 Fsv2-series is available in the following regions:
@@ -122,6 +142,7 @@ Australia Central, Australia Central 2, Australia East, Australia Southeast, Bra
 
 M-series is available in the following regions:
 East US, North Europe, West Europe, West US 2.
+M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
 To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
 
@@ -131,16 +152,19 @@ To enable M-series availability in a subscription, access must be requested by [
 1. Select **Help + support** in the portal.
 2. Select **New support request**.
 
-On the Basics page, provide the following:
+On the **Basics** page, provide the following:
 
 1. For **Issue type**, select **Service and subscription limits (quotas)**.
 2. For **Subscription** = select the subscription to enable M-series.
 3. For **Quota type**, select **SQL database**.
 4. Select **Next** to go to the **Details** page.
+
+On the **Details** page, provide the following:
+
 5. In the **PROBLEM DETAILS** section select the **Provide details** link. 
 6. For **SQL Database quota type** select **M-series**.
 7. For **Region**, select the region to enable M-series.
-    M-series is available in the following regions: East US, North Europe, West Europe, West US 2. You can request a region other than the currently available regions, but availability is limited so fulfillment in a region outside the four available regions is not guaranteed.
+    For regions where M-series is available, see [M-series availability](#m-series-availability).
 
 Approved support requests are typically fulfilled within 5 business days.
 
