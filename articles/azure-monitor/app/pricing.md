@@ -1,21 +1,16 @@
 ---
 title: Manage usage and costs for Azure Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
-services: application-insights
-documentationcenter: ''
-author: DaleKoetke
-manager: carmonm
-
-ms.assetid: ebd0d843-4780-4ff3-bc68-932aa44185f6
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin    
-ms.date: 10/03/2019
+author: DaleKoetke
 ms.author: dalek
+ms.date: 10/03/2019
 
+ms.reviewer: mbullwin
 ---
+
 # Manage usage and costs for Application Insights
 
 > [!NOTE]
@@ -41,7 +36,7 @@ There are two approaches to address this: use of default monitoring and adaptive
 
 With the ASP.NET SDK's [adaptive sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications), the data volume is adjusted automatically to keep within a specified maximum rate of traffic for default Application Insights monitoring. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below the configured events per second level. For a high volume application, with the default threshold of 5 events per second, adaptive sampling will limit the number of daily events to 432,000. Using a typical average event size of 1 KB, this corresponds to 13.4 GB of telemetry per 31-day month per node hosting your application (since the sampling is done local to each node.) 
 
-For SDKs which don't support adaptive sampling, you can employ [ingestion sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) which samples when the data is received by Application Insights based on a percentage of data to retain, or [fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) to reduce the traffic sent from your web server and web browsers
+For SDKs which don't support adaptive sampling, you can employ [ingestion sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) which samples when the data is received by Application Insights based on a percentage of data to retain, or [fixed-rate sampling for ASP.NET, ASP.NET Core, and Java websites](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) to reduce the traffic sent from your web server and web browsers
 
 ### Learn from what similar customers collect
 
@@ -74,13 +69,15 @@ Azure provides a great deal of useful functionality in the [Azure Cost Managemen
 More understanding of your usage can be gained by [downloading your usage from the Azure Portal](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). 
 In the downloaded spreadsheet you can see usage per Azure resource per day. In this Excel spreadsheet, usage from your Application Insights resources can be found by first filtering on the "Meter Category" column to show "Application Insights" and "Log Analytics", and then adding a filter on the "Instance ID" column which is "contains microsoft.insights/components".  Most Application Insights usage is reported on meters with the Meter Category of Log Analytics, since there is a single logs backend for all Azure Monitor components.  Only Application Insights resources on legacy pricing tiers and multi-step web tests are reported with a Meter Category of Application Insights.  The usage is shown in the "Consumed Quantity" column and the unit for each entry is shown in the "Unit of Measure" column.  More details are available to help you [understand your Microsoft Azure bill](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
-## Managing your data volume 
+## Understanding ingested data volume
 
-To understand how much data your app is sending, you can:
+To understand how much data is being ingested into Application Insights, you can:
 
-* Go to the **Usage and estimated cost** pane to see the daily data volume chart. 
-* In Metrics Explorer, add a new chart. For the chart metric, select **Data point volume**. Turn on **Grouping**, and then group by **Data type**.
-* Use the `systemEvents` data type. For instance, to see the data volume ingested in the last day, the query would be:
+1. Go to the **Usage and estimated cost** pane to see the daily data volume chart as described above.
+2. In Metrics Explorer, add a new chart. For the chart metric, select **Data point volume**. Turn on **Grouping**, and then group by **Data type**.
+3. Use the `systemEvents` table as shown below. 
+
+For instance, you can use the `systemEvents` table to see the data volume ingested in the last 24 hours with the query:
 
 ```kusto
 systemEvents 
@@ -91,7 +88,20 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes)
 ```
 
+Or to see a chart of data volume by data type for the last 30 days, you can use:
+
+```kusto
+systemEvents 
+| where timestamp >= ago(30d)
+| where type == "Billing" 
+| extend BillingTelemetryType = tostring(dimensions["BillingTelemetryType"])
+| extend BillingTelemetrySizeInBytes = todouble(measurements["BillingTelemetrySize"])
+| summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
+```
+
 This query can be used in an [Azure Log Alert](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) to set up alerting on data volumes. 
+
+## Managing your data volume 
 
 The volume of data you send can be managed using the following techniques:
 
@@ -168,9 +178,6 @@ To change the retention, from your Application Insights resource, go to the **Us
 ![Adjust the daily telemetry volume cap](./media/pricing/pricing-005.png)
 
 The retention can also be [set programatically using Powershell](powershell.md#set-the-data-retention) using the `retentionInDays` parameter. Additionally, if you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter, which may be useful for compliance-related scenarios. This purge functionality is only exposed via Azure Resource Manager and should be used with extreme care. 
-
-When billing begins for longer retention in early December 2019, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. 
-Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/pricing/details/monitor/). Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## Data transfer charges using Application Insights
 
@@ -249,4 +256,5 @@ You can write a script to set the pricing tier by using Azure Resource Managemen
 [api]: app-insights-api-custom-events-metrics.md
 [apiproperties]: app-insights-api-custom-events-metrics.md#properties
 [start]: ../../azure-monitor/app/app-insights-overview.md
+[pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/

@@ -127,12 +127,18 @@
   href: storage-resource-deletion-errors.md
 - name: Errors when deleting classic storage resources
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: Unexpected reboots of VMs with attached VHDs
-  href: unexpected-reboots-attached-vhds.md
-- name: Windows activation problems
-  href: troubleshoot-activation-problems.md
-- name: Activation problem with forced tunneling
-  href: custom-routes-enable-kms-activation.md
+- name: Troubleshoot VM restart issues
+  items: 
+  - name: Unexpected reboots of VMs with attached VHDs
+    href: unexpected-reboots-attached-vhds.md
+  - name: Understand a system reboot
+    href: understand-vm-reboot.md
+- name: Windows activation
+  items: 
+  - name: Windows activation problems
+    href: troubleshoot-activation-problems.md
+  - name: Activation problem with forced tunneling
+    href: custom-routes-enable-kms-activation.md
 - name: Application access issues
   href: troubleshoot-app-connection.md
 - name: New VM deployments
@@ -188,8 +194,6 @@
   href: troubleshooting-throttling-errors.md
 - name: Use nested virtualization
   href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Understand a system reboot
-  href: understand-vm-reboot.md
 - name: Remote troubleshooting tools
   href: remote-tools-troubleshoot-azure-vm-issues.md
 - name: Virtual Machine Repair
