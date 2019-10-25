@@ -196,7 +196,7 @@ After adding information to the CSV template, import the servers into Azure Migr
     - Improving server information as suggested in warnings improves assessment accuracy.
     - To view and fix warnings if they appear, click **Download warning details .CSV**. This downloads the CSV, with warnings added. You can review the warnings, and fix issues as needed. 
     If errors appear in the status (the import status is **Failed**), you need to fix these before you can continue with the import. To do this, download the CSV, that now has error details added. Review and address the errors as needed. Then upload the modified file again.
-4. When the import status **Completed**, the server information is imported.
+4. When the import status is **Completed**, the server information is imported.
 
 
 > [!NOTE]
