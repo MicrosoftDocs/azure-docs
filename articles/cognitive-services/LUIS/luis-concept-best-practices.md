@@ -67,7 +67,7 @@ Use prediction data from LUIS to determine if your intents are overlapping. Over
 
 Each authoring cycle should be within a new [version](luis-concept-version.md), cloned from an existing version. 
 
-## Do build for decomposition
+## Do build for model decomposition
 
 Model decomposition has a typical process of:
 
