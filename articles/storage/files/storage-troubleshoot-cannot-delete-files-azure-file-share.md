@@ -13,21 +13,25 @@ ms.subservice: common
 
 The failure to delete files from Azure File Share can have several symptoms:
 
-Symptom 1: Failed to delete a file in azure file share due to one of the two issues below:
+**Symptom 1:**
+
+Failed to delete a file in azure file share due to one of the two issues below:
 
 * The file marked for delete
 * The specified resource may be in use by an SMB client
-  
-Symptom 2: Not enough quota is available to process this command
-  
+
+**Symptom 2:**
+
+Not enough quota is available to process this command
+
 ## Cause
 
 Error 1816 occurs when you reach the upper limit of concurrent open handles allowed for a file, on the computer where the file share is being mounted. For more information, see the [Azure Storage performance and scalability checklist](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist).
-  
+
 ## Resolution
 
 Reduce the number of concurrent open handles by closing some handles.
-  
+
 ## Prerequisite
 
 ### Install the latest Azure PowerShell module
@@ -45,7 +49,7 @@ Reduce the number of concurrent open handles by closing some handles.
 ```
 # Select-AzSubscription -subscriptionid "SubscriptionID"
 ```
-  
+
 ### Create context for the target Storage Account:
 
 ```
