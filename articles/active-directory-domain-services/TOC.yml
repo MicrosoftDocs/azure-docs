@@ -33,6 +33,8 @@
       href: administration-concepts.md
     - name: Common deployment scenarios
       href: scenarios.md
+    - name: Forests
+      href: resource-forests.md
     - name: How Azure AD DS synchronization works
       href: synchronization.md
     - name: How password hash synchronization works

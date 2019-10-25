@@ -87,15 +87,7 @@ Complete the fields in the *Basics* window of the Azure portal to create an Azur
 
 1. Enter a **DNS domain name** for your managed domain, taking into consideration the previous points.
 1. Choose the Azure **Location** in which the managed domain should be created.
-1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. In Azure AD DS, the forest only contains the one domain that you create in this tutorial.
-
-    By default, an Azure AD DS managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. User accounts can authenticate against the Azure AD DS managed domain, such as to sign in to a domain-joined VM. A user forest is the most common type of managed domain you create.
-
-    A resource forest only synchronizes objects from Azure AD. User accounts created in an on-premises AD DS environment aren't synchronized. However, even those synchronized Azure AD user accounts can't be authenticated by the Azure AD DS managed domain. A resource forest is for environments where you only want to run applications and services, and don't need user authentication.
-
-    Resource forests can only be created in the *Enterprise* or *Premium* SKUs. You can change SKUs after the Azure AD DS managed domain is created, but you can't change the forest type. For more information, see [Azure AD DS SKU types and features][skus].
-
-    When you create a resource forest, it's recommended to configure scoped group synchronization from Azure AD since you likely don't need all users and groups to become part of the Azure AD DS managed domain. A following section in this tutorial shows you how to configure scoped synchronization.
+1. A *forest* is a logical construct used by Active Directory Domain Services to group one or more domains. By default, an Azure AD DS managed domain is created as a *User* forest. This type of forest synchronizes all objects from Azure AD, including any user accounts created in an on-premises AD DS environment. For more information on *Resource* forests, including why you may use one and how to create forest trusts with on-premises AD DS domains, see [Azure AD DS resource forests overview][resource-forests].
 
     For this tutorial, choose to create a *User* forest.
 
@@ -248,6 +240,7 @@ To see this managed domain in action, create and join a virtual machine to the d
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [skus]: overview.md
+[resource-forests]: resource-forests.md
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix
