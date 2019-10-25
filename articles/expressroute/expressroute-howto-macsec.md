@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/22/2019
 ms.author: cherylmc
 
 ---
@@ -94,10 +94,10 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
     $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
     $erDirect.Links[0]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[0]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[0]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[0]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.Links[1]. MacSecConfig.CknSecretIdentifier = $MacSecCKNSecret.Id
     $erDirect.Links[1]. MacSecConfig.CakSecretIdentifier = $MacSecCAKSecret.Id
-    $erDirect.Links[1]. MacSecConfig.Cipher = "gcm-aes-128"
+    $erDirect.Links[1]. MacSecConfig.Cipher = "GcmAes256"
     $erDirect.identity = $erIdentity
     Set-AzExpressRoutePort -ExpressRoutePort $erDirect
     ```
@@ -127,6 +127,9 @@ Set-AzExpressRoutePort -ExpressRoutePort $erDirect
 ```
 
 At this point, MACsec is disabled on the ExpressRoute Direct ports on the Microsoft side.
+
+### Test connectivity
+After you configure MACsec (including MACsec key update) on your ExpressRoute Direct ports, [check](expressroute-troubleshooting-expressroute-overview.md) if the BGP sessions of the circuits are up and running. If you don't have any circuit on the ports yet, please create one first and set up Azure Private Peering or Microsoft Peering of the circuit. If MACsec is misconfigured, including MACsec key mismatch, between your network devices and Microsoft's network devices, you won't see ARP resolution at layer 2 and BGP establishment at layer 3. If everything is configured properly, you should see the BGP routes advertised correctly in both directions and your application data flow accordingly over ExpressRoute.
 
 ## Next steps
 1. [Create an ExpressRoute circuit on ExpressRoute Direct](expressroute-howto-erdirect.md)

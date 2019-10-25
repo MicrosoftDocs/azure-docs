@@ -97,8 +97,9 @@ To run this sample, you will need:
 1. Open the **app_config.py** file, which can be found in the root folder and replace with the following code snippet:
 
 ```python
-CLIENT_SECRET = "Enter_the_Client_Secret_Here"
 CLIENT_ID = "Enter_the_Application_Id_here"
+CLIENT_SECRET = "Enter_the_Client_Secret_Here"
+AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 ```
 
 > [!div renderon="docs"]
@@ -106,6 +107,7 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 >
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
 > - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets**  for the application you registered.
+> - `Enter_the_Tenant_Name_Here` - is the **Directory (tenant) ID** value of the application you registered.
 
 #### Step 4: Run the code sample
 
@@ -119,6 +121,25 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 
    ```Shell
    python app.py
+   ```
+   > [!IMPORTANT]
+   > This quickstart application uses a client secret to identify itself as confidential client. Because the client secret is added as a plain-text to your project files, for security reasons, it is recommended that you use a certificate instead of a client secret before considering the application as production application. For more information on how to use a certificate, see [these instructions](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-certificate-credentials).
+
+   ## More information
+
+   ### Getting MSAL
+   MSAL is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform.
+   You can add MSAL Python to your application using Pip.
+
+   ```Shell
+   pip install msal
+   ```
+
+   ### MSAL initialization
+   You can add the reference to MSAL Python by adding the following code to the top of the file where you will be using MSAL:
+
+   ```Python
+   import msal
    ```
 
 ## Next steps

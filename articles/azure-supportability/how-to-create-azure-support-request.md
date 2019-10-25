@@ -2,20 +2,13 @@
 title: How to create an Azure support request | Microsoft Docs
 description: How to create an Azure support request.
 services: Azure Supportability
-documentationcenter: ''
 author: ganganarayanan
 manager: scotthit
-editor: ''
-
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2016
 ms.author: gangan
-
 ---
 # How to create an Azure support request
 ## Summary

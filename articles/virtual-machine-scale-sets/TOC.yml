@@ -150,8 +150,14 @@
   - name: Infrastructure automation
     href: ../virtual-machines/windows/infrastructure-automation.md
     maintainContext: true
-  - name: Security and policy
-    href: ../virtual-machines/windows/security-policy.md
+  - name: Security
+    items:
+    - name: Security and policy
+      href: ../virtual-machines/windows/security-policy.md
+    - name: Azure Disk Encryption
+      href: disk-encryption-overview.md
+    - name: Built-in security controls
+      href: virtual-machine-scale-sets-security-controls.md
     maintainContext: true
   - name: Monitoring
     href: ../virtual-machines/windows/monitor.md
@@ -163,8 +169,6 @@
       maintainContext: true
   - name: Scale Set FAQ
     href: virtual-machine-scale-sets-faq.md
-  - name: Built-in security controls
-    href: virtual-machine-scale-sets-security-controls.md
 - name: How To
   items:
   - name: Plan and design
@@ -212,12 +216,15 @@
     - name: Encrypt disks in scale sets
       items:
       - name: Use PowerShell
-        href: virtual-machine-scale-sets-encrypt-disks-ps.md
+        href: disk-encryption-powershell.md
       - name: Use the Azure CLI
-        href: virtual-machine-scale-sets-encrypt-disks-cli.md
+        href: disk-encryption-cli.md
+      - name: Use Azure Resource Manager templates
+        href: disk-encryption-azure-resource-manager.md
       - name: Extension sequencing
-        href: ../security/azure-security-disk-encryption-extension-sequencing.md
-        maintainContext: true
+        href: disk-encryption-extension-sequencing.md
+      - name: Key vault for Azure Disk Encryption
+        href: disk-encryption-key-vault.md      
     - name: Work with large scale sets
       href: virtual-machine-scale-sets-placement-groups.md
     - name: Convert a scale set template to use managed disk
@@ -240,6 +247,8 @@
       href: virtual-machine-scale-sets-automatic-upgrade.md
     - name: Instance protection (Preview)
       href: virtual-machine-scale-sets-instance-protection.md
+    - name: Scale-In Policy (Preview)
+      href: virtual-machine-scale-sets-scale-in-policy.md
     - name: Terminate notification on delete (Preview)
       href: virtual-machine-scale-sets-terminate-notification.md
     - name: Shared image galleries

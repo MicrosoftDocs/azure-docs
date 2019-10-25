@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 10/11/2019
 ms.author: yegu
 
 #Customer intent: As an ASP.NET Core developer, I want to manage all my app settings in one place.
@@ -50,7 +50,9 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 2. In the new folder, run the following command to create a new ASP.NET Core MVC web app project:
 
+    ```CLI
         dotnet new mvc --no-https
+    ```
 
 ## Add Secret Manager
 
@@ -80,19 +82,23 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. Add a reference to the `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet package by running the following command:
 
+    ```CLI
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
-
+    ```
 2. Run the following command to restore packages for your project:
 
+    ```CLI
         dotnet restore
-
+    ```
 3. Add a secret named *ConnectionStrings:AppConfig* to Secret Manager.
 
     This secret contains the connection string to access your app configuration store. Replace the value in the following command with the connection string for your app configuration store.
 
     This command must be executed in the same directory as the *.csproj* file.
 
+    ```CLI
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```
 
     > [!IMPORTANT]
     > Some shells will truncate the connection string unless it is enclosed in quotes. Ensure that the output of the `dotnet user-secrets` command shows the entire connection string. If it doesn't, rerun the command, enclosing the connection string in quotes.
@@ -108,6 +114,11 @@ The Secret Manager tool stores sensitive data for development work outside of yo
     ```
 
 5. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.0.  Select the correct syntax based on your environment.
+
+    ### Update `CreateWebHostBuilder` for .NET Core 2.x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -120,9 +131,23 @@ The Secret Manager tool stores sensitive data for development work outside of yo
             .UseStartup<Startup>();
     ```
 
+    ### Update `CreateHostBuilder` for .NET Core 3.x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+        })
+        .UseStartup<Startup>());
+    ```
+
 6. Open *Index.cshtml* in the Views > Home directory, and replace its content with the following code:
 
-    ```html
+    ```HTML
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
@@ -141,7 +166,7 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 7. Open *_Layout.cshtml* in the Views > Shared directory, and replace its content with the following code:
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
@@ -170,11 +195,15 @@ The Secret Manager tool stores sensitive data for development work outside of yo
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-        dotnet build
+    ```CLI
+       dotnet build
+    ```
 
 2. After the build successfully completes, run the following command to run the web app locally:
 
+    ```CLI
         dotnet run
+    ```
 
 3. Open a browser window, and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
 

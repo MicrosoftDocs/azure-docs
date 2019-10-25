@@ -101,7 +101,7 @@ During the **Preview creation** step, we create a version of your offer accessib
 
 In this step, you will be emailed with a request for you to review and approve your offer preview prior to the final publishing step.
 
-If you have selected to sell your offer through Microsoft, you will be able to test the acquisition and deployment of your offer to ensure that it meets your requirements during this preview approval stage. Your offer will not yet be available in the pubic marketplace. Once you test and approve this preview, you will need to select **Go-Live** on the [**Offer Overview**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dashboard.
+If you have selected to sell your offer through Microsoft, you will be able to test the acquisition and deployment of your offer to ensure that it meets your requirements during this preview approval stage. Your offer will not yet be available in the public marketplace. Once you test and approve this preview, you will need to select **Go-Live** on the [**Offer Overview**](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) dashboard.
 
 If you want to make changes to the offer during this preview stage, you may edit and resubmit to publish a new preview. See the article [Update existing marketplace offers](#update-existing-marketplace-offers) for details on more changes.
 
