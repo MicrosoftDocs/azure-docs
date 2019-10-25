@@ -10,7 +10,7 @@ ms.date: 10/31/2018
 ms.author: genli
 
 ---
-# Microsoft Azure new support request File upload utility guidelines
+# Microsoft Azure new support request file upload utility guidelines
 When you [create a support request](https://portal.azure.com/#create/Microsoft.Support), the file upload option can help you easily upload diagnostic files or any other files that you think are relevant to the incident.  
 
 > [!NOTE]
