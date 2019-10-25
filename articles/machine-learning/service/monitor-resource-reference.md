@@ -156,7 +156,7 @@ The following are dimensions that can be used to filter quota metrics:
 
 | Dimension | Description |
 | ---- | ---- |
-| Cluster Name | The name of the Azure Machine Learning compute instance. |
+| Cluster Name | The name of the compute instance. |
 | Vm Family Name | The name of the VM family used by the cluster. This dimension is only available with the __Quota utilization percentage__ metric. |
 | Vm Priority | |
 
@@ -184,9 +184,9 @@ The valid values for the RunType dimension are:
 | Value | Description |
 | ----- | ----- |
 | Experiment | Non-pipeline runs. |
-| PipelineRun | A pipeline run, which is the parent of pipeline step runs. |
-| StepRun | A pipeline step run. |
-| ReusedStepRun | A pipeline step run that reuses a previous run. |
+| PipelineRun | A pipeline run, which is the parent of a StepRun. |
+| StepRun | A run for a pipeline step. |
+| ReusedStepRun | A run for a pipeline step that reuses a previous run. |
 
 ## See Also
 
