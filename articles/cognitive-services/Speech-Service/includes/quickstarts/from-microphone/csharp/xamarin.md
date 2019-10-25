@@ -65,9 +65,10 @@ Now add the C# code that defines the Android-specific part of the application.
 
 1. After that, open `AndroidManifest.xml` under the *Properties* folder. Add the following uses-permission setting for the microphone between `<manifest>` and `</manifest>`:
 
-```xml
+   ```xml
    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-```
+   ```
+   
 #### [iOS](#tab/ios)
 ## Add sample code for the `helloworld.iOS` project
 
@@ -88,7 +89,7 @@ Now add the C# code that defines the iOS-specific part of the application. Also 
    <key>NSMicrophoneUsageDescription</key>
    <string>This sample app requires microphone access</string>
 
-   > [!NOTE] 
+   > [!NOTE]
    > If you're building for an iPhone device, ensure that `Bundle Identifier` matches your device's provisioning profile app ID. Otherwise, the build will fail. With iPhoneSimulator, you can leave it as is.
 
 1. If you're building on a Windows PC, establish a connection to the Mac device for building via **Tools** > **iOS** > **Pair to Mac**. Follow the instruction wizard provided by Visual Studio to enable the connection to the Mac device.
@@ -119,7 +120,7 @@ Now add the C# code that defines the UWP-specific part of the application.
 
 ## Build and run the UWP application
 
-1. Set helloworld.UWP as a startup project. Right-click the helloworld.UWP project, and select **Build** to build the application. 
+1. Set helloworld.UWP as a startup project. Right-click the helloworld.UWP project, and select **Build** to build the application.
 
 1. Select **Debug** > **Start Debugging** (or select **F5**) to start the application. The **helloworld** window appears.
 
