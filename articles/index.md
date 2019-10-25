@@ -2790,7 +2790,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                <a href="/azure/cognitive-services/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2801,7 +2801,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
-                                                    <p>Use Azure Cognitive Services containers with Docker, Kubernetes, AKS, and Container Instances</p>
+                                                    <p>Infuse apps, websites, and bots with intelligence to see, hear, speak, and understand</p>
                                                 </div>
                                             </div>
                                         </div>
