@@ -4,7 +4,7 @@ description: Learn how to connect to Azure Cosmos DB and manage its resources by
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
 ---
