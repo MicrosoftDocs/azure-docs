@@ -112,8 +112,8 @@ To help diagnose the problem, we have provided a troubleshooting script availabl
 Azure Monitor for containers agent ReplicaSet Pods has a dependency on the following Node selectors on the worker (or agent) nodes for the scheduling:
 
 **nodeSelector:**
-   **beta.kubernetes.io/os: Linux**
-   **kubernetes.io/role: agent**
+> **beta.kubernetes.io/os: Linux**
+> **kubernetes.io/role: agent**
 
 If your worker nodes don’t have node labels attached, then agent ReplicaSet Pods will not get scheduled. Refer to [Kubernetes assign label selectors](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) for instructions on how to attach the label.
 
