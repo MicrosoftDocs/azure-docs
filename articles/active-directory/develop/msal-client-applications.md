@@ -1,5 +1,6 @@
 ---
-title: Client applications (Microsoft Authentication Library) | Azure
+title: Client applications (Microsoft Authentication Library) 
+titleSuffix: Microsoft identity platform
 description: Learn about public client and confidential client applications in the Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name

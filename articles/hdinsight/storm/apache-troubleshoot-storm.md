@@ -133,7 +133,7 @@ For more information about using Storm event hub spout .jar files with your topo
 
 ### Java-based topology
 
-[Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-develop-java-event-hub-topology)
+[Process events from Azure Event Hubs with Apache Storm on HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)
 
 ### C#-based topology (Mono on HDInsight 3.4+ Linux Storm clusters)
 

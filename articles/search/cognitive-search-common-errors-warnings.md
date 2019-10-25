@@ -206,3 +206,14 @@ If you want to ensure that all text is analyzed, consider using the [Split skill
 
 ### Web API skill response contains warnings
 Indexer was able to run a skill in the skillset, but the response from the Web API request indicated there were warnings during execution. Review the warnings to understand how your data is impacted and whether or not action is required.
+
+### The current indexer configuration does not support incremental progress
+This warning only occurs for Cosmos DB data sources.
+
+Incremental progress during indexing ensures that if indexer execution is interrupted by transient failures or execution time limit, the indexer can pick up where it left off next time it runs, instead of having to re-index the entire collection from scratch. This is especially important when indexing large collections.
+
+The ability to resume an unfinished indexing job is predicated on having documents ordered by the `_ts` column. The indexer uses the timestamp to determine which document to pick up next. If the `_ts` column is missing or if the indexer can't determine if a custom query is ordered by it, the indexer starts at beginning and you'll see this warning.
+
+It is possible to override this behavior, enabling incremental progress and suppressing this warning by using the `assumeOrderByHighWatermarkColumn` configuration property.
+
+[More information about Cosmos DB incremental progress and custom queries.](https://go.microsoft.com/fwlink/?linkid=2099593)

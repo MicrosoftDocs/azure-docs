@@ -23,8 +23,9 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
+| **Bulk resource provider registration** | You can now [bulk register](virtual-machines-windows-sql-bulk-register-with-resource-provider.md) SQL virtual machines with the resource provider. | 
 | **Performance Optimized Storage Configuration** | You can now [fully customize your storage configuration](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) when creating a new SQL Server VM. |
-| **Premium file share for FCI** | You can now create a failover cluster instance using [premium file share](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md) instead of the original method of [Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
+| **Premium file share for FCI** | You can now create a failover cluster instance using a [Premium File Share](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) instead of the original method of [Storage Spaces Direct](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
 | &nbsp; | &nbsp; |
 
 ## August 2019
