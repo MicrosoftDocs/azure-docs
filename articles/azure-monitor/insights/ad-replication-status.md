@@ -1,18 +1,13 @@
 ---
 title: Monitor Active Directory replication status with Azure Monitor | Microsoft Docs
 description: The Active Directory Replication Status solution pack regularly monitors your Active Directory environment for any replication failures.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: 1b988972-8e01-4f83-a7f4-87f62778f91d
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/24/2018
+ms.service:  azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
+ms.date: 01/24/2018
+
 ---
 
 # Monitor Active Directory replication status with Azure Monitor
