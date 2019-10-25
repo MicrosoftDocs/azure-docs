@@ -109,7 +109,7 @@ To help diagnose the problem, we have provided a troubleshooting script availabl
 
 ## Azure Monitor for containers agent ReplicaSet Pods are not scheduled on non-Azure Kubernetes cluster
 
-Azure Monitor for containers agent ReplicaSet Pods has a dependency on the following Node selectors on the worker (or agent) nodes for the scheduling:
+Azure Monitor for containers agent ReplicaSet Pods has a dependency on the following node selectors on the worker (or agent) nodes for the scheduling:
 
 **nodeSelector:**
 > **beta.kubernetes.io/os: Linux**
