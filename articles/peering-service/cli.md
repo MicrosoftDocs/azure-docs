@@ -14,7 +14,7 @@ ms.author: v-meravi
 
 # Register Peering Service (Preview) connection using the Azure CLI
 
-Peering Service is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via the public Internet. In this article, you will learn about how to register the Peering Service connection using the Azure CLI.
+Peering Service is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure, or any Microsoft services accessible via the public Internet. In this article, you will learn about how to register the Peering Service connection using the Azure CLI.
 
 If you don't have an Azure subscription, create an [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 

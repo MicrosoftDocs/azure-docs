@@ -14,9 +14,9 @@ ms.author: v-meravi
 
 # Peering Service (Preview) Overview
 
-Peering Service is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure or any Microsoft services accessible via the public Internet. Microsoft has partnered with Internet Service Providers (ISP), Internet Exchange Providers (IXP) and, Software Defined Cloud Interconnect (SDCI) providers, worldwide, to provide highly reliable and performant public connectivity with optimal routing from the customer to the Microsoft network.
+Peering Service is a networking service that aims at enhancing customer connectivity to Microsoft Cloud services such as Office 365, Dynamics 365, SaaS services, Azure, or any Microsoft services accessible via the public Internet. Microsoft has partnered with Internet Service Providers (ISP), Internet Exchange Providers (IXP) and, Software Defined Cloud Interconnect (SDCI) providers, worldwide, to provide highly reliable, and performant public connectivity with optimal routing from the customer to the Microsoft network.
 
-With “*Peering Service*”, customer can select a well connected partner Service Provider (SP) in a given region. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end user location.
+With “*Peering Service*”, customer can select a well connected partner Service Provider (SP) in a given region. Public connectivity is optimized for high reliability and minimal latency from cloud services to the end-user location.
 
 ![Distributed connectivity to Microsoft Cloud](./media/peering-service-about/peering-service-what.png)
 
@@ -103,7 +103,7 @@ Enterprises looking for “Internet first” access to the Cloud or considering 
           
    A service to detect and alert for any route anomaly events including route hijacks to the customer prefixes.
 
--  **End user latency**
+-  **End-user latency**
 
    Monitors the routing performance between the customer's location and Microsoft. 
    
