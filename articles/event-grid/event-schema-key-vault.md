@@ -9,9 +9,9 @@ ms.date: 09/04/2019
 ms.author: mbaldwin
 ---
 
-# Azure Event Grid event schema for Azure Key Vault
+# Azure Event Grid event schema for Azure Key Vault (preview)
 
-This article provides the properties and schema for [Azure Key Vault](../key-vault/index.yml) events. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
+This article provides the properties and schema for [Azure Key Vault](../key-vault/index.yml) events, currently in preview. For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md).
 
 ## Available event types
 
@@ -75,3 +75,11 @@ An event has the following top-level data:
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
+* To learn more about Key Vault / Event Grid integration, see [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
+* To see a tutorial on Key Vault / Event Grid integration, see [How to: Route Key Vault Events to Automation Runbook (preview)](../key-vault/event-grid-tutorial.md).
+
+- [Azure Key Vault overview](key-vault-overview.md]
+- [Azure Event Grid overview](../event-grid/overview.md)
+- [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
+- [How to: Route Key Vault Events to Automation Runbook (preview)](../key-vault/event-grid-tutorial.md).
+- [Azure Automation overview](../automation/index.yml)

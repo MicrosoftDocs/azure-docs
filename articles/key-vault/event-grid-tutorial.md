@@ -63,35 +63,33 @@ az provider register --namespace Microsoft.KeyVault
 
 Create an Azure Automation account through the [Azure portal](http://portal.azure.com).
 
-1.  Go to portal.azure.com and log in to your subscription
+1.  Go to portal.azure.com and log in to your subscription.
 
-1.  In the search box, type in 'Automation Accounts'
+1.  In the search box, type in "Automation Accounts".
 
-1.  Under the "Services" Section of the drop-down from the search bar, select Automation Accounts.
+1.  Under the "Services" Section of the drop-down from the search bar, select "Automation Accounts".
 
-1.  Click Add 
+1.  Click Add.
 
     ![](media/image2.png)
 
-1.  Fill the required information in the "Add Automation Account" Blade and select Create
-
-1.  Wait for your automation account to be created.
+1.  Fill the required information in the "Add Automation Account" Blade and select "Create".
 
 ## Create a Runbook and Webhook
 
-Now create a Runbook and webhook for your Azure Automation account.
+After your Azure Automation account is ready, create a runbook.
 
 ![](media/image3.png)
 
 1.  Select the automation account you created in step 1.
 
-1.  Select "Runbooks" under the Process Automation section
+1.  Select "Runbooks" under the Process Automation section.
 
-1.  Click the "Create a runbook"
+1.  Click the "Create a runbook".
 
-1.  Name your runbook and select "PowerShell" as the runbook type
+1.  Name your runbook and select "PowerShell" as the runbook type.
 
-1.  Click on the runbook you created, and select the "Edit" Button
+1.  Click on the runbook you created, and select the "Edit" Button.
 
 1.  Enter the following code (for testing purposes) and click the "Publish" button. This will output the result of the POST request received.
 
@@ -122,60 +120,62 @@ write-Error "No input data found."
 
 ![](media/image4.png)
 
-1.  Select "Webhooks" from the resources section of the runbook you just published
+## Create a webhook
 
-1.  Click "Add Webhook"
+Now create a webhook, to trigger your newly created runbook.
+
+1.  Select "Webhooks" from the resources section of the runbook you just published.
+
+1.  Click "Add Webhook".
 
     ![](media/image5.png)
 
-1.  Select "Create new Webhook"
+1.  Select "Create new Webhook".
 
-1. Name the webhook, set an expiration date, and copy the URL
+1. Name the webhook, set an expiration date, and **copy the URL**.
 
-    a.  Please note that you cannot view the URL after you create it. Make sure you copy to clipboard and save it in a secure location where you can access it for the remainder of this guide.
+  > [!IMPORTANT] 
+  > You cannot view the URL after you create it. Make sure you save a copy a secure location where you can access it for the remainder of this guide.
 
-1. Select Ok, and Click Create
+1. Click "Parameters and run settings", and select "OK". Do not enter any parameters. This will enable the "Create" button.
 
-    a.  You may need to click into the "parameters and run settings" option and select ok before the Create button will be enabled. You don't need to enter any parameters.
+1. Select "OK", and click "Create".
 
     ![](media/image6.png)
 
-## Create an Event Grid Subscription
+## Create an Event Grid subscription
+
+Create an Event Grid subscription through the [Azure portal](http://portal.azure.com).
 
 1.  Open the Azure Portal using the following link: https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true
 
-1.  Go to your key vault and select the "Events" tab
-
-    a.  If you cannot see the Events tab, make sure that you are using the preview version of the portal (see the link above).
+1.  Go to your key vault and select the "Events" tab. If you cannot see the Events tab, make sure that you are using the [preview version of the portal](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
     ![](media/image7.png)
 
-1.  Click the "+ Event Subscription" button
+1.  Click the "+ Event Subscription" button.
 
-1.  Create a descriptive name for the subscription
+1.  Create a descriptive name for the subscription.
 
-1.  Choose "Event Grid Schema"
+1.  Choose "Event Grid Schema".
 
-1.  The topic resource should be the key vault you want monitored for status changes
+1.  "Topic Resource" should be the key vault you want to monitor for status changes.
 
-1.  Under event types, choose the specific event types for each secret type you want to monitor. (Default and recommended setting is all)
+1.  For "Filter to Event Types", leave all checked ("9 selected").
 
-1.  Select Webhook for endpoint type
+1.  For "Endpoint Type", select "Webhook".
 
-1.  When you click select an endpoint, a new context pane will open on the portal. In this field, paste the webhook URL that you created in Step 3 Task 10.
+1.  Select "Select an endpoint". In the new context pane, paste the webhook URL from the [Create a webhook](#create-a-webhook) step into the "Subscriber Endpoint" field.
 
-1.  Select Confirm Selection on this context pane
+1.  Select "Confirm Selection" on the context pane.
 
-1.  Select Create
+1.  Select "Create".
 
     ![](media/image8.png)
 
-## Test and Verify
+## Test and verify
 
-> [!NOTE]
-> This test assumes that you have subscribed to the new-version notification for secrets in Step 4.
->
-> This test assumes that you have the necessary privileges to create a new version of a secret in a key vault.
+Verify that your Event Grid subscription is property configured.  This test assumes that you have subscribed to "Secret New Version Created" notification in the [Create an Event Grid subscription](#create-an-event-grid-subscription), and that you have the necessary privileges to create a new version of a secret in a key vault.
 
 ![](media/image9.png)
 
@@ -183,51 +183,36 @@ write-Error "No input data found."
 
 1.  Go to your key vault on the Azure Portal
 
-1.  Create a new secret, for testing purposes set expiration to date to next day.
+1.  Create a new secret. For testing purposes, set expiration to date to next day.
 
-1.  Now navigate to the events tab in your key vault.
+1.  Navigate to the events tab in your key vault.
 
-1.  Click on the event grid subscription you created.
+1.  Select the event grid subscription you created.
 
-1.  Under metrics, see if an events were captured.
+1.  Under metrics, see if an event was captured.
 
     1.  Two events are expected : SecretNewVersion and SecretNearExpiry. This validates that event grid successfully captured the status change of the secret in your key vault.
 
     ![](media/image11.png)
 
-1.  Now go to your azure automation account on the Azure Portal
+1.  Go to your Azure Automation account.
 
-1.  Select the "Runbooks" tab, and click on the runbook you created
+1.  Select the "Runbooks" tab, and click on the runbook you created.
 
-1.  Select the "Webhooks" tab, and look at the "last triggered" timestamp, confirm that this is the same time as when you created the new secret (within 60 seconds).
-
-    1.  This validates that event grid made a POST to the webhook with the event details of the status change in your key vault, and the webhook was triggered.
+1.  Select the "Webhooks" tab, and confirm that the "last triggered" timestamp is within 60 second of when you created the new secret.  This confirms that Event Grid made a POST to the webhook with the event details of the status change in your key vault, and the webhook was triggered.
 
     ![](media/image12.png)
 
-1. Now go back to your Runbook, and select the "Overview" Tab.
+1. Return to your Runbook and select the "Overview" Tab.
 
-1. Look at the Recent Jobs list and you should see that a job was created, and that the status is complete.
-
-    1.  This validates that the webhook triggered the runbook to start executing its script.
+1. Look at the Recent Jobs list. You should see that a job was created and that the status is complete.  This confirms that the webhook triggered the runbook to start executing its script.
 
     ![](media/image13.png)
 
-1. You can drill down even further by selecting the recent job and looking at the actual POST request that was sent from event grid to the webhook.
-
-1. Examine the JSON and make sure that the parameters for your key vault and event type are correct.
+1. Select the recent job and look at the POST request that was sent from event grid to the webhook. Examine the JSON and make sure that the parameters for your key vault and event type are correct. If the "event type" parameter in the JSON object matches the event which occurred in the key vault (in this example, Microsoft.KeyVault.SecretNearExpiry) the test was successful.
 
     ![](media/image14.png)
 
-1. If the "event type" parameter in the JSON object matches the event which occurred in the key vault (in this example, Microsoft.KeyVault.SecretNearExpiry) the test was successful.
-
-### So Now What?
-
-Congratulations! If you have followed all the steps above, you are now ready to programmatically respond to status changes of secrets stored in your key vault.
-
--   If have been using a polling-based system to look for status changes of secrets in your key vaults, migrate to using this notification feature.
-
--   Replace the test script in your runbook with code to programmatically renew your secrets when they are about to expire.
 
 ## Troubleshooting
 
@@ -236,6 +221,12 @@ Congratulations! If you have followed all the steps above, you are now ready to 
 Reregister Event Grid and Key Vault provider in your azure subscription resource providers. See [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md).
 
 ## Next steps
+
+Congratulations! If you have followed all the steps above, you are now ready to programmatically respond to status changes of secrets stored in your key vault.
+
+If have been using a polling-based system to look for status changes of secrets in your key vaults, migrate to using this notification feature. You can also replace the test script in your runbook with code to programmatically renew your secrets when they are about to expire.
+
+Learn more:
 
 - [Azure Key Vault overview](key-vault-overview.md]
 - [Azure Event Grid overview](../event-grid/overview.md)
