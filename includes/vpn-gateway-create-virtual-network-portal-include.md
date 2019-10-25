@@ -15,8 +15,10 @@ To create a VNet in the Resource Manager deployment model by using the Azure por
 >In order for this VNet to connect to an on-premises location you need to coordinate with your on-premises network administrator to carve out an IP address range that you can use specifically for this virtual network. If a duplicate address range exists on both sides of the VPN connection, traffic does not route the way you may expect it to. Additionally, if you want to connect this VNet to another VNet, the address space cannot overlap with other VNet. Take care to plan your network configuration accordingly.
 >
 
-1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-2. Click **Create a resource**. In the **Search the marketplace** field, type 'virtual network'. Locate **Virtual network** from the returned list and click to open the **Virtual Network** page.
+1. From the [Azure portal](https://portal.azure.com) menu, select **Create a resource**. 
+
+   ![Create a resource in the Azure portal](./media/vpn-gateway-create-virtual-network-portal-include/azure-portal-create-resource.png)
+2. In the **Search the marketplace** field, type 'virtual network'. Locate **Virtual network** from the returned list and click to open the **Virtual Network** page.
 3. Click **Create**. This opens the **Create virtual network** page.
 4. On the **Create virtual network** page, configure the VNet settings. When you fill in the fields, the red exclamation mark becomes a green check mark when the characters entered in the field are valid. Use the following values:
 

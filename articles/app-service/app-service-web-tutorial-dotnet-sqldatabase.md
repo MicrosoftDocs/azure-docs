@@ -390,11 +390,11 @@ To stop the log-streaming service, click the **Stop monitoring** button in the *
 
 ## Manage your Azure app
 
-Go to the [Azure portal](https://portal.azure.com) to see the app you created. 
+Go to the [Azure portal](https://portal.azure.com) to manage the web app. Search for and select **App Services**. 
 
+![Search for Azure App Services](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-
-From the left menu, click **App Service**, then click the name of your Azure app.
+Select the name of your Azure app.
 
 ![Portal navigation to Azure app](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 
