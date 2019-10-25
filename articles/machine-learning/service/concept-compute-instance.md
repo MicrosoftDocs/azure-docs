@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/08/2019
+ms.date: 11/04/2019
 # As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
