@@ -521,7 +521,7 @@ For further improve query performance, see [Monitor your workload](../../sql-dat
 ## Statistics in SQL Analytics on-demand
 Statistics are created per particular column for particular dataset (OPENROWSET path).
 
-### <a id="why-use-statistics-sqlod"/>Why use statistics
+### Why use statistics
 
 The more SQL Analytics on-demand knows about your data, the faster it can execute queries against it. Collecting statistics on your data is one of the most important things you can do to optimize your queries. The SQL Analytics on-demand query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
@@ -602,6 +602,12 @@ By default, if you don't specify otherwise, SQL Analytics on-demand uses 100%  o
 For example, to create statistics with default options (FULLSCAN) for year column for dataset based on population.csv file:
 
 ```sql
+/* make sure you have credentials for storage account access created
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+*/
+
 EXEC sys.sp_create_file_statistics N'SELECT year 
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
@@ -623,6 +629,12 @@ WITH (
 You can specify the sample size as a percent:
 
 ```sql
+/* make sure you have credentials for storage account access created
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+*/
+
 EXEC sys.sp_create_file_statistics N'SELECT payment_type 
 FROM OPENROWSET(
 		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
@@ -654,6 +666,12 @@ FROM OPENROWSET(
 '
 GO
 
+/* make sure you have credentials for storage account access created
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+*/
+
 EXEC sys.sp_create_file_statistics N'SELECT payment_type 
 FROM OPENROWSET(
 		BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
@@ -663,3 +681,6 @@ FROM OPENROWSET(
 '
 ```
 
+### Next steps
+
+For further query performance improvements, see [best practices.](best-practices.md#best-practices-for-sql-analytics-on-demand).
