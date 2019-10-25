@@ -1,6 +1,6 @@
 ---
-title: Azure Synapse Analytics (formerly SQL DW) backup and restore - snapshots, geo-redundant | Microsoft Docs
-description: Learn how backup and restore works in Azure Synapse Analytics (formerly SQL DW). Use data warehouse backups to restore your data warehouse to a restore point in the primary region. Use geo-redundant backups to restore to a different geographical region.
+title: Azure SQL Data Warehouse backup and restore - snapshots, geo-redundant | Microsoft Docs
+description: Learn how backup and restore works in Azure SQL Data Warehouse. Use data warehouse backups to restore your data warehouse to a restore point in the primary region. Use geo-redundant backups to restore to a different geographical region.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -12,23 +12,23 @@ ms.author: anjangsh
 ms.reviewer: igorstan
 ---
 
-# Backup and restore in Azure Synapse Analytics (formerly SQL DW)
+# Backup and restore in Azure SQL Data Warehouse
 
-Learn how to use backup and restore.  Use data warehouse restore points to recover or copy your data warehouse to a previous state in the primary region. Use data warehouse geo-redundant backups to restore to a different geographical region.
+Learn how to use backup and restore in Azure SQL Data Warehouse. Use data warehouse restore points to recover or copy your data warehouse to a previous state in the primary region. Use data warehouse geo-redundant backups to restore to a different geographical region.
 
 ## What is a data warehouse snapshot
 
-A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since this is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
+A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since SQL Data Warehouse is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
-A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse is also a powerful mechanism to create copies of your data warehouse for test or development purposes.  Data warehouse restore rates can vary depending on the database size and location of the source and target data warehouse. 
+A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse is also a powerful mechanism to create copies of your data warehouse for test or development purposes.  SQL Data Warehouse restore rates can vary depending on the database size and location of the source and target data warehouse. 
 
 ## Automatic Restore Points
 
 Snapshots are a built-in feature of the service that creates restore points. You do not have to enable this capability. However, the data warehouse should be in active state for restore point creation. If the data warehouse is paused frequently, automatic restore points may not be created so make sure to create user-defined restore point before pausing the data warehouse. Automatic restore points currently cannot be deleted by users as the service uses these restore points to maintain SLAs for recovery.
 
-Snapshots are taken of your data warehouse throughout the day creating restore points that are available for seven days. This retention period cannot be changed. The series of snapshots and the retention period support an eight-hour recovery point objective (RPO) . You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days.
+SQL Data Warehouse takes snapshots of your data warehouse throughout the day creating restore points that are available for seven days. This retention period cannot be changed. SQL Data Warehouse supports an eight-hour recovery point objective (RPO). You can restore your data warehouse in the primary region from any one of the snapshots taken in the past seven days.
 
-To see when the last snapshot started, run this query on your online from your data warehouse.
+To see when the last snapshot started, run this query on your online SQL Data Warehouse.
 
 ```sql
 select   top 1 *
@@ -48,22 +48,22 @@ This feature enables you to manually trigger snapshots to create restore points 
 
 The following lists details for restore point retention periods:
 
-    1. Restore points are deleted once it hits the 7-day retention period **and** when there are at least 42 total restore points (including both user-defined and automatic).
-    2. Snapshots are not taken when a data warehouse is paused.
-    3. The age of a restore point is measured by the absolute calendar days from the time the restore point is taken including when the data warehouse is paused
-    4. At any point in time, a data warehouse is guaranteed to be able to store up to 42 user-defined restore points and 42 automatic restore points as long as these restore points have not reached the 7-day retention period
-    5. If a snapshot is taken, the data warehouse is then paused for greater than 7 days, and then resumes, it is possible for restore point to persist until there are 42 total restore points (including both user-defined and automatic)
+1. SQL Data Warehouse deletes a restore point when it hits the 7-day retention period **and** when there are at least 42 total restore points (including both user-defined and automatic)
+2. Snapshots are not taken when a data warehouse is paused
+3. The age of a restore point is measured by the absolute calendar days from the time the restore point is taken including when the data warehouse is paused
+4. At any point in time, a data warehouse is guaranteed to be able to store up to 42 user-defined restore points and 42 automatic restore points as long as these restore points have not reached the 7-day retention period
+5. If a snapshot is taken, the data warehouse is then paused for greater than 7 days, and then resumes, it is possible for restore point to persist until there are 42 total restore points (including both user-defined and automatic)
 
 ### Snapshot retention when a data warehouse is dropped
 
-When you drop a data warehouse, a final snapshot is created and saved for seven days. You can restore the data warehouse to the final restore point created at deletion. If the data warehouse is dropped while in a paused state, no snapshot is taken. In that scenario, make sure to create a user-defined restore point before dropping the data warehouse.
+When you drop a data warehouse, SQL Data Warehouse creates a final snapshot and saves it for seven days. You can restore the data warehouse to the final restore point created at deletion. If the data warehouse is dropped in Paused state, no snapshot is taken. In that scenario, make sure to create a user-defined restore point before dropping the data warehouse.
 
 > [!IMPORTANT]
 > If you delete a logical SQL server instance, all databases that belong to the instance are also deleted and cannot be recovered. You cannot restore a deleted server.
 
 ## Geo-backups and disaster recovery
 
-Geo-backups are performed once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where Synapse Analytics is supported. A geo-backup ensures you can restore your data warehouse in case you cannot access the restore points in your primary region.
+SQL Data Warehouse performs a geo-backup once per day to a [paired data center](../best-practices-availability-paired-regions.md). The RPO for a geo-restore is 24 hours. You can restore the geo-backup to a server in any other region where SQL Data Warehouse is supported. A geo-backup ensures you can restore data warehouse in case you cannot access the restore points in your primary region.
 
 > [!NOTE]
 > If you require a shorter RPO for geo-backups, vote for this capability [here](https://feedback.azure.com/forums/307516-sql-data-warehouse). You can also create a user-defined restore point and restore from the newly created restore point to a new data warehouse in a different region. Once you have restored, you have the data warehouse online and can pause it indefinitely to save compute costs. The paused database incurs storage charges at the Azure Premium Storage rate. Should you need an active copy of the data warehouse, you can resume which should take only a few minutes.
@@ -76,13 +76,13 @@ The total cost for your primary data warehouse and seven days of snapshot change
 
 If you are using geo-redundant storage, you receive a separate storage charge. The geo-redundant storage is billed at the standard Read-Access Geographically Redundant Storage (RA-GRS) rate.
 
-For more information about data warehouse pricing, see [Azure Synapse Analytics Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). You are not charged for data egress when restoring across regions.
+For more information about SQL Data Warehouse pricing, see [SQL Data Warehouse Pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/gen2/). You are not charged for data egress when restoring across regions.
 
 ## Restoring from restore points
 
 Each snapshot creates a restore point that represents the time the snapshot started. To restore a data warehouse, you choose a restore point and issue a restore command.  
 
-You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE (Azure Synapse Analytics)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) with the MODIFY NAME option.
+You can either keep the restored data warehouse and the current one, or delete one of them. If you want to replace the current data warehouse with the restored data warehouse, you can rename it using [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) with the MODIFY NAME option.
 
 To restore a data warehouse, see [Restore a data warehouse using the Azure portal](sql-data-warehouse-restore-database-portal.md), [Restore a data warehouse using PowerShell](sql-data-warehouse-restore-database-powershell.md), or [Restore a data warehouse using REST APIs](sql-data-warehouse-restore-database-rest-api.md).
 
@@ -94,7 +94,7 @@ If you need to directly restore across subscription, vote for this capability [h
 
 ## Geo-redundant restore
 
-You can [restore your data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup#restore-from-an-azure-geographical-region-through-powershell) to any region supporting Azure Synapse Analytics at your chosen performance level.
+You can [restore your data warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-from-geo-backup#restore-from-an-azure-geographical-region-through-powershell) to any region supporting SQL Data Warehouse at your chosen performance level.
 
 > [!NOTE]
 > To perform a geo-redundant restore you must not have opted out of this feature.

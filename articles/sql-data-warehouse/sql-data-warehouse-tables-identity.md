@@ -1,6 +1,6 @@
 ---
-title: Using IDENTITY to create surrogate keys - Azure Synapse Analytics (formerly SQL DW)| Microsoft Docs
-description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure Synapse Analytics (formerly SQL DW).
+title: Using IDENTITY to create surrogate keys - Azure SQL Data Warehouse| Microsoft Docs
+description: Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author:  XiaoyuMSFT
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Using IDENTITY to create surrogate keys in Azure Synapse Analytics (formerly SQL DW)
+# Using IDENTITY to create surrogate keys in Azure SQL Data Warehouse
 
-Recommendations and examples for using the IDENTITY property to create surrogate keys on tables.
+Recommendations and examples for using the IDENTITY property to create surrogate keys on tables in Azure SQL Data Warehouse.
 
 ## What is a surrogate key
 
@@ -44,7 +44,7 @@ This remainder of this section highlights the nuances of the implementation to h
 
 ### Allocation of values
 
-The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in [SQL Analytics](sql-data-warehouse-overview-what-is.md), the absence of a guarantee is more pronounced.
+The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in Azure SQL Data Warehouse, the absence of a guarantee is more pronounced.
 
 The following example is an illustration:
 
@@ -94,7 +94,7 @@ CREATE TABLE AS SELECT (CTAS) follows the same SQL Server behavior that's docume
 
 ## Explicitly inserting values into an IDENTITY column
 
-SQL Analytics supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax. You can use this syntax to explicitly insert values into the IDENTITY column.
+SQL Data Warehouse supports `SET IDENTITY_INSERT <your table> ON|OFF` syntax. You can use this syntax to explicitly insert values into the IDENTITY column.
 
 Many data modelers like to use predefined negative values for certain rows in their dimensions. An example is the -1 or "unknown member" row.
 
@@ -155,7 +155,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > It's not possible to use `CREATE TABLE AS SELECT` currently when loading data into a table with an IDENTITY column.
 >
 
-For more information on loading data, see [Designing Extract, Load, and Transform (ELT)](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
+For more information on loading data, see [Designing Extract, Load, and Transform (ELT) for Azure SQL Data Warehouse](design-elt-data-loading.md) and  [Loading best practices](guidance-for-loading-data.md).
 
 ## System views
 
@@ -189,7 +189,7 @@ The IDENTITY property can't be used:
 - When the column is also the distribution key
 - When the table is an external table
 
-The following related functions are not supported in SQL Analytics:
+The following related functions are not supported in SQL Data Warehouse:
 
 - [IDENTITY()](/sql/t-sql/functions/identity-function-transact-sql)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql)

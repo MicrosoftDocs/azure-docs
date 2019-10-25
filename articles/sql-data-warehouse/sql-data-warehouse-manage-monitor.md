@@ -13,7 +13,7 @@ ms.reviewer: igorstan
 ---
 
 # Monitor your workload using DMVs
-This article describes how to use Dynamic Management Views (DMVs) to monitor your workload. This includes investigating query execution.
+This article describes how to use Dynamic Management Views (DMVs) to monitor your workload. This includes investigating query execution in Azure SQL Data Warehouse.
 
 ## Permissions
 To query the DMVs in this article, you need either VIEW DATABASE STATE or CONTROL permission. Usually granting VIEW DATABASE STATE is the preferred permission as it is much more restrictive.
@@ -23,7 +23,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## Monitor connections
-All logins to Azure Synapse Analytics (formerly SQL DW) are logged to [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  This DMV contains the last 10,000 logins.  The session_id is the primary key and is assigned sequentially for each new logon.
+All logins to SQL Data Warehouse are logged to [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  This DMV contains the last 10,000 logins.  The session_id is the primary key and is assigned sequentially for each new logon.
 
 ```sql
 -- Other Active Connections
@@ -31,7 +31,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ```
 
 ## Monitor query execution
-All queries executed in the data warehouse are logged to [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  This DMV contains the last 10,000 queries executed.  The request_id uniquely identifies each query and is the primary key for this DMV.  The request_id is assigned sequentially for each new query and is prefixed with QID, which stands for query ID.  Querying this DMV for a given session_id shows all queries for a given logon.
+All queries executed on SQL Data Warehouse are logged to [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  This DMV contains the last 10,000 queries executed.  The request_id uniquely identifies each query and is the primary key for this DMV.  The request_id is assigned sequentially for each new query and is prefixed with QID, which stands for query ID.  Querying this DMV for a given session_id shows all queries for a given logon.
 
 > [!NOTE]
 > Stored procedures use multiple Request IDs.  Request IDs are assigned in sequential order. 
@@ -109,7 +109,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 When the query step is running, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] can be used to retrieve the SQL Server estimated plan from the SQL Server plan cache for the step running on a particular distribution.
 
 ```sql
--- Find the SQL Server execution plan for a query running in a specific data warehouse Compute or Control node.
+-- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
@@ -132,7 +132,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 If the query is running, [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] can be used to retrieve the SQL Server estimated plan from the SQL Server plan cache for the currently running SQL Step within a particular distribution.
 
 ```sql
--- Find the SQL Server estimated plan for a query running on a specific data warehouse Compute or Control node.
+-- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
 -- Replace distribution_id and spid with values from previous query.
 
 DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
@@ -166,10 +166,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 If the query is actively waiting on resources from another query, then the state will be **AcquireResources**.  If the query has all the required resources, then the state will be **Granted**.
 
 ## Monitor tempdb
-Tempdb is used to hold intermediate results during query execution. High utilization of the tempdb database can lead to slow query performance. Each node in the warehouse has approximately 1 TB of raw space for tempdb. Below are tips for monitoring tempdb usage and for decreasing tempdb usage in your queries. 
+Tempdb is used to hold intermediate results during query execution. High utilization of the tempdb database can lead to slow query performance. Each node in Azure SQL Data Warehouse has approximately 1 TB of raw space for tempdb. Below are tips for monitoring tempdb usage and for decreasing tempdb usage in your queries. 
 
 ### Monitoring tempdb with views
-To monitor tempdb usage, first install the [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) view from the [Microsoft Toolkit for Azure Synapse Analytics](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). You can then execute the following query to see the tempdb usage per node for all executed queries:
+To monitor tempdb usage, first install the [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) view from the [Microsoft Toolkit for SQL Data Warehouse](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring). You can then execute the following query to see the tempdb usage per node for all executed queries:
 
 ```sql
 -- Monitor tempdb
@@ -291,6 +291,7 @@ For more information about DMVs, see [System views][System views].
 <!--Image references-->
 
 <!--Article references-->
+[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
 [System views]: ./sql-data-warehouse-reference-tsql-system-views.md
 [Table distribution]: ./sql-data-warehouse-tables-distribute.md
 [Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting

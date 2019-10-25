@@ -1,6 +1,6 @@
 ---
-title: Memory and concurrency limits in Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
-description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics (formerly SQL DW).
+title: Memory and concurrency limits in Azure SQL Data Warehouse | Microsoft Docs
+description: View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
@@ -13,8 +13,8 @@ ms.reviewer: igorstan
 ---
 
 
-# Memory and concurrency limits for Azure Synapse Analytics (formerly SQL DW)
-View the memory and concurrency limits allocated to the various performance levels and resource classes. For more information, and to apply these capabilities to your workload management plan, see [Resource classes for workload management](resource-classes-for-workload-management.md). 
+# Memory and concurrency limits for Azure SQL Data Warehouse
+View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure SQL Data Warehouse. For more information, and to apply these capabilities to your workload management plan, see [Resource classes for workload management](resource-classes-for-workload-management.md). 
 
 ## Data warehouse capacity settings
 The following tables show the maximum capacity for the data warehouse at different performance levels. To change the performance level, see [Scale compute - portal](quickstart-scale-compute-portal.md).
@@ -45,7 +45,7 @@ The service levels range from DW100c to DW30000c.
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
 ## Concurrency maximums
-To ensure each query has enough resources to execute efficiently, resource utilization is tracked by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
+To ensure each query has enough resources to execute efficiently, SQL Data Warehouse tracks resource utilization by assigning concurrency slots to each query. The system puts queries into a queue based on importance and concurrency slots. Queries wait in the queue until enough concurrency slots are available. [Importance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) and concurrency slots determine CPU prioritization. For more information, see [Analyze your workload](analyze-your-workload.md)
 
 **Static resource classes**
 
@@ -94,7 +94,7 @@ The following table shows the maximum concurrent queries and concurrency slots f
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
 
-When there are not enough concurrency slots free to start query execution, queries are queued and executed based on importance.  If there is equivalent importance, queries are executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, queued queries are released. 
+When there are not enough concurrency slots free to start query execution, queries are queued and executed based on importance.  If there is equivalent importance, queries are executed on a first-in, first-out basis.  As a queries finishes and the number of queries and slots fall below the limits, SQL Data Warehouse releases queued queries. 
 
 ## Next steps
 

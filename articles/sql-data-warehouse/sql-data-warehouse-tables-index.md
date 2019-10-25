@@ -1,6 +1,6 @@
 ---
-title: Indexing tables in Azure Synapse Analytics (formerly SQL DW) | Microsoft Azure
-description: Recommendations and examples for indexing tables in Azure Synapse Analytics (formerly SQL DW).
+title: Indexing tables in Azure SQL Data Warehouse | Microsoft Azure
+description: Recommendations and examples for indexing tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -13,22 +13,19 @@ ms.reviewer: igorstan
 ms.custom: seoapril2019
 ---
 
-# Indexing tables in Azure Synapse Analytics (formerly SQL DW)
+# Indexing tables in SQL Data Warehouse
 
-Recommendations and examples for indexing tables in Azure Synapse Analytics.
+Recommendations and examples for indexing tables in Azure SQL Data Warehouse.
 
 ## Index types
 
-Indexing options include:
-- [clustered columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview)
-- [clustered indexes and nonclustered indexes](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described)
-- non-index option also known as [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
+SQL Data Warehouse offers several indexing options including [clustered columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview), [clustered indexes and nonclustered indexes](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), and a non-index option also known as [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
-To create a table with an index, see the [CREATE TABLE (Azure Synapse Analytics)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) documentation.
+To create a table with an index, see the [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) documentation.
 
 ## Clustered columnstore indexes
 
-A clustered columnstore index is created by default when no index options are specified on a table. Clustered columnstore tables offer both the highest level of data compression as well as the best overall query performance.  Clustered columnstore tables will generally outperform clustered index or heap tables and are usually the best choice for large tables.  For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.  
+By default, SQL Data Warehouse creates a clustered columnstore index when no index options are specified on a table. Clustered columnstore tables offer both the highest level of data compression as well as the best overall query performance.  Clustered columnstore tables will generally outperform clustered index or heap tables and are usually the best choice for large tables.  For these reasons, clustered columnstore is the best place to start when you are unsure of how to index your table.  
 
 To create a clustered columnstore table, simply specify CLUSTERED COLUMNSTORE INDEX in the WITH clause, or leave the WITH clause off:
 
@@ -50,7 +47,7 @@ There are a few scenarios where clustered columnstore may not be a good option:
 
 ## Heap tables
 
-When using staging tables, you may find that using a heap table makes the overall process faster. This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table is much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table](sql-data-warehouse-tables-temporary.md) loads faster than loading a table to permanent storage.  
+When you are temporarily landing data in SQL Data Warehouse, you may find that using a heap table makes the overall process faster. This is because loads to heaps are faster than to index tables and in some cases the subsequent read can be done from cache.  If you are loading data only to stage it before running more transformations, loading the table to heap table is much faster than loading the data to a clustered columnstore table. In addition, loading data to a [temporary table](sql-data-warehouse-tables-temporary.md) loads faster than loading a table to permanent storage.  
 
 For small lookup tables, less than 60 million rows, often heap tables make sense.  Cluster columnstore tables begin to achieve optimal compression once there is more than 60 million rows.
 
@@ -90,7 +87,7 @@ CREATE INDEX zipCodeIndex ON myTable (zipCode);
 
 ## Optimizing clustered columnstore indexes
 
-Clustered columnstore tables are organized in data into segments. Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.
+Clustered columnstore tables are organized in data into segments.  Having high segment quality is critical to achieving optimal query performance on a columnstore table.  Segment quality can be measured by the number of rows in a compressed row group.  Segment quality is most optimal where there are at least 100K rows per compressed row group and gain in performance as the number of rows per row group approach 1,048,576 rows, which is the most rows a row group can contain.
 
 The below view can be created and used on your system to compute the average rows per row group and identify any sub-optimal cluster columnstore indexes.  The last column on this view generates a SQL statement which can be used to rebuild your indexes.
 
@@ -202,13 +199,13 @@ Batched update and insert operations that exceed the bulk threshold of 102,400 r
 
 ### Small or trickle load operations
 
-Small loads are sometimes known as trickle loads. They typically represent a near constant stream of data being ingested by the system. However, as this stream is near continuous the volume of rows is not particularly large. More often than not the data is significantly under the threshold required for a direct load to columnstore format.
+Small loads that flow into SQL Data Warehouse are also sometimes known as trickle loads. They typically represent a near constant stream of data being ingested by the system. However, as this stream is near continuous the volume of rows is not particularly large. More often than not the data is significantly under the threshold required for a direct load to columnstore format.
 
 In these situations, it is often better to land the data first in Azure blob storage and let it accumulate prior to loading. This technique is often known as *micro-batching*.
 
 ### Too many partitions
 
-Another thing to consider is the impact of partitioning on your clustered columnstore tables.  Tables, by default, are divided into 60 distributed databases.  Partitioning further divides your data.  If you partition your data, then consider that **each** partition needs at least 1 million rows to benefit from a clustered columnstore index.  If you partition your table into 100 partitions, then your table needs at least 6 billion rows to benefit from a clustered columnstore index (60 distributions *100 partitions* 1 million rows). If your 100-partition table does not have 6 billion rows, either reduce the number of partitions or consider using a heap table instead.
+Another thing to consider is the impact of partitioning on your clustered columnstore tables.  Before partitioning, SQL Data Warehouse already divides your data into 60 databases.  Partitioning further divides your data.  If you partition your data, then consider that **each** partition needs at least 1 million rows to benefit from a clustered columnstore index.  If you partition your table into 100 partitions, then your table needs at least 6 billion rows to benefit from a clustered columnstore index (60 distributions *100 partitions* 1 million rows). If your 100-partition table does not have 6 billion rows, either reduce the number of partitions or consider using a heap table instead.
 
 Once your tables have been loaded with some data, follow the below steps to identify and rebuild tables with sub-optimal clustered columnstore indexes.
 
@@ -250,7 +247,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Rebuilding an index is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), and [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
+Rebuilding an index in SQL Data Warehouse is an offline operation.  For more information about rebuilding indexes, see the ALTER INDEX REBUILD section in [Columnstore Indexes Defragmentation](/sql/relational-databases/indexes/columnstore-indexes-defragmentation), and [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### Step 3: Verify clustered columnstore segment quality has improved
 
@@ -281,7 +278,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-For more details about re-creating partitions using CTAS, see [Using partitions in Azure Synapse Analytics](sql-data-warehouse-tables-partition.md).
+For more details about re-creating partitions using CTAS, see [Using partitions in SQL Data Warehouse](sql-data-warehouse-tables-partition.md).
 
 ## Next steps
 

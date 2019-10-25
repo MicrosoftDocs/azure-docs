@@ -1,6 +1,6 @@
 ---
-title: System views - Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
-description: Links to the documentation for system views supported in Azure Synapse Analytics (formerly SQL DW).
+title: System views - Azure SQL Data Warehouse | Microsoft Docs
+description: Links to the documentation for system views supported in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: XiaoyuMSFT 
 manager: craigg
@@ -12,10 +12,10 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# System views supported in Azure Synapse Analytics (formerly SQL DW)
-Links to the documentation for T-SQL statements supported in Azure Synapse Analytics.
+# System views supported in Azure SQL Data Warehouse
+Links to the documentation for T-SQL statements supported in Azure SQL Data Warehouse.
 
-## Azure Synapse Analytics catalog views
+## SQL Data Warehouse catalog views
 * [sys.pdw_column_distribution_properties](https://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](https://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
@@ -39,7 +39,7 @@ Links to the documentation for T-SQL statements supported in Azure Synapse Analy
 * [sys.workload_management_workload_classifier_details](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifier-details-transact-sql) (Preview)
 * [sys.workload_management_workload_classifiers](/sql/relational-databases/system-catalog-views/sys-workload-management-workload-classifiers-transact-sql) (Preview)
 
-## Azure Synapse Analytics dynamic management views (DMVs)
+## SQL Data Warehouse dynamic management views (DMVs)
 * [sys.dm_pdw_dms_cores](https://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx)
@@ -59,8 +59,8 @@ Links to the documentation for T-SQL statements supported in Azure Synapse Analy
 * [sys.dm_pdw_wait_stats](https://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
-## SQL Server DMVs applicable to Azure Synapse Analytics
-The following DMVs are applicable to Azure Synapse Analytics, but must be executed by connecting to the **master** database.
+## SQL Server DMVs applicable to SQL Data Warehouse
+The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
@@ -139,17 +139,17 @@ The following DMVs are applicable to Azure Synapse Analytics, but must be execut
 * [sys.types](https://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](https://msdn.microsoft.com/library/ms190334.aspx)
 
-## SQL Server DMVs available in Azure Synapse Analytics
-Azure Synapse Analytics exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in Azure Synapse Analytics, are reporting the state of SQL Databases running on the distributions.
+## SQL Server DMVs available in SQL Data Warehouse
+SQL Data Warehouse exposes many of the SQL Server dynamic management views (DMVs). These views, when queried in SQL Data Warehouse, are reporting the state of SQL Databases running on the distributions.
 
-Azure Synapse Analytics and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
+SQL Data Warehouse and Analytics Platform System's Parallel Data Warehouse (PDW) use the same system views. Each DMV has a column called pdw_node_id, which is the identifier for the Compute node. 
 
 > [!NOTE]
 > To use these views, insert ‘pdw_nodes_’ into the name, as shown in the following table:
 > 
 > 
 
-| DMV name in Azure Synapse Analytics | SQL Server Transact-SQL article|
+| DMV name in SQL Data Warehouse | SQL Server Transact-SQL article|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -211,8 +211,8 @@ Azure Synapse Analytics and Analytics Platform System's Parallel Data Warehouse 
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](https://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](https://msdn.microsoft.com/library/ms188778.aspx) |
 
-## SQL Server 2016 PolyBase DMVs available in Azure Synapse Analytics
-The following DMVs are applicable to Azure Synapse Analytics, but must be executed by connecting to the **master** database.
+## SQL Server 2016 PolyBase DMVs available in SQL Data Warehouse
+The following DMVs are applicable to SQL Data Warehouse, but must be executed by connecting to the **master** database.
 
 * [sys.dm_exec_compute_node_errors](https://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](https://msdn.microsoft.com/library/mt146382.aspx)
@@ -237,4 +237,4 @@ The following DMVs are applicable to Azure Synapse Analytics, but must be execut
 * [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## Next steps
-For more reference information, see [T-SQL statements in Azure Synapse Analytics](sql-data-warehouse-reference-tsql-statements.md), and [T-SQL language elements in Azure Synapse Analytics](sql-data-warehouse-reference-tsql-language-elements.md).
+For more reference information, see [T-SQL statements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), and [T-SQL language elements in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).
