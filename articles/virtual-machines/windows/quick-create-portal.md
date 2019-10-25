@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Create a Windows VM in the Azure portal | Microsoft Docs
+title: Quickstart - Create a Windows VM in the Azure portal
 description: In this quickstart, you learn how to use the Azure portal to create a Windows virtual machine
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -7,14 +7,12 @@ author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-
-ms.assetid:
 ms.service: virtual-machines-windows
 
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/02/2019
+ms.date: 10/25/2019
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -31,11 +29,10 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create virtual machine
 
-1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
-
-1. In the **New** page, under **Popular**, select **Windows Server 2016 Datacenter**.
-
-1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name. 
+1. Type **virtual machines** in the search.
+1. Under **Services**, select **Virtual machines**.
+1. In the **Virtual machines** page, select **Add**. 
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myVMResourceGroup* for the name. 
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
@@ -47,7 +44,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
     ![Enter your username and password](./media/quick-create-portal/administrator-account.png)
 
-1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
+1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP (80)** from the drop-down.
 
 	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
 
@@ -60,11 +57,11 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 Create a remote desktop connection to the virtual machine. These directions tell you how to connect to your VM from a Windows computer. On a Mac, you need an RDP client such as this [Remote Desktop Client](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) from the Mac App Store.
 
-1. Click the **Connect** button on the virtual machine properties page. 
+1. Click the **Connect** button on the overview page for your virtual machine. 
 
     ![Connect to an Azure VM from the portal](./media/quick-create-portal/portal-quick-start-9.png)
 	
-2. In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 3389 and click **Download RDP file**.
+2. In the **Connect to virtual machine** page, keep the default options to connect by IP address, over port 3389, and click **Download RDP file**.
 
 2. Open the downloaded RDP file and click **Connect** when prompted. 
 
@@ -91,7 +88,9 @@ In the portal, select the VM and in the overview of the VM, use the **Click to c
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
+When no longer needed, you can delete the resource group, virtual machine, and all related resources. 
+
+Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
 ## Next steps
 
