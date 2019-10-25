@@ -19,7 +19,7 @@ Recommendations and examples for creating and updating query-optimization statis
 
 ## Why use statistics
 
-The more the database engine knows about your data, the faster it can execute queries against it. After loading data into SQL Analytics tables, collecting statistics on your data is one of the most important things you can do to optimize your queries. The query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
+The more the database engine knows about your data, the faster it can execute queries against it. After loading data into [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) tables, collecting statistics on your data is one of the most important things you can do to optimize your queries. The query optimizer is a cost-based optimizer. It compares the cost of various query plans, and then chooses the plan with the lowest cost. In most cases, it chooses the plan that will execute the fastest. For example, if the optimizer estimates that the date your query is filtering on will return one row it will choose one plan. If it estimates that the selected date will return 1 million rows, it will return a different plan.
 
 ## Automatic creation of statistic
 

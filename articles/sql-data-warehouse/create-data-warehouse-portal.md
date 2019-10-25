@@ -88,7 +88,7 @@ Follow these steps to create a SQL pool that contains the AdventureWorksDW sampl
 The Azure Synapse Analytics service creates a firewall at the server-level. This firewall prevents external applications and tools from connecting to the server or any databases on the server. To enable connectivity, you can add firewall rules that enable connectivity for specific IP addresses. Follow these steps to create a [server-level firewall rule](../sql-database/sql-database-firewall-configure.md) for your client's IP address.
 
 > [!NOTE]
-> SQL Analytics communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
+> [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) communicates over port 1433. If you are trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 1433.
 
 1. After the deployment completes, select **All services** from the left-hand menu. Select **Databases**, select the star next to **SQL pool** to add SQL pools to your favorites.
 1. Select **SQL pool** from the left-hand menu and then click **mySampleDataWarehouse** on the **SQL pools** page. The overview page for your database opens, showing you the fully qualified server name (such as **mynewserver-20180430.database.windows.net**) and provides options for further configuration.

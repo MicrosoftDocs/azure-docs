@@ -18,7 +18,9 @@ This article provides guidance for using resource classes to manage memory and c
 
 ## What are resource classes
 
-The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
+The performance capacity of a query is determined by the user's resource class.  Resource classes are pre-determined resource limits that govern compute resources and concurrency for query execution. 
+
+Resource classes can help you manage your workload by setting limits on the number of queries that run concurrently and on the compute-resources assigned to each query.  There's a trade-off between memory and concurrency.
 
 - Smaller resource classes reduce the maximum memory per query, but increase concurrency.
 - Larger resource classes increase the maximum memory per query, but reduce concurrency.
@@ -72,7 +74,7 @@ The memory allocation for each resource class is as follows, **regardless of ser
 
 By default, each user is a member of the dynamic resource class **smallrc**.
 
-The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new SQL Analytics instance with a new server.
+The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) instance with a new server.
 
 > [!NOTE]
 > Users or groups defined as Active Directory admin are also service administrators.
