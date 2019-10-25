@@ -79,3 +79,7 @@ ms.service: backup
   All the files and images uploaded by the drone provider are present in the Maps section. Click the **Maps** section, filter by **Farm** and choose the appropriate files to view and download:
 
     ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/view-drone-maps.png)
+
+## Next steps
+
+Click [REST API](references-for-farm-beats.md#rest-api) to know more on REST API based integration details

@@ -7,6 +7,8 @@
   items:
    - name: Generate Soil Moisture Map
      href: generate-soil-moisture-map.md
+   - name: Ingest Histrorical Telemetry Data
+     href: ingest-historical-telemetry-data.md
 - name: Concepts
   items:
    - name: Architecture
@@ -22,7 +24,7 @@
    - name: Get Sensor Data
      href: get-sensor-data-from-sensor-partner.md
    - name: Generate Maps
-     href: generating-maps.md
+     href: generate-maps.md
    - name: Configure rules and alerts
      href: configure-rules-and-alerts.md
    - name: Get drone imagery

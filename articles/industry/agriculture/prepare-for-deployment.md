@@ -83,14 +83,14 @@ A verification email will be sent to the registered email address for confirmati
   - Case 1: Installer can create automatically (provided you have the required tenant, subscription and resource group access permissions)
   - Case 2: You can create and configure before deploying Azure FarmBeats (requires manual steps).
 
-  **For Case 1**: The installer assumes that you have the rights to create an Azure active directory application registration within the desired subscription. You can try this by creating a test AAD app registration (Login to portal >> Azure active directory >> app registration >> New registration). If yes, you can directly move to the next segment- marketplace offer creation.
+  **For Case 1*: The installer assumes that you have the rights to create an Azure active directory application registration within the desired subscription. You can try this by creating a test AAD app registration (Login to portal >> Azure active directory >> app registration >> New registration). If yes, you can directly move to the next segment- marketplace offer creation.
 
-  **For Case 2**: This is a preferred step when you do not have enough rights to create and configure an AAD app registration within your subscription. Request your IT admin to use the custom script available at this link: https://aka.ms/PPCreateAADappregistration  which will help him/her automatically generate and configure the AAD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin will need to share an Azure Active Directory Application Client ID and password secret with you. Make a note of these in a notepad file.
+  **For Case 2**: This is a preferred step when you do not have enough rights to create and configure an AAD app registration within your subscription. Request your IT admin to use the custom script is available [here](https://aka.ms/Create_AAD_App_Powershell_Script), which will help him/her automatically generate and configure the AAD app registration on the Azure portal. As an output to running this custom script using PowerShell environment the IT admin will need to share an Azure Active Directory Application Client ID and password secret with you. Make a note of these in a notepad file.
 
   Use the following steps to run the AAD application registration script:
 
-  1.	Click this link: https://aka.ms/PPCreateAADappregistration.
-  2.	Sign in on Azure portal and login to your desired subscription and AD tenant.
+  1.	Click [here](https://aka.ms/PPCreateAADappregistration)
+  2.	Sign in to Azure portal and login to your desired subscription and AD tenant.
   3.	Launch CloudShell from the top navigation of the Azure portal.
 
       ![Project Farm Beats](./media/prepare-for-deployment/navigation-bar.png)
@@ -157,7 +157,7 @@ A verification email will be sent to the registered email address for confirmati
 
 
 ```
-*aad- Azure Active Directory
+aad- Azure Active Directory
 Sample Json input
 {  
    "sku":"both", 
@@ -261,90 +261,7 @@ Sample Json input
    - Accelerator URL: User Interface to explore FarmBeats Smart Farm Accelerator.
    - Deployer log file- saves logs during deployment and can be used for troubleshooting.
 
-### Troubleshoot
-
- If you are facing challenges during the installation of Azure FarmBeats, refer to the below list of commonly known issues and their resolution to troubleshoot at your end. In case if you need further help write to us at farmbeatssupport@microsoft.com (add a link awaiting inputs) include deployer.log file on this email.
-
- **Downloade the deployer.log file**
-
- 1.	Click the below highlighted icon and click **Download** option from the drop-down.
-
-    ![Project Farm Beats](./media/prepare-for-deployment/bash-2.png)
-
-2.	On the next screen enter the path to your deployer.log file. For example farmbeats-deployer.log.
-
-**Commonly known issues**
-
-**Azure Active Directory related issues:**
-
-**Error**: Could not update required settings to AAD App d41axx40-xx21-4fbd-8xxf-97xxx9e2xxc0: Insufficient privileges to complete the operation... Please ensure that above settings are configured properly for the AAD App.
-
-**Meaning**: The AAD app registration configuration didn’t happen properly.
-
-**Corrective action**: Ask the IT administrator (having tenant read access) to use the script here: https://aka.ms/PPCreateAADappregistration for generating the Azure Active Directory application registration. This script will automatically take care of the configuration steps.
-
-**Error**: Could not create new Active Directory Application “dummyname” in this tenant: Another object with the same value for property identifier URIs already exists
-
-**Meaning**: AAD application registration with the same name already exists.
-
-**Corrective action**: Delete the existing AAD application registration or reuse it for installation. If you are reusing the existing AAD please pass the Application ID and client secret to the installer and redeploy.
-
-**Batch related issues**:
-
-**Error**: The regional account quota of Batch Accounts for the specified subscription has been reached.
-
-**Meaning**: Increase the quota or delete unused batch accounts and re-run the deployment.
-
-**Corrective action**: Try using a new region which has batch availability or delete unused batch accounts and then redeploy.
-
-**Azure permissions related issues**:
-
-**Error**: You do not have permission to assign Contributor role to e709bc39-3fb9-4705-93c7-1d83920a96a0 at scope: /subscriptions/da9091ec-d18f-456c-9c21-5783ee7f4645/resourceGroups/dips-test-dh1. Please ensure that you are an owner of the Datahub and Accelerator Resource Group(s).
-
-**Meaning**: You might not have enough permission at Azure tenant, subscription or resource group level.
-
-**Correction action**: The above issue arises as you do not have permission to create resource groups. You can request subscription owner to create resource groups and grant you owner access for these. Try deploying again.
-
-**ResourceManager related issues**:
-
-**Error**: Long running operation failed with error: "Invalid status code with response body
-```
-"{"error":{"code":"ExpiredAuthenticationToken","message":"The access token expiry UTC time '10/23/2019 3:54:29 PM' is earlier than current UTC time '10/23/2019 3:54:44 PM'."}}" occurred when polling for operation status.".
-
-**Corrective action**: This issue happens when the resource manager hangs during the deployment.
-```
-
-1.	Cancel the deployment
-Go to your resource group > Deployments > select deployment (resource-group-name)-datahub > Cancel
-2.	Run the installe again
-
-**input.json related issues**:
-
-**Error**: Error reading input from input.json file
-
-**Corrective action**: This issue mostly arises due to miss in specifying the correct input json path or name to the installer. Make appropriate corrections and retry redeploying.
-
-**Error**: Error parsing json input.
-
-**Corrective action**: This issue mostly arises due to incorrect values within the input json file. Reevaluate your input json file and correct values or syntax of this file as necessary. Retry deploying.
-
-**Login related issues**:
-
-**Error**: Entry not found in cache.
-
-**Corrective action**: In this case, run the installer again and when it asks you to login, open the login url - https://microsoft.com/devicelogin
-, add a property “domainId” in your input json file and set its value to the domain/tenant ID which you will use for this deployment. The interactive login attempts to authenticate you into all the tenants you have access to, specifying the domainId will authenticate you into only that domain.
-
-**Error**: You get an email alert referring to High CPU Usage Alert.
-
-**Corrective Action**:
-
-1.	Go to your FarmBeats Datahub Resource Group.
-2.	Click the App service.  
-3.	Go to Scale up (App Service plan) and select an appropriate pricing tier  
-	(Refer: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/ )
-
-
+If you are facing any issues, visit [Toubleshooting](troubleshoot-project-farm-beats.md#deploying-azure-farmbeats) setion.
 
 ## Validate deployment (Sanity testing)
 
@@ -367,80 +284,6 @@ Once the Accelerator installation is complete you will receive the URL to access
   - Able to successfully login to the accelerator portal using the Accelerator link which you received as an output to a successful deployment.
   - Click **Create farm**
   - Under the icon “?” access the FarmBeats guides using the **Get started** button.
-
-
-## Post deployment
-
-### Configure O365connector in Azure portal
-
-**Adding users to your deployment**
-
-
-Now that you have access to a fully functional FarmBeats Datahub and/or Accelerator you can grant access to more people to try this platform out. While we are working towards providing application support for adding more users, you can still use the Datahub for adding as many users as you’d like. Steps outlined below will help you in doing so:
-
-Before you add a user, you need their Azure AD Object ID and Azure tenant ID below steps will help you on how you can access these from the Azure portal:
-
-1.	Sign in on Azure portal
-2.	Select your account in the top-right corner, and switch to the desired Azure AD tenant where you want to deploy Microsoft FarmBeats.  
-3.	From the left blade on your screen click the Azure Active Directory:
-  In **Users** tab, in the Search menu type the desired name and click it > *Profile > Identity > Object ID* (copy this ID)
-  In **Properties** tab, under Directory Properties capture the Directory ID
-
-### Add this object ID as a valid deployment user now:
-
-1.	Login to your datahub swagger URL, which will look like the URL below:
-<https://demo-farmbeats.azurewebsites.net/swagger/index.html>
-2.	On the Datahub swagger page, you will be view Object models (7) and objects (15). Scroll down to go to object ‘Role, which will further expose APIs (4)- **Get, Post, Get, Delete**
-
-Click the Get/ RoleAssignment for role assignments >> Click Try it out >> Click Execute >> scroll down to Responses
-
-**Expected outcome** - The above steps will result in fetching all the assigned Roles by far active on this deployment. Under Server Response if you see Code 200- Success as an output you are on the right track and in Response Body you will see a list of IDs getting populated over a period of time as you will keep adding more users to your deployment.
-
-
-```
-{"roleDefinitionId": "a400a0xx-f67c-42b7-ba9a-f73d8c67e4xx",
-      "objectId": "0714517d-eef4-4603-xxe1-e190842cc7xx",
-      "objectIdType": "UserID",
-      "tenantId": "72f988xx-86f1-41af-91ab-2d7cd011dbxx"
-    }
-```
-3.	Copy the input between the curly brackets { } and make a note of this in your notepad.
-4.	Modify this input string by inputting your captured Azure AD Object ID and Tenant ID in this input string
-
-```
-{"roleDefinitionId": "a400a0xx-f67c-42b7-ba9a-f73d8c67e4xx",
-      "objectId": "0714517d-eef4-4603-xxe1-e190842cc7xx",
-      "objectIdType": "UserID",
-      "tenantId": "72f988xx-86f1-41af-91ab-2d7cd011dbxx"
-    }
-
-```
-5.	click the Post/ RoleAssignment for creating a new user within your deployment >> click *Try it out >> Input-Description: Paste the modified input string from the above table >> click Execute >> scroll down to Responses*
-
-**Expected outcome**: Code 200- Success will indicate the API request went well. You can again repeat Step 3- Get/ Role Assignment and input your Object ID to view if the user was added successfully to the deployment or not.
-
-## Enable Partner (Sensor/Imagery) Integration
-
-  To enable partner integration for Sensor or Imagery data, you need to provide your partner with the following values/credentials from your FarmBeats instance:
-    1. API Endpoint (Your datahub url)
-    2. Tenant ID
-    3. Client ID
-    4. Client Secret
-    5. EventHub Connection String (applicable only for Sensor partner)
-
-    Please follow the following steps to generate the above values.
-
-    1.	Download **this script** and extract it in on your local drive. You will find two files inside this zip.
-    2.	Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top right bar of the portal)
-
-      ![Project Farm Beats](./media/prepare-for-deployment/navigation-bar.png)
-
-    3.	Ensure the environment is set to “Power Shell” - Sometimes by default it is set to Bash.
-    4.	Upload the 2 files (from step 1 above) in your Cloud Shell.
-    5.	Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory - /home<username>)
-    6.	Run the script by writing the following command:
-      ./generateCredentials.ps1
-    7.	Follow the onscreen instructions.
 
 
 ## Upgrade
@@ -502,3 +345,5 @@ Click the Get/ RoleAssignment for role assignments >> Click Try it out >> Click 
 
 
 ## Next steps
+
+For information on how to create farms, see [create farms](manage-farms.md#create-farms)

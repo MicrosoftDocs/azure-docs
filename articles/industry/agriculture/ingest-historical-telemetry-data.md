@@ -1,6 +1,6 @@
 ---
-title: Generate soil moisture map
-description: Describes how to generate soil moisture map in FarmBeats
+title: Ingest Historical Telemetry Data
+description:
 author: uhabiba04
 ms.topic: article
 ms.date: 10/25/2019
@@ -8,38 +8,19 @@ ms.author: v-umha
 ms.service: backup
 ---
 
-
-# Generate soil moisture map
-
-  This article describes the process of generating a soil moisture heatmap for your farm through the FarmBeats accelerator. In this article, you will learn how to:
-
-1. Create Farms
-2. Assign devices to Farms
-3. Generate Soil Moisture Heatmap
-4. Download the Soil Moisture Heatmap
-
-## Before you begin
-
-  Ensure the following prerequisites:  
-
-1. An azure subscription
-2. An instance of FarmBeats running
-3. Minimum 3 soil moisture sensors are available for the farm
-
-
-## Ingest historical telemetry data
+# Ingest historical telemetry data
 
 
   A common usage scenario is to ingest historical data from Internet of Things (IoT) devices/sensors into your FarmBeats instance. This can be done by creating the metadata for your devices/sensors and then ingest the historical sensor data in a canonical format to FarmBeats.
 
-### Before you begin
+## Before you begin
 
   Make sure you have deployed FarmBeats. To deploy FarmBeats, visit (add link here - awaiting links from SMEs)
   This document outlines the process of ingesting historical sensor data into FarmBeats. To proceed, make sure you have historical sensor data that you have collected from your IoT devices/sensors.
 
-### Enable partner access to FarmBeats
+## Enable partner access to Azure FarmBeats
 
-First, we will need to enable partner integration to your FarmBeats instance. This step will create a client that will have access to your FarmBeats as your device partner and will provide you the following values that are required in the subsequent steps.
+First, we will need to enable partner integration to your Azure FarmBeats instance. This step will create a client that will have access to your Azure FarmBeats as your device partner and will provide you the following values that are required in the subsequent steps.
 
 1. API Endpoint – This is the datahub URL for example, https://<datahub>.azurewebsites.net
 2. Tenant ID
@@ -91,7 +72,7 @@ Follow the below steps to generate the above values:
 |        Device Mode   |  Suggestions                            |
 | :------------------- | -------------------        :             |
 |     Type (Node, Gateway)        |          1 Star      |
-|          Manufacturer            |                 2 Star     |
+|          Manufacturer            |         2 Star     |
 |  ProductCode                    |  Device product code Or Model Name/Number. eg: EnviroMonitor#6800  |
 |            Ports          |     Port Name and Type (Digital/Analog)
 |     Name                 |  Name to identify resource. Eg. Model Name/Product Name
@@ -100,21 +81,21 @@ Follow the below steps to generate the above values:
 |    **Device**             |                      |
 |   DeviceModelId     |     id of the associated Device Model  |
 |  HardwareId	       | Unique Id for the device such as MAC address etc  
-|  reportingInterval        |          Reporting Interval in seconds
+|  reportingInterval        |   Reporting Interval in seconds
 |  Location            |  Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)   
 |parentDeviceId       |         id of the parent device to which this device is connected to. Eg. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway  |
 |    Name            | Name to identify resource. Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats|
 |     Description       |      Provide a meaningful description  |
 |     Properties    |  Additional properties from the manufacturer
-|     **Sensor Model**        |            |
-|       Type (Analog, Digital)            |                    |
+|     **Sensor Model**        |          |
+|       Type (Analog, Digital)          |                    |
 |          manufacturer            |                     |
-|     productCode|      |Product code or Model Name/Number. eg: RS-CO2-N01
-|       TsensorMeasures > Name	    |    Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. Eg. soil_moisture_15cm This name has to be consistent with the telemetry d              |
-|          sensorMeasures > DataType	   |   Telemetry Data Type. Currently Double is supported|
-|    sensorMeasures > Type	      |  Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more refer to /ExtendedType API|
+|     productCode| Product code or Model Name/Number. eg: RS-CO2-N01 |
+|       TsensorMeasures > Name	    | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. Eg. soil_moisture_15cm This name has to be consistent with the telemetry d              |
+|          sensorMeasures > DataType	   |Telemetry Data Type. Currently Double is supported|
+|    sensorMeasures > Type	  |Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more refer to /ExtendedType API|
 |        sensorMeasures > Unit	            | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more refer to /ExtendedType API|
-|    sensorMeasures > aggregationType	       |  Either of None, Average, Maximum, Minimum, StandardDeviation  |
+|    sensorMeasures > aggregationType	 |  Either of None, Average, Maximum, Minimum, StandardDeviation  |
 |          name            | Name to identify resource. Eg. Model Name/Product Name  |
 |    description        | Provide a meaningful description of the model  |
 |   properties       |  Additional properties from the manufacturer  |

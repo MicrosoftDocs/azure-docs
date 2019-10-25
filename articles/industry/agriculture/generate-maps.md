@@ -68,7 +68,7 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 
 - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
-- If the issue persists see the *Troubleshooting* (add a link here) section or contact (add a link for Farmbeats support - awaiting inputs from SMEs) with relevant logs.
+- If the issue persists see the [Troubleshooting](troubleshoot-project-farm-beats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download sensor placement map
 
@@ -94,7 +94,7 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 >[!NOTE]
 > You can initiate Satellite Indices from the **Maps** page or from the  **Generate Precision Maps** drop-down menu from **Farm Details** page.
 
-FarmBeats provides you with the ability to generate (NDVI) Normalized Difference Vegetation Index, (EVI) Enhanced Vegetation Index and (NDWI) Normalized Difference Water Index maps for their farms. These indices help determine how the crop is currently growing or has grown over the past and the representative water levels were in the ground.
+FarmBeats provides you with the ability to generate Normalized Difference Vegetation Index (NDVI), Enhanced Vegetation Index (EVI) and Normalized Difference Water Index (NDWI) maps for their farms. These indices help determine how the crop is currently growing or has grown over the past and the representative water levels were in the ground.
 
 
 > [!NOTE]
@@ -123,7 +123,7 @@ FarmBeats provides you with the ability to generate (NDVI) Normalized Difference
 
 - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
-- If the issue persists see the *Troubleshooting* (add a link here) section or contact (add a link for Farmbeats support - awaiting inputs from SMEs) with relevant logs.
+- If the issue persists see the [Troubleshooting](troubleshoot-project-farm-beats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 
 ### View and Download Map
@@ -188,7 +188,7 @@ To find the sensor measure, go to **Sensors**, click any soil moisture sensor, u
 
  - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
- - If the issue persists see the *Troubleshooting* (add a link here) section or contact (add a link for Farmbeats support - awaiting inputs from SMEs) with relevant logs.
+ - If the issue persists see the [Troubleshooting](troubleshoot-project-farm-beats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download map
 

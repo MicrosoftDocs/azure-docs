@@ -218,6 +218,8 @@ EVENTHUBCONNECTIONSTRING = "<EventHub Connection String provided by customer>"
 EVENTHUBNAME = "<EventHub Name provided by customer>"
 
 ## Send telemetry data to FarmBeats
+
+```
 write_client = EventHubClient.from_connection_string(EVENTHUBCONNECTIONSTRING, eventhub=EVENTHUBNAME, debug=False)
 sender = write_client.add_sender(partition="0")
 write_client.run()
@@ -249,7 +251,10 @@ The canonical message format is as below:
         }
       ]
     }
-}
+}onParameters>]
+
+```
+
 
 > [!NOTE]
 > All key names in the telemetry json should be lower case eg. deviceid, sensordata etc.
@@ -258,6 +263,9 @@ The canonical message format is as below:
 Example Telemetry message:
 
 Example Telemetry message:
+
+
+```
 {
   "deviceid": "7f9b4b92-ba45-4a1d-a6ae-c6eda3a5bd12",
   "timestamp": "2019-06-22T06:55:02.7279559Z",
@@ -291,6 +299,8 @@ Example Telemetry message:
     }
   ]
 }
+
+```
 
 
 ## Troubleshooting/Error Management
@@ -475,4 +485,9 @@ Example input payload for the Post call on /Scene API {   "sceneId": "a0505928-c
 
 API Response: {   "uploadSASUrl": "https://storagej2lho.blob.core.windows.net/farm-scene/2019/a0505928-c480-491bba31-d38285a28c1d/e91139a7-4ebd-4e2f-b17c-c677822dc840?sv=2018-0328&sr=b&sig=%2F1426JkDcIFE5g3d%2BjOevCVMIn%2FJo9YKwBn3La5zL8Y%3D&se=2019-1005T16%3A23%3A57Z&sp=w",   "id": "e91139a7-4ebd-4e2f-b17c-c677822dc840",   "createdAt": "2019-10-04T16:23:57.1192916Z",   "lastModifiedAt": "2019-10-04T16:23:57.1192916Z",   "blobUrl": "https://storagej2lho.blob.core.windows.net/farm-scene/2019/a0505928-c480-491b-ba31d38285a28c1d/e91139a7-4ebd-4e2f-b17c-c677822dc840",   "sceneId": "a0505928-c480-491b-ba31-d38285a28c1d",   "type": "mobile-sensor-data",   "contentType": "image/tiff",   "name": "test scene file",   "description": "test scene file description",   "properties": {} }
 
-The Post call to /SceneFile API returns a SAS upload URL which can be used to upload the csv or tiff file using Azure Blob Storage client/library.
+The Post call to /SceneFile API returns a SAS upload URL, which can be used to upload the csv or tiff file using Azure Blob Storage client/library.
+
+
+## Next Steps
+
+Click [REST API](references-for-farm-beats.md#rest-api) to know more on REST API based integration details
