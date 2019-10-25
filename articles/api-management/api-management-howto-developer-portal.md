@@ -32,7 +32,7 @@ You can build your developer portal in two ways:
 - **Managed version** - by editing and customizing the portal, which is built into your API Management instance and is accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`. Refer to [this documentation article](api-management-howto-developer-portal-customize.md) to learn how to access and customize the managed portal.
 - **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality. For details and instructions, refer to the [GitHub repository with the source code of the portal][1].
 
-## Architectural concepts
+## Portal architectural concepts
 
 The portal components can be logically divided into two categories: *code* and *content*.
 
@@ -48,7 +48,7 @@ The portal components can be logically divided into two categories: *code* and *
 *Portal content* is specific to the portal and includes:
 
 - Pages - for example, landing page, API tutorials, blog posts
-- Media - images, animations and other file-based content
+- Media - images, animations, and other file-based content
 - Layouts - templates, which are matched against a URL and define how pages are displayed
 - Styles - values for styling definitions, e.g. fonts, colors, borders
 - Settings - configuration, e.g. favicon, website metadata
@@ -61,23 +61,23 @@ The portal is based on an adapted fork of the [Paperbits framework](http://paper
 
 ## <a name="faq"></a> Frequently asked questions
 
-In this section we answer common questions about the new developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
+In this section, we answer common questions about the new developer portal, which are of general nature. For questions specific to the self-hosted version, refer to [the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki).
 
 ### How can I migrate from the old developer portal to the new one?
 
-Portals are incompatible and the content needs to be migrated manually.
+Portals are incompatible and you need to migrate the content manually.
 
-### Has the old portal been deprecated?
-
-The old developer portal and publisher portal are now *legacy* features - they will be receiving security updates only and new features will be implemented in the new developer portal only.
-
-Deprecation of the legacy portals will be announced separately. If you have questions, concerns, or comments, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
-
-### Does the new portal have all the features of the previous developer portal?
+### Does the new portal have all the features of the old portal?
 
 The new developer portal doesn't support *Applications* and *Issues*. If you have used *Issues* in the old portal and need them in the new one, post a comment in [a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/122).
 
-### I've found bugs and/or I'd like to request a feature
+### Has the old portal been deprecated?
+
+The old developer and publisher portals are now *legacy* features - they will be receiving security updates only. New features will be implemented in the new developer portal only.
+
+Deprecation of the legacy portals will be announced separately. If you have questions, concerns, or comments, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
+
+### I've found bugs, I need help, and/or I'd like to request a feature
 
 You can **report bugs** through [the GitHub repository Issues section](https://github.com/Azure/api-management-developer-portal/issues).
 
@@ -85,9 +85,9 @@ If you'd like to provide feedback and help us shape the product, we're looking f
 
 **Feature requests** can be raised [on the Azure Feedback Forum for API Management](https://aka.ms/apimwish).
 
-For **assistance requests**, you can submit a post [on Stack Overflow](http://aka.ms/apimso) or contact Azure support for help.
+For **assistance requests**, you can submit a post [on Stack Overflow](https://aka.ms/apimso) or contact Azure support for help.
 
-### Does the portal support ARM templates and/or is it compatible with API Management Dev-Ops Resource Kit?
+### Does the portal support Azure Resource Manager templates and/or is it compatible with API Management DevOps Resource Kit?
 
 No.
 
@@ -103,8 +103,13 @@ The interactive console makes a client-side API request from the browser. You ca
 
 Learn more about the new developer portal:
 
+- [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
+- [Automate developer portal deployments](api-management-howto-developer-portal-automate.md)
+- [Set up self-hosted version of the portal][2]
+
+Browse other resources:
+
 - [GitHub repository with the source code][1]
-- [Instructions on self-hosting the portal and portal API reference][2]
 - [Public roadmap of the project][3]
 
 [1]: https://aka.ms/apimdevportal
