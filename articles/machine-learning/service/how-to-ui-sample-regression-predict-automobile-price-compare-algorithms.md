@@ -15,7 +15,11 @@ ms.date: 05/10/2019
 # Sample 2 - Regression: Predict price and compare algorithms
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
+<<<<<<< HEAD
 Learn how to build a  machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
+=======
+Learn how to build a complex machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
+>>>>>>> fd68f12b5ebebc05d41d1c886abf8c9ffb57f48a
 
 If you're just getting started with machine learning, take a look at the [basic version](how-to-ui-sample-regression-predict-automobile-price-basic.md) of this pipeline.
 

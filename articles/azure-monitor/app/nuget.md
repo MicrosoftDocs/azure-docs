@@ -1,15 +1,13 @@
 ---
 title: Azure Application Insights - Dependency Auto-Collection | Microsoft Docs
 description: Application Insights automatically collect and visualize dependencies
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service:  azure-monitor
+ms.subservice: application-insights
 ms.topic: reference
-ms.date: 10/16/2018
+author: mrbullwinkle
 ms.author: mbullwin
+ms.date: 10/16/2018
+
 ---
 
 # Application Insights NuGet packages

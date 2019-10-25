@@ -43,11 +43,7 @@
   - name: R SDK
     items:
     - name: Create first ML experiment (R)
-      items:
-      - name: 1. Set up a workspace & environment
-        href: tutorial-1st-experiment-R-set-up.md
-      - name: 2. Train your first model
-        href: tutorial-1st-experiment-R-train-model.md
+      href: tutorial-1st-r-experiment.md
   - name: Designer
     items:
     - name: 1. Train regression model
@@ -312,6 +308,8 @@
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
+  - name: Machine learning pipeline YAML reference
+    href: reference-pipeline-yaml.md
   - name: Designer modules
     displayName: module, reference, algorithm, studio
     items:
@@ -329,12 +327,6 @@
         items: 
         - name: Import Data
           href: ../algorithm-module-reference/import-data.md
-        - name: Import from Web URL via HTTP
-          href: ../algorithm-module-reference/import-from-web-url-via-http.md
-        - name: Import from Azure Blob Storage module
-          href: ../algorithm-module-reference/import-from-azure-blob-storage.md
-        - name: Import from Azure SQL Database
-          href: ../algorithm-module-reference/import-from-azure-sql-database.md
       - name: Export Data
         href: ../algorithm-module-reference/export-data.md
       - name: Enter Data Manually

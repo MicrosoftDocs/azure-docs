@@ -9,8 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 10/21/2019
-ms.custom: seodec18
+ms.date: 11/04/2019
 ---
 
 # What is automated machine learning?
