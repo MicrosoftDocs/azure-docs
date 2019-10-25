@@ -75,7 +75,7 @@ Once the results are loaded we can print them to the console.
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=107-120)]
 
 ## Check your code
-At this point, your code should look like this: 
+At this point, your code should look like this:
 (We've added some comments to this version)
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-277)]
 
