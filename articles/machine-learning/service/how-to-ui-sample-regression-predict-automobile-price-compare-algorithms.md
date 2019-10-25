@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
-ms.reviewer: sgilley
+ms.reviewer: peterlu
 ms.date: 05/10/2019
 ---
 
