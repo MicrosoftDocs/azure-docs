@@ -51,7 +51,7 @@ A subnet will begin using the NAT Gateway for outbound connections when it has b
 
 ## Combination of inbound and outbound scenarios, and SKUs
 
-Inbound/outbound and a combination of scenarios is possible with NAT gateway.  These scenarios can be configured on the same subnets, and can be combined with Standard public ip. This combination results in access to virtual machine and Standard public load balancer endpoints. 
+Inbound/outbound and a combination of scenarios is possible with NAT gateway.  These scenarios can be configured on the same subnets, and can be combined with Standard public IP. This combination results in access to virtual machine and Standard public load balancer endpoints. 
 
 NAT gateway, Standard public IP address, and Standard public load balancer are flow direction aware. NAT gateway replaces all other outbound scenarios and takes precedence over [load balancer outbound connections](../load-balancer/load-balancer-outbound-connections.md).  NAT gateway also takes precedence over [public IP addresses assigned to virtual machines](../load-balancer/load-balancer-outbound-connections.md). 
 
@@ -71,29 +71,27 @@ During outbound connections from virtual machines, the NAT service gives source 
 
 Each public IP provides 55,000 SNAT ports to use. You can scale out NAT gateway by using multiple public IPs. NAT gateway attempts to reuse ports for flows to different destinations to increase outbound connection scale further. 
 
-You can address multiple workloads within the same subnet easily.  Unlike Azure Load Balancer's outbound connectivity, it's not required to preallocate or preplan for a virtual machine's consumption of SNAT ports. Instead, you plan for the total volume of outbound connections for all virtual machines on configured subnets. Every available port is shared for all instances as needed.
+You can address multiple workloads within the same subnet easily.  Unlike Azure load balancer's outbound connectivity, it's not required to preallocate or preplan for a virtual machine's consumption of SNAT ports. Instead, you plan for the total volume of outbound connections for all virtual machines on configured subnets. Every available port is shared for all instances as needed.
 
 ## Timeout and TCP Resets
 
 NAT gateway implements idle timeouts and sends TCP Resets (RST) for flows that don't exist.  Timeouts can be configured from 4 minutes (default) to 120 minutes. A TCP RST packet is returned to the source when it arrives at the NAT gateway and no matching connection exists. When a flow has reached idle timeout, it's removed from NAT gateway. The port becomes available for the next flow that is established. When additional packets are seen for a TCP connection that has reached an idle timeout, a TCP RST will be sent to the source. Your application can use TCP keepalives to signal and provide synchronization of endpoint state if needed.
 
-
-
 ## Availability zones
 
-NAT Gateways can be placed in a specific availability zone if necessary.  
+NAT gateways can be placed in a specific availability zone if necessary.  
 
 A public IP that is zonal, must match the same availability zone as the NAT gateway. Public IP prefixes don't support availability zones and can't be used.
 
-When a zonal NAT gateway has been configured, the data plane of the NAT Gateway is aligned with and isolated to the requested availability zone.
+When a zonal NAT gateway has been configured, the data plane of the NAT gateway is aligned with and isolated to the requested availability zone.
 
-You can align the data plane of the NAT Gateway with a virtual machine in a specific zone.  You can do this alignment by creating a regional subnet. This subnet only contains virtual machines in the same zone as the NAT gateway configured for the subnet.
+You can align the data plane of the NAT gateway with a virtual machine in a specific zone.  You can do this alignment by creating a regional subnet. This subnet only contains virtual machines in the same zone as the NAT gateway configured for the subnet.
 
-The availability zone placement of a NAT Gateway can't be changed. You can't convert a NAT Gateway from regional to zonal or zonal to regional.
+The availability zone placement of a NAT gateway can't be changed. You can't convert a NAT gateway from regional to zonal or zonal to regional.
 
 ## Outbound connection service comparison
 
-NAT Gateway and Load Balancer outbound connectivity are intended for different scenarios. Simplicity, on-demand allocation, and virtual network level scale versus pool-centric, per instance granularity and more complicated scenarios are the trade offs to consider.  There are a number of other behavior differences and planning considerations.
+NAT gateway and load balancer outbound connectivity are intended for different scenarios. Simplicity, on-demand allocation, and virtual network level scale versus pool-centric, per instance granularity and more complicated scenarios are the trade offs to consider.  There are a number of other behavior differences and planning considerations.
 
 NAT service is an easier way to configure outbound connections for virtual networks. Previous scenarios utilizing [Standard load balancer](../load-balancer/load-balancer-standard-overview.md) using [outbound rules](../load-balancer/load-balancer-outbound-rules-overview.md) aren't needed. You can easily configure and scale outbound connectivity for a subnet and achieve scenarios not previously possible.
 
@@ -102,9 +100,6 @@ NAT service will take precedence over load balancer outbound SNAT. Both can be c
 NAT service can create predictable outbound only connectivity for your virtual network. Configuration of a load balancer with outbound rules, with individual machines joined to the pool are no longer needed. Calculation and definition of SNAT port allocation, or assignment of public IP addresses to individual machines isn't required. You can delegate management of outbound connections to the administrator of the NAT gateway instead of the administrator of the load balancer.
 
 NAT service allows you to plan outbound connectivity for peak workload scale of a virtual network or subnets within, rather than peak virtual machine instance scale. The increase of public IP addresses dynamically for all subnets of a virtual network will accommodate additional demand. Instead of calculating and replanning load balancer SNAT port allocation, NAT service shares SNAT ports available for outbound connectivity. NAT service gives ports on demand to accommodate unpredictable workloads.  Load balancer preallocates a specific number of SNAT ports for a given virtual machine instance.  
-
-
-
 
 NAT service returns TCP Reset (RST) packets to the sender for non-existing flows (for example, because of idle timeout). Standard load balancer can be configured to enable [TCP Reset on Idle](../load-balancer/load-balancer-tcp-reset.md). This configuration creates TCP RST packets to both endpoints of a connection at the time of idle timeout.
 
@@ -116,11 +111,11 @@ NAT service is available in these regions
 
 ## Limitations
 
-- NAT service isn't compatible with Basic public IP or Basic load balancers on the same subnet.  They have to exist on a subnet not served by a NAT Gateway.
+- NAT service isn't compatible with Basic public IP or Basic load balancers on the same subnet.  They have to exist on a subnet not served by a NAT gateway.
 - TCP and UDP-based application protocols are supported.
-- NAT Gateways can be configured on one or more subnets of a virtual network.
+- NAT gateways can be configured on one or more subnets of a virtual network.
 - IPv6 isn't supported.
-- Public IP Prefix doesn't support zonal placement and can't be used with a zonal NAT Gateway.
+- Public IP prefix doesn't support zonal placement and can't be used with a zonal NAT gateway.
 
 ## Next steps
 
