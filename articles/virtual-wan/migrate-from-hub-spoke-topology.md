@@ -28,7 +28,7 @@ Contoso are a global financial organization with offices in both Europe and Asia
 
 Figure 2 shows a high-level view of the existing global network including connectivity to multiple Azure regions.
 
-![Contoso existing network topology](./media/migrate-to-virtual-wan/figure2.png)
+![Contoso existing network topology](./media/migrate-from-hub-spoke-topology/figure2.png)
 **Figure 2: Contoso existing network topology**
 
 The following points can be understood from the existing network topology:
@@ -53,8 +53,8 @@ The networking team have been tasked with delivering a global network model that
 
 Figure 3 shows a high-level view of the updated target topology using Azure Virtual WAN to meet the requirements detailed in the previous section.
 
-![Contoso virtual WAN architecture](./media/migrate-to-virtual-wan/figure3.png)
-** Figure 3: Azure Virtual WAN architecture**
+![Contoso virtual WAN architecture](./media/migrate-from-hub-spoke-topology/figure3.png)
+**Figure 3: Azure Virtual WAN architecture**
 
 In summary: 
 - HQ in Europe remains ExpressRoute connected, Europe on-premises DC are fully migrated to Azure and now decommissioned.
@@ -62,7 +62,7 @@ In summary:
 - Azure Virtual WAN Hubs deployed in both West Europe and South East Asia Azure regions to provide connectivity hub for ExpressRoute and VPN connected devices. 
 - Hubs also provide VPN headed for roaming users across multiple client types using OpenVPN connectivity to the global mesh network, allowing access to not only applications migrated to Azure, but also any resources remaining on-premises. 
 - Internet connectivity for resources within a virtual network provided by Azure Virtual WAN. 
-Internet connectivity for remote sites provided by Azure Virtual WAN. Local internet breakout supported via partner integration for optimized access to SaaS services such as Office 365. 
+Internet connectivity for remote sites provided by Azure Virtual WAN. Local internet breakout supported via partner integration for optimized access to SaaS services such as Office 365.
 
 ## Migrate to Azure Virtual WAN
 
@@ -72,7 +72,7 @@ This section describes the various steps to migrating to Azure virtual WAN.
 
 The following figure shows a single region topology for Contoso prior to the rollout of Azure Virtual WAN.
 
-![Deploy Virtual WAN hubs](./media/migrate-to-virtual-wan/figure4.png)
+![Deploy Virtual WAN hubs](./media/migrate-from-hub-spoke-topology/figure4.png)
 
  **Figure 4: VDC Hub-and-spoke single region – Step 1**
 
@@ -92,7 +92,7 @@ The first step involves deploying a Virtual WAN hub in each region. Deploy the V
 > Azure Virtual WAN must be using the Standard SKU to enable some of the traffic paths described in this article.
 
 
-![Deploy Virtual WAN hubs](./media/migrate-to-virtual-wan/figure5.png)
+![Deploy Virtual WAN hubs](./media/migrate-from-hub-spoke-topology/figure5.png)
 **Figure 5: VDC hub-and-spoke to virtual WAN migration – Step 2**
 
 ### Connect remote sites (ExpressRoute and VPN) to virtual WAN
@@ -103,7 +103,7 @@ Now we connect the Virtual WAN hub to the companies ExpressRoute circuits and se
 > Express Routes Circuits must be upgraded to Premium SKU type to connect to Virtual WAN hub.
 
 
-![Connect remote sites to virtual WAN](./media/migrate-to-virtual-wan/figure6.png)
+![Connect remote sites to virtual WAN](./media/migrate-from-hub-spoke-topology/figure6.png)
 **Figure 6: VDC hub-and-spoke to virtual WAN migration – Step 3**
 
 At this point on-premises network equipment will begin to receive routes reflecting the IP address space assigned to the virtual WAN-managed hub VNet. Remote VPN-connected branches at this stage will see two paths to any existing applications in the spoke virtual networks. These devices should be configured to continue to use the tunnel to the VDC hub to ensure symmetrical routing during the transition phase.
@@ -112,26 +112,30 @@ At this point on-premises network equipment will begin to receive routes reflect
 
 Prior to utilizing the managed Virtual WAN hub for production connectivity, it is recommended to set up a test spoke virtual network and Virtual WAN VNet connection. Validate that connections to this test environment work via ExpressRoute and Site to Site VPN before continuing with the next steps.
 
-![Test hybrid connectivity via virtual WAN](./media/migrate-to-virtual-wan/figure7.png)
+![Test hybrid connectivity via virtual WAN](./media/migrate-from-hub-spoke-topology/figure7.png)
 **Figure 7: VDC Hub-and-spoke to virtual WAN migration – Step 4**
 
 ### Transition connectivity to virtual WAN hub
 
 
-![Transition connectivity to virtual WAN hub](./media/migrate-to-virtual-wan/figure8.png)
+![Transition connectivity to virtual WAN hub](./media/migrate-from-hub-spoke-topology/figure8.png)
 **Figure 8: VDC hub-and-spoke to virtual WAN migration – Step 5**
 
-1. Delete the existing peering connections from Spoke virtual networks to the old VDC Hub. Access to applications in spoke virtual networks is unavailable until steps 1-3 are complete.  
-2. Connect the spoke virtual networks to the virtual WAN Hub via VNet connections.
-3. Remove any user-defined routes (UDR) previously used within spoke virtual networks for spoke-to-spoke communications. This path is now enabled by dynamic routing available within the virtual WAN hub.
-4. Existing ExpressRoute and VPN Gateways in the VDC hub are now decommissioned to permit step 5.
-5. Connect the old VDC hub (hub virtual network) to the virtual WAN hub via a new VNet connection. 
+**a**. Delete the existing peering connections from Spoke virtual networks to the old VDC Hub. Access to applications in spoke virtual networks is unavailable until steps 1-3 are complete.
+
+**b**. Connect the spoke virtual networks to the virtual WAN Hub via VNet connections.
+
+**c**. Remove any user-defined routes (UDR) previously used within spoke virtual networks for spoke-to-spoke communications. This path is now enabled by dynamic routing available within the virtual WAN hub.
+
+**d**. Existing ExpressRoute and VPN Gateways in the VDC hub are now decommissioned to permit step 5.
+
+**e**. Connect the old VDC hub (hub virtual network) to the virtual WAN hub via a new VNet connection.
 
 ### Old hub becomes Shared Services spoke
 
 We have now redesigned our Azure network to make the virtual WAN hub the central point in our new topology.
 
-![Old hub becomes Shared Services spoke](./media/migrate-to-virtual-wan/figure9.png)
+![Old hub becomes Shared Services spoke](./media/migrate-from-hub-spoke-topology/figure9.png)
 **Figure 9: VDC hub-and-spoke to virtual WAN migration – Step 6**
 
 As the virtual WAN hub is a managed entity and does not allow deployment of custom resources such as virtual machines, the Shared Services block now exists as a spoke virtual network, hosting functions such as internet ingress via Azure Application Gateway or network virtualized appliance. Traffic between the shared services environment and backend virtual machines now transits the virtual WAN-managed hub.
@@ -140,48 +144,106 @@ As the virtual WAN hub is a managed entity and does not allow deployment of cust
 
 At this stage, Contoso has mostly completed their migrations of business applications in into the Microsoft Cloud, with only a few legacy applications remaining within the on-premises DC.
 
-![Optimize on-premises connectivity to fully utilise virtual WAN](./media/migrate-to-virtual-wan/figure10.png)
-****Figure 8: VDC hub-and-spoke to virtual WAN migration – Step 7**
+![Optimize on-premises connectivity to fully utilise virtual WAN](./media/migrate-from-hub-spoke-topology/figure10.png)
+**Figure 10: VDC hub-and-spoke to virtual WAN migration – Step 7**
 
  To leverage the full functionality of Azure virtual WAN, Contoso decides to decommission their legacy on-premises VPN connection. Any branches continuing to access HQ or DC networks are able to transit the Microsoft global network using the built-in transit routing of Azure virtual WAN. ExpressRoute Global Reach is an alternative choice for customers wishing to leverage the Microsoft backbone to complement their existing private WANs.
 
 ## End state architecture and traffic paths
 
 
-![End state architecture and traffic paths](./media/migrate-to-virtual-wan/figure11.png)
+![End state architecture and traffic paths](./media/migrate-from-hub-spoke-topology/figure11.png)
 **Figure 11: Dual region virtual WAN**
 
-The following table provides a summary of how this topology meets the original requirements by looking at some example traffic flows. 
+This section provides a summary of how this topology meets the original requirements by looking at some example traffic flows.
+
+### Path 1
+
+Path 1 describes traffic flow from Asia S2S VPN branch to Azure VNet in South East Asia region.
+
+The traffic is routed as follows:
+- Asia branch is connected via resilient S2S BGP enabled tunnels into South East Asia Virtual WAN Hub.
+- Asia Virtual WAN hub routes traffic locally to connected VNet.
+
+![Flow 1](./media/migrate-from-hub-spoke-topology/flow1.png)
+
+### Path 2
+Path 2 describes traffic flow from ExpressRoute connected European HQ to Azure VNet in South East Asia region.
+
+The traffic is routed as follows:
+- European HQ is connected via standard ExpressRoute circuit into West Europe Virtual WAN Hub.
+- Virtual WAN Hub-to-hub global connectivity enables seamless transit of traffic to VNet connected in remote region.
+
+![Flow 2](./media/migrate-from-hub-spoke-topology/flow2.png)
+
+### Path 3
+Path 3 describes traffic flow from Asia on-premises DC connected to Private WAN to European S2S connected Branch.
+
+The traffic is routed as follows:
+- Asia DC is connected to local Private WAN carrier.
+- ExpressRoute circuit locally terminates in Private WAN connects to South East Asia Virtual WAN Hub.
+- Virtual WAN Hub-to-hub global connectivity enables seamless transit of traffic branch connected to remote Hub in Europe.
+
+![Flow 3](./media/migrate-from-hub-spoke-topology/flow3.png)
 
 
-|Path |Description  |Routing details  |Flow diagram  |
-|---------|---------|---------|---------|
-|1  |   Asia S2S VPN Branch to Azure VNet in South East Asia region       | <ul>- Asia branch is connected via resilient S2S BGP enabled tunnels into South East Asia Virtual WAN Hub.</ul> <ul>- Asia Virtual WAN hub routes traffic locally to connected VNet </ul>        |  ![Flow 1](./media/migrate-to-virtual-wan/flow1.png)       |
-|2    |  ExpressRoute connected European HQ to Azure VNet in South East Asia region        |   <ul>- European HQ is connected via standard ExpressRoute circuit into West Europe Virtual WAN Hub.</ul><ul> - Virtual WAN Hub-to-hub global connectivity enables seamless transit of traffic to VNet connected in remote region.</ul>      |   ![Flow 2](./media/migrate-to-virtual-wan/flow2.png)      |
-|3  |   Asia on-premises DC connected to Private WAN to European S2S connected Branch        | <ul>- Asia DC is connected to local Private WAN carrier.</ul><ul>ExpressRoute circuit locally terminates in Private WAN connects to South East Asia Virtual WAN Hub.</ul><ul>- Virtual WAN Hub-to-hub global connectivity enables seamless transit of traffic branch connected to remote Hub in Europe.</ul>      | ![Flow 3](./media/migrate-to-virtual-wan/flow3.png)      |
-|4    |  Azure VNet in South East Asia region to Azure VNet in West Europe region        |  <ul>- Virtual WAN Hub-to-hub global connectivity enables native transit of all connected Azure VNets without further user config.</ul>        | ![Flow 4](./media/migrate-to-virtual-wan/flow4.png)        |
-|5    |   Roaming VPN (P2S) user to Azure VNet in West Europe region       | <ul>- Laptop and Phone users utilise OpenVPN client for transparent connectivity in to P2S VPN gateway in West Europe.</ul> <ul>- West Europe Virtual WAN hub routes traffic locally to connected VNet.</ul>  |     ![Flow 5](./media/migrate-to-virtual-wan/flow5.png)    |
+### Path 4
+Path 4 describes traffic flow from Azure VNet in South East Asia region to Azure VNet in West Europe region.
 
+The traffic is routed as follows:
+- Virtual WAN Hub-to-hub global connectivity enables native transit of all connected Azure VNets without further user config.
+
+![Flow 4](./media/migrate-from-hub-spoke-topology/flow4.png)
+
+### Path 5
+Path 5 describes traffic flow from roaming VPN (P2S) user to Azure VNet in West Europe region.
+
+The traffic is routed as follows:
+- Laptop and Phone users utilise OpenVPN client for transparent connectivity in to P2S VPN gateway in West Europe.
+- West Europe Virtual WAN hub routes traffic locally to connected VNet.
+
+![Flow 5](./media/migrate-from-hub-spoke-topology/flow5.png)
 
 ## Security and policy control via Azure Firewall
 
 Contoso has now validated connectivity between all branches and VNets in line with the requirements discussed earlier in this document. To meet their requirements for security control and network isolation, they need to continue to separate and log traffic via the Hub network, previously this function was performed by an NVA. Contoso also wants to decommission their existing proxy services and utilise native Azure services for outbound Internet filtering. 
 
-![Security and policy control via Azure Firewall](./media/migrate-to-virtual-wan/figure12.png)
+![Security and policy control via Azure Firewall](./media/migrate-from-hub-spoke-topology/figure12.png)
 **Figure 12: Azure Firewall in Virtual WAN (Secured Virtual Hub)**
 
-The following high-level steps are required to introduce Azure Firewall into the Virtual WAN Hubs to enable a unified point of policy control. This process and the concept of Secure Virtual Hubs are explained in full detail [here](../firewall/index.yml). 
+The following high-level steps are required to introduce Azure Firewall into the Virtual WAN Hubs to enable a unified point of policy control. This process and the concept of Secure Virtual Hubs are explained in full detail [here](https://go.microsoft.com/fwlink/?linkid=2107683). 
 - Create Azure Firewall policy.
 - Link firewall policy to Azure virtual WAN hub.
 The above step allows the existing virtual WAN hub to function as a secured virtual hub, and deploys the required Azure Firewall resources.
 
-The following table describes the connectivity paths enabled by utilizing Azure secured virtual hubs.
+The following paths describe the connectivity paths enabled by utilizing Azure secured virtual hubs.
 
+### Path 6
+Path 6 describes traffic flow from VNet-to-VNet secure transit within the same region.
 
-|Path  |Description |Routing details  |Flow diagram |
-|---------|---------|---------|---------|
-|6    |    VNet-to-VNet secure transit within the same region      |<ul> - Virtual Networks connected to the same Secured Virtual Hub now route traffic to via the Azure Firewall.</ul><ul>- Azure Firewall can apply policy to these flows.</ul>         | ![Flow 6](./media/migrate-to-virtual-wan/flow6.png)|
-|7     |    Vnet-to-Internet or third-party Security Service    |  <ul>  - Virtual Networks connected to the Secure Virtual Hub can send traffic to public, destinations on the Internet, using the Secure Hub as a central point of Internet access</ul> <ul>- This traffic can be filtered locally using Azure Firewall FQDN rules or sent to a third-party security service for inspection.</ul>         |    ![Flow 7](./media/migrate-to-virtual-wan/flow7.png)      |
-|8     |    Branch-to-Internet or third-party Security Service     |   <ul>- Branches connected to the Secure Virtual Hub can send traffic to public destinations on the Internet, using the Secure Hub as a central point of Internet access.</ul><ul>- This traffic can be filtered locally using Azure Firewall FQDN rules or sent to a third-party security service for inspection.</ul>      |  ![Flow 8](./media/migrate-to-virtual-wan/flow8.png)        |
+The traffic is routed as follows:
+- Virtual Networks connected to the same Secured Virtual Hub now route traffic to via the Azure Firewall.
+- Azure Firewall can apply policy to these flows.
+
+![Flow 6](./media/migrate-from-hub-spoke-topology/flow6.png)
+
+### Path 7
+Path 7 describes traffic flow from Vnet-to-Internet or third-party Security Service.
+
+The traffic is routed as follows:
+- Virtual Networks connected to the Secure Virtual Hub can send traffic to public, destinations on the Internet, using the Secure Hub as a central point of Internet access.
+- This traffic can be filtered locally using Azure Firewall FQDN rules or sent to a third-party security service for inspection.
+
+![Flow 7](./media/migrate-from-hub-spoke-topology/flow7.png)
+
+### Path 8
+Path 8 describes traffic flow from branch-to-Internet or third-party Security Service.
+
+The traffic is routed as follows:
+- Branches connected to the Secure Virtual Hub can send traffic to public destinations on the Internet, using the Secure Hub as a central point of Internet access.
+- This traffic can be filtered locally using Azure Firewall FQDN rules or sent to a third-party security service for inspection.
+
+![Flow 8](./media/migrate-from-hub-spoke-topology/flow8.png) 
+
 ## Next steps
 Learn more about [Azure Virtual WAN](virtual-wan-about.md)
