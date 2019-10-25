@@ -512,7 +512,7 @@
 #           href: article-template.md
       - name: Query data in storage
         items:
-        - name: Overview - Query data in storage
+        - name: Overview
           href: ../synapse-analytics/sql-analytics/query-data-in-storage.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Querying single CSV file
           href: ../synapse-analytics/sql-analytics/querying-single-csv-file.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
