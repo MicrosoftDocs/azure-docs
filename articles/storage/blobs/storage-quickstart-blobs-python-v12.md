@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Azure Blob storage client library version 12 for .NET"
-description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for .NET to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
+title: "Quickstart: Azure Blob storage client library version 12 for Python"
+description: In this quickstart, you learn how to use the Azure Blob storage client library version 12 for Python to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: mhopkins-msft
 
 ms.author: mhopkins
@@ -10,11 +10,11 @@ ms.subservice: blobs
 ms.topic: quickstart
 ---
 
-# Quickstart: Azure Blob storage client library version 12 for .NET
+# Quickstart: Azure Blob storage client library version 12 for Python
 
-Get started with the Azure Blob Storage client library v12 for .NET. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
+Get started with the Azure Blob Storage client library v12 for Python. Azure Blob Storage is Microsoft's object storage solution for the cloud. Follow steps to install the package and try out example code for basic tasks. Blob storage is optimized for storing massive amounts of unstructured data.
 
-Use the Azure Blob Storage client library v12 for .NET to:
+Use the Azure Blob Storage client library v12 for Python to:
 
 * Create a container
 * Set permissions on a container
@@ -23,32 +23,32 @@ Use the Azure Blob Storage client library v12 for .NET to:
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](/dotnet/api/overview/azure/storage) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12) | [Samples](/samples/browse/?products=azure&languages=csharp&service=storage&term=blob)
+[API reference documentation](python/api/azure-storage-blob) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (Python Package Index)](https://pypi.org/project/azure-storage-blob/) | [Samples](/samples/browse/?products=azure&languages=python&service=storage&term=blob)
 
 ## Prerequisites
 
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 * Azure Storage account - [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Current [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system. Be sure to get the SDK and not the runtime.
+* Current [Python](https://www.python.org/downloads/) for your operating system.
 
 ## Setting up
 
-This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for .NET.
+This section walks you through preparing a project to work with the Azure Blob Storage client library v12 for Python.
 
 ### Create the project
 
-Create a .NET Core application named *BlobQuickstartV12*.
+Create a Python application named *blob-quickstart-v12*.
 
-1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *BlobQuickstartV12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
+1. In a console window (such as cmd, PowerShell, or Bash), use the `dotnet new` command to create a new console app with the name *blob-quickstart-v12*. This command creates a simple "Hello World" C# project with a single source file: *Program.cs*.
 
    ```console
-   dotnet new console -n BlobQuickstartV12
+   dotnet new console -n blob-quickstart-v12
    ```
 
-2. Switch to the newly created *BlobQuickstartV12* folder and build the app to verify that all is well.
+2. Switch to the newly created *blob-quickstart-v12* folder and build the app to verify that all is well.
 
    ```console
-   cd BlobQuickstartV12
+   cd blob-quickstart-v12
    ```
 
    ```console
@@ -58,12 +58,12 @@ Create a .NET Core application named *BlobQuickstartV12*.
 3. The expected output from the build should look something like this:
 
    ```output
-   C:\quickstarts\BlobQuickstartV12> dotnet build
+   C:\QuickStarts\blob-quickstart-v12> dotnet build
    Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
    Copyright (C) Microsoft Corporation. All rights reserved.
    
-    Restore completed in 42.22 ms for C:\Users\mhopkins\Code\BlobQuickstartV12\BlobQuickstartV12.csproj.
-     BlobQuickstartV12 -> C:\Users\mhopkins\Code\BlobQuickstartV12\bin\Debug\netcoreapp3.0\BlobQuickstartV12.dll
+    Restore completed in 42.22 ms for C:\QuickStarts\blob-quickstart-v12\BlobQuickstartV12.csproj.
+     BlobQuickstartV12 -> C:\QuickStarts\blob-quickstart-v12\bin\Debug\netcoreapp3.0\BlobQuickstartV12.dll
    
    Build succeeded.
        0 Warning(s)
@@ -74,10 +74,10 @@ Create a .NET Core application named *BlobQuickstartV12*.
 
 ### Install the package
 
-While still in the application directory, install the Azure Blob Storage client library for .NET package by using the `dotnet add package` command.
+While still in the application directory, install the Azure Blob Storage client library for Python package by using the `pip install` command.
 
 ```console
-dotnet add package Azure.Storage.Blobs --version 12.0.0-preview.4
+pip install azure-storage-blob --pre
 ```
 
 ### Set up the app framework
@@ -161,7 +161,7 @@ The following diagram shows the relationship between these resources.
 
 ![Diagram of Blob storage architecture](./media/storage-quickstart-blobs-dotnet-v12/blob1.png)
 
-Use the following .NET classes to interact with these resources:
+Use the following Python classes to interact with these resources:
 
 * [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient): The `BlobServiceClient` class allows you to manipulate Azure Storage service resources and blob containers. The storage account provides the top-level namespace for the Blob service.
 * [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient): The `BlobContainerClient` class allows you to manipulate Azure Storage containers and their blobs.
@@ -170,7 +170,7 @@ Use the following .NET classes to interact with these resources:
 
 ## Code examples
 
-These example code snippets show you how to perform the following with the Azure Blob storage client library for .NET:
+These example code snippets show you how to perform the following with the Azure Blob storage client library for Python:
 
    * [Get the connection string](#get-the-connection-string)
    * [Create a container](#create-a-container)
@@ -187,7 +187,7 @@ The code below retrieves the connection string for the storage account from the 
 Add this code inside the `Main` method:
 
 ```csharp
-Console.WriteLine("Azure Blob Storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Blob Storage v12 - Python quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage 
 // connection string is stored in an environment variable on the machine 
@@ -339,7 +339,7 @@ dotnet run
 The output of the example application is similar to the following example:
 
 ```output
-Azure Blob Storage v12 - .NET quickstart sample
+Azure Blob Storage v12 - Python quickstart sample
 
 Uploading to Blob storage as blob:
         https://mystorageacct.blob.core.windows.net/quickstartblobs79c3043b-0b0b-4935-9dc3-308fcb89a616/quickstart230c0fd7-9fa8-4b11-8207-25625b6ec0af.txt
@@ -362,7 +362,7 @@ After you've verified the files, hit any key to finish the demo and delete the t
 
 ## Next steps
 
-In this quickstart, you learned how to upload, download, and list blobs using .NET.
+In this quickstart, you learned how to upload, download, and list blobs using Python.
 
 To learn how to create a web app that uploads an image to Blob storage, continue to:
 

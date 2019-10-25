@@ -23,7 +23,7 @@ Use the Azure Blob Storage client library v12 for .NET to:
 * List all of the blobs in a container
 * Delete a container
 
-[API reference documentation](/dotnet/api/overview/azure/storage) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12) | [Samples](/samples/browse/?products=azure&languages=csharp&service=storage&term=blob)
+[API reference documentation](dotnet/api/azure.storage.blobs) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs/12) | [Samples](/samples/browse/?products=azure&languages=csharp&service=storage&term=blob)
 
 ## Prerequisites
 
@@ -62,8 +62,8 @@ Create a .NET Core application named *BlobQuickstartV12*.
    Microsoft (R) Build Engine version 16.3.0+0f4c62fea for .NET Core
    Copyright (C) Microsoft Corporation. All rights reserved.
    
-    Restore completed in 42.22 ms for C:\Users\mhopkins\Code\BlobQuickstartV12\BlobQuickstartV12.csproj.
-     BlobQuickstartV12 -> C:\Users\mhopkins\Code\BlobQuickstartV12\bin\Debug\netcoreapp3.0\BlobQuickstartV12.dll
+    Restore completed in 42.22 ms for C:\quickstarts\BlobQuickstartV12\BlobQuickstartV12.csproj.
+     BlobQuickstartV12 -> C:\quickstarts\BlobQuickstartV12\bin\Debug\netcoreapp3.0\BlobQuickstartV12.dll
    
    Build succeeded.
        0 Warning(s)
