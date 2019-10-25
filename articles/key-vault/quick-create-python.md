@@ -99,7 +99,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### Set environmental variables
 
-The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. use set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step, above. Use the `export VARNAME=VALUE` format top set your environmental variables. (Note that this only sets the variables for your current shell and processes created from theatg shell; to perminently add these variables to your environment, edit your `/etc/) 
+The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. use set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step, above. Use the `export VARNAME=VALUE` format to set your environmental variables. (This only sets the variables for your current shell and processes created from the shell; to permanently add these variables to your environment, edit your `/etc/) 
 
 You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`.
 
