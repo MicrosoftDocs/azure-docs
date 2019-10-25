@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
-description: Troubleshooting Azure Synapse Analytics (formerly SQL DW).
+title: Troubleshooting Azure SQL Data Warehouse | Microsoft Docs
+description: Troubleshooting Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -12,24 +12,24 @@ ms.author: kevin
 ms.reviewer: igorstan
 ---
 
-# Troubleshooting Azure Synapse Analytics (formerly SQL DW)
-This article lists common troubleshooting questions.
+# Troubleshooting Azure SQL Data Warehouse
+This article lists common troubleshooting question.
 
 ## Connecting
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Error: 18456) | This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue, either specify the data warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
-| The server principal "MyUserName" is not able to access the database "master" under the current security context. Cannot open user default database. Login failed. Login failed for user 'MyUserName'. (Microsoft SQL Server, Error: 916) | This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue, either specify the data warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
-| CTAIP error                                                  | This error can occur when a login has been created on the SQL server master database, but not in the database.  If you encounter this error, take a look at the [Security overview][Security overview] article.  This article explains how to create a login and user on master, and then how to create a user in the database. |
+| Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON'. (Microsoft SQL Server, Error: 18456) | This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue, either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
+| The server principal "MyUserName" is not able to access the database "master" under the current security context. Cannot open user default database. Login failed. Login failed for user 'MyUserName'. (Microsoft SQL Server, Error: 916) | This error occurs when an AAD user tries to connect to the master database, but does not have a user in master.  To correct this issue, either specify the SQL Data Warehouse you wish to connect to at connection time or add the user to the master database.  See [Security overview][Security overview] article for more details. |
+| CTAIP error                                                  | This error can occur when a login has been created on the SQL server master database, but not in the SQL Data Warehouse database.  If you encounter this error, take a look at the [Security overview][Security overview] article.  This article explains how to create a login and user on master, and then how to create a user in the SQL Data Warehouse database. |
 | Blocked by Firewall                                          | Azure SQL databases are protected by server and database level firewalls to ensure only known IP addresses have access to a database. The firewalls are secure by default, which means that you must explicitly enable and IP address or range of addresses before you can connect.  To configure your firewall for access, follow the steps in [Configure server firewall access for your client IP][Configure server firewall access for your client IP] in the [Provisioning instructions][Provisioning instructions]. |
-| Cannot connect with tool or driver                           | We recommend using [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio], or [sqlcmd][sqlcmd] to query your data. For more information on drivers and connecting to SQL end points, see [Drivers for SQL end points][Drivers for SQL end points] and [Connect to SQL end points][Connect to SQL end points] articles. |
+| Cannot connect with tool or driver                           | SQL Data Warehouse recommends using [SSMS][SSMS], [SSDT for Visual Studio][SSDT for Visual Studio], or [sqlcmd][sqlcmd] to query your data. For more information on drivers and connecting to SQL Data Warehouse, see [Drivers for Azure SQL Data Warehouse][Drivers for Azure SQL Data Warehouse] and [Connect to Azure SQL Data Warehouse][Connect to Azure SQL Data Warehouse] articles. |
 
 ## Tools
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
-| Visual Studio object explorer is missing AAD users           | This is a known issue.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure Synapse Analytics][Authentication to Azure Synapse Analytics] to learn more about using Azure Active Directory with Azure Synapse Analytics. |
+| Visual Studio object explorer is missing AAD users           | This is a known issue.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] to learn more about using Azure Active Directory with SQL Data Warehouse. |
 | Manual scripting, using the scripting wizard, or connecting via SSMS is slow, not responding, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
-| Generate scripts fails in SSMS                               | Generating a script for a [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pools) object fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
+| Generate scripts fails in SSMS                               | Generating a script for SQL Data Warehouse fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
 
 ## Performance
 | Issue                                                        | Resolution                                                   |
@@ -37,8 +37,8 @@ This article lists common troubleshooting questions.
 | Query performance troubleshooting                            | If you are trying to troubleshoot a particular query, start with [Learning how to monitor your queries][Learning how to monitor your queries]. |
 | Poor query performance and plans often is a result of missing statistics | The most common cause of poor performance is lack of statistics on your tables.  See [Maintaining table statistics][Statistics] for details on how to create statistics and why they are critical to your performance. |
 | Low concurrency / queries queued                             | Understanding [Workload management][Workload management] is important in order to understand how to balance memory allocation with concurrency. |
-| How to implement best practices                              | The best place to start to learn ways to improve query performance is [Azure Synapse Analytics best practices][Azure Synapse Analytics best practices] article. |
-| How to improve performance with scaling                      | Sometimes the solution to improving performance is to simply add more compute power to your queries by [Scaling your data warehouse][Scaling your data warehouse]. |
+| How to implement best practices                              | The best place to start to learn ways to improve query performance is [SQL Data Warehouse best practices][SQL Data Warehouse best practices] article. |
+| How to improve performance with scaling                      | Sometimes the solution to improving performance is to simply add more compute power to your queries by [Scaling your SQL Data Warehouse][Scaling your SQL Data Warehouse]. |
 | Poor query performance as a result of poor index quality     | Some times queries can slow down because of [Poor columnstore index quality][Poor columnstore index quality].  See this article for more information and how to [Rebuild indexes to improve segment quality][Rebuild indexes to improve segment quality]. |
 
 ## System management
@@ -78,16 +78,16 @@ For more help in finding solution to your issue, here are some other resources y
 [Security overview]: sql-data-warehouse-overview-manage-security.md
 [SSMS]: /sql/ssms/download-sql-server-management-studio-ssms
 [SSDT for Visual Studio]: sql-data-warehouse-install-visual-studio.md
-[Drivers for Azure Synapse Analytics]: sql-data-warehouse-connection-strings.md
-[Connect to SQL end points]: sql-data-warehouse-connect-overview.md
+[Drivers for Azure SQL Data Warehouse]: sql-data-warehouse-connection-strings.md
+[Connect to Azure SQL Data Warehouse]: sql-data-warehouse-connect-overview.md
 [Create support ticket]: sql-data-warehouse-get-started-create-support-ticket.md
-[Scaling your data warehouse]: sql-data-warehouse-manage-compute-overview.md
+[Scaling your SQL Data Warehouse]: sql-data-warehouse-manage-compute-overview.md
 [DWU]: sql-data-warehouse-overview-what-is.md
 [request a quota increase]: sql-data-warehouse-get-started-create-support-ticket.md
 [Learning how to monitor your queries]: sql-data-warehouse-manage-monitor.md
 [Provisioning instructions]: sql-data-warehouse-get-started-provision.md
 [Configure server firewall access for your client IP]: sql-data-warehouse-get-started-provision.md
-[Azure Synapse Analytics best practices]: sql-data-warehouse-best-practices.md
+[SQL Data Warehouse best practices]: sql-data-warehouse-best-practices.md
 [Table sizes]: sql-data-warehouse-tables-overview.md#table-size-queries
 [Unsupported table features]: sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
@@ -106,7 +106,7 @@ For more help in finding solution to your issue, here are some other resources y
 [DELETE workarounds]: sql-data-warehouse-develop-ctas.md#ansi-join-replacement-for-delete-statements
 [MERGE workarounds]: sql-data-warehouse-develop-ctas.md#replace-merge-statements
 [Stored procedure limitations]: sql-data-warehouse-develop-stored-procedures.md#limitations
-[Authentication to Azure Synapse Analytics]: sql-data-warehouse-authentication.md
+[Authentication to Azure SQL Data Warehouse]: sql-data-warehouse-authentication.md
 
 
 <!--MSDN references-->

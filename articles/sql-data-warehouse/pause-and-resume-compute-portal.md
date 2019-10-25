@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Pause and resume compute in Azure Synapse Analytics (formerly SQL DW) - Azure portal | Microsoft Docs'
-description: Use the Azure portal to pause compute in Azure Synapse Analytics (formerly SQL DW) to save costs. Resume compute when you are ready to use the data warehouse.
+title: 'Quickstart: Pause and resume compute in Azure SQL Data Warehouse - Azure portal | Microsoft Docs'
+description: Use the Azure portal to pause compute in Azure SQL Data Warehouse to save costs. Resume compute when you are ready to use the data warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,9 +11,9 @@ ms.date: 04/18/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ---
-# Quickstart: Pause and resume compute for Azure Synapse Analytics (formerly SQL DW) in the Azure portal
+# Quickstart: Pause and resume compute for an Azure SQL Data Warehouse in the Azure portal
 
-Use the Azure portal to pause compute in your data warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
+Use the Azure portal to pause compute in Azure SQL Data Warehouse to save costs. [Resume compute](sql-data-warehouse-manage-compute-overview.md) when you are ready to use the data warehouse.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -29,7 +29,7 @@ Use [Create and Connect - portal](create-data-warehouse-portal.md) to create a d
 
 To save costs, you can pause and resume compute resources on-demand. For example, if you won't be using the database during the night and on weekends, you can pause it during those times, and resume it during the day. You won't be charged for compute resources while the database is paused. However, you will continue to be charged for storage. 
 
-Follow these steps to pause a data warehouse.
+Follow these steps to pause a SQL Data Warehouse.
 
 1. Click **SQL databases** in the left page of the Azure portal.
 2. Select **mySampleDataWarehouse** from the **SQL databases** page. This opens the data warehouse. 
@@ -51,7 +51,7 @@ Follow these steps to pause a data warehouse.
 
 ## Resume compute
 
-Follow these steps to resume your data warehouse.
+Follow these steps to resume a SQL Data Warehouse.
 
 1. Click **SQL databases** in the left page of the Azure portal.
 2. Select **mySampleDataWarehouse** from the **SQL databases** page. This opens the data warehouse. 
@@ -94,7 +94,7 @@ Follow these steps to clean up resources as you desire.
 
 ## Next steps
 
-You have now paused and resumed compute for your data warehouse. To learn more about Azure Synapse Analytics, continue to the tutorial for loading data.
+You have now paused and resumed compute for your data warehouse. To learn more about Azure SQL Data Warehouse, continue to the tutorial for loading data.
 
 > [!div class="nextstepaction"]
-> [Load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md)
+> [Load data into a SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

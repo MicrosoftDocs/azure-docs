@@ -1,6 +1,6 @@
 ---
-title: Designing tables - Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
-description: Introduction to designing tables in Azure Synapse Analytics (formerly SQL DW). 
+title: Designing tables - Azure SQL Data Warehouse | Microsoft Docs
+description: Introduction to designing tables in Azure SQL Data Warehouse. 
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -12,9 +12,9 @@ ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
-# Designing tables in Azure Synapse Analytics (formerly SQL DW)
+# Designing tables in Azure SQL Data Warehouse
 
-Learn key concepts for designing tables in Azure Synapse Analytics. 
+Learn key concepts for designing tables in Azure SQL Data Warehouse. 
 
 ## Determine table category 
 
@@ -27,15 +27,15 @@ A [star schema](https://en.wikipedia.org/wiki/Star_schema) organizes data into f
 - **Integration tables** provide a place for integrating or staging data. You can create an integration table as a regular table, an external table, or a temporary table. For example, you can load data to a staging table, perform transformations on the data in staging, and then insert the data into a production table.
 
 ## Schema and table names
-Schemas are a good way to group tables, used in a similar fashion, together.  If you are migrating multiple databases from an on-prem solution to SQL Analytics tables, it works best to migrate all of the fact, dimension, and integration tables to one schema. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called wwi. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
+Schemas are a good way to group tables, used in a similar fashion, together.  If you are migrating multiple databases from an on-prem solution to SQL Data Warehouse, it works best to migrate all of the fact, dimension, and integration tables to one schema in SQL Data Warehouse. For example, you could store all the tables in the [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) sample data warehouse within one schema called wwi. The following code creates a [user-defined schema](/sql/t-sql/statements/create-schema-transact-sql) called wwi.
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-To show the organization of the tables, you could use fact, dim, and int as prefixes to the table names. The following table shows some of the schema and table names for WideWorldImportersDW.  
+To show the organization of the tables in SQL Data Warehouse, you could use fact, dim, and int as prefixes to the table names. The following table shows some of the schema and table names for WideWorldImportersDW.  
 
-| WideWorldImportersDW table  | Table type | Table name |
+| WideWorldImportersDW table  | Table type | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
 | City | Dimension | wwi.DimCity |
 | Order | Fact | wwi.FactOrder |
@@ -43,7 +43,7 @@ To show the organization of the tables, you could use fact, dim, and int as pref
 
 ## Table persistence 
 
-Tables store data either permanently in Azure Storage, temporarily in Azure Storage, or in a data store external to the data warehouse.
+Tables store data either permanently in Azure Storage, temporarily in Azure Storage, or in a data store external to data warehouse.
 
 ### Regular table
 
@@ -57,13 +57,13 @@ CREATE TABLE MyTable (col1 int, col2 int );
 A temporary table only exists for the duration of the session. You can use a temporary table to prevent other users from seeing temporary results and also to reduce the need for cleanup.  Temporary tables utilize local storage to offer fast performance.  For more information, see  [Temporary tables](sql-data-warehouse-tables-temporary.md).
 
 ### External table
-An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into the data warehouse. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
+An external table points to data located in Azure Storage blob or Azure Data Lake Store. When used in conjunction with the CREATE TABLE AS SELECT statement, selecting from an external table imports data into SQL Data Warehouse. External tables are therefore useful for loading data. For a loading tutorial, see [Use PolyBase to load data from Azure blob storage](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## Data types
-Most common data types are supported. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For guidance on using data types, see [Data types](sql-data-warehouse-tables-data-types.md).
+SQL Data Warehouse supports the most commonly used data types. For a list of the supported data types, see [data types in CREATE TABLE reference](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) in the CREATE TABLE statement. For guidance on using data types, see [Data types](sql-data-warehouse-tables-data-types.md).
 
 ## Distributed tables
-A fundamental feature of massively parallel processing (MPP) is being able to store and operate on tables across [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  Three methods for distributing data are supported, round-robin (default), hash and replicated.
+A fundamental feature of SQL Data Warehouse is the way it can store and operate on tables across [distributions](massively-parallel-processing-mpp-architecture.md#distributions).  SQL Data Warehouse supports three methods for distributing data, round-robin (default), hash and replicated.
 
 ### Hash-distributed tables
 A hash distributed table distributes rows based on the value in the distribution column. A hash distributed table is designed to achieve high performance for queries on large tables. There are several factors to consider when choosing a distribution column. 
@@ -90,14 +90,14 @@ The table category often determines which option to choose for distributing the 
 | Staging        | Use round-robin for the staging table. The load with CTAS is fast. Once the data is in the staging table, use INSERT...SELECT to move the data to production tables. |
 
 ## Table partitions
-A partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. You can also maintain the data through partition switching. Since the data is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](sql-data-warehouse-tables-partition.md).  When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) statement if the existing data is to be truncated. The below code switches in the transformed daily data into the SalesFact overwriting any existing data. 
+A partitioned table stores and performs operations on the table rows according to data ranges. For example, a table could be partitioned by day, month, or year. You can improve query performance through partition elimination, which limits a query scan to data within a partition. You can also maintain the data through partition switching. Since the data in SQL Data Warehouse is already distributed, too many partitions can slow query performance. For more information, see [Partitioning guidance](sql-data-warehouse-tables-partition.md).  When partition switching into table partitions that are not empty, consider using the TRUNCATE_TARGET option in your [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) statement if the existing data is to be truncated. The below code switches in the transformed daily data into the SalesFact overwriting any existing data. 
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
 ```
 
 ## Columnstore indexes
-By default, tables are stored as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.  A heap table can be especially useful for loading transient data, such as a staging table which is transformed into a final table.
+By default, SQL Data Warehouse stores a table as a clustered columnstore index. This form of data storage achieves high data compression and query performance on large tables.  The clustered columnstore index is usually the best choice, but in some cases a clustered index or a heap is the appropriate storage structure.  A heap table can be especially useful for loading transient data, such as a staging table which is transformed into a final table.
 
 For a list of columnstore features, see [What's new for columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). To improve columnstore index performance, see [Maximizing rowgroup quality for columnstore indexes](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
 
@@ -113,7 +113,7 @@ You can create a table as a new empty table. You can also create and populate a 
 | T-SQL Statement | Description |
 |:----------------|:------------|
 | [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Creates an empty table by defining all the table columns and options. |
-| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Creates an external table. The definition of the table is stored in the data warehouse. The table data is stored in Azure Blob storage or Azure Data Lake Store. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Creates an external table. The definition of the table is stored in SQL Data Warehouse. The table data is stored in Azure Blob storage or Azure Data Lake Store. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) | Populates a new table with the results of a select statement. The table columns and data types are based on the select statement results. To import data, this statement can select from an external table. |
 | [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | Creates a new external table by exporting the results of a select statement to an external location.  The location is either Azure Blob storage or Azure Data Lake Store. |
 
@@ -121,10 +121,10 @@ You can create a table as a new empty table. You can also create and populate a 
 
 Data warehouse tables are populated by loading data from another data source. To perform a successful load, the number and data types of the columns in the source data must align with the table definition in the data warehouse. Getting the data to align might be the hardest part of designing your tables. 
 
-If data is coming from multiple data stores, you can bring the data into the data warehouse and store it in an integration table. Once data is in the integration table, you can use the power of the MPP architecture to perform transformation operations. Once the data is prepared, you can insert it into production tables.
+If data is coming from multiple data stores, you can bring the data into the data warehouse and store it in an integration table. Once data is in the integration table, you can use the power of SQL Data Warehouse to perform transformation operations. Once the data is prepared, you can insert it into production tables.
 
 ## Unsupported table features
-The following list shows some of the table features that are not supported.
+SQL Data Warehouse supports many, but not all, of the table features offered by other databases.  The following list shows some of the table features that are not supported in SQL Data Warehouse.
 
 - Foreign key, Check [Table Constraints](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
 - [Computed Columns](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
@@ -337,4 +337,4 @@ ORDER BY    distribution_id
 ```
 
 ## Next steps
-After creating the tables for your data warehouse, the next step is to load data into the tables.  For a loading tutorial, see [Loading data](load-data-wideworldimportersdw.md).
+After creating the tables for your data warehouse, the next step is to load data into the table.  For a loading tutorial, see [Loading data to SQL Data Warehouse](load-data-wideworldimportersdw.md).

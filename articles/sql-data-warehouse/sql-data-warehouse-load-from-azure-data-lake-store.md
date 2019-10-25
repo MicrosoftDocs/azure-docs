@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial Load from Azure Data Lake Storage to Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs'
-description: Use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Analytics (formerly SQL DW).
+title: 'Tutorial Load from Azure Data Lake Storage to Azure SQL Data Warehouse | Microsoft Docs'
+description: Use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -12,13 +12,13 @@ ms.author: kevin
 ms.reviewer: igorstan
 ---
 
-# Load data from Azure Data Lake Storage to Azure Synapse Analytics (formerly SQL DW)
-Use PolyBase external tables to load data from Azure Data Lake Storage into [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pools) tables. Although you can run ad hoc queries on data stored in Data Lake Storage, we recommend importing the data into SQL Analytics tables for best performance.
+# Load data from Azure Data Lake Storage to SQL Data Warehouse
+Use PolyBase external tables to load data from Azure Data Lake Storage into Azure SQL Data Warehouse. Although you can run adhoc queries on data stored in Data Lake Storage, we recommend importing the data into the SQL Data Warehouse for best performance.
 
 > [!div class="checklist"]
 > * Create database objects required to load from Data Lake Storage.
 > * Connect to a Data Lake Storage directory.
-> * Load data into tables.
+> * Load data into Azure SQL Data Warehouse.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -185,7 +185,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## Optimize columnstore compression
-By default, tables are stored as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There's a variety of reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
+By default, SQL Data Warehouse stores the table as a clustered columnstore index. After a load completes, some of the data rows might not be compressed into the columnstore.  There's a variety of reasons why this can happen. To learn more, see [manage columnstore indexes](sql-data-warehouse-tables-index.md).
 
 To optimize query performance and columnstore compression after a load, rebuild the table to force the columnstore index to compress all the rows.
 
@@ -203,7 +203,7 @@ If you decide to create single-column statistics on every column of every table,
 The following example is a good starting point for creating statistics. It creates single-column statistics on each column in the dimension table, and on each joining column in the fact tables. You can always add single or multi-column statistics to other fact table columns later on.
 
 ## Achievement unlocked!
-You have successfully loaded data. Great job!
+You have successfully loaded data into Azure SQL Data Warehouse. Great job!
 
 ## Next steps 
 In this tutorial, you created external tables to define the structure for data stored in Data Lake Storage Gen1, and then used the PolyBase CREATE TABLE AS SELECT statement to load data into your data warehouse. 
@@ -212,10 +212,10 @@ You did these things:
 > [!div class="checklist"]
 > * Created database objects required to load from Data Lake Storage Gen1.
 > * Connected to a Data Lake Storage Gen1 directory.
-> * Loaded data.
+> * Loaded data into Azure SQL Data Warehouse.
 >
 
-Loading data is the first step to developing a data warehouse solution. Check out our development resources.
+Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources.
 
 > [!div class="nextstepaction"]
-> [Learn how to develop tables in Azure Synapse Analytics](sql-data-warehouse-tables-overview.md)
+> [Learn how to develop tables in SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
