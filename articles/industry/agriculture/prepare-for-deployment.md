@@ -106,7 +106,7 @@ Use the following steps to run the AAD application registration script:
 
 3. Launch Cloud Shell from the top navigation of the Azure portal.
 
-    ![Project Farm Beats](./media/prepare-for-deployment/navigation-bar.png)
+    ![Project Farm Beats](./media/prepare-for-deployment/navigation-bar-1.png)
 
 
 4. First-time users will be prompted to select a subscription to create a storage account and Microsoft Azure Files share. Select **Create storage**.
@@ -115,7 +115,7 @@ Use the following steps to run the AAD application registration script:
 
 6. In Cloud Shell enter the below commands to run the script.
 
-   ![Project Farm Beats](./media/prepare-for-deployment/command-line.png)
+   ![Project Farm Beats](./media/prepare-for-deployment/command-line-1.png)
 
 7. Make note of the AAD application ID and client secret to share with the person deploying Azure FarmBeats.
 
@@ -139,7 +139,7 @@ Use these steps to create Azure FarmBeats offer on the marketplace:
   **Location**: Central US, West Europe, East US 2, North Europe, West US, Southeast Asia, East US, Australia East, West US 2.
 
 
-  ![Project Farm Beats](./media/prepare-for-deployment/create-farm-beats-on-market-place.png)
+  ![Project Farm Beats](./media/prepare-for-deployment/create-farm-beats-on-market-place-1.png)
 
 1. Select **OK**, which redirects you to the Terms of use page. Review the standard marketplace terms or review the Azure FarmBeats specific Terms of Use hyperlink.
 
@@ -218,7 +218,7 @@ will be done via Azure Cloud Shell (Browser-based command line) using Bash envir
 
 2. Launch **Cloud Shell** from the top navigation of the **Azure** portal.
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/navigation-bar.png)
+   ![Project Farm Beats](./media/deploy-within-cloudshell/navigation-bar-1.png)
 
 3. Select a subscription to create a storage account and Microsoft Azure Files share.
 
@@ -227,13 +227,13 @@ will be done via Azure Cloud Shell (Browser-based command line) using Bash envir
 5. Select the environment drop-down from the left-hand side of shell window, which says **Bash**.
 
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/bash-1.png)
+   ![Project Farm Beats](./media/deploy-within-cloudshell/bash-1-1.png)
 
 #### Deployment scenario 1- Installer creates the AAD (you have AD tenant read permissions)  
 
 Download the input json file from this link: https://aka.ms/PPInputJsonTemplate:
 
-![Project Farm Beats](./media/deploy-within-cloudshell/deploy-scenario-1.png)
+![Project Farm Beats](./media/deploy-within-cloudshell/deploy-scenario-1-1.png)
 
 1. Open the downloaded file in a notepad and pPopulate the file by entering the values.
 
@@ -244,15 +244,15 @@ Download the input json file from this link: https://aka.ms/PPInputJsonTemplate:
 
 3. Go to Azure Cloud Shell and once again you're successfully authenticated, select the upload button (see highlighted icon in below snip) and upload the input.json file to Cloud Shellstorage. You need not pass the Azure Active Directory (AAD) parameter within the json as installer will be creating and configuring the AAD app registration for you.
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2.png)
+   ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2-1.png)
 
 4. Type or paste the “Deployment Command” into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.  
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-screnario-1-1.png)
+   ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-screnario-1-1-1.png)
 
    The script automatically downloads all dependencies, builds the deployer. Then you'll be prompted to agree to Azure FarmBeats End-user license agreement (ELUA)
 
-    ![Project Farm Beats](./media/deploy-within-cloudshell/bash-1.png)
+    ![Project Farm Beats](./media/deploy-within-cloudshell/bash-1-1.png)
 
 #### Deployment scenario 1- Installer creates the AAD (you have AD tenant read permissions)  
 
@@ -294,7 +294,7 @@ Download the input json file from this link: https://aka.ms/PPInputJsonTemplate:
   2. Save the file and make a note of the path (on your local computer).    
   3. Go to Azure CloudShell and once again you are successfully authenticated, click **Upload** (see highlighted icon in below screen) and upload the input.json file to Cloudshell storage. You need not pass the Azure Active Directory (AAD) parameter within the json as installer will be creating and configuring the AAD app registration for you.
 
-    ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2.png)
+    ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2-1.png)
 
   4. Type or paste the “Deployment Command” into the CloudShell. Make sure to modify the path to input. Json file and press enter.  
 
@@ -353,13 +353,13 @@ wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
 1. Download input json from here: https://aka.ms/PPInputJsonTemplate
    Include the Azure Application Client ID and password within the input.json, save it.
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-scenario-2.png)
+   ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-scenario-2-1.png)
 
 2. Make note of the path to your input.json file (on your local computer).
 3. Go to Azure Cloud Shell once again and once you're successfully authenticated, select the upload button (see highlighted icon in below snip) and upload the input.json file to Cloud Shell storage.
 
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2.png)
+   ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2-1.png)
 
 4. Type or paste the *Deployment Command* into the Cloud Shell. Make sure to modify the path to input. Json file and press enter.
 
@@ -384,7 +384,7 @@ wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
 5.	Make note of the path to your input.json file (on your local computer).
 6.	Go to Azure CloudShell once again and once you are successfully authenticated, click **Upload** (see highlighted icon in below snip) and upload the input.json file to     CloudShell  storage.
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-screnario-1-1.png)
+   ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-screnario-1-1-1.png)
 
 7. The script automatically downloads all dependencies, builds the deployer.
 
@@ -455,7 +455,7 @@ The steps for upgrade are similar to the first-time installation as the followin
 
 2. Launch Cloud Shell from the top navigation of the Azure portal.
 
-   ![Project Farm Beats](./media/deploy-within-cloudshell/navigation-bar.png)
+   ![Project Farm Beats](./media/deploy-within-cloudshell/navigation-bar-1.png)
 
 3. Select a subscription to create a storage account and Microsoft Azure Files share.
 

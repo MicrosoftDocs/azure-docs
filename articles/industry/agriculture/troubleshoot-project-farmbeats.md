@@ -18,7 +18,7 @@ If you are facing challenges during deployment please refer to the below list of
 
 1. Click the highlighted icon and click **Download** option from the drop-down.
 
-  ![Project Farm Beats](./media/troubleshooting-farmbeats/download-deployer-log.png)
+  ![Project Farm Beats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
 
 2. On the next screen enter the path to your deployer.log file. For example farmbeats-deployer.log.
 
@@ -152,7 +152,7 @@ If the error still persists, please add the error in a post on the FarmBeats for
 If you have already been added and are facing this error, please try again by refreshing the page.  
 If the error still persists, please add the error in a post on the FarmBeats forum or contact (**FarmBeatsSupport@microsoft.com)**
 
-![Project Farm Beats](./media/troubleshooting-farmbeats/accelerator-troubleshooting.png)
+![Project Farm Beats](./media/troubleshooting-farmbeats/accelerator-troubleshooting-1.png)
 
 **Accelerator - An unknown error occurred**  
 
@@ -244,7 +244,7 @@ This issue can occur if any maintenance activities are being done on Sentinel Se
 11.	Select the location to download the logs to a local folder on your machine.
 12.	Email the downloaded zip file to farmbeatssupport@microsoft.com
 
-![Project Farm Beats](./media/troubleshooting-farmbeats/collecting-logs-manually.png)
+![Project Farm Beats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
 
 ### How to collect Accelerator ADF Job Logs
 

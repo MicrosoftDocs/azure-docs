@@ -50,7 +50,7 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 2.	Click **MyFarm** and click **Add Devices**.
 3.	The **Add Devices** window displays. Select the device(s) that are linked to the soil moisture sensors for MyFarm.
 
-  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices.png)
+  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/add-devices-1.png)
 
 4. Click **Add Devices**.     
 
@@ -67,7 +67,7 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 
   To find the sensor measure, go to Sensors, click any soil moisture sensor, under ‘Sensor Properties’ section use the value listed against ‘Measure Name’
 
-  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture.png)
+  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/soil-moisture-1.png)
 
 
 7.	Click **Generate Maps**.
@@ -84,7 +84,7 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 5.	Click **Download** drop-down menu to select the download format.
   The map is downloaded and stored to the local folder of your computer.
 
-  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map.png)
+  ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)
 
 ## Next steps
 

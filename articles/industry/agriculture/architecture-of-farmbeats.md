@@ -11,7 +11,7 @@ ms.author: v-umha
 
 Azure FarmBeats is a business-to-business offering available in Azure Marketplace that enables (a) aggregation of agriculture datasets across providers, and (b) generation of actionable insights by building Artificial Intelligence (AI) or Machine Learning (ML) models by fusing the datasets.
 
-![Project Farm Beats](./media/architecture-for-farmbeats/farmbeats-architecture.png)
+![Project Farm Beats](./media/architecture-for-farmbeats/farmbeats-architecture-1.png)
 
 The following sections describe the integration pattern for Azure FarmBeats.
 

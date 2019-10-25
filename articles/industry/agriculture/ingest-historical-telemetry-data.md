@@ -34,20 +34,20 @@ Follow the below steps to generate the above values:
 1. Download this script (add link here. awaiting SMEs inputs) and extract it in on your local drive. You will find two files inside the ZIP file.
 2. Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top-right bar of the portal)  
 
-  ![Project Farm Beats](./media/for-tutorials/navigation-bar.png)
+  ![Project Farm Beats](./media/for-tutorials/navigation-bar-1.png)
 
 3. Ensure the environment is set to **PowerShell**.
 
-  ![Project Farm Beats](./media/for-tutorials/power-shell-new.png)
+  ![Project Farm Beats](./media/for-tutorials/power-shell-new-1.png)
 
 4. Upload the two files that you downloaded (from step 1 above) in your CloudShell.  
 
-  ![Project Farm Beats](./media/for-tutorials/power-shell-two.png)
+  ![Project Farm Beats](./media/for-tutorials/power-shell-two-1.png)
 
 5. Go to the directory where the files were uploaded (By default it gets uploaded to the home directory *</home<username>*
 6. Run the script by using the command:  *<./generateCredentials.ps1>*
 
-  ![Project Farm Beats](./media/for-tutorials/power-shell-generate-credentials.png)
+  ![Project Farm Beats](./media/for-tutorials/power-shell-generate-credentials-1.png)
 
 7. Follow the onscreen instructions
 

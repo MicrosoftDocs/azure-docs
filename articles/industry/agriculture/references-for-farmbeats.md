@@ -88,7 +88,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 For REST **GET** calls, you can filter, limit the size of, and sort the data in an API response by including one or more query parameters on the request URI. For the query parameters, refer to the API documentation and see the individual GET calls.
 For example, when querying the list of Devices (GET call on /Device), following query parameters can be specified:  
 
-![Project Farm Beats](./media/for-references/query-parameters-device.png)
+![Project Farm Beats](./media/for-references/query-parameters-device-1.png)
 
 **Error Handling**
 

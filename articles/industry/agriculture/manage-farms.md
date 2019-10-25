@@ -21,7 +21,7 @@ Follow the steps:
     > [!NOTE]
     > The Farms page displays the list of farms in case they have already been created in subscription.
 
-    ![Project Farm Beats](./media/create-farms/create-farm-main-page.png)
+    ![Project Farm Beats](./media/create-farms/create-farm-main-page-1.png)
 
   2. Select **Create Farm** and provide **Name**, **Crops** and **Address**.
   3. In the **Define Farm Boundary**, select either **Mark on Map** or **Paste GeoJSON code**, which is a mandatory field.
@@ -30,11 +30,11 @@ Follow the steps:
 
     1.	**Mark on Map**: Use the map control tool to draw and mark the boundary of the farm. To mark the boundaries, click ![Project Farm Beats](./media/create-farms/pencil-icon.png) and mark the exact boundaries.
 
-      ![Project Farm Beats](./media/create-farms/create-farm-mark-on-map.png)
+      ![Project Farm Beats](./media/create-farms/create-farm-mark-on-map-1.png)
 
     2.	**Paste GeoJson Code**: The GeoJSON is a format for encoding geographical data structures, using JavaScript Object Notation (JSON). This option displays a text box where a GeoJSON string can be entered to mark the farm boundaries. You can also create GeoJSON code from GeoJSON.io.
 
-      ![Project Farm Beats](./media/create-farms/create-new-farm.png)
+      ![Project Farm Beats](./media/create-farms/create-new-farm-1.png)
 
     3.	Use the tooltips to help fill in the information.
     4.	Click **Submit** to create a farm. A new farm is created and displayed in the Farms page.
@@ -56,7 +56,7 @@ Follow the steps:
   1.	Select a farm to view and edit the farm.
   2.	Click **Edit Farm** to edit the farm information. In the **Farm Details** window, you can edit **Name**, **Crops**, **Address**, and **Farm Boundary** fields.
 
-    ![Project Farm Beats](./media/create-farms/edit-farm.png)
+    ![Project Farm Beats](./media/create-farms/edit-farm-1.png)
 
   3.	Click **Submit** to save the details edited.
 
@@ -66,7 +66,7 @@ Follow the steps:
   1.	Select a farm from the list to delete farm details.
   2.	Click **Delete Farm** to delete the farm.
 
-    ![Project Farm Beats](./media/create-farms/delete-farm.png)
+    ![Project Farm Beats](./media/create-farms/delete-farm-1.png)
 
     > [!NOTE]
     > All the associated devices and maps with the farm will not be deleted. However, the farm details on these devices and maps are invalid. The devices, telemetry and the maps can still be viewed from the application.
