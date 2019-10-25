@@ -17,6 +17,12 @@ This article walks through all the steps needed to publish and subscribe to even
 
 See [Event Grid Concepts](concepts.md) to understand what an event grid topic and subscription are before proceeding.
 
+## Prerequisites 
+In order to complete this tutorial, you will need:
+
+* **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
+* **Azure IoT Hub and IoT Edge device** - Follow the steps in the quick start for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
+
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
 
 ## Create an Azure function in the Azure portal

@@ -23,6 +23,11 @@ To complete this tutorial, you need to understand the following concepts:
 - [Event Grid Concepts](concepts.md)
 - [IoT Edge hub](../../iot-edge/module-composition.md) 
 
+## Prerequisites 
+In order to complete this tutorial, you will need:
+
+* **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
+* **Azure IoT Hub and IoT Edge device** - Follow the steps in the quick start for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
 

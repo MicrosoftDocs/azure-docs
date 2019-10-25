@@ -20,6 +20,12 @@ This article walks through all the steps needed to forward edge events to Event 
 
 To complete this tutorial, you need have an understanding of Event Grid concepts on [edge](concepts.md) and [Azure](../concepts.md).
 
+## Prerequisites 
+In order to complete this tutorial, you will need:
+
+* **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
+* **Azure IoT Hub and IoT Edge device** - Follow the steps in the quick start for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
+
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
 ## Create event grid topic and subscription in cloud
 
