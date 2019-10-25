@@ -1129,10 +1129,6 @@ featureFlags:
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="group">
                                     <h3>Industry</h3>
                                     <ul>
                                         <li>
