@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Apache Kafka with Enterprise Security Package in Azure HDInsight
+title: Tutorial - Apache Kafka with Enterprise Security Package in Azure
 description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
 ms.service: hdinsight
 author: hrasheed-msft
