@@ -38,8 +38,8 @@ Specifically, this Blob storage connector supports:
 - Copying blobs from block, append, or page blobs and copying data to only block blobs.
 - Copying blobs as is or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
->[!NOTE]
->If you enable the _"Allow trusted Microsoft services to access this storage account"_ option on Azure Storage firewall settings, using Azure Integration Runtime to connect to Blob storage will fail with a forbidden error, as ADF is not treated as a trusted Microsoft service. Please connect via a Self-hosted Integration Runtime instead.
+>[!IMPORTANT]
+>If you enable the **Allow trusted Microsoft services to access this storage account** option on Azure Storage firewall settings and want to use Azure integration runtime to connect to your Blob Storage, you must use [managed identity authentication](#managed-identity).
 
 ## Get started
 

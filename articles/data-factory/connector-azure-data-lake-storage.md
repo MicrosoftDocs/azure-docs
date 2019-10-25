@@ -34,11 +34,11 @@ Specifically, with this connector you can:
 - Copy data by using account key, service principal, or managed identities for Azure resources authentications.
 - Copy files as is or parse or generate files with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
+>[!IMPORTANT]
+>If you enable the **Allow trusted Microsoft services to access this storage account** option on Azure Storage firewall settings and want to use Azure integration runtime to connect to your Data Lake Storage Gen2, you must use [managed identity authentication](#managed-identity) for ADLS Gen2.
+
 >[!TIP]
 >If you enable the hierarchical namespace, currently there's no interoperability of operations between Blob and Data Lake Storage Gen2 APIs. If you hit the error "ErrorCode=FilesystemNotFound" with the message "The specified filesystem does not exist," it's caused by the specified sink file system that was created via the Blob API instead of Data Lake Storage Gen2 API elsewhere. To fix the issue, specify a new file system with a name that doesn't exist as the name of a Blob container. Then Data Factory automatically creates that file system during data copy.
-
->[!NOTE]
->If you enable the **Allow trusted Microsoft services to access this storage account** option in Azure Storage firewall settings, the Azure integration runtime doesn't connect to Data Lake Storage Gen2 and shows a forbidden error. The error message appears because Data Factory isn't treated as a trusted Microsoft service. Use the self-hosted integration runtime to connect instead.
 
 ## Get started
 
