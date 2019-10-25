@@ -604,25 +604,6 @@ description: Get started with the Speech service.
                         <a href="#speech-to-text-customization">Speech-to-text</a>
                         <ul id="speech-to-text-customization" class="cardsC">
                             <li>
-                                <a href="https://aka.ms/speech/custom-sr-portal">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_custom_speech.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Custom Speech Portal</h3>
-                                                    <p>Create, evaluate, test, and deploy recognition models with the Custom Speech portal.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="https://aka.ms/speech/phrase-list">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -724,45 +705,6 @@ description: Get started with the Speech service.
                         <a href="#text-to-speech-customization">Text-to-speech</a>
                         <ul id="text-to-speech-customization" class="cardsC">
                             <li>
-                                <a href="https://aka.ms/speech/custom-tts-portal">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_custom_voice.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Custom Voice Portal</h3>
-                                                    <p>Create, evaluate, test, and deploy voice models with the Custom Voice portal.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="https://aka.ms/speech/custom-tts-neural">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_human_languages.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Get access to Custom Neural Voices</h3>
-                                                    <p>This is a gated feature that allows you to create a Custom Neural Voice. Learn more about access and restrictions.
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="https://aka.ms/speech/tts-ssml">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -814,6 +756,26 @@ description: Get started with the Speech service.
                                                 <div class="cardText">
                                                     <h3>Improve synthesis with Audio Content Creation</h3>
                                                     <p>Use the Audio Content Creation tool to fine-tune your synthesized voice outputs.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/custom-tts-neural">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_human_languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Get access to Custom Neural Voices</h3>
+                                                    <p>This is a gated feature that allows you to create a Custom Neural Voice. Learn more about access and restrictions.
+                                                    </p>
                                                 </div>
                                             </div>
                                         </div>
