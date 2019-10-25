@@ -307,7 +307,7 @@ The following limitations apply when using the Private Link with an Azure Cosmos
 
 * When using Azure Cosmos DB’s API for MongoDB accounts that have Private Link, you can’t use tools such as Robo 3T, Studio 3T, Mongoose etc. The endpoint can have Private Link support only if the appName=<account name> parameter is specified. For example: replicaSet=globaldb&appName=mydbaccountname. Because these tools don’t pass the app name in the connection string to the service so you can’t use Private Link. However you can still access these accounts with SDK drivers with 3.6 version.
 
-* Private Link support for Azure Cosmos accounts and VNETs is available in specific regions only.
+* Private Link support for Azure Cosmos accounts and VNETs is available in specific regions only. For a list of supported regions, see the [Available regions](../private-link/private-link-overview.md#availability) section of the Private Link article.
 
 * A virtual network can't be moved or deleted if it contains Private Link.
 
