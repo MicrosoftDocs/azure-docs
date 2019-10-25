@@ -1,9 +1,9 @@
 ---
-title: Managing Farms
+title: Manage Farms
 description: Describes how to manage farms
 author: uhabiba04
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 10/04/2019
 ms.author: v-umha
 ---
 
@@ -39,8 +39,6 @@ Follow the steps:
     3.	Use the tooltips to help fill in the information.
     4.	Click **Submit** to create a farm. A new farm is created and displayed in the Farms page.
 
-      - Click to see video tutorial on creating Farm: https://aka.ms/FarmBeats_FarmCreation
-
 ## View farm
 
   The Farm list page displays a list of created farms. Select a farm to view the list of:
@@ -75,3 +73,5 @@ Follow the steps:
 
 
 ## Next steps
+
+You have created your Farm now. See how you can get sensor data flowing into your farm

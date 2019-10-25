@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting
-description:
+description: how to troubleshoot the farmbeats
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
@@ -24,7 +24,7 @@ If you are facing challenges during deployment please refer to the below list of
 
 ### Commonly known issues
 
-**Batch related issues**
+**Batch-related issues**
 
 1. **Error**: The regional account quota of Batch Accounts for the specified subscription has been reached.
   - Kindly increase the quota or delete unused batch accounts and re-run the deployment.
@@ -43,18 +43,18 @@ If you are facing challenges during deployment please refer to the below list of
 
 **Corrective action**: Delete the existing AAD app registration or reuse it for installation. If you are reusing the existing AAD please pass the Application ID and client secret to the installer and redeploy.
 
-**Batch related issues**:
+**Batch-related issues**:
 
 **Error**: The regional account quota of Batch Accounts for the specified subscription has been reached.
 Kindly increase the quota or delete unused batch accounts and re-run the deployment.
 
 **Corrective action**: Try using a new region which has batch availability or delete unused batch accounts and then redeploy.  
 
-**Azure permissions related issues**:
+**Azure permissions-related issues**:
 
-**Error**: You do not have permission to assign Contributor role to e709bc39-3fb9-4705-93c7-1d83920a96a0 at scope: /subscriptions/da9091ec-d18f-456c-9c21-5783ee7f4645/resourceGroups/dips-test-dh1. Please ensure that you are an owner of the Datahub and Accelerator Resource Group(s).
+**Error**: You do not have permission to assign Contributor role to e709bc39-3fb9-4705-93c7-1d83920a96a0 at scope: /subscriptions/da9091ec-d18f-456c-9c21-5783ee7f4645/resourceGroups/dips-test-dh1. Please ensure that you are an owner of the Data hub and Accelerator Resource Group(s).
 
-You do not have permission to assign Contributor role to e709bc39-3fb9-4705-93c7-1d83920a96a0 at scope: /subscriptions/da9091ec-d18f-456c-9c21-5783ee7f4645/resourceGroups/dips-test-dh1. Please ensure that you are an owner of the Datahub and Accelerator Resource Group(s).
+You do not have permission to assign Contributor role to e709bc39-3fb9-4705-93c7-1d83920a96a0 at scope: /subscriptions/da9091ec-d18f-456c-9c21-5783ee7f4645/resourceGroups/dips-test-dh1. Please ensure that you are an owner of the Data hub and Accelerator Resource Group(s).
 
 **Correction action**: The above issue arises as you do not have permission to create resource groups. You can request subscription owner to create resource groups and grant you owner access for these. Try deploying again.
 
@@ -73,7 +73,7 @@ You do not have permission to assign Contributor role to e709bc39-3fb9-4705-93c7
 **Error**: You get an email alert referring to High CPU Usage Alert. 
 
 **Corrective Action**: 
-1.	Go to your FarmBeats Datahub Resource Group.
+1.	Go to your FarmBeats Data hub Resource Group.
 2.	Click the App service.  
 3.	Go to Scale up (App Service plan) and select an appropriate pricing tier  
 (Refer: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/ ) 
@@ -88,10 +88,10 @@ partner; but you are not able to get/view Telemetry data on FarmBeats 
 **Action to be taken by user**: Visit the Azure portal and follow the steps:
 
 
-1. Go to your FarmBeats Datahub Resource Group   
+1. Go to your FarmBeats Data hub Resource Group   
 2. Click the **Event Hub** (DatafeedEventHubNamespace....) and check for the number of Incoming Messages.   
 3. In case there are **NO Incoming messages**, contact your device partner.  
-4. In case there are **Incoming messages**, contact farmbeatssupport@microsoft.com with Datahub and Accelerator logs and captured telemetry. Go to Logs section of the document to understand how to download Logs.    
+4. In case there are **Incoming messages**, contact farmbeatssupport@microsoft.com with Data hub and Accelerator logs and captured telemetry. Go to Logs section of the document to understand how to download Logs.    
 
 **Device shows offline**   
 
@@ -143,7 +143,7 @@ Following are the common error scenarios while deleting a device:
 **Corrective Action** – Check the email ID for which you are trying to do a role assignment. The email ID has to be an exact match of the one registered for that user in the Active Directory.  
 If the error still persists, please add the error in a post on the FarmBeats forum or contact FarmBeatsSupport@microsoft.com
 
-**Unable to login to Accelerator**  
+**Unable to log in to Accelerator**  
 
 **Message** – Error: You are not authorized to call the service. Please contact the admin for authorization.
 
@@ -174,7 +174,7 @@ Please close all browser tabs that have the Accelerator open and close the brows
 Full authentication is required to access this resource.
 
 **Correction Action**
-Rerun installer for upgrading datahub with correct username and password.
+Rerun installer for upgrading data hub with correct username and password.
 
 **Corrective Action**:  
 Rerun failed job or run a satellite Indices job for date range of 5-7 days and check if job is successful.
@@ -209,7 +209,7 @@ Maximum number of 2 concurrent flows achieved by the user "<username>" 
 
 **Corrective Action**
 1.	If any job fails with the above reason, same sentinel account is being used in another deployment/software. 
-2.	User can create new sentinel account and re-run installer for upgrading datahub with new sentinel username and password.  
+2.	User can create new sentinel account and re-run installer for upgrading data hub with new sentinel username and password.  
 3.	Rerun failed job or run a satellite Indices job for date range of 5-7 days and check if job is successful.
 
 ### Sentinel Server refused connection 
@@ -229,12 +229,12 @@ This issue can occur if any maintenance activities are being done on Sentinel Se
 
 1.	How to connect to Azure Storage Explorer
 2.	Install and connect to Azure Storage Explorer according to the instructions listed in https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
-3.	How to collect Datahub ADF Job Logs
-4.	Login to www.portal.azure.com
-5.	In the **Search** text box, search for FarmBeats Datahub resource group.
+3.	How to collect Data hub ADF Job Logs
+4.	Log in to www.portal.azure.com
+5.	In the **Search** text box, search for FarmBeats Data hub resource group.
 
 > [!NOTE]
-> The DataHub resource group that was specified at the time of FarmBeats deployment.
+> The Data Hub resource group that was specified at the time of FarmBeats deployment.
 
 6.	In the resource group dashboard, search for the (datahublogs….) storage account. For example – datahublogsmvxmq  
 7.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
@@ -248,7 +248,7 @@ This issue can occur if any maintenance activities are being done on Sentinel Se
 
 ### How to collect Accelerator ADF Job Logs
 
-1.	Login to www.portal.azure.com
+1.	Log in to www.portal.azure.com
 2.	In the **Search** text box, search for FarmBeats Accelerator resource group.
 
 > [!NOTE]
@@ -263,13 +263,13 @@ This issue can occur if any maintenance activities are being done on Sentinel Se
 9.	Email the downloaded zip file to farmbeatssupport@microsoft.com
 
 
-### How to collect Datahub App Service Logs
+### How to collect Data hub App Service Logs
 
-1.	Login to www.portal.azure.com
-2.	In the **Search** text box, search for FarmBeats Datahub resource group.
+1.	Log in to www.portal.azure.com
+2.	In the **Search** text box, search for FarmBeats Data hub resource group.
 
 > [!NOTE]
-> The DataHub resource group that was specified at the time of FarmBeats deployment.
+> The Data Hub resource group that was specified at the time of FarmBeats deployment.
 
 3.	In the resource group, search for (datahublogs….) storage account. For example – datahublogsmvxmq
 4.	Select the storage account in the **Name** column to view the **Storage Account** dashboard.
@@ -281,7 +281,7 @@ This issue can occur if any maintenance activities are being done on Sentinel Se
 
 ### How to collect Accelerator App Service Logs
 
-1.	Login to www.portal.azure.com
+1.	Log in to www.portal.azure.com
 2.	In the **Search**, search for FarmBeats Accelerator resource group.
 
 > [!NOTE]
@@ -297,3 +297,5 @@ This issue can occur if any maintenance activities are being done on Sentinel Se
 9.	Email the downloaded folder to farmbeatssupport@microsoft.com
 
 ## Next steps
+
+If you are still facing any issues, please contact us at our [Support Forum](aka.ms/FarmBeatsMSDN)

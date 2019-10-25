@@ -12,9 +12,9 @@ ms.author: v-umha
 
 Using Azure FarmBeats you can generate the following maps by using satellite imagery and sensor data inputs:
 
-1.	Sensor Placement Map – To get recommendations on how many sensors to use and where to place them in a farm.
-2.	Satellite indices Map – To get vegetation index and water index for a farm.
-3.	Soil Moisture Map – To get soil moisture distribution by fusing satellite data and sensor data.
+1. **Sensor Placement Map** – To get recommendations on how many sensors to use and where to place them in a farm.
+2.	**Satellite indices Map** – To get vegetation index and water index for a farm.
+3.	**Soil Moisture Map** – To get soil moisture distribution by fusing satellite data and sensor data.
 
 
 ## Sensor Placement Maps
@@ -67,7 +67,7 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 
 - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
-- If the issue persists see the [Troubleshooting](troubleshoot-project-farm-beats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+- If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download sensor placement map
 
@@ -122,7 +122,7 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 
 - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
-- If the issue persists see the [Troubleshooting](troubleshoot-project-farm-beats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+- If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 
 ### View and Download Map
@@ -187,7 +187,7 @@ To find the sensor measure, go to **Sensors**, click any soil moisture sensor, u
 
  - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
- - If the issue persists see the [Troubleshooting](troubleshoot-project-farm-beats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+ - If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download map
 
@@ -205,5 +205,3 @@ To find the sensor measure, go to **Sensors**, click any soil moisture sensor, u
 7. Click **Download** drop-down menu to select the download format and the map is downloaded and stored in the local folder of your computer.
 
   ![Project Farm Beats](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map.png)
-
-## Next steps

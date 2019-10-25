@@ -10,11 +10,11 @@ ms.author: v-umha
 
 # Get drone imagery from drone partners
 
-  This article describes how you can bring in orthomosaic data from your drone imagery partners onto Azure FarmBeats Datahub. Currently the following imagery partners are supported:  
+  This article describes how you can bring in orthomosaic data from your drone imagery partners onto Azure FarmBeats Data hub. Currently the following imagery partners are supported:  
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-partner.png)
 
-  Integrating drone imagery data with Azure FarmBeats helps you get orthomosaic data from the drone flights you conduct on your farm into the Datahub. The data once available can be visualized through the FarmBeats Accelerator and can potentially be used for data fusion and AI/ML model building.
+  Integrating drone imagery data with Azure FarmBeats helps you get orthomosaic data from the drone flights you conduct on your farm into the Data hub. The data once available can be visualized through the FarmBeats Accelerator and can potentially be used for data fusion and AI/ML model building.
 
 ## Before you begin
 
@@ -31,7 +31,7 @@ ms.author: v-umha
 
 
 1. Download this script (add a link here. awaiting inputs from SMEs) and extract it in on your local drive. You will find two files inside this ZIP file.  
-2. Sign in to https://portal.azure.com/  and open CloudShell (This option is available on the top right bar of the portal)   
+2. Sign in to https://portal.azure.com/  and open CloudShell (This option is available on the top-right bar of the portal)   
 
   ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/navigation-bar.png)
 
@@ -53,11 +53,11 @@ ms.author: v-umha
 
   Once you enter the required credentials into the partner’s drone software system, you will be able to import all farms from the FarmBeats system and use the Farm details to do your flight path planning and drone image collection.
 
-  After the raw images are processed by the drone providers’ software, the drone software system uploads the stitched orthomosaic & other processed images into the Datahub.
+  After the raw images are processed by the drone providers’ software, the drone software system uploads the stitched orthomosaic & other processed images into the Data hub.
 
 ## View drone imagery
 
-  Once the data is sent to the FarmBeats datahub, you should be able to query the Scene Store using the FarmBeats Datahub APIs
+  Once the data is sent to the FarmBeats data hub, you should be able to query the Scene Store using the FarmBeats Data hub APIs
 
   Alternatively, you should be able to view the latest drone image in the **Farm Details** page. To do so,  
 
@@ -65,20 +65,22 @@ ms.author: v-umha
   2. Scroll down to the Latest **Precision Maps** section
   3. You should be able to view the image in the “Drone Imagery” section
 
-  ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery.png)
+![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/drone-imagery.png)
 
 ## Download drone imagery
 
-    If you click the drone Imagery section, a Popup opens, which show a high resolution image of the drone orthomosaic. Click **Download** option to download the different files associated with this particular scene.
+  If you click the drone Imagery section, a Popup opens, which show a high resolution image of the drone orthomosaic. Click **Download** option to download the different files associated with this particular scene.
 
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/download-drone-imagery.png)
+
+  ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/download-drone-imagery.png)
+
 
 ## View all drone maps
 
   All the files and images uploaded by the drone provider are present in the Maps section. Click the **Maps** section, filter by **Farm** and choose the appropriate files to view and download:
 
-    ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/view-drone-maps.png)
+  ![Project Farm Beats](./media/get-drone-imagery-from-drone-partner/view-drone-maps.png)
 
 ## Next steps
 
-Click [REST API](references-for-farm-beats.md#rest-api) to know more on REST API based integration details
+Click [REST API](references-for-farmbeats.md#rest-api) to know more on REST API-based integration details
