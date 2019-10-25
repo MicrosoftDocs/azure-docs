@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 11/05/2019
 ms.author: panosper
 ms.custom: seodec18
 ---
@@ -70,9 +70,9 @@ Available regions for **intent recognition** via the Speech SDK are the followin
 
 This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
-### Voice-first virtual assistants
+### Voice assistants
 
-The [Speech SDK](speech-sdk.md) supports **voice-first virtual assistant** capabilities in these regions:
+The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
 
 Region | Speech SDK Parameter
 -------|---------------------

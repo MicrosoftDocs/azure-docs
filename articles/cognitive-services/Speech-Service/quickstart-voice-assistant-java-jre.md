@@ -1,18 +1,18 @@
 ---
-title: 'Quickstart: Custom voice-first virtual assistant (preview), Java (Windows, Linux) - Speech Service'
+title: 'Quickstart: Custom voice assistant (preview), Java (Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to use the Cognitive Services Speech SDK in a Java console application. You'll learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice-first virtual assistant experience.
+description: In this quickstart, you'll learn how to use the Cognitive Services Speech SDK in a Java console application. You'll learn how you can connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel and enable a voice assistant experience.
 services: cognitive-services
 author: bidishac
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 11/05/2019
 ms.author: bidishac
 ---
 
-# Quickstart: Create a voice-first virtual assistant with the Speech SDK, Java
+# Quickstart: Create a voice assistant with the Speech SDK, Java
 
 Quickstarts are also available for [speech-to-text](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), [text-to-speech](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre), and [speech translation](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre).
 
@@ -29,7 +29,7 @@ This quickstart requires:
 * A preconfigured bot created by using Bot Framework version 4.2 or above. The bot needs to subscribe to the new Direct Line Speech channel to receive voice inputs.
 
     > [!NOTE]
-    > Direct Line Speech Preview is currently available in a subset of Speech Services regions. See [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants), and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
 If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before you start Eclipse:
 
@@ -138,16 +138,14 @@ Additionally, to enable logging, update the *pom.xml* file to include the follow
 
     * Replace the string `YourSubscriptionKey` with your subscription key, which you can get from [this website](get-started.md).
     * Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription.
-    * Replace the string `YourChannelSecret` with your Direct Line Speech channel secret.
 
     > [!NOTE]
-    > Direct Line Speech Preview is currently available in a subset of Speech Services regions. See [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
     ```java
-    final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region. Note: Only a subset of regions are currently supported.
-    final DialogServiceConfig botConfig = DialogServiceConfig.fromBotSecret(channelSecret, subscriptionKey, region);
+    final String region = "YourServiceRegion"; // Your speech subscription service region
+    final BotFrameworkConfig botConfig = BotFrameworkConfig.fromSubscription(subscriptionKey, region);
 
     // Configure audio input from a microphone.
     final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
@@ -473,8 +471,8 @@ Additional samples, such as how to read speech from an audio file, are available
 
 ## See also
 
-- [About voice-first virtual assistants](voice-first-virtual-assistants.md)
+- [About voice assistants](voice-assistants.md)
 - [Get a Speech Services subscription key for free](get-started.md)
-- [Custom wake words](speech-devices-sdk-create-kws.md)
+- [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)

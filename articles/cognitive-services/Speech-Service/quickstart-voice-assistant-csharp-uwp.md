@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice-first virtual assistant (Preview), C# (UWP) - Speech Service'
+title: 'Quickstart: Custom voice assistant, C# (UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech Software Development Kit (SDK). You connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 08/19/2019
+ms.date: 11/05/2019
 ms.author: travisw
 ---
 
-# Quickstart: Create a voice-first virtual assistant with the Speech SDK, UWP
+# Quickstart: Create a voice assistant with the Speech SDK, UWP
 
 Quickstarts are also available for [speech recognition](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp), [speech synthesis](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=uwp), and [speech translation](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp).
 
-In this article, you'll develop a C# Universal Windows Platform (UWP) application by using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
+In this article, you'll develop a C# Universal Windows Platform (UWP) application using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
 > [!NOTE]
 > The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
@@ -30,7 +30,7 @@ This quickstart requires:
 * A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
   > [!NOTE]
-  > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
+  > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
 ## Optional: Get started fast
 
@@ -287,25 +287,18 @@ To add the code-behind source, follow these steps:
 1. Add the following code snippet to the method body of `InitializeDialogServiceConnector`. This code creates the `DialogServiceConnector` with your subscription information.
 
     ```csharp
-    // create a DialogServiceConfig by providing a bot secret key 
-    // and Cognitive Services subscription key
-    // the RecoLanguage property is optional (default en-US); 
-    // note that only en-US is supported in Preview
-    const string channelSecret = "YourChannelSecret"; // Your channel secret
+    // Create a BotFrameworkConfig by providing a Speech Service subscription key
+    // the RecoLanguage property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
+    const string region = "YourServiceRegion"; // Your subscription service region.
 
-    // Your subscription service region. 
-    // Note: only a subset of regions are currently supported
-    const string region = "YourServiceRegion"; 
-
-    var botConfig = DialogServiceConfig.FromBotSecret(
-        channelSecret, speechSubscriptionKey, region);
+    var botConfig = BotFrameworkConfig.FromSubscription(speechSubscriptionKey, region);
     botConfig.SetProperty(PropertyId.SpeechServiceConnection_RecoLanguage, "en-US");
     connector = new DialogServiceConnector(botConfig);
     ```
 
    > [!NOTE]
-   > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
+   > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
    > [!NOTE]
    > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
@@ -317,7 +310,7 @@ To add the code-behind source, follow these steps:
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
     // and uses bot framework activities
-    connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
+    connector.ActivityReceived += (sender, activityReceivedEventArgs) =>
     {
         NotifyUser(
             $"Activity received, hasAudio={activityReceivedEventArgs.HasAudio} activity={activityReceivedEventArgs.Activity}");
@@ -406,7 +399,7 @@ Now you are ready to build and test your application.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP virtual assistant application in C# - quickstart](media/sdk/qs-virtual-assistant-uwp-helloworld-window.png)
+   ![Sample UWP voice assistant application in C# - quickstart](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
 1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
 
@@ -414,7 +407,7 @@ Now you are ready to build and test your application.
 
 1. Select **Talk to your bot**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Direct Line Speech channel and transcribed to text, which appears in the window.
 <!--
-    ![Successful bot response](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png)
+    ![Successful bot response](media/voice-assistants/quickstart-cs-uwp-bot-successful-turn.png)
 -->
 ## Next steps
 
@@ -423,8 +416,8 @@ Now you are ready to build and test your application.
 
 ## See also
 
-- [About voice-first virtual assistants](voice-first-virtual-assistants.md)
+- [About voice assistants](voice-assistants.md)
 - [Get a Speech Services subscription key for free](get-started.md)
-- [Custom wake words](speech-devices-sdk-create-kws.md)
+- [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)

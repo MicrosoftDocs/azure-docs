@@ -183,7 +183,7 @@
       - name: Release notes
         href: releasenotes.md
 - name: Conversation transcription
-  exanded: false
+  expanded: false
   items:
   - name: Overview
     items:
@@ -217,25 +217,35 @@
       items:
       - name: Conversation transcription REST APIs
         href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
-- name: Conversational agents
-  exanded: false
+- name: Voice assistants
+  expanded: false
   items:
   - name: Overview
     items:
-    - name: What is a voice-first virtual assistant?
-      href: voice-first-virtual-assistants.md
+    - name: What is a voice assistant?
+      href: voice-assistants.md
+  - name: Building your assistant
+    items:
+    - name: Custom Commands (Preview)
+      href: custom-commands.md
+    - name: Direct Line Speech
+      href: direct-line-speech.md
   - name: Quickstarts
     items:
     - name: 'C# (UWP)'
-      href: quickstart-virtual-assistant-csharp-uwp.md
+      href: quickstart-voice-assistant-csharp-uwp.md
     - name: 'Java (Windows, macOS, Linux)'
-      href: quickstart-virtual-assistant-java-jre.md
+      href: quickstart-voice-assistant-java-jre.md
     - name: 'Java (Android)'
-      href: quickstart-virtual-assistant-java-android.md
+      href: quickstart-voice-assistant-java-android.md
   - name: Tutorials
     items:
     - name: Voice enable your bot with Speech SDK
       href: tutorial-voice-enable-your-bot-speech-sdk.md
+  - name: Reference
+    items:
+    - name: Voice assistants FAQ
+      href: faq-voice-assistants.md
 - name: Customization
   exanded: false
   items:
@@ -291,7 +301,11 @@
       items:
       - name: "How-to: Audio Content Creation"
         href: how-to-audio-content-creation.md
-  - name: Custom wake word/key word spotting
+    - name: Custom neural voices
+      items:
+      - name: Placeholder
+        href: https://example.com
+  - name: Custom keyword spotting
     href: speech-devices-sdk-create-kws.md
 - name: Speech Service
   expanded: false
