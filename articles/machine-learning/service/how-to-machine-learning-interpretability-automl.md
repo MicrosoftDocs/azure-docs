@@ -32,7 +32,7 @@ In this article, you learn the following tasks:
  
 ## Interpretability during training for the best model 
 
-Retrieve the explanation from the best_run which includes explanations for engineered features and raw features. 
+Retrieve the explanation from the `best_run`, which includes explanations for engineered features and raw features. 
 
 ### Download engineered feature importance from artifact store
 
@@ -58,7 +58,7 @@ automl_run, fitted_model = local_run.get_output(metric='r2_score')
 
 ### Setup the model explanations
 
-The fitted_model can generate the following which will be used for getting the engineered and raw feature explanations using automl_setup_model_explanations:
+The fitted_model can generate the following items, which will be used for getting the engineered and raw feature explanations using automl_setup_model_explanations:
 
 * Featurized data from train samples/test samples
 * Gather engineered and raw feature name lists
@@ -75,7 +75,7 @@ automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_t
 ```
 ### Initialize the Mimic Explainer for feature importance
 
-For explaining the AutoML models, use the `MimicWrapper` class. The MimicWrapper can be initialized with fields in automl_explainer_setup_obj, your workspace and a LightGBM model which acts as a surrogate model to explain the AutoML model (fitted_model here). The MimicWrapper also takes the automl_run object where the raw and engineered explanations will be uploaded.
+For explaining the AutoML models, use the `MimicWrapper` class. The MimicWrapper can be initialized with parameters for the explainer setup object, your workspace, and a LightGBM model which acts as a surrogate model to explain the automated ML model (fitted_model here). The MimicWrapper also takes the automl_run object where the raw and engineered explanations will be uploaded.
 
 ```python
 from azureml.interpret.mimic.models.lightgbm_model import LGBMExplainableModel
@@ -117,11 +117,11 @@ ExplanationDashboard(raw_explanations, automl_explainer_setup_obj.automl_pipelin
 
 ### Interpretability during inference
 
-In this section you learn how to operationalize an automated ML model with the explainer which was used to compute the explanations in the previous section.
+In this section, you learn how to operationalize an automated ML model with the explainer, which was used to compute the explanations in the previous section.
 
 ### Register the model and the scoring explainer
 
-Use the `TreeScoringExplainer` to create the scoring explainer which will be used to compute the raw and engineered feature importances at the inference time. Note that you initialize the scoring explainer with the feature_map that was computed previously. The feature_map will be used by the scoring explainer to return the raw feature importance.
+Use the `TreeScoringExplainer` to create the scoring explainer, which will be used to compute the raw and engineered feature importance values at inference time. Note that you initialize the scoring explainer with the feature_map that was computed previously. The feature_map will be used by the scoring explainer to return the raw feature importance.
 
 In the code below, you save the scoring explainer and register the model and the scoring explainer with the Model Management Service.
 
@@ -212,7 +212,7 @@ if service.state == 'Healthy':
 
 ### Visualizations to aid you in the discovery of patterns in data and explanations at training time
 
-You can also visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). Once your automated ML run is complete you will need to click on "View model details", which will take you to a specific run. From here you will need to click the "Explanations" tab to see the explanation visualization dashboard. 
+You can also visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). Once your automated ML run is complete you will need to click on "View model details", which will take you to a specific run. From here, you click the "Explanations" tab to see the explanation visualization dashboard. 
 
 [![Machine Learning Interpretability Architecture](./media/machine-learning-interpretability-explainability/automl-explainability.png)](./media/machine-learning-interpretability-explainability/automl-explainability.png#lightbox)
 
