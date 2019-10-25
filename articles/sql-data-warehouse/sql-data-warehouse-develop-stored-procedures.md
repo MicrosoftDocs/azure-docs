@@ -17,7 +17,7 @@ Tips for implementing stored procedures in Azure Synapse Analytics for developin
 
 ## What to expect
 
-[SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) supports many of the T-SQL features that are used in SQL Server. More importantly, there are scale-out specific features that you can use to maximize the performance of your solution.
+[SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pools) supports many of the T-SQL features that are used in SQL Server. More importantly, there are scale-out specific features that you can use to maximize the performance of your solution.
 
 However, to maintain the scale and performance there are also some features and functionality that have behavioral differences and others that are not supported.
 
