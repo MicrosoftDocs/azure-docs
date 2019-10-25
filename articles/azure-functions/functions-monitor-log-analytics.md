@@ -73,7 +73,7 @@ To query the generated logs, go to the log analytics workspace and click **Logs*
 
 Azure Functions writes all logs to **FunctionAppLogs** table, here are some sample queries.
 
-**All logs**
+### All logs
 
 ```
 
@@ -82,7 +82,7 @@ FunctionAppLogs
 
 ```
 
-**A specific function logs**
+### A specific function logs
 
 ```
 
@@ -91,7 +91,7 @@ FunctionAppLogs
 
 ```
 
-**Exceptions**
+### Exceptions
 
 ```
 
