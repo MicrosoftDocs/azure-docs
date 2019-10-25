@@ -17,7 +17,8 @@ ms.date: 08/08/2019
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US**.>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can deploy a model to either a compute instance or a Notebook VM using the steps in this article.
+> Compute instances are available only for workspaces with a region of **North Central US**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can deploy a model to either a compute instance or a Notebook VM using the steps in this article.
 
 Learn how to use Azure Machine Learning to deploy a model as a web service on your Azure Machine Learning compute instance. Use compute instances if one of the following conditions is true:
 
