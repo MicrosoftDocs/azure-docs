@@ -49,7 +49,7 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 
    * **Subscription** - Select the subscription that you want to use.
    * **Resource Group** - Create new or use existing.
-   * **Resource Location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
+   * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
    * **Name** - Type the name that you want to call your WAN.
    * **Type** - Select **Standard**. You can't create an ExpressRoute gateway using the Basic SKU.
 4. After you finish filling out the fields, select **Review +Create**.
