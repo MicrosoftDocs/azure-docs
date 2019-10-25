@@ -9,13 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 
 # Steps to migrate to the Azure authoring resource
 
 From the Language Understanding (LUIS) portal, migrate all the apps you own to use the Azure authoring resource.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## Prerequisites
 
