@@ -103,7 +103,7 @@ The following table provides coverage information for Azure Maps Mobility serv
 | Norway | Norway* | 
 | Poland | <p>Wrocław, Białystok, Bydgoszcz, Elbląg, Gorzow, Kętrzyna, Krakow, Leszno, Lodz, Lublin, Mrągowo, Olsztyn, Poznań, Rzeszów, Sanok, Starachowice, Świonujście, Szczecin, Tricity, Warsaw, Wodzisław Śląski, Wrocław, Zakopane</p> |
 | Portugal | Bragança, Coimbra, Funchal, Leiria, Lisboa, Portimao, Porto|
-| Republic of Malta | Malta* | 
+| Malta | Malta* | 
 | Romania | <p>Alba Iulia, Arad, Bistrița, Brăila, Braşov, Bucharest, Buzau, Cluj Napoca, Constanța, Craiova, Deva, Focșani, Galati, Iaşi, Miercurea Ciuc, Oradea, Piatra Neamt, Pitești, Ploieşti, Reșița, Satu Mare, Sibiu, Suceava, Targu Mures, Timisoara, Tulcea, Zalau</p> | 
 | Russia  | Rostov-on-Don, Volgograd, Yekaterinburg, Kazan, Kirov, Krasnodar, Moscow, Nalchik, Nizhny Novgorod, Novosibirsk, Noyabrsk, Omsk, Perm, St Petersburg, Tver, Tomsk |
 | Serbia  | Beograd, Kragujevac, Nis, Novi Sad, Valjevo, Subotica | 
