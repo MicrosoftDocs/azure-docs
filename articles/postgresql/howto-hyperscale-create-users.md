@@ -22,12 +22,12 @@ A newly created Hyperscale (Citus) server group comes with several roles
 pre-defined:
 
 * The [default PostgreSQL roles](https://www.postgresql.org/docs/current/default-roles.html)
-* ``azure_pg_admin``
-* ``postgres``
-* ``citus``
+* *azure_pg_admin*
+* *postgres*
+* *citus*
 
-Your server admin user, ``citus``, is a member of the ``azure_pg_admin`` role.
-However, it isn't part of the ``postgres`` (super user) role.  Since Hyperscale
+Your server admin user, *citus*, is a member of the *azure_pg_admin* role.
+However, it isn't part of the *postgres* (super user) role.  Since Hyperscale
 is a managed PaaS service, only Microsoft is part of the super user role.
 
 The PostgreSQL engine uses privileges to control access to database objects, as
@@ -38,7 +38,7 @@ privileges: LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION
 
 ## How to create additional users
 
-The ``citus`` admin account lacks permission to create additional users. To add
+The *citus* admin account lacks permission to create additional users. To add
 a user, use the Azure portal instead.
 
 1. Go to the **Roles** page for your Hyperscale server group, and click **+ Add**:
@@ -60,7 +60,7 @@ the user or reset their password.
 
    ![Edit a role](media/howto-hyperscale-create-users/edit-role.png)
 
-The ``citus`` role is privileged and can't be deleted.
+The *citus* role is privileged and can't be deleted.
 
 ## How to modify privileges for role
 
@@ -79,7 +79,7 @@ GRANT SELECT ON mytable TO db_user;
 Hyperscale (Citus) propagates single-table GRANT statements through the entire
 cluster, applying them on all worker nodes. However GRANTs that are system-wide
 (e.g. for all tables in a schema) need to be run on every date node.  Use the
-``run_command_on_workers()`` helper function:
+*run_command_on_workers()* helper function:
 
 ```sql
 -- applies to the coordinator node
