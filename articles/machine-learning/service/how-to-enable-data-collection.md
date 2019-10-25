@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
+ms.author: laobri
+author: lobrien
 ms.date: 07/15/2019
 ms.custom: seodec18
 
