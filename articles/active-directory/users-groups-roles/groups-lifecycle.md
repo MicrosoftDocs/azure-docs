@@ -43,6 +43,18 @@ Group expiration policy allows you to set the expiration lifespan for selected o
 
 For a real-world example: At Contoso, the administrator has configured the group lifetime to be 180 days. Megan is the owner of the Contoso Marketing Office 365 group, with Enrico and Alex as its members. Her group is set to expire in only 45 days. If an owner or a group member does anything like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed for another 180 days, and the owner Megan does not get any renewal notifications.
 
+### Activities that automatically renew group expiration
+
+The following user actions cause automatic group renewal:
+
+- SharePoint: View, edit, download, move, share, or upload files
+- Outlook: Join group, read/write group message from group space, Like a message (in Outlook Web Access)
+- Teams: Visit a Teams channels
+
+### Auditing and reporting
+
+Administrators can get a list of automatically renewed groups from the activity audit logs in Azure AD.
+
 ## Roles and permissions
 
 The following are roles that can configure and use expiration for Office 365 groups in Azure AD.
@@ -53,18 +65,6 @@ Global administrator or User administrator | Can create, read, update, or delete
 User | Can renew an Office 365 group that they own<br>Can restore an Office 365 group that they own<br>Can read the expiration policy settings
 
 For more information on permissions to restore a deleted group, see [Restore a deleted Office 365 group in Azure Active Directory](groups-restore-deleted.md).
-
-### User actions for group automatic expiration renewal
-
-The following user actions cause automatic renewal of group expiration:
-
-- SharePoint: View, edit, download, move, share, or upload files
-- Outlook: Join group, read/write group message from group space, Like a message (in Outlook Web Access)
-- Teams: Visit a Teams channels
-
-### Auditing and reporting
-
-Administrators can get a list of automatically renewed groups from the activity audit logs in Azure AD.
 
 ## Set group expiration
 
