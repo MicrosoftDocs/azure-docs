@@ -17,7 +17,7 @@ ms.date: 11/04/2019
 ms.author: allensu
 ---
 
-# What is Azure NAT service (Public Preview)
+# What is Azure NAT service (Public preview)
 
 Azure NAT service is used to provide outbound connections to public IP destinations.  These connections apply for all virtual machines in your virtual network. NAT service can accommodate different workloads by providing translations on demand without preplanning per instance demand.
 
