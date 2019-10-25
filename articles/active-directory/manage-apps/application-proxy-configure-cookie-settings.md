@@ -36,7 +36,7 @@ Starting in version [Chrome 80](https://support.google.com/chrome/a/answer/76794
 
 These changes to Application Proxy cookies will roll out over the course of the next several weeks before the Chrome 80 release date.
 
-Additionally, if your backend application has cookies that need to be available in a third-party context, then you must explicitly opt-in by changing your application to use SameSite=None for these cookies. Application Proxy translates the Set-Cookie header to its URLS and will respect the settings for these cookies set by the backend application.
+Additionally, if your back-end application has cookies that need to be available in a third-party context, you must explicitly opt in by changing your application to use SameSite=None for these cookies. Application Proxy translates the Set-Cookie header to its URLS and will respect the settings for these cookies set by the back-end application.
 
 
 
