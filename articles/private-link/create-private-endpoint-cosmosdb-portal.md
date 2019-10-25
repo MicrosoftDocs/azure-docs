@@ -91,7 +91,7 @@ In this section, you will create virtual network and the subnet to host the VM t
 
 ## Create an Azure Cosmos account
 
-Create an [Azure Cosmos SQL API account](..cosmos-db/create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account). For simplicity, you can create the Azure Cosmos account in the same region as the other resources (that is "WestCentralUS").
+Create an [Azure Cosmos SQL API account](../cosmos-db/create-cosmosdb-resources-portal.md#create-an-azure-cosmos-db-account). For simplicity, you can create the Azure Cosmos account in the same region as the other resources (that is "WestCentralUS").
 
 ## Create a Private Endpoint for your Azure Cosmos account
 
