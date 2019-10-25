@@ -12,7 +12,7 @@ ms.author: rajanaki
 ---
 # Upcoming deprecation of DR between customer owned sites using Hyper-V and between sites managed by SCVMM to Azure
 
-This article describes the upcoming deprecation plan,  the corresponding implications,  and the alternative options available for the customers f for the following scenarios that were supported by Azure Site Recovery. 
+This article describes the upcoming deprecation plan,  the corresponding implications,  and the alternative options available for the customers for the following scenarios that were supported by Azure Site Recovery. 
 
 - DR between of Hyper-V VMs managed by SCVMM between customer owned sites 
 - DR of Hyper-V VMs managed by SCVMM to Azure

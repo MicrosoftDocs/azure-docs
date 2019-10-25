@@ -36,7 +36,7 @@ The following table and graphic provide a high-level view of the components used
 
 
 > [!WARNING]
-> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-asr-deprecation-details.md) details before proceeding.
+> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
 
 ## Architectural components - Hyper-V with VMM
 
