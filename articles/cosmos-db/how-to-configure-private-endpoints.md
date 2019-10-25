@@ -10,7 +10,7 @@ ms.author: thweiss
 
 # Configure Azure Private Link for an Azure Cosmos account (preview)
 
-By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. By using Private Link, you can limit access to a given Azure Cosmos account over private IP addresses. When combined with restricted NSG policies, Private link helps reduce the risk of data exfiltration. To learn more about private endpoints, see [Azure Private Links](../private-link/private-link-overview.md) article. 
+By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. By using Private Link, you can limit access to a given Azure Cosmos account over private IP addresses. When combined with restricted NSG policies, Private link helps reduce the risk of data exfiltration. To learn more about private endpoints, see [Azure Private Link](../private-link/private-link-overview.md) article.
 
 Additionally, Private Link allows an Azure Cosmos account to be accessible from within the virtual network or any peered virtual network. Resources mapped to Private Link are also accessible from on premises over private peering through VPN or ExpressRoute. 
 
