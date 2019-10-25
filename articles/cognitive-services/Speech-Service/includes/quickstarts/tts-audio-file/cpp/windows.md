@@ -27,7 +27,7 @@ Before you get started, make sure to:
 
 1. Replace all the code with the following snippet:
 
-   ````C++
+   ```C++
 
     // Creates an instance of a speech config with specified subscription key and service region.
     // Replace with your own subscription key and service region (e.g., "westus").
@@ -62,7 +62,7 @@ Before you get started, make sure to:
         }
     }
 
-   ````
+   ```
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
