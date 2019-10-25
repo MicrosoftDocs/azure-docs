@@ -134,13 +134,13 @@ If the number of custom roles in your Azure Active Directory isn't a concern, we
 
 ## Role assignment
 
-To assign a role to users/APP ID, open the Azure portal, navigate to the resource group or resource (except for the role that needs to be granted on the subscription), go to **Access Control**, and then scroll to find the custom roles you just created.
+To assign a role to users/APP ID, open the Azure portal, perform the following steps:
 
-Select the appropriate role, and then select the App ID.
+1. Navigate to the resource group or resource (except for the role that needs to be granted on the subscription), go to **Access Control**, and then scroll to find the custom roles you just created.
 
-Save the changes,
+2. Select the appropriate role, select the APP ID, and then save the changes.
 
-Your user(s) and/or APP ID now appears listed on the **Role assignments** tab.
+  Your APP ID(s) now appears listed on the **Role assignments** tab.
 
 ## Next steps
 
