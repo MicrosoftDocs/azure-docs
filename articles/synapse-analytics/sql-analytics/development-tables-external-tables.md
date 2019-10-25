@@ -228,11 +228,11 @@ LOCATION = '*folder_or_filepath*'
 
 Specifies the folder or the file path and file name for the actual data in Azure blob storage. The location starts from the root folder. The root folder is the data location specified in the external data source.
 
-If you specify LOCATION to be a folder, a SQL Analytics on-demand query that selects from the external table will retrieve files from the folder and all of its subfolders. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also return files for which the file name begins with an underline (_) or a period (.).
+If you specify LOCATION to be a folder, a SQL Analytics on-demand query that selects from the external table will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also return files for which the file name begins with an underline (_) or a period (.).
 
 In this example, if LOCATION='/webdata/', a SQL Analytics on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in subfolder.
 
-![Recursive data for external tables](https://docs.microsoft.com/en-us/sql/t-sql/statements/media/aps-polybase-folder-traversal.png?view=sql-server-ver15)
+![Recursive data for external tables](media/development-tables-external-tables/folder-traversal.png)
 
 
 

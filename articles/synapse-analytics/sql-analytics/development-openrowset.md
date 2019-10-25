@@ -68,6 +68,12 @@ Provides the connectivity protocol and path to the external data source.
  `'<storage_path>'` is path within your storage that points to folder or file you want to read. If path points to container or folder, all files will be read from that particular container or folder. Files in subfolders will not be included. You can use wildcards to target multiple files or folders. Usage of multiple nonconsecutive wildcards is allowed.
 Example that reads all *csv* files starting with *population* from all folders starting with */csv/population*:  `'https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv'`
 
+If you specify unstructured_data_path to be a folder, a SQL Analytics on-demand query will retrieve files from the folder. Unlike Hadoop and PolyBase, SQL Analytics on-demand doesn't return subfolders. It also return files for which the file name begins with an underline (_) or a period (.).
+
+In this example, if unstructured_data_path='https://mystorageaccount.dfs.core.windows.net/webdata/', a SQL Analytics on-demand query will return rows from mydata.txt and_hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in subfolder.
+
+![Recursive data for external tables](media/development-openrowset/folder-traversal.png)
+
 [WITH ( {'column_name' 'column_type' [ 'column_ordinal'] }) ]
 
 WITH clause allows you to specify columns which you want to read from files. 
