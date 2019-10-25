@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/07/2019
+ms.date: 11/04/2019
 # As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 

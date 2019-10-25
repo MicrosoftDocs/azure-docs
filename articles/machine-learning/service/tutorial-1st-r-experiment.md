@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Train and deploy your first model in R with Azure Machine Learning
