@@ -47,7 +47,7 @@ The minimum size, which is specified with the netmask /28, provides 16 IP addres
 
 If the delegated subnet is too large, it's possible for the Azure NetApp Files volumes to use more IP addresses than a single Azure HPC Cache instance can handle. A single cache can have at most ten storage targets.
 
-The quick start example in Azure NetApp Files documentation uses 10.7.0.0/16 for the delegated subnet, which gives a subnet that's too large.
+The quickstart example in Azure NetApp Files documentation uses 10.7.0.0/16 for the delegated subnet, which gives a subnet that's too large.
 
 ### Capacity pool service level
 
