@@ -37,7 +37,7 @@ Verify that you have met the following criteria before beginning your configurat
 * Obtain an IP address range for your hub region. The hub is a virtual network and the address range that you specify for the hub region cannot overlap with any of your existing virtual networks that you connect to. It also cannot overlap with your address ranges that you connect to on premises. If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you.
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## <a name="wan"></a>1. Create a virtual WAN
+## <a name="wan"></a>Create a virtual WAN
 
 1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 2. At this time, you can find Virtual WAN by navigating to **All services** and searching for Virtual WAN. Or, you can search for Virtual WAN in the search box at the top of the Azure portal. Click **Virtual WAN** to open the page.
@@ -55,7 +55,7 @@ Verify that you have met the following criteria before beginning your configurat
    **Resource Location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
 5. Click **Create** to create the WAN.
 
-## <a name="site"></a>2. Create an empty virtual hub
+## <a name="site"></a>Create an empty virtual hub
 
 1. Under your virtual WAN, select Hubs and click **+New Hub**
 
@@ -72,7 +72,7 @@ Verify that you have met the following criteria before beginning your configurat
 3. Click **Review + create**
 4. On the **validation passed** page, click **create**
 
-## <a name="site"></a>3. Create a P2S configuration
+## <a name="site"></a>Create a P2S configuration
 
 A P2S configuration defines the parameters for connecting remote clients.
 
@@ -94,7 +94,7 @@ A P2S configuration defines the parameters for connecting remote clients.
    ![new site](media/virtual-wan-point-to-site-portal/p2s2.jpg)
 5. Click **Create** to create the configuration.
 
-## <a name="hub"></a>4. Edit hub assignment
+## <a name="hub"></a>Edit hub assignment
 
 1. Navigate to the **Hubs** blade under the virtual WAN
 2. Select the hub that you want to associate the vpn server configuration to and click **...**
@@ -108,7 +108,7 @@ A P2S configuration defines the parameters for connecting remote clients.
 6. Click **Confirm**
 7. The operation will can take up to 30 minutes to complete.
 
-## <a name="device"></a>6. Download VPN profile
+## <a name="device"></a>Download VPN profile
 
 Use the VPN profile to configure your clients.
 
@@ -159,15 +159,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Next steps
-
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Create a WAN
-> * Create a hub
-> * Create a user VPN configuration
-> * Assign the user VPN config to a hub
-> * View your virtual WAN
-> * View resource health
 
 To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.

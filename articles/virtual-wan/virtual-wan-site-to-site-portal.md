@@ -24,7 +24,7 @@ In this tutorial you learn how to:
 > * Connect a VNet to a hub
 > * Connect a VNet to a hub
 > * Download a configuration file
-> * view your virtual WAN
+> * View your virtual WAN
 
 > [!NOTE]
 > If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
