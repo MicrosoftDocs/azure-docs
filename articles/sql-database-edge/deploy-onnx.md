@@ -1,6 +1,6 @@
 ---
-title: Deploy ONNX model to SQL Database Edge Preview | Microsoft Docs
-description: Learn how to deploy Azure SQL Database Edge using the Azure portal
+title: Deploy and make predictions with ONNX in SQL Database Edge Preview
+description: Learn how to train a model, convert it to ONNX, deploy it to Azure SQL Database Edge Preview, and then run native PREDICT on data using the uploaded ONNX model.
 keywords: deploy sql database edge
 services: sql-database-edge
 ms.service: sql-database-edge
@@ -8,33 +8,33 @@ ms.service: sql-database-edge
 ms.topic: conceptual
 author: ronychatterjee
 ms.author: achatter
-ms.reviewer: davidph
+ms.reviewer: davidph 
 ms.date: 11/04/2019
 ---
 
-# Deploy an ONNX model on Azure SQL Database Edge Preview
+# Deploy and make predictions with an ONNX model in SQL Database Edge Preview
 
-In this quickstart, you will learn how to deploy an ONNX model to Azure SQL Database Edge Preview.
+In this quickstart, you'll learn how to train a model, convert it to ONNX, deploy it to Azure SQL Database Edge Preview, and then run native PREDICT on data using the uploaded ONNX model.
 
 This quickstart is based on **scikit-learn** and uses the [Boston Housing dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## Before you begin
 
-* If you don't have an Azure SQL Database Edge, please follow the steps of [deploy SQL Database Edge Preview using the Azure portal](deploy-portal.md)
+* If you haven't deployed an Azure SQL Database Edge module, follow the steps of [deploy SQL Database Edge Preview using the Azure portal](deploy-portal.md).
 
-* Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download) 
+* Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
 * Open Azure Data Studio and follow these steps to install the packages needed for this quickstart:
 
     1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
-    1. Click on the Manage Packages and under **Add New** search for **sklearn** and install the scikit-learn package. 
+    1. Click **Manage Packages** and under **Add New**, search for **sklearn**, and install the scikit-learn package. 
     1. Also, install the **onnxmltools**, **onnxruntime**, **skl2onnx**, and **sqlalchemy** packages.
     
 * For each script part below, enter it in a cell in the Azure Data Studio notebook and run the cell.
 
 ## Train a pipeline
 
-Split the data set to use features to predict the median value of a house.
+Split the dataset to use features to predict the median value of a house.
 
 ```python
 import numpy as np
@@ -58,21 +58,21 @@ x = df.drop(['MEDV'], axis = 1)
 y = df.iloc[:,-1]
 
 
-    # Split the data frame into features and target
+# Split the data frame into features and target
 x_train = df.drop(['MEDV'], axis = 1)
 y_train = df.iloc[:,-1]
 
-print("\n*** Training data set x\n")
+print("\n*** Training dataset x\n")
 print(x_train.head())
 
-print("\n*** Training data set y\n")
+print("\n*** Training dataset y\n")
 print(y_train.head())
 ```
 
 **Output**:
 
-```
-*** Training data set x
+```text
+*** Training dataset x
 
         CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
 0  0.00632  18.0   2.31   0.0  0.538  6.575  65.2  4.0900  1.0  296.0
@@ -88,7 +88,7 @@ print(y_train.head())
 3     18.7  394.63   2.94  
 4     18.7  396.90   5.33  
 
-*** Training data set y
+*** Training dataset y
 
 0    24.0
 1    21.6
@@ -136,14 +136,14 @@ print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 
 **Output**:
 
-```
+```text
 *** Scikit-learn r2 score: 0.7406426641094094
 *** Scikit-learn MSE: 21.894831181729206
 ```
 
 ## Convert the model to ONNX
 
-We will need to convert the data types to the supported SQL data types. This conversion will be required for other dataframes as well.
+Convert the data types to the supported SQL data types. This conversion will be required for other dataframes as well.
 
 ```python
 from skl2onnx.common.data_types import FloatTensorType, Int64TensorType, DoubleTensorType
@@ -166,7 +166,7 @@ def convert_dataframe_schema(df, drop=None, batch_axis=False):
     return inputs
 ```
 
-Using skl2onnx, we will convert our LinearRegression model to the ONNX format and save it locally.
+Using `skl2onnx`, convert the LinearRegression model to the ONNX format and save it locally.
 
 ```python
 # Convert the scikit model to onnx format
@@ -178,7 +178,7 @@ onnxmltools.utils.save_model(onnx_model, onnx_model_path)
 
 ## Test the ONNX model
 
-After converting the model to ONNX format, you can score the model to show little to no degradation in performance.
+After converting the model to ONNX format, score the model to show little to no degradation in performance.
 
 > [!NOTE]
 > ONNX Runtime uses floats instead of doubles so small discrepancies are possible.
@@ -210,7 +210,7 @@ print()
 
 **Output**:
 
-```
+```text
 *** Onnx r2 score: 0.7406426691136831
 *** Onnx MSE: 21.894830759270633
 
@@ -220,7 +220,7 @@ MSE are equal
 
 ## Insert the ONNX model
 
-Store the model in Azure SQL Database Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address, username, and password**. You will also import the **pyodbc** package.
+Store the model in Azure SQL Database Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address**, **username**, and **password**.
 
 ```python
 import pyodbc
@@ -282,10 +282,8 @@ Load the data into Azure SQL Database Edge.
 
 First, create two tables, **features** and **target**, to store subsets of the Boston housing dataset.
 
-* **Features** will contain all data being used to predict the target, median value. 
+* **Features** contains all data being used to predict the target, median value. 
 * **Target** contains the median value for each record in the dataset. 
-
-You also need to import the **sqlalchemy** package.
 
 ```python
 import sqlalchemy
@@ -307,19 +305,19 @@ conn.commit()
 # Create the features table
 query = \
     f'create table {features_table_name} ( ' \
-    f'    [CRIM] real, ' \
-    f'    [ZN] real, ' \
-    f'    [INDUS] real, ' \
-    f'    [CHAS] real, ' \
-    f'    [NOX] real, ' \
-    f'    [RM] real, ' \
-    f'    [AGE] real, ' \
-    f'    [DIS] real, ' \
-    f'    [RAD] real, ' \
-    f'    [TAX] real, ' \
-    f'    [PTRATIO] real, ' \
-    f'    [B] real, ' \
-    f'    [LSTAT] real, ' \
+    f'    [CRIM] float, ' \
+    f'    [ZN] float, ' \
+    f'    [INDUS] float, ' \
+    f'    [CHAS] float, ' \
+    f'    [NOX] float, ' \
+    f'    [RM] float, ' \
+    f'    [AGE] float, ' \
+    f'    [DIS] float, ' \
+    f'    [RAD] float, ' \
+    f'    [TAX] float, ' \
+    f'    [PTRATIO] float, ' \
+    f'    [B] float, ' \
+    f'    [LSTAT] float, ' \
     f'    [id] int)'
 
 cursor.execute(query)
@@ -330,7 +328,7 @@ target_table_name = 'target'
 # Create the target table
 query = \
     f'create table {target_table_name} ( ' \
-    f'    [MEDV] real, ' \
+    f'    [MEDV] float, ' \
     f'    [id] int)'
 
 x_train['id'] = range(1, len(x_train)+1)
@@ -340,7 +338,7 @@ print(x_train.head())
 print(y_train.head())
 ```
 
-Finally, use sqlalchemy to insert the `x_train` and `y_train` pandas dataframes into the tables `features` and `target`. 
+Finally, use `sqlalchemy` to insert the `x_train` and `y_train` pandas dataframes into the tables `features` and `target`, respectively. 
 
 ```python
 db_connection_string = 'mssql+pyodbc://' + username + ':' + password + '@' + server + '/' + database + '?driver=ODBC+Driver+17+for+SQL+Server'
@@ -349,8 +347,47 @@ x_train.to_sql(features_table_name, sql_engine, if_exists='append', index=False)
 y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
 ```
 
-Now, you will be able to view the data in the database.
+Now you can view the data in the database.
+
+## Run PREDICT using the ONNX model
+
+With the model in Azure SQL Database Edge, run native PREDICT on the data using the uploaded ONNX model.
+
+> [!NOTE]
+> Change the notebook kernel to SQL to run the remaining cell.
+
+```sql
+USE onnx
+
+DECLARE @model VARBINARY(max) = (
+        SELECT DATA
+        FROM dbo.models
+        WHERE id = 1
+        );
+
+WITH predict_input
+AS (
+    SELECT TOP (1000) [id]
+        , CRIM
+        , ZN
+        , INDUS
+        , CHAS
+        , NOX
+        , RM
+        , AGE
+        , DIS
+        , RAD
+        , TAX
+        , PTRATIO
+        , B
+        , LSTAT
+    FROM [onnx].[dbo].[features]
+    )
+SELECT predict_input.id
+    , p.variable1 AS MEDV
+FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
+```
 
 ## Next Steps
 
-- [Machine Learning and AI with ONNX in SQL Database Edge](onnx-overview.md)
+* [Machine Learning and AI with ONNX in SQL Database Edge](onnx-overview.md)
