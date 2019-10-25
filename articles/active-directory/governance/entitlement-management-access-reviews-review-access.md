@@ -38,7 +38,7 @@ To review users' active access package assignments, you must meet the prerequisi
 - Global administrator
 - Designated User administrator, Catalog owner, or Access package manager
 
-For more information, see [Licenses requirements](../../active-directory/governance/entitlement-management-overview#license-requirements).  
+For more information, see [Licenses requirements](../../active-directory/governance/entitlement-management-overview#license-requirements.md).  
 
 
 ## Open the access review
