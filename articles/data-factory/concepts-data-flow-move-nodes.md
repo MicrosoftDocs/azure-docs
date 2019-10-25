@@ -20,7 +20,7 @@ So, without a drag-and-drop paradigm, the way to "move" a transformation node, i
 
 ## Streams of data inside of data flow
 
-In Azure Data Factory Data Flow, streams represent the flow of data. On the transformation settings pane, you will see an "Incoming Steam" field. This tells you which incoming data stream is feeding that transformation. You can change the physical location of your transform node on the graph by clicking the Incoming Stream name and selecting another data stream. The current transformation along with all subsequent transforms on that stream will then move to the new location.
+In Azure Data Factory Data Flow, streams represent the flow of data. On the transformation settings pane, you will see an "Incoming Stream" field. This tells you which incoming data stream is feeding that transformation. You can change the physical location of your transform node on the graph by clicking the Incoming Stream name and selecting another data stream. The current transformation along with all subsequent transforms on that stream will then move to the new location.
 
 If you are moving a transformation with one or more transformations after it, then the new location in the data flow will be joined via a new branch.
 

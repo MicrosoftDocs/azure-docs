@@ -1,27 +1,11 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
 - name: Speech service documentation
-  href: index.yml
+  href: https://aka.ms/speech/hub
 - name: Overview
   expanded: false
   items:
   - name: What is the Speech service?
     href: overview.md
-- name: Quickstarts
-  items:
-  - name: Get a Speech service key
-    href: https://aka.ms/ignite2019/speech/placeholder
-  - name: Platform setup
-    items:
-    - name: C#
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: C++
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Java
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Python
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Other platforms
-      href: https://aka.ms/ignite2019/speech/placeholder
 - name: Speech-to-text
   expanded: false
   items:
@@ -31,42 +15,56 @@
       href: speech-to-text.md
   - name: Quickstarts
     items:
-    - name: Convert speech to text from file
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Convert speech to text from microphone
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Convert speech to text from blob storage
-      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Recognize speech from an audio file
+      href: quickstarts/speech-to-text-from-file.md
+    - name: Recognize speech with microphone input
+      href: quickstarts/speech-to-text-from-microphone.md
+    - name: Recognize speech stored in blob storage
+      href: quickstarts/from-blob.md
   - name: How-to guides
     items:
-    - name: Specify source language
+    - name: Change speech recognition source language
       href: how-to-specify-source-language.md
-    - name: Automatic language detection
+    - name: Improve accuracy with Custom Speech
+      href: https://aka.ms/speech/custom-sr-overview
+    - name: Improve accuracy with Phrase Lists
+      href: how-to-phrase-lists.md
+    - name: Improve accuracy with Tenant Models
+      href: https://aka.ms/speech/tlm-overview
+    - name: Select a specific microphone input device
+      href: how-to-select-audio-input-devices.md
+    - name: Use automatic source language detection
       href: how-to-automatic-language-detection.md
-    - name: Continuous recognition
-      href: shttps://aka.ms/ignite2019/speech/placeholder
-    - name: Consume compressed audio
+    - name: Use compressed audio input formats
+      href: how-to-use-codec-compressed-audio-input-streams.md
+    - name: Use continuous recognition
       href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Select an audio input device
-      href: https://aka.ms/ignite2019/speech/placeholder
-  - name: Tutorials
-    items:
-    - name: Intent recognition with LUIS
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Voice enable your bot with Speech SDK
-      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Use speech recognition with Docker containers
+      href: https://aka.ms/speech/sr-containers
   - name: Reference
     items:
-    - name: Speech SDK
+    - name: Speech SDK APIs
       items:
-      - name: Overview
-        href: speech-sdk.md
+      - name: C++
+        href: https://aka.ms/csspeech/cppref
+      - name: C#
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python
+        href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
-    - name: Speech-to-text (REST)
-      href: rest-speech-to-text.md
-    - name: Batch transcription & customization (REST)
-      href: https://westus.cris.ai/swagger/ui/index
+    - name: REST APIs
+      items:
+      - name: Speech-to-text REST API
+        href: rest-speech-to-text.md
+      - name: Batch transcription REST APIs
+        href: batch-transcription.md
 - name: Text-to-speech
   exanded: false
   items:
@@ -76,31 +74,51 @@
       href: text-to-speech.md
   - name: Quickstarts
     items:
-    - name: Synthesize speech to a file
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Synthesize speech to an audio output device
-      href: https://aka.ms/ignite2019/speech/placeholder
+    - name: Synthesize speech into an audio file
+      href: quickstarts/text-to-speech-audio-file.md
+    - name: Synthesize speech to a speaker
+      href: quickstarts/text-to-speech.md
+    - name: Async synthesis for long-form audio
+      href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
   - name: How-to guides
     items:
-    - name: Configure speech output with SSML
+    - name: Improve output with SSML
       href: speech-synthesis-markup.md
-  - name: Tutorials
-    items:
-    - name: Build a Flask app to translate and synthesize text, REST
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
+    - name: Improve output with Custom Voices
+      href: https://aka.ms/speech/custom-tts-overview
+    - name: Synthesize speech with Long Audio API
+      href: long-audio-api.md
+    - name: Use speech synthesis with Docker containers
+      href: https://aka.ms/speech/tts-containers
   - name: Reference
     items:
     - name: Speech SDK
       items:
-      - name: Overview
-        href: speech-sdk.md
+      - name: C++
+        href: https://aka.ms/csspeech/cppref
+      - name: C#
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python
+        href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
-    - name: Text-to-speech (REST)
-      href: rest-text-to-speech.md
+    - name: REST APIs
+      items:
+      - name: Text-to-speech REST API
+        href: rest-text-to-speech.md
 - name: Intent recognition
   exanded: false
   items:
+  - name: Quickstarts
+    items:
+    - name: Recognize speech, intents, and entities
+      href: quickstarts/intent-recognition.md
   - name: How-to guides
     items:
     - name: Recognize speech intents with LUIS, C#
@@ -109,13 +127,23 @@
     items:
     - name: Speech SDK
       items:
-      - name: Overview
-        href: speech-sdk.md
+      - name: C++
+        href: https://aka.ms/csspeech/cppref
+      - name: C#
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python
+        href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
-    - name: LUIS
+    - name: LUIS Service
       items:
-      - name: Overview
+      - name: LUIS Developer Resources 
         href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
 - name: Speech translation
   exanded: false
@@ -127,32 +155,70 @@
   - name: Quickstarts
     items:
     - name: Translate speech-to-text
-      href: https://aka.ms/ignite2019/speech/placeholder
-    - name: Translate speech-to-text multi-participant
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/translate-speech-to-text.md
+    - name: Translate speech to multiple target languages
+      href: quickstarts/translate-speech-to-text-multiple-languages.md
     - name: Translate speech-to-speech
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: quickstarts/translate-speech-to-speech.md
+  - name: Tutorials
+    items:
+    - name: Build a Flask app to translate and synthesize text, REST
+      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
   - name: Reference
     items:
     - name: Speech SDK
       items:
-      - name: Overview
-        href: speech-sdk.md
+      - name: C++
+        href: https://aka.ms/csspeech/cppref
+      - name: C#
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python
+        href: https://aka.ms/csspeech/pythonref
       - name: Release notes
         href: releasenotes.md
 - name: Conversation transcription
-  exanded: false
+  expanded: false
   items:
   - name: Overview
     items:
     - name: What is conversation transcription?
       href: conversation-transcription-service.md
+  - name: How-to guides
+    items:
+    - name: Real time Conversation Transcription
+      href: how-to-use-conversation-transcription-service.md
+    - name: Asynchronous Conversation Transcription
+      href: how-to-async-conversation-transcription.md
   - name: Reference
     items:
-    - name: Conversation transcription (REST)
-      href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+    - name: Speech SDK
+      items:
+      - name: C++
+        href: https://aka.ms/csspeech/cppref
+      - name: C#
+        href: https://aka.ms/csspeech/csharpref
+      - name: Java
+        href: https://aka.ms/csspeech/javaref
+      - name: JavaScript
+        href: https://aka.ms/csspeech/javascriptref
+      - name: Objective-C
+        href: https://aka.ms/csspeech/objectivecref
+      - name: Python
+        href: https://aka.ms/csspeech/pythonref
+      - name: Release notes
+        href: releasenotes.md
+    - name: REST APIs
+      items:
+      - name: Conversation transcription REST APIs
+        href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
 - name: Voice assistants
-  exanded: false
+  expanded: false
   items:
   - name: Overview
     items:
@@ -201,10 +267,10 @@
         href: how-to-custom-speech-deploy-model.md
       - name: "Guide Create human-labeled transcriptions"
         href: how-to-custom-speech-human-labeled-transcriptions.md
-    - name: 'Tenant Language Models'
+    - name: 'Tenant Models'
       items:
       - name: Create, publish, and use a model
-        href: tutorial-tenant-language-model.md
+        href: tutorial-tenant-model.md
   - name: Text-to-speech
     items:
     - name: Responsible deployment
@@ -235,23 +301,101 @@
       items:
       - name: "How-to: Audio Content Creation"
         href: how-to-audio-content-creation.md
-    - name: Custom Neural Voices
+    - name: Custom neural voices
       items:
       - name: Placeholder
         href: https://example.com
-  - name: Custom keyword/key word spotting
+  - name: Custom keyword spotting
     href: speech-devices-sdk-create-kws.md
-- name: Containers
-  exanded: false
+- name: Speech Service
+  expanded: false
   items:
-  - name: Install and run containers
-    href: speech-container-howto.md
-  - name: Configure containers
-    href: speech-container-configuration.md
-  - name: Kubernetes and Helm
-    href: speech-container-howto-on-premises.md
-  - name: Azure container instances
-    href: deploy-speech-on-container-instances.md
+  - name: How-to guides
+    items:
+    - name: Try Speech Service for free
+      href: get-started.md
+    - name: Create Speech Service Resource
+      href: get-started.md#create-a-speech-resource-in-azure
+    - name: Containers
+      exanded: false
+      items:
+      - name: Install and run containers
+        href: speech-container-howto.md
+      - name: Configure containers
+        href: speech-container-configuration.md
+      - name: Kubernetes and Helm
+        href: speech-container-howto-on-premises.md
+      - name: Azure container instances
+        href: deploy-speech-on-container-instances.md
+  - name: Samples
+    items:
+    - name: Text-to-speech REST samples
+      href: https://github.com/Azure-Samples/Cognitive-Speech-TTS
+    - name: Batch transcription REST samples
+      href: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch
+  - name: Reference
+    items:
+    - name: REST APIs
+      items:
+      - name: Batch transcription & customization REST API
+        href: https://westus.cris.ai/swagger/ui/index
+      - name: Conversation Transcription REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
+      - name: Speech-to-text REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
+      - name: Text-to-speech REST API
+        href: https://aka.ms/ignite2019/speech/placeholder
+      - name: Webhooks REST API
+        href: webhooks.md
+    - name: Swagger documentation
+      href: swagger-documentation.md
+- name: Speech SDK
+  expanded: false
+  items:
+  - name: Overview
+    items:
+    - name: About the Speech SDK
+      href: speech-sdk.md
+    - name: Scenario availability
+      href: scenario-availability.md
+  - name: Quickstarts
+    items:
+    - name: Setup Speech SDK with C#
+      href: quickstarts/setup-platform.md?pivots=programming-language-csharp
+    - name: Setup Speech SDK with C++
+      href: quickstarts/setup-platform.md?pivots=programming-language-cpp
+    - name: Setup Speech SDK with Java
+      href: quickstarts/setup-platform.md?pivots=programming-language-java
+    - name: Setup Speech SDK with Python
+      href: quickstarts/setup-platform.md?pivots=programming-language-python
+    - name: Setup Speech SDK with Other Platforms
+      href: quickstarts/setup-platform.md?pivots=programming-language-more
+  - name: How-to guides
+    items:
+    - name: Enable logging
+      href: how-to-use-logging.md
+  - name: Samples
+    items:
+    - name: Speech SDK Samples (GitHub)
+      href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
+    - name: Speech Device SDK Samples (GitHub)
+      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+  - name: Reference
+    items:
+    - name: C++
+      href: https://aka.ms/csspeech/cppref
+    - name: C#
+      href: https://aka.ms/csspeech/csharpref
+    - name: Java
+      href: https://aka.ms/csspeech/javaref
+    - name: JavaScript
+      href: https://aka.ms/csspeech/javascriptref
+    - name: Objective-C
+      href: https://aka.ms/csspeech/objectivecref
+    - name: Python
+      href: https://aka.ms/csspeech/pythonref
+    - name: Speech SDK Release notes
+      href: releasenotes.md
 - name: Migration
   exanded: false
   items:

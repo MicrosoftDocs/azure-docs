@@ -1,5 +1,6 @@
 ---
-title: Configure SSO on macOS and iOS | Microsoft identity platform
+title: Configure SSO on macOS and iOS 
+titleSuffix: Microsoft identity platform
 description: Learn how to configure single sign on (SSO) on macOS and iOS.
 services: active-directory
 documentationcenter: dev-center-name

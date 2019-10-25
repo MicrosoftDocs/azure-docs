@@ -14,7 +14,7 @@ ms.author: bidishac
 
 # Quickstart: Create a voice assistant with the Speech SDK, Java
 
-Quickstarts are also available for [speech to text](quickstart-java-jre.md), [text to speech](quickstart-text-to-speech-java-jre.md), and [speech translation](quickstart-translate-speech-java-jre.md).
+Quickstarts are also available for [speech-to-text](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), [text-to-speech](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre), and [speech translation](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre).
 
 In this article, you create a Java console application by using the [Azure Cognitive Services Speech SDK](speech-sdk.md). The application connects to a previously authored bot configured to use the Direct Line Speech channel, sends a voice request, and returns a voice response activity (if configured). The application is built with the Speech SDK Maven package and the Eclipse Java IDE on Windows, Ubuntu Linux, or on macOS. It runs on a 64-bit Java 8 runtime environment (JRE).
 
