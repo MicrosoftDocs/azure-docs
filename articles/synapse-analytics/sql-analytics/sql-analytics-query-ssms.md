@@ -23,6 +23,10 @@ ms.reviewer: jrasnick
 
 Use SQL Server Management Studio (SSMS) to connect to and query Azure SQL analytics. 
 
+## Supported tools for SQL analytics on-demand
+Fully supported tool is Azure Data Studio.
+SQL Server Management Studio is supported partially from version 18.4 with limited feature like connecting and querying, keep in mind that it's not fully supported.
+
 ## Prerequisites
 To use this tutorial, you need:
 
@@ -73,8 +77,8 @@ To configure your environment for Azure Active Directory authentication, see [Au
 
 <!--Arcticles-->
 [Connect to SQL analytics]: sql-analytics-connect-overview.md
-[Create a SQL analytics]: sql-data-warehouse-get-started-provision.md
-[Authenticate to SQL analytics]: sql-data-warehouse-authentication.md
+[Create a SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md
+[Authenticate to SQL analytics]: ../../sql-data-warehouse/sql-data-warehouse-authentication.md
 [visualizing the data with PowerBI]: tutorial-bi-professional.md 
 
 <!--Other-->

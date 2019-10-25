@@ -35,10 +35,19 @@ To use SQL Server Authentication, you need to add the username/password paramete
 * **User (-U):** Server user in the form `<`User`>`
 * **Password (-P):** Password associated with the user.
 
+
 For example, your connection string might look like the following:
+
+
+**SQL on-demand**
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
+```
+
+**SQL pool**
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
 ```
 
 To use Azure Active Directory Integrated authentication, you need to add the Azure Active Directory parameters:
@@ -47,8 +56,14 @@ To use Azure Active Directory Integrated authentication, you need to add the Azu
 
 For example, your connection string might look like the following:
 
+**SQL on-demand**
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I
+```
+
+**SQL pool**
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
@@ -56,7 +71,28 @@ C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I
 > 
 > 
 
-## 2. Query
+## 2. Query 
+
+### Using SQL pool
+After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
+
+```sql
+C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
+1> SELECT name FROM sys.tables;
+2> GO
+3> QUIT
+```
+
+These next examples show how you can run your queries in batch mode using the -Q option or piping your SQL to sqlcmd.
+
+```sql
+sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
+```
+
+```sql
+"SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
+```
+### Using SQL on-demand
 After connection, you can issue any supported Transact-SQL statements against the instance.  In this example, queries are submitted in interactive mode.
 
 ```sql

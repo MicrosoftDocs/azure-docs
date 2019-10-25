@@ -11,7 +11,7 @@ ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
-# Connect to SQL analytics on-demand with Azure Data Studio
+# Connect to Azure SQL analytics with Azure Data Studio
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](sql-analytics-query-ads.md)
 > * [Power BI](tutorial-bi-professional.md)
@@ -21,7 +21,7 @@ ms.reviewer: jrasnick
 > 
 > 
 
-Use Azure Data Studio application to connect to and query an Azure SQL on-demand database.
+Use Azure Data Studio application to connect to and query an Azure SQL analytics database.
 
 ## 1. Connect using Azure Data Studio
 To get started with [Azure Data Studio][ads], open application and select **New Connection** followed by the connection details for your SQL on-demand database. 
