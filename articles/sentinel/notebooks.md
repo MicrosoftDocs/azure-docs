@@ -34,7 +34,7 @@ Notebooks have two components:
 - the browser-based interface where you enter and run queries and code, and where the results of the execution are displayed.
 - a *kernel* that is responsible for parsing and executing the code itself. 
 
-In Azure Notebooks, this kernel runs on Azure *Free Cloud Compute and Storage* by default. If your notebooks include complex machine learning models or visualizations you should consider using more powerful, dedicated compute resources such as [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). Notebooks in your account are kept private unless you choose to share them.
+In Azure Notebooks, by default, this kernel runs on Azure *Free Cloud Compute and Storage*. If your notebooks include complex machine learning models or visualizations, consider using more powerful, dedicated compute resources such as [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) (DSVM). Notebooks in your account are kept private unless you choose to share them.
 
 The Azure Sentinel notebooks use many popular Python libraries such as pandas, matplotlib, bokeh, and others. There are a huge number of other Python packages for you to choose from, covering areas such as:
 
@@ -49,15 +49,15 @@ The initial notebooks include:
 
 - **Guided investigation - Process Alerts**: Allows you to quickly triage alerts by analyzing activity on the affected host(s).​
 - **Guided hunting - Windows host explorer**: Allows you to explore account activity, process executions, network activity, and other events on a host.  ​
-- **Guided hunting - Office365-Exploring**: Hunt for suspicious Office 365 activity in multiple O365 data sets.​
+- **Guided hunting - Office365-Exploring**: Hunt for suspicious Office 365 activity in multiple Office 365 data sets.​
 
 The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
 
-To start using Azure Sentinel Notebooks, you can either launch the notebook directly from the **Notebooks** blade from the Azure portal, or you can clone all the notebooks into a project in Azure Notebooks.
+To start using Azure Sentinel notebooks, you can either launch a notebook directly from the **Notebooks** blade from the Azure portal, or you can clone all the notebooks into a project in Azure Notebooks and then run a notebook.
 
 You must have an Azure Notebooks account to launch notebooks directly from within Azure Sentinel. For more information, see [Quickstart: Sign in and set a user ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) from the Azure Notebooks documentation.
 
-## Launch a notebook directly from Azure Sentinel 
+## Launch a notebook directly from Azure Sentinel
  
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks**, where you can see the full list of notebooks that Azure Sentinel provides. 
 
@@ -65,6 +65,8 @@ You must have an Azure Notebooks account to launch notebooks directly from withi
     
     > [!div class="mx-imgBorder"]
     > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
+
+4. In your browser, you're taken directly to the [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel)
 
 ## Clone Azure Sentinel Notebooks to a new Azure Notebooks project
 
@@ -79,23 +81,35 @@ These instruction use an example that creates an Azure Notebooks project from th
 
    ![Import notebook](./media/notebooks/sentinel-notebooks-clone.png)
 
-3. When creating a new project, you need to name the project - use the default name or type in a new one. Don't check the **Clone Recursively** option - this option refers to linked GitHub repos. Clicking on **Import** starts cloning the GitHub content, which can take a few minutes to complete.
+3. When you create a new project, you must nme it - use the default name or type in a new one. Don't check the **Clone Recursively** option because this option refers to linked GitHub repos. Click **Import** to start cloning the GitHub content, which can take a few minutes to complete.
 
    ![Import notebook](./media/notebooks/sentinel-create-project.png)
 
-4. Open the **Notebooks** folder to see the notebooks. Each notebook walks you through the steps for carrying out a hunt or investigation. Libraries and other dependencies needed by the notebook can be installed from the Notebook itself or via a simple configuration procedure. Configuration that ties your notebook project back to your Azure Sentinel subscription is automatically provisioned in the preceding steps. Your notebooks are ready to run against your Azure Sentinel Log Analytics workspace.
+4. Open the project (for example, **Azure-Sentinel** is the default project name), and then open the **Notebooks** folder to see the notebooks. For example:
 
    ![Import repo](./media/notebooks/sentinel-open-notebook1.png)
 
-5. Open a Notebook. Free Compute is selected by default to run the notebooks (highlighted). If you've configured a DSVM to use (see above), select the DSVM and authenticate before opening the first notebook. Click on a notebook to open it.
+## Run a notebook
 
+Each notebook walks you through the steps for carrying out a hunt or investigation. Libraries and other dependencies needed by the notebook can be installed from the Notebook itself or via a simple configuration procedure. Configuration that ties your notebook project back to your Azure Sentinel subscription is automatically provisioned in the preceding steps.
+
+1. Before you open a notebook, note that by default, Free Compute is selected to run the notebooks:
+    
    ![select notebook](./media/notebooks/sentinel-open-notebook2.png)
+    
+    If you've configured a Data Science Virtual Machines (DSVM) to use as explained in the introduction, select the DSVM and authenticate before you open the first notebook. 
 
-6. Selecting the Python version. When you first open a notebook, it may prompt you to select a kernel version. If not, select the kernel to use as follows. Python 3.6 or later should be the selected kernel (in the top right of the notebook window).
+2. Select a notebook to open it.
 
+3. The first time you open a notebook, you might be prompted to select a kernel version. If you're not prompted, you can select the kernel version from **Kernel** >  **Change kernel**, and then select a version that's at least 3.6. The selected kernel version is displayed in the top right of the notebook window:
+    
    ![select notebook](./media/notebooks/sentinel-select-kernel.png)
 
-For a quick introduction to querying data in Azure Sentinel, look at the [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) notebook in the main Notebooks folder. Additional sample notebooks can be found in the **Sample-Notebooks** subfolder. The sample notebooks have been saved with data, so that it's easier to see the intended output (we recommend viewing them in [nbviewer](https://nbviewer.jupyter.org/)). The **HowTos** folder contains notebooks describing, for example: setting you default Python version, configuring a DSVM, creating Azure Sentinel bookmarks from a notebook, and other subjects.
+For a quick introduction to querying data in Azure Sentinel, look at the [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) notebook in the main Notebooks folder. 
+
+You'll find additional sample notebooks in the **Sample-Notebooks** subfolder. These sample notebooks have been saved with data, so that it's easier to see the intended output. We recommend viewing these notebooks in [nbviewer](https://nbviewer.jupyter.org/)). 
+
+The **HowTos** folder contains notebooks describing, for example: Setting you default Python version, configuring a DSVM, creating Azure Sentinel bookmarks from a notebook, and other subjects.
 
 These notebooks are intended as both useful tools and as illustrations and code samples that you can use in the development of your own notebooks.
 
