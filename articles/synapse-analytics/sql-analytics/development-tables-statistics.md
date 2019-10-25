@@ -542,7 +542,7 @@ SQL Analytics on-demand lets you create statistics manually. For CSV files you h
 
 ### Updating statistics
 
-Changes to data in files, deleting and adding files result in data distribution changes and make statistics out of date. In that case statistics needs to be updated.
+Changes to data in files, deleting and adding files result in data distribution changes and makes statistics out of date. In that case statistics needs to be updated.
 
 SQL Analytics on-demand automatically recreates statistics if data is significantly changed. Every time statistics are automatically created, current state of the dataset it also saved - file paths, sizes, last modification dates.
 
@@ -606,6 +606,11 @@ For example, to create statistics with default options (FULLSCAN) for year colum
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
 DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
 GO
+
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = ''
+GO
 */
 
 EXEC sys.sp_create_file_statistics N'SELECT year 
@@ -632,6 +637,11 @@ You can specify the sample size as a percent:
 /* make sure you have credentials for storage account access created
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
 DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = ''
 GO
 */
 
@@ -669,6 +679,11 @@ GO
 /* make sure you have credentials for storage account access created
 IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
 DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = ''
 GO
 */
 
