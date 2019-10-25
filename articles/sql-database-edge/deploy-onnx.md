@@ -8,7 +8,7 @@ ms.service: sql-database-edge
 ms.topic: conceptual
 author: ronychatterjee
 ms.author: achatter
-ms.reviewer: davidph
+ms.reviewer: davidph 
 ms.date: 11/04/2019
 ---
 
