@@ -327,12 +327,6 @@
         items: 
         - name: Import Data
           href: ../algorithm-module-reference/import-data.md
-        - name: Import from Web URL via HTTP
-          href: ../algorithm-module-reference/import-from-web-url-via-http.md
-        - name: Import from Azure Blob Storage module
-          href: ../algorithm-module-reference/import-from-azure-blob-storage.md
-        - name: Import from Azure SQL Database
-          href: ../algorithm-module-reference/import-from-azure-sql-database.md
       - name: Export Data
         href: ../algorithm-module-reference/export-data.md
       - name: Enter Data Manually

@@ -14,33 +14,32 @@ ms.date: 10/08/2019
 
 # What is an Azure Machine Learning compute instance?
 
-An Azure Machine Learning compute instance is a fully managed cloud-based workstation.  It's easy to get started with Azure Machine Learning. Enjoy the management and enterprise readiness capabilities of this compute resource. Use a compute instance as your fully configured and managed development environment in the cloud.
+An Azure Machine Learning compute instance is a fully managed cloud-based workstation for data scientists. Compute instance makes it  easy to get started with Azure Machine Learning development. Compute instance provides management and enterprise readiness capabilities for IT administrators.  Use a compute instance as your fully configured and managed development environment in the cloud.
 
 ## Why use a compute instance?
 
 A compute instance is a managed virtual machine (VM), optimized to be your machine learning development environment in the cloud. It provides the following benefits:
 
-* Productive: Data scientists can build and deploy models easily using integrated notebooks and popular tools such as 
+* Productive: Data scientists can build and deploy models easily using integrated notebooks and the following popular tools in a first-class web UI experience
     * Jupyter
     * JupyterLab
     * RStudio
     * VS Code 
-* Collaborative: Provide your team of data scientists with a collaborative environment. Within the boundaries of a workspace, you can collaboratively debug models,  and share notebooks on shared compute instances.
-* Managed: A compute instance is a managed VM form-factor, which ensures compliance with enterprise security requirements. Similar to Azure Machine Learning compute clusters, the underlying infrastructure is deployed in a subscription owned by Azure Machine Learning.  You don’t have to manage the infrastructure reducing your security footprint. Compute instances  provide robust management policies such as:
-    * automated provisioning through Resource Manager templates or Azure Machine Learning.
-    * SDK and [role-based access control (RBAC)](/azure/role-based-access-control/overview). 
-* Secure: A compute instance supports secure networking configurations such as 
-    * virtual network support
-    * SSH policy. 
-* Preconfigured for machine learning: Save time on setup tasks with all the tools and environments pre-configured and up-to-date.
-* Fully customizable: Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages makes advanced scenarios a breeze.
+* Collaborative: Provide your team of data scientists with a collaborative environment. Within the boundaries of a workspace, you can collaboratively debug models, and share notebooks on shared compute instances.
+* Managed and secure: A compute instance is a managed VM form-factor, which ensures compliance with enterprise security requirements. Similar to Azure Machine Learning compute clusters, the underlying infrastructure is deployed in a subscription owned by Azure Machine Learning.  You don’t have to manage the infrastructure reducing your security footprint. Compute instances  provide robust management policies and secure networking configurations such as:
+    * automated provisioning through Resource Manager templates or Azure Machine Learning SDK.
+    * [Role-based access control (RBAC)](/azure/role-based-access-control/overview).     
+    * virtual network support. You can create a compute instance in a virtual network. For more details please refer to virtual network documentation article.
+    * SSH policy to enable/disable SSH access
+* Preconfigured for machine learning: Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.
+* Fully customizable: Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. 
 
 
 ## <a name="contents"></a>Tools and environments
 
-Azure Machine Learning compute instance enables you to author, train, and deploy models in a [fully integrated notebook experience]( tutorial-1st-experiment-sdk-setup.md) in your workspace.
+Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
-These tools and environments are installed on the compute instance:
+The following tools and environments are installed on the compute instance:-
 
 * CUDA, cuDNN, NVIDIA Drivers
 * Intel MPI library
@@ -80,11 +79,11 @@ These tools and environments are installed on the compute instance:
     * `jupyterlab-git`
     * `tensorboard`
     * `nbconvert`
-* [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)
+* Azure CLI
 * Docker
 * Blob FUSE driver
 * Nginx
-* Azure Machine Learning samples
+* Azure Machine Learning Python and R samples
 
 Compute instances are typically used as development environments.  They can also be used as a compute target for training and inferencing for development and testing.  For large tasks, an [Azure Machine Learning compute cluster](how-to-set-up-training-targets.md#amlcompute) with multi-node scaling capabilities is a better compute target choice.
 
@@ -92,13 +91,13 @@ Compute instances are typically used as development environments.  They can also
 
 When you create a compute instance, it acts as a shared compute resource for the workspace. Users can collaboratively debug models and share notebooks on the compute instances within the boundaries of the workspace. 
 
-You can share results of machine learning experiments by sending a link to a notebook file. If your colleagues have access to the workspace, they can open the link and see the fully rendered notebook. 
+You can share results of machine learning experiments by sending a link to a notebook file. If your colleagues have access to the workspace, they can open the link and see the fully rendered notebook. You can send Jupyter/JupyterLab notebook links and ml.azure.com integrated notebook links.
 
-You can also get help debugging a notebook running on your compute instance on Jupyter/JupyterLab/Integrated Notebook. Your colleagues then execute the code from their own web browser session.  They access the same execution environment as yours to help fix issues.
+You can also collaborate on debugging a notebook running on your compute instance on Jupyter/JupyterLab/Integrated Notebook. Your colleagues then execute the code from their own web browser session.  They access the same execution environment (kernel) as yours to help fix issues.
 
-Coediting of notebooks is subject to limitations of Jupyter/JupyterLab.  You will find a better coediting experience using integrated notebooks.
+Coediting of notebooks is subject to limitations of Jupyter/JupyterLab. 
 
-Any workspace user who is assigned to a role with the `Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action` permission can access Jupyter, JupyterLab, and RStudio server instances and the notebook links on the compute instance.
+Any workspace user who is assigned to a role with the `Microsoft.MachineLearningServices/workspaces/computes/applicationaccess/action` permission can access applications including, but not limited to, Jupyter, Jupyter Lab, RStudio on compute instance through given DNS name.
 
 The workspace owner, workspace contributor, and data scientist roles already have this permission. The user who accesses these instances is authenticated with Azure Active Directory (Azure AD) with Multi-Factor Authentication.
 
@@ -112,20 +111,19 @@ The Azure file share account of your workspace is mounted as a drive on the comp
 
 The files in the file share are accessible from all compute instances in the same workspace. Any changes to these files on the compute instance will be reliably persisted back to the file share. 
 
-You can also clone the latest Azure Machine Learning samples to the user files directory in the workspace file share
+You can also clone the latest Azure Machine Learning samples to the user files directory in the workspace file share.
 
-Writing small files can be slower on network drives than writing to the VM itself.  If you are writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory.
-
+Writing small files can be slower on network drives than writing to the VM itself.  If you are writing many small files, try using a directory directly on the compute instance, such as a `/tmp` directory. Please note these files will not be accessible from other compute instances in the workspace.
 
 ## Managing a compute instance
 
-Select **Compute** in your workspace in [Azure Machine Learning studio](https://machine learning.azure.com) to manage your compute instances:
+In your workspace in Azure Machine Learning studio, select Compute. The first tab on top is Compute instance. From this tab, you can perform the following actions:-
 
-* Create a compute instance. Specify the name, Azure VM type including GPUs, enable/disable SSH access, and configure virtual network settings optionally. 
+* Create a compute instance. Specify the name, Azure VM type including GPUs, enable/disable SSH access, and configure virtual network settings optionally. You can also create an instance directly from integrated notebooks, Azure portal, ARM template, or Azure Machine Learning SDK. The dedicated cores per region quota which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota. 
 * Start a compute instance
 * Stop a compute instance
 * Delete a compute instance
-* Access Jupyter, JupyterLab, RStudio URIs on the compute instance
+* Access Jupyter, JupyterLab, RStudio, VS Code URIs on the compute instance
 * Refresh the compute instances tab
 * SSH into compute instance. SSH access is disabled by default but can be enabled at compute instance creation time. SSH access is through public/private key mechanism. The tab will give you details for SSH connection such as IP address, username, and port number.
 * Get details about a specific compute instance such as IP address, and region.
@@ -138,21 +136,20 @@ You can also create an instance
 * From a Resource Manager template
 * With Azure Machine Learning SDK
 
-The dedicated cores per region quota, which applies to compute instance creation is unified and shared with Azure Machine Learning compute cluster quota. 
+The dedicated cores per region quota, which applies to compute instance creation is unified and shared with Azure Machine Learning training cluster quota. 
 
 ## Compute Target
 
-Compute instances can be used as a training compute target similar to Azure Machine Learning compute clusters. Provision a multi-GPU VM to run distributed training jobs using TensorFlow/PyTorch estimators. Create a run configuration and use it to run your experiment on compute instance.
+Compute instances can be used as a training compute target similar to Azure Machine Learning compute training clusters. Provision a multi-GPU VM to run distributed training jobs using TensorFlow/PyTorch estimators. You can also create a run configuration and use it to run your experiment on compute instance. 
+You can use compute instance as a local deployment target for testing/debugging scenarios. 
 
-Use a compute instance as a local deployment target for testing/debugging scenarios.
+## Notebook VM status
 
-## NotebookVM
+In regions where compute instances are not available yet, you can continue to use Notebook VMs with full functionality and create new Notebook VMs.
 
-Compute instances refreshes and replaces the NotebookVMs. You can still access and fully use any NotebookVMs you have created. However, you will not be able to create new NotebookVMs.
+In regions where compute instances are available, new Notebook VMs cannot be created. However, you can still access and use Notebook VMs you have created, with full functionality. Compute instances can be created in same workspace as the existing Notebook VMs. Any notebook files stored in the workspace file share and data in workspace data stores will be accessible from compute instance. However, any custom packages previously installed on Notebook VM will need to be re-installed on the compute instance. Quota limitations will apply to compute instance creation. 
 
 
 ## Next steps
 
- * [Tutorial: Get started with Azure Machine Learning and its R SDK]( tutorial-1st-r-experiment.md) shows how to create and use a compute instance.
  * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
-
