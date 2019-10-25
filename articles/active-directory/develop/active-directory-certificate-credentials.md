@@ -1,5 +1,6 @@
 ---
-title: Certificate credentials in Azure AD | Microsoft Docs
+title: Certificate credentials in Azure AD 
+titleSuffix: Microsoft identity platform
 description: This article discusses the registration and use of certificate credentials for application authentication
 services: active-directory
 documentationcenter: .net
