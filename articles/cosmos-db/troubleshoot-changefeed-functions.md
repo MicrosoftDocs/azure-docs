@@ -55,7 +55,7 @@ This error means that your current leases container is partitioned, but the part
 
 This issue appears if you are using the Azure portal and you try to select the **Run** button on the screen when inspecting an Azure Function that uses the trigger. The trigger does not require for you to select Run to start, it will automatically start when the Azure Function is deployed. If you want to check the Azure Function's log stream on the Azure portal, just go to your monitored container and insert some new items, you will automatically see the Trigger executing.
 
-### My changes take too long be received
+### My changes take too long to be received
 
 This scenario can have multiple causes and all of them should be checked:
 
@@ -73,7 +73,7 @@ When your Azure Function receives the changes, it often processes them, and coul
 
 If some changes are missing on the destination, this could mean that is some error happening during the Azure Function execution after the changes were received.
 
-In this scenario, the best course of action is to add `try/catch blocks` in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). 
+In this scenario, the best course of action is to add `try/catch` blocks in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). 
 
 > [!NOTE]
 > The Azure Functions trigger for Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
