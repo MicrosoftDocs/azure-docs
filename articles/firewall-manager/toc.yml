@@ -9,7 +9,6 @@
   items:
   - name: Secure your cloud network - portal
     href: secure-cloud-network.md
-- name: Samples
 - name: Concepts
   items:
   - name: What is a secured virtual hub?
@@ -24,6 +23,8 @@
   items:
   - name: Deploy trusted security partners
     href: deploy-trusted-security-partner.md
+  - name: Migrate to Firewall policy
+    href: migrate-to-policy.md
 - name: Reference
   items:
   - name: Azure CLI
