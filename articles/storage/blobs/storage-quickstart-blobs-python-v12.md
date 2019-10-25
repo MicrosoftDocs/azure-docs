@@ -371,4 +371,3 @@ To learn how to create a web app that uploads an image to Blob storage, continue
 
 * To learn more about .NET Core, see [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/).
 * To explore a sample application that you can deploy from Visual Studio for Windows, see the [.NET Photo Gallery Web Application Sample with Azure Blob Storage](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
-* To get started with the previous SDK version, see: [Quickstart: Azure Blob storage client library for .NET](storage.quickstart-blobs-dotnet.md)
