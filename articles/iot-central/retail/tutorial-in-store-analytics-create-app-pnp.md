@@ -1,6 +1,6 @@
 ---
 title: Create a retail application in Azure IoT Central | Microsoft Docs
-description: This tutorial shows how to create an in-store analytics retail application in IoT Central, customize it, and add sensor devices.
+description: This tutorial shows how to create an in-store analytics retail application in IoT Central. You'll create it, customize it, and add sensor devices.
 services: iot-central
 ms.service: iot-central
 ms.topic: tutorial
@@ -14,11 +14,11 @@ ms.date: 10/03/2019
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-This tutorial shows you, as a builder, how to create an Azure IoT Central in-store analytics application for a retail store.  This application is a solution to the common business need to monitor and adapt to occupancy and environmental conditions.
+The tutorial shows solution builders how to create an Azure IoT Central in-store analytics application. The sample application is for a retail store. It's a solution to the common business need to monitor and adapt to occupancy and environmental conditions.
 
-The sample application that you build includes three real devices: a Rigado Cascade 500 gateway, and two RuuviTag sensors. The tutorial also shows how to use the simulated occupancy sensor included in the application template for testing purposes. The Rigado C500 gateway serves as the communication hub in your application. It communicates with  sensors in your store and facilitates their connections to the cloud. The RuuviTag is an environmental sensor that provides telemetry including temperature, humidity, and pressure. The simulated occupancy sensor provides a way to track motion and presence in the checkout areas of a store. 
+The sample application that you build includes three real devices: a Rigado Cascade 500 gateway, and two RuuviTag sensors. The tutorial also shows how to use the simulated occupancy sensor included in the application template for testing purposes. The Rigado C500 gateway serves as the communication hub in your application. It communicates with sensors in your store and manages their connections to the cloud. The RuuviTag is an environmental sensor that provides telemetry including temperature, humidity, and pressure. The simulated occupancy sensor provides a way to track motion and presence in the checkout areas of a store. 
 
-This tutorial includes directions for connecting the Rigado and RuuviTag devices to your application. If you have another gateway and sensors, you can still follow the steps in this tutorial to build your application. If you don't have real devices, the tutorial gives you an option to create simulated RuuviTag sensors to build the application.
+This tutorial includes directions for connecting the Rigado and RuuviTag devices to your application. If you have another gateway and sensors, you can still follow the steps to build your application. The tutorial also shows how to create simulated RuuviTag sensors. The simulated sensors enable you to build the application if you don't have real devices. 
 
 You develop the checkout and condition monitoring solution in three parts:
 
@@ -42,7 +42,7 @@ To complete this tutorial series, you need:
 * Device templates for the devices you use (templates are provided for all devices used in the tutorial)
 
 ## Create an application
-In this section you create a new Azure IoT Central application from a template. You'll use this application throughout the tutorial series to build a complete solution.
+In this section, you create a new Azure IoT Central application from a template. You'll use this application throughout the tutorial series to build a complete solution.
 
 To create a new Azure IoT Central application:
 
@@ -65,7 +65,7 @@ To create a new in-store analytics checkout application that uses preview featur
     > [!NOTE]
     > If you use a friendly **Application name**, you still must use a unique value for the application **URL**.
 
-1. If you have an Azure subscription, enter your *Directory, Azure subscription, and Region*. If you don't have a subscription, you can enable **7 day free trial** and complete the required contact information.  
+1. If you have an Azure subscription, enter your *Directory, Azure subscription, and Region*. If you don't have a subscription, you can enable **7-day free trial** and complete the required contact information.  
 
     For more information about directories and subscriptions, see the [create an application quickstart](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
@@ -74,7 +74,7 @@ To create a new in-store analytics checkout application that uses preview featur
     ![Azure IoT Central Create Application page](./media/tutorial-in-store-analytics-create-app-pnp/preview-application-template.png)
 
 ## Customize application settings
-As a builder, you can change several settings to customize the user experience in your application. In this section, you learn how to  select a predefined application theme, create a custom theme, and update the application image. A custom theme enables you to set the application browser colors, browser icon, and the application logo that appears in the masthead.
+As a builder, you can change several settings to customize the user experience in your application. In this section, you'll select a predefined application theme. Optionally, you'll learn how to create a custom theme, and update the application image. A custom theme enables you to set the application browser colors, browser icon, and the application logo that appears in the masthead.
 
 To select a predefined application theme:
 
@@ -104,7 +104,7 @@ To create a custom theme:
 
 1. Select **Save**. 
 
-    ![Azure IoT Central customize logo](./media/tutorial-in-store-analytics-create-app-pnp/select-application-logo.png)
+    ![Azure IoT Central customized logo](./media/tutorial-in-store-analytics-create-app-pnp/select-application-logo.png)
 
     After you save, the application updates the browser colors, the logo in the masthead, and the browser icon. 
 
@@ -114,7 +114,7 @@ To update the application image:
 
 1. Select **Administration > Application settings**.
 
-1. Use the **Select image** button to choose an image to upload as the application image. This image appears on the application tile in the **My Apps** page in the Azure IoT Central application manager.
+1. Use the **Select image** button to choose an image to upload as the application image. This image appears on the application tile in the **My Apps** page of the IoT Central application manager.
 
 1. Select **Save**.
 
@@ -123,9 +123,9 @@ To update the application image:
     ![Azure IoT Central customize application image](./media/tutorial-in-store-analytics-create-app-pnp/customize-application-image.png)
 
 ## Create device templates
-As a builder, you can create device templates that enable you and the application operators to configure and manage devices. You can create a template by building a custom one, by importing an existing template file, or by importing a template from the Azure IoT device catalog. After you create and customize a device template, you can use it to connect real devices to your application. Optionally, you can use a device template to generate simulated devices for testing.
+As a builder, you can create device templates that enable you and the application operators to configure and manage devices. You create a template by building a custom one, by importing an existing template file, or by importing a template from the Azure IoT device catalog. After you create and customize a device template, use it to connect real devices to your application. Optionally, use a device template to generate simulated devices for testing.
 
-The **In-store analytics - checkout** application template has device templates for several devices, including two of the three devices you use in the application. In this section, you add a device template for RuuviTag sensors to your application, because the RuuviTag device template is not included in the **In-store analytics - checkout** application template.
+The **In-store analytics - checkout** application template has device templates for several devices.  There are device templates for two of the three devices you use in the application. The RuuviTag device template isn't included in the **In-store analytics - checkout** application template. In this section, you add a device template for RuuviTag sensors to your application.
 
 To add a RuuviTag device template to your application:
 
@@ -141,14 +141,18 @@ To add a RuuviTag device template to your application:
 
 1. Select **Create**. The application adds the RuuviTag device template.
 
-1. Select **Device templates** on the left pane. The page displays all device templates that were included in the application template, and the RuuviTag device template you just added.
+1. Select **Device templates** on the left pane. The page displays all device templates included in the application template, and the RuuviTag device template you just added.
 
     ![Azure IoT Central RuuviTag sensor device template](./media/tutorial-in-store-analytics-create-app-pnp/device-templates-list.png)
 
 ## Customize device templates
-You can customize the device templates in your application in three ways. First, you can customize the native built-in interfaces in your devices by changing the device capabilities. For example, with a temperature sensor, you can change details such as the display name of the temperature interface, the data type of the captured data, the units of measurement, and minimum and maximum operating ranges. Second, you can customize your device templates by adding cloud properties. Cloud properties aren't part of the built-in device capabilities. Cloud properties are custom data that your Azure IoT Central application creates, stores, and associates with your devices. An example of a cloud property could be a calculated value, or metadata such as a location that you want to associate with a set of devices. Third, you can customize device templates by building custom views.  Views provide a way for operators to visualize telemetry and metadata for your devices, such as device metrics and health.
+You can customize the device templates in your application in three ways. First, you customize the native built-in interfaces in your devices by changing the device capabilities. For example, with a temperature sensor, you can change details such as the display name of the temperature interface, the data type, the units of measurement, and minimum and maximum operating ranges. 
 
-In this section, you use the first two methods to customize the device template for your RuuviTag sensors. For information about creating views for your sensors, see the [Add a simulated device to your IoT Central application](../core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart.
+Second, customize your device templates by adding cloud properties. Cloud properties aren't part of the built-in device capabilities. Cloud properties are custom data that your Azure IoT Central application creates, stores, and associates with your devices. An example of a cloud property could be a calculated value, or metadata such as a location that you want to associate with a set of devices. 
+
+Third, customize device templates by building custom views. Views provide a way for operators to visualize telemetry and metadata for your devices, such as device metrics and health.
+
+Here, you use the first two methods to customize the device template for your RuuviTag sensors. For information about creating views for your sensors, see the [Add a simulated device to your IoT Central application](../core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) quickstart.
 
 To customize the built-in interfaces of the RuuviTag device template:
 
@@ -164,7 +168,7 @@ To customize the built-in interfaces of the RuuviTag device template:
 
 1. Scroll in the list of capabilities and find the `humidity` telemetry type. It's the row item with the editable **Display name** value of *humidity*.
 
-In the following steps you customize the `humidity` telemetry type for the RuuviTag sensors. Optionally, customize some of the other telemetry types.
+In the following steps, you customize the `humidity` telemetry type for the RuuviTag sensors. Optionally, customize some of the other telemetry types.
 
 For the `humidity` telemetry type, make the following changes:
 
@@ -188,7 +192,7 @@ Specify the following values to create a custom property to store the location o
 
 1. Enter the value *Location* for the **Display Name**. This value is automatically copied to the **Name** field, which is a friendly name for the property. You can use the copied value or change it.
 
-1. Select *String* in the **Schema** dropdown. This enables you to associate a location name string such as a geographical area, or an area within a facility, with each device. Optionally, you can set the **Semantic Type** of your property to *Location*, and this automatically sets the **Schema** to *Geopoint*. This enables you to associate GPS coordinates with a device. 
+1. Select *String* in the **Schema** dropdown. A string type enables you to associate a location name string with any device based on the template. For instance, you could associate an area in a store with each device. Optionally, you can set the **Semantic Type** of your property to *Location*, and this automatically sets the **Schema** to *Geopoint*. This enables you to associate GPS coordinates with a device. 
 
 1. Set **Minimum Length** to *2*. 
 
@@ -221,7 +225,7 @@ Complete the steps in the following two articles to connect a real Rigado gatewa
 ## Add rules and actions
 As part of using sensors in your Azure IoT Central application to monitor conditions, you can create rules to run actions when certain conditions are met. A rule is associated with a device template and one or more devices, and contains conditions that must be met based on device telemetry or events. A rule also has one or more associated actions. The actions may include sending email notifications, or triggering a webhook action to send data to other services. The **In-store analytics - checkout** application template includes some predefined rules for the devices in the application.
 
-In this section you create a new rule that checks the maximum relative humidity level based on the RuuviTag sensor telemetry. You add an action to the rule so that if the humidity exceeds the maximum, the application sends email. 
+In this section, you create a new rule that checks the maximum relative humidity level based on the RuuviTag sensor telemetry. You add an action to the rule so that if the humidity exceeds the maximum, the application sends email. 
 
 To create a rule: 
 
@@ -249,7 +253,7 @@ To add an action to the rule:
 
 1. Enter *High humidity notification* as the friendly **Display name** for the action. 
 
-1. Enter the email address associated with your account in **To**. Any email address you use must be for a user who has been added to the application and who has signed in and out at least once. 
+1. Enter the email address associated with your account in **To**. If you use a different email, the address you use must be for a user who has been added to the application. The user also needs to sign in and out at least once.
 
 1. Optionally, enter a note to include in text of the email.
 
