@@ -10,7 +10,7 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
@@ -61,7 +61,6 @@ To secure a custom domain in an SSL binding, the certificate has additional requ
 The free App Service Managed Certificate is a turn-key solution for securing your custom DNS name in App Service. It's a fully functional SSL certificate that's managed by App Service and renewed automatically. The free certificate comes with the following limitations:
 
 - Supports only the [`www` DNS name that's mapped by a CNAME record](app-service-web-tutorial-custom-domain.md#map-a-cname-record) (for example, `www.contoso.com`).
-- Supports only the SNI binding.
 - Is not exportable.
 
 To create a free App Service Managed Certificate:
