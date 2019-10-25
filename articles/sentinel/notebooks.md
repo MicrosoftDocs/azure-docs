@@ -47,13 +47,13 @@ We've also released some open-source Jupyter security tools in a package named [
 
 The initial notebooks include:
 
-- **Guided investigation - Process Alerts**: Allows you to quickly triage alerts by analyzing activity on the affected host(s).​
-- **Guided hunting - Windows host explorer**: Allows you to explore account activity, process executions, network activity, and other events on a host.  ​
+- **Guided investigation - Process Alerts**: Allows you to quickly triage alerts by analyzing activity on the affected host or hosts.​
+- **Guided hunting - Windows host explorer**: Allows you to explore account activity, process executions, network activity, and other events on a host.​
 - **Guided hunting - Office365-Exploring**: Hunt for suspicious Office 365 activity in multiple Office 365 data sets.​
 
 The [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel) is the location for any future Azure Sentinel notebooks built by Microsoft or contributed from the community.
 
-To start using Azure Sentinel notebooks, you can either launch a notebook directly from the **Notebooks** blade from the Azure portal, or you can clone all the notebooks into a project in Azure Notebooks and then run a notebook.
+To start using Azure Sentinel notebooks, you can either launch a notebook directly from the **Notebooks** pane in the Azure portal, or you can clone one or more notebooks into a project in Azure Notebooks and then run a notebook.
 
 You must have an Azure Notebooks account to launch notebooks directly from within Azure Sentinel. For more information, see [Quickstart: Sign in and set a user ID](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks) from the Azure Notebooks documentation.
 
@@ -68,9 +68,9 @@ You must have an Azure Notebooks account to launch notebooks directly from withi
 
 4. In your browser, you're taken directly to the [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel).
 
-## Clone Azure Sentinel Notebooks to a new Azure Notebooks project
+## Clone Azure Sentinel notebooks to a new Azure Notebooks project
 
-You can create an Azure Notebooks project from the Azure portal, populating the project with all the available notebooks. Before you use these notebooks, it's a good idea to make a copy of the notebook and work on the copy. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
+You can create an Azure Notebooks project from the Azure portal, populating the project with selected or all the available notebooks.
 
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks** and then select **Clone Notebooks** from the command bar:
   
@@ -91,9 +91,9 @@ You can create an Azure Notebooks project from the Azure portal, populating the 
 
 ## Using notebooks to hunt
 
-Each notebook walks you through the steps for carrying out a hunt or investigation. Libraries and other dependencies needed by the notebook can be installed from the Notebook itself or via a simple configuration procedure. Configuration that ties your notebook project back to your Azure Sentinel subscription is automatically provisioned in the preceding steps.
+Each notebook walks you through the steps for carrying out a hunt or investigation. Libraries and other dependencies needed by the notebook can be installed from the notebook itself or via a simple configuration procedure. Configuration that ties your notebook project back to your Azure Sentinel subscription is automatically provisioned in the preceding steps.
 
-1. Before you open a notebook, note that by default, Free Compute is selected to run the notebooks:
+1. Before you open a notebook, be aware that by default, Free Compute is selected to run the notebooks:
     
    ![select notebook](./media/notebooks/sentinel-open-notebook2.png)
     
@@ -104,6 +104,8 @@ Each notebook walks you through the steps for carrying out a hunt or investigati
 3. The first time you open a notebook, you might be prompted to select a kernel version. If you're not prompted, you can select the kernel version from **Kernel** >  **Change kernel**, and then select a version that's at least 3.6. The selected kernel version is displayed in the top right of the notebook window:
     
    ![select notebook](./media/notebooks/sentinel-select-kernel.png)
+
+4. Before you make any changes to a notebook, it's a good idea to make a copy of the original notebook and work on the copy. To do that, select **File** > **Make a Copy**. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data. 
 
 For a quick introduction to querying data in Azure Sentinel, look at the [GetStarted](https://github.com/Azure/Azure-Sentinel/blob/master/Notebooks/Get%20Started.ipynb) notebook in the main Notebooks folder. 
 
