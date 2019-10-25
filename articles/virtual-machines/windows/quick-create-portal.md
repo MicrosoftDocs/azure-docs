@@ -19,7 +19,7 @@ ms.custom: mvc
 
 # Quickstart: Create a Windows virtual machine in the Azure portal
 
-Azure virtual machines (VMs) can be created through the Azure portal. This method provides a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Azure portal to deploy a virtual machine (VM) in Azure that runs Windows Server 2016. To see your VM in action, you then RDP to the VM and install the IIS web server.
+Azure virtual machines (VMs) can be created through the Azure portal. This method provides a browser-based user interface to create VMs and their associated resources. This quickstart shows you how to use the Azure portal to deploy a virtual machine (VM) in Azure that runs Windows Server 2019. To see your VM in action, you then RDP to the VM and install the IIS web server.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,7 +36,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
-1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Location**. Leave the other defaults.
+1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Region**, and then choose *Windows Server 2019 Datacenter* for the **Image**. Leave the other defaults.
 
 	![Instance details section](./media/quick-create-portal/instance-details.png)
 
