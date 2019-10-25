@@ -88,4 +88,4 @@ Once you have linked your sensor account into Azure FarmBeats, you need to assig
 
 ## Next steps
 
-For more information about sensor placement, [see sensor placement](generate-maps.md#sensor-placement-map) and about ingest historical telemetry data, see [ingest historical telemetry data](ingest-historical-telemetry-data.md).
+For more information about sensor placement, [see sensor placement](generate-maps.md#sensor-placement-maps) and about ingest historical telemetry data, see [ingest historical telemetry data](ingest-historical-telemetry-data.md).

@@ -31,7 +31,7 @@ Drone Partners will need to enable customers to link their account to their Farm
 5. Translator Development
 6. Rest API-based integration
 
-Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device and sensor management.
+Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device, and sensor management.
 
 **Telemetry Ingestion**
 
@@ -42,7 +42,7 @@ The telemetry data is mapped to a canonical message that is published on Azure E
 The APIs contain swagger technical documentation. Refer swagger for information on all the APIs and their corresponding requests/responses.
 The Swagger is available at http://aka.ms/FarmBeatsDatahubSwagger .
 Authentication
-FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support. For more information on Azure Active Directory, refer this link https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization  
+FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support. For more information on Azure Active Directory, refer this link https://docs.microsoft.com/azure/app-service/overview-authentication-authorization  
 
 FarmBeats Data hub uses Bearer Authentication, which needs the following credentials:
 
@@ -106,11 +106,11 @@ Partner Integration Steps:
 
 Once the partner has the required credentials to make the connect to the FarmBeats Data hub, the partner should enable the following in their translator component
 1.	Create new extended type for the following fields to suit the imagery they are planning to upload:
-  - Scene Source: For example <drone_partner_name>
-  - Scene Type: For example <drone>
-  - Scene File Type: For example <chlorophyll index>
-  - Scene File Content Type: For example <image/tiff>
-2.	Call the Farms API to get the list of Farms from within the FarmBeats system
+  - Scene Source: For example, <drone_partner_name>
+  - Scene Type: For example, <drone>
+  - Scene File Type: For example, <chlorophyll index>
+  - Scene File Content Type: For example, <image/tiff>
+2.	Call the Farms API to get the list of Farms from within the Azure FarmBeatsFarmBeats system
 3.	Provide the customer with an ability to choose a single farm from the list of Farms.
 
 The Partner system must show the Farm within the partner software to do the path planning and drone flight and image collection
@@ -146,7 +146,7 @@ Step 2: Get Farm Details The Scenes (tiff or csv files) will be in the context o
 Get /Farm response: {   "items": [     {       "id": "d41a33e7-b73e-480e-9279-0fcb3207332b",       "createdAt": "2019-10-04T11:33:35.01619Z",       "lastModifiedAt": "2019-10-04T11:33:35.01619Z",       "geometry": {         "type": "Polygon",         "coordinates": [           [             [               78.33494849794374,               17.427459159016905             ],             [               78.33470873178663,               17.429174852000685             ],             [               78.3370736978917,               17.43074495690408             ],             [               78.33494849794374,               17.427459159016905             ]           ]         ]       },       "name": "MicrosoftBuilding3",       "properties": {         "crops": "Others",         "address": "Microsoft Gachibowli"       }     }   ] } 3. Create a /Scene id (Post call)
 Create a new scene (tiff or csv file) with the given information, providing the Date, sequence & FarmID to which the Scene will be associated. The meta-data associated with the scene can be defined here in the “properties” bag (including details of duration, type of measure, etc.)
 
-This creates a new SceneID which will be associated with the farm. Once the SceneID is created, the user can use the same to create a new file (tiff or csv) & store the content of the file.
+This creates a new SceneID, which will be associated with the farm. Once the SceneID is created, the user can use the same to create a new file (tiff or csv) & store the content of the file.
 
 Example input payload for the Post call on /Scene API
 
@@ -156,7 +156,7 @@ API Response: {   "id": "a0505928-c480-491b-ba31-d38285a28c1d",   "createdAt": "
 
 **Create/SceneFile**
 
-The Sceneid returned from step 3 would be the input for the SceneFile which will return a SAS URL token, which is valid for 24 hours. The user can use a blob storage Rest API to upload the local file through the SAS URL.
+The Sceneid returned from step 3 would be the input for the SceneFile, which will return a SAS URL token, which is valid for 24 hours. The user can use a blob storage Rest API to upload the local file through the SAS URL.
 
 If the user requires a programmatic way of uploading a stream of images, the blob storage SDK can be used to define a method using the Scenefile ID, location & URL.
 

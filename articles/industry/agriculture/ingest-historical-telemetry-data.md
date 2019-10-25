@@ -10,7 +10,7 @@ ms.author: v-umha
 # Ingest historical telemetry data
 
 
-  A common usage scenario is to ingest historical data from Internet of Things (IoT) devices/sensors into your FarmBeats instance. This can be done by creating the metadata for your devices/sensors and then ingest the historical sensor data in a canonical format to FarmBeats.
+  A common usage scenario is to ingest historical data from Internet of Things (IoT) devices/sensors into your Azure FarmBeats instance. This can be done by creating the metadata for your devices/sensors and then ingest the historical sensor data in a canonical format to FarmBeats.
 
 ## Before you begin
 
@@ -20,7 +20,7 @@ ms.author: v-umha
 
 First, we need to enable partner integration to your Azure FarmBeats instance. This step will create a client that will have access to your Azure FarmBeats as your device partner and will provide you the following values that are required in the subsequent steps.
 
-1. API Endpoint – This is the data hub URL for example, https://<datahub>.azurewebsites.net
+1. API Endpoint – This is the data hub URL, for example, https://<datahub>.azurewebsites.net
 2. Tenant ID
 3. Client ID
 4. Client Secret
@@ -81,14 +81,14 @@ Follow the below steps to generate the above values:
 |  HardwareId	       | Unique Id for the device such as MAC address etc.,
 |  reportingInterval        |   Reporting Interval in seconds
 |  Location            |  Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)   
-|parentDeviceId       |         id of the parent device to which this device is connected to. For example,. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway  |
+|parentDeviceId       |         id of the parent device to which this device is connected to. For example, A Node connected to a Gateway; Node will have parentDeviceId as the Gateway  |
 |    Name            | Name to identify resource. Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats|
 |     Description       |      Provide a meaningful description  |
 |     Properties    |  Additional properties from the manufacturer
 |     **Sensor Model**        |          |
 |       Type (Analog, Digital)          |                    |
 |          manufacturer            |                     |
-|     productCode| Product code or Model Name/Number. For example,: RS-CO2-N01 |
+|     productCode| Product code or Model Name/Number. For example, RS-CO2-N01 |
 |       TsensorMeasures > Name	    | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry d              |
 |          sensorMeasures > DataType	   |Telemetry Data Type. Currently Double is supported|
 |    sensorMeasures > Type	  |Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API|
@@ -107,7 +107,7 @@ Follow the below steps to generate the above values:
 |    description	  | Provide a meaningful description |
 |    properties        |Additional properties from the manufacturer |
 
-  For more details on each of the objects, see the Swagger.
+  For more information on each of the objects, see the Swagger.
 
 **API request to create metadata**
 
@@ -244,13 +244,13 @@ The below sample request is to create a Device (This has an input json as payloa
 
 **Create Telemetry Client**
 
-  The Telemetry needs to be sent to Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send telemetry data to FarmBeats, you need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry, refer to see:
+  You must send the Telemetry to Azure Event Hub for processing. Azure EventHub is a service that enables real-time data (telemetry) ingestion from connected devices and applications. To send telemetry data to FarmBeats, you need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry, refer to see:
   https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send
 
 **Send Telemetry message as the client**
 
   Once you have a connection established as an EventHub client, you can send messages to the EventHub as a json.  
-  You need to convert the historical sensor data format to a canonical format that FarmBeats understands. The canonical message format is as below:  
+  Convert the historical sensor data format to a canonical format that Azure FarmBeats understands. The canonical message format is as below:  
 
 
 ```

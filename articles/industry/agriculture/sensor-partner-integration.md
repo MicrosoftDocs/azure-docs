@@ -14,7 +14,7 @@ This section explains the implementation of the Sensor data integration (also ca
 
 ## Linking FarmBeats Account
 
-Once the customers have purchased and deployed Devices/Sensors, they will be able to access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device Partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are require to fill in by customer/SI:
+Once the customers have purchased and deployed Devices/Sensors, they will be able to access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device Partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/SI:
 
 1. Display Name (An optional field for user to define a name for this integration)
 2. API Endpoint
@@ -68,7 +68,7 @@ The Swagger is available at http://aka.ms/FarmBeatsDatahubSwagger.
 
 FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support.
 
-For more information on Azure Active Directory, refer this link https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization.
+For more information on Azure Active Directory, refer this link https://docs.microsoft.com/azure/app-service/overview-authentication-authorization.
 
 FarmBeats Data hub uses Bearer Authentication, which needs the following credentials:
 1. Client ID
@@ -102,7 +102,7 @@ access_token = token_response.get('accessToken') 
 
 **HTTP Request Headers**
 
-Here are the most common request headers that needs to be specified when making an API call to FarmBeats Data hub:
+Here are the most common request headers that need to be specified when making an API call to FarmBeats Data hub:
 
 
 **Header** | **Description and Example**
@@ -133,16 +133,16 @@ JSON (JavaScript Object Notation) is a common, language-independent data format 
 FarmBeats Data hub has the following APIs that enable device partners to create and manage device/sensor metadata.  
    /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
   /**Device** - Device corresponds to a physical device present in the farm.
-  /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.
+  /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
   /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
   **Device Model** | **DeviceModel corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.**
   --- | ---
   Type (Node, Gateway)  | 1 Star |
   Manufacturer  | 2 Star |
-  ProductCode  | Device product code Or Model Name/Number. eg: EnviroMonitor#6800 |
+  ProductCode  | Device product code Or Model Name/Number. For example, EnviroMonitor#6800 |
   Ports  | Port Name and Type (Digital/Analog)  |
-  Name  | Name to identify resource. Eg. Model Name/Product Name |
+  Name  | Name to identify resource. For example, Model Name/Product Name |
   Description  | Provide a meaningful description of the model |
   Properties  | Additional properties from the manufacturer |
   **Device** | **Device corresponds to a physical device present in the farm. Each device has a unique device ID** |
@@ -150,20 +150,20 @@ DeviceModelId  |ID of the associated Device Model. |
 HardwareId   |Unique ID for the device such as MAC address etc.,  |
 reportingInterval |Reporting Interval in seconds |
 Location    |Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters) |
-parentDeviceId | ID of the parent device to which this device is connected to. Eg. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway |
+parentDeviceId | ID of the parent device to which this device is connected to. For example, A Node connected to a Gateway; Node will have parentDeviceId as the Gateway |
   Name  | Name to identify resource.  Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats  |
   Description  | Provide a meaningful description  |
   Properties  |Additional properties from the manufacturer  |
-  **Sensor Model** | SensorModel corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc |
+  **Sensor Model** | SensorModel corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc., |
   Type (Analog, Digital)  |Mention analog or digital sensor|
   manufacturer  | name of manufacturer |
-  productCode  | Product code or Model Name/Number. eg: RS-CO2-N01  |
-  sensorMeasures > Name  | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. Eg. soil_moisture_15cm This name has to be consistent with the telemetry data. |
+  productCode  | Product code or Model Name/Number. For example, RS-CO2-N01  |
+  sensorMeasures > Name  | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry data. |
   sensorMeasures > DataType  | Telemetry Data Type. Currently Double is supported  |
-  sensorMeasures > Type  | Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more refer to /ExtendedType API
-  sensorMeasures > Unit | Unit of sensor telemetry data. Following are the system-defined  units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more refer to /ExtendedType API
+  sensorMeasures > Type  | Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API
+  sensorMeasures > Unit | Unit of sensor telemetry data. Following are the system-defined  units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to /ExtendedType API
   sensorMeasures > aggregationType  | Either of None, Average, Maximum, Minimum, StandardDeviation
-  SensorMeasures > depth  | The depth of the sensor in centimeters (eg. Measure of moisture 10 cm under the ground)
+  SensorMeasures > depth  | The depth of the sensor in centimeters (For example, Measure of moisture 10 cm under the ground)
   sensorMeasures > description  | Provide a meaningful description of the measure
   name  | Name to identify resource. Eg. Model Name/Product Name
   description  | Provide a meaningful description of the model
@@ -189,7 +189,7 @@ Refer to the Swagger for more details on each of the objects and their propertie
 
 The Translator should send updates on the metadata. Examples of update scenarios are – Change of Device/Sensor name, Change of Device/Sensor location.
 
-The Translator should have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corresponding Device/Sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.
+The Translator should have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corresponding Device/Sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.,
 
 
 > [!NOTE]
@@ -208,7 +208,7 @@ The telemetry data is mapped to a canonical message that is published on Azure E
 
 ## Send telemetry data to FarmBeats
 
-To send telemetry data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry to event hub, [click here](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send)
+To send telemetry data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry to event hub, [click here](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
 Here is a sample Python code that sends telemetry as a client to a specified Event Hub:
 
@@ -258,7 +258,7 @@ The canonical message format is as below:
 
 
 > [!NOTE]
-> All key names in the telemetry json should be lower case eg. deviceid, sensordata etc.
+> All key names in the telemetry json should be lower case For example, deviceid, sensordata etc.,
 
 
 Example Telemetry message:
@@ -348,7 +348,7 @@ Drone Partners will need to enable customers to link their account to their Farm
 5. Translator Development
 6. Rest API-based integration
 
-Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device and sensor management.
+Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device, and sensor management.
 
 **Telemetry Ingestion**
 
@@ -359,7 +359,7 @@ The telemetry data is mapped to a canonical message that is published on Azure E
 The APIs contain swagger technical documentation. Refer swagger for information on all the APIs and their corresponding requests/responses.
 The Swagger is available at http://aka.ms/FarmBeatsDatahubSwagger .
 Authentication
-FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support. For more information on Azure Active Directory, refer this link https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization  
+FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support. For more information on Azure Active Directory, refer this link https://docs.microsoft.com/azure/app-service/overview-authentication-authorization  
 
 FarmBeats Data hub uses Bearer Authentication, which needs the following credentials:
 
@@ -460,7 +460,7 @@ green field is the new addition to the system-defined scenesource values.
 Step 2: Get Farm Details The Scenes (tiff or csv files) will be in the context of a farm. So you will need to get the Farm details by doing a get on /Farm API. The API will return you the list of farms available in the FarmBeats and you can select the farm you want to ingest the data for.
 
 Get /Farm response: {   "items": [     {       "id": "d41a33e7-b73e-480e-9279-0fcb3207332b",       "createdAt": "2019-10-04T11:33:35.01619Z",       "lastModifiedAt": "2019-10-04T11:33:35.01619Z",       "geometry": {         "type": "Polygon",         "coordinates": [           [             [               78.33494849794374,               17.427459159016905             ],             [               78.33470873178663,               17.429174852000685             ],             [               78.3370736978917,               17.43074495690408             ],             [               78.33494849794374,               17.427459159016905             ]           ]         ]       },       "name": "MicrosoftBuilding3",       "properties": {         "crops": "Others",         "address": "Microsoft Gachibowli"       }     }   ] } 3. Create a /Scene id (Post call)
-Create a new scene (tiff or csv file) with the given information, providing the Date, sequence & FarmID to which the Scene will be associated. The meta-data associated with the scene can be defined here in the “properties” bag (including details of duration, type of measure, etc.)
+Create a new scene (tiff or csv file) with the given information, providing the Date, sequence & FarmID to which the Scene will be associated. The meta-data associated with the scene can be defined here in the “properties” bag (including details of duration, type of measure, etc.,)
 
 This creates a new SceneID, which will be associated with the farm. Once the SceneID is created, the user can use the same to create a new file (tiff or csv) & store the content of the file.
 

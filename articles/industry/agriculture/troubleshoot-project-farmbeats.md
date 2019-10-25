@@ -76,7 +76,7 @@ You do not have permission to assign Contributor role to e709bc39-3fb9-4705-93c7
 1.	Go to your FarmBeats Data hub Resource Group.
 2.	Click the App service.  
 3.	Go to Scale up (App Service plan) and select an appropriate pricing tier  
-(Refer: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/ ) 
+(Refer: https://azure.microsoft.com/pricing/details/app-service/windows/ ) 
 
 
 ## Sensor telemetry
@@ -228,7 +228,7 @@ This issue can occur if any maintenance activities are being done on Sentinel Se
 ## Collecting Logs manually
 
 1.	How to connect to Azure Storage Explorer
-2.	Install and connect to Azure Storage Explorer according to the instructions listed in https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
+2.	Install and connect to Azure Storage Explorer according to the instructions listed in https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
 3.	How to collect Data hub ADF Job Logs
 4.	Log in to www.portal.azure.com
 5.	In the **Search** text box, search for FarmBeats Data hub resource group.
@@ -298,4 +298,4 @@ This issue can occur if any maintenance activities are being done on Sentinel Se
 
 ## Next steps
 
-If you are still facing any issues, please contact us at our [Support Forum](aka.ms/FarmBeatsMSDN)
+If you are still facing any issues, please contact us at our [Support Forum](https://social.msdn.microsoft.com/Forums/home?forum=ProjectFarmBeats)
