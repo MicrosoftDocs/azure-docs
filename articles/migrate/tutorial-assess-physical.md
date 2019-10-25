@@ -130,7 +130,7 @@ The script will launch the appliance web application when it finishes successful
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to [Azure URLs](migrate-support-matrix-physical.md#assessment-url-access-requirements).
+Make sure that the appliance can connect to [Azure URLs](migrate-support-matrix-physical.md#assessment-appliance-url-access).
 
 
 ### Configure the appliance
