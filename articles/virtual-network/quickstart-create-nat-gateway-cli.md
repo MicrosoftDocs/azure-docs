@@ -1,22 +1,21 @@
 ---
-title: 'Quickstart: Create a NAT Gateway - Azure CLI'
+title: 'Quickstart: Create a NAT gateway - Azure CLI'
 titlesuffix: Azure NAT service
-description: This quickstart shows how to create a NAT Gateway using the Azure CLI
+description: This quickstart shows how to create a NAT gateway using the Azure CLI
 services: virtual-network
 documentationcenter: na
 author: asudbring
 manager: KumundD
-Customer intent: I want to create a NAT Gateway for outbound connectivity for my virtual network.
+Customer intent: I want to create a NAT gateway for outbound connectivity for my virtual network.
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2019
 ms.author: allensu
 ---
 
-# Quickstart: Create a NAT Gateway using Azure CLI
+# Quickstart: Create a NAT gateway using Azure CLI
 
 This quickstart shows you how to use Azure NAT service and create a NAT gateway to provide outbound connectivity for a virtual machine in Azure. 
 
