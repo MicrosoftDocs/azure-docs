@@ -14,6 +14,18 @@ Customer intent: As someone with a networking background, I want to connect my l
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv1 and IKEv2) VPN connection. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
+In this tutorial you learn how to:
+
+> [!div class="checklist"]
+> * Create a virtual WAN
+> * Create a hub
+> * Create a site
+> * Connect a site to a hub
+> * Connect a VNet to a hub
+> * Connect a VNet to a hub
+> * Download a configuration file
+> * View your virtual WAN
+
 > [!NOTE]
 > If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
 >
@@ -34,31 +46,31 @@ Verify that you have met the following criteria before beginning your configurat
 
   [!INCLUDE [Create a virtual network](../../includes/virtual-wan-tutorial-s2s-vnet-include.md)]
 
-## <a name="openvwan"></a>1. Create a virtual WAN
+## <a name="openvwan"></a>Create a virtual WAN
 
 From a browser, navigate to the [Azure portal](https://aka.ms/azurevirtualwanpreviewfeatures) and sign in with your Azure account.
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-s2s-vwan-include.md)]
 
-## <a name="hub"></a>2. Create a hub
+## <a name="hub"></a>Create a hub
 
 A hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. Once the hub is created, you'll be charged for the hub, even if you don't attach any sites. It takes 30 minutes to create the site-to-site VPN gateway in the virtual hub.
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-s2s-hub-include.md)]
 
-## <a name="site"></a>3. Create a site
+## <a name="site"></a>Create a site
 
 You are now ready to create the sites corresponding to your physical locations. Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per Virtual Hub in a Virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner (link insert) CPE device, check with them to learn about their automation to Azure. Typically automation implies simple click experience to export large-scale branch information into azure and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway (Here is a link to automation guidance from Azure to CPE partners).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
-## <a name="connectsites"></a>4. Connect the VPN site to the hub
+## <a name="connectsites"></a>Connect the VPN site to the hub
 
 In this step, you connect your VPN site to the hub.
 
 [!INCLUDE [Connect VPN sites](../../includes/virtual-wan-tutorial-s2s-connect-vpn-site-include.md)]
 
-## <a name="vnet"></a>5. Connect the VNet to the hub
+## <a name="vnet"></a>Connect the VNet to the hub
 
 In this step, you create the connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
 
@@ -72,7 +84,7 @@ In this step, you create the connection between your hub and a VNet. Repeat thes
     * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
 4. Click **OK** to create the virtual network connection.
 
-## <a name="device"></a>6. Download VPN configuration
+## <a name="device"></a>Download VPN configuration
 
 Use the VPN device configuration to configure your on-premises VPN device.
 
@@ -224,7 +236,7 @@ If you need instructions to configure your device, you can use the instructions 
 * A new Virtual WAN can support both IKEv1 and IKEv2.
 * Virtual WAN can only use route-based VPN devices and device instructions.
 
-## <a name="viewwan"></a>7. View your virtual WAN
+## <a name="viewwan"></a>View your virtual WAN
 
 1. Navigate to the virtual WAN.
 2. On the **Overview** page, each point on the map represents a hub. Hover over any point to view the hub health summary, connection status, and bytes in and out.
