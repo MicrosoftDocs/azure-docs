@@ -67,7 +67,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**.  [Learn more about datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**.  [Learn more about datasets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
 
 Requirements for training data:
 - Data must be in tabular form.
@@ -407,13 +407,15 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
 To customize feature engineering, specify `"feauturization":FeaturizationConfig`.
 
 Supported customization includes:
+
 |Customization|Definition|
+|--|--|
 |Column purpose update|Override feature type for the specified column.|
 |Transformer parameter update |Update parameters for the specified transformer. Currently supports Imputer and HashOneHotEncoder.|
 |Drop columns |Columns to drop from being featurized.|
 |Block transformers| Block transformers to be used on featurization process.|
 
-Create the FeaturizationConfig objectg using API calls:
+Create the FeaturizationConfig object using API calls:
 ```python
 featurization_config = FeaturizationConfig()
 featurization_config.blocked_transformers = ['LabelEncoder']
@@ -486,78 +488,13 @@ LogisticRegression
 
 <a name="explain"></a>
 
-## Explain the model (interpretability)
+## Model interpretability
 
-Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (validation_data) to get feature importance.
+Model interpretability allows you to understand why your models made predictions, and the underlying feature importance values. The SDK includes various packages for enabling model interpretability features, both at training and inference time, for local and deployed models.
 
-There are two ways to generate feature importance.
+See the [how-to](how-to-machine-learning-interpretability-automl.md) for code samples on how to enable interpretability features specifically within automated machine learning experiments.
 
-*	Once an experiment is complete, you can use `explain_model` method on any iteration.
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        explain_model(fitted_model, train_data, test_data)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-*	To view feature importance for all iterations, set `model_explainability` flag to `True` in AutoMLConfig.
-
-    ```python
-    automl_config = AutoMLConfig(task='classification',
-                                 debug_log='automl_errors.log',
-                                 primary_metric='AUC_weighted',
-                                 max_time_sec=12000,
-                                 iterations=10,
-                                 verbosity=logging.INFO,
-                                 training_data=train_data,
-                                 label_column_name=y_train,
-                                 validation_data=test_data,
-                                 model_explainability=True,
-                                 path=project_folder)
-    ```
-
-    Once done, you can use retrieve_model_explanation method to retrieve feature importance for a specific iteration.
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        retrieve_model_explanation(best_run)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-Display the URL to view feature importance using the run object:
-
-```
-automl_run.get_portal_url()
-```
-
-You can visualize the feature importance chart in your workspace in [Azure Machine Learning studio](https://ml.azure.com). The chart is also shown when using the  `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) in a notebook. To learn more about the charts refer to [Understand automated machine learning results](how-to-understand-automated-ml.md).
-
-```Python
-from azureml.widgets import RunDetails
-RunDetails(automl_run).show()
-```
-
-![feature importance graph](./media/how-to-configure-auto-train/feature-importance.png)
-
-For more information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](machine-learning-interpretability-explainability.md) article on interpretability.
+For general information on how model explanations and feature importance can be enabled in other areas of the SDK outside of automated machine learning, see the [concept](how-to-machine-learning-interpretability.md) article on interpretability.
 
 ## Next steps
 

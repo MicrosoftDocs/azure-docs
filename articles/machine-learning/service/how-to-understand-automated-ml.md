@@ -224,7 +224,7 @@ You can review the feature importance score for the model overall as well as per
 
 ![Feature Explain ability](./media/how-to-understand-automated-ml/feature-importance.gif)
 
-For more information on enabling interpretability features, see [Configure automated ML experiments in Python](how-to-configure-auto-train.md#explain-the-model-interpretability).  For an example that explains the best model, see [Best model explanation](how-to-auto-train-remote.md#explain).
+For more information on enabling interpretability features, see the [how-to](how-to-machine-learning-interpretability-automl.md) on enabling interpretability in automated ML experiments.
 
 ## Next steps
 
