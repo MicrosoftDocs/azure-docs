@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Synthesize speech, C++ - Speech Service"
+title: 'Quickstart: Synthesize speech into audio file, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -13,4 +13,4 @@ ms.author: erhopf
 ---
 
 > [!div class="nextstepaction"]
-> [Explore C++ samples on GitHub](https://aka.ms/speech/github-cpp)
+> [Explore Python samples on GitHub](https://aka.ms/speech/github-python)

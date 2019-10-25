@@ -97,5 +97,4 @@ Run the sample from the console or in your IDE:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore Python samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]

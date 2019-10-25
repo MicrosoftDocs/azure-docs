@@ -142,13 +142,4 @@ TRANSLATED into 'fr': Quel temps fait-il à Seattle ?
 
 ## Next steps
 
-Additional samples, such as how to read speech from an audio file, and output translated text as synthesized speech, are available on GitHub.
-
-> [!div class="nextstepaction"]
-> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
-
-## See also
-
-- [Quickstart: Recognize speech, Java (Windows, Linux)](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)
-- [Customize acoustic models](~/articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md)
-- [Customize language models](~/articles/cognitive-services/Speech-Service/how-to-customize-language-model.md)
+[!INCLUDE [footer](./footer.md)]

@@ -112,3 +112,12 @@ Your text is converted to speech, and saved in the audio data specified.
    ```text
    Speech synthesized to [helloworld.wav] for text [Hello world!]
    ```
+
+## Next steps
+
+[!INCLUDE [footer](./footer.md)]
+
+## See also
+
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)

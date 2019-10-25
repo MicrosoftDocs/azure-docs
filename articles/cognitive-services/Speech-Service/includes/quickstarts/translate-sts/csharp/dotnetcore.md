@@ -134,12 +134,4 @@ TRANSLATED into 'de': Wie ist das Wetter in Seattle?
 
 ## Next steps
 
-Additional samples, such as how to read speech from an audio file, and output translated text as synthesized speech, are available on GitHub.
-
-> [!div class="nextstepaction"]
-> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
-
-## See also
-
-- [Customize acoustic models](~/articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md)
-- [Customize language models](~/articles/cognitive-services/Speech-Service/how-to-customize-language-model.md)
+[!INCLUDE [footer](./footer.md)]

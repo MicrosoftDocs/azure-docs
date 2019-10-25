@@ -64,9 +64,4 @@ Now you are ready to build and test your application.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
-
-## See also
-
-- [Train a model for Custom Speech](~/articles/cognitive-services/Speech-Service/how-to-custom-speech-train-model.md)
+[!INCLUDE [footer](./footer.md)]

@@ -86,7 +86,9 @@ Before you get started, make sure to:
 
 ## Next steps
 
-Additional samples, such as how to synthesize speech and playback the audio to the default speakers, are available on GitHub.
+[!INCLUDE [footer](./footer.md)]
 
-> [!div class="nextstepaction"]
-> [Explore C++ samples on GitHub](https://aka.ms/csspeech/samples)
+## See also
+
+- [Create a Custom Voice](~/articles/cognitive-services/Speech-Service/how-to-custom-voice-create-voice.md)
+- [Record custom voice samples](~/articles/cognitive-services/Speech-Service/record-custom-voice-samples.md)
