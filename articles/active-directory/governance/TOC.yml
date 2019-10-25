@@ -42,6 +42,8 @@
       items:
       - name: Delegate to catalog creators
         href: entitlement-management-delegate-catalog.md
+      - name: Add a connected organization
+        href: entitlement-management-organization.md
       - name: Govern access for external users
         href: entitlement-management-external-users.md
       - name: View reports and logs
