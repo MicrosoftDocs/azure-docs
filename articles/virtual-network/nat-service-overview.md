@@ -39,9 +39,9 @@ Azure NAT service provides a NAT gateway resource. NAT gateway can be configured
 
 NAT gateway can use both.
 
-You use the NAT service by configuring subnets of a virtual network resource to use a specific NAT Gateway. A NAT Gateway can be used on multiple subnets of the same virtual network. Different virtual networks need separate NAT Gateways.
+You use the NAT service by configuring subnets of a virtual network resource to use a specific NAT gateway. A NAT gateway can be used on multiple subnets of the same virtual network. Different virtual networks need separate NAT gateways.
 
-A subnet will begin using the NAT Gateway for outbound connections when it has been configured. NAT gateway replaces the default Internet destination of a subnet and configuration of a UDR isn't needed. Outbound source network address translations (SNAT) are provided on demand as virtual machines create them.
+A subnet will begin using the NAT gateway for outbound connections when it has been configured. NAT gateway replaces the default Internet destination of a subnet and configuration of a UDR isn't needed. Outbound source network address translations (SNAT) are provided on demand as virtual machines create them.
 
 >[!IMPORTANT]
 >Outbound flows will not succeed until you also assign at least one public IP address to the NAT Gateway.
