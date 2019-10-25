@@ -10,15 +10,17 @@ ms.author: thweiss
 
 # Configure Azure Private Link for Azure Cosmos account (Preview)
 
-Azure Private Link allows you connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet with your virtual network. By using Private Link, you can limit access to a given Azure Cosmos account over private IP addresses. When combined with restricted NSG policies, Private link helps reduce the risk of data exfiltration. To learn more about private endpoints, see [Azure Private Links](../private-link/private-link-overview.md) article. 
+By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet with your virtual network. By using Private Link, you can limit access to a given Azure Cosmos account over private IP addresses. When combined with restricted NSG policies, Private link helps reduce the risk of data exfiltration. To learn more about private endpoints, see [Azure Private Links](../private-link/private-link-overview.md) article. 
 
-Additionally, Private Link allows an Azure Cosmos account to be accessible from within the virtual network or any peered virtual network. Resources mapped to Private Link are also accessible from on premises over private peering through VPN or ExpressRoute. You can connect to an Azure Cosmos account configured with Private Link by using the "Automatic ot "Manual" approval methods, to learn more, see the [approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Links documentation. This article describes the steps to create a Private Link assuming that you are using Automatic approval method.
+Additionally, Private Link allows an Azure Cosmos account to be accessible from within the virtual network or any peered virtual network. Resources mapped to Private Link are also accessible from on premises over private peering through VPN or ExpressRoute. 
 
-## Create a Private Link using a Azure portal
+You can connect to an Azure Cosmos account configured with Private Link by using the "Automatic ot "Manual" approval methods, to learn more, see the [approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Links documentation. This article describes the steps to create a Private Link assuming that you are using Automatic approval method.
+
+## Create a Private Link using the Azure portal
 
 Use the following steps to create a Private Link for an existing Azure Cosmos account using Azure portal:
 
-1. From the **All resources** blade, find the Azure Cosmos DB account that you want to secure.
+1. From the **All resources** pane, find the Azure Cosmos DB account that you want to secure.
 
 1. Select **Private Endpoint Connection**  from the settings menu and select **Private endpoint** option:
 
@@ -40,7 +42,7 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
 
     | Setting | Value |
     | ------- | ----- |
-    |Connection method  | Select connect to an Azure resource in my directory. <br/><br/> This option allows you to choose one of your resources to setup a Private Link or connect to someone else's resource with a resource ID or alias that they've shared with you.|
+    |Connection method  | Select connect to an Azure resource in my directory. <br/><br/> This option allows you to choose one of your resources to set up a Private Link or connect to someone else's resource with a resource ID or alias that they've shared with you.|
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.AzureCosmosDB/databaseAccounts**. |
     | Resource |Select your Azure Cosmos account |
@@ -201,7 +203,7 @@ Create a parameters file for the template, and name it "PrivateEndpoint_paramete
 
 ### Deploy the template by using a PowerShell script
 
-Next create a PowerShell script with the following code. Before you run the script, make sure to replace the subscription ID, resource group name and other variable values with the details specific to your environment:
+Next create a PowerShell script with the following code. Before you run the script, make sure to replace the subscription ID, resource group name, and other variable values with the details specific to your environment:
 
 ```azurepowershell-interactive
 ### This script creates a private endpoint for an existing Cosmos DB account in an existing VNet
