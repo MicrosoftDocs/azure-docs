@@ -73,6 +73,14 @@ At this point, your code should look like this:
 
 ## Build and run your app
 
+Run the sample from the console or in your IDE:
+
+    ````
+    python quickstart.py
+    ````
+
+The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
+
 ## Next steps
 
 [!INCLUDE [footer](./footer.md)]
