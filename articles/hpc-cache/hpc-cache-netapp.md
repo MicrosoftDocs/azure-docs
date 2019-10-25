@@ -20,9 +20,9 @@ Adding an Azure HPC Cache component can improve file access by presenting multip
 
 To use an Azure NetApp Files system as back-end storage with Azure HPC Cache, follow this process.
 
-1. Create the Azure NetApp Files system and volumes according to the guidance in [Plan your system, below](#plan-your-system).
+1. Create the Azure NetApp Files system and volumes according to the guidance in [Plan your system, below](#plan-your-azure-netapp-files-system).
 1. Create the Azure HPC Cache in the region where you need file access. (Use the instructions in [Create an Azure HPC Cache](hpc-cache-create.md).)
-1. [Define storage targets](#create-storage-targets) in the cache that point to the Azure NetApp Files volumes. Create one cache storage target for each unique IP address used to access the volumes.
+1. [Define storage targets](#create-storage-targets-in-the-cache) in the cache that point to the Azure NetApp Files volumes. Create one cache storage target for each unique IP address used to access the volumes.
 1. Have clients [mount the Azure HPC Cache](#mount-storage-targets) instead of mounting Azure NetApp Files volumes directly.
 
 ## Plan your Azure NetApp Files system
