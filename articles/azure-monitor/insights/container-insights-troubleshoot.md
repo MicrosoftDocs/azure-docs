@@ -113,7 +113,7 @@ Azure Monitor for containers agent ReplicaSet Pods has a dependency on the follo
 
 **nodeSelector:**
 > **beta.kubernetes.io/os: Linux**
-> **kubernetes.io/role: agent**
+>> **kubernetes.io/role: agent**
 
 If your worker nodes don’t have node labels attached, then agent ReplicaSet Pods will not get scheduled. Refer to [Kubernetes assign label selectors](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/) for instructions on how to attach the label.
 
