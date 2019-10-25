@@ -55,7 +55,7 @@ DATA_SOURCE = *external_data_source_name*
 Specifies the name of the external data source object that contains the location where the external data will be stored. To create an external data source, use [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](development-tables-external-tables.md#create-external-data-source).
 
 FILE_FORMAT = *external_file_format_name*
-Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](development-tables-external-tables.md#create-external-file-format).
+Specifies the name of the external file format object that contains the format for the external data file. To create an external file format, use [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](development-tables-external-tables.md#create-external-file-format). Only external file formats with FORMAT='PARQUET' are supported at this moment.
 
 WITH *common_table_expression*
 Specifies a temporary named result set, known as a common table expression (CTE). For more information, see [WITH common_table_expression (Transact-SQL)](https://docs.microsoft.com/en-us/sql/t-sql/queries/with-common-table-expression-transact-sql?view=aps-pdw-2016-au7).
@@ -65,6 +65,8 @@ SELECT <select_criteria> Populates the new table with the results from a SELECT 
 ### Example
 
 Following example 
+
+
 
 +++++++++++++++++++++++++++++++++++++++
 

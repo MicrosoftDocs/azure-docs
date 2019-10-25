@@ -183,7 +183,8 @@ Following example creates external file format for census files:
 CREATE EXTERNAL FILE FORMAT census_file_format
 WITH 
 (  
-    FORMAT_TYPE = PARQUET
+    FORMAT_TYPE = PARQUET,
+    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'
 )
 ```
 
