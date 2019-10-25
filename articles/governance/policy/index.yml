@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/17/2019
+  ms.date: 11/04/2019
 
 landingContent:
   - title: About Azure Policy
@@ -68,6 +68,8 @@ landingContent:
         links:
           - text: Policy for AKS
             url: ./concepts/rego-for-aks.md
+          - text: Policy for AKS Engine
+            url: ./concepts/aks-engine.md
           - text: Policy for VMs
             url: ./concepts/guest-configuration.md
 
