@@ -36,7 +36,7 @@
     - name: Use automatic source language detection
       href: how-to-automatic-language-detection.md
     - name: Use compressed audio input formats
-      href: https://aka.ms/ignite2019/speech/placeholder
+      href: how-to-use-codec-compressed-audio-input-streams.md
     - name: Use continuous recognition
       href: https://aka.ms/ignite2019/speech/placeholder
     - name: Use speech recognition with Docker containers
@@ -64,7 +64,7 @@
       - name: Speech-to-text REST API
         href: rest-speech-to-text.md
       - name: Batch transcription REST APIs
-        href: https://westus.cris.ai/swagger/ui/index
+        href: batch-transcription.md
 - name: Text-to-speech
   exanded: false
   items:
