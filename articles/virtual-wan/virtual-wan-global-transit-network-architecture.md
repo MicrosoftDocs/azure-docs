@@ -111,7 +111,7 @@ The VNet-to-VNet transit enables VNets to connect to each other in order to inte
 
 The Azure Virtual WAN hubs interconnect all the networking end points across the hybrid network and potentially see all transit network traffic. Virtual WAN hubs can be converted to Secured Virtual Hubs by deploying the Azure Firewall inside VWAN hubs to enable cloud-based security, access, and policy control. Orchestration of Azure Firewalls in virtual WAN hubs can be performed by Azure Firewall Manager.
 
-Azure Firewall Manager provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall.
+[Azure Firewall Manager](https://go.microsoft.com/fwlink/?linkid=2107683) provides the capabilities to manage and scale security for global transit networks. Azure Firewall Manager provides ability to centrally manage routing, global policy management, advanced Internet security services via third-party along with the Azure Firewall.
 
 ![secured virtual hub with Azure Firewall](./media/virtual-wan-global-transit-network-architecture/figure5.png)
 
@@ -136,7 +136,8 @@ The branch-to-Internet or third-party Secure transit enables branches to connect
 
 ## Next steps
 
-Create a connection using Virtual WAN.
+Create a connection using Virtual WAN and Deploy Azure Firewall in VWAN hub(s).
 
 * [Site-to-site connections using Virtual WAN](virtual-wan-site-to-site-portal.md)
 * [ExpressRoute connections using Virtual WAN](virtual-wan-expressroute-portal.md)
+* [Azure Firewall Manager to Deploy Azure FW in VWAN] (https://go.microsoft.com/fwlink/?linkid=2107683)
