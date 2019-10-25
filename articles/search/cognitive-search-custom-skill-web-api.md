@@ -38,6 +38,7 @@ Parameters are case-sensitive.
 | httpHeaders | A collection of key-value pairs where the keys represent header names and values represent header values that will be sent to your Web API along with the payload. The following headers are prohibited from being in this collection:  `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
 | timeout | (Optional) When specified, indicates the timeout for the http client making the API call. It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). For example, `PT60S` for 60 seconds. If not set, a default value of 30 seconds is chosen. The timeout can be set to a maximum of 230 seconds and a minimum of 1 second. |
 | batchSize | (Optional) Indicates how many "data records" (see _JSON_ payload structure below) will be sent per API call. If not set, a default of 1000 is chosen. We recommend that you make use of this parameter to achieve a suitable tradeoff between indexing throughput and load on your API |
+| degreeOfParallelism | (Optional) When specified, indicates the number of calls the indexer will make in parallel to the endpoint you have provided. You can decrease this value if your endpoint is failing under too high of a request load, or raise it if your endpoint is able to accept more requests and you would like an increase in the performance of the indexer.  If not set, a default value of 5 is used. The degreeOfParallelism can be set to a maximum of 10 and a minimum of 1. |
 
 ## Skill inputs
 
@@ -198,6 +199,7 @@ For cases when the Web API is unavailable or returns a HTTP error, a friendly er
 
 ## See also
 
++ [Power Skills: a repository of custom skills](https://aka.ms/powerskills)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Add custom skill to cognitive search](cognitive-search-custom-skill-interface.md)
 + [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)

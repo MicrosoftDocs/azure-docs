@@ -18,6 +18,148 @@ In this article, learn about Azure Machine Learning releases.  For the full SDK 
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
+
+## 2019-11-04
+
+### Web experience 
+
+The collaborative workspace landing page at [https://ml.azure.com](https://ml.azure.com) has been enhanced and rebranded as the Azure Machine Learning studio (preview).
+
+From the studio, you can train, test, deploy, and manage Azure Machine Learning assets such as datasets, pipelines, models, endpoints, and more.  
+
+Access the following web-based authoring tools from the studio:
+
+| Web-based tool | Description | Edition |
+|-|-|-|
+| [Compute Instance](concept-compute-instance.md) (GA) | Fully managed cloud-based workstation | Basic & Enterprise |
+| [Automated machine learning](tutorial-first-experiment-automated-ml.md) (preview) | No code experience for automating machine learning model development | Enterprise |
+| [Designer](ui-concept-visual-interface.md) (preview) | Drag-and-drop machine learning modeling tool formerly known as the the designer | Enterprise |
+
+### Azure Machine Learning designer enhancements 
+
++ Formerly known as the visual interface 
++	11 new [modules](../algorithm-module-reference/module-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
+
+### R SDK 
+ 
+Data scientists and AI developers use the [Azure Machine Learning SDK for R](tutorial-1st-r-experiment.md) to build and run machine learning workflows with Azure Machine Learning.
+
+The Azure Machine Learning SDK for R uses the `reticulate` package to bind to the Python SDK. By binding directly to Python, the SDK for R allows you access to core objects and methods implemented in the Python SDK from any R environment you choose.
+
+Main capabilities of the SDK include:
+
++	Manage cloud resources for monitoring, logging, and organizing your machine learning experiments.
++	Train models using cloud resources, including GPU-accelerated model training.
++	Deploy your models as webservices on Azure Container Instances (ACI) and Azure Kubernetes Service (AKS).
+
+See the [package website](https://azure.github.io/azureml-sdk-for-r) for complete documentation.
+
+## 2019-10-31
+
+### Azure Machine Learning SDK for Python v1.0.72
+
++ **New features**
+  + Added dataset monitors through the `azureml-datadrift` package, allowing for monitoring timeseries datasets for data drift or other statistical changes over time. Alerts and events can be triggered if drift is detected or other conditions on the data are met. See [our documentation](http://aka.ms/datadrift) for details. 
+  + Announcing two new SKUs (also referred to as an Edition interchageably) in Azure Machine Learning. With this release you can now create an Azure ML workspace either as a Basic edition or as an Enterprise edition. By default all existing workspaces will transform to a Basic edition, and you can go to the Azure portal to upgrade the workspace anytime. Please read [our documentation](https://azure.microsoft.com/pricing/details/machine-learning/) to learn more. The SKU of your workspace can be determined using the "sku" property of your workspace object.
+  + We have also made enhancments to Azure Machine Learning Compute - you can now view metrics for your clusters (like total nodes, running nodes, total core quota) in Azure Monitor, besides viewing Diagnostic logs for debugging. In addition you can also view currently running or queued runs on your cluster and details such as the IPs of the various nodes on your cluster. You can view these either in the portal or by using corresponding functions in the SDK or CLI. 
+  
+  + **Preview features**
+    + We are releasing preview support for disk encryption of your local SSD in Azure Machine Learning Compute. Please raise a technical support ticket to get your subscription whitelisted to use this feature.
+    + [Contrib features below] 
+    + **azureml-contrib-reinforcementlearning**
+    	+ Added initial experimental support for Reinforcement Learning runs on AML 
+    + **azureml-contrib-dataset**
+    	+ Enabeled functionalities for labeled dataset
+		```Python
+		# create a labeled dataset by passing in your JSON lines file
+		dataset = Dataset._Labeled.from_json_lines(datastore.path('path/to/file.jsonl'))
+		
+		# Download or mount the files in the `image_url` column    	
+		dataset.download()
+		dataset.mount()
+		
+		# get a pandas dataframe
+		from azureml.data.dataset_type_definitions import FileHandlingOption
+		dataset.to_pandas_dataframe(FileHandlingOption.DOWNLOAD) 
+		dataset.to_pandas_dataframe(FileHandlingOption.MOUNT)
+		```
+
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + CLI now supports model packaging.
+    + Added dataset CLI. For more information: `az ml dataset --help`
+    + Added support for deploying and packaging supported models (ONNX, scikit-learn, and TensorFlow) without an InferenceConfig instance.
+    + Added overwrite flag for service deployment (ACI and AKS) in SDK and CLI. If provided, will overwrite the existing service if service with name already exists. If service doesn't exist, will create new service.
+    + Models can be registered with two new frameworks, Onnx and Tensorflow. - Model registration accepts sample input data, sample output data and resource configuration for the model.
+  + **azureml-automl-core**
+    + Training an iteration would run in a child process only when runtime constraints are being set.
+    + Added a guardrail for forecasting tasks, to check whether a specified max_horizon will cause a memory issue on the given machine or not. If it will, a guardrail message will be displayed.
+    + Added support for complex frequencies like 2 years and 1 month. -Added comprehensible error message if frequency can not be determined.
+    + Add azureml-defaults to auto generated conda env to solve the model deployment failure
+    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in `AutoMLStep`.
+    + Implemented column purpose update for streaming.
+    + Implemented transformer parameter update for Imputer and HashOneHotEncoder for streaming.
+    + Added the current data size and the minimum required data size to the validation error messages.
+    + Updated the minimum required data size for Cross-validation to guarantee a minimum of two samples in each validation fold.
+  + **azureml-cli-common**
+    + CLI now supports model packaging.
+    + Models can be registered with two new frameworks, Onnx and Tensorflow.
+    + Model registration accepts sample input data, sample output data and resource configuration for the model.
+  + **azureml-contrib-gbdt**
+    + fixed the release channel for the notebook
+    + Added a warning for non AmlCompute compute target that we don't support
+    + Added LightGMB Estimator to azureml-contrib-gbdt package
+  + **azureml-core**   	
+    + CLI now supports model packaging.
+    + Add deprecation warning for deprecated Dataset APIs. See Dataset API change notice at https://aka.ms/tabular-dataset.
+    + Change `Dataset.get_by_id` to return registration name and version if the dataset is registered.
+    + Fix a bug that ScriptRunConfig with dataset as argument cannot be used repeatedly to submit experiment run.
+    + Datasets retrieved during a run will be tracked and can be seen in the run details page or by calling `run.get_details()` after the run is complete.
+    + Allow intermediate data in Azure Machine Learning Pipeline to be converted to tabular dataset and used in `AutoMLStep`.
+    + Added support for deploying and packaging supported models (ONNX, scikit-learn, and TensorFlow) without an InferenceConfig instance.
+    + Added overwrite flag for service deployment (ACI and AKS) in SDK and CLI. If provided, will overwrite the existing service if service with name already exists. If service doesn't exist, will create new service.
+    +  Models can be registered with two new frameworks, Onnx and Tensorflow. - Model registration accepts sample input data, sample output data and resource configuration for the model.
+    + Added new datastore for Azure Database for MySQL. - Added example for using Azure Database for MySQL in DataTransferStep in Azure Machine Learning Pipelines.
+    + Added functionality to add and remove tags from experiments - Added functionality to remove tags from runs
+    + Added overwrite flag for service deployment (ACI and AKS) in SDK and CLI. If provided, will overwrite the existing service if service with name already exists. If service doesn't exist, will create new service.
+  + **azureml-datadrift**
+    + Moved from `azureml-contrib-datadrift` into `azureml-datadrift`
+    + Added support for monitoring timeseries datasets for drift and other statistical measures 
+    + New methods `create_from_model()` and `create_from_dataset()` to the `DataDriftDetector` class. The `create()` method will be deprecated. 
+    + Adjustments to the visualizations in Python and UI in the Azure Machine Learning studio.
+    + Support weekly and monthly monitor scheduling, in addition to daily for dataset monitors.
+    + Support backfill of data monitor metrics to analyze historical data for dataset monitors. 
+    + Various bug fixes 
+  + **azureml-dataprep**
+    + Fixed the issue where `dataset.mount() as cm` would result in `cm` being `None`".
+  + **azureml-pipeline-core**
+    + azureml-dataprep is no longer needed to submit an Azure Machine Learning Pipeline run from the pipeline `yaml` file.
+  + **azureml-train-automl**
+    + Add azureml-defaults to auto generated conda env to solve the model deployment failure
+    + AutoML remote training now includes azureml-defaults to allow reuse of training env for inference.
+  + **azureml-train-core**
+    + Added PyTorch 1.3 support in PyTorch estimator
+  
+## 2019-10-21
+
+### Visual interface (preview)
+
++ The Azure Machine Learning visual interface (preview) has been overhauled to run on [Azure Machine Learning pipelines](concept-ml-pipelines.md). Pipelines (previously known as experiments) authored in the visual interface are now fully integrated with the core Azure Machine Learning experience.
+  + Unified management experience with SDK assets
+  + Versioning and tracking for visual interface models, pipelines, and endpoints 
+  + Redesigned UI
+  + Added batch inferencing deployment
+  + Added Azure Kubernetes Service (AKS) support for inferencing compute targets
+  + New Python-step pipeline authoring workflow
+  + New [landing page](https://ml.azure.com) for visual authoring tools
+
++ **New modules**
+  + Apply math operation
+  + Apply SQL transformation
+  + Clip values
+  + Summarize data
+  + Import from SQL database  
+
 ## 2019-10-14
 
 ### Azure Machine Learning SDK for Python v1.0.69
@@ -62,6 +204,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-automl**
     + The parent run will no longer be failed when setup iteration failed, as the orchestration already takes care of it.
     + Added local-docker and local-conda support for AutoML experiments
+
 
 ## 2019-10-08
 
@@ -881,7 +1024,7 @@ Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages.
 
  + **Changes**
    + The azureml-tensorboard package replaces azureml-contrib-tensorboard.
-   + With this release, you can set up a user account on your managed compute cluster (amlcompute), while creating it. This can be done by passing these properties in the provisioning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remotelogin-port-public-access--notspecified--).
+   + With this release, you can set up a user account on your managed compute cluster (amlcompute), while creating it. This can be done by passing these properties in the provisioning configuration. You can find more details in the [SDK reference documentation](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--).
 
 ### Azure Machine Learning Data Prep SDK v1.0.17
 

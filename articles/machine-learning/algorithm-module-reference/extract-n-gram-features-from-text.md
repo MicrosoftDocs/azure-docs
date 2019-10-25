@@ -27,7 +27,7 @@ The module supports the following scenarios for using an n-gram dictionary:
 
 ### Create a new n-gram dictionary
 
-1.  Add the Extract N-Gram Features from Text module to your experiment, and connect the dataset that has the text you want to process.
+1.  Add the Extract N-Gram Features from Text module to your pipeline, and connect the dataset that has the text you want to process.
 
 1.  Use **Text column** to choose a column of string type that contains the text you want to extract. Because results are verbose, you can process only a single column at a time.
 
@@ -68,11 +68,11 @@ The module supports the following scenarios for using an n-gram dictionary:
 
 1. Select the option **Normalize n-gram feature vectors** to normalize the feature vectors. If this option is enabled, each n-gram feature vector is divided by its L2 norm.
 
-1. Run the experiment.
+1. Run the pipeline.
 
 ### Use an existing n-gram dictionary
 
-1.  Add the Extract N-Gram Features from Text module to your experiment, and connect the dataset that has the text you want to process to the **Dataset** port.
+1.  Add the Extract N-Gram Features from Text module to your pipeline, and connect the dataset that has the text you want to process to the **Dataset** port.
 
 1.  Use **Text column** to select the text column that contains the text you want to featurize. By default, the module selects all columns of type **string**. For best results, process a single column at a time.
 
@@ -87,7 +87,7 @@ The module supports the following scenarios for using an n-gram dictionary:
 
 1.  For all other options, see the property descriptions in the [previous section](#create-a-new-n-gram-dictionary).
 
-1.  Run the experiment.
+1.  Run the pipeline.
 
 ### Score or publish a model that uses n-grams
 
@@ -97,7 +97,7 @@ The module supports the following scenarios for using an n-gram dictionary:
 
 1.  In the scoring workflow, modify the Extract N-Gram Features from Text module and set the **Vocabulary mode** parameter to **ReadOnly**. Leave all else the same.
 
-1.  To publish the experiment, save **Result Vocabulary** as a dataset.
+1.  To publish the pipeline, save **Result Vocabulary** as a dataset.
 
 1.  Connect the saved dataset to the Extract N-Gram Features from Text module in your scoring graph.
 

@@ -14,9 +14,9 @@ ms.custom: seodec18
 ---
 # What happened to Azure Machine Learning Workbench?
 
-The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md).
+The Azure Machine Learning Workbench application and some other early features were deprecated and replaced in the **September 2018** release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md).
 
-To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a> and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
+To improve your experience, the release contains many significant updates prompted by customer feedback. The core functionality from experiment runs to model deployment hasn't changed. But now, you can use the robust <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a>, R SDK, and the [Azure CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.
 
 Most of the artifacts that were created in the earlier version of Azure Machine Learning are stored in your own local or cloud storage. These artifacts won't ever disappear.
 
@@ -106,7 +106,7 @@ In this latest release, the extension was renamed to Azure Machine Learning for 
 
 ## What about domain packages?
 
-The domain packages for computer vision, text analytics, and forecasting can't be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with the latest Azure Machine Learning Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>. To learn how to migrate pre-existing models built by using the computer vision, text analytics, and forecasting packages, contact [AML-Packages@microsoft.com](mailto:AML-Packages@microsoft.com).
+The domain packages for computer vision, text analytics, and forecasting can't be used with the latest version of Azure Machine Learning. However, you can still build and train computer vision, text, and forecasting models with the latest Azure Machine Learning Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>.
 
 ## Next steps
 
@@ -114,6 +114,9 @@ Learn about the [latest architecture for Azure Machine Learning](concept-azure-m
 
 For an overview of the service, read [What is Azure Machine Learning?](overview-what-is-azure-ml.md).
 
-Create your first experiment with the two-part tutorial to [setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) and [train your first model](tutorial-1st-experiment-sdk-train.md)
-
-For a more in-depth experience of this workflow, follow the [full-length tutorial](tutorial-train-models-with-aml.md) that contains detailed steps for training and deploying models with Azure Machine Learning.
+Create your first experiment with your preferred method:
+  + [Use Python notebooks to train & deploy ML models](tutorial-1st-experiment-sdk-setup.md)
+  + [Use R Markdown to train & deploy ML models]( tutorial-1st-r-experiment.md) 
+  + [Use automated machine learning to train & deploy ML models](ui-tutorial-automobile-price-train-score.md) 
+  + [Use the designer's drag & drop capabilities to train & deploy](tutorial-first-experiment-automated-ml.md) 
+  + [Use the machine learning CLI to train and deploy a model](tutorial-train-deploy-model-cli.md)

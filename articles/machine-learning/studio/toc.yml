@@ -105,9 +105,7 @@
   - name: Select an algorithm
     items:
     - name: Choose algorithms
-      href: algorithm-choice.md
-    - name: Algorithm cheat sheet
-      href: algorithm-cheat-sheet.md        
+      href: algorithm-choice.md     
     - name: Algorithm examples
       displayName: infographic, studio basics
       href: basics-infographic-with-algorithm-examples.md

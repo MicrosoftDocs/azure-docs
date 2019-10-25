@@ -34,9 +34,7 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
 ## How to configure Multiclass Decision Forest
 
-
-
-1. Add the **Multiclass Decision Forest** module to your experiment in the interface. You can find this module under **Machine Learning**, **Initialize Model**, and **Classification**.
+1. Add the **Multiclass Decision Forest** module to your pipeline in the designer. You can find this module under **Machine Learning**, **Initialize Model**, and **Classification**.
 
 2. Double-click the module to open the **Properties** pane.
 
@@ -71,7 +69,7 @@ The decision forest classifier in Azure Machine Learning consists of an ensemble
 
     + If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.
 
-11. Run the experiment.
+11. Run the pipeline.
 
 ## Results
 

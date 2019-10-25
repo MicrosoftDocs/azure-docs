@@ -3,13 +3,13 @@ title: Understand automated ML results
 titleSuffix: Azure Machine Learning
 description: Learn how to view and understand charts and metrics for each of your automated machine learning runs. 
 services: machine-learning
-author: nilesha
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 11/04/2019
 ---
 
 # Understand automated machine learning results

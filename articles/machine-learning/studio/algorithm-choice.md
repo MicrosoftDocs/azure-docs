@@ -14,6 +14,8 @@ ms.date: 03/04/2019
 ---
 # How to choose algorithms for Azure Machine Learning Studio (classic)
 
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
 The answer to the question "What machine learning algorithm should I use?" is always "It depends." It depends on the size, quality, and nature of the data. It depends on what you want to do with the answer. It depends on how the math of the algorithm was translated into instructions for the computer you are using. And it depends on how much time you have. Even the most experienced data scientists can't tell which algorithm will perform best before trying them.
 
 Machine Learning Studio (classic) provides state-of-the-art algorithms, such as Scalable Boosted Decision trees, Bayesian Recommendation systems, Deep Neural Networks, and Decision Jungles developed at Microsoft Research. Scalable open-source machine learning packages, like Vowpal Wabbit, are also included. The classic version of Machine Learning Studio supports machine learning algorithms for multiclass and binary classification, regression, and clustering. See the complete list of [Machine Learning Modules](/azure/machine-learning/studio-module-reference/index).
@@ -22,32 +24,16 @@ The documentation provides some information about each algorithm and how to tune
 
 ## The Machine Learning Algorithm Cheat Sheet
 
-The **[Microsoft Azure Machine Learning Studio (classic) Algorithm Cheat Sheet](algorithm-cheat-sheet.md)** helps you choose the right machine learning algorithm for your predictive analytics solutions from the classic version of Azure  Machine Learning Studio library of algorithms.
+The **[Microsoft Azure Machine Learning Algorithm Cheat Sheet](../algorithm-cheat-sheet.md)** helps you choose the right machine learning algorithm for your predictive analytics solutions from the Azure Machine Learning library of algorithms.
 This article walks you through how to use this cheat sheet.
 
 > [!NOTE]
-> To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio (classic)](algorithm-cheat-sheet.md).
+> To download the cheat sheet and follow along with this article, go to [Machine learning algorithm cheat sheet](../algorithm-cheat-sheet.md).
 > 
 > 
-
-This cheat sheet has a very specific audience in mind: a beginning data scientist with undergraduate-level machine learning, trying to choose an algorithm to start with in Azure Machine Learning Studio (classic). That means that it makes some generalizations and oversimplifications, but it points you in a safe direction. It also means that there are lots of algorithms not listed here.
 
 These recommendations are compiled feedback and tips from many data scientists and machine learning experts. We didn't agree on everything, but we've tried to harmonize our opinions into a rough consensus. Most of the statements of disagreement begin with "It depends…"
 
-### How to use the cheat sheet
-
-Read the path and algorithm labels on the chart as "For *&lt;path
-label&gt;*, use *&lt;algorithm&gt;*." For example, "For *speed*, use *two
-class logistic regression*." Sometimes more than one branch applies.
-Sometimes none of them are a perfect fit. They're intended to be
-rule-of-thumb recommendations, so don't worry about it being exact.
-Several data scientists we talked with said that the only sure way to
-find the very best algorithm is to try all of them.
-
-Here's an example from the [Azure AI Gallery](https://gallery.azure.ai/) of an experiment that tries
-several algorithms against the same data and compares the results:
-[Compare Multi-class Classifiers: Letter
-recognition](https://gallery.azure.ai/Details/a635502fc98b402a890efe21cec65b92).
 
 > [!TIP]
 > To download an easy-to-understand infographic overview of machine learning basics to learn about popular algorithms used to answer common machine learning questions, see [Machine learning basics with algorithm examples](basics-infographic-with-algorithm-examples.md).

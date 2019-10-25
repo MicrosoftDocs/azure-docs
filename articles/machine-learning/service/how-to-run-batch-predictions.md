@@ -10,18 +10,18 @@ ms.topic: tutorial
 ms.reviewer: trbye, jmartens, larryfr
 ms.author: tracych
 author: tracych
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.custom: Ignite2019
 ---
 
 # Run batch inference on large amounts of data by using Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this tutorial, you will learn how to get inferences on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
+In this how-to, you learn how to get inferences on large amounts of data asynchronously and in parallel by using Azure Machine Learning. The batch inference capability described here is in public preview. It's a high-performance and high-throughput way to generate inferences and processing data. It provides asynchronous capabilities out of the box.
 
 With batch inference, it's straightforward to scale offline inferences to large clusters of machines on terabytes of production data resulting in improved productivity and optimized cost.
 
-In this tutorial, you will learn the following tasks:
+In this how-to, you learn the following tasks:
 
 > * Create a remote compute resource.
 > * Write a custom inference script.

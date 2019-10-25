@@ -46,7 +46,7 @@ When you run the module, it creates a candidate dataset, and returns a set of ro
 
 ## How to use Remove Duplicate Rows
 
-1. Add the module to your experiment. You can find the **Remove Duplicate Rows** module under **Data Transformation**, **Manipulation**.  
+1. Add the module to your pipeline. You can find the **Remove Duplicate Rows** module under **Data Transformation**, **Manipulation**.  
 
 2. Connect the dataset that you want to check for duplicate rows.
 
@@ -64,7 +64,7 @@ When you run the module, it creates a candidate dataset, and returns a set of ro
     + If selected, the first row is returned and others discarded. 
     + If you uncheck this option, the last duplicate row is kept in the results, and others are discarded. 
 
-5. Run the experiment.
+5. Run the pipeline.
 
 6. To review the results, right-click the module, select **Results dataset**, and click **Visualize**. 
 

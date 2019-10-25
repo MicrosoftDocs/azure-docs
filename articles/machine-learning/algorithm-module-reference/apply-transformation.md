@@ -28,7 +28,7 @@ Azure Machine Learning provides support for creating and then applying many diff
 
 ## How to use Apply Transformation  
   
-1. Add the **Apply Transformation** module to your experiment. You can find this module under **Machine Learning**, in the **Score** category. 
+1. Add the **Apply Transformation** module to your pipeline. You can find this module under **Machine Learning**, in the **Score** category. 
   
 2. Locate an existing transformation to use as an input.  Previously saved transformations can be found in the **Transforms** group in the left navigation pane.  
   
@@ -38,7 +38,7 @@ Azure Machine Learning provides support for creating and then applying many diff
   
 4. No other parameters need to be set since all customization is done when defining the transformation.  
   
-5. To apply a transformation to the new dataset, run the experiment.  
+5. To apply a transformation to the new dataset, run the pipeline.  
 
 ## Next steps
 

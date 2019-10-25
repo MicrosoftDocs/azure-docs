@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/17/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
@@ -16,70 +16,39 @@ ms.subservice: blobs
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with the [Azure Storage client library for .NET](https://www.nuget.org/packages/Azure.Storage.Blobs).
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with the Azure Storage client library for .NET.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
+## Authenticate with the Azure Identity library (preview)
+
+The Azure Identity client library for .NET (preview) authenticates a security principal. When your code is running in Azure, the security principal is a managed identity for Azure resources.
+
+When your code is running in the development environment, authentication may be handled automatically, or it may require a browser login, depending on which tools you're using. Microsoft Visual Studio supports single sign-on (SSO), so that the active Azure AD user account is automatically used for authentication. For more information about SSO, see [Single sign-on to applications](../../active-directory/manage-apps/what-is-single-sign-on.md).
+
+Other development tools may prompt you to login via a web browser. You can also use a service principal to authenticate from the development environment. For more information, see [Create identity for Azure app in portal](../../active-directory/develop/howto-create-service-principal-portal.md).
+
+After authenticating, the Azure Identity client library gets a token credential. This token credential is then encapsulated in the service client object that you create to perform operations against Azure Storage. The library handles this for your seamlessly by getting the appropriate token credential.
+
+For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+
+## Assign RBAC roles for access to data
+
+When an Azure AD security principal attempts to access blob data, that security principal must have permissions to the resource. Whether the security principal is a managed identity in Azure or an Azure AD user account running code in the development environment, the security principal must be assigned an RBAC role that grants access to blob data in Azure Storage. For information about assigning permissions via RBAC, see the section titled **Assign RBAC roles for access rights** in [Authorize access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+
 ## Install the preview packages
 
-The examples in this article use the latest preview version of the Azure Storage client library for Blob storage. To install the preview package, run the following command from the NuGet package manager console:
+The examples in this article use the latest preview version of the [Azure Storage client library for Blob storage](https://www.nuget.org/packages/Azure.Storage.Blobs). To install the preview package, run the following command from the NuGet package manager console:
 
-```
+```powershell
 Install-Package Azure.Storage.Blobs -IncludePrerelease
 ```
 
-The examples in this article also use the latest preview version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. The Azure Identity client library authenticates a security principal. The authenticated security principal can then create the user delegation SAS. For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+The examples in this article also use the latest preview version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. To install the preview package, run the following command from the NuGet package manager console:
 
-```
+```powershell
 Install-Package Azure.Identity -IncludePrerelease
 ```
-
-## Create a service principal
-
-To authenticate with Azure AD credentials via the Azure Identity client library, use either a service principal or a managed identity as the security principal, depending on where your code is running. If your code is running in a development environment, use a service principal for testing purposes. If your code is running in Azure, use a managed identity. This article assumes that you are running code from the development environment, and shows how to use a service principal to create the user delegation SAS.
-
-To create a service principal with Azure CLI and assign an RBAC role, call the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command. Provide an Azure Storage data access role to assign to the new service principal. The role must include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For more information about the built-in roles provided for Azure Storage, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
-
-Additionally, provide the scope for the role assignment. The service principal will create the user delegation key, which is an operation performed at the level of the storage account, so the role assignment should be scoped at the level of the storage account, resource group, or subscription. For more information about RBAC permissions for creating a user delegation SAS, see the **Assign permissions with RBAC** section in [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
-
-If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
-
-The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Reader** role to it with account scope
-
-```azurecli-interactive
-az ad sp create-for-rbac \
-    --name <service-principal> \
-    --role "Storage Blob Data Reader" \
-    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
-```
-
-The `az ad sp create-for-rbac` command returns a list of service principal properties in JSON format. Copy these values so that you can use them to create the necessary environment variables in the next step.
-
-```json
-{
-    "appId": "generated-app-ID",
-    "displayName": "service-principal-name",
-    "name": "http://service-principal-uri",
-    "password": "generated-password",
-    "tenant": "tenant-ID"
-}
-```
-
-> [!IMPORTANT]
-> RBAC role assignments may take a few minutes to propagate.
-
-## Set environment variables
-
-The Azure Identity client library reads values from three environment variables at runtime to authenticate the service principal. The following table describes the value to set for each environment variable.
-
-|Environment variable|Value
-|-|-
-|`AZURE_CLIENT_ID`|The app ID for the service principal
-|`AZURE_TENANT_ID`|The service principal's Azure AD tenant ID
-|`AZURE_CLIENT_SECRET`|The password generated for the service principal
-
-> [!IMPORTANT]
-> After you set the environment variables, close and re-open your console window. If you are using Visual Studio or another development environment, you may need to restart the development environment in order for it to register the new environment variables.
 
 ## Add using directives
 
@@ -96,11 +65,11 @@ using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 ```
 
-## Authenticate the service principal
+## Get an authenticated token credential
 
-To authenticate the service principal, create an instance the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. The `DefaultAzureCredential` constructor reads the environment variables that you created previously.
+To get a token credential that your code can use to authorize requests to Azure Storage, create an instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class.
 
-The following code snippet shows how to get the authenticated credential and use it to create a service client for Blob storage
+The following code snippet shows how to get the authenticated token credential and use it to create a service client for Blob storage:
 
 ```csharp
 string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
