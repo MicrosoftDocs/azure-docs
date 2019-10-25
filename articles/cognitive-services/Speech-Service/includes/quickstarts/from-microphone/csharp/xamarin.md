@@ -140,5 +140,4 @@ Building and running Android and iOS applications in the device or simulator hap
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]

@@ -72,10 +72,5 @@ Select the button in the application to begin a speech recognition section. The 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
 
-## See also
-
-- [Customize acoustic models](~/articles/cognitive-services/Speech-Service/how-to-customize-acoustic-models.md)
-- [Customize language models](~/articles/cognitive-services/Speech-Service/how-to-customize-language-model.md)

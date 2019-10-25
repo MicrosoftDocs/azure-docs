@@ -130,5 +130,4 @@ For more information, see our [sample repository](https://aka.ms/csspeech/sample
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
