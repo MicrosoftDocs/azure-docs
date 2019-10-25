@@ -120,11 +120,11 @@ The Experiment tab in the [new workspace portal](http://ml.azure.com) has been b
   + **New features**
     + Added curated environments. These environments have been pre-configured with libraries for common machine learning tasks, and have been pre-build and cached as Docker images for faster execution. They appear by default in [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29)'s list of environment, with prefix "AzureML".
   
-  + **[azureml-train-automl](https://docs.microsoft.compython/api/azureml-train-automl)**
+  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
     + Added the ONNX conversion support for the ADB and HDI
 
 + **Preview features**  
-  + **[azureml-train-automl](https://docs.microsoft.compython/api/azureml-train-automl)**
+  + **[azureml-train-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
     + Supported BERT and BiLSTM as text featurizer (preview only)
     + Supported featurization customization for column purpose and transformer parameters (preview only)
     + Supported raw explanations when user enables model explanation during training (preview only)
