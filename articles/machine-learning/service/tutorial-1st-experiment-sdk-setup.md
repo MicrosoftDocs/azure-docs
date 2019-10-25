@@ -84,7 +84,8 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Once the VM is available it will be displayed in the top toolbar.  You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.
 
-[!INCLUDE [compute-instance-only](../../../includes/aml-compute-instance-only.md)]
+> [!NOTE]
+> Compute instances are available only for workspaces with a location of **North Central US**.
 >If your workspace is in any other region, you can continue to create and use a Notebook VM instead.  You can use either a Notebook VM or a compute instance to run your notebook.
 
 ## Next steps

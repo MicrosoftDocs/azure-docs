@@ -105,9 +105,9 @@ To use Azure Machine Learning experimentation capabilities with Azure Key Vault 
 
 ## Use a Machine Learning Compute
 
-[!INCLUDE [compute-instance-only](../../../includes/aml-compute-instance-only.md)]
-> Use one of these regions to create a compute instance that can be added to virtual network.
-
+> [!NOTE]
+> Compute instances are available only for workspaces with a location of **North Central US**.
+> Use this region to create a compute instance that can be added to virtual network.
 
 To use an Azure Machine Learning compute instance or compute cluster in a virtual network, the following network requirements must be met:
 

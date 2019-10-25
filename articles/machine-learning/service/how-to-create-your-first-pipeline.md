@@ -35,7 +35,8 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 * [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Azure Machine Learning compute instance](concept-compute-instance.md) with the SDK already installed.
 
-[!INCLUDE [compute-instance-only](../../../includes/aml-compute-instance-only.md)]
+> [!NOTE]
+> Compute instances are available only for workspaces with a location of **North Central US**.
 >If your workspace is in any other region, you can continue to create and use a Notebook VM instead. 
 
 Start by attaching your workspace:

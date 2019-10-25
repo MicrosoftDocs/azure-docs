@@ -74,7 +74,8 @@ You can also perform the following workspace management tasks:
 | Create and manage compute resources    |   | **&check;** | **&check;** |  **&check;**   |
 | Create a compute instance |   | **&check;** | |     |
 
-[!INCLUDE [compute-instance-only](../../../includes/aml-compute-instance-only.md)]
+> [!NOTE]
+> Compute instances are available only for workspaces with a location of **North Central US**.
 >If your workspace is in any other region, you can continue to create and use a Notebook VM instead.
 
 ## <a name='create-workspace'></a> Create a workspace
