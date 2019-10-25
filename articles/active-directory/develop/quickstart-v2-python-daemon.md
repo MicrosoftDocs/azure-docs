@@ -138,10 +138,10 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 #### Step 5: Run the application
 
-You'll need to install MSAL Python once
+You'll need to install the dependencies of this sample once
 
 ```console
-pip install msal
+pip install -r requirements.txt
 ```
 
 Then, run the application via command prompt or console:
@@ -164,7 +164,7 @@ You should see on the console output some Json fragment representing a list of u
  You can install MSAL Python by running the following pip command.
 
 ```powershell
-pip install -r requirements.txt
+pip install msal
 ```
 
 ### MSAL initialization

@@ -59,7 +59,7 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
 
 ### Guidelines for configuring Azure Key Vault
 
-- Create a key vault with [soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) and purge protection enabled to protect from data loss in case of accidental key – or key vault – deletion.  You must use [PowerShell to enable the “soft-delete” property](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) on the key vault (this option is not available from the AKV Portal yet – but required by Azure SQL):  
+- Create a key vault with [soft-delete](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete) and purge protection enabled to protect from data loss in case of accidental key – or key vault – deletion. You must enable “soft-delete” property on the key vault via [CLI](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-cli#enabling-soft-delete) or [Powershell](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-soft-delete-powershell#enabling-soft-delete) (this option is not available from the AKV Portal yet – but required by Azure SQL):  
   - Soft deleted resources are retained for a set period of time, 90 days unless they are recovered or purged.
   - The **recover** and **purge** actions have their own permissions associated in a key vault access policy.
 - Set a resource lock on the key vault to control who can delete this critical resource and help to prevent accidental or unauthorized deletion.  [Learn more about resource locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)
