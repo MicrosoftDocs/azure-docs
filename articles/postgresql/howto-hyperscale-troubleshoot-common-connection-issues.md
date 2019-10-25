@@ -88,4 +88,4 @@ usually indicates an issue with one of the following:
 ## Next steps
 
 * Learn the concepts of [Firewall rules in Azure Database for PostgreSQL - Hyperscale (Citus)](concepts-hyperscale-firewall-rules.md)
-* See how to [Manage firewall rules for Azure Databse for PostgreSQL - Hyperscale (Citus)](howto-hyperscale-manage-firewall-using-portal.md)
+* See how to [Manage firewall rules for Azure Database for PostgreSQL - Hyperscale (Citus)](howto-hyperscale-manage-firewall-using-portal.md)
