@@ -19,6 +19,8 @@ ms.collection: M365-identity-device-management
 
 From the **Change password** page of the **My Account** portal, you can update your work or school account password. This will only work if you know your existing password and if you aren't locked out of your account.
 
+If you don't remember your password, if you've been locked out of your account, or if you never got a password from your company support team, you can use your security info and your mobile device to reset your password. For more information, see [Reset your work or school password](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password).
+
 >[!Note]
 >If you're trying to get back into a personal account like for Xbox, hotmail.com, or outlook.com, try the suggestions in the [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) article.
 
@@ -37,3 +39,7 @@ From the **Change password** page of the **My Account** portal, you can update y
 4. Select **Submit**.
 
     Your password will be changed and you'll be asked to sign in to your work or school account again.
+
+## Next steps
+
+- After changing your password, you can select to view or manage your [security info](user-help-security-info-overview.md), your connected [devices](my-account-portal-devices-page.md), or your [organizations](my-account-portal-organizations-page.md), or you can view how your organization [uses your data](my-account-portal-privacy-page.md).
