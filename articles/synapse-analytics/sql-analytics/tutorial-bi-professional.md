@@ -92,8 +92,7 @@ Demo data contains following data sets:
 
 ## Preparing View for Power BI Desktop
 
-View is needed because that's the only way Power BI can get data from a SQL on-demand query.
-Databases are used only for View metadata.
+It is required to expose data as views or external tables for Power BI to consume it.
 Following query is going to create a view called "usPopulationView" inside a database with name "demo".
 
 ```sql
