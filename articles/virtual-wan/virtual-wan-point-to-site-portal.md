@@ -6,7 +6,7 @@ author: anzaman
 
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 11/04/2019
 ms.author: alzam
 
 ---
@@ -43,21 +43,21 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="wan"></a>Create a virtual WAN
 
-1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-2. At this time, you can find Virtual WAN by navigating to **All services** and searching for Virtual WAN. Or, you can search for Virtual WAN in the search box at the top of the Azure portal. Click **Virtual WAN** to open the page.
-3. Click **Create** to open the **Create WAN** page.
+From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
-   ![Create WAN](./media/virtual-wan-point-to-site-portal/createwan.png)
-4. On the Create WAN page, fill in the following fields.
+1. Navigate to the Virtual WAN page. In the portal, click **+Create a resource**. Type **Virtual WAN** into the search box and select Enter.
+2. Select **Virtual WAN** from the results. On the Virtual WAN page, click **Create** to open the Create WAN page.
+3. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
 
-   **Name** - Select the Name that you want to call your WAN.
+   ![Virtual WAN](./media/virtual-wan-point-to-site-portal/vwan.png)
 
-   **Subscription** - Select the subscription that you want to use.
-
-   **Resource Group** - Create new or use existing.
-
-   **Resource Location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
-5. Click **Create** to create the WAN.
+   * **Subscription** - Select the subscription that you want to use.
+   * **Resource group** - Create new or use existing.
+   * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
+   * **Name** - Type the Name that you want to call your WAN.
+   * **Type:** Standard. If you create a Basic WAN, you can create only a Basic hub. Basic hubs are capable of VPN site-to-site connectivity only.
+4. After you finish filling out the fields, select **Review +Create**.
+5. Once validation passes, select **Create** to create the virtual WAN.
 
 ## <a name="site"></a>Create an empty virtual hub
 

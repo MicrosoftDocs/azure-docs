@@ -10,9 +10,9 @@ ms.author: cherylmc
 
 ---
 
-# Connect a VPN Gateway virtual network gateway to Virtual WAN
+# Connect a VPN Gateway (virtual network gateway) to Virtual WAN
 
-This article helps you set up connectivity from an Azure VPN Gateway virtual network gateway to an Azure Virtual WAN VPN gateway. Creating a connection from a VPN Gateway virtual network gateway to a Virtual WAN VPN gateway is similar to setting up connectivity to a virtual WAN from branch VPN sites.
+This article helps you set up connectivity from an Azure VPN Gateway (virtual network gateway) to an Azure Virtual WAN (VPN gateway). Creating a connection from a VPN Gateway (virtual network gateway) to a Virtual WAN (VPN gateway) is similar to setting up connectivity to a virtual WAN from branch VPN sites.
 
 In order to minimize possible confusion between two features, we will preface the gateway with the name of the feature that we are referring to. For example, VPN Gateway virtual network gateway, and  Virtual WAN VPN gateway.
 
@@ -27,7 +27,7 @@ Azure Virtual WAN
 
 Azure Virtual Network
 
-* Create a virtual network without any virtual network gateways. You can quickly create a virtual network using the PowerShell steps in the [site-to-site connection](virtual-wan-site-to-site-portal.md#vnet) article. Be sure to change the values before running the cmdlets.
+* Create a virtual network without any virtual network gateways. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to. To create a virtual network in the Azure portal, see the [Quickstart](../virtual-network/quick-create-portal.md).
 
 ## <a name="vnetgw"></a>1. Create an Azure virtual network gateway
 
