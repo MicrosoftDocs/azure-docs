@@ -51,6 +51,9 @@ Make sure you do the following before you configure backups:
     sudo zypper install unixODBC
     ```
 
+    > [!NOTE]
+    > If you not updating the repositories, make sure the version of unixODBC is min 2.3.4. To know the version of uniXODBC, run ```odbcinst -j``` as root
+
 2. Allow connectivity from the VM to the internet, so that it can reach Azure, as described in procedure [below](#set-up-network-connectivity).
 
 3. Run the pre-registration script in the virtual machine where HANA is installed as a root user. The script is provided [in the portal](#discover-the-databases) in the flow and is required to set up the [right permissions](backup-azure-sap-hana-database-troubleshoot.md#setting-up-permissions).

@@ -11,7 +11,7 @@ ms.author: emalani
 
 # Mobile application development in Microsoft
 Decision makers, development teams, and the IT department need to build a solid mobile application development strategy that addresses many items:
-- Target the types of applications that match their business objective, such as Business to Enterprise (B2E), Business to Business (B2B), or Business to COnsumer (B2C).
+- Target the types of applications that match their business objective, such as Business to Enterprise (B2E), Business to Business (B2B), or Business to Consumer (B2C).
 - Decide whether to invest for and build applications for iOS, Android, or Windows with single-platform languages or to take a cross-platform approach.
 - Deliver back-end services that can scale.
 - Integrate seamlessly with back-end data, whether online or offline.
