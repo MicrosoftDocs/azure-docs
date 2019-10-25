@@ -10,11 +10,11 @@ ms.author: thweiss
 
 # Configure Azure Private Link for an Azure Cosmos account (preview)
 
-By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet with your virtual network. By using Private Link, you can limit access to a given Azure Cosmos account over private IP addresses. When combined with restricted NSG policies, Private link helps reduce the risk of data exfiltration. To learn more about private endpoints, see [Azure Private Links](../private-link/private-link-overview.md) article. 
+By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. By using Private Link, you can limit access to a given Azure Cosmos account over private IP addresses. When combined with restricted NSG policies, Private link helps reduce the risk of data exfiltration. To learn more about private endpoints, see [Azure Private Link](../private-link/private-link-overview.md) article.
 
 Additionally, Private Link allows an Azure Cosmos account to be accessible from within the virtual network or any peered virtual network. Resources mapped to Private Link are also accessible from on premises over private peering through VPN or ExpressRoute. 
 
-You can connect to an Azure Cosmos account configured with Private Link by using the "Automatic" or "Manual" approval methods, to learn more, see the [approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Links documentation. This article describes the steps to create a Private Link assuming that you are using Automatic approval method.
+You can connect to an Azure Cosmos account configured with Private Link by using the "Automatic" or "Manual" approval methods. To learn more, see the [approval workflow](../private-link/private-endpoint-overview.md#access-to-a-private-link-resource-using-approval-workflow) section of the Private Link documentation. This article describes the steps to create a Private Link assuming that you are using Automatic approval method.
 
 ## Create a Private Link using the Azure portal
 
@@ -34,8 +34,8 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
     | Subscription | Select your subscription. |
     | Resource group | Select a resource group.|
     | **Instance details** |  |
-    | Name | Enter *myPrivateEndpoint*. If this name is taken, create a unique name. |
-    |Region|Select **WestCentralUS**. <br/><br/> Select a region where you want to deploy the Private link. The private endpoint should be created in the same location where your subnet or the virtual network exists.|
+    | Name | Enter any name for your private endpoint; if this name is taken, create a unique one. |
+    |Region| Select the region where you want to deploy the Private Link. The private endpoint should be created in the same location where your virtual network exists.|
     |||
 1. Select **Next: Resource**.
 1. In **Create a private endpoint - Resource**, enter or select this information:
@@ -46,7 +46,7 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.AzureCosmosDB/databaseAccounts**. |
     | Resource |Select your Azure Cosmos account |
-    |Target sub-resource |Select *Sql*|
+    |Target sub-resource |Select the Cosmos DB API type you want to map. This defaults to only one choice for the SQL, MongoDB and Cassandra APIs. For the Gremlin and Table APIs, you can also choose *Sql* as these APIs are interoperable with the SQL API. |
     |||
 1. Select **Next: Configuration**.
 1. In **Create a private endpoint (Preview) - Configuration**, enter or select this information:
