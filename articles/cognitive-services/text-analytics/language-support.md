@@ -45,11 +45,11 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Chinese-Simplified | `zh-hans`| ✔ \***     |             | ✔         |    |
 | Chinese-Traditional | `zh-hant`| ✔ \***     |             |          |    |
 | Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
-| Dutch       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
+| Dutch       | `nl`          | ✔ \***     | ✔          |  ✔ \*           |     |
 | English     | `en`          | ✔ \***       | ✔           |  ✔ \*\*     |      |
 | Finnish     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | French      | `fr`          | ✔ \***       | ✔           |  ✔            |     |
-| German      | `de`          | ✔ \*     | ✔           |  ✔           |     |
+| German      | `de`          | ✔ \***     | ✔           |  ✔           |     |
 | Greek       | `el`          | ✔ \*     |             |            |     |
 | Hungarian   | `hu`          |           |             |  ✔ \*          |     | 
 | Italian     | `it`          | ✔ \***     | ✔           |  ✔ \*           |     |
@@ -57,10 +57,10 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Korean      | `ko`          |          | ✔           |  ✔ \*          |     |
 | Norwegian  (Bokmål) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | Polish      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
-| Portuguese (Portugal) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` also accepted|
+| Portuguese (Portugal) | `pt-PT`| ✔ \***        |  ✔          | ✔ \*      |`pt` also accepted|
 | Portuguese (Brazil)   | `pt-BR`|          |  ✔   |  ✔ \*       |     |
 | Russian     | `ru`          | ✔ \*     | ✔           |  ✔ \*           |     |
-| Spanish     | `es`          | ✔        | ✔           |   ✔ \*\*      |     | 
+| Spanish     | `es`          | ✔ \***       | ✔           |   ✔ \*\*      |     | 
 | Swedish     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Turkish     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
