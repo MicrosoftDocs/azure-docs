@@ -29,7 +29,7 @@ This article lists common troubleshooting questions.
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio object explorer is missing AAD users           | This is a known issue.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure Synapse Analytics][Authentication to Azure Synapse Analytics] to learn more about using Azure Active Directory with Azure Synapse Analytics. |
 | Manual scripting, using the scripting wizard, or connecting via SSMS is slow, not responding, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
-| Generate scripts fails in SSMS                               | Generating a script for a SQL Analytics object fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
+| Generate scripts fails in SSMS                               | Generating a script for a [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) object fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
 
 ## Performance
 | Issue                                                        | Resolution                                                   |

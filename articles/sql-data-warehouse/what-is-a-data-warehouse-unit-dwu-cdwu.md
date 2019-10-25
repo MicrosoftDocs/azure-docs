@@ -23,7 +23,7 @@ SQL pool represents a collection of analytic resources that are being provisione
 
 For higher performance, you can increase the number of data warehouse units. For less performance, reduce data warehouse units. Storage and compute costs are billed separately, so changing data warehouse units does not affect storage costs.
 
-Performance for data warehouse units is based on these SQL Analytics workload metrics:
+Performance for data warehouse units is based on these [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) workload metrics:
 
 - How fast a standard data warehousing query can scan a large number of rows and then perform a complex aggregation. This operation is I/O and CPU intensive.
 - How fast the data warehouse can ingest data from Azure Storage Blobs or Azure Data Lake. This operation is network and CPU intensive.

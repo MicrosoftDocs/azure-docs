@@ -44,7 +44,7 @@ This remainder of this section highlights the nuances of the implementation to h
 
 ### Allocation of values
 
-The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in SQL Analytics, the absence of a guarantee is more pronounced.
+The IDENTITY property doesn't guarantee the order in which the surrogate values are allocated, which reflects the behavior of SQL Server and Azure SQL Database. However, in [SQL Analytics](sql-data-warehouse-overview-what-is.md), the absence of a guarantee is more pronounced.
 
 The following example is an illustration:
 

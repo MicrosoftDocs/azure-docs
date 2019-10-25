@@ -16,7 +16,7 @@ ms.reviewer: igorstan
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables. Using the information in this article can help you modularize your code, improving both reusability and ease of maintenance of your code.
 
 ## What are temporary tables?
-Temporary tables are useful when processing data - especially during transformation where the intermediate results are transient. In SQL Analytics, temporary tables exist at the session level.  They are only visible to the session in which they were created and are automatically dropped when that session logs off.  Temporary tables offer a performance benefit because their results are written to local rather than remote storage.
+Temporary tables are useful when processing data - especially during transformation where the intermediate results are transient. In [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics), temporary tables exist at the session level.  They are only visible to the session in which they were created and are automatically dropped when that session logs off.  Temporary tables offer a performance benefit because their results are written to local rather than remote storage.
 
 ## Create a temporary table
 Temporary tables are created by prefixing your table name with a `#`.  For example:
