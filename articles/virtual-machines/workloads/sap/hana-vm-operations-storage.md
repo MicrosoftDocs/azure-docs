@@ -231,7 +231,7 @@ M416xx_v2 VM types are not yet made available by Microsoft to the public. The va
 Azure NetApp Files provides native NFS shares that can be used for /hana/shared, /hana/data and /hana/log volumes. Using ANF based NFS shares for the /hana/data and /hana/log volumes requires the usage of the v4.1 NFS protocol. The NFS protocol v3 is not supported for the usage of /hana/data and /hana/log volumes when basing the shares on ANF. 
 
 > [!IMPORTANT]
-> The NFS v3 protocol implemented on Azure NetApp Files is not supported to be used for /hana/data and /hana/log. The usage of the NFS 4.1 is mandatory for /hana/data and /hana/log. Whereas /hana/shared can be used with the NFS v3 or the NFS v4.1 protocol.
+> The NFS v3 protocol implemented on Azure NetApp Files is not supported to be used for /hana/data and /hana/log. The usage of the NFS 4.1 is mandatory for /hana/data and /hana/log volumes from a functional point of view. Whereas for the /hana/shared volume the NFS v3 or the NFS v4.1 protocol can be used from a functional point of view.
 
 ### Important considerations
 When considering Azure NetApp Files for the SAP Netweaver and SAP HANA, be aware of the following important considerations:
