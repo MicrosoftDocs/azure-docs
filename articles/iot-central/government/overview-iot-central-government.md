@@ -13,12 +13,11 @@ services: iot-central
 
 Get started with building smart city solutions leveraging Azure IoT Central application templates. Start now with **water quality monitoring**, **water consumption monitoring**, and **connected waste management**.
 
-## What is Water Quality Monitoring application template? 
-
-Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities. 
+## What is Water Quality Monitoring application template?   
 
 Traditional water quality monitoring relies on manual sampling techniques and field laboratory analysis, which is time consuming and costly. By remotely monitoring water quality in real-time, water quality issues can be managed before citizens are impacted. Moreover, with advanced analytics, water utilities, and environmental agencies can act on early warnings on potential water quality issues and plan on water treatment in advance.  
 
+Water Quality Monitoring app is an IoT Central app template to help you kickstart your IoT solution development and enable water utilities to digitally monitor water quality in smart cities. 
 
 ![Water Quality Monitoring App template](./media/overview-iotcentral-government/waterqualitymonitoring-dashboard-full.png)
 
@@ -29,14 +28,15 @@ The App template consists of:
 * Pre-configured rules and jobs
 * Branding using white labeling 
 
-Get started with the [Water Quality Monitoring application tutorial](./tutorial-water-quality-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+Get started with the [Water Quality Monitoring application tutorial](./tutorial-water-quality-monitoring.md).
 
 
 ## What is Water Consumption Monitoring application template? 
 
+Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More and more cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption as well as remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption. 
+
 
 Water Consumption Monitoring app is an IoT Central app template to help you kickstart your IoT solution development to enable water utilities and cities to remotely monitor and control water flow to reduce consumption. 
-Traditional water consumption tracking relies on water operators manually reading water consumption meters at the meter sites. More and more cities are replacing traditional meters with advanced smart meters enabling remote monitoring of consumption as well as remotely controlling valves to control water flow. Water consumption monitoring coupled with digital feedback message to the citizen can increase awareness and reduce water consumption. 
 
   ![Water Consumption Monitoring App template](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
@@ -47,7 +47,7 @@ The Water Consumption Monitoring app template consist of pre-configured:
 * Pre-configured rules and jobs
 * Branding using white labeling 
 
- Get started with the [Water Consumption Monitoring application tutorial](./tutorial-water-consumption-monitoring.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+ Get started with the [Water Consumption Monitoring application tutorial](./tutorial-water-consumption-monitoring.md).
 
 ## What is Connected Waste Management application template? 
 
@@ -63,13 +63,14 @@ The Connected Waste Management app template consist of pre-configured:
 * Pre-configured rules and jobs
 * Branding using white labeling 
 
-Get started with the [Connected Waste Management application tutorial](./tutorial-connected-waste-management.md) that walks you through how to build a solution leveraging one of the government application templates in IoT Central. 
+Get started with the [Connected Waste Management application tutorial](./tutorial-connected-waste-management.md).
 
 
 ## Next steps
 
 * Try any of the Government application templates in IoT Central for free [create app](https://apps.azureiotcentral.com/build/government)
-* Learn about Water Quality Monitoring concepts  [concepts](./concepts-waterqualitymonitoring-architecture.md)
-* Learn about Water Consumption Monitoring [concepts](./concepts-waterconsumptionmonitoring-architecture.md)
-* Learn about Connected Waste Management [concepts](./concepts-connectedwastemanagement-architecture.md)  
+* Learn about [Water Quality Monitoring concepts](./concepts-waterqualitymonitoring-architecture.md)
+* Learn about [Water Consumption Monitoring concepts](./concepts-waterconsumptionmonitoring-architecture.md)
+* Learn about [Connected Waste Management concepts](./concepts-connectedwastemanagement-architecture.md)  
 * Learn about IoT Central, see [IoT Central overview](https://docs.microsoft.com/azure/iot-central/overview-iot-central)
+ 
