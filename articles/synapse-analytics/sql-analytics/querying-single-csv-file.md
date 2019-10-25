@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 
 # Quickstart: Querying single CSV file
 
-In this article you will learn how to query single CSV file with SQL On-demand. 
+In this article, you will learn how to query single CSV file with SQL On-demand. 
 CSV files may have different formats: 
 
 - With and without header row
@@ -21,7 +21,7 @@ CSV files may have different formats:
 - Windows and Unix style line endings
 - Non-quoted and quoted values, and escaping characters
 
-In this article we will cover all these variations.
+In this article, we will cover all these variations.
 
 
 ## Prerequisites
