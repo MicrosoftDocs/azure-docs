@@ -76,7 +76,7 @@ Now that a connection has been established to your database, let's write a query
     ![Query results][7]
 
 ## Next steps
-Now that you can connect and query, try [visualizing the data with PowerBI][visualizing the data with PowerBI].
+Now that you can connect and query, try [visualizing the data with Power BI][visualizing the data with PowerBI].
 
 To configure your environment for Azure Active Directory authentication, see [Authenticate to SQL Data Warehouse][Authenticate to SQL Data Warehouse].
 
