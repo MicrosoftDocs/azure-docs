@@ -178,7 +178,7 @@ This command creates a `.azureml/config.json` file, which contains information n
 
 ## Create the compute target for training
 
-This example uses an Azure Machine Learning Compute instance to train the model. To create a new compute instance, use the following command:
+This example uses an Azure Machine Learning Compute cluster to train the model. To create a new compute cluster, use the following command:
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
