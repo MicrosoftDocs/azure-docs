@@ -121,5 +121,4 @@ If you have issues following these instructions, refer to the more extensive [Vi
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Explore Python samples on GitHub](https://aka.ms/csspeech/samples)
+[!INCLUDE [footer](./footer.md)]
