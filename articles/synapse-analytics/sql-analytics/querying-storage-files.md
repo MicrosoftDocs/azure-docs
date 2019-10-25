@@ -204,9 +204,9 @@ Specifies the row terminator to be used. The default row terminator is \r\n 
 
 To specify columns that you want to read, you can provide an optional WITH clause within your OPENROWSET statement.
 
-- If there are CSV data files, to read all the columns, simply provide column names and their data types. In case you want a subset of columns, use ordinal number filed to pick the columns from originating data files by ordinal (i.e. columns will be binded by ordinal).
+- If there are CSV data files, to read all the columns, simply provide column names and their data types. In case you want a subset of columns, use ordinal number filed to pick the columns from originating data files by ordinal (i.e. columns will be bound by ordinal).
 
-- If there are Parquet data files, provide column names which match the column names in the originating data files (i.e. columns will be binded by name).
+- If there are Parquet data files, provide column names that match the column names in the originating data files (i.e. columns will be bound by name).
 
 ```
 OPENROWSET
@@ -219,7 +219,7 @@ Check [Read CSV files without specifying all columns](querying-single-csv-file.m
 
 ### Schema inference
 
-By omiting the WITH clause from OPENROWSET statement, you can instruct the service to auto detect (infer) schema from underlying files. 
+By omitting the WITH clause from OPENROWSET statement, you can instruct the service to auto detect (infer) schema from underlying files. 
 
 > Note that this currently works only for PARQUET file format.
 
@@ -252,7 +252,7 @@ In order to enable smooth experience when working with data stored in nested/rep
 
 #### Projecting nested and/or repeated data
 
-To project data, simply run a SELECT statement over Parquet file which contains columns of nested data types. On output, nested values will be serialized into JSON and returned as varchar(8000) SQL data type. 
+To project data, simply run a SELECT statement over Parquet file that contains columns of nested data types. On output, nested values will be serialized into JSON and returned as varchar(8000) SQL data type. 
 
 ```
 	SELECT  *  FROM
@@ -281,8 +281,8 @@ See syntax fragment below:
 By default, OPENROWSET function matches source field name and path with column names provided in WITH clause. Elements contained at different nesting levels within the same source Parquet file can be accessed in same WITH clause.
 
 *Return values*
-* Function returns a scalar value (e.g., int, decimal, varchar) from the specified element on the specified path for all Parquet types which are not in Nested Type group. 
-* If the path points to an element which is of Nested Type, the function returns a JSON fragment starting from the top element on the specified path. JSON fragment is of type varchar (8000). 
+* Function returns a scalar value (e.g., int, decimal, varchar) from the specified element on the specified path for all Parquet types that are not in Nested Type group. 
+* If the path points to an element that is of Nested Type, the function returns a JSON fragment starting from the top element on the specified path. JSON fragment is of type varchar (8000). 
 * If the property can't be found at the specified column_name, the function returns an error. 
 * If the property can't be found at the specified column_path depending on [Path mode](https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017#PATHMODE), the function returns an error (in strict mode) or null (in lax mode) 
 
@@ -292,11 +292,11 @@ Check [Accessing elements from nested columns](querying-parquet-nested-types.md#
 
 To access elements from a repeated column (e.g. element of an Array or Map), use [JSON_VALUE](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-value-transact-sql?view=sql-server-2017) function for every scalar element you need to project and provide:
 * Nested/repeated column, as first parameter
-* A [JSON path](https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to acccess, as a second parameter
+* A [JSON path](https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter
 
-To access non-scalar elements from a repeated column, use [JSON_QUERY](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) function for every non scalar element you need to project and provide:
+To access non-scalar elements from a repeated column, use [JSON_QUERY](https://docs.microsoft.com/en-us/sql/t-sql/functions/json-query-transact-sql?view=sql-server-2017) function for every non-scalar element you need to project and provide:
 * Nested/repeated column, as first parameter
-* A [JSON path](https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to acccess, as a second parameter
+* A [JSON path](https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017) that specifies the element/property to access, as a second parameter
 
 See syntax fragment below:
 
