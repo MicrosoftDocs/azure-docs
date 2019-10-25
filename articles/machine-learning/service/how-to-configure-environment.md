@@ -55,28 +55,12 @@ The Azure Machine Learning [compute instance](concept-compute-instance.md) is a 
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a location of **North Central US**.
-> Use this region to create a compute instance with all the features below.
+>If your workspace is in any other region, you can continue to create and use a Notebook VM instead.
 
-The compute instance is:
-
-+ **Secure**. Since VM and notebook access is secured with HTTPS and Azure Active Directory by default, IT Pros can easily enforce single sign-on and other security features such as multi-factor authentication.
-
-+ **Preconfigured**. This fully prepared Python ML environment draws its pedigree from the popular IaaS Data Science VM and includes:
-  + Azure ML Python SDK (latest)
-  + Azure ML R SDK (latest)
-  + Automatic configuration to work with your workspace
-  + A Jupyter notebook server
-  + JupyterLab notebook IDE
-  + RStudio
-  + Preconfigured GPU drivers
-  + A selection of deep learning frameworks
+There is nothing to install or configure for a compute instance.  Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
 
-  If you are into code, the VM includes tutorials and samples to help you explore and learn how to use Azure Machine Learning. The sample notebooks are stored in the Azure Blob Storage account of your workspace making them shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace.
-
-+ **Simple setup**: Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify an Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
-
-+ **Customizable**. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
+Learn more about [compute instances](concept-compute-instance.md).
 
 To stop incurring compute charges, [stop the compute instance](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 

@@ -72,7 +72,7 @@ You can also perform the following workspace management tasks:
 | Manage workspace access    | **&check;**   || |  **&check;**    |
 | Upgrade to Enterprise edition    | **&check;** |  | |     |
 | Create and manage compute resources    |   | **&check;** | **&check;** |  **&check;**   |
-| Create a compute instance |   | **&check;** | |     |
+| Create a compute instance | **&check;**  | **&check;** | **&check;** |     |
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a location of **North Central US**.

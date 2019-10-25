@@ -25,19 +25,19 @@ An Azure Machine Learning compute instance is a fully managed cloud-based workst
 
 A compute instance is a managed virtual machine (VM), optimized to be your machine learning development environment in the cloud. It provides the following benefits:
 
-* Productive: Data scientists can build and deploy models easily using integrated notebooks and the following popular tools in a first-class web UI experience
+* **Productive**: Data scientists can build and deploy models easily using integrated notebooks and the following popular tools in a first-class web UI experience
     * Jupyter
     * JupyterLab
     * RStudio
     * VS Code 
-* Collaborative: Provide your team of data scientists with a collaborative environment. Within the boundaries of a workspace, you can collaboratively debug models, and share notebooks on shared compute instances.
-* Managed and secure: A compute instance is a managed VM form-factor, which ensures compliance with enterprise security requirements. Similar to Azure Machine Learning compute clusters, the underlying infrastructure is deployed in a subscription owned by Azure Machine Learning.  You don’t have to manage the infrastructure reducing your security footprint. Compute instances  provide robust management policies and secure networking configurations such as:
-    * automated provisioning through Resource Manager templates or Azure Machine Learning SDK.
+* **Collaborative**: Provide your team of data scientists with a collaborative environment. Within the boundaries of a workspace, you can collaboratively debug models, and share notebooks on shared compute instances.
+* **Managed and secure**: A compute instance is a managed VM form-factor, which ensures compliance with enterprise security requirements. Similar to Azure Machine Learning compute clusters, the underlying infrastructure is deployed in a subscription owned by Azure Machine Learning.  You don’t have to manage the infrastructure reducing your security footprint. Compute instances  provide robust management policies and secure networking configurations such as:
+    * Automated provisioning through Resource Manager templates or Azure Machine Learning SDK.
     * [Role-based access control (RBAC)](/azure/role-based-access-control/overview).     
-    * virtual network support. You can create a compute instance in a virtual network. For more details please refer to virtual network documentation article.
+    * Virtual network support. You can create a compute instance in a virtual network. For more details please refer to virtual network documentation article.
     * SSH policy to enable/disable SSH access
-* Preconfigured for machine learning: Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.
-* Fully customizable: Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. 
+* **Preconfigured for machine learning**: Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.
+* **Fully customizable**: Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
 
 
 ## <a name="contents"></a>Tools and environments
