@@ -186,7 +186,14 @@ Restart-Service -Name himds
 > [!NOTE]
 > Authenticated proxies are not supported for Public Preview.
 
-## Next Steps
+## Clean up
+
+To disconnect a machine from Azure Arc for Servers, you need to perform two steps.
+
+1. Select the machine in [Portal](https://aka.ms/hybridmachineportal), click the ellipsis (`...`) and select **Delete**.
+1. Uninstall the agent from the machine.
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Assign a Policy to Connected Machines](../../governance/policy/assign-policy-portal.md)
