@@ -167,6 +167,27 @@ Use the information in the following table to configure another virtual machine 
 |Public IP|**None**|
 |Public inbound ports|**None**|
 
+### Add a route table and default route
+
+To allow an Internet connection to Jump-Srv, you must create a route table and a default gateway route to the Internet from the **Jump-SN** subnet.
+
+1. On the Azure portal, select **Create a resource**.
+2. Type **route table** in the search box, and then select **Route table**.
+3. Select **Create**.
+4. Type **RT-01** for **Name**.
+5. Select your subscription, **FW-Manager** for the resource group and **(US) East US** for the region.
+6. Select **Create**.
+7. When the deployment completes, select the **RT-01** route table.
+8. Select **Routes** and then select **Add**.
+9. Type **jump-to-inet** for the **Route name**.
+10. Type **0.0.0.0/0** for the **Address prefix**.
+11. Select **Internet** for the **Next hop type**.
+12. Select **OK**.
+13. When the deployment completes, select **Subnets**, then select **Associate**.
+14. Select **Spoke-01** for **Virtual network**.
+15. Select **Jump-SN** for **Subnet**.
+16. Select **OK**.
+
 ### Test the rules
 
 Now, test the firewall rules to confirm that it works as expected.
