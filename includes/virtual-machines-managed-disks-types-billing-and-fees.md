@@ -23,3 +23,7 @@ Azure VMs have the capability to indicate if they are compatible with ultra disk
 > For [constrained core VM sizes](../articles/virtual-machines/linux/constrained-vcpu.md), the reservation fee is based on the actual number of vCPUs and not the constrained cores. For Standard_E32-8s_v3, the reservation fee will be based on 32 cores. 
 
 Refer to the [Azure Disks pricing page](https://azure.microsoft.com/pricing/details/managed-disks/) for ultra disk pricing details.
+
+### Azure disk reservation
+
+Azure Disks Reservation offers a purchase option for Disk commitment on one year term at a discount pricing. You can make a commitment of a specific Disk SKU on a target region, for example, 10 P30 (1TiB) Premium Managed Disks in East US 2 region for one year term. The reservation experience is similar to Reserved Virtual Machine Instance. You can bundle VM and Disk reservations to maximize your savings. For now, Azure Disks Reservation offers one year commitment plan for Premium SSD Managed Disks SKUs from P30 (1TiB) to P80 (32 TiB) in all production regions. For more details on the Reserved Disks pricing, see [Azure Disks pricing page](https://azure.microsoft.com/en-us/pricing/details/managed-disks/).

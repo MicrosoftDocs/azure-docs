@@ -140,6 +140,31 @@ GPT partitioning can be used only on data disks, not OS disks. OS disks must use
 
 Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra disks do not support snapshots.
 
+### Disk reservation
+
+**What is Azure disk reservation?**
+Disk reservation is the option to purchase one year of disk storage in advance, reducing your total cost.
+
+**What options does Azure disk reservation offer?**
+Azure disk reservation provides options to purchase Premium SSD Managed Disks in the specified SKUs from P30 (1 TiB) up to P80 (32 TiB) for one-year term. There is no limitation on the minimal unit you can purchase per disk SKU. Additionally, you can choose to pay with a single, upfront payment or monthly payments.  
+
+**How will I be billed for Azure disk reservation?**
+- For Enterprise Agreement (EA) customers, Azure Monetary Commitment will be used first to purchase Azure Disks Reservation. In scenarios where EA customers have used all their monetary commitment, Azure Disks Reservation can still be purchased, and those purchases will be invoiced for the single, upfront payment on their next overage bill.
+
+- For customers purchasing via Azure.com, at the time of purchase, the credit card on file will be charged for the full upfront payment (or monthly fixed payments) of Azure Disks Reservation.
+
+**How is Azure disk reservation applied?**
+Azure Disks Reservation is applied in the same model as Reserved VM Instances with the difference that it cannot be applied to different SKUs. You can find more details on the Reserved VM instances model here. 
+
+**What is covered with my Azure disk reservation purchase?**
+Azure Disks Reservation allows you to purchase Premium SSD Managed Disks on per disk unit. There is no additional transactional cost applied for Premium SSD Managed Disks.
+
+**Can I use my data storage purchased through Azure Disks Reservation across multiple regions?**
+Azure Disks Reservation is purchased for a specific region and SKU (like P30), and therefore cannot be used outside these constructs. You can always purchase an additional Azure Disks Reservation for your disk storage need in other regions or SKUs.
+
+**What happens when my Azure Disks Reservation expires?**
+You will receive email notifications 30 days prior to expiration, and again on the expiration date. Once the reservation expires, deployed capacity will continue to run and will be billed at the then current pay-as-you-go rate.
+
 ## Ultra disks
 
 **What regions currently support ultra disks?**
