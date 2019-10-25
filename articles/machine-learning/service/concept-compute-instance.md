@@ -23,7 +23,8 @@ Compute instances are deeply integrated with Azure Machine Learning workspaces a
 Instances are available in both Basic and Enterprise edition. Learn more about the [pricing and details for these editions](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 > [!NOTE]
-> Compute instances are available only for workspaces with a region of **North Central US**.> Use this region to create a compute instance. 
+> Compute instances are available only for workspaces with a region of **North Central US** or **UK South**.
+> Use one of these regions to create a compute instance. 
 
 
 ## Why use a compute instance?
