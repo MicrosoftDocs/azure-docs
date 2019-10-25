@@ -14,8 +14,6 @@ ms.author: alzam
 
 This tutorial shows you how to use Virtual WAN to connect to your resources in Azure over an IPsec/IKE (IKEv2) or OpenVPN VPN connection. This type of connection requires a client to be configured on the client computer. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md)
 
-![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
-
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
@@ -28,6 +26,7 @@ In this tutorial, you learn how to:
 > * View your virtual WAN
 > * View resource health
 
+![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
 
 ## Before you begin
 
@@ -139,24 +138,16 @@ Use the downloaded profile to configure the remote access clients. The procedure
 3. On the client computer, navigate to Network Settings and click VPN. The VPN connection shows the name of the virtual network that it connects to.
 4. Before you attempt to connect, verify that you have installed a client certificate on the client computer. A client certificate is required for authentication when using the native Azure certificate authentication type. For more information about generating certificates, see Generate Certificates. For information about how to install a client certificate, see Install a client certificate.
 
-## <a name="viewwan"></a>7. View your virtual WAN
+## <a name="viewwan"></a>View your virtual WAN
 
 1. Navigate to the virtual WAN.
 2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
 3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
 
-## <a name="viewhealth"></a>8. View your resource health
+## <a name="viewhealth"></a>View your resource health
 
 1. Navigate to your WAN.
 2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
-
-## <a name="cleanup"></a>10. Clean up resources
-
-When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
-
-```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
-```
 
 ## Next steps
 
