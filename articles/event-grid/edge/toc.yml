@@ -18,6 +18,8 @@
     href: forward-events-iothub.md
   - name: React to Blob Storage events locally
     href: deploy-blob-storage-module-portal.md    
+- name: Samples
+  href: https://github.com/Azure/event-grid-iot-edge
 - name: Concepts
   items:
   - name: Event Grid concepts
