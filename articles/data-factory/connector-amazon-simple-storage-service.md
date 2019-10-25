@@ -116,7 +116,7 @@ To copy data from Amazon S3 in **Parquet, delimited text, JSON, Avro and binary 
 | version | The version of the S3 object, if S3 versioning is enabled. If not specified, the latest version will be fetched. |No |
 
 > [!NOTE]
-> **AmazonS3Object** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility, but it doesn't work with Mapping Data Flow. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
+> **AmazonS3Object** type dataset with Parquet/Text format mentioned in next section is still supported as-is for Copy/Lookup/GetMetadata activity for backward compatibility, but it doesn't work with mapping data flow. You are suggested to use this new model going forward, and the ADF authoring UI has switched to generating these new types.
 
 **Example:**
 

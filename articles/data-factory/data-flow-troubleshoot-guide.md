@@ -11,6 +11,8 @@ ms.author: makromer
 
 # Troubleshoot Azure Data Factory Data Flows
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article explores common troubleshooting methods for data flows in Azure Data Factory.
 
 ## Common errors and messages
@@ -79,4 +81,4 @@ For more troubleshooting help, try these resources:
 *  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
-*  [ADF Mapping Data Flows Performance Guide](concepts-data-flow-performance.md)
+*  [ADF mapping data flows Performance Guide](concepts-data-flow-performance.md)

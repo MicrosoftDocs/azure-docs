@@ -25,3 +25,6 @@ The following limitations apply to tags:
 * Tags applied to the resource group are not inherited by the resources in that resource group.
 * Tags can't be applied to classic resources such as Cloud Services.
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+
+   > [!NOTE]
+   > Currently Azure DNS zones and Traffic Manger services also don't allow the use of spaces in the tag. 

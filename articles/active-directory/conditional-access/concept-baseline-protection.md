@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/15/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What are baseline policies?
 
-Baseline policies are a set of predefined  policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
+Baseline policies are a set of predefined policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
 
 Managing customized Conditional Access policies requires an Azure AD Premium license.
 
@@ -25,12 +25,12 @@ Managing customized Conditional Access policies requires an Azure AD Premium lic
 
 ![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-There are four baseline policies that organizations can enable:
+There are four baseline policies:
 
-* [Require MFA for admins (preview)](howto-baseline-protect-administrators.md)
-* [End user protection (preview)](howto-baseline-protect-end-users.md)
-* [Block legacy authentication (preview)](howto-baseline-protect-legacy-auth.md)
-* [Require MFA for service management (preview)](howto-baseline-protect-azure.md)
+* Require MFA for admins (preview)
+* End user protection (preview)
+* Block legacy authentication (preview)
+* Require MFA for service management (preview)
 
 All four of these policies will impact legacy authentication flows like POP, IMAP, and older Office desktop clients.
 
@@ -38,7 +38,7 @@ All four of these policies will impact legacy authentication flows like POP, IMA
 
 Due to the power and access that administrator accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign in. In Azure Active Directory, you can get a stronger account verification by requiring administrators to register for and use Azure Multi-Factor Authentication.
 
-[Require MFA for admins (preview)](howto-baseline-protect-administrators.md) is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
+Require MFA for admins (preview) is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
 
 * Global administrator
 * SharePoint administrator
@@ -80,23 +80,10 @@ Using any of these tools to perform resource management is a highly privileged a
 
 To protect privileged actions, this **Require MFA for service management (preview)** policy will require multi-factor authentication for any user accessing Azure portal, Azure PowerShell, or Azure CLI.
 
-## Enable a baseline policy
-
-To enable a baseline policy:
-
-1. Sign in to the **Azure portal** as global administrator, security administrator, or Conditional Access administrator.
-1. Browse to **Azure Active Directory** > **Conditional Access**.
-1. In the list of policies, select a baseline policy you’d like to enable.
-1. Set **Enable policy** to **On**.
-1. Click Save.
-
 ## Next steps
 
 For more information, see:
 
+* [Common Conditional Access policies](concept-conditional-access-policy-common.md)
 * [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
 * [What is Conditional Access in Azure Active Directory?](overview.md)
-* [Require MFA for admins (preview)](howto-baseline-protect-administrators.md)
-* [End user protection (preview)](howto-baseline-protect-end-users.md)
-* [Block legacy authentication (preview)](howto-baseline-protect-legacy-auth.md)
-* [Require MFA for service management (preview)](howto-baseline-protect-azure.md)
