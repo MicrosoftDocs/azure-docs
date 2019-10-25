@@ -14,14 +14,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 10/25/2019
 ms.author: jafreebe
 
 ---
 
 # Deploy to App Service using GitHub Actions
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the Azure App Service Actions for GitHub, you can automate your workflow to deploy to [Azure App Service](https://azure.microsoft.com/services/app-service/) using GitHub Actions.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the Azure App Service Actions for GitHub, you can automate your workflow to deploy to [Azure App Service](overview.md) using GitHub Actions.
 
 > [!IMPORTANT]
 > GitHub Actions is currently in beta. You must first [sign-up to join the preview](https://github.com/features/actions) using your GitHub account.
@@ -39,10 +39,10 @@ For an Azure App Service workflow, the file has three sections:
 
 ## Create a service principal
 
-You can create a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
+az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> --sdk-auth
 ```
 
 In this example, replace the placeholders in the resource with your subscription ID, resource group and app name. The output is the role assignment credentials that provides access to your App Service app. Copy this JSON object, which you can use to authenticate from GitHub.
@@ -188,7 +188,7 @@ The following examples show the part of the workflow that builds the web app, in
 ```
 ## Deploy to App Service
 
-To deploy your code to an App Service app, you will need to use the `Azure/appservice-actions/webapp@master` action. This action has 4 parameters:
+To deploy your code to an App Service app, use the `azure/webapps-deploy@v1 ` action. This action has 4 parameters:
 
 | **Parameter**  | **Explanation**  |
 |---------|---------|
@@ -278,7 +278,9 @@ jobs:
 
 You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
 
-- [Azure login](https://github.com/Azure/actions)
+- [Actions workflow to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
+
+- [Azure login](https://github.com/Azure/login)
 
 - [Azure WebApp](https://github.com/Azure/webapps-deploy)
 
