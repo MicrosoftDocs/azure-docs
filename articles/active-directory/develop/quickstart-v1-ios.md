@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
@@ -28,4 +28,4 @@ ms.collection: M365-identity-device-management
 
 [Microsoft Authentication Library (MSAL)](msal-overview.md) enables developers to acquire tokens from the Microsoft identity platform endpoint in order to access secured Web APIs. Active Directory Authentication Library (ADAL) integrates with the Azure AD for developers (v1.0) endpoint, where MSAL integrates with the Microsoft identity platform (v2.0) endpoint.
 
-For new android applications, we recommend you use Microsoft identity platform (v2.0) and MSAL to acquire tokens and access secured web APIs: [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](quickstart-v2-ios.md).
+For new macOS and iOS applications, we recommend you use Microsoft identity platform (v2.0) and MSAL to acquire tokens and access secured web APIs: [Quickstart: Sign in users and call the Microsoft Graph API from an iOS or macOS app](quickstart-v2-ios.md).

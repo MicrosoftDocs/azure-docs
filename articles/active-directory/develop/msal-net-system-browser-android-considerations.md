@@ -1,5 +1,5 @@
 ---
-title: System browser considerations on Xamarin Android (Microsoft Authentication Library for .NET) 
+title: Xamarin Android system browser considerations (Microsoft Authentication Library for .NET) 
 titleSuffix: Microsoft identity platform
 description: Learn about specific considerations when using system browsers on Xamarin Android when using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
@@ -22,7 +22,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# System browser considerations on Xamarin Android with MSAL.NET
+#  Xamarin Android system browser considerations with MSAL.NET
 
 This article discusses specific considerations when using the system browser on Xamarin Android with the Microsoft Authentication Library for .NET (MSAL.NET).
 
