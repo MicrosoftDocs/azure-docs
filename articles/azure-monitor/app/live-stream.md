@@ -195,14 +195,14 @@ However, if you recognize and trust all the connected servers, you can try the c
 |----------------------------------|:--------------------|:--------------------|:-----------------|:--------------------|:---------------------|
 | .NET                             | Supported           | Supported           | Supported        | Supported           | Supported            |
 | .NET Core (target=.NET Framework)| Supported           | Supported           | Supported        | Supported           | Supported            |
-| .NET Core (target=.NET Core)     | Supported           | Supported`*`        | Supported        | Supported           | Supported            |
+| .NET Core (target=.NET Core)     | Supported           | Supported*          | Supported        | Supported           | Supported            |
 | Azure Functions v2               | Supported           | Supported           | Supported        | Supported           | Supported            |
 | Java                             | Supported (V1.0.7+) | Supported (V1.0.7+) | **Not Supported**| **Not Supported**   | **Not Supported**    |
 | Node.js                          | Supported (V1.3.0+) | Supported (V1.3.0+) | **Not Supported**| Supported (V1.3.0+) | **Not Supported**    |
 
 Basic metrics include request, dependency, and exception rate. Performance metrics (performance counters) include memory and CPU. Sample telemetry shows a stream of detailed information for failed requests and dependencies, exceptions, events, and traces.
 
-`*` PerfCounters support varies slightly across versions of .NET Core that do not target the .NET Framework:
+ \* PerfCounters support varies slightly across versions of .NET Core that do not target the .NET Framework:
 
 - PerfCounters metrics are supported when running in Azure App Service for Windows. (AspNetCore SDK Version 2.4.0 or higher)
 - PerfCounters are supported when app is running in ANY Windows machines (VM or Cloud Service or On-prem etc.) (AspNetCore SDK Version 2.7.1 or higher), but for apps targeting .NET Core 2.0 or higher.
