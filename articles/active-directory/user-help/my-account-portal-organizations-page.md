@@ -25,6 +25,9 @@ There are two types of organizations shown on the **Organizations** page:
 
 - **Other organizations.** The other organizations are any group that you've signed in to previously using your work or school account. You can leave any of these organizations at any time.
 
+    >[!NOTE]
+    > If you don't have an assigned Home organization, you'll just see a single heading that says Organizations with all your organizations listed underneath.
+
 ## View your organizations
 
 1. Sign in to your work or school account and then go to your https://myprofile.microsoft.com/ page.
@@ -44,11 +47,9 @@ There are two types of organizations shown on the **Organizations** page:
 You can leave any organization that isn't your Home organization.
 
 >[!Important]
->If you leave an organization by mistake, there's no way to undo it. You'll have to add the organization again.
+>If you leave an organization by mistake, there's no way to undo it. You'll have to wait for the administrator of that organization to invite you again.
 
-1. Sign in to your account from the **Other organizations I work with** area.
-
-2. Select **Leave organization**, and then select **Yes** to confirm you want to leave the organization.
+1. Select **Leave organization** next to the organization you want to leave, and then select **Yes** to confirm you want to leave.
 
     ![Organizations page with highlighted leave organization link](media/my-account-portal/my-account-portal-organizations-leave.png)
 
