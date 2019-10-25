@@ -53,12 +53,12 @@ Run diagnostics on the VPN client.
 
 ## <a name="logfiles"></a>Collect client log files
 
-Collect the VPN client log files.
+Collect the VPN client log files. The log files can be sent to support/administrator via a method of your choosing. For example, e-mail.
 
 1. Click the “…” next to the profile that you want to run diagnostics on. Select **Diagnose -> Show Logs Directory**.
 
    ![show logs](./media/troubleshoot-ad-vpn-client/4.png)
-2. Windows Explorer opens to the folder that contains the log files. The log files can be sent to support/administrator via a method of your choosing. For example, e-mail.
+2. Windows Explorer opens to the folder that contains the log files.
 
    ![view file](./media/troubleshoot-ad-vpn-client/5.png)
 
