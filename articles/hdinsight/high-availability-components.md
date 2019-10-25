@@ -10,12 +10,33 @@ ms.date: 10/09/2019
 ---
 # High Availability services supported by Azure HDInsight
 
-High availability (HA) is the ability of a system to provide a desired level of continued operation to its users. In the ecosystem of Apache Hadoop and related technologies like Spark, Hive, and HBase, there are many different components which provide a service to the system as a whole and each one functions independently to meet its availability goals.
+High availability (HA) is the ability of a system to provide a desired level of continued operation to its users. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to failover and recover from a service interruption. 
+
+HDInsight provides customized infrastructure to ensure that four primary services are high availability:
+
+- Apache Ambari server
+- Application Timeline Server for Apache YARN
+- Job History Server
+- Apache Livy
+
+To achieve this level of dependability, HDInsight has developed a unique reliability infrastructure to support these services and provide automatic failover capabilities. This infrastrucuture consists of a number of services and software components, some of which are custom-designed by HDInsight:
+
+- Slave failover controller
+- Master failover controller
+- Slave high availability service
+- Master high availability service
+
+There are also other high availability services which are supported by open source Apache reliability services. These components are also present on HDInsight clusters, but are not supported by HDInsight:
+
+- HDFS NameNode
+- YARN Resource Manager
+- HBase Master
 
 ## HDInsight High Availability Services
 
 Microsoft provides support for the four Apache services in the table below in HDInsight clusters. To distinguish them from HA services provided by Apache, they are called HDInsight HA services.
-| Service| Cluster nodes   | Cluster types | Purpose|
+
+| Service | Cluster nodes | Cluster types | Purpose |
 |---|---|---|---|
 | Apache Ambari server| Active headnode | All | Monitors and manages the cluster.|
 | Application Timeline Server for Apache YARN | Active headnode | All except Kafka | Maintains debugging info about YARN jobs running on the cluster.|
@@ -23,8 +44,6 @@ Microsoft provides support for the four Apache services in the table below in HD
 | Apache Livy | Active headnode | Spark | Enables easy interaction with a Spark cluster over a REST interface |
 
 HDInsight Enterprise Security Package (ESP) clusters currently only provide the Ambari server high availability.
-
-The remainder of this section will explain in detail the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to do the failover to recover from a service interruption state.
 
 ### Architecture
 
@@ -38,14 +57,24 @@ Apache ZooKeeper is a high-performance coordination service for distributed appl
 
 ### Slave failover controller
 
-The slave failover controller runs on every node in an HDInsight cluster. It is responsible for starting the Ambari agent and slave-ha-service on each node. It periodically queries the first ZooKeeper quorum about the active headnode. The slave failover controller updates the host configuration file, restarts Ambari agent, and the slave-ha-service when  the active/standby headnodes change. The slave-ha-service is responsible for stopping the HDInsight HA services (except Ambari server) on the standby headnode.
+The slave failover controller runs on every node in an HDInsight cluster. It is responsible for starting the Ambari agent and slave-ha-service on each node. It periodically queries the first ZooKeeper quorum about the active headnode. When the active and standby headnodes change, the slave failover controller performs the following:
+
+1. Updates the host configuration file.
+1. Restarts Ambari agent.
+
+The slave-ha-service is responsible for stopping the HDInsight HA services (except Ambari server) on the standby headnode.
 
 ### Master failover controller
 
-The master failover controller runs on both headnodes. Both master failover controllers communicate with the first ZooKeeper quorum to elect the headnode they're running on as the active headnode.
-For example, if the master failover controller on headnode 0 wins the election, then headnode 0 becomes active. The master failover controller starts Ambari server and master-ha-service on headnode 0. The other master failover controller stops Ambari server and master-ha-service on headnode 1.
+A master failover controller runs on both headnodes. Both master failover controllers communicate with the first ZooKeeper quorum to nominate the headnode that they're running on as the active headnode.
 
-The master-ha-service only runs on active headnode, it stops the HDInsight HA services (except Ambari server) on standby headnode and starts them on active headnode.
+For example, if the master failover controller on headnode 0 wins the election, the following changes take place:
+
+1. Headnode 0 becomes active.
+1. The master failover controller starts Ambari server and the *master-ha-service* on headnode 0.
+1. The other master failover controller stops Ambari server and the *master-ha-service* on headnode 1.
+
+The master-ha-service only runs on the active headnode, it stops the HDInsight HA services (except Ambari server) on standby headnode and starts them on active headnode.
 
 ### The failover process
 
@@ -61,9 +90,9 @@ It's expected that HDInsight HA services should only be running on the active he
 
 ### Some known issues
 
-* When manually starting an HA service on the standby headnode, it won't stop until next failover happens. When HA services are running on both headnodes, some potential problems include: Ambari UI is inaccessible, Ambari throws errors, YARN, Spark, and Oozie jobs may stuck.
+- When manually starting an HA service on the standby headnode, it won't stop until next failover happens. When HA services are running on both headnodes, some potential problems include: Ambari UI is inaccessible, Ambari throws errors, YARN, Spark, and Oozie jobs may stuck.
 
-* When an HA service on the active headnode stops, it won't restart until next failover happens or the master failover controller/master-ha-service restarts. When one or more HA services stop on the active headnode, especially when Ambari server stops, Ambari UI is inaccessible, other potential problems include YARN, Spark, and Oozie jobs failures.
+- When an HA service on the active headnode stops, it won't restart until next failover happens or the master failover controller/master-ha-service restarts. When one or more HA services stop on the active headnode, especially when Ambari server stops, Ambari UI is inaccessible, other potential problems include YARN, Spark, and Oozie jobs failures.
 
 ## Apache High Availability Services
 
