@@ -88,10 +88,6 @@ Entity linking
 
 ### Model versioning
 
-> [!NOTE]
-> Model versioning for sentiment analysis is available starting in version `v3.0-preview.1`.
-
-
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
 ## Supported Types for Named Entity Recognition v2

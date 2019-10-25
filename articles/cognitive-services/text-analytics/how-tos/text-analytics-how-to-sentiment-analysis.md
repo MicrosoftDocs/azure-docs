@@ -60,6 +60,9 @@ Sentiment Analysis v3 can return scores and labels at a sentence and document le
 
 ### Model versioning
 
+> [!NOTE]
+> Model versioning for sentiment analysis is available starting in version `v3.0-preview.1`.
+
 [!INCLUDE [v3-model-versioning](../includes/model-versioning.md)]
 
 ### Sentiment Analysis v3 example request
