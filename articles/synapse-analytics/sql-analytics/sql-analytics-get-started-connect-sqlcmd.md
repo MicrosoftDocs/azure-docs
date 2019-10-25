@@ -67,7 +67,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> You need to [enable Azure Active Directory Authentication](sql-data-warehouse-authentication.md) to authenticate using Active Directory.
+> You need to [enable Azure Active Directory Authentication](../../sql-data-warehouse/sql-data-warehouse-authentication.md) to authenticate using Active Directory.
 > 
 > 
 
