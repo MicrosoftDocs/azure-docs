@@ -187,6 +187,9 @@
       - name: "Predict flight delays"
         displayName: classification, studio
         href:  how-to-designer-sample-classification-flight-delay.md
+      - name: "Test classification"
+        displayName: classification, studio
+        href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
       items:
       - name: Create estimators in training
