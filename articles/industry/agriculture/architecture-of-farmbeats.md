@@ -3,7 +3,7 @@ title: Azure FarmBeats Architecture
 description: Describes the architecture of Azure FarmBeats
 author: uhabiba04
 ms.topic: article
-ms.date: 11/25/2019
+ms.date: 10/25/2019
 ms.author: v-umha
 ---
 
