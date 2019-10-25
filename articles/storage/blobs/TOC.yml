@@ -39,9 +39,9 @@
             href: storage-quickstart-blobs-java.md
       - name: Python
         items:
-          - name: Python (v3.8)
-            href: storage-quickstart-blobs-python-v3-8.md
-          - name: Python (v2.x)
+          - name: Python (v12)
+            href: storage-quickstart-blobs-python-v12.md
+          - name: Python (v2.1)
             href: storage-quickstart-blobs-python.md
       - name: JavaScript
         items:
