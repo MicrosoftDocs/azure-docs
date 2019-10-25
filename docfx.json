@@ -394,6 +394,12 @@
         "articles/stream-analytics/**/*.md": ["Azure","Stream Analytics"],
         "articles/stream-analytics/**/*.yml": ["Azure","Stream Analytics"]
       },
+      "ms.service": {
+        "articles/industry/**/*.md": "azure-industry"
+      },
+      "ms.subservice": {
+        "articles/industry/agriculture/**/*.md": "agriculture"
+      },
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/blueprints/**/*.yml": "Azure Blueprints",
