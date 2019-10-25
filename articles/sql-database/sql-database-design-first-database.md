@@ -91,7 +91,7 @@ The SQL Database service creates an IP firewall at the server-level. This firewa
 > [!IMPORTANT]
 > The SQL Database service communicates over port 1433. If you are trying to connect to this service from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you cannot connect to your single database unless your administrator opens port 1433.
 
-1. After the deployment completes, select **SQL databases** from the Azure portal menu or search for and select *SQL databases* from the **Home** page.  
+1. After the deployment completes, select **SQL databases** from the Azure portal menu or search for and select *SQL databases* from any page.  
 
 1. Select *yourDatabase* on the **SQL databases** page. The overview page for your database opens, showing you the fully qualified **Server name** (such as `contosodatabaseserver01.database.windows.net`) and provides options for further configuration.
 

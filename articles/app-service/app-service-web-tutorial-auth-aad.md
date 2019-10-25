@@ -215,7 +215,7 @@ You use Azure Active Directory as the identity provider. For more information, s
 
 ### Enable authentication and authorization for back-end app
 
-1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from the **Home** page.
+1. In the [Azure portal](https://portal.azure.com) menu, select **Resource groups** or search for and select *Resource groups* from any page.
 
 1. In **Resource groups**, find and select your resource group. In **Overview**, select your back-end app's management page.
 
@@ -258,7 +258,7 @@ If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It sho
 
 Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. In this step, you give the front-end app permissions to access the back end on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
 
-1. In the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory** or search for and select *Azure Active Directory* from the **Home** page.
+1. In the [Azure portal](https://portal.azure.com) menu, select **Azure Active Directory** or search for and select *Azure Active Directory* from any page.
 
 1. Select **App registrations** > **Owned applications**. Select your front-end app name, then select **API permissions**.
 
