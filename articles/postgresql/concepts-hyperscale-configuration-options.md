@@ -51,7 +51,7 @@ Hyperscale (Citus) server groups are available in the following Azure regions:
 	* West Europe
 
 Regions with an asterisk (\*) do not yet support [high
-availability](howto-hyperscale-high-availability.md).
+availability](concepts-hyperscale-high-availability.md).
 
 ## Pricing
 For the most up-to-date pricing information, see the service
