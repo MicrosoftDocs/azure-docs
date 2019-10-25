@@ -27,7 +27,7 @@ Azure Virtual WAN
 
 Azure Virtual Network
 
-* Create a virtual network without any virtual network gateways. You can quickly create a virtual network using the PowerShell steps in the [site-to-site connection](virtual-wan-site-to-site-portal.md#vnet) article. Be sure to change the values before running the cmdlets.
+* Create a virtual network without any virtual network gateways. Verify that none of the subnets of your on-premises networks overlap with the virtual networks that you want to connect to. To create a virtual network in the Azure portal, see the [Quickstart](../virtual-network/quick-create-portal.md).
 
 ## <a name="vnetgw"></a>1. Create an Azure virtual network gateway
 
