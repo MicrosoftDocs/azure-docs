@@ -14,7 +14,7 @@ ms.custom: seodec18
 
 # Data modeling in Azure Time Series Insights Preview
 
-This article describes how to work with Time Series Models in Azure Time Series Insights Preview. It details several common data scenarios.
+This article describes how to work with Time Series Model in Azure Time Series Insights Preview. It details several common data scenarios.
 
 To learn more about how to use the update, read [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
@@ -22,7 +22,7 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 ### Create a single type
 
-1. Go to the Time Series Models selector panel, and select **Types** from the menu. Collapse the panel to focus on the Time Series Models types.
+1. Go to the Time Series Model selector panel, and select **Types** from the menu. Collapse the panel to focus on the Time Series Model types.
 
     [!["Types" pane](media/v2-update-how-to-tsm/portal-one.png)](media/v2-update-how-to-tsm/portal-one.png#lightbox)
 
@@ -57,7 +57,7 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 ### Create a single hierarchy
 
-1. Go to the Time Series Models selector panel, and select **Hierarchies** from the menu. Collapse the panel to focus on the Time Series Models hierarchies.
+1. Go to the Time Series Model selector panel, and select **Hierarchies** from the menu. Collapse the panel to focus on the Time Series Model hierarchies.
 
     [!["Hierarchies" pane](media/v2-update-how-to-tsm/portal-six.png)](media/v2-update-how-to-tsm/portal-six.png#lightbox)
 
@@ -99,7 +99,7 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 ### Create a single instance
 
-1. Go to the Time Series Models selector panel, and select **Instances** from the menu. Collapse the panel to focus on the Time Series Models instances.
+1. Go to the Time Series Model selector panel, and select **Instances** from the menu. Collapse the panel to focus on the Time Series Model instances.
 
     [!["Instances" pane](media/v2-update-how-to-tsm/portal-thirteen.png)](media/v2-update-how-to-tsm/portal-thirteen.png#lightbox)
 
@@ -127,7 +127,7 @@ To learn more about how to use the update, read [Azure Time Series Insights Prev
 
 ## Next steps
 
-- For more information about Time Series Models, read [Data modeling](./time-series-insights-update-tsm.md).
+- For more information about Time Series Model, read [Data modeling](./time-series-insights-update-tsm.md).
 
 - To learn more about the preview, read [Visualize data in the Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 
