@@ -8,30 +8,34 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: santoshc
 ms.subservice: common
 ---
 
 # Configure Azure Storage firewalls and virtual networks
 
-Azure Storage provides a layered security model. This model enables you to secure your storage accounts to a specific subset of networks​. When network rules are configured, only applications requesting data over the specified set of networks can access a storage account. You can limit access to your storage account to requests originating from specified IP addresses, IP ranges or from a list of subnets in Azure Virtual Networks.
+Azure Storage provides a layered security model. This model enables you to secure and control the level of access to your storage accounts that your applications and enterprise environments demand, based on the type and subset of networks​ used. When network rules are configured, only applications requesting data over the specified set of networks can access a storage account. You can limit access to your storage account to requests originating from specified IP addresses, IP ranges or from a list of subnets in an Azure Virtual Network (VNet).
 
-An application that accesses a storage account when network rules are in effect requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token.
+Storage accounts have a public endpoint that is accessible through the internet. You can also create [Private Endpoints for your storage account](storage-private-endpoints.md), which assigns a private IP address from your VNet to the storage account, and secures all traffic between your VNet and the storage account over a private link. The Azure storage firewall provides access control access for the public endpoint of your storage account. You can also use the firewall to block all access through the public endpoint when using private endpoints. Your storage firewall configuration also enables select trusted Azure platform services to access the storage account securely.
+
+An application that accesses a storage account when network rules are in effect still requires proper authorization for the request. Authorization is supported with Azure Active Directory (Azure AD) credentials for blobs and queues, with a valid account access key, or with an SAS token.
 
 > [!IMPORTANT]
-> Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet). Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
+> Turning on firewall rules for your storage account blocks incoming requests for data by default, unless the requests originate from a service operating within an Azure Virtual Network (VNet) or from allowed public IP addresses. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on.
 >
-> You can grant access to Azure services that operate from within a VNet by allowing traffic from the subnet hosting the service instance. You can also enable a limited number of scenarios through the [Exceptions](#exceptions) mechanism described in the following section. To access data from the storage account through the Azure portal, you would need to be on a machine within the trusted boundary (either IP or VNet) that you set up.
+> You can grant access to Azure services that operate from within a VNet by allowing traffic from the subnet hosting the service instance. You can also enable a limited number of scenarios through the [Exceptions](#exceptions) mechanism described below. To access data from the storage account through the Azure portal, you would need to be on a machine within the trusted boundary (either IP or VNet) that you set up.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Scenarios
 
-To secure your storage account, you should first configure a rule to deny access to traffic from all networks (including internet traffic) by default. Then, you should configure rules that grant access to traffic from specific VNets. This configuration enables you to build a secure network boundary for your applications. You can also configure rules to grant access to traffic from select public internet IP address ranges, enabling connections from specific internet or on-premises clients.
+To secure your storage account, you should first configure a rule to deny access to traffic from all networks (including internet traffic) on the public endpoint, by default. Then, you should configure rules that grant access to traffic from specific VNets. You can also configure rules to grant access to traffic from select public internet IP address ranges, enabling connections from specific internet or on-premises clients. This configuration enables you to build a secure network boundary for your applications.
+
+You can combine firewall rules that allow access from specific virtual networks and from public IP address ranges on the same storage account. Storage firewall rules can be applied to existing storage accounts, or when creating new storage accounts.
+
+Storage firewall rules apply to the public endpoint of a storage account. You don't need any firewall access rules to allow traffic for private endpoints of a storage account. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint.
 
 Network rules are enforced on all network protocols to Azure storage, including REST and SMB. To access data using tools such as the Azure portal, Storage Explorer, and AZCopy, explicit network rules must be configured.
-
-You can apply network rules to existing storage accounts, or when you create new storage accounts.
 
 Once network rules are applied, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but don't grant new access beyond configured network rules.
 
@@ -215,7 +219,7 @@ You can manage virtual network rules for storage accounts through the Azure port
     ```
 
     > [!TIP]
-    > To add a rule for a subnet in a VNet belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name".
+    > To add a rule for a subnet in a VNet belonging to another Azure AD tenant, use a fully-qualified subnet ID in the form "/subscriptions/\<subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<subnet-name\>".
     > 
     > You can use the **subscription** parameter to retrieve the subnet ID for a VNet belonging to another Azure AD tenant.
 
@@ -243,9 +247,12 @@ IP network rules are only allowed for **public internet** IP addresses. IP addre
    > [!NOTE]
    > IP network rules have no effect on requests originating from the same Azure region as the storage account. Use [Virtual network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
 
-Only IPV4 addresses are supported at this time.
+  > [!NOTE]
+  > Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public inbound IP address range.
 
-Each storage account supports up to 100 IP network rules, which may be combined with [Virtual network rules](#grant-access-from-a-virtual-network).
+Only IPV4 addresses are supported for configuration of storage firewall rules.
+
+Each storage account supports up to 100 IP network rules.
 
 ### Configuring access from on-premises networks
 
