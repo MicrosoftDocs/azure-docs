@@ -199,9 +199,9 @@ Before you start, make sure that you have these items:
 
    ![Upload new logic app to your Azure subscription](./media/quickstart-create-logic-apps-visual-studio-code/upload-new-logic-app.png)
 
-## View your logic app in design view
+## View logic app in designer
 
-In Visual Studio Code, you can open your logic app in design view, but only in read-only form. Although you can't edit your logic app in the designer, you can use this view to visually check your logic app's workflow.
+In Visual Studio Code, you can open your logic app in read-only design view. Although you can't edit your logic app in the designer, you can visually check your logic app's workflow by using the designer view.
 
 In the Azure window, under **Logic Apps**, open your logic app's shortcut menu, and select **Open in Designer**.
 
@@ -221,7 +221,7 @@ To review your logic app in Azure portal, follow these steps:
 
 <a name="disable-enable-logic-app"></a>
 
-## Disable or enable your logic app
+## Disable or enable logic app
 
 In Visual Studio Code, if you edit a published logic app and save your changes, you *overwrite* your already deployed app. To avoid breaking your logic app in production and minimize disruption, deactivate your logic app first. You can then reactive your logic app after you've confirmed that your logic app still works.
 
@@ -270,7 +270,7 @@ In Visual Studio Code, you can open and edit the workflow definition for an alre
 
    ![Upload edits to logic app definition in Azure](./media/quickstart-create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
 
-## View or promote earlier versions
+## View or promote other versions
 
 In Visual Studio Code, you can open and review the earlier versions for your logic app. You can also promote an earlier version to the current version.
 
