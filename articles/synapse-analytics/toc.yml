@@ -40,8 +40,8 @@
     #   href: article-template.md
 - name: Tutorials
   items:
-  # - name: BI Professional
-  #   href: article-template.md
+  - name: BI Professional
+    href: ../synapse-analytics/sql-analytics/tutorial-bi-professional.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Data Scientist
     items:
     - name: Predict food inspection results
