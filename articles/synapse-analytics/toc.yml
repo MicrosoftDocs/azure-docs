@@ -37,7 +37,7 @@
     # - name: With SQL Analytics pool
     #   href: article-template.md
     - name: With SQL on-demand
-      href: quickstart-using-sql-on-demand.md
+      href: ../synapse-analytics/sql-analytics/quickstart-using-sql-on-demand.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
 - name: Tutorials
   items:
   # - name: BI Professional
