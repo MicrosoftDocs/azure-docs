@@ -4,7 +4,7 @@ description: How to create and manage Blockchain Data Manager using Azure CLI
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/24/2019
+ms.date: 10/25/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
@@ -16,11 +16,11 @@ Configure Blockchain Data Manager for Azure Blockchain Service to capture blockc
 
 To configure a Blockchain Data Manager instance, you:
 
-* [Create a Blockchain Manager instance](#create-instance)
-* [Create an input](#create-input) to an Azure Blockchain Service transaction node
-* [Create an output](#create-output) to an Azure Event Grid Topic
-* [Add a blockchain application](#add-blockchain-application)
-* [Start an instance](#start-instance)
+* Create a Blockchain Manager instance
+* Create an input to an Azure Blockchain Service transaction node
+* Create an output to an Azure Event Grid Topic
+* Add a blockchain application
+* Start an instance
 
 ## Prerequisites
 

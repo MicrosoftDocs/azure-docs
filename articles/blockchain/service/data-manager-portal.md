@@ -4,7 +4,7 @@ description: How to create and manage Blockchain Data Manager using the Azure po
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/24/2019
+ms.date: 10/25/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
@@ -16,8 +16,8 @@ Configure Blockchain Data Manager for Azure Blockchain Service to capture blockc
 
 To configure a Blockchain Data Manager instance, you:
 
-* [Create a Blockchain Data Manager instance](#create-instance) for an Azure Blockchain Service transaction node
-* [Add a blockchain application](#add-blockchain-application)
+* Create a Blockchain Data Manager instance for an Azure Blockchain Service transaction node
+* Add a blockchain application
 
 ## Prerequisites
 
