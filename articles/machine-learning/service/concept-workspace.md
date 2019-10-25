@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/07/2019
+ms.date: 11/04/2019
 # As a data scientist, I want to understand the purpose of a workspace for Azure Machine Learning.
 ---
 
@@ -72,8 +72,11 @@ You can also perform the following workspace management tasks:
 | Manage workspace access    | **&check;**   || |  **&check;**    |
 | Upgrade to Enterprise edition    | **&check;** |  | |     |
 | Create and manage compute resources    |   | **&check;** | **&check;** |  **&check;**   |
-| Create a compute instance |   | **&check;** | |     |
+| Create a compute instance | **&check;**  | **&check;** | **&check;** |     |
 
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.
 
 ## <a name='create-workspace'></a> Create a workspace
 

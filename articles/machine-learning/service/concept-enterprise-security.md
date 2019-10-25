@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/07/2019
+ms.date: 11/04/2019
 ---
 
 # Enterprise security for Azure Machine Learning

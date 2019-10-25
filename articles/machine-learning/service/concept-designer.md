@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/15/2019
+ms.date: 11/04/2019
 # As a data scientist, I want to understand the big picture about how the designer for Azure Machine Learning works.
 ---
 
@@ -91,7 +91,7 @@ In addition, a PublishedPipeline can be used to resubmit a Pipeline with differe
 
 Once your predictive model is ready, deploy it as a pipeline endpoint or real-time endpoint right from the designer.
 
-The pipeline endpoint is a [PublishedPipeline, which you can submit a pipeline run with different PipelineParameter values and inputs for batch inference.
+The pipeline endpoint is a PublishedPipeline, which you can submit a pipeline run with different PipelineParameter values and inputs for batch inference.
 
 The real-time endpoint provides an interface between an application and your scoring model. An external application can communicate with the scoring model in real time. A call to a real-time endpoint returns prediction results to an external application. To make a call to a real-time endpoint, you pass an API key that was created when you deployed the endpoint. The endpoint is based on REST, a popular architecture choice for web programming projects.
 

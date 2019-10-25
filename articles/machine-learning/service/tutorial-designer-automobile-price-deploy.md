@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Deploy a machine learning model with the designer (preview)

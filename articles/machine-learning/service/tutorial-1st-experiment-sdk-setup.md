@@ -24,6 +24,7 @@ In this tutorial, you:
 > * Clone the tutorials notebook to your folder in the workspace.
 > * Create a cloud-based compute instance with Azure Machine Learning Python SDK installed and pre-configured.
 
+
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree) today.
 
 ## Create a workspace
@@ -83,6 +84,9 @@ You complete the following experiment set-up and run steps in Azure Machine Lear
 
 1. Once the VM is available it will be displayed in the top toolbar.  You can now run the notebook either by using **Run all** in the toolbar, or by using **Shift+Enter** in the code cells of the notebook.
 
+> [!NOTE]
+> Compute instances are available only for workspaces with a region of **North Central US**.
+>If your workspace is in any other region, you can continue to create and use a [Notebook VM](concept-compute-instance.md#notebookvm) instead.  You can use either a Notebook VM or a compute instance to run your notebook.
 
 ## Next steps
 

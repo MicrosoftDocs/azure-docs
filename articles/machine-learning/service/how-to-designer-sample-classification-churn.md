@@ -9,7 +9,7 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 09/23/2019
+ms.date: 11/04/2019
 ---
 
 # Sample 5 - Classification: Predict churn

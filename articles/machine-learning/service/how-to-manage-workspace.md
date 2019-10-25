@@ -7,10 +7,9 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-ms.reviewer: jmartens
-ms.author: shipatel
-author: shivp950
-ms.date: 05/10/2019
+ms.author: sgilley
+author: sdgilley
+ms.date: 11/04/2019
 ms.custom: seodec18
 
 ---

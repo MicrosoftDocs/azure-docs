@@ -95,20 +95,24 @@
     href: concept-ml-pipelines.md
   - name: ONNX
     href: concept-onnx.md
-  - name: Security
+  - name: Enterprise readiness & security
     items:
-    - name: Enterprise security overview
-      displayName: authorization authentication encryption aad azure active directory
-      href: concept-enterprise-security.md
-    - name: Manage users and roles
-      href: how-to-assign-roles.md
-    - name: Use virtual networks
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: Secure web services with SSL
-      href: how-to-secure-web-service.md
-    - name: Regenerate storage access keys
-      href: how-to-change-storage-access-key.md
+      - name: Enterprise security
+        items:
+        - name: Enterprise security overview
+          displayName: authorization authentication encryption aad azure active directory
+          href: concept-enterprise-security.md
+        - name: Manage users and roles
+          href: how-to-assign-roles.md
+        - name: Use virtual networks
+          displayName: vnet
+          href: how-to-enable-virtual-network.md
+        - name: Secure web services with SSL
+          href: how-to-secure-web-service.md
+        - name: Regenerate storage access keys
+          href: how-to-change-storage-access-key.md
+      - name: Monitor Azure Machine Learning
+        href: monitor-azure-machine-learning.md
   - name: Deep learning
     displayName: deep learning vs machine learning, deep learning, vs, versus
     href: concept-deep-learning-vs-machine-learning.md
@@ -157,6 +161,9 @@
     - name: Detect drift on datasets
       displayName: data, dataset
       href: how-to-monitor-datasets.md
+    - name: Version & track datasets
+      displayName: data, data set
+      href: how-to-version-track-datasets.md      
   - name: Train models
     items:
     - name: Use the designer
@@ -310,6 +317,8 @@
   - name: Machine Learning CLI
     displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
+  - name: Monitor data reference
+    href: monitor-resource-reference.md
   - name: Machine learning pipeline YAML reference
     href: reference-pipeline-yaml.md
   - name: Designer modules
