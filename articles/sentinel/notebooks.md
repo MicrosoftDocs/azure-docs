@@ -84,7 +84,7 @@ This procedure creates an Azure Notebooks project for you, which contains the Az
 
    ![Import notebook](./media/notebooks/sentinel-notebooks-clone.png)
 
-3. On the **Upload GitHub Repository** dialog box, don't check the **Clone Recursively** option because this option refers to linked GitHub repos. For the project name, use the default name or type in a new one. Then click **Import** to start cloning the GitHub content, which can take a few minutes to complete.
+3. On the **Upload GitHub Repository** dialog box, don't select **Clone recursively** because this option refers to linked GitHub repos. For the project name, use the default name or type in a new one. Then click **Import** to start cloning the GitHub content, which can take a few minutes to complete.
 
    ![Import notebook](./media/notebooks/sentinel-create-project.png)
 
