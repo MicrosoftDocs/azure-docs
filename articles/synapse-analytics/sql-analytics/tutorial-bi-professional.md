@@ -1,13 +1,13 @@
 ---
-title: BI Professional #Required; update as needed page title displayed in search results. Include the brand.
-description: In this tutorial, we will go through steps how to connect SQL on-demand with Power BI desktop. #Required; Add article description that is displayed in search results.
-services: sql-data-warehouse #Required for articles that deal with a service, we will use sql-data-warehouse for now and bulk update later once we have the  service slug assigned by ACOM.
-author: azaricstefan #Required; update with your GitHub user alias, with correct capitalization.
-ms.service: sql-data-warehouse #Required; we will use sql-data-warehouse for now and bulk update later once the service is added to the approved list.
-ms.topic: tutorial #Required
-ms.subservice: design #Required will update once these are established.
-ms.date: 10/14/2019 #Update with current date; mm/dd/yyyy format.
-ms.author: v-stazar #Required; update with your microsoft alias of author; optional team alias.
+title: BI Professional
+description: In this tutorial, we will go through steps how to connect SQL on-demand with Power BI desktop.
+services: sql-data-warehouse
+author: azaricstefan
+ms.service: sql-data-warehouse
+ms.topic: tutorial
+ms.subservice: design
+ms.date: 10/14/2019
+ms.author: v-stazar
 ms.reviewer: jrasnick
 ---
 
