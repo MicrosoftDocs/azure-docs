@@ -17,11 +17,9 @@ ms.collection: M365-identity-device-management
 
 # Configure the admin consent workflow (preview)
 
-| The admin consent workflow is a public preview feature of Azure Active Directory. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+This article describes how to enable the admin consent workflow (preview) feature, which gives end users a way to request access to applications that require admin consent.
 
-This article describes how to enable the admin consent workflow, which gives end users a way to request access to applications that require admin consent.
-
-Without an admin consent workflow, a user in a tenant where user consent is disabled will be blocked when they try to access any app that requires permissions to access organizational data. The user will see a generic error message that says they're unauthorized to access the app and they should ask their admin for help. Often, it's unlikely the user knows whom to contact, and they either give up or create a new local account in the application. Even if the admin is notified, typically there isn't a streamlined process to help admins grant access and notify their users.
+Without an admin consent workflow, a user in a tenant where user consent is disabled will be blocked when they try to access any app that requires permissions to access organizational data. The user sees a generic error message that says they're unauthorized to access the app and they should ask their admin for help. But often, the user doesn't know who to contact, so they either give up or create a new local account in the application. Even when an admin is notified, there isn't always a streamlined process to help the admin grant access and notify their users.
  
 The admin consent workflow gives admins a secure way to grant access to applications that require admin approval. When a user tries to access an application but is unable to provide consent, they can send a request for admin approval. The request is sent via email to admins who have been designated as reviewers. A reviewer takes action on the request, and the user is notified of the action.
 
@@ -52,9 +50,9 @@ To enable the admin consent workflow and choose reviewers:
 > [!NOTE]
 > You can add or remove reviewers for this workflow by modifying the **Select admin consent requests reviewers** list. Note that a current limitation of this feature is that reviewers could retain the ability to review requests even after they're removed.
 
-## How users request admin consent to an app
+## How users request admin consent
 
-After the admin consent workflow is enabled, users can request admin approval for an application they're unauthorized to consent to. 
+After the admin consent workflow is enabled, users can request admin approval for an application they're unauthorized to consent to. The following steps describe user's experience when requesting approval. 
 
 1. The user attempts to sign in to the application.
 
