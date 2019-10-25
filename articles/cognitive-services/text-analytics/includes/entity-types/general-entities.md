@@ -12,6 +12,15 @@ ms.author: aahi
 
 ## General entity types:
 
+### Person
+Recognized names and other persons in text.
+Languages:
+* Public preview: `English`
+
+| Subtype name | Description             |
+|--------------|-------------------------|
+| N/A          | Recognized names, for example `Bill Gates`, `Marie Curie` |
+
 ### Location
 
 Natural and human-made landmarks, structures, and geographical features.
@@ -21,10 +30,20 @@ Languages:
 
 * Public preview: `English`
 
-| Subtype name     | Description                                                                                                |
-|--------------|------------------------------------------------------------------------------------------------------------|
-| Geographical | Geographic locations or features, for example `Atlantic ocean`, `library`, `Berlin wall`, `Sahara desert`. |
-| Structural   | Identified structures, for example `Eiffel Tower`, `Statue of liberty`.                                     |
+| Subtype name | Description                                                                                      |
+|--------------|--------------------------------------------------------------------------------------------------|
+| N/A          | locations, for example `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` |
+
+### Organization  
+
+Recognized organizations, corporations, agencies, and other groups of people. For example: companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. 
+Languages: 
+
+* Public preview: `English`
+
+| Subtype name | Description                                                                                      |
+|--------------|--------------------------------------------------------------------------------------------------|
+| N/A          | organizations, for example `Microsoft`, `NASA` `National Oceanic and Atmospheric Administration` |
 
 ### Phone Number
 

@@ -29,7 +29,7 @@ Named entity recognition (NER) is the ability to identify different entities in 
 
 ## Named Entity Recognition v3 public preview
 
-The [next version of Named Entity Recongition](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) is now available for public preview. It provides updates to both entity linking and Named Entity Recognition. 
+The [next version of Named Entity Recognition](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c7/console) is now available for public preview. It provides updates to both entity linking and Named Entity Recognition. 
 
 :::row:::
     :::column span="":::

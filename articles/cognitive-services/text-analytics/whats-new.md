@@ -25,7 +25,7 @@ The next version of Named Entity Recognition(NER) is now available for public pr
     * IP Address
 
 * A new endpoint for recognizing Personal information entity types (English only)
-* Separate endpoints for both entity recognition, and entity linking.
+* Separate endpoints for entity recognition and entity linking.
 
 Entity linking supports English and Spanish. NER language support varies by the entity type. For more information, see the link below. 
 
