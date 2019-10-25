@@ -20,9 +20,9 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
 ## Before you begin
 
-* If you don't have an Azure SQL Database Edge, please follow the steps of [deploy SQL Database Edge Preview using the Azure portal](deploy-portal.md)
+* If you have not deployed an Azure SQL Database Edge module, follow the steps of [deploy SQL Database Edge Preview using the Azure portal](deploy-portal.md).
 
-* Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download) 
+* Install [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
 * Open Azure Data Studio and follow these steps to install the packages needed for this quickstart:
 
@@ -34,7 +34,7 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 
 ## Train a pipeline
 
-Split the data set to use features to predict the median value of a house.
+Split the dataset to use features to predict the median value of a house.
 
 ```python
 import numpy as np
@@ -62,17 +62,17 @@ y = df.iloc[:,-1]
 x_train = df.drop(['MEDV'], axis = 1)
 y_train = df.iloc[:,-1]
 
-print("\n*** Training data set x\n")
+print("\n*** Training dataset x\n")
 print(x_train.head())
 
-print("\n*** Training data set y\n")
+print("\n*** Training dataset y\n")
 print(y_train.head())
 ```
 
 **Output**:
 
 ```text
-*** Training data set x
+*** Training dataset x
 
         CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
 0  0.00632  18.0   2.31   0.0  0.538  6.575  65.2  4.0900  1.0  296.0
@@ -88,7 +88,7 @@ print(y_train.head())
 3     18.7  394.63   2.94  
 4     18.7  396.90   5.33  
 
-*** Training data set y
+*** Training dataset y
 
 0    24.0
 1    21.6
@@ -220,7 +220,7 @@ MSE are equal
 
 ## Insert the ONNX model
 
-Store the model in Azure SQL Database Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address, username, and password**. Also import the **pyodbc** package.
+Store the model in Azure SQL Database Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address**, **username**, and **password**.
 
 ```python
 import pyodbc
@@ -285,8 +285,6 @@ First, create two tables, **features** and **target**, to store subsets of the B
 * **Features** will contain all data being used to predict the target, median value. 
 * **Target** contains the median value for each record in the dataset. 
 
-Also import the **sqlalchemy** package.
-
 ```python
 import sqlalchemy
 from sqlalchemy import create_engine
@@ -340,7 +338,7 @@ print(x_train.head())
 print(y_train.head())
 ```
 
-Finally, use sqlalchemy to insert the `x_train` and `y_train` pandas dataframes into the tables `features` and `target`, respectively. 
+Finally, use `sqlalchemy` to insert the `x_train` and `y_train` pandas dataframes into the tables `features` and `target`, respectively. 
 
 ```python
 db_connection_string = 'mssql+pyodbc://' + username + ':' + password + '@' + server + '/' + database + '?driver=ODBC+Driver+17+for+SQL+Server'
