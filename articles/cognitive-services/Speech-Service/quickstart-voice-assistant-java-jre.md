@@ -12,7 +12,7 @@ ms.date: 11/05/2019
 ms.author: bidishac
 ---
 
-# Quickstart: Create a Voice Assistant with the Speech SDK, Java
+# Quickstart: Create a voice assistant with the Speech SDK, Java
 
 Quickstarts are also available for [speech to text](quickstart-java-jre.md), [text to speech](quickstart-text-to-speech-java-jre.md), and [speech translation](quickstart-translate-speech-java-jre.md).
 
@@ -29,7 +29,7 @@ This quickstart requires:
 * A preconfigured bot created by using Bot Framework version 4.2 or above. The bot needs to subscribe to the new Direct Line Speech channel to receive voice inputs.
 
     > [!NOTE]
-    > Please refer to [the list of supported regions for Voice Assistants](regions.md#Voice Assistants) and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
 If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before you start Eclipse:
 
@@ -140,7 +140,7 @@ Additionally, to enable logging, update the *pom.xml* file to include the follow
     * Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription.
 
     > [!NOTE]
-    > Please refer to [the list of supported regions for Voice Assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
     ```java
     final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
@@ -471,7 +471,7 @@ Additional samples, such as how to read speech from an audio file, are available
 
 ## See also
 
-- [About Voice Assistants](voice-assistants.md)
+- [About voice assistants](voice-assistants.md)
 - [Get a Speech Services subscription key for free](get-started.md)
 - [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)

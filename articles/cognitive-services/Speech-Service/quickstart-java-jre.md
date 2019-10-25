@@ -14,7 +14,7 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech with the Speech SDK for Java
 
-Quickstarts are also available for [speech-to-speech-translation](quickstart-translate-speech-java-jre.md), [Voice Assistant](quickstart-voice-assistant-java-jre.md), and [speech synthesis](quickstart-text-to-speech-java-jre.md).
+Quickstarts are also available for [speech-to-speech-translation](quickstart-translate-speech-java-jre.md), [voice assistant](quickstart-voice-assistant-java-jre.md), and [speech synthesis](quickstart-text-to-speech-java-jre.md).
 
 If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]

@@ -81,7 +81,7 @@ This is a bug fix release and only affecting the native/managed SDK. It is not a
 **Bug fixes**
 
 * Fix FromSubscription when used with Conversation Transcription.
-* Fix bug in keyword spotting for Voice Assistant.
+* Fix bug in keyword spotting for voice assistant.
 
 
 ## Speech SDK 1.5.0: 2019-May release
@@ -91,7 +91,7 @@ This is a bug fix release and only affecting the native/managed SDK. It is not a
 * Keyword spotting (KWS) is now available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
 * Phrase hint functionality is available through the SDK. For more information, see [here](how-to-phrase-lists.md).
 * Conversation transcription functionality is available through the SDK. See [here](conversation-transcription-service.md).
-* Add support for Voice Assistants using the Direct Line Speech channel.
+* Add support for voice assistants using the Direct Line Speech channel.
 
 **Samples**
 

@@ -70,9 +70,9 @@ Available regions for **intent recognition** via the Speech SDK are the followin
 
 This is a subset of the publishing regions supported by the [Language Understanding service (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
-### Voice Assistants
+### Voice assistants
 
-The [Speech SDK](speech-sdk.md) supports **Voice Assistant** capabilities in these regions:
+The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
 
 Region | Speech SDK Parameter
 -------|---------------------

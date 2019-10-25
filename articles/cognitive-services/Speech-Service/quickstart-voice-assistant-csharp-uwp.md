@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom Voice Assistant, C# (UWP) - Speech Service'
+title: 'Quickstart: Custom voice assistant, C# (UWP) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech Software Development Kit (SDK). You connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -12,11 +12,11 @@ ms.date: 11/05/2019
 ms.author: travisw
 ---
 
-# Quickstart: Create a Voice Assistant with the Speech SDK, UWP
+# Quickstart: Create a voice assistant with the Speech SDK, UWP
 
 Quickstarts are also available for [speech recognition](quickstart-csharp-uwp.md), [speech synthesis](quickstart-text-to-speech-csharp-uwp.md), and [speech translation](quickstart-translate-speech-uwp.md).
 
-In this article, you'll develop a C# Universal Windows Platform (UWP) application using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a Voice Assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
+In this article, you'll develop a C# Universal Windows Platform (UWP) application using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
 > [!NOTE]
 > The Universal Windows Platform lets you develop apps that run on any device that supports Windows 10, including PCs, Xbox, Surface Hub, and other devices.
@@ -30,7 +30,7 @@ This quickstart requires:
 * A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
   > [!NOTE]
-  > Please refer to [the list of supported regions for Voice Assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+  > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
 ## Optional: Get started fast
 
@@ -298,7 +298,7 @@ To add the code-behind source, follow these steps:
     ```
 
    > [!NOTE]
-   > Please refer to [the list of supported regions for Voice Assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+   > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
    > [!NOTE]
    > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
@@ -399,7 +399,7 @@ Now you are ready to build and test your application.
 
 1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-   ![Sample UWP Voice Assistant application in C# - quickstart](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
+   ![Sample UWP voice assistant application in C# - quickstart](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
 1. Select **Enable Microphone**, and when the access permission request pops up, select **Yes**.
 
@@ -416,7 +416,7 @@ Now you are ready to build and test your application.
 
 ## See also
 
-- [About Voice Assistants](voice-assistants.md)
+- [About voice assistants](voice-assistants.md)
 - [Get a Speech Services subscription key for free](get-started.md)
 - [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)

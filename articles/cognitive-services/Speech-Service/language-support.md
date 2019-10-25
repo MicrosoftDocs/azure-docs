@@ -75,7 +75,7 @@ The text-to-speech REST API supports these voices, each of which supports a spec
 
 Neural text-to-speech is a new type of speech synthesis powered by deep neural networks. When using a neural voice, synthesized speech is nearly indistinguishable from the human recordings.
 
-Neural voices can be used to make interactions with chatbots and Voice Assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
+Neural voices can be used to make interactions with chatbots and voice assistants more natural and engaging, convert digital texts such as e-books into audiobooks and enhance in-car navigation systems. With the human-like natural prosody and clear articulation of words, neural voices significantly reduce listening fatigue when users interact with AI systems.
 
 For a full list of neural voices and regional availability, see [regions](regions.md#standard-and-neural-voices).
 

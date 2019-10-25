@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Quickstart: Recognize speech in a UWP app by using the Speech SDK
 
-Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-csharp-uwp.md), [speech translation](quickstart-translate-speech-uwp.md), and [Voice Assistants](quickstart-voice-assistant-csharp-uwp.md).
+Quickstarts are also available for [speech synthesis](quickstart-text-to-speech-csharp-uwp.md), [speech translation](quickstart-translate-speech-uwp.md), and [voice assistants](quickstart-voice-assistant-csharp-uwp.md).
 
 If you want, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]

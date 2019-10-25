@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Custom Voice Assistant, Java (Android) - Speech Service'
+title: 'Quickstart: Custom voice assistant, Java (Android) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to create a Voice Assistant application in Java on Android using the Speech SDK
+description: Learn how to create a voice assistant application in Java on Android using the Speech SDK
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -12,11 +12,11 @@ ms.date: 07/05/2019
 ms.author: travisw
 ---
 
-# Quickstart: Create a Voice Assistant in Java on Android by using the Speech SDK
+# Quickstart: Create a voice assistant in Java on Android by using the Speech SDK
 
 A quickstart is also available for [speech-to-text](quickstart-java-android.md) and [text-to-speech](quickstart-text-to-speech-java-android.md).
 
-In this article, you'll build a Voice Assistant with Java for Android using the [Speech SDK](speech-sdk.md). This application will connect to a bot that you've already authored and configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). It will then send a voice request to the bot and present a voice-enabled response activity.
+In this article, you'll build a voice assistant with Java for Android using the [Speech SDK](speech-sdk.md). This application will connect to a bot that you've already authored and configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). It will then send a voice request to the bot and present a voice-enabled response activity.
 
 This application is built with the Speech SDK Maven package and Android Studio 3.3. The Speech SDK is currently compatible with Android devices having 32/64-bit ARM and Intel x86/x64 compatible processors.
 
@@ -30,7 +30,7 @@ This application is built with the Speech SDK Maven package and Android Studio 3
 * [Android Studio](https://developer.android.com/studio/) v3.3 or later
 
     > [!NOTE]
-    > Please refer to [the list of supported regions for Voice Assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
+    > Please refer to [the list of supported regions for voice assistants](regions.md#voice-assistants) and ensure your resources are deployed in one of those regions.
 
 ## Create and configure a project
 
@@ -279,7 +279,7 @@ Once the application and its activity have launched, click the button to begin t
 > [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 
 ## See also
-- [About Voice Assistants](voice-assistants.md)
+- [About voice assistants](voice-assistants.md)
 - [Get a Speech Services subscription key for free](get-started.md)
 - [Custom keywords](speech-devices-sdk-create-kws.md)
 - [Connect Direct Line Speech to your bot](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)

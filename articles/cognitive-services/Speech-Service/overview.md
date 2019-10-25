@@ -30,7 +30,7 @@ These features make up the Azure Speech Services. Use the links in this table to
 | [Text-to-Speech](text-to-speech.md) | Text-to-speech | Text-to-speech converts input text into human-like synthesized speech using [Speech Synthesis Markup Language (SSML)](text-to-speech.md#speech-synthesis-markup-language-ssml). Choose from standard voices and neural voices (see [Language support](language-support.md)). | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Create Custom Voices](#customize-your-speech-experience) | Create custom voice fonts unique to your brand or product. | No | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | Speech translation | Speech translation enables real-time, multi-language translation of speech to your applications, tools, and devices. Use this service for speech-to-speech and speech-to-text translation. | [Yes](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
-| [Voice Assistants](voice-assistants.md) | Voice Assistants | Voice Assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The Voice Assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. | [Yes](voice-assistants.md) | No |
+| [Voice assistants](voice-assistants.md) | voice assistants | voice assistants using Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The voice assistant service provides fast, reliable interaction between a device and an assistant implementation that uses the Bot Framework's Direct Line Speech channel or the integrated Custom Commands (Preview) service for task completion. | [Yes](voice-assistants.md) | No |
 
 ## News and updates
 
@@ -43,7 +43,7 @@ Learn what's new with the Azure Speech Services.
   * Added a new speaking style, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), for the `en-US-JessaNeural` voice. 
 * June 2019
   * Released Speech SDK 1.6.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
-* May 2019 - Documentation is now available for [Conversation Transcription](conversation-transcription-service.md), [Call Center Transcription](call-center-transcription.md), and [Voice Assistants](voice-assistants.md).
+* May 2019 - Documentation is now available for [Conversation Transcription](conversation-transcription-service.md), [Call Center Transcription](call-center-transcription.md), and [voice assistants](voice-assistants.md).
 * May 2019
   * Released Speech SDK 1.5.1. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
   * Released Speech SDK 1.5.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md).
@@ -75,7 +75,7 @@ Sample code is available on GitHub for each of the Azure Speech Services. These 
 * [Speech-to-text, text-to-speech, and speech translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [Batch transcription samples (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [Text-to-speech samples (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
-* [Voice Assistant samples (SDK)](https://aka.ms/csspeech/samples)
+* [Voice assistant samples (SDK)](https://aka.ms/csspeech/samples)
 
 ## Customize your speech experience
 

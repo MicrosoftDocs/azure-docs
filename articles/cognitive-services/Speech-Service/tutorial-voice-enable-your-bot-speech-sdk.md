@@ -288,7 +288,7 @@ If you get an error message in your main app window, use this table to identify 
 |Error ConnectionFailure: Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in its output Activity [Speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field, but the Azure region associated with your Speech subscription key does not support neural voices. See [Standard and neural voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).|
 |Error ConnectionFailure: Connection was closed by the remote host. Error code: 1000. Error details: Exceeded maximum web socket connection idle duration(> 300000 ms)| This is an expected error when a connection to the channel is left open and inactive for more than five minutes. |
 
-If your issue isn't addressed in the table, see [Voice Assistants: Frequently asked questions](faq-voice-assistants.md).
+If your issue isn't addressed in the table, see [Voice assistants: Frequently asked questions](faq-voice-assistants.md).
 
 ### View bot activities
 
@@ -414,5 +414,5 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
   * [Bot Service pricing](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Building and deploying your own voice-enabled bot:
-    * Build a [Bot-Framework bot](https://dev.botframework.com/). Register it with [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) and [customize your bot for voice](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
-    * Explore existing [Bot-Framework solutions](https://github.com/microsoft/botframework-solutions): Build a [custom Voice Assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-assistants) and [voice-enable it](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)
+  * Build a [Bot-Framework bot](https://dev.botframework.com/). Register it with [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) and [customize your bot for voice](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
+  * Explore existing [Bot-Framework solutions](https://github.com/microsoft/botframework-solutions): Build a [custom voice assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-assistants) and [voice-enable it](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)

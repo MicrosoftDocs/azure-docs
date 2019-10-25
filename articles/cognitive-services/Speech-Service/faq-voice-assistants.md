@@ -1,7 +1,7 @@
 ---
-title: Frequently asked questions about Voice Assistants
+title: Frequently asked questions about voice assistants
 titleSuffix: Azure Cognitive Services
-description: Get answers to the most popular questions about Voice Assistants using Custom Commands (Preview) or the Direct Line Speech channel.
+description: Get answers to the most popular questions about voice assistants using Custom Commands (Preview) or the Direct Line Speech channel.
 services: cognitive-services
 author: trrwilson
 manager: nitinme
@@ -12,15 +12,15 @@ ms.date: 11/05/2019
 ms.author: travisw
 ---
 
-# Voice Assistants: Frequently asked questions
+# Voice assistants: Frequently asked questions
 
 If you can't find answers to your questions in this document, check out [other support options](support.md).
 
 ## General
 
-**Q: What is a Voice Assistant?**
+**Q: What is a voice assistant?**
 
-**A:** Like Cortana, a Voice Assistant is a solution that listens to a user's spoken utterances, analyzes the contents of those utterances for meaning, performs one or more actions in response to the utterance's intent, and then provides a response to the user that often includes a spoken component. It's a "voice-in, voice-out" experience for interacting with a system. Voice Assistant authors create an on-device application using the `DialogServiceConnector` in the Speech SDK to communicate with an assistant created using [Custom Commands (Preview)](custom-commands.md) or the [Direct Line Speech](direct-line-speech.md) channel of the Bot Framework. These assistants can use custom keywords, custom speech, and custom voice to provide an experience tailored to your brand or product.
+**A:** Like Cortana, a voice assistant is a solution that listens to a user's spoken utterances, analyzes the contents of those utterances for meaning, performs one or more actions in response to the utterance's intent, and then provides a response to the user that often includes a spoken component. It's a "voice-in, voice-out" experience for interacting with a system. voice assistant authors create an on-device application using the `DialogServiceConnector` in the Speech SDK to communicate with an assistant created using [Custom Commands (Preview)](custom-commands.md) or the [Direct Line Speech](direct-line-speech.md) channel of the Bot Framework. These assistants can use custom keywords, custom speech, and custom voice to provide an experience tailored to your brand or product.
 
 **Q: Should I use Custom Commands (Preview) or Direct Line Speech? What's the difference?**
 
@@ -38,13 +38,13 @@ If you can't find answers to your questions in this document, check out [other s
 
 **Q: I get a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
 
-**A:** When managing your subscription on the Azure Portal, please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Also, please check [Speech service region support for voice-first Voice Assistants](regions.md#voice-assistants).
+**A:** When managing your subscription on the Azure portal, please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Also, please check [Speech service region support for voice assistants](regions.md#voice-assistants).
 
 ![correct subscription for direct line speech](media/voice-assistants/faq-supported-subscription.png "example of a compatible Speech subscription")
 
 **Q: I get recognition text back from my `DialogServiceConnector`, but I see a '1011' error and nothing from my bot. Why?**
 
-**A:** This error indicates a communication problem between your assistant and the Voice Assistant service.
+**A:** This error indicates a communication problem between your assistant and the voice assistant service.
 
 * For Custom Commands (Preview), ensure that your Custom Commands (Preview) Application is published
 * For Direct Line Speech, ensure that you've [connected your bot to the Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech), [added Streaming protocol support](https://aka.ms/botframework/addstreamingprotocolsupport) to your bot (with the related Web Socket support), and then check that your bot is responding to incoming requests from the channel.

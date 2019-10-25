@@ -14,7 +14,7 @@ ms.author: yulili
 
 # Quickstart: Synthesize speech in Java on Android by using the Speech SDK
 
-Quickstarts are also available for [speech recognition](quickstart-java-android.md) and [Voice Assistant](quickstart-voice-assistant-java-android.md).
+Quickstarts are also available for [speech recognition](quickstart-java-android.md) and [voice assistant](quickstart-voice-assistant-java-android.md).
 
 In this article, you'll learn how to develop a Java application for Android using the Cognitive Services Speech SDK to synthesize speech from text.
 The application is based on the Speech SDK Maven Package, version 1.7.0, and Android Studio 3.3.

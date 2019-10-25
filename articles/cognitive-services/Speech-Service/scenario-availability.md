@@ -32,7 +32,7 @@ The Speech service SDK features many scenarios across a wide variety of programm
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)
   - Keyword spotting (KWS) functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
-- **Voice Assistants**
+- **Voice assistants**
   - C++/Windows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (Speech Devices SDK)
