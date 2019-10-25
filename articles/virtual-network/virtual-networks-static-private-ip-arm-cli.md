@@ -247,7 +247,7 @@ To change the NIC for the VM used in the previous commands, complete the followi
 2. Run the **azure vm set** command to change the NIC used by the VM.
    
     ```azurecli
-   az vm nic set --resource-group RG1 --vm-name VM01 --nics  VM01-NIC-1
+   az vm nic set --resource-group TestRG --vm-name DNS01 --nics TestNIC2
     ```
 
     Expected output:
