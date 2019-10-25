@@ -47,7 +47,7 @@ A contributor is the same thing as a [collaborator](#collaborator).
 
 ## <a name="descriptor"></a>Descriptor
 
-A descriptor is a [feature](#features) applied to a model at training time, including [phrase lists](phrase-list) and [entities](entity). 
+A descriptor is a [feature](#features) applied to a model at training time, including [phrase lists](#phrase-list) and [entities](#entity). 
 
 ## <a name="domain"></a>Domain
 
