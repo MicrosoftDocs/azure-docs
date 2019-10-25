@@ -1136,7 +1136,7 @@ featureFlags:
                                     <h3>Industry</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/industry/agriculture">
+                                            <a href="/azure/industry/agriculture/overview">
                                                 <img src="media/index/industry-agriculture-farmbeats.svg" alt="" />
                                                 <p>Azure FarmBeats</p>
                                             </a>
@@ -3955,7 +3955,7 @@ featureFlags:
                                 <h2>Industry</h2>
                             </li>
                             <li>
-                                <a href="/azure/industry/agriculture/">
+                                <a href="/azure/industry/agriculture/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
