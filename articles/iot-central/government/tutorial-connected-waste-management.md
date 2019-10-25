@@ -238,7 +238,7 @@ As a builder, you can change several settings to customize the user experience i
 
 ### To change the application theme:
 
-.  Go to **Administration > Customize your application**.
+1. Go to **Administration > Customize your application**.
 3. Use the **Change** button to choose an image to upload as the **Application logo**.
 4. Use the **Change** button to choose a **Browser icon** image that will appear on browser tabs.
 5. You can also replace the default **Browser colors** by adding HTML hexadecimal color codes.
