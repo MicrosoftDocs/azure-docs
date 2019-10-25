@@ -154,7 +154,7 @@ A public app is published in all regions so that a user with a region-based LUIS
 
 ## Transfer of ownership
 
-
+LUIS doesn't have the concept of transferring ownership of a resource. 
 
 ## Securing the endpoint 
 
