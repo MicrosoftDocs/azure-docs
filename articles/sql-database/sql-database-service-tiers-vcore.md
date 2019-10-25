@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/24/2019
+ms.date: 11/04/2019
 ---
 # vCore purchasing model
 
