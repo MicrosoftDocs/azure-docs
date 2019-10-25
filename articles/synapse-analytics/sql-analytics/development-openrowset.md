@@ -114,6 +114,17 @@ Specifies the row terminator to be used. The default row terminator is **\r\n*
 Following example returns only 2 columns with ordinal numbers 1 and 4 from *population*.csv* files, and start reading from the first line as there is no header row in files:
 
 ```sql
+/* make sure you have credentials for storage account access created
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = ''
+GO
+*/
+
 SELECT * 
 FROM OPENROWSET(
         BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
@@ -131,6 +142,17 @@ WITH (
 Following example returns all columns of first row from census data set in parquet format without specyfing column names and data types: 
 
 ```sql
+/* make sure you have credentials for storage account access created
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = ''
+GO
+*/
+
 SELECT 
 	TOP 1 *
 FROM  
@@ -144,4 +166,4 @@ FROM
 
 ## Next steps
 
-- [Query data in storage](query-data-in-storage.md)
+- [Query data in storage](development-storage-files-overview.md.md)

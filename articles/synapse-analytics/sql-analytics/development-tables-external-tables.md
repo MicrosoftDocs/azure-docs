@@ -268,6 +268,16 @@ WITH (
 )
 GO
 
+/* make sure you have credentials for storage account access created
+IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer')
+DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]
+GO
+
+CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
+WITH IDENTITY='SHARED ACCESS SIGNATURE',  
+SECRET = ''
+GO
+*/
 SELECT TOP 1 * FROM census_external_table
 ```
 
@@ -276,4 +286,4 @@ SELECT TOP 1 * FROM census_external_table
 ## Next steps
 
 
-In SQL Analytics on-demand, you can use [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage.
+Try [CETAS](development-tables-cetas.md) to save the result of query to external table in Azure Storage.
