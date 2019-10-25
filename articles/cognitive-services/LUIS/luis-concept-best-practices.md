@@ -61,7 +61,7 @@ Descriptors help describe features for an intent. A descriptor can be a phrase l
 ## Do find sweet spot for intents
 Use prediction data from LUIS to determine if your intents are overlapping. Overlapping intents confuse LUIS. The result is that the top scoring intent is too close to another intent. Because LUIS does not use the exact same path through the data for training each time, an overlapping intent has a chance of being first or second in training. You want the utterance's score for each intention to be farther apart so this flip/flop doesn't happen. Good distinction for intents should result in the expected top intent every time. 
  
-<a name="#do-build-the-app-iteratively></a>
+<a name="#do-build-the-app-iteratively"></a>
 
 ## Do build your app iteratively with versions
 

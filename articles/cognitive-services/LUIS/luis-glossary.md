@@ -34,7 +34,7 @@ Batch testing is the ability to validate a current LUIS app's model with a consi
 See also: 
 * [Concepts](luis-concept-batch-test.md)
 * [How-to](luis-how-to-batch-test.md)
-* [Tutorial]luis-tutorial-batch-testing.md)
+* [Tutorial](luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>Collaborator

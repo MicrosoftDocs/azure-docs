@@ -82,7 +82,7 @@ A subcomponent is a machine-learned child entity within a machine-learned parent
 
 The following represents a machine-learned entity with all these separate pieces of data:
 
-*TravelOrder (machine-learned entity)
+* TravelOrder (machine-learned entity)
     * DateTime (prebuilt datetimeV2)
     * Location (machine-learned entity)
         * Origin (role found through context such as `from`)

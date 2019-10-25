@@ -752,7 +752,7 @@
     },
     {
       "source_path": "articles/cognitive-services/LUIS/luis-concept-roles.md",
-      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-entity-types.md#entity-role-defines-context",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-entity-types#entity-role-defines-context",
       "redirect_document_id": false      
     },    
     {
