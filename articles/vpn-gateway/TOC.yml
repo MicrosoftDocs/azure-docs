@@ -217,6 +217,8 @@
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
       - name: Point-to-Site connection problems - Mac OS X VPN client
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
+      - name: Point-to-Site - Azure AD authentication connections
+        href: troubleshoot-ad-vpn-client.md
     - name: Site-to-Site connection issues
       items:
       - name: Site-to-Site connections
