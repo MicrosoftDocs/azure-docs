@@ -1,8 +1,7 @@
 ### YamlMime:Landing
 
-title: Azure Synapse Analytics (formerly SQL DW)  # < 60 chars
-summary: Learn how to use Azure Synapse Analytics (formerly SQL DW), which combines SQL relational databases with massively parallel processing (MPP). Tutorials and other documentation shows you how to design, load, manage, and analyze data using a data warehouse.  # < 160 chars
-
+title: Azure Synapse Analytics (formerly Azure SQL Data Wwarehouse)  # < 60 chars
+summary: Azure Synapse Analytics is a limitless cloud data warehouse that gives you the freedom to query data on your terms, using on-demand or provisioned resources. Synapse Analytics brings a multitude of new capabilities that simplify enterprise data lake and data warehousing solutions. # < 160 chars
 metadata:
   title: Azure Synapse Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Synapse Analytics Enables a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs. # Required; article description that is displayed in search results. < 160 chars.
@@ -31,7 +30,7 @@ landingContent:
         links:
           - text: Synapse Analytics architecture
             url: massively-parallel-processing-mpp-architecture.md
-          - text: Tips and best practices for your data warehouse 
+          - text: Tips and best practices
             url: cheat-sheet.md
 
   # Card
@@ -49,9 +48,9 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
-          - text: Design a PolyBase data loading strategy
+          - text: Design data loading strategy
             url: design-elt-data-loading.md
-          - text: Data loading best practices
+          - text: Best practices
             url: guidance-for-loading-data.md
       - linkListType: how-to-guide
         links:
@@ -67,7 +66,7 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Data warehouse best practices
+          - text: Best practices
             url: sql-data-warehouse-best-practices.md
           - text: Ordered clustered columnstore index tuning
             url: performance-tuning-ordered-cci.md
@@ -81,7 +80,7 @@ landingContent:
           #   url: file2.md
 
   # Card
-  - title: Manage and monitor your data warehouse
+  - title: Manage and monitor
     linkLists:
       - linkListType: overview
         links:

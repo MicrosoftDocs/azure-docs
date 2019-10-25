@@ -19,17 +19,18 @@ Azure Synapse Analytics is a limitless cloud data warehouse that gives you the f
 Empower all data engineers and SQL data professionals to collaborate, manage, and analyze all your most important data with ease. Enable a fully integrated analytics experience built to ingest, prepare, manage, and serve data so it’s immediately ready for your BI, machine learning, and AI needs.
 
 Azure Synapse Analytics has four components:
-- SQL Analytics : Complete T-SQL based analytics 
-    - Synapse SQL pool (pay per DWU provisioned) – Generally Available
+- SQL Analytics : Complete T-SQL based analytics – Generally Available
+    - SQL pool (pay per DWU provisioned) 
     - SQL on-demand (pay per TB processed) – (Preview)
 - Spark : Deeply integrated Apache Spark (Preview) 
 - Data Integration : Hybrid data integration (Preview)
 - Studio : Unified user experience.  (Preview)
 
+## SQL Analytics and SQL pools
 
-## SQL Analytics
+SQL Analytics is a cloud-based Enterprise Data Warehouse (EDW) built upon Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data and is a key component of an optimized big data solution.
 
-SQL Analytics is a cloud-based Enterprise Data Warehouse (EDW) built upon Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data and is a key component of an optimized big data solution. 
+SQL pool represents a collection of analytic resources that are being provisioned when using SQL Analytics. The size of SQL pool is determined by Data Warehousing Units (DWU).
 
 Import big data with simple [PolyBase](/sql/relational-databases/polybase/polybase-guide?view=sql-server-2017&viewFallbackFrom=azure-sqldw-latest) T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, SQL Analytics will become the single version of truth your business can count on for faster and more robust insights.  
 

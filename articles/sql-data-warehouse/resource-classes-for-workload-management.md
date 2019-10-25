@@ -74,7 +74,7 @@ The memory allocation for each resource class is as follows, **regardless of ser
 
 By default, each user is a member of the dynamic resource class **smallrc**.
 
-The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics) instance with a new server.
+The resource class of the service administrator is fixed at smallrc and cannot be changed.  The service administrator is the user created during the provisioning process.  The service administrator in this context is the login specified for the "Server admin login" when creating a new [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pools) instance with a new server.
 
 > [!NOTE]
 > Users or groups defined as Active Directory admin are also service administrators.
