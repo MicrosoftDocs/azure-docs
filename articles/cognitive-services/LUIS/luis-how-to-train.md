@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 
@@ -20,6 +20,8 @@ Training is the process of teaching your Language Understanding (LUIS) app to im
 Training and [testing](luis-concept-test.md) an app is an iterative process. After you train your LUIS app, you test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
 Training is applied to the active version in the LUIS portal. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## How to train interactively
 
