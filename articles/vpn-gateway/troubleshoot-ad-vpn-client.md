@@ -1,6 +1,6 @@
 ---
-title: 'Configure a VPN client for P2S VPN connections: Azure AD authentication| Microsoft Docs'
-description: You can use P2S VPN to connect to your VNet using Azure AD authentication
+title: 'Troubleshoot an Azure AD authentication VPN client: Azure VPN Gateway| Microsoft Docs'
+description: Troubleshoot VPN Gateway P2S Azure AD authentication clients
 services: vpn-gateway
 author: cherylmc
 
@@ -10,7 +10,7 @@ ms.date: 11/04/2019
 ms.author: cherylmc
 
 ---
-# Troubleshoot an Azure Active Directory Authentication VPN client
+# Troubleshoot an Azure AD authentication VPN client
 
 This article helps you troubleshoot a VPN client to connect to a virtual network using Point-to-Site VPN and Azure Active Directory authentication. 
 
@@ -21,7 +21,7 @@ View the status log for error messages.
 ![](./media/troubleshoot-ad-vpn-client/1.png)
 
 1. Click the arrows icon at the bottom-right corner of the client window to show the Status Logs.
-2. Check the logs for errors tha may indicate the problem.
+2. Check the logs for errors that may indicate the problem.
 3. Error messages are displayed in red.
 
 ## <a name="clear"></a>Clear sign-in information
@@ -31,20 +31,28 @@ View the status log for error messages.
 1. Select the … next to the profile that you want to troubleshoot. Select **Configure -> Clear Saved Account**.
 2. Select **Save**.
 3. Try to connect.
-4. If the connection sill fails, continue to the next section.
+4. If the connection still fails, continue to the next section.
 
-## <a name="cert"></a>Run diagnostics on the VPN client
+## <a name="diagnostics"></a>Run diagnostics on the VPN client
 
 ![](./media/troubleshoot-ad-vpn-client/3.png)
 
-1.Click the … next to the profile that you want to run diagnostics on. Select **Diagnose -> Run Diagnosis**.
+1. Click the **…** next to the profile that you want to run diagnostics on. Select **Diagnose -> Run Diagnosis**.
+2. The client will run a series of tests and display the result of the test
 
+   * Internet Access – Checks to see if the client has Internet connectivity
+   * Client Credentials – Check to see if the Azure Active Directory authentication endpoint is reachable
+   * Server Resolvable – Contacts the DNS server to resolve the IP address of the configured VPN server
+   * Server Reachable – Checks to see if the VPN server is responding or not
+3. If any of the tests fail, contact your network administrator to resolve the issue.
+4. The next section shows you how to collect the logs, if needed.
 
-## <a name="cert"></a>Status Log
+## <a name="logfiles"></a>Collect Azure VPN client log files
 
-View the status log for error messages.
+1.	Click the “…” next to the profile that you want to run diagnostics on. Select **Diagnose -> Show Logs Directory**.
 
-![](./media/troubleshoot-ad-vpn-client/4.png)
+   ![](./media/troubleshoot-ad-vpn-client/4.png)
+2. This opens Windows Explorer to the folder that contains the log files. The log files can be sent to support/administrator via a method of your choosing. For example, e-mail.
 
 
 ## <a name="cert"></a>Status Log
