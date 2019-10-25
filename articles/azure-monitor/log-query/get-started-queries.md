@@ -6,7 +6,7 @@ ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
+ms.date: 10/24/2019
 
 ---
 
@@ -19,6 +19,9 @@ ms.date: 05/09/2019
 > [!NOTE]
 > You can work through this exercise in your own environment if you are collecting data from at least one virtual machine. If not then use our [Demo environment](https://portal.loganalytics.io/demo), which includes plenty of sample data.
 
+Follow along with a video version of this tutorial below:
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 In this tutorial you will learn to write log queries in Azure Monitor. It will teach you how to:
 
