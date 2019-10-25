@@ -1,6 +1,6 @@
 ---
 title: Automate tasks with Visual Studio Code - Azure Logic Apps
-description: Create or edit logic app underlying JSON definitions with Visual Studio Code (VS Code)
+description: Create or edit logic app underlying JSON definitions by using Visual Studio Code (VS Code)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -14,7 +14,7 @@ ms.custom: mvc
 ms.date: 10/25/2019
 ---
 
-# Quickstart: Create and manage logic app workflow definitions with Visual Studio Code
+# Quickstart: Create and manage logic app workflow definitions by using Visual Studio Code
 
 With [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and Visual Studio Code, you can create and manage logic apps that help you automate tasks, workflows, and processes for integrating apps, data, systems, and services across organizations and enterprises. This quickstart shows how you can create and edit the underlying workflow definitions, which use JavaScript Object Notation (JSON), for logic apps through a code-based experience. You can also work on existing logic apps that are already deployed to Azure.
 
@@ -97,11 +97,11 @@ Before you start, make sure that you have these items:
 
 <a name="create-logic-app"></a>
 
-## Create your logic app
+## Create new logic app
 
 1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#sign-in-azure).
 
-1. In Visual Studio code, under **Logic Apps**, open your subscription's context menu, and select **Create Logic App**.
+1. In Visual Studio code, under **Logic Apps**, open your subscription's shortcut menu, and select **Create Logic App**.
 
    ![From subscription menu, select "Create Logic App"](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
@@ -175,7 +175,7 @@ Before you start, make sure that you have these items:
                "body": {
                   "Body": "<p>Title: @{triggerBody()?['title']}<br>\n<br>\nDate published: @{triggerBody()?['updatedOn']}<br>\n<br>\nLink: @{triggerBody()?['primaryLink']}</p>",
                   "Subject": "RSS item: @{triggerBody()?['title']}",
-                  "To": "Esther.Fan@microsoft.com"
+                  "To": "sophia-owen@fabrikam.com"
                },
                "host": {
                   "connection": {
@@ -203,13 +203,13 @@ Before you start, make sure that you have these items:
 
 In Visual Studio Code, you can open your logic app in design view, but only in read-only form. Although you can't edit your logic app in the designer, you can use this view to visually check your logic app's workflow.
 
-In the Azure window, under **Logic Apps**, open your logic app's context menu, and select **Open in Designer**.
+In the Azure window, under **Logic Apps**, open your logic app's shortcut menu, and select **Open in Designer**.
 
 The read-only designer opens in a separate window and shows your logic app's workflow, for example:
 
 ![View logic app in read-only designer](./media/quickstart-create-logic-apps-visual-studio-code/logic-app-designer-view.png)
 
-## View your logic app in Azure portal
+## View in Azure portal
 
 To review your logic app in Azure portal, follow these steps:
 
@@ -223,7 +223,7 @@ To review your logic app in Azure portal, follow these steps:
 
 ## Disable or enable your logic app
 
-In Visual Studio Code, when you edit a published logic app, your changes *overwrite* the already deployed app. To avoid breaking your logic app in production and minimize disruption, deactivate your logic app first. You can then reactive your logic app after you've confirmed that your logic app still works.
+In Visual Studio Code, if you edit a published logic app and save your changes, you *overwrite* your already deployed app. To avoid breaking your logic app in production and minimize disruption, deactivate your logic app first. You can then reactive your logic app after you've confirmed that your logic app still works.
 
 1. If you haven't signed in to your Azure account and subscription yet from inside Visual Studio Code, follow the [previous steps to sign in now](#sign-in-azure).
 
@@ -239,9 +239,9 @@ In Visual Studio Code, when you edit a published logic app, your changes *overwr
 
 <a name="edit-logic-app"></a>
 
-## Edit a published logic app
+## Edit deployed logic app
 
-For a logic app that's already published in Azure, you can open and edit that logic app's workflow definition from inside Visual Studio Code.
+In Visual Studio Code, you can open and edit the workflow definition for an already deployed logic app in Azure.
 
 > [!IMPORTANT] 
 > Before you edit an actively running logic app in production, 
@@ -256,7 +256,7 @@ For a logic app that's already published in Azure, you can open and edit that lo
 
    ![Open editor for existing logic app](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
-   Visual Studio Code opens the .logicapp.json file for your logic app's workflow definition.
+   Visual Studio Code opens the .logicapp.json file in your local temporary folder so that you can view your logic app's workflow definition.
 
    ![View workflow definition for published logic app](./media/quickstart-create-logic-apps-visual-studio-code/edit-published-logic-app-workflow-definition.png)
 
@@ -269,6 +269,43 @@ For a logic app that's already published in Azure, you can open and edit that lo
    This step publishes your updates to your logic app in the [Azure portal](https://portal.azure.com).
 
    ![Upload edits to logic app definition in Azure](./media/quickstart-create-logic-apps-visual-studio-code/upload-logic-app-changes.png)
+
+## View or promote earlier versions
+
+In Visual Studio Code, you can open and review the earlier versions for your logic app. You can also promote an earlier version to the current version.
+
+> [!IMPORTANT] 
+> Before you change an actively running logic app in production, 
+> avoid the risk in breaking that logic app and minimize disruption by 
+> [disabling your logic app first](#disable-enable-logic-app).
+
+1. In the Azure window, under **Logic Apps**, expand your Azure subscription so that you can view all the logic apps in that subscription.
+
+1. Under your subscription, expand your logic app, and expand **Versions**.
+
+   The **Versions** list shows your logic app's earlier versions, if any exist.
+
+   ![Your logic app's previous versions](./media/quickstart-create-logic-apps-visual-studio-code/view-previous-versions.png)
+
+1. To view an earlier version, select either step:
+
+   * To view the JSON definition, under **Versions**, select the version number for that definition. Or, open that version's shortcut menu, and select **Open in Editor**.
+
+     A new file opens on your local computer and shows that version's JSON definition.
+
+   * To view the version in the read-only designer view, open that version's shortcut menu, and select **Open in Designer**.
+
+1. To promote an earlier version to the current version, follow these steps:
+
+   1. Under **Versions**, open the earlier version's shortcut menu, and select **Promote**.
+
+      ![Promote earlier version](./media/quickstart-create-logic-apps-visual-studio-code/promote-earlier-version.png)
+
+   1. To continue after Visual Studio Code prompts you for confirmation, select **Yes**.
+
+      ![Confirm promoting earlier version](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
+
+      Visual Studio Code promotes the selected version to the current version and assigns a new number to the promoted version. The previously current version now appears under the promoted version.
 
 ## Next steps
 
