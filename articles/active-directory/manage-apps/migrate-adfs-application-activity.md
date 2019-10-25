@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 Many organizations use Active Directory Federation Services (AD FS) to provide single sign-on to cloud applications. There are significant benefits to moving your AD FS applications to Azure AD for authentication, especially in terms of cost management, risk management, productivity, compliance, and governance. But understanding which applications are compatible with Azure AD and identifying specific migration steps can be time consuming.
 
-The AD FS application activity report in the Azure portal lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. 
+The AD FS application activity report in the Azure portal lets you quickly identify which of your applications are capable of being migrated to Azure AD. It assesses all AD FS applications for compatibility with Azure AD, checks for any issues, and gives guidance on preparing individual applications for migration. With the AD FS application activity report, you can:
 
 * **Discover AD FS applications and scope your migration.** The AD FS application activity report lists all the AD FS applications in your organization and indicates their readiness for migration to Azure AD.
 * **Prioritize applications for migration.** Get the number of unique users who have signed in to the application in the past 1, 7, or 30 days to help determine the criticality or risk of migrating the application.
@@ -34,7 +34,7 @@ The AD FS application activity data is available to users who are assigned any o
    * [Learn more about Azure AD Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-adfs)
    * [Get started setting up Azure AD Connect Health](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
-## Review the AD FS application activity report
+## Discover AD FS applications that can be migrated 
 
 The AD FS application activity report is available in the Azure portal under Azure AD **Usage & insights** reporting. The AD FS application activity report analyzes each AD FS application to determine if it can be migrated as-is, or if additional review is needed. 
 
@@ -42,7 +42,7 @@ The AD FS application activity report is available in the Azure portal under Azu
 
 2. Select **Azure Active Directory**, and then select **Enterprise applications**.
 
-3. Under **Activity**, select **Usage & Insights (Preview)**, and then select **AD FS application activity** to open the report
+3. Under **Activity**, select **Usage & Insights (Preview)**, and then select **AD FS application activity** to open a list of all AD FS applications in your organization.
 
    ![AD FS application activity](media/migrate-adfs-application-activity/adfs-application-activity.png)
 
@@ -54,19 +54,17 @@ The AD FS application activity report is available in the Azure portal under Azu
 
    * **Additional steps required** means Azure AD doesn't support some of the application's settings, so the application can’t be migrated in its current state.
 
-5. Click the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
+## Evaluate the readiness of an application for migration 
+
+1. In the AD FS application activity list, click the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
 
    ![Migration details](media/migrate-adfs-application-activity/migration-details.png)
 
-6. Click a message to open additional migration rule details. For a full list of the properties tested, see [AD FS application configuration tests](#ad-fs-application-configuration-tests). For a list of claim rules tested, see [Check the results of claim rule tests](#check-the-results-of-claim-rule-tests).
+2. Click a message to open additional migration rule details. For a full list of the properties tested, see the [AD FS application configuration tests](#ad-fs-application-configuration-tests) table, below.
 
    ![Migration rule details](media/migrate-adfs-application-activity/migration-rule-details.png)
 
-7. On the Migration rule details page, additional guidance is available by expanding the results.
-
-   ![Migration rule details additional guidance](media/migrate-adfs-application-activity/migration-rule-details-guidance.png)
-
-## AD FS application configuration tests
+### AD FS application configuration tests
 
 The following table lists all configuration tests that are performed on AD FS applications.
 
@@ -76,23 +74,35 @@ The following table lists all configuration tests that are performed on AD FS ap
 |Relying party has AdditionalWSFedEndpoint set to true.       | Pass/Fail          | The relying party in AD FS allows multiple WS-Fed assertion endpoints. Azure AD only supports (1) one of these today. If you have a scenario where this is blocking the migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
 |Relying Party has set AllowedAuthenticationClassReferences.       | Pass/Fail          | This is a setting in AD FS that lets you specify whether the application is configured to only allow certain authentication types. Azure AD doesn’t support this today. If you have a scenario where this is blocking the migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695672-allow-in-azure-ad-to-specify-certain-authentication).          |
 |AlwaysRequireAuthentication is set up.      | Pass/Fail          | Whether the application is configured to ignore SSO cookies and ‘Always Prompt for Authentication’. Not supported by Azure AD today.          |
-|Relying Party has AutoUpdateEnabled set to true       | Pass/Warning          | This is a setting in AD FS that lets you specify whether ADFS is configured to auto update the application based on changes within the federation metadata. Azure AD doesn’t support this today but should not block the migration of the application to Azure AD.           |
-|Relying Party has multiple ClaimsProviders enabled       | Pass/Fail          | The relying party is configured to source claims from another claim provider different than Active Directory.  This is not supported in Azure AD. If you have a scenario where this is blocking the migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
+|Relying Party has AutoUpdateEnabled set to true       | Pass/Warning          | This is a setting in AD FS that lets you specify whether AD FS is configured to auto update the application based on changes within the federation metadata. Azure AD doesn’t support this today but should not block the migration of the application to Azure AD.           |
+|Relying Party has multiple ClaimsProviders enabled       | Pass/Fail          | The relying party is configured to source claims from a claim provider other than Active Directory.  This is not supported in Azure AD. If you have a scenario where this is blocking the migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695717-allow-to-source-user-attributes-from-external-dire).          |
 |DelegationAuthorization is valid      | Pass/Fail          | The application has custom delegation authorization rules defined. Azure AD doesn’t support this today. If you have a scenario where this is blocking the migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695747-allow-to-define-delegation-authorization-rules).          |
 |Relying party has ADFSRPImpersonationAuthorizationRules       | Pass/Warning          | The application has custom impersonation authorization rules defined. Azure AD doesn’t support this today but should not block the migration of the application to Azure AD.          |
-|At least one non-migratable rule was detected for IssuanceAuthorization.       | Pass/Warning          | The application has custom issuance authorization rules defined in AD FS. Azure AD supports this functionality with Azure AD Conditional Access. [Learn more about Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview). Also, in Azure AD you can restrict access to application by user or groups assigned to the application. [Learn more about assigning users and groups to access applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups). Below, the raw IssuanceAuthorization rules configured in AD FS.           |
-|At least one non-migratable rule was detected for IssuanceTransform.       | Pass/Warning          | The application has custom issuance transform rules defined in AD FS. Azure AD supports the customizing the claims issued in the token. To learn more, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-claims-customization).  Below, the raw IssuanceTransformation rules configured in AD FS.          |
-|Relying Party has MonitoringEnabled set to true.       | Pass/Warning          | This is a setting in AD FS that lets you specify whether ADFS is configured to monitor a federation metadata for this application. This is not supported in Azure AD but should not block the migration of the application to Azure AD.          |
-|Relying party has NotBeforeSkew set up.      | Pass/Warning          | ADFS allows a time skew based on the NotBefore and NotOnOrAfter times within SAML token. Azure AD doesn’t support this today but should not block the migration of the application to Azure AD.          |
-|Relying Party has RequestMFAFromClaimsProviders set to true.       | Pass/Warning          | This is a setting in AD FS that lets you specify whether the application is hardcoded to another claim provider and requires MFA. To move to Azure AD, we recommend that you move to Azure MFA or Custom Controls integration with 3rd party MFA provider. [Learn more about Azure MFA](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks).          |
-|Relying Party has SignedSamlRequestsRequired set to true       | Pass/Fail          | The application is configured in AD FS to verify the signature in the SAML Request. This is an optional setting and should not block your migration. Azure Active Directory uses the reply URLs to validate the service provider.  If you have a scenario where this is blocking the migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13394589-saml-signature).          |
-|Relying Party has SignedSamlRequestsRequired set to true       | Pass/Fail          | [Change the status to Pass/Warning] The application is configured for a custom token lifetime. ADFS default is 1 hour. Azure AD supports this functionality using Conditional Access. To learn more, see [Configure authentication session management with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).          |
-|Relying Party is set to encrypt claims. This is supported by Azure AD       | Pass          | [Change the icon to green because this is supported] With Azure AD you can encrypt the token send to the application. To learn more, see [Configure Azure AD SAML token encryption](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/howto-saml-token-encryption).          |
+|At least one non-migratable rule was detected for IssuanceAuthorization.       | Pass/Warning          | The application has custom issuance authorization rules defined in AD FS. Azure AD supports this functionality with Azure AD Conditional Access. [Learn more about Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview). Also, in Azure AD you can restrict access to application by user or groups assigned to the application. [Learn more about assigning users and groups to access applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups). Refer to the [claim rule tests](#check-the-results-of-claim-rule-tests)table below for information about the raw IssuanceAuthorization rules configured in AD FS.           |
+|At least one non-migratable rule was detected for IssuanceTransform.       | Pass/Warning          | The application has custom issuance transform rules defined in AD FS. Azure AD supports the customizing the claims issued in the token. To learn more, see [Customize claims issued in the SAML token for enterprise applications](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-saml-claims-customization).  Refer to the [claim rule tests](#check-the-results-of-claim-rule-tests)table below for information about the raw IssuanceTransformation rules configured in AD FS.          |
+|Relying Party has MonitoringEnabled set to true.       | Pass/Warning          | This is a setting in AD FS that lets you specify whether AD FS is configured to monitor a federation metadata for this application. This is not supported in Azure AD but should not block the migration of the application to Azure AD.          |
+|Relying party has NotBeforeSkew set up.      | Pass/Warning          | AD FS allows a time skew based on the NotBefore and NotOnOrAfter times in the SAML token. Azure AD doesn’t support this today but should not block the migration of the application to Azure AD.          |
+|Relying Party has RequestMFAFromClaimsProviders set to true.       | Pass/Warning          | This is a setting in AD FS that lets you specify whether the application is hardcoded to another claim provider and requires MFA. To move to Azure AD, we recommend that you move to Azure MFA or Custom Controls integration with a third party MFA provider. [Learn more about Azure MFA](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks).          |
+|Relying Party has SignedSamlRequestsRequired set to true       | Pass/Fail          | The application is configured in AD FS to verify the signature in the SAML request. This is an optional setting and should not block your migration. Azure Active Directory uses the reply URLs to validate the service provider.  If you have a scenario where this is blocking the migration, [let us know](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13394589-saml-signature).          |
+|Relying Party has SignedSamlRequestsRequired set to true       | Pass/Warning         | The application is configured for a custom token lifetime. AD FS default is 1 hour. Azure AD supports this functionality using Conditional Access. To learn more, see [Configure authentication session management with Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime).          |
+|Relying Party is set to encrypt claims. This is supported by Azure AD       | Pass          | With Azure AD you can encrypt the token send to the application. To learn more, see [Configure Azure AD SAML token encryption](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/howto-saml-token-encryption).          |
 |Relying Party is set to encrypt NameID in the SAML token.      | Pass/Fail          | The application is configured to encrypt the nameID claim in the SAML token. With Azure AD you can encrypt the entire token sent to the application. Encryption of specific claims is not yet supported. To learn more, see [Configure Azure AD SAML token encryption](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/howto-saml-token-encryption).         |
 
 ## Check the results of claim rule tests
 
 If you have configured a claim rule for the application in AD FS, the experience will provide a granular analysis for all the claim rules. You'll see which claim rules can be moved to Azure AD and which ones need further review.
+
+1. In the AD FS application activity list, click the status in the **Migration status** column to open migration details. You'll see a summary of the configuration tests that passed, along with any potential migration issues.
+
+2. On the **Migration rule details** page, expand the results to display details about potential migration issues and to get additional guidance. For a detailed list of all claim rules tested, see the [Check the results of claim rule tests](#check-the-results-of-claim-rule-tests) table, below.
+
+   The example below shows migration rule details for the IssuanceTransform rule. It lists the specific parts of the claim that need to be reviewed and addressed before you can migrate the application to Azure AD.
+
+   ![Migration rule details additional guidance](media/migrate-adfs-application-activity/migration-rule-details-guidance.png)
+
+### Claim rule tests
+
+The following table lists all claim rule tests that are performed on AD FS applications.
 
 |Property  |Description  |
 |---------|---------|
