@@ -9,11 +9,9 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
-
-<a name="train-your-app"></a>
 
 # Test your LUIS app in the LUIS portal
 
@@ -22,6 +20,7 @@ ms.author: diberry
 [!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <!-- anchors for H2 name changes -->
+<a name="train-your-app"></a>
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
