@@ -150,7 +150,7 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-* If you created an Azure AD DS managed domain in a region that supports Availability Zones, create a network security group to restrict traffic in the virtual network for the Azure AD DS managed domain. An Azure standard load balancer is created that requires these rules to be place.
+* If you created an Azure AD DS managed domain in a region that supports Availability Zones, create a network security group to restrict traffic in the virtual network for the Azure AD DS managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
     * To create the network security group and required rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create and configure the network security group.
 * [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 
@@ -237,7 +237,7 @@ When the Azure portal shows that the Azure AD DS managed domain has finished pro
 
 * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
     * To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-* If you created an Azure AD DS managed domain in a region that supports Availability Zones, create a network security group to restrict traffic in the virtual network for the Azure AD DS managed domain. An Azure standard load balancer is created that requires these rules to be place.
+* If you created an Azure AD DS managed domain in a region that supports Availability Zones, create a network security group to restrict traffic in the virtual network for the Azure AD DS managed domain. An Azure standard load balancer is created that requires these rules to be place. This network security group secures Azure AD DS and is required for the managed domain to work correctly.
     * To create the network security group and required rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create and configure the network security group.
 * [Enable password synchronization to Azure AD Domain Services](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) so end users can sign in to the managed domain using their corporate credentials.
 

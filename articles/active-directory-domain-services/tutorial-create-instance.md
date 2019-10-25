@@ -119,7 +119,7 @@ On the **Summary** page of the wizard, review the configuration settings for the
 
     ![Domain Services status once successfully provisioned](./media/tutorial-create-instance/successfully-provisioned.png)
 
-We provision Azure AD Domain Services on the Azure Active Directory tenant and the Azure AD Domain Services resource for the service is created within the associated Azure subscription. During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in your Azure Active directory instance where you have enabled the Azure AD domain services. These Enterprise Applications are needed to service your managed domain.  It's imperative that these applications are not deleted at any time.
+The managed domain is associated with your Azure AD tenant. During the provisioning process, Azure AD DS creates two Enterprise Applications named *Domain Controller Services* and *AzureActiveDirectoryDomainControllerServices* in the Azure AD tenant. These Enterprise Applications are needed to service your managed domain. Don't delete these applications.
 
 ## Update DNS settings for the Azure virtual network
 
