@@ -4547,7 +4547,7 @@
     },
     {
       "source_path": "articles/active-directory-ds/active-directory-ds-admin-guide-administer-dns.md",
-      "redirect_url": "/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network",
       "redirect_document_id": false
     },
     {
@@ -42074,6 +42074,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-administer-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/media-services/previous/media-services-fmp4-live-ingest-overview.md",
       "redirect_url": "/azure/media-services/media-services-fmp4-live-ingest-overview",
       "redirect_document_id": false
@@ -42701,6 +42706,131 @@
     {
       "source_path": "articles/azure-cache-for-redis/cache-howto-manage-redis-cache-powershell.md",
       "redirect_url": "/azure/azure-cache-for-redis/cache-how-to-manage-redis-cache-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-overview.md",
+      "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide.md",
+      "redirect_url": "/azure/industry-marketing/financial/actuarial-risk-analysis-and-financial-modeling-solution-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/financial/data-mgmt-in-banking-overview.md",
+      "redirect_url": "/azure/industry-marketing/financial/data-mgmt-in-banking-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/financial/FSI-risk-modeling.md",
+      "redirect_url": "/azure/industry-marketing/financial/FSI-risk-modeling",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/financial/index.md",
+      "redirect_url": "/azure/industry-marketing/financial/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/financial/mobile-bank-fraud-overview.md",
+      "redirect_url": "/azure/industry-marketing/financial/mobile-bank-fraud-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/financial/risk-grid-banking-overview.md",
+      "redirect_url": "/azure/industry-marketing/financial/risk-grid-banking-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/financial/risk-grid-banking-solution-guide.md",
+      "redirect_url": "/azure/industry-marketing/financial/risk-grid-banking-solution-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/health/index.md",
+      "redirect_url": "/azure/industry-marketing/health/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/health/overview-healthcare-ai-blueprint.md",
+      "redirect_url": "/azure/industry-marketing/health/overview-healthcare-ai-blueprint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/health/sg-healthcare-ai-blueprint.md",
+      "redirect_url": "/azure/industry-marketing/health/sg-healthcare-ai-blueprint",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/manufacturing/Compute-in-manufacturing-overview.md",
+      "redirect_url": "/azure/industry-marketing/manufacturing/Compute-in-manufacturing-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/manufacturing/extracting-insights-from-iot-data.md",
+      "redirect_url": "/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/manufacturing/extracting-insights-from-iot-data-overview.md",
+      "redirect_url": "/azure/industry-marketing/manufacturing/extracting-insights-from-iot-data-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/manufacturing/index.md",
+      "redirect_url": "/azure/industry-marketing/manufacturing/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/manufacturing/predictive-maintenance-overview.md",
+      "redirect_url": "/azure/industry-marketing/manufacturing/predictive-maintenance-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/manufacturing/predictive-maintenance-solution.md",
+      "redirect_url": "/azure/industry-marketing/manufacturing/predictive-maintenance-solution",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/retail/index.md",
+      "redirect_url": "/azure/industry-marketing/retail/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/retail/migrating-ecommerce-solution-to-azure.md",
+      "redirect_url": "/azure/industry-marketing/retail/migrating-ecommerce-solution-to-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/retail/recommendation-engine-optimization.md",
+      "redirect_url": "/azure/industry-marketing/retail/recommendation-engine-optimization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/retail/retail-data-management-overview.md",
+      "redirect_url": "/azure/industry-marketing/retail/retail-data-management-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/retail/sku-optimization-overview.md",
+      "redirect_url": "/azure/industry-marketing/retail/sku-optimization-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/retail/sku-optimization-solution-guide.md",
+      "redirect_url": "/azure/industry-marketing/retail/sku-optimization-solution-guide",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/retail/visual-search-use-case-overview.md",
+      "redirect_url": "/azure/industry-marketing/retail/visual-search-use-case-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/industry/index.md",
+      "redirect_url": "/azure/industry-marketing/index",
       "redirect_document_id": false
     }
   ]
