@@ -313,7 +313,7 @@ az resource create \
                    --namespace Microsoft.Blockchain \ --resource-type artifacts \
                    --parent watchers/mywatcher \
                    --is-full-object \
-                   --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","queryTargetType":"ContractPropertiesAndEvents"}}}'
+                   --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","queryTargetTypes":["ContractProperties","ContractEvents"]}}}'
 ```
 
 Create an application named *myApplication* for *mywatcher* that watches a smart contract defined using a JSON configuration file.
