@@ -11,7 +11,7 @@ ms.author: raynew
 
 # Assess servers using imported data
 
-This article explains how to assess on-premises servers with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), by importing server metadata in a .CSV file. With this method of assessment, you don't need to set up the Azure Migrate appliance to create an assessment. This is useful if: 
+This article explains how to assess on-premises servers with [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool), by importing server metadata using CSV. With this method of assessment, you don't need to set up the Azure Migrate appliance to create an assessment. This is useful if: 
 
 - You want to create a quick initial assessment before you deploy the appliance.
 - You can't deploy the Azure Migrate appliance in your organization.
@@ -23,11 +23,10 @@ This article explains how to assess on-premises servers with [Azure Migrate: Ser
 
 Note that:
 
-- You can add up to a maximum of 10000 servers in a single CSV file.
-- You can add up to 20000 servers in an Azure Migrate project using CSV files.
-- You can upload server information in a CSV file multiple times to Azure Migrate Server Assessment.
-- The option to specify a group name in the CSV file isn't currently supported. Instead, you add server names to a group when you create an assessment.
-- Although gathering app information is useful when evaluating your on-premises environment for migration, Azure Migrate Server Assessment doesn't currently perform app-level assessment, and doesn't take apps into account when creating an assessment.
+- You can add up to a maximum of 20000 servers in a single CSV file.
+- You can add up to 20000 servers in an Azure Migrate project using CSV.
+- You can upload server information using CSV multiple times to Azure Migrate Server Assessment.
+- Although gathering application information is useful when evaluating your on-premises environment for migration, Azure Migrate Server Assessment doesn't currently perform application-level assessment, and doesn't take applications into account when creating an assessment.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -83,9 +82,9 @@ Set up a new Azure Migrate project as follows.
 11. Wait a few minutes for the Azure Migrate project to deploy. You'll be taken to the project page. If you don't see the project, you can access it from **Servers** in the Azure Migrate dashboard.
 
 
-## Prepare the CSV file
+## Prepare the CSV
 
-Download the CSV file template, and add server information to it.
+Download the CSV template, and add server information to it.
 
 
 ### Download the template
@@ -97,7 +96,7 @@ Download the CSV file template, and add server information to it.
     ![Download .CSV template](./media/tutorial-assess-import/download-template.png)
 
 
-### Add server information to the file
+### Add server information
 
 Gather server data, and add it to the CSV file.
 
@@ -116,7 +115,7 @@ The following table summarizes the file fields to fill in.
 **OS name** | Yes | Server operating system.
 **OS version** | No | Server operating system version.
 **Number of disks** | No | Not needed if individual disk details are provided.
-**Disk 1 size**  | No | Maximum size of disk (GB)<br/><br/> To add details for a second disk, add a column **Disk 2 size**  in the template. You can add up to 8 disks.
+**Disk 1 size**  | No | Maximum size of disk (GB)<br/> You can add details for more disks by [adding columns](#add-multiple-disks) in the template. You can add up to eight disks.
 **Disk 1 read ops** | No | Disk read operations per second.
 **Disk 1 write ops** | No | Disk write operations per second.
 **Disk 1 read throughput** | No | Data read from the disk per second in MB per second.
@@ -146,7 +145,6 @@ The following table summarizes the file fields to fill in.
 **Business owner** | No | Business unit owner.
 **Business application name** | No | Name of the application to which the app belongs.
 **Location** | No | Datacenter in which the server is located.
-**Groups** | No | The server will be added to the specified Azure Migrate group. <br/><br/> If the group exists, the server is added. If not, a new group with is created and the server is added.
 **Server decommission date** | No | Decommission date of physical server or the underlying physical server of the virtual server
 
 ### Add operating systems
@@ -196,8 +194,8 @@ After adding information to the CSV template, import the servers into Azure Migr
 3. The import status is shown. 
     - If warnings appear in the status, you can either fix them, or continue without addressing them.
     - Improving server information as suggested in warnings improves assessment accuracy.
-    - To view and fix warnings if they appear, click **Download warning details .CSV**. This downloads the CSV file, with warnings added. You can review the warnings, and fix issues as needed. 
-    If errors appear in the status (the import status is **Failed**), you need to fix these before you can continue with the import. To do this, download the CSV file, that now has error details added. Review and address the errors as needed. Then upload the modified file again.
+    - To view and fix warnings if they appear, click **Download warning details .CSV**. This downloads the CSV, with warnings added. You can review the warnings, and fix issues as needed. 
+    If errors appear in the status (the import status is **Failed**), you need to fix these before you can continue with the import. To do this, download the CSV, that now has error details added. Review and address the errors as needed. Then upload the modified file again.
 4. When the import status **Completed**, the server information is imported.
 
 
@@ -294,7 +292,7 @@ This view shows the estimated compute and storage cost of running VMs in Azure.
 3. You can drill down to see details for specific VMs.
 
 > [!NOTE]
-> Confidence ratings are not assigned to assessments of servers imported into Azure Migrate Server Assessment using  a CSV file.
+> Confidence ratings are not assigned to assessments of servers imported into Azure Migrate Server Assessment using CSV.
 
 
 ## Supported operating system names
@@ -322,7 +320,7 @@ Windows 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Window
 In this tutorial, you:
 
 > [!div class="checklist"]
-> * Imported servers to Azure Migrate: Server Assessment using a CSV file.
+> * Imported servers to Azure Migrate: Server Assessment using CSV.
 > * Created and reviewed an assessment
 
-Now, [deploy an appliance](./migrate-appliance.md) for more accurate assessments, and gather servers together for deeper assessment using [dependency analysis](./concepts-dependency-visualization.md).
+Now, [deploy an appliance](./migrate-appliance.md) for more accurate assessments, and gather servers together into groups for deeper assessment using [dependency analysis](./concepts-dependency-visualization.md).

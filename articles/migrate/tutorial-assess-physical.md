@@ -31,10 +31,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- [Complete](tutorial-prepare-vmware.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
+- [Complete](tutorial-prepare-physical.md) the first tutorial in this series. If you don't, the instructions in this tutorial won't work.
 - Here's what you should have done in the first tutorial:
-    - [Set up Azure permissions](tutorial-prepare-vmware.md#prepare-azure) for Azure Migrate.
-    - [Prepare physical servers](tutorial-prepare-vmware.md#prepare-azure) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
+    - [Set up Azure permissions](tutorial-prepare-physical.md#prepare-azure) for Azure Migrate.
+    - [Prepare physical servers](tutorial-prepare-physical.md#prepare-azure) for assessment. Appliance requirements should be verified. You should also have an account set up for physical server discovery. Required ports should be available, and you should be aware of the URLs needed for access to Azure.
 
 
 ## Set up an Azure Migrate project
@@ -73,90 +73,108 @@ Azure Migrate: Server Assessment runs a lightweight appliance.
 
 - This appliance performs physical server discovery and sends server metadata and performance data to Azure Migrate Server Assessment.
 - To set up the appliance you:
-    - Download the appliance for physical servers.
-    - Set up the appliance on a server or virtual machine and check that it can connect to Azure Migrate Server Assessment.
+    - Download a zipped file with Azure Migrate installer script from the Azure portal.
+    - Extract the contents from the zipped file. Launch the PowerShell console with administrative privileges.
+    - Execute the PowerShell script to launch the appliance web application.
     - Configure the appliance for the first time, and register it with the Azure Migrate project.
 - You can set up multiple appliances for a single Azure Migrate project. Across all appliances, you can discover any number of physical servers. A maximum of 250 servers can be discovered per appliance.
 
-### Download the appliance
+### Download the installer script
+
+Download the zipped file for the appliance.
 
 1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, click **Discover**.
-2. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized / Other**.
-3. Click **Download** to download the appliance.
+2. In **Discover machines** > **Are your machines virtualized?**, click **Not virtualized/Other**.
+3. Click **Download** to download the zipped file.
 
-    ![Download .ova file](./media/tutorial-assess-physical/download-appliance.png)
+    ![Download installer](./media/tutorial-assess-physical/download-appliance.png)
 
 
 ### Verify security
 
-Check that the OVA file is secure, before you deploy it.
+Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the OVA:
+2. Run the following command to generate the hash for the VHD
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For version 2.19.07.30, the generated hash should match these values. 
+3.  For appliance version 1.19.05.10, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 27230f3b012187860281b912ee661709
-  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
+  SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
 
+### Run the Azure Migrate installer script
+=
+The installer script does the following:
 
-### Set up the appliance 
+- Installs agents and a web application for physical server discovery and assessment.
+- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
+- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+- Creates the following files under the path:
+    - **Config Files**: %Programdata%\Microsoft Azure\Config
+    - **Log Files**: %Programdata%\Microsoft Azure\Logs
 
-Download the appliance, and set it up on a virtual machine or physical server.
+Run the script as follows:
 
-1. In the server to be used for the appliance, open the downloaded appliance package. Extract and open the .zip folder.
-2. Right click on the file "AzureMigrateServerInstaller.ps1" in the folder, click **Run with Powershell**
-3. The installation progress can be seen on the Powershell window that opens up. Wait for the installation to complete.
-
-Once it is complete, the appliance management app will open up in the browser.
+1. Extract the zipped file to a folder on the server that will host the appliance.
+2. Launch PowerShell on the above server with administrative (elevated) privilege.
+3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
+4. Run the script by running the following command:
+    ```
+    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    ```
+The script will launch the appliance web application when it finishes successfully.
 
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to [Azure URLs](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Make sure that the appliance can connect to [Azure URLs](migrate-support-matrix-physical.md#assessment-url-access-requirements).
 
 
 ### Configure the appliance
 
-Set up the appliance using the following steps.
+Set up the appliance for the first time.
 
 1. Open a browser on any machine that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
-   Alternately, you can open the app from the appliance desktop by clicking the app shortcut.
+   Alternately, you can open the app from the desktop by clicking the app shortcut.
 2. In the web app > **Set up prerequisites**, do the following:
     - **License**: Accept the license terms, and read the third-party information.
-    - **Connectivity**: The app checks that the appliance has internet access. If the server uses a proxy:
+    - **Connectivity**: The app checks that the server has internet access. If the server uses a proxy:
         - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
         - Specify credentials if the proxy needs authentication.
         - Only HTTP proxy is supported.
-    - **Time sync**:The time on the appliance should be in sync with internet time for discovery to work properly.
-    - **Install updates**: The appliance ensures that the latest updates are installed.
+    - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for server discovery to work properly.
+    - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.
 
 ### Register the appliance with Azure Migrate
 
 1. Click **Log In**. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
-2. On the new tab, sign in using your Azure credentials.
+2. On the new tab, sign in using your Azure credentials. 
     - Sign in with your username and password.
-    - Sign in with a PIN isn't supported.
+    - Sign-in with a PIN isn't supported.
 3. After successfully signing in, go back to the web app.
-2. Select the subscription in which the Azure Migrate project was created, then select the project.
-3. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
-4. Click **Register**.
+4. Select the subscription in which the Azure Migrate project was created. Then select the project.
+5. Specify a name for the appliance. The name should be alphanumeric with 14 characters or less.
+6. Click **Register**.
 
 
 ## Start continuous discovery
 
 Now, connect from the appliance to the physical servers to be discovered, and start the discovery.
 
-1. In **User name** and **Password**, add one windows credential and one linux credential that the appliance will use to discover the servers. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
-2. Click **Add server**, and specify the physical server name and whether it is a windows or linux server.
-3. Click **Validate** to make sure that the appliance can connect to the servers.
-4. After the connection is established, click **Save and start discovery**.
+1. Click **Add Credentials** to specify the account credentials that the appliance will use to discover servers.  
+2. Specify the **Operating System**,  friendly name for the credentials, **Username** and **Password** and click **Add**.
+You can add one set of credentials each for Windows and Linux servers.
+4. Click **Add server**, and specify server details- FQDN/IP address and friendly name of credentials (one entry per row) to connect to the server.
+3. Click **Validate**. After validation, the list of servers that can be discovered is shown.
+    - If validation fails for a server, review the error by hovering over the icon in the **Status** column. Fix issues, and validate again.
+    - To remove a server, select > **Delete**.
+4. After validation, click **Save and start discovery** to start the discovery process.
 
-This starts discovery. It takes around 15 minutes for metadata of discovered servers to appear in the portal.
+This starts discovery. It takes around 15 minutes for metadata of discovered servers to appear in the Azure portal. 
 
 ### Verify servers in the portal
 
@@ -189,7 +207,7 @@ Run an assessment as follows:
 
     ![Assessment properties](./media/tutorial-assess-physical/view-all.png)
 
-3. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more VMs together for assessment.
+3. In **Select or create a group**, select **Create New**, and specify a group name. A group gathers one or more servers together for assessment.
 4. In **Add machines to the group**, select servers to add to the group.
 5. Click **Create Assessment** to create the group, and run the assessment.
 
@@ -246,7 +264,7 @@ This view shows the estimated compute and storage cost of running VMs in Azure.
 
 When you run performance-based assessments, a confidence rating is assigned to the assessment.
 
-![Confidence rating](./media/tutorial-assess-vmware/confidence-rating.png)
+![Confidence rating](./media/tutorial-assess-physical/confidence-rating.png)
 
 - A rating from 1-star (lowest) to 5-star (highest) is awarded.
 - The confidence rating helps you estimate the reliability of the size recommendations provided by the assessment.
