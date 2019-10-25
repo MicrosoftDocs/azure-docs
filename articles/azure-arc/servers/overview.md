@@ -14,16 +14,13 @@ ms.topic: overview
 
 # What is Azure Arc for Servers
 
-Azure Arc for Servers allows you to manage non-Azure servers (virtual and physical on-premises servers, or virtual machines in other hosted clouds) in Azure.
+Azure Arc for Servers allows you to manage machines which are outside of Azure.
 When a non-Azure machine is connected to Azure, it becomes a **Connected Machine** and is treated as a resource in Azure. Each **Connected Machine**
-has a Resource ID, is managed as part of a Resource Group inside a subscription, and benefits from standard Azure constructs such as Policy and tagging.
+has a Resource ID, is managed as part of a Resource Group inside a subscription, and benefits from standard Azure constructs such as Azure Policy and tagging.
 
-An agent package needs to be installed on each machine to onboard it to Azure. The rest of this document explains the process in more detail.
+An agent package needs to be installed on each machine to connect it to Azure. The rest of this document explains the process in more detail.
 
-<!-- When should this be taken out?-->
-During the Public Preview phase, access to the Azure Arc for Servers hybrid functionality is controlled via an Azure 'Feature Flag', which is configured per subscription.
-
-Machines will have a status of **Online** or **Offline** based on how recently the agent has checked in. Each check-in is called a heartbeat. If a machine has not checked-in within the past 5 minutes, it will show as offline until connectivity is restored.  <!-- For more information on troubleshooting agent connectivity, see [Troubleshooting Azure Arc for Servers](troubleshoot/arc-for-servers.md). -->
+Machines will have a status of **Connected** or **Disconnected** based on how recently the agent has checked in. Each check-in is called a heartbeat. If a machine has not checked-in within the past 5 minutes, it will show as offline until connectivity is restored.  <!-- For more information on troubleshooting agent connectivity, see [Troubleshooting Azure Arc for Servers](troubleshoot/arc-for-servers.md). -->
 
 ![Connected Servers](./media/overview/arc-for-servers-onboarded-servers.png)
 
