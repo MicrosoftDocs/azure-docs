@@ -20,6 +20,9 @@ To manage user security in Azure Active Directory Domain Services (Azure AD DS),
 
 This article shows you how to create and configure a fine-grained password policy in Azure AD DS using the Active Directory Administrative Center.
 
+> [!NOTE]
+> Password policies are only available for Azure AD DS managed domains created using the Resource Manager deployment model. For older managed domains created using Classic, [migrate from the Classic virtual network model to Resource Manager][migrate-from-classic].
+
 ## Before you begin
 
 To complete this article, you need the following resources and privileges:
@@ -30,6 +33,7 @@ To complete this article, you need the following resources and privileges:
   * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
   * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+  * The Azure AD DS instance must have been created using the Resource Manager deployment model. If needed, [Migrate from the Classic virtual network model to Resource Manager][migrate-from-classic].
 * A Windows Server management VM that is joined to the Azure AD DS managed domain.
   * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
@@ -126,3 +130,4 @@ For more information about password policies and using the Active Directory Admi
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[migrate-from-classic]: migrate-from-classic-vnet.md
