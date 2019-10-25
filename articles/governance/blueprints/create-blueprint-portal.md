@@ -1,11 +1,8 @@
 ---
 title: Create a blueprint in the portal
 description: Use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
-ms.service: blueprints
 ---
 # Quickstart: Define and assign a blueprint in the portal
 

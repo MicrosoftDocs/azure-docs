@@ -1,11 +1,8 @@
 ---
 title: Learn Azure Policy for Azure Kubernetes Service
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters on Azure Kubernetes Service. 
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
 ---
 # Understand Azure Policy for Azure Kubernetes Service
 
