@@ -15,7 +15,7 @@ services: event-grid
 
 If you experience issues using Azure Event Grid on IoT Edge in your environment, use this article as a guide for troubleshooting and resolution.
 
-## Viewing Event Grid module logs
+## View Event Grid module logs
 
 To troubleshoot, you might need to access Event Grid module logs. To do this, on the VM where the module is deployed run the following command:
 
@@ -31,11 +31,11 @@ On Linux,
 sudo docker logs eventgridmodule
 ```
 
-## Unable to make HTTPS call into Event Grid module
+## Unable to make HTTPS requests
 
 * First make sure Event Grid module has **inbound:serverAuth:tlsPolicy** set to **strict** or **enabled**.
 
-* If its module-to-module communications make sure that you are making the call on port **4438** and the name of the module matches what is deployed. 
+* If its module-to-module communications, make sure that you are making the call on port **4438** and the name of the module matches what is deployed. 
 
   For e.g., if Event Grid module was deployed with name **eventgridmodule** then your URL should be **https://eventgridmodule:4438**. Make sure casing and port number are correct.
     
@@ -53,11 +53,11 @@ sudo docker logs eventgridmodule
      }
     ```
 
-## Unable to make HTTP call into Event Grid module
+## Unable to make HTTP requests
 
 * First make sure Event Grid module has **inbound:serverAuth:tlsPolicy** set to **enabled** or **disabled**.
 
-* If its module-to-module communications make sure that you are making the call on port **5888** and the name of the module matches what is deployed. 
+* If its module-to-module communications, make sure that you are making the call on port **5888** and the name of the module matches what is deployed. 
 
   For e.g., if Event Grid module was deployed with name **eventgridmodule** then your URL should be **http://eventgridmodule:5888**. Make sure casing and port number are correct.
     
@@ -75,7 +75,7 @@ sudo docker logs eventgridmodule
     }
     ```
 
-## The certificate chain was issued by an authority that is not trusted
+## Certificate chain was issued by an authority that's not trusted
 
 By default, Event Grid module is configured to authenticate clients with certificate issued by the IoT Edge security daemon. Make sure the client is presenting a certificate that is rooted to this chain.
 
@@ -83,7 +83,7 @@ By default, Event Grid module is configured to authenticate clients with certifi
 
 If it is non-production environment, you have the option to turn off client authentication. Refer to [Security and Authentication](security-authentication.md) for details on how to do this.
 
-## Event not received by subscriber
+## Debug Events not received by subscriber
 
 Typical reasons for this are:
 
