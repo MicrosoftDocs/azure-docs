@@ -1,5 +1,5 @@
 ---
-title: Upgrade an IPv4 application to IPv6 in Azure virtual network - Azure CLI
+title: Add IPv6 to an IPv4 application in Azure virtual network - Azure CLI
 titlesuffix: Azure Virtual Network
 description: This article shows how to deploy IPv6 addresses to an existing application in Azure virtual network using Azure Powershell.
 services: virtual-network
@@ -15,7 +15,7 @@ ms.date: 10/23/2019
 ms.author: kumud
 ---
 
-# Upgrade an IPv4 application to IPv6 in Azure virtual network - Azure CLI (Preview)
+# Add IPv6 to an IPv4 application in Azure virtual network - Azure CLI (Preview)
 
 This article shows you how to add IPv6 addresses to an application that is using IPv4 public IP address in an Azure virtual network for a Standard Load Balancer using Azure CLI. The in-place upgrade includes a virtual network and subnet, a Standard Load Balancer with IPv4 + IPV6 frontend configurations, VMs with NICs that have a IPv4 + IPv6 configurations, network security group, and public IPs.
 
@@ -49,7 +49,7 @@ az provider register --namespace Microsoft.Network
 ```
 
 ### Create a Standard Load Balancer
-This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure PowerShell](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
+This article assumes that you deployed a Standard Load Balancer as described in [Quickstart: Create a Standard Load Balancer - Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md).
 
 ## Create IPv6 addresses
 
@@ -60,7 +60,7 @@ Create public IPv6 address with with [az network public-ip create](/cli/azure/ne
 az network public-ip create \
 --name PublicIP_v6 \
 --resource-group MyResourceGroupSLB \
---location WestUS \
+--location EastUS \
 --sku Standard \
 --allocation-method static \
 --version IPv6
@@ -131,8 +131,8 @@ az network nic ip-config create \
 --name dsIp6Config_NIC1 \
 --nic-name myNicVM1 \
 --resource-group MyResourceGroupSLB \
---vnet-name dsVNET \
---subnet dsSubNet \
+--vnet-name myVnet \
+--subnet mySubnet \
 --private-ip-address-version IPv6 \
 --lb-address-pools dsLbBackEndPool_v6 \
 --lb-name dsLB
