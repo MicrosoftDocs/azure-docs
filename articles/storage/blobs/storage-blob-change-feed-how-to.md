@@ -256,6 +256,8 @@ public async Task ProcessRecordsInSegment(ChangeFeed changeFeed, DateTimeOffset 
 
 You can read the records of the change feed from a starting segment till the end. Similar to reading records within a time range, you can list the segments and choose a segment to start iterating from.
 
+This example gets the [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?view=netframework-4.8) of the first segment to process.
+
 ```csharp
 public async Task<DateTimeOffset> GetChangeFeedSegmentRefAfterTime
     (ChangeFeed changeFeed, DateTimeOffset timestamp)
@@ -286,6 +288,8 @@ public async Task<DateTimeOffset> GetChangeFeedSegmentRefAfterTime
     return result;
 }
 ```
+
+This example processes change feed records starting from the [DateTimeOffset](https://docs.microsoft.com/dotnet/api/system.datetimeoffset?view=netframework-4.8) of a starting segment.
 
 ```csharp
 public async Task ProcessRecordsStartingFromSegment(ChangeFeed changeFeed, DateTimeOffset segmentStart)
@@ -348,7 +352,7 @@ private async Task<bool> IsSegmentConsumableAsync(ChangeFeed changeFeed, ChangeF
 ```
 
 >[!TIP]
-> A segment of the can have change feed logs in one or more *chunkFilePath*. In case of multiple *chunkFilePath* the system has internally partitioned the records into multiple shards to manage publishing throughput. It is guaranteed that each partition of the segment will contain changes for mututally exclusive blobs and can be processed independently without voilating the ordering. You can use the **ChangeFeedSegmentShardReader** class to iterate through records at the shard level if that's most efficient for your scenario.
+> A segment of the can have change feed logs in one or more *chunkFilePath*. In case of multiple *chunkFilePath* the system has internally partitioned the records into multiple shards to manage publishing throughput. It is guaranteed that each partition of the segment will contain changes for mutually exclusive blobs and can be processed independently without violating the ordering. You can use the **ChangeFeedSegmentShardReader** class to iterate through records at the shard level if that's most efficient for your scenario.
 
 ## Next steps
 
