@@ -1,36 +1,95 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure IoT Central Documentation
+### YamlMime:Landing
+title: Azure IoT Central documentation
+summary: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor, and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # < 160 chars
+
 metadata:
-  title: Azure IoT Central Documentation - Tutorials, API Reference | Microsoft Docs
-  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials.
-  author: dominicbetts
-  ms.topic: landing-page
-  ms.date: 11/08/2017
-  ms.author: dobett
-  ms.service: iot-central
+  title: Azure IoT Central documentation
+  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor, and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials. # Required; article description that is displayed in search results. < 160 chars.
   services: iot-central
-  manager: timlt
-abstract:
-  description: Azure IoT Central is a fully managed SaaS (software-as-a-service) solution that makes it easy to connect, monitor and manage your IoT assets at scale. Azure IoT Central simplifies the initial setup of your IoT solution and reduces the management burden, operational costs, and overhead of a typical IoT project. Learn how to create, customize, manage, and use an Azure IoT Central application with our quickstarts and tutorials.
-sections:
-- title: Feature Alert
-  items:
-  - type: paragraph
-    text: Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections. You will be required to use DPS SDK to register and connect devices to your Azure IoT Central application. <a href="https://docs.microsoft.com/azure/iot-central/concepts-connectivity">Learn more about Device connectivity in Azure IoT Central.</a> All applications using the continuous data export feature and/or the Power BI solutions template will be required to change the destination storage container and create a new solution template.
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: Learn how to <a href="quick-deploy-iot-central">create a new Azure IoT Central application</a>.
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to customize and use your Azure IoT Central application.
-  - type: list
-    style: ordered
-    items:
-    - html: <a href="tutorial-define-device-type">Define a new device type</a>
-    - html: <a href="tutorial-configure-rules">Configure rules</a>
-    - html: <a href="tutorial-customize-operator">Customize the operator's view</a>
-    - html: <a href="tutorial-monitor-devices">Monitor your devices</a>
-    - html: <a href="tutorial-add-device">Add a real device</a>
+  ms.service: iot-central
+  ms.topic: landing-page 
+  author: philmea 
+  ms.author: philmea 
+  ms.date: 10/25/2019 
+
+landingContent:
+  - title: About Azure IoT Central
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure IoT Central?
+            url: overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: IoT Solution options
+            url: overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Tour the UI
+            url: overview-iot-central-tour-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      - linkListType: architecture
+        links:
+          - text: Azure IoT Central architecture
+            url: concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      - linkListType: quickstart
+        links:
+          - text: Create a new application
+            url: quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Get connected
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Set up a device template
+            url: howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Connect an IoT Plug and Play device
+            url: tutorial-add-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      - linkListType: how-to-guide
+        links:
+          - text: Prepare and connect an MX Chip IoT DevKit
+            url: howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Connect other IoT clouds
+            url: howto-build-iotc-device-bridge.md
+  - title: Stay connected
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Use device groups
+            url: howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your devices
+            url: howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Run a job
+            url: howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Analyze your device data
+            url: howto-create-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Transform
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Create a rule
+            url: quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Create telemetry rules
+            url: tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Export to Blob Storage
+            url: howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json                   
+      - linkListType: how-to-guide
+        links:
+          - text: Create custom rules
+            url: howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Create custom analytics
+            url: howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - title: Administration
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Manage your application
+            url: howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Manage users and roles
+            url: howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json 
+          - text: View your bill
+            url: howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Customize application UI
+            url: howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json  
+          - text: Configure personal dashboards
+            url: howto-create-personal-dashboards.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Use dashboard tiles
+            url: howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Use application templates
+            url: howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
