@@ -206,10 +206,10 @@ Now, test the firewall rules to confirm that it works as expected.
 
 So now you've verified that the firewall rules are working:
 
-* You can browse to the one allowed FQDN, but not to any others.
+* You can brows[What are trusted security partners (preview)?](trusted-security-partners.md)e to the one allowed FQDN, but not to any others.
 * You can resolve DNS names using the configured external DNS server.
 
 
 ## Next steps
 
-
+Learn about trusted security partners - [What are trusted security partners (preview)?](trusted-security-partners.md)
