@@ -81,20 +81,20 @@ vaults are included in the count.
 
 ```kusto
 Resources
-| where type =~ 'microsoft.compute/virtualmachines'
+| where type =~ 'microsoft.keyvault/vaults'
 | count
 ```
 
 # [Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-az graph query -q "Resources | where type =~ 'microsoft.compute/virtualmachines' | count"
+az graph query -q "Resources | where type =~ 'microsoft.keyvault/vaults' | count"
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachines' | count"
+Search-AzGraph -Query "Resources | where type =~ 'microsoft.keyvault/vaults' | count"
 ```
 
 # [Portal](#tab/azure-portal)

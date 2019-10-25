@@ -56,9 +56,9 @@ Oozie workflow definitions are written in Apache Hadoop Process Definition Langu
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
-   Replace `DomainUser` with the domain user name. 
-   Replace `DomainUserPath` with the home directory path for the domain user. 
-   Replace `ClusterVersion` with your cluster Hortonworks Data Platform (HDP) version.
+   Replace `DomainUser` with the domain user name.
+   Replace `DomainUserPath` with the home directory path for the domain user.
+   Replace `ClusterVersion` with your cluster data platform version.
 
 2. Use the following statement to create and edit a new file:
    ```bash
