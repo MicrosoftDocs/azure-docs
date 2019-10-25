@@ -1,5 +1,5 @@
 ---
-title:Enable Multi-Factor Authentication for your organization - Azure Active Directory
+title: Enable Multi-Factor Authentication for your organization - Azure Active Directory
 description: Enable Azure MFA for your organization based on your license
 
 services: multi-factor-authentication
