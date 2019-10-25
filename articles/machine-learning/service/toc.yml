@@ -139,6 +139,9 @@
     - name: Train with datasets
       displayName: data, dataset
       href: how-to-train-with-datasets.md
+    - name: Version & track datasets
+      displayName: data, data set
+      href: how-to-version-track-datasets.md      
   - name: Train models
     items:
     - name: Use visual interface
