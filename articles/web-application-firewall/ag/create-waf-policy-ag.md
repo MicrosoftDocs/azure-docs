@@ -17,7 +17,7 @@ You can make as many policies as you want. Once you create a policy, it must be 
 
 If your Application Gateway has a policy applied, and then you apply a different policy to a listener on that Application Gateway, the listener's policy will take effect, but just for the listener(s) that they're assigned to. The Application Gateway policy still applies to all other listeners that don't have a specific policy assigned to them. 
 
-All new Web Application Firewall's WAF settings (custom rules, managed rulset configurations, exclusions, etc.) live inside of a WAF Policy. If you have an existing WAF, these settings may still exist in your WAF config. For steps on how to move to the new WAF Policy, see the section at the bottom of this article. 
+All new Web Application Firewall's WAF settings (custom rules, managed rulset configurations, exclusions, etc.) live inside of a WAF Policy. If you have an existing WAF, these settings may still exist in your WAF config. For steps on how to move to the new WAF Policy, see [Migrate your WAF Config to a WAF Policy](#migrate) later in this article article. 
 
 ## Create a policy
 
