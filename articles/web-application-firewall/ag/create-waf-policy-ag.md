@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/17/2019
+ms.date: 10/26/2019
 ms.author: victorh
 ---
 
@@ -63,33 +63,33 @@ To create a custom rule, select **Add custom rule** under the **Custom rules** t
 
 ## <a name="migrate"></a>Migrate your WAF Config to a WAF Policy
 
-If you have an existing WAF, you may have noticed some changes in the portal. First you need to identify what kind of Policy you have enabled on your WAF. There are three potential states:
+If you have an existing WAF, you may have noticed some changes in the portal. First you need to identify what kind of Policy you've enabled on your WAF. There are three potential states:
 
-1. No WAF Policy 
-2. Custom Rules only Policy
-3. WAF Policy
+- No WAF Policy
+- Custom Rules only Policy
+- WAF Policy
 
 You can tell which state your WAF is in by looking at it in the portal. If the WAF settings are visible and can be changed from within the Application Gateway view, your WAF is in state 1.
 
-{insert screenshot 1}
+![WAF configuration](../media/create-waf-policy-ag/waf-configure.png)
 
-If you select **Web Application Firewall** and it shows you an associated policy, the WAF is in state 2 or state 3. After navigating to the policy, if it shows **only** custom rules, and Associated Application Gateways, then it is a Custom Rules only Policy.
+If you select **Web Application Firewall** and it shows you an associated policy, the WAF is in state 2 or state 3. After navigating to the policy, if it shows **only** custom rules, and Associated Application Gateways, then it's a Custom Rules only Policy.
 
-{insert screenshot 2}
+![WAF custom rules](../media/create-waf-policy-ag/waf-custom-rules.png)
 
-If it also shows Policy Settings and Managed Rules, then it is a full Web Application Firewall policy. 
+If it also shows Policy Settings and Managed Rules, then it's a full Web Application Firewall policy. 
 
-{insert screenshot 3}
+![WAF policy settings](../media/create-waf-policy-ag/waf-policy-settings.png)
 
 ## Migrate to WAF Policy
 
-If you have a Custom Rules only WAF Policy, then you may want to move to the new WAF Policy. Going forward, the firewall policy will support WAF policy settings, managed rulesets, exclusions, and disabled rule-groups. Essentially, all the WAF configurations that were previously performed inside the Application Gateway are now done through the WAF Policy. 
+If you have a Custom Rules only WAF Policy, then you may want to move to the new WAF Policy. Going forward, the firewall policy will support WAF policy settings, managed rulesets, exclusions, and disabled rule-groups. Essentially, all the WAF configurations that were previously done inside the Application Gateway are now done through the WAF Policy. 
 
 Edits to the custom rule only WAF policy are disabled. To edit any WAF settings such as disabling rules, adding exclusions, etc. you have to migrate to a new top-level firewall policy resource.
 
-To do so, simply create a *Web Application Firewall Policy* and associate it to your Application Gateway(s) and listener(s) of choice. This new Policy **must** be exactly the same as the current WAF config, meaning every custom rule, exclusion, disabled rule, etc. must be copied into the new Policy you are creating. Once you have a Policy associated with your Application Gateway, then you can continue to make changes to your WAF rules and settings. 
+To do so, create a *Web Application Firewall Policy* and associate it to your Application Gateway(s) and listener(s) of choice. This new Policy **must** be exactly the same as the current WAF config, meaning every custom rule, exclusion, disabled rule, etc. must be copied into the new Policy you are creating. Once you have a Policy associated with your Application Gateway, then you can continue to make changes to your WAF rules and settings. 
 
-You can also do this with Azure PowerShell.  For more information, see {Using PowerShell to associate a new WAF Policy with an existing Application Gateway}
+You can also do this with Azure PowerShell. For more information, see [Associate a WAF policy with an existing Application Gateway](associate-waf-policy-existing-gateway.md).
 
 ## Next steps
 
