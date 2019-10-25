@@ -92,16 +92,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/default-attributes.png)
 
-1. In addition to above, Paylocity application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated but you can review them as per your requirements.
+1. In addition to above, Paylocity application expects few more attributes to be passed back in SAML response which are shown below. These attributes are also pre populated, but you have to update these attributes with the real values.
 
 	| Name |  Source Attribute|
 	| ---------------| --------------- |
 	| PartnerID | ****** |
-	| PaylocityUser | * |
-	| PaylocityEntity | ******** |
-
-	> [!NOTE]
-	> Enter the organization specific values for PartnerID, PaylocityUser and PalocityEntity.
+	| PaylocityUser | ****** |
+	| PaylocityEntity | ****** |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
