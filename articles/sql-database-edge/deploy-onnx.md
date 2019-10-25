@@ -27,7 +27,7 @@ This quickstart is based on **scikit-learn** and uses the [Boston Housing datase
 * Open Azure Data Studio and follow these steps to install the packages needed for this quickstart:
 
     1. Open [New Notebook](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) connected to the Python 3 Kernel. 
-    1. Click on the Manage Packages and under **Add New** search for **sklearn** and install the scikit-learn package. 
+    1. Click **Manage Packages** and under **Add New**, search for **sklearn**, and install the scikit-learn package. 
     1. Also, install the **onnxmltools**, **onnxruntime**, **skl2onnx**, and **sqlalchemy** packages.
     
 * For each script part below, enter it in a cell in the Azure Data Studio notebook and run the cell.
@@ -143,7 +143,7 @@ print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 
 ## Convert the model to ONNX
 
-We will need to convert the data types to the supported SQL data types. This conversion will be required for other dataframes as well.
+Convert the data types to the supported SQL data types. This conversion will be required for other dataframes as well.
 
 ```python
 from skl2onnx.common.data_types import FloatTensorType, Int64TensorType, DoubleTensorType
@@ -166,7 +166,7 @@ def convert_dataframe_schema(df, drop=None, batch_axis=False):
     return inputs
 ```
 
-Using skl2onnx, we will convert our LinearRegression model to the ONNX format and save it locally.
+Using `skl2onnx`, convert the LinearRegression model to the ONNX format and save it locally.
 
 ```python
 # Convert the scikit model to onnx format
@@ -178,7 +178,7 @@ onnxmltools.utils.save_model(onnx_model, onnx_model_path)
 
 ## Test the ONNX model
 
-After converting the model to ONNX format, you can score the model to show little to no degradation in performance.
+After converting the model to ONNX format, score the model to show little to no degradation in performance.
 
 > [!NOTE]
 > ONNX Runtime uses floats instead of doubles so small discrepancies are possible.
@@ -220,7 +220,7 @@ MSE are equal
 
 ## Insert the ONNX model
 
-Store the model in Azure SQL Database Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address, username, and password**. You will also import the **pyodbc** package.
+Store the model in Azure SQL Database Edge, in a `models` table in a database `onnx`. In the connection string, specify the **server address, username, and password**. Also import the **pyodbc** package.
 
 ```python
 import pyodbc
@@ -285,7 +285,7 @@ First, create two tables, **features** and **target**, to store subsets of the B
 * **Features** will contain all data being used to predict the target, median value. 
 * **Target** contains the median value for each record in the dataset. 
 
-You also need to import the **sqlalchemy** package.
+Also import the **sqlalchemy** package.
 
 ```python
 import sqlalchemy
@@ -349,7 +349,7 @@ x_train.to_sql(features_table_name, sql_engine, if_exists='append', index=False)
 y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
 ```
 
-Now, you will be able to view the data in the database.
+Now you can view the data in the database.
 
 > [!NOTE]
 > Change the notebook kernel to SQL to run the remaining cell.
@@ -392,4 +392,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
 
 ## Next Steps
 
-- [Machine Learning and AI with ONNX in SQL Database Edge](onnx-overview.md)
+* [Machine Learning and AI with ONNX in SQL Database Edge](onnx-overview.md)
