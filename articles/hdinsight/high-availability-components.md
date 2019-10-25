@@ -10,7 +10,7 @@ ms.date: 10/09/2019
 ---
 # High Availability services supported by Azure HDInsight
 
-High availability (HA) is the ability of a system to provide a desired level of continued operation to its users. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to failover and recover from a service interruption. 
+ In order to provide you with optimal levels of availability for your analytics components, HDInsight has developed a unique architecture for ensuring availability of critical services. Some components of this architecture were developed by HDInsight to provide automatic failover. Other components are standard Apache components which are deployed to support specific services. This article explains the architecture of the HA service model in HDInsight, how HDInsight supports failover for HA services, and best practices to failover and recover from a service interruption.
 
 HDInsight provides customized infrastructure to ensure that four primary services are high availability:
 
