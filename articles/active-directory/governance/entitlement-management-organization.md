@@ -36,7 +36,7 @@ You can configure two connected organizations -- one for Graphic Design Institut
 
 ![Connected organization example](./media/entitlement-management-organization/connected-organization-example.png)
 
- The authentication types for connected organizations are the following:
+How users from the Azure AD directory or domain will authenticate depends on the authentication type. The authentication types for connected organizations are the following:
 
 | Authentication type | Status |
 | --- | --- |
