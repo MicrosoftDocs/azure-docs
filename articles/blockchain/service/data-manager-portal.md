@@ -12,16 +12,17 @@ ms.reviewer: chroyal
 ---
 # Configure Blockchain Data Manager using the Azure portal
 
-Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data send it to an Azure Event Grid Topic.
+Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data and send it to an Azure Event Grid Topic.
 
 To configure a Blockchain Data Manager instance, you:
 
 * Create a Blockchain Data Manager instance for an Azure Blockchain Service transaction node
-* Add a blockchain application
+* Add your blockchain applications
 
 ## Prerequisites
 
 * Complete [Quickstart: Create a blockchain member using the Azure portal](create-member.md) or [Quickstart: Create an Azure Blockchain Service blockchain member using Azure CLI](create-member-cli.md)
+* Create an [Event Grid Topic](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic)
 * Learn about [Event handlers in Azure Event Grid](../../event-grid/event-handlers.md)
 
 ## Create instance
@@ -47,7 +48,7 @@ An outbound connection sends blockchain data to Azure Event Grid. You configure 
 
 1. Select **OK**.
 
-    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. When running, a Blockchain Manager instance captures blockchain events from the defined inputs and sends data to the outbound connections.
+    It takes less than a minute to create a Blockchain Data Manager instance. After the instance is deployed, it is automatically started. When running, a Blockchain Manager instance captures blockchain events from the defined inputs and sends data to the outbound connections. If you would like to also capture decoded event and property data from the transaction node, then create a blockchain application for the Blockchain Data Manager instance.
 
     The new instance appears in the list of Blockchain Data Manager instances for the Azure Blockchain Service member.
 
