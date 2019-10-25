@@ -75,7 +75,4 @@ At this point, your code should look like this:
 
 ## Next steps
 
-* How-tos
-* Samples
-* Reference
-
+[!INCLUDE [footer](./footer.md)]

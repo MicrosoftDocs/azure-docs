@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech stored in blob storage, Python - Speech Service"
+title: "Quickstart: Recognize speech, intents, and entities, C++ - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -13,4 +13,4 @@ ms.author: erhopf
 ---
 
 > [!div class="nextstepaction"]
-> [Explore Python samples on GitHub](https://aka.ms/speech/github-python)
+> [Explore C++ samples on GitHub](https://aka.ms/speech/github-cpp)

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Recognize speech from an audio file, C++ - Speech Service"
+title: "Quickstart: Recognize speech from a microphone - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
