@@ -42832,6 +42832,11 @@
       "source_path": "articles/industry/index.md",
       "redirect_url": "/azure/industry-marketing/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-live-logs.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-livedata-overview",
+      "redirect_document_id": false
     }
   ]
 }

@@ -43,7 +43,7 @@ provisioningState       : Succeeded
 
 If you would rather integrate with an existing workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `--workspace-resource-id` parameter, and then run the command to enable the monitoring add-on against the specified workspace.  
 
-1. List all the subscriptions which you have access using the following command:
+1. List all the subscriptions that you have access to using the following command:
 
     ```azurecli
     az account list --all -o table
@@ -367,4 +367,6 @@ After a few minutes, the command completes and returns JSON-formatted informatio
 
 * If you experience issues while attempting to onboard the solution, review the [troubleshooting guide](container-insights-troubleshoot.md)
 
-* With monitoring enabled to capture health metrics for both the AKS cluster nodes and pods, these health metrics are available in the Azure portal. To learn how to use Azure Monitor for containers, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+* With monitoring enabled to collect health and resource utilization of your AKS cluster and workloads running on them, learn [how to use](container-insights-analyze.md) Azure Monitor for containers.
+
+
