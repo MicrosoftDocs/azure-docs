@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/10/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 
@@ -83,7 +83,7 @@ Labeling, or marking, is the process of associating a word or phrase in an inten
 
 ## <a name="luis-app"></a>LUIS app
 
-A LUIS app is a collection of trained models for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](#utterance).
+A LUIS app is a collection of language models for natural language processing including [intents](#intent), [entities](#entity), and labeled [utterances](#utterance).
 
 ## <a name="owner"></a>Owner
 

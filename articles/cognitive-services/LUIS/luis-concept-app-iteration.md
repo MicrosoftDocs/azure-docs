@@ -9,12 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/25/2019
 ms.author: diberry 
 ---
 # Authoring cycles and versions
 
-Your LUIS app learns best in an iterative cycle of app schema changes, utterance examples, publishing, and gathering data from endpoint queries. Use a new version for each cycle. 
+Your LUIS app learns best in an iterative cycle of:
+
+* create new version
+* edit app schema
+    * intents with example utterances
+    * entities
+    * features
+* train
+* test
+* publish
+    * test at prediction endpoint for active learning
+* gather data from endpoint queries
 
 ![Authoring cycle](./media/luis-concept-app-iteration/iteration.png)
 
@@ -22,13 +33,38 @@ Your LUIS app learns best in an iterative cycle of app schema changes, utterance
 
 The app schema's purpose is to define what the user is asking for (the intention or intent) and what parts of the question provide details (entities) that help determine the answer. 
 
-The app schema needs to be specific to the app domain in order to determine words and phrases that are relevant as well as typical word ordering. 
+The app schema needs to be specific to the app domains in order to determine words and phrases that are relevant as well as typical word ordering. 
+
+Example utterances represent user input the app is expected to get at runtime. 
 
 The schema requires intents, and _should have_ entities. 
 
+### Example schema of intents
+
+The most common schema is an intent schema organized with intents. This type of schema depends on LUIS to determine a user's intention. 
+
+This schema type may have entities if it helps the LUIS determine the intention. For example, a shipping entity (as a descriptor to an intent) helps LUIS determine a shipping intention. 
+
+### Example schema of entities
+
+An entity schema focuses on the entities, which is the data to extract from the utterances. 
+
+The intention of the utterance is less or not important to the client application. 
+
+A common method of organizing an entity schema is to add all example utterances to the None intent. 
+
+### Example of a mixed schema
+
+The most powerful and mature schema is an intent schema with a full range of entities and features. This schema can begin as either an intent or entity schema and grow to include concepts of both, as the client application needs those pieces of information. 
+
 ## Add example utterances to intents
 
-LUIS needs example utterances in each **intent**. The example utterances need enough variation of word choice and word order to be able to determine which intent the utterance is meant for. Each example utterance needs to have any **required data to extract** designed and labeled with **entities**. 
+LUIS needs a few example utterances in each **intent**. The example utterances need enough variation of word choice and word order to be able to determine which intent the utterance is meant for. 
+
+> [!CAUTION]
+> Do not add example utterances in bulk. Start with 15 to 30 specific and varying examples. 
+
+Each example utterance needs to have any **required data to extract** designed and labeled with **entities**. 
 
 |Key element|Purpose|
 |--|--|
@@ -37,9 +73,13 @@ LUIS needs example utterances in each **intent**. The example utterances need en
 
 You design your LUIS app to ignore utterances that are not relevant to your app's domain by assigning the utterance to the **None** intent. 
 
-## Train and publish the app
+## Test and train your app
 
-Once you have 15 to 30 different example utterances in each intent, with the required entities labeled, you need to [train](luis-how-to-train.md) then [publish](luis-how-to-publish-app.md). Make sure you create and publish your app so that it is available in the [endpoint regions](luis-reference-regions.md) you need. 
+Once you have 15 to 30 different example utterances in each intent, with the required entities labeled, you need to test and [train](luis-how-to-train.md). 
+
+## Publish to a prediction endpoint
+
+Make sure you publish your app so that it is available in the [prediction endpoint regions](luis-reference-regions.md) you need. 
 
 ## Test your published app
 
@@ -76,12 +116,16 @@ In order to back up your LUIS app schema, export a version from the LUIS portal.
 
 ## Manage contributor changes with versions and apps
 
+LUIS provides the concept of contributors of an app, by providing Azure resource-level permissions. Combine this concept with versioning to provide targeted collaboration. 
+
+Use the following techniques to manage contributor changes to your app.
+
 ### Manage multiple versions inside the same app
 Begin by [cloning](luis-how-to-manage-versions.md#clone-a-version), from a base version, for each author. 
 
 Each author makes changes to their own version of the app. Once each author is satisfied with the model, export the new versions to JSON files.  
 
-Exported apps are JSON-formatted files, which can be compared for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app. 
+Exported apps, .json or .lu files, can be compared for changes. Combine the files to create a single file of the new version. Change the **versionId** property to signify the new merged version. Import that version into the original app. 
 
 This method allows you to have one active version, one stage version, and one published version. You can compare the results of the active version with a published version (stage or production) in the [interactive testing pane](luis-interactive-test.md).
 

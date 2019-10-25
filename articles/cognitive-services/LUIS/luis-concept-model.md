@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 
@@ -63,9 +63,14 @@ A machine-learned entity is a top-level entity containing subcomponents, which a
 * when the subcomponents are needed by the client application
 * to help the machine learning algorithm decompose entities
 
-Each subcomponent can have constraints and descriptors. 
+Each subcomponent can have:
 
-An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data.
+* subcomponents
+* constraints (regular expression entity or list entity)
+* descriptors (features such as a phrase list) 
+
+An example of a machine-learned entity is an order for a plane ticket. Conceptually this is a single transaction with many smaller units of data such as date, time, quantity of seats, type of seat such as first class or coach, origin location, destination location, and meal choice.
+
 
 ### Entity subcomponents help extract data
 
@@ -75,15 +80,17 @@ A subcomponent is a machine-learned child entity within a machine-learned parent
 
 * decompose the parts of the machine-learned entity (parent entity).
 
-Continuing the example of a plane ticket, there can be many pieces of data to extract, such as:
-* quantity of tickets
-* date of travel
-* preferred time of day to travel
-* preferred airports
-* origin location
-* destination location
-* preferred seating 
-* preferred meal 
+The following represents a machine-learned entity with all these separate pieces of data:
+
+*TravelOrder (machine-learned entity)
+    * DateTime (prebuilt datetimeV2)
+    * Location (machine-learned entity)
+        * Origin (role found through context such as `from`)
+        * Destination (role found through context such as `to`)
+    * Seating (machine-learned entity)
+        * Quantity (prebuilt number)
+        * Quality (machine-learned entity with descriptor of phrase list)
+    * Meals (machine-learned entity with constraint of list entity as food choices)
 
 Some of this data, such as the origin location and destination location, should be learned from the context of the utterance, perhaps with such wording as `from` and `to`. Other parts of data can be extracted with exact string matches (`Vegan`) or prebuilt entities (geographyV2 of `Seattle` and `Cairo`). 
 
@@ -144,6 +151,7 @@ A descriptor is a signal that enables you to explain some characteristics of the
 
 * boost the significance of words and phrases identified by the descriptor
 * have LUIS recommend new text or phrases to recommend for the descriptor
+* fix an error on the training data
 
 ## Next steps
 

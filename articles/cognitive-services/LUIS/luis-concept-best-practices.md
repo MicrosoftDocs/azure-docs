@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 # Best practices for building a language understanding app with Cognitive Services
@@ -67,9 +67,20 @@ Use prediction data from LUIS to determine if your intents are overlapping. Over
 
 Each authoring cycle should be within a new [version](luis-concept-version.md), cloned from an existing version. 
 
-## Do build for model decomposition
+## Do build for decomposition
 
-Start by identifying complete phrases you want to extract in an utterance. This is your machine-learned entity. Then decompose the phase into its parts. This includes adding more entities, along with descriptors and constraints. 
+Model decomposition has a typical process of:
+
+* create **Intent** based on client-app's user intentions
+* add 15-30 example utterances based on real-world user input
+* label top-level data concept in example utterance
+* break data concept into subcomponents
+* add descriptors (features) to subcomponents
+* add descriptors (features) to intent 
+
+Once you have create the intent and added example utterances, the following example describes entity decomposition. 
+
+Start by identifying complete data concepts you want to extract in an utterance. This is your machine-learned entity. Then decompose the phrase into its parts. This includes identifying subcomponents (as entities), along with descriptors and constraints. 
 
 For example if you want to extract an address, the top machine-learned entity could be called `Address`. While creating the address, identify some of its subcomponents such as street address, city, state, and postal code. 
 

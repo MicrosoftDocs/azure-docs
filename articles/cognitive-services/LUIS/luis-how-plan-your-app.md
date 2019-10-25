@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 
@@ -27,12 +27,16 @@ A LUIS app is centered around a domain-specific topic.  For example, you may hav
 
 ## Identify your intents
 
-Think about the [intents](luis-concept-intent.md) that are important to your application’s task. Let's take the example of a travel app, with functions to book a flight and check the weather at the user's destination. You can define the `BookFlight` and `GetWeather` intents for these actions. 
+Think about the [intents](luis-concept-intent.md) that are important to your application’s task. 
+
+Let's take the example of a travel app, with functions to book a flight and check the weather at the user's destination. You can define the `BookFlight` and `GetWeather` intents for these actions. 
 
 In a more complex app with more functions, you have more intents, and you should define them carefully so the intents aren't too specific. For example, `BookFlight` and `BookHotel` may need to be separate intents, but `BookInternationalFlight` and `BookDomesticFlight` may be too similar.
 
 > [!NOTE]
 > It is a best practice to use only as many intents as you need to perform the functions of your app. If you define too many intents, it becomes harder for LUIS to classify utterances correctly. If you define too few, they may be so general that they overlap.
+
+If you don't need to identify overall user intention, add all the example user utterances to the None intent. If your app grows into needing more intents, you can create them later. 
 
 ## Create example utterances for each intent
 

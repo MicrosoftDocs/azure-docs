@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 10/25/2019
 ms.author: diberry
 ---
 # Entities and their purpose in LUIS
@@ -25,9 +25,23 @@ Always begin with a machine-learned entity because that provides the widest rang
 
 ## Entity compared to intent
 
-The entity represents a word or phrase inside the utterance that you want extracted. An utterance can include many entities or none at all. A client application _may_ need the entity to perform its task. 
+The entity represents a data concept inside the utterance that you want extracted. 
 
-By comparison, the prediction of the intent for an utterance is _required_ and represents the entire utterance. 
+Consider the following 3 utterances:
+
+|Utterance|Data extracted|Explanation|
+|--|--|--|
+|`Help`|-|Nothing to extract.|
+|`Send Bob a present`|Bob, present|Bob is definitely important to completing the task. The present may be enough information or the bot may need to clarify what the present is with a follow-up question.|
+|`Send Bob a box of chocolates.`|The two important pieces of data, Bob and the box of chocolates, is important to completing the user's request.|
+
+An utterance can include many entities or none at all. A client application _may_ need the entity to perform its task. 
+
+By comparison, the prediction of the intent for an utterance is _required_ and represents the entire utterance. LUIS requires example utterances are contained in an intent. If the primary intention of the utterance isn't important to the client application, add all the utterances to the None intent. 
+
+If you find, later in the app lifecycle, you want to break out the utterances, you can easily do that. This can be to organize the utterances while you are authoring, or it can be to use the predicted intention in the client application. 
+
+There is no requirement to use the predicted intent in the client application, but it is returned as part of the prediction endpoint response.
 
 ## Entities represent data
 
@@ -79,7 +93,7 @@ Choose the entity based on how the data should be extracted and how it should be
 
 ### Entity role defines context
 
-An entity's role is the entity extraction based on context within the utterance. An example is an utterance for booking a flight that has two locations, origin and destination.
+An entity's role is the named alias based on context within the utterance. An example is an utterance for booking a flight that has two locations, origin and destination.
 
 `Book a flight from Seattle to Cairo`
 
@@ -87,7 +101,7 @@ The two examples of a `location` entity need to be extracted. The client-applica
 
 If LUIS finds the `location` but can't determine the role, the location entity is still returned. The client application would need to follow up with a question to determine which type of location the user meant. 
 
-Multiple entities can exist in an utterance and can be extracted without using roles. If the context of the sentence indicates which version of the entity has a value, then a role should be used.
+Multiple entities can exist in an utterance and can be extracted without using roles. If the context of the sentence indicates the entity value, then a role should be used.
 
 If the utterance includes a list of locations, `I want to travel to Seattle, Cairo, and London.`, this is a list where each item doesn't have an additional meaning. 
 
