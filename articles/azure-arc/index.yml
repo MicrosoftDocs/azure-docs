@@ -1,0 +1,26 @@
+### YamlMime:Landing
+title: Azure Arc
+
+metadata:
+  title: Azure Arc for Servers
+  description: Learn about how to manage on-premises machines in Azure
+  author: bobbytreed
+  manager: carmonm
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 10/01/2019
+  ms.author: robreed
+
+landingContent:
+  - title: Connect machines to Azure using Azure Arc for Servers
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Arc for Servers?
+            url: ./servers/overview.md
+      - linkListType: quickstart
+        links:
+          - text: Connect machines to Azure using Azure Arc for Servers - Portal
+            url: ./servers/quickstart-onboard-portal.md
+          - text: Connect machines to Azure using Azure Arc for Servers - PowerShell
+            url: ./servers/quickstart-onboard-portal.md
