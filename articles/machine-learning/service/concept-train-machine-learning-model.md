@@ -91,8 +91,10 @@ The designer lets you to train models using a drag and drop interface in your we
 + [What is the designer?](ui-concept-visual-interface.md)
 + [Tutorial : Predict automobile price](ui-tutorial-automobile-price-train-score.md)
 + [Regression: Predict price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-+ [Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-+ [Classification: Predict churn, appetency, and up-selling](how-to-ui-sample-classification-predict-churn.md)
++ [Classification: Predict income](how-to-ui-sample-classification-predict-income.md)
++ [Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
++ [Classification with custom R script: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
++ [Text Classification: Wikipedia SP 500 Dataset ](how-to-ui-sample-text-classification.md)
 
 ## CLI
 

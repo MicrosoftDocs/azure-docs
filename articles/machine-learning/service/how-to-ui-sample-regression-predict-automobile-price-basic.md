@@ -34,9 +34,8 @@ Here's the final, completed graph of the pipeline. This article provides the rat
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the Sample 1 pipeline:
+4. Click the sample 1 to open it。
 
-    ![Open the pipeline](media/how-to-ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## Get the data
 
@@ -81,8 +80,8 @@ Pass the scores to the **Evaluate Model** module to generate evaluation metrics.
 Explore the other samples available for the designer:
 
 - [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-ui-sample-classification-predict-income.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
-- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-ui-sample-text-classification.md)

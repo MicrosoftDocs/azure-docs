@@ -15,7 +15,7 @@ ms.date: 05/10/2019
 # Sample 2 - Regression: Predict price and compare algorithms
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a complex machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
+Learn how to build a  machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
 
 If you're just getting started with machine learning, take a look at the [basic version](how-to-ui-sample-regression-predict-automobile-price-basic.md) of this pipeline.
 
@@ -27,9 +27,7 @@ Here's the completed graph for this pipeline:
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the Sample 2 pipeline:
-
-    ![Open the pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
+4. Click sample 2 to open it. 
 
 ## Pipeline summary
 
@@ -68,10 +66,7 @@ You use two different sets of randomly chosen data to train and then test the mo
 
 After the model is trained, use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models. **Score Model** generates predictions for the test dataset by using the trained model. Then pass the scores to **Evaluate Model** to generate evaluation metrics.
 
-In this pipeline, you use two instances of **Evaluate Model** to compare two pairs of models.
 
-First, compare two algorithms on the training dataset.
-Second, compare two algorithms on the testing dataset.
 
 Here are the results:
 
@@ -90,8 +85,8 @@ Both algorithms have a lower error on the training dataset than on the unseen te
 Explore the other samples available for the designer:
 
 - [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Sample 3 - Classification: Predict credit risk](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-ui-sample-classification-predict-income.md)
 - [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
 - [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
-- [Sample 7 - Text Classification: Books reviews](how-to-ui-sample-text-classification.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-ui-sample-text-classification.md)

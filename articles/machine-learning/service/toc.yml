@@ -166,9 +166,9 @@
       - name: "Predict price (advanced)"
         displayName: regression, studio
         href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
-      - name: "Predict credit risk"
+      - name: "Predict income"
         displayName: classification, studio
-        href:  how-to-ui-sample-classification-predict-credit-risk-basic.md
+        href:  how-to-ui-sample-classification-predict-income.md
       - name: "Predict credit risk (advanced)"
         displayName: classification, studio
         href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
