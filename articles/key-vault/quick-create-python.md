@@ -1,19 +1,19 @@
 ---
-title: Quickstart -  Azure Key Vault client library for .NET
+title: Quickstart -  Azure Key Vault client library for Python
 description: Provides format and content criteria for writing Quickstarts for Azure SDK client libraries.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 05/20/2019
+ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
 
 ---
 
-# Quickstart: Azure Key Vault client library for .NET
+# Quickstart: Azure Key Vault client library for Python
 
-Get started with the Azure Key Vault client library for .NET. Follow the steps below to install the package and try out example code for basic tasks.
+Get started with the Azure Key Vault client library for Python. Follow the steps below to install the package and try out example code for basic tasks.
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for .NET to:
+Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for Python to:
 
 - Increase security and control over keys and passwords.
 - Create and import encryption keys in minutes.
@@ -21,55 +21,30 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 - Simplify and automate tasks for SSL/TLS certificates.
 - Use FIPS 140-2 Level 2 validated HSMs.
 
-[API reference documentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+[API reference documentation](/python/api/overview/azure/key-vault?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [Package (Python Package Index)](https://pypi.org/project/azure-keyvault/)
 
 ## Prerequisites
 
-* An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* The [.NET Core 2.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/2.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
+- An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Python 2.7, 3.5.3, or later
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
 
-This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), and Windows commands in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com/)).
+This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) in a Linux terminal window.
 
 ## Setting up
 
-### Create new .NET console app
-
-Create a new .NET Core application in your preferred editor or IDE.
-
-In a console window, use the `dotnet new` command to create a new console app with the name `akv-dotnet`.
-
-
-```console
-dotnet new console -n key-vault-console-app
-```
-
-Change your directory to the newly created app folder. You can build the application with:
-
-```console
-dotnet build
-```
-
-The build output should contain no warnings or errors.
-
-```console
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-```
-
 ### Install the package
 
-From the console window, install the Azure Key Vault client library for .NET:
+From the console window, install the Azure Key Vault secrets library for Python.
 
 ```console
-dotnet add package Azure.Security.KeyVault.Keys --version 4.0.0-preview.5
+pip install azure-keyvault-secrets
 ```
 
-For this quickstart, you will need to install the following packages as well:
+For this quickstart, you will need to install the azure.identity package as well:
 
 ```console
-dotnet add package Azure.Identity --version 1.0.0-preview.5
+pip install azure.identity
 ```
 
 ### Create a resource group and key vault
@@ -112,7 +87,7 @@ This operation will return a series of key / value pairs.
 }
 ```
 
-Take note of the clientId, clientSecret, and tenantId, as we will use them in the following steps.
+Take note of the clientId and clientSecret, as we will use them in the [Authenticate to your key vault](#authenticate-to-your-key-vault) step below.
 
 #### Give the service principal access to your key vault
 
@@ -124,25 +99,23 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 #### Set environmental variables
 
-The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. use set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step, above.
+The DefaultAzureCredential method in our application relies on three environmental variables: `AZURE_CLIENT_ID`, `AZURE_CLIENT_SECRET`, and `AZURE_TENANT_ID`. use set these variables to the clientId, clientSecret, and tenantId values you noted in the [Create a service principal](#create-a-service-principal) step, above. Use the `export VARNAME=VALUE` format top set your environmental variables. (Note that this only sets the variables for your current shell and processes created from theatg shell; to perminently add these variables to your environment, edit your `/etc/) 
 
-You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`;
+You will also need to save your key vault name as an environment variable called `KEY_VAULT_NAME`.
 
 ```console
-setx AZURE_CLIENT_ID <your-clientID>
+export AZURE_CLIENT_ID=<your-clientID>
 
-setx AZURE_CLIENT_SECRET <your-clientSecret>
+export AZURE_CLIENT_SECRET=<your-clientSecret>
 
-setx AZURE_TENANT_ID <your-tenantId>
+export AZURE_TENANT_ID=<your-tenantId>
 
-setx KEY_VAULT_NAME <your-key-vault-name>
+export KEY_VAULT_NAME=<your-key-vault-name>
 ````
-
-Each time you call `setx`, you should get a response of "SUCCESS: Specified value was saved."
 
 ## Object model
 
-The Azure Key Vault client library for .NET allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
+The Azure Key Vault client library for Python allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to create a client, set a secret, retrieve a secret, and delete a secret.
 
 The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
 
@@ -152,19 +125,29 @@ The entire console app is available at https://github.com/Azure-Samples/key-vaul
 
 Add the following directives to the top of your code:
 
-[!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=directives)]
+```python
+import os
+from azure.keyvault.secrets import SecretClient
+from azure.identity import DefaultAzureCredential
+```
 
 ### Authenticate and create a client
 
 Authenticating to your key vault and creating a key vault client depends on the environmental variables in the [Set environmental variables](#set-environmental-variables) step above. The name of your key vault is expanded to the key vault URI, in the format "https://<your-key-vault-name>.vault.azure.net".
 
-[!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
+```python
+credential = DefaultAzureCredential()
+
+client = SecretClient(vault_endpoint=KVUri, credential=credential)
+```
 
 ### Save a secret
 
 Now that your application is authenticated, you can put a secret into your keyvault using the [client.SetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.setsecretasync) This requires a name for the secret -- we're using "mySecret" in this sample.  
 
-[!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=setsecret)]
+```python
+client.set_secret(secretName, secretValue);
+```
 
 You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
 
@@ -176,15 +159,19 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 You can now retrieve the previously set value with the [client.GetSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
 
-[!code-csharp[Get secret](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=getsecret)]
+```python
+retrieved_secret = client.get_secret(secretName)
+ ```
 
-Your secret is now saved as `secret.Value`.
+Your secret is now saved as `retrieved_secret.value`.
 
 ### Delete a secret
 
 Finally, let's delete the secret from your key vault with the [client.DeleteSecret method](/dotnet/api/microsoft.azure.keyvault.keyvaultclientextensions.getsecretasync).
 
-[!code-csharp[Delete secret](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=deletesecret)]
+```python
+client.delete_secret(secretName);
+```
 
 You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
 
@@ -210,7 +197,6 @@ In this quickstart you created a key vault, stored a secret, and retrieved that 
 
 To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 
-- Implement [Service-to-service authentication to Azure Key Vault using .NET](service-to-service-authentication.md)
 - Read an [Overview of Azure Key Vault](key-vault-overview.md)
 - See the [Azure Key Vault developer's guide](key-vault-developers-guide.md)
 - Learn about [keys, secrets, and certificates](about-keys-secrets-and-certificates.md)
