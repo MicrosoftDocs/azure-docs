@@ -186,29 +186,29 @@ Sample Json input
   1.	Sign into **Azure** portal and login to the desired subscription and AD tenant
   2.	Launch **Cloud Shell** from the top navigation of the **Azure** portal.
 
-    ![Project Farm Beats](./media/deploy-with-in-cloudshell/navigation-bar.png)
+    ![Project Farm Beats](./media/deploy-within-cloudshell/navigation-bar.png)
 
   3.	Select a subscription to create a storage account and Microsoft Azure Files share.
   4.	Select **Create storage**.
   5.	Select the environment drop-down from the left-hand side of shell window, which says **Bash**.
 
-      ![Project Farm Beats](./media/deploy-with-in-cloudshell/bash-1.png)
+      ![Project Farm Beats](./media/deploy-within-cloudshell/bash-1.png)
 
 #### Deployment scenario 1- Installer creates the AAD (you have AD tenant read permissions)  
 
     Download the input json file from this link: https://aka.ms/PPInputJsonTemplate:
 
-    ![Project Farm Beats](./media/deploy-with-in-cloudshell/deploy-scenario-1.png)
+    ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-scenario-1.png)
 
     1. Open the downloaded file in a notepad and pPopulate the file by entering the values. Note: You can skip this step and the inputs will prompt at run-time.
     2. Save the file and make a note of the path (on your local computer).  
     3. Go to Azure CloudShell and once again you are successfully authenticated, click the upload button (see highlighted icon in below snip) and upload the input.json file to Cloudshell storage. You need not pass the Azure Active Directory (AAD) parameter within the json as installer will be creating and configuring the AAD app registration for you.
 
-      ![Project Farm Beats](./media/deploy-with-in-cloudshell/bash-2.png)
+      ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2.png)
 
     4. Type or paste the “Deployment Command” into the CloudShell. Make sure to modify the path to input. Json file and press enter.  
 
-      ![Project Farm Beats](./media/deploy-with-in-cloudshell/deploy-screnario-1-1.png)
+      ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-screnario-1-1.png)
 
       The script automatically downloads all dependencies, builds the deployer.
       Then you will be prompted to agree to Azure FarmBeats End-user license agreement (ELUA)
@@ -235,16 +235,16 @@ Sample Json input
 1.	Download input json from here: https://aka.ms/PPInputJsonTemplate
     Include the Azure Application Client ID and password within the input.json, save it.
 
-    ![Project Farm Beats](./media/deploy-with-in-cloudshell/deploy-scenario-2.png)
+    ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-scenario-2.png)
 
 2.	Make note of the path to your input.json file (on your local computer).
 3.	Go to Azure CloudShell once again and once you are successfully authenticated, click the upload button (see highlighted icon in below snip) and upload the input.json file to     CloudShell  storage.
 
-  ![Project Farm Beats](./media/deploy-with-in-cloudshell/bash-2.png)
+  ![Project Farm Beats](./media/deploy-within-cloudshell/bash-2.png)
 
 4.	Type or paste the *Deployment Command* into the CloudShell. Make sure to modify the path to input. Json file and press enter.
 
-  ![Project Farm Beats](./media/deploy-with-in-cloudshell/deploy-screnario-1-1.png)
+  ![Project Farm Beats](./media/deploy-within-cloudshell/deploy-screnario-1-1.png)
 
 5.	The script automatically downloads all dependencies, builds the deployer.
 6.	You will be prompted to agree to the Azure FarmBeats End-user license agreement (EULA).
@@ -360,7 +360,7 @@ Once the Datahub installation is complete, you will receive the URL to access Fa
 
 ### Accelerator
 
-Once the Accelerator installation is complete you will receive the URL to access FarmBeats User-Interface in the format: <*https://<**accelerator-website-name**>.azurewebsites.net/*>
+Once the Accelerator installation is complete you will receive the URL to access FarmBeats User-Interface in the format: *<https://<accelerator-website-name>.azurewebsites.net/>*
 1. To login via accelerator, copy and paste the URL in the browser.
 2. Login with Azure portal credentials
 3. Sanity test (Optional):
@@ -421,84 +421,84 @@ Click the Get/ RoleAssignment for role assignments >> Click Try it out >> Click 
 
 ## Enable Partner (Sensor/Imagery) Integration
 
-To enable partner integration for Sensor or Imagery data, you need to provide your partner with the following values/credentials from your FarmBeats instance:
-1. API Endpoint (Your datahub url)
-2. Tenant ID
-3. Client ID
-4. Client Secret
-5. EventHub Connection String (applicable only for Sensor partner)
+  To enable partner integration for Sensor or Imagery data, you need to provide your partner with the following values/credentials from your FarmBeats instance:
+    1. API Endpoint (Your datahub url)
+    2. Tenant ID
+    3. Client ID
+    4. Client Secret
+    5. EventHub Connection String (applicable only for Sensor partner)
 
-Please follow the following steps to generate the above values.
+    Please follow the following steps to generate the above values.
 
-1.	Download **this script** and extract it in on your local drive. You will find two files inside this zip.
-2.	Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top right bar of the portal)
+    1.	Download **this script** and extract it in on your local drive. You will find two files inside this zip.
+    2.	Sign in to https://portal.azure.com/ and open Cloud Shell (This option is available on the top right bar of the portal)
 
-  ![Project Farm Beats](./media/prepare-for-deployment/navigation-bar.png)
+      ![Project Farm Beats](./media/prepare-for-deployment/navigation-bar.png)
 
-3.	Ensure the environment is set to “Power Shell” - Sometimes by default it is set to Bash.
-4.	Upload the 2 files (from step 1 above) in your Cloud Shell.
-5.	Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory - /home<username>)
-6.	Run the script by writing the following command:
-  ./generateCredentials.ps1
-7.	Follow the onscreen instructions.
+    3.	Ensure the environment is set to “Power Shell” - Sometimes by default it is set to Bash.
+    4.	Upload the 2 files (from step 1 above) in your Cloud Shell.
+    5.	Go to the directory where the files were uploaded (Usually it gets uploaded to the home directory - /home<username>)
+    6.	Run the script by writing the following command:
+      ./generateCredentials.ps1
+    7.	Follow the onscreen instructions.
 
 
 ## Upgrade
 
-The steps for upgrade are similar to the first-time installation as the following:
+  The steps for upgrade are similar to the first-time installation as the following:
 
-1.	Sign in on Azure portal and login to your desired subscription and AD tenant
-2.	Launch Cloud Shell from the top navigation of the Azure portal.
+  1.	Sign in on Azure portal and login to your desired subscription and AD tenant
+  2.	Launch Cloud Shell from the top navigation of the Azure portal.
 
-  ![Project Farm Beats](./media/deploy-with-in-cloudshell/navigation-bar.png)
+    ![Project Farm Beats](./media/deploy-within-cloudshell/navigation-bar.png)
 
-3.	Select a subscription to create a storage account and Microsoft Azure Files share.
-4.	Select **Create storage**.
-5.	Select the environment drop-down from the left-hand side of shell, which says Bash.
+  3.	Select a subscription to create a storage account and Microsoft Azure Files share.
+  4.	Select **Create storage**.
+  5.	Select the environment drop-down from the left-hand side of shell, which says Bash.
 
-  ![Project Farm Beats](./media/deploy-with-in-cloudshell/bash-1.png)
+    ![Project Farm Beats](./media/deploy-within-cloudshell/bash-1.png)
 
-6.	Make changes to your input.json file only if needed and upload to the Azure CloudShell. For example- you can update your notification email address if required.
-7. Make note of the path to your input.json file (on your local computer).
-8.	Go to Azure CloudShell once again and once you are successfully authenticated, click the upload button (see highlighted icon in below snip) and upload the input.json file to CloudShell storage.
+  6.	Make changes to your input.json file only if needed and upload to the Azure CloudShell. For example- you can update your notification email address if required.
+  7. Make note of the path to your input.json file (on your local computer).
+  8.	Go to Azure CloudShell once again and once you are successfully authenticated, click the upload button (see highlighted icon in below snip) and upload the input.json file to CloudShell storage.
 
-	![Project Farm Beats](./media/prepare-for-deployment/bash-2.png)
+  	![Project Farm Beats](./media/prepare-for-deployment/bash-2.png)
 
-9.	Type or paste the “Deployment Command” into the Cloudshell. Make sure to modify the path to input. json file and press enter.
+  9.	Type or paste the “Deployment Command” into the Cloudshell. Make sure to modify the path to input. json file and press enter.
+
+    > [!NOTE]
+    > wget -N -O farmbeats-installer.sh https://aka.ms/FB_1.2.0 && bash farmbeats-installer.sh /home/dummyuser/input.json
+
+  10.	The Installer will automatically prompt the required inputs on run-time:
+     - Enter an access token for deployment. Copy the code generated and login to https://microsoft.com/devicelogin with your Azure credentials.
+  (Important: This code will expire in the next 60 minutes. If so, you can restart by typing the “Deployment command” again.)
+    - Sentinel password.
+  11.	The installer will now validate and start creating the resources which can take about ~20 minutes.
+  12.	Once the deployment goes through successfully you will receive the below output links:
+    - Datahub URL: Swagger link to try FarmBeats APIs.
+    - Accelerator URL: User Interface to explore FarmBeats Smart Farm Accelerator.
+    - Deployer log file:  saves logs during deployment and can be used for troubleshooting.
 
   > [!NOTE]
-  > wget -N -O farmbeats-installer.sh https://aka.ms/FB_1.2.0 && bash farmbeats-installer.sh /home/dummyuser/input.json
-
-10.	The Installer will automatically prompt the required inputs on run-time:
-   - Enter an access token for deployment. Copy the code generated and login to https://microsoft.com/devicelogin with your Azure credentials.
-(Important: This code will expire in the next 60 minutes. If so, you can restart by typing the “Deployment command” again.)
-  - Sentinel password.
-11.	The installer will now validate and start creating the resources which can take about ~20 minutes.
-12.	Once the deployment goes through successfully you will receive the below output links:
-  - Datahub URL: Swagger link to try FarmBeats APIs.
-  - Accelerator URL: User Interface to explore FarmBeats Smart Farm Accelerator.
-  - Deployer log file:  saves logs during deployment and can be used for troubleshooting.
-
-> [!NOTE]
-> Please make note of these and do keep the deployment log file path handy for later use.
+  > Please make note of these and do keep the deployment log file path handy for later use.
 
 ## Uninstall
 
-Currently we do not support automated uninstallation of FarmBeats via installer. To remove single or both components of FarmBeats that is Datahub Accelerator, you are required to visit Azure portal and delete the pertinent Resource groups and/or resources manually. Follow the steps to uninstall
+  Currently we do not support automated uninstallation of FarmBeats via installer. To remove single or both components of FarmBeats that is Datahub Accelerator, you are required to visit Azure portal and delete the pertinent Resource groups and/or resources manually. Follow the steps to uninstall
 
-If you have deployed Datahub and Accelerator in two independent resource groups, follow the steps for uninstallation:
+  If you have deployed Datahub and Accelerator in two independent resource groups, follow the steps for uninstallation:
 
-1.	Sign into the Azure Portal.
-2.	Select your account in the top-right corner, and switch to the desired Azure AD tenant where you want to deploy Microsoft FarmBeats.
+  1.	Sign into the Azure Portal.
+  2.	Select your account in the top-right corner, and switch to the desired Azure AD tenant where you want to deploy Microsoft FarmBeats.
 
-> [!NOTE]
->As Datahub is the fundamental layer of FarmBeats which is required for Accelerator to operate properly, deleting Datahub alone will make Accelerator dis-functional and you will not be able to use the Accelerator alone any longer. Hence if you would like to continue using FarmBeats you are recommended to only uninstall Accelerator resource group.
+  > [!NOTE]
+  >As Datahub is the fundamental layer of FarmBeats which is required for Accelerator to operate properly, deleting Datahub alone will make Accelerator dis-functional and you will not be able to use the Accelerator alone any longer. Hence if you would like to continue using FarmBeats you are recommended to only uninstall Accelerator resource group.
 
-3.	On the left blade, click to the Resource groups option and now type in the name of your desired Datahub/Accelerator resource group, which you would like to remove.
-4.	Click the resource group name and this will open another blade containing the option of Delete resource group. Since deletion is a two-step process on Azure to prevent any mistakes, you will be required to type the name of the resource group again for certainty.
-5.	Click Delete to remove the resource group and all the underlying resources all at once.
-6.	Alternatively, you can delete each resource manually, which can be cumbersome, and we strongly advise against it.
-7.	Similarly, to delete/uninstall Datahub you can go to the Resource group directly on Azure and delete the resource group from there.
+  3.	On the left blade, click to the Resource groups option and now type in the name of your desired Datahub/Accelerator resource group, which you would like to remove.
+  4.	Click the resource group name and this will open another blade containing the option of Delete resource group. Since deletion is a two-step process on Azure to prevent any mistakes, you will be required to type the name of the resource group again for certainty.
+  5.	Click Delete to remove the resource group and all the underlying resources all at once.
+  6.	Alternatively, you can delete each resource manually, which can be cumbersome, and we strongly advise against it.
+  7.	Similarly, to delete/uninstall Datahub you can go to the Resource group directly on Azure and delete the resource group from there.
 
 
 ## Next steps

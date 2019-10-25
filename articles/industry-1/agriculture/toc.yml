@@ -17,10 +17,8 @@
   items:
    - name: Deploy FarmBeats
      href: prepare-for-deployment.md
-   - name: Manage Users
-     href: managing-users.md
    - name: Manage Farms
-     href: managing-farms.md
+     href: manage-farms.md
    - name: Get Sensor Data
      href: get-sensor-data-from-sensor-partner.md
    - name: Generate Maps
