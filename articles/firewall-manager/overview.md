@@ -48,6 +48,17 @@ For more information about trusted security providers, see [What are Azure Firew
 
 Easily route traffic to your secured hub for filtering and logging without the need to manually set up User Defined Routes (UDR) on spoke virtual networks. You can use third-party providers for Branch to Internet (B2I) traffic filtering, side by side with Azure Firewall for Branch to VNet (B2V), VNet to VNet (V2V) and VNet to Internet (V2I). You can also use third-party providers for V2I traffic filtering as long as Azure Firewall is not required for B2V or V2V. 
 
+## Region availability
+
+The following regions are supported for the public preview:
+
+- West Europe, North Europe, France Central, France South, UK South, UK West
+- Australia East, Australia Central, Australia Central 2, Australia Southeast
+- Canada Central
+- East US, West US, East US 2, South Central US, West US 2, Central US, North Central US, West Central US
+
+Azure Firewall Policies can only be created in these regions, but they can be used across regions. For example, you can you create a policy in West US, and use it in East US. 
+
 ## Known issues
 
 Azure Firewall Manager Preview has the following known issues:
