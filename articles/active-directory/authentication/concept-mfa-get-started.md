@@ -1,6 +1,6 @@
 ---
-title: Choose the right Multi-Factor Authentication option for your organization - Azure Active Directory
-description: Get started with Azure Multi-Factor Authentication
+title:Enable Multi-Factor Authentication for your organization - Azure Active Directory
+description: Enable Azure MFA for your organization based on your license
 
 services: multi-factor-authentication
 ms.service: active-directory
@@ -15,15 +15,13 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Choose the right Multi-Factor Authentication option for your organization
+# Enable Multi-Factor Authentication for your organization
 
 There are multiple ways to enable Azure Multi-Factor Authentication (MFA) for your Azure Active Directory (AD) users based on the licenses that your organization owns. 
 
 ![Investigate signals and enforce MFA if needed](./media/concept-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
-As Alex Weinert, the Directory of Identity Security at Microsoft, mentions in his blog post [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984):
-
-> Your password doesn’t matter, but MFA does! Based on our studies, your account is more than 99.9% less likely to be compromised if you use MFA.
+Based on our studies, your account is more than 99.9% less likely to be compromised if you use MFA.
 
 So how does your organization turn on multi-factor authentication even for free, before becoming a statistic?
 
@@ -40,7 +38,7 @@ For customers with Office 365, there are two options:
 
 ## Azure AD Premium P1
 
-For customers with Azure AD Premium P1 or similar licenses that include this functionality such as Enterprise Mobility + Security E3 or Microsoft 365 E3: 
+For customers with Azure AD Premium P1 or similar licenses that include this functionality such as Enterprise Mobility + Security E3, Microsoft 365 F1, or Microsoft 365 E3: 
 
 The recommendation is to use [Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md) for the best user experience.
 
