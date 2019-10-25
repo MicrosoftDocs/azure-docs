@@ -21,10 +21,10 @@ The Text Analytics API is updated on an ongoing basis. To stay up-to-date with r
 The next version of Named Entity Recognition(NER) is now available for public preview, and provides expanded detection and categorization of entities found in text. It provides:
 
 * Recognition of the following new entity types:
-    * Phone Number
-    * IP Address
+    * Phone number
+    * IP address
 
-* A new endpoint for recognizing Personal information entity types (English only)
+* A new endpoint for recognizing personal information entity types (English only)
 * Separate endpoints for entity recognition and entity linking.
 
 Entity linking supports English and Spanish. NER language support varies by the entity type. For more information, see the link below. 
