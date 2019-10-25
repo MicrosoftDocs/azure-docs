@@ -12,7 +12,7 @@ ms.author: dapine
 
 ### Speech-to-text or Custom Speech-to-text
 
-The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](../index.yml). By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method.
+The container provides websocket-based query endpoint APIs, that are accessed through the [Speech SDK](../index.md). By default, the Speech SDK uses online speech services. To use the container, you need to change the initialization method.
 
 > [!TIP]
 > When using the Speech SDK with containers, you do not need to provide the Azure Speech resource [subscription key or an authentication bearer token](../rest-speech-to-text.md#authentication).
