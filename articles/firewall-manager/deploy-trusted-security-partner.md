@@ -17,7 +17,22 @@ ms.author: victorh
 
 To learn more about supported scenarios and best practice guidelines, see [What are trusted security partners (preview)?](trusted-security-partners.md).
 
-The supported security partners are ZScaler and iboss for this preview.
+The supported security partners are **ZScaler** and **iboss** for this preview.
+
+## Prerequisites
+
+> [!IMPORTANT]
+> Azure Firewall Manager Preview must be explicitly enabled using the `Register-AzProviderFeature` PowerShell command.
+
+From a PowerShell command prompt, run the following commands:
+
+```azure-powershell
+connect-azaccount
+Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
+```
+It takes up to 30 minutes for the feature registration to complete. Run the following command to check your registration status:
+
+`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
 
 ## Deploy a third-party security provider in a new hub
 
@@ -62,13 +77,13 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
    [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)
 
    > [!NOTE]
-   > You can limit access to only your resource group for more granular control. You can also change it.
+   > You can limit access to only your resource group for more granular control.
 3. Follow the instructions in the following link.
 
    - To sign in to the partner portal and add your credentials to give the trusted partner access to your secured hub.
    - Once your Azure AD authentication credentials are validated, use the following instructions to sync the virtual hubs in the partner portal, and set up the tunnel to the virtual hub.
 
-   [Configuring a Microsoft Azure Virtual WAN Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)
+   [ZScaler: Configuring a Microsoft Azure Virtual WAN Integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration)
 4. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
 
 ## Configure route settings
