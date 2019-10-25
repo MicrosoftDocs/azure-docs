@@ -111,6 +111,9 @@ The sample supports sign-up, sign-in, profile editing, and password reset. This 
 
 ### Sign up using an email address
 
+> [!WARNING]
+> After sign-up or sign-in, you might see an [insufficient permissions error](#error-insufficient-permissions). Due to the code sample's current implementation, this error is expected. This issue will be resolved in a future version of the code sample, at which time this warning will be removed.
+
 1. Select **Login** to initiate the *B2C_1_signupsignin1* user flow you specified in an earlier step.
 1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't yet have an account, select the **Sign up now** link.
 1. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
@@ -127,7 +130,7 @@ You can now use your email address and password to sign in to the application.
 
 ### Error: insufficient permissions
 
-After you sign in, the app displays an insufficient permissions error - this is **expected**:
+After you sign in, the application may return an insufficient permissions error:
 
 ```Output
 ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
@@ -135,7 +138,7 @@ Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
 Timestamp: 2019-07-20 22:17:27Z
 ```
 
-You receive this error because the web application is attempting to access a web API protected by the demo directory, *fabrikamb2c*. Because your access token is valid only for your Azure AD directory, the API call is therefore unauthorized.
+You receive this error because the web application is attempting to access a web API protected by the demo directory, *fabrikamb2c*. Because your access token is valid only for your Azure AD directory, the API call is unauthorized.
 
 To fix this error, continue on to the next tutorial in the series (see [Next steps](#next-steps)) to create a protected web API for your directory.
 
