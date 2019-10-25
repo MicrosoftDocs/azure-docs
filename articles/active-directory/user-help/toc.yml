@@ -61,10 +61,10 @@
   - name: Manage your security info
     href: user-help-security-info-overview.md
   - name: Manage your connected devices
-    href: my-account-portal-devices-page.md    
-  - name: Manage your organizations
+    href: my-account-portal-devices-page.md
     href: my-account-portal-organizations-page.md
-  - name: Change your password
+  - name: Change your password      
+  - name: Manage your organizations
     href: my-account-change-password-page.md
   - name: View your privacy-related info
     href: my-account-portal-privacy-page.md
