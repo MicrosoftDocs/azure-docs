@@ -19,7 +19,7 @@ Recommendations on choosing the ideal number of data warehouse units (DWUs, cDWU
 
 ## What are Data Warehouse Units
 
-Azure Synapse Analytics CPU, memory, and IO are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
+SQL pool represents a collection of analytic resources that are being provisioned when using SQL Analytics. Analytic resources are defined as a combination of CPU, memory and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
 
 For higher performance, you can increase the number of data warehouse units. For less performance, reduce data warehouse units. Storage and compute costs are billed separately, so changing data warehouse units does not affect storage costs.
 
@@ -37,11 +37,11 @@ Increasing DWUs:
 
 ## Service Level Objective
 
-The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 service levels are measured in DWUs, for example DW2000.
+The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 SQL pool are measured in compute data warehouse units (cDWU), for example DW2000c. Gen1 SQL pool service levels are measured in DWUs, for example DW2000.
   > [!NOTE]
-  > Synapse SQL pool (data warehouse) Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing Synapse SQL pools currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
+  > Gen 2 SQL pool recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing SQL pools currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
-In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your Synapse SQL pool.
+In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your SQL pool.
 
 ```sql
 --Gen1
@@ -63,10 +63,10 @@ CREATE DATABASE myComputeSQLDW
 
 Each performance tier uses a slightly different unit of measure for their data warehouse units. This difference is reflected on the invoice as the unit of scale directly translates to billing.
 
-- Gen1 Synapse SQL pools are measured in Data Warehouse Units (DWUs).
-- Gen2 Synapse SQL pools are measured in compute Data Warehouse Units (cDWUs).
+- Gen1 SQL pools are measured in Data Warehouse Units (DWUs).
+- Gen2 SQL pools are measured in compute Data Warehouse Units (cDWUs).
 
-Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the Synapse SQL pool. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
+Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the SQL pool. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
 As you increase data warehouse units, you are linearly increasing computing resources. Gen2 provides the best query performance and highest scale. Gen2 systems also make the most use of the cache.
 
@@ -84,7 +84,7 @@ Steps for finding the best DWU for your workload:
 2. Monitor your application performance as you test data loads into the system, observing the number of DWUs selected compared to the performance you observe.
 3. Identify any additional requirements for periodic periods of peak activity. Workloads that show significant peaks and troughs in activity may need to be scaled frequently.
 
-Synapse SQL pool is a scale-out system that can provision vast amounts of compute and query sizeable quantities of data. To see its true capabilities for scaling, especially at larger DWUs, we recommend scaling the data set as you scale to ensure that you have enough data to feed the CPUs. For scale testing, we recommend using at least 1 TB.
+SQL pool is a scale-out system that can provision vast amounts of compute and query sizeable quantities of data. To see its true capabilities for scaling, especially at larger DWUs, we recommend scaling the data set as you scale to ensure that you have enough data to feed the CPUs. For scale testing, we recommend using at least 1 TB.
 
 > [!NOTE]
 >
@@ -119,7 +119,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 To change DWUs or cDWUs:
 
-1. Open the [Azure portal](https://portal.azure.com), open your Synapse SQL pool, and click **Scale**.
+1. Open the [Azure portal](https://portal.azure.com), open your database, and click **Scale**.
 
 2. Under **Scale**, move the slider left or right to change the DWU setting.
 
@@ -135,7 +135,7 @@ To change the DWUs or cDWUs, use the [Set-AzSqlDatabase](/powershell/module/az.s
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
 ```
 
-For more information, see [PowerShell cmdlets for Synapse SQL pool](sql-data-warehouse-reference-powershell-cmdlets.md)
+For more information, see [PowerShell cmdlets for SQL Data Warehouse](sql-data-warehouse-reference-powershell-cmdlets.md)
 
 ### T-SQL
 
@@ -167,7 +167,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-For more REST API examples, see [REST APIs for Synapse SQL pool](sql-data-warehouse-manage-compute-rest-api.md).
+For more REST API examples, see [REST APIs for SQL Data Warehouse](sql-data-warehouse-manage-compute-rest-api.md).
 
 ## Check status of DWU changes
 
@@ -199,7 +199,7 @@ To check the status of DWU changes:
     ;
     ```
     
-This DMV returns information about various management operations on your Synapse SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
+This DMV returns information about various management operations on your SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
 
 ## The scaling workflow
 
