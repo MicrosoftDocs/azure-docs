@@ -77,7 +77,7 @@ The preview also has the following restrictions:
     ```powershell
     $keyVault = New-AzKeyVault -Name myKeyVaultName ` 
     -ResourceGroupName myRGName ` 
-    -Location centraluseuap ` 
+    -Location westcentralus ` 
     -EnableSoftDelete ` 
     -EnablePurgeProtection 
      
@@ -126,7 +126,7 @@ New-AzResourceGroupDeployment -ResourceGroupName CMKTesting `
   -adminPassword $password `
   -vmSize "Standard_DS3_V2" `
   -diskEncryptionSetId "/subscriptions/mySubscriptionId/resourceGroups/myRGName/providers/Microsoft.Compute/diskEncryptionSets/myDiskEncryptionSet1" `
-  -region "CentralUSEUAP" 
+  -region "westcentralus" 
 ```
 
 ### Create an empty disk encrypted using server-side encryption with customer-managed keys and attach it to a VM
@@ -138,7 +138,7 @@ $diskName = "yourDiskName"
 $diskSKU = "Premium_LRS"
 $diskSizeinGiB = "30"
 $diskEncryptionSetId = "/subscriptions/<subscriptionID>/resourceGroups/yourRGName/providers/Microsoft.Compute/diskEncryptionSets/<yourDiskEncryptionSetName>"
-$region = "CentralUSEUAP"
+$region = "westcentralus"
 $diskLUN = 1
 
 New-AzResourceGroupDeployment -ResourceGroupName $rgName `
