@@ -36,9 +36,6 @@ For more information, see [Microsoft account help](https://support.microsoft.com
     > [!div class="mx-imgBorder"]
     >![Add user and select a role](media/howto-manage-users-roles-pnp/add-user-pnp.png)
 
-    > [!NOTE]
-    >  To add users in bulk, enter the user IDs of all the users you'd like to add separated by semi-colons. Choose a role from the **Role** drop-down menu. Then select **Save**.
-
 ### Edit the roles that are assigned to users
 
 Roles can't be changed after they're assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
