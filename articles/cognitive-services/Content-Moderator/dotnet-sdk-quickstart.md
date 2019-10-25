@@ -19,7 +19,6 @@ Get started with the Content Moderator client library for .NET. Follow these ste
 Use the Content Moderator client library for .NET to:
 
 * [Moderate text](#moderate-text)
-* [Use a custom terms list](#use-a-custom-terms-list)
 * [Moderate images](#moderate-images)
 * [Use a custom image list](#use-a-custom-image-list)
 * [Create a review](#create-a-review)
@@ -107,7 +106,6 @@ These code snippets show you how to do the following tasks with the Content Mode
 
 * [Authenticate the client](#authenticate-the-client)
 * [Moderate text](#moderate-text)
-* [Use a custom terms list](#use-a-custom-terms-list)
 * [Moderate images](#moderate-images)
 * [Use a custom image list](#use-a-custom-image-list)
 * [Create a review](#create-a-review)
@@ -118,7 +116,75 @@ In a new method, instantiate client objects with your endpoint and key. You don'
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_client)]
 
+## Moderate text
 
+The following code uses a Content Moderator client to analyze a body of text and print the results to the console. In the root of your **Program** class, define input and output files:
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_text_vars)]
+
+Then at the root of your project and add a *TextFile.txt* file. Add your own text to this file, or use the following sample text:
+
+```
+Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
+Crap is the profanity here. Is this information PII? phone 3144444444
+```
+
+Add the following method call to your `Main` method:
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod_call)]
+
+Then define the text moderation method somewhere in your **Program** class:
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod)]
+
+## Moderate images
+
+The following code uses a Content Moderator client, along with an [ImageModeration](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.contentmoderator.imagemoderation?view=azure-dotnet) object, to analyze images for adult and racy content.
+
+### Get images
+
+Define your input and output files:
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_image_vars)]
+
+Then create the input file, *ImageFiles.txt*, at the root of your project. In this file, you add the URLs of images to analyze&mdash;one URL on each line. You can use the following sample images:
+
+```
+https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
+https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
+```
+
+Pass your input and output files into the following method call in the `Main` method. You'll define this method at a later step.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_textmod_call)]
+
+### Use a helper class
+
+Add the following class definition within the **Program** class. This inner class will handle image moderation results.
+
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/ContentModerator/Program.cs?name=snippet_dataclass)]
+
+### Define image moderation method
+
+### Check for adult/racy content
+
+The following code checks the image at the given URL for adult or racy content and prints results to the console. See the [Image moderation concepts](./image-moderation-api.md) guide for information on what these terms mean.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagemod_ar)]
+
+### Check for visible text
+
+The following code checks the image for visible text content and prints results to the console.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagemod_text)]
+
+### Check for faces
+
+The following code checks the image for human faces and prints results to the console.
+
+[!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagemod_face)]
+
+##############
 
 ## Run the application
 
