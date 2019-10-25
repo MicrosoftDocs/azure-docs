@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Sync data from SQL Database Edge to Azure SQL Database using SQL Data Sync
