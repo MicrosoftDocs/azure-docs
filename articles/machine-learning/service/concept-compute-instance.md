@@ -8,13 +8,17 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 10/08/2019
+ms.date: 11/04/2019
 # As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
 # What is an Azure Machine Learning compute instance?
 
-An Azure Machine Learning compute instance is a fully managed cloud-based workstation for data scientists. Compute instance makes it  easy to get started with Azure Machine Learning development. Compute instance provides management and enterprise readiness capabilities for IT administrators.  Use a compute instance as your fully configured and managed development environment in the cloud.
+An Azure Machine Learning compute instance is a fully managed cloud-based workstation for data scientists. Compute instance makes it  easy to get started with Azure Machine Learning development. Compute instance provides management and enterprise readiness capabilities for IT administrators. 
+
+Compute instance is a hosted PaaS offering that supports the full lifecycle of inner-loop ML development--from model authoring, to model training and model deployment. 
+
+Compute instances are deeply integrated with Azure Machine Learning workspaces and provide a first-class experience for model authoring through integrated notebooks using Azure Machine Learning SDKs for Python and R. Use a compute instance as your fully configured and managed development environment in the cloud.
 
 > [!NOTE]
 > Compute instances are available only for workspaces with a region of **North Central US**.> Use this region to create a compute instance. 
@@ -24,11 +28,12 @@ An Azure Machine Learning compute instance is a fully managed cloud-based workst
 
 A compute instance is a managed virtual machine (VM), optimized to be your machine learning development environment in the cloud. It provides the following benefits:
 
-* **Productive**: Data scientists can build and deploy models easily using integrated notebooks and the following popular tools in a first-class web UI experience
+* **Productive**: Data scientists can build, deploy, and debug models easily using integrated notebooks and the following popular tools in a first-class web UI experience
     * Jupyter
     * JupyterLab
     * RStudio
-    * VS Code 
+    * VS Code: interactive debugging connecting to compute instances using VS Code Remote through SSH
+
 * **Collaborative**: Provide your team of data scientists with a collaborative environment. Within the boundaries of a workspace, you can collaboratively debug models, and share notebooks on shared compute instances.
 * **Managed and secure**: A compute instance is a managed VM form-factor, which ensures compliance with enterprise security requirements. Similar to Azure Machine Learning compute clusters, the underlying infrastructure is deployed in a subscription owned by Azure Machine Learning.  You don’t have to manage the infrastructure reducing your security footprint. Compute instances  provide robust management policies and secure networking configurations such as:
     * Automated provisioning through Resource Manager templates or Azure Machine Learning SDK.
