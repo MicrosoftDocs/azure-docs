@@ -57,7 +57,7 @@ The following regions are supported for the public preview:
 - Canada Central
 - East US, West US, East US 2, South Central US, West US 2, Central US, North Central US, West Central US
 
-Azure Firewall Policies can only be created in these regions, but they can be used across regions. For example, you can you create a policy in West US, and use it in East US. 
+Azure Firewall Policies can only be created in these regions, but they can be used across regions. For example, you can create a policy in West US, and use it in East US. 
 
 ## Known issues
 
