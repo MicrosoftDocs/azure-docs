@@ -6,9 +6,9 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: laobri
-author: lobrien
+ms.reviewer: laobri
+ms.author: copeters
+author: copeters
 ms.date: 07/15/2019
 ms.custom: seodec18
 
