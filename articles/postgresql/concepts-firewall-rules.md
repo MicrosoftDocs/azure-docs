@@ -37,7 +37,7 @@ To allow applications from Azure to connect to your Azure Database for PostgreSQ
 ![Configure Allow access to Azure services in the portal](media/concepts-firewall-rules/allow-azure-services.png)
 
 ### Connecting from a VNet
-To connect securely to your Azure Database for PostgreSQL server from a VNet, consider using [VNet service endpoints](./concepts-data-access-security-vnet.md). 
+To connect securely to your Azure Database for PostgreSQL server from a VNet, consider using [VNet service endpoints](./concepts-data-access-and-security-vnet.md). 
 
 ## Programmatically managing firewall rules
 In addition to the Azure portal, firewall rules can be managed programmatically using Azure CLI.
@@ -66,4 +66,4 @@ Connections to the Azure Database for PostgreSQL server are routed through a pub
 For articles on creating server-level and database-level firewall rules, see:
 * [Create and manage Azure Database for PostgreSQL firewall rules using the Azure portal](howto-manage-firewall-using-portal.md)
 * [Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md)
-- [VNet service endpoints in Azure Database for PostgreSQL](./concepts-data-access-security-vnet.md)
+- [VNet service endpoints in Azure Database for PostgreSQL](./concepts-data-access-and-security-vnet.md)
