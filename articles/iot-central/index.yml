@@ -38,7 +38,7 @@ highlightedContent:
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items: 
-    - title: Get connected 
+    - title: Get connected (preview features)
       links: 
         - url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
@@ -47,10 +47,10 @@ conceptualContent:
           itemType: tutorial
           text: Connect an IoT Plug and Play device
       footerLink: 
-        url: ./core/index.yml
+        url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         text: See more
 
-    - title: Stay connected
+    - title: Stay connected (preview features)
       links: 
         - url: ./core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
@@ -65,10 +65,10 @@ conceptualContent:
           itemType: how-to-guide
           text: Analyze your device data
       footerLink: 
-        url: ./core/index.yml
+        url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         text: See more
 
-    - title: Transform 
+    - title: Transform (preview features)
       links: 
         - url: ./core/howto-create-telemetry-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
@@ -77,7 +77,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Configure continuous data export
       footerLink: 
-        url: ./core/index.yml
+        url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
         text: See more
 
 # productDirectory section (optional)
@@ -90,12 +90,8 @@ productDirectory:
       # imageSrc should be square in ratio with no whitespace
       imageSrc: ./retail/media/index/iot-central-retail.svg
       links:
-          - text: 1- Create a retail application
+          - text: Create a retail application
             url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
-          - text: 2 - Customize the operator dashboard
-            url: ./retail/tutorial-in-store-analytics-customize-dashboard-pnp.md
-          - text: 3 - Export data and visualize insights
-            url: ./retail/tutorial-in-store-analytics-export-data-visualize-insights-pnp.md
           - text: Create a smart inventory management application
             url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md
           - text: Create a connected logistics application
