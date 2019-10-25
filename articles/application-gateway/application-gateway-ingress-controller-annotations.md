@@ -112,7 +112,7 @@ spec:
 
 ```yaml
 appgw.ingress.kubernetes.io/connection-draining: "true"
-appgw.ingress.kubernetes.io/connection-draining-timeout: 60
+appgw.ingress.kubernetes.io/connection-draining-timeout: "60"
 ```
 
 ### Example
@@ -126,7 +126,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
     appgw.ingress.kubernetes.io/connection-draining: "true"
-    appgw.ingress.kubernetes.io/connection-draining-timeout: 60
+    appgw.ingress.kubernetes.io/connection-draining-timeout: "60"
 spec:
   rules:
   - http:
@@ -175,7 +175,7 @@ This annotation allows to specify the request timeout in seconds after which App
 ### Usage
 
 ```yaml
-appgw.ingress.kubernetes.io/request-timeout: 20
+appgw.ingress.kubernetes.io/request-timeout: "20"
 ```
 
 ### Example
@@ -188,7 +188,7 @@ metadata:
   namespace: test-ag
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
-    appgw.ingress.kubernetes.io/request-timeout: 20
+    appgw.ingress.kubernetes.io/request-timeout: "20"
 spec:
   rules:
   - http:

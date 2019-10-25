@@ -1,5 +1,5 @@
 ---
-title: Adding health probes to your AKS pods
+title: Add health probes to your AKS pods
 description: This article provides information on how to add health probes (readiness and/or liveness) to AKS pods with an Application Gateway. 
 services: application-gateway
 author: caya
@@ -9,7 +9,7 @@ ms.date: 10/23/2019
 ms.author: caya
 ---
 
-# Adding Health Probes to your service
+# Add Health Probes to your service
 By default, Ingress controller will provision an HTTP GET probe for the exposed pods.
 The probe properties can be customized by adding a [Readiness or Liveness Probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) to your `deployment`/`pod` spec.
 

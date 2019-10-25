@@ -1,5 +1,5 @@
 ---
-title: Enabling multiple namespace supports for Application Gateway Ingress Controller
+title: Enable multiple namespace supports for Application Gateway Ingress Controller
 description: This article provides information on how to enable multiple namespace support in a Kubernetes cluster with an Application Gateway Ingress Controller. 
 services: application-gateway
 author: caya
@@ -9,7 +9,7 @@ ms.date: 10/23/2019
 ms.author: caya
 ---
 
-# Enabling multiple Namespace support in an AKS cluster with Application Gateway Ingress Controller
+# Enable multiple Namespace support in an AKS cluster with Application Gateway Ingress Controller
 
 #### Motivation
 Kubernetes [Namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/)
@@ -34,8 +34,8 @@ namespaces in the Helm configuration (see section below).
 
 #### Enable multiple namespace support
 To enable multiple namespace support:
-1. modify the [helm-config.yaml](../examples/sample-helm-config.yaml) file in one of the following ways:
-   - delete the `watchNamespace` key entirely from [helm-config.yaml](../examples/sample-helm-config.yaml) - AGIC will observe all namespaces
+1. modify the [helm-config.yaml](#sample-helm-config-file) file in one of the following ways:
+   - delete the `watchNamespace` key entirely from [helm-config.yaml](#sample-helm-config-file) - AGIC will observe all namespaces
    - set `watchNamespace` to an empty string - AGIC will observe all namespaces
    - add multiple namespaces separated by a comma (`watchNamespace: default,secondNamespace`) - AGIC will observe these namespaces exclusively
 2. apply  Helm template changes with: `helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure`
@@ -123,10 +123,64 @@ traffic to the staging backend pool. At a later stage, introducing `production`
 ingress, will cause AGIC to reprogram Application Gateway, which will start routing traffic
 to the `production` backend pool.
 
-#### Restricting Access to Namespaces
+#### Restrict Access to Namespaces
 By default AGIC will configure Application Gateway based on annotated Ingress within
 any namespace. Should you want to limit this behavior you have the following
 options:
-  - limit the namespaces, by explicitly defining namespaces AGIC should observe via the `watchNamespace` YAML key in [helm-config.yaml](../examples/sample-helm-config.yaml)
+  - limit the namespaces, by explicitly defining namespaces AGIC should observe via the `watchNamespace` YAML key in [helm-config.yaml](#sample-helm-config-file)
   - use [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) to limit AGIC to specific namespaces
+
+#### Sample Helm config file
+```yaml
+    # This file contains the essential configs for the ingress controller helm chart
+
+    # Verbosity level of the App Gateway Ingress Controller
+    verbosityLevel: 3
+    
+    ################################################################################
+    # Specify which application gateway the ingress controller will manage
+    #
+    appgw:
+        subscriptionId: <subscriptionId>
+        resourceGroup: <resourceGroupName>
+        name: <applicationGatewayName>
+    
+        # Setting appgw.shared to "true" will create an AzureIngressProhibitedTarget CRD.
+        # This prohibits AGIC from applying config for any host/path.
+        # Use "kubectl get AzureIngressProhibitedTargets" to view and change this.
+        shared: false
+    
+    ################################################################################
+    # Specify which kubernetes namespace the ingress controller will watch
+    # Default value is "default"
+    # Leaving this variable out or setting it to blank or empty string would
+    # result in Ingress Controller observing all acessible namespaces.
+    #
+    # kubernetes:
+    #   watchNamespace: <namespace>
+    
+    ################################################################################
+    # Specify the authentication with Azure Resource Manager
+    #
+    # Two authentication methods are available:
+    # - Option 1: AAD-Pod-Identity (https://github.com/Azure/aad-pod-identity)
+    armAuth:
+        type: aadPodIdentity
+        identityResourceID: <identityResourceId>
+        identityClientID:  <identityClientId>
+    
+    ## Alternatively you can use Service Principal credentials
+    # armAuth:
+    #    type: servicePrincipal
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    
+    ################################################################################
+    # Specify if the cluster is RBAC enabled or not
+    rbac:
+        enabled: false # true/false
+    
+    # Specify aks cluster related information. THIS IS BEING DEPRECATED.
+    aksClusterConfiguration:
+        apiServerAddress: <aks-api-server-address>
+    ```
 

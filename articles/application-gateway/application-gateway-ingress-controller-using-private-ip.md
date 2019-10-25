@@ -1,5 +1,5 @@
 ---
-title: Using private IP for internal routing for an Ingress endpoint 
+title: Use private IP for internal routing for an Ingress endpoint 
 description: This article provides information on how to use private IPs for internal routing and thus exposing the Ingress endpoint within a cluster to the rest of the VNet. 
 services: application-gateway
 author: caya
@@ -9,7 +9,7 @@ ms.date: 10/23/2019
 ms.author: caya
 ---
 
-# Using private IP for internal routing for an Ingress endpoint 
+# Use private IP for internal routing for an Ingress endpoint 
 
 This feature allows to expose the ingress endpoint within the `Virtual Network` using a private IP.
 

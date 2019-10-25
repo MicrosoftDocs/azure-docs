@@ -341,7 +341,7 @@ curl https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingr
 
 2. Apply the YAML file:
 ```bash
-kubectl apply -f apsnetapp.yaml
+kubectl apply -f aspnetapp.yaml
 ```
 
 

@@ -1,5 +1,5 @@
 ---
-title: Creating an ingress controller with an existing Application Gateway 
+title: Create an ingress controller with an existing Application Gateway 
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway. 
 services: application-gateway
 author: caya
@@ -9,7 +9,7 @@ ms.date: 10/22/2019
 ms.author: caya
 ---
 
-# How to Install an Application Gateway Ingress Controller (AGIC) Using an Existing Application Gateway
+# Install an Application Gateway Ingress Controller (AGIC) using an existing Application Gateway
 
 The Application Gateway Ingress Controller (AGIC) is a pod within your Kubernetes cluster.
 AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/)

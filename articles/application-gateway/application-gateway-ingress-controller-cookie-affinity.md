@@ -1,5 +1,5 @@
 ---
-title: Enabling cookie based affinity with Application Gateway
+title: Enable cookie based affinity with Application Gateway
 description: This article provides information on how to enable cookie-based affinity with an Application Gateway. 
 services: application-gateway
 author: caya

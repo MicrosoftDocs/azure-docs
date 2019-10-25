@@ -247,7 +247,7 @@
         href: application-gateway-troubleshooting-502.md
       - name: Web Application Firewall (WAF)
         href: web-application-firewall-troubleshoot.md
-      - name: Ingress Controller for AKS 
+      - name: Ingress for AKS 
         href: application-gateway-ingress-controller-troubleshooting.md
       - name: Resource Health
         href: resource-health-overview.md
@@ -261,7 +261,7 @@
   items:
   - name: CRS rules
     href: application-gateway-crs-rulegroups-rules.md
-  - name: Ingress controller annotations
+  - name: Ingress for AKS annotations
     href: application-gateway-ingress-controller-annotations.md
   - name: Azure CLI
     href: /cli/azure/network/application-gateway

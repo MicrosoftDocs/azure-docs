@@ -1,5 +1,5 @@
 ---
-title: Upgrading ingress controller with Helm
+title: Upgrade ingress controller with Helm
 description: This article provides information on how to upgrade an Application Gateway Ingress using Helm. 
 services: application-gateway
 author: caya
