@@ -12,7 +12,7 @@ ms.custom: include file
 
 1. Open the Azure portal from [https://portal.azure.com](https://portal.azure.com)
 
-1. Select the **Create resource** button
+1. Select the **Create a resource** button
 
     ![Create resource](./media/functions-create-function-app-portal/function-app-create-resource.png)
 
