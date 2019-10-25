@@ -58,7 +58,7 @@ x = df.drop(['MEDV'], axis = 1)
 y = df.iloc[:,-1]
 
 
-    # Split the data frame into features and target
+# Split the data frame into features and target
 x_train = df.drop(['MEDV'], axis = 1)
 y_train = df.iloc[:,-1]
 
@@ -71,7 +71,7 @@ print(y_train.head())
 
 **Output**:
 
-```
+```text
 *** Training data set x
 
         CRIM    ZN  INDUS  CHAS    NOX     RM   AGE     DIS  RAD    TAX  \
@@ -136,7 +136,7 @@ print('*** Scikit-learn MSE: {}'.format(sklearn_mse))
 
 **Output**:
 
-```
+```text
 *** Scikit-learn r2 score: 0.7406426641094094
 *** Scikit-learn MSE: 21.894831181729206
 ```
@@ -210,7 +210,7 @@ print()
 
 **Output**:
 
-```
+```text
 *** Onnx r2 score: 0.7406426691136831
 *** Onnx MSE: 21.894830759270633
 
@@ -307,19 +307,19 @@ conn.commit()
 # Create the features table
 query = \
     f'create table {features_table_name} ( ' \
-    f'    [CRIM] real, ' \
-    f'    [ZN] real, ' \
-    f'    [INDUS] real, ' \
-    f'    [CHAS] real, ' \
-    f'    [NOX] real, ' \
-    f'    [RM] real, ' \
-    f'    [AGE] real, ' \
-    f'    [DIS] real, ' \
-    f'    [RAD] real, ' \
-    f'    [TAX] real, ' \
-    f'    [PTRATIO] real, ' \
-    f'    [B] real, ' \
-    f'    [LSTAT] real, ' \
+    f'    [CRIM] float, ' \
+    f'    [ZN] float, ' \
+    f'    [INDUS] float, ' \
+    f'    [CHAS] float, ' \
+    f'    [NOX] float, ' \
+    f'    [RM] float, ' \
+    f'    [AGE] float, ' \
+    f'    [DIS] float, ' \
+    f'    [RAD] float, ' \
+    f'    [TAX] float, ' \
+    f'    [PTRATIO] float, ' \
+    f'    [B] float, ' \
+    f'    [LSTAT] float, ' \
     f'    [id] int)'
 
 cursor.execute(query)
@@ -330,7 +330,7 @@ target_table_name = 'target'
 # Create the target table
 query = \
     f'create table {target_table_name} ( ' \
-    f'    [MEDV] real, ' \
+    f'    [MEDV] float, ' \
     f'    [id] int)'
 
 x_train['id'] = range(1, len(x_train)+1)
@@ -340,7 +340,7 @@ print(x_train.head())
 print(y_train.head())
 ```
 
-Finally, use sqlalchemy to insert the `x_train` and `y_train` pandas dataframes into the tables `features` and `target`. 
+Finally, use sqlalchemy to insert the `x_train` and `y_train` pandas dataframes into the tables `features` and `target`, respectively. 
 
 ```python
 db_connection_string = 'mssql+pyodbc://' + username + ':' + password + '@' + server + '/' + database + '?driver=ODBC+Driver+17+for+SQL+Server'
@@ -350,6 +350,45 @@ y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
 ```
 
 Now, you will be able to view the data in the database.
+
+> [!NOTE]
+> Change the notebook kernel to SQL to run the remaining cell.
+
+## Run PREDICT using the ONNX model
+
+With the model in Azure SQL Database Edge, run native PREDICT on the data using the uploaded ONNX model.
+
+```sql
+USE onnx
+
+DECLARE @model VARBINARY(max) = (
+        SELECT DATA
+        FROM dbo.models
+        WHERE id = 1
+        );
+
+WITH predict_input
+AS (
+    SELECT TOP (1000) [id]
+        , CRIM
+        , ZN
+        , INDUS
+        , CHAS
+        , NOX
+        , RM
+        , AGE
+        , DIS
+        , RAD
+        , TAX
+        , PTRATIO
+        , B
+        , LSTAT
+    FROM [onnx].[dbo].[features]
+    )
+SELECT predict_input.id
+    , p.variable1 AS MEDV
+FROM PREDICT(MODEL = @model, DATA = predict_input) WITH (variable1 FLOAT) AS p
+```
 
 ## Next Steps
 
