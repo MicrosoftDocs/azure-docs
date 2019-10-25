@@ -20,38 +20,53 @@ You can now configure collection of the Azure Activity log using the same [diagn
 - Filter collection to only collect logs for particular categories.
 
 ## Configure diagnostic settings
-Use the following procedure to create a diagnostic setting to collect the Azure Activity log in the Azure portal. You cannot currently create aa subscription level diagnostic setting using other methods.
+Use the following procedure to create a diagnostic setting in the Azure portal to collect the Azure Activity log. You cannot currently create a subscription level diagnostic setting using other methods.
 
-1. Disable any log profiles for the subscription and disconnect it from any Log Analytics workspaces. See [Disable existing collection](disable-existing-collection.md) below.
-2. From the **Azure Monitor** menu in the Azure portal, select **Subscription level diagnostics**.
-2. Follow the procedures in [Create diagnostic settings in Azure portal](diagnostic-settings.md#create-diagnostic-settings-in-azure-portal) to create a diagnostic setting. 
+1. Remove any log profiles for the subscription and disconnect the Activity log from any Log Analytics workspaces. See [Disable existing collection](disable-existing-collection.md) below.
+2. Open the **Azure Monitor** menu in the Azure portal.
+3. In the **Settings** section, select **Subscription level diagnostics**.
+4. Follow the procedure in [Create diagnostic settings in Azure portal](diagnostic-settings.md#create-diagnostic-settings-in-azure-portal) to create a diagnostic setting. 
 See [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log) for an explanation of the categories you can use to filter in the diagnostic setting. 
 
 ## Disable existing collection
-If you have existing log profiles for the subscription or if it's connected to any Log Analytics workspaces, you should disable these settings before configuring diagnostic settings to collect Activity logs. Leaving these settings enabled may result in duplicate data.
+If you have existing log profiles for the subscription or if it's connected to any Log Analytics workspaces, you should disable these settings before configuring diagnostic settings to collect Activity logs. Leaving these settings enabled may result in duplicate data being collected.
 
 ### Log Analytics workspace connection
 Use the following procedure to disconnect any Log Analytics workspaces.
 
-Follow the procedure in [Connect to Log Analytics workspace](activity-log-collect.md#connect-to-log-analytics-workspace) and select **Disconnect** in the final step.
-
-1. From the **Log Analytics workspaces** menu in the Azure portal, select the workspace to collect the Activity Log.
+1. Open the **Log Analytics workspaces** menu in the Azure portal and select the workspace to collect the Activity Log.
 2. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
 3. Click the subscription you want to disconnect.
-4. click **Disconnect** and then **Yes** when asked to confirm your choice.
+4. Click **Disconnect** and then **Yes** when asked to confirm your choice.
 
 ### Log profile
 Use the following procedure to disable any log profiles.
 
-1. Select **Activity log** in the **Azure Monitor** menu in the Azure portal and then select **Export to Event Hub**.
-2. Select a subscription.
-2. Note any settings for storage account and event hub that you may want to move to diagnostic settings.
-3. Uncheck **Export to a storage account** and **Export to an event hub**.
-4. Click **Save**.
+1. Open the **Azure Monitor** menu in the Azure portal and then select **Activity log**.
+2. Select **Export to Event Hub**.
+3. Select a subscription.
+4. Note any settings for storage account and event hub that you may want to configure in a diagnostic setting.
+5. Uncheck **Export to a storage account** and **Export to an event hub**.
+6. Click **Save**.
 
+## Differences in data
+Diagnostic settings collect the same data as the previous methods used to collect the Activity log with the following current differences:
+
+The following properties have been removed:
+
+- ActivityStatus
+- ActivitySubstatus
+- OperationName
+- ResourceProvider 
+
+The following properties have been added:
+
+- Authorization_d
+- Claims_d
+- Properties_d
 
 ## Activity Log monitoring solution
-The Azure Log Analytics monitoring solution includes multiple log queries and views for analyzing the Activity Log records in your Log Analytics workspace. This solution will continue to work without any changes if you collect the Activity log using diagnostic settings. See [Activity Logs Analytics monitoring solution](activity-log-collect.md#activity-logs-analytics-monitoring-solution) for details on this solution.
+The Azure Log Analytics monitoring solution includes multiple log queries and views for analyzing the Activity Log records in your Log Analytics workspace. This solution uses log data collected in a Log Analytics workspace and will continue to work without any changes if you collect the Activity log using diagnostic settings. See [Activity Logs Analytics monitoring solution](activity-log-collect.md#activity-logs-analytics-monitoring-solution) for details on this solution.
 
 ## Next steps
 
