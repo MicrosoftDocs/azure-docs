@@ -59,13 +59,17 @@ Both implementations use Linux *IPTables* to enforce the specified policies. Pol
 
 ## Create an AKS cluster and enable network policy
 
+> [!IMPORTANT]
+>
+> - The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
+
 To see network policies in action, let's create and then expand on a policy that defines traffic flow:
 
 * Deny all traffic to pod.
 * Allow traffic based on pod labels.
 * Allow traffic based on namespace.
 
-First, let's create an AKS cluster that supports network policy. The network policy feature can only be enabled when the cluster is created. You can't enable network policy on an existing AKS cluster.
+First, let's create an AKS cluster that supports network policy. 
 
 To use Azure Network Policy, you must use the [Azure CNI plug-in][azure-cni] and define your own virtual network and subnets. For more detailed information on how to plan out the required subnet ranges, see [configure advanced networking][use-advanced-networking]. Calico Network Policy could be used with either this same Azure CNI plug-in or with the Kubenet CNI plug-in.
 
