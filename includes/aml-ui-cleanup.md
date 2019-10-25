@@ -27,7 +27,7 @@ If you don't plan to use anything that you created, delete the entire resource g
 
 1. Select **Delete resource group**.
 
-Deleting the resource group also deletes all resources that you created in the visual interface.  
+Deleting the resource group also deletes all resources that you created in the designer.  
 
 ### Delete only the compute target
 
@@ -43,7 +43,7 @@ The compute target that you created here *automatically autoscales* to zero nod
 
 ### Delete individual assets
 
-In the visual interface where you created your experiment, delete individual assets by selecting them and then selecting the **Delete** button.
+In the designer where you created your experiment, delete individual assets by selecting them and then selecting the **Delete** button.
 
 ![Delete assets](./media/aml-ui-cleanup/delete-asset.png)
 
