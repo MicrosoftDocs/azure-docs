@@ -1,10 +1,10 @@
 ### YamlMime:Hub
 
 title: Azure Cognitive Services documentation
-summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs. 
+summary: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
 metadata:
   title: Azure Cognitive Services documentation
-  description: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs. 
+  description: Learn how to build intelligent and supported algorithms into apps, websites, and bots to see, hear, speak, understand, and interpret your user needs.
   ms.service: cognitive-services
   ms.topic: hub-page
   brand: azure
@@ -14,33 +14,33 @@ metadata:
   ms.date: 09/16/2019
 
 highlightedContent:
-# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
-  items: 
-    - title: What are Cognitive Services? 
-      itemType: overview # controls the icon image and super-title text 
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+  items:
+    - title: What are Cognitive Services?
+      itemType: overview # controls the icon image and super-title text
       url: ./welcome.md
-    - title: Cognitive Services and machine learning 
-      itemType: concept 
+    - title: Cognitive Services and machine learning
+      itemType: concept
       url: ./cognitive-services-and-machine-learning.md
-    - title: Create a Cognitive Services resource 
+    - title: Create a Cognitive Services resource
       itemType: how-to-guide
       url: ./cognitive-services-apis-create-account.md
-    - title: Language support in Cognitive Services 
+    - title: Language support in Cognitive Services
       itemType: reference
       url: ./language-support.md
-    - title: Using Cognitive Services in Containers 
+    - title: Using Cognitive Services in Containers
       itemType: concept
       url: ./cognitive-services-container-support.md
     - title: Authenticate a request
-      itemType: how-to-guide 
+      itemType: how-to-guide
       url: ./authentication.md
 
-conceptualContent: 
+conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
-  items:   
+  items:
     - title: Vision
-      summary: Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content. 
-      links: 
+      summary: Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.
+      links:
         - url: ./computer-vision/index.yml
           itemType: overview
           text: Computer Vision
@@ -61,7 +61,7 @@ conceptualContent:
           text: Video Indexer
     - title: Language
       summary: Allow your apps to process natural language with pre-built scripts, evaluate sentiment and learn how to recognize what users want.
-      links: 
+      links:
         - url: ./immersive-reader/index.yml
           itemType: overview
           text: Immersive Reader (Preview)
@@ -79,10 +79,10 @@ conceptualContent:
           text: Translator Text
     - title: Speech
       summary: Convert speech into text and text into natural-sounding speech. Translate from one language to another and enable speaker verification and recognition.
-      links: 
-        - url: ./speech-service/index.yml
+      links:
+        - url: ./speech-service/index.md
           itemType: overview
-          text: Speech Services 
+          text: Speech Services
         - url: ./speaker-recognition/home.md
           itemType: overview
           text: Speaker Recognition (Preview)
@@ -92,9 +92,9 @@ conceptualContent:
 #        - url: ./translator-speech/overview.md
 #          itemType: overview
 #          text: Translator Speech (Retiring)
-    - title: Decision 
+    - title: Decision
       summary: Build apps that surface recommendations for informed and efficient decision-making.
-      links: 
+      links:
         - url: ./anomaly-detector/index.yml
           itemType: overview
           text: Anomaly Detector (Preview)
@@ -106,7 +106,7 @@ conceptualContent:
           text: Personalizer (Preview)
     - title: Search
       summary: Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.
-      links: 
+      links:
         - url: ./Bing-Autosuggest/index.yml
           itemType: overview
           text: Autosuggest Search
@@ -139,7 +139,7 @@ conceptualContent:
           text: Web Search
     - title: Cognitive Service Containers
       summary: Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, and enables flexibility in where to deploy and host the services that come with Docker containers.
-      links: 
+      links:
         - url: ./cognitive-services-container-support.md
           itemType: overview
           text: Cognitive Service Containers
@@ -183,4 +183,4 @@ additionalContent:
           - text: Node.js
             url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
           - text: Python
-            url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python      
+            url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python

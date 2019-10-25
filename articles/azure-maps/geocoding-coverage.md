@@ -122,7 +122,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Pakistan                                            |                 |                |              |      ✓     |          ✓         |
 | Palau                                               |                 |                |              |      ✓     |          ✓         |
 | Papua New Guinea                                    |                 |                |              |      ✓     |          ✓         |
-| Paracel Islands                                     |                 |                |              |      ✓     |                    |
 | Philippines                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Pitcairn                                            |                 |                |              |      ✓     |          ✓         |
 | Samoa                                               |                 |                |              |      ✓     |          ✓         |
@@ -130,7 +129,6 @@ The ability to geocode in a country/region is dependent upon the road data cover
 | Singapore                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Solomon Islands                                     |                 |                |              |      ✓     |          ✓         |
 | Southern Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
-| Spratly Islands                                     |                 |                |              |      ✓     |                    |
 | Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
 | Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Thailand                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |

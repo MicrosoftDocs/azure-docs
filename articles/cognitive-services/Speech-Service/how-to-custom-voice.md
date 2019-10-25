@@ -16,6 +16,10 @@ ms.author: erhopf
 
 [Custom Voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom text-to-speech experience.
 
+> [!NOTE]
+> The Custom Neural Voice service is a gated service. Customers gain access to the technology only after their applications are reviewed and they have committed to using it in alignment with our ethics principles. Read more about our gating process and how to apply [here](concepts-gating-overview.md).
+
+
 ## What's in Custom Voice?
 
 Before starting with Custom Voice, you'll need an Azure account and a Speech Services subscription. Once you've created an account, you can prepare your data, train and test your models, evaluate voice quality, and ultimately deploy your custom voice model.
@@ -34,7 +38,7 @@ The diagram below highlights the steps to create a custom voice model using the 
 
 ## Set up your Azure account
 
-A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create a Speech Services subscription in Azure. If you do not have an Azure account, you can sign up for a new one.  
+A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create a Speech Services subscription in Azure. If you do not have an Azure account, you can sign up for a new one.
 
 Once you've created an Azure account and a Speech Services subscription, you'll need to sign in to the Custom Voice portal and connect your subscription.
 

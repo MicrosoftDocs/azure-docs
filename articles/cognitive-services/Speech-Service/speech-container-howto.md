@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/04/2019
 ms.author: dapine
 ---
 
@@ -56,13 +56,13 @@ Fill out and submit the [Cognitive Services Speech Containers Request form](http
 
 ### Advanced Vector Extension support
 
-The **host** is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for VSX2 support on Linux hosts with the following command:
+The **host** is the computer that runs the docker container. The host *must support* [Advanced Vector Extensions](https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#CPUs_with_AVX2) (AVX2). You can check for AVX2 support on Linux hosts with the following command:
 
 ```console
 grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detected
 ```
 > [!WARNING]
-> The host computer is *required* to support VSX2. The container *will not* function correctly without VSX2 support.
+> The host computer is *required* to support AVX2. The container *will not* function correctly without AVX2 support.
 
 ### Container requirements and recommendations
 
@@ -409,6 +409,12 @@ For more information on using WSS and HTTPS protocols, see [container security](
 ### Text-to-speech or Custom Text-to-speech
 
 [!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
+
+### Run multiple containers on the same host
+
+If you intend to run multiple containers with exposed ports, make sure to run each container with a different exposed port. For example, run the first container on port 5000 and the second container on port 5001.
+
+You can have this container and a different Azure Cognitive Services container running on the HOST together. You also can have multiple containers of the same Cognitive Services container running.
 
 [!INCLUDE [Validate container is running - Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
