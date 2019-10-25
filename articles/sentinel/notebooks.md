@@ -19,7 +19,7 @@ ms.date: 11/04/2019
 ms.author: rkarlin
 ---
 
-# Use Jupyter Notebooks to hunt for security threats
+# Use Jupyter notebooks to hunt for security threats
 
 The foundation of Azure Sentinel is the data store; it combines high performance querying, dynamic schema, and scales to massive data volumes. The Azure portal and all Azure Sentinel tools use a common API to access this data store. The same API is also available for external tools such as [Jupyter](https://jupyter.org/) notebooks and Python. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data. It combines full programmability with a huge collection of libraries for machine learning, visualization, and data analysis. These attributes make Jupyter a compelling tool for security investigation and hunting.
 
@@ -66,11 +66,11 @@ You must have an Azure Notebooks account to launch notebooks directly from withi
     > [!div class="mx-imgBorder"]
     > ![launch notebook](./media/notebooks/sentinel-azure-notebooks-launch.png)
 
-4. In your browser, you're taken directly to the [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel)
+4. In your browser, you're taken directly to the [Azure Sentinel Community GitHub repository](https://github.com/Azure/Azure-Sentinel).
 
 ## Clone Azure Sentinel Notebooks to a new Azure Notebooks project
 
-These instructions create an Azure Notebooks project from the Azure portal, populating the project with notebooks. Before you use these notebooks, it's a good idea to make a copy of the notebook and work on the copy. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
+You can create an Azure Notebooks project from the Azure portal, populating the project with all the available notebooks. Before you use these notebooks, it's a good idea to make a copy of the notebook and work on the copy. Working on copies lets you safely update to future versions of notebooks without overwriting any of your data.
 
 1. From the Azure portal, navigate to **Azure Sentinel** > **Threat management** > **Notebooks** and then select **Clone Notebooks** from the command bar:
   
@@ -89,7 +89,7 @@ These instructions create an Azure Notebooks project from the Azure portal, popu
 
    ![Import repo](./media/notebooks/sentinel-open-notebook1.png)
 
-## Run a notebook
+## Using notebooks to hunt
 
 Each notebook walks you through the steps for carrying out a hunt or investigation. Libraries and other dependencies needed by the notebook can be installed from the Notebook itself or via a simple configuration procedure. Configuration that ties your notebook project back to your Azure Sentinel subscription is automatically provisioned in the preceding steps.
 
@@ -111,7 +111,7 @@ You'll find additional sample notebooks in the **Sample-Notebooks** subfolder. T
 
 The **HowTos** folder contains notebooks describing, for example: Setting you default Python version, configuring a DSVM, creating Azure Sentinel bookmarks from a notebook, and other subjects.
 
-These notebooks are intended as both useful tools and as illustrations and code samples that you can use in the development of your own notebooks.
+The notebooks provided are intended as both useful tools and as illustrations and code samples that you can use in the development of your own notebooks.
 
 We welcome feedback, whether suggestions, requests for features, contributed Notebooks, bug reports or improvements and additions to existing notebooks. Go to the [Azure Sentinel Community GitHub](https://github.com/Azure/Azure-Sentinel) to create an issue or fork and upload a contribution.
 
