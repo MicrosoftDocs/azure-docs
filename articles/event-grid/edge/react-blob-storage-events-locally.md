@@ -22,23 +22,106 @@ For an overview of the Azure Blob Storage on IoT Edge, see [Azure Blob Storage o
 > [!WARNING]
 > Azure Blob Storage on IoT Edge integration with Event Grid is in Preview
 
-## Prerequisites
-Complete the [Publish and subscribe to events locally](pub-sub-events-webhook-local.md) tutorial before you do this tutorial. 
+In order to complete this tutorial, you will need:
 
-> [!NOTE]
-> Blob Storage module publishes events using HTTP. Confirm that the Event Grid module allows both HTTP and HTTPS requests with the following configuration: `inbound:serverAuth:tlsPolicy=enabled`. If you followed the prerequisite tutorial, it should be already set. 
+* **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
+* **Azure IoT Hub and IoT Edge device** - Follow the steps in the quickstart for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
 
-## Select your IoT Edge device
+## Deploy Event Grid IoT Edge module
+
+There are several ways to deploy modules to an IoT Edge device and all of them work for Azure Event Grid on IoT Edge. This article describes the steps to deploy Event Grid on IoT Edge from the Azure portal.
+
+>[!NOTE]
+> In this tutorial, you will deploy the Event Grid module without persistence. It means that any topics and subscriptions you create in this tutorial will be deleted when you redeploy the module. For more information on how to setup persistence, see the following articles: [Persist state in Linux](persist-state-linux.md) or [Persist state in Windows](persist-state-windows.md). For production workloads, we recommend that you install the Event Grid module with persistence.
+
+
+### Select your IoT Edge device
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-2. Navigate to your IoT Hub.
-3. Select **IoT Edge** from the menu
-4. Select the ID of the target device from the list of devices.
-5. Select **Set Modules**
+1. Navigate to your IoT Hub.
+1. Select **IoT Edge** from the menu in the **Automatic Device Management** section. 
+1. Click on the ID of the target device from the list of devices
+1. Select **Set Modules**. Keep the page open. You will continue with the steps in the next section.
 
-## Configure a deployment manifest
+### Configure a deployment manifest
 
-A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of manually building the JSON document. It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
+A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. The Azure portal has a wizard that walks you through creating a deployment manifest, instead of building the JSON document manually.  It has three steps: **Add modules**, **Specify routes**, and **Review deployment**.
+
+### Add modules
+
+1. In the **Deployment Modules** section, select **Add**
+1. From the types of modules in the drop-down list, select **IoT Edge Module**
+1. Provide the name, image, container create options of the container:
+
+   * **Name**: eventgridmodule
+   * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **Container Create Options**:
+
+    ```json
+        {
+          "Env": [
+           "inbound:serverAuth:tlsPolicy=enabled",
+            "inbound:clientAuth:clientCert:enabled=false",
+            "outbound:webhook:httpsOnly=false"
+          ],
+          "HostConfig": {
+            "PortBindings": {
+              "4438/tcp": [
+                {
+                    "HostPort": "4438"
+                }
+              ]
+            }
+          }
+        }
+    ```    
+ 1. Click **Save**
+ 1. Continue to the next section to add the Azure Functions module
+
+    >[!IMPORTANT]
+    > In this tutorial, you will deploy the Event Grid module to allow both HTTP/HTTPs requests,  client authentication disabled and allow HTTP subscribers. For production workloads, we recommend that you enable only HTTPs requests and subscribers with client authentication enabled. For more information on how to configure Event Grid module securely, see [Security and authentication](security-authentication.md).
+    
+
+## Deploy Azure Function IoT Edge module
+
+This section shows you how to deploy the Azure Functions IoT module, which would act as an Event Grid subscriber to which events can be delivered.
+
+>[!IMPORTANT]
+>In this section, you will deploy a sample Azure Function-based subscribing module. It can of course be any custom IoT Module that can listen for HTTP POST requests.
+
+### Add modules
+
+1. In the **Deployment Modules** section, select **Add** again. 
+1. From the types of modules in the drop-down list, select **IoT Edge Module**
+1. Provide the name, image, and container create options of the container:
+
+   * **Name**: subscriber
+   * **Image URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
+   * **Container Create Options**:
+
+       ```json
+            {
+              "HostConfig": {
+                "PortBindings": {
+                  "80/tcp": [
+                    {
+                      "HostPort": "8080"
+                    }
+                  ]
+                }
+              }
+            }
+       ```
+
+1. Click **Save**
+1. Continue to the next section to add the Azure Blob Storage module
+
+> [!NOTE]
+> Blob Storage module publishes events using HTTP. Confirm that the Event Grid module allows both HTTP and HTTPS requests with the following configuration: `inbound:serverAuth:tlsPolicy=enabled`.
+
+## Deploy Azure Blob Storage module
+
+This section shows you how to deploy the Azure Blob Storage module, which would act as an Event Grid publisher publishing Blob created and deleted events.
 
 ### Add modules
 
@@ -88,16 +171,16 @@ Keep the default routes, and select **Next** to continue to the review section
 
 ### Review deployment
 
-1. The review section shows you the JSON deployment manifest that was created based on your selections in the previous section. Confirm that you see the following four modules: **$edgeAgent**, **$edgeHub**, **eventgridmodule**, and **subscriber** that were deployed previously.
+1. The review section shows you the JSON deployment manifest that was created based on your selections in the previous section. Confirm that you see the following four modules: **$edgeAgent**, **$edgeHub**, **eventgridmodule**, **subscriber** and **azureblobstorageoniotedge** that all being deployed.
 2. Review your deployment information, then select **Submit**.
 
 ## Verify your deployment
 
 1. After you submit the deployment, you return to the IoT Edge page of your IoT hub.
 2. Select the **IoT Edge device** that you targeted with the deployment to open its details.
-3. In the device details, verify that the azureblobstorageoniotedge module is listed as both **Specified in deployment** and **Reported by device**.
+3. In the device details, verify that the eventgridmodule, subscriber and azureblobstorageoniotedge modules are listed as both **Specified in deployment** and **Reported by device**.
 
-    It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
+   It may take a few moments for the module to be started on the device and then reported back to IoT Hub. Refresh the page to see an updated status.
 
 ## Publish created and deleted Events
 

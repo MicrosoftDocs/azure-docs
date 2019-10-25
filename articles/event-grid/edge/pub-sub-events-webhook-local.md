@@ -22,8 +22,7 @@ This article walks you through all the steps needed to publish and subscribe to 
 In order to complete this tutorial, you will need:
 
 * **Azure subscription** - Create a [free account](https://azure.microsoft.com/free) if you don't already have one. 
-* **Azure IoT Hub and IoT Edge device** - Follow the steps in the quick start for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
-
+* **Azure IoT Hub and IoT Edge device** - Follow the steps in the quickstart for [Linux](../../iot-edge/quickstart-linux.md) or [Windows devices](../../iot-edge/quickstart.md) if you don't already have one.
 
 ## Deploy Event Grid IoT Edge module
 
@@ -58,7 +57,6 @@ A deployment manifest is a JSON document that describes which modules to deploy,
     ```json
         {
           "Env": [
-           "inbound:serverAuth:tlsPolicy=enabled",
             "inbound:clientAuth:clientCert:enabled=false",
             "outbound:webhook:httpsOnly=false"
           ],
@@ -254,7 +252,7 @@ Subscribers can register for events published to a topic. To receive any event, 
     On Windows, run the following command:
 
     ```sh
-    docker -H npipe:////./pipe/notedly_moby_engine container logs subscriber
+    iotedge logs subscriber -f
     ```
 
    On Linux, run the following command:
