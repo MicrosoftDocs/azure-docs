@@ -22,7 +22,7 @@ You can now configure collection of the Azure Activity log using the same [diagn
 ## Configure diagnostic settings
 Use the following procedure to create a diagnostic setting in the Azure portal to collect the Azure Activity log. You cannot currently create a subscription level diagnostic setting using other methods.
 
-1. Disable any log profiles for the subscription and disconnect it from any Log Analytics workspaces. See [Disable existing collection](disable-existing-collection.md) below.
+1. Disable any log profiles for the subscription and disconnect it from any Log Analytics workspaces. See **Disable existing collection** below.
 2. From the **Azure Monitor** menu in the Azure portal, select **Subscription level diagnostics**.
 2. Follow the procedures in [Create diagnostic settings in Azure portal](diagnostic-settings.md#create-diagnostic-settings-in-azure-portal) to create a diagnostic setting. See [Categories in the Activity Log](activity-logs-overview.md#categories-in-the-activity-log) for an explanation of the categories you can use to filter events from the Activity log. 
 
