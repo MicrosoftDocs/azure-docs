@@ -52,7 +52,7 @@ Sign in to the [Azure portal](https://portal.azure.com) if you haven't already.
 
 	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
-1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Region**. Leave the other defaults.
+1. Under **Instance details**, type *myVM* for the **Virtual machine name**, choose *East US* for your **Region**, and choose *Ubuntu 18.04 LTS* for your **Image**. Leave the other defaults.
 
 	![Instance details section](./media/quick-create-portal/instance-details.png)
 
