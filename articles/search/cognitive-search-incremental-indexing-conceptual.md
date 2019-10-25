@@ -64,6 +64,12 @@ Incremental indexing gives you granular control over all aspects of the enrichme
 
 To ensure that the indexer only does enrichments you explicitly require, updates to the skillset can optionally set the `disableCacheReprocessingChangeDetection` querystring parameter to `true`. When set, this parameter will ensure that only updates to the skillset are committed and the change isn't evaluated for effects on the existing corpus.
 
+The following example illustrates querystring usage. It’s part of the request, with &-separated key value pairs. 
+
+```http
+PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2019-05-06-Preview&disableCacheReprocessingChangeDetection=true
+```
+
 ## Cache invalidation
 
 The converse of that scenario is one where you may deploy a new version of a custom skill, nothing within the enrichment pipeline changes, but you need a specific skill invalidated and all affected documents reprocessed to reflect the benefits of an updated model. In such instances, you can call the invalidate skills operation on the skillset. The reset skills API accepts a POST request with the list of skill outputs in the cache that should be invalidated. For more information on the reset skills API, see [Reset Indexer (Search REST API)](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
