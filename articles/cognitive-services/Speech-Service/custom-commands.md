@@ -36,7 +36,7 @@ We offer Quickstarts designed to have you running code in less than 10 minutes.
 * [Create a Custom Commands (Preview) application with parameters](https://aka.ms/CustomCommands/quickstart/createWithParameters)
 * [Connect to a Custom Commands (Preview) application with the Speech SDK, C#](https://aka.ms/CustomCommands/quickstart/integrateWithSDK)
 
-## Sample Code
+## Sample code
 
 Sample code for creating a voice assistant with Custom Commands (Preview) is available on GitHub.
 
@@ -49,11 +49,11 @@ Voice assistants built using Azure Speech Services can use the full range of cus
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](supported-languages.md)).
 
-## Reference Docs
+## Reference docs
 
 * [Speech SDK](speech-sdk-reference.md)
 
-## Next Steps
+## Next steps
 
 * [Get a Speech Services subscription key for free](get-started.md)
 * [Get the Speech SDK](speech-sdk.md)

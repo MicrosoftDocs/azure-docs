@@ -36,7 +36,7 @@ We also offer Quickstarts designed to have you running code in less than 10 minu
 | Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
 | Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
 
-## Sample Code
+## Sample code
 
 Sample code for creating a voice assistant is available on GitHub. These samples cover the client application for connecting to your assistant in several popular programming languages.
 
@@ -52,12 +52,12 @@ Voice assistants built using Azure Speech Services can use the full range of cus
 
 Direct Line Speech and its associated functionality for voice assistants are an ideal supplement to the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Though Direct Line Speech can work with any compatible bot, these resources provide a reusable baseline for high-quality conversational experiences as well as common supporting skills and models for getting started quickly.
 
-## Reference Docs
+## Reference docs
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
-## Next Steps
+## Next steps
 
 * [Get a Speech Services subscription key for free](get-started.md)
 * [Get the Speech SDK](speech-sdk.md)

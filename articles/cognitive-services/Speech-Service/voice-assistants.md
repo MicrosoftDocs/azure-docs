@@ -22,7 +22,7 @@ Applications connect to the voice assistant service with the Speech Software Dev
 
    ![Conceptual diagram of the voice assistant orchestration service flow](media/voice-assistants/overview.png "The voice assistant flow")
 
-## Core Features
+## Core features
 
 | Category | Features |
 |----------|----------|
@@ -53,7 +53,7 @@ We offer Quickstarts designed to have you running code in less than 10 minutes. 
 | Java | Windows, macOS, Linux | [Browse](https://aka.ms/csspeech/javaref) |
 | Java | Android | [Browse](https://aka.ms/csspeech/javaref) |
 
-## Sample Code
+## Sample code
 
 Sample code for creating a voice assistant is available on GitHub. These samples cover the client application for connecting to your assistant in several popular programming languages.
 
@@ -71,12 +71,12 @@ voice assistants built using Azure Speech Services can use the full range of cus
 > [!NOTE]
 > Customization options vary by language/locale (see [Supported languages](supported-languages.md)).
 
-## Reference Docs
+## Reference docs
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Azure Bot Service](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0)
 
-## Next Steps
+## Next steps
 
 * [Get a Speech Services subscription key for free](get-started.md)
 * [Get the Speech SDK](speech-sdk.md)
