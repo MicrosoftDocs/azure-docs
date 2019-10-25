@@ -172,18 +172,6 @@
       href: quickstart-voice-assistant-java-jre.md
     - name: 'Java (Android)'
       href: quickstart-voice-assistant-java-android.md
-    - name: Create a Custom Commands application
-      href: https://aka.ms/CustomCommands/quickstart/create
-    - name: Create a Custom Commands application with parameters
-      href: https://aka.ms/CustomCommands/quickstart/createWithParameters
-    - name: Use Custom Commands with the Speech SDK
-      href: https://aka.ms/CustomCommands/quickstart/integrateWithSDK
-  - name: How-to guides
-    items:
-    - name: 'Fulfill Custom Commands with the Speech SDK'
-      href: https://aka.ms/CustomCommands/howto/fulfillCommands
-    - name: 'Add parameter validation to Custom Commands'
-      href: https://aka.ms/CustomCommands/howto/addParameterValidations
   - name: Tutorials
     items:
     - name: Voice enable your bot with Speech SDK
