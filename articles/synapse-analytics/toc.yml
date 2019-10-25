@@ -472,8 +472,8 @@
       #       href: article-template.md
       #   - name: Load WideWorldImporters
       #      href: ../sql-data-warehouse/load-data-wideworldimportersdw.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-      #   - name: with the copy activity 
-      #     href: article-template.md
+         - name: with the copy activity 
+           href: data-integration/data-integration-sql-pool.md
       #   - name: with T-SQL
       #     href: article-template.md
       # - name: Data Flow and Data Ingest
@@ -484,8 +484,8 @@
       #   href: article-template.md
     - name: Into the data lake
       items:
-#       - name: Data Flow and Data Ingest
-#         href: article-template.md
+          - name: with the copy activity 
+            href: data-integration/data-integration-adls.md
 #       - name: Spark
 #         href: article-template.md
 #       - name: Best practices
