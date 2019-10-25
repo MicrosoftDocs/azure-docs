@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a user, I want to complete an access review of my active assignments myself.
 
 ---
-# Self-review of access to access packages using Azure AD access reviews (Preview) 
+# Self-review of an access package in Azure AD entitlement management (Preview) 
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -29,6 +29,14 @@ ms.collection: M365-identity-device-management
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure AD Entitlement Management simplifies how enterprises manage access to groups, applications, and SharePoint sites. This article describes how a user performs a self-review of their assigned access package(s).
+
+## Prerequisites
+
+To perform a self-review of your active access package assignments, you must meet the prerequisites for performing a self-review:
+- Azure AD Premium P2
+- User
+
+For more information, see [Licenses requirements](../../active-directory/governance/entitlement-management-overview#license-requirements). 
 
 ## Open the access review
 
@@ -63,7 +71,5 @@ Once you have opened the access review, you can see your access. Use the followi
 You can return to the review if you change your mind and decide to change your response before the end of the review.
 
 ## Next Steps
-
-Advance to the following article to learn  how to review the access of other users' access package assignments:
 
 - [Review access to access packages](entitlement-management-access-reviews-review-access.md) 

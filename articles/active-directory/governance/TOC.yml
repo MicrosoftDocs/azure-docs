@@ -82,14 +82,14 @@
         href: entitlement-management-request-access.md
   - name: Access reviews
     items:
-    - name: Access Packages
+    - name: Access packages
       items:
         - name: Create an access review
           href: entitlement-management-access-reviews-create.md
         - name: Review access of access packages 
           href: entitlement-management-access-reviews-review-access.md 
-        - name: Complete an access review of an access package 
-          href: entitlement-management-access-reviews-complete.md 
+        - name: Self-review of an access package 
+          href: entitlement-management-access-reviews-self-review.md 
     - name: Groups and apps
       items:
       - name: Create an access review
@@ -100,7 +100,7 @@
         href: review-your-access.md
       - name: Complete an access review
         href: complete-access-review.md
-    - name: Azure AD roles
+    - name: Azure resource roles
       items:
       - name: Create an access review
         href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
@@ -108,4 +108,4 @@
         href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
       - name: Complete an access review
         href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
-    - name: Access Packages 
+    

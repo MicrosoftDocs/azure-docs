@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As an administrator, I want to create an access review policy for my access packages so I can review the active assignments of my users to ensure everyone has the appropriate access.
 
 ---
-# Create an access review of Entitlement Management access packages (Preview)
+# Create an access review of an access package in Azure AD entitlement management (preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -32,9 +32,14 @@ To reduce the risk of stale access, you should enable periodic reviews of users 
 
 ## Prerequisites
 
-To enable reviews of access packages, you must meet the prerequisites for creating an access package.  
+To enable reviews of access packages, you must meet the prerequisites for creating an access package:
+- Azure AD Premium P2
+- Global administrator, User administrator, Catalog owner, or Access package manager
 
-## Enable access reviews in an access package
+For more information, see [Licenses requirements](../../active-directory/governance/entitlement-management-overview#license-requirements).  
+
+
+## Create access reviews in an access package
 
 You can enable access reviews when creating a new policy or editing an existing access package policy. Follow these steps to enable access reviews while creating a new policy in an access package:
 
@@ -59,19 +64,18 @@ This determines how often access reviews will occur.
     1. Once you have selected your reviewer(s), click the **Select** button.
 ![Specify the reviewers](./media/active-directory-entitlement-management-access-reviews/access-reviews-select-reviewer.png)
 
-## Enable access reviews in an existing access package
+## Create access reviews in an existing access package
 
 Follow these steps to enable access reviews to an existing access package:
 
-1. Sign in to the Azure portal and open the **Identity Governance Blade**. 
+1. Sign in to the Azure portal and open the **Identity Governance** blade. 
 
-1. In the left menu, click on **Access packages** under **Entitlement Management**. 
+1. In the left menu, click on **Access packages** under **Entitlement management**. 
 ![Select Access Packages](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-select-access-package.png)
 
 1. In the right pane, select the access package for which you would like to create an access review.
  
 1. In the left menu, select **Policies**. 
-![Select Policies](./media/active-directory-entitlement-management-access-reviews-edit/access-reviews-edit-select-policy-blade.png)
 
 1. Select the policy in which you want to create the access review. 
 
@@ -107,8 +111,6 @@ By default, Azure AD will send an email to reviewers shortly after the review st
 If you have assigned guests as reviewers who have not accepted their Azure AD guest invitation, they will not receive emails from Azure AD Access Reviews. They must first accept the invite and create an account with Azure AD prior to being able to receive emails.  
 
 ## Next steps
-
-Advance to one of the following articles to learn about how to use entitlement management access reviews:
 
 - [Review access of access packages](entitlement-management-access-reviews-review-access.md) 
 - [Self-review of access packages](entitlement-management-access-reviews-self-review.md)
