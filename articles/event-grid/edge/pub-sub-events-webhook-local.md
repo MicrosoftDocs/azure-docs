@@ -252,7 +252,7 @@ Subscribers can register for events published to a topic. To receive any event, 
     On Windows, run the following command:
 
     ```sh
-    docker -H npipe:////./pipe/notedly_moby_engine container logs subscriber
+    iotedge logs subscriber -f
     ```
 
    On Linux, run the following command:
