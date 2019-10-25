@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
+zone_pivot_groups: programming-languages-set-three
 ---
 
 # Quickstart: Setup development environment.
@@ -18,41 +18,40 @@ zone_pivot_groups: programming-languages-set-two
 ::: zone pivot="programming-language-csharp"
 **Choose your target environment**
 #### [.Net](#tab/dotnet)
-[!INCLUDE [vs](../quickstart-platform-csharp-dotnet-windows.md)]
+[!INCLUDE [dotnet](../includes/quickstarts/platform/csharp-dotnet-windows.md)]
 #### [.Net Core](#tab/dotnetcore)
-[!INCLUDE [vs](../quickstart-platform-csharp-dotnetcore-windows.md)]
+[!INCLUDE [dotnetcore](../includes/quickstarts/platform/csharp-dotnetcore-windows.md)]
 #### [Unity](#tab/unity)
-[!INCLUDE [vs](../quickstart-platform-csharp-unity.md)]
+[!INCLUDE [unity](../includes/quickstarts/platform/csharp-unity.md)]
 #### [UWP](#tab/uwp)
-[!INCLUDE [vs](../quickstart-platform-csharp-uwp.md)]
+[!INCLUDE [uwp](../includes/quickstarts/platform/csharp-uwp.md)]
 #### [Xamarin](#tab/xaml)
-[!INCLUDE [vs](../quickstart-platform-csharp-xamarin.md)]
+[!INCLUDE [xamarin](../includes/quickstarts/platform/csharp-xamarin.md)]
+
 * * *
 ::: zone-end
 
 ::: zone pivot="programming-language-cpp"
 **Choose your target environment**
 #### [Linux](#tab/linux)
-[!INCLUDE [vs](../quickstart-platform-cpp-linux.md)]
+[!INCLUDE [linux](../includes/quickstarts/platform/cpp-linux.md)]
 #### [MacOS](#tab/macos)
-[!INCLUDE [vs](../quickstart-platform-cpp-macos.md)]
+[!INCLUDE [macos](../includes/quickstarts/platform/cpp-macos.md)]
 #### [Windows](#tab/windows)
-[!INCLUDE [vs](../quickstart-platform-cpp-windows.md)]
+[!INCLUDE [windows](../includes/quickstarts/platform/cpp-windows.md)]
 * * *
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 **Choose your target environment**
 #### [Java Runtime](#tab/jre)
-[!INCLUDE [jre](../quickstart-platform-java-jre.md)]
+[!INCLUDE [jre](../includes/quickstarts/platform/java-jre.md)]
 #### [Android](#tab/android)
-[!INCLUDE [android](../quickstart-platform-java-android.md)]
+[!INCLUDE [android](../includes/quickstarts/platform/java-android.md)]
 * * *
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
-[!INCLUDE [python](../quickstart-platform-python.md)]
+[!INCLUDE [python](../includes/quickstarts/platform/python.md)]
 ::: zone-end
 
-> [!div class="nextstepaction"]
-> [Create an empty project](~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md)
