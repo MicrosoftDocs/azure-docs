@@ -1,12 +1,12 @@
 ---
 title: Configure a Conditional Access policy in report-only mode - Azure Active Directory
-description: 
+description: Using report-only mode in Conditional Access to aid in adoption
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 10/25/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -45,7 +45,7 @@ In order to view the aggregate impact of Conditional Access policies using the n
 1. [Sign up for an Azure Monitor subscription and create a workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 1. [Export the Sign-in logs from Azure AD to Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
 
-More information about Azure Monitor pricing can be found on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Resources to estimate costs, set a daily cap, or customize the data retention period, can be found in the article, [Manage usage and costs with Azure Monitor Logs](../../azure-monitor/platform/manage-cost-storage#estimating-the-costs-to-manage-your-environment.md).
+More information about Azure Monitor pricing can be found on the [Azure Monitor pricing page](https://azure.microsoft.com/pricing/details/monitor/). Resources to estimate costs, set a daily cap, or customize the data retention period, can be found in the article, [Manage usage and costs with Azure Monitor Logs](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 
 ## View Conditional Access Insights workbook
 
