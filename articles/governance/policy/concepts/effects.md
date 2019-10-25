@@ -196,7 +196,7 @@ following tag changes:
         {
             "operation": "addOrReplace",
             "field": "tags['Dept']",
-            "field": "[parameters('DeptName')]"
+            "value": "[parameters('DeptName')]"
         }
     ]
 }

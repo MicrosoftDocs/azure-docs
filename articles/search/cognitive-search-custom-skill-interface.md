@@ -149,6 +149,7 @@ When you create a Web API enricher, you can describe HTTP headers and parameters
 
 ## Next steps
 
++ [Power Skills: a repository of custom skills](https://aka.ms/powerskills)
 + [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
 + [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
