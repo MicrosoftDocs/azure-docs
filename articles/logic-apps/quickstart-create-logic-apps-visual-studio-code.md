@@ -135,6 +135,62 @@ Before you start, make sure that you have these items:
    > such as Outlook.com or Gmail, replace the `Send_an_email_action` action with a similar action available from an 
    > [email connector that's supported by Azure Logic Apps](../connectors/apis-list.md).
 
+   ```json
+   {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+         "$connections": {
+            "defaultValue": {},
+            "type": "Object"
+         }
+      },
+      "triggers": {
+         "When_a_feed_item_is_published": {
+            "recurrence": {
+               "frequency": "Minute",
+               "interval": 1
+            },
+            "splitOn": "@triggerBody()?['value']",
+            "type": "ApiConnection",
+            "inputs": {
+               "host": {
+                  "connection": {
+                     "name": "@parameters('$connections')['rss']['connectionId']"
+                  }
+               },
+               "method": "get",
+               "path": "/OnNewFeed",
+               "queries": {
+                  "feedUrl": "http://feeds.reuters.com/reuters/topNews"
+               }
+            }
+         }
+      },
+      "actions": {
+         "Send_an_email_(V2)": {
+            "runAfter": {},
+            "type": "ApiConnection",
+            "inputs": {
+               "body": {
+                  "Body": "<p>Title: @{triggerBody()?['title']}<br>\n<br>\nDate published: @{triggerBody()?['updatedOn']}<br>\n<br>\nLink: @{triggerBody()?['primaryLink']}</p>",
+                  "Subject": "RSS item: @{triggerBody()?['title']}",
+                  "To": "Esther.Fan@microsoft.com"
+               },
+               "host": {
+                  "connection": {
+                     "name": "@parameters('$connections')['office365']['connectionId']"
+                  }
+               },
+               "method": "post",
+               "path": "/v2/Mail"
+            }
+         }
+      },
+      "outputs": {}
+   }
+   ```
+
 1. When you're done, save your logic app's workflow definition. (File menu > Save, or press Ctrl+S)
 
 1. When you're prompted to upload your logic app to your Azure subscription, select **Upload**.
