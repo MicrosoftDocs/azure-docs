@@ -12,7 +12,7 @@ ms.date: 11/04/2019
 ---
 # vCore model overview
 
-The virtual core (vCore) purchasing model provides several benefits:
+The virtual core (vCore) model provides several benefits:
 
 - Higher compute, memory, IO, and storage limits.
 - Control over the hardware generation to better match compute and memory requirements of the workload.
@@ -67,7 +67,7 @@ Hardware generation options in the vCore model include Gen 4/5, M-series (previe
 
 - Gen4/Gen5 hardware provides balanced compute and memory resources, and is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by Fsv2-series or M-series.
 
-For regions where Gen4/Gen5 is available, see [Gen4/Gen5](#gen4gen5).
+For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5).
 
 ### Fsv2-series (preview)
 
