@@ -106,7 +106,7 @@
             - name: Protect your API with Azure AD
               href: api-management-howto-protect-backend-with-aad.md
             - name: Protect a SPA backend API with Azure AD B2C
-              href: api-management-howto-protect-backendandfrontend-with-aad-b2c.md
+              href: api-management-howto-protect-backend-and-frontend-with-aad-b2c.md
             - name: Connect to a virtual network
               href: api-management-using-with-vnet.md
             - name: Connect to an internal virtual network
