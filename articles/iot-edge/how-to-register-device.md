@@ -22,15 +22,15 @@ You have the choice of registering by using one of the following tools:
 * [Visual Studio Code](https://code.visualstudio.com/) is a source-code editor. Azure IoT extensions make it easy to manage IoT resources from the same tool where you're developing IoT solutions.
 * [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is a command-line tool for managing Azure resources. Its reusable commands are helpful for automating tasks.
 
-## Register in the Azure Portal
+## Register in the Azure portal
 
 You can perform all registration tasks in the Azure portal.
 
-### Prerequisites for the Azure Portal
+### Prerequisites for the Azure portal
 
 A free or standard [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
 
-### Create an IoT Edge device in the Azure Portal
+### Create an IoT Edge device in the Azure portal
 
 In your IoT Hub in the Azure portal, IoT Edge devices are created and managed separately from IOT devices that are not edge enabled.
 
@@ -40,13 +40,13 @@ In your IoT Hub in the Azure portal, IoT Edge devices are created and managed se
 4. Provide a descriptive device ID. Use the default settings to auto-generate authentication keys and connect the new device to your hub.
 5. Select **Save**.
 
-### View IoT Edge devices in the Azure Portal
+### View IoT Edge devices in the Azure portal
 
 All the edge-enabled devices that connect to your IoT hub are listed on the **IoT Edge** page.
 
 ![View all IoT Edge devices in your IoT hub](./media/how-to-register-device/portal-view-devices.png)
 
-### Retrieve the connection string in the Azure Portal
+### Retrieve the connection string in the Azure portal
 
 When you're ready to set up your device, you need the connection string that links your physical device with its identity in the IoT hub.
 

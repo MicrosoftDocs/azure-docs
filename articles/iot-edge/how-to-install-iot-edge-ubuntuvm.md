@@ -28,7 +28,7 @@ On first boot, the Azure IoT Edge on Ubuntu VM preinstalls the latest version of
     *	If it’s your first time trying out a VM, it’s easiest to use a password and to enable the SSH in the public inbound port menu. 
     *	If you have a resource intensive workload, you should upgrade the virtual machine size by adding more CPUs and/or memory.
 4.	Once the virtual machine is deployed, configure it to connect to your IoT Hub:
-    1.	Copy your device connection string from your IoT Edge device created in your IoT Hub (You can follow the [Retrieve the connection string in the Azure Portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) procedure if you aren’t familiar with this process)
+    1.	Copy your device connection string from your IoT Edge device created in your IoT Hub (You can follow the [Retrieve the connection string in the Azure portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) procedure if you aren’t familiar with this process)
     1.	Select your newly created virtual machine resource from the Azure portal and open the **run command** option
     1.	Select the **RunShellScript** option
     1.	Execute the script below via the command window with your device connection string: 

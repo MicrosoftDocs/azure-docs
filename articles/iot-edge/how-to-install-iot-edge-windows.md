@@ -118,7 +118,7 @@ For more information about these installation options, skip ahead to learn about
 
 In this second option, you provision the device using the IoT Hub Device Provisioning Service. Provide the **Scope ID** from a Device Provisioning Service instance along with any other information specific to your preferred [attestation mechanism](../iot-dps/concepts-security.md#attestation-mechanism):
 
-* [Create and provision a simulated TPM Edge device on Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Create and provision a simulated IoT Edge device with a virtual TPM on Windows](how-to-auto-provision-simulated-device-windows.md)
 * [Create and provision an IoT Edge device using symmetric key attestation](how-to-auto-provision-symmetric-keys.md)
 
 When you install and provision a device automatically, you can use additional parameters to modify the installation including:

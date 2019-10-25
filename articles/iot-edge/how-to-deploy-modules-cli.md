@@ -111,7 +111,7 @@ Use the following command to apply the configuration to an IoT Edge device:
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-The device id parameter is case-sensitive. The content parameter points to the deployment manifest file that you saved.
+The device ID parameter is case-sensitive. The content parameter points to the deployment manifest file that you saved.
 
    ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
@@ -125,7 +125,7 @@ View the modules on your IoT Edge device:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-The device id parameter is case-sensitive.
+The device ID parameter is case-sensitive.
 
    ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 
