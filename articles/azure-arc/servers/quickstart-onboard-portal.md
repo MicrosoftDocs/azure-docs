@@ -48,7 +48,7 @@ On the Non-Azure servers you want to manage:
 
 ## Execute the script on target nodes
 
-Log in to each Node and execute the script you generated from the portal.  After the script completes successfully, go to the Azure portal verify that the server has been successfully connected.
+Log in to each Node and execute the script you generated from the portal. After the script completes successfully, go to the Azure portal verify that the server has been successfully connected.
 
 ![Successful Onboarding](./media/quickstart-onboard/arc-for-servers-successful-onboard.png)
 
