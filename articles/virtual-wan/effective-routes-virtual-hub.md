@@ -59,7 +59,7 @@ You can create a virtual hub route and apply the route to the virtual hub route 
 
 ### <a name="aboutdefaultroute"></a>About default route (0.0.0.0/0)
 
-A virtual hub has the ability to propagate a learned default route to a virtual network, a site-to-site VPN, and an ExpressRoute connection if the flag is ‘Enabled’ on the connection. This flag is visible when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection. 'EnableInternetSecurity' is always false by default on Hub VNet, ExpressRoute and Vpn Connections.
+A virtual hub has the ability to propagate a learned default route to a virtual network, a site-to-site VPN, and an ExpressRoute connection if the flag is ‘Enabled’ on the connection. This flag is visible when you edit a virtual network connection, a VPN connection, or an ExpressRoute connection. 'EnableInternetSecurity' is always false by default on Hub VNet, ExpressRoute, and VPN connections.
 
 The default route does not originate in the virtual WAN hub. The default route is propagated if it is already learned by the virtual WAN hub as a result of deploying a firewall in the hub, or if another connected site has forced tunneling enabled.
 
