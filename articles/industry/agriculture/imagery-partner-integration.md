@@ -20,7 +20,7 @@ FarmBeats provides the ability to
 
 The below section focuses on getting any form of imagery into the FarmBeats system
 
-Once customers have purchased their drones/ camera payloads, they will be able to access the partner software, which helps them plan drone flights & get raw data. They will continue to use the partner’s software for path planning and orthomosaic image stitching.
+Once customers have purchased their drones/ camera payloads, they can access the partner software, which helps them plan drone flights and get raw data. They'll continue to use the partner’s software for path planning and orthomosaic image stitching.
 
 Drone Partners will need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials will be input by customer in the drone partner software for the same:
 
@@ -54,7 +54,7 @@ Using the above credentials, the caller can request for an access token, which
 headers = {"Authorization": "Bearer " + access_token, …} 
 
 
-Below is a sample Python code that gives the access token, which can be used for subsequent API calls to FarmBeats: 
+Below is a sample Python code that gives the access token, which you can used for subsequent API calls to FarmBeats: 
  
 import azure 
 
@@ -110,7 +110,7 @@ Once the partner has the required credentials to make the connect to the FarmBea
   - Scene Type: For example, <drone>
   - Scene File Type: For example, <chlorophyll index>
   - Scene File Content Type: For example, <image/tiff>
-2.	Call the Farms API to get the list of Farms from within the Azure FarmBeatsFarmBeats system
+2.	Call the Farms API to get the list of Farms from within the Azure FarmBeats system
 3.	Provide the customer with an ability to choose a single farm from the list of Farms.
 
 The Partner system must show the Farm within the partner software to do the path planning and drone flight and image collection
@@ -132,16 +132,16 @@ Following are the system defined values: "key": "SceneFileContentType",       "v
 "key": "SceneSource",       "value": [         "sentinel-l1c",         "sentinel-l2a",         "farmbeats-model",         "dji"       ]
 
 
-This will be a one-time setup, and the scope of this new scenetype is limited to the subscription in which FarmBeats is deployed.
+This will be a one-time setup, and the scope of this new scenetype is limited to the subscription in which FarmBeats project is deployed.
 
-Example: To add SceneSource: “SlantRange”, we will do PUT on the id of the /ExtendedType with key: “SceneSource” Input payload:
+Example: To add SceneSource: “SlantRange”, we'll do PUT on the id of the /ExtendedType with key: “SceneSource” Input payload:
 
 {   "key": "SceneSource",       "value": [         "sentinel-l1c",         "sentinel-l2a",         "farmbeats-model",         "dji",         "SlantRange"
       ]   "description": "List of scene sources available in system. User can add more values. Added dinamica-generale" }
 
-green field is the new addition to the system-defined scenesource values.
+green field is the new addition to the system-defined scene source values.
 
-Step 2: Get Farm Details The Scenes (tiff or csv files) will be in the context of a farm. So you will need to get the Farm details by doing a get on /Farm API. The API will return you the list of farms available in the FarmBeats and you can select the farm you want to ingest the data for.
+Step 2: Get Farm Details The Scenes (tiff or csv files) will be in the context of a farm. So you need to get the Farm details by doing a get on /Farm API. The API will return you the list of farms available in the FarmBeats and you can select the farm you want to ingest the data for.
 
 Get /Farm response: {   "items": [     {       "id": "d41a33e7-b73e-480e-9279-0fcb3207332b",       "createdAt": "2019-10-04T11:33:35.01619Z",       "lastModifiedAt": "2019-10-04T11:33:35.01619Z",       "geometry": {         "type": "Polygon",         "coordinates": [           [             [               78.33494849794374,               17.427459159016905             ],             [               78.33470873178663,               17.429174852000685             ],             [               78.3370736978917,               17.43074495690408             ],             [               78.33494849794374,               17.427459159016905             ]           ]         ]       },       "name": "MicrosoftBuilding3",       "properties": {         "crops": "Others",         "address": "Microsoft Gachibowli"       }     }   ] } 3. Create a /Scene id (Post call)
 Create a new scene (tiff or csv file) with the given information, providing the Date, sequence & FarmID to which the Scene will be associated. The meta-data associated with the scene can be defined here in the “properties” bag (including details of duration, type of measure, etc.)

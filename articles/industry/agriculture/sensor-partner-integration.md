@@ -14,7 +14,7 @@ This section explains the implementation of the Sensor data integration (also ca
 
 ## Linking FarmBeats Account
 
-Once the customers have purchased and deployed Devices/Sensors, they will be able to access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device Partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/SI:
+Once the customers have purchased and deployed Devices/Sensors, they can access the device data and telemetry on device partners’ SaaS portal (Software as a Service). Device Partners need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials are required to fill in by customer/SI:
 
 1. Display Name (An optional field for user to define a name for this integration)
 2. API Endpoint
@@ -29,14 +29,14 @@ Once the customers have purchased and deployed Devices/Sensors, they will be abl
 
 ## Unlink FarmBeats
 
-The customer should have the ability to unlink an existing FarmBeats Integration. Unlinking FarmBeats should not delete any device/sensor metadata that was created in customer’s Data hub. Unlinking should do the following:
+The customer must have the ability to unlink an existing FarmBeats Integration. Unlinking FarmBeats should not delete any device/sensor metadata that was created in customer’s Data hub. Unlinking should do the following:
 
 1. Stop Telemetry Flow
 2. Delete and Erase the integration credentials on device partner.
 
 ## Edit FarmBeats Integration
 
-The customer should have the ability to edit the FarmBeats Integration. The primary scenario for edit is when the client secret or connection string changes due to expiry, in this case you can only edit the following fields.
+The customer must have the ability to edit the FarmBeats Integration. The primary scenario for edit is when the client secret or connection string changes due to expiry, in this case you can only edit the following fields.
 1. Display Name (if applicable)
 2. Client Secret (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
 3. Connection String (should be displayed in “2x8***********” format or Show/Hide feature rather than clear text)
@@ -46,7 +46,7 @@ The customer should have the ability to edit the FarmBeats Integration. The prim
 
 ## Last Telemetry Sent
 
-The customer should have the ability to view the timestamp of “Last Telemetry Sent” that is the time at which the latest telemetry was successfully sent to FarmBeats.
+The customer must have the ability to view the timestamp of “Last Telemetry Sent” that is the time at which the latest telemetry was successfully sent to FarmBeats.
 
 ## Translator Development
 
@@ -189,7 +189,7 @@ Refer to the Swagger for more details on each of the objects and their propertie
 
 The Translator should send updates on the metadata. Examples of update scenarios are – Change of Device/Sensor name, Change of Device/Sensor location.
 
-The Translator should have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corresponding Device/Sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.,
+The Translator must have the ability to add new Devices and/or Sensors that have been installed by the user post linking of FarmBeats. Similarly, if a device/sensor has been updated by the user, the same should be updated in FarmBeats for the corresponding Device/Sensor. Typical scenarios for update device/sensor could be: change of device location, addition of sensors in a node etc.,
 
 
 > [!NOTE]
@@ -208,7 +208,7 @@ The telemetry data is mapped to a canonical message that is published on Azure E
 
 ## Send telemetry data to FarmBeats
 
-To send telemetry data to FarmBeats, you will need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry to event hub, [click here](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
+To send telemetry data to FarmBeats, you need to create a client that sends messages to an Event Hub in FarmBeats. To know more about sending telemetry to event hub, [click here](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send).
 
 Here is a sample Python code that sends telemetry as a client to a specified Event Hub:
 
@@ -337,7 +337,7 @@ FarmBeats provides the ability to
 
 The below section focuses on getting any form of imagery into the FarmBeats system
 
-Once customers have purchased their drones/ camera payloads, they will be able to access the partner software, which helps them plan drone flights & get raw data. They will continue to use the partner’s software for path planning and orthomosaic image stitching.
+Once customers have purchased their drones/ camera payloads, they can access the partner software, which helps them plan drone flights & get raw data. They'll continue to use the partner’s software for path planning and orthomosaic image stitching.
 
 Drone Partners will need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials will be input by customer in the drone partner software for the same:
 
@@ -423,10 +423,10 @@ Partner Integration Steps:
 
 Once the partner has the required credentials to make the connect to the FarmBeats Data hub, the partner should enable the following in their translator component
 1.	Create new extended type for the following fields to suit the imagery they are planning to upload:
-  - Scene Source : For example <drone_partner_name>
-  - Scene Type: For example <drone>
-  - Scene File Type: For example <chlorophyll index>
-  - Scene File Content Type: For example <image/tiff>
+  - Scene Source : For example, <drone_partner_name>
+  - Scene Type: For example, <drone>
+  - Scene File Type: For example, <chlorophyll index>
+  - Scene File Content Type: For example, <image/tiff>
 2.	Call the Farms API to get the list of Farms from within the FarmBeats system
 3.	Provide the customer with an ability to choose a single farm from the list of Farms.
 
@@ -448,7 +448,7 @@ Following are the system defined values: "key": "SceneFileContentType",       "v
 "key": "SceneSource",       "value": [         "sentinel-l1c",         "sentinel-l2a",         "farmbeats-model",         "dji"       ]
 
 
-This will be a one-time setup, and the scope of this new scenetype is limited to the subscription in which FarmBeats is deployed.
+This will be a one-time setup, and the scope of this new scenetype is limited to the subscription in which FarmBeats projecis deployed.
 
 Example: To add SceneSource: “SlantRange”, we will do PUT on the id of the /ExtendedType with key: “SceneSource” Input payload:
 
@@ -457,7 +457,7 @@ Example: To add SceneSource: “SlantRange”, we will do PUT on the id of the /
 
 green field is the new addition to the system-defined scenesource values.
 
-Step 2: Get Farm Details The Scenes (tiff or csv files) will be in the context of a farm. So you will need to get the Farm details by doing a get on /Farm API. The API will return you the list of farms available in the FarmBeats and you can select the farm you want to ingest the data for.
+Step 2: Get Farm Details The Scenes (tiff or csv files) will be in the context of a farm. So you need to get the Farm details by doing a get on /Farm API. The API will return you the list of farms available in the FarmBeats and you can select the farm you want to ingest the data for.
 
 Get /Farm response: {   "items": [     {       "id": "d41a33e7-b73e-480e-9279-0fcb3207332b",       "createdAt": "2019-10-04T11:33:35.01619Z",       "lastModifiedAt": "2019-10-04T11:33:35.01619Z",       "geometry": {         "type": "Polygon",         "coordinates": [           [             [               78.33494849794374,               17.427459159016905             ],             [               78.33470873178663,               17.429174852000685             ],             [               78.3370736978917,               17.43074495690408             ],             [               78.33494849794374,               17.427459159016905             ]           ]         ]       },       "name": "MicrosoftBuilding3",       "properties": {         "crops": "Others",         "address": "Microsoft Gachibowli"       }     }   ] } 3. Create a /Scene id (Post call)
 Create a new scene (tiff or csv file) with the given information, providing the Date, sequence & FarmID to which the Scene will be associated. The meta-data associated with the scene can be defined here in the “properties” bag (including details of duration, type of measure, etc.,)
