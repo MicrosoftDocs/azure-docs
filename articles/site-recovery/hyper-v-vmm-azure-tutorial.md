@@ -26,6 +26,10 @@ In this tutorial, you learn how to:
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the articles in the **How-to Guides** section of the [Site Recovery documentation](https://docs.microsoft.com/azure/site-recovery).
 
+> [!WARNING]
+> Please note that ASR support for using SCVMM configuration into account will soon be deprecated, and hence we recommend you to read the [deprecation](scvmm-site-recovery-deprecation.md) details before proceeding.
+
+
 ## Before you begin
 
 This is the third tutorial in a series. It assumes that you have already completed the tasks in the previous tutorials:
