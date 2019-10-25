@@ -31,7 +31,7 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
     | **Project details** | |
     | Subscription | Select your subscription. |
     | Resource group | Select a resource group.|
-    | **INSTANCE DETAILS** |  |
+    | **Instance details** |  |
     | Name | Enter *myPrivateEndpoint*. If this name is taken, create a unique name. |
     |Region|Select **WestCentralUS**. <br/><br/> Select a region where you want to deploy the Private link. The private endpoint should be created in the same location where your subnet or the virtual network exists.|
     |||
@@ -51,16 +51,18 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
 
     | Setting | Value |
     | ------- | ----- |
-    |**NETWORKING**| |
+    |**Networking**| |
     | Virtual network| Select your virtual network. |
     | Subnet | Select your subnet. |
-    |**PRIVATE DNS INTEGRATION**||
+    |**Private DNS Integration**||
     |Integrate with private DNS zone |Select **Yes**. |
     |Private DNS Zone |Select *privatelink.documents.azure.com* |
     |||
 
-1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration. 
+1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 1. When you see the **Validation passed** message, select **Create**.
+
+When you have approved Private Links for an Azure Cosmos account, in the Azure portal the **All networks** option in the **Firewall and virtual networks** pane is greyed out. That's because you can access the account from the defined private endpoints only.
 
 ### Fetch the private IP addresses
 
@@ -87,7 +89,7 @@ $ResourceGroupName = "myResourceGroup"
 # Name of the Cosmos DB account
 $CosmosDbAccountName = "mycosmosaccount"
 
-# API type of the Cosmos DB account: Sql or MongoDB or Cassandra or Gremlin or Table or Etcd
+# API type of the Cosmos DB account: Sql or MongoDB or Cassandra or Gremlin or Table
 $CosmosDbApiType = "Sql"
 # Name of the existing VNet
 $VNetName = "myVnet"
@@ -210,7 +212,7 @@ $SubscriptionId = "<your Azure subscription ID>"
 $ResourceGroupName = "myResourceGroup"
 # Name of the Cosmos DB account
 $CosmosDbAccountName = "mycosmosaccount"
-# API type of the Cosmos DB account. It can be one of the following: "Sql", "MongoDB", "Cassandra", "Gremlin", "Table", or "Etcd"
+# API type of the Cosmos DB account. It can be one of the following: "Sql", "MongoDB", "Cassandra", "Gremlin", "Table"
 $CosmosDbApiType = "Sql"
 # Name of the existing VNet
 $VNetName = "myVnet"
@@ -248,7 +250,7 @@ $deploymentOutput = New-AzResourceGroupDeployment -Name "PrivateCosmosDbEndpoint
 $deploymentOutput
 ```
 
-In the PowerShell script, the "GroupId" variable can only contain one value, which is the API type of the account. Allowed values are: SQL, MongoDB, Cassandra, Gremlin, Table, and Etcd. Some Azure Cosmos account types are accessible through multiple APIs. For example:
+In the PowerShell script, the "GroupId" variable can only contain one value, which is the API type of the account. Allowed values are: SQL, MongoDB, Cassandra, Gremlin, and Table. Some Azure Cosmos account types are accessible through multiple APIs. For example:
 
 * A Gremlin API account can be accessed from both Gremlin and SQL API accounts.
 * A Table API account can be accessed from both Table and SQL API accounts.
