@@ -349,12 +349,12 @@ y_train.to_sql(target_table_name, sql_engine, if_exists='append', index=False)
 
 Now you can view the data in the database.
 
-> [!NOTE]
-> Change the notebook kernel to SQL to run the remaining cell.
-
 ## Run PREDICT using the ONNX model
 
 With the model in Azure SQL Database Edge, run native PREDICT on the data using the uploaded ONNX model.
+
+> [!NOTE]
+> Change the notebook kernel to SQL to run the remaining cell.
 
 ```sql
 USE onnx
