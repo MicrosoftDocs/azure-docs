@@ -40,7 +40,7 @@ You will need the name of your Azure storage account for this quickstart. The fo
 2. From the Azure portal menu, select **All services**, then select **Storage** > **Storage accounts**. You can also search for and select *Storage accounts* from any page.
 3. In the **Storage accounts** page, filter for your storage account (if needed), and then select your storage account. 
 
-You can also search for and select *Storage accounts* from the **Home** page.
+You can also search for and select *Storage accounts* from any page.
 
 #### Create a blob container
 In this section, you create a blob container named **adftutorial** in Azure Blob storage.
