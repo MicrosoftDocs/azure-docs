@@ -9,8 +9,7 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/22/2019
-ms.custom: seodec18
+ms.date: 11/04/2019
 
 ---
 # Known issues and troubleshooting Azure Machine Learning
