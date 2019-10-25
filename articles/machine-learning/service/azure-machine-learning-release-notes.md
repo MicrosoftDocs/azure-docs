@@ -361,7 +361,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
     + Fixed expiring SAS token issue in FileWatcher, which caused files to stop being uploaded after their initial token had expired.
     + Supported importing HTTP csv/tsv files in dataset python SDK.
     + Deprecated the Workspace.setup() method. Warning message shown to users suggests using create() or get()/from_config() instead.
-    + Added Environment.add_private_pip_wheel(), which enables uploading private custom python packages (:::no-loc text=".whl":::) to the workspace and securely using them to build/materialize the environment.
+    + Added Environment.add_private_pip_wheel(), which enables uploading private custom python packages `whl`to the workspace and securely using them to build/materialize the environment.
     + You can now update the SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-explain-model**
     + Added parameter to add a model ID to explanations on upload.
@@ -411,7 +411,7 @@ At the time of this release, the following browsers are supported: Chrome, Firef
   + **azureml-automl-core**
     + Fixes a bug where validation size for CV splits is small and results in bad predicted vs. true charts for regression and forecasting.
     + The logging of forecasting tasks on the remote runs improved, now user is provided with comprehensive error message if the run was failed.
-    + Fixed failures of Timeseries if preprocess flag is True.
+    + Fixed failures of `Timeseries` if preprocess flag is True.
     + Made some forecasting data validation error messages more actionable.
     + Reduced memory consumption of AutoML runs by dropping and/or lazy loading of datasets, especially in between process spawns
   + **azureml-contrib-explain-model**
