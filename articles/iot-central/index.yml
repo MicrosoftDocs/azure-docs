@@ -21,10 +21,10 @@ highlightedContent:
       url: ./core/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - title: What are application templates? 
       itemType: concept 
-      url: ./core/howto-use-app-templates.md
+      url: ./core/howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - title: Azure IoT Central Architecture
       itemType: architecture
-      url: ./core/concepts-architecture.md
+      url: ./core/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - title: Create a new application 
       itemType: quickstart
       url: ./core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
@@ -43,7 +43,7 @@ conceptualContent:
         - url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
           text: Set up a device template 
-        - url: ./core/tutorial-add-device.md
+        - url: ./core/tutorial-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: tutorial
           text: Connect an IoT Plug and Play device
       footerLink: 
@@ -58,10 +58,10 @@ conceptualContent:
         - url: ./core/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide 
           text: Manage your devices 
-        - url: ./core/howto-run-a-job.md
+        - url: ./core/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: concept
           text: How to run a job 
-        - url: ./core/howto-create-analytics.md
+        - url: ./core/howto-create-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
           text: Analyze your device data
       footerLink: 
@@ -73,9 +73,6 @@ conceptualContent:
         - url: ./core/howto-create-telemetry-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
           text: Create a telemetry rule 
-        - url: ./core/howto-create-event-rules.md
-          itemType: how-to-guide
-          text: Create an event rule
         - url: ./core/howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           itemType: how-to-guide
           text: Configure continuous data export

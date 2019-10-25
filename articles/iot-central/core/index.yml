@@ -42,7 +42,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Prepare and connect an MX Chip IoT DevKit
-            url: howto-connect-devkit.md
+            url: howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Connect other IoT clouds
             url: howto-build-iotc-device-bridge.md
   - title: Stay connected
@@ -56,7 +56,7 @@ landingContent:
           - text: Manage your devices
             url: howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Run a job
-            url: howto-run-a-job.md
+            url: howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Analyze your device data
             url: howto-create-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - title: Transform
@@ -64,21 +64,17 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Create a rule
-            url: tutorial-configure-rules.md
-          - text: Create event rules
-            url: howto-create-event-rules.md
+            url: quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Create telemetry rules
-            url: howto-create-telemetry-rules.md
+            url: tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Export to Blob Storage
-            url: howto-export-data-blob-storage.md                    
+            url: howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json                   
       - linkListType: how-to-guide
         links:
-          - text: Export to Event Hubs and Service Bus
-            url: howto-export-data-event-hubs-service-bus.md
           - text: Create custom rules
-            url: howto-create-custom-rules.md
+            url: howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Create custom analytics
-            url: howto-create-custom-analytics.md
+            url: howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
@@ -91,11 +87,9 @@ landingContent:
             url: howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Customize application UI
             url: howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json  
-          - text: Prepare and upload images
-            url: howto-prepare-images.md
           - text: Configure personal dashboards
-            url: howto-create-personal-dashboards.md
+            url: howto-create-personal-dashboards.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Use dashboard tiles
-            url: howto-use-tiles.md
+            url: howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Use application templates
             url: howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json

@@ -50,78 +50,60 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Set up a device template
-            url: ../core/index.yml
-          - text: Connect a device
-            url: ../core/index.yml
-          - text: Connect an Edge device
-            url: ../core/index.yml
+            url: ../core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Connect an IoT Plug and Play device
+            url: ../core/tutorial-add-device.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
           - text: Prepare and connect an MX Chip IoT DevKit
-            url: ../core/howto-connect-devkit.md
+            url: ../core/howto-connect-devkit-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Connect other IoT clouds
             url: ../core/howto-build-iotc-device-bridge.md
-  # Card (optional)
   - title: Stay connected
     linkLists:
       - linkListType: tutorial
         links:
           - text: Use device groups
-            url: ../core/index.yml
-          - text: Manage your devices
-            url: ../core/index.yml
-          - text: Run a job
-            url: ../core/index.yml
-          - text: Analyze your device data
-            url: ../core/index.yml
+            url: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - linkListType: how-to-guide
         links:
-          - text: Monitor device connectivity using command line
-            url: ../core/howto-use-iotc-explorer.md
-          - text: Version device template
-            url: ../core/howto-version-device-template.md
-          - text: Create personal dashboards
-            url: ../core/howto-create-personal-dashboards.md
-  # Card (optional)
+          - text: Manage your devices
+            url: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Run a job
+            url: ../core/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Analyze your device data
+            url: ../core/howto-create-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - title: Transform
     linkLists:
       - linkListType: tutorial
         links:
           - text: Create a rule
-            url: ../core/tutorial-configure-rules.md
-          - text: Create an email action
-            url: ../core/index.yml
+            url: ../core/quick-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+          - text: Create telemetry rules
+            url: ../core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Export to Blob Storage
-            url: ../core/howto-export-data-blob-storage.md
-          - text: Use the IoT Central Public APIs
-            url: ../core/index.yml                        
+            url: ../core/howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json                   
       - linkListType: how-to-guide
         links:
-          - text: Export to Event Hubs and Service Bus
-            url: ../core/howto-export-data-event-hubs-service-bus.md
-          - text: Create a rule on an Edge device
-            url: ../core/index.yml
           - text: Create custom rules
-            url: ../core/howto-create-custom-rules.md
+            url: ../core/howto-create-custom-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Create custom analytics
-            url: ../core/howto-create-custom-analytics.md
-
-  # Card
+            url: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Manage your application
-            url: ../core/howto-administer.md 
+            url: ../core/howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Manage users and roles
-            url: ../core/howto-manage-users-roles.md 
+            url: ../core/howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json 
           - text: View your bill
-            url: ../core/howto-view-bill.md
+            url: ../core/howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Customize application UI
-            url: ../core/howto-customize-ui.md  
-          - text: Prepare and upload images
-            url: ../core/howto-prepare-images.md
+            url: ../core/howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json  
+          - text: Configure personal dashboards
+            url: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Use dashboard tiles
-            url: ../core/howto-use-tiles.md
+            url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
           - text: Use application templates
-            url: ../core/howto-use-app-templates.md
+            url: ../core/howto-use-app-templates-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json

@@ -2,10 +2,14 @@
   tocHref: /azure
   topicHref: /azure/index
   items: 
-  - name: Azure IoT Central
-    tocHref: /azure/iot-central/
-    topicHref: /azure/iot-central/index
+  - name: Internet of Things
+    tocHref: /azure/iot-fundamentals/
+    topicHref: /azure/iot-fundamentals/index
     items: 
-    - name: IoT Central for Energy 
-      tocHref: /azure/iot-central/energy
-      topicHref: /azure/iot-central/energy/index
+    - name: IoT Central
+      tocHref: /azure/iot-central/
+      topicHref: /azure/iot-central/
+      items:
+      - name: IoT Central for Energy
+        tocHref: /azure/iot-central/
+        topicHref: /azure/iot-central/energy/index/
