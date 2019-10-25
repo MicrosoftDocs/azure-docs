@@ -142,10 +142,7 @@ This utterance _may_ have several entities:
 
 ## Descriptors are features
 
-A descriptor is a signal that enables you to explain some characteristics of the model. It is a feature applied to a model at training time. A descriptor includes:
-
-* phrase lists
-* entities 
+A descriptor is a feature applied to a model at training time, including phrase lists and entities. 
 
 **Use a descriptor when you want to**:
 

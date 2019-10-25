@@ -45,6 +45,10 @@ A collaborator/contributor, is not the [owner](#owner) of the app, but has the s
 
 A contributor is the same thing as a [collaborator](#collaborator).
 
+## <a name="descriptor"></a>Descriptor
+
+A descriptor is a [feature](#features) applied to a model at training time, including [phrase lists](phrase-list) and [entities](entity). 
+
 ## <a name="domain"></a>Domain
 
 In the LUIS context, a **domain** is an area of knowledge. Your domain is specific to your app area of knowledge. This can be a general area such as the travel agent app. A travel agent app can also be specific to just the areas of information for your company such as specific geographical locations, languages, and services.
@@ -139,6 +143,10 @@ Enable Bing spell checker to correct misspelled words in the utterances before p
 ## <a name="starter-key"></a>Starter key
 
 A free key to use when first starting out using LUIS.
+
+## <a name="structure"></a>Structure
+
+Add structure to a machine-learned entity to provide subcomponents with descriptors (features) and constraints (regular expression or list entities).
 
 ## <a name="subscription-key"></a>Subscription key
 
