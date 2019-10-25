@@ -1,6 +1,6 @@
 ---
-title: Understand Apache Spark code concepts for U-SQL developers
-description: This article describes concepts to help you understand Apache Spark code for U-SQL developers
+title: Understand Apache Spark code concepts for Azure Data Lake Analytics U-SQL developers.
+description: This article describes Apache Spark concepts to help U-SQL developers understand Spark code concepts.
 author: guyhay
 ms.author: guyhay
 ms.reviewer: jasonh
