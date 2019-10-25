@@ -21,7 +21,7 @@ In this tutorial you learn how to:
 > * Create a hub
 > * Create a site
 > * Connect a site to a hub
-> * Connect a VNet to a hub
+> * Connect a VPN site to a hub
 > * Connect a VNet to a hub
 > * Download a configuration file
 > * View your virtual WAN
