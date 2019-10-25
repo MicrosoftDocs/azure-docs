@@ -105,9 +105,13 @@ param
 
 #If runbook was called from Webhook, WebhookData will not be null.
 if ($WebhookData) {
+
+#rotate secret:
+#generate new secret version in key vault
+#update db/service with generated secret
+
 #Write-Output "WebhookData <$WebhookData>"
-$WebhookDataRequestBody = $WebhookData.RequestBody
-Write-Output $WebhookDataRequestBody    
+Write-Output $WebhookData.RequestBody
 }
 else
 {
