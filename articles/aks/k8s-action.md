@@ -19,7 +19,7 @@ ms.author: atulmal
 
 # GitHub Actions for deploying to Kubernetes service
 
-[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. With the Azure Kubernetes Actions, connect and deploy to a Kubernetes cluster, including Azure Kubernetes Service (AKS) and any generic Kubernetes.
+[GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. The Kubernetes actions facilitate deployments to Azure Kubernetes Service clusters and associated actions such as setting context and creating secrets.
 
 > [!IMPORTANT]
 > GitHub Actions is currently in beta. You must first [sign-up to join the preview](https://github.com/features/actions) using your GitHub account.
@@ -27,7 +27,7 @@ ms.author: atulmal
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
-For an Azure K8s workflow, the file has three sections:
+For a workflow targeting AKS, the file has three sections:
 
 |Section  |Tasks  |
 |---------|---------|
@@ -50,7 +50,7 @@ In this example, replace the placeholders in the resource with your subscription
 > You do not need to create a service principal if you decide to use publish profile for authentication.
 
 > [!IMPORTANT]
-> It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific web app and not the entire resource group.
+> It is always a good practice to grant minimum access. This is why the scope in the previous example is limited to the specific resource and not the entire resource group.
 
 ## Configure the GitHub secret
 
@@ -77,7 +77,7 @@ The below example uses user-level credentials i.e. Azure Service Principal for d
 
 5. You will see the secrets as shown below once defined.
 
-    ![app-service-container-secrets](media/k8s-action/app-service-secrets-container.png)
+    ![k8s-secrets](media/k8s-action/k8s-secrets.png)
 
 ## Build the Container Image
 
@@ -163,66 +163,9 @@ jobs:
           demo-k8s-secret
 ```
 
-### Deploy to Generic Kubernetes cluster
-
-End to end workflow for building container images and deploying to a generic Kubernetes cluster.
-
-```yaml
-on: [push]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@master
-    
-    - uses: Azure/docker-login@v1
-      with:
-        login-server: contoso.azurecr.io
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-    
-    - run: |
-        docker build . -t contoso.azurecr.io/k8sdemo:${{ github.sha }}
-        docker push contoso.azurecr.io/k8sdemo:${{ github.sha }}
-      
-    - uses: Azure/k8s-set-context@v1
-      with:
-        kubeconfig: ${{ secrets.KUBE_CONFIG }}
-        
-    - uses: Azure/k8s-create-secret@v1
-      with:
-        container-registry-url: contoso.azurecr.io
-        container-registry-username: ${{ secrets.REGISTRY_USERNAME }}
-        container-registry-password: ${{ secrets.REGISTRY_PASSWORD }}
-        secret-name: demo-k8s-secret
-
-    - uses: Azure/k8s-deploy@v1
-      with:
-        manifests: |
-          manifests/deployment.yml
-          manifests/service.yml
-        images: |
-          demo.azurecr.io/k8sdemo:${{ github.sha }}
-        imagepullsecrets: |
-          demo-k8s-secret
-```
-
-* * *
-
 ## Next
 
 You can find our set of Actions grouped into different repositories on GitHub, each one containing documentation and examples to help you use GitHub for CI/CD and deploy your apps to Azure.
-
-- [Azure login](https://github.com/Azure/actions)
-
-- [Azure WebApp](https://github.com/Azure/webapps-deploy)
-
-- [Azure WebApp for containers](https://github.com/Azure/webapps-container-deploy)
-
-- [Docker login/logout](https://github.com/Azure/docker-login)
-
-- [Events that trigger workflows](https://help.github.com/en/articles/events-that-trigger-workflows)
 
 - [Kubectl tool installer](https://github.com/Azure/setup-kubectl)
 
@@ -233,5 +176,3 @@ You can find our set of Actions grouped into different repositories on GitHub, e
 - [K8s create secret](https://github.com/Azure/k8s-create-secret)
 
 - [K8s deploy](https://github.com/Azure/k8s-deploy)
-
-- [Starter Workflows](https://github.com/actions/starter-workflows)
