@@ -1,6 +1,6 @@
 ---
-title: Tutorial: Azure Service Bus to Event Grid integration examples
-description: Tutorial: This article provides examples of Service Bus messaging and Event Grid integration.
+title: Azure Service Bus to Event Grid integration examples | Microsoft Docs
+description: This article provides examples of Service Bus messaging and Event Grid integration.
 services: service-bus-messaging
 documentationcenter: .net
 author: spelluru
@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: tutorial
-ms.date: 10/23/2019
+ms.date: 05/14/2019
 ms.author: spelluru
 
 ---
-# Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Functions and Azure Logic Apps
+# Respond to Azure Service Bus events received via Azure Event Grid by using Azure Functions and Azure Logic Apps
 In this tutorial, you learn how to respond to Azure Service Bus events that are received via Azure Event Grid by using Azure Functions and Azure Logic Apps. You'll do the following steps:
  
 - Create a test Azure function for debugging and viewing the initial flow of events from the Event Grid.

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use Azure Service Bus queues with Python'
-description: Quickstart: Learn how to use Azure Service Bus queues from Python.
+title: 'Tutorial: Use Azure Service Bus queues with Python'
+description: Learn how to use Azure Service Bus queues from Python.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
@@ -12,12 +12,12 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
-ms.topic: quickstart
-ms.date: 10/24/2019
+ms.topic: article
+ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-python-october2019
 ---
-# Quickstart: Use Azure Service Bus queues with Python
+# Tutorial: Use Azure Service Bus queues with Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
