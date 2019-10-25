@@ -19,8 +19,6 @@ This article shows you how to build a complex machine learning pipeline using th
 
 This sample trains a classifier to predict credit risk using credit application information such as credit history, age, and number of credit cards. However, you can apply the concepts in this article to tackle your own machine learning problems.
 
-
-
 Here's the completed graph for this pipeline:
 
 [![Graph of the pipeline](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
@@ -33,7 +31,7 @@ Here's the completed graph for this pipeline:
 
 ## Data
 
-This sample uses the German Credit Card dataset from the UC Irvine repository. It contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. For more information about the dataset, see the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
+This sample uses the German Credit Card dataset from the UC Irvine repository. It contains 1,000 samples with 20 features and one label. Each sample represents a person. The 20 features include numerical and categorical features. For more information about the dataset, see the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29). The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
 ## Pipeline summary
 
@@ -85,7 +83,7 @@ The **Execute Python Script** module replicates both the training and test datas
 
 The **Two-Class Support Vector Machine** algorithm requires normalized data. So use the **Normalize Data** module to normalize the ranges of all numeric features with a `tanh` transformation. A `tanh` transformation converts all numeric features to values within a range of 0 and 1 while preserving the overall distribution of values.
 
-The **Two-Class Support Vector Machine** module handles string features, converting them to categorical features and then to binary features with a value of 0 or 1. So you don't need to normalize these features.
+The **Two-Class Support Vector Machine** module handles string features, converting them to categorical features and then to binary features with a value of zero or one. So you don't need to normalize these features.
 
 ## Models
 
@@ -156,9 +154,9 @@ From these results, you can see that the best accuracy is provided by the model 
 
 Explore the other samples available for the designer:
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-ui-sample-classification-predict-income.md)
-- [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-ui-sample-text-classification.md)
+- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

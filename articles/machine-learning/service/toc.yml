@@ -48,10 +48,10 @@
     items:
     - name: 1. Train regression model
       displayName: studio
-      href: ui-tutorial-automobile-price-train-score.md
+      href: tutorial-designer-automobile-price-train-score.md
     - name: 2. Deploy regression model
       displayName: studio
-      href: ui-tutorial-automobile-price-deploy.md
+      href: tutorial-designer-automobile-price-deploy.md
   - name: Automated ML (interface)
     displayName: automl, automated, auto ml, portal, ui
     href: tutorial-first-experiment-automated-ml.md
@@ -79,7 +79,7 @@
     href: how-to-machine-learning-interpretability.md
   - name: 'Designer: no-code ML'
     displayName: studio
-    href: ui-concept-visual-interface.md
+    href: concept-designer.md
   - name: Algorithm cheat sheet
     href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/service/context/ml-context   
   - name: Automated machine learning
@@ -171,22 +171,25 @@
       items:
       - name: "Predict price"
         displayName: regression, studio
-        href:  how-to-ui-sample-regression-predict-automobile-price-basic.md
+        href:  how-to-designer-sample-regression-automobile-price-basic.md
       - name: "Predict price (advanced)"
         displayName: regression, studio
-        href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
+        href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
       - name: "Predict income"
         displayName: classification, studio
-        href:  how-to-ui-sample-classification-predict-income.md
+        href:  how-to-designer-sample-classification-predict-income.md
       - name: "Predict credit risk (advanced)"
         displayName: classification, studio
-        href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+        href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
       - name: "Predict churn"
         displayName: classification, studio
-        href:  how-to-ui-sample-classification-predict-churn.md
+        href:  how-to-designer-sample-classification-churn.md
       - name: "Predict flight delays"
         displayName: classification, studio
-        href:  how-to-ui-sample-classification-predict-flight-delay.md
+        href:  how-to-designer-sample-classification-flight-delay.md
+      - name: "Test classification"
+        displayName: classification, studio
+        href:  how-to-designer-sample-text-classification.md
     - name: Use estimators for ML
       items:
       - name: Create estimators in training

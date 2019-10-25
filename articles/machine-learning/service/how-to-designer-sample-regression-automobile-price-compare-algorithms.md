@@ -17,7 +17,7 @@ ms.date: 11/04/2019
 
 Learn how to build a  machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
 
-If you're just getting started with machine learning, take a look at the [basic version](how-to-ui-sample-regression-predict-automobile-price-basic.md) of this pipeline.
+If you're just getting started with machine learning, take a look at the [basic version](how-to-designer-sample-regression-automobile-price-basic.md) of this pipeline.
 
 Here's the completed graph for this pipeline:
 
@@ -84,9 +84,9 @@ Both algorithms have a lower error on the training dataset than on the unseen te
 
 Explore the other samples available for the designer:
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Sample 3 - Classification with feature selection: Income Prediction](how-to-ui-sample-classification-predict-income.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-ui-sample-classification-predict-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-ui-sample-classification-predict-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-ui-sample-text-classification.md)
+- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
