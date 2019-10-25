@@ -70,10 +70,10 @@
     items:
     # - name: SQL Analytics pool
     #   href: article-template.md
-    # - name: SQL Analytics on-demand
-    #   href: article-template.md
     # - name: Spark pool template
     #   href: article-template.md
+  - name: SQL Analytics on-demand
+    href: ../synapse-analytics/sql-analytics/sql-analytics-on-demand-workspace-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Pipeline and activity
     href: ../data-factory/concepts-pipelines-activities.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
   - name: Execution and trigger
