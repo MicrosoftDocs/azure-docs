@@ -11,7 +11,7 @@ ms.service: virtual-network
 ms.devlang: na
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 010/25/2019
+ms.date: 10/25/2019
 ms.author: allensu
 ---
 # Tutorial: Create a NAT gateway using Azure CLI and test the NAT service
