@@ -49,7 +49,7 @@ You can create Azure Machine Learning compute instances or compute clusters in:
 | | Azure Machine Learning studio | Azure portal | SDK | Resource Manager template | CLI |
 |---| ----- | ----- | ----- | ----- | ----- |
 | Compute instance | yes | yes | yes | yes |  |
-| Compute target | yes | yes | yes | yes | yes |
+| Compute cluster | yes | yes | yes | yes | yes |
 
 When created these compute resources are automatically part of your workspace unlike other kinds of compute targets.
 
