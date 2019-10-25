@@ -1,14 +1,14 @@
 ﻿---
 title: 'Azure Time Series Insights Preview data querying | Microsoft Docs'
 description: Azure Time Series Insights Preview data querying.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
 ---
 
@@ -18,13 +18,13 @@ Azure Time Series Insights Preview enables data querying on events and metadata 
 
 Three primary API categories are available in Time Series Insights:
 
-* **Environment APIs**: Enables queries of the Time Series Insights environment itself. Examples of queries are the list of environments the caller has access to and environment metadata.
+* **Environment APIs**: These APIs enable queries on the Time Series Insights environment itself. Examples of queries are the list of environments the caller has access to, environment metadata, etc.
 
-* **Time Series Model-Query (TSM-Q) APIs**: Enables create, read, update, and delete (CRUD) operations on metadata stored in the environment part of the time series model. Examples are instances, types, and hierarchies.
+* **Time Series Model-Query (TSM-Q) APIs**: Enables *CREATE*, *READ*, *UPDATE*, and *DELETE* (CRUD) operations on metadata stored in the environment part of the time series model. Examples are instances, types, and hierarchies.
 
-* **Time Series Query (TSQ) APIs**: Enables retrieval of events data as it's recorded from the source provider. These APIs can perform operations to transform, combine, and perform computations on time series data.
+* **Time Series Query (TSQ) APIs**: Enables retrieval of telemetry/events data as it's recorded from the source provider or by reducing the data using scalar and aggregate functions stored part of variables. These APIs can perform operations to transform, combine, and apply computations on time series data.
 
-The [Time Series Expression (TSX) language](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx) is a powerful fourth category. It uses Time Series Models to enable composition of advanced computation.
+Time Series Insights uses rich string-based expression language [Time Series Expression (TSX) language](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx) for expressing calculations.
 
 ## Azure Time Series Insights Preview core APIs
 
@@ -42,31 +42,31 @@ The following Environment APIs are available:
 
 ## Time Series Model-Query (TSM-Q) APIs
 
-The following Time Series Model-Query APIs are available:
+The following Time Series Model-Query APIs are available. Most of these APIs support batch execution operation to enable batch *GET*, *CREATE*, *UPDATE*, *DELETE* operations on multiple time series model entities:
 
-* [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Enables get and patch on the default type and the model name of the environment.
+* [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Enables *GET* and *PATCH* on the default type and the model name of the environment.
 * [Types API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Enables CRUD on Time Series types and their associated variables.
 * [Hierarchies API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Enables CRUD on Time Series hierarchies and their associated field paths.
-* [Instances API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Enables CRUD on Time Series instances and their associated instance fields.
+* [Instances API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Enables CRUD on Time Series instances and their associated instance fields. Additionally, instance API support following operations:
+  * [Search](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/search) - Retrieves partial list of hits on search for time series instances based on instance attributes.
+  * [Suggest](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/timeseriesinstances/suggest) - Searches and Suggests are partial list of hits on search for time series instances based on instance attributes.
 
 ## Time Series Query (TSQ) APIs
 
-The following Time Series Query APIs are available:
+The following Time Series Query APIs are available. These APIs are available on all supported multilayered storages in Time Series Insights. Query URL parameters are used to specify the [store type](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) the query should execute on.:
 
-* [Get Events API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): Enables query and retrieval of Time Series Insights data from events as they're recorded in Time Series Insights from the source provider.
+* [Get Events API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): Enables query and retrieval of Time Series Insights data from events as they're recorded in Time Series Insights from the source provider. This API allows  retrieval of raw events for a given Time Series ID and search span. This API supports pagination to retrieve the complete dataset for the selected input. 
 
-* [Get Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Enables query and retrieval of Time Series Insights data from captured events by using data recorded on the wire. The values that are returned are based on the variables that were defined in the model or provided inline.
+* [Get Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): Enables query and retrieval of Time Series Insights data from captured events by using data recorded on the wire. The values that are returned are based on the variables that were defined in the model or provided inline. This API supports pagination to retrieve the complete dataset for the selected input. This API helps in defining calculated properties/columns.
 
     >[!NOTE]
     > The Aggregation clause is ignored even if it's specified in a model or provided inline.
 
   The Get Series API returns a Time Series value for each variable for each interval. A Time Series Value is a format that Time Series Insights uses for output JSON from a query. The values that are returned are based on the Time Series ID and the set of variables that were provided.
 
-* [Aggregate Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data.
+* [Aggregate Series API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Enables query and retrieval of Time Series Insights data from captured events by sampling and aggregating recorded data. This API supports continuable execution using [Continuation Tokens](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage).
 
   The Aggregate Series API returns a Time Series value for each variable for each interval. The values are based on the Time Series ID and the set of variables that were provided. The Aggregate Series API achieves reduction by using variables stored in the Time Series Model or provided inline to aggregate or sample data.
-
-  Supported Aggregate types: `Min`, `Max`, `Sum`, `Count`, `Average`
 
 ## Next steps
 
