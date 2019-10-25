@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Cache for Redis | Microsoft Docs
+title: Troubleshoot Azure Cache for Redis data loss | Microsoft Docs
 description: Learn how to resolve data loss issues with Azure Cache for Redis
 services: cache
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: yegu
 
 ---
 
-# Troubleshoot data loss
+# Troubleshoot Azure Cache for Redis data loss
 
 This section discusses how to diagnose actual or perceived data losses that may occur in Azure Cache for Redis.
 
