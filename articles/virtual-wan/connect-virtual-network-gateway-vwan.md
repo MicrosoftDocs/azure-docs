@@ -10,9 +10,9 @@ ms.author: cherylmc
 
 ---
 
-# Connect a VPN Gateway virtual network gateway to Virtual WAN
+# Connect a VPN Gateway (virtual network gateway) to Virtual WAN
 
-This article helps you set up connectivity from an Azure VPN Gateway virtual network gateway to an Azure Virtual WAN VPN gateway. Creating a connection from a VPN Gateway virtual network gateway to a Virtual WAN VPN gateway is similar to setting up connectivity to a virtual WAN from branch VPN sites.
+This article helps you set up connectivity from an Azure VPN Gateway (virtual network gateway) to an Azure Virtual WAN (VPN gateway). Creating a connection from a VPN Gateway (virtual network gateway) to a Virtual WAN (VPN gateway) is similar to setting up connectivity to a virtual WAN from branch VPN sites.
 
 In order to minimize possible confusion between two features, we will preface the gateway with the name of the feature that we are referring to. For example, VPN Gateway virtual network gateway, and  Virtual WAN VPN gateway.
 
