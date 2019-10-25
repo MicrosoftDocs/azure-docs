@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/24/2019
 ms.author: jingwang
 
 ---
@@ -471,6 +471,9 @@ Example: set variable `_JAVA_OPTIONS` with value `-Xms256m -Xmx16g`. The flag `X
 | CharArray | Not supported | N/A | N/A |
 
 ## ORC format
+
+>[!NOTE]
+>Data Factory introduced new ORC format dataset, see [ORC format](format-orc.md) article with details. The following configurations on file-based data store dataset is still supported as-is for backward compabitility. You are suggested to use the new model going forward.
 
 If you want to parse the ORC files or write the data in ORC format, set the `format` `type` property to **OrcFormat**. You do not need to specify any properties in the Format section within the typeProperties section. Example:
 
