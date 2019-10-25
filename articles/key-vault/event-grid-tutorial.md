@@ -1,6 +1,6 @@
 ---
 title: Onboarding to Notifications for Azure Key Vault (PREVIEW)
-description: Learn how to grant permission to many applications to access a key vault
+description: Learn how to integrate Key Vault with Azure Event Grid.
 services: key-vault
 author: msmbaldwin
 manager: rkarlin
@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 08/30/2019
+ms.date: 10/25/2019
 ms.author: mbaldwin
 
 ---
@@ -22,42 +22,13 @@ This guide will show you how to receive Key Vault notifications through Azure Ev
 ## Prerequisites
 
 - An Azure Subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-- The Azure CLI installed on your machine. See [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 - A key vault in your Azure Subscription. You can quickly create a new key vault by following the steps in [Set and retrieve a secret from Azure Key Vault using Azure CLI](quick-create-cli.md)
-
 
 ## Concepts
 
 Azure Event Grid is an eventing service for the cloud. In this guide, you will subscribe to events for key vault and route events to Azure Automation. When one of the secrets in the key vault is about to expire, Event Grid is notified of the status change and makes an HTTP POST to the endpoint. A web hook then triggers a Azure Automation execution of PowerShell script.
 
 ![image](media/image1.png)
-
-
-## Configure the Azure CLI
-
-Open the Azure CLI Command Prompt Window and type in the following commands:
-
-```console
-az cloud set --name AzureCloud
-```
-
-Sign in to your Azure account using the Azure CLI command [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
-
-```console
-az login
-```
-
-If necessary, set your subscription using the Azure CLI command [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set). To see a list of subscriptions affiliated with your account, use [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list).
-
-```console
-az account set -s <your-subscription-id>
-```
-
-Register the Microsoft.KeyVault resource provider with the Azure CLI command [az register provider](/cli/azure/provider?view=azure-cli-latest#az-provider-register).
-
-```console
-az provider register --namespace Microsoft.KeyVault
-```
 
 ## Create an Azure Automation account
 
@@ -75,7 +46,7 @@ Create an Azure Automation account through the [Azure portal](http://portal.azur
 
 1.  Fill the required information in the "Add Automation Account" Blade and select "Create".
 
-## Create a Runbook and Webhook
+## Create a Runbook
 
 After your Azure Automation account is ready, create a runbook.
 
@@ -139,7 +110,7 @@ Now create a webhook, to trigger your newly created runbook.
 
 1. Click "Parameters and run settings", and select "OK". Do not enter any parameters. This will enable the "Create" button.
 
-1. Select "OK", and click "Create".
+1. Select "OK", and select "Create".
 
     ![](media/image6.png)
 
@@ -197,7 +168,7 @@ Verify that your Event Grid subscription is property configured.  This test assu
 
 1.  Go to your Azure Automation account.
 
-1.  Select the "Runbooks" tab, and click on the runbook you created.
+1.  Select the "Runbooks" tab, and select the runbook you created.
 
 1.  Select the "Webhooks" tab, and confirm that the "last triggered" timestamp is within 60 second of when you created the new secret.  This confirms that Event Grid made a POST to the webhook with the event details of the status change in your key vault, and the webhook was triggered.
 
@@ -228,8 +199,8 @@ If have been using a polling-based system to look for status changes of secrets 
 
 Learn more:
 
-- [Azure Key Vault overview](key-vault-overview.md]
+- [Azure Key Vault overview](key-vault-overview.md)
 - [Azure Event Grid overview](../event-grid/overview.md)
-- [Monitoring Key Vault with Azure Event Grid (preview)](../key-vault/event-grid-overview.md)
-- [Azure Event Grid event schema for Azure Key Vault (preview)](event-schema-key-vault.md)
+- [Monitoring Key Vault with Azure Event Grid (preview)](event-grid-overview.md)
+- [Azure Event Grid event schema for Azure Key Vault (preview)](../event-grid/event-schema-key-vault.md)
 - [Azure Automation overview](../automation/index.yml)
