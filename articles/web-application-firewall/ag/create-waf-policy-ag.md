@@ -73,7 +73,7 @@ You can tell which state your WAF is in by looking at it in the portal. If the W
 
 {insert screenshot 1}
 
-If you click on Web Application Firewall and it shows you an associated policy, the WAF is in state 2 or state 3. After navigating to the policy, if it shows **only** custom rules, and Associated Application Gateways, then it is a Custom Rules only Policy.
+If you select **Web Application Firewall** and it shows you an associated policy, the WAF is in state 2 or state 3. After navigating to the policy, if it shows **only** custom rules, and Associated Application Gateways, then it is a Custom Rules only Policy.
 
 {insert screenshot 2}
 
