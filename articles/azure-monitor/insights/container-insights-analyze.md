@@ -11,7 +11,7 @@ ms.date: 10/15/2019
 
 # Understand Kubernetes cluster performance with Azure Monitor for containers
 
-With Azure Monitor for containers, you can use the performance charts and health status to monitor the workload of Kuberntes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or other environment from two perspectives. You can monitor directly from the cluster, or you can view all clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when monitoring a specific AKS cluster.
+With Azure Monitor for containers, you can use the performance charts and health status to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or other environment from two perspectives. You can monitor directly from the cluster, or you can view all clusters in a subscription from Azure Monitor. Viewing Azure Container Instances is also possible when monitoring a specific AKS cluster.
 
 This article helps you understand the two perspectives, and how Azure Monitor helps you quickly assess, investigate, and resolve detected issues.
 

@@ -42522,6 +42522,11 @@
       "source_path": "articles/aks/consul-install.md",
       "redirect_url": "/azure/aks/servicemesh-consul-install",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-monitor/insights/container-insights-live-logs.md",
+      "redirect_url": "/azure/azure-monitor/insights/container-insights-livedata-overview",
+      "redirect_document_id": false
     }
   ]
 }
