@@ -236,8 +236,6 @@ It is important that you prevent being inadvertently locked out of your Azure AD
 1. Set the **Enable policy** toggle to **On**.
 1. Click **Create**.
 
-![Create a Conditional Access policy to enable MFA for Azure portal users in pilot group](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
-
 ## Plan integration with on-premises systems
 
 Some legacy and on-premises applications that do not authenticate directly against Azure AD require additional steps to use MFA including:
