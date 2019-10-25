@@ -64,13 +64,11 @@ Use the following steps to create a Private Link for an existing Azure Cosmos ac
 1. Select **Review + create**. You're taken to the **Review + create** page where Azure validates your configuration.
 1. When you see the **Validation passed** message, select **Create**.
 
-When you have approved Private Links for an Azure Cosmos account, in the Azure portal the **All networks** option in the **Firewall and virtual networks** pane is greyed out. That's because you can access the account from the defined private endpoints only.
+When you have approved Private Links for an Azure Cosmos account, in the Azure portal the **All networks** option in the **Firewall and virtual networks** pane is greyed out.
 
 ### Fetch the private IP addresses
 
-After the private endpoint is provisioned, it is possible to query the IP addresses. The result returns information about the newly created private endpoint.
-
-To view the IP addresses from Azure portal. Select **All resources**, search for the private endpoint you created earlier in this case it's "dbPrivateEndpoint3" and select the Overview tab to see the DNS settings and IP addresses:
+After the private endpoint is provisioned, you can query the IP addresses. To view the IP addresses from Azure portal. Select **All resources**, search for the private endpoint you created earlier in this case it's "dbPrivateEndpoint3" and select the Overview tab to see the DNS settings and IP addresses:
 
 ![Private IP addresses in Azure portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
 
@@ -113,7 +111,19 @@ $subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.N
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 
+### Fetch the private IP addresses
 
+After the private endpoint is provisioned, you can query the IP addresses and the FQDNS mapping by using the following PowerShell script:
+
+```azurepowershell-interactive
+
+$pe = Get-AzPrivateEndpoint -Name MyPrivateEndpoint -ResourceGroupName myResourceGroup
+$networkInterface = Get-AzNetworkInterface -ResourceId $pe.NetworkInterfaces[0].Id
+foreach ($IPConfiguration in $networkInterface.IpConfigurations)
+{
+    Write-Host $IPConfiguration.PrivateIpAddress ":" $IPConfiguration.PrivateLinkConnectionProperties.Fqdns
+}
+```
 
 ## Create a Private Link using a Resource Manager template
 
