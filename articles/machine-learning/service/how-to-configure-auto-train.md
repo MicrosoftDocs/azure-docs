@@ -67,7 +67,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## Data source and format
 
-Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**.  [Learn more about datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+Automated machine learning supports data that resides on your local desktop or in the cloud such as Azure Blob Storage. The data can be read into a **Pandas DataFrame** or an **Azure Machine Learning TabularDataset**.  [Learn more about datasets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
 
 Requirements for training data:
 - Data must be in tabular form.
@@ -410,13 +410,15 @@ Use these 2 APIs on the first step of fitted model to understand more.  See [thi
 To customize feature engineering, specify `"feauturization":FeaturizationConfig`.
 
 Supported customization includes:
+
 |Customization|Definition|
+|--|--|
 |Column purpose update|Override feature type for the specified column.|
 |Transformer parameter update |Update parameters for the specified transformer. Currently supports Imputer and HashOneHotEncoder.|
 |Drop columns |Columns to drop from being featurized.|
 |Block transformers| Block transformers to be used on featurization process.|
 
-Create the FeaturizationConfig objectg using API calls:
+Create the FeaturizationConfig object using API calls:
 ```python
 featurization_config = FeaturizationConfig()
 featurization_config.blocked_transformers = ['LabelEncoder']
