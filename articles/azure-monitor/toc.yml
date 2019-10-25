@@ -671,6 +671,8 @@
         items:
         - name: Overview
           href: platform/activity-logs-overview.md
+        - name: Collect with diagnostic setting
+          href: platform/diagnostic-settings-subscription.md
         - name: View and retrieve
           href: platform/activity-log-view.md
         - name: Collect and analyze
