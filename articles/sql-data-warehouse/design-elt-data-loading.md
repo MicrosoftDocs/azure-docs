@@ -1,6 +1,6 @@
 ---
 title: Designing a PolyBase data loading strategy for Azure Synapse Analytics (formerly SQL DW) | Microsoft Docs
-description: Design an Extract, Load, and Transform (ELT) process for loading data into Azure Synapse Analytics.
+description: Design an Extract, Load, and Transform (ELT) process for loading data
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -14,7 +14,9 @@ ms.reviewer: igorstan
 
 # Designing a PolyBase data loading strategy for Azure Synapse Analytics (formerly SQL DW) 
 
-Traditional SMP data warehouses use an Extract, Transform and Load (ETL) process for loading data. Azure Synapse Analytics is a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. Utilizing an Extract, Load, and Transform (ELT) process can take advantage of MPP and eliminate resources needed to transform the data prior to loading. While Azure Synapse Analytics supports many loading methods including non-Polybase options such as BCP and SQL BulkCopy API, the fastest and most scalable way to load date is through PolyBase.  PolyBase is a technology that accesses external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language.
+Traditional SMP data warehouses use an Extract, Transform and Load (ETL) process for loading data. Azure Synapse Analytics is a massively parallel processing (MPP) architecture that takes advantage of the scalability and flexibility of compute and storage resources. 
+
+Utilizing an Extract, Load, and Transform (ELT) process can take advantage of MPP and eliminate resources needed to transform the data prior to loading. While Azure Synapse Analytics supports many loading methods including non-Polybase options such as BCP and SQL BulkCopy API, the fastest and most scalable way to load date is through PolyBase.  PolyBase is a technology that accesses external data stored in Azure Blob storage or Azure Data Lake Store via the T-SQL language.
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
@@ -29,7 +31,7 @@ The basic steps for implementing a PolyBase ELT for [SQL Analytics](sql-data-war
 1. Extract the source data into text files.
 2. Land the data into Azure Blob storage or Azure Data Lake Store.
 3. Prepare the data for loading.
-4. Load the data staging tables using PolyBase. 
+4. Load the data into staging tables using PolyBase. 
 5. Transform the data.
 6. Insert the data into production tables.
 
@@ -45,7 +47,9 @@ Getting data out of your source system depends on the storage location.  The goa
 
 ### PolyBase external file formats
 
-PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addition to the delimited text files, it loads from the Hadoop file formats RC File, ORC, and Parquet. PolyBase can also load data from Gzip and Snappy compressed files. PolyBase currently does not support extended ASCII, fixed-width format, and nested formats such as WinZip, JSON, and XML. If you are exporting from SQL Server, you can use [bcp command-line tool](/sql/tools/bcp-utility) to export the data into delimited text files. The Parquet to SQL DW data type mapping is the following:
+PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addition to the delimited text files, it loads from the Hadoop file formats RC File, ORC, and Parquet. 
+
+PolyBase can also load data from Gzip and Snappy compressed files. PolyBase currently does not support extended ASCII, fixed-width format, and nested formats such as WinZip, JSON, and XML. If you are exporting from SQL Server, you can use [bcp command-line tool](/sql/tools/bcp-utility) to export the data into delimited text files. The Parquet to SQL DW data type mapping is the following:
 
 | **Parquet Data Type** |                      **SQL Data Type**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -104,7 +108,7 @@ Once the external objects are defined, you need to align the rows of the text fi
 To format the text files:
 
 - If your data is coming from a non-relational source, you need to transform it into rows and columns. Whether the data is from a relational or non-relational source, the data must be transformed to align with the column definitions for the table into which you plan to load the data. 
-- Format data in the text file to align with the columns and data types in the destination table. Misalignment between data types in the external text files and the SQL Analytics table causes rows to be rejected during the load.
+- Format data in the text file to align with the columns and data types in the SQL Analytics destination table. Misalignment between data types in the external text files and the SQL Analytics table causes rows to be rejected during the load.
 - Separate fields in the text file with a terminator.  Be sure to use a character or a character sequence that is not found in your source data. Use the terminator you specified with [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql).
 
 
