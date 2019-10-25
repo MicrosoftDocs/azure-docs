@@ -55,8 +55,6 @@ View the status log for error messages.
 
 
 
-
-
 ## Next steps
 
 For more information, see [Create an Azure Active Directory tenant for P2S Open VPN connections that use Azure AD authentication](openvpn-azure-ad-tenant.md).
