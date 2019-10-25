@@ -241,6 +241,7 @@ az aks update \
 > - The service CIDR
 > - The address range for the subnets, with the nodes and pods
 > - Any range that represents networks that you'll administer the cluster from
+> - The Egress IP for the cluster standard load balancer
 
 ## Update or disable authorized IP ranges
 
