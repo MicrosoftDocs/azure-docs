@@ -18,7 +18,7 @@ ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 
 
-#Customer intent: As a administrator, I want learn about entitlement management so that see if I can use it to manage access to resources in my organization.
+#Customer intent: As a administrator, I want learn about entitlement management so that see how I can use it to manage access to resources in my organization.
 
 ---
 # What is Azure AD entitlement management? (Preview)
@@ -65,14 +65,14 @@ You can get started with our [tutorial to create your first access package](enti
 
 ## What are access packages and what resources can I manage with them?
 
-Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources with the access a user needs to work on a project or perform their task. Access packages are used to govern access for your internal employees, and also users outside your organization.
+Entitlement management introduces to Azure AD the concept of an *access package*. An access package is a bundle of all the resources with the access a user needs to work on a project or perform their task. Access packages are used to govern access for your internal employees, and also users outside your organization.
 
- Here are the types of resources you can manage access to with entitlement management:
+ Here are the types of resources you can manage user's access to with entitlement management:
 
 - Membership of Azure AD security groups
 - Membership of Office 365 Groups and Teams
-- Assignments to Azure AD enterprise applications, including SaaS applications and custom-integrated applications that support federation/single sign on and/or provisioning
-- Memberships of SharePoint Online sites
+- Assignment to Azure AD enterprise applications, including SaaS applications and custom-integrated applications that support federation/single sign on and/or provisioning
+- Membership of SharePoint Online sites
 
 You can also control access to other resources that rely upon Azure AD security groups or Office 365 Groups.  For example:
 
@@ -100,16 +100,24 @@ The following diagram shows an example of the different elements in entitlement 
 
 ![Entitlement management overview](./media/entitlement-management-overview/elm-overview.png)
 
+## When should I use access packages?
+
+Access packages do not replace other mechanisms for access assignment.  They are most appropriate in situations such as the following:
+
+- Employees need time-limited access for a particular task in addition to their 'birthright' access.  For example, you might use group-based licensing and a dynamic group to ensure all employees have an Exchange Online mailbox, and then use access packages when employees need access to departmental resources from another department.
+- Access needs to be approved by an employee's manager or other designated individuals.
+- Departments wish to manage their own access policies for their resources without IT involvement.  
+- Two or more organizations are collaborating on a project, and as a result, multiple users from one organization will need to be brought in via Azure AD B2B to access another organization's resources.
+
 ## How do I delegate access?
 
  Access packages are defined in containers called *catalogs*.  You can have a single catalog for all your access packages, or you can designate individuals to create and own their own catalogs. An administrator can add resources to any catalog, but a non-administrator can only add to a catalog the resources which they own. A catalog owner can add other users as catalog co-owners, or as access package managers.  These scenarios are described further in the article [delegation and roles in Azure AD entitlement management](entitlement-management-delegate.md).
 
-
 ## Summary of terminology
 
-To better understand entitlement management and its documentation, you can refer back to the following list terms.
+To better understand entitlement management and its documentation, you can refer back to the following list of terms.
 
-| Term or concept | Description |
+| Term | Description |
 | --- | --- |
 | access package | A bundle of resources that a team or project needs and is governed with policies. An access package is always contained in a catalog. You would create a new access package for a scenario in which users need to request access.  |
 | access request | A request to access the resources in an access package. A request typically goes through an approval workflow.  If approved, the requesting user receives an access package assignment. |
