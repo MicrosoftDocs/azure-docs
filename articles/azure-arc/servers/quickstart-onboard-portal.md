@@ -33,14 +33,15 @@ On the Non-Azure servers you want to manage:
 1. Logon to the server (using SSH, RDP or PowerShell Remoting)
 1. Start a shell: bash on Linux, PowerShell as Administrator on Windows
 1. Paste in the script from the portal and execute it on the server to be connected to Azure.
+1. The default authentication for onboarding an individual server is *interactive* using Azure 'device login'. When you run the script, you will see a message similar to:
 
-The default authentication for onboarding an individual server is to use Azure 'device login'. When you run the script, you will see a message similar to:
+  ```none
+  To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B3V3NLWRF to authenticate.
+  ```
+  
+   Open a browser and enter the code to authenticate. The browser doesn't need to be running on the server you are onboarding, it could be on another computer such as your laptop.
 
-```none
-To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code B3V3NLWRF to authenticate.
-```
-
-Open a browser and enter the code to authenticate. The browser doesn't need to be running on the server you are onboarding, it could be on another computer such as your laptop.
+1. If you would like to authenticate non-interactively, follow the steps in [Create a Service Principal](quickstart-onboard-powershell.md#create-a-service-principal-for-onboarding-at-scale) and modify the script generated from the portal.
 
 > [!NOTE]
 > If you are using Internet Explorer on the server for the very first time to logon, it will error out. You can just reopen the browser and do it again.

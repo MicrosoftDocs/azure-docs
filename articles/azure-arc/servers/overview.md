@@ -114,8 +114,11 @@ In Public Preview, the following scenarios are supported for **Connected Machine
 * [Guest Configuration](../../governance/policy/concepts/guest-configuration.md)
 * [Log Analytics](../../azure-monitor/log-query/get-started-portal.md)
 
-<!-- MMA agent version 10.20.18011 and later -->
+<!-- MMA agent version 10.20.18011 and later --> 
 
 ## Next Steps
 
-* Learn how to connect machines to Azure using Azure Arc for Servers from the [Portal](quickstart-onboard-portal.md) or with [PowerShell](quickstart-onboard-powershell.md).
+There are two methods to connect machines using Azure Arc for Servers.
+
+* **Interactively** - Follow the [Portal Quickstart](quickstart-onboard-portal.md) to generate a script from the portal and execute it on the machine. This is the best option if you are connecting one machine at a time.
+* **At Scale** - Follow the [PowerShell Quickstart](quickstart-onboard-powershell.md) to create a Service Principal to connect machines non-interactively.
