@@ -33,6 +33,6 @@ The **Overview** tab for the server group will list all nodes and their
 standbys, along with a **High availability** column indicating whether HA is
 successfully enabled for each node.
 
-## Next steps
+### Next steps
 
 Learn more about [high availability](concepts-hyperscale-high-availability.md).

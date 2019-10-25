@@ -28,7 +28,7 @@ standby to primary node status (failover), and provisions a new standby-to-be.
 Streaming replication begins, bringing the new node up-to-date.  When all data
 has been replicated, the node has reached full recovery.
 
-## Next steps
+### Next steps
 
 - Learn how to [enable high
   availability](howto-hyperscale-high-availability.md) in a Hyperscale server
