@@ -2,7 +2,6 @@
 title: Import/Export Data in web services - Azure Machine Learning Studio (classic) | Microsoft Docs
 description: Learn how to use the Import Data and Export Data modules to send and receive data from a web service.
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -11,9 +10,6 @@ editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
 ---
