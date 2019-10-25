@@ -149,6 +149,15 @@ Use the downloaded profile to configure the remote access clients. The procedure
 1. Navigate to your WAN.
 2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
 
+
+## <a name="cleanup"></a>Clean up resources
+
+When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+
+```azurepowershell-interactive
+Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+```
+
 ## Next steps
 
 To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
