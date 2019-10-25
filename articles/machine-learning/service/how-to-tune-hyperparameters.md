@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
 
 ---

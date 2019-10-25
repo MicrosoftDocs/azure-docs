@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/21/2019
+ms.date: 11/04/2019
 ---
 
 # Tutorial: Use automated machine learning to predict taxi fares

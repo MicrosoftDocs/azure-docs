@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/21/2019
+ms.date: 11/04/2019
 ms.custom: Ignite2019
 ---
 
