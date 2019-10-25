@@ -12,7 +12,7 @@ ms.custom: MVC
 
 # Prepare on-premises machines for migration to Azure
 
-This article describes how to prepare on-premises and cloud-based machine before you start migrating them to Azure with [Azure Migrate Server Migration](migrate-services-overview.md#azure-migrate-server-migration).
+This article describes how to prepare on-premises machines before you start migrating them to Azure with [Azure Migrate Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool).
 
 
 In this article, you:

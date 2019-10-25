@@ -1,12 +1,12 @@
 ---
-title: Assess physical servers for migration to Azure with Azure Migrate
-description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate.
+title: Assess physical servers for migration to Azure with Azure Migrate Server Assessment
+description: Describes how to assess on-premises physical servers for migration to Azure using Azure Migrate Server Assessment.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/15/2019
-ms.author: hamusa
+ms.date: 10/23/2019
+ms.author: raynew
 ---
 
 # Assess physical servers with Azure Migrate: Server Assessment
@@ -273,7 +273,7 @@ In this tutorial, you:
 > * Set up an Azure Migrate appliance
 > * Created and reviewed an assessment
 
-Continue to the third tutorial in the series, to learn how to migrate physical servers to Azure with Azure Migrate Server Migration.
+Continue to the third tutorial in the series, to learn how to migrate physical servers to Azure with Azure Migrate: Server Migration.
 
 > [!div class="nextstepaction"]
-> [Migrate VMware VMs](./tutorial-migrate-physical-virtual-machines.md)
+> [Migrate physical servers](./tutorial-migrate-physical-virtual-machines.md)

@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/21/2019
+ms.date: 10/23/2019
 ms.author: raynew
 ---
 
@@ -20,8 +20,8 @@ The table summarizes supported scenarios for physical servers.
 
 **Deployment** | **Details***
 --- | ---
-**Assess on-premises physical servers** | [Set up](tutorial-prepare-physical.md) your first assessment.<br/><br/> [Run](scale-physical-assessment.md) a large-scale assessment.
-**Migrate physical servers to Azure** | [Try out](tutorial-migrate-physical.md) migration to Azure.
+**Assess on-premises physical servers** | [Set up](tutorial-prepare-physical.md) your first assessment.
+**Migrate physical servers to Azure** | [Try out](tutorial-migrate-physical-virtual-machines.md) migration to Azure.
 
 
 ## Azure Migrate projects
@@ -108,4 +108,4 @@ The following table summarizes port requirements for assessment.
 
 ## Next steps
 
-[Prepare for Hyper-V VM assessment](tutorial-prepare-hyper-v.md) for migration.
+[Prepare for physical server assessment](tutorial-prepare-physical.md) for physical server assessment and migration.

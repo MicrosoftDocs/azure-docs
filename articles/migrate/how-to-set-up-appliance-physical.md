@@ -1,6 +1,6 @@
 ---
-title: Set up an appliance for Azure Migrate Server Assessment/Migration for physical servers | Microsoft Docs
-description: Describes how to set up an appliance for discovery and assessment of physical servers using Azure Migrate Server Assessment.
+title: Set up an appliance for assessment of physical servers with Azure Migrate Server Assessment
+description: Describes how to set up an appliance for assessment of physical servers using Azure Migrate Server Assessment.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
@@ -11,9 +11,9 @@ ms.author: raynew
 
 # Set up an appliance for physical servers
 
-This article describes how to set up the Azure Migrate appliance if you're assessing physical servers with the Azure Migrate Server Assessment tool.
+This article describes how to set up the Azure Migrate appliance if you're assessing physical servers with the Azure Migrate: Server Assessment tool.
 
-The Azure Migrate appliance is a lightweight appliance used by Azure Migrate Server Assessment to do the following:
+The Azure Migrate appliance is a lightweight appliance, used by Azure Migrate Server Assessment to do the following:
 
 - Discover on-premises servers.
 - Send metadata and performance data for discovered servers to Azure Migrate Server Assessment.
@@ -56,33 +56,34 @@ Check that the zipped file is secure, before you deploy it.
 
 
   
-## Execute the Azure Migrate installer script
+## Run the Azure Migrate installer script
+=
+The installer script does the following:
+
+- Installs agents and a web application for physical server discovery and assessment.
+- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+- Download and installs an IIS rewritable module. [Learn more](https://www.microsoft.com/download/details.aspx?id=7435).
+- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+- Creates the following files under the path:
+    - **Config Files**: %Programdata%\Microsoft Azure\Config
+    - **Log Files**: %Programdata%\Microsoft Azure\Logs
+
+Run the script as follows:
 
 1. Extract the zipped file to a folder on the server that will host the appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
-1. Execute the script by running the following command:
+4. Run the script by running the following command:
     ```
     PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
     ```
+The script will launch the appliance web application when it finishes successfully.
 
-2. The script will launch the appliance web application on its successful completion.
-
-### Azure Migrate installer script
-The installer script will perform the following:
-
-- Install agents and web application for Azure Migrate Physical Server discovery and assessment.
-- Install windows roles – Windows Activation Service, IIS, PowerShell ISE.
-- Download and installs IIS re-writable module . More details about this component is available [here](https://www.microsoft.com/en-in/download/details.aspx?id=7435).
-- Update registry key (HKLM) with persistent setting details for Azure Migrate.
-- Create the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
 
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance VM can connect to [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Make sure that the appliance VM can connect to the required [Azure URLs](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
 
 ## Configure the appliance
 
@@ -91,7 +92,7 @@ Set up the appliance for the first time.
 1. Open a browser on any machine that can connect to the VM, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
    Alternately, you can open the app from the desktop by clicking the app shortcut.
-1. In the web app > **Set up prerequisites**, do the following:
+2. In the web app > **Set up prerequisites**, do the following:
     - **License**: Accept the license terms, and read the third-party information.
     - **Connectivity**: The app checks that the VM has internet access. If the VM uses a proxy:
         - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
@@ -137,4 +138,4 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 ## Next steps
 
-Try out [Physical assessment](tutorial-assess-physical.md) with Azure Migrate Server Assessment.
+Try out [assessment of physical servers](tutorial-assess-physical.md) with Azure Migrate Server Assessment.
