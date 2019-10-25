@@ -33,8 +33,27 @@ To use this tutorial, you need:
 * An existing SQL analytics. To create one, see [Create a SQL analytics][Create a SQL analytics].
 * SQL Server Management Studio (SSMS) installed. [Install SSMS][Install SSMS] for free if you don't already have it.
 * The fully qualified SQL server name. To find this, see [Connect to SQL analytics][Connect to SQL analytics].
-
 ## 1. Connect to your SQL analytics
+
+
+### SQL analytics pool
+1. Open SSMS.
+2. Open Object Explorer. To do this, select **File** > **Connect Object Explorer**.
+   
+    ![SQL Server Object Explorer][1a]
+3. Fill in the fields in the Connect to Server window.
+   
+    ![Connect to Server][2a]
+   
+   * **Server name**. Enter the **server name** previously identified.
+   * **Authentication**. Select **SQL Server Authentication** or **Active Directory Integrated Authentication**.
+   * **User Name** and **Password**. Enter user name and password if SQL Server Authentication was selected above.
+   * Click **Connect**.
+4. To explore, expand your Azure SQL server. You can view the databases associated with the server. Expand AdventureWorksDW to see the tables in your sample database.
+   
+    ![Explore AdventureWorksDW][3a]
+
+### SQL analytics on-demand
 1. Open SSMS.
 2. Open Object Explorer. To do this, select **File** > **Connect Object Explorer**.
    
@@ -51,7 +70,30 @@ To use this tutorial, you need:
    
     ![Explore AdventureWorksDW][3]
 
+
 ## 2. Run a sample query
+
+### SQL pool
+Now that a connection has been established to your database, let's write a query.
+
+1. Right-click your database in SQL Server Object Explorer.
+2. Select **New Query**. A new query window opens.
+   
+    ![New query][4a]
+3. Copy this TSQL query into the query window:
+   
+    ```sql
+    SELECT COUNT(*) FROM dbo.FactInternetSales;
+    ```
+4. Run the query. To do this, click `Execute` or use the following shortcut: `F5`.
+   
+    ![Run query][5a]
+5. Look at the query results. In this example, the FactInternetSales table has 60398 rows.
+   
+    ![Query results][6a]
+
+### SQL on-demand
+
 Now that a connection has been established to your database, let's write a query.
 
 1. Right-click your database in SQL Server Object Explorer.
@@ -94,3 +136,9 @@ To configure your environment for Azure Active Directory authentication, see [Au
 [4]: media/sql-analytics-query-ssms/new-query.png
 [5]: media/sql-analytics-query-ssms/execute-query.png
 [6]: media/sql-analytics-query-ssms/results.png
+[1a]: ../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer.png
+[2a]: ../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png
+[3a]: ../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png
+[4a]: ../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/new-query.png
+[5a]: ../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/execute-query.png
+[6a]: ../../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png
