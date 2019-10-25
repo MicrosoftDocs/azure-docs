@@ -123,7 +123,7 @@ Azure Monitor for containers agent Pods uses the cAdvisor endpoint on the node a
 
 ## Non-Azure Kubernetes cluster are not showing in Azure Monitor for containers
 
-To view the non-Azure Kubernetes cluster in Azure Monitor for containers, Read access is required on the Log Analytics workspace supporting this Insight and on the Container Insights solution resource.
+To view the non-Azure Kubernetes cluster in Azure Monitor for containers, Read access is required on the Log Analytics workspace supporting this Insight and on the Container Insights solution resource **ContainerInsights (*workspace*)**.
 
 ## Next steps
 
