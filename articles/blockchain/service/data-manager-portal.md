@@ -85,6 +85,10 @@ The contract bytecode is the compiled smart contract executed by the Ethereum vi
 
 1. Save the **bytecode** value as a JSON file. For example, *bytecode.json*. Save only the hexadecimal value. You use the file in a later step.
 
+The following example shows *abi.json* and *bytecode.json* files open in the VS Code editor. Your files should look similar.
+
+![Example of abi.json and bytecode.json files](./media/data-manager-portal/contract-files.png)
+
 ### Create contract ABI and bytecode URL
 
 Blockchain Data Manager requires the contract ABI and bytecode files to be accessible by a URL when adding an application. You can use an Azure Storage account to provide a privately accessible URL.
