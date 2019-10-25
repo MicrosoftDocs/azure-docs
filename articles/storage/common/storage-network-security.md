@@ -354,16 +354,14 @@ You can manage IP network rules for storage accounts through the Azure portal, P
 
 ## Exceptions
 
-Network rules can enable a secure network configuration for most scenarios. However, there are some cases where exceptions must be granted to enable full functionality. You can configure storage accounts with exceptions for trusted Microsoft services, and for access to storage analytics data.
+Network rules help to create a secure environment for access between your applications and your data for most scenarios. However, some applications use services that cannot be uniquely isolated through virtual network or IP address rules. But such services must be granted to the storage account to enable full application functionality. You can use the ***Allow trusted Microsoft services...*** exception to enable some access scenarios for your data, logs, or analytics.
 
 ### Trusted Microsoft services
 
-Some Microsoft services that access storage accounts operate from networks that can't be granted access through existing network rules.
+Some Microsoft services operate from networks can't be granted access through existing network rules. You can allow a subset of such trusted Microsoft services to access the storage account, while maintaining network rules for other apps. These services can then use strong authentication to connect to a storage account. We enable two types of trusted access for Microsoft services.
 
-You can enable a subset of such trusted Microsoft services to access the storage account, bypassing the network rules. These services can then use strong authentication to connect to a storage account. There are two types of trusted access that we enable for Microsoft services.
-
-- Resources of some services are granted access for select operations, such as writing their logs or for backup.
-- Specific instances of some services can be granted access by [assigning a RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the resource instance.
+- Resources of some services can be granted access for select operations, such as writing logs or for backup.
+- A particular instance of some services can be granted access by [assigning a RBAC role](storage-auth-aad.md#assign-rbac-roles-for-access-rights) to the resource instance.
 
 
 When you enable the **Allow trusted Microsoft services...** exception, the following services (when registered in your subscription) are granted access to the storage account for select operations as described:
@@ -380,21 +378,21 @@ When you enable the **Allow trusted Microsoft services...** exception, the follo
 | Azure Machine Learning Service | Microsoft.MachineLearningServices | Authorized Azure Machine Learning workspaces write experiment output, models, and logs to Blob storage. [Learn more](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
 | Azure Monitor            | Microsoft.Insights         | Allows writing of monitoring data to a secured storage account [Learn more](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
 | Azure Networking         | Microsoft.Network          | Store and analyze network traffic logs. [Learn more](/azure/network-watcher/network-watcher-packet-capture-overview). |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | Configure disaster recovery by enabling replication for Azure IaaS virtual machines. This is required if you are using firewall enabled cache storage account or source storage account or target storage account.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | Enable replication for disaster-recovery of Azure IaaS virtual machines when using firewall-enabled cache, source, or target storage accounts.  [Learn more](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-The **Allow trusted Microsoft services...** exception enables specific instances of these services to access the storage account if the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the instance is assigned a RBAC role:
+The **Allow trusted Microsoft services...** exception enables specific instances of these services to access the storage account, if the [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/overview.md) for the instance is assigned an RBAC role.
 
 | Service                  | Resource Provider Name          | Purpose                            |
 | :----------------------- | :------------------------------ | :--------------------------------- |
 | Azure Data Factory       | Microsoft.DataFactory/factories | Allows access to storage accounts through the ADF runtime. |
 | Azure Logic Apps         | Microsoft.Logic/workflows       | Enables logic apps to access storage accounts. |
-| Azure SQL Data Warehouse | Microsoft.Sql                   | Allows import and export scenarios from specific SQL Databases instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics   | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. Note that this feature is currently in preview. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
+| Azure SQL Data Warehouse | Microsoft.Sql                   | Allows import and export of data from specific SQL Database instances using PolyBase. [Learn more](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Stream Analytics   | Microsoft.StreamAnalytics       | Allows data from a streaming job to be written to Blob storage. This feature is currently in preview. [Learn more](../../stream-analytics/blob-output-managed-identity.md). |
 
 
 ### Storage analytics data access
 
-In some cases, access to read diagnostic logs and metrics is required from outside the network boundary. You can grant exceptions to the network rules to allow read-access to storage account log files, metrics tables, or both. [Learn more about working with storage analytics.](/azure/storage/storage-analytics)
+In some cases, access for reading diagnostic logs and metrics is required from outside the network boundary. When configuring trusted services access to the storage account, you can allow read-access for the log files, metrics tables, or both. [Learn more about working with storage analytics.](/azure/storage/storage-analytics)
 
 ### Managing exceptions
 
