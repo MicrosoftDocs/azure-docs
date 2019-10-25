@@ -64,7 +64,6 @@ After your Azure Automation account is ready, create a runbook.
 
 1.  Enter the following code (for testing purposes) and click the "Publish" button. This will output the result of the POST request received.
 
-    
 ```azurepowershell
 param
 (
@@ -105,8 +104,8 @@ Now create a webhook, to trigger your newly created runbook.
 
 1. Name the webhook, set an expiration date, and **copy the URL**.
 
-  > [!IMPORTANT] 
-  > You cannot view the URL after you create it. Make sure you save a copy a secure location where you can access it for the remainder of this guide.
+    > [!IMPORTANT] 
+    > You cannot view the URL after you create it. Make sure you save a copy a secure location where you can access it for the remainder of this guide.
 
 1. Click "Parameters and run settings", and select "OK". Do not enter any parameters. This will enable the "Create" button.
 
@@ -160,9 +159,7 @@ Verify that your Event Grid subscription is property configured.  This test assu
 
 1.  Select the event grid subscription you created.
 
-1.  Under metrics, see if an event was captured.
-
-    1.  Two events are expected : SecretNewVersion and SecretNearExpiry. This validates that event grid successfully captured the status change of the secret in your key vault.
+1.  Under metrics, see if an event was captured. Two events are expected : SecretNewVersion and SecretNearExpiry. This validates that event grid successfully captured the status change of the secret in your key vault.
 
     ![](media/image11.png)
 
@@ -183,7 +180,6 @@ Verify that your Event Grid subscription is property configured.  This test assu
 1. Select the recent job and look at the POST request that was sent from event grid to the webhook. Examine the JSON and make sure that the parameters for your key vault and event type are correct. If the "event type" parameter in the JSON object matches the event which occurred in the key vault (in this example, Microsoft.KeyVault.SecretNearExpiry) the test was successful.
 
     ![](media/image14.png)
-
 
 ## Troubleshooting
 
