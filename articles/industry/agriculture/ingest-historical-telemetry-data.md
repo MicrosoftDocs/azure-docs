@@ -18,7 +18,7 @@ ms.author: v-umha
 
 ## Enable partner access to Azure FarmBeats
 
-First, we will need to enable partner integration to your Azure FarmBeats instance. This step will create a client that will have access to your Azure FarmBeats as your device partner and will provide you the following values that are required in the subsequent steps.
+First, we need to enable partner integration to your Azure FarmBeats instance. This step will create a client that will have access to your Azure FarmBeats as your device partner and will provide you the following values that are required in the subsequent steps.
 
 1. API Endpoint – This is the data hub URL for example, https://<datahub>.azurewebsites.net
 2. Tenant ID
@@ -40,7 +40,7 @@ Follow the below steps to generate the above values:
 
   ![Project Farm Beats](./media/for-tutorials/power-shell-new.png)
 
-4. Upload the 2 files that you downloaded (from step 1 above) in your CloudShell.  
+4. Upload the two files that you downloaded (from step 1 above) in your CloudShell.  
 
   ![Project Farm Beats](./media/for-tutorials/power-shell-two.png)
 
@@ -62,7 +62,7 @@ Follow the below steps to generate the above values:
 
   /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
   /**Device** - Device corresponds to a physical device present in the farm.  
-  /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.  
+  /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.,
   /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device id.  
 
 
@@ -78,7 +78,7 @@ Follow the below steps to generate the above values:
 |    Properties          |    Additional properties from the manufacturer   |
 |    **Device**             |                      |
 |   DeviceModelId     |     id of the associated Device Model  |
-|  HardwareId	       | Unique Id for the device such as MAC address etc  
+|  HardwareId	       | Unique Id for the device such as MAC address etc.,
 |  reportingInterval        |   Reporting Interval in seconds
 |  Location            |  Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)   
 |parentDeviceId       |         id of the parent device to which this device is connected to. For example,. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway  |
@@ -91,8 +91,8 @@ Follow the below steps to generate the above values:
 |     productCode| Product code or Model Name/Number. For example,: RS-CO2-N01 |
 |       TsensorMeasures > Name	    | Name of the Sensor Measure. Only lower case is supported. For measure from different depths, specify the depth. For example, soil_moisture_15cm This name has to be consistent with the telemetry d              |
 |          sensorMeasures > DataType	   |Telemetry Data Type. Currently Double is supported|
-|    sensorMeasures > Type	  |Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more refer to /ExtendedType API|
-|        sensorMeasures > Unit	            | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more refer to /ExtendedType API|
+|    sensorMeasures > Type	  |Measurement type of the sensor telemetry data. Following are the system-defined types: AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, Pressure, RainGauge, RelativeHumidity, Salinity, SoilMoisture, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, UVIndex, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration, PAR. To add more, refer to /ExtendedType API|
+|        sensorMeasures > Unit	            | Unit of sensor telemetry data. Following are the system-defined units: NoUnit, Celsius, Fahrenheit, Kelvin, Rankine, Pascal, Mercury, PSI, MilliMeter, CentiMeter, Meter, Inch, Feet, Mile, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, Degree, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, Percentage, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, Liter, MilliLiter, Seconds, UnixTimestamp, MicroMolPerMeterSquaredPerSecond, InchesPerHour To add more, refer to /ExtendedType API|
 |    sensorMeasures > aggregationType	 |  Either of None, Average, Maximum, Minimum, StandardDeviation  |
 |          name            | Name to identify resource. For example, Model Name/Product Name  |
 |    description        | Provide a meaningful description of the model  |
@@ -107,7 +107,7 @@ Follow the below steps to generate the above values:
 |    description	  | Provide a meaningful description |
 |    properties        |Additional properties from the manufacturer |
 
-  For more details on each of the objects, see the Swagger (add a link here - awaiting inputs from SMEs).
+  For more details on each of the objects, see the Swagger.
 
 **API request to create metadata**
 
@@ -315,4 +315,4 @@ Example Telemetry message:
 
 ## Next steps
 
-Click [REST API](references-for-farmbeats.md#rest-api) to know more on REST API based integration details.
+Click [REST API](references-for-farmbeats.md#rest-api) to know more on REST API-based integration details.

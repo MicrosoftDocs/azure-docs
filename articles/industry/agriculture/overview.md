@@ -22,7 +22,7 @@ You will be able to:
 1.	Aggregate agricultural datasets from various providers
 2.	Rapidly build Artificial Intelligence/ Machine Language (AI/ML) models by fusing different datasets
 
-Azure FarmBeats provides you with a robust and easy way to do the following:
+Azure FarmBeats provides you robust and easy way to do the following actions
 
 •	Create a map for the farm by using GeoJSON file
 
@@ -46,7 +46,7 @@ An API layer, which enables aggregation, normalization, and contextualization of
 
 ## Accelerator
 
-A sample solution, built on top of Data hub, that jumpstarts your User Interface and model development. This web application leverages APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps. For example, you can use this to quickly create a farm and easily get a vegetation index map or a sensor placement map for that farm.
+A sample solution, built on top of Data hub, that jumpstarts your User Interface and model development. This web application leverages APIs to demonstrate visualization of ingested sensor data as charts and visualization of model output as maps. For example, you can use the accelerator to quickly create a farm and easily get a vegetation index map or a sensor placement map for that farm.
 
 
 ## Next steps

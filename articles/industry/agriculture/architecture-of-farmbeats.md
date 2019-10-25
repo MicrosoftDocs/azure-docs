@@ -28,4 +28,4 @@ Once the data is available within your customers’ Azure FarmBeats instance, yo
 
 ## Next steps
 
-To know more, click [sensor data integration](sensor-partner-integration.md#get-sensor-data-from-sensor-partners) or [imagery partner integration](imagery-partner-integration.md#imagery-partner-integration)
+To know more, click [sensor data integration](sensor-partner-integration.md) or [imagery partner integration](imagery-partner-integration.md)

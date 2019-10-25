@@ -67,7 +67,7 @@ Using Azure FarmBeats you can generate the following maps by using satellite ima
 
 - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
-- If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+- If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download sensor placement map
 
@@ -122,7 +122,7 @@ FarmBeats provides you with the ability to generate Normalized Difference Vegeta
 
 - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
-- If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+- If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 
 ### View and Download Map
@@ -187,7 +187,7 @@ To find the sensor measure, go to **Sensors**, click any soil moisture sensor, u
 
  - For information on job status, see the section **View Jobs**. If the job status shows *Failed*, a detailed error message is displayed on a tooltip at the *Failed* status. In this case, repeat the steps listed above and try again.
 
- - If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
+ - If the issue persists see the [Troubleshoot](troubleshoot-project-farmbeats.md) section or contact [Azure FarmBeats forum for support](https://aka.ms/FarmBeatsMSDN) with relevant logs.
 
 ### View and download map
 

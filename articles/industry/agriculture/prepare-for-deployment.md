@@ -10,7 +10,7 @@ ms.author: v-umha
 
 # Prepare for Deployment - Azure FarmBeats
 
-  This article describes how to set up Azure FarmBeats. Azure FarmBeats is an industry-specific, extensible solution for data-driven farming that enables seamless provisioning and sensor devices connectivity to Azure cloud, telemetry data collection and aggregation from various sensors such as cameras, drones, soil sensors, and management of devices from the cloud which includes infrastructure and services in Azure for the IoT-ready (Internet of Things) devices to an extendible web and mobile app to provide visualization, alerts and insights.
+  This article describes how to set up Azure FarmBeats. Azure FarmBeats is an industry-specific, extensible solution for data-driven farming that enables seamless provisioning and sensor devices connectivity to Azure cloud, telemetry data collection and aggregation from various sensors such as cameras, drones, soil sensors, and management of devices from the cloud which includes infrastructure and services in Azure for the IoT-ready (Internet of Things) devices to an extendible web and mobile application to provide visualization, alerts and insights.
 
 > [!NOTE]
 > FarmBeats is supported only in Public Cloud Environments. To know more, click [here](https://azure.microsoft.com/en-in/overview/what-is-a-public-cloud/)
@@ -319,7 +319,7 @@ wget -N -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript
    - Accelerator URL: User Interface to explore Azure FarmBeats Smart Farm Accelerator.
    - Deployer log file- saves logs during deployment and can be used for troubleshooting.
 
-If you are facing any issues, visit [Troubleshoot](troubleshoot-project-farm-beats.md#deploying-azure-farmbeats) setion.
+If you are facing any issues, visit [Troubleshoot](troubleshoot-project-farmbeats.md#deploying-azure-farmbeats) section.
 
 ## Validate deployment (Sanity testing)
 

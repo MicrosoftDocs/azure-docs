@@ -1,7 +1,7 @@
 - name: Overview
   items:
    - name: What is FarmBeats?
-     href: agriculture-services-overview.md
+     href: overview.md
 - name: Tutorials
   expanded: true
   items:
@@ -27,13 +27,13 @@
      href: get-sensor-data-from-sensor-partner.md
    - name: Generate maps
      href: generate-maps.md
-   - name: Configure rules and rlerts
-     href: configure-rules-and-alerts.md
+   - name: Configure rules and alerts
+     href: configure-rules-alerts.md
    - name: Get drone imagery
      href: get-drone-imagery.md
 - name: Troubleshoot
   items:
-   - name: Troubleshoote Farmbeats
+   - name: Troubleshoot FarmBeats
      href: troubleshoot-project-farmbeats.md
 - name: Reference
   items:

@@ -50,7 +50,7 @@ The customer should have the ability to view the timestamp of “Last Telemetry 
 
 ## Translator Development
 
-**Rest API based integration**
+**Rest API- based integration**
 
 Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device and sensor management.
 
@@ -70,7 +70,7 @@ FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure
 
 For more information on Azure Active Directory, refer this link https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization.
 
-FarmBeats Data hub uses Bearer Authentication which needs the following credentials:
+FarmBeats Data hub uses Bearer Authentication, which needs the following credentials:
 1. Client ID
 2. Client Secret
 3. Tenant ID
@@ -80,7 +80,7 @@ sent it in the subsequent API requests in the header section as follows:
 
 headers = {"Authorization": "Bearer " + access_token, …} 
 
-Below is a sample Python code that gives the access token which can be used for subsequent API calls to FarmBeats: 
+Below is a sample Python code that gives the access token, which can be used for subsequent API calls to FarmBeats: 
 
 import azure 
 from azure.common.credentials import ServicePrincipalCredentials 
@@ -107,7 +107,7 @@ Here are the most common request headers that needs to be specified when making 
 
 **Header** | **Description and Example**
 --- | ---
-Content-Type | The request format (Content-Type: application/<format>) For FarmBeats Data hub APIs format is json. Content-Type: application/json
+Content-Type | The request format (Content-Type: application/<format>) For FarmBeats Data hub API's format is json. Content-Type: application/json
 Authorization | Specifies the access token required to make an API call Authorization: Bearer <Access-Token>
 Accept | The response format. For FarmBeats Data hub APIs the format is json Accept: application/json
 
@@ -134,7 +134,7 @@ FarmBeats Data hub has the following APIs that enable device partners to create 
    /**DeviceModel** - Device Model corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.  
   /**Device** - Device corresponds to a physical device present in the farm.
   /**SensorModel** - Sensor Model corresponds to the meta-data of the sensor such as the Manufacturer, Type of the sensor either Analog or Digital, Sensor Measure such as Ambient Temperature, Pressure etc.
-  /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device id.
+  /**Sensor** - Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
   **Device Model** | **DeviceModel corresponds to the meta-data of the device such as the Manufacturer, Type of the device either Gateway or Node.**
   --- | ---
@@ -145,12 +145,12 @@ FarmBeats Data hub has the following APIs that enable device partners to create 
   Name  | Name to identify resource. Eg. Model Name/Product Name |
   Description  | Provide a meaningful description of the model |
   Properties  | Additional properties from the manufacturer |
-  **Device** | **Device corresponds to a physical device present in the farm. Each device has a unique device id** |
-DeviceModelId  |id of the associated Device Model. |
-HardwareId   |Unique Id for the device such as MAC address etc.,  |
+  **Device** | **Device corresponds to a physical device present in the farm. Each device has a unique device ID** |
+DeviceModelId  |ID of the associated Device Model. |
+HardwareId   |Unique ID for the device such as MAC address etc.,  |
 reportingInterval |Reporting Interval in seconds |
 Location    |Device Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters) |
-parentDeviceId | id of the parent device to which this device is connected to. Eg. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway |
+parentDeviceId | ID of the parent device to which this device is connected to. Eg. A Node connected to a Gateway; Node will have parentDeviceId as the Gateway |
   Name  | Name to identify resource.  Device Partners will need to send a name that is consistent with the device name on Device Partner side. If the device name is user-defined on Device Partner side, the same user-defined name should be propagated to FarmBeats  |
   Description  | Provide a meaningful description  |
   Properties  |Additional properties from the manufacturer  |
@@ -169,11 +169,11 @@ parentDeviceId | id of the parent device to which this device is connected to. E
   description  | Provide a meaningful description of the model
   properties  | Additional properties from the manufacturer
   **Sensor**  |
-  hardwareId  | Unique Id for the sensor set by manufacturer
-  sensorModelId  | id of the associated Sensor Model.
+  hardwareId  | Unique ID for the sensor set by manufacturer
+  sensorModelId  | ID of the associated Sensor Model.
   location  | Sensor Latitude (-90 to +90)/Longitude (-180 to 180)/Elevation (in meters)
   port > name  |Name and Type of the port that the sensor is connected to on the device. This needs to be same name as defined in the Device Model
-  deviceId  | id of the Device that the sensor is connected to
+  deviceId  | ID of the Device that the sensor is connected to
   name  | Name to identify resource. Eg. Sensor Name/Product Name and Model Number/Product Code.
   description  | Provide a meaningful description
   properties  | Additional properties from the manufacturer
@@ -182,7 +182,7 @@ parentDeviceId | id of the parent device to which this device is connected to. E
 Refer to the Swagger for more details on each of the objects and their properties.
 
 > [!NOTE]
-> The APIs return unique ids for each instance created. This id needs to be retained by the Translator for device management and metadata sync.
+> The APIs return unique IDs for each instance created. This id needs to be retained by the Translator for device management and metadata sync.
 
 
 **Metadata Sync**
@@ -318,7 +318,7 @@ In the event of an error that affects the device/sensor metadata/data integratio
 
 **Connection Checklist**
 
-Device Manufacturers/Partners can have the following sanity test/checklist to ensure that the credentials provided by the customer is accurate.
+Device Manufacturers/Partners can have the following sanity test/checklist to ensure that the credentials provided by the customer are accurate.
 
 1. Check if an access token is received with the credentials provided
 2. Check if an API call succeeds with the access token received
@@ -326,7 +326,7 @@ Device Manufacturers/Partners can have the following sanity test/checklist to en
 
 ## Imagery Partner Integration
 
-This section describes the implementation of the Translator component to send imagery data into Azure FarmBeats. Agricultural Imagery data can be from various sources like multispectral cameras, satellites, drones. Agricultural Imagery Partners can integrate with FarmBeats and provide the end customer with their custom generated maps in the context of a Farm.  
+This section describes the implementation of the Translator component to send imagery data into Azure FarmBeats. Agricultural Imagery data can be from various sources like multispectral cameras, satellites, drones. Agricultural Imagery Partners can integrate with FarmBeats and provide the end customer with their custom-generated maps in the context of a Farm.  
 
 The data once available can be visualized through the FarmBeats Accelerator and potentially be used for data fusion and ML/AI model building by the Agribusiness or the customer’s System Integrator.
 
@@ -337,7 +337,7 @@ FarmBeats provides the ability to
 
 The below section focuses on getting any form of imagery into the FarmBeats system
 
-Once customers have purchased their drones/ camera payloads, they will be able to access the partner software which helps them plan drone flights & get raw data. They will continue to use the partner’s software for path planning and orthomosaic image stitching.
+Once customers have purchased their drones/ camera payloads, they will be able to access the partner software, which helps them plan drone flights & get raw data. They will continue to use the partner’s software for path planning and orthomosaic image stitching.
 
 Drone Partners will need to enable customers to link their account to their FarmBeats instance on Azure. The following credentials will be input by customer in the drone partner software for the same:
 
@@ -346,7 +346,7 @@ Drone Partners will need to enable customers to link their account to their Farm
 3. Client ID
 4. Client Secret
 5. Translator Development
-6. Rest API based integration
+6. Rest API-based integration
 
 Sensor data integration capabilities of FarmBeats are exposed via the REST API. Capabilities include metadata definition, device/sensor provisioning, device and sensor management.
 
@@ -361,17 +361,17 @@ The Swagger is available at http://aka.ms/FarmBeatsDatahubSwagger .
 Authentication
 FarmBeats leverages Microsoft Azure’s Active Directory Authentication. Azure App Service provides built-in authentication and authorization support. For more information on Azure Active Directory, refer this link https://docs.microsoft.com/en-us/azure/app-service/overview-authentication-authorization  
 
-FarmBeats Data hub uses Bearer Authentication which needs the following credentials:
+FarmBeats Data hub uses Bearer Authentication, which needs the following credentials:
 
 1. Client ID
 2. Client Secret
 3. Tenant ID
 
-Using the above credentials, the caller can request for an access token which needs to be sent it in the subsequent API requests in the header section as follows
+Using the above credentials, the caller can request for an access token, which needs to be sent it in the subsequent API requests in the header section as follows
 headers = {"Authorization": "Bearer " + access_token, …} 
 
 
-Below is a sample Python code that gives the access token which can be used for subsequent API calls to FarmBeats: 
+Below is a sample Python code that gives the access token, which can be used for subsequent API calls to FarmBeats: 
  
 import azure 
 
@@ -397,7 +397,7 @@ Here are the most common request headers that need to be specified when making a
 
 **Header** | **Description and Example**
 --- | ---
-Content-Type  | The request format (Content-Type: application/<format>) For FarmBeats Data hub APIs format is json. Content-Type: application/json
+Content-Type  | The request format (Content-Type: application/<format>) For FarmBeats Data hub API's format is json. Content-Type: application/json
 Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
 Accept  | The response format. For FarmBeats Data hub APIs the format is json  Accept: application/json
 
@@ -433,7 +433,7 @@ Once the partner has the required credentials to make the connect to the FarmBea
 The Partner system must show the Farm within the partner software to do the path planning & drone flight and image collection
 
 4.	Call the Scene API and provide required details to create a new Scene with a unique SceneID
-5.	Receive a Blob SAS URL to upload the required images into the FarmBeats data hub, in the context of the chosen farm into the FarmBeats system
+5.	Receive a Blob SAS URL to upload the required images into the FarmBeats data hub, in the context of the chosen farm into the FarmBeats system.
 A detailed flow on the API calls is defined below:
 
 Step 1: ExtendedType: Check in the ExtendedType API if the type and File source are available on FarmBeats. You can do this by calling a GET on the /ExtendedType API.
@@ -462,7 +462,7 @@ Step 2: Get Farm Details The Scenes (tiff or csv files) will be in the context o
 Get /Farm response: {   "items": [     {       "id": "d41a33e7-b73e-480e-9279-0fcb3207332b",       "createdAt": "2019-10-04T11:33:35.01619Z",       "lastModifiedAt": "2019-10-04T11:33:35.01619Z",       "geometry": {         "type": "Polygon",         "coordinates": [           [             [               78.33494849794374,               17.427459159016905             ],             [               78.33470873178663,               17.429174852000685             ],             [               78.3370736978917,               17.43074495690408             ],             [               78.33494849794374,               17.427459159016905             ]           ]         ]       },       "name": "MicrosoftBuilding3",       "properties": {         "crops": "Others",         "address": "Microsoft Gachibowli"       }     }   ] } 3. Create a /Scene id (Post call)
 Create a new scene (tiff or csv file) with the given information, providing the Date, sequence & FarmID to which the Scene will be associated. The meta-data associated with the scene can be defined here in the “properties” bag (including details of duration, type of measure, etc.)
 
-This creates a new SceneID which will be associated with the farm. Once the SceneID is created, the user can use the same to create a new file (tiff or csv) & store the content of the file.
+This creates a new SceneID, which will be associated with the farm. Once the SceneID is created, the user can use the same to create a new file (tiff or csv) & store the content of the file.
 
 Example input payload for the Post call on /Scene API
 
@@ -472,7 +472,7 @@ API Response: {   "id": "a0505928-c480-491b-ba31-d38285a28c1d",   "createdAt": "
 
 **Create/SceneFile**
 
-The Sceneid returned from step 3 would be the input for the SceneFile which will return a SAS URL token which is valid for 24 hours. The user can use a blob storage Rest API to upload the local file through the SAS URL.
+The Sceneid returned from step 3 would be the input for the SceneFile, which will return a SAS URL token which is valid for 24 hours. The user can use a blob storage Rest API to upload the local file through the SAS URL.
 
 If the user requires a programmatic way of uploading a stream of images, the blob storage SDK can be used to define a method using the Scenefile ID, location & URL.
 
@@ -485,4 +485,4 @@ The Post call to /SceneFile API returns a SAS upload URL, which can be used to u
 
 ## Next Steps
 
-Click [REST API](references-for-farmbeats.md#rest-api) to know more on REST API based integration details.
+Click [REST API](references-for-farmbeats.md#rest-api) to know more on REST API-based integration details.
