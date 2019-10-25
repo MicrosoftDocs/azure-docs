@@ -2,7 +2,7 @@
 title: 'Create an Internet Analyzer test using Portal | Microsoft Docs'
 description: In this article, learn how to create your first Internet Analyzer test. 
 services: internet-analyzer
-author: megan-beatty; mattcalder; diego-perez-botero;
+author: mattcalder
 
 ms.service: internet-analyzer
 ms.topic: tutorial

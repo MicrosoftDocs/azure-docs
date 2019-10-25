@@ -2,7 +2,7 @@
 title: 'Azure Internet Analyzer | Microsoft Docs'
 description: Learn about Azure Internet Analyzer
 services: internet-analyzer
-author: megan-beatty; mattcalder; diego-perez-botero
+author: megan-beatty
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Internet analyzer so that I can test app and content delivery architectures in Azure. 
 
 ms.service: internet-analyzer
